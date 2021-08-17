@@ -1,16 +1,18 @@
 ---
-title: "Quickstart: Your first portal query"
+title: 'Quickstart: Your first portal query'
 description: In this quickstart, you follow the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
-ms.date: 10/14/2020
+ms.date: 05/01/2021
 ms.topic: quickstart
+ms.custom:
+  - mode-portal
 ---
 # Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
 
-The power of Azure Resource Graph is available directly in Azure portal through Azure Resource Graph
-Explorer. Resource Graph Explorer provides browsable information about the Azure Resource Manager
-resource types and properties that you can query. Resource Graph Explorer also provides a clean
-interface for working with multiple queries, evaluating the results, and even converting the results
-of some queries into a chart that can be pinned to an Azure dashboard.
+The power of Azure Resource Graph is available directly in the Azure portal through Azure Resource
+Graph Explorer. Resource Graph Explorer provides browsable information about the Azure Resource
+Manager resource types and properties that you can query. Resource Graph Explorer also provides a
+clean interface for working with multiple queries, evaluating the results, and even converting the
+results of some queries into a chart that can be pinned to an Azure dashboard.
 
 At the end of this quickstart, you'll have used Azure portal and Resource Graph Explorer to run your
 first Resource Graph query and pinned the results to a dashboard.
@@ -133,7 +135,7 @@ your Azure portal workflow, try out these example dashboards.
 
 1. Select and download the sample dashboard you want to evaluate.
 
-1. In Azure portal, select **Dashboard** from the left pane.
+1. In the Azure portal, select **Dashboard** from the left pane.
 
 1. Select **Upload**, then locate and select the downloaded sample dashboard file. Then select
    **Open**.
@@ -150,7 +152,7 @@ can do so with the following steps:
 
 1. Select **Dashboard** from the left pane.
 
-1. From the dashboard drop-down, select the sample Resource Graph dashboard you wish to delete.
+1. From the dashboard dropdown list, select the sample Resource Graph dashboard you wish to delete.
 
 1. Select **Delete** from the dashboard menu at the top of the dashboard and select **Ok** to
    confirm.

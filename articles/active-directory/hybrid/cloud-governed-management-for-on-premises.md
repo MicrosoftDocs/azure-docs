@@ -54,7 +54,7 @@ Azure AD improves the management for an organization's on-premises Active Direct
 
 * **Secure remote access and Conditional Access for on-premises applications**
 
-For many organizations, the first step in managing access from the cloud for on-premises AD-integrated web and remote desktop-based applications is to deploy the [application proxy](../manage-apps/application-proxy.md) in front of those applications to provide secure remote access.
+For many organizations, the first step in managing access from the cloud for on-premises AD-integrated web and remote desktop-based applications is to deploy the [application proxy](../app-proxy/application-proxy.md) in front of those applications to provide secure remote access.
 
 After a single sign-on to Azure AD, users can access both cloud and on-premises applications through an external URL or an internal application portal. For example, Application Proxy  provides remote access and single sign-on to Remote Desktop, SharePoint, as well as apps such as Tableau and Qlik, and line of business (LOB) applications. Furthermore, Conditional Access policies can include displaying the [terms of use](../conditional-access/terms-of-use.md) and [ensuring the user has agreed to them](../conditional-access/require-tou.md) before being able to access an application.
 
@@ -85,7 +85,7 @@ When an organization is ready to move an AD-integrated application to the cloud 
 
 ## Cloud governed management for on-premises federation-based applications
 
-For an organization that already uses an on-premises identity provider, moving applications to Azure AD enables more secure access and an easier administrative experience for federation management. Azure AD enables configuring granular per-application access controls, including Azure Multi-Factor Authentication, by using Azure AD Conditional Access. Azure AD supports more capabilities, including application-specific token signing certificates and configurable certificate expiration dates. These capabilities, tools, and guidance enable organizations to retire their on-premises identity providers. Microsoft's own IT, for one example, has moved 17,987 applications from Microsoft's internal Active Directory Federation Services (AD FS) to Azure AD.
+For an organization that already uses an on-premises identity provider, moving applications to Azure AD enables more secure access and an easier administrative experience for federation management. Azure AD enables configuring granular per-application access controls, including Azure AD Multi-Factor Authentication, by using Azure AD Conditional Access. Azure AD supports more capabilities, including application-specific token signing certificates and configurable certificate expiration dates. These capabilities, tools, and guidance enable organizations to retire their on-premises identity providers. Microsoft's own IT, for one example, has moved 17,987 applications from Microsoft's internal Active Directory Federation Services (AD FS) to Azure AD.
 
 ![Azure AD evolution](media/cloud-governed-management-for-on-premises/image5.png)
 
@@ -113,4 +113,4 @@ In hybrid environments, Microsoft's strategy is to enable deployments where the 
 
 ## Next steps
 
-For more information on how to get started on this journey, see the Azure AD deployment plans, located at <https://aka.ms/deploymentplans> . They provide end-to-end guidance about how to deploy Azure Active Directory (Azure AD) capabilities. Each plan explains the business value, planning considerations, design, and operational procedures needed to successfully roll out common Azure AD capabilities. Microsoft continually updates the deployment plans with best practices learned from customer deployments and other feedback when we add new capabilities to managing from the cloud with Azure AD.
+For more information on how to get started on this journey, see the Azure AD deployment plans, located at <https://aka.ms/deploymentplans>. They provide end-to-end guidance about how to deploy Azure Active Directory (Azure AD) capabilities. Each plan explains the business value, planning considerations, design, and operational procedures needed to successfully roll out common Azure AD capabilities. Microsoft continually updates the deployment plans with best practices learned from customer deployments and other feedback when we add new capabilities to managing from the cloud with Azure AD.

@@ -82,4 +82,4 @@ msgen submit -f [full path to your config file]
 ```
 
 ## Next steps
-In this article, you used SAS tokens instead of the account keys to submit a workflow to the Microsoft Genomics service through the `msgen` Python client. For additional information about workflow submission and other commands you can use with the Microsoft Genomics service, see our [FAQ](frequently-asked-questions-genomics.md).
+In this article, you used SAS tokens instead of the account keys to submit a workflow to the Microsoft Genomics service through the `msgen` Python client. For additional information about workflow submission and other commands you can use with the Microsoft Genomics service, see our [FAQ](frequently-asked-questions-genomics.yml).

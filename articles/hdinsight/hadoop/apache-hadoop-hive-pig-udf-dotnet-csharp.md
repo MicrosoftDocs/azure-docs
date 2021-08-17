@@ -1,9 +1,6 @@
 ---
 title: C#, Apache Hive & Apache Pig on Apache Hadoop - Azure HDInsight
 description: Learn how to use C# user-defined functions (UDF) with Apache Hive and Apache Pig streaming in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: "hdinsightactive, devx-track-csharp"
@@ -169,7 +166,7 @@ Next, upload the Hive and Pig UDF applications to storage on a HDInsight cluster
 
 1. Expand the HDInsight cluster that you wish to deploy this application to. An entry with the text **(Default Storage Account)** is listed.
 
-    ![Default storage account, HDInsight cluster, Server Explorer](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
+    :::image type="content" source="./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png" alt-text="Default storage account, HDInsight cluster, Server Explorer" border="true":::
 
     * If this entry can be expanded, you're using an **Azure Storage Account** as default storage for the cluster. To view the files on the default storage for the cluster, expand the entry and then double-click the **(Default Container)**.
 
@@ -179,7 +176,7 @@ Next, upload the Hive and Pig UDF applications to storage on a HDInsight cluster
 
     * If you're using an **Azure Storage Account**, select the **Upload Blob** icon.
 
-        ![HDInsight upload icon for new project](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
+        :::image type="content" source="./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png" alt-text="HDInsight upload icon for new project" border="true":::
 
         In the **Upload New File** dialog box, under **File name**, select **Browse**. In the **Upload Blob** dialog box, go to the *bin\debug* folder for the *HiveCSharp* project, and then choose the *HiveCSharp.exe* file. Finally, select **Open** and then **OK** to complete the upload.
 

@@ -8,7 +8,7 @@ ms.author: glenga
 
 ### Query the Storage queue
 
-You can use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) command to view the Storage queues in your account, as in the following example:
+You can use the [`az storage queue list`](/cli/azure/storage/queue#az_storage_queue_list) command to view the Storage queues in your account, as in the following example:
 
 ```azurecli-interactive
 az storage queue list --output tsv
@@ -16,7 +16,7 @@ az storage queue list --output tsv
 
 The output from this command includes a queue named `outqueue`, which is the queue that was created when the function ran.
 
-Next, use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view the messages in this queue, as in this example:
+Next, use the [`az storage message peek`](/cli/azure/storage/message#az_storage_message_peek) command to view the messages in this queue, as in this example:
 
 ```azurecli-interactive
 echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`

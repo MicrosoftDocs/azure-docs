@@ -6,7 +6,8 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: yvettep
+ms.author: yvettep 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Azure role-based access control (Azure RBAC) and Privileged Identity Management (PIM)
@@ -39,7 +40,7 @@ In a hybrid cloud scenario, on-premises Windows Server Active Directory Security
 
 ### Azure resource roles versus Azure Active Directory Administrator roles
 
-Microsoft Azure offers a wide variety of built-in roles for [Azure Resources](../role-based-access-control/built-in-roles.md) and [Azure Active Directory Administration](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Both types of Role provide specific granular access to either Azure Resources or for Azure AD administrators. It is important to note that Azure Resource roles cannot be used to provide administrative access to Azure AD and Azure AD roles do not provide specific access to Azure resources.
+Microsoft Azure offers a wide variety of built-in roles for [Azure Resources](../role-based-access-control/built-in-roles.md) and [Azure Active Directory Administration](../active-directory/roles/permissions-reference.md). Both types of Role provide specific granular access to either Azure Resources or for Azure AD administrators. It is important to note that Azure Resource roles cannot be used to provide administrative access to Azure AD and Azure AD roles do not provide specific access to Azure resources.
 
 Some examples of the types of access that can be assigned to an Azure resource using a built-in role are:
 

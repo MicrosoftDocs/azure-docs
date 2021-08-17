@@ -1,37 +1,41 @@
 ---
-title: Migrate a database from SQL Server to Azure Arc enabled SQL Managed Instance
-description: Migrate database from SQL Server to Azure Arc enabled SQL Managed Instance
+title: Migrate a database from SQL Server to Azure Arc-enabled SQL Managed Instance
+description: Migrate database from SQL Server to Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu
-ms.author: vinsonyu
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Migrate: SQL Server to Azure Arc enabled SQL Managed Instance
+# Migrate: SQL Server to Azure Arc-enabled SQL Managed Instance
 
 This scenario walks you through the steps for migrating a database from a SQL Server instance to Azure SQL managed instance in Azure Arc via two different backup and restore methods.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Use Azure blob storage 
+## Use Azure blob storage
 
-Use Azure blob storage for migrating to Azure Arc enabled SQL Managed Instance.
+Use Azure blob storage for migrating to Azure Arc-enabled SQL Managed Instance.
 
 This method uses Azure Blob Storage as a temporary storage location that you can back up to and then restore from.
 
 ### Prerequisites
 
 - [Install Azure Data Studio](install-client-tools.md)
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 - [Install Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - Azure subscription
 
+
+
 ### Step 1: Provision Azure blob storage
 
-1. Follow the steps described in [Create an Azure Blob Storage account](../../storage/blobs/storage-blob-create-account-block-blob.md?tabs=azure-portal)
+1. Follow the steps described in [Create an Azure Blob Storage account](../../storage/common/storage-account-create.md?tabs=azure-portal)
 1. Launch Azure Storage Explorer
 1. [Sign in to Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) to access the blob storage created in previous step
 1. Right-click on the blob storage account and select **Create Blob Container** to create a new container where the backup file will be stored
@@ -128,10 +132,10 @@ This method shows you how to take a backup file that you create via any method a
 
 Backup the SQL Server database to your local file path like any typical SQL Server backup to disk:
 
- ```sql
+```sql
 BACKUP DATABASE Test
 TO DISK = 'c:\tmp\test.bak'
-WITH FORMAT, MEDIANAME = 'Test’ ;
+WITH FORMAT, MEDIANAME = 'Test' ;
 GO
 ```
 
@@ -141,7 +145,7 @@ Find the name of the pod where the sql instance is deployed. Typically it should
 
 Get the list of all pods by running:
 
- ```console
+```console
 kubectl get pods -n <namespace of data controller>
 ```
 
@@ -149,7 +153,7 @@ Example:
 
 Copy the backup file from the local storage to the sql pod in the cluster.
 
- ```console
+```console
 kubectl cp <source file location> <pod name>:var/opt/mssql/data/<file name> -n <namespace name>
 
 #Example:
@@ -182,11 +186,10 @@ WITH MOVE 'test' to '/var/opt/mssql/data/test.mdf'
 GO
 ```
 
-
 ## Next steps
 
-[Learn more about Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
+[Learn more about Features and Capabilities of Azure Arc-enabled SQL Managed Instance](managed-instance-features.md)
 
 [Start by creating a Data Controller](create-data-controller.md)
 
-[Already created a Data Controller? Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)
+[Already created a Data Controller? Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)

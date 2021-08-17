@@ -3,10 +3,10 @@ title: Azure portal - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks through the Azure portal.
 author: roygara
 
-ms.date: 08/24/2020
+ms.date: 06/29/2021
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines
+ms.service: storage
 ms.subservice: disks
 ---
 
@@ -14,8 +14,8 @@ ms.subservice: disks
 
 Azure Disk Storage allows you to manage your own keys when using server-side encryption (SSE) for managed disks, if you choose. For conceptual information on SSE with customer managed keys, as well as other managed disk encryption types, see the **Customer-managed keys** section of our disk encryption article:
 
-- For Linux: [Customer-managed keys](./linux/disk-encryption.md#customer-managed-keys)
-- For Windows: [Customer-managed keys](./windows/disk-encryption.md#customer-managed-keys)
+- For Linux: [Customer-managed keys](./disk-encryption.md#customer-managed-keys)
+- For Windows: [Customer-managed keys](./disk-encryption.md#customer-managed-keys)
 
 ## Restrictions
 
@@ -28,8 +28,6 @@ For now, customer-managed keys have the following restrictions:
 
     - For Windows: [Copy a managed disk](./windows/disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk)
 
-- Only [software and HSM RSA keys](../key-vault/keys/about-keys.md) of sizes 2,048-bit, 3,072-bit and 4,096-bit are supported, no other keys or sizes.
-    - [HSM](../key-vault/keys/hsm-protected-keys.md) keys require the **premium** tier of Azure Key vaults.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
 The following sections cover how to enable and use customer-managed keys for managed disks:

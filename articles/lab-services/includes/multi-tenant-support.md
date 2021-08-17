@@ -5,8 +5,8 @@ ms.date: 10/30/2020
 ms.topic: include
 ---
 
-If you are an admin or a lab owner who is part of multiple Azure AD tenants, you can navigate between tenants from the Azure Lab Services portal (the top-right corner). 
+If you have an Administrator or Lab Owner role in two or more Azure AD tenants, you can switch between tenants in the Azure Lab Services portal by selecting the control at the upper right, as shown in the following screenshot: 
 
-![Pick a tenant](../media/multi-tenant-support/picker.png)
+![Screenshot of the control for switching between tenants in the Azure Lab Services portal.](../media/multi-tenant-support/picker.png)
 
-Once you pick a tenant, select a lab account within your Azure Active Directory (Azure AD) tenant in the top-left corner.
+After you've chosen an Azure AD tenant, go to your lab account by selecting the control at the upper left.

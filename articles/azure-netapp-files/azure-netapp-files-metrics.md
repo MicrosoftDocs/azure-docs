@@ -13,12 +13,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 07/16/2021
 ms.author: b-juche
 ---
 # Metrics for Azure NetApp Files
 
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.  
+
+You can find metrics for a capacity pool or volume by selecting the **capacity pool** or **volume**.  Then click **Metric** to view the available metrics: 
+
+[ ![Snapshot that shows how to navigate to the Metric pull-down.](../media/azure-netapp-files/metrics-navigate-volume.png) ](../media/azure-netapp-files/metrics-navigate-volume.png#lightbox)
 
 ## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
@@ -37,10 +41,8 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 ## <a name="volumes"></a>Usage metrics for volumes
 
-<!-- ANF-5023: fixed version: 2020.08, 2020.09
 - *Percentage Volume Consumed Size*    
     The percentage of the volume consumed, including snapshots.  
--->
 - *Volume Allocated Size*   
     The provisioned size of a volume
 - *Volume Quota Size*    
@@ -53,6 +55,9 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 ## Performance metrics for volumes
 
+> [!NOTE] 
+> Volume latency for *Average Read Latency* and *Average Write Latency* is measured within the storage service and does not include network latency.
+
 - *Average Read Latency*   
     The average time for reads from the volume in milliseconds.
 - *Average Write Latency*   
@@ -61,29 +66,12 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The number of reads to the volume per second.
 - *Write IOPS*   
     The number of writes to the volume per second.
-<!-- These two metrics are not yet available, until ~ 2020.09
-- *Read MiB/s*   
-    Read throughput in bytes per second.
-- *Write MiB/s*   
-    Write throughput in bytes per second.
---> 
-<!-- ANF-4128; 2020.07
-- *Pool Provisioned Throughput*	  
-    The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
-- *Pool Allocated to Volume Throughput*   
-    The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
--->
-
-<!-- ANF-6443; 2020.11
-- *Pool Consumed Throughput*	
-    The total throughput being consumed by volumes in a given capacity pool.
--->
-
 
 ## <a name="replication"></a>Volume replication metrics
 
 > [!NOTE] 
-> Network transfer size (for example, the *Volume replication total transfer* metrics) might differ from the source or destination volumes of a cross-region replication. This behavior is a result of efficient replication engine being used to minimize the network transfer cost.
+> * Network transfer size (for example, the *Volume replication total transfer* metrics) might differ from the source or destination volumes of a cross-region replication. This behavior is a result of efficient replication engine being used to minimize the network transfer cost.
+> * Volume replication metrics are currently populated for replication destination volumes and not the source of the replication relationship.
 
 - *Is volume replication status healthy*   
     The condition of the replication relationship. A healthy state is denoted by `1`. An unhealthy state is denoted by `0`.
@@ -105,6 +93,30 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 - *Volume replication total transfer*   
     The cumulative bytes transferred for the relationship. 
+
+## Throughput metrics for capacity pools   
+
+* *Pool allocated throughput*    
+    Sum of the throughput of all the volumes belonging to the pool.
+    
+* *Provisioned throughput for the pool*   
+    Provisioned throughput of this pool.
+
+
+## Throughput metrics for volumes   
+
+* *Read throughput*   
+    Read throughput in bytes per second.
+    
+* *Total throughput*   
+    Sum of all throughput in bytes per second.
+
+* *Write throughput*    
+    Write throughput in bytes per second.
+
+* *Other throughput*   
+    Other throughput (that is not read or write) in bytes per second.
+
 
 ## Next steps
 

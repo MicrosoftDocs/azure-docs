@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn how to cancel Azure SQL Managed Instance management operations.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: 
+ms.subservice: deployment-configuration
+ms.custom: devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
 author: urosmil
 ms.author: urmilano
-ms.reviewer: sstein, bonova, MashaMSFT
+ms.reviewer: mathoma, bonova, MashaMSFT
 ms.date: 09/03/2020
 ---
 
@@ -117,7 +117,6 @@ Instances that have failed to create are still present as a resource and:
 
 - Are not charged
 - Do not count towards resource limits (subnet or vCore quota)
-- Keep the instance name reserved - To deploy an instance with the same name, delete the failed instance to release the name
 
 
 > [!NOTE]

@@ -4,7 +4,7 @@ description: Learn how to create a Microsoft Azure Red Hat OpenShift cluster usi
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
@@ -19,9 +19,20 @@ In this tutorial, part one of three, you'll prepare your environment to create a
 
 ## Before you begin
 
-If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+If you choose to install and use the CLI locally, this tutorial requires that you're running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md).
+
+* For example to check the current subscription quota of the smallest supported virtual machine familly SKU "Standard DSv3":
+
+    ```azurecli-interactive
+    LOCATION=eastus
+    az vm list-usage -l $LOCATION \
+    --query "[?contains(name.value, 'standardDSv3Family')]" \
+    -o table
+    ```
+
+ARO pull secret does not change the cost of the RH OpenShift license for ARO.
 
 ### Verify your permissions
 
@@ -54,6 +65,12 @@ You will also need sufficient Azure Active Directory permissions for the tooling
     ```azurecli-interactive
     az provider register -n Microsoft.Storage --wait
     ```
+    
+1. Register the `Microsoft.Authorization` resource provider:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Authorization --wait
+    ```
 
 ### Get a Red Hat pull secret (optional)
 
@@ -84,11 +101,11 @@ If you provide a custom domain for your cluster note the following points:
 
 * The OpenShift console will be available at a URL such as `https://console-openshift-console.apps.example.com`, instead of the built-in domain `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 
-* By default, OpenShift uses self-signed certificates for all of the routes created on custom domains `*.apps.example.com`.  If you choose to use custom DNS after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom CA for your ingress controller](https://docs.openshift.com/aro/4/authentication/certificates/replacing-default-ingress-certificate.html) and a [custom CA for your API server](https://docs.openshift.com/aro/4/authentication/certificates/api-server.html).
+* By default, OpenShift uses self-signed certificates for all of the routes created on custom domains `*.apps.example.com`.  If you choose to use custom DNS after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom CA for your ingress controller](https://docs.openshift.com/container-platform/4.6/security/certificates/replacing-default-ingress-certificate.html) and a [custom CA for your API server](https://docs.openshift.com/container-platform/4.6/security/certificates/api-server.html).
 
 ### Create a virtual network containing two empty subnets
 
-Next, you will create a virtual network containing two empty subnets.
+Next, you will create a virtual network containing two empty subnets. If you have existing virtual network that meets your needs, you can skip this step.
 
 1. **Set the following variables in the shell environment in which you will execute the `az` commands.**
 
@@ -100,10 +117,10 @@ Next, you will create a virtual network containing two empty subnets.
 
 2. **Create a resource group.**
 
-   An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, and it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) command.
+   An Azure resource group is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are asked to specify a location. This location is where resource group metadata is stored, and it is also where your resources run in Azure if you don't specify another region during resource creation. Create a resource group using the [az group create](/cli/azure/group#az_group_create) command.
     
    > [!NOTE] 
-   > Azure Red Hat OpenShift is not available in all regions where an Azure resource group can be created. See [Available regions](https://azure.microsoft.com/en-gb/global-infrastructure/services/?products=openshift) for information on where Azure Red Hat OpenShift is supported.
+   > Azure Red Hat OpenShift is not available in all regions where an Azure resource group can be created. See [Available regions](https://azure.microsoft.com/global-infrastructure/services/?products=openshift) for information on where Azure Red Hat OpenShift is supported.
 
    ```azurecli-interactive
    az group create \
@@ -127,7 +144,7 @@ Next, you will create a virtual network containing two empty subnets.
 
 2. **Create a virtual network.**
 
-   Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes.
+   Azure Red Hat OpenShift clusters running OpenShift 4 require a virtual network with two empty subnets, for the master and worker nodes. You can either create a new virtual network for this, or use an existing virtual network.
 
    Create a new virtual network in the same resource group you created earlier:
 

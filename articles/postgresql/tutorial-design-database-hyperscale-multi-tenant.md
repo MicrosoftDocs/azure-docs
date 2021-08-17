@@ -59,6 +59,9 @@ CREATE TABLE campaigns (
 );
 ```
 
+>[!NOTE]
+> This article contains references to the term *blacklisted*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 Each campaign will pay to run ads. Add a table for ads too, by running the following code in psql after the code above:
 
 ```sql
@@ -293,4 +296,4 @@ In this tutorial, you learned how to provision a Hyperscale (Citus) server group
 
 - Learn about server group [node types](./concepts-hyperscale-nodes.md)
 - Determine the best [initial
-  size](howto-hyperscale-scaling.md#picking-initial-size) for your server group
+  size](howto-hyperscale-scale-initial.md) for your server group

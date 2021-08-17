@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Managed Instance
 description: In this quickstart, learn to restore a database backup to Azure SQL Managed Instance using SQL Server Management Studio (SSMS). 
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: srdan-bozovic-msft
-ms.author: srbozovi
-ms.reviewer: sstein, bonova
+author: misliplavo 
+ms.author: mlazic
+ms.reviewer: mathoma
 ms.date: 12/14/2018
 ---
 # Quickstart: Restore a database to Azure SQL Managed Instance with SSMS
@@ -21,8 +21,8 @@ In this quickstart, you'll use SQL Server Management Studio (SSMS) to restore a 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> For more information on migration using Azure Database Migration Service, see [SQL Managed Instance migration using Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).
-> For more information on various migration methods, see [SQL Server migration to Azure SQL Managed Instance](migrate-to-instance-from-sql-server.md).
+> For more information on migration using Azure Database Migration Service, see [Tutorial: Migrate SQL Server to an Azure Managed Instance using Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).
+> For more information on various migration methods, see [SQL Server to Azure SQL Managed Instance Guide](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ This quickstart:
   - [Configure a point-to-site connection to SQL Managed Instance from on-premises](point-to-site-p2s-configure.md).
 
 > [!NOTE]
-> For more information on backing up and restoring a SQL Server database using Azure Blob storage and a [Shared Access Signature (SAS) key](../../storage/common/storage-sas-overview.md), see [SQL Server Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
+> For more information on backing up and restoring a SQL Server database using Azure Blob storage and a [Shared Access Signature (SAS) key](../../storage/common/storage-sas-overview.md), see [SQL Server Backup to URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
 ## Restore from a backup file
 
@@ -45,6 +45,9 @@ In SQL Server Management Studio, follow these steps to restore the Wide World Im
 1. Open SSMS and connect to your managed instance.
 2. In **Object Explorer**, right-click your managed instance and select **New Query** to open a new query window.
 3. Run the following SQL script, which uses a pre-configured storage account and SAS key to [create a credential](/sql/t-sql/statements/create-credential-transact-sql) in your managed instance.
+ 
+   > [!IMPORTANT]
+   > `CREDENTIAL` must match the container path, begin with `https`, and can't contain a trailing forward slash. `IDENTITY` must be `SHARED ACCESS SIGNATURE`. `SECRET` must be the Shared Access Signature token and can't contain a leading `?`.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]

@@ -47,7 +47,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Azure Time Series Insights Gen2 tutorial
-            url: tutorials-set-up-tsi-environment.md
+            url: tutorial-set-up-environment.md
       - linkListType: deploy
         links:
           - text: Connect to Event Hubs
@@ -61,11 +61,11 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Provision and manage
-            url: time-series-insights-update-how-to-manage.md
+            url: ./how-to-provision-manage.md
           - text: How to select a TSID
             url: how-to-select-tsid.md
           - text: Grant data access
-            url: time-series-insights-data-access.md
+            url: ./concepts-access-policies.md
           - text: Create Time Series Model
             url: how-to-edit-your-model.md
           - text: Query data
@@ -75,8 +75,8 @@ landingContent:
       - linkListType: reference
         links:
           - text: Rest APIs Overview
-            url: https://docs.microsoft.com/rest/api/time-series-insights/
+            url: /rest/api/time-series-insights/
           - text: Data Access Concepts Gen2
-            url: https://docs.microsoft.com/rest/api/time-series-insights/reference-data-access-overview
+            url: /rest/api/time-series-insights/reference-data-access-overview
           - text: JavaScript Client SDK
             url: https://github.com/microsoft/tsiclient/blob/master/docs/API.md

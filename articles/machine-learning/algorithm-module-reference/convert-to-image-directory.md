@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/09/2020
+ms.date: 11/12/2020
 ---
 # Convert to Image Directory
 
@@ -31,7 +31,7 @@ This article describes how to use the Convert to Image Directory module to help 
     Your_image_folder_name/Category_2/asd932_.png
     ```
     
-    In the image dataset folder, there are multiple subfolders. Each subfolder contains images of one category respectively. The names of subfolders are considered as the labels for tasks like image classification. Refer to [torchvision datasets](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) for more information.
+    In the image dataset folder, there are multiple subfolders. Each subfolder contains images of one category respectively. The names of subfolders are considered as the labels for tasks like image classification. Refer to [torchvision datasets](https://pytorch.org/vision/stable/datasets.html#imagefolder) for more information.
 
     > [!WARNING]
     > Currently labeled datasets exported from Data Labeling are not supported in the designer.
@@ -42,7 +42,8 @@ This article describes how to use the Convert to Image Directory module to help 
     
     ![Image sample dataset](./media/module/image-sample-dataset.png)
 
-    For scoring, the image dataset folder only needs to contain unclassified images.
+    > [!NOTE]
+    > For inference, the image dataset folder only needs to contain unclassified images.
 
 1. [Register the image dataset as a file dataset](../how-to-create-register-datasets.md) in your workspace, since the input of Convert to Image Directory module must be a **File dataset**.
 

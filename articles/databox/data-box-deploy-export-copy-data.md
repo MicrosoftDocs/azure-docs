@@ -7,15 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 05/17/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
 # Customer intent: As an IT admin, I need to be able to copy data from Data Box to download from Azure to my on-premises server. 
 ---
 
-
-# Tutorial: Copy data from Azure Data Box via SMB (Preview)
+# Tutorial: Copy data from Azure Data Box via SMB
 
 This tutorial describes how to connect to and copy data from your Data Box to an on-premises server using the local web UI. The Data Box device contains the data exported from your Azure Storage account.
 
@@ -26,8 +25,6 @@ In this tutorial, you learn how to:
 > * Prerequisites
 > * Connect to Data Box
 > * Copy data from Data Box
-
-[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
 ## Prerequisites
 
@@ -57,7 +54,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 3. To access the shares associated with your storage account (*exportbvtdataset2* in the following example) from your host computer, open a command window. At the command prompt, type:
 
-    `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
+    `net use \\<IP address of the device>\<share name>  /u:<IP address of the device>\<user name for the share>`
 
     Depending upon your data format, the share paths are as follows:
     - Azure Block blob - `\\169.254.143.85\exportbvtdataset2_BlockBlob`
@@ -67,7 +64,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 4. Enter the password for the share when prompted. The following sample shows connecting to a share via the preceding command.
 
     ```
-    C:\Users\Databoxuser>net use \\169.254.143.85\exportbvtdataset2_BlockBlob /u:exportbvtdataset2
+    C:\Users\Databoxuser>net use \\169.254.143.85\exportbvtdataset2_BlockBlob /u:169.254.143.85\exportbvtdataset2
     Enter the password for 'exportbvtdataset2' to connect to '169.254.143.85':
     The command completed successfully.
     ```

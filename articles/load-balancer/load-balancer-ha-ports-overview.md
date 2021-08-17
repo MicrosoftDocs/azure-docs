@@ -49,7 +49,7 @@ The following diagram presents a hub-and-spoke virtual network deployment. The s
 
 ### Load-balancing large numbers of ports
 
-You can also use HA ports for applications that require load balancing of large numbers of ports. You can simplify these scenarios by using an internal [Standard Load Balancer](load-balancer-standard-overview.md) with HA ports. A single load-balancing rule replaces multiple individual load-balancing rules, one for each port.
+You can also use HA ports for applications that require load balancing of large numbers of ports. You can simplify these scenarios by using an internal [Standard Load Balancer](./load-balancer-overview.md) with HA ports. A single load-balancing rule replaces multiple individual load-balancing rules, one for each port.
 
 ## Region availability
 
@@ -94,5 +94,4 @@ You can configure *one* public Standard Load Balancer resource for the backend r
 
 ## Next steps
 
-- [Learn how to configure HA ports for your ILB via Portal](tutorial-load-balancer-standard-internal-portal.md#create-a-load-balancer-rule), [PowerShell](load-balancer-get-started-ilb-arm-ps.md#create-the-configuration-rules-probe-and-load-balancer), [CLI](load-balancer-get-started-ilb-arm-cli.md#create-the-load-balancer-rule), or [Templates](quickstart-load-balancer-standard-internal-template.md).
-- [Learn about Standard Load Balancer](load-balancer-standard-overview.md)
+- [Learn about Standard Load Balancer](load-balancer-overview.md)

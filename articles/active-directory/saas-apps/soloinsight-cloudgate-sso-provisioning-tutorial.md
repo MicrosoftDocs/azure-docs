@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure Soloinsight-CloudGate SSO for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Soloinsight-CloudGate SSO.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/14/2019
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Soloinsight-CloudGate SSO for automatic user provisioning
@@ -84,7 +84,7 @@ Before configuring Soloinsight-CloudGate SSO for automatic user provisioning wit
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Soloinsight-CloudGate SSO based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Soloinsight-CloudGate SSO , following the instructions provided in the [Soloinsight-CloudGate SSO Single sign-on tutorial](./soloinsight-cloudgate-sso-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Soloinsight-CloudGate SSO, following the instructions provided in the [Soloinsight-CloudGate SSO Single sign-on tutorial](./soloinsight-cloudgate-sso-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 ### To configure automatic user provisioning for Soloinsight-CloudGate SSO in Azure AD:
 

@@ -71,7 +71,7 @@ Because Site Recovery replication is application agnostic, these recommendations
 
 
 
-**Site-to-site connectivity**: A direct connection between the on-premises site and the Azure network must be established to allow communication between servers. Use a secure site-to-site VPN connection to an Azure virtual network that is used as the disaster recovery site. For more information, see [Establish a site-to-site VPN connection between an on-premises site and an Azure virtual network](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+**Site-to-site connectivity**: A direct connection between the on-premises site and the Azure network must be established to allow communication between servers. Use a secure site-to-site VPN connection to an Azure virtual network that is used as the disaster recovery site. For more information, see [Establish a site-to-site VPN connection between an on-premises site and an Azure virtual network](../vpn-gateway/tutorial-site-to-site-portal.md).
 
 **Active Directory**: DFSR depends on Active Directory. This means that the Active Directory forest with local domain controllers is extended to the disaster recovery site in Azure. Even if you aren't using DFSR, if the intended users need to be granted access or verified for access, you must take these steps. For more information, see [Extend on-premises Active Directory to Azure](./site-recovery-active-directory.md).
 
@@ -93,7 +93,7 @@ The following steps briefly describe how to use File Sync:
 
 1. [Create a storage account in Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). If you chose read-access geo-redundant storage for your storage accounts, you get read access to your data from the secondary region in case of a disaster. For more information, see [Disaster recovery and storage account failover](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Create a file share](../storage/files/storage-how-to-create-file-share.md).
-3. [Start File Sync](../storage/files/storage-sync-files-deployment-guide.md) on your Azure file server.
+3. [Start File Sync](../storage/file-sync/file-sync-deployment-guide.md) on your Azure file server.
 4. Create a sync group. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share. A sync group also must contain one server endpoint, which represents a path on a Windows server.
 5. Your files are now kept in sync across your Azure file share and your on-premises server.
 6. In the event of a disaster in your on-premises environment, perform a failover by using a [recovery plan](site-recovery-create-recovery-plans.md). Add the script to [mount the Azure file share](../storage/files/storage-how-to-use-files-windows.md) and access the share in your virtual machine.
@@ -142,7 +142,7 @@ Follow these steps to use File Sync:
 
 1. [Create a storage account in Azure](../storage/common/storage-account-create.md?toc=/azure/storage/files/toc.json). If you chose read-access geo-redundant storage (recommended) for your storage accounts, you have read access to your data from the secondary region in case of a disaster. For more information, see [Disaster recovery and storage account failover](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)..
 2. [Create a file share](../storage/files/storage-how-to-create-file-share.md).
-3. [Deploy File Sync](../storage/files/storage-sync-files-deployment-guide.md) in your on-premises file server.
+3. [Deploy File Sync](../storage/file-sync/file-sync-deployment-guide.md) in your on-premises file server.
 4. Create a sync group. Endpoints within a sync group are kept in sync with each other. A sync group must contain at least one cloud endpoint, which represents an Azure file share. The sync group also must contain one server endpoint, which represents a path on the on-premises Windows server.
 5. Your files are now kept in sync across your Azure file share and your on-premises server.
 6. In the event of a disaster in your on-premises environment, perform a failover by using a [recovery plan](site-recovery-create-recovery-plans.md). Add the script to mount the Azure file share and access the share in your virtual machine.

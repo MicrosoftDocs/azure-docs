@@ -4,9 +4,10 @@ description: Learn how to create a service principal for automating Azure Analys
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 04/27/2021
 ms.author: owend
-ms.reviewer: minewiskan
+ms.reviewer: minewiskan 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -88,7 +89,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### AMO and ADOMD 
 
-When connecting with client applications and web apps, [AMO and ADOMD client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current) version 15.0.2 and higher installable packages from NuGet support service principals in connection strings using the following syntax: `app:AppID` and password or `cert:thumbprint`. 
+When connecting with client applications and web apps, [AMO and ADOMD client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) version 15.0.2 and higher installable packages from NuGet support service principals in connection strings using the following syntax: `app:AppID` and password or `cert:thumbprint`. 
 
 In the following example, `appID` and a `password` are used to perform a model database refresh operation:
 

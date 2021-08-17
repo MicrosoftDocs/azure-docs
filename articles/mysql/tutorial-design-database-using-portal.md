@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Design a server - Azure portal - Azure Database for MySQL'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 3/20/2020
@@ -10,6 +10,8 @@ ms.custom: mvc
 ---
 
 # Tutorial: Design an Azure Database for MySQL database using the Azure portal
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL is a managed service that enables you to run, manage, and scale highly available MySQL databases in the cloud. Using the Azure portal, you can easily manage your server and design a database.
 

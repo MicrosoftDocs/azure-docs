@@ -1,6 +1,6 @@
 ---
-title: How to configure your SaaS offer properties in Microsoft Partner Center
-description: Learn how to configure the properties for your software as a service (SaaS) Microsoft commercial marketplace offer in Partner Center. 
+title: Configure your SaaS offer properties in Azure Marketplace
+description: Configure the properties for your software as a service (SaaS) in Azure Marketplace. 
 author: mingshen-ms
 ms.author: mingshen
 ms.reviewer: dannyevers
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ---
 
-# How to configure your SaaS offer properties
+# Configure SaaS offer properties
 
 This article describes how to configure the properties for a software as a service (SaaS) offer in the Microsoft commercial marketplace.
 
@@ -84,12 +84,8 @@ You can choose to provide your own terms and conditions, instead of the standard
 
 1. Under **Legal**, make sure the **Use the Standard Contract for Microsoft's commercial marketplace** check box is cleared.
 1. In the **Terms and conditions** box, enter up to 10,000 characters of text.
-
-   > [!NOTE]
-   > If you require a longer description, enter a single web address that points to where your terms and conditions can be found. It will be displayed to customers as an active link.
-
 1. Select **Save draft** before continuing to the next tab, **Offer listing**.
 
 ## Next steps
 
-- [How to configure your SaaS offer listing details](create-new-saas-offer-listing.md)
+- [Configure SaaS offer listing details](create-new-saas-offer-listing.md)

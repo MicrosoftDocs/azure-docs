@@ -24,3 +24,6 @@
     - name: Policy
       tocHref: /azure/web-application-firewall
       topicHref: /azure/governance/policy
+    - name: Policy
+      tocHref: /security/benchmark/azure/baselines/
+      topicHref: /azure/governance/policy

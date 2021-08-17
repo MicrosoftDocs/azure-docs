@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Design a server - Azure PowerShell - Azure Database for MySQL'
 description: This tutorial explains how to create and manage Azure Database for MySQL server and database using PowerShell.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: tutorial
@@ -11,6 +11,8 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Tutorial: Design an Azure Database for MySQL using PowerShell
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL is a relational database service in the Microsoft cloud based on MySQL
 Community Edition database engine. In this tutorial, you use PowerShell and other utilities to learn

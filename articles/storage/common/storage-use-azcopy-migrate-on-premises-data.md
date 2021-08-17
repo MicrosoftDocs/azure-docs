@@ -52,13 +52,13 @@ Download the AzCopy V10 executable file.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 Place the AzCopy file anywhere on your computer. Add the location of the file to your system path variable so that you can refer to this executable file from any folder on your computer.
 
 ## Authenticate with Azure AD
 
-First, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to your identity. See [Use the Azure portal to assign an Azure role for access to blob and queue data](./storage-auth-aad-rbac-portal.md).
+First, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) role to your identity. See [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md).
 
 Then, open a command prompt, type the following command, and press the ENTER key.
 
@@ -104,7 +104,7 @@ azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.wind
 
 * Replace the `<container-name>` placeholder with the name of the container that you created.
 
-To learn more about the `sync` command, see [Synchronize files](storage-use-azcopy-blobs.md#synchronize-files).
+To learn more about the `sync` command, see [Synchronize files](./storage-use-azcopy-v10.md#transfer-data).
 
 ## Create a scheduled task
 
@@ -173,13 +173,13 @@ To validate that the scheduled task/cron job runs correctly, create new files in
 
 To learn more about ways to move on-premises data to Azure Storage and vice versa, follow this link:
 
-* [Move data to and from Azure Storage](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
+* [Move data to and from Azure Storage](./storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 For more information about AzCopy, see any of these articles:
 
 * [Get started with AzCopy](storage-use-azcopy-v10.md)
 
-* [Transfer data with AzCopy and blob storage](storage-use-azcopy-blobs.md)
+* [Transfer data with AzCopy and blob storage](./storage-use-azcopy-v10.md#transfer-data)
 
 * [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 

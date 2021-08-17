@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
 # Manual QoS capacity pool
@@ -24,7 +24,7 @@ This article provides an introduction to the manual Quality of Service (QoS) cap
 
 The [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) is an attribute of a capacity pool. Azure NetApp Files provides two QoS types of capacity pools – auto (default) and manual.  
 
-In a *manual* QoS capacity pool, you can assign the capacity and throughput for a volume independently. The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It is determined by the combination of the pool size and the service-level throughput. 
+In a *manual* QoS capacity pool, you can assign the capacity and throughput for a volume independently. For minimum and maximum throughput levels, see [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits). The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It is determined by the combination of the pool size and the service-level throughput. 
 
 In an *auto* QoS capacity pool, throughput is assigned automatically to the volumes in the pool, proportional to the size quota assigned to the volumes.  
 
@@ -39,8 +39,6 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 When you [create a capacity pool](azure-netapp-files-set-up-capacity-pool.md), you can specify for the capacity pool to use the manual QoS type.  You can also [change an existing capacity pool](manage-manual-qos-capacity-pool.md#change-to-qos) to use the manual QoS type. 
 
 Setting the capacity type to manual QoS is a permanent change. You cannot convert a manual QoS type capacity tool to an auto QoS capacity pool. 
-
-Using the manual QoS type requires that you [register the feature](manage-manual-qos-capacity-pool.md#register-the-feature).  
 
 ## Next steps
 

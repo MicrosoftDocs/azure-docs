@@ -2,7 +2,7 @@
 title: What is Azure Relay? | Microsoft Docs
 description: This article provides an overview of the Azure Relay service, which allows you to develop cloud applications that consume on-premises services running in your corporate network without opening a firewall connection or making intrusive changes to your network infrastructure.  
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 06/23/2021
 ---
 
 # What is Azure Relay?
@@ -12,7 +12,7 @@ The relay service supports the following scenarios between on-premises services 
 
 - Traditional one-way, request/response, and peer-to-peer communication 
 - Event distribution at internet-scope to enable publish/subscribe scenarios 
-- Bi-directional and unbuffered socket communication across network boundaries.
+- Bi-directional and unbuffered socket communication across network boundaries
 
 Azure Relay differs from network-level integration technologies such as VPN. An Azure relay can be scoped to a single application endpoint on a single machine. The VPN technology is far more intrusive, as it relies on altering the network environment. 
 
@@ -51,7 +51,7 @@ Hybrid Connections and WCF Relay both enable secure connection to assets that ex
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **Java script/Node.JS** | |x |
+| **JavaScript/Node.js** | |x |
 | **Standards-Based open protocol** | |x |
 | **RPC programming models** | |x |
 
@@ -75,5 +75,5 @@ The following diagram shows you how incoming relay requests are handled by the A
 * [Get started with .NET HTTP Requests](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 * [Get started with Node WebSockets](relay-hybrid-connections-node-get-started.md)
 * [Get started with Node HTTP Requests](relay-hybrid-connections-http-requests-node-get-started.md)
-* [Relay FAQ](relay-faq.md)
+* [Relay FAQ](relay-faq.yml)
 

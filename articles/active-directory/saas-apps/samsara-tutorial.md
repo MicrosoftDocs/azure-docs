@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 05/05/2021
 ms.author: jeedes
 
 ---
@@ -33,32 +33,19 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Samsara supports **SP** and **IDP** initiated SSO
-* Samsara supports **Just In Time** user provisioning
+* Samsara supports **SP** and **IDP** initiated SSO.
+* Samsara supports **Just In Time** user provisioning.
 
-## Adding Samsara from the gallery
+## Add Samsara from the gallery
 
 To configure the integration of Samsara into Azure AD, you need to add Samsara from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
-
-	![The Azure Active Directory button](common/select-azuread.png)
-	
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
-
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
 1. To add new application, select **New application**.
-
-	![The New application button](common/add-new-app.png)
-
 1. In the **Add from the gallery** section, type **Samsara** in the search box.
-
-	 ![OneTrust Privacy Management Software in the results list](common/search-new-app.png)
-
 1. Select **Samsara** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Samsara
 
@@ -78,20 +65,14 @@ To configure and test Azure AD SSO with Samsara, perform the following steps:
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Samsara** application integration page, find the **Manage** section and select **single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
 1. On the **Select a single sign-on method** page, select **SAML**.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set-up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign-on URL** text box, type a URL using the following pattern:
+	a. In the **Sign-on URL** text box, type a URL using one of the following patterns:
     `https://cloud.samsara.com/signin/<ORGID>` for US cloud customers
     `https://cloud.eu.samsara.com/signin/<ORGID>` for EU cloud customers
 
@@ -104,11 +85,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-on URL, Reply URL, and Identifier. Contact the [Samsara Client support team](mailto:support@samsara.com) to get these values, or in Samsara, go to **Settings** > **Single-Sign-On** > **New SAML Connection** to obtain the \<ORGID\>. You also can refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set-up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up Samsara** section, copy the **login URL**
+1. On the **Set-up Samsara** section, copy the **login URL**
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 	
@@ -148,12 +129,17 @@ In this section, a user called B.Simon is created in Samsara. Samsara supports j
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
-1. Click on **Test this application** in Azure portal. This will redirect to Samsara Sign-on URL where you can initiate the login flow. 
+#### SP initiated:
 
-2. Go to Samsara Sign-on URL directly and initiate the login flow from there.
+* Click on **Test this application** in Azure portal. This will redirect to Samsara Sign on URL where you can initiate the login flow.  
 
-3. You can use Microsoft Access Panel. When you click the Samsara tile in the Access Panel, this will redirect to Samsara Sign-on URL. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* Go to Samsara Sign-on URL directly and initiate the login flow from there.
 
+#### IDP initiated:
+
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Samsara for which you set up the SSO. 
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the Samsara tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Samsara for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

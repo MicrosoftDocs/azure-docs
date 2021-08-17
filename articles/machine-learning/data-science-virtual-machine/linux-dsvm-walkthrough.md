@@ -3,13 +3,12 @@ title: Explore Linux
 titleSuffix: Azure Data Science Virtual Machine 
 description: Learn how to complete several common data science tasks by using the Linux Data Science Virtual Machine.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
-author: lobrien
-ms.author: laobri
+author: timoklimmer
+ms.author: tklimmer
 ms.topic: conceptual
-ms.date: 09/17/2020
+ms.date: 05/10/2021
 
 ---
 
@@ -27,7 +26,6 @@ Before you can use a Linux DSVM, you must have the following prerequisites:
 
 * [**Ubuntu Data Science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). For information about provisioning the virtual machine, see [Provision the Ubuntu Data Science Virtual Machine](./release-notes.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installed on your computer with an open XFCE session. For more information, see [Install and configure the X2Go client](dsvm-ubuntu-intro.md#x2go).
-* For a smoother scrolling experience, in the DSVM's Firefox web browser, toggle the `gfx.xrender.enabled` flag in `about:config`. [Learn more](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Also consider setting `mousewheel.enable_pixel_scrolling` to `False`. [Learn more](https://support.mozilla.org/questions/981140).
 
 ## Download the spambase dataset
 
@@ -68,7 +66,7 @@ The dataset has several types of statistics for each email:
 
 ## Explore the dataset by using R Open
 
-Let's examine the data and do some basic machine learning by using R. The DSVM comes with [Microsoft R Open](https://mran.revolutionanalytics.com/open/) preinstalled. The multithreaded math libraries in the preinstalled version of R offer better performance than single-threaded versions. R Open also provides reproducibility through a snapshot of the CRAN package repository.
+Let's examine the data and do some basic machine learning by using R. The DSVM comes with CRAN R pre-installed.
 
 To get copies of the code samples that are used in this walkthrough, use git to clone the Azure-Machine-Learning-Data-Science repository. Git is preinstalled on the DSVM. At the git command line, run:
 
@@ -325,7 +323,7 @@ rattle()
 > [!NOTE]
 > You don't need to install Rattle on the DSVM. However, you might be prompted to install additional packages when Rattle opens.
 
-Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Team Data Science Process](../team-data-science-process/index.yml), like loading data or exploring data. The data science process flows from left to right through the tabs. The last tab contains a log of the R commands that were run by Rattle.
+Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Team Data Science Process](/azure/architecture/data-science-process/overview), like loading data or exploring data. The data science process flows from left to right through the tabs. The last tab contains a log of the R commands that were run by Rattle.
 
 To load and configure the dataset:
 

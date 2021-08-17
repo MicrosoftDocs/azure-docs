@@ -1,15 +1,16 @@
 ---
-title: Provision apps with scoping filters | Microsoft Docs
-description: Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from being provisioned if an object doesn't satisfy your business requirements.
+title: Use scoping filters in Azure Active Directory Application Provisioning
+description: Learn how to use scoping filters to prevent objects in apps that support automated user provisioning from being provisioned if an object doesn't satisfy your business requirements in Azure Active Directory Application Provisioning.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 05/11/2021
 ms.author: kenwith
+ms.reviewer: arvinh
 ---
 
 # Attribute-based application provisioning with scoping filters
@@ -89,7 +90,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
    
    j. **Greater_Than_OR_EQUALS.** Clause returns "true" if the evaluated attribute is greater than or equal to the value. The value specified on the scoping filter must be an integer and the attribute on the user must be an integer [0,1,2,...]. 
    
-   k. **Includes.** Clause returns "true" if the evaluated attribute contains the string value (case sensitive) as described [here](/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Includes.** Clause returns "true" if the evaluated attribute contains the string value (case sensitive) as described [here](/dotnet/api/system.string.contains). 
 
 
 >[!IMPORTANT] 

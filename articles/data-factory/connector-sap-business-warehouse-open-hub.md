@@ -1,20 +1,18 @@
 ---
 title: Copy data from SAP Business Warehouse via Open Hub
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP Business Warehouse (BW) via Open Hub to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
-services: data-factory
-documentationcenter: ''
-ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/12/2020
+ms.custom: synapse
+ms.date: 07/30/2021
 ---
 
 # Copy data from SAP Business Warehouse via Open Hub using Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from an SAP Business Warehouse (BW) via Open Hub. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
@@ -33,8 +31,8 @@ You can copy data from SAP Business Warehouse via Open Hub to any supported sink
 
 Specifically, this SAP Business Warehouse Open Hub connector supports:
 
-- SAP Business Warehouse **version 7.01 or higher (in a recent SAP Support Package Stack released after the year 2015)**. SAP BW4/HANA is not supported by this connector.
-- Copying data via Open Hub Destination local table which underneath can be DSO, InfoCube, MultiProvider, DataSource, etc.
+- SAP Business Warehouse **version 7.01 or higher (in a recent SAP Support Package Stack released after the year 2015)**. SAP BW/4HANA is not supported by this connector.
+- Copying data via Open Hub Destination local table, which underneath can be DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copying data using basic authentication.
 - Connecting to an SAP application server or SAP message server.
 - Retrieving data via RFC.
@@ -54,7 +52,7 @@ ADF SAP BW Open Hub Connector offers two optional properties: `excludeLastReques
 - **excludeLastRequestId**: Whether to exclude the records of the last request. Default value is true. 
 - **baseRequestId**: The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. 
 
-Overall, the extraction from SAP InfoProviders to Azure Data Factory (ADF) consists of 2 steps: 
+Overall, the extraction from SAP InfoProviders to Azure Data Factory (ADF) consists of two steps: 
 
 1. **SAP BW Data Transfer Process (DTP)** 
    This step copies the data from an SAP BW InfoProvider to an SAP BW Open Hub table 
@@ -66,11 +64,11 @@ Overall, the extraction from SAP InfoProviders to Azure Data Factory (ADF) consi
 
 In the first step, a DTP is executed. Each execution creates a new SAP request ID. The request ID is stored in the Open Hub table and is then used by the ADF connector to identify the delta. The two steps run asynchronously: the DTP is triggered by SAP, and the ADF data copy is triggered through ADF. 
 
-By default, ADF is not reading the latest delta from the Open Hub table (option "exclude last request" is true). Hereby, the data in ADF is not 100% up-to-date with the data in the Open Hub table (the last delta is missing). In return, this procedure ensures that no rows get lost caused by the asynchronous extraction. It works fine even when ADF is reading the Open Hub table while the DTP is still writing into the same table. 
+By default, ADF is not reading the latest delta from the Open Hub table (option "exclude last request" is true). Hereby, the data in ADF is not 100% up to date with the data in the Open Hub table (the last delta is missing). In return, this procedure ensures that no rows get lost caused by the asynchronous extraction. It works fine even when ADF is reading the Open Hub table while the DTP is still writing into the same table. 
 
 You typically store the max copied request ID in the last run by ADF in a staging data store (such as Azure Blob in above diagram). Therefore, the same request is not read a second time by ADF in the subsequent run. Meanwhile, note the data is not automatically deleted from the Open Hub table.
 
-For proper delta handling it is not allowed to have request IDs from different DTPs in the same Open Hub table. Therefore, you must not create more than one DTP for each Open Hub Destination (OHD). When needing Full and Delta extraction from the same InfoProvider, you should create two OHDs for the same InfoProvider. 
+For proper delta handling, it is not allowed to have request IDs from different DTPs in the same Open Hub table. Therefore, you must not create more than one DTP for each Open Hub Destination (OHD). When needing Full and Delta extraction from the same InfoProvider, you should create two OHDs for the same InfoProvider. 
 
 ## Prerequisites
 
@@ -87,7 +85,7 @@ To use this SAP Business Warehouse Open Hub connector, you need to:
     - Authorization for RFC and SAP BW. 
     - Permissions to the “Execute” Activity of Authorization Object “S_SDSAUTH”.
 
-- Create SAP Open Hub Destination type as **Database Table** with "Technical Key" option checked.  It is also recommended to leave the Deleting Data from Table as unchecked although it is not required. Leverage the DTP (directly execute or integrate into existing process chain) to land data from source object (such as cube) you have chosen to the open hub destination table.
+- Create SAP Open Hub Destination type as **Database Table** with "Technical Key" option checked.  It is also recommended to leave the Deleting Data from Table as unchecked although it is not required. Use the DTP (directly execute or integrate into existing process chain) to land data from source object (such as cube) you have chosen to the open hub destination table.
 
 ## Getting started
 
@@ -95,7 +93,7 @@ To use this SAP Business Warehouse Open Hub connector, you need to:
 >
 > For a walkthrough of using SAP BW Open Hub connector, see [Load data from SAP Business Warehouse (BW) by using Azure Data Factory](load-sap-bw-data.md).
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to SAP Business Warehouse Open Hub connector.
 
@@ -188,6 +186,8 @@ To copy data from SAP BW Open Hub, the following properties are supported in the
 | type | The **type** property of the copy activity source must be set to **SapOpenHubSource**. | Yes |
 | excludeLastRequest | Whether to exclude the records of the last request. | No (default is **true**) |
 | baseRequestId | The ID of request for delta loading. Once it is set, only data with requestId **larger than** the value of this property will be retrieved.  | No |
+| customRfcReadTableFunctionModule | A custom RFC function module that can be used to read data from an SAP table. <br/> You can use a custom RFC function module to define how the data is retrieved from your SAP system and returned to Data Factory. The custom function module must have an interface implemented (import, export, tables) that's similar to `/SAPDS/RFC_READ_TABLE2`, which is the default interface used by Data Factory. | No |
+| sapDataColumnDelimiter | The single character that is used as delimiter passed to SAP RFC to split the output data. | No |
 
 >[!TIP]
 >If your Open Hub table only contains the data generated by single request ID, for example, you always do full load and overwrite the existing data in the table, or you only run the DTP once for test, remember to uncheck the "excludeLastRequest" option in order to copy the data out.

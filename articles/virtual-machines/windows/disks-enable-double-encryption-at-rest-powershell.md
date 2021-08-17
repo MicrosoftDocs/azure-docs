@@ -3,10 +3,10 @@ title: Azure PowerShell - Enable double encryption at rest - managed disks
 description: Enable double encryption at rest for your managed disk data using Azure PowerShell.
 author: roygara
 
-ms.date: 08/24/2020
+ms.date: 06/29/2021
 ms.topic: how-to
 ms.author: rogarana
-ms.service: virtual-machines-windows
+ms.service: storage
 ms.subservice: disks
 ms.custom: references_regions
 ---
@@ -17,7 +17,7 @@ Azure Disk Storage supports double encryption at rest for managed disks. For con
 
 ## Prerequisites
 
-Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), and sign in to an Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-4.3.0).
+Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), and sign in to an Azure account using [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ## Getting started
 

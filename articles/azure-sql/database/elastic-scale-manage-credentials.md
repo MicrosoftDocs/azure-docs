@@ -7,9 +7,9 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: scoriani 
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/03/2019
 ---
 # Credentials used to access the Elastic Database client library

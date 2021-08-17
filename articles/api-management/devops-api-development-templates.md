@@ -37,14 +37,14 @@ In this example, there are two deployment environments: *Development* and *Produ
 * API developers have access to the Development instance and can use it for developing and testing their APIs. 
 * A designated team called the *API publishers* manages the Production instance.
 
-The key in this proposed approach is to keep all API Management configurations in [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). The organization should keep these templates in a source control system such as Git. As illustrated in the image, a Publisher repository contains all configurations of the Production API Management instance in a collection of templates:
+The key in this proposed approach is to keep all API Management configurations in [Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md). The organization should keep these templates in a source control system such as Git. As illustrated in the image, a Publisher repository contains all configurations of the Production API Management instance in a collection of templates:
 
 |Template  |Description  |
 |---------|---------|
 |Service template     | Service-level configurations of the API Management instance, such as pricing tier and custom domains.         |
 |Shared templates     |  Shared resources throughout an API Management instance, such as groups, products, and loggers.    |
 |API templates     |  Configurations of APIs and their subresources: operations, policies, diagnostic settings.        |
-|Master (main) template     |   Ties everything together by [linking](../azure-resource-manager/resource-group-linked-templates.md) to all templates and deploying them in order. To deploy all configurations to an API Management instance, deploy the main template. You can also deploy each template individually.       |
+|Master (main) template     |   Ties everything together by [linking](../azure-resource-manager/templates/linked-templates.md) to all templates and deploying them in order. To deploy all configurations to an API Management instance, deploy the main template. You can also deploy each template individually.       |
 
 API developers will fork the Publisher repository to a Developer repository and work on the changes for their APIs. In most cases, they focus on the API templates for their APIs and don't need to change the shared or service templates.
 
@@ -63,7 +63,7 @@ API developers face challenges when working with Resource Manager templates:
 
 * API publishers can validate the pull request and make sure the changes are safe and compliant. For example, they can check if only HTTPS is allowed to communicate with the API. Most validations can be automated as a step in the CI/CD pipeline.
 
-* Once the changes are approved and merged successfully, API publishers can choose to deploy them to the Production instance either on schedule or on demand. The deployment of the templates can be automated using [GitHub Actions](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), or other tools.
+* Once the changes are approved and merged successfully, API publishers can choose to deploy them to the Production instance either on schedule or on demand. The deployment of the templates can be automated using [GitHub Actions](https://docs.github.com/en/actions), [Azure Pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), or other tools.
 
 
 With this approach, an organization can automate the deployment of API changes into API Management instances, and it's easy to promote changes from one environment to another. Because different API development teams will be working on different sets of API templates and files, it prevents interference between different teams.

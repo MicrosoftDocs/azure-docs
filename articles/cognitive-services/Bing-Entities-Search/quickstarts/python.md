@@ -17,9 +17,9 @@ ms.custom: devx-track-python
 # Quickstart: Send a search request to the Bing Entity Search REST API using Python
 
 > [!WARNING]
-> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](https://aka.ms/cogsvcs/bingmove).
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
-> For migration instructions, see [Bing Search Services](https://aka.ms/cogsvcs/bingmigration).
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 Use this quickstart to make your first call to the Bing Entity Search API and view the JSON response. This simple Python application sends a news search query to the API, and displays the response. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
 
@@ -40,8 +40,8 @@ Although this application is written in Python, the API is a RESTful Web service
     import json
     
     subscriptionKey = 'ENTER YOUR KEY HERE'
-    host = 'api.cognitive.microsoft.com'
-    path = '/bing/v7.0/entities'
+    host = 'api.bing.microsoft.com'
+    path = '/v7.0/search'
     mkt = 'en-US'
     query = 'italian restaurants near me'
     ```

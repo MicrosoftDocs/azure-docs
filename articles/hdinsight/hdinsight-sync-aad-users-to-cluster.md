@@ -1,8 +1,6 @@
 ---
 title: Synchronize Azure Active Directory users to HDInsight cluster 
 description: Synchronize authenticated users from Azure Active Directory to an HDInsight cluster.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh 
 ms.service: hdinsight
 ms.topic: how-to
@@ -26,11 +24,11 @@ To view your hosts, open the Ambari Web UI. Each node will be updated with  new 
 
 2. Select **All users** from the left-hand menu, then select **New user**.
 
-    ![Azure portal users and groups all](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
+    :::image type="content" source="./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png" alt-text="Azure portal users and groups all":::
 
 3. Complete the new user form. Select groups you created for assigning cluster-based permissions. In this example, create a group named "HiveUsers", to which you can assign new users. The [example instructions](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) for creating an ESP cluster include adding two groups, `HiveUsers` and `AAD DC Administrators`.
 
-    ![Azure portal user pane select groups](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
+    :::image type="content" source="./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png" alt-text="Azure portal user pane select groups":::
 
 4. Select **Create**.
 
@@ -126,15 +124,15 @@ Open the [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) to verify tha
 
 1. From the Ambari dashboard, select **Manage Ambari** under the **admin** menu.
 
-    ![Apache Ambari dashboard Manage Ambari](./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png)
+    :::image type="content" source="./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png" alt-text="Apache Ambari dashboard Manage Ambari":::
 
 2. Select **Users** under the **User + Group Management** menu group on the left-hand side of the page.
 
-    ![HDInsight users and groups menu](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
+    :::image type="content" source="./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png" alt-text="HDInsight users and groups menu":::
 
 3. The new user should be listed within the Users table. The Type is set to `LDAP` rather than  `Local`.
 
-    ![HDInsight aad users page overview](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
+    :::image type="content" source="./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png" alt-text="HDInsight aad users page overview":::
 
 ## Log in to Ambari as the new user
 

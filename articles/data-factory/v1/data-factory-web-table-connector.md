@@ -1,21 +1,11 @@
 ---
 title: Move data from Web Table using Azure Data Factory 
 description: Learn about how to move data from a table in a Web page using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Move data from a Web table source using Azure Data Factory

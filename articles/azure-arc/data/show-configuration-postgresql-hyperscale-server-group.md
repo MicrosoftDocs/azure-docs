@@ -1,6 +1,6 @@
 --- 
 title: Show the configuration of an Arc enabled PostgreSQL Hyperscale server group
-titleSuffix: Azure Arc enabled data services
+titleSuffix: Azure Arc-enabled data services
 description: Show the configuration of an Arc enabled PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
@@ -8,7 +8,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -18,13 +18,13 @@ ms.topic: how-to
 This article explains how to display the configuration of your server group(s). It does so by anticipating some questions you may be asking to yourself and it answers them. At times there may be several valid answers. This article pitches the most common or useful ones. It groups those questions by theme:
 
 - from a Kubernetes point of view
-- from an Azure Arc enabled data services point of view
+- from an Azure Arc-enabled data services point of view
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## From a Kubernetes point of view
 
-### How many pods are used by Azure Arc enabled PostgreSQL Hyperscale?
+### How many pods are used by Azure Arc-enabled PostgreSQL Hyperscale?
 
 List the Kubernetes resources of type Postgres. Run the command:
 
@@ -42,7 +42,7 @@ postgresql-12.arcdata.microsoft.com/postgres02   Ready   3/3          10.0.0.4:3
 
 This example shows that 2 server groups are created and each runs on 3 pods (1 coordinator + 2 workers). That means the server groups created in this Azure Arc Data Controller use 6 pods.
 
-### What pods are used by Azure Arc enabled PostgreSQL Hyperscale server groups?
+### What pods are used by Azure Arc-enabled PostgreSQL Hyperscale server groups?
 
 Run:
 
@@ -123,7 +123,7 @@ logs-few7hh0k4npx9phsiobdc3hq-postgres01-2      Bound    local-pv-5ccd02e6   193
 ```
 
 
-## From an Azure Arc enabled data services point of view:
+## From an Azure Arc-enabled data services point of view:
 
 * How many server groups are created in an Arc Data Controller?
 * What are their names?
@@ -151,12 +151,12 @@ Use either of the following commands.
 
    Each of them runs on 3 nodes/pods: 1 coordinator and 2 workers.
 
-- **With azdata:**
+- **With Azure CLI (az):**
 
 Run the following command. The output shows similar information to what kubectl shows:
 
-   ```console
-   azdata arc postgres server list
+   ```azurecli
+   az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 
    `output
    Name        State    Workers
@@ -233,7 +233,7 @@ Events:               <none>
 ```
 
 >[!NOTE]
->Prior to October 2020 release, `Workers` was `Shards` in the previous example. See [Release notes - Azure Arc enabled data services (Preview)](release-notes.md) for more information.
+>Prior to October 2020 release, `Workers` was `Shards` in the previous example. See [Release notes - Azure Arc-enabled data services (Preview)](release-notes.md) for more information.
 
 Let's call out some specific points of interest in the description of the `servergroup` shown above. What does it tell us about this server group?
 
@@ -277,18 +277,18 @@ Let's call out some specific points of interest in the description of the `serve
    >  State:              Ready
    > ```
 
-**With azdata:**
+**With Azure CLI (az):**
 
 The general format of the command is:
 
-```console
-azdata arc postgres server show -n <server group name>
+```azurecli
+az postgres arc-server show -n <server group name>  --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:
 
-```console
-azdata arc postgres server show -n postgres02
+```azurecli
+az postgres arc-server show -n postgres02 --k8s-namespace <namespace> --use-k8s
 ```
 
 Returns the below output in a format and content very similar to the one returned by kubectl.
@@ -357,10 +357,10 @@ Returns the below output in a format and content very similar to the one returne
 ```
 
 ## Next steps
-- [Read about the concepts of Azure Arc enabled PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md)
-- [Read about how to scale out (add worker nodes) a server group](scale-out-postgresql-hyperscale-server-group.md)
+- [Read about the concepts of Azure Arc-enabled PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md)
+- [Read about how to scale out (add worker nodes) a server group](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Read about how to scale up/down (increase or reduce memory and/or vCores) a server group](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)
 - [Read about storage configuration](storage-configuration.md)
 - [Read how to monitor a database instance](monitor-grafana-kibana.md)
-- [Use PostgreSQL extensions in your Azure Arc enabled PostgreSQL Hyperscale server group](using-extensions-in-postgresql-hyperscale-server-group.md)
-- [Configure security for your Azure Arc enabled PostgreSQL Hyperscale server group](configure-security-postgres-hyperscale.md)
+- [Use PostgreSQL extensions in your Azure Arc-enabled PostgreSQL Hyperscale server group](using-extensions-in-postgresql-hyperscale-server-group.md)
+- [Configure security for your Azure Arc-enabled PostgreSQL Hyperscale server group](configure-security-postgres-hyperscale.md)

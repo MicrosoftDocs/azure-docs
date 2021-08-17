@@ -8,15 +8,17 @@ ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: mathoma
 ms.date: 02/11/2019
 ---
 # SQL Server database migration to Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to Azure SQL Database. For information on migrating to Azure SQL Managed Instance, see [Migrate a SQL Server instance to Azure SQL Managed Instance](../managed-instance/migrate-to-instance-from-sql-server.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
+In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to Azure SQL Database. For information on migrating to Azure SQL Managed Instance, see [Migrate a SQL Server instance to Azure SQL Managed Instance](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md). 
+For guidance on choosing migration options and tools to migrate to Azure SQL, see [Migrate to Azure SQL](../migration-guides/index.yml)
+
 
 ## Migrate to a single database or a pooled database
 
@@ -31,7 +33,7 @@ In both cases, you need to ensure that the source database is compatible with Az
 
  Use this method to migrate to a single or a pooled database if you can afford some downtime or you're performing a test migration of a production database for later migration. For a tutorial, see [Migrate a SQL Server database](../../dms/tutorial-sql-server-to-azure-sql.md).
 
-The following list contains the general workflow for a SQL Server database migration of a single or a pooled database using this method. For migration to SQL Managed Instance, see [Migration to SQL Managed Instance](../managed-instance/migrate-to-instance-from-sql-server.md).
+The following list contains the general workflow for a SQL Server database migration of a single or a pooled database using this method. For migration to SQL Managed Instance, see [SQL Server to Azure SQL Managed Instance Guide](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
 
   ![VSSSDT migration diagram](./media/migrate-to-database-from-sql-server/azure-sql-migration-sql-db.png)
 

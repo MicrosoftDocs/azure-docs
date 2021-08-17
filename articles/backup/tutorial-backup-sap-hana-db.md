@@ -94,6 +94,46 @@ You can also use the following FQDNs to allow access to the required services fr
 
 When you back up an SAP HANA database running on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. Use the list of IPs and FQDNs mentioned above for allowing access to the required services. Authenticated proxy servers aren't supported.
 
+## Understanding backup and restore throughput performance
+
+The backups (log and non-log) in SAP HANA Azure VMs provided via Backint are streams to Azure Recovery services vaults and so it is important to understand this streaming methodology.
+
+The Backint component of HANA provides the 'pipes' (a pipe to read from and a pipe to write into), connected to underlying disks where database files reside, which are then read by the Azure Backup service and transported to Azure Recovery Services vault. The Azure Backup service also performs a checksum to validate the streams, in addition to the backint native validation checks. These validations will make sure that the data present in Azure Recovery Services vault is indeed reliable and recoverable.
+
+Since the streams primarily deal with disks, you need to understand the disk performance to gauge the backup and restore performance. Refer to [this article](../virtual-machines/disks-performance.md) for an in-depth understanding of disk throughput and performance in Azure VMs. These are also applicable to backup and restore performance.
+
+**The Azure Backup service attempts to achieve upto ~420 MBps for non-log backups (such as full, differential and incremental) and upto 100 MBps for log backups for HANA**. As mentioned above, these are not guaranteed speeds and depend on following factors:
+
+* Max Uncached disk throughput of the VM
+* Underlying disk type and its throughput
+* The number of processes which are trying to read and write into the same disk at the same time.
+
+> [!IMPORTANT]
+> In smaller VMs, where the uncached disk throughput is very close to or lesser than 400 MBps, you may be concerned that the entire disk IOPS are consumed by the backup service which may affect SAP HANA's operations related to read/write from the disks. In that case, if you wishes to throttle or limit the backup service consumption to the maximum limit, you can refer to the next section.
+
+### Limiting backup throughput performance
+
+If you want to throttle backup service disk IOPS consumption to a maximum value, then perform the following steps.
+
+1. Go to the "opt/msawb/bin" folder
+2. Create a new JSON file named "ExtensionSettingOverrides.JSON"
+3. Add a key-value pair to the JSON file as follows:
+
+    ```json
+    {
+    "MaxUsableVMThroughputInMBPS": 200
+    }
+    ```
+
+4. Change the permissions and ownership of the file as follows:
+    
+    ```bash
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
+    ```
+
+5. No restart of any service is required. The Azure Backup service will attempt to limit the throughput performance as mentioned in this file.
+
 ## What the pre-registration script does
 
 Running the pre-registration script performs the following functions:
@@ -102,9 +142,10 @@ Running the pre-registration script performs the following functions:
 * It performs outbound network connectivity checks with Azure Backup servers and dependent services like Azure Active Directory and Azure Storage.
 * It logs into your HANA system using the user key listed as part of the [prerequisites](#prerequisites). The user key is used to create a backup user (AZUREWLBACKUPHANAUSER) in the HANA system and **the user key can be deleted after the pre-registration script runs successfully**.
 * AZUREWLBACKUPHANAUSER is assigned these required roles and permissions:
-  * DATABASE ADMIN (in the case of MDC) and BACKUP ADMIN (in the case of SDC): to create new databases during restore.
+  * For MDC: DATABASE ADMIN and BACKUP ADMIN (from HANA 2.0 SPS05 onwards): to create new databases during restore.
+  * For SDC: BACKUP ADMIN: to create new databases during restore.
   * CATALOG READ: to read the backup catalog.
-  * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables.
+  * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables. Only required for SDC and MDC versions below HANA 2.0 SPS04 Rev 46. This is not required for HANA 2.0 SPS04 Rev 46 and above since we are getting the required information from public tables now with the fix from HANA team.
 * The script adds a key to **hdbuserstore** for AZUREWLBACKUPHANAUSER for the HANA backup plug-in to handle all operations (database queries, restore operations, configuring and running backup).
 
 >[!NOTE]
@@ -121,6 +162,18 @@ The command output should display the {SID}{DBNAME} key, with the user shown as 
 
 >[!NOTE]
 > Make sure you have a unique set of SSFS files under `/usr/sap/{SID}/home/.hdb/`. There should be only one folder in this path.
+
+Here is a summary of steps required for completing the pre-registration script run.
+
+|Who  |From  |What to run  |Comments  |
+|---------|---------|---------|---------|
+|```<sid>```adm (OS)     |  HANA OS       |   Read tutorial and download pre-registration script      |   Read the [pre-requisites above](#prerequisites)    Download Pre-registration script from [here](https://aka.ms/scriptforpermsonhana)  |
+|```<sid>```adm (OS) and SYSTEM user (HANA)    |      HANA OS   |   Run hdbuserstore Set command      |   e.g. hdbuserstore Set SYSTEM hostname>:3```<Instance#>```13 SYSTEM ```<password>``` **Note:**  Make sure to use hostname instead of IP address or FQDN      |
+|```<sid>```adm (OS)    |   HANA OS      |  Run hdbuserstore List command       |   Check if the result includes the default store like below : ```KEY SYSTEM  ENV : <hostname>:3<Instance#>13  USER: SYSTEM```      |
+|Root (OS)     |   HANA OS        |    Run Azure Backup HANA pre-registration script      |    ```./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM```     |
+|```<sid>```adm (OS)    |  HANA OS       |   Run hdbuserstore List command      |    Check if result includes new lines as below :  ```KEY AZUREWLBACKUPHANAUSER  ENV : localhost: 3<Instance#>13   USER: AZUREWLBACKUPHANAUSER```     |
+
+After running the pre-registration script successfully and verifying, you can then proceed to check [the connectivity requirements](#set-up-network-connectivity) and then [configure backup](#discover-the-databases) from Recovery services vault
 
 ## Create a Recovery Services vault
 
@@ -221,11 +274,16 @@ Specify the policy settings as follows:
    ![Differential backup policy](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Incremental backups aren't currently supported.
-   >
+   >You can choose either a differential or an incremental as a daily backup but not both.
 
-7. Select **OK** to save the policy and return to the main **Backup policy** menu.
-8. Select **Log Backup** to add a transactional log backup policy,
+7. In **Incremental Backup policy**, select **Enable** to open the frequency and retention controls.
+    * At most, you can trigger one incremental backup per day.
+    * Incremental backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.
+
+    ![Incremental backup policy](./media/backup-azure-sap-hana-database/incremental-backup-policy.png)
+
+8. Select **OK** to save the policy and return to the main **Backup policy** menu.
+9. Select **Log Backup** to add a transactional log backup policy,
    * **Log Backup** is by default set to **Enable**. This can't be disabled as SAP HANA manages all log backups.
    * We've set **2 hours** as the Backup schedule and **15 days** of retention period.
 
@@ -235,8 +293,8 @@ Specify the policy settings as follows:
    > Log backups only begin to flow after one successful full backup is completed.
    >
 
-9. Select **OK** to save the policy and return to the main **Backup policy** menu.
-10. After you finish defining the backup policy, select **OK**.
+10. Select **OK** to save the policy and return to the main **Backup policy** menu.
+11. After you finish defining the backup policy, select **OK**.
 
 You've now successfully configured backup(s) for your SAP HANA database(s).
 

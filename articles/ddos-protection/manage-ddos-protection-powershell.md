@@ -3,14 +3,15 @@ title: Create and configure an Azure DDoS Protection plan using Azure PowerShell
 description: Learn how to create a DDoS Protection Plan using Azure PowerShell
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
-ms.author: yitoh
+ms.author: yitoh 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Quickstart: Create and configure Azure DDoS Protection Standard using Azure PowerShell
@@ -109,4 +110,4 @@ If you want to delete a DDoS protection plan, you must first dissociate all virt
 To learn how to view and configure telemetry for your DDoS protection plan, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [View and configure DDoS protection telemetry](telemetry-monitoring-alerting.md)
+> [View and configure DDoS protection telemetry](telemetry.md)

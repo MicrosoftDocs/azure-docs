@@ -1,7 +1,7 @@
 ---
 title: Use the studio to deploy models trained in the designer
 titleSuffix: Azure Machine Learning
-description: 'Use Azure Machine Learning studio to deploy models trained in the designer.'
+description: Use Azure Machine Learning studio to deploy machine learning models without writing a single line of code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,15 @@ ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/29/2020
-ms.topic: conceptual
-ms.custom: how-to, deploy, studio
+ms.topic: how-to
+ms.custom: deploy, studio, designer
 ---
 
 # Use the studio to deploy models trained in the designer
 
-In this article, you learn how to deploy a trained model from the designer as a real-time endpoint in Azure Machine Learning studio.
+In this article, you learn how to deploy a designer model as a real-time endpoint in Azure Machine Learning studio.
+
+Once registered or downloaded, you can use designer trained models just like any other model. Exported models can be deployed in use cases such as internet of things (IoT) and local deployments.
 
 Deployment in the studio consists of the following steps:
 
@@ -26,7 +28,7 @@ Deployment in the studio consists of the following steps:
 
 You can also deploy models directly in the designer to skip model registration and file download steps. This can be useful for rapid deployment. For more information see, [Deploy a model with the designer](tutorial-designer-automobile-price-deploy.md).
 
-Models trained in the designer can also be deployed through the SDK or command-line interface (CLI). For more information, see [Deploy your existing model with Azure Machine Learning](how-to-deploy-existing-model.md).
+Models trained in the designer can also be deployed through the SDK or command-line interface (CLI). For more information, see [Deploy your existing model with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prerequisites
 
@@ -56,7 +58,6 @@ After the training pipeline completes, register the trained model to your Azure 
 After registering your model, you can find it in the **Models** asset page in the studio.
     
 ![Screenshot of registered model in the Models asset page](./media/how-to-deploy-model-designer/models-asset-page.png)
-
 
 ## Download the entry script file and conda dependencies file
 

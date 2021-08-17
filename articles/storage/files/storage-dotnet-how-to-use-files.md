@@ -30,13 +30,20 @@ To learn more about Azure Files, see [What is Azure Files?](storage-files-introd
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Understanding the .NET APIs
 
 Azure Files provides two broad approaches to client applications: Server Message Block (SMB) and REST. Within .NET, the `System.IO` and `Azure.Storage.Files.Shares` APIs abstract these approaches.
 
 API | When to use | Notes
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Your application: <ul><li>Needs to read/write files by using SMB</li><li>Is running on a device that has access over port 445 to your Azure Files account</li><li>Doesn't need to manage any of the administrative settings of the file share</li></ul> | File I/O implemented with Azure Files over SMB is generally the same as I/O with any network file share or local storage device. For an introduction to a number of features in .NET, including file I/O, see the [Console Application](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) tutorial.
+[System.IO](/dotnet/api/system.io) | Your application: <ul><li>Needs to read/write files by using SMB</li><li>Is running on a device that has access over port 445 to your Azure Files account</li><li>Doesn't need to manage any of the administrative settings of the file share</li></ul> | File I/O implemented with Azure Files over SMB is generally the same as I/O with any network file share or local storage device. For an introduction to a number of features in .NET, including file I/O, see the [Console Application](/dotnet/csharp/tutorials/console-teleprompter) tutorial.
 [Azure.Storage.Files.Shares](/dotnet/api/azure.storage.files.shares) | Your application: <ul><li>Can't access Azure Files by using SMB on port 445 because of firewall or ISP constraints</li><li>Requires administrative functionality, such as the ability to set a file share's quota or create a shared access signature</li></ul> | This article demonstrates the use of `Azure.Storage.Files.Shares` for file I/O using REST instead of SMB and management of the file share.
 
 ## Create the console application and obtain the assembly
@@ -55,7 +62,7 @@ Add all the code examples in this article to the `Program` class in the *Program
 
 Refer to these packages in your project:
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 - [Azure core library for .NET](https://www.nuget.org/packages/Azure.Core/): This package is the implementation of the Azure client pipeline.
 - [Azure Storage Blob client library for .NET](https://www.nuget.org/packages/Azure.Storage.Blobs/): This package provides programmatic access to blob resources in your storage account.
@@ -75,7 +82,7 @@ You can use NuGet to obtain the packages. Follow these steps:
    - **Azure.Storage.Files.Shares**
    - **System.Configuration.ConfigurationManager**
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 - [Microsoft Azure Storage common library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): This package provides programmatic access to common resources in your storage account.
 - [Microsoft Azure Storage Blob library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): This package provides programmatic access to blob resources in your storage account.
@@ -100,13 +107,13 @@ You can use NuGet to obtain the packages. Follow these steps:
 
 Next, save your credentials in your project's *App.config* file. In **Solution Explorer**, double-click `App.config` and edit the file so that it is similar to the following example.
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 Replace `myaccount` with your storage account name and `mykey` with your storage account key.
 
 :::code language="xml" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/app.config" highlight="5,6,7":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 Replace `myaccount` with your storage account name and `StorageAccountKeyEndingIn==` with your storage account key.
 
@@ -132,11 +139,11 @@ Replace `myaccount` with your storage account name and `StorageAccountKeyEndingI
 
 In **Solution Explorer**, open the *Program.cs* file, and add the following using directives to the top of the file.
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UsingStatements":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -153,13 +160,13 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 In the *Program.cs* file, add the following code to access the file share programmatically.
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 The following method creates a file share if it doesn't already exist. The method starts by creating a [ShareClient](/dotnet/api/azure.storage.files.shares.shareclient) object from a connection string. The sample then attempts to download a file we created earlier. Call this method from `Main()`.
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShare":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 Next, add the following content to the `Main()` method, after the code shown above, to retrieve the connection string. This code gets a reference to the file we created earlier and outputs its contents.
 
@@ -207,11 +214,11 @@ Setting the quota for a share limits the total size of the files stored on the s
 
 The example below shows how to check the current usage for a share and how to set the quota for the share.
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_SetMaxShareSize":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -249,13 +256,13 @@ if (share.Exists())
 
 Beginning with version 5.x of the Azure Files client library, you can generate a shared access signature (SAS) for a file share or for an individual file.
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 The following example method returns a SAS on a file in the specified share.
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_GetFileSasUri":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 You can also create a stored access policy on a file share to manage shared access signatures. We recommend creating a stored access policy because it lets you revoke the SAS if it becomes compromised. The following example creates a stored access policy on a share. The example uses that policy to provide the constraints for a SAS on a file in the share.
 
@@ -311,7 +318,7 @@ For more information about creating and using shared access signatures, see [How
 
 Beginning with version 5.x of the Azure Files client library, you can copy a file to another file, a file to a blob, or a blob to a file.
 
-You can also use AzCopy to copy one file to another or to copy a blob to a file or the other way around. See [Get started with AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+You can also use AzCopy to copy one file to another or to copy a blob to a file or the other way around. See [Get started with AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 > [!NOTE]
 > If you are copying a blob to a file, or a file to a blob, you must use a shared access signature (SAS) to authorize access to the source object, even if you are copying within the same storage account.
@@ -320,11 +327,11 @@ You can also use AzCopy to copy one file to another or to copy a blob to a file 
 
 The following example copies a file to another file in the same share. You can use [Shared Key authentication](/rest/api/storageservices/authorize-with-shared-key) to do the copy because this operation copies files within the same storage account.
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CopyFile":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -374,11 +381,11 @@ if (share.Exists())
 
 The following example creates a file and copies it to a blob within the same storage account. The example creates a SAS for the source file, which the service uses to authorize access to the source file during the copy operation.
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CopyFileToBlob":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -436,11 +443,11 @@ Beginning with version 8.5 of the Azure Files client library, you can create a s
 
 The following example creates a file share snapshot.
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_CreateShareSnapshot":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 ```csharp
 storageAccount = CloudStorageAccount.Parse(ConnectionString); 
@@ -457,11 +464,11 @@ var snapshotShare = myShare.Snapshot();
 
 The following example lists the snapshots on a share.
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_ListShareSnapshots":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 ```csharp
 var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
@@ -473,11 +480,11 @@ var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
 
 The following example browses files and directories within share snapshots.
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_ListSnapshotContents":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
@@ -493,11 +500,11 @@ Taking a snapshot of a file share enables you to recover individual files or the
 
 You can restore a file from a file share snapshot by querying the share snapshots of a file share. You can then retrieve a file that belongs to a particular share snapshot. Use that version to directly read or to restore the file.
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_RestoreFileFromSnapshot":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
@@ -528,11 +535,11 @@ fileInliveShare.StartCopyAsync(new Uri(sourceUri));
 
 The following example deletes a file share snapshot.
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_DeleteSnapshot":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 ```csharp
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
@@ -548,11 +555,11 @@ You can enable metrics for Azure Files from the [Azure portal](https://portal.az
 
 The following code example shows how to use the .NET client library to enable metrics for Azure Files.
 
-# [\.NET v12](#tab/dotnet)
+# [Azure \.NET SDK v12](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/files/howto/dotnet/dotnet-v12/FileShare.cs" id="snippet_UseMetrics":::
 
-# [\.NET v11](#tab/dotnetv11)
+# [Azure \.NET SDK v11](#tab/dotnetv11)
 
 First, add the following `using` directives to your *Program.cs* file, along with the ones you added above:
 
@@ -619,8 +626,8 @@ For more information about Azure Files, see the following resources:
 
 ### Tooling support for File storage
 
-- [Get started with AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-- [Troubleshoot Azure Files problems in Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+- [Get started with AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+- [Troubleshoot Azure Files problems in Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 
 ### Reference
 

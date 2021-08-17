@@ -1,13 +1,13 @@
 ---
 title: Install a master target server for Linux VM failback with Azure Site Recovery
 description: Learn how to set up a Linux master target server for failback to an on-premises site during disaster recovery of VMware VMs to Azure using Azure Site Recovery.
-author: mayurigupta13
 services: site-recovery
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.author: mayg
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
 
 
@@ -17,7 +17,6 @@ After you fail over your virtual machines to Azure, you can fail back the virtua
 If your protected virtual machine is a Windows virtual machine, then you need a Windows master target. For a Linux virtual machine, you need a Linux master target. Read the following steps to learn how to create and install a Linux master target.
 
 > [!IMPORTANT]
-> Starting with release of the 9.10.0 master target server, the latest master target server can be only installed on an Ubuntu 16.04 server. New installations aren't allowed on  CentOS6.6 servers. However, you can continue to upgrade your old master target servers by using the 9.10.0 version.
 > Master target server on LVM is not supported.
 
 ## Overview
@@ -55,6 +54,9 @@ operating system.
 
 1.   Go to the [download link](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), choose the closest mirror and download an Ubuntu 16.04.2 minimal 64-bit ISO.
 Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
+
+>[!NOTE]
+> From, version [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), Ubuntu 20.04 operating system is supported for Linux master target server.If you wish to use the latest OS, proceed setting up the machine with Ubuntu 20.04 iso image.
 
 1.  Select **English** as your preferred language, and then select **Enter**.
     
@@ -179,6 +181,10 @@ Azure Site Recovery master target server requires a specific version of the Ubun
 > Make sure that you have Internet connectivity to download and install additional packages. If you don't have Internet connectivity, you need to manually find these Deb packages and install them.
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
+
+>[!NOTE]
+> From, version [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), Ubuntu 20.04 operating system is supported for Linux master target server.
+> If you wish to use the latest OS, upgrade the operating system to Ubuntu 20.04 before proceeding. To upgrade the operating system later, you can follow the instructions listed [here](#upgrade-os-of-master-target-server-from-ubuntu-1604-to-ubuntu-2004).
 
 ### Get the installer for setup
 
@@ -326,12 +332,32 @@ You need to install VMware tools or open-vm-tools on the master target so that i
 
 ### Upgrade the master target server
 
-Run the installer. It automatically detects that the agent is installed on the master target. To upgrade, select **Y**.  After the setup has been completed, check the version of the master target installed by using the following command:
+Running the installer will automatically detect that the agent is installed on the master target. To complete the upgrade, complete the following steps:
+1. Copy tar.gz from configuration server to linux master target
+2. Run this command to validate the version you are running: cat /usr/local/.vx_version
+3. Extract tar: tar -xvf latestlinuxmobsvc.tar.gz
+4. Give permissions to execute changes: chmod 755 ./install
+5. Run the upgrade script: sudo ./install
+6. The installer should detect the agent is installed on the master target. To upgrade, select **Y**.
+7. Validate the agent is running the new version: cat /usr/local/.vx_version
+
+After the setup has been completed, check the version of the master target installed by using the following command:
 
 `cat /usr/local/.vx_version`
 
 
 You will see that the **Version** field gives the version number of the master target.
+
+## Upgrade OS of master target server from Ubuntu 16.04 to Ubuntu 20.04
+
+From 9.42 version, ASR supports Linux master target server on Ubuntu 20.04. To upgrade the OS of existing master target server,
+
+1. Ensure the Linux scale-out master target server is not used for re-protect operation of any protected VM.
+2. Uninstall master target server installer from the machine
+3. Now, upgrade the operating system from Ubuntu 16.04 to 20.04
+4. After successful upgrade OS, reboot the machine.
+5. Now [download the latest installer](#download-the-master-target-installation-packages) and follow the instructions given [above](#install-the-master-target) to complete installation of master target server.
+
 
 ## Common issues
 

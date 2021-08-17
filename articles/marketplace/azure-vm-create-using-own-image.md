@@ -1,80 +1,72 @@
 ---
 title: Create an Azure virtual machine offer on Azure Marketplace using your own image
-description: Learn how to publish a virtual machine offer to Azure Marketplace using your own image.
+description: Publish a virtual machine offer to Azure Marketplace using your own image.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
+author: krsh
 ms.author: krsh
-ms.date: 10/20/2020
+ms.date: 07/22/2021
 ---
 
-# How to create a virtual machine using your own image
+# Create a virtual machine using your own image
 
-This article describes how to create and deploy a user-provided virtual machine (VM) image.
+This article describes how to publish a virtual machine (VM) image that you built on your premises.
+
+## Bring your image into Azure
+
+Upload your VHD to an Azure shared image gallery.
+
+1. On the Azure portal, search for **Shared image galleries**.
+2. Create or use an existing shared image gallery. We suggest you create a separate Shared image gallery for images being published to Marketplace.
+3. Create or use an existing image definition.
+4. Select **Create a version**.
+5. Choose the region and image version.
+6. If your VHD is not yet uploaded to Azure portal, choose **Storage blobs (VHDs)** as the **Source**, then **Browse**. You can create a **storage account** and **storage container** if you haven’t created one before. Upload your VHD.
+7. Select **Review + create**. Once validation finishes, select **Create**.
+
+> [!TIP]
+> Publisher account must have “Owner” access to publish the SIG Image. If required, follow the steps in the following section, **Set the right permissions**, to grant access.
+
+## Set the right permissions
+
+If your Partner Center account is the owner of the subscription hosting Shared Image Gallery, nothing further is needed for permissions.
+
+If you only have read access to the subscription, use one of the following two options.
+
+### Option one – Ask the owner to grant owner permission
+
+Steps for the owner to grant owner permission:
+
+1. Go to the Shared Image Gallery (SIG).
+2. Select **Access control** (IAM) on the left panel.
+3. Select **Add**, then **Add role assignment**.<br>
+    :::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="The add role assignment window is shown.":::
+1. For **Role**, select **Owner**.
+1. For **Assign access to**, select **User, group, or service principal**.
+1. For **Select**, enter the Azure email of the person who will publish the image.
+1. Select **Save**.
+
+### Option Two – Run a command
+
+Ask the owner to run either one of these commands (in either case, use the SusbscriptionId of the subscription where you created the Shared image gallery).
+
+```azurecli
+az login
+az provider register --namespace Microsoft.PartnerCenterIngestion --subscription {subscriptionId}
+```
+
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId {subscriptionId}
+Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
+```
 
 > [!NOTE]
-> Before you start this procedure, review the [technical requirements](marketplace-virtual-machines.md#technical-requirements) for Azure VM offers, including virtual hard disk (VHD) requirements.
-
-To use an approved base image instead, follow the instructions in [Create a VM image from an approved base](azure-vm-create-using-approved-base.md).
-
-## Configure the VM
-
-This section describes how to size, update, and generalize an Azure VM. These steps are necessary to prepare your VM to be deployed on Azure Marketplace.
-
-### Size the VHDs
-
-[!INCLUDE [Discussion of VHD sizing](includes/vhd-size.md)]
-
-### Install the most current updates
-
-[!INCLUDE [Discussion of most current updates](includes/most-current-updates.md)]
-
-### Perform additional security checks
-
-[!INCLUDE [Discussion of addition security checks](includes/additional-security-checks.md)]
-
-### Perform custom configuration and scheduled tasks
-
-[!INCLUDE [Discussion of custom configuration and scheduled tasks](includes/custom-config.md)]
-
-## Upload the VHD to Azure
-
-Configure and prepare the VM to be uploaded as described in [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) or [Create and Upload a Linux VHD](../virtual-machines/linux/create-upload-generic.md).
-
-## Extract the VHD from image (if using image building services)
-
-If you are using an image building service such as [Packer](https://www.packer.io/), you may need to extract the VHD from the image. There is no direct way to do this. You will have to create a VM and extract the VHD from the VM disk.
-
-### Create the VM on the Azure portal
-
-Follow these steps to create the base VM image on the [Azure portal](https://ms.portal.azure.com/).
-
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
-2. Select **Virtual machines**.
-3. Select **+ Add** to open the **Create a virtual machine** screen.
-4. Select the image from the dropdown list or select **Browse all public and private images** to search or browse all available virtual machine images.
-5. To create a **Gen 2** VM, go to the **Advanced** tab and select the **Gen 2** option.
-
-    :::image type="content" source="media/create-vm/vm-gen-option.png" alt-text="Select Gen 1 or Gen 2.":::
-
-6. Select the size of the VM to deploy.
-
-    :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Select a recommended VM size for the selected image.":::
-
-7. Provide the other required details to create the VM.
-8. Select **Review + create** to review your choices. When the **Validation passed** message appears, select **Create**.
-
-Azure begins provisioning the virtual machine you specified. Track its progress by selecting the **Virtual Machines** tab in the left menu. After it's created the status of Virtual Machine changes to **Running**.
-
-### Connect to your VM
-
-Refer to the following documentation to connect to your [Windows](../virtual-machines/windows/connect-logon.md) or [Linux](../virtual-machines/linux/ssh-from-windows.md#connect-to-your-vm) VM.
-
-[!INCLUDE [Discussion of addition security checks](includes/size-connect-generalize.md)]
+> You don’t need to generate SAS URIs as you can now publish a Shared image gallery (SIG) Image on Partner  Center, without using APIs. <br/> <br/>If you *are* publishing using APIs, you would need to generate SAS URIs instead of using a SIG, see [How to generate a SAS URI for a VM image](azure-vm-get-sas-uri.md).
 
 ## Next steps
 
-- Recommended next step: [Test your VM image](azure-vm-image-test.md) to ensure it meets Azure Marketplace publishing requirements. This is optional.
-- If you don't test your VM image, continue with [Generate the SAS URI](azure-vm-get-sas-uri.md).
-- If you encountered difficulty creating your new Azure-based VHD, see [VM FAQ for Azure Marketplace](azure-vm-create-faq.md).
+- [Test your VM image](azure-vm-image-test.md) to ensure it meets Azure Marketplace publishing requirements (optional).
+- If you don't want to test your VM image, sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165935) and publish the SIG Image.
+- If you encountered difficulty creating your new Azure-based VHD, see [VM FAQ for Azure Marketplace](azure-vm-create-faq.yml).

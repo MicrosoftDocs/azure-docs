@@ -25,15 +25,15 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Custom roles overview
+          - text: Azure AD role-based access control overview
             url: custom-overview.md
       - linkListType: concept
         links:
-          - text: Delegate administration
-            url: concept-delegation.md
+          - text: Understand Azure AD roles
+            url: concept-understand-roles.md
           - text: Understand administrative units in Azure AD
             url: administrative-units.md
-          - text: Use cloud groups to manage role assignments
+          - text: Use groups to manage role assignments
             url: groups-concept.md
 
   # Card
@@ -75,7 +75,7 @@ landingContent:
         links:
           - text: Create role-assignable groups
             url: groups-create-eligible.md
-          - text: Assign a role to a cloud group
+          - text: Assign roles to groups
             url: groups-assign-role.md
           - text: Make a group eligible for PIM
             url: groups-pim-eligible.md

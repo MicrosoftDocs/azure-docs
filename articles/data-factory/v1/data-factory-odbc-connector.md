@@ -1,21 +1,12 @@
 ---
 title: Move data from ODBC data stores 
 description: Learn about how to move data from ODBC data stores using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-
-ms.assetid: ad70a598-c031-4339-a883-c6125403cb76
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.author: jingwang
-
+ms.author: jingwang 
+ms.custom: devx-track-azurepowershell
 robots: noindex
 ---
 # Move data From ODBC data stores using Azure Data Factory
@@ -203,9 +194,9 @@ This example uses the Basic authentication. See [ODBC linked service](#linked-se
 
 **ODBC input dataset**
 
-The sample assumes you have created a table “MyTable” in an ODBC database and it contains a column called “timestampcolumn” for time series data.
+The sample assumes you have created a table "MyTable" in an ODBC database and it contains a column called "timestampcolumn" for time series data.
 
-Setting “external”: ”true” informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting "external": "true" informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 ```json
 {

@@ -1,14 +1,16 @@
 ---
 title: Auto grow storage - Azure PowerShell - Azure Database for MySQL
 description: This article describes how you can enable auto grow storage using PowerShell in Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 4/28/2020 
 ms.custom: devx-track-azurepowershell
 ---
 # Auto grow storage in Azure Database for MySQL server using PowerShell
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This article describes how you can configure an Azure Database for MySQL server storage to grow
 without impacting the workload.

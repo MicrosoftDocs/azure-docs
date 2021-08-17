@@ -7,13 +7,15 @@ ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: devx-track-js
 ---
 
 # Use the Azure Maps map control
 
 The Map Control client-side JavaScript library allows you to render maps and embedded Azure Maps functionality into your web or mobile application.
+
+This documentation uses the Azure Maps Web SDK, however the Azure Maps services can be used with any map control. [Here](open-source-projects.md#third-part-map-control-plugins) are some popular open-source map controls that the Azure Maps team has created plugin's for.
 
 ## Prerequisites
 
@@ -251,10 +253,10 @@ If directly accessing the Azure Maps REST services, change the URL domain to `at
 
 If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
-- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around Azure maps.
-- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - An Azure Maps Blazor component.
-- [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
-- [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.
+* [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) - Angular 10 wrapper around Azure maps.
+* [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - An Azure Maps Blazor component.
+* [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
+* [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.
 
 ## Next steps
 
@@ -268,10 +270,10 @@ Learn how to style a map:
 > [!div class="nextstepaction"]
 > [Choose a map style](choose-map-style.md)
 
-To add more data to your map:
+Learn best practices and see samples:
 
 > [!div class="nextstepaction"]
-> [Create a map](map-create.md)
+> [Best practices](web-sdk-best-practices.md)
 
 > [!div class="nextstepaction"]
 > [Code samples](/samples/browse/?products=azure-maps)

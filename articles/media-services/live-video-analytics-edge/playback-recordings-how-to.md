@@ -1,11 +1,13 @@
 ---
-title: Playback of recordings - Azure
-description: You can use Live Video Analytics on IoT Edge for continuous video recording, whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via event-based recording. This article talks about how to playback recordings.
+title: Playback of recordings with Live Video Analytics - Azure
+description: You can use Azure Live Video Analytics on IoT Edge for continuous video recording, whereby you can record video into the cloud for weeks or months. You can also limit your recording to clips that are of interest, via event-based recording. This article talks about how to playback recordings.
 ms.topic: how-to
 ms.date: 04/27/2020
 
 ---
-# Playback of recordings 
+# Playback of recordings with Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## Pre-read  
 
@@ -47,7 +49,7 @@ Where the precision value can be one of: year, month, day, or full (as shown bel
 |---|---|---|---|---|
 |Query|`/availableMedia?precision=year&startTime=2018&endTime=2019`|`/availableMedia?precision=month& startTime=2018-01& endTime=2019-02`|`/availableMedia?precision=day& startTime=2018-01-15& endTime=2019-02-02`|`/availableMedia?precision=full& startTime=2018-01-15T10:08:11.123& endTime=2019-01-015T12:00:01.123`|
 |Response|`{  "timeRanges":[{ "start":"2018", "end":"2019" }]}`|`{  "timeRanges":[{ "start":"2018-03", "end":"2019-01" }]}`|`{  "timeRanges":[    { "start":"2018-03-01", "end":"2018-03-07" },    { "start":"2018-03-09", "end":"2018-03-31" }  ]}`|Full fidelity response. If there were no gaps at all, the start would be startTime, and end would be endTime.|
-|Constrains|&#x2022;startTime <= endTime<br/>&#x2022;Both should be in YYYY format, otherwise return error.<br/>&#x2022;Values can be any number of years apart.<br/>&#x2022;Values are inclusive.|&#x2022;startTime <= endTime<br/>&#x2022;Both should be in YYYY-MM format, otherwise return error.<br/>&#x2022;Values can be at most 12 months apart.<br/>&#x2022;Values are inclusive.|&#x2022;startTime <= endTime<br/>&#x2022;Both should be in YYYY-MM-DD format, otherwise return error.<br/>&#x2022;Values can be at most 31 days apart.<br/>Values are inclusive.|&#x2022;startTime < endTime<br/>&#x2022;Values can be at most 25 hours apart.<br/>&#x2022;Values are inclusive.|
+|Constraints|&#x2022;startTime <= endTime<br/>&#x2022;Both should be in YYYY format, otherwise return error.<br/>&#x2022;Values can be any number of years apart.<br/>&#x2022;Values are inclusive.|&#x2022;startTime <= endTime<br/>&#x2022;Both should be in YYYY-MM format, otherwise return error.<br/>&#x2022;Values can be at most 12 months apart.<br/>&#x2022;Values are inclusive.|&#x2022;startTime <= endTime<br/>&#x2022;Both should be in YYYY-MM-DD format, otherwise return error.<br/>&#x2022;Values can be at most 31 days apart.<br/>Values are inclusive.|&#x2022;startTime < endTime<br/>&#x2022;Values can be at most 25 hours apart.<br/>&#x2022;Values are inclusive.|
 
 #### Additional request format considerations
 

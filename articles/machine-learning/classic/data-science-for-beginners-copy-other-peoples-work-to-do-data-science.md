@@ -3,7 +3,7 @@ title: 'Copy data science examples - ML Studio (classic) - Azure'
 description: 'Trade secret of data science: Get others to do your work for you. Get machine learning examples from the Azure AI Gallery.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 
 author: sdgilley
@@ -44,9 +44,9 @@ One of the trade secrets of data science is getting other people to do your work
 
 ## Find examples in the Azure AI Gallery
 
-Microsoft has a cloud-based service called [Azure Machine Learning Studio (classic)](https://azure.microsoft.com/services/machine-learning-studio/). It provides you with a workspace where you can experiment with different machine learning algorithms, and, when you've got your solution worked out, you can launch it as a web service.
+Microsoft has a cloud-based service called [Machine Learning Studio (classic)](https://azure.microsoft.com/services/machine-learning-studio/). It provides you with a workspace where you can experiment with different machine learning algorithms, and, when you've got your solution worked out, you can launch it as a web service.
 
-Part of this service is something called the **[Azure AI Gallery](https://gallery.azure.ai/)**. It contains resources, including a collection of Azure Machine Learning Studio (classic) experiments, or models, that people have built and contributed for others to use. These experiments are a great way to leverage the thought and hard work of others to get you started on your own solutions. Everyone is welcome to browse through it.
+Part of this service is something called the **[Azure AI Gallery](https://gallery.azure.ai/)**. It contains resources, including a collection of Machine Learning Studio (classic) experiments, or models, that people have built and contributed for others to use. These experiments are a great way to leverage the thought and hard work of others to get you started on your own solutions. Everyone is welcome to browse through it.
 
 ![Azure AI Gallery](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -69,7 +69,7 @@ Notice the link that says **Open in Studio (classic)**.
 
 ![Open in Studio (classic) button](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
-I can click on that and it takes me right to **Azure Machine Learning Studio (classic)**. It creates a copy of the experiment and puts it in my own workspace. This includes the contributor's dataset, all the processing that they did, all of the algorithms that they used, and how they saved out the results.
+I can click on that and it takes me right to **Machine Learning Studio (classic)**. It creates a copy of the experiment and puts it in my own workspace. This includes the contributor's dataset, all the processing that they did, all of the algorithms that they used, and how they saved out the results.
 
 ![Open a Gallery experiment in Machine Learning Studio (classic) - clustering algorithm example](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
 
@@ -82,8 +82,8 @@ There are other experiments in the [Azure AI Gallery](https://gallery.azure.ai) 
 
 [Azure AI Gallery](https://gallery.azure.ai) is a place to find working experiments that you can use as a starting point for your own solutions.
 
-Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning Studio (classic).
+Be sure to check out the other videos in "Data Science for Beginners" from Machine Learning Studio (classic).
 
 ## Next steps
-* [Try your first data science experiment with Azure Machine Learning Studio (classic)](create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](../overview-what-is-azure-ml.md)
+* [Try your first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
+* [Get an introduction to Azure Machine Learning](../overview-what-is-azure-machine-learning.md)

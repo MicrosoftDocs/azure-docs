@@ -8,14 +8,12 @@ manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: 'SAP'
-
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/21/2020
+ms.date: 12/12/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -78,6 +76,12 @@ Operating system, Oracle DBMS releases and Oracle functionality supported on Azu
 - Non-Unicode SAP systems are only supported with application servers running with Windows guest OS. The guest operating system of the DBMS can be Oracle Linux or Windows. Reason for this restriction is apparent when checking the SAP Product Availability Matrix (PAM). For Oracle Linux, SAP never released non-Unicode SAP kernels
 
 Knowing the DBMS releases that are supported with the targeted Azure infrastructure you need to check the SAP Product Availability Matrix on whether the OS releases and DBMS required are supported with your SAP product releases you intended to run. 
+
+## Oracle Linux
+Most prominent asked question around Oracle Linux is whether SAP supports the Red Hat kernel that is integral part of Oracle Linux as well. For details read [SAP support note #1565179](https://launchpad.support.sap.com/#/notes/1565179).
+
+## Other database than SAP HANA
+Support of non-HANA databases for SAP workload is documented in [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533).
 
 
 ## SAP HANA support

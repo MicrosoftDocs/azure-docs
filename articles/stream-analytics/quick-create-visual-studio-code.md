@@ -2,15 +2,15 @@
 title: Quickstart - Create an Azure Stream Analytics job in Visual Studio Code
 description: This quickstart shows you how to get started by creating a Stream Analytics job, configuring inputs and outputs, and defining a query with Visual Studio Code.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: su-jie
+ms.author: sujie
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
 #Customer intent: "As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using Visual Studio Code."
 ---
 
-# Quickstart: Create an Azure Stream Analytics job in Visual Studio Code (preview)
+# Quickstart: Create an Azure Stream Analytics job in Visual Studio Code
 
 This quickstart shows you how to create and run an Azure Stream Analytics job by using the Azure Stream Analytics Tools extension for Visual Studio Code. The example job reads streaming data from an Azure IoT Hub device. You define a job that calculates the average temperature when over 27° and writes the resulting output events to a new file in blob storage.
 

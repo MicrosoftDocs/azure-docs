@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Overview of how using virtual node with Azure Kubernetes Services (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 02/17/2021
 ms.custom: references_regions
 ---
 
@@ -18,7 +18,7 @@ This article gives you an overview of the region availability and networking req
 
 ## Regional availability
 
-All regions, where ACI supports VNET SKUs, are supported for virtual nodes deployments.
+All regions, where ACI supports VNET SKUs, are supported for virtual nodes deployments. For more details, see [Resource availability for Azure Container Instances in Azure regions](../container-instances/container-instances-region-availability.md).
 
 For available CPU and Memory SKUs in each region, please check the [Azure Container Instances Resource availability for Azure Container Instances in Azure regions - Linux container groups](../container-instances/container-instances-region-availability.md#linux-container-groups)
 
@@ -40,9 +40,9 @@ Virtual Nodes functionality is heavily dependent on ACI's feature set. In additi
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) will not deploy pods to the virtual nodes
 * Virtual nodes support scheduling Linux pods. You can manually install the open source [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) provider to schedule Windows Server containers to ACI.
 * Virtual nodes require AKS clusters with Azure CNI networking.
-* Virtual nodes with Private clusters.
 * Using api server authorized ip ranges for AKS.
 * Volume mounting Azure Files share support [General-purpose V1](../storage/common/storage-account-overview.md#types-of-storage-accounts). Follow the instructions for mounting [a volume with Azure Files share](azure-files-volume.md)
+* Using IPv6 is not supported.
 
 ## Next steps
 

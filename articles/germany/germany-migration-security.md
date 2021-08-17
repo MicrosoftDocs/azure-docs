@@ -42,7 +42,7 @@ Get-AzKeyVaultSecret -vaultname mysecrets -name Deploydefaultpw
 
 For more information:
 
-- Refresh your knowledge by completing the [Key Vault tutorials](https://docs.microsoft.com/azure/key-vault/).
+- Refresh your knowledge by completing the [Key Vault tutorials](../key-vault/index.yml).
 - Review the [Key Vault overview](../key-vault/general/overview.md).
 - Review the [Key Vault PowerShell cmdlets](/powershell/module/az.keyvault/).
 
@@ -56,10 +56,10 @@ Make sure that you update your on-premises configuration. Also, delete any exist
 
 For more information:
 
-- Refresh your knowledge by completing the [VPN Gateway tutorials](https://docs.microsoft.com/azure/vpn-gateway).
-- Learn how to [create a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+- Refresh your knowledge by completing the [VPN Gateway tutorials](../vpn-gateway/index.yml).
+- Learn how to [create a site-to-site connection](../vpn-gateway/tutorial-site-to-site-portal.md).
 - Review the [Get-AzVirtualNetworkGateway](/powershell/module/az.network/get-azvirtualnetworkgateway) PowerShell cmdlets.
-- Read the blog post [Create a site-to-site connection](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/).
+- Read the blog post [Create a site-to-site connection](/archive/blogs/ralfwi/connecting-clouds).
   
 ## Application Gateway
 
@@ -69,7 +69,7 @@ You can collect information about your current gateway configuration by using th
 
 For more information:
 
-- Refresh your knowledge by completing the [Application Gateway tutorials](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal).
+- Refresh your knowledge by completing the [Application Gateway tutorials](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
 - Learn how to [create an application gateway](../application-gateway/quick-create-portal.md).
 - Review the [Get-AzApplicationGateway](/powershell/module/az.network/get-azapplicationgateway) PowerShell cmdlets.
 
@@ -88,4 +88,3 @@ Learn about tools, techniques, and recommendations for migrating resources in th
 - [Identity](./germany-migration-identity.md)
 - [Management tools](./germany-migration-management-tools.md)
 - [Media](./germany-migration-media.md)
-

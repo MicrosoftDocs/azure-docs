@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure Figma automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Figma.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Figma for automatic user provisioning
@@ -91,7 +91,7 @@ To configure Figma for automatic user provisioning with Azure AD, you need to ad
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Figma  based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Figma , following the instructions provided in the [Figma Single sign-on tutorial](figma-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You may also choose to enable SAML-based single sign-on for Figma, following the instructions provided in the [Figma Single sign-on tutorial](figma-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for Figma  in Azure AD:
 
@@ -131,7 +131,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. To enable the Azure AD provisioning service for Figma , change the **Provisioning Status** to **On** in the **Settings** section.
+13. To enable the Azure AD provisioning service for Figma, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 

@@ -3,7 +3,6 @@ title: Azure Quickstart - Set and retrieve a key from Key Vault using Azure port
 description: Quickstart showing how to set and retrieve a key from Azure Key Vault using the Azure portal
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -79,4 +78,4 @@ In this quickstart, you created a Key Vault and stored a key in it. To learn mor
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the [Azure Key Vault developer's guide](../general/developers-guide.md)
-- Review [Azure Key Vault best practices](../general/best-practices.md)
+- Review the [Key Vault security overview](../general/security-features.md)

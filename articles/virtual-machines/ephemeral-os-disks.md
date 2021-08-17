@@ -7,7 +7,8 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
-ms.subservice: disks
+ms.subservice: disks 
+ms.custom: devx-track-azurepowershell
 ---
 # Ephemeral OS disks for Azure VMs
 
@@ -20,7 +21,7 @@ The key features of ephemeral disks are:
 - Lower latency, similar to a temporary disk. 
 - Ephemeral OS disks are free, you incur no storage cost for OS disk.
 - They are available in all Azure regions. 
-- Ephemeral OS Disk is supported by [Shared Image Gallery](./linux/shared-image-galleries.md). 
+- Ephemeral OS Disk is supported by [Shared Image Gallery](./shared-image-galleries.md). 
  
 
  
@@ -65,7 +66,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## CLI
 
-To use an ephemeral disk for a CLI VM deployment, set the `--ephemeral-os-disk` parameter in [az vm create](/cli/azure/vm#az-vm-create) to `true` and the `--os-disk-caching` parameter to `ReadOnly`.
+To use an ephemeral disk for a CLI VM deployment, set the `--ephemeral-os-disk` parameter in [az vm create](/cli/azure/vm#az_vm_create) to `true` and the `--os-disk-caching` parameter to `ReadOnly`.
 
 ```azurecli-interactive
 az vm create \
@@ -78,9 +79,9 @@ az vm create \
   --generate-ssh-keys
 ```
 
-For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az-vmss-create) and set the `--os-disk-caching` parameter to `ReadOnly`.
+For scale sets, you use the same `--ephemeral-os-disk true` parameter for [az-vmss-create](/cli/azure/vmss#az_vmss_create) and set the `--os-disk-caching` parameter to `ReadOnly`.
 
-## Portal	
+## Portal
 
 In the Azure portal, you can choose to use ephemeral disks when deploying a VM by opening the **Advanced** section of the **Disks** tab. For **Use ephemeral OS disk** select **Yes**.
 
@@ -115,7 +116,7 @@ The process to create a scale set that uses an ephemeral OS disk is to add the `
        "storageProfile": { 
         "osDisk": { 
           "diffDiskSettings": { 
-	           	"option": "Local" 
+            "option": "Local" 
           }, 
           "caching": "ReadOnly", 
           "createOption": "FromImage" 
@@ -150,7 +151,7 @@ You can deploy a VM with an ephemeral OS disk using a template. The process to c
        "storageProfile": { 
             "osDisk": { 
               "diffDiskSettings": { 
-               	"option": "Local" 
+                "option": "Local" 
               }, 
               "caching": "ReadOnly", 
               "createOption": "FromImage" 
@@ -239,6 +240,11 @@ A: Ephemeral disks do not support:
 - Azure Backup
 - Azure Site Recovery  
 - OS Disk Swap 
+
+> [!NOTE]
+> 
+> Ephemeral disk will not be accessible through portal. You will receive "Resource not Found" or "404" error when accessing the ephemeral disk which is expected.
+> 
  
 ## Next steps
-You can create a VM with an ephemeral OS disk using the [Azure CLI](/cli/azure/vm#az-vm-create).
+You can create a VM with an ephemeral OS disk using the [Azure CLI](/cli/azure/vm#az_vm_create).

@@ -72,7 +72,7 @@ See [Policy samples](./policy-reference.md) for more code examples.
 
 ### Apply policies specified at different scopes
 
-If you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the base element. 
+If you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the `base` element. 
 
 ```xml
 <policies>

@@ -6,7 +6,8 @@ author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 10/20/2020
-ms.author: rohink
+ms.author: rohink 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As an experienced network administrator I want to create DNS records in Azure DNS, so I can host a web app in a custom domain.
 ---
 
@@ -45,7 +46,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * Create a DNS zone in Azure DNS, and delegate the zone in your registrar to Azure DNS.
 
-   1. To create a DNS zone, follow the steps in [Create a DNS zone](dns-getstarted-create-dnszone.md).
+   1. To create a DNS zone, follow the steps in [Create a DNS zone](./dns-getstarted-powershell.md).
    2. To delegate your zone to Azure DNS, follow the steps in [DNS domain delegation](dns-delegate-domain-azure-dns.md).
 
 After creating a zone and delegating it to Azure DNS, you can then create records for your custom domain.

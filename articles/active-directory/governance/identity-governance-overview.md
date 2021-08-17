@@ -103,10 +103,13 @@ It's a best practice to use the least privileged role to perform administrative 
 
 | Feature | Least privileged role |
 | ------- | --------------------- |
-| Entitlement management | User administrator (with the exception of adding SharePoint Online sites to catalogs, which requires Global administrator) |
+| Entitlement management | Identity Governance Administrator |
 | Access reviews | User administrator (with the exception of access reviews of Azure or Azure AD roles, which requires Privileged role administrator) |
 |Privileged Identity Management | Privileged role administrator |
 | Terms of use | Security administrator or Conditional access administrator |
+
+>[!NOTE]
+>The least privileged role for Entitlement management has changed from the User Administrator role to the Identity Governance Administrator role.
 
 ## Next steps
 

@@ -15,5 +15,5 @@ ms.custom: include file
 > * [Portal](../articles/virtual-network/tutorial-filter-network-traffic.md)
 > * [PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md)
 > * [Azure CLI](../articles/virtual-network/tutorial-filter-network-traffic-cli.md)
-> * [PowerShell (Classic)](../articles/virtual-network/virtual-networks-create-nsg-classic-ps.md)
-> * [Azure CLI (Classic)](../articles/virtual-network/virtual-networks-create-nsg-classic-cli.md)
+> * [PowerShell (Classic)](/previous-versions/azure/virtual-network/virtual-networks-create-nsg-classic-ps)
+> * [Azure CLI (Classic)](/previous-versions/azure/virtual-network/virtual-networks-create-nsg-classic-cli)

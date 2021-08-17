@@ -7,7 +7,7 @@ ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Best practices for Azure Maps Route service
@@ -54,10 +54,10 @@ Here is a comparison to show some capabilities of the Route Directions and Matri
 
 | Azure Maps API | Max number of queries in the request | Avoid areas | Truck and electric vehicle routing | Waypoints and Traveling Salesman optimization | Supporting points |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
-| Get Route Directions | 1 | | X | X | |
-| Post Route Directions | 1 | X | X | X | X |
-| Post Route Directions Batch | 700 | | X | X | |
-| Post Route Matrix | 700 | | X | | |
+| Get Route Directions | 1 | | ✔ | ✔ | |
+| Post Route Directions | 1 | ✔ | ✔ | ✔ | ✔ |
+| Post Route Directions Batch | 700 | | ✔ | ✔ | |
+| Post Route Matrix | 700 | | ✔ | | |
 
 To learn more about electric vehicle routing capabilities, see our tutorial on how to [route electric vehicles using Azure Notebooks with Python](tutorial-ev-routing.md).
 

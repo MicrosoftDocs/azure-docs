@@ -5,13 +5,13 @@ services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 05/10/2021
 ms.author: aapowell
 ms.custom: devx-track-js
 
 ---
 
-# Tutorial: Publish a Gatsby site to Azure Static Web Apps Preview
+# Tutorial: Publish a Gatsby site to Azure Static Web Apps
 
 This article demonstrates how to create and deploy a [Gatsby](https://gatsbyjs.org) web application to [Azure Static Web Apps](overview.md). The final result is a new Static Web Apps site (with the associated GitHub Actions) that give you control over how the app is built and published.
 
@@ -71,7 +71,7 @@ You need to have a repository on GitHub to create a new Azure Static Web Apps re
 1. Push your local repository up to GitHub.
 
    ```bash
-   git push --set-upstream origin master
+   git push --set-upstream origin main
    ```
 
 ## Deploy your web app
@@ -81,54 +81,38 @@ The following steps show you how to create a new static site app and deploy it t
 ### Create the application
 
 1. Navigate to the [Azure portal](https://portal.azure.com)
-1. Click **Create a Resource**
+1. Select **Create a Resource**
 1. Search for **Static Web Apps**
-1. Click **Static Web Apps (Preview)**
-1. Click **Create**
+1. Select **Static Web Apps**
+1. Select **Create**
+1. On the _Basics_ tab, enter the following values.
 
-   :::image type="content" source="./media/publish-gatsby/create-in-portal.png" alt-text="Create a Static Web Apps (Preview) in the portal":::
+    | Property | Value |
+    | --- | --- |
+    | _Subscription_ | Your Azure subscription name. |
+    | _Resource group_ | **my-gatsby-group**  |
+    | _Name_ | **my-gatsby-app** |
+    | _Plan type_ | **Free** |
+    | _Region for Azure Functions API and staging environments_ | Select a region closest to you. |
+    | _Source_ | **GitHub** |
 
-1. For _Subscription_, accept the subscription that is listed or select a new one from the drop-down list.
+1. Select **Sign in with GitHub** and authenticate with GitHub.
 
-1. In _Resource group_, select **New**. In _New resource group name_, enter **gatsby-static-web-app** and select **OK**.
+1. Enter the following GitHub values.
 
-1. Next, a name for your app in the **Name** box. Valid characters include `a-z`, `A-Z`, `0-9` and `-`.
+    | Property | Value |
+    | --- | --- |
+    | _Organization_ | Select your desired GitHub organization. |
+    | _Repository_ | Select **gatsby-static-web-app**. |
+    | _Branch_ | Select **main**. |
 
-1. For _Region_, select an available region close to you.
-
-1. For _SKU_, select **Free**.
-
-   :::image type="content" source="./media/publish-gatsby/basic-app-details.png" alt-text="Details filled out":::
-
-1. Click the **Sign in with GitHub** button.
-
-1. Select the **Organization** under which you created the repository.
-
-1. Select the **gatsby-static-web-app** as the _Repository_ .
-
-1. For the _Branch_ select **master**.
-
-   :::image type="content" source="./media/publish-gatsby/completed-github-info.png" alt-text="Completed GitHub information":::
-
-### Build
-
-Next, add configuration settings that the build process uses to build your app.
-
-1. Click the **Next: Build >** button to edit the build configuration
-
-1. To configure the settings of the step in GitHub Actions, set the _App location_ to **/**.
-
-1. Set _App artifact location_ to **public**.
-
-   A value for _API location_ isn't necessary as you aren't deploying an API at the moment.
-
-   :::image type="content" source="./media/publish-gatsby/build-details.png" alt-text="Build Settings":::
+1. In the _Build Details_ section, select **Gatsby** from the _Build Presets_ drop-down and keep the default values.
 
 ### Review and create
 
-1. Click the **Review + Create** button to verify the details are all correct.
+1. Select the **Review + Create** button to verify the details are all correct.
 
-1. Click **Create** to start the creation of the App Service Static Web App and provision a GitHub Action for deployment.
+1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Action for deployment.
 
 1. Once the deployment completes click, **Go to resource**.
 

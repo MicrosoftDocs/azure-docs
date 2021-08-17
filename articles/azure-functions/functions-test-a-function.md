@@ -19,12 +19,13 @@ The content that follows is split into two different sections meant to target di
 
 - [C# in Visual Studio with xUnit](#c-in-visual-studio)
 - [JavaScript in VS Code with Jest](#javascript-in-vs-code)
+- [Python using pytest](./functions-reference-python.md?tabs=application-level#unit-testing)
 
 The sample repository is available on [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
 ## C# in Visual Studio
 
-The following example describes how to create a C# Function app in Visual Studio and run and tests with [xUnit](https://xunit.github.io).
+The following example describes how to create a C# Function app in Visual Studio and run and tests with [xUnit](https://github.com/xunit/xunit).
 
 ![Testing Azure Functions with C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
@@ -32,12 +33,12 @@ The following example describes how to create a C# Function app in Visual Studio
 
 To set up your environment, create a Function and test app. The following steps help you create the apps and functions required to support the tests:
 
-1. [Create a new Functions app](./functions-create-first-azure-function.md) and name it **Functions**
-2. [Create an HTTP function from the template](./functions-create-first-azure-function.md) and name it **MyHttpTrigger**.
+1. [Create a new Functions app](./functions-get-started.md) and name it **Functions**
+2. [Create an HTTP function from the template](./functions-get-started.md) and name it **MyHttpTrigger**.
 3. [Create a timer function from the template](./functions-create-scheduled-function.md) and name it **MyTimerTrigger**.
-4. [Create an xUnit Test app](https://xunit.github.io/docs/getting-started-dotnet-core) in the solution and name it **Functions.Tests**.
+4. [Create an xUnit Test app](https://xunit.net/docs/getting-started/netcore/cmdline) in the solution and name it **Functions.Tests**.
 5. Use NuGet to add a reference from the test app to [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Reference the *Functions* app](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) from *Functions.Tests* app.
+6. [Reference the *Functions* app](/visualstudio/ide/managing-references-in-a-project) from *Functions.Tests* app.
 
 ### Create test classes
 

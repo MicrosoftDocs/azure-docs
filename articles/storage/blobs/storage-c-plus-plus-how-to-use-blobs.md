@@ -1,9 +1,9 @@
 ---
 title: How to use object (Blob) storage from C++ - Azure | Microsoft Docs
 description: Learn how to store unstructured data (blobs) in the cloud with Azure Blob (object) storage using C++.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
+ms.author: twooley
 ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: blobs
@@ -16,7 +16,7 @@ This guide demonstrates how to perform common scenarios using Azure Blob storage
 To learn more about Blob storage, see [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
 > [!NOTE]
-> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. Microsoft recommends using the latest version of the Storage Client Library for C++, available via [NuGet](https://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
+> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and later, up until version 12.x. Microsoft recommends using the latest version of the Storage Client Library for C++, available via [GitHub](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage). For more information, see the latest [quickstart](quickstart-blobs-c-plus-plus.md).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -47,14 +47,14 @@ Add the following include statements to the top of the C++ file where you want t
 ```
 
 ## Setup an Azure storage connection string
-An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure Storage Accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). This example shows how you can declare a static field to hold the connection string:
+An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the [Azure portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure Storage Accounts](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). This example shows how you can declare a static field to hold the connection string:
 
 ```cpp
 // Define the connection-string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-To test your application in your local Windows computer, you can use the [Azurite storage emulator](../common/storage-use-azurite.md). Azurite is a utility that simulates the Blob and Queue services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
+To test your application in your local Windows computer, you can use the [Azurite storage emulator](../common/storage-use-azurite.md). Azurite is a utility that simulates the Blob, Queue, and Table services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
 
 ```cpp
 // Define the connection-string with Azurite.
@@ -66,7 +66,7 @@ To start Azurite, see [Use the Azurite emulator for local Azure Storage developm
 The following samples assume that you have used one of these two methods to get the storage connection string.
 
 ## Retrieve your storage account
-You can use the **cloud_storage_account** class to represent your Storage Account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.
+You can use the **cloud_storage_account** class to represent your storage account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.
 
 ```cpp
 // Retrieve storage account from connection string.
@@ -180,7 +180,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 }
 ```
 
-For more details on listing operations, see [List Azure Storage Resources in C++](../storage-c-plus-plus-enumeration.md).
+For more details on listing operations, see [List Azure Storage Resources in C++](../common/storage-c-plus-plus-enumeration.md).
 
 ## How to: Download blobs
 To download blobs, first retrieve a blob reference and then call the **download_to_stream** method. The following example uses the **download_to_stream** method to transfer the blob contents to a stream object that you can then persist to a local file.
@@ -253,10 +253,9 @@ blockBlob.delete_blob();
 ## Next steps
 Now that you've learned the basics of blob storage, follow these links to learn more about Azure Storage.
 
-- [How to use Queue Storage from C++](../storage-c-plus-plus-how-to-use-queues.md)
+- [How to use Queue Storage from C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 - [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-- [List Azure Storage Resources in C++](../storage-c-plus-plus-enumeration.md)
+- [List Azure Storage Resources in C++](../common/storage-c-plus-plus-enumeration.md)
 - [Storage Client Library for C++ Reference](https://azure.github.io/azure-storage-cpp)
 - [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
-- [Transfer data with the AzCopy command-line utility](../storage-use-azcopy.md)
-
+- [Transfer data with the AzCopy command-line utility](../common/storage-use-azcopy-v10.md)

@@ -15,7 +15,7 @@ Each version of QnA Maker uses a different set of Azure resources (services). Th
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-QnA Maker uses the App Service to provide the query runtime used by the [generateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer).
+QnA Maker uses the App Service to provide the query runtime used by the [generateAnswer API](/rest/api/cognitiveservices/qnamaker4.0/runtime/generateanswer).
 
 These settings are available in the Azure portal, for the App Service. The settings are available by selecting **Settings**, then **Configuration**.
 
@@ -29,12 +29,13 @@ You can set an individual setting either through the Application Settings list, 
 |UserAppInsightsAppId|Chat log and telemetry|
 |UserAppInsightsKey|Chat log and telemetry|
 |UserAppInsightsName|Chat log and telemetry|
+|QNAMAKER_EXTENSION_VERSION|Always set to _latest_. This setting will initialize the QnAMaker Site Extension in the App Service.|
 
 You need to **restart** the service from the **Overview** page of the Azure portal, once you are done making changes.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-App Service customizations do not apply to QnA Maker managed (preview).
+App Service customizations do not apply to Custom question answering (preview).
 
 ---
 
@@ -42,11 +43,11 @@ App Service customizations do not apply to QnA Maker managed (preview).
 
 The QnA Maker service provides configuration for the following users to collaborate on a single QnA Maker service, and all its knowledge bases.
 
-Learn [how to add collaborators](./how-to/collaborate-knowledge-base.md) to your service.
+Learn [how to add collaborators](./reference-role-based-access-control.md) to your service.
 
 ## Change Azure Cognitive Search
 
-Learn [how to change the Cognitive Search service](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) linked to your QnA Maker service.
+Learn [how to change the Cognitive Search service](./how-to/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) linked to your QnA Maker service.
 
 ## Change default answer
 
@@ -58,9 +59,9 @@ Learn [how to change the text of your default answers](How-To/change-default-ans
 
 Application Insights is used for monitoring telemetry with QnA Maker GA. There are no configuration settings specific to QnA Maker.
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-Learn [how to add telemetry to your QnA Maker managed (Preview) service](How-To/get-analytics-knowledge-base.md). 
+Learn [how to add telemetry to your Custom question answering (Preview) service](How-To/get-analytics-knowledge-base.md). 
 
 ---
 
@@ -70,9 +71,9 @@ Learn [how to add telemetry to your QnA Maker managed (Preview) service](How-To/
 
 App Service Plan has no configuration settings specific to QnA Maker.
 
-# [QnAMaker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-App Service Plan is not used with QnA Maker managed (preview).
+App Service Plan is not used with Custom question answering (preview).
 
 ---
 
