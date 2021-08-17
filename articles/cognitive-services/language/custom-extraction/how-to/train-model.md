@@ -16,11 +16,18 @@ ms.author: aahi
 
 After you have completed tagging your data, you can start training your model. You can create and train multiple models within the same project]. However, if you re-train a specific model, it will overwrite it's previous version.
 
-The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. While training, your tagged files will be spilt into 3 parts: 
+The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
-* 80% for training
-* 10% for validation 
-* 10% for testing. 
+## Data groups
+
+Before starting the training process, files in your dataset are divided into three groups at random: 
+
+* The training set contains 80% of the files in your dataset. It is the main set that is used to train the model.
+
+* The validation set contains 10% and is introduced to the model during training. Later you can view the incorrect predictions made by the model on this set so you examine your data and tags and make necessary adjustments.
+
+* The Test set contains 10% of the files available in your dataset. This set is used to provide an unbiased [evaluation](../how-to/view-model-evaluation.md) of the model. This set is not introduced to the model during training. The details of correct and incorrect predictions for this set are not shown so that you don't readjust your training data and alter the results.
+
 
 You must have minimum of 10 docs in your project for the [evaluation](view-model-evaluation.md) process to be successful. 
 
