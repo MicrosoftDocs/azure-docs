@@ -14,8 +14,6 @@ ms.date: 08/30/2021
 ---
 # Autoscale a managed endpoint (preview)
 
-{>> TODO: Figure out where in TOC this should live.  <<}
-
 Autoscale automatically runs the right amount of resources to handle the load on your application. [Managed endpoints](concept-endpoints.md) supports autoscaling through integration with the Azure monitor autoscale feature. 
 
 Azure monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more, see [Overview of autoscale in Microsoft Azure](/azure-monitor/autoscale/autoscale-overview.md).
