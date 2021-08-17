@@ -102,9 +102,9 @@
   - name: Collect data
     items:
     - name: Find your data source
-      href: partner-data-connectors.md
+      href: data-connectors-reference.md
     - name: REST-API connection instructions (TBA)
-      href: connect-rest-api.md
+      href: connect-rest-api-template.md
     - name: Log Analytics agent connection instructions
       items:
       - name: Connect CEF log sources
