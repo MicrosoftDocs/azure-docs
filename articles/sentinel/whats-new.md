@@ -36,6 +36,12 @@ If you're looking for items older than six months, you'll find them in the [Arch
 - [File event normalization schema (Public preview)](#file-event-normalization-schema-public-preview)
 - [New in docs: Best practice guidance](#new-in-docs-best-practice-guidance)
 
+### Data connector health enhancements
+
+Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you've turned on the <name tbd> feature in your Azure Sentinel workspace, at the first success or failure health event that's generated.
+
+To turn on the feature for your workspace, <TBD>. For more information, see [Monitor the health of your data connectors with this Azure Sentinel workbook](monitor-data-connector-health.md).
+
 ### Advanced incident search (Public preview)
 
 By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. Azure Sentinel now provides [advanced search options](investigate-cases.md#search-for-incidents) to search across more data, including alert details, descriptions, entities, tactics, and more.
