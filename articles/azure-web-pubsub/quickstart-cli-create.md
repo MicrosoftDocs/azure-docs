@@ -29,11 +29,10 @@ The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands 
 ## Try the newly created instance
 
 > [!div class="nextstepaction"]
-> [Try the newly created instance using CLI](./quickstart-cli-try.md)
-
+> [Try the newly created instance using CLI](./quickstart-cli-try.md#play-with-the-instance)
 
 > [!div class="nextstepaction"]
-> [Try the newly created instance from browser](./quickstart-live-demo.md)
+> [Try the newly created instance from the browser](./quickstart-live-demo.md#try-the-instance-with-an-online-demo)
 
 ## Clean up resources
 

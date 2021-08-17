@@ -79,7 +79,7 @@ For more information on working with resource groups, see [az group](/cli/azure/
 
 ## Create a workspace
 
-When you deploy an Azure Machine Learning workspace, various other services are [required as dependent associated resources](/azure/machine-learning/concept-workspace#resources). When you use the CLI to create the workspace, the CLI can either create new associated resources on your behalf or you could attach existing resources.
+When you deploy an Azure Machine Learning workspace, various other services are [required as dependent associated resources](./concept-workspace.md#resources). When you use the CLI to create the workspace, the CLI can either create new associated resources on your behalf or you could attach existing resources.
 
 > [!IMPORTANT]
 > When attaching your own storage account, make sure that it meets the following criteria:
@@ -249,7 +249,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 
 By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an additional set of resources in your Azure subscription to store your data.
 
-To learn more about the resources that are created when you bring your own key for encryption, see [Data encryption with Azure Machine Learning](/azure/machine-learning/concept-data-encryption#azure-cosmos-db).
+To learn more about the resources that are created when you bring your own key for encryption, see [Data encryption with Azure Machine Learning](./concept-data-encryption.md#azure-cosmos-db).
 
 Below CLI commands provide examples for creating a workspace that uses customer-managed keys for encryption using the 1.0 CLI and 2.0 CLI versions.
 
@@ -257,7 +257,7 @@ Below CLI commands provide examples for creating a workspace that uses customer-
 
 Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the resource id and uri of the key within the vault.
 
-To [limit the data that Microsoft collects](/azure/machine-learning/concept-data-encryption#encryption-at-rest) on your workspace, you can additionally specify the `--hbi-workspace` parameter. 
+To [limit the data that Microsoft collects](./concept-data-encryption.md#encryption-at-rest) on your workspace, you can additionally specify the `--hbi-workspace` parameter. 
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name>
@@ -271,7 +271,7 @@ az ml workspace create -w <workspace-name>
 
 Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource id and uri of the key within the vault.
 
-To [limit the data that Microsoft collects](/azure/machine-learning/concept-data-encryption#encryption-at-rest) on your workspace, you can additionally specify the `hbi_workspace` property. 
+To [limit the data that Microsoft collects](./concept-data-encryption.md#encryption-at-rest) on your workspace, you can additionally specify the `hbi_workspace` property. 
 
 ```yaml workspace.yml
 name: azureml888
