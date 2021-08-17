@@ -10,21 +10,12 @@ ms.author: jgol
 
 # Azure Monitor OpenTelemetry-based Auto-Instrumentation for Java Applications
 
-> [!NOTE]
-> If you are looking for the old 2.x docs, go [here](./java-2x-get-started.md).
-
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Java offering. When you complete the instructions in this article, you’ll be able to use Azure Monitor Application Insights to monitor your application.
 
-Java auto-instrumentation is all about simplicity - there are no code changes, Java auto-instrumentation can be enabled through just a couple of configuration changes.
+Java auto-instrumentation can be enabled without any code changes, and it works in any environment.
 
-Java auto-instrumentation works in any environment, and allows you to monitor all of your Java applications. In other words, whether you are running your Java apps on VMs, on-premises, in AKS, on Windows, Linux - you name it,
- Application Insights Java auto-instrumentation will monitor your app.
-
-Adding the Application Insights Java 2.x SDK to your application is no longer required,
-as Application Insights Java 3.x auto-instrumentation auto-collects requests, dependencies and logs all on its own.
-
-You can still send custom telemetry from your application.
-Java 3.x will track and correlate it along with all of the auto-collected telemetry.
+> [!NOTE]
+> For most scenarios, Java 3.X auto-instrumentation is all you need. However, to enable some types of [custom telemetry](#supported-custom-telemetry), you'll also need to add the [Java 2.x SDK](./java-2x-get-started.md).
 
 ## Get Started
 ### Prerequisites
@@ -33,7 +24,7 @@ Java 3.x will track and correlate it along with all of the auto-collected teleme
 - Application Insights Resource (Free to [create](create-workspace-resource.md#create-workspace-based-resource))
 
 ### Enable Azure Monitor Application Insights
-**1. Download the jar file**
+**1. Download the auto-instrumentation jar file**
 
 > [!WARNING]
 > **If you are upgrading from 3.0 Preview**
@@ -112,7 +103,7 @@ See [configuration options](./java-standalone-config.md) for full details.
 
 Java 3.X includes the following instrumentation libraries.
 
-## Auto-collected requests
+### Auto-collected requests
 
 * JMS Consumers
 * Kafka Consumers
@@ -120,7 +111,7 @@ Java 3.X includes the following instrumentation libraries.
 * Servlets
 * Spring Scheduling
 
-## Auto-collected dependencies
+### Auto-collected dependencies
 
 Auto-collected dependencies plus downstream distributed trace propagation:
 
@@ -139,18 +130,18 @@ Auto-collected dependencies (without downstream distributed trace propagation):
 * MongoDB (async and sync)
 * Redis (Lettuce and Jedis)
 
-## Auto-collected logs
+### Auto-collected logs
 
 * java.util.logging
 * Log4j (including MDC properties)
 * SLF4J/Logback (including MDC properties)
 
-## Auto-collected metrics
+### Auto-collected metrics
 
 * Micrometer (including Spring Boot Actuator metrics)
 * JMX Metrics
 
-## Azure SDKs (preview)
+### Azure SDKs (preview)
 
 See the [configuration options](./java-standalone-config.md#auto-collected-azure-sdk-telemetry-preview)
 to enable this preview feature and auto-collect the telemetry emitted by these Azure SDKs:
@@ -442,7 +433,7 @@ See [Troubleshooting](./java-standalone-troubleshoot.md).
 - For Azure support issues, file an Azure SDK GitHub issue or open a CSS Ticket.
 - For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
 
-## Feedback
+## OpenTelemetry Feedback
 - Fill out the OpenTelemetry community’s [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
 - Tell Microsoft a bit about yourself by joining our [OpenTelemetry Early Adopter Community](https://aka.ms/AzMonOTel/).
 - Add your feature requests to the [Azure Monitor Application Insights UserVoice](https://feedback.azure.com/forums/357324-azure-monitor-application-insights).
