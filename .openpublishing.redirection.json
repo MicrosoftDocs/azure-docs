@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/storage/blobs/storage-c-plus-plus-how-to-use-blobs.md",
-      "redirect_url": "/previous-versions/azure/storage/blobs/storage-c-plus-plus-how-to-use-blobs",
+      "redirect_url": "azure/storage/blobs/quickstart-blobs-c-plus-plus",
       "redirect_document_id": false
     },
     {
