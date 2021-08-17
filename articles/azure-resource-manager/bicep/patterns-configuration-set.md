@@ -45,15 +45,15 @@ You could use the configuration set pattern for this template.
 
 Accept a single parameter that indicates the environment type, such as production or non-production. Use the `@allowedValues` parameter decorator to ensure that your template's users only provide values that you expect:
 
-::: code language="bicep" source="code/patterns-configuration-set/main.bicep" range="5-9" :::
+::: code language="bicep" source="~/../../azure-docs-bicep-samples/patterns-configuration-set/main.bicep" range="5-9" :::
 
 Then create a _map variable_, which is an object that defines the specific configuration depending on the environment type. Notice that the variable has two objects named `Production` and `NonProduction`. These names match the allowed values for the parameter in the preceding example:
 
-::: code language="bicep" source="code/patterns-configuration-set/main.bicep" range="16-49" :::
+::: code language="bicep" source="~/../../azure-docs-bicep-samples/patterns-configuration-set/main.bicep" range="16-49" :::
 
 When you define the resources, use the configuration map to define the resource properties:
 
-::: code language="bicep" source="code/patterns-configuration-set/main.bicep" range="51-74" highlight="4, 14, 23" :::
+::: code language="bicep" source="~/../../azure-docs-bicep-samples/patterns-configuration-set/main.bicep" range="51-74" highlight="4, 14, 23" :::
 
 ## Considerations
 
