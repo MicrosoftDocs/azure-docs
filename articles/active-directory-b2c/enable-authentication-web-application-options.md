@@ -303,4 +303,4 @@ public IActionResult Claims()
 
 ## Next steps
 
-- Learn more about authorization, see [Introduction to authorization in ASP.NET Core](/aspnet/core/security/authorization/introduction).
+- To learn more about authorization, see [Introduction to authorization in ASP.NET Core](/aspnet/core/security/authorization/introduction).
