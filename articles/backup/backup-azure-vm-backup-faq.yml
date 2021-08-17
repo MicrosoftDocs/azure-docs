@@ -2,7 +2,8 @@
 metadata:
   title: FAQ - Backing up Azure VMs
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: backup
   ms.date: 06/02/2021
 
 title: Frequently asked questions-Back up Azure VMs

@@ -90,39 +90,75 @@
       href: ./samples/pattern-deploy-resources.md
   - name: Regulatory Compliance built-ins
     items:
-    - name: Azure Security Benchmark
-      href: ./samples/azure-security-benchmark.md
-    - name: Azure Security Benchmark v1
-      href: ./samples/azure-security-benchmarkv1.md
-    - name: Canada Federal PBMM
-      href: ./samples/canada-federal-pbmm.md
-    - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
-      href: ./samples/cis-azure-1-3-0.md
-    - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
-      href: ./samples/cis-azure-1-1-0.md
-    - name: CMMC Level 3
-      href: ./samples/cmmc-l3.md
-    - name: HIPAA HITRUST 9.2
-      href: ./samples/hipaa-hitrust-9-2.md
-    - name: IRS 1075 September 2016
-      href: ./samples/irs-1075-sept2016.md
-    - name: ISO 27001:2013
-      href: ./samples/iso-27001.md
-    - name: New Zealand ISM Restricted
-      href: ./samples/new-zealand-ism.md
-    - name: NIST SP 800-53 R5
-      href: ./samples/nist-sp-800-53-r5.md
-    - name: NIST SP 800-53 R4
-      href: ./samples/nist-sp-800-53-r4.md
-    - name: NIST SP 800-171 R2
-      href: ./samples/nist-sp-800-171-r2.md
-    - name: UK OFFICIAL and UK NHS
-      href: ./samples/ukofficial-uknhs.md
-  - name: Guest Configuration baselines
+    - name: Azure built-ins
+      items:
+      - name: Australian Government ISM PROTECTED
+        href: ./samples/australia-ism.md
+      - name: Azure Security Benchmark
+        href: ./samples/azure-security-benchmark.md
+      - name: Azure Security Benchmark v1
+        href: ./samples/azure-security-benchmarkv1.md
+      - name: Canada Federal PBMM
+        href: ./samples/canada-federal-pbmm.md
+      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
+        href: ./samples/cis-azure-1-3-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
+        href: ./samples/cis-azure-1-1-0.md
+      - name: CMMC Level 3
+        href: ./samples/cmmc-l3.md
+      - name: FedRAMP Moderate
+        href: ./samples/fedramp-moderate.md
+      - name: FedRAMP High
+        href: ./samples/fedramp-high.md
+      - name: HIPAA HITRUST 9.2
+        href: ./samples/hipaa-hitrust-9-2.md
+      - name: IRS 1075 September 2016
+        href: ./samples/irs-1075-sept2016.md
+      - name: ISO 27001:2013
+        href: ./samples/iso-27001.md
+      - name: New Zealand ISM Restricted
+        href: ./samples/new-zealand-ism.md
+      - name: NIST SP 800-53 Rev. 5
+        href: ./samples/nist-sp-800-53-r5.md
+      - name: NIST SP 800-53 Rev. 4
+        href: ./samples/nist-sp-800-53-r4.md
+      - name: NIST SP 800-171 R2
+        href: ./samples/nist-sp-800-171-r2.md
+      - name: UK OFFICIAL and UK NHS
+        href: ./samples/ukofficial-uknhs.md
+    - name: Azure Government built-ins
+      items:
+      - name: Azure Security Benchmark
+        href: ./samples/gov-azure-security-benchmark.md
+      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
+        href: ./samples/gov-cis-azure-1-3-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
+        href: ./samples/gov-cis-azure-1-1-0.md
+      - name: CMMC Level 3
+        href: ./samples/gov-cmmc-l3.md
+      - name: DoD Impact Level 4
+        href: ./samples/gov-dod-impact-level-4.md
+      - name: DoD Impact Level 5
+        href: ./samples/gov-dod-impact-level-5.md
+      - name: FedRAMP Moderate
+        href: ./samples/gov-fedramp-moderate.md
+      - name: FedRAMP High
+        href: ./samples/gov-fedramp-high.md
+      - name: IRS 1075 September 2016
+        href: ./samples/gov-irs-1075-sept2016.md
+      - name: ISO 27001:2013
+        href: ./samples/gov-iso-27001.md
+      - name: NIST SP 800-53 Rev. 5
+        href: ./samples/gov-nist-sp-800-53-r5.md
+      - name: NIST SP 800-53 Rev. 4
+        href: ./samples/gov-nist-sp-800-53-r4.md
+      - name: NIST SP 800-171 R2
+        href: ./samples/gov-nist-sp-800-171-r2.md
+  - name: Compute security baselines
     items:
-    - name: Linux baseline for Azure Security Benchmark
+    - name: Linux security baseline
       href: ./samples/guest-configuration-baseline-linux.md
-    - name: Windows baseline for Azure Security Benchmark
+    - name: Windows security baseline
       href: ./samples/guest-configuration-baseline-windows.md
 - name: Concepts
   items:

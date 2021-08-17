@@ -22,7 +22,7 @@ You can deliver apps in Azure Virtual Desktop through one of the following metho
 
 - Put apps in a master image
 - Use tools like SCCM or Intune for central management
-- Dynamic app provisioning (AppV, VMWare AppVolumes, or Citrix AppLayering)
+- Dynamic app provisioning (AppV, VMware AppVolumes, or Citrix AppLayering)
 - Create custom tools or scripts using Microsoft and a third-party tool
 
 ## What does MSIX app attach do?
@@ -51,4 +51,4 @@ The following table compares key feature of MSIX app attach and app layering.
 
 ## Next steps
 
-If you want to learn more about MSIX app attach, check out our [glossary](app-attach-glossary.md) and [FAQ](app-attach-faq.md). Otherwise, get started with [Set up app attach](app-attach.md).
+If you want to learn more about MSIX app attach, check out our [glossary](app-attach-glossary.md) and [FAQ](app-attach-faq.yml). Otherwise, get started with [Set up app attach](app-attach.md).

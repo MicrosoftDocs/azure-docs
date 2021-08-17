@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/11/2021
+ms.date: 08/03/2021
 ms.author: radeltch
 
 ---
@@ -23,9 +23,9 @@ ms.author: radeltch
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[anf-azure-doc]:https://docs.microsoft.com/azure/azure-netapp-files/
+[anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
-[anf-register]:https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register
+[anf-register]:../../../azure-netapp-files/azure-netapp-files-register.md
 [anf-sap-applications-azure]:https://www.netapp.com/us/media/tr-4746.pdf
 
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
@@ -415,6 +415,8 @@ This documentation assumes that:
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
      --group g-NW2_ASCS
 
+    sudo pcs resource meta g-NW2_ASCS resource-stickiness=3000
+
     sudo pcs resource create rsc_sap_NW2_ERS12 SAPInstance \
     InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
@@ -423,7 +425,7 @@ This documentation assumes that:
 
     sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS -5000
     sudo pcs constraint location rsc_sap_NW2_ASCS10 rule score=2000 runs_ers_NW2 eq 1
-    sudo pcs constraint order g-NW2_ASCS then g-NW2_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS kind=Optional symmetrical=false
 
     sudo pcs resource create rsc_sap_NW3_ASCS20 SAPInstance \
     InstanceName=NW3_ASCS20_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
@@ -433,6 +435,8 @@ This documentation assumes that:
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
      --group g-NW3_ASCS
 
+    sudo pcs resource meta g-NW3_ASCS resource-stickiness=3000
+
     sudo pcs resource create rsc_sap_NW3_ERS22 SAPInstance \
     InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW2_ERS22_msnw3ers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
@@ -441,7 +445,7 @@ This documentation assumes that:
 
     sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS -5000
     sudo pcs constraint location rsc_sap_NW3_ASCS20 rule score=2000 runs_ers_NW3 eq 1
-    sudo pcs constraint order g-NW3_ASCS then g-NW3_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS kind=Optional symmetrical=false
 
     sudo pcs property set maintenance-mode=false
     ```
@@ -455,10 +459,12 @@ This documentation assumes that:
     sudo pcs resource create rsc_sap_NW2_ASCS10 SAPInstance \
     InstanceName=NW2_ASCS10_msnw2ascs START_PROFILE="/sapmnt/NW2/profile/NW2_ASCS10_msnw2ascs" \
     AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
      --group g-NW2_ASCS
+
+    sudo pcs resource meta g-NW2_ASCS resource-stickiness=3000
 
     sudo pcs resource create rsc_sap_NW2_ERS12 SAPInstance \
     InstanceName=NW2_ERS12_msnw2ers START_PROFILE="/sapmnt/NW2/profile/NW2_ERS12_msnw2ers" \
@@ -466,17 +472,21 @@ This documentation assumes that:
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
      --group g-NW2_AERS
 
+    sudo pcs resource meta rsc_sap_NW2_ERS12  resource-stickiness=3000
+
     sudo pcs constraint colocation add g-NW2_AERS with g-NW2_ASCS -5000
-    sudo pcs constraint order g-NW2_ASCS then g-NW2_AERS kind=Optional symmetrical=false
-    sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS symmetrical=false
+    sudo pcs constraint order start g-NW2_ASCS then start g-NW2_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-NW2_ASCS then stop g-NW2_AERS kind=Optional symmetrical=false
 
     sudo pcs resource create rsc_sap_NW3_ASCS20 SAPInstance \
     InstanceName=NW3_ASCS20_msnw3ascs START_PROFILE="/sapmnt/NW3/profile/NW3_ASCS20_msnw3ascs" \
     AUTOMATIC_RECOVER=false \
-    meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
+    meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
      --group g-NW3_ASCS
+
+    sudo pcs resource meta g-NW3_ASCS resource-stickiness=3000
 
     sudo pcs resource create rsc_sap_NW3_ERS22 SAPInstance \
     InstanceName=NW3_ERS22_msnw3ers START_PROFILE="/sapmnt/NW3/profile/NW2_ERS22_msnw3ers" \
@@ -484,9 +494,11 @@ This documentation assumes that:
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
      --group g-NW3_AERS
 
+    sudo pcs resource meta rsc_sap_NW3_ERS22  resource-stickiness=3000
+
     sudo pcs constraint colocation add g-NW3_AERS with g-NW3_ASCS -5000
-    sudo pcs constraint order g-NW3_ASCS then g-NW3_AERS kind=Optional symmetrical=false
-    sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS symmetrical=false
+    sudo pcs constraint order start g-NW3_ASCS then start g-NW3_AERS kind=Optional symmetrical=false
+    sudo pcs constraint order start g-NW3_ASCS then stop g-NW3_AERS kind=Optional symmetrical=false
 
     sudo pcs property set maintenance-mode=false
     ```

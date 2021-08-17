@@ -10,6 +10,7 @@ ms.author:  petrodeg
 ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
+ms.custom: devplatv2
 #Customer intent: As a data scientist, I want to figure out why my managed online endpoint deployment failed so that I can fix it.
 ---
 
@@ -203,5 +204,5 @@ When you access managed online endpoints with REST requests, the returned status
 
 - [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
-- [Managed online endpoints (preview) YAML reference](reference-online-endpoint-yaml.md)
+- [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md)
 

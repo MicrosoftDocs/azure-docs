@@ -127,13 +127,13 @@ Also, ensure that you have the [right machine to execute the ILR script](#step-2
 
 If you run the script on a computer with restricted access, ensure there's access to:
 
-- `download.microsoft.com` or `AzureFrontDoor.FirstParty` service tag in NSG
-- Recovery Service URLs (GEO-NAME refers to the region where the Recovery Services vault resides)
+- `download.microsoft.com` or `AzureFrontDoor.FirstParty` service tag in NSG on port 443 (outbound)
+- Recovery Service URLs (GEO-NAME refers to the region where the Recovery Services vault resides) on port 3260 (outbound)
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (For Azure public regions) or `AzureBackup` service tag in NSG
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (For Azure China 21Vianet) or `AzureBackup` service tag in NSG
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (For Azure US Government) or `AzureBackup` service tag in NSG
   - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (For Azure Germany) or `AzureBackup` service tag in NSG
-- Outbound ports 53 (DNS), 443, 3260
+- Public DNS resolution on port 53 (outbound)
 
 > [!NOTE]
 >

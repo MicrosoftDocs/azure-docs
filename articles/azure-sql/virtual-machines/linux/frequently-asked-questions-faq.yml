@@ -7,6 +7,7 @@ metadata:
   author: MashaMSFT
   tags: azure-service-management
   ms.service: virtual-machines-sql
+  ms.subservice: service-overview
   
   ms.topic: troubleshooting
   ms.workload: iaas-sql-server

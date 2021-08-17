@@ -53,9 +53,9 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 |   | Managed<sup>4</sup> | Windows current and Windows down-level | Persistent | Yes |
 |   |   | Windows current | Non-Persistent | No |
 |   |   | Windows down-level | Non-Persistent | Yes<sup>6</sup> |
-| Azure AD joined | Federated | Windows current | Persistent | No |
+| Azure AD joined | Federated | Windows current | Persistent | Limited<sup>7</sup> |
 |   |   |   | Non-Persistent | No |
-|   | Managed | Windows current | Persistent | No |
+|   | Managed | Windows current | Persistent | Limited<sup>7</sup> |
 |   |   |   | Non-Persistent | No |
 | Azure AD registered | Federated/Managed | Windows current/Windows down-level | Persistent/Non-Persistent | Not Applicable |
 
@@ -70,6 +70,7 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 
 <sup>6</sup> **Non-Persistence support for Windows down-level** requires additional consideration as documented below in guidance section.
 
+<sup>7</sup> **Azure AD join support** is only available with Azure Virtual Desktop and Windows 365
 
 ## Microsoft’s guidance
 
@@ -110,7 +111,7 @@ When deploying non-persistent VDI, Microsoft recommends that IT administrators i
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\AAD`
 > * `HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WorkplaceJoin`
 >
-> Romaing of the work account's device certificate is not supported. The certificate, issued by "MS-Organization-Access", is stored in the Personal (MY) certificate store of the current user.
+> Roaming of the work account's device certificate is not supported. The certificate, issued by "MS-Organization-Access", is stored in the Personal (MY) certificate store of the current user and on the local machine.
 
 
 ### Persistent VDI

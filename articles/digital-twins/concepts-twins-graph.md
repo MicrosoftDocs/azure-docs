@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the concept of a digital twin, and how their relationships make a graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/12/2020
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -166,7 +166,7 @@ Here is an example of a relationship formatted as a JSON object:
 
 See how to manage graph elements with Azure Digital Twin APIs:
 * [Manage digital twins](how-to-manage-twin.md)
-* [Manage the twin graph with relationships](how-to-manage-graph.md)
+* [Manage the twin graph and relationships](how-to-manage-graph.md)
 
 Or, learn about querying the Azure Digital Twins twin graph for information:
 * [Query language](concepts-query-language.md)

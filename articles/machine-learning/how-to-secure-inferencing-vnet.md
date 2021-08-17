@@ -18,11 +18,15 @@ ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecl
 
 In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning.
 
-This article is part four of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
-
-See the other articles in this series:
-
-[1. VNet overview](how-to-network-security-overview.md) > [Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > **4. Secure the inferencing environment** > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
+> [!TIP]
+> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+>
+> * [Virtual network overview](how-to-network-security-overview.md)
+> * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+> * [Secure the training environment](how-to-secure-training-vnet.md)
+> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+> * [Use custom DNS](how-to-custom-dns.md)
+> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 
 In this article you learn how to secure the following inferencing resources in a virtual network:
 > [!div class="checklist"]
@@ -48,7 +52,7 @@ In this article you learn how to secure the following inferencing resources in a
 
 ### Azure Container Instances
 
-* When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace.
+* When using Azure Container Instances in a virtual network, the virtual network must be in the same resource group as your Azure Machine Learning workspace. Otherwise, the virtual network can be in a different resource group.
 * If your workspace has a __private endpoint__, the virtual network used for Azure Container Instances must be the same as the one used by the workspace private endpoint.
 * When using Azure Container Instances inside the virtual network, the Azure Container Registry (ACR) for your workspace can't be in the virtual network.
 
@@ -272,11 +276,11 @@ If you don't want to use the default outbound rules and you do want to limit the
 
 ## Next steps
 
-This article is part four of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-* [Part 1: Virtual network overview](how-to-network-security-overview.md)
-* [Part 2: Secure the workspace resources](how-to-secure-workspace-vnet.md)
-* [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
-* [Part 5: Enable studio functionality](how-to-enable-studio-virtual-network.md)
-
-Also see the article on using [custom DNS](how-to-custom-dns.md) for name resolution.
+* [Virtual network overview](how-to-network-security-overview.md)
+* [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)

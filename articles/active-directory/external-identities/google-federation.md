@@ -61,14 +61,13 @@ You can also give Google guest users a direct link to an application or resource
 Starting September 30, 2021, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate.
 
 The following are known scenarios that will impact Gmail users:
+- Microsoft apps (e.g. Teams and PowerApps) on Windows 
 - Windows apps that use the [WebView](/windows/communitytoolkit/controls/wpf-winforms/webview) control, [WebView2](/microsoft-edge/webview2/), or the older WebBrowser control, for authentication. These apps should migrate to using the Web Account Manager (WAM) flow.
 - Android applications using the WebView UI element 
 - iOS applications using UIWebView/WKWebview 
 - [Apps using ADAL](../develop/howto-get-list-of-all-active-directory-auth-library-apps.md)
 
 This change does not affect:
-
-- Microsoft apps on Windows
 - Web apps
 - Mobile apps using system web-views for authentication ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) on iOS, [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/overview/) on Android).  
 - Google Workspace identities, for example when you’re using [SAML-based federation](direct-federation.md) with Google Workspace
@@ -85,6 +84,11 @@ Modify your apps to use the system browser for sign-in. For details, see [Embedd
 ### What to expect
 
 Before Google puts these changes into place on September 30, 2021, Microsoft will deploy a workaround for apps still using embedded web-views to ensure that authentication isn't blocked. Users who sign in with a Gmail account in an embedded web-view will be prompted to enter a code in a separate browser to finish signing in.
+
+Alternatively, you can have your existing and new Gmail users sign in with email one-time passcode. To have your Gmail users use email one-time passcode:
+1. [Enable email one-time passcode](one-time-passcode.md#enable-email-one-time-passcode)
+2. [Remove Google Federation](google-federation.md#how-do-i-remove-google-federation)
+3. [Reset redemption status](reset-redemption-status.md) of your Gmail users so they can use email one-time passcode going forward.
 
 Applications that are migrated to an allowed web-view for authentication won't be affected, and users will be allowed to authenticate via Google as usual.
 

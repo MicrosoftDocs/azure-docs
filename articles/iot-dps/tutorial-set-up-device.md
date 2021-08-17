@@ -7,7 +7,7 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
+
 ms.custom: mvc
 ---
 

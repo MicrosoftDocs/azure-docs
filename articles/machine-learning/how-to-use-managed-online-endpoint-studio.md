@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: how-to, managed online endpoints
+ms.custom: how-to, managed online endpoints, devplatv2
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: peterlu

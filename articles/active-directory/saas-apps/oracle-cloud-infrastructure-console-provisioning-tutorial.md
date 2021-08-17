@@ -66,7 +66,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 	![Oracle token generation](./media/oracle-cloud-infratstructure-console-provisioning-tutorial/general-information.png)
 
-6. To generate a secret token Base64 encode the client ID and client secret in the format **client ID:Client Secret**. Save the secret token. This value will be entered in the **Secret Token** field in the provisioning tab of your Oracle Cloud Infrastructure Console application in the Azure portal.
+6. To generate a secret token, encode the client ID and client secret as Base64 in the format **client ID:Client Secret**. Note - this value must be generated with line wrapping disabled (base64 -w 0). Save the secret token. This value will be entered in the **Secret Token** field in the provisioning tab of your Oracle Cloud Infrastructure Console application in the Azure portal.
 
 ## Step 3. Add Oracle Cloud Infrastructure Console from the Azure AD application gallery
 

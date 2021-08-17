@@ -11,7 +11,7 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 05/25/2021
 ms.reviewer: laobri
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devplatv2
 ---
 
 # Install, set up, and use the 2.0 CLI (preview)
@@ -36,9 +36,9 @@ The new Machine Learning extension **requires Azure CLI version `>=2.15.0`**. En
 az version
 ```
 
-If it is not, [upgrade your Azure CLI](/cli/azure/update-azure-cli).
+If it isn't, [upgrade your Azure CLI](/cli/azure/update-azure-cli).
 
-Check the Azure CLI extensions you have installed:
+Check the Azure CLI extensions you've installed:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_list":::
 
@@ -57,6 +57,14 @@ Run the help command to verify your installation and see available subcommands:
 You can upgrade the extension to the latest version:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_update":::
+
+### Installation on Linux
+
+If you're using Linux, the fastest way to install the necessary CLI version and the Machine Learning extension is:
+
+:::code language="bash" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_install_linux":::
+
+For more, see [Install the Azure CLI for Linux](/cli/azure/install-azure-cli-linux).
 
 ## Set up
 

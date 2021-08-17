@@ -85,6 +85,8 @@ The Communication Services Calling SDK supports the following streaming configur
 | **# of outgoing streams that can be sent simultaneously**     | 1 video or 1 screen sharing | 1 video + 1 screen sharing |
 | **# of incoming streams that can be rendered simultaneously** | 1 video or 1 screen sharing | 6 video + 1 screen sharing |
 
+While the Calling SDK won't enforce these limits, your users may experience performance degradation if they're exceeded.
+
 ## Calling SDK timeouts
 
 The following timeouts apply to the Communication Services Calling SDKs:
@@ -106,7 +108,7 @@ The following table represents the set of supported browsers which are currently
 | Platform     | Chrome | Safari | Edge (Chromium) | Notes                                                                                                                                                                                                       |
 | ------------ | ------ | ------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Android      | ✔️      | ❌      | ❌               | Outgoing Screen Sharing is not supported.                                                                                                                                                                   |
-| iOS          | ❌      | ✔️      | ❌               | [An iOS app on Safari can't enumerate/select mic and speaker devices](https://docs.microsoft.com/azure/communication-services/concepts/known-issues#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection. Outgoing screen sharing is not supported. |
+| iOS          | ❌      | ✔️      | ❌               | [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection. Outgoing screen sharing is not supported. |
 | macOS        | ✔️      | ✔️      | ❌               | Safari 14+/macOS 11+ needed for outgoing video support.                                                                                                                                                     |
 | Windows      | ✔️      | ❌      | ✔️               |                                                                                                                                                                                                             |
 | Ubuntu/Linux | ✔️      | ❌      | ❌               |                                                                                                                                                                                                             |

@@ -62,7 +62,7 @@ conceptualContent:
         - url: ../iot-hub/quickstart-send-telemetry-cli.md
           itemType: quickstart
           text: Send telemetry from a device
-        - url: ../iot-hub/quickstart-control-device-node.md
+        - url: ../iot-hub/quickstart-control-device.md
           itemType: quickstart
           text: Control a device from the cloud
         - url: /azure-stack/operator/iot-hub-rp-overview
