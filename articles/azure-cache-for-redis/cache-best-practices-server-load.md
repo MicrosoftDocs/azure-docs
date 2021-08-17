@@ -8,7 +8,7 @@ ms.date: 09/01/2021
 ms.author: shpathak
 ---
 
-# Server Load Management
+# Manage Server Load
 
 ## Key size
 
@@ -16,7 +16,9 @@ Should I use small key/values or large key/values? It depends on the scenario. I
 
 ## Avoid client connections spike
 
-Creating and closing connections is an expensive operation for Redis server. Creating or closing too many connections in a small amount of time could burden the Redis server. If you are instantiating many client instances to connect to redis at once, consider staggering the new connection creations to avoid a steep spike in the number of connected clients.
+Creating and closing connections is an expensive operation for Redis server. If your client application creates or closes too many connections in a small amount of time, it could burden the Redis server.
+
+If you're instantiating many client instances to connect to redis at once, consider staggering the new connection creations to avoid a steep spike in the number of connected clients.
 
 ## Memory pressure
 
@@ -24,11 +26,11 @@ High memory usage on the server side may cause means the system may page data to
 
 ## Avoid long running command
 
-Because Redis is a single-threaded server-side system, the time needed to run some more time expensive commands may cause some latency or timeouts on client side, as server can be busy dealing with these expensive commands. For more information, see [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md).  
+Redis server is a single-threaded system. The time needed to run some more time-expensive commands can cause some latency or timeouts on the client side because the server is too busy carrying out the time-expensive commands. For more information, see [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md).  
 
 ## Monitor Server Load
 
-Add monitoring on Server Load to ensure you get notifications when instances of high server load occur. This can help you understand your application constraints well and work proactively to mitigate issues. We recommend trying to keep server load under 80% to avoid performance impact.
+Add monitoring on Server load to ensure you get notifications when high server load occurs. Monitoring can help you understand your application constraints well. Then, you can work proactively to mitigate issues. We recommend trying to keep server load under 80% to avoid negative performance effects.
 
 ## Plan for server maintenance
 

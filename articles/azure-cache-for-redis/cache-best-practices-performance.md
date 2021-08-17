@@ -12,7 +12,7 @@ ms.author: shpathak
 
 ## Performance testing
 
-1. Start by using `redis-benchmark.exe` to get a feel for possible throughput/latency before writing your own perf tests. For more information, see [Redis-Benchmark](#redis-benchmark).
+1. Start by using `redis-benchmark.exe` to get a feel for possible throughput/latency before writing your own perf tests. For more information, see [Redis-Benchmark](#redis-benchmark-utility).
 
 1. The client VM used for testing should be **in the same region** as your Redis cache instance.
 
@@ -27,7 +27,7 @@ ms.author: shpathak
 
 ## Redis-benchmark utility
 
-**Redis-benchmark** documentation can be [found here](https://redis.io/topics/benchmarks). 
+**Redis-benchmark** documentation can be [found here](https://redis.io/topics/benchmarks).
 
 The `redis-benchmark.exe` doesn't support TLS. You'll have to [enable the Non-TLS port through the Portal](cache-configure.md#access-ports) before you run the test.  A windows compatible version of redis-benchmark.exe can be found [here](https://github.com/MSOpenTech/redis/releases).
 
