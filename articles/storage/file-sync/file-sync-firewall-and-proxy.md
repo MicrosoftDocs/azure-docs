@@ -168,7 +168,7 @@ For business continuity and disaster recovery (BCDR) reasons you may have create
 | Government | US Gov Arizona | https:\//usgovarizona01.afs.azure.us | US Gov Texas | https:\//tm-usgovarizona01.afs.azure.us |
 | Government | US Gov Texas | https:\//usgovtexas01.afs.azure.us | US Gov Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 
-- If you use locally redundant (LRS) or zone redundant (ZRS) storage accounts, you only need to enable the URL listed under "Primary endpoint URL".
+- If you use a storage account configured for locally redundant storage (LRS) or zone redundant storage (ZRS), you only need to enable the URL listed under "Primary endpoint URL".
 
 - If you use a storage account configured for GRS, enable three URLs.
 
