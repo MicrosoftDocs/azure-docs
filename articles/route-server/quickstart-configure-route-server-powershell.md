@@ -68,7 +68,7 @@ The RouteServerSubnet ID should looks like the following:
 
 ## Create the Route Server
 
-To ensure high availability Azure Route Server requires a public IP to access the underlying infrastructure.
+To ensure connectivity to the backend service that manages Route Server configuration, assigning a public IP address is required.
 
 1. Create a public IP resource using the following command:
 
