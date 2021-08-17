@@ -17,7 +17,7 @@ ms.author: lajanuar
 
 Many businesses and individuals still rely on manually extracted data from sales receipts. Automatically extracting data from these receipts can be complicated. Receipts may be crumpled, hard to read, have handwritten parts and contain low-quality smartphone images. Also, receipt templates and fields can vary greatly by market, region, and merchant. These data extraction and field detection challenges make receipt processing a unique problem.
 
-Azure Form Recognizer can analyze and extract information from sales receipts using its prebuilt receipt model. It combines our powerful [Optical Character Recognition (OCR)](../computer-vision/overview-ocr.md) capabilities with deep learning models to extract key information such as merchant name, merchant phone number, transaction date, transaction total, and more from receipts written in English.
+Azure Form Recognizer can analyze and extract information from sales receipts using its prebuilt receipt model. It combines our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract key information such as merchant name, merchant phone number, transaction date, transaction total, and more from receipts written in English.
 
 ## Customer scenarios
 

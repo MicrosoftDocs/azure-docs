@@ -25,7 +25,7 @@ Each container has the following configuration settings:
 |Required|Setting|Purpose|
 |--|--|--|
 |Yes|[ApiKey](#apikey-and-billing-configuration-setting)|Tracks billing information.|
-|Yes|[Billing](#apikey-and-billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure. For more information on obtaining _see_ [Billing]](form-recognizer-container-install-run.md#billing). For more information and a complete list of regional endpoints, _see_ [Custom subdomain names for Cognitive Services](../../cognitive-services-custom-subdomains.md).|
+|Yes|[Billing](#apikey-and-billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure. For more information on obtaining _see_ [Billing]](form-recognizer-container-install-run.md#billing). For more information and a complete list of regional endpoints, _see_ [Custom subdomain names for Cognitive Services](../../../cognitive-services/cognitive-services-custom-subdomains.md).|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
 |No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](/azure/application-insights) telemetry support to your container.|
 |No|[Fluentd](#fluentd-settings)|Writes log and, optionally, metric data to a Fluentd server.|
