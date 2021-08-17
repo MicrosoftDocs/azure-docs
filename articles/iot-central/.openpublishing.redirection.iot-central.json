@@ -1239,6 +1239,31 @@
       "source_path_from_root": "/articles/iot-central/energy/concept-iot-central-solar-panel-app.md",
       "redirect_url": "/azure/iot-central/energy/tutorial-solar-panel-app",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/store-analytics-architecture.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-in-store-analytics-create-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/architecture-smart-inventory-management.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-smart-inventory-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/architecture-digital-distribution-center.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-iot-central-digital-distribution-center",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/architecture-micro-fulfillment-center.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-micro-fulfillment-center",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/retail/architecture-video-analytics.md",
+      "redirect_url": "/azure/iot-central/retail/tutorial-video-analytics-deploy",
+      "redirect_document_id": false
     }
   ]
 }

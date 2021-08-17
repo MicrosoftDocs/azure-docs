@@ -99,6 +99,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Maltese (Malta)                    | `mt-MT` | Text                                   |                           |                          |
 | Marathi (India)                    | `mr-IN` | Text                                   |                           |                          |
 | Norwegian (Bokmål, Norway)         | `nb-NO` | Text                                   |     Yes                      |                          |
+| Persian (Iran)                     | `fa-IR` | Text                                   |                           |                          |
 | Polish (Poland)                    | `pl-PL` | Text                                   |       Yes                    |                          |
 | Portuguese (Brazil)                | `pt-BR` | Audio (20190620, 20201015)<br>Text<br>Pronunciation|          Yes                 |                          |
 | Portuguese (Portugal)              | `pt-PT` | Text<br>Pronunciation                  |             Yes              |                          |
@@ -128,6 +129,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Spanish (Uruguay)                  | `es-UY` | Text<br>Pronunciation                  |                           |                          |
 | Spanish (USA)                      | `es-US` | Text<br>Pronunciation                  |                           |                          |
 | Spanish (Venezuela)                | `es-VE` | Text<br>Pronunciation                  |                           |                          |
+| Swahili (Kenya)                    | `sw-KE` | Text<br>Pronunciation                  |                           |                          |
 | Swedish (Sweden)                   | `sv-SE` | Text                                   |   Yes                        |                          |
 | Tamil (India)                      | `ta-IN` | Text                                   |                           |                          |
 | Telugu (India)                     | `te-IN` | Text                                   |                           |                          |
