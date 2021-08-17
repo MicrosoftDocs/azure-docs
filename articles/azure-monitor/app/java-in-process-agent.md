@@ -82,7 +82,12 @@ You can find your connection string in your Application Insights resource:
 Now start up your application and go to your Application Insights resource in the Azure portal to see your monitoring data.
 
 > [!NOTE]
-> It may take a couple of minutes for your monitoring data to show up in the portal.
+> It may take a couple minutes for data to show up in the Portal.
+
+## Enable OTLP Exporter
+You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
+
+See xyz.
 
 
 ## Configuration options
@@ -102,6 +107,10 @@ In the `applicationinsights.json` file, you can additionally configure:
 * Self-diagnostics
 
 See [configuration options](./java-standalone-config.md) for full details.
+
+## Instrumentation Libraries
+
+Java 3.X includes the following instrumentation libraries.
 
 ## Auto-collected requests
 
@@ -191,7 +200,7 @@ to enable this preview feature and auto-collect the telemetry emitted by these A
 [//]: # "}"
 [//]: # "console.log(str)"
 
-## Send custom telemetry from your application
+## Custom Telemetry
 
 Our goal in Application Insights Java 3.x is to allow you to send your custom telemetry using standard APIs.
 
@@ -322,6 +331,8 @@ try {
 }
 ```
 
+## Modify Telemetry
+
 ### Add request custom dimensions using the 2.x SDK
 
 > [!NOTE]
@@ -422,3 +433,23 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 String requestId = requestTelemetry.getId();
 String operationId = requestTelemetry.getContext().getOperation().getId();
 ```
+
+## Troubleshooting
+See [Troubleshooting](./troubleshooting.md).
+
+## Support
+- Review [Troubleshooting steps](./troubleshooting.md).
+- For Azure support issues, file an Azure SDK GitHub issue or open a CSS Ticket.
+- For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
+
+## Feedback
+- Fill out the OpenTelemetry community’s [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
+- Tell Microsoft a bit about yourself by joining our [OpenTelemetry Early Adopter Community](https://aka.ms/AzMonOTel/).
+- Add your feature requests to the [Azure Monitor Application Insights UserVoice](https://feedback.azure.com/forums/357324-azure-monitor-application-insights).
+- Open a GitHub issue against this official documentation page.
+
+## Next Steps
+- [Azure Monitor Java Auto-Instrumentation GitHub Repository](https://github.com/Microsoft/ApplicationInsights-Java)
+- [Azure Monitor Sample Application]()
+- [OpenTelemetry Community Language GitHub Repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation)
+- [Enable web/browser user monitoring](./javascript.md)
