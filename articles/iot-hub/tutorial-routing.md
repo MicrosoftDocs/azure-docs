@@ -127,6 +127,7 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
+
 1. In the [Azure portal](https://portal.azure.com), select **Resource Groups**, then select your resource group. This tutorial uses **ContosoResources**.
 
 2. Select the IoT hub under the list of resources. This tutorial uses **ContosoTestHub**.
