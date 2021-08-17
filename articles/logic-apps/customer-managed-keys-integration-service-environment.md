@@ -20,7 +20,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * At this time, customer-managed key support for an ISE is available only in the following regions:
 
-  * Azure commercial regions: West US 2, East US, and South Central US.
+  * Azure: West US 2, East US, and South Central US.
 
   * Azure Government: Arizona, Virginia, and Texas.
 
