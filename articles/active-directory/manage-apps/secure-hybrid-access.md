@@ -17,9 +17,9 @@ ms.collection: M365-identity-device-management
 
 You can now protect your on-premises and cloud legacy authentication applications by connecting them to Azure Active Directory (AD) with:
 
-- [Azure AD Application Proxy](#sha-through-azure-ad-application-proxy)
+- [Azure AD Application Proxy](#secure-hybrid-access-through-azure-ad-application-proxy)
 
-- [Secure hybrid access partners](#sha-through-azure-ad-partner-integrations)
+- [Secure hybrid access partners](#secure-hybrid-access-through-azure-ad-partner-integrations)
 
 You can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities like [Azure AD Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) and [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection). By having Azure AD as an Identity provider (IDP), you can use modern authentication and authorization methods like [Single sign-on (SSO)](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) and [multifactor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) to secure your on-premises legacy applications.
 
