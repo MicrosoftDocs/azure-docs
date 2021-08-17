@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 07/15/2021
+ms.date: 08/17/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -44,11 +44,13 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="hub"></a>Create a hub
 
-A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites.
+A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. For this tutorial, you begin by filling out the **Basics** tab for the virtual hub and then continue on to fill out the site-to-site tab. The hub is then created with the site-to-site settings. Note that it is possible to create an empty hub (a hub that is not configured with connectivity settings). Once a hub is created, you'll be charged for the hub, even if you don't attach any sites.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
 ## <a name="gateway"></a>Create a site-to-site VPN gateway
+
+In this step, you configure the site-to-site connectivity settings and then proceed to create the hub along with the settings you specify. A hub can take up to 30 minutes to create.
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
