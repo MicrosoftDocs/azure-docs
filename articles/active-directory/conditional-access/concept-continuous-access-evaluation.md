@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/05/2021
+ms.date: 08/17/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -158,10 +158,10 @@ Organizations have options when it comes to enabling CAE.
 
 Changes made to Conditional Access policies and group membership made by administrators could take up to one day to be effective. The delay is from replication between Azure AD and resource providers like Exchange Online and SharePoint Online. Some optimization has been done for policy updates, which reduce the delay to two hours. However, it doesn't cover all the scenarios yet.  
 
-In the event that Conditional Access policy or group membership changes need to be applied to certain users immediately, you have two options. 
+When Conditional Access policy or group membership changes need to be applied to certain users immediately, you have two options. 
 
 - Run the [revoke-azureaduserallrefreshtoken PowerShell command](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) to revoke all refresh tokens of a specified user.
-- Select "Revoke Session" on the user profile page in the Azure Portal to revoke the user's session to ensure that the updated policies will be applied immediately.
+- Select "Revoke Session" on the user profile page in the Azure portal to revoke the user's session to ensure that the updated policies will be applied immediately.
 
 ### IP address variation
 
@@ -210,6 +210,10 @@ If you enable a user right after disabling, there's some laten
 
 - SharePoint Online and Teams typically have a 15-minute delay. 
 - Exchange Online typically has a 35-40 minute delay. 
+
+### Push notifications
+
+An IP address policy isn't evaluated before push notifications are released. This scenario exists because push notifications are outbound and don't have an associated IP address to be evaluated against. If a user clicks into that push notification, for example an email in Outlook, CAE IP address policies are still enforced before the email can display. Push notifications display a message preview, which isn't protected by an IP address policy. All other CAE checks are done before the push notification being sent. If a user or device has its access removed, enforcement occurs within the documented period. 
 
 ## FAQs
 
