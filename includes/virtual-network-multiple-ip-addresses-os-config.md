@@ -323,7 +323,6 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 </details>
 	
 ### Debian GNU/Linux
-
 <details>
   <summary>Expand</summary>
 
@@ -398,3 +397,4 @@ ip route add default via 10.0.0.1 dev eth2 table custom
     inet6 fe80::20d:3aff:fe1d:1d64/64 scope link
        valid_lft forever preferred_lft forever
    ```
+</details>
