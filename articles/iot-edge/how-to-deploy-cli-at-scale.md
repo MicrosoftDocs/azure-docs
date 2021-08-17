@@ -151,6 +151,8 @@ Here's a basic layered deployment manifest with one module as an example:
 }
 ```
 
+
+
 The previous example showed a layered deployment setting the `properties.desired` for a module. If this layered deployment targeted a device where the same module was already applied, it would overwrite any existing desired properties. In order to update, instead of overwrite, desired properties, you can define a new subsection. For example:
 
 ```json
@@ -162,10 +164,20 @@ The previous example showed a layered deployment setting the `properties.desired
 }
 ```
 
+The same can also be expressed with:
+
+```json
+"SimulatedTEmperatureSensor": {
+  "properties.desired.layeredProperties.SendData" : true,
+  "properties.desired.layeredProperties.SendInterval": 5
+}
+```
+> Warning: Currently it is not possible to just have a layered deployment update only properties, without also adding user modules
+
 In summary, to create a layered deployment:
 
-- Must add the `--layered` flag to the Azyre CLI create command
-- Must not contain any system modules, cam only user modules
+- Must add the `--layered` flag to the Azure CLI create command
+- Must contain user modules
 - Must use the 'dot notation' under `$edgeAgent` and `$edgeHub`
 
 For more information about configuring module twins in layered deployments, see [Layered deployment](module-deployment-monitoring.md#layered-deployment)
