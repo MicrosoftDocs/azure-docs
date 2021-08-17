@@ -302,6 +302,17 @@ HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.
 
 <a name="disable-location-header-check"></a>
 
+### Retry-After  
+The http action respects the retry after with 429 status code if received one .
+the value will be considered as Seconds
+
+```json
+{
+  "Retry-After": "300"
+}
+```
+
+
 ## Disable checking location headers
 
 Some endpoints, services, systems, or APIs return a `202 ACCEPTED` response that doesn't have a `location` header. To avoid having an HTTP action continually check the request status when the `location` header doesn't exist, you can have these options:
