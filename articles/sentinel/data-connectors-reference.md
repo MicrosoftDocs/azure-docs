@@ -348,17 +348,10 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** | BetterMTDDeviceLog_CL<br>BetterMTDIncidentLog_CL<br>BetterMTDAppLog_CL<br>BetterMTDNetflowLog_CL |
-| **Vendor documentation/<br>installation instructions** | [BETTER MTD Documentation](https://mtd-docs.bmobi.net/integrations/azure-sentinel/setup-integration) |
+| **Vendor documentation/<br>installation instructions** | [BETTER MTD Documentation](https://mtd-docs.bmobi.net/integrations/azure-sentinel/setup-integration)<br><br>Threat Policy setup (Which incidents should be reported to Azure Sentinel):<br><ol><li>In **Better MTD Console**, click on **Policies** on the side bar.<li>Click on the **Edit** button of the Policy that you are using.<li>For each Incident type that you want to be logged, go to **Send to Integrations** field and select **Sentinel**. |
 | **Supported by** | [Better Mobile](mailto:support@better.mobi) |
 |
 
-### Configure threat policies to send data to Sentinel
-
-Threat Policy setup (Which incidents should be reported to Azure Sentinel):
-
-1. In **Better MTD Console**, click on **Policies** on the side bar.
-1. Click on the **Edit** button of the Policy that you are using.
-1. For each Incident type that you want to be logged, go to **Send to Integrations** field and select **Sentinel**.
 
 ## Beyond Security beSECURE
 
