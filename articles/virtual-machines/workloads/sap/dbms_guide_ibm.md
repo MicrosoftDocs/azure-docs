@@ -227,6 +227,13 @@ For the disks containing the Db2 storage paths for your sapdata and saptmp direc
 
 ### Other
 All other general areas like Azure Availability Sets or SAP monitoring apply as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) for deployments of VMs with the IBM Database as well.
+
+## Next steps
+Read the article 
+
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
+
+
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -274,14 +281,6 @@ All other general areas like Azure Availability Sets or SAP monitoring apply as 
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
-
-
-## Next steps
-Read the article 
-
-- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
-
-
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
