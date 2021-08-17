@@ -42,10 +42,34 @@ Using the Visual Studio IDE, create a new .NET Core console app. This will creat
 
 Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Make sure **Include prerelease** is checked. Select version `5.2.0-beta.1`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
+Features included in this version of the Text Analytics API:
+
+* Sentiment analysis
+* Opinion mining
+* Language detection
+* Entity recognition
+* Entity linking
+* Personal Identifying Information recognition
+* Key phrase extraction
+* Asynchronous methods
+* Text Analytics for health
+* Text Summarization
+
 # [Version 3.1](#tab/version-3-1)
 
 Install the client library by right-clicking on the solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse** and search for `Azure.AI.TextAnalytics`. Select version `5.1.0`, and then **Install**. You can also use the [Package Manager Console](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package).
 
+Features included in this version of the Text Analytics API:
+
+* Sentiment analysis
+* Opinion mining
+* Language detection
+* Entity recognition
+* Entity linking
+* Personal Identifying Information recognition
+* Key phrase extraction
+* Asynchronous methods
+* Text Analytics for health
 ---
 
 Open the *program.cs* file and add the following `using` directives:
@@ -91,15 +115,6 @@ static void Main(string[] args)
 The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
 
 If you're using version `3.x` of the service, you can use an optional `TextAnalyticsClientOptions` instance to initialize the client with various default settings (for example default language or country/region hint). You can also authenticate using an Azure Active Directory token. 
-
-## Code examples
-
-* [Sentiment analysis](#sentiment-analysis)
-* [Opinion mining](#opinion-mining)
-* [Language detection](#language-detection)
-* [Named Entity Recognition](#named-entity-recognition-ner)
-* [Entity linking](#entity-linking)
-* [Key phrase extraction](#key-phrase-extraction)
 
 ## Authenticate the client
 

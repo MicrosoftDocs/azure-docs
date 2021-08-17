@@ -9,11 +9,11 @@ ms.author: aahi
 
 <a name="HOLTop"></a>
 
-# [Version 3.1](#tab/version-3-1)
+# [Version 3.2-preview.1](#tab/version-3-2)
 
 [v3.1 Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.1.0/) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
 
-# [Version 3.2-preview.1](#tab/version-3-2)
+# [Version 3.1](#tab/version-3-1)
 
 [v3.1 Reference documentation](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [v3.1 Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 Package (PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.1.0/) | [v3.1 Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/textanalytics/azure-ai-textanalytics/samples)
 ---
@@ -33,25 +33,7 @@ ms.author: aahi
 
 After installing Python, you can install the client library with the following commands. 
 
-# [Version 3.1](#tab/version-3-1)
-
-```console
-pip install azure-ai-textanalytics==5.1.0
-```
-
-Features included in this version of the Text Analytics API:
-
-* Sentiment analysis
-* Opinion mining
-* Language detection
-* Entity recognition
-* Entity linking
-* Personal Identifying Information recognition
-* Key phrase extraction
-* Asynchronous methods
-* Text Analytics for health
-
-# [Version 3.2-preview.1](#tab/version-3-2)
+# [Version 3.2-preview.1](#tab/version-3-1)
 
 ```console
 pip install azure-ai-textanalytics==5.2.0b1
@@ -69,6 +51,25 @@ Features included in this version of the Text Analytics API:
 * Asynchronous methods
 * Text Analytics for health
 * Text Summarization
+
+# [Version 3.1](#tab/version-3-2)
+
+```console
+pip install azure-ai-textanalytics==5.1.0
+```
+
+Features included in this version of the Text Analytics API:
+
+* Sentiment analysis
+* Opinion mining
+* Language detection
+* Entity recognition
+* Entity linking
+* Personal Identifying Information recognition
+* Key phrase extraction
+* Asynchronous methods
+* Text Analytics for health
+
 
 ---
 
