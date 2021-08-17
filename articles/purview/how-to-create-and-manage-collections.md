@@ -10,7 +10,7 @@ ms.date: 08/18/2021
 ms.custom: template-how-to
 ---
 
-# Creating and managing collections in Azure Purview
+# Create and manage collections in Azure Purview
 
 Collections in Purview can be used to organize assets and sources by your business' flow, but they are also the tool used to manage access across Purview. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
 
@@ -31,7 +31,7 @@ In order to create and manage collections in Purview, you will need to be a **Co
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
-1. Select your root collection. This is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it is called Contoso Purview. Alternatively-- if collections already exist you can select any collection where you want to create a subcollection.
+1. Select your root collection. This is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it is called Contoso Purview. Alternatively, if collections already exist you can select any collection where you want to create a subcollection.
 :::image type="content" source="./media/quickstart-create-collection/select-root-collection.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the root collection highlighted." border="true":::
 1. Select role assignments in the collection window.
 :::image type="content" source="./media/quickstart-create-collection/role-assignments.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
@@ -68,7 +68,7 @@ You will need to be a collection admin in order to create a collection. If you a
 1. Select “Refresh” in collection detail page to reload the single collection.
 :::image type="content" source="./media/how-to-create-and-manage-collections/refresh-single-collection.png" alt-text="Screenshot of Purview studio collection window, with the refresh button under the collection window highlighted." border="true":::
 
-## Adding roles and restricting access through collections
+## Add roles and restrict access through collections
 
 Since permissions are managed through collections in Purview, it is important to understand the roles and what permissions they will give your users. A user granted permissions on a collection will have access to sources and assets associated with that collection, as well as inherit permissions to subcollections. Inheritance [can be restricted](#restrict-inheritance), but is allowed by default.
 
@@ -114,7 +114,7 @@ Once you restrict inheritance, you will need to add users directly to the restri
 1. Click the “Restrict inherited permissions” toggle button again to revert.
 :::image type="content" source="./media/how-to-create-and-manage-collections/remove-restriction.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab selected, and the unrestrict inherited permissions slide button highlighted." border="true":::
 
-## Adding assets to collections
+## Add assets to collections
 
 Assets and sources are also associated with collections. During a scan, if the scan was associated with a collection the assets will be automatically added to that collection, but can also be manually added.
 
