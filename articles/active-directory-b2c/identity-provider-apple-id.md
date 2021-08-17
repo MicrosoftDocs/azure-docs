@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 08/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -42,13 +42,13 @@ To enable sign-in for users with an Apple ID in Azure Active Directory B2C (Azur
     1. Enter a **Description** 
     1. Enter the **Bundle ID**, such as `com.contoso.azure-ad-b2c`. 
     1. For **Capabilities**, select **Sign in with Apple** from the capabilities list. 
-    1. Take note of your App ID Prefix (Team ID) from this step. You'll need it later.
+    1. Take note of your **Team ID** (App ID Prefix) from this step. You'll need it later.
     1. Select **Continue** and then **Register**.
 1. From the menu, select **Certificates, IDs, & Profiles**, and then select **(+)**.
 1. For **Register a New Identifier**, select **Services IDs**, and then select **Continue**.
 1. For **Register a Services ID**:
     1. Enter a **Description**. The description is shown to the user on the consent screen.
-    1. Enter the **Identifier**, such as `com.consoto.azure-ad-b2c-service`. The identifier is your client ID for the OpenID Connect flow.
+    1. Enter the **Identifier**, such as `com.consoto.azure-ad-b2c-service`. Take note of your **Service ID** identifier. The identifier is your **Client ID** for the OpenID Connect flow.
     1. Select **Continue**, and then select **Register**.
 1. From **Identifiers**, select the identifier you created.
 1. Select **Sign In with Apple**, and then select **Configure**.
@@ -65,7 +65,7 @@ To enable sign-in for users with an Apple ID in Azure Active Directory B2C (Azur
     1. Type a **Key Name**.
     1. Select **Sign in with Apple**, and then select **Configure**.
     1. For the **Primary App ID**, select the app you created previously, and the select **Save**.
-    1. Select **Configure**, and then select **Register** to finish the key registration process.
+    1. Select **Configure**, and then select **Register** to finish the key registration process. Take note of the **Key ID**. This key is required when you configure user flows.
 1. For **Download Your Key**, select **Download** to download a .p8 file that contains your key.
 
 
@@ -79,8 +79,8 @@ To enable sign-in for users with an Apple ID in Azure Active Directory B2C (Azur
 1. Select **Identity providers**, then select **Apple (Preview)**.
 1. Enter a **Name**. For example, *Apple*.
 1. Enter the **Apple developer ID (Team ID)**.
-1. Enter the **Apple service ID (client ID)**.
-1. Enter the **Apple key ID**.
+1. Enter the **Apple service ID (Client ID)**.
+1. Enter the **Apple key ID** from step [Creating an Apple client secret](#creating-an-apple-client-secret).
 1. Select and upload the **Apple certificate data**.
 1. Select **Save**.
 
@@ -120,7 +120,7 @@ Use the .p8 file you downloaded previously to sign the client secret into a JWT 
 1. Make an HTTP `POST` request, and  provide the following information:
 
     - **appleTeamId**: Your Apple Developer Team ID
-    - **appleServiceId**: The Apple Service ID (also the client ID)
+    - **appleServiceId**: The Apple Service ID (client ID)
     - **p8key**: The PEM format key. You can obtain this by opening the .p8 file in a text editor and copying everything between 
     `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` without line breaks.
  
@@ -204,7 +204,7 @@ You can define an Apple ID as a claims provider by adding it to the **ClaimsProv
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.name.firstName"/>
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.name.lastName"/>
-            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="user.email"/>
+            <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
