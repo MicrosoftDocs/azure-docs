@@ -10,12 +10,12 @@ For step-by-step guidance on using Bicep to deploy your infrastructure to Azure,
 
 :::row:::
 :::column:::
-<img src="/learn/achievements/bicep/bicep-deploy-manage.svg" width="101" height="120" alt="The trophy for the Deploy and manage resources in Azure by using Bicep learning path." role="presentation"></img>
+<img src="media/learn-bicep/bicep-deploy-manage.svg" width="101" height="120" alt="The trophy for the Deploy and manage resources in Azure by using Bicep learning path." role="presentation"></img>
 
 [Part 1: Deploy and manage resources in Azure by using Bicep](/learn/paths/bicep-deploy/)
 :::column-end:::
 :::column:::
-<img src="/learn/achievements/bicep/bicep-collaborate.svg" width="101" height="120" alt="The trophy for the Build Azure infrastructure in a team environment by using Bicep learning path." role="presentation"></img>
+<img src="media/learn-bicep/bicep-collaborate.svg" width="101" height="120" alt="The trophy for the Build Azure infrastructure in a team environment by using Bicep learning path." role="presentation"></img>
 
 [Part 2: Build Azure infrastructure in a team environment by using Bicep](/learn/paths/bicep-collaborate/)
 :::column-end:::
