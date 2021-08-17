@@ -98,32 +98,14 @@ The Identity documents  (ID) model enables you to extract key information from w
 
 Use the Sample Form Recognizer Tool to try out Layout, Pre-built models and train a custom model for your documents. You will need an Azure subscription ([**create one for free**](https://azure.microsoft.com/free/cognitive-services)) and a [**Form Recognizer resource**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) endpoint and key to try out the Form Recognizer service.
 
-### [v2.1](#tab/v2-1)
-
 >
 > [!div class="nextstepaction"]
 > [Try Form Recognizer](https://aka.ms/fott-2.1-ga/)
 >
 
-### [v2.0](#tab/v2-0)
-
->
-> [!div class="nextstepaction"]
-> [Try Form Recognizer](https://fott.azurewebsites.net/)
-
----
-
 Follow the [client library / REST API quickstart](./quickstarts/client-library.md) to get started extracting data from your documents. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
-### [v2.1](#tab/v2-1)
-
 Explore the [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
-
-### [v2.0](#tab/v2-0)
-
-Explore the [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync) to learn more. If you're familiar with a previous version of the API, see the [What's new](./whats-new.md) article to learn about recent changes.
-
----
 
 ## Input requirements
 

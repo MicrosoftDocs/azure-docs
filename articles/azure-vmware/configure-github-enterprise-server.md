@@ -105,21 +105,25 @@ Create somewhere for GitHub Actions to run; again, we'll use Azure VMware Soluti
 
 1. Install [the Actions runner](https://github.com/actions/runner) application, which runs a job from a GitHub Actions workflow. Identify and download the most current Linux x64 release of the Actions runner, either from [the releases page](https://github.com/actions/runner/releases) or by running the following quick script. This script requires both curl and [jq](https://stedolan.github.io/jq/) to be present on your VM.
 
-    `LATEST\_RELEASE\_ASSET\_URL=$( curl https://api.github.com/repos/actions/runner/releases/latest | \`
+   ```bash
+   LATEST\_RELEASE\_ASSET\_URL=$( curl https://api.github.com/repos/actions/runner/releases/latest | \
     
-    `  jq -r '.assets | .[] | select(.name | match("actions-runner-linux-arm64")) | .url' )`
+   jq -r '.assets | .[] | select(.name | match("actions-runner-linux-arm64")) | .url' )
     
-    `DOWNLOAD\_URL=$( curl $LATEST\_RELEASE\_ASSET\_URL | \`
+   DOWNLOAD\_URL=$( curl $LATEST\_RELEASE\_ASSET\_URL | \
     
-    `  jq -r '.browser\_download\_url' )`
+   jq -r '.browser\_download\_url' )
     
-    `curl -OL $DOWNLOAD\_URL`
+   curl -OL $DOWNLOAD\_URL
+   ```
     
-    You should now have a file locally on your VM, actions-runner-linux-arm64-\*.tar.gz. Extract this tarball locally:
+   You should now have a file locally on your VM, actions-runner-linux-arm64-\*.tar.gz. Extract this tarball locally:
     
-    `tar xzf actions-runner-linux-arm64-\*.tar.gz`
+   ```bash
+   tar xzf actions-runner-linux-arm64-\*.tar.gz
+   ```
     
-    This extraction unpacks a few files locally, including a `config.sh` and `run.sh` script.
+   This extraction unpacks a few files locally, including a `config.sh` and `run.sh` script.
 
 ## Enable GitHub Actions
 
@@ -130,37 +134,49 @@ Configure and enable GitHub Actions on the GitHub Enterprise Server instance.
 
 1. [Access the GitHub Enterprise Server instance's administrative shell over SSH](https://docs.github.com/en/enterprise/admin/configuration/accessing-the-administrative-shell-ssh), and then run the following commands:
 
-    `# set an environment variable containing your Blob storage connection string`
-    
-    `export CONNECTION\_STRING="<your connection string from the blob storage step>"`
-    
-    `# configure actions storage`
-    
-    `ghe-config secrets.actions.storage.blob-provider azure`
-    
-    `ghe-config secrets.actions.storage.azure.connection-string "$CONNECTION\_STRING"`
-    
-    `# apply these settings`
-    
-    `ghe-config-apply`
-    
-    `# execute a precheck, this install additional software required by Actions on GitHub Enterprise Server`
-    
-    `ghe-actions-precheck -p azure -cs "$CONNECTION\_STRING"`
-    
-    `# enable actions, and re-apply the config`
-    
-    `ghe-config app.actions.enabled true`
-    
-    `ghe-config-apply`
+1. Set an environment variable containing your Blob storage connection string.
 
-1. Next check the health of your blob storage:
+   ```bash
+   export CONNECTION\_STRING="<your connection string from the blob storage step>"
+   ```    
 
-   `ghe-actions-check -s blob`
+1. Configure actions storage.
+    
+   ```bash
+   ghe-config secrets.actions.storage.blob-provider azure
+  
+   ghe-config secrets.actions.storage.azure.connection-string "$CONNECTION\_STRING`      
+   ```
+
+1. Apply the settings.
+
+   ```bash
+   ghe-config-apply
+   ```    
+
+1. Execute a precheck, this install additional software required by Actions on GitHub Enterprise Server.
+    
+   ```bash
+   ghe-actions-precheck -p azure -cs "$CONNECTION\_STRING"
+   ```
+
+1. Enable actions, and re-apply the configuration.
+ 
+   ```bash
+   ghe-config app.actions.enabled true
+    
+   ghe-config-apply      
+   ```
+
+1. Check the health of your blob storage.
+
+   ```bash
+   ghe-actions-check -s blob
+   ```
 
    You should see output: _Blob Storage is healthy_.
 
-1. Now that **GitHub Actions** is configured, enable it for your users. Sign in to your GitHub Enterprise Server instance as an administrator, and select the ![Rocket icon.](media/github-enterprise-server/rocket-icon.png) in the upper right corner of any page. 
+1. Now that **GitHub Actions** is configured, enable it for your users. Sign in to your GitHub Enterprise Server instance as an administrator, and select the :::image type="icon" source="media/github-enterprise-server/rocket-icon.png"::: in the upper right corner of any page. 
 
 1. In the left sidebar, select **Enterprise overview**, then **Policies**, **Actions**, and select the option to **enable Actions for all organizations**.
 
@@ -168,7 +184,9 @@ Configure and enable GitHub Actions on the GitHub Enterprise Server instance.
 
 1. Copy the command to **configure** the runner, for instance:
 
-   `./config.sh --url https://10.1.1.26/enterprises/octo-org --token AAAAAA5RHF34QLYBDCHWLJC7L73MA`
+   ```bash
+   ./config.sh --url https://10.1.1.26/enterprises/octo-org --token AAAAAA5RHF34QLYBDCHWLJC7L73MA
+   ```
 
 1. Copy the `config.sh` command and paste it into a session on your Actions runner (created previously).
 

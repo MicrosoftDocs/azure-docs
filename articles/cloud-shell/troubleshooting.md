@@ -172,22 +172,22 @@ In order to **delete** your user settings Cloud Shell saves for you such as pref
 >[!Note]
 > If you delete your user settings, the actual Azure Files share will not be deleted. Go to your Azure Files to complete that action.
 
-1. [![Image showing a button labeled Launch Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+1. Launch Cloud Shell or a local shell with either Azure PowerShell or Azure CLI installed.
 
 2. Run the following commands in Bash or PowerShell:
 
 Bash:
 
   ```
-  token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+  token=(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
   curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
   ```
 
 PowerShell:
 
   ```powershell
-  $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
-  Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
+  $token= (Get-AzAccessToken -Resource  https://management.azure.com/).Token
+  Invoke-WebRequest -Method Delete -Uri https://management.azure.com?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
 ## Azure Government limitations
 Azure Cloud Shell in Azure Government is only accessible through the Azure portal.

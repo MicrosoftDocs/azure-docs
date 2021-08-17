@@ -1,12 +1,12 @@
 ---
 title: Understand the roles required to perform common tasks in Synapse
 description: This article describes which built-in Synapse RBAC role(s) are required to accomplish specific tasks
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
 ---
 # Understand the roles required to perform common tasks in Synapse
@@ -86,7 +86,7 @@ Publish or delete a notebook or job definition (including output) to the service
 Commit changes to a notebook or job definition to the Git repo|Git permissions|none
 PIPELINES, INTEGRATION RUNTIMES, DATAFLOWS, DATASETS & TRIGGERS|
 Create, update, or delete an Integration runtime|Azure Owner or Contributor on the workspace|
-Monitor Integration runtime status|Synapse User|read, pipelines/viewOutputs
+Monitor Integration runtime status|Synapse Compute Operator|read, integrationRuntimes/viewLogs
 Review pipeline runs|Synapse Artifact Publisher/Synapse Contributor|read, pipelines/viewOutputs 
 Create a pipeline |Synapse User</br>*Additional Synapse permissions are required to debug, add triggers, publish, or commit changes*|read
 Create a dataflow or dataset |Synapse User</br>*Additional Synapse permissions are required to publish, or commit changes*|read

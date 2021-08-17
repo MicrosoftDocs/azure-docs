@@ -48,6 +48,8 @@ AIB will support Azure Marketplace base OS images:
 - Windows 2016
 - Windows 2019
 
+We have listed the operating systems we have tested and know work with Azure Image Builder. However, Azure Image Builder should work with any Linux or Windows image in the marketplace.
+
 ## How it works
 
 The Azure VM Image Builder is a fully managed Azure service that is accessible by an Azure resource provider. Provide a configuration to the service that specifies the source image, customization to perform and where the new image is to be distributed to, the diagram below shows a high level workflow:

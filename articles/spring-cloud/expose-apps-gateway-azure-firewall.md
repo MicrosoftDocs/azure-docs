@@ -21,7 +21,7 @@ This document explains how to expose applications to the Internet using Applicat
 
 Define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md). Customize the values based on your real environment.  When you define SPRING_APP_PRIVATE_FQDN, remove 'https' from the uri.
 
-```
+```bash
 SUBSCRIPTION='subscription-id'
 RESOURCE_GROUP='my-resource-group'
 LOCATION='eastus'
@@ -31,11 +31,11 @@ APPLICATION_GATEWAY_SUBNET_NAME='app-gw-subnet'
 APPLICATION_GATEWAY_SUBNET_CIDR='10.1.2.0/24'
 ```
 
-## Login to Azure
+## Sign in to Azure
 
-Login to the Azure CLI and choose your active subscription.
+Sign in to the Azure CLI and choose your active subscription.
 
-```
+```azurecli
 az login
 az account set --subscription ${SUBSCRIPTION}
 ```
@@ -44,7 +44,7 @@ az account set --subscription ${SUBSCRIPTION}
 
 The **Azure Application Gateway** to be created will join the same virtual network as--or peered virtual network to--the Azure Spring Cloud service instance. First create a new subnet for the Application Gateway in the virtual network using `az network vnet subnet create`, and also create a Public IP address as the Frontend of the Application Gateway using `az network public-ip create`.
 
-```
+```azurecli
 APPLICATION_GATEWAY_PUBLIC_IP_NAME='app-gw-public-ip'
 az network vnet subnet create \
     --name ${APPLICATION_GATEWAY_SUBNET_NAME} \
@@ -63,7 +63,7 @@ az network public-ip create \
 
 Create an application gateway using `az network application-gateway create` and specify your application's private fully qualified domain name (FQDN) as servers in the backend pool. Then update the HTTP setting using `az network application-gateway http-settings update` to use host name from backend pool.
 
-```
+```azurecli
 APPLICATION_GATEWAY_NAME='my-app-gw'
 APPLICATION_GATEWAY_PROBE_NAME='my-probe'
 APPLICATION_GATEWAY_REWRITE_SET_NAME='my-rewrite-set'
@@ -114,7 +114,7 @@ az network application-gateway rule update \
 
 It can take up to 30 minutes for Azure to create the application gateway. After it's created, check the backend health using `az network application-gateway show-backend-health`.  This examines whether the application gateway reaches your application through its private FQDN.
 
-```
+```azurecli
 az network application-gateway show-backend-health \
     --name ${APPLICATION_GATEWAY_NAME} \
     --resource-group ${RESOURCE_GROUP}
@@ -122,7 +122,7 @@ az network application-gateway show-backend-health \
 
 The output indicates the healthy status of backend pool.
 
-```
+```output
 {
   "backendAddressPools": [
     {
@@ -147,7 +147,7 @@ The output indicates the healthy status of backend pool.
 
 Get the public IP address of the application gateway using `az network public-ip show`.
 
-```
+```azurecli
 az network public-ip show \
     --resource-group ${RESOURCE_GROUP} \
     --name ${APPLICATION_GATEWAY_PUBLIC_IP_NAME} \
@@ -157,7 +157,7 @@ az network public-ip show \
 
 Copy and paste the public IP address into the address bar of your browser.
 
-  ![App in public IP](media/spring-cloud-expose-apps-gateway-az-firewall/app-gateway-public-ip.png)
+![App in public IP](media/spring-cloud-expose-apps-gateway-az-firewall/app-gateway-public-ip.png)
 
 ## See also
 

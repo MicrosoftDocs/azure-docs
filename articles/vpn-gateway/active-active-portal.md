@@ -14,7 +14,7 @@ ms.author: jstrom
 
 # Configure active-active VPN gateways using the portal
 
-This article helps you create highly available active-active VPN gateways using the Resource Manager deployment model and Azure portal. You can also configure an active-active gateway using [PowerShell](vpn-gateway-activeactive-rm-powershell.md).
+This article helps you create highly available active-active VPN gateways using the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and Azure portal. You can also configure an active-active gateway using [PowerShell](vpn-gateway-activeactive-rm-powershell.md).
 
 To achieve high availability for cross-premises and VNet-to-VNet connectivity, you should deploy multiple VPN gateways and establish multiple parallel connections between your networks and Azure. See [Highly Available cross-premises and VNet-to-VNet connectivity](vpn-gateway-highlyavailable.md) for an overview of connectivity options and topology.
 
@@ -63,7 +63,7 @@ Create a virtual network gateway using the following values:
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
 [!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-active-portal-include.md)]
 
-A gateway can take up to 45 minutes to fully create and deploy. You can see the deployment status on the Overview page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
+You can see the deployment status on the Overview page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -73,7 +73,7 @@ This section helps you change an existing Azure VPN gateway from active-standby 
 
 ### Change active-standby to active-active
 
-Use the following steps to convert active-standby mode gateway to active-active mode. If your gateway was created using the Resource Manager deployment model, you can also upgrade the SKU on this page.
+Use the following steps to convert active-standby mode gateway to active-active mode. If your gateway was created using the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md), you can also upgrade the SKU on this page.
 
 1. Navigate to the page for your virtual network gateway.
 

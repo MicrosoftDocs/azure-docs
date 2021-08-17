@@ -27,8 +27,6 @@
   expanded: true
 - name: Tutorials
   items:
-  - name: Load balance VMs across availability zones
-    href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Load balance VM within a specific availability zone
     href: tutorial-load-balancer-standard-public-zonal-portal.md
   - name: Load balance VMs with multiple availability sets
@@ -164,8 +162,6 @@
       href: move-across-regions-internal-load-balancer-portal.md
     - name: Internal load balancer - PowerShell
       href: move-across-regions-internal-load-balancer-powershell.md
-  - name: Outbound-only load balancer configuration
-    href: egress-only.md
   - name: Retrieve metadata using the Azure IMDS
     href: howto-load-balancer-imds.md
   - name: Troubleshoot
@@ -193,7 +189,7 @@
   - name: Java
     href: /java/api/com.microsoft.azure.management.network
   - name: Node.js
-    href: /javascript/api/@azure/arm-network/loadbalancers
+    href: /javascript/api/overview/azure/arm-network-readme
   - name: Ruby
     href: https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers
   - name: Python

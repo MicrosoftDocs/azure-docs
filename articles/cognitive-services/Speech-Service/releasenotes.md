@@ -15,41 +15,50 @@ ms.custom: seodec18
 
 # Speech Service release notes
 
+## Text-to-speech 2021-July release
+
+**Neural TTS updates**
+- Reduced pronunciation errors in Hebrew by 20%.
+
+**Speech Studio updates**
+- **Custom Neural Voice**: Updated the training pipeline to UniTTSv3 with which the model quality is improved while training time is reduced by 50% for acoustic models. 
+- **Audio Content Creation**: Fixed the "Export" performance issue and the bug on custom voice selection.  
+
 ## Speech SDK 1.18.0: 2021-July release
 
 **Note**: Get started with the Speech SDK [here](speech-sdk.md#get-the-speech-sdk).
 
 **Highlights summary**
-- Ubuntu 16.04 reached end of life in April of 2021. In conjunction with Azure DevOps and Github we will drop support for 16.04 in September 2021.  Please migrate ubuntu-16.04 workflows to ubuntu-18.04 or newer before then. 
+- Ubuntu 16.04 reached end of life in April of 2021. In conjunction with Azure DevOps and Github, we will drop support for 16.04 in September 2021.  Please migrate ubuntu-16.04 workflows to ubuntu-18.04 or newer before then. 
 
 #### New features
 
-- **C++**: Simple Language Pattern matching with the Intent Recognizer now makes it easier to [implement simple intent recognition scenarios](/azure/cognitive-services/speech-service/get-started-intent-recognition?pivots=programming-language-cpp).
+- **C++**: Simple Language Pattern matching with the Intent Recognizer now makes it easier to [implement simple intent recognition scenarios](./get-started-intent-recognition.md?pivots=programming-language-cpp).
 - **C++/C#/Java**: We added a new API, `GetActivationPhrasesAsync()` to the `VoiceProfileClient` class for receiving a list of valid activation phrases in speaker recognition enrollment phase for independent recognition scenarios. 
     - **Important**: The Speaker Recognition feature is in Preview. All voice profiles created in Preview will be discontinued 90 days after the Speaker Recognition feature is moved out of Preview into General Availability. At that point the Preview voice profiles will stop functioning.
-- **Python**: Added [support for continuous Language Identification (LID)](/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-python) on the existing `SpeechRecognizer` and `TranslationRecognizer` objects. 
+- **Python**: Added [support for continuous Language Identification (LID)](./how-to-automatic-language-detection.md?pivots=programming-language-python) on the existing `SpeechRecognizer` and `TranslationRecognizer` objects. 
 - **Python**: Added a [new Python object](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.sourcelanguagerecognizer?view=azure-python) named `SourceLanguageRecognizer` to do one-time or continuous LID (without recognition or translation). 
-- Support AAD authentication and User assigned Managed Identity
-- **JavaScript** `getActivationPhrasesAsync` API added to `VoiceProfileClient` class for receiving a list of valid activation phrases in speaker recognition enrollment phase for independent recognition scenarios. 
-- **JavaScript** `VoiceProfileClient`'s `enrollProfileAsync` API is now async awaitable. See this independent identification code for example usage.
+- **JavaScript**: `getActivationPhrasesAsync` API added to `VoiceProfileClient` class for receiving a list of valid activation phrases in speaker recognition enrollment phase for independent recognition scenarios. 
+- **JavaScript** `VoiceProfileClient`'s `enrollProfileAsync` API is now async awaitable. See [this independent identification code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/javascript/node/speaker-recognition/identification/independent-identification.js) for example usage.
 
 #### Improvements
 
--	**AutoCloseable** support added to many Java objects. Now the try-with-resources model is supported to release resources. See [this sample that uses try-with-resources](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java#L28). Also see the Oracle Java documentation tutorial for [The try-with-resources Statement](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) to learn about this pattern.
-- SDK size reductions.
+- **Java**: **AutoCloseable** support added to many Java objects. Now the try-with-resources model is supported to release resources. See [this sample that uses try-with-resources](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java#L28). Also see the Oracle Java documentation tutorial for [The try-with-resources Statement](https://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html) to learn about this pattern.
+- **Disk footprint** has been significantly reduced for many platforms and architectures. Examples for the `Microsoft.CognitiveServices.Speech.core` binary: x64 Linux is 475KB smaller (8.0% reduction); ARM64 Windows UWP is 464KB smaller (11.5% reduction); x86 Windows is 343KB smaller (17.5% reduction); and x64 Windows is 451KB smaller (19.4% reduction).
 
 #### Bug fixes
 
 - **Java**: Fixed synthesis error when the synthesis text contains surrogate characters. Details [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1118). 
 - **JavaScript**: Browser microphone audio processing now uses `AudioWorkletNode` instead of deprecated `ScriptProcessorNode`. Details [here](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/391).
 - **JavaScript**: Correctly keep conversations alive during long running conversation translation scenarios. Details [here](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/389).
-- **JavaScript**: Fixed issue with recognizer reconnecting to a mediastream in continuous recognition. Details [here]- (https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/385).
+- **JavaScript**: Fixed issue with recognizer reconnecting to a mediastream in continuous recognition. Details [here](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/385).
 - **JavaScript**: Fixed issue with recognizer reconnecting to a pushStream in continuous recognition. Details [here](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/399).
 - **JavaScript**: Corrected word level offset calculation in detailed recognition results. Details [here](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/394).
 
 #### Samples
--Java quickstart samples updated [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java).
--JavaScript speaker recognition samples updated to show new usage of `enrollProfileAsync()`. See samples [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/node).
+
+- Java quickstart samples updated [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java).
+- JavaScript speaker recognition samples updated to show new usage of `enrollProfileAsync()`. See samples [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/node).
 
 ## Text-to-speech 2021-June release
 

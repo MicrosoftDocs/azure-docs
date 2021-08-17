@@ -20,7 +20,7 @@ In this how-to article, you'll use NSX-T Manager to configure DHCP for Azure VMw
 - [Third-party external DHCP server](#use-a-third-party-external-dhcp-server)
 
 >[!TIP]
->If you want to configure DHCP using a simplified view of NSX-T operations, see [Create a DHCP server or DHCP relay using the Azure portal](configure-nsx-network-components-azure-portal.md#create-a-dhcp-server-or-dhcp-relay-using-the-azure-portal). 
+>If you want to configure DHCP using a simplified view of NSX-T operations, see [Configure DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).
 
 
 >[!IMPORTANT]

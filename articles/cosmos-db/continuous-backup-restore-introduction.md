@@ -4,22 +4,17 @@ description: Azure Cosmos DB's point-in-time restore feature helps to recover da
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 07/29/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: references_regions
 
 ---
 
-# Continuous backup with point-in-time restore (Preview) feature in Azure Cosmos DB
+# Continuous backup with point-in-time restore in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-> [!IMPORTANT]
-> The point-in-time restore feature(continuous backup mode) for Azure Cosmos DB is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Cosmos DB's point-in-time restore feature(Preview) helps in multiple scenarios such as the following:
+Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios such as the following:
 
 * To recover from an accidental write or delete operation within a container.
 * To restore a deleted account, database, or a container.
@@ -31,7 +26,11 @@ Azure Cosmos DB performs data backup in the background without consuming any ext
 
 The available time window for restore (also known as retention period) is the lower value of the following two: *30 days back in past from now* or *up to the resource creation time*. The point in time for restore can be any timestamp within the retention period.
 
-In public preview, you can restore the Azure Cosmos DB account for SQL API or MongoDB contents point in time to another account using [Azure portal](continuous-backup-restore-portal.md), [Azure Command Line Interface](continuous-backup-restore-command-line.md) (az CLI), [Azure PowerShell](continuous-backup-restore-powershell.md), or the [Azure Resource Manager](continuous-backup-restore-template.md).
+Currently, you can restore the Azure Cosmos DB account for SQL API or MongoDB contents point in time to another account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [Azure Command Line Interface](restore-account-continuous-backup.md#restore-account-cli) (az CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell), or the [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+
+## Backup storage redundancy
+
+By default, Azure Cosmos DB stores continuous mode backup data in locally redundant storage blobs. For the regions that have zone redundancy configured, the backup is stored in zone-redundant storage blobs. In continuous backup mode, you can't update the backup storage redundancy.
 
 ## What is restored?
 
@@ -60,17 +59,17 @@ However, there could be scenarios where you don't know the exact time of acciden
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" alt-text="Life-cycle events with timestamps for a restorable account." lightbox="./media/continuous-backup-restore-introduction/restorable-account-scenario.png" border="false":::
 
-a. **Restore deleted account** - All the deleted accounts that you can restore are visible from the **Restore** pane. For example, if *Account A* is deleted at timestamp T3. In this case the timestamp just before T3, location, target account name, resource group, and target account name is sufficient to restore from [Azure portal](continuous-backup-restore-portal.md#restore-deleted-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore), or [CLI](continuous-backup-restore-command-line.md#trigger-restore).  
+1. **Restore deleted account** - All the deleted accounts that you can restore are visible from the **Restore** pane. For example, if *Account A* is deleted at timestamp T3. In this case the timestamp just before T3, location, target account name, resource group, and target account name is sufficient to restore from [Azure portal](restore-account-continuous-backup.md#restore-deleted-account), [PowerShell](restore-account-continuous-backup.md#trigger-restore-ps), or [CLI](restore-account-continuous-backup.md#trigger-restore-cli).  
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" alt-text="Life-cycle events with timestamps for a restorable database and container." lightbox="./media/continuous-backup-restore-introduction/restorable-container-database-scenario.png" border="false":::
 
-b. **Restore data of an account in a particular region** - For example, if *Account A* exists in two regions *East US* and *West US* at timestamp T3. If you need a copy of account A in *West US*, you can do a point in time restore from [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore), or [CLI](continuous-backup-restore-command-line.md#trigger-restore) with West US as the target location.
+2. **Restore data of an account in a particular region** - For example, if *Account A* exists in two regions *East US* and *West US* at timestamp T3. If you need a copy of account A in *West US*, you can do a point in time restore from [Azure portal](restore-account-continuous-backup.md#restore-deleted-account), [PowerShell](restore-account-continuous-backup.md#trigger-restore-ps), or [CLI](restore-account-continuous-backup.md#trigger-restore-cli) with West US as the target location.
 
-c. **Recover from an accidental write or delete operation within a container with a known restore timestamp** - For example, if you **know** that the contents of *Container 1* within *Database 1* were modified accidentally at timestamp T3. You can do a point in time restore from [Azure portal](continuous-backup-restore-portal.md#restore-live-account), [PowerShell](continuous-backup-restore-powershell.md#trigger-restore), or [CLI](continuous-backup-restore-command-line.md#trigger-restore) into another account at timestamp T3 to recover the desired state of container.
+3. **Recover from an accidental write or delete operation within a container with a known restore timestamp** - For example, if you **know** that the contents of *Container 1* within *Database 1* were modified accidentally at timestamp T3. You can do a point in time restore from [Azure portal](restore-account-continuous-backup.md#restore-live-account), [PowerShell](restore-account-continuous-backup.md#trigger-restore-ps), or [CLI](restore-account-continuous-backup.md#trigger-restore-cli) into another account at timestamp T3 to recover the desired state of container.
 
-d. **Restore an account to a previous point in time before the accidental delete of the database** - In the [Azure portal](continuous-backup-restore-portal.md#restore-live-account), you can use the event feed pane to determine when a database was deleted and find the restore time. Similarly, with [Azure CLI](continuous-backup-restore-command-line.md#trigger-restore) and [PowerShell](continuous-backup-restore-powershell.md#trigger-restore), you can discover the database deletion event by enumerating the database events feed and then trigger the restore command with the required parameters.
+4. **Restore an account to a previous point in time before the accidental delete of the database** - In the [Azure portal](restore-account-continuous-backup.md#restore-live-account), you can use the event feed pane to determine when a database was deleted and find the restore time. Similarly, with [Azure CLI](restore-account-continuous-backup.md#trigger-restore-cli) and [PowerShell](restore-account-continuous-backup.md#trigger-restore-ps), you can discover the database deletion event by enumerating the database events feed and then trigger the restore command with the required parameters.
 
-e. **Restore an account to a previous point in time before the accidental delete or modification of the container properties.** - In [Azure portal](continuous-backup-restore-portal.md#restore-live-account), you can use the event feed pane to determine when a container was created, modified, or deleted to find the restore time. Similarly, with [Azure CLI](continuous-backup-restore-command-line.md#trigger-restore) and [PowerShell](continuous-backup-restore-powershell.md#trigger-restore), you can discover all the container events by enumerating the container events feed and then trigger the restore command with required parameters.
+5. **Restore an account to a previous point in time before the accidental delete or modification of the container properties.** - In [Azure portal](restore-account-continuous-backup.md#restore-live-account), you can use the event feed pane to determine when a container was created, modified, or deleted to find the restore time. Similarly, with [Azure CLI](restore-account-continuous-backup.md#trigger-restore-cli) and [PowerShell](restore-account-continuous-backup.md#trigger-restore-ps), you can discover all the container events by enumerating the container events feed and then trigger the restore command with required parameters.
 
 ## Permissions
 
@@ -96,13 +95,11 @@ For example, if you have 1-TB of data in two regions then:
 
 * Restore cost is calculated as (1000 * 0.15) = $150 per restore
 
-## Current limitations (public preview)
+## Current limitations
 
-Currently the point in time restore functionality is in public preview and it has the following limitations:
+Currently the point in time restore functionality has the following limitations:
 
 * Only Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. Cassandra, Table, and Gremlin APIs are not yet supported.
-
-* An existing account with default periodic backup policy cannot be converted to use continuous backup mode.
 
 * Azure sovereign and Azure Government cloud regions not yet supported.
 
@@ -120,18 +117,20 @@ Currently the point in time restore functionality is in public preview and it ha
 
 * While a restore is in progress, don't modify or delete the Identity and Access Management (IAM) policies that grant the permissions for the account or change any VNET, firewall configuration.
 
-* Azure Cosmos DB API for SQL or MongoDB accounts that create unique index after the container is created are not supported for continuous backup. Only containers that create unique index as a part of the initial container creation are supported. For MongoDB accounts, you create unique index using [extension commands](mongodb-custom-commands.md).
+* Azure Cosmos DB API for SQL or MongoDB accounts that create unique index after the container is created are not supported for continuous backup. Only containers that create unique index as a part of the initial container creation are supported. For MongoDB accounts, you create unique index using [extension commands](mongodb/custom-commands.md).
 
 * The point-in-time restore functionality always restores to a new Azure Cosmos account. Restoring to an existing account is currently not supported. If you are interested in providing feedback about in-place restore, contact the Azure Cosmos DB team via your account representative or [UserVoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
-
-* All the new APIs exposed for listing `RestorableDatabaseAccount`, `RestorableSqlDatabases`, `RestorableSqlContainer`, `RestorableMongodbDatabase`, `RestorableMongodbCollection` are subject to changes while the feature is in preview.
 
 * After restoring, it is possible that for certain collections the consistent index may be rebuilding. You can check the status of the rebuild operation via the [IndexTransformationProgress](how-to-manage-indexing-policy.md) property.
 
 * The restore process restores all the properties of a container including its TTL configuration. As a result, it is possible that the data restored is deleted immediately if you configured that way. In order to prevent this situation, the restore timestamp must be before the TTL properties were added into the container.
 
+* Unique indexes in API for MongoDB can't be added or updated when you create a continuous backup mode account or migrate an account from periodic to continuous mode.
+
 ## Next steps
 
-* Configure and manage continuous backup using [Azure portal](continuous-backup-restore-portal.md), [PowerShell](continuous-backup-restore-powershell.md), [CLI](continuous-backup-restore-command-line.md), or [Azure Resource Manager](continuous-backup-restore-template.md).
+* Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
+* Restore continuous backup account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+* [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)

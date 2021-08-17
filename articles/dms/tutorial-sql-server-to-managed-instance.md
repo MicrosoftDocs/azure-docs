@@ -74,19 +74,7 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > Azure Database Migration Service does not support using an account level SAS token when configuring the Storage Account settings during the [Configure Migration Settings](#configure-migration-settings) step.
     
-## Register the Microsoft.DataMigration resource provider
-
-1. Sign in to the Azure portal, select **All services**, and then select **Subscriptions**.
-
-    ![Show portal subscriptions](media/tutorial-sql-server-to-managed-instance/portal-select-subscriptions.png)
-
-2. Select the subscription in which you want to create the instance of Azure Database Migration Service, and then select **Resource providers**.
-
-    ![Show resource providers](media/tutorial-sql-server-to-managed-instance/portal-select-resource-provider.png)
-
-3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
-
-    ![Register resource provider](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)
+[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
 
 ## Create an Azure Database Migration Service instance
 

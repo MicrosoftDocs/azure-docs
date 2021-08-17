@@ -2,6 +2,7 @@
 title: Copy data from on-premises to Azure using PowerShell
 description: This PowerShell script copies data from a SQL Server database to another an Azure Blob Storage.
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: article
 ms.author: jianleishen
 author: jianleishen
