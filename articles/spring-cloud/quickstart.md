@@ -404,7 +404,8 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 #### [CLI](#tab/Azure-CLI)
 The following procedure builds and deploys the application using the Azure CLI. Execute the following command at the root of the project.
-1. Log in to the Azure CLI and choose subscription
+
+1. Sign in to Azure and choose your subscription.
 
     ```azurecli
     az login
