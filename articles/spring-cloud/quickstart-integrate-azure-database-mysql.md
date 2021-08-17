@@ -16,7 +16,7 @@ Pet Clinic, as deployed in the default configuration [Quickstart: Build and depl
 ## Variables preparation
 
 We will use the following values. Save them in a text file or environment variables to avoid errors. 
-Password should be at least 8 length long and contains at lease one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric characters (!, $, #, %, etc.).
+The password should be at least 8 characters long and contain at least one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric character (!, $, #, %, and so on.).
 
 ```bash
 export RESOURCE_GROUP=<resource-group-name> # customize this
