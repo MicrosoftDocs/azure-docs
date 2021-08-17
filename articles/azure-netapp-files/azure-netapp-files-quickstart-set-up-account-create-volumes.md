@@ -6,7 +6,7 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 08/10/2020
 ms.custom: devx-track-azurecli, subject-armqs
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
@@ -85,9 +85,7 @@ See [Register for Azure NetApp Files](azure-netapp-files-register.md) for more i
 
       ![Select Azure NetApp Files](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
-2. Click **+ Add** to create a new NetApp account.
-
-     ![Create new NetApp account](../media/azure-netapp-files/azure-netapp-files-create-new-netapp-account.png)
+2. Click **+ Create** to create a new NetApp account.
 
 3. In the New NetApp Account window, provide the following information:
    1. Enter **myaccount1** for the account name.
@@ -283,11 +281,9 @@ The following code snippet shows how to create a capacity pool in an Azure Resou
 
     ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
-5. Click **Review + create**.
+5. Click **Review + create** to display information for the volume you are creating.  
 
-    ![Review and create window](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)
-
-6. Review information for the volume, then click **Create**.
+6. Click **Create** to create the volume. 
     The created volume appears in the Volumes blade.
 
     ![Volume created](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)

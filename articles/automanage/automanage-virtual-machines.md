@@ -41,6 +41,7 @@ There are several prerequisites to consider before trying to enable Azure Automa
 - VMs must be in a supported region (see below)
 - User must have correct permissions (see below)
 - Automanage does not support Sandbox subscriptions at this time
+- Automanage does not support Windows 10 at this time
 
 ### Supported regions
 Automanage only supports VMs located in the following regions:

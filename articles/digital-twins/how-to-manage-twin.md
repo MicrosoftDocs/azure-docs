@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 Entities in your environment are represented by [digital twins](concepts-twins-graph.md). Managing your digital twins may include creation, modification, and removal.
 
-This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [Manage the twin graph with relationships](how-to-manage-graph.md).
+This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [Manage the twin graph and relationships](how-to-manage-graph.md).
 
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
@@ -289,4 +289,4 @@ Here is the console output of the above program:
 ## Next steps
 
 See how to create and manage relationships between your digital twins:
-* [Manage the twin graph with relationships](how-to-manage-graph.md)
+* [Manage the twin graph and relationships](how-to-manage-graph.md)

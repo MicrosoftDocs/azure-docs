@@ -11,7 +11,7 @@ ms.subservice: azure-sentinel
 
 ---
 
-# Deploy the Azure Sentinel SAP data connector on-premises
+# Expert configuration options, on-premises deployment and SAPControl log sources
 
 This article describes how to deploy the Azure Sentinel SAP data connector in an expert or custom process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
 
@@ -253,7 +253,7 @@ x509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 appserver = <SET_YOUR_SAPCTRL_SERVER IP OR FQDN>
 instance = <SET_YOUR_SAP_INSTANCE NUMBER, example 10>
 abapseverity = <SET_ABAP_SEVERITY 0 = All logs ; 1 = Warning ; 2 = Error>
-abaptz = <SET_ABAP_TZ for example GMT-3>
+abaptz = <SET_ABAP_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use abaptz = GMT+12>
 
 [File Extraction JAVA]
 javaosuser = <SET_YOUR_JAVAADM_LIKE_USER>
@@ -265,7 +265,7 @@ javax509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 javaappserver = <SET_YOUR_JAVA_SAPCTRL_SERVER IP ADDRESS OR FQDN>
 javainstance = <SET_YOUR_JAVA_SAP_INSTANCE for example 10>
 javaseverity = <SET_JAVA_SEVERITY  0 = All logs ; 1 = Warning ; 2 = Error>
-javatz = <SET_JAVA_TZ for example GMT-3>
+javatz = <SET_JAVA_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use javatz = GMT+12>
 ```
 
 ### Define the SAP logs that are sent to Azure Sentinel
@@ -361,3 +361,4 @@ For more information, see:
 - [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: security content reference](sap-solution-security-content.md)
+- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 01/14/2019
 ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: alamaral
 ---
 
 # Use the AD FS application activity report to migrate applications to Azure AD

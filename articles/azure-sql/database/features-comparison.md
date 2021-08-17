@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, mathoma, danil
-ms.date: 07/13/2021
+ms.date: 08/12/2021
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -88,7 +88,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Operators](/sql/t-sql/language-elements/operators-transact-sql) | Most - see individual operators |Yes - see [T-SQL differences](../managed-instance/transact-sql-tsql-differences-sql-server.md) |
 | [Polybase](/sql/relational-databases/polybase/polybase-guide) | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function or use [an external table that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/). | No. You can query data in the files placed on Azure Blob Storage using `OPENROWSET` function, [a linked server that references a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/), or an external table (in public preview) that references [a serverless SQL pool in Synapse Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) or SQL Server. |
 | [Query Notifications](/sql/relational-databases/native-client/features/working-with-query-notifications) | No | Yes |
-| [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning)(_Formerly R Services_)| Yes, in [public preview](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | No |
+| [Machine Learning Services](/sql/advanced-analytics/what-is-sql-server-machine-learning) (_Formerly R Services_)| Yes, in [public preview](/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services) | Yes. See [Machine Learning Services in Azure SQL Managed Instance](../managed-instance/machine-learning-services-overview.md) |
 | [Recovery models](/sql/relational-databases/backup-restore/recovery-models-sql-server) | Only Full Recovery that guarantees high availability is supported. Simple and Bulk Logged recovery models are not available. | Only Full Recovery that guarantees high availability is supported. Simple and Bulk Logged recovery models are not available. |
 | [Resource governor](/sql/relational-databases/resource-governor/resource-governor) | No | Yes |
 | [RESTORE statements](/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | No | Yes, with mandatory `FROM URL` options for the backups files placed on Azure Blob Storage. See [Restore differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#restore-statement) |
@@ -139,7 +139,7 @@ The Azure platform provides a number of PaaS capabilities that are added as an a
 | [Point in time database restore](/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Yes - all service tiers other than hyperscale - see [SQL Database recovery](recovery-using-backups.md#point-in-time-restore) | Yes - see [SQL Database recovery](recovery-using-backups.md#point-in-time-restore) |
 | Resource pools | Yes, as [Elastic pools](elastic-pool-overview.md) | Yes. A single instance of SQL Managed Instance can have multiple databases that share the same pool of resources. In addition, you can deploy multiple instances of SQL Managed Instance in [instance pools (preview)](../managed-instance/instance-pools-overview.md) that can share the resources. |
 | Scaling up or down (online) | Yes, you can either change DTU or reserved vCores or max storage with the minimal downtime. | Yes, you can change reserved vCores or max storage with the minimal downtime. |
-| [SQL Alias](/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) | No, use [DNS Alias](dns-alias-overview.md) | No, use [Clicongf](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/Lesson-Learned-33-How-to-make-quot-cliconfg-quot-to-work-with/ba-p/369022) to set up alias on the client machines. |
+| [SQL Alias](/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) | No, use [DNS Alias](dns-alias-overview.md) | No, use [Cliconfg](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/Lesson-Learned-33-How-to-make-quot-cliconfg-quot-to-work-with/ba-p/369022) to set up alias on the client machines. |
 | [SQL Analytics](../../azure-monitor/insights/azure-sql.md) | Yes | Yes |
 | [SQL Data Sync](sql-data-sync-sql-server-configure.md) | Yes | No |
 | [SQL Server Analysis Services (SSAS)](/sql/analysis-services/analysis-services) | No, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) is a separate Azure cloud service. | No, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) is a separate Azure cloud service. |

@@ -188,26 +188,32 @@ items:
         href: snapshots-overview.md
       - name: Change feed
         href: storage-blob-change-feed.md        
-      - name: Immutable blobs
-        href: storage-blob-immutable-storage.md
+      - name: Immutable storage for blobs
+        items:
+        - name: Overview 
+          href: immutable-storage-overview.md
+        - name: Time-based retention policies
+          href: immutable-time-based-retention-policy-overview.md
+        - name: Legal holds
+          href: immutable-legal-hold-overview.md  
     - name: Redundancy and disaster recovery
       items:    
       - name: Data redundancy
         href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Customer-managed failover for disaster recovery
         href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Object replication
-      href: object-replication-overview.md
     - name: Access and performance tiers
       items:
       - name: Access tiers
         href: storage-blob-storage-tiers.md
       - name: Rehydrate data from archive tier
-        href: storage-blob-rehydration.md
+        href: archive-rehydrate-overview.md
       - name: Performance tiers
         href: storage-blob-performance-tiers.md
       - name: Automate access tiers lifecycle
         href: storage-lifecycle-management-concepts.md
+    - name: Object replication
+      href: object-replication-overview.md
     - name: Performance, scaling, and cost optimization
       items:
       - name: Performance and scalability checklist
@@ -442,8 +448,12 @@ items:
         href: snapshots-manage-dotnet.md
       - name: Process change feed logs
         href: storage-blob-change-feed-how-to.md        
-      - name: Set and manage immutability policies
-        href: storage-blob-immutability-policies-manage.md
+      - name: Configure an immutability policy
+        items:
+        - name: Configure version-level immutability policies
+          href: immutable-policy-configure-version-scope.md
+        - name: Configure container-level immutability policies
+          href: immutable-policy-configure-container-scope.md
     - name: Manage redundancy and failover
       items:
       - name: Change redundancy configuration
@@ -454,6 +464,12 @@ items:
         href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Initiate account failover
         href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Manage data in the archive tier
+      items:
+      - name: Rehydrate an archived blob
+        href: archive-rehydrate-to-online-tier.md
+      - name: Handle an event on blob rehydration
+        href: archive-rehydrate-handle-event.md
     - name: Configure object replication
       href: object-replication-configure.md
     - name: Manage concurrency
@@ -524,6 +540,8 @@ items:
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Monitor
       items:
+      - name: Scenarios and best practices
+        href: blob-storage-monitoring-scenarios.md
       - name: Use Storage insights
         href: ../common/storage-insights-overview.md
       - name: Monitor (classic)
@@ -538,7 +556,7 @@ items:
         href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
-    - name: Azure Blob Storage reference
+    - name: Blob Storage API reference
       href: ../blobs/reference.md
     - name: AzCopy v10
       items:

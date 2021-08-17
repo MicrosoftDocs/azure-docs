@@ -30,7 +30,7 @@ To learn more, read about each version on the official Postgres site:
 At creation time, you have the possibility to indicate what version to create by passing the _--engine-version_ parameter. 
 If you do not indicate a version information, by default, a server group of Postgres version 12 will be created.
 
-## How do be notified when other versions are available?
+## How can I be notified when other versions are available?
 Come back and read this article. It will be updated as appropriate. You can also list the kinds of custom resource definitions (CRD) in the Arc Data Controller in your Kubernetes cluster.
 Run the following command:
 ```console

@@ -229,7 +229,7 @@ The Service Fabric node type must be enabled to support multiple Availability Zo
 >[!IMPORTANT]
 >The Service Fabric cluster resource API version should be 2020-12-01-preview or later.
 >
->The cluster code version should be 7.2.445 or later.
+>The cluster code version should be 8.0.536 or later.
 
 ```json
 {

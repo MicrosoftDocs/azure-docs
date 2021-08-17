@@ -49,7 +49,7 @@ To get its logs into Azure Sentinel, configure your Thycotic Secret Server to se
 
     1. Under **1. Linux Syslog agent configuration** - Do this step if you don't already have a log forwarder running, or if you need another one. See [STEP 1: Deploy the log forwarder](connect-cef-agent.md) in the Azure Sentinel documentation for more detailed instructions and explanation.
 
-    1. Under **2. Forward Common Event Format (CEF) logs to Syslog agent** - Follow Thycotic's instructions to [configure Secret Server](https://thy.center/ss/link/syslog). This configuration should include the following elements:
+    1. Under **2. Forward Common Event Format (CEF) logs to Syslog agent** - Follow Thycotic's instructions to [configure Secret Server](https://docs.thycotic.com/ssi/1.0.0/splunk/splunk-on-prem/config/syslog-events.md). This configuration should include the following elements:
         - Log destination – the hostname and/or IP address of your log forwarding server
         - Protocol and port – **TCP 514** (if recommended otherwise, be sure to make the parallel change in the syslog daemon on your log forwarding server)
         - Log format – CEF
@@ -76,6 +76,6 @@ See the **Next steps** tab in the connector page for some useful workbooks and q
 
 In this document, you learned how to connect Thycotic Secret Server to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.

@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 05/26/2021
 ---
 
-# Connect your data from Defender for IoT for device builders to Azure Sentinel 
+# Connect your data from Defender for IoT for device builders to Azure Sentinel (Public preview)
 
 Use the Defender for IoT connector to stream all your Defender for IoT events into Azure Sentinel. 
 
@@ -51,5 +51,5 @@ After connecting a **Subscription**, the hub data is available in Azure Sentinel
 
 In this document, you learned how to connect Defender for IoT to Azure Sentinel. To learn more about threat detection and security data access, see the following articles:
 
-- Learn how to use Azure Sentinel to [Quickstart: Get started with Azure Sentinel](../../sentinel/quickstart-get-visibility.md).
+- Learn how to use Azure Sentinel to [Quickstart: Get started with Azure Sentinel](/azure/defender-for-iot/device-builders/articles/sentinel/get-visibility.md).
 - Learn how to [Access your IoT security data](how-to-security-data-access.md)

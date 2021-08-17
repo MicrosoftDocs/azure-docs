@@ -1,12 +1,15 @@
 ---
-title: Create tumbling window triggers in Azure Data Factory 
-description: Learn how to create a trigger in Azure Data Factory that runs a pipeline on a tumbling window.
+title: Create tumbling window triggers
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to create a trigger in Azure Data Factory or Azure Synapse Analytics that runs a pipeline on a tumbling window.
 author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2020
+ms.date: 07/26/2021
 ---
 
 # Create a trigger that runs a pipeline on a tumbling window
@@ -17,13 +20,19 @@ This article provides steps to create, start, and monitor a tumbling window trig
 
 Tumbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals. A tumbling window trigger has a one-to-one relationship with a pipeline and can only reference a singular pipeline. Tumbling window trigger is a more heavy weight alternative for schedule trigger offering a suite of features for complex scenarios([dependency on other tumbling window triggers](#tumbling-window-trigger-dependency), [rerunning a failed job](tumbling-window-trigger-dependency.md#monitor-dependencies) and [set user retry for pipelines](#user-assigned-retries-of-pipelines)). To further understand the difference between schedule trigger and tumbling window trigger, please visit [here](concepts-pipeline-execution-triggers.md#trigger-type-comparison).
 
-## Data Factory UI
+## UI Experience
 
-1. To create a tumbling window trigger in the Data Factory UI, select the **Triggers** tab, and then select **New**. 
+1. To create a tumbling window trigger in the UI, select the **Triggers** tab, and then select **New**. 
 1. After the trigger configuration pane opens, select **Tumbling Window**, and then define your tumbling window trigger properties. 
 1. When you're done, select **Save**.
 
-![Create a tumbling window trigger in the Azure portal](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
+# [Azure Data Factory](#tab/data-factory)
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png" alt-text="Create a tumbling window trigger in the Azure portal":::
+
+# [Azure Synapse](#tab/synapse-analytics)
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger-synapse.png" alt-text="Create a tumbling window trigger in the Azure portal":::
+
+---
 
 ## Tumbling window trigger type properties
 
@@ -163,11 +172,27 @@ You can cancel runs for a tumbling window trigger, if the specific window is in 
 * If the window is in **Running** state, cancel the associated _Pipeline Run_, and the trigger run will be marked as _Canceled_ afterwards
 * If the window is in **Waiting** or **Waiting on Dependency** state, you can cancel the window from Monitoring:
 
-![Cancel a tumbling window trigger from Monitoring page](media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png)
+# [Azure Data Factory](#tab/data-factory)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png" alt-text="Cancel a tumbling window trigger from Monitoring page":::
+
+# [Azure Synapse](#tab/synapse-analytics)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger-synapse.png" alt-text="Cancel a tumbling window trigger from Monitoring page":::
+
+---
 
 You can also rerun a canceled window. The rerun will take the _latest_ published definitions of the trigger, and dependencies for the specified window will be _re-evaluated_ upon rerun
 
-![Rerun a tumbling window trigger for previously canceled runs](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
+# [Azure Data Factory](#tab/data-factory)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png" alt-text="Rerun a tumbling window trigger for previously canceled runs":::
+
+# [Azure Synapse](#tab/synapse-analytics)
+
+:::image type="content" source="media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger-synapse.png" alt-text="Rerun a tumbling window trigger for previously canceled runs":::
+
+---
 
 ## Sample for Azure PowerShell
 

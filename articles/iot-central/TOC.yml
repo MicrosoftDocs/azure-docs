@@ -8,6 +8,8 @@
     href: core/overview-iot-central-tour.md
   - name: Recent updates
     items:
+    - name: July 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-july-2021/
     - name: June 2021 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-june-2021/
     - name: May 2021 new and updated features
@@ -146,48 +148,6 @@
       href: core/overview-iot-central-operator.md
     - name: What are application templates?
       href: core/concepts-app-templates.md
-    - name: Industry specific application templates
-      items:
-      - name: Retail
-        items:
-        - name: Overview
-          href: retail/overview-iot-central-retail.md
-        - name: In-store analytics checkout architecture
-          href: retail/store-analytics-architecture.md
-        - name: Smart inventory management architecture
-          href: retail/architecture-smart-inventory-management.md
-        - name: Connected logistics architecture
-          href: retail/architecture-connected-logistics.md
-        - name: Digital distribution center
-          href: retail/architecture-digital-distribution-center.md
-        - name: Micro-fulfillment center architecture
-          href: retail/architecture-micro-fulfillment-center.md
-        - name: Video analytics - object and motion detection
-          href: retail/architecture-video-analytics.md
-      - name: Energy
-        items:
-        - name: Overview
-          href: energy/overview-iot-central-energy.md
-        - name: Smart meter app architecture
-          href: energy/concept-iot-central-smart-meter-app.md
-        - name: Solar panel app architecture
-          href: energy/concept-iot-central-solar-panel-app.md
-      - name: Government
-        items:
-        - name: Overview
-          href: government/overview-iot-central-government.md
-        - name: Connected waste monitoring architecture
-          href: government/concepts-connectedwastemanagement-architecture.md 
-        - name: Water consumption monitoring architecture
-          href: government/concepts-waterconsumptionmonitoring-architecture.md 
-        - name: Water quality monitoring architecture
-          href: government/concepts-waterqualitymonitoring-architecture.md        
-      - name: Healthcare
-        items:
-        - name: Overview
-          href: healthcare/overview-iot-central-healthcare.md
-        - name: Continuous patient monitoring architecture
-          href: healthcare/concept-continuous-patient-monitoring-architecture.md
         
     - name: What are device templates?
       href: core/concepts-device-templates.md

@@ -411,7 +411,7 @@
             displayName: Resource Manager
             href: flexible-server/quickstart-create-arm-template.md
       - name: Connect and query
-        items:
+        items:          
           - name: Azure CLI
             href: flexible-server/connect-azure-cli.md
           - name: PHP
@@ -424,6 +424,8 @@
             href: flexible-server/connect-java.md
           - name: .NET
             href: flexible-server/connect-csharp.md
+          - name: Connect to server in VNET 
+            href: flexible-server/quickstart-create-connect-server-vnet.md
       - name: Connect using TLS/SSL
         href: flexible-server/how-to-connect-tls-ssl.md
       - name: Configure server parameters
@@ -454,6 +456,12 @@
       - name: Networking concepts 
         href: flexible-server/concepts-networking.md
         displayName: virtual network, IP address, public access
+      - name: Private Access 
+        href: flexible-server/concepts-networking-vnet.md
+        displayName: virtual network
+      - name: Public Access 
+        href: flexible-server/concepts-networking-public.md
+        displayName: Public access,
     - name: Service Maintenance
       items:
       - name: Scheduled Maintenance

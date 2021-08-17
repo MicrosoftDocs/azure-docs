@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Create a health data triage dashboard with Azure IoT Central | Microsoft Docs
 description: Tutorial - Learn to build a health data triage dashboard using Azure IoT Central application templates.
-author: philmea
-ms.author: philmea
+author: dominicbetts 
+ms.author: dobett 
 ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
@@ -22,12 +22,11 @@ The basic architecture will follow this structure:
 
 In this tutorial, you learn how to:
 
-> [!div class="checklist"]
-> * Export data from Azure IoT Central to Azure Event Hubs
-> * Set up a Power BI streaming dataset
-> * Connect your Logic App to Azure Event Hubs
-> * Stream data to Power BI from your Logic App
-> * Build a real-time dashboard for patient vitals
+- Export data from Azure IoT Central to Azure Event Hubs
+- Set up a Power BI streaming dataset
+- Connect your Logic App to Azure Event Hubs
+- Stream data to Power BI from your Logic App
+- Build a real-time dashboard for patient vitals
 
 
 ## Prerequisites
@@ -44,6 +43,7 @@ In this tutorial, you learn how to:
 
 
 ## Set up a continuous data export to Azure Event Hubs
+
 You will first need to set up a continuous data export from your Azure IoT Central app template to the Azure Event Hub in your subscription. You can do so by following the steps in this Azure IoT Central tutorial for [Exporting to Event Hubs](../core/howto-export-data.md). You will only need to export for the telemetry for the purposes of this tutorial.
 
 
@@ -201,8 +201,3 @@ If you're not going to continue to use this application, delete your resources w
 
 1. For your IoT Central application, go to the Administration tab and select **Delete**.
 
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Continuous patient monitoring architecture guidance](concept-continuous-patient-monitoring-architecture.md)

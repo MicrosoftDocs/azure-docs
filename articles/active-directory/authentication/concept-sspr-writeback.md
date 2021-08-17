@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 07/28/2021
 
 ms.author: justinha
 author: justinha
@@ -54,7 +54,7 @@ When a federated or password hash synchronized user attempts to reset or change 
    * If the writeback service is down, the user is informed that their password can't be reset right now.
 1. Next, the user passes the appropriate authentication gates and reaches the **Reset password** page.
 1. The user selects a new password and confirms it.
-1. When the user selects **Submit**, the plaintext password is encrypted with a symmetric key created during the writeback setup process.
+1. When the user selects **Submit**, the plaintext password is encrypted with a public key created during the writeback setup process.
 1. The encrypted password is included in a payload that gets sent over an HTTPS channel to your tenant-specific service bus relay (that is set up for you during the writeback setup process). This relay is protected by a randomly generated password that only your on-premises installation knows.
 1. After the message reaches the service bus, the password-reset endpoint automatically wakes up and sees that it has a reset request pending.
 1. The service then looks for the user by using the cloud anchor attribute. For this lookup to succeed, the following conditions must be met:

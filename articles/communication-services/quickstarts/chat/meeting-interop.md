@@ -13,8 +13,7 @@ zone_pivot_groups: acs-web-ios-android
 
 # Quickstart: Join your chat app to a Teams meeting
 
-> [!IMPORTANT]
-> To enable/disable [Teams tenant interoperability](../../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
+
 
 Get started with Azure Communication Services by connecting your chat solution to Microsoft Teams. 
 

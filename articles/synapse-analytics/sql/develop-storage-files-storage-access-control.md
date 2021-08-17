@@ -192,7 +192,7 @@ Shared access signatures cannot be used to access firewall-protected storage.
 
 ### [Managed Identity](#tab/managed-identity)
 
-You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an Azure role](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. 
+You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an Azure role](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. 
 In this case, the scope of access for the instance corresponds to the Azure role assigned to the managed identity.
 
 ### [Anonymous access](#tab/public-access)

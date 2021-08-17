@@ -1116,8 +1116,8 @@
     
     - name: Migrate
       items: 
-      - name: Migrate to SQL Managed Instance
-        href: managed-instance/migrate-to-instance-from-sql-server.md
+      - name: Migrate SQL Server to Azure SQL Managed Instance Guide
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
       - name: Migrate database using Log Replay Service
         href: managed-instance/log-replay-service-migrate.md
       - name: Migrate TDE cert 

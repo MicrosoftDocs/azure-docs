@@ -43,7 +43,7 @@ You can enable a system-assigned managed identity for an Azure Automation accoun
 $sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzAccount -Subscription
+    Connect-AzAccount -Identity
 }
 
 # If you have multiple subscriptions, set the one to use
