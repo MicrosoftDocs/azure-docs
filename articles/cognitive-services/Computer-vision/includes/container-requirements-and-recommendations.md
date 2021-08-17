@@ -11,7 +11,7 @@ ms.author: aahi
 ---
 
 > [!NOTE]
-> The requirements and recommendations are based on benchmarks with a single request per second, using an 523-KB image of a scanned business letter that contains 29 lines and a total of 803 characters. The recommended configuration resulted in approximately 2x faster response time than the minimum configuration.
+> The requirements and recommendations are based on benchmarks with a single request per second, using an 523-KB image of a scanned business letter that contains 29 lines and a total of 803 characters. The recommended configuration resulted in approximately 2x faster response compared with the minimum configuration.
 
 The following table describes the minimum and recommended allocation of resources for each Read OCR container.
 
