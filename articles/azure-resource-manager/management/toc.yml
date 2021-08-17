@@ -79,8 +79,10 @@
           href: microsoft-resources-move-regions.md
         - name: Azure Storage
           href: ../../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/management/toc.json
-        - name: Azure SQL
+        - name: Azure SQL DB & MI
           href: ../../azure-sql/database/move-resources-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
+        - name: SQL Server on Azure VM
+          href: ../../azure-sql/virtual-machines/windows/move-sql-vm-different-region.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure VMs
           href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Logic apps

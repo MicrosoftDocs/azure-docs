@@ -26,7 +26,7 @@ For information on the Azure blob region availability, supported scenarios and l
 
 ## Before you start
 
-See the [prerequisites](/azure/backup/blob-backup-configure-manage#before-you-start) and [support matrix](/azure/backup/blob-backup-support-matrix) before you get started.
+See the [prerequisites](./blob-backup-configure-manage.md#before-you-start) and [support matrix](./blob-backup-support-matrix.md) before you get started.
 
 ## Create a Backup vault
 

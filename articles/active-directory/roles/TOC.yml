@@ -40,12 +40,16 @@
     items: 
     - name: List role assignments
       href: view-assignments.md
-    - name: List role assignments for groups
+    - name: List role assignments for a user
+      href: list-role-assignments-users.md
+    - name: List role assignments for a group
       href: groups-view-assignments.md
   - name: Assign roles
     items:
     - name: Assign roles to users
       href: manage-roles-portal.md
+    - name: Assign roles to a user at different scopes
+      href: assign-roles-different-scopes.md
     - name: Create a role-assignable group
       href: groups-create-eligible.md
     - name: Assign roles to groups
