@@ -21,7 +21,7 @@ landingContent:
       - text: Key concepts in IoT
         url: iot-concepts.md
 
- - title: Get Started
+ - title: Get started
    linkLists:
     - linkListType: quickstart
       links:
@@ -36,17 +36,17 @@ landingContent:
       - text: Route telemetry
         url: tutorial-routing.md
 
- -   title: Select your Protocol
+ -   title: Select your protocol
      linkLists:
      -  linkListType: concept
         links:
-        - text: Supported Protocols
+        - text: Supported protocols
           url: iot-hub-devguide-protocols.md
-        - text: TLS Support
+        - text: TLS support
           url: iot-hub-tls-support.md 
-        - text: MQTT Support
+        - text: MQTT support
           url: iot-hub-mqtt-support.md 
-        - text: IP Addressing
+        - text: IP addressing
           url: iot-hub-understand-ip-address.md
         - text: AMQP
           url: iot-hub-amqp-support.md
@@ -67,3 +67,16 @@ landingContent:
           url: tutorial-routing-config-message-routing-rm-template.md
         - text: Run and view routing results
           url: tutorial-routing-view-message-routing-results.md
+
+ -   title: Performance and scalability
+     linkLists:
+      - linkListType: concept
+        links:
+        - text: Choosing the right tier
+          url: iot-hub-scaling.md
+        - text: Understand quotas and throttling
+          url: iot-hub-devguide-quotas-throttling.md
+        - text: Pricing examples
+          url: iot-hub-devguide-pricing.md
+        - text: High availability and disaster recovery
+          url: iot-hub-ha-dr.md

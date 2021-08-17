@@ -84,6 +84,8 @@
       href: iot-hub-devguide-query-language.md
     - name: Quotas and throttling
       href: iot-hub-devguide-quotas-throttling.md
+    - name: Choose the right IoT Hub tier
+      href: iot-hub-scaling.md
     - name: Pricing examples
       href: iot-hub-devguide-pricing.md
     - name: Compare IoT Hub and Event Hubs
@@ -126,22 +128,15 @@
         href: iot-hub-configuration-best-practices.md
     - name: Connectivity
       items:
-      - name: TLS support
-        href: iot-hub-tls-support.md
-      - name: Virtual networks support
-        href: virtual-network-support.md
       - name: Understanding IoT hub IP address
         href: iot-hub-understand-ip-address.md
-      - name: Supporting additional protocols
-        href: iot-hub-protocol-gateway.md
-    - name: Manage IoT Hub
+    - name: Scaling and availability
       items:
       - name: High availability and disaster recovery
         href: iot-hub-ha-dr.md
       - name: How to clone an IoT Hub to another region
         href: iot-hub-how-to-clone.md
-      - name: Choose the right tier
-        href: iot-hub-scaling.md
+
     - name: Control access to IoT Hub
       items:
         - name: Overview
@@ -170,8 +165,14 @@
               href: iot-hub-mqtt-5-reference.md
         - name: AMQP support
           href: iot-hub-amqp-support.md
+        - name: Supporting additional protocols
+          href: iot-hub-protocol-gateway.md
     - name: Security
       items:
+        - name: TLS support
+          href: iot-hub-tls-support.md
+        - name: Virtual networks support
+          href: virtual-network-support.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/iot-hub-security-baseline?toc=/azure/iot-hub/TOC.json
         - name: Recommendations
@@ -187,12 +188,12 @@
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
-    - name: Secure using X.509 CA certificates
-      items:
-        - name: X.509 CA certificate security overview
-          href: iot-hub-x509ca-overview.md
-        - name: X.509 CA certificate security concepts
-          href: iot-hub-x509ca-concept.md
+        - name: Secure using X.509 CA certificates
+          items:
+            - name: X.509 CA certificate security overview
+              href: iot-hub-x509ca-overview.md
+            - name: X.509 CA certificate security concepts
+              href: iot-hub-x509ca-concept.md
     - name: Overview of IoT Hub device streams (preview)
       href: iot-hub-device-streams-overview.md
 - name: How-to guides
