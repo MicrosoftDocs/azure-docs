@@ -62,7 +62,7 @@ Select **Get New Access Token**.
 
 To obtain a valid access token, select **Authorization** and select **OAuth 2.0** from the **TYPE** drop-down menu.
 
-![Set OAuth 2.0](media/tutorial-postman/postman-select-oauth2.png)
+![Set OAuth 2.0](media/tutorial-postman/postman-select-oauth-two.png)
 
 Select **Get New Access Token**.
 
@@ -91,7 +91,7 @@ Scroll down to view the returned token screen, and then select **Use Token**.
 
 Refer to the **Access Token** field to view the newly populated token. If you select **Send** to repeat the `Patient` resource search, a **Status** `200 OK` gets returned. A returned status `200 OK` indicates a successful HTTP request.
 
-![200 OK](media/tutorial-postman/postman-200-OK.png)
+![200 OK](media/tutorial-postman/postman-two-hundred-ok.png)
 
 In the *Patient search* example, there are no patients in the database such that the search result is empty.
 

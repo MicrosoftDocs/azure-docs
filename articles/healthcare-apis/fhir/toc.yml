@@ -15,7 +15,7 @@ items:
     - name: Using Portal
       href: fhir-portal-quickstart.md
     - name: Using ARM template
-      href: fhir-arm-template-quickstart.md
+      href: fhir-service-resource-manager-template.md
   - name: Access FHIR service using Postman
     href: using-postman.md
 
@@ -26,7 +26,7 @@ items:
     expanded: true
     items:
     - name: CMS Interoperability and Patient Access rule introduction
-      href: cms-tutorial-introduction.md
+      href: centers-for-medicare-tutorial-introduction.md
     - name: CARIN Implementation Guide for Blue Button
       href: carin-implementation-guide-blue-button-tutorial.md
     - name: Da Vinci Drug Formulary
@@ -73,9 +73,9 @@ items:
     expanded: true
     items:
     - name: AAD for FHIR service
-      href: azure-ad-hcapi.md
+      href: azure-active-directory-identity-configuration.md
     - name: Access token validation
-      href: azure-ad-hcapi-token-validation.md
+      href: fhir-service-access-token-validation.md
     - name: Get access token using CLI
       href: get-healthcare-apis-access-token-cli.md
 

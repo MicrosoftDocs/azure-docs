@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up and manage endpoints and event routes for Azure Digital Twins data
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 7/22/2020
+ms.date: 7/30/2021
 ms.topic: how-to
 ms.service: digital-twins
 

@@ -1,41 +1,45 @@
 ---
 title: Azure Arc-enabled servers Overview
 description: Learn how to use Azure Arc-enabled servers to manage servers hosted outside of Azure like an Azure resource.
-keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 07/16/2021
+ms.date: 08/12/2021
 ms.topic: overview
 ---
 
 # What is Azure Arc-enabled servers?
 
-Azure Arc-enabled servers enables you to manage your Windows and Linux physical servers and virtual machines hosted *outside* of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines. When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID, is included in a resource group, and benefits from standard Azure constructs such as Azure Policy and applying tags. Service providers who manage a customer's on-premises infrastructure can manage their hybrid machines, just like they do today with native Azure resources, across multiple customer environments, using [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) with Azure Arc.
+Azure Arc-enabled servers enables you to manage your Windows and Linux physical servers and virtual machines hosted *outside* of Azure, on your corporate network, or other cloud provider. This management experience is designed to be consistent with how you manage native Azure virtual machines. When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID enabling the machine to be included in a resource group. Now you can benefit from standard Azure constructs, such as Azure Policy and applying tags. Service providers managing a customer's on-premises infrastructure can manage their hybrid machines, just like they do today with native Azure resources, across multiple customer environments using [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md).
 
-To deliver this experience with your hybrid machines hosted outside of Azure, the Azure Connected Machine agent needs to be installed on each machine that you plan on connecting to Azure. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to proactively monitor the OS and workloads running on the machine, manage it using Automation runbooks or solutions like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).
+To deliver this experience with your hybrid machines, you need to install the Azure Connected Machine agent on each machine. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when:
+
+* You want to proactively monitor the OS and workloads running on the machine,
+* Manage it using Automation runbooks or solutions like Update Management, or
+* Use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).
 
 >[!NOTE]
 > The [Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA), which is currently in preview, does not replace the Connected Machine agent. The Azure Monitor agent will replace the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines. Review the Azure Monitor documentation about the new agent for more details.
 
-## Supported scenarios
+## Supported cloud operations 
 
-When you connect your machine to Azure Arc-enabled servers, it enables the ability to perform the following configuration management and monitoring tasks:
-- Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines. Today, most Guest Configuration policies do not apply configurations, they only audit settings inside the machine. To understand the cost of using Azure Policy Guest Configuration policies with Arc-enabled servers, see Azure Policy [pricing guide](https://azure.microsoft.com/pricing/details/azure-policy/).
+When you connect your machine to Azure Arc-enabled servers, it enables the ability for you to perform the following operational functions as described in the following table.
 
-- Report on configuration changes about installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers using Azure Automation [Change Tracking and Inventory](../../automation/change-tracking/overview.md) and [Azure Security Center File Integrity Monitoring](../../security-center/security-center-file-integrity-monitoring.md), for servers enabled with [Azure Defender for servers](../../security-center/defender-for-servers-introduction.md).
+|Operations function |Description | 
+|--------------------|------------|
+|**Govern** ||
+| Azure Policy |Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) to audit settings inside the machine. To understand the cost of using Azure Policy Guest Configuration policies with Arc-enabled servers, see Azure Policy [pricing guide](https://azure.microsoft.com/pricing/details/azure-policy/)|
+|**Protect** ||
+| Azure Security Center | Protect non-Azure servers with [Microsoft Defender for Endpoint](/microsoft-365/security/endpoint-defender), included through [Azure Defender](../../security-center/defender-for-servers-introduction.md), for threat detection, for vulnerability management, and to proactively monitor for potential security threats. Azure Security Center presents the alerts and remediation suggestions from the threats detected. |
+| Azure Sentinel | Machines connected to Arc-enabled servers can be [configured with Azure Sentinel](scenario-onboard-azure-sentinel.md) to collect security-related events and correlate them with other data sources. |
+|**Configure** ||
+| Azure Automation |Assess configuration changes about installed software, Microsoft services, Windows registry and files, and Linux daemons using [Change Tracking and Inventory](../../automation/change-tracking/overview.md).<br> Use [Update Management](../../automation/update-management/overview.md) to manage operating system updates for your Windows and Linux servers. |
+| Azure Automanage | Onboard a set of Azure services when you use [Automanage Machine for Arc-enabled servers](../../automanage/automanage-arc.md). |
+| VM extensions | Provides post-deployment configuration and automation tasks using supported [Arc-enabled servers VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine. |
+|**Monitor**|
+| Azure Monitor | Monitor the connected machine guest operating system performance, and discover application components to monitor their processes and dependencies with other resources using [VM insights](../../azure-monitor/vm/vminsights-overview.md). Collect other log data, such as performance data and events, from the operating system or workload(s) running on the machine with the [Log Analytics agent](../../azure-monitor/agents/agents-overview.md#log-analytics-agent). This data is stored in a [Log Analytics workspace](../../azure-monitor/logs/design-logs-deployment.md). |
 
-- Monitor your connected machine guest operating system performance, and discover application components to monitor their processes and dependencies with other resources the application communicates using [VM insights](../../azure-monitor/vm/vminsights-overview.md).
+> [!NOTE]
+> At this time, enabling Update Management directly from an Arc-enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and how to enable for your server.
 
-- Simplify deployment using other Azure services like Azure Monitor Log Analytics workspace, using the supported [Azure VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine. This includes performing post-deployment configuration or software installation using the Custom Script Extension.
-
-- Use [Update Management](../../automation/update-management/overview.md) in Azure Automation to manage operating system updates for your Windows and Linux servers
-
-    > [!NOTE]
-    > At this time, enabling Update Management directly from an Arc-enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and how to enable for your server.
-
-- Include your non-Azure servers for advanced threat detection and proactively monitor for potential security threats using [Azure Security Center](../../security-center/security-center-introduction.md) or [Azure Defender](../../security-center/azure-defender.md).
-
-- Protect non-Azure servers with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint), included through [Azure Defender](../../security-center/azure-defender.md), for threat detection, for vulnerability management, and to proactively monitor for potential security threats.
-
-Log data collected and stored in a Log Analytics workspace from the hybrid machine now contains properties specific to the machine, such as a Resource ID. This can be used to support [resource-context](../../azure-monitor/logs/design-logs-deployment.md#access-mode) log access.
+Log data collected and stored in a Log Analytics workspace from the hybrid machine now contains properties specific to the machine, such as a Resource ID, to support [resource-context](../../azure-monitor/logs/design-logs-deployment.md#access-mode) log access.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

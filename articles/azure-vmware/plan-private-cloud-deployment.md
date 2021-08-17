@@ -8,7 +8,7 @@ ms.date: 07/07/2021
 
 # Plan the Azure VMware Solution deployment
 
-Planning your Azure VMware Solution deployment is critical for a successful production-ready environment for creating virtual machines (VMs) and migration.  During the planning process, you'll identify and gather what's needed for your deployment. As you plan, make sure to document the information you gather for easy reference during the deployment. A successful deployment results in a production-ready environment for creating virtual machines (VMs) and migration. 
+Planning your Azure VMware Solution deployment is critical for a successful production-ready environment for creating virtual machines (VMs) and migration. During the planning process, you'll identify and gather what's needed for your deployment. As you plan, make sure to document the information you gather for easy reference during the deployment. A successful deployment results in a production-ready environment for creating virtual machines (VMs) and migration.
 
 In this how-to, you'll':
 
@@ -21,7 +21,7 @@ In this how-to, you'll':
 > * Define the virtual network gateway
 > * Define VMware HCX network segments
 
-After you're finished, follow the recommended next steps at the end to continue with the steps of this getting started guide.
+After you're finished, follow the recommended next steps at the end to continue with this getting started guide.
 
 
 ## Identify the subscription
@@ -61,9 +61,10 @@ The first Azure VMware Solution deployment you do consists of a private cloud co
 
 ## Request a host quota 
 
-It's important to request a host quota early, so after you've finished the planning process, you're ready to deploy your Azure VMware Solution private cloud. 
+It's crucial to request a host quota early, so after you've finished the planning process, you're ready to deploy your Azure VMware Solution private cloud.
+Before requesting a host quota, make sure you've identified the Azure subscription, resource group, and region. Also, make sure you've identified the size hosts and determine the number of clusters and hosts you'll need.
 
-Before you request a host quota, make sure you've identified the Azure subscription, resource group, and region.  Also make sure you've identified the size hosts and determine the number of clusters and hosts you'll need.  After the support team receives your request for a host quota, it takes up to five business days to confirm your request and allocate your hosts.
+After the support team receives your request for a host quota, it takes up to five business days to confirm your request and allocate your hosts.
 
 - [EA customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-ea-customers)
 - [CSP customers](request-host-quota-azure-vmware-solution.md#request-host-quota-for-csp-customers)
@@ -91,7 +92,7 @@ For the initial deployment, identify a single network segment (IP network), for 
 
 ## Define the virtual network gateway
 
-Azure VMware Solution requires an Azure Virtual Network and an ExpressRoute circuit.  Define whether you want to use an *existing* OR *new* ExpressRoute virtual network gateway.  If you decide to use a *new* virtual network gateway, you'll create it after you create your private cloud. It's acceptable to use an existing ExpressRoute virtual network gateway, and for planning purposes, make note of which ExpressRoute virtual network gateway you'll use. 
+Azure VMware Solution requires an Azure Virtual Network and an ExpressRoute circuit. Define whether you want to use an *existing* OR *new* ExpressRoute virtual network gateway. If you decide to use a *new* virtual network gateway, you'll create it after creating your private cloud. It's acceptable to use an existing ExpressRoute virtual network gateway, and for planning purposes, make a note of which ExpressRoute virtual network gateway you'll use. 
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Diagram that shows the Azure Virtual Network attached to Azure VMware Solution" border="false":::
 
@@ -100,7 +101,7 @@ Azure VMware Solution requires an Azure Virtual Network and an ExpressRoute circ
 
 ## Define VMware HCX network segments
 
-VMware HCX is an application mobility platform designed for simplifying application migration, workload rebalancing, and business continuity across data centers and clouds. You can migrate your VMware workloads to Azure VMware Solution and other connected sites through various migration types. 
+VMware HCX is an application mobility platform that simplifies application migration, workload rebalancing, and business continuity across data centers and clouds. You can migrate your VMware workloads to Azure VMware Solution and other connected sites through various migration types. 
 
 VMware HCX Connector deploys a subset of virtual appliances (automated) that require multiple IP segments. When you create your network profiles, you use the IP segments. Identify the following for the VMware HCX deployment, which supports a pilot or small product use case.  Depending on the needs of your migration, modify as necessary. 
 
@@ -109,11 +110,11 @@ VMware HCX Connector deploys a subset of virtual appliances (automated) that req
   >[!NOTE]
   >Preparing for large environments, instead of using the management network used for the on-premises VMware cluster, create a new /26 network and present that network as a port group to your on-premises VMware cluster.  You can then create up to 10 service meshes and 60 network extenders (-1 per service mesh). You can stretch **eight** networks per network extender by using Azure VMware Solution private clouds.
 
-- **Uplink network:** When deploying VMware HCX on-premises, you'll need to identify a Uplink network for VMware HCX. Use the same network which you will be using for the Management network. 
+- **Uplink network:** When deploying VMware HCX on-premises, you'll need to identify an Uplink network for VMware HCX. Use the same network which you’ll use for the Management network. 
 
 - **vMotion network:** When deploying VMware HCX on-premises, you'll need to identify a vMotion network for VMware HCX.  Typically, it's the same network used for vMotion by your on-premises VMware cluster.  At a minimum, identify **two** IPs on this network segment for VMware HCX. You might need larger numbers, depending on the scale of your deployment beyond the pilot or small use case.
 
-  The vMotion network must be exposed on a distributed virtual switch or vSwitch0. If it's not, modify the environment to accommodate.
+  You must expose the vMotion network on a distributed virtual switch or vSwitch0. If it's not, modify the environment to accommodate.
 
   >[!NOTE]
   >Many VMware environments use non-routed network segments for vMotion, which poses no problems.

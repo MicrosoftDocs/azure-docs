@@ -2,8 +2,6 @@
 title: Source map support for JavaScript applications - Azure Monitor Application Insights
 description: Learn how to upload source maps to your own storage account Blob container using Application Insights.
 ms.topic: conceptual
-author: DavidCBerry13
-ms.author: daberry
 ms.date: 06/23/2020
 ms.custom: devx-track-js
 ---
@@ -45,7 +43,7 @@ If you are using Azure Pipelines to continuously build and deploy your applicati
 From the end-to-end transaction details tab, you can click on *Unminify* and it will display a prompt to configure if your resource is unconfigured.
 
 1. In the Portal, view the details of an exception that is minified.
-2. Click on *Unminify*
+2. Select *Unminify*.
 3. If your resource has not been configured, a message will appear, prompting you to configure.
 
 ### From the properties page
@@ -53,9 +51,9 @@ From the end-to-end transaction details tab, you can click on *Unminify* and it 
 If you would like to configure or change the storage account or Blob container that is linked to your Application Insights Resource, you can do it by viewing the Application Insights resource's *Properties* tab.
 
 1. Navigate to the *Properties* tab of your Application Insights resource.
-2. Click on *Change source map blob container*.
+2. Select *Change source map blob container*.
 3. Select a different Blob container as your source maps container.
-4. Click `Apply`.
+4. Select `Apply`.
 
 > [!div class="mx-imgBorder"]
 > ![Reconfigure your selected Azure Blob Container by navigating to the Properties Blade](./media/source-map-support/reconfigure.png)
