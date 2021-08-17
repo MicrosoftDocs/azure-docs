@@ -485,8 +485,6 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 ## Cognni (Preview)
 
-The Cognni data connector offers a quick and simple integration to Azure Sentinel. You can use Cognni to autonomously map previously unclassified important information and detect related incidents. Cognni helps you recognize risks to your important information, understand the severity of the incidents, and investigate the details you need to remediate, fast enough to make a difference.
-
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
@@ -506,12 +504,10 @@ The Cognni data connector offers a quick and simple integration to Azure Sentine
 
 ## Cyberpion Security Logs (Preview)
 
-The Cyberpion Security Logs data connector ingests logs from the Cyberpion system directly into Azure Sentinel. For more information, see [Azure Sentinel](https://www.cyberpion.com/resource-center/integrations/azure-sentinel/) in the Cyberpion documentation.
-
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
+| **Vendor documentation/<br>installation instructions** | [Azure Sentinel](https://www.cyberpion.com/resource-center/integrations/azure-sentinel/) |
 | **Supported by** | Cyberpion |
 |
 
@@ -553,8 +549,6 @@ The Cyberpion Security Logs data connector ingests logs from the Cyberpion syste
 1. Log out of the administrator account and log into the console with the new API credentials for validation, then log out of the API account.
 
 ## ESET Security Management Center (SMC) (Preview)
-
-The ESET SMC data connector ingests ESET SMC threat events, audit logs, firewall events, and website filters into Azure Sentinel. For more information, see [Syslog server](https://help.eset.com/esmc_admin/70/en-US/admin_server_settings_syslog.html) in the ESET SMC documentation.
 
 **Data ingestion method:** [Log Analytics Agent custom logs](connect-data-sources.md#custom-logs).
 
@@ -677,10 +671,6 @@ Configure Eset Logs using BSD style and JSON format.
 
 ## ExtraHop Reveal(x)
 
-The ExtraHop Reveal(x) data connector connects your Reveal(x) system to Azure Sentinel. Azure Sentinel integration requires the ExtraHop Detection SIEM Connector. To install the SIEM Connector on your Reveal(x) system, follow the instructions at .
-
-For more information about connecting to Azure Sentinel, see [Connect ExtraHop Reveal(x) to Azure Sentinel](connect-extrahop.md).
-
 | Data ingestion method: | [Common Event Format (CEF)](connect-common-event-format.md) over Syslog |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog |
@@ -730,14 +720,10 @@ For more information about connecting to Azure Sentinel, see [Connect ExtraHop R
 
 ## Forcepoint Data Loss Prevention (DLP) (Preview)
 
-The Forcepoint DLP data connector automatically exports DLP incident data from Forcepoint DLP into Azure Sentinel in real time. For more information, see [Forcepoint Data Loss Prevention and Azure Sentinel](https://forcepoint.github.io/docs/dlp_and_azure_sentinel/).
-
-For more information about connecting to Azure Sentinel, see [Connect Forcepoint DLP to Azure Sentinel](connect-forcepoint-dlp.md).
-
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
+| **Vendor documentation/<br>installation instructions** | [Forcepoint Data Loss Prevention and Azure Sentinel](https://forcepoint.github.io/docs/dlp_and_azure_sentinel/) |
 | **Supported by** | [Forcepoint](https://support.forcepoint.com/) |
 |
 
@@ -769,6 +755,23 @@ For more information about connecting to Azure Sentinel, see [Connect Forcepoint
 | **Vendor documentation/<br>installation instructions** | [Fortinet Document Library](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary)<br>Choose your version and use the *Handbook* and *Log Message Reference* PDFs. |
 | **Supported by** | [Fortinet](https://support.fortinet.com/) |
 | 
+
+### Send Fortinet logs to the log forwarder
+
+Open the CLI on your Fortinet appliance and run the following commands:
+
+```Console
+config log syslogd setting
+set status enable
+set format cef
+set port 514
+set server <ip_address_of_Forwarder>
+end
+```
+
+- Replace the server **ip address** with the IP address of the log forwarder.
+- Set the **syslog port** to **514** or the port set on the Syslog daemon on the forwarder.
+- To enable CEF format in early FortiOS versions, you might need to run the command set **csv disable**.
 
 ## GitHub Enterprise Cloud Audit Log - Polling (Preview)
 
@@ -933,46 +936,33 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 ## NXLog Basic Security Module (BSM) macOS (Preview)
 
-The NXLog BSM macOS data connector uses the Sun BSM Auditing API to capture audit events directly from the kernel on the macOS platform. This data connector can efficiently export macOS audit events to Azure Sentinel in real time. For more information, see the [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html).
-
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
+| **Vendor documentation/<br>installation instructions** | [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
+| **Supported by** | [NXLog](https://nxlog.co/community-forum) |
 |
 
-| **Supported by** | [NXLog](https://nxlog.co/community-forum)
 
 ## NXLog DNS Logs (Preview)
 
-The NXLog DNS Logs data connector uses Event Tracing for Windows (ETW) to collect both audit and analytical DNS server events. For maximum efficiency, the NXLog im_etw module reads event tracing data directly, without having to capture the event trace into an *.etl* file. This REST API connector can forward DNS server events to Azure Sentinel in real time. For more information, see the [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html).
-
-For more information about connecting to Azure Sentinel, see [Connect NXLog (Windows) DNS Logs to Azure Sentinel](connect-nxlog-dns.md).
-
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
+| **Vendor documentation/<br>installation instructions** | [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
+| **Supported by** | [NXLog](https://nxlog.co/community-forum) |
 |
 
-| **Supported by** | [NXLog](https://nxlog.co/community-forum)
 
 ## NXLog LinuxAudit (Preview)
 
-The NXLog LinuxAudit data connector supports custom audit rules and collects logs without using AuditD or other user software. The connector resolves IP addresses and group/user IDs to their respective names, making Linux audit logs more intelligible. This REST API connector can export Linux security events to Azure Sentinel in real time. For more information, see the [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html).
-
-For more information about connecting to Azure Sentinel, see [Connect NXLog LinuxAudit to Azure Sentinel](connect-nxlog-linuxaudit.md).
-
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
+| **Vendor documentation/<br>installation instructions** |  [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
+| **Supported by** | [NXLog](https://nxlog.co/community-forum) |
 |
 
-| **Supported by** | [NXLog](https://nxlog.co/community-forum)
 
 ## Okta Single Sign-On (Preview)
 
@@ -1024,18 +1014,13 @@ For more information about connecting to Azure Sentinel, see [Connect NXLog Linu
 
 ## Orca Security (Preview)
 
-The Orca Security Alerts connector automatically exports Alerts logs to Azure Sentinel. For more information, see [Azure Sentinel integration](https://orcasecurity.zendesk.com/hc/en-us/articles/360043941992-Azure-Sentinel-configuration).
-
-For more information about connecting to Azure Sentinel, see [Connect Orca Security to Azure Sentinel](connect-orca-security-alerts.md).
-
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
+| **Vendor documentation/<br>installation instructions** | [Azure Sentinel integration](https://orcasecurity.zendesk.com/hc/en-us/articles/360043941992-Azure-Sentinel-configuration) |
+| **Supported by** | [Orca Security](http://support.orca.security/) |
 |
 
-| **Supported by** | [Orca Security](http://support.orca.security/)
 
 ## OSSEC (Preview)
 
@@ -1061,18 +1046,12 @@ For more information about connecting to Azure Sentinel, see [Connect Orca Secur
 
 ## Perimeter 81 Activity Logs (Preview)
 
-The Perimeter 81 Activity Logs data connector connects Perimeter 81 activity logs to Azure Sentinel. For more information, see the Perimeter 81 [Azure Sentinel](https://support.perimeter81.com/docs/360012680780) documentation.
-
-For more information about connecting to Azure Sentinel, see [Connect Perimeter 81 logs to Azure Sentinel](connect-perimeter-81-logs.md).
-
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
+| **Vendor documentation/<br>installation instructions** | [Perimeter 81 documentation](https://support.perimeter81.com/docs/360012680780) |
+| **Supported by** | [Perimeter 81](https://support.perimeter81.com/) |
 |
-
-| **Supported by** | [Perimeter 81](https://support.perimeter81.com/)
 
 
 ## Proofpoint On Demand (POD) Email Security (Preview)
@@ -1249,18 +1228,13 @@ Follow the instructions to obtain the credentials.
 
 ## Sophos Cloud Optix (Preview)
 
-The Sophos Cloud Optix data connector connects your Sophos Cloud Optix logs to Azure Sentinel. For more information, in your Cloud Optix settings, see the Azure Sentinel [integrations page](https://optix.sophos.com/#/integrations/sentinel).
-
-For more information about connecting to Azure Sentinel, see [Connect Sophos Cloud Optix to Azure Sentinel](connect-sophos-cloud-optix.md).
-
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
+| **Vendor documentation/<br>installation instructions** | [Azure Sentinel integrations page](https://optix.sophos.com/#/integrations/sentinel) |
+| **Supported by** | [Sophos](https://secure2.sophos.com/en-us/support.aspx) |
 |
 
-| **Supported by** | [Sophos](https://secure2.sophos.com/en-us/support.aspx)
 
 ## Sophos XG Firewall (Preview)
 
@@ -1275,18 +1249,13 @@ For more information about connecting to Azure Sentinel, see [Connect Sophos Clo
 
 ## Squadra Technologies secRMM
 
-The Squadra Technologies secRMM data connector pushes USB removable storage security event data into Azure Sentinel. For more information, see the [secRMM Azure Sentinel Administrator Guide](https://www.squadratechnologies.com/StaticContent/ProductDownload/secRMM/9.9.0.0/secRMMAzureSentinelAdministratorGuide.pdf).
-
-For more information about connecting to Azure Sentinel, see [Connect Squadra Technologies secRMM to Azure Sentinel](connect-squadra-secrmm.md).
-
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
+| **Vendor documentation/<br>installation instructions** | [secRMM Azure Sentinel Administrator Guide](https://www.squadratechnologies.com/StaticContent/ProductDownload/secRMM/9.9.0.0/secRMMAzureSentinelAdministratorGuide.pdf) |
+| **Supported by** | [Squadra Technologies](https://www.squadratechnologies.com/Contact.aspx) |
 |
 
-| **Supported by** | [Squadra Technologies](https://www.squadratechnologies.com/Contact.aspx)
 
 ## Squid Proxy (Preview)
 
@@ -1302,18 +1271,13 @@ For more information about connecting to Azure Sentinel, see [Connect Squadra Te
 
 ## Symantec Integrated Cyber Defense Exchange (ICDx)
 
-The Symantec ICDx data connector connects Symantec security solutions logs to Azure Sentinel. For more information, see [Connect your Symantec ICDx appliance](connect-symantec.md).
-
-For more information about connecting to Azure Sentinel, see [Connect Symantec ICDx to Azure Sentinel](connect-symantec.md).
-
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
+| **Log Analytics table(s)** | SymantecICDx_CL |
+| **Vendor documentation/<br>installation instructions** | [Configuring Microsoft Azure Sentinel (Log Analytics) Forwarders](https://techdocs.broadcom.com/us/en/symantec-security-software/integrated-cyber-defense/integrated-cyber-defense-exchange/1-4-3/Forwarders/configuring-forwarders-v131944722-d2707e17438.html) |
+| **Supported by** | [Broadcom Symantec](https://support.broadcom.com/security) |
 |
 
-| **Supported by** | [Broadcom Symantec](https://support.broadcom.com/security)
 
 ## Symantec ProxySG (Preview)
 
@@ -1360,10 +1324,6 @@ For more information about connecting to Azure Sentinel, see [Connect Symantec I
 |
 
 ## Trend Micro TippingPoint (Preview)
-
-The Trend Micro TippingPoint data connector connects TippingPoint SMS IPS events to Azure Sentinel.
-
-For more information about connecting to Azure Sentinel, see [Connect Trend Micro TippingPoint to Azure Sentinel](connect-trend-micro-tippingpoint.md).
 
 | Data ingestion method: | [Common Event Format (CEF)](connect-common-event-format.md) over Syslog, with a Kusto function parser |
 | --- | --- |
@@ -1486,18 +1446,28 @@ For more information about connecting to Azure Sentinel, see [Connect Trend Micr
 
 ## Zimperium Mobile Thread Defense (Preview)
 
-Zimperium Mobile Threat Defense data connector connects the Zimperium threat log to Azure Sentinel to view dashboards, create custom alerts, and improve investigation. This connector gives you more insight into your organization's mobile threat landscape and enhances your security operation capabilities. For more instructions, see the [Zimperium customer support portal](https://support.zimperium.com/).
+Zimperium Mobile Threat Defense data connector connects the Zimperium threat log to Azure Sentinel to view dashboards, create custom alerts, and improve investigation. This connector gives you more insight into your organization's mobile threat landscape and enhances your security operation capabilities. For more instructions, see the .
 
 For more information about connecting to Azure Sentinel, see [Connect Zimperium to Azure Sentinel](connect-zimperium-mtd.md).
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
+| **Log Analytics table(s)** | ZimperiumThreatLog_CL<br>ZimperiumMitigationLog_CL |
+| **Vendor documentation/<br>installation instructions** | [Zimperium customer support portal](https://support.zimperium.com/) (login required) |
+| **Supported by** | [Zimperium](https://www.zimperium.com/support) |
 |
 
-| **Supported by** | [Zimperium](https://www.zimperium.com/support)
+### Configure and connect Zimperium MTD
+
+1. In zConsole, click **Manage** on the navigation bar.
+1. Click the **Integrations** tab.
+1. Click the **Threat Reporting** button and then the **Add Integrations** button.
+1. Create the Integration:
+    1. From the available integrations, select **Microsoft Azure Sentinel**.
+    1. Enter your *workspace ID* and *primary key*, click **Next**.
+    1. Fill in a name for your Azure Sentinel integration.
+    1. Select a **Filter Level** for the threat data you wish to push to Azure Sentinel.
+    1. Click **Finish**.
 
 ## Zoom Reports (Preview)
 

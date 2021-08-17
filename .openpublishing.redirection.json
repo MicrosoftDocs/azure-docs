@@ -25745,6 +25745,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/connect-symantec.md",
+      "redirect_url": "",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-bus/index.md",
       "redirect_url": "/azure/service-bus-messaging/index",
       "redirect_document_id": false
