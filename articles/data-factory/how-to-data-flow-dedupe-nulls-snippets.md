@@ -1,15 +1,12 @@
 ---
 title: Dedupe rows and find nulls by using data flow snippets
 description: Learn how to easily dedupe rows and find nulls by using code snippets in data flows
-services: data-factory
 author: kromerm
-
+ms.author: makromer
 ms.service: data-factory
-ms.workload: data-services
-
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.author: makromer
 ---
 
 # Dedupe rows and find nulls by using data flow snippets

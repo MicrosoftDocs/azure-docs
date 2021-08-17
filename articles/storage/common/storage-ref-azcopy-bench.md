@@ -44,6 +44,12 @@ All the usual authentication types are supported. However, the most convenient a
 to create an empty container with a SAS token and use SAS authentication. (Download mode requires a set of test data to be
 present in the target container.)
 
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Optimize the performance of AzCopy v10 with Azure Storage](storage-use-azcopy-optimize.md)
+
+
 ## Examples
 
 ```azcopy

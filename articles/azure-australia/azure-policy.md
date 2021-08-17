@@ -48,7 +48,7 @@ The available built-in Azure Policy and Initiative definitions can be found unde
 
 Using the library of built-in definitions, you can quickly search for Policies that meet an organisational requirement, review the policy definition, and assign the Policy to the appropriate resources. For example, the ISM requires multi-factor authentication (MFA) for all privileged users, and for all users with access to important data repositories. In Azure Policy you can search for "MFA" amongst the Azure Policy definitions:
 
-![Azure MFA Policies](media/mfa-policies.png)
+![Azure AD MFA Policies](media/mfa-policies.png)
 
 Once a suitable policy is identified, you assign the policy to the desired scope. If there is no built-in policy that meets your requirements, you can duplicate the existing policy and make the desired changes:
 
@@ -89,7 +89,7 @@ Azure Blueprints extend the capability of Azure Policy by combining them with:
 
 * Azure RBAC
 * Azure Resource Groups
-* [Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md)
+* [Azure Resource Manager Templates](../azure-resource-manager/templates/syntax.md)
 
 Blueprints allow for the creation of environment designs that deploy Azure resources from Resource Manager templates, configure Azure RBAC, and enforce and audit configuration by assigning Azure Policy. Blueprints form an editable and redeployable environment template. Once the Blueprint has been created, it can then be assigned to an Azure Subscription. Once assigned, all of the Azure resources defined within the Blueprint will be created and the Azure Policies applied. The deployment and configuration of resources defined in an Azure Blueprint can be monitored from the Azure Blueprint console in the Azure portal.
 

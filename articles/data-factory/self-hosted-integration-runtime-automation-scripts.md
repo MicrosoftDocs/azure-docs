@@ -1,14 +1,11 @@
 ---
 title: Automating self-hosted integration runtime installation using local PowerShell scripts
 description: To automate installation of Self-hosted Integration Runtime on local machines.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: integration-runtime
 ms.topic: conceptual
-author: nabhishek
-ms.author: abnarain
-manager: anandsub
+author: lrtoyou1223
+ms.author: lle
 ms.custom: seo-lt-2019
 ms.date: 05/09/2020
 ---

@@ -16,7 +16,7 @@ Functions in a function app share resources. Among those shared resources are co
 
 The number of available connections is limited partly because a function app runs in a [sandbox environment](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). One of the restrictions that the sandbox imposes on your code is a limit on the number of outbound connections, which is currently 600 active (1,200 total) connections per instance. When you reach this limit, the functions runtime writes the following message to the logs: `Host thresholds exceeded: Connections`. For more information, see the [Functions service limits](functions-scale.md#service-limits).
 
-This limit is per instance. When the [scale controller adds function app instances](functions-scale.md#how-the-consumption-and-premium-plans-work) to handle more requests, each instance has an independent connection limit. That means there's no global connection limit, and you can have much more than 600 active connections across all active instances.
+This limit is per instance. When the [scale controller adds function app instances](event-driven-scaling.md) to handle more requests, each instance has an independent connection limit. That means there's no global connection limit, and you can have much more than 600 active connections across all active instances.
 
 When troubleshooting, make sure that you have enabled Application Insights for your function app. Application Insights lets you view metrics for your function apps like executions. For more information, see [View telemetry in Application Insights](analyze-telemetry-data.md#view-telemetry-in-application-insights).  
 
@@ -67,7 +67,7 @@ http.globalAgent.maxSockets = 200;
 var http = require('http');
 var httpAgent = new http.Agent();
 httpAgent.maxSockets = 200;
-options.agent = httpAgent;
+const options = { agent: httpAgent };
 http.request(options, onResponseCallback);
 ```
 
@@ -100,7 +100,7 @@ public static async Task Run(string input)
     // Rest of function
 }
 ```
-If you are working with functions v3.x, you need a refernce to Microsoft.Azure.DocumentDB.Core. Add a reference in the code:
+If you are working with functions v3.x, you need a reference to Microsoft.Azure.DocumentDB.Core. Add a reference in the code:
 
 ```cs
 #r "Microsoft.Azure.DocumentDB.Core"
@@ -143,7 +143,7 @@ module.exports = async function (context) {
 Your function code can use the .NET Framework Data Provider for SQL Server ([SqlClient](/dotnet/api/system.data.sqlclient)) to make connections to a SQL relational database. This is also the underlying provider for data frameworks that rely on ADO.NET, such as [Entity Framework](/ef/ef6/). Unlike [HttpClient](/dotnet/api/system.net.http.httpclient) and [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient) connections, ADO.NET implements connection pooling by default. But because you can still run out of connections, you should optimize connections to the database. For more information, see [SQL Server Connection Pooling (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 > [!TIP]
-> Some data frameworks, such as Entity Framework, typically get connection strings from the **ConnectionStrings** section of a configuration file. In this case, you must explicitly add SQL database connection strings to the **Connection strings** collection of your function app settings and in the [local.settings.json file](functions-run-local.md#local-settings-file) in your local project. If you're creating an instance of [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection) in your function code, you should store the connection string value in **Application settings** with your other connections.
+> Some data frameworks, such as Entity Framework, typically get connection strings from the **ConnectionStrings** section of a configuration file. In this case, you must explicitly add SQL database connection strings to the **Connection strings** collection of your function app settings and in the [local.settings.json file](functions-develop-local.md#local-settings-file) in your local project. If you're creating an instance of [SqlConnection](/dotnet/api/system.data.sqlclient.sqlconnection) in your function code, you should store the connection string value in **Application settings** with your other connections.
 
 ## Next steps
 

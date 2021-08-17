@@ -11,7 +11,7 @@ ms.topic: "include"
 ms.date: 03/05/2020
 ---
 
-1. Use the instructions at [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)  to install the Azure Machine Learning SDK for Python
+1. Use the instructions at [Azure Machine Learning SDK](/python/api/overview/azure/ml/install)  to install the Azure Machine Learning SDK for Python
 
 1. Create an [Azure Machine Learning workspace](../articles/machine-learning/how-to-manage-workspace.md).
 

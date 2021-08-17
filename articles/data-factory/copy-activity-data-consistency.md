@@ -1,20 +1,14 @@
 ---
 title: Data consistency verification in copy activity 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 'Learn about how to enable data consistency verification in copy activity in Azure Data Factory.'
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: 
-ms.reviewer: 
-
 ms.service: data-factory
-ms.workload: data-services
-
-
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-
 ---
 #  Data consistency verification in copy activity
 
@@ -64,7 +58,7 @@ The following example provides a JSON definition to enable data consistency veri
                "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
             },
-			"path": "sessionlog/"
+            "path": "sessionlog/"
         }
     }
 } 
@@ -79,7 +73,7 @@ linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-b
 path | The path of the log files. | Specify the path that you want to store the log files. If you do not provide a path, the service creates a container for you. | No
 
 >[!NOTE]
->- When copying binary files from, or to Azure Blob or Azure Data Lake Storage Gen2, ADF does block level MD5 checksum verification leveraging [Azure Blob API](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) and [Azure Data Lake Storage Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). If ContentMD5 on files exist on Azure Blob or Azure Data Lake Storage Gen2 as data sources, ADF does file level MD5 checksum verification after reading the files as well. After copying files to Azure Blob or Azure Data Lake Storage Gen2 as data destination, ADF writes ContentMD5 to Azure Blob or Azure Data Lake Storage Gen2 which can be further consumed by downstream applications for data consistency verification.
+>- When copying binary files from, or to Azure Blob or Azure Data Lake Storage Gen2, ADF does block level MD5 checksum verification leveraging [Azure Blob API](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy&preserve-view=true) and [Azure Data Lake Storage Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). If ContentMD5 on files exist on Azure Blob or Azure Data Lake Storage Gen2 as data sources, ADF does file level MD5 checksum verification after reading the files as well. After copying files to Azure Blob or Azure Data Lake Storage Gen2 as data destination, ADF writes ContentMD5 to Azure Blob or Azure Data Lake Storage Gen2 which can be further consumed by downstream applications for data consistency verification.
 >- ADF does file size verification when copying binary files between any storage stores.
 
 ## Monitoring
@@ -96,7 +90,7 @@ After the copy activity runs completely, you can see the result of data consiste
             "filesSkipped": 2, 
             "throughput": 297,
             "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
-			"dataConsistencyVerification": 
+            "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 
                 "InconsistentData": "Skipped" 

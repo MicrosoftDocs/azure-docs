@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/13/2020
+ms.date: 01/23/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -52,7 +52,7 @@ This tutorial has been updated to use the Azure.Search.Documents (version 11) pa
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, Azure Cosmos DB for one data set, and Azure Blob storage for the second data set. 
+This tutorial uses Azure Cognitive Search for indexing and queries, Azure Cosmos DB for one data set, and Azure Blob Storage for the second data set. 
 
 If possible, create all services in the same region and resource group for proximity and manageability. In practice, your services can be in any region.
 
@@ -82,7 +82,7 @@ This sample uses two small sets of data that describe seven fictional hotels. On
 
 1. Copy a connection string from the **Keys** page into Notepad. You will need this for **appsettings.json** in a later step. If you did not use the suggested database name "hotel-rooms-db", copy the database name as well.
 
-### Azure Blob storage
+### Azure Blob Storage
 
 1. Sign in to the [Azure portal](https://portal.azure.com), navigate to your Azure storage account, click **Blobs**, and then click **+ Container**.
 

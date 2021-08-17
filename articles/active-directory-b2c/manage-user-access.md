@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -42,7 +42,7 @@ Depending on application regulation, parental consent might need to be granted b
 
 The following is an example of a user flow for gathering parental consent:
 
-1. A [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api) operation identifies the user as a minor and returns the user data to the application in the form of an unsigned JSON token.
+1. A [Microsoft Graph API](/graph/use-the-api) operation identifies the user as a minor and returns the user data to the application in the form of an unsigned JSON token.
 
 2. The application processes the JSON token and shows a screen to the minor, notifying them that parental consent is required and requesting the consent of a parent online.
 
@@ -52,7 +52,7 @@ The following is an example of a user flow for gathering parental consent:
 
 5. When either the minor or the adult revokes consent, the Microsoft Graph API can be used to change **consentProvidedForMinor** to **denied**. Alternatively, the application may choose to delete a minor whose consent has been revoked. It is optionally possible to customize the user flow so that the authenticated minor (or parent that is using the minor's account) can revoke consent. Azure AD B2C records **consentProvidedForMinor** as **denied**.
 
-For more information about **legalAgeGroupClassification**, **consentProvidedForMinor**, and **ageGroup**, see [User resource type](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). For more information about custom attributes, see [Use custom attributes to collect information about your consumers](user-flow-custom-attributes.md). When you address extended attributes by using the Microsoft Graph API, you must use the long version of the attribute, such as *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+For more information about **legalAgeGroupClassification**, **consentProvidedForMinor**, and **ageGroup**, see [User resource type](/graph/api/resources/user). For more information about custom attributes, see [Use custom attributes to collect information about your consumers](user-flow-custom-attributes.md). When you address extended attributes by using the Microsoft Graph API, you must use the long version of the attribute, such as *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
 ## Gather date of birth and country/region data
 
@@ -79,7 +79,53 @@ If an application has reliably gathered DOB or country/region data by other meth
 - If a user is known to be an adult, update the directory attribute **ageGroup** with a value of **Adult**.
 - If a user is known to be a minor, update the directory attribute **ageGroup** with a  value of **Minor** and set **consentProvidedForMinor**, as appropriate.
 
-For more information about gathering DOB data, see [Use age gating in Azure AD B2C](basic-age-gating.md).
+## Minor calculation rules
+
+Age gating involves two age values: the age that someone is no longer considered a minor, and the age at which a minor must have parental consent. The following table lists the age rules that are used for defining a minor and a minor requiring consent.
+
+| Country/Region | Country/Region name | Minor consent age | Minor age |
+| -------------- | ------------------- | ----------------- | --------- |
+| Default | None | None | 18 |
+| AE | United Arab Emirates | None | 21 |
+| AT | Austria | 14 | 18 |
+| BE | Belgium | 14 | 18 |
+| BG | Bulgaria | 16 | 18 |
+| BH | Bahrain | None | 21 |
+| CM | Cameroon | None | 21 |
+| CY | Cyprus | 16 | 18 |
+| CZ | Czech Republic | 16 | 18 |
+| DE | Germany | 16 | 18 |
+| DK | Denmark | 16 | 18 |
+| EE | Estonia | 16 | 18 |
+| EG | Egypt | None | 21 |
+| ES | Spain | 13 | 18 |
+| FR | France | 16 | 18 |
+| GB | United Kingdom | 13 | 18 |
+| GR | Greece | 16 | 18 |
+| HR | Croatia | 16 | 18 |
+| HU | Hungary | 16 | 18 |
+| IE | Ireland | 13 | 18 |
+| IT | Italy | 16 | 18 |
+| KR | Korea, Republic of | 14 | 18 |
+| LT | Lithuania | 16 | 18 |
+| LU | Luxembourg | 16 | 18 |
+| LV | Latvia | 16 | 18 |
+| MT | Malta | 16 | 18 |
+| NA | Namibia | None | 21 |
+| NL | Netherlands | 16 | 18 |
+| PL | Poland | 13 | 18 |
+| PT | Portugal | 16 | 18 |
+| RO | Romania | 16 | 18 |
+| SE | Sweden | 13 | 18 |
+| SG | Singapore | None | 21 |
+| SI | Slovenia | 16 | 18 |
+| SK | Slovakia | 16 | 18 |
+| TD | Chad | None | 21 |
+| TH | Thailand | None | 20 |
+| TW | Taiwan | None | 20 |
+| US | United States | 13 | 18 |
+
+
 
 ## Capture terms of use agreement
 
@@ -171,5 +217,6 @@ The following is an example of a version-based terms of use consent in a claim. 
 
 ## Next steps
 
+- [Enable Age Gating in Azure AD B2C](age-gating.md).
 - To learn how to delete and export user data, see [Manage user data](manage-user-data.md).
 - For an example custom policy that implements a terms of use prompt, see [A B2C IEF Custom Policy - Sign Up and Sign In with 'Terms of Use' prompt](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou).

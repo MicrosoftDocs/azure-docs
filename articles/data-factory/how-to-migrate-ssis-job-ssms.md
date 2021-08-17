@@ -1,15 +1,10 @@
 ---
 title: Migrate on-premises SQL Server Integration Services (SSIS) jobs to Azure Data Factory  
 description: This article describes how to migrate SQL Server Integration Services (SSIS) jobs to Azure Data Factory pipelines/activities/triggers by using SQL Server Management Studio.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: 
-manager: 
 ms.service: data-factory
-ms.workload: data-services
-
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 4/7/2020
 ---
@@ -30,13 +25,13 @@ In general, for selected SQL agent jobs with applicable job step types, **SSIS J
 |---------|---------|---------|
 |SQL Agent job|pipeline     |Name of the pipeline will be *Generated for \<job name>*. <br> <br> Built-in agent jobs are not applicable: <li> SSIS Server Maintenance Job <li> syspolicy_purge_history <li> collection_set_* <li> mdw_purge_data_* <li> sysutility_*|
 |SSIS job step|Execute SSIS package activity|<li> Name of the activity will be \<step name>. <li> Proxy account used in job step will be migrated as Windows authentication of this activity. <li> *Execution options* except *Use 32-bit runtime* defined in job step will be ignored in migration. <li> *Verification* defined in job step will be ignored in migration.|
-|schedule      |schedule trigger        |Name of the schedule trigger will be *Generated for \<schedule name>*. <br> <br> Below options in SQL Agent job schedule will be ignored in migration: <li> Second-level interval. <li> *Start automatically when SQL Server Agent starts* <li> *Start whenever the CPUs become idle* <li> *weekday* and *weekend day* <time zone> <br> Below are the differences after SQL Agent job schedule is migrated to ADF schedule trigger: <li> ADF Schedule Trigger subsequent run is independent of the execution state of the antecedent triggered run. <li> ADF Schedule Trigger recurrence configuration differs from Daily frequency in SQL agent job.|
+|schedule      |schedule trigger        |Name of the schedule trigger will be *Generated for \<schedule name>*. <br> <br> Below options in SQL Agent job schedule will be ignored in migration: <li> Second-level interval. <li> *Start automatically when SQL Server Agent starts* <li> *Start whenever the CPUs become idle* <li> *weekday* and *weekend day* &gt;time zone&lt; <br> Below are the differences after SQL Agent job schedule is migrated to ADF schedule trigger: <li> ADF Schedule Trigger subsequent run is independent of the execution state of the antecedent triggered run. <li> ADF Schedule Trigger recurrence configuration differs from Daily frequency in SQL agent job.|
 
 - generate Azure Resource Manager (ARM) templates in local output folder, and deploy to data factory directly or later manually. For more information about ADF Resource Manager templates, see [Microsoft.DataFactory resource types](/azure/templates/microsoft.datafactory/allversions).
 
 ## Prerequisites
 
-The feature described in this article requires SQL Server Management Studio version 18.5 or higher. To get the latest version of SSMS, see [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
+The feature described in this article requires SQL Server Management Studio version 18.5 or higher. To get the latest version of SSMS, see [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## Migrate SSIS jobs to ADF
 

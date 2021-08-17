@@ -3,22 +3,19 @@ title: Create automation tasks to manage and monitor Azure resources
 description: Set up automated tasks that help you manage Azure resources and monitor costs by creating workflows that run on Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, jonfan, logicappspm
-ms.topic: conceptual
-ms.date: 09/23/2020
+ms.reviewer: azla
+ms.topic: how-to
+ms.date: 06/09/2021
 ---
 
 # Manage Azure resources and monitor costs by creating automation tasks (preview)
 
 > [!IMPORTANT]
-> This capability is in public preview, is provided without a service level agreement, 
-> and is not recommended for production workloads. Certain features might not be supported 
-> or might have constrained capabilities. For more information, see 
+> This capability is in preview, is not recommended for production workloads, and is excluded from service level agreements. 
+> Certain features might not be supported or might have constrained capabilities. For more information, see 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To help you manage [Azure resources](../azure-resource-manager/management/overview.md#terminology) more easily, you can create automated management tasks for a specific resource or resource group by using automation task templates, which vary in availability based on the resource type. For example, for an [Azure storage account](../storage/common/storage-account-overview.md), you can set up an automation task that sends you the monthly cost for that storage account. For an [Azure virtual machine](https://azure.microsoft.com/services/virtual-machines/), you can create an automation task that turns on or turns off that virtual machine on a predefined schedule.
-
-Behind the scenes, an automation task is actually a workflow that runs on the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service and is billed using the same [pricing rates](https://azure.microsoft.com/pricing/details/logic-apps/) and [pricing model](../logic-apps/logic-apps-pricing.md). After you create the task, you can view and edit the underlying workflow by opening the task in the Logic App Designer. After a task finishes at least one run, you can review the status, history, inputs, and outputs for each run.
 
 Here are the currently available task templates in this preview:
 
@@ -43,9 +40,23 @@ This article shows you how to complete the following tasks:
 
 ## How do automation tasks differ from Azure Automation?
 
-Currently, you can create an automation task only at the resource level, view the task's runs history, and edit the task's underlying logic app workflow, which is powered by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. Automation tasks are more basic and lightweight than [Azure Automation](../automation/automation-intro.md).
+Automation tasks are more basic and lightweight than [Azure Automation](../automation/automation-intro.md). Currently, you can create an automation task only at the Azure resource level. Behind the scenes, an automation task is actually a logic app resource that runs a workflow and is powered by the [*multi-tenant* Azure Logic Apps service](../logic-apps/logic-apps-overview.md). After you create the automation task, you can view and edit the underlying workflow by opening the task in the workflow designer. After a task finishes at least one run, you can review the task's status, workflow run history, inputs, and outputs for each run.
 
 By comparison, Azure Automation is a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. The service comprises [process automation for orchestrating processes](../automation/automation-intro.md#process-automation) by using [runbooks](../automation/automation-runbook-execution.md), configuration management with [change tracking and inventory](../automation/change-tracking/overview.md), update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources.
+
+<a name="pricing"></a>
+
+## Pricing
+
+Just creating an automation task doesn't automatically incur charges. Underneath, an automation task is a multi-tenant based logic app, so the [Consumption pricing model](logic-apps-pricing.md) also applies to automation tasks. Metering and billing are based on the trigger and action executions in the underlying logic app workflow.
+
+Executions are metered and billed, regardless whether the workflow runs successfully or whether the workflow is even instantiated. For example, suppose your automation task uses a polling trigger that regularly makes an outgoing call to an endpoint. This outbound request is metered and billed as an execution, regardless whether the trigger fires or is skipped, which affects whether a workflow instance is created.
+
+Triggers and actions follow [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/), which differ based on whether these operations are ["built-in"](../connectors/built-in.md) or ["managed" (Standard or Enterprise)](../connectors/managed.md). Triggers and actions also make storage transactions, which use the [Consumption plan data rate](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+> [!TIP]
+> As a monthly bonus, the Consumption plan includes *several thousand* built-in executions free of charge. 
+> For specific information, review the [Consumption plan rates](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## Prerequisites
 
@@ -69,13 +80,15 @@ By comparison, Azure Automation is a cloud-based automation and configuration se
 
    ![Screenshot that shows the storage account "Tasks" pane where the toolbar has "Add" selected](./media/create-automation-tasks-azure-resources/add-automation-task.png)
 
-1. On the **Add a Task** pane, under **Select a template**, select the template for the task that you want to create, and select **Next: Authentication**.
+1. On the **Add a Task** pane, under **Select a template**, select the template for the task that you want to create. If the next page doesn't appear, select **Next: Authentication**.
 
    This example continues by selecting the **Send monthly cost for resource** task template.
 
    ![Screenshot that shows the selections, "Send monthly cost for resource" and "Next: Authentication"](./media/create-automation-tasks-azure-resources/select-task-template.png)
 
-1. Under **Authentication**, in the **Connections** section, select **Create** for each connection so that you can provide authentication credentials for that connection. The types of connections in each task vary based on the task.
+1. Under **Authentication**, in the **Connections** section, select **Create** for every connection that appears in the task so that you can provide authentication credentials for all the connections. The types of connections in each task vary based on the task.
+
+   This example shows only one of the connections that's required by this task.
 
    ![Screenshot that shows the selected "Create" option for the Azure Resource Manager connection](./media/create-automation-tasks-azure-resources/create-authenticate-connections.png)
 
@@ -87,7 +100,7 @@ By comparison, Azure Automation is a cloud-based automation and configuration se
 
    ![Screenshot that shows successfully created connection](./media/create-automation-tasks-azure-resources/create-connection-success.png)
 
-1. After you authenticate all the required connections, select **Next: Configuration**.
+1. After you authenticate all the connections, select **Next: Configuration** if the next page doesn't appear.
 
 1. Under **Configuration**, provide a name for the task and any other information required for the task. When you're done, select **Create**.
 
@@ -148,7 +161,7 @@ To view a task's history of runs along with their statuses, inputs, outputs, and
 
    The **Logic app run** pane opens and shows the underlying workflow that ran.
 
-   * A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers-actions). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
+   * A workflow always starts with a [*trigger*](../connectors/apis-list.md#triggers). For this task, the workflow starts with the [**Recurrence** trigger](../connectors/connectors-native-recurrence.md).
 
    * Each step shows its status and run duration. Steps that have 0-second durations took less than 1 second to run.
 
@@ -270,7 +283,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
 ## Provide feedback
 
-We'd like to hear from you! To report bugs, provide feedback, or ask questions about this preview capability, [contact the Azure Logic Apps team](mailto:logicapps@microsoft.com).
+We'd like to hear from you! To report bugs, provide feedback, or ask questions about this preview capability, [contact the Azure Logic Apps team](mailto:logicappspm@microsoft.com).
 
 ## Next steps
 

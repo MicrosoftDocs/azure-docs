@@ -1,13 +1,13 @@
 ---
-title: 'Azure Bastion session monitoring and management  | Microsoft Docs'
-description: In this article, learn how to select an ongoing session and force-disconnect or delete it.
+title: 'Azure Bastion session monitoring and management'
+description: Learn how to select an ongoing session and force-disconnect or delete it.
 services: bastion
-author: charwen
+author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
 ms.date: 05/21/2020
-ms.author: charwen
+ms.author: cherylmc
 
 ---
 

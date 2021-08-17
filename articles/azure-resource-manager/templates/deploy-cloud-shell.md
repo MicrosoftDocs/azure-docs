@@ -1,12 +1,13 @@
 ---
 title: Deploy templates with Cloud Shell
-description: Use Azure Resource Manager and Cloud Shell to deploy resources to Azure. The resources are defined in an Azure Resource Manager template.
+description: Use Azure Resource Manager and Azure Cloud Shell to deploy resources to Azure. The resources are defined in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.date: 10/22/2020
 ---
-# Deploy ARM templates from Cloud Shell
 
-You can use [Cloud Shell](../../cloud-shell/overview.md) to deploy an Azure Resource Manager template (ARM template). You can deploy either an ARM template that is stored remotely, or an ARM template that is stored on the local storage account for Cloud Shell.
+# Deploy ARM templates from Azure Cloud Shell
+
+You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to deploy an Azure Resource Manager template (ARM template). You can deploy either an ARM template that is stored remotely, or an ARM template that is stored on the local storage account for Cloud Shell.
 
 You can deploy to any scope. This article shows deploying to a resource group.
 
@@ -27,7 +28,7 @@ To deploy an external template, provide the URI of the template exactly as you w
    az deployment group create \
      --name ExampleDeployment \
      --resource-group ExampleGroup \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+     --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json" \
      --parameters storageAccountType=Standard_GRS
    ```
 
@@ -38,7 +39,7 @@ To deploy an external template, provide the URI of the template exactly as you w
    New-AzResourceGroupDeployment `
      -DeploymentName ExampleDeployment `
      -ResourceGroupName ExampleGroup `
-     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
+     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json `
      -storageAccountType Standard_GRS
    ```
 
@@ -112,4 +113,4 @@ To deploy a local template, you must first upload your template to the storage a
 ## Next steps
 
 - For more information about deployment commands, see [Deploy resources with ARM templates and Azure CLI](deploy-cli.md) and [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
-- To preview changes before deploying a template, see [ARM template deployment what-if operation](template-deploy-what-if.md).
+- To preview changes before deploying a template, see [ARM template deployment what-if operation](./deploy-what-if.md).

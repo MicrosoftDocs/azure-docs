@@ -10,8 +10,8 @@ metadata:
   ms.service: hdinsight #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: hrasheed-msft #Required; your GitHub user alias, with correct capitalization.
-  ms.author: hrasheed #Required; microsoft alias of author; optional team alias.
+  author: jasonwhowell #Required; your GitHub user alias, with correct capitalization.
+  ms.author: jasonh #Required; microsoft alias of author; optional team alias.
   ms.date: 02/27/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -164,16 +164,6 @@ landingContent:
             url: ./hbase/apache-hbase-accelerated-writes.md
           - text: Apache Phoenix best practices
             url: ./hbase/apache-hbase-phoenix-performance.md
-
-# Card
-  - title: ML Services
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: What is ML Services on HDInsight?
-            url:  ./r-server/r-server-overview.md
-          - text: Execute an R script on an ML Services cluster
-            url: ./r-server/machine-learning-services-quickstart-job-rstudio.md
 
   # Card
   - title: Apache Storm

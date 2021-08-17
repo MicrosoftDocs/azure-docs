@@ -1,11 +1,8 @@
 ---
 title: Azure Service Fabric Monitoring Partners 
 description: Learn how to monitor Azure Service Fabric applications, clusters, and infrastructure with partner monitoring solutions.
-author: srrengar
-
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: srrengar
 ---
 
 # Azure Service Fabric Monitoring Partners

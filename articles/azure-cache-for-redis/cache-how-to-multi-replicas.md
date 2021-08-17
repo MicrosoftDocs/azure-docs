@@ -1,5 +1,5 @@
 ---
-title: Add replicas to Azure Cache for Redis (Preview)
+title: Add replicas to Azure Cache for Redis
 description: Learn how to add more replicas to your Premium tier Azure Cache for Redis instances
 author: yegu-ms
 ms.author: yegu
@@ -8,21 +8,13 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ---
 
-# Add replicas to Azure Cache for Redis (Preview)
+# Add replicas to Azure Cache for Redis
 In this article, you'll learn how to set up an Azure Cache instance with additional replicas using the Azure portal.
 
 Azure Cache for Redis Standard and Premium tiers offer redundancy by hosting each cache on two dedicated virtual machines (VMs). These VMs are configured as primary and replica. When the primary VM becomes unavailable, the replica detects that and takes over as the new primary automatically. You can now increase the number of replicas in a Premium cache up to three, giving you a total of four VMs backing a cache. Having multiple replicas results in higher resilience than what a single replica can provide.
 
-> [!IMPORTANT]
-> This preview is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
-> 
-
 ## Prerequisites
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-
-> [!NOTE]
-> This feature is currently in preview - [contact us](mailto:azurecache@microsoft.com) if you're interested.
->
 
 ## Create a cache
 To create a cache, follow these steps:
@@ -46,14 +38,14 @@ To create a cache, follow these steps:
 1. On the **Advanced** page, choose **Replica count**.
    
     :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count.":::
+    
+    > [!NOTE]
+    > Currently, you can't use Append-only File (AOF) persistence or geo-replication with multiple replicas (more than one replica).
+    >
 
 1. Leave other options in their default settings. 
 
-    > [!NOTE]
-    > Multi-replica support only works with non-clustered caches currently.
-    >
-
-1. Click **Create**.
+1. Select **Create**.
    
     It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 

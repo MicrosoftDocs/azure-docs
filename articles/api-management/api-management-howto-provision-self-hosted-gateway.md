@@ -47,4 +47,5 @@ Now the gateway resource has been provisioned in your API Management instance. Y
 
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md)
 * Learn more about how to [Deploy a self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
+- Learn more about how to [Deploy a self-hosted gateway to an Azure Arc enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)
 * Learn more about how to [Deploy a self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)

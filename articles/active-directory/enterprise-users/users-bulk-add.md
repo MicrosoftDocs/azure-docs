@@ -4,11 +4,11 @@ description: Add users in bulk in the Azure AD admin center in Azure Active Dire
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 08/11/2020
+manager: daveba
+ms.date: 05/19/2021
 ms.topic: how-to
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
@@ -31,6 +31,8 @@ Download and fill in the bulk upload CSV template to help you successfully creat
 
 > [!WARNING]
 > If you are adding only one entry using the CSV template, you must preserve row 3 and add your new entry to row 4.
+>
+> Ensure that you add the ".csv" file extension and remove any leading spaces before userPrincipalName, passwordProfile, and accountEnabled.
 
 ### CSV template structure
 

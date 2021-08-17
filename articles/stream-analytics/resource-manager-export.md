@@ -2,8 +2,8 @@
 title: Export an Azure Stream Analytics job Azure Resource Manager template 
 description: This article describes how to export an Azure Resource Manager template for your Azure Stream Analytics job.
 services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020
@@ -37,11 +37,11 @@ The next step is to compile the job script to an Azure Resource Manager template
 
 1. Notice that a **Deploy** folder appears in your Stream Analytics job workspace.
 
-1. Explore the *JobTemplate.json* file, which is the Azure Resource Management template used to deploy.
+1. Explore the *JobTemplate.json* file, which is the Azure Resource Manager template used to deploy.
 
 ## Complete the parameters file
 
-Next, complete the Azure Resource Management template parameters file.
+Next, complete the Azure Resource Manager template parameters file.
 
 1. Open the *JobTemplate.parameters.json* file located in the **Deploy** folder of your Stream Analytics job workspace in Visual Studio Code.
 

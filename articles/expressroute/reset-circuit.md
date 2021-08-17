@@ -6,14 +6,14 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 11/28/2018
+ms.date: 01/07/2021
 ms.author: duau
 ms.custom: seodec18
 
 ---
 # Reset a failed ExpressRoute circuit
 
-When an operation on an ExpressRoute circuit does not complete successfully, the circuit may go into a 'failed' state. This article helps you reset a failed Azure ExpressRoute circuit.
+When an operation on an ExpressRoute circuit doesn't complete successfully, the circuit may go into a 'failed' state. This article will help you reset a failed Azure ExpressRoute circuit.
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
@@ -48,4 +48,4 @@ The circuit should now be healthy. Open a support ticket with [Microsoft support
 
 ## Next steps
 
-Open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you are still experiencing issues.
+Open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you're still experiencing issues.

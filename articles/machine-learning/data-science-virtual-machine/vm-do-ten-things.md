@@ -3,9 +3,8 @@ title: Explore data and model on Windows
 titleSuffix: Azure Data Science Virtual Machine 
 description: Perform data exploration and modeling tasks on the Windows Data Science Virtual Machine.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
-ms.custom: devx-track-python
+ms.service: data-science-vm
+ms.custom: devx-track-python, devx-track-azurepowershell
 
 author: lobrien
 ms.author: laobri
@@ -22,7 +21,7 @@ The DSVM works closely with Azure services. It can read and process data that's 
 
 In this article, you'll learn how to use your DSVM to perform data science tasks and interact with other Azure services. Here are some of the things you can do on the DSVM:
 
-- Use a Jupyter notebook to experiment with your data in a browser by using Python 2, Python 3, and Microsoft R. (Microsoft R is an enterprise-ready version of R designed for performance.)
+- Use a Jupyter Notebook to experiment with your data in a browser by using Python 2, Python 3, and Microsoft R. (Microsoft R is an enterprise-ready version of R designed for performance.)
 - Explore data and develop models locally on the DSVM by using Microsoft Machine Learning Server and Python.
 - Administer your Azure resources by using the Azure portal or PowerShell.
 - Extend your storage space and share large-scale datasets/code across your whole team by creating an Azure Files share as a mountable drive on your DSVM.
@@ -46,8 +45,8 @@ In this article, you'll learn how to use your DSVM to perform data science tasks
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 
-## Use Jupyter notebooks
-The Jupyter Notebook provides a browser-based IDE for data exploration and modeling. You can use Python 2, Python 3, or R (both open source and Microsoft R Server) in a Jupyter notebook.
+## Use Jupyter Notebooks
+The Jupyter Notebook provides a browser-based IDE for data exploration and modeling. You can use Python 2, Python 3, or R in a Jupyter Notebook.
 
 To start the Jupyter Notebook, select the **Jupyter Notebook** icon on the **Start** menu or on the desktop. In the DSVM command prompt, you can also run the command ```jupyter notebook``` from the directory where you have existing notebooks or where you want to create new notebooks.  
 
@@ -66,6 +65,12 @@ After you start Jupyter, navigate to the `/notebooks` directory for example note
 When you're in the notebook, you can explore your data, build the model, and test the model by using your choice of libraries.
 
 ## Explore data and develop models with Microsoft Machine Learning Server
+
+> [!NOTE]
+> Support for Machine Learning Server Standalone will end July 1, 2021. We will remove it from the DSVM images after
+> June, 30. Existing deployments will continue to have access to the software but due to the reached support end date,
+> there will be no support for it after July 1, 2021.
+
 You can use languages like R and Python to do your data analytics right on the DSVM.
 
 For R, you can use an IDE like RStudio that can be found on the start menu or on the desktop. Or you can use R Tools for Visual Studio. Microsoft has provided additional libraries on top of the open-source CRAN R to enable scalable analytics and the ability to analyze data larger than the memory size allowed in parallel chunked analysis. 
@@ -199,7 +204,7 @@ You can also upload data from the local file in your VM by using Azure Storage E
 
 #### Read data from an Azure blob: Python ODBC
 
-You can use the BlobService library to read data directly from a blob in a Jupyter notebook or in a Python program.
+You can use the BlobService library to read data directly from a blob in a Jupyter Notebook or in a Python program.
 
 First, import the required packages:
 
@@ -250,10 +255,10 @@ The data is read as a data frame:
 ![Screenshot of the first 10 rows of data](./media/vm-do-ten-things/IPNB_data_readin.png)
 
 
-### Azure Synapse Analytics (formerly SQL DW) and databases
-Azure Synapse Analytics (formerly SQL DW) is an elastic data warehouse as a service with an enterprise-class SQL Server experience.
+### Azure Synapse Analytics and databases
+Azure Synapse Analytics is an elastic data warehouse as a service with an enterprise-class SQL Server experience.
 
-You can provision Azure Synapse Analytics by following the instructions in [this article](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). After you provision Azure Synapse Analytics, you can use [this walkthrough](../team-data-science-process/sqldw-walkthrough.md) to do data upload, exploration, and modeling by using data within Azure Synapse Analytics.
+You can provision Azure Synapse Analytics by following the instructions in [this article](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). After you provision Azure Synapse Analytics, you can use [this walkthrough](/azure/architecture/data-science-process/sqldw-walkthrough) to do data upload, exploration, and modeling by using data within Azure Synapse Analytics.
 
 #### Azure Cosmos DB
 Azure Cosmos DB is a NoSQL database in the cloud. You can use it to work with documents like JSON, and to store and query the documents.

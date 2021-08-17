@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/21/2020
+ms.date: 05/14/2021
 ms.author: jeedes
 ---
 
@@ -20,8 +20,6 @@ In this tutorial, you'll learn how to integrate Trend Micro Web Security (TMWS) 
 * Control in Azure AD who has access to TMWS.
 * Enable your users to be automatically signed in to TMWS with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
-
-To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -34,14 +32,13 @@ To get started, you need:
 
 In this tutorial, you'll configure and test Azure AD SSO in a test environment.
 
-* TMWS supports SP-initiated SSO.
-* After you configure TMWS, you can enforce session control, which protects exfiltration and infiltration of your organization's sensitive data in real time. Session control extends from Conditional Access. To learn how to enforce session control by using Microsoft Cloud App Security, see [Onboard and deploy Conditional Access App Control for any app](/cloud-app-security/proxy-deployment-any-app).
+* TMWS supports **SP** initiated SSO.
 
 ## Add TMWS from the gallery
 
 To configure the integration of TMWS into Azure AD, you need to add TMWS from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with either a work or school account or a personal Microsoft account.
+1. Sign in to the Azure portal with either a work or school account or a personal Microsoft account.
 1. In the left pane, select the **Azure Active Directory** service.
 1. Select **Enterprise applications** and then select **All applications**.
 1. To add a new application, select **New application**.
@@ -65,7 +62,7 @@ You'll complete these basic steps to configure and test Azure AD SSO with TMWS:
 
 Complete these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Trend Micro Web Security (TMWS)** application integration page, in the **Manage** section, select **single sign-on**.
+1. In the Azure portal, on the **Trend Micro Web Security (TMWS)** application integration page, in the **Manage** section, select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up Single Sign-On with SAML** page, select the pen button for **Basic SAML Configuration** to edit the settings:
 
@@ -122,13 +119,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the Azure portal, select **Enterprise applications**, and then select **All applications**.
 1. In the applications list, select **Trend Micro Web Security (TMWS)**.
 1. In the app's overview page, in the **Manage** section, select **Users and groups**:
-
-   ![Select Users and groups](common/users-groups-blade.png)
-
 1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
-
-    ![Select Add user](common/add-assign-user.png)
-
 1. In the **Users and groups** dialog box, select **B.Simon** in the **Users** list, and then click the **Select** button at the bottom of the screen.
 1. If you expect a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog box, select **Assign**.
@@ -224,16 +215,6 @@ For details, see [Traffic Forwarding Using PAC Files](https://docs.trendmicro.co
 
 1. In the Azure AD sign-in window, enter your Azure AD account credentials. You should now be signed in to TMWS.
 
-## Additional resources
+## Next steps
 
-- [Tutorials on how to integrate SaaS apps with Azure Active Directory](./tutorial-list.md)
-
-- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
-
-- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Try Trend Micro Web Security with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [How to protect Trend Micro Web Security with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)
+Once you configure TMWS you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

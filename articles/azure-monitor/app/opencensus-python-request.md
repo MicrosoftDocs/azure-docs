@@ -29,7 +29,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     )
     ```
 
-3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`. For requests from urls that you do not wish to track, add them to `BLACKLIST_PATHS`.
+3. Make sure AzureExporter is properly configured in your `settings.py` under `OPENCENSUS`. For requests from urls that you do not wish to track, add them to `EXCLUDELIST_PATHS`.
 
     ```python
     OPENCENSUS = {
@@ -38,7 +38,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+            'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -70,7 +70,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
     
     ```
 
-2. You can also configure your `flask` application through `app.config`. For requests from urls that you do not wish to track, add them to `BLACKLIST_PATHS`.
+2. You can also configure your `flask` application through `app.config`. For requests from urls that you do not wish to track, add them to `EXCLUDELIST_PATHS`.
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -79,11 +79,14 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>",
             )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+            'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
-
+    
+    > [!NOTE]
+    > To run Flask under uWSGI in a Docker environment, you must first add `lazy-apps = true` to the uWSGI configuration file (uwsgi.ini). For more information, see the [issue description](https://github.com/census-instrumentation/opencensus-python/issues/660). 
+    
 ## Tracking Pyramid applications
 
 1. Download and install `opencensus-ext-django` from [PyPI](https://pypi.org/project/opencensus-ext-pyramid/) and instrument your application with the `pyramid` tween. Incoming requests sent to your `pyramid` application will be tracked.
@@ -96,7 +99,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. You can configure your `pyramid` tween directly in the code. For requests from urls that you do not wish to track, add them to `BLACKLIST_PATHS`.
+2. You can configure your `pyramid` tween directly in the code. For requests from urls that you do not wish to track, add them to `EXCLUDELIST_PATHS`.
 
     ```python
     settings = {
@@ -106,7 +109,7 @@ First, instrument your Python application with latest [OpenCensus Python SDK](./
                 'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                     connection_string="InstrumentationKey=<your-ikey-here>",
                 )''',
-                'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
+                'EXCLUDELIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
             }
         }
     }
@@ -173,6 +176,6 @@ OpenCensus doesn't have an extension for FastAPI. To write your own FastAPI midd
 * [Application Map](./app-map.md)
 * [Availability](./monitor-web-app-availability.md)
 * [Search](./diagnostic-search.md)
-* [Log (Analytics) query](../log-query/log-query-overview.md)
+* [Log (Analytics) query](../logs/log-query-overview.md)
 * [Transaction diagnostics](./transaction-diagnostics.md)
 

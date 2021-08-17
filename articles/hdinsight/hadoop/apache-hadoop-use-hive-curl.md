@@ -1,9 +1,6 @@
 ---
 title: Use Apache Hadoop Hive with Curl in HDInsight - Azure 
 description: Learn how to remotely submit Apache Pig jobs to Azure HDInsight using Curl.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -12,7 +9,7 @@ ms.date: 01/06/2020
 
 # Run Apache Hive queries with Apache Hadoop in HDInsight using REST
 
-[!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
+[!INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
 Learn how to use the WebHCat REST API to run Apache Hive queries with Apache Hadoop on Azure HDInsight cluster.
 

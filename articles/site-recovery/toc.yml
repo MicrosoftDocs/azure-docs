@@ -93,7 +93,7 @@
 - name: Concepts
   items:
   - name: Common questions about Site Recovery
-    href: site-recovery-faq.md
+    href: site-recovery-faq.yml
   - name: About Azure VM disaster recovery
     items:
     - name: Azure to Azure architecture
@@ -179,7 +179,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/site-recovery-security-baseline?toc=/azure/site-recovery/toc.json
 - name: How-to Guides
   items:
   - name: Azure to Azure disaster recovery
@@ -200,6 +200,10 @@
       items:
       - name: Enable Azure to Azure replication
         href: azure-to-azure-how-to-enable-replication.md
+      - name: Enable global disaster recovery
+        href: azure-to-azure-enable-global-disaster-recovery.md
+      - name: Enable Azure to Azure replication using Policy
+        href: azure-to-azure-how-to-enable-policy.md
       - name: Enable Azure to Azure replication for encrypted VMs
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Enable Azure to Azure replication for VMs with CMK enabled disks
@@ -216,7 +220,9 @@
         href: azure-to-azure-how-to-reprotect.md
       - name: Set up disaster recovery for Azure VMs after migration to Azure
         href: azure-to-azure-replicate-after-migration.md
-      - name: Enable Zone to Zone disaster recovery
+    - name: Zone to Zone disaster recovery
+      items:
+      - name: Enable replication between zones within a region
         href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
     - name: Manage
       items:
@@ -228,6 +234,8 @@
         href: site-recovery-manage-registration-and-protection.md
       - name: Delete a vault
         href: delete-vault.md
+      - name: Cleanup script on a VMM server
+        href: unregister-vmm-server-script.md
   - name: VMware to Azure disaster recovery
     items:
     - name: Set up disaster recovery at scale
@@ -417,7 +425,7 @@
       - name: Delete a vault
         href: delete-vault.md
   - name: Site Recovery for Proximity Placement Groups
-    href: how-to-enable-replication-proximity-placement-groups.md 
+    href: how-to-enable-replication-proximity-placement-groups.md
   - name: Disaster recovery for apps
     items:
     - name: About disaster recovery for on-premises apps
@@ -478,6 +486,10 @@
     href: hyper-v-vmm-powershell-resource-manager.md
   - name: Add automation runbooks to recovery plans
     href: site-recovery-runbook-automation.md
+  - name: ARM Templates
+    href: asr-arm-templates.md
+  - name: Deprecation of parameters - New-AzRecoveryServicesAsrVMNicConfig cmdlet
+    href: site-recovery-ipconfig-cmdlet-parameter-deprecation.md
 - name: Monitoring
   items:
   - name: Common questions about monitoring

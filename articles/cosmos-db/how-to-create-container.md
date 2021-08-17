@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown 
-ms.custom: devx-track-azurecli, devx-track-csharp
+ms.custom: devx-track-csharp
 ---
 
 # Create a container in Azure Cosmos DB SQL API
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, devx-track-csharp
 
 This article explains the different ways to create an container in Azure Cosmos DB SQL API. It shows how to create a container using the Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 
-This article explains the different ways to create a container in Azure Cosmos DB SQL API. If you are using a different API, see [API for MongoDB](how-to-create-container-mongodb.md), [Cassandra API](how-to-create-container-cassandra.md), [Gremlin API](how-to-create-container-gremlin.md), and [Table API](how-to-create-container-table.md) articles to create the container.
+This article explains the different ways to create a container in Azure Cosmos DB SQL API. If you are using a different API, see [API for MongoDB](how-to-create-container-mongodb.md), [Cassandra API](cassandra/how-to-create-container-cassandra.md), [Gremlin API](how-to-create-container-gremlin.md), and [Table API](table/how-to-create-container.md) articles to create the container.
 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
@@ -29,12 +29,12 @@ This article explains the different ways to create a container in Azure Cosmos D
 1. Open the **Data Explorer** pane, and select **New Container**. Next, provide the following details:
 
    * Indicate whether you are creating a new database or using an existing one.
-   * Enter a container ID.
-   * Enter a partition key.
-   * Enter a throughput to be provisioned (for example, 1000 RUs).
+   * Enter a **Container Id**.
+   * Enter a **Partition key** value (for example, `/ItemID`).
+   * Select **Autoscale** or **Manual** throughput and enter the required **Container throughput** (for example, 1000 RU/s). Enter a throughput that you want to provision (for example, 1000 RUs).
    * Select **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Screenshot of Data Explorer pane, with New Container highlighted":::
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Screenshot of Data Explorer, with New Collection highlighted":::
 
 ## <a id="cli-sql"></a>Create a container using Azure CLI
 

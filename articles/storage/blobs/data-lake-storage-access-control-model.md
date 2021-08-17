@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 02/17/2021
 ms.author: normesta
 ---
 
@@ -28,17 +28,17 @@ This article focuses on Azure RBAC and ACLs, and how the system evaluates them t
 
 ## Role-based access control (Azure RBAC)
 
-Azure RBAC uses role assignments to apply sets of permissions to [security principals](https://docs.microsoft.com/azure/role-based-access-control/overview#security-principal). A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD). A permission set can give a security principal a "coarse-grain" level of access such as read or write access to **all** of the data in a storage account or **all** of the data in a container. 
+Azure RBAC uses role assignments to apply sets of permissions to [security principals](../../role-based-access-control/overview.md#security-principal). A security principal is an object that represents a user, group, service principal, or managed identity that is defined in Azure Active Directory (AD). A permission set can give a security principal a "coarse-grain" level of access such as read or write access to **all** of the data in a storage account or **all** of the data in a container. 
 
-The following roles permit a security principal to access data in a storage account. 
+The following roles permit a security principal to access data in a storage account.
 
 |Role|Description|
 |--|--|
-| [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Full access to Blob storage containers and data. This access permits the security principal to set the owner an item, and to modify the ACLs of all items. |
-| [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) | Read, write, and delete access to Blob storage containers and blobs. This access does not permit the security principal to set the ownership of an item, but it can modify the ACL of items that are owned by the security principal. |
-| [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) | Read and list Blob storage containers and blobs. |
+| [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Full access to Blob storage containers and data. This access permits the security principal to set the owner an item, and to modify the ACLs of all items. |
+| [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) | Read, write, and delete access to Blob storage containers and blobs. This access does not permit the security principal to set the ownership of an item, but it can modify the ACL of items that are owned by the security principal. |
+| [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) | Read and list Blob storage containers and blobs. |
 
-Roles such as [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner), [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor), [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader), and [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) permit a security principal to manage a storage account, but do not provide access to the data within that account. However, these roles (excluding **Reader**) can obtain access to the storage keys, which can be used in various client tools to access the data.
+Roles such as [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), [Reader](../../role-based-access-control/built-in-roles.md#reader), and [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) permit a security principal to manage a storage account, but do not provide access to the data within that account. However, these roles (excluding **Reader**) can obtain access to the storage keys, which can be used in various client tools to access the data.
 
 ## Access control lists (ACLs)
 
@@ -48,16 +48,16 @@ ACLs give you the ability to apply "finer grain" level of access to directories 
 
 During security principal-based authorization, permissions are evaluated in the following order.
 
-:one:&nbsp;&nbsp; Azure RBAC role assignments are evaluated first and take priority over any ACL assignments.
+:one:&nbsp;&nbsp; Azure role assignments are evaluated first and take priority over any ACL assignments.
 
-:two:&nbsp;&nbsp; If the operation is fully authorized based on Azure RBAC role assignment, then ACLs are not evaluated at all.
+:two:&nbsp;&nbsp; If the operation is fully authorized based on Azure role assignment, then ACLs are not evaluated at all.
 
 :three:&nbsp;&nbsp; If the operation is not fully authorized, then ACLs are evaluated.
 
 > [!div class="mx-imgBorder"]
 > ![data lake storage permission flow](./media/control-access-permissions-data-lake-storage/data-lake-storage-permissions-flow.png)
 
-Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. That's because the system evaluates Azure RBAC role assignments first, and if the assignment grants sufficient access permission, ACLs are ignored. 
+Because of the way that access permissions are evaluated by the system, you **cannot** use an ACL to **restrict** access that has already been granted by a role assignment. That's because the system evaluates Azure role assignments first, and if the assignment grants sufficient access permission, ACLs are ignored. 
 
 The following diagram shows the permission flow for three common operations: listing directory contents, reading a file, and writing a file.
 
@@ -66,10 +66,10 @@ The following diagram shows the permission flow for three common operations: lis
 
 ## Permissions table: Combining Azure RBAC and ACL
 
-The following table shows you how to combine Azure RBAC roles and ACL entries so that a security principal can perform the operations listed in the **Operation** column. 
+The following table shows you how to combine Azure roles and ACL entries so that a security principal can perform the operations listed in the **Operation** column. 
 This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. Appearing in those columns are [short form](data-lake-storage-access-control.md#short-forms-for-permissions) representations of the ACL entry required to grant permissions. **N/A** (_Not applicable_) appears in the column if an ACL entry is not required to perform the operation.
 
-|    Operation             | Assigned RBAC role               |    /        | Oregon/     | Portland/ | Data.txt |             
+|    Operation             | Assigned Azure role               |    /        | Oregon/     | Portland/ | Data.txt |             
 |--------------------------|----------------------------------|-------------|-------------|-----------|----------|
 | Read Data.txt            |   Storage Blob Data Owner        | N/A      | N/A      | N/A       | N/A    |  
 |                          |   Storage Blob Data Contributor  | N/A      | N/A      | N/A       | N/A    |
@@ -102,13 +102,13 @@ This table shows a column that represents each level of a fictitious directory h
 
 
 > [!NOTE] 
-> To view the contents of a container in Azure Storage Explorer, security principals must [sign into Storage Explorer by using Azure AD](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#add-a-resource-via-azure-ad), and (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give them the ability to list the contents of the root folder. If you don't want the contents of the root folder to be visible, you can assign them [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) role. With that role, they'll be able to list the containers in the account, but not container contents. You can then grant access to specific directories and files by using ACLs.   
+> To view the contents of a container in Azure Storage Explorer, security principals must [sign into Storage Explorer by using Azure AD](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource), and (at a minimum) have read access (R--) to the root folder (`\`) of a container. This level of permission does give them the ability to list the contents of the root folder. If you don't want the contents of the root folder to be visible, you can assign them [Reader](../../role-based-access-control/built-in-roles.md#reader) role. With that role, they'll be able to list the containers in the account, but not container contents. You can then grant access to specific directories and files by using ACLs.   
 
 ## Security groups
 
 [!INCLUDE [Security groups](../../../includes/azure-storage-data-lake-groups.md)]
 
-## Limits on Azure RBAC role assignments and ACL entries
+## Limits on Azure role assignments and ACL entries
 
 By using groups, you're less likely to exceed the maximum number of role assignments per subscription and the maximum number of ACL entries per file or directory. The following table describes these limits.
 
@@ -116,7 +116,7 @@ By using groups, you're less likely to exceed the maximum number of role assignm
 
 ## Shared Key and Shared Access Signature (SAS) authorization
 
-Azure Data Lake Storage Gen2 also supports [Shared Key](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key) and [SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview?toc=/azure/storage/blobs/toc.json) methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
+Azure Data Lake Storage Gen2 also supports [Shared Key](/rest/api/storageservices/authorize-with-shared-key) and [SAS](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) methods for authentication. A characteristic of these authentication methods is that no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
 
 In the case of Shared Key, the caller effectively gains 'super-user' access, meaning full access to all operations on all resources including data, setting owner, and changing ACLs.
 
@@ -125,4 +125,3 @@ SAS tokens include allowed permissions as part of the token. The permissions inc
 ## Next steps
 
 To learn more about access control lists, see  [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-

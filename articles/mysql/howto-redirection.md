@@ -10,12 +10,17 @@ ms.date: 6/8/2020
 
 # Connect to Azure Database for MySQL with redirection
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 This topic explains how to connect an application your Azure Database for MySQL server with redirection mode. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes.
 
 ## Before you begin
 Sign in to the [Azure portal](https://portal.azure.com). Create an Azure Database for MySQL server with engine version 5.6, 5.7, or 8.0. 
 
 For details, refer to how to create an Azure Database for MySQL server using the [Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+> [!IMPORTANT]
+> Redirection is currently not supported with [Private Link for Azure Database for MySQL](concepts-data-access-security-private-link.md).
 
 ## Enable redirection
 

@@ -31,15 +31,15 @@ To check the health of your instance, follow these steps:
 
 2. From your instance's menu, select _**Resource health**_ under *Support + troubleshooting*. This will take you to the page for viewing resource health history. 
 
-    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Screenshot showing the 'Resource health' page. There is a 'Health history' section showing a daily report from the last nine days. Each day shows a status of 'Available.'":::
+    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Screenshot showing the 'Resource health' page. There is a 'Health history' section showing a daily report from the last nine days.":::
 
-In the image above, this instance is showing as *Available*, and has been for the past nine days. To learn more about the *Available* status and the other status types that may appear, see [*Azure resource health overview*](../service-health/resource-health-overview.md).
+In the image above, this instance is showing as *Available*, and has been for the past nine days. To learn more about the *Available* status and the other status types that may appear, see [Azure resource health overview](../service-health/resource-health-overview.md).
 
-You can also learn more about the different checks that go into resource health for different types of Azure resources in [*Resource types and health checks in Azure resource health*](../service-health/resource-health-checks-resource-types.md).
+You can also learn more about the different checks that go into resource health for different types of Azure resources in [Resource types and health checks in Azure resource health](../service-health/resource-health-checks-resource-types.md).
 
 ## Next steps
 
 Read about other ways to monitor your Azure Digital Twins instance in the following articles:
-* [*Troubleshooting: View metrics with Azure Monitor*](troubleshoot-metrics.md)
-* [*Troubleshooting: Set up diagnostics*](troubleshoot-diagnostics.md).
-* [*Troubleshooting: Set up alerts*](troubleshoot-alerts.md)
+* [Troubleshooting: View metrics with Azure Monitor](troubleshoot-metrics.md)
+* [Troubleshooting: Set up diagnostics](troubleshoot-diagnostics.md).
+* [Troubleshooting: Set up alerts](troubleshoot-alerts.md)

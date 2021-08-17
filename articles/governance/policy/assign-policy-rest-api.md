@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: New policy assignment with REST API"
 description: In this quickstart, you use REST API to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 10/14/2020
-ms.topic: quickstart 
+ms.date: 05/01/2021
+ms.topic: quickstart
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources with REST API
 
@@ -51,6 +51,11 @@ Run the following command to create a policy assignment:
          "displayName": "Audit VMs without managed disks Assignment",
          "description": "Shows all virtual machines not using managed disks",
          "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
+         "nonComplianceMessages": [
+             {
+                 "message": "Virtual machines should use a managed disk"
+             }
+         ]
        }
      }
      ```
@@ -71,9 +76,12 @@ Request Body:
 - **DisplayName** - Display name for the policy assignment. In this case, you're using _Audit VMs
   without managed disks Assignment_.
 - **Description** - A deeper explanation of what the policy does or why it's assigned to this scope.
-- **policyDefinitionId** – The policy definition ID, based on which you're using to create the
+- **policyDefinitionId** - The policy definition ID, based on which you're using to create the
   assignment. In this case, it's the ID of policy definition _Audit VMs that do not use managed
   disks_.
+- **nonComplianceMessages** - Set the message seen when a resource is denied due to non-compliance
+  or evaluated to be non-compliant. For more information, see
+  [assignment non-compliance messages](./concepts/assignment-structure.md#non-compliance-messages).
 
 ## Identify non-compliant resources
 

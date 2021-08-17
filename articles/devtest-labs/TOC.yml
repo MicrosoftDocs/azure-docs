@@ -68,7 +68,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/devtest-labs-security-baseline?toc=/azure/devtest-labs/TOC.json
 - name: How-to guides
   items:
   - name: Configure a lab
@@ -191,6 +191,8 @@
       href: use-managed-identities-environments.md
     - name: Security alerts for environments
       href: environment-security-alerts.md
+    - name: Create an application-centric environment
+      href: create-application-centric-environment.md
   - name: Manage reusable templates
     items: 
     - name: Custom images vs. formulas
@@ -317,4 +319,4 @@
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
   - name: Frequently asked questions
-    href: devtest-lab-faq.md
+    href: devtest-lab-faq.yml

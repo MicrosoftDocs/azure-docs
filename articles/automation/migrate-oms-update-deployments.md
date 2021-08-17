@@ -8,12 +8,12 @@ ms.topic: conceptual
 ---
 # Migrate Azure Monitor logs update deployments to Azure portal
 
-The Operations Management Suite (OMS) portal is being [deprecated](../azure-monitor/platform/oms-portal-transition.md). All functionality that was available in the OMS portal for Update Management is available in the Azure portal, through Azure Monitor logs. This article provides the information you need to migrate to the Azure portal.
+The Operations Management Suite (OMS) portal is being [deprecated](../azure-monitor/logs/oms-portal-transition.md). All functionality that was available in the OMS portal for Update Management is available in the Azure portal, through Azure Monitor logs. This article provides the information you need to migrate to the Azure portal.
 
 ## Key information
 
 * Existing deployments will continue to work. Once you have recreated the deployment in Azure, you can delete your old deployment.
-* All existing features that you had in OMS are available in Azure. To learn more about Update Management, see [Update Management overview](update-management/update-mgmt-overview.md).
+* All existing features that you had in OMS are available in Azure. To learn more about Update Management, see [Update Management overview](./update-management/overview.md).
 
 ## Access the Azure portal
 
@@ -35,7 +35,7 @@ The Operations Management Suite (OMS) portal is being [deprecated](../azure-moni
 
 ## Recreate existing deployments
 
-All update deployments created in the OMS portal have a [saved search](../azure-monitor/platform/computer-groups.md) also known as a computer group, with the same name as the update deployment that exists. The saved search contains the list of machines that were scheduled in the update deployment.
+All update deployments created in the OMS portal have a [saved search](../azure-monitor/logs/computer-groups.md) also known as a computer group, with the same name as the update deployment that exists. The saved search contains the list of machines that were scheduled in the update deployment.
 
 :::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot of the Update Deployments page with the Name and Servers fields highlighted.":::
 
@@ -53,7 +53,7 @@ To use this existing saved search, follow these steps:
     | --- | --- |
     |Name |Unique name to identify the update deployment. |
     |Operating System| Select **Linux** or **Windows**.|
-    |Machines to update |Select a Saved search, Imported group, or pick Machine from the dropdown and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md) |
+    |Machines to update |Select a Saved search, Imported group, or pick Machine from the dropdown and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/logs/computer-groups.md) |
     |Update classifications|Select all the update classifications that you need. CentOS does not support this out of the box.|
     |Updates to exclude|Enter the updates to exclude. For Windows, enter the KB article without the **KB** prefix. For Linux, enter the package name or use a wildcard character.  |
     |Schedule settings|Select the time to start, and then select either **Once** or **Recurring** for the recurrence. | 
@@ -68,4 +68,4 @@ To use this existing saved search, follow these steps:
 
 ## Next steps
 
-To learn more about Update Management in Azure Automation, see [Update Management overview](update-management/update-mgmt-overview.md).
+To learn more about Update Management in Azure Automation, see [Update Management overview](./update-management/overview.md).

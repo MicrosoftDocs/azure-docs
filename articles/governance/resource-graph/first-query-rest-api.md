@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first REST API query"
 description: In this quickstart, you follow the steps to call the Resource Graph endpoint for REST API and run your first query.
-ms.date: 10/14/2020
+ms.date: 07/09/2021
 ms.topic: quickstart
 ---
 # Quickstart: Run your first Resource Graph query using REST API
@@ -65,8 +65,11 @@ parameter of `Invoke-RestMethod`.
 ## Run your first Resource Graph query
 
 With the REST API tools added to your environment of choice, it's time to try out a simple
-Resource Graph query. The query returns the first five Azure resources with the **Name** and
-**Resource Type** of each resource.
+subscription-based Resource Graph query. The query returns the first five Azure resources with the
+**Name** and **Resource Type** of each resource. To query by
+[management group](../management-groups/overview.md), use `managementgroups` instead of
+`subscriptions`. To query the entire tenant, omit both the `managementgroups` and `subscriptions`
+properties from the request body.
 
 In the request body of each REST API call, there's a variable that is used that you need to replace
 with your own value:
@@ -78,7 +81,7 @@ with your own value:
    - REST API URI
 
      ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2019-04-01
+     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
      ```
 
    - Request Body
@@ -102,7 +105,7 @@ with your own value:
    - REST API URI
 
      ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2019-04-01
+     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
      ```
 
    - Request Body
@@ -128,7 +131,7 @@ with your own value:
    - REST API URI
 
      ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2019-04-01
+     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
      ```
 
    - Request Body
@@ -147,7 +150,7 @@ the results returned are consistent and ordered by the **Name** property, but st
 top five results.
 
 For more examples of REST API calls for Azure Resource Graph, see the
-[Azure Resource Graph REST Examples](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#examples).
+[Azure Resource Graph REST Examples](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#examples).
 
 ## Clean up resources
 

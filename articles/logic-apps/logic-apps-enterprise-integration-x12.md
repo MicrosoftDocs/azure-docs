@@ -1,42 +1,61 @@
 ---
-title: Send and receive X12 messages for B2B
-description: Exchange X12 messages for B2B enterprise integration scenarios by using Azure Logic Apps with Enterprise Integration Pack
+title: Exchange X12 messages for B2B integration
+description: Send, receive, and process X12 messages when building B2B enterprise integration solutions with Azure Logic Apps and the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 04/29/2020
+ms.reviewer: estfan, divswa, azla
+ms.topic: how-to
+ms.date: 07/16/2021
 ---
 
-# Exchange X12 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
+# Exchange X12 messages for B2B enterprise integration using Azure Logic Apps and Enterprise Integration Pack
 
-To work with X12 messages in Azure Logic Apps, you can use the X12 connector, which provides triggers and actions for managing X12 communication. For information about EDIFACT messages instead, see [Exchange EDIFACT messages](logic-apps-enterprise-integration-edifact.md).
+In Azure Logic Apps, you can create workflows that work with X12 messages by using **X12** operations. These operations include triggers and actions that you can use in your workflow to handle X12 communication. You can add X12 triggers and actions in the same way as any other trigger and action in a workflow, but you need to meet extra prerequisites before you can use X12 operations.
+
+This article describes the requirements and settings for using X12 triggers and actions in your workflow. If you're looking for EDIFACT messages instead, review [Exchange EDIFACT messages](logic-apps-enterprise-integration-edifact.md). If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create an integration workflow with multi-tenant Azure Logic Apps and the Azure portal](quickstart-create-first-logic-app-workflow.md).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app from where you want to use the X12 connector and a trigger that starts your logic app's workflow. The X12 connector provides only actions, not triggers. If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* A logic app resource and workflow where you want to use an X12 trigger or action. To use an X12 trigger, you need a blank workflow. To use an X12 action, you need a workflow that has an existing trigger.
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's associated with your Azure subscription and linked to the logic app where you plan to use the X12 connector. Both your logic app and integration account must exist in the same location or Azure region.
+* An [integration account](logic-apps-enterprise-integration-create-integration-account.md) that's linked to your logic app resource. Both your logic app and integration account have to use the same Azure subscription and exist in the same Azure region or location.
 
-* At least two [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that you've already defined in your integration account by using the X12 identity qualifier.
+  Your integration account also need to include the following B2B artifacts:
 
-* The [schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md) to use for XML validation that you've already added to your integration account. If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, see [HIPAA schemas](#hipaa-schemas).
+  * At least two [trading partners](logic-apps-enterprise-integration-partners.md) that use the X12 identity qualifier.
 
-* Before you can use the X12 connector, you must create an X12 [agreement](../logic-apps/logic-apps-enterprise-integration-agreements.md) between your trading partners and store that agreement in your integration account. If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, you need to add a `schemaReferences` section to your agreement. For more information, see [HIPAA schemas](#hipaa-schemas).
+  * An X12 [agreement](logic-apps-enterprise-integration-agreements.md) defined between your trading partners. For information about settings to use when receiving and sending messages, review [Receive Settings](#receive-settings) and [Send Settings](#send-settings).
+
+    > [!IMPORTANT]
+    > If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, you have to add a 
+    > `schemaReferences` section to your agreement. For more information, review [HIPAA schemas and message types](#hipaa-schemas).
+
+  * The [schemas](logic-apps-enterprise-integration-schemas.md) to use for XML validation.
+
+    > [!IMPORTANT]
+    > If you're working with Health Insurance Portability and Accountability Act (HIPAA) schemas, make sure to review [HIPAA schemas and message types](#hipaa-schemas).
+
+## Connector reference
+
+For more technical information about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/x12/).
+
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [B2B message limits for ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
 
 <a name="receive-settings"></a>
 
 ## Receive Settings
 
-After you set the agreement properties, you can configure how this agreement identifies and handles inbound messages that you receive from your partner through this agreement.
+After you set the properties in your trading partner agreement, you can configure how this agreement identifies and handles inbound messages that you receive from your partner through this agreement.
 
 1. Under **Add**, select **Receive Settings**.
 
-1. Configure these properties based on your agreement with the partner that exchanges messages with you. The **Receive Settings** are organized into these sections:
+1. Based on the agreement with the partner that exchanges messages with you, set the properties in the **Receive Settings** pane, which is organized into the following sections:
 
    * [Identifiers](#inbound-identifiers)
    * [Acknowledgement](#inbound-acknowledgement)
@@ -45,8 +64,6 @@ After you set the agreement properties, you can configure how this agreement ide
    * [Control Numbers](#inbound-control-numbers)
    * [Validations](#inbound-validations)
    * [Internal Settings](#inbound-internal-settings)
-
-   For property descriptions, see the tables in this section.
 
 1. When you're done, make sure to save your settings by selecting **OK**.
 
@@ -74,7 +91,6 @@ After you set the agreement properties, you can configure how this agreement ide
 |----------|-------------|
 | **TA1 Expected** | Return a technical acknowledgment (TA1) to the interchange sender. |
 | **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. <p>For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgments. <p>To enable generation of AK2 loops in functional acknowledgments for accepted transaction sets, select **Include AK2 / IK2 Loop**. |
-||||
 
 <a name="inbound-schemas"></a>
 
@@ -196,7 +212,7 @@ After you set the agreement properties, you can configure how this agreement ide
 | Property | Description |
 |----------|-------------|
 | **TA1 Expected** | Return a technical acknowledgment (TA1) to the interchange sender. <p>This setting specifies that the host partner, who is sending the message, requests an acknowledgment from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
-| **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgements. <p>This settings specifies that the host partner, who is sending the message, requests an acknowledgement from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
+| **FA Expected** | Return a functional acknowledgment (FA) to the interchange sender. For the **FA Version** property, based on the schema version, select the 997 or 999 acknowledgements. <p>This setting specifies that the host partner, who is sending the message, requests an acknowledgement from the guest partner in the agreement. These acknowledgments are expected by the host partner based on the agreement's Receive Settings. |
 |||
 
 <a name="outbound-schemas"></a>
@@ -269,8 +285,7 @@ For this section, select a [schema](../logic-apps/logic-apps-enterprise-integrat
 The **Default** row shows the character set that's used as delimiters for a message schema. If you don't want to use the **Default** character set, you can enter a different set of delimiters for each message type. After you complete each row, a new empty row automatically appears.
 
 > [!TIP]
-> To provide special character values, edit the agreement as JSON 
-> and provide the ASCII value for the special character.
+> To provide special character values, edit the agreement as JSON and provide the ASCII value for the special character.
 
 | Property | Description |
 |----------|-------------|
@@ -306,7 +321,7 @@ The **Default** row shows the validation rules that are used for an EDI message 
 
 ## HIPAA schemas and message types
 
-When you work with HIPAA schemas and the 277 or 837 message types, you need to perform a few extra steps. The [document version numbers (GS8)](#outbound-control-version-number) for these message types have more than 9 characters, for example, "005010X222A1". Also, some document version numbers map to variant message types. If you don't reference the correct message type in your schema and in your agreement, you get this error message:
+When you work with HIPAA schemas and the 277 or 837 message types, you need to perform a few extra steps. The [document version numbers (GS8)](#outbound-control-version-number) for these message types have more than nine characters, for example, "005010X222A1". Also, some document version numbers map to variant message types. If you don't reference the correct message type in your schema and in your agreement, you get this error message:
 
 `"The message has an unknown document type and did not resolve to any of the existing schemas configured in the agreement."`
 
@@ -332,7 +347,7 @@ To specify these document version numbers and message types, follow these steps:
 
    1. In the Azure portal, go to your integration account. Find and download your schema. Replace the message type and rename the schema file, and upload your revised schema to your integration account. For more information, see [Edit schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md#edit-schemas).
 
-   1. In your your agreement's message settings, select the revised schema.
+   1. In your agreement's message settings, select the revised schema.
 
 1. In your agreement's `schemaReferences` object, add another entry that specifies the variant message type that matches your document version number.
 
@@ -375,14 +390,8 @@ To specify these document version numbers and message types, follow these steps:
 
    ![Disable validation for all message types or each message type](./media/logic-apps-enterprise-integration-x12/x12-disable-validation.png) 
 
-## Connector reference
-
-For additional technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/x12/).
-
-> [!NOTE]
-> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> this connector's ISE-labeled version uses the [B2B message limits for ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).
-
 ## Next steps
 
-* Learn about other [connectors for Logic Apps](../connectors/apis-list.md)
+* [X12 TA1 technical acknowledgments and error codes](logic-apps-enterprise-integration-x12-ta1-acknowledgment.md)
+* [X12 997 functional acknowledgments and error codes](logic-apps-enterprise-integration-x12-997-acknowledgment.md)
+* [About connectors in Azure Logic Apps](../connectors/apis-list.md)

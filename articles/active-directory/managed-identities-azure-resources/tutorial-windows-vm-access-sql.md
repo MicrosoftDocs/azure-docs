@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 07/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -148,6 +148,9 @@ if (accessToken != null) {
 }
 ```
 
+>[!NOTE]
+>You can use managed identities while working with other programming options using our [SDKs](qs-configure-sdk-windows-vm.md).
+
 Alternatively, a quick way to test the end to end setup without having to write and deploy an app on the VM is using PowerShell.
 
 1. In the portal, navigate to **Virtual Machines** and go to your Windows virtual machine and in the **Overview**, click **Connect**.
@@ -204,3 +207,4 @@ In this tutorial, you learned how to use a system-assigned managed identity to a
 
 > [!div class="nextstepaction"]
 > [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)
+

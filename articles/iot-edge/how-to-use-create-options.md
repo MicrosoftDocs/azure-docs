@@ -3,7 +3,7 @@ title: Write createOptions for modules  - Azure IoT Edge | Microsoft Docs
 description: How to use createOptions in the deployment manifest to configure modules at runtime
 keywords: 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 04/01/2020
 ms.topic: conceptual
@@ -12,6 +12,8 @@ services: iot-edge
 ---
 
 # How to configure container create options for IoT Edge modules
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 The **createOptions** parameter in the deployment manifest enables you to configure the module containers at runtime. This parameter expands your control over the modules and allows for tasks like allowing or restricting the module's access to the host device's resources, or configuring networking.
 
@@ -55,7 +57,7 @@ If you use the Azure IoT Tools extensions for Visual Studio or Visual Studio Cod
 
 One tip for writing create options is to use the `docker inspect` command. As part of your development process, run the module locally using `docker run <container name>`. Once you have the module working the way you want it, run `docker inspect <container name>`. This command outputs the module details in JSON format. Find the parameters that you configured, and copy the JSON. For example:
 
-[ ![Results of docker inspect edgeHub](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png) ](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
+[![Results of docker inspect edgeHub](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
 
 ## Common scenarios
 
@@ -126,5 +128,5 @@ Once stringified for the final deployment manifest, these values would look like
 
 For more examples of create options in action, see the following IoT Edge samples:
 
-* [Custom Vision and Azure IoT Edge on a Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi)
+* [Custom Vision and Azure IoT Edge on a Raspberry Pi 3](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi)
 * [Azure IoT Edge blob storage sample](https://github.com/Azure-Samples/azure-iotedge-blobstorage-sample)

@@ -1,21 +1,10 @@
 ---
 title: Programmatically create Azure Dashboards
 description: Use a dashboard in the Azure portal as a template to programmatically create Azure Dashboards. Includes JSON reference.
-services: azure-portal
-documentationcenter: ''
-author: adamabmsft
-manager: mtillman
-
-
-ms.service: azure-portal
-ms.devlang: NA
 ms.topic: how-to
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 03/23/2020
-ms.author: mblythe
-
+ms.date: 12/4/2020
 ---
+
 # Programmatically create Azure Dashboards
 
 This article walks you through the process of programmatically creating and publishing Azure dashboards. The dashboard shown below is referenced throughout the document.
@@ -52,7 +41,7 @@ After you configure the dashboard, the next step is to publish the dashboard usi
 
 ![sharing a dashboard](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Selecting **Share** prompts you to choose which subscription and resource group to publish to. You must have write access to the subscription and resource group that you choose. For more information, see [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+Selecting **Share** prompts you to choose which subscription and resource group to publish to. You must have write access to the subscription and resource group that you choose. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ![make changes to sharing and access](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -81,7 +70,7 @@ Template-based deployment supports parameterization and templating. We use this 
 
 ## Programmatically create a dashboard from your template using a template deployment
 
-Azure offers the ability to orchestrate the deployment of multiple resources. You create a deployment template that expresses the set of resources to deploy and the relationships between them.  The JSON format of each resource is the same as if you were creating them one by one. The difference is that the template language adds a few concepts like variables, parameters, basic functions, and more. This extended syntax is only supported in the context of a template deployment. It doesn't work if used with the imperative APIs discussed earlier. For more information, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
+Azure offers the ability to orchestrate the deployment of multiple resources. You create a deployment template that expresses the set of resources to deploy and the relationships between them.  The JSON format of each resource is the same as if you were creating them one by one. The difference is that the template language adds a few concepts like variables, parameters, basic functions, and more. This extended syntax is only supported in the context of a template deployment. It doesn't work if used with the imperative APIs discussed earlier. For more information, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 Parameterization should be done using the template's parameter syntax.  You replace all instances of the resource ID we found earlier as shown here.
 
@@ -123,7 +112,7 @@ Once you've configured your template, deploy it using any of the following metho
 
 * [REST APIs](/rest/api/resources/deployments)
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-* [Azure CLI](/cli/azure/group/deployment#az-group-deployment-create)
+* [Azure CLI](/cli/azure/group/deployment#az_group_deployment_create)
 * [The Azure portal template deployment page](https://portal.azure.com/#create/Microsoft.Template)
 
 Next you'll see two versions of our example dashboard JSON. The first is the version that we exported from the portal that was already bound to a resource. The second is the template version that can be programmatically bound to any virtual machine and deployed using Azure Resource Manager.
@@ -655,3 +644,49 @@ This example deploys a dashboard by itself, but the template language lets you d
 ```
 
 Now that you've seen an example of using a parameterized template to deploy a dashboard, you can try deploying the template by using the [Azure Resource Manager REST APIs](/rest/api/), the [Azure CLI](/cli/azure), or [Azure PowerShell commands](/powershell/azure/get-started-azureps).
+
+## Programmatically create a dashboard by using Azure CLI
+
+Prepare your environment for the Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- These examples use the following dashboard: [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json). Replace content in angled brackets with your values.
+
+Run the [az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) command to create a dashboard:
+
+```azurecli
+az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+   --input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+You can update a dashboard by using the [az portal dashboard update](/cli/azure/portal/dashboard#az_portal_dashboard_update) command:
+
+```azurecli
+az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
+--input-path portal-dashboard-template-testvm.json --location centralus
+```
+
+See the details of a dashboard by running the [az portal dashboard show](/cli/azure/portal/dashboard#az_portal_dashboard_show) command:
+
+```azurecli
+az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
+```
+
+To see all the dashboards for the current subscription, use [az portal dashboard list](/cli/azure/portal/dashboard#az_portal_dashboard_list):
+
+```azurecli
+az portal dashboard list
+```
+
+You can also see all the dashboards for a resource group:
+
+```azurecli
+az portal dashboard list --resource-group myResourceGroup
+```
+
+## Next steps
+
+For more information about desktops, see [Manage Azure portal settings and preferences](set-preferences.md).
+
+For more information about Azure CLI support for dashboards, see [az portal dashboard](/cli/azure/portal/dashboard).

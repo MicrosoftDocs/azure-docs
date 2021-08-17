@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/20/2020
+ms.date: 07/27/2021
 ms.custom: seoapril2019, seodec18
-# As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
+#Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
 
 # How Azure Machine Learning works: Architecture and concepts
 
-Learn about the architecture and concepts for [Azure Machine Learning](overview-what-is-azure-ml.md).  This article gives you a high-level understanding of the components and how they work together to assist in the process of building, deploying, and maintaining machine learning models.
+Learn about the architecture and concepts for [Azure Machine Learning](overview-what-is-azure-machine-learning.md).  This article gives you a high-level understanding of the components and how they work together to assist in the process of building, deploying, and maintaining machine learning models.
 
 ## <a name="workspace"></a> Workspace
 
@@ -42,19 +42,6 @@ A workspace includes other Azure resources that are used by the workspace:
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Stores secrets that are used by compute targets and other sensitive information that's needed by the workspace.
 
 You can share a workspace with others.
-
-### Create workspace
-
-The following diagram shows the create workspace workflow.
-
-* You sign in to Azure AD from one of the supported Azure Machine Learning clients (Azure CLI, Python SDK, Azure portal) and request the appropriate Azure Resource Manager token.
-* You call Azure Resource Manager to create the workspace. 
-* Azure Resource Manager contacts the Azure Machine Learning resource provider to provision the workspace.
-* If you don't specify existing resources, additional required resources are created in your subscription..
-
-You can also provision other compute targets that are attached to a workspace (like Azure Kubernetes Service or VMs) as needed.
-
-[![Create workspace workflow](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
 
 ## Computes
 
@@ -112,7 +99,7 @@ You produce a run when you submit a script to train a model. A run can have zero
 
 [Workspace](#workspace) > [Experiments](#experiments) > [Run](#runs) > **Run configuration**
 
-A run configuration defines how a script should be run in a specified compute target. You use the configuration to specify the script, the compute target and Azure ML environment to run on, any distributed job-specific configurations, and some additional properties. For more information on the full set of configurable options for runs, see [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
+A run configuration defines how a script should be run in a specified compute target. You use the configuration to specify the script, the compute target and Azure ML environment to run on, any distributed job-specific configurations, and some additional properties. For more information on the full set of configurable options for runs, see [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig).
 
 A run configuration can be persisted into a file inside the directory that contains your training script.   Or it can be constructed as an in-memory object and used to submit a run.
 
@@ -124,15 +111,11 @@ For example run configurations, see [Configure a training run](how-to-set-up-tra
 
 When you submit a run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip file is then extracted, and the script is run there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
 
-The following diagram shows the code snapshot workflow.
-
-[![Code snapshot workflow](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
-
 ### Logging
 
-Azure Machine Learning automatically logs standard run metrics for you. However, you can also [use the Python SDK to log arbitrary metrics](how-to-track-experiments.md).
+Azure Machine Learning automatically logs standard run metrics for you. However, you can also [use the Python SDK to log arbitrary metrics](how-to-log-view-metrics.md).
 
-There are multiple ways to view your logs: monitoring run status in real time, or viewing results after completion. For more information, see [Monitor and view ML run logs](how-to-monitor-view-training-logs.md).
+There are multiple ways to view your logs: monitoring run status in real time, or viewing results after completion. For more information, see [Monitor and view ML run logs](how-to-log-view-metrics.md).
 
 
 > [!NOTE]
@@ -211,7 +194,7 @@ For more information about these components, see [Deploy models with Azure Machi
 
 [Workspace](#workspace) > **Endpoints**
 
-An endpoint is an instantiation of your model into either a web service that can be hosted in the cloud or an IoT module for integrated device deployments.
+An endpoint is an instantiation of your model into a web service that can be hosted in the cloud.
 
 #### Web service endpoint
 
@@ -246,13 +229,7 @@ Pipeline endpoints let you call your [ML Pipelines](#ml-pipelines) programatical
 A pipeline endpoint is a collection of published pipelines. This logical organization lets you manage and call multiple pipelines using the same endpoint. Each published pipeline in a pipeline endpoint is versioned. You can select a default pipeline for the endpoint, or specify a version in the REST call.
  
 
-#### IoT module endpoints
 
-A deployed IoT module endpoint is a Docker container that includes your model and associated script or application and any additional dependencies. You deploy these modules by using Azure IoT Edge on edge devices.
-
-If you've enabled monitoring, Azure collects telemetry data from the model inside the Azure IoT Edge module. The telemetry data is accessible only to you, and it's stored in your storage account instance.
-
-Azure IoT Edge ensures that your module is running, and it monitors the device that's hosting it. 
 ## Automation
 
 ### Azure Machine Learning CLI 
@@ -270,12 +247,12 @@ Pipeline steps are reusable, and can be run without rerunning the previous steps
 Azure Machine Learning provides the following monitoring and logging capabilities:
 
 * For __Data Scientists__, you can monitor your experiments and log information from your training runs. For more information, see the following articles:
-   * [Start, monitor, and cancel training runs](how-to-manage-runs.md)
-   * [Log metrics for training runs](how-to-track-experiments.md)
+   * [Start, monitor, and cancel training runs](how-to-track-monitor-analyze-runs.md)
+   * [Log metrics for training runs](how-to-log-view-metrics.md)
    * [Track experiments with MLflow](how-to-use-mlflow.md)
    * [Visualize runs with TensorBoard](how-to-monitor-tensorboard.md)
 * For __Administrators__, you can monitor information about the workspace, related Azure resources, and events such as resource creation and deletion by using Azure Monitor. For more information, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
-* For __DevOps__ or __MLOps__, you can monitor information generated by models deployed as web services or IoT Edge modules to identify problems with the deployments and gather data submitted to the service. For more information, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
+* For __DevOps__ or __MLOps__, you can monitor information generated by models deployed as web services to identify problems with the deployments and gather data submitted to the service. For more information, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
 
 ## Interacting with your workspace
 
@@ -297,16 +274,14 @@ The studio is also where you access the interactive tools that are part of Azure
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
-+ Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (preview).
++  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
 + Use [Azure Machine Learning designer](concept-designer.md) to perform the workflow steps without writing code. 
 + Use [Azure Machine Learning CLI](./reference-azure-machine-learning-cli.md) for automation.
-+ The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
 
 ## Next steps
 
 To get started with Azure Machine Learning, see:
 
-* [What is Azure Machine Learning?](overview-what-is-azure-ml.md)
+* [What is Azure Machine Learning?](overview-what-is-azure-machine-learning.md)
 * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md)
 * [Tutorial (part 1): Train a model](tutorial-train-models-with-aml.md)

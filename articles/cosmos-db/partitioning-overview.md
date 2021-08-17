@@ -5,7 +5,7 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 07/12/2021
 
 ---
 
@@ -22,9 +22,9 @@ This article explains the relationship between logical and physical partitions. 
 
 ## Logical partitions
 
-A logical partition consists of a set of items that have the same partition key. For example, in a container that contains data about food nutrition, all items contain a `foodGroup` property. You can use `foodGroup` as the partition key for the container. Groups of items that have specific values for `foodGroup`, such as `Beef Products`, `Baked Products`, and `Sausages and Luncheon Meats`, form distinct logical partitions. You don't have to worry about deleting a logical partition when the underlying data is deleted.
+A logical partition consists of a set of items that have the same partition key. For example, in a container that contains data about food nutrition, all items contain a `foodGroup` property. You can use `foodGroup` as the partition key for the container. Groups of items that have specific values for `foodGroup`, such as `Beef Products`, `Baked Products`, and `Sausages and Luncheon Meats`, form distinct logical partitions.
 
-A logical partition also defines the scope of database transactions. You can update items within a logical partition by using a [transaction with snapshot isolation](database-transactions-optimistic-concurrency.md). When new items are added to a container, new logical partitions are transparently created by the system.
+A logical partition also defines the scope of database transactions. You can update items within a logical partition by using a [transaction with snapshot isolation](database-transactions-optimistic-concurrency.md). When new items are added to a container, new logical partitions are transparently created by the system. You don't have to worry about deleting a logical partition when the underlying data is deleted.
 
 There is no limit to the number of logical partitions in your container. Each logical partition can store up to 20GB of data. Good partition key choices have a wide range of possible values. For example, in a container where all items contain a `foodGroup` property, the data within the `Beef Products` logical partition can grow up to 20 GB. [Selecting a partition key](#choose-partitionkey) with a wide range of possible values ensures that the container is able to scale.
 
@@ -32,10 +32,14 @@ There is no limit to the number of logical partitions in your container. Each lo
 
 A container is scaled by distributing data and throughput across physical partitions. Internally, one or more logical partitions are mapped to a single physical partition. Typically smaller containers have many logical partitions but they only require a single physical partition. Unlike logical partitions, physical partitions are an internal implementation of the system and they are entirely managed by Azure Cosmos DB.
 
-The number of physical partitions in your container depends on the following configuration:
+The number of physical partitions in your container depends on the following:
 
-* The number of throughput provisioned (each individual physical partition can provide a throughput of up to 10,000 request units per second).
+* The number of throughput provisioned (each individual physical partition can provide a throughput of up to 10,000 request units per second). The 10,000 RU/s limit for physical partitions implies that logical partitions also have a 10,000 RU/s limit, as each logical partition is only mapped to one physical partition.
+
 * The total data storage (each individual physical partition can store up to 50GB data).
+
+> [!NOTE]
+> Physical partitions are an internal implementation of the system and they are entirely managed by Azure Cosmos DB. When developing your solutions, don't focus on physical partitions because you can't control them. Instead, focus on your partition keys. If you choose a partition key that evenly distributes throughput consumption across logical partitions, you will ensure that throughput consumption across physical partitions is balanced.
 
 There is no limit to the total number of physical partitions in your container. As your provisioned throughput or data size grows, Azure Cosmos DB will automatically create new physical partitions by splitting existing ones. Physical partition splits do not impact your application's availability. After the physical partition split, all data within a single logical partition will still be stored on the same physical partition. A physical partition split simply creates a new mapping of logical partitions to physical partitions.
 
@@ -45,12 +49,9 @@ You can see your container's physical partitions in the **Storage** section of t
 
 :::image type="content" source="./media/partitioning-overview/view-partitions-zoomed-out.png" alt-text="Viewing number of physical partitions" lightbox="./media/partitioning-overview/view-partitions-zoomed-in.png" ::: 
 
-In the above screenshot, a container has `/foodGroup` as the partition key. Each of the three bars in the graph represents a physical partition. In the image, **partition key range** is the same as a physical partition. The selected physical partition contains three logical partitions: `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies`.
+In the above screenshot, a container has `/foodGroup` as the partition key. Each of the three bars in the graph represents a physical partition. In the image, **partition key range** is the same as a physical partition. The selected physical partition contains the top 3 most significant size logical partitions: `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies`.
 
 If you provision a throughput of 18,000 request units per second (RU/s), then each of the three physical partition can utilize 1/3 of the total provisioned throughput. Within the selected physical partition, the logical partition keys `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies` can, collectively, utilize the physical partition's 6,000 provisioned RU/s. Because provisioned throughput is evenly divided across your container's physical partitions, it's important to choose a partition key that evenly distributes throughput consumption by [choosing the right logical partition key](#choose-partitionkey). 
-
-> [!NOTE]
-> If you choose a partition key that evenly distributes throughput consumption across logical partitions, you will ensure that throughput consumption across physical partitions is balanced.
 
 ## Managing logical partitions
 
@@ -60,15 +61,13 @@ Azure Cosmos DB uses hash-based partitioning to spread logical partitions across
 
 Transactions (in stored procedures or triggers) are allowed only against items in a single logical partition.
 
-You can learn more about [how Azure Cosmos DB manages partitions](partitioning-overview.md). (It's not necessary to understand the internal details to build or run your applications, but added here for a curious reader.)
-
 ## Replica sets
 
 Each physical partition consists of a set of replicas, also referred to as a [*replica set*](global-dist-under-the-hood.md). Each replica set hosts an instance of the database engine. A replica set makes the data stored within the physical partition durable, highly available, and consistent. Each replica that makes up the physical partition inherits the partition's storage quota. All replicas of a physical partition collectively support the throughput that's allocated to the physical partition. Azure Cosmos DB automatically manages replica sets.
 
-Typically smaller containers only require a single physical partition but they will still have at least 4 replicas.
+Typically, smaller containers only require a single physical partition, but they will still have at least 4 replicas.
 
-The following image shows how logical partitions are mapped to physical partitions that are distributed globally:
+The following image shows how logical partitions are mapped to physical partitions that are distributed globally. [Partition set](global-dist-under-the-hood.md#partition-sets) in the image refers to a group of physical partitions that manage the same logical partition keys across multiple regions:
 
 :::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="An image that demonstrates Azure Cosmos DB partitioning" border="false":::
 
@@ -132,3 +131,4 @@ Some things to consider when selecting the *item ID* as the partition key includ
 * Learn about [global distribution in Azure Cosmos DB](distribute-data-globally.md).
 * Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
 * Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
+* See the learn module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)

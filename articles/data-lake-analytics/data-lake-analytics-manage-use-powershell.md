@@ -4,7 +4,8 @@ description: This article describes how to use Azure PowerShell to manage Data L
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 06/29/2018
+ms.date: 06/29/2018 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage Azure Data Lake Analytics using Azure PowerShell
@@ -291,9 +292,6 @@ Instead of repeating `Get-AdlAnalyticsJob` until a job finishes, you can use the
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-## Analyzing job history
-
-Using Azure PowerShell to analyze the history of jobs that have run in Data Lake analytics is a powerful technique. You can use it to gain insights into usage and cost. You can learn more by looking at the [Job History Analysis sample repo](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
 
 ## List job pipelines and recurrences
 

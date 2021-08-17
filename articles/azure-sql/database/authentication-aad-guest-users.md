@@ -5,15 +5,15 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
 ms.topic: how-to
-author: shohamMSFT
-ms.author: shohamd
+author: GithubMirek
+ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/27/2020
+ms.date: 05/10/2021
 ---
 
 # Create Azure AD guest users and set as an Azure AD admin
 
-[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 > [!NOTE]
 > This article is in **public preview**.

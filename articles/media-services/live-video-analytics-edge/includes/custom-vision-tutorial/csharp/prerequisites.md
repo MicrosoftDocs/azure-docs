@@ -17,3 +17,6 @@ Prerequisites for this tutorial are:
     
     * [Set up Azure Resources](../../../detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [Set up your development environment](../../../detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
+
+> [!TIP]
+> If you run into issues with Azure resources that get created, please view our **[troubleshooting guide](../../../troubleshoot-how-to.md#common-error-resolutions)** to resolve some commonly encountered issues.

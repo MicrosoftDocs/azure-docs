@@ -65,7 +65,7 @@ You can disable an existing profile so that Traffic Manager does not refer user 
 
 ## Next steps
 
-* [Add an endpoint](traffic-manager-endpoints.md)
+* [Add an endpoint](./traffic-manager-manage-endpoints.md)
 * [Configure Priority routing method](traffic-manager-configure-priority-routing-method.md)
 * [Configure Geographic routing method](traffic-manager-configure-geographic-routing-method.md) 
 * [Configure Weighted routing method](traffic-manager-configure-weighted-routing-method.md)

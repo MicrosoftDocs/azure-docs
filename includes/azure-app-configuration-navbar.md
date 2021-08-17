@@ -2,16 +2,17 @@
 title: include file
 description: include file
 services: azure-app-configuration
-author: lisaguthrie
+author: AlexandraKemperMS
 
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 11/11/2020
-ms.author: lcozzens
+ms.author: alkemper
 ms.custom: include file
 ---
 
 ```html
+ //...
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container">
         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TestFeatureFlags</a>
@@ -36,4 +37,5 @@ ms.custom: include file
         </div>
     </div>
 </nav>
+//...
 ```

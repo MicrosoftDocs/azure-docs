@@ -1,16 +1,11 @@
 ---
-title: Azure portal overview | Microsoft Docs 
+title: Azure portal overview
 description: The Azure portal is a graphical user interface that you can use to manage your Azure services. Learn how to navigate and find resources in the Azure portal.
-services: azure-portal
 keywords: portal
-author: mgblythe
-ms.author: mblythe
-ms.date: 12/20/2019
+ms.date: 03/12/2021
 ms.topic: overview
-
-ms.service: azure-portal
-manager:  mtillman
 ---
+
 # Azure portal overview
 
 This article introduces the Azure portal, identifies portal page elements, and helps you get familiar with the Azure portal management experience.
@@ -35,7 +30,7 @@ If you choose docked mode for the portal menu, it will always be visible. You ca
 
 ## Azure Home
 
-As a new subscriber to Azure services, the first thing you see after you [sign in to the portal](https://portal.azure.com) is **Azure Home**. This page compiles resources that help you get the most from your Azure subscription. We have included links to free online courses, documentation, core services, and useful sites for staying current and managing change for your organization. For quick and easy access to work in progress, we also show a list of your most recently visited resources. You can’t customize this page, but you can choose whether to see **Azure Home** or **Azure Dashboard** as your default view. The first time you sign in, there’s a prompt at the top of the page where you can save your preference.
+As a new subscriber to Azure services, the first thing you see after you [sign in to the portal](https://portal.azure.com) is **Azure Home**. This page compiles resources that help you get the most from your Azure subscription. We have included links to free online courses, documentation, core services, and useful sites for staying current and managing change for your organization. For quick and easy access to work in progress, we also show a list of your most recently visited resources. You can't customize this page, but you can choose whether to see **Azure Home** or **Azure Dashboard** as your default view. The first time you sign in, there's a prompt at the top of the page where you can save your preference.
 
 ![Screenshot showing where to save your preference.](./media/azure-portal-overview/azure-portal-default-view.png)
 
@@ -45,13 +40,13 @@ Both the Azure portal menu and the Azure default view can be changed in **Portal
 
 ## Azure Dashboard
 
-Dashboards provide a focused view of the resources in your subscription that matter most to you. We’ve given you a default dashboard to get you started. You can customize this dashboard to bring the resources you use frequently into a single view. Any changes you make to the default view affect your experience only. However, you can create additional dashboards for your own use or publish your customized dashboards and share them with other users in your organization. For more information, see [Create and share dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
+Dashboards provide a focused view of the resources in your subscription that matter most to you. We've given you a default dashboard to get you started. You can customize this dashboard to bring the resources you use frequently into a single view. Any changes you make to the default view affect your experience only. However, you can create additional dashboards for your own use or publish your customized dashboards and share them with other users in your organization. For more information, see [Create and share dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
 
 ## Getting around the portal
 
-It’s helpful to understand the basic portal layout and how to interact with it. Here, we’ll introduce the components of the user interface and some of the terminology we use to give instructions. For a more detailed tour of the portal, see the course lesson [Navigate the portal](/learn/modules/tour-azure-portal/3-navigate-the-portal).
+It's helpful to understand the basic portal layout and how to interact with it. Here, we'll introduce the components of the user interface and some of the terminology we use to give instructions. For a more detailed tour of the portal, see the course lesson [Navigate the portal](/learn/modules/tour-azure-portal/3-navigate-the-portal).
 
-The Azure portal menu and page header are global elements that are always present. These persistent features are the “shell” for the user interface associated with each individual service or feature and the header provides access to global controls. The configuration page (sometimes referred to as a “blade”) for a resource may also have a resource menu to help you move between features.
+The Azure portal menu and page header are global elements that are always present. These persistent features are the "shell" for the user interface associated with each individual service or feature and the header provides access to global controls. The configuration page (sometimes referred to as a "blade") for a resource may also have a resource menu to help you move between features.
 
 The figure below labels the basic elements of the Azure portal, each of which are described in the following table.
 
@@ -75,7 +70,7 @@ The figure below labels the basic elements of the Azure portal, each of which ar
 
 ## Get started with services
 
-If you’re a new subscriber, you’ll have to create a resource before there’s anything to manage. Select **+ Create a resource** to view the services available in the Azure Marketplace. You’ll find applications and services from hundreds of providers here, all certified to run on Azure.
+If you're a new subscriber, you'll have to create a resource before there's anything to manage. Select **+ Create a resource** to view the services available in the Azure Marketplace. You'll find hundreds of applications and services from many providers here, all certified to run on Azure.
 
 We pre-populated your Favorites in the sidebar with links to commonly used services.  To view all available services, select **All services** from the sidebar.
 

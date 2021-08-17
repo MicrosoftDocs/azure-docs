@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 10/20/2020
+  ms.date: 06/30/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -29,6 +29,14 @@ landingContent:
         links:
           - text: Azure Bastion FAQ
             url: bastion-faq.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Bastion
+            url: /learn/modules/intro-to-azure-bastion/
+      - linkListType: video
+        links:
+          - text: Azure Bastion
+            url: https://www.youtube.com/watch?v=WElUQm02BTU&list=PLLasX02E8BPDT2Z2pdCHNCkENpcQWy5n6&index=79
   # Card
   - title: Get started
     linkLists:
@@ -44,6 +52,10 @@ landingContent:
             url: bastion-connect-vm-ssh.md
           - text: Connect to a virtual machine (Windows)
             url: bastion-connect-vm-rdp.md
+      - linkListType: learn
+        links:
+          - text: Connect to a VM using Azure Bastion
+            url: /learn/modules/connect-vm-with-azure-bastion/
       - linkListType: video
         links:
           - text: Working with Azure Bastion

@@ -4,7 +4,7 @@ description: Practices and workflows in Azure Container Registry to manage depen
 author: dlepow
 ms.topic: article
 ms.author: danlep
-ms.date: 10/29/2020
+ms.date: 06/17/2021
 ---
 
 # Manage public content with Azure Container Registry
@@ -21,6 +21,8 @@ Without proper controls, having dependencies on public registry content can intr
 ## Authenticate with Docker Hub
 
 As a first step, if you currently pull public images from Docker Hub as part of a build or deployment workflow, we recommend that you [authenticate using a Docker Hub account](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) instead of making an anonymous pull request.
+
+When making frequent anonymous pull requests you might see Docker errors similar to `ERROR: toomanyrequests: Too Many Requests.` or `You have reached your pull rate limit.` Authenticate to Docker Hub to prevent these errors.
 
 > [!NOTE]
 > Effective November 2, 2020, [download rate limits](https://docs.docker.com/docker-hub/download-rate-limit) apply to anonymous and authenticated requests to Docker Hub from Docker Free Plan accounts and are enforced by IP address and Docker ID, respectively. 
@@ -78,9 +80,16 @@ az acr import \
 
 Depending on your organization's needs, you can import to a dedicated registry or a repository in a shared registry.
 
-## Automate application image updates
+## Update image references
 
-Developers of application images should ensure that their code references local content under their control. For example, a `Docker FROM` statement in a Dockerfile should reference an image in a private base image registry instead of a public registry. 
+Developers of application images should ensure that their code references local content under their control.
+
+* Update image references to use the private registry. For example, update a `FROM baseimage:v1` statement in a Dockerfile to `FROM myregistry.azurecr.io/mybaseimage:v1`
+* Configure credentials or an authentication mechanism to use the private registry. The exact mechanism depends on the tools you use to access the registry and how you manage user access.
+    * If you use a Kubernetes cluster or Azure Kubernetes Service to access the registry, see the [authentication scenarios](authenticate-kubernetes-options.md).
+    * Learn more about [options to authenticate](container-registry-authentication.md) with an Azure container registry.
+
+## Automate application image updates
 
 Expanding on image import, set up an [Azure Container Registry task](container-registry-tasks-overview.md) to automate application image builds when base images are updated. An automated build task can track both [base image updates](container-registry-tasks-base-images.md) and [source code updates](container-registry-tasks-overview.md#trigger-task-on-source-code-update).
 
@@ -90,7 +99,6 @@ For a detailed example, see [How to consume and maintain public content with Azu
 > A single preconfigured task can automatically rebuild every application image that references a dependent base image. 
  
 ## Next steps
- 
 * Learn more about [ACR Tasks](container-registry-tasks-overview.md) to build, run, push, and patch container images in Azure.
 * See [How to consume and maintain public content with Azure Container Registry Tasks](tasks-consume-public-content.md) for an automated gating workflow to update base images to your environment. 
 * See the [ACR Tasks tutorials](container-registry-tutorial-quick-task.md) for more examples to automate image builds and updates.

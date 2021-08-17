@@ -1,16 +1,13 @@
 ---
 title: Copy on-premises data using the Azure Copy Data tool
 description: Create an Azure Data Factory and then use the Copy Data tool to copy data from a SQL Server database to Azure Blob storage.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
+ms.date: 07/08/2021
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage by using the Copy Data tool
@@ -18,7 +15,7 @@ ms.date: 11/09/2020
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](tutorial-hybrid-copy-data-tool.md)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you use the Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that copies data from a SQL Server database to Azure Blob storage.
 
@@ -39,7 +36,7 @@ Before you begin, if you don't already have an Azure subscription, [create a fre
 ### Azure roles
 To create data factory instances, the user account you use to log in to Azure must be assigned a *Contributor* or *Owner* role or must be an *administrator* of the Azure subscription.
 
-To view the permissions you have in the subscription, go to the Azure portal. Select your user name in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+To view the permissions you have in the subscription, go to the Azure portal. Select your user name in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ### SQL Server 2014, 2016, and 2017
 In this tutorial, you use a SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this SQL Server database (source) to Blob storage (sink). You then create a table named **emp** in your SQL Server database and insert a couple of sample entries into the table.
@@ -87,21 +84,6 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. In the **Storage account name** and **key1** boxes, copy the values, and then paste them into Notepad or another editor for later use in the tutorial.
 
-#### Create the adftutorial container
-In this section, you create a blob container named **adftutorial** in your Blob storage.
-
-1. In the **Storage account** window, switch to **Overview**, and then select **Blobs**.
-
-1. In the **Blobs** window, select **+ Container**.
-
-1. In the **New container** window, under **Name**, enter **adftutorial**, and then select **OK**.
-
-1. In the list of containers, select **adftutorial**.
-
-
-1. Keep the **Container** window for **adftutorial** open. You use it to verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
-
-
 ## Create a data factory
 
 1. On the menu on the left, select **Create a resource** > **Integration** > **Data Factory**.
@@ -112,7 +94,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
    The name of the data factory must be *globally unique*. If you see the following error message for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 
-   ![New data factory name](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 1. Select the Azure **subscription** in which you want to create the data factory.
 1. For **Resource Group**, take one of the following steps:
 
@@ -127,37 +109,37 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 1. After the creation is finished, you see the **Data Factory** page as shown in the image.
 
-     ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
-1. Select **Author & Monitor** to launch the Data Factory user interface in a separate tab.
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+
+1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Factory user interface in a separate tab.
 
 ## Use the Copy Data tool to create a pipeline
 
-1. On the **Let's get started** page, select **Copy Data** to launch the Copy Data tool.
+1. On the Azure Data Factory home page, select **Ingest** to launch the Copy Data tool.
 
-   ![Get started page](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
 
-1. On the **Properties** page of the Copy Data tool, under **Task name**, enter **CopyFromOnPremSqlToAzureBlobPipeline**. Then select **Next**. The Copy Data tool creates a pipeline with the name you specify for this field.
-  ![Task name](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
+1. On the **Properties** page of the Copy Data tool, choose **Built-in copy task** under **Task type**, and choose **Run once now** under **Task cadence or task schedule**, then select **Next**.
 
-1. On the **Source data store** page, click on **Create new connection**.
+1. On the **Source data store** page, select on **+ Create new connection**.
 
-1. Under **New Linked Service**, search for **SQL Server**, and then select **Continue**.
+1. Under **New connection**, search for **SQL Server**, and then select **Continue**.
 
-1. In the **New Linked Service (SQL Server)** dialog box, under **Name**, enter **SqlServerLinkedService**. Select **+New** under **Connect via integration runtime**. You must create a self-hosted integration runtime, download it to your machine, and register it with Data Factory. The self-hosted integration runtime copies data between your on-premises environment and the cloud.
+1. In the **New connection (SQL server)** dialog box, under **Name**, enter **SqlServerLinkedService**. Select **+New** under **Connect via integration runtime**. You must create a self-hosted integration runtime, download it to your machine, and register it with Data Factory. The self-hosted integration runtime copies data between your on-premises environment and the cloud.
 
-1. In the **Integration Runtime Setup** dialog box, Select **Self-Hosted**. Then select **Continue**.
+1. In the **Integration runtime setup** dialog box, select **Self-Hosted**. Then select **Continue**.
 
    ![Create integration runtime](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
 
-1. In the **Integration Runtime Setup** dialog box, under **Name**, enter **TutorialIntegrationRuntime**. Then select **Create**.
+1. In the **Integration runtime setup** dialog box, under **Name**, enter **TutorialIntegrationRuntime**. Then select **Create**.
 
-1. In the **Integration Runtime Setup** dialog box, select **Click here to launch the express setup for this computer**. This action installs the integration runtime on your machine and registers it with Data Factory. Alternatively, you can use the manual setup option to download the installation file, run it, and use the key to register the integration runtime.
+1. In the **Integration runtime setup** dialog box, select **Click here to launch the express setup for this computer**. This action installs the integration runtime on your machine and registers it with Data Factory. Alternatively, you can use the manual setup option to download the installation file, run it, and use the key to register the integration runtime.
 
 1. Run the downloaded application. You see the status of the express setup in the window.
 
     ![Express setup status](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
 
-1. In the **New Linked Service (SQL Server)** dialog box, confirm that **TutorialIntegrationRuntime** is selected for the Integration Runtime field. Then, take the following steps:
+1. In the **New Connection (SQL Server)** dialog box, confirm that **TutorialIntegrationRuntime** is selected under **Connect via integration runtime**. Then, take the following steps:
 
     a. Under **Name**, enter **SqlServerLinkedService**.
 
@@ -169,57 +151,61 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
     e. Under **User name**, enter the name of user with access to SQL Server.
 
-    f. Enter the **password** for the user.
+    f. Enter the **Password** for the user.
 
-    g. Test connection and select **Finish**.
+    g. Test connection and select **Create**.
 
       ![Integration runtime selected](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
 
-1. On the **Source data store** page, select **Next**.
+1. On the **Source data store** page, ensure that the newly created **SQL Server** connection is selected in the **Connection** block. Then in the **Source tables** section, choose **EXISTING TABLES** and select the **dbo.emp** table in the list, and select **Next**. You can select any other table based on your database.
 
-1. On the **Select tables from which to copy the data or use a custom query** page, select the **[dbo].[emp]** table in the list, and select **Next**. You can select any other table based on your database.
+1. On the **Apply filter** page, you can preview data and view the schema of the input data by selecting the **Preview data** button. Then select **Next**.
 
-1. On the **Destination data store** page, select **Create new connection**
+1. On the **Destination data store** page, select **+ Create new connection**
 
-
-1. In **New Linked Service**, Search and Select **Azure Blob**, and then select **Continue**.
+1. In **New connection**, search and select **Azure Blob Storage**, and then select **Continue**.
 
    ![Blob storage selection](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
 
-1. On the **New Linked Service (Azure Blob Storage)** dialog, take the following steps:
+1. On the **New connection (Azure Blob Storage)** dialog, take the following steps:
 
    a. Under **Name**, enter **AzureStorageLinkedService**.
 
-   b. Under **Connect via integration runtime**, select **TutorialIntegrationRuntime**
+   b. Under **Connect via integration runtime**, select **TutorialIntegrationRuntime**, and select **Account key** under **Authentication method**.
+   
+   c. Under **Azure subscription**, select your Azure subscription from the drop-down list.
 
-   c. Under **Storage account name**, select your storage account from the drop-down list.
+   d. Under **Storage account name**, select your storage account from the drop-down list.
 
-   d. Select **Finish**.
+   e. Test connection and select **Create**.
 
-1. In **Destination data store** dialog, make sure that **Azure Blob Storage** is selected. Then select **Next**.
+1. In the **Destination data store** dialog, make sure that the newly created **Azure Blob Storage** connection is selected in the **Connection** block. Then under **Folder path**, enter **adftutorial/fromonprem**. You created the **adftutorial** container as part of the prerequisites. If the output folder doesn't exist (in this case **fromonprem**), Data Factory automatically creates it. You can also use the **Browse** button to browse the blob storage and its containers/folders. If you do not specify any value under **File name**, by default the name from the source would be used (in this case **dbo.emp**).
 
-1. In the **Choose the output file or folder** dialog, under **Folder path**, enter **adftutorial/fromonprem**. You created the **adftutorial** container as part of the prerequisites. If the output folder doesn't exist (in this case **fromonprem**), Data Factory automatically creates it. You can also use the **Browse** button to browse the blob storage and its containers/folders. If you do not specify any value under **File name**, by default the name from the source would be used (in this case **dbo.emp**).
-
-   ![Choose the output file or folder](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
+   :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/destination-data-store.png" alt-text="Screenshot that shows the configuration of the 'Destination data store' page.":::
 
 1. On the **File format settings** dialog, select **Next**.
 
-1. On the **Settings** dialog, select **Next**.
+1. On the **Settings** dialog, under **Task name**, enter **CopyFromOnPremSqlToAzureBlobPipeline**, and then select **Next**. The Copy Data tool creates a pipeline with the name you specify for this field.
 
 1. On the **Summary** dialog, review values for all the settings, and select **Next**.
 
-1. On the **Deployment page**, select **Monitor** to monitor the pipeline (task). 
+1. On the **Deployment** page, select **Monitor** to monitor the pipeline (task). 
 
 1. When the pipeline run completes, you can view the status of the pipeline you created. 
 
-1. On the Pipeline runs page, select **Refresh** to refresh the list. Click the link under **PIPELINE NAME** to view activity run details or rerun the pipeline. 
+1. On the "Pipeline runs" page, select **Refresh** to refresh the list. Select the link under **Pipeline name** to view activity run details or rerun the pipeline. 
 
-1. On the Activity runs page, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column for more details about copy operation. To go back to the Pipeline Runs view, select the **ALL pipeline runs** link in the breadcrumb menu. To refresh the view, select **Refresh**.
+    :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/pipeline-runs.png" alt-text="Screenshot that shows the 'Pipeline runs' page.":::
+
+1. On the "Activity runs" page, select the **Details** link (eyeglasses icon) under the **Activity name** column for more details about copy operation. To go back to the "Pipeline runs" page, select the **All pipeline runs** link in the breadcrumb menu. To refresh the view, select **Refresh**.
+
+    :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/activity-details.png" alt-text="Screenshot that shows the activity details.":::
 
 1. Confirm that you see the output file in the **fromonprem** folder of the **adftutorial** container.
 
-1. Select the **Edit** tab on the left to switch to the editor mode. You can update the linked services, datasets, and pipelines created by the tool by using the editor. Select **Code** to view the JSON code associated with the entity opened in the editor. For details on how to edit these entities in the Data Factory UI, see [the Azure portal version of this tutorial](tutorial-copy-data-portal.md).
+1. Select the **Author** tab on the left to switch to the editor mode. You can update the linked services, datasets, and pipelines created by the tool by using the editor. Select **Code** to view the JSON code associated with the entity opened in the editor. For details on how to edit these entities in the Data Factory UI, see [the Azure portal version of this tutorial](tutorial-copy-data-portal.md).
 
+    :::image type="content" source="./media/tutorial-hybrid-copy-data-tool/author-tab.png" alt-text="Screenshot that shows the Author tab.":::
 
 ## Next steps
 The pipeline in this sample copies data from a SQL Server database to Blob storage. You learned how to:

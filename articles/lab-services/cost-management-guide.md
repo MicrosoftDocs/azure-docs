@@ -26,7 +26,7 @@ This estimate might not show all the possible costs. A few resources aren't incl
 
 ## Analyze the previous month's usage
 
-The cost analysis is for reviewing the previous month's usage to help you determine any adjustments for the lab. You can find the breakdown of past costs in the [subscription cost analysis](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis). In the Azure portal, you can enter **Subscriptions** in the search box and then select the **Subscriptions** option. 
+The cost analysis is for reviewing the previous month's usage to help you determine any adjustments for the lab. You can find the breakdown of past costs in the [subscription cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md). In the Azure portal, you can enter **Subscriptions** in the search box and then select the **Subscriptions** option. 
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot that shows the search box and the Subscriptions option.](./media/cost-management-guide/subscription-search.png)
@@ -41,7 +41,7 @@ Select **Cost Analysis** in the left pane under **Cost Management**.
 > [!div class="mx-imgBorder"]
 > ![Screenshot that shows a subscription cost analysis on a graph.](./media/cost-management-guide/subscription-cost-analysis.png)
 
-This dashboard allows in-depth cost analysis, including the ability to export to different file types on a schedule. For more information, see [Cost Management + Billing overview](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+This dashboard allows in-depth cost analysis, including the ability to export to different file types on a schedule. For more information, see [Cost Management + Billing overview](../cost-management-billing/cost-management-billing-overview.md).
 
 You can filter by resource type. Using `microsoft.labservices/labaccounts` will show only the cost associated with Lab Services.
 
@@ -65,7 +65,7 @@ To get the overall cost for the image gallery, change the resource type to `Micr
 
 Some universities have used the lab account and the resource group as ways to separate the classes. Each class has its own lab account and resource group. 
 
-In the cost analysis pane, add a filter based on the resource group name with the appropriate resource group name for the class. Then, only the costs for that class will be visible. This allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) feature of the cost analysis to download the costs of each class in separate files.
+In the cost analysis pane, add a filter based on the resource group name with the appropriate resource group name for the class. Then, only the costs for that class will be visible. This allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-export-acm-data.md) feature of the cost analysis to download the costs of each class in separate files.
 
 ## Manage costs
 
@@ -85,7 +85,7 @@ You can configure these settings at both the lab account level and the lab level
 > [!NOTE]
 > This setting is available only for Windows virtual machines.
 
-When the **Disconnect users when virtual machines are idle** setting is turned on, the user is disconnected from any machines in the lab when the Windows OS deems the session to be idle (including the template virtual machines). The [Windows OS definition of idle](https://docs.microsoft.com/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) uses two criteria: 
+When the **Disconnect users when virtual machines are idle** setting is turned on, the user is disconnected from any machines in the lab when the Windows OS deems the session to be idle (including the template virtual machines). The [Windows OS definition of idle](/windows/win32/taskschd/task-idle-conditions#detecting-the-idle-state) uses two criteria: 
 
 * User absence: no keyboard or mouse input.
 * Lack of resource consumption: All the processors and all the disks were idle for a certain percentage of time.
@@ -117,7 +117,7 @@ The **Shut down virtual machines when users disconnect** setting supports both W
 * For Linux, an SSH connection is disconnected.
  
 > [!NOTE]
-> Only [specific distributions and versions of Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#supported-linux-distributions) are supported.
+> Only [specific distributions and versions of Linux](../virtual-machines/extensions/diagnostics-linux.md#supported-linux-distributions) are supported.
  
 You can specify how long the virtual machines should wait for the user to reconnect before automatically shutting down. 
 

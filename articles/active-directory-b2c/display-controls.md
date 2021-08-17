@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 07/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -49,9 +49,9 @@ The **DisplayControl** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| InputClaims | 0:1 | **InputClaims** are used to prepopulate the value of the claims to be collected from the user. For more information, see [InputClaims](technicalprofiles.md#inputclaims) element. |
+| InputClaims | 0:1 | **InputClaims** are used to prepopulate the value of the claims to be collected from the user. For more information, see [InputClaims](technicalprofiles.md#input-claims) element. |
 | DisplayClaims | 0:1 | **DisplayClaims** are used to represent claims to be collected from the user. For more information, see [DisplayClaim](technicalprofiles.md#displayclaim) element.|
-| OutputClaims | 0:1 | **OutputClaims** are used to represent claims to be saved temporarily for this **DisplayControl**. For more information, see [OutputClaims](technicalprofiles.md#outputclaims) element.|
+| OutputClaims | 0:1 | **OutputClaims** are used to represent claims to be saved temporarily for this **DisplayControl**. For more information, see [OutputClaims](technicalprofiles.md#output-claims) element.|
 | Actions | 0:1 | **Actions** are used to list the validation technical profiles to invoke for user actions happening at the front-end. |
 
 ### Input claims
@@ -120,17 +120,15 @@ The **ValidationClaimsExchange** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ValidationTechnicalProfile | 1:n | A technical profile to be used for validating some or all of the display claims of the referencing technical profile. |
+| ValidationClaimsExchangeTechnicalProfile | 1:n | A technical profile to be used for validating some or all of the display claims of the referencing technical profile. |
 
-The **ValidationTechnicalProfile** element contains the following attributes:
+The **ValidationClaimsExchangeTechnicalProfile** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
-|ContinueOnError|No| Indicates whether validation of any subsequent validation technical profiles should continue if this validation technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error will be returned). |
-|ContinueOnSuccess | No | Indicates whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Possible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
+| TechnicalProfileReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
 
-The **ValidationTechnicalProfile** element contains the following element:
+The **ValidationClaimsExchangeTechnicalProfile** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |

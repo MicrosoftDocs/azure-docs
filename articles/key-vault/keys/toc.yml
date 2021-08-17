@@ -15,8 +15,14 @@
     href: quick-create-powershell.md
   - name: Portal
     href: quick-create-portal.md
+  - name: .NET
+    href: quick-create-net.md
+  - name: Node.js
+    href: quick-create-node.md
   - name: Python
     href: quick-create-python.md
+  - name: Java
+    href: quick-create-java.md
   - name: ARM template
     displayName: Resource Manager
     href: quick-create-template.md
@@ -44,17 +50,17 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
+    href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
-    href: /dotnet/api/overview/azure/security.keyvault.keys-readme?view=azure-dotnet
+    href: /dotnet/api/overview/azure/security.keyvault.keys-readme
   - name: Java
-    href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    href: /java/api/overview/azure/keyvault
   - name: Node.js
-    href: /javascript/api/overview/azure/key-vault-index?view=azure-node-latest
+    href: /javascript/api/overview/azure/key-vault-index
   - name: Python
-    href: /python/api/overview/azure/keyvault-keys-readme?view=azure-python
+    href: /python/api/overview/azure/keyvault-keys-readme
   - name: REST
     href: /rest/api/keyvault
   - name: Resource Manager template

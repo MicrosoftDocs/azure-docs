@@ -9,3 +9,6 @@
     - name: IoT Edge
       tocHref: /azure/azure-sql-edge/
       topicHref: /azure/iot-edge/index
+    - name: IoT Edge
+      tocHref: /azure/iot-fundamentals/
+      topicHref: /azure/iot-edge/index

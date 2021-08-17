@@ -20,9 +20,9 @@ ms.author: terrylan
 ---
 # Security services and technologies available on Azure
 
-In our discussions with current and future Azure customers, we’re often asked “do you have a list of all the security-related services and technologies that Azure has to offer?”
+In our discussions with current and future Azure customers, we're often asked "do you have a list of all the security-related services and technologies that Azure has to offer?"
 
-When you evaluate cloud service provider options, it’s helpful to have this information. So we have provided this list to get you started.
+When you evaluate cloud service provider options, it's helpful to have this information. So we have provided this list to get you started.
 
 Over time, this list will change and grow, just as Azure does. Make sure to check this page on a regular basis to stay up-to-date on our security-related services and technologies.
 
@@ -31,7 +31,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 |--------|--------|
 |[Azure&nbsp;Security&nbsp;Center](../../security-center/security-center-introduction.md)| A cloud workload protection solution that provides security management and advanced threat protection across hybrid cloud workloads.|
 |[Azure Key Vault](../../key-vault/general/overview.md)| A secure secrets store for the passwords, connection strings, and other information you need to keep your apps working. |
-|[Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md)|A monitoring service that collects telemetry and other data, and provides a query language and analytics engine to deliver operational insights for your apps and resources. Can be used alone or with other services such as Security Center. |
+|[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md)|A monitoring service that collects telemetry and other data, and provides a query language and analytics engine to deliver operational insights for your apps and resources. Can be used alone or with other services such as Security Center. |
 |[Azure Dev/Test Labs](../../devtest-labs/devtest-lab-overview.md)|A service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
@@ -55,19 +55,19 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Azure&nbsp;SQL&nbsp;Firewall](../../azure-sql/database/firewall-configure.md)|A network access control feature that protects against network-based attacks to database. |
 |[Azure&nbsp;SQL&nbsp;Cell&nbsp;Level Encryption](/archive/blogs/sqlsecurity/recommendations-for-using-cell-level-encryption-in-azure-sql-database)| A database security technology that provides encryption at a granular level.  |
 | [Azure&nbsp;SQL&nbsp;Connection Encryption](../../azure-sql/database/logins-create-manage.md)|To provide security, SQL Database controls access with firewall rules limiting connectivity by IP address, authentication mechanisms requiring users to prove their identity, and authorization mechanisms limiting users to specific actions and data. |
-| [Azure SQL Always Encryption](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Protects sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure SQL Database or SQL Server databases.  |
-| [Azure&nbsp;SQL&nbsp;Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| A database security feature that encrypts the storage of an entire database. |
+| [Azure SQL Always Encryption](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|Protects sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure SQL Database or SQL Server databases.  |
+| [Azure&nbsp;SQL&nbsp;Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)| A database security feature that encrypts the storage of an entire database. |
 | [Azure SQL Database Auditing](../../azure-sql/database/auditing-overview.md)|A database auditing feature that tracks database events and writes them to an audit log in your Azure storage account.  |
 
 
 ## Identity and access management
 |Service|Description|
 |------|--------|
-| [Azure&nbsp;Role&nbsp;Based&nbsp;Access Control](../../role-based-access-control/role-assignments-portal.md)|An access control feature designed to allow users to access only the resources they are required to access based on their roles within the organization.  |
+| [Azure&nbsp;role-based&nbsp;access control](../../role-based-access-control/role-assignments-portal.md)|An access control feature designed to allow users to access only the resources they are required to access based on their roles within the organization.  |
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|A cloud-based authentication repository that supports a multi-tenant, cloud-based directory and multiple identity management services within Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|An identity management service that enables control over how customers sign-up, sign-in, and manage their profiles when using Azure-based applications.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| A cloud-based and managed version of Active Directory Domain Services. |
-| [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| A security provision that employs several different forms of authentication and verification before allowing access to secured information. |
+| [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)| A security provision that employs several different forms of authentication and verification before allowing access to secured information. |
 
 ## Backup and disaster recovery
 |Service|Description|
@@ -85,7 +85,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 | [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)|A TCP/UDP application network load balancer. |
 | [Azure ExpressRoute](../../expressroute/expressroute-introduction.md)| A dedicated WAN link between on-premises networks and Azure Virtual Networks. |
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| A global DNS load balancer.|
-| [Azure Application Proxy](../../active-directory/manage-apps/application-proxy.md)| An authenticating front-end used to secure remote access for web applications hosted on-premises. |
+| [Azure Application Proxy](../../active-directory/app-proxy/application-proxy.md)| An authenticating front-end used to secure remote access for web applications hosted on-premises. |
 |[Azure Firewall](../../firewall/overview.md)|A managed, cloud-based network security service that protects your Azure Virtual Network resources.|
-|[Azure DDoS protection](../../virtual-network/ddos-protection-overview.md)|Combined with application design best practices, provides defense against DDoS attacks.|
+|[Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md)|Combined with application design best practices, provides defense against DDoS attacks.|
 |[Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)|Extends your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection.|

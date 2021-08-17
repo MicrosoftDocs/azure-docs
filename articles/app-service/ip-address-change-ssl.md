@@ -1,17 +1,17 @@
 ---
-title: Prepare for SSL IP address change
-description: If your SSL IP address is going to be changed, learn what to do so that your app continues to work after the change.
+title: Prepare for TLS/SSL IP address change
+description: If your TLS/SSL IP address is going to be changed, learn what to do so that your app continues to work after the change.
 
 ms.topic: article
 ms.date: 06/28/2018
 ms.custom: seodec18
 ---
 
-# How to prepare for an SSL IP address change
+# How to prepare for a TLS/SSL IP address change
 
-If you received a notification that the SSL IP address of your Azure App Service app is changing, follow the instructions in this article to release existing SSL IP address and assign a new one.
+If you received a notification that the TLS/SSL IP address of your Azure App Service app is changing, follow the instructions in this article to release existing TLS/SSL IP address and assign a new one.
 
-## Release SSL IP addresses and assign new ones
+## Release TLS/SSL IP addresses and assign new ones
 
 1.	Open the [Azure portal](https://portal.azure.com).
 

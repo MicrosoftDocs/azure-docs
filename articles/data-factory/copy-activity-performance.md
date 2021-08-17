@@ -1,16 +1,17 @@
 ---
 title: Copy activity performance and scalability guide
-description: Learn about key factors that affect the performance of data movement in Azure Data Factory when you use the copy activity.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about key factors that affect the performance of data movement in Azure Data Factory and Azure Synapse Analytics pipelines when you use the copy activity.
 services: data-factory
 documentationcenter: ''
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
+ms.subservice: data-movement
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 09/15/2020
 ---
 # Copy activity performance and scalability guide
@@ -23,32 +24,32 @@ ms.date: 09/15/2020
 
 Sometimes you want to perform a large-scale data migration from data lake or enterprise data warehouse (EDW), to Azure. Other times you want to ingest large amounts of data, from different sources into Azure, for big data analytics. In each case, it is critical to achieve optimal performance and scalability.
 
-Azure Data Factory (ADF) provides a mechanism to ingest data. ADF has the following advantages:
+Azure Data Factory and Azure Synapse Analytics pipelines provide a mechanism to ingest data, with the following advantages:
 
 * Handles large amounts of data
 * Is highly performant
 * Is cost-effective
 
-These advantages make ADF an excellent fit for data engineers who want to build scalable data ingestion pipelines that are highly performant.
+These advantages are an excellent fit for data engineers who want to build scalable data ingestion pipelines that are highly performant.
 
 After reading this article, you will be able to answer the following questions:
 
-* What level of performance and scalability can I achieve using ADF copy activity for data migration and data ingestion scenarios?
-* What steps should I take to tune the performance of ADF copy activity?
-* What ADF perf optimization knobs can I utilize to optimize performance for a single copy activity run?
-* What other factors outside ADF to consider when optimizing copy performance?
+* What level of performance and scalability can I achieve using copy activity for data migration and data ingestion scenarios?
+* What steps should I take to tune the performance of the copy activity?
+* What performance optimizations can I utilize for a single copy activity run?
+* What other external factors to consider when optimizing copy performance?
 
 > [!NOTE]
 > If you aren't familiar with the copy activity in general, see the [copy activity overview](copy-activity-overview.md) before you read this article.
 
-## Copy performance and scalability achievable using ADF
+## Copy performance and scalability achievable using Azure Data Factory and Synapse pipelines
 
-ADF offers a serverless architecture that allows parallelism at different levels.
+Azure Data Factory and Synapse pipelines offer a serverless architecture that allows parallelism at different levels.
 
 This architecture allows you to develop pipelines that maximize data movement throughput for your environment. These pipelines fully utilize the following resources:
 
-* Network bandwidth
-* Storage input/output operations per second (IOPS) and bandwidth
+* Network bandwidth between the source and destination data stores
+* Source or destination data store input/output operations per second (IOPS) and bandwidth
 
 This full utilization means you can estimate the overall throughput by measuring the minimum throughput available with the following resources:
 
@@ -56,7 +57,10 @@ This full utilization means you can estimate the overall throughput by measuring
 * Destination data store
 * Network bandwidth in between the source and destination data stores
 
-The table below calculates the copy duration. The duration is based on data size and the bandwidth limit for your environment.
+The table below shows the calculation of data movement duration. The duration in each cell is calculated based on a given network and data store bandwidth and a given data payload size.
+
+> [!NOTE]
+> The duration provided below are meant to represent achievable performance in an end-to-end data integration solution by using one or more performance optimization techniques described in [Copy performance optimization features](#copy-performance-optimization-features), including using ForEach to partition and spawn off multiple concurrent copy activities. We recommend you to follow steps laid out in [Performance tuning steps](#performance-tuning-steps) to optimize copy performance for your specific dataset and system configuration. You should use the numbers obtained in your performance tuning tests for production deployment planning, capacity planning, and billing projection.
 
 &nbsp;
 
@@ -72,11 +76,11 @@ The table below calculates the copy duration. The duration is based on data size
 | **10 PB**                   | 647.3 mo   | 323.6 mo  | 64.7 mo   | 31.6 mo  | 6.5 mo   | 3.2 mo   | 0.6 mo    |
 | | |  | | |  | | |
 
-ADF copy is scalable at different levels:
+Copy is scalable at different levels:
 
-![how ADF copy scales](media/copy-activity-performance/adf-copy-scalability.png)
+![How copy scales](media/copy-activity-performance/adf-copy-scalability.png)
 
-* ADF control flow can start multiple copy activities in parallel, for example using [For Each loop](control-flow-for-each-activity.md).
+* Control flow can start multiple copy activities in parallel, for example using [For Each loop](control-flow-for-each-activity.md).
 
 * A single copy activity can take advantage of scalable compute resources.
   * When using Azure integration runtime (IR), you can specify [up to 256 data integration units (DIUs)](#data-integration-units) for each copy activity, in a serverless manner.
@@ -88,7 +92,7 @@ ADF copy is scalable at different levels:
 
 ## Performance tuning steps
 
-Take the following steps to tune the performance of your Azure Data Factory service with the copy activity:
+Take the following steps to tune the performance of your service with the copy activity:
 
 1. **Pick up a test dataset and establish a baseline.**
 
@@ -118,7 +122,7 @@ Take the following steps to tune the performance of your Azure Data Factory serv
 
 3. **How to maximize aggregate throughput by running multiple copies concurrently:**
 
-    By now you have maximized the performance of a single copy activity. If you have not yet achieved the throughput upper limits of your environment, you can run multiple copy activities in parallel. You can run in parallel by using ADF control flow constructs. One such construct is the [For Each loop](control-flow-for-each-activity.md). For more information, see the following articles about solution templates:
+    By now you have maximized the performance of a single copy activity. If you have not yet achieved the throughput upper limits of your environment, you can run multiple copy activities in parallel. You can run in parallel by using control flow constructs. One such construct is the [For Each loop](control-flow-for-each-activity.md). For more information, see the following articles about solution templates:
 
     * [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md)
     * [Migrate data from Amazon S3 to ADLS Gen2](solution-template-migration-s3-azure.md)
@@ -130,11 +134,11 @@ Take the following steps to tune the performance of your Azure Data Factory serv
 
 ## Troubleshoot copy activity performance
 
-Follow the [Performance tuning steps](#performance-tuning-steps) to plan and conduct performance test for your scenario. And learn how to troubleshoot each copy activity run's performance issue in Azure Data Factory from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md).
+Follow the [Performance tuning steps](#performance-tuning-steps) to plan and conduct performance test for your scenario. And learn how to troubleshoot each copy activity run's performance issue from [Troubleshoot copy activity performance](copy-activity-performance-troubleshooting.md).
 
 ## Copy performance optimization features
 
-Azure Data Factory provides the following performance optimization features:
+The service provides the following performance optimization features:
 
 * [Data Integration Units](#data-integration-units)
 * [Self-hosted integration runtime scalability](#self-hosted-integration-runtime-scalability)
@@ -143,7 +147,7 @@ Azure Data Factory provides the following performance optimization features:
 
 ### Data Integration Units
 
-A Data Integration Unit (DIU) is a measure that represents the power of a single unit in Azure Data Factory. Power is a combination of CPU, memory, and network resource allocation. DIU only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime). DIU does not apply to [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime). [Learn more here](copy-activity-performance-features.md#data-integration-units).
+A Data Integration Unit (DIU) is a measure that represents the power of a single unit in Azure Data Factory and Synapse pipelines. Power is a combination of CPU, memory, and network resource allocation. DIU only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime). DIU does not apply to [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime). [Learn more here](copy-activity-performance-features.md#data-integration-units).
 
 ### Self-hosted integration runtime scalability
 

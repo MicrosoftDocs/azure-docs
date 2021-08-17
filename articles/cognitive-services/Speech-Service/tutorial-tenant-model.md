@@ -3,13 +3,13 @@ title: Create a tenant model (preview) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Automatically generate a secure, compliant tenant model (Custom Speech with Microsoft 365 data) that uses your Microsoft 365 data to deliver optimal speech recognition for organization-specific terms.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2020
-ms.author: erhopf
+ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
 
@@ -100,7 +100,7 @@ When your tenant model instance is ready, deploy it by doing the following:
 
 Now that you've deployed your model, you can use it with the Speech SDK. In this section, you use sample code to call Speech Service by using Azure Active Directory (Azure AD) authentication.
 
-Let's look at the code you'll use to call the Speech SDK in C#. In this example, you perform speech recognition by using your tenant model. This guide presumes that your platform is already set up. If you need setup help, see [Quickstart: Recognize speech, C# (.NET Core)](quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
+Let's look at the code you'll use to call the Speech SDK in C#. In this example, you perform speech recognition by using your tenant model. This guide presumes that your platform is already set up. If you need setup help, see [Quickstart: Recognize speech, C# (.NET Core)](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore).
 
 Copy this code into your project:
 

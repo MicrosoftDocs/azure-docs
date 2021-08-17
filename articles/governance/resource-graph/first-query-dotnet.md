@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first .NET Core query"
 description: In this quickstart, you follow the steps to enable the Resource Graph NuGet packages for .NET Core and run your first query.
-ms.date: 10/14/2020
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 ---
@@ -68,8 +68,7 @@ required packages.
                string strTenant = args[0];
                string strClientId = args[1];
                string strClientSecret = args[2];
-               string strSubscriptionId = args[3];
-               string strQuery = args[4];
+               string strQuery = args[3];
 
                AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/" + strTenant);
                AuthenticationResult authResult = await authContext.AcquireTokenAsync("https://management.core.windows.net", new ClientCredential(strClientId, strClientSecret));
@@ -77,7 +76,6 @@ required packages.
 
                ResourceGraphClient argClient = new ResourceGraphClient(serviceClientCreds);
                QueryRequest request = new QueryRequest();
-               request.Subscriptions = new List<string>(){ strSubscriptionId };
                request.Query = strQuery;
 
                QueryResponse response = argClient.Resources(request);
@@ -88,6 +86,11 @@ required packages.
    }
    ```
 
+   > [!NOTE]
+   > This code creates a tenant-based query. To limit the query to a
+   > [management group](../management-groups/overview.md) or subscription, set the
+   > `ManagementGroups` or `Subscriptions` property on the `QueryRequest` object.
+
 1. Build and publish the `argQuery` console application:
 
    ```dotnetcli
@@ -97,9 +100,9 @@ required packages.
 
 ## Run your first Resource Graph query
 
-With the .NET Core console application built and published, it's time to try out a simple Resource
-Graph query. The query returns the first five Azure resources with the **Name** and **Resource
-Type** of each resource.
+With the .NET Core console application built and published, it's time to try out a simple
+tenant-based Resource Graph query. The query returns the first five Azure resources with the
+**Name** and **Resource Type** of each resource.
 
 In each call to `argQuery`, there are variables that are used that you need to replace with your own
 values:
@@ -107,14 +110,13 @@ values:
 - `{tenantId}` - Replace with your tenant ID
 - `{clientId}` - Replace with the client ID of your service principal
 - `{clientSecret}` - Replace with the client secret of your service principal
-- `{subscriptionId}` - Replace with your subscription ID
 
 1. Change directories to the `{run-folder}` you defined with the previous `dotnet publish` command.
 
 1. Run your first Azure Resource Graph query using the compiled .NET Core console application:
 
    ```bash
-   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "{subscriptionId}" "Resources | project name, type | limit 5"
+   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "Resources | project name, type | limit 5"
    ```
 
    > [!NOTE]
@@ -125,7 +127,7 @@ values:
    property:
 
    ```bash
-   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "{subscriptionId}" "Resources | project name, type | limit 5 | order by name asc"
+   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "Resources | project name, type | limit 5 | order by name asc"
    ```
 
    > [!NOTE]
@@ -138,7 +140,7 @@ values:
    **Name** property and then `limit` to the top five results:
 
    ```bash
-   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "{subscriptionId}" "Resources | project name, type | order by name asc | limit 5"
+   argQuery "{tenantId}" "{clientId}" "{clientSecret}" "Resources | project name, type | order by name asc | limit 5"
    ```
 
 When the final query is run several times, assuming that nothing in your environment is changing,

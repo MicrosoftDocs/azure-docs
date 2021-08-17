@@ -2,8 +2,8 @@
 title: Verify encryption status for Linux - Azure Disk Encryption
 description: This article provides instructions on verifying the encryption status from the platform and OS levels.
 author: kailashmsft
-ms.service: virtual-machines-linux
-ms.subservice: security
+ms.service: virtual-machines
+ms.subservice: disks
 ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
@@ -69,7 +69,7 @@ You can capture the encryption settings from each disk by using the following Po
 ### Single pass
 In a single pass, the encryption settings are stamped on each of the disks (OS and data). You can capture the encryption settings for an OS disk in a single pass as follows:
 
-``` powershell
+```powershell
 $RGNAME = "RGNAME"
 $VMNAME = "VMNAME"
 
@@ -159,7 +159,7 @@ Write-Host "====================================================================
 
 You can validate the *general* encryption status of an encrypted VM by using the following Azure CLI commands:
 
-```bash
+```azurecli
 VMNAME="VMNAME"
 RGNAME="RGNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -169,7 +169,7 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "subst
 ### Single pass
 You can validate the encryption settings for each disk by using the following Azure CLI commands:
 
-```bash
+```azurecli
 az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuses[*].displayStatus]"  -o table
 ```
 
@@ -202,7 +202,7 @@ done
 
 Data disks:
 
-```bash
+```azurecli
 RGNAME="RGNAME"
 VMNAME="VMNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -222,7 +222,7 @@ done
 
 ### Dual pass
 
-``` bash
+```azurecli
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 ```
 
@@ -275,7 +275,7 @@ To get the details for a specific disk, you need to provide:
 
 This command lists all the IDs for all your storage accounts:
 
-```bash
+```azurecli
 az storage account list --query [].[id] -o tsv
 ```
 The storage account IDs are listed in the following form:
@@ -294,7 +294,7 @@ ConnectionString=$(az storage account show-connection-string --ids $id --query c
 ```
 
 The following command lists all the containers under a storage account:
-```bash
+```azurecli
 az storage container list --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 The container used for disks is normally named "vhds."
@@ -305,7 +305,7 @@ ContainerName="name of the container"
 ```
 
 Use this command to list all the blobs on a particular container:
-```bash 
+```azurecli 
 az storage blob list -c ${ContainerName} --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 Choose the disk that you want to query and store its name on a variable:
@@ -313,7 +313,7 @@ Choose the disk that you want to query and store its name on a variable:
 DiskName="diskname.vhd"
 ```
 Query the disk encryption settings:
-```bash
+```azurecli
 az storage blob show -c ${ContainerName} --connection-string ${ConnectionString} -n ${DiskName} --query metadata.DiskEncryptionSettings
 ```
 
@@ -322,7 +322,7 @@ Validate if the data disk partitions are encrypted (and the OS disk isn't).
 
 When a partition or disk is encrypted, it's displayed as a **crypt** type. When it's not encrypted, it's displayed as a **part/disk** type.
 
-``` bash
+```bash
 lsblk
 ```
 
@@ -339,11 +339,11 @@ lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
 
 As an extra step, you can validate if the data disk has any keys loaded:
 
-``` bash
+```bash
 cryptsetup luksDump /dev/VGNAME/LVNAME
 ```
 
-``` bash
+```bash
 cryptsetup luksDump /dev/sdd1
 ```
 

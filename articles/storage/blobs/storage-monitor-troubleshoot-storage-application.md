@@ -78,11 +78,11 @@ The following image is an example alert that is based off the simulated failure 
 
 Storage logs store data in a set of blobs in a blob container named **$logs** in your storage account. This container does not show up if you list all the blob containers in your account but you can see its contents if you access it directly.
 
-In this scenario, you use [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) to interact with your Azure storage account.
+In this scenario, you use [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide) to interact with your Azure storage account.
 
 ### Download Microsoft Message Analyzer
 
-Download [Microsoft Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) and install the application.
+Download [Microsoft Message Analyzer](/message-analyzer/installing-and-upgrading-message-analyzer) and install the application.
 
 Launch the application and choose **File** > **Open** > **From Other File Sources**.
 

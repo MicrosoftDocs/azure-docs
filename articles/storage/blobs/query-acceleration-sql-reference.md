@@ -34,6 +34,11 @@ In the following example, for each row for which the WHERE *expression* returns 
 SELECT expression [, expression …] FROM table [WHERE expression] [LIMIT limit]
 ```
 
+You can specify one or more specific columns as part of the SELECT expression (For example: `SELECT Title, Author, ISBN`). 
+
+> [!NOTE]
+> The maximum number of specific columns that you can use in the SELECT expression is 49. If you need your SELECT statement to return more than 49 columns, then use a wildcard character (`*`) for the SELECT expression (For example: `SELECT *`). 
+
 The following example returns an aggregate computation (For example: the average value of a particular column) over each of the rows for which *expression* returns true. 
 
 ```sql
@@ -58,7 +63,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 |TIMESTAMP|A point in time.                           |
 |BOOLEAN  |True or false.                             |
 
-When reading values from CSV-formatted data, all values are read as strings.  String values may be converted to other types using CAST expressions.  Values may be implicitly cast to other types depending on context. for more info, see [Data type precedence (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
+When reading values from CSV-formatted data, all values are read as strings.  String values may be converted to other types using CAST expressions.  Values may be implicitly cast to other types depending on context. for more info, see [Data type precedence (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 ## Expressions
 
@@ -74,34 +79,34 @@ The following standard SQL operators are supported:
 
 |Operator|Description|
 |--|--|
-|[=](https://docs.microsoft.com/sql/t-sql/language-elements/equals-transact-sql)    |Compares the equality of two expressions (a comparison operator).|
-|[!=](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Tests whether one expression is not equal to another expression (a comparison operator).|
-|[<>](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Compares two expressions for not equal to (a comparison operator).|
-|[<](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-transact-sql)    |Compares two expressions for lesser than (a comparison operator).|
-|[<=](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Compares two expressions for lesser than or equal (a comparison operator).|
-|[>](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-transact-sql)    |Compares two expressions for greater than (a comparison operator). |
-|[>=](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Compares two expressions for greater than or equal (a comparison operator).|
-|[+](https://docs.microsoft.com/sql/t-sql/language-elements/add-transact-sql)    |Adds two numbers. This addition arithmetic operator can also add a number, in days, to a date.|
-|[-](https://docs.microsoft.com/sql/t-sql/language-elements/subtract-transact-sql)    |Subtracts two numbers (an arithmetic subtraction operator). |
-|[/](https://docs.microsoft.com/sql/t-sql/language-elements/divide-transact-sql)    |Divides one number by another (an arithmetic division operator).|
-|[*](https://docs.microsoft.com/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplies two expressions (an arithmetic multiplication operator).|
-|[%](https://docs.microsoft.com/sql/t-sql/language-elements/modulo-transact-sql)    |Returns the remainder of one number divided by another.|
-|[AND](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Performs a bitwise logical AND operation between two integer values.|
-|[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Performs a bitwise logical OR operation between two specified integer values as translated to binary expressions within Transact-SQL statements.|
-|[NOT](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Negates a Boolean input.|
-|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Converts an expression of one data type to another.|
-|[BETWEEN](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Specifies a range to test.|
-|[IN](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Determines whether a specified value matches any value in a subquery or a list.|
-|[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |Returns a null value if the two specified expressions are equal.|
-|[COALESCE](https://docs.microsoft.com/sql/t-sql/language-elements/coalesce-transact-sql)    |Evaluates the arguments in order and returns the current value of the first expression that initially doesn't evaluate to NULL.|
+|[=](/sql/t-sql/language-elements/equals-transact-sql)    |Compares the equality of two expressions (a comparison operator).|
+|[!=](/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Tests whether one expression is not equal to another expression (a comparison operator).|
+|[<>](/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Compares two expressions for not equal to (a comparison operator).|
+|[<](/sql/t-sql/language-elements/less-than-transact-sql)    |Compares two expressions for lesser than (a comparison operator).|
+|[<=](/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Compares two expressions for lesser than or equal (a comparison operator).|
+|[>](/sql/t-sql/language-elements/greater-than-transact-sql)    |Compares two expressions for greater than (a comparison operator). |
+|[>=](/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Compares two expressions for greater than or equal (a comparison operator).|
+|[+](/sql/t-sql/language-elements/add-transact-sql)    |Adds two numbers. This addition arithmetic operator can also add a number, in days, to a date.|
+|[-](/sql/t-sql/language-elements/subtract-transact-sql)    |Subtracts two numbers (an arithmetic subtraction operator). |
+|[/](/sql/t-sql/language-elements/divide-transact-sql)    |Divides one number by another (an arithmetic division operator).|
+|[*](/sql/t-sql/language-elements/multiply-transact-sql)    |Multiplies two expressions (an arithmetic multiplication operator).|
+|[%](/sql/t-sql/language-elements/modulo-transact-sql)    |Returns the remainder of one number divided by another.|
+|[AND](/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Performs a bitwise logical AND operation between two integer values.|
+|[OR](/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Performs a bitwise logical OR operation between two specified integer values as translated to binary expressions within Transact-SQL statements.|
+|[NOT](/sql/t-sql/language-elements/not-transact-sql)    |Negates a Boolean input.|
+|[CAST](/sql/t-sql/functions/cast-and-convert-transact-sql)    |Converts an expression of one data type to another.|
+|[BETWEEN](/sql/t-sql/language-elements/between-transact-sql)    |Specifies a range to test.|
+|[IN](/sql/t-sql/language-elements/in-transact-sql)    |Determines whether a specified value matches any value in a subquery or a list.|
+|[NULLIF](/sql/t-sql/language-elements/nullif-transact-sql)    |Returns a null value if the two specified expressions are equal.|
+|[COALESCE](/sql/t-sql/language-elements/coalesce-transact-sql)    |Evaluates the arguments in order and returns the current value of the first expression that initially doesn't evaluate to NULL.|
 
-If data types on the left and right of an operator are different, then automatic conversion will be performed according to the rules specified here: [Data type precedence (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
+If data types on the left and right of an operator are different, then automatic conversion will be performed according to the rules specified here: [Data type precedence (Transact-SQL)](/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 The query acceleration SQL language supports only a very small subset of the data types discussed in that article.  See the [Data Types](#data-types) section of this article.
 
 ### Casts
 
-The query acceleration SQL language supports the CAST operator, according to the rules here: [Data type conversion (Database Engine)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine).  
+The query acceleration SQL language supports the CAST operator, according to the rules here: [Data type conversion (Database Engine)](/sql/t-sql/data-types/data-type-conversion-database-engine).  
 
 The query acceleration SQL language supports only a tiny subset of the data types discussed in that article.  See the [Data Types](#data-types) section of this article.
 
@@ -113,12 +118,12 @@ The query acceleration SQL language supports the following standard SQL string f
 |--|--|
 |CHAR_LENGTH    | Returns the length in characters of the string expression, if the string expression is of a character data type; otherwise, returns the length in bytes of the string expression (the smallest integer not less than the number of bits divided by 8). (This function is the same as the CHARACTER_LENGTH function.)|
 |CHARACTER_LENGTH    |Returns the length in characters of the string expression, if the string expression is of a character data type; otherwise, returns the length in bytes of the string expression (the smallest integer not less than the number of bits divided by 8). (This function is the same as the CHAR_LENGTH function|
-|[LOWER](https://docs.microsoft.com/sql/t-sql/functions/lower-transact-sql)    |Returns a character expression after converting uppercase character data to lowercase.|
-|[UPPER](https://docs.microsoft.com/sql/t-sql/functions/upper-transact-sql)    |Returns a character expression with lowercase character data converted to uppercase.|
-|[SUBSTRING](https://docs.microsoft.com/sql/t-sql/functions/substring-transact-sql)    |Returns part of a character, binary, text, or image expression in SQL Server.|
-|[TRIM](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql)    |Removes the space character char(32) or other specified characters from the start and end of a string.|
-|LEADING    |Description|
-|TRAILING    |Description|
+|[LOWER](/sql/t-sql/functions/lower-transact-sql)    |Returns a character expression after converting uppercase character data to lowercase.|
+|[UPPER](/sql/t-sql/functions/upper-transact-sql)    |Returns a character expression with lowercase character data converted to uppercase.|
+|[SUBSTRING](/sql/t-sql/functions/substring-transact-sql)    |Returns part of a character, binary, text, or image expression in SQL Server.|
+|[TRIM](/sql/t-sql/functions/trim-transact-sql)    |Removes the space character char(32) or other specified characters from the start and end of a string.|
+|LEADING    |Removes the space character char(32) or other specified characters from the start of a string.|
+|TRAILING    |Removes the space character char(32) or other specified characters from the end of a string.|
 
 Here's a few examples:
 
@@ -232,12 +237,12 @@ A SELECT statement may contain either one or more projection expressions or a si
 
 |Expression|Description|
 |--|--|
-|[COUNT(\*)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Returns the number of records which matched the predicate expression.|
-|[COUNT(expression)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Returns the number of records for which expression is non-null.|
-|[AVERAGE(expression)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql)    |Returns the average of the non-null values of expression.|
-|[MIN(expression)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql)    |Returns the minimum non-null value of expression.|
-|[MAX(expression](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql)    |Returns the maximum non-null value of expression.|
-|[SUM(expression)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql)    |Returns the sum of all non-null values of expression.|
+|[COUNT(\*)](/sql/t-sql/functions/count-transact-sql)    |Returns the number of records which matched the predicate expression.|
+|[COUNT(expression)](/sql/t-sql/functions/count-transact-sql)    |Returns the number of records for which expression is non-null.|
+|[AVERAGE(expression)](/sql/t-sql/functions/avg-transact-sql)    |Returns the average of the non-null values of expression.|
+|[MIN(expression)](/sql/t-sql/functions/min-transact-sql)    |Returns the minimum non-null value of expression.|
+|[MAX(expression](/sql/t-sql/functions/max-transact-sql)    |Returns the maximum non-null value of expression.|
+|[SUM(expression)](/sql/t-sql/functions/sum-transact-sql)    |Returns the sum of all non-null values of expression.|
 
 ### MISSING
 
@@ -337,4 +342,3 @@ In most cases, the size of each batch will be slightly higher than the number th
 
 - [Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration.md)
 - [Filter data by using Azure Data Lake Storage query acceleration](data-lake-storage-query-acceleration-how-to.md)
-

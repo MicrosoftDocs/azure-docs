@@ -54,7 +54,7 @@ To deploy a load balancer, create and configure the following objects:
 
 In this example, you run the Azure CLI tools in a PowerShell command window. To improve readability and reuse, you use PowerShell's scripting capabilities, not the Azure PowerShell cmdlets.
 
-1. [Install and Configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) by following the steps in the linked article and sign in to your Azure account.
+1. [Install and Configure the Azure CLI](/cli/azure/install-azure-cli) by following the steps in the linked article and sign in to your Azure account.
 
 2. Set up PowerShell variables for use with the Azure CLI commands:
 
@@ -280,7 +280,7 @@ To create VMs, you must have a storage account. For load balancing, the VMs need
     ```
 
     > [!WARNING]
-    > This example uses the username and password for the VMs in cleartext. Take appropriate care when you use these credentials in cleartext. For a more secure method of handling credentials in PowerShell, see the [`Get-Credential`](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
+    > This example uses the username and password for the VMs in cleartext. Take appropriate care when you use these credentials in cleartext. For a more secure method of handling credentials in PowerShell, see the [`Get-Credential`](/powershell/module/microsoft.powershell.security/get-credential) cmdlet.
 
 2. Create the availability set:
 
@@ -295,5 +295,3 @@ To create VMs, you must have a storage account. For load balancing, the VMs need
 
 	az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
 	```
-
-

@@ -1,20 +1,11 @@
 ---
 title: Copy data to or from Oracle by using Data Factory 
 description: Learn how to copy data to or from an on-premises Oracle database by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-
-ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
-ms.workload: data-services
-
-
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
-
 robots: noindex
 ---
 # Copy data to or from Oracle on-premises by using Azure Data Factory
@@ -33,11 +24,11 @@ This article explains how to use Copy Activity in Azure Data Factory to move dat
 
 You can copy data *from an Oracle database* to the following data stores:
 
-[!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sink](includes/data-factory-supported-sinks.md)]
 
 You can copy data from the following data stores *to an Oracle database*:
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 ## Prerequisites
 
@@ -68,9 +59,9 @@ This Oracle connector support two versions of drivers:
 
 - **Oracle Data Provider for .NET**: You can use Oracle Data Provider to copy data from or to Oracle. This component is included in [Oracle Data Access Components for Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). Install the relevant version (32-bit or 64-bit) on the machine where the gateway is installed. [Oracle Data Provider .NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) can access Oracle Database 10g Release 2 and later versions.
 
-	If you select **XCopy Installation**, complete the steps that are described in the readme.htm file. We recommend selecting the installer that has the UI (not the XCopy installer).
+    If you select **XCopy Installation**, complete the steps that are described in the readme.htm file. We recommend selecting the installer that has the UI (not the XCopy installer).
 
-	After you install the provider, restart the Data Management Gateway host service on your machine by using the Services applet or Data Management Gateway Configuration Manager.
+    After you install the provider, restart the Data Management Gateway host service on your machine by using the Services applet or Data Management Gateway Configuration Manager.
 
 If you use the Copy wizard to author the copy pipeline, the driver type is autodetermined. The Microsoft driver is used by default, unless your gateway version is earlier than version 2.7 or you select Oracle as the sink.
 
@@ -125,7 +116,7 @@ The following table describes JSON elements that are specific to the Oracle link
 
 **Example: Using the ODP driver**
 
-To learn about allowed formats, see [Oracle data provider for .NET ODP](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/).
+To learn about allowed formats, see [Oracle data provider for .NET ODP](https://www.oracle.com/in/database/technologies/appdev/dotnet/odp.html).
 
 ```json
 {

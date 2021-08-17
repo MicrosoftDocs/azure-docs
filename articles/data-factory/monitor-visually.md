@@ -1,15 +1,13 @@
 ---
 title: Visually monitor Azure Data Factory 
 description: Learn how to visually monitor Azure data factories
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-ms.reviewer: maghan
+author: minhe-msft
+ms.author: hemin
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/30/2021
 ---
 
 # Visually monitor Azure Data Factory
@@ -57,7 +55,7 @@ To get a detailed view of the individual activity runs of a specific pipeline ru
 
 The list view shows activity runs that correspond to each pipeline run. Hover over the specific activity run to get run-specific information such as the JSON input, JSON output, and detailed activity-specific monitoring experiences.
 
-![List view for monitoring activity runs](media/monitor-visually/activity-runs.png)
+![There is information about SalesAnalyticsMLPipeline, followed by a list of activity runs.](media/monitor-visually/activity-runs.png)
 
 | **Column name** | **Description** |
 | --- | --- |
@@ -74,7 +72,7 @@ The list view shows activity runs that correspond to each pipeline run. Hover ov
 
 If an activity failed, you can see the detailed error message by clicking on the icon in the error column. 
 
-![List view for monitoring activity runs](media/monitor-visually/activity-run-error.png)
+![A notification appears with error details including error code, failure type, and error details.](media/monitor-visually/activity-run-error.png)
 
 ### Promote user properties to monitor
 
@@ -93,7 +91,19 @@ After you create the user properties, you can monitor them in the monitoring lis
 
 ![Activity runs list with columns for user properties](media/monitor-visually/view-user-properties.png)
 
+
 ## Rerun pipelines and activities
+ 
+ Rerun behavior of the container activities is as follows:
+ 
+- `Wait`- Activity will behave as before.
+- `Set Variable` - Activity will behave as before.
+- `Filter` - Activity will behave as before.
+- `Until` Activity will evaluate the expression and will loop until the condition is satisfied. Inner activities may still be skipped based on the rerun rules.
+- `Foreach` Activity will always loop on the items it receives. Inner activities may still be skipped based on the rerun rules.
+- `If and switch` - Conditions will always be evaluated. Inner activities may still be skipped based on the rerun rules.
+- `Execute pipeline activity` - The child pipeline will be triggered, but all activities in the child pipeline may still be skipped based on the rerun rules.
+
 
 To rerun a pipeline that has previously ran from the start, hover over the specific pipeline run and select **Rerun**. If you select multiple pipelines, you can use the **Rerun** button to run them all.
 

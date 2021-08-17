@@ -6,23 +6,34 @@ ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 
-# Use Java Message Service 2.0 API with Azure Service Bus Premium (Preview)
+# Use Java Message Service 2.0 API with Azure Service Bus Premium
 
 This article explains how to use the popular **Java Message Service (JMS) 2.0** API to interact with Azure Service Bus over the Advanced Message Queueing Protocol (AMQP 1.0) protocol.
 
 > [!NOTE]
-> Support for Java Message Service (JMS) 2.0 API is only available on the **Azure Service Bus Premium tier** and is currently in **preview**.
+> Support for Java Message Service (JMS) 2.0 API is only available on the **Azure Service Bus Premium tier**.
 >
 
-## Get started with Service Bus
+## Pre-requisites
+
+### Get started with Service Bus
 
 This guide assumes that you already have a Service Bus namespace. If you don't, then you can [create the namespace and queue](service-bus-create-namespace-portal.md) using the [Azure portal](https://portal.azure.com). 
 
 For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues through the Azure portal](service-bus-quickstart-portal.md).
 
+### Set up a Java Development environment
+
+To develop Java applications, you need to set up the appropriate development environment - 
+   * Either the JDK (Java Development Kit) or the JRE (Java Runtime Environment) is installed.
+   * The JDK or JRE is added to the build path and the appropriate system variables.
+   * A Java IDE is installed to utilize the JDK or JRE. For example, Eclipse or IntelliJ.
+
+To learn more about how to prepare your developer environment for Java on Azure, utilize [this guide](/azure/developer/java/fundamentals/).
+
 ## What JMS features are supported?
 
-[!INCLUDE [service-bus-jms-features-list](../../includes/service-bus-jms-feature-list.md)]
+[!INCLUDE [service-bus-jms-features-list](./includes/service-bus-jms-feature-list.md)]
 
 ## Downloading the Java Message Service (JMS) client library
 
@@ -67,11 +78,19 @@ To connect with Azure Service Bus using JMS clients, you need the **connection s
     JMSContext jmsContext = factory.createContext();
     ```
 
+    >[!IMPORTANT]
+    > Although similarly named, a JMS 'Session' and Service Bus 'Session' is completely independent of each other.
+    >
+    > In JMS 1.1, Session is an essential building block of the API that allows creation of the MessageProducer, MessageConsumer and the Message itself. For more details, review the [JMS API programming model](https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html)
+    >
+    > In Service Bus, [sessions](message-sessions.md) are service and client side construct to enable FIFO processing on Queues and Subscriptions.
+    >
+
 ### Write the JMS application
 
 Once the `Session` or `JMSContext` has been instantiated, your application can use the familiar JMS APIs to perform both management and data operations.
 
-Refer to the list of [supported JMS features](how-to-use-java-message-service-20.md#what-jms-features-are-supported) to see which APIs are supported as part of this preview.
+Refer to the list of [supported JMS features](how-to-use-java-message-service-20.md#what-jms-features-are-supported) to see which APIs are supported.
 
 Below are some sample code snippets to get started with JMS -
 
@@ -129,7 +148,7 @@ You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, P
 
 For more information on Azure Service Bus and details about Java Message Service (JMS) entities, check out the links below - 
 * [Service Bus - Queues, Topics, and Subscriptions](service-bus-queues-topics-subscriptions.md)
-* [Service Bus - Java Message Service entities](service-bus-queues-topics-subscriptions.md#java-message-service-jms-20-entities-preview)
+* [Service Bus - Java Message Service entities](service-bus-queues-topics-subscriptions.md#java-message-service-jms-20-entities)
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
 * [Service Bus AMQP 1.0 Developer's Guide](service-bus-amqp-dotnet.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)

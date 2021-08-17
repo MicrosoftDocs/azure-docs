@@ -1,8 +1,8 @@
 ---
 title: Use Key Vault to store and access Azure Cosmos DB keys
 description: Use Azure Key Vault to store and access Azure Cosmos DB connection string, keys, endpoints. 
-author: markjbrown
-ms.author: mjbrown
+author: ThomasWeiss
+ms.author: thweiss
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: how-to
@@ -54,7 +54,7 @@ The following steps are required to store and read Azure Cosmos DB access keys f
 
 ## Create an Azure web application
 
-1. Create an Azure web application or you can download the app from the [GitHub repository](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). It is a simple MVC application.  
+1. Create an Azure web application or you can download the app from the [GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/Demo/keyvaultdemo). It is a simple MVC application.  
 
 2. Unzip the downloaded application and open the **HomeController.cs** file. Update the secret ID in the following line:
 

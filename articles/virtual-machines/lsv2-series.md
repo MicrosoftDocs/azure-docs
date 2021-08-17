@@ -3,7 +3,7 @@ title: Lsv2-series - Azure Virtual Machines
 description: Specifications for the Lsv2-series VMs.
 author: sasha-melamed
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.subservice: vm-sizes-storage
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
@@ -27,6 +27,8 @@ The Lsv2-series features high throughput, low latency, directly mapped local NVM
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 Bursting: Supported<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
 | Size | vCPU | Memory (GiB) | Temp disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe Disk throughput<sup>3</sup> (Read IOPS/MBps) | Uncached data disk throughput (IOPs/MBps)<sup>4</sup> | Max burst uncached data disk throughput (IOPs/MBps)<sup>5</sup>| Max Data Disks | Max NICs | Expected network bandwidth (Mbps) |
@@ -46,7 +48,7 @@ Bursting: Supported<br>
 
 <sup>4</sup> Lsv2-series VMs do not provide host cache for data disk as it does not benefit the Lsv2 workloads.
 
-<sup>5</sup> Lsv2-series VMs can [burst](linux/disk-bursting.md) their disk performance for up to 30 minutes at a time. 
+<sup>5</sup> Lsv2-series VMs can [burst](./disk-bursting.md) their disk performance for up to 30 minutes at a time. 
 
 <sup>6</sup> VMs with more than 64 vCPUs require one of these supported guest operating systems:
 

@@ -1,16 +1,17 @@
 ---
-title: Delete Windows Virtual Desktop host pool - Azure
-description: How to delete a host pool in Windows Virtual Desktop.
+title: Delete Azure Virtual Desktop host pool - Azure
+description: How to delete a host pool in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 07/11/2020
-ms.author: helohr
-manager: lizross
+ms.author: helohr 
+ms.custom: devx-track-azurepowershell
+manager: femila
 ---
 
 # Delete a host pool
 
-All host pools created in Windows Virtual Desktop are attached to session hosts and app groups. To delete a host pool, you need to delete its associated app groups and session hosts. Deleting an app group is fairly simple, but deleting a session host is more complicated. When you delete a session host, you need to make sure it doesn't have any active user sessions. All user sessions on the session host should be logged off to prevent users from losing data.
+All host pools created in Azure Virtual Desktop are attached to session hosts and app groups. To delete a host pool, you need to delete its associated app groups and session hosts. Deleting an app group is fairly simple, but deleting a session host is more complicated. When you delete a session host, you need to make sure it doesn't have any active user sessions. All user sessions on the session host should be logged off to prevent users from losing data.
 
 ## Delete a host pool with PowerShell
 
@@ -34,7 +35,7 @@ To delete a host pool in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Search for and select **Windows Virtual Desktop**.
+2. Search for and select **Azure Virtual Desktop**.
 
 3. Select **Host pools** in the menu on the left side of the page, then select the name of the host pool you want to delete.
 
@@ -60,5 +61,5 @@ To learn how to create a host pool, check out these articles:
 To learn how to configure host pool settings, check out these articles:
 
 - [Customize Remote Desktop Protocol properties for a host pool](customize-rdp-properties.md)
-- [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
+- [Configure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)
 - [Configure the personal desktop host pool assignment type](configure-host-pool-personal-desktop-assignment-type.md)

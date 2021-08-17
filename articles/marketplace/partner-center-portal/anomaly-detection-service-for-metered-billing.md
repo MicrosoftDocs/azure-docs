@@ -11,7 +11,7 @@ ms.date: 06/10/2020
 
 # Anomaly detection service for metered billing
 
-The [Marketplace metering service](marketplace-metering-service-apis-faq.md) lets you create offers in the commercial marketplace program that are charged according to non-standard units. With metered billing, you send usage events for your customer’s usage to Microsoft and we prepare the billing based on that usage.
+The [Marketplace metering service](../marketplace-metering-service-apis-faq.yml) lets you create offers in the commercial marketplace program that are charged according to non-standard units. With metered billing, you send usage events for your customer’s usage to Microsoft and we prepare the billing based on that usage.
 
 Incorrect usage data could come from a variety of causes, such as bugs, misconfigurations in your consumption tracking, or fraud. Incorrect usage data would result in incorrect customer charges and billing disputes.
 
@@ -45,32 +45,37 @@ The model works by generating retrospective confidence intervals. The time serie
 
 ## Anomaly detection notification
 
-We email anomaly detection notices on a weekly basis. It includes all the anomalies detected that week for all meters and customers. This email is sent to the **Engineering** and **Support** contacts provided when you created the offer.
+You can evaluate, manage, and acknowledge anomalies in Partner Center. To learn how, see [Manage metered billing anomalies in Partner Center](../anomaly-detection.md).
 
-You are expected to investigate if detected anomalies are real issues and if so, contact Microsoft to report the incorrect usage (see the support section below).
+To ensure that your customers are not overcharged for metered usage, you should investigate if detected anomalies are real issues. If so, you can acknowledge the incorrect usage in Partner Center.
 
-If you confirm that detected anomalies are normal usage, no further action is needed from you. However, if an anomaly represents potentially high financial risk, we may contact you to confirm the usage.  
+We recommended that you confirm if detected anomalies are normal usage. Doing so will improve the anomaly data we provide to you. If an anomaly represents a potentially high financial risk, we may contact you to confirm the usage.
 
 ## When and how to get support
 
-If you sent the incorrect usage to Microsoft and this did or will result in undercharge of the customer, Microsoft will not initiate a bill to the customer for under-reported usage or pay you for that usage. You will have to bear the loss of revenue due to under-reporting.
+If you sent us an incorrect metered usage that did or will result in an undercharge to the customer, we will not initiate a bill to the customer for under-reported usage or pay you for that usage. You will have to bear the loss of revenue due to under-reporting.
 
-If one of the following cases applies, you can open a support ticket to request refund or billing adjustment for your customers:
+If one of the following cases applies, you can adjust the usage amount in Partner Center which will result in a refund or billing adjustment for your customers:
 
-- You confirmed that one of the anomalies we found is a real issue and the incorrect usage would result in **overcharge** of the customer.
-- You discover that you sent incorrect usage to us and the incorrect usage would result in **overcharge** of the customer.
-- You would like to request a refund for the charge of your customer’s metered billing usage.
+- You confirmed that one of the anomalies we found is a real issue and the incorrect usage would result in overcharging the customer.
+- You discover that you sent incorrect usage to us and the incorrect usage would result in overcharging the customer.
 
-To submit a ticket:
+To submit a support ticket related to metered billing anomalies:
 
-1. Go to the support page. In the **Tell us about your issue box**, enter “wrong usage”.
-2. In support topics, in the drop-down of search results, select one of the following:
-    - **Commercial Marketplace** > **Metered Billing** > **Wrong usage sent for Azure Applications offer**, or
-    - **Commercial Marketplace** > **Metered Billing** > **Wrong usage sent for SaaS offer**
-3. Under **Next step**, select the **Review solutions** button to be directed to sign in to Partner Center to submit a support ticket.
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) with your work account.
+1. In the menu on the upper-right of the page, select the **Support** icon. The **Help and support** pane appears on the right side of the page.
+1. For help with the commercial marketplace, select **Commercial Marketplace**.
+   ![Illustrates the support pane.](../media/support/commercial-marketplace-support-pane.png)
+1. In the **Problem summary** box, enter **commercial marketplace > metered billing**.
+1. In the **Problem type** box, select one of the following:
+    - **Commercial Marketplace > Metered Billing > Wrong usage sent for Azure Applications offer**
+    - **Commercial Marketplace > Metered Billing > Wrong usage sent for SaaS offer**
+1. Under **Next step**, select **Review solutions**.
+1. Review the recommended documents, if any or select **Provide issue details** to submit a support ticket.
 
 For more publisher support options, see [Support for the commercial marketplace program in Partner Center](../support.md).
 
-## Next step
+## Next steps
 
-- Learn about the [Marketplace metering service API](marketplace-metering-service-apis.md).
+- Learn about the [Marketplace metering service API](../marketplace-metering-service-apis.md).
+- [Manage metered billing anomalies in Partner Center](../anomaly-detection.md)

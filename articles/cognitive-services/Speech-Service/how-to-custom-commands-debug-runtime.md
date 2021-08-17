@@ -23,7 +23,7 @@ If your run Custom Commands application from [client application (with Speech SD
 | Error code | Details |
 | ------- | -------- |
 | [401](#error-401) | AuthenticationFailure: WebSocket Upgrade failed with an authentication error |
-| [1002](#error-1002)] | The server returned status code '404' when status code '101' was expected. |
+| [1002](#error-1002) | The server returned status code '404' when status code '101' was expected. |
 
 ### Error 401
 - The region specified in client application does not match with the region of the custom command application
@@ -87,7 +87,7 @@ Language Understanding (LUIS) has limits on resource usage. Usually "Recognizer 
 
     If you are on a F0 prediction resource, it has limit of 10 thousand/month, 5 queries/second.
 
-For more details on LUIS resource limits, refer [Language Understanding resource usage and limit](https://docs.microsoft.com/azure/cognitive-services/luis/luis-limits#resource-usage-and-limits)
+For more details on LUIS resource limits, refer [Language Understanding resource usage and limit](../luis/luis-limits.md#resource-usage-and-limits)
 
 ### Connection to the recognizer failed
 Usually it means transient connection failure to Language Understanding (LUIS) recognizer. Try it again and the issue should be resolved.
@@ -119,7 +119,7 @@ A few checks to start with:
 
     The LUIS recognition accuracy may get affected when two commands share similar intents and examples sentences. You can try to make commands functionality and example sentences as distinct as possible.
 
-    For best practice of improving recognition accuracy, refer [LUIS best practice](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-best-practices).
+    For best practice of improving recognition accuracy, refer [LUIS best practice](../luis/luis-concept-best-practices.md).
 
 - Dialog is canceled
     

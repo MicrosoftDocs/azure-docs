@@ -1,13 +1,11 @@
 ---
 title: Run SSIS packages using Azure SQL Managed Instance Agent
 description: Learn how to run SSIS packages by using Azure SQL Managed Instance Agent. 
-services: data-factory
-documentationcenter: ""
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.author: lle
-author: lle
+author: lrtoyou1223
 ms.date: 04/14/2020
 ---
 
@@ -19,7 +17,7 @@ With this feature, you can run SSIS packages that are stored in SSISDB in a SQL 
 
 ## Prerequisites
 
-To use this feature, [download](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) and install latest SQL Server Management Studio (SSMS). Version support details as below:
+To use this feature, [download](/sql/ssms/download-sql-server-management-studio-ssms) and install latest SQL Server Management Studio (SSMS). Version support details as below:
 
 - To run packages in SSISDB or file system, install SSMS version 18.5 or above.
 - To run packages in package store, install SSMS version 18.6 or above.

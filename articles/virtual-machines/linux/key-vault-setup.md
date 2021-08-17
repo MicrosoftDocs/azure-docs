@@ -2,7 +2,6 @@
 title: Set up Azure Key Vault using CLI 
 description: How to set up Key Vault for virtual machine using the Azure CLI.
 author: mimckitt
-manager: vashan
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
@@ -49,4 +48,4 @@ When you use a template, you need to set the `enabledForDeployment` property to 
 ```
 
 ## Next steps
-For other options that you can configure when you create a Key Vault by using templates, see [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
+For other options that you can configure when you create a Key Vault by using templates, see [Create a key vault](https://azure.microsoft.com/resources/templates/key-vault-create/).

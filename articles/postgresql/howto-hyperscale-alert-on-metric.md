@@ -21,8 +21,8 @@ You can configure an alert to do the following actions when it triggers:
 * Call a webhook.
 
 You can configure and get information about alert rules using:
-* [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure portal](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric from the Azure portal
@@ -96,13 +96,13 @@ We recommend setting disk space alerts on every node in every server group, even
 As the disk approaches its space limit, try these techniques to get more free space:
 
 * Review data retention policy. Move older data to cold storage if feasible.
-* Consider [adding nodes](howto-hyperscale-scaling.md#add-worker-nodes) to the server group and rebalancing shards. Rebalancing distributes the data across more computers.
-* Consider [growing the capacity](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) of worker nodes. Each worker can have up to 2 TiB of storage. However adding nodes should be attempted before resizing nodes because adding nodes completes faster.
+* Consider [adding nodes](howto-hyperscale-scale-grow.md#add-worker-nodes) to the server group and rebalancing shards. Rebalancing distributes the data across more computers.
+* Consider [growing the capacity](howto-hyperscale-scale-grow.md#increase-or-decrease-vcores-on-nodes) of worker nodes. Each worker can have up to 2 TiB of storage. However adding nodes should be attempted before resizing nodes because adding nodes completes faster.
 
 ### CPU usage
 
 Monitoring CPU usage is useful to establish a baseline for performance. For example, you may notice that CPU usage is usually around 40-60%. If CPU usage suddenly begins hovering around 95%, you can recognize an anomaly. The CPU usage may reflect organic growth, but it may also reveal a stray query. When creating a CPU alert, set a long aggregation granularity to catch prolonged increases and ignore momentary spikes.
 
 ## Next steps
-* Learn more about [configuring webhooks in alerts](../azure-monitor/platform/alerts-webhooks.md).
-* Get an [overview of metrics collection](../azure-monitor/platform/data-platform.md) to make sure your service is available and responsive.
+* Learn more about [configuring webhooks in alerts](../azure-monitor/alerts/alerts-webhooks.md).
+* Get an [overview of metrics collection](../azure-monitor/data-platform.md) to make sure your service is available and responsive.

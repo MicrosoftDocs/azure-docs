@@ -1,12 +1,12 @@
 ---
 title: "Pattern: Using tags in a policy definition"
 description: This Azure Policy pattern provides examples of how to add parameterized tags or inherit tags from a resource group in a policy definition.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: sample
 ---
 # Azure Policy pattern: tags
 
-[Tags](../../..//azure-resource-manager/management/tag-resources.md) are an important part of
+[Tags](../../../azure-resource-manager/management/tag-resources.md) are an important part of
 managing, organizing, and governing your Azure resources. Azure Policy makes it possible to
 configure tags on your new and existing resources at scale with the
 [modify](../concepts/effects.md#modify) effect and

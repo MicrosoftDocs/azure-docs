@@ -1,14 +1,10 @@
 ---
 title: Build your first data factory (Azure portal) 
 description: In this tutorial, you create a sample Azure Data Factory pipeline by using the Data Factory Editor in the Azure portal.
-services: data-factory
-documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
+author: dcstwh
+ms.author: weetok
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ---
@@ -26,7 +22,7 @@ ms.date: 01/22/2018
 > This article applies to version 1 of Azure Data Factory, which is generally available. If you use the current version of the Data Factory service, see [Quickstart: Create a data factory by using Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 > [!WARNING]
-> The JSON editor in Azure Portal for authoring & deploying ADF v1 pipelines will be turned OFF on 31st July 2019. After 31st July 2019, you can continue to use [ADF v1 Powershell cmdlets](/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), [ADF v1 .Net SDK](/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), [ADF v1 REST APIs](/rest/api/datafactory/) to author & deploy your ADF v1 pipelines.
+> The JSON editor in Azure Portal for authoring & deploying ADF v1 pipelines will be turned OFF on 31st July 2019. After 31st July 2019, you can continue to use [ADF v1 Powershell cmdlets](/powershell/module/az.datafactory/), [ADF v1 .Net SDK](/dotnet/api/microsoft.azure.management.datafactories.models), [ADF v1 REST APIs](/rest/api/datafactory/) to author & deploy your ADF v1 pipelines.
 
 In this article, you learn how to use the [Azure portal](https://portal.azure.com/) to create your first data factory. To do the tutorial by using other tools/SDKs, select one of the options from the drop-down list. 
 
@@ -124,21 +120,21 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 
 1. Copy and paste the following snippet to the Draft-1 window. The JSON snippet describes the properties that are used to create the HDInsight cluster on demand.
 
-	```JSON
+    ```JSON
     {
         "name": "HDInsightOnDemandLinkedService",
         "properties": {
             "type": "HDInsightOnDemand",
             "typeProperties": {
-			    "version": "3.5",
+                "version": "3.5",
                 "clusterSize": 1,
-			    "timeToLive": "00:05:00",
+                "timeToLive": "00:05:00",
                 "osType": "Linux",
-			    "linkedServiceName": "AzureStorageLinkedService"
+                "linkedServiceName": "AzureStorageLinkedService"
             }
         }
     }
-	```
+    ```
 
     The following table provides descriptions for the JSON properties used in the snippet.
 
@@ -178,7 +174,7 @@ In this step, you create datasets to represent the input and output data for Hiv
 
 1. Copy and paste the following snippet to the Draft-1 window. In the JSON snippet, you create a dataset called **AzureBlobInput** that represents input data for an activity in the pipeline. In addition, you specify that the input data is in the blob container called **adfgetstarted** and the folder called **inputdata**.
 
-	```JSON
+    ```JSON
     {
         "name": "AzureBlobInput",
         "properties": {
@@ -200,7 +196,7 @@ In this step, you create datasets to represent the input and output data for Hiv
             "policy": {}
         }
     }
-	```
+    ```
     The following table provides descriptions for the JSON properties used in the snippet.
 
    | Property | Nested under | Description |
@@ -225,7 +221,7 @@ Now, you create the output dataset to represent the output data stored in the bl
 
 1. Copy and paste the following snippet to the Draft-1 window. In the JSON snippet, you create a dataset called **AzureBlobOutput** to specify the structure of the data that is produced by the Hive script. You also specify that the results are stored in the blob container called **adfgetstarted** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced monthly.
 
-	```JSON
+    ```JSON
     {
       "name": "AzureBlobOutput",
       "properties": {
@@ -244,7 +240,7 @@ Now, you create the output dataset to represent the output data stored in the bl
         }
       }
     }
-	```
+    ```
     For descriptions of these properties, see the section "Create the input dataset." You do not set the external property on an output dataset because the dataset is produced by the Data Factory service.
 
 1. Select **Deploy** on the command bar to deploy the newly created dataset.
@@ -267,50 +263,50 @@ In this step, you create your first pipeline with an HDInsight Hive activity. Th
    >
    >
 
-	```JSON
-	{
-	    "name": "MyFirstPipeline",
-	    "properties": {
-	        "description": "My first Azure Data Factory pipeline",
-	        "activities": [
-	            {
-	                "type": "HDInsightHive",
-	                "typeProperties": {
-	                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-	                    "scriptLinkedService": "AzureStorageLinkedService",
-	                    "defines": {
-	                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-	                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-	                    }
-	                },
-	                "inputs": [
-	                    {
-	                        "name": "AzureBlobInput"
-	                    }
-	                ],
-	                "outputs": [
-	                    {
-	                        "name": "AzureBlobOutput"
-	                    }
-	                ],
-	                "policy": {
-	                    "concurrency": 1,
-	                    "retry": 3
-	                },
-	                "scheduler": {
-	                    "frequency": "Month",
-	                    "interval": 1
-	                },
-	                "name": "RunSampleHiveActivity",
-	                "linkedServiceName": "HDInsightOnDemandLinkedService"
-	            }
-	        ],
-	        "start": "2017-07-01T00:00:00Z",
-	        "end": "2017-07-02T00:00:00Z",
-	        "isPaused": false
-	    }
-	}
-	```
+    ```JSON
+    {
+        "name": "MyFirstPipeline",
+        "properties": {
+            "description": "My first Azure Data Factory pipeline",
+            "activities": [
+                {
+                    "type": "HDInsightHive",
+                    "typeProperties": {
+                        "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                        "scriptLinkedService": "AzureStorageLinkedService",
+                        "defines": {
+                            "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                            "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                        }
+                    },
+                    "inputs": [
+                        {
+                            "name": "AzureBlobInput"
+                        }
+                    ],
+                    "outputs": [
+                        {
+                            "name": "AzureBlobOutput"
+                        }
+                    ],
+                    "policy": {
+                        "concurrency": 1,
+                        "retry": 3
+                    },
+                    "scheduler": {
+                        "frequency": "Month",
+                        "interval": 1
+                    },
+                    "name": "RunSampleHiveActivity",
+                    "linkedServiceName": "HDInsightOnDemandLinkedService"
+                }
+            ],
+            "start": "2017-07-01T00:00:00Z",
+            "end": "2017-07-02T00:00:00Z",
+            "isPaused": false
+        }
+    }
+    ```
 
     In the JSON snippet, you create a pipeline that consists of a single activity that uses Hive to process data on an HDInsight cluster.
 

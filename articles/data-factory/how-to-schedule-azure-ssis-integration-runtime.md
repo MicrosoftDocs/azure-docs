@@ -1,18 +1,13 @@
 ---
 title: How to schedule Azure-SSIS Integration Runtime 
 description: This article describes how to schedule the starting and stopping of Azure-SSIS Integration Runtime by using Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 06/04/2021
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: anandsub
 ---
 # How to start and stop Azure-SSIS Integration Runtime on a schedule
 
@@ -79,9 +74,9 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
 
 ### Create your pipelines
 
-1. In **Let's get started** page, select **Create pipeline**. 
+1. In the home page, select **Orchestrate**. 
 
-   ![Get started page](./media/how-to-schedule-azure-ssis-integration-runtime/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
    
 2. In **Activities** toolbox, expand **General** menu, and drag & drop a **Web** activity onto the pipeline designer surface. In **General** tab of the activity properties window, change the activity name to **startMyIR**. Switch to **Settings** tab, and do the following actions.
 

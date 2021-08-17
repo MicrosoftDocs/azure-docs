@@ -1,8 +1,8 @@
 ---
 title: Configure server parameters - Azure CLI - Azure Database for MySQL Flexible Server
 description: This article describes how to configure the service parameters in Azure Database for MySQL flexible server using the Azure CLI command line utility.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
@@ -11,7 +11,9 @@ ms.custom: devx-track-azurecli
 ---
 # Configure server parameters in Azure Database for MySQL Flexible Server using the Azure CLI
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
 You can list, show, and update parameters for an Azure Database for MySQL flexible server by using Azure CLI, the Azure command-line utility. The server parameters are configured with the default and recommended value when you create the server.  
@@ -22,11 +24,14 @@ This article describes how to list, show, and update server parameters by using 
 > Server parameters can be updated globally at the server-level, use the [Azure CLI](./how-to-configure-server-parameters-cli.md) or [Azure portal](./how-to-configure-server-parameters-portal.md)
 
 ## Prerequisites
+
 To step through this how-to guide, you need:
+
 - [An Azure Database for MySQL flexible server](quickstart-create-server-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
 
 ## List server parameters for Azure Database for MySQL flexible server
+
 To list all parameters in a server and their values, run the [az mysql flexible-server parameter list](/cli/azure/mysql/flexible-server/parameter) command.
 
 You can list the server parameters for the server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup**.
@@ -36,6 +41,7 @@ az mysql flexible-server parameter list --resource-group myresourcegroup --serve
 For the definition of each of the listed parameters, see the MySQL reference section on [Server System Variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
 
 ## Show server parameter details
+
 To show details about a particular parameter for a server, run the [az mysql flexible-server parameter show](/cli/azure/mysql/flexible-server/parameter) command.
 
 This example shows details of the **slow\_query\_log** server parameter for server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup.**
@@ -43,6 +49,7 @@ This example shows details of the **slow\_query\_log** server parameter for serv
 az mysql flexible-server parameter show --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
 ## Modify a server parameter value
+
 You can also modify the value of a certain server parameter, which updates the underlying configuration value for the MySQL server engine. To update the server parameter, use the [az mysql flexible-server parameter set](/cli/azure/mysql/flexible-server/parameter) command. 
 
 To update the **slow\_query\_log** server parameter of server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup.**
@@ -57,7 +64,7 @@ This code resets the **slow\_query\_log** to the default value **OFF**.
 
 ## Setting non-modifiable server parameters
 
-If the server parameter you want to update is non-modifiable, you can optionally set the parameter at the connection level using `init_connect`. This sets the server parameters for each client connecting to the server. 
+If the server parameter you want to update is non-modifiable, you can optionally set the parameter at the connection level using `init_connect`. This sets the server parameters for each client connecting to the server.
 
 Update the **init\_connect** server parameter of server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup** to set values such as character set.
 ```azurecli-interactive
@@ -80,7 +87,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> You should restart the server to ensure the time zone tables are properly populated.<!-- fIX me To restart the server, use the [Azure portal](howto-restart-server-portal.md) or [CLI](howto-restart-server-cli.md). -->
+>You should restart the server to ensure the time zone tables are properly populated.<!-- fIX me To restart the server, use the [Azure portal](howto-restart-server-portal.md) or [CLI](howto-restart-server-cli.md). -->
 
 To view available time zone values, run the following command:
 

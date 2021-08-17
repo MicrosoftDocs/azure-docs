@@ -7,6 +7,7 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
+ms.subservice: migration
 
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -149,6 +150,6 @@ To avoid billing charges, remove the SQL Server VM from the vault, and delete an
 For more information, see the following articles: 
 
 * [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [SQL Server on a Windows VM FAQ](frequently-asked-questions-faq.md)
+* [SQL Server on a Windows VM FAQ](frequently-asked-questions-faq.yml)
 * [SQL Server on a Windows VM pricing guidance](pricing-guidance.md)
 * [SQL Server on a Windows VM release notes](doc-changes-updates-release-notes.md)

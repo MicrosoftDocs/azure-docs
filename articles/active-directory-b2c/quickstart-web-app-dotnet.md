@@ -88,7 +88,7 @@ You've successfully used your Azure AD B2C user account to make an authorized ca
 
 ## Clean up resources
 
-You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quickstarts or tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+You can use your Azure AD B2C tenant if you plan to try other Azure AD B2C quickstarts or tutorials. When no longer needed, you can [delete your Azure AD B2C tenant](faq.yml#how-do-i-delete-my-azure-ad-b2c-tenant-).
 
 ## Next steps
 

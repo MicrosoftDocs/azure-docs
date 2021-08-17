@@ -39,7 +39,7 @@ For local server storage, you can list and download slow query logs using the Az
 Azure Monitor Diagnostic Logs allows you to pipe slow query logs to Azure Monitor Logs (Log Analytics), Azure Storage, or Event Hubs. See [below](concepts-server-logs.md#diagnostic-logs) for more information.
 
 ## Local server storage log retention
-When logging to the server's local storage, logs are available for up to seven days from their creation. If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available.
+When logging to the server's local storage, logs are available for up to seven days from their creation. If the total size of the available logs exceeds 7 GB, then the oldest files are deleted until space is available. The 7 GB storage limit for the server logs is available free of cost and cannot be extended. 
 
 Logs are rotated every 24 hours or 7 GB, whichever comes first.
 
@@ -47,7 +47,7 @@ Logs are rotated every 24 hours or 7 GB, whichever comes first.
 > The above log retention does not apply to logs that are piped using Azure Monitor Diagnostic Logs. You can change the retention period for the data sinks being emitted to (ex. Azure Storage).
 
 ## Diagnostic logs
-Azure Database for MariaDB is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MariaDB server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/platform/platform-logs-overview.md).
+Azure Database for MariaDB is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MariaDB server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/essentials/platform-logs-overview.md).
 
 The following table describes what's in each log. Depending on the output method, the fields included and the order in which they appear may vary.
 

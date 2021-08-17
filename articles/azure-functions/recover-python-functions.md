@@ -6,7 +6,7 @@ author: Hazhzeng
 ms.topic: article
 ms.date: 07/29/2020
 ms.author: hazeng
-ms.custom: devx-track-python 
+ms.custom: devx-track-python
 ---
 
 # Troubleshoot Python errors in Azure Functions
@@ -15,6 +15,8 @@ Following is a list of troubleshooting guides for common issues in Python functi
 
 * [ModuleNotFoundError and ImportError](#troubleshoot-modulenotfounderror)
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
+* [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
+* [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
 
 ## Troubleshoot ModuleNotFoundError
 
@@ -22,22 +24,22 @@ This section helps you troubleshoot module-related errors in your Python functio
 
 > `Exception: ModuleNotFoundError: No module named 'module_name'.`
 
-This error issue occurs when a Python function app fails to load a Python module. The root cause for this error is one of the following issues:
+This error occurs when a Python function app fails to load a Python module. The root cause for this error is one of the following issues:
 
-- [The package can't be found](#the-package-cant-be-found)
-- [The package isn't resolved with proper Linux wheel](#the-package-isnt-resolved-with-proper-linux-wheel)
-- [The package is incompatible with the Python interpreter version](#the-package-is-incompatible-with-the-python-interpreter-version)
-- [The package conflicts with other packages](#the-package-conflicts-with-other-packages)
-- [The package only supports Windows or macOS platforms](#the-package-only-supports-windows-or-macos-platforms)
+* [The package can't be found](#the-package-cant-be-found)
+* [The package isn't resolved with proper Linux wheel](#the-package-isnt-resolved-with-proper-linux-wheel)
+* [The package is incompatible with the Python interpreter version](#the-package-is-incompatible-with-the-python-interpreter-version)
+* [The package conflicts with other packages](#the-package-conflicts-with-other-packages)
+* [The package only supports Windows or macOS platforms](#the-package-only-supports-windows-or-macos-platforms)
 
 ### View project files
 
 To identify the actual cause of your issue, you need to get the Python project files that run on your function app. If you don't have the project files on your local computer, you can get them in one of the following ways:
 
-- If the function app has `WEBSITE_RUN_FROM_PACKAGE` app setting and its value is a URL, download the file by copy and paste the URL into your browser.
-- If the function app has `WEBSITE_RUN_FROM_PACKAGE` and it is set to `1`, navigate to `https://<app-name>.scm.azurewebsites.net/api/vfs/data/SitePackages` and download the file from the latest `href` URL.
-- If the function app doesn't have the app setting mentioned above, navigate to `https://<app-name>.scm.azurewebsites.net/api/settings` and find the URL under `SCM_RUN_FROM_PACKAGE`. Download the file by copy and paste the URL into your browser.
-- If none of these works for you, navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and reveal the content under `/home/site/wwwroot`.
+* If the function app has `WEBSITE_RUN_FROM_PACKAGE` app setting and its value is a URL, download the file by copy and paste the URL into your browser.
+* If the function app has `WEBSITE_RUN_FROM_PACKAGE` and it is set to `1`, navigate to `https://<app-name>.scm.azurewebsites.net/api/vfs/data/SitePackages` and download the file from the latest `href` URL.
+* If the function app doesn't have the app setting mentioned above, navigate to `https://<app-name>.scm.azurewebsites.net/api/settings` and find the URL under `SCM_RUN_FROM_PACKAGE`. Download the file by copy and paste the URL into your browser.
+* If none of these works for you, navigate to `https://<app-name>.scm.azurewebsites.net/DebugConsole` and reveal the content under `/home/site/wwwroot`.
 
 The rest of this article helps you troubleshoot potential causes of this error by inspecting your function app's content, identifying the root cause, and resolving the specific issue.
 
@@ -146,7 +148,7 @@ This section helps you troubleshoot 'cygrpc' related errors in your Python funct
 
 > `Cannot import name 'cygrpc' from 'grpc._cython'`
 
-This error issue occurs when a Python function app fails to start with a proper Python interpreter. The root cause for this error is one of the following issues:
+This error occurs when a Python function app fails to start with a proper Python interpreter. The root cause for this error is one of the following issues:
 
 - [The Python interpreter mismatches OS architecture](#the-python-interpreter-mismatches-os-architecture)
 - [The Python interpreter is not supported by Azure Functions Python Worker](#the-python-interpreter-is-not-supported-by-azure-functions-python-worker)
@@ -173,6 +175,42 @@ The Azure Functions Python Worker only supports Python 3.6, 3.7, and 3.8.
 Please check if your Python interpreter matches our expected version by `py --version` in Windows or `python3 --version` in Unix-like systems. Ensure the return result is Python 3.6.x, Python 3.7.x, or Python 3.8.x.
 
 If your Python interpreter version does not meet our expectation, please download the Python 3.6, 3.7, or 3.8 interpreter from [Python Software Foundation](https://python.org/downloads/release).
+
+---
+
+## Troubleshoot Python Exited With Code 137
+
+Code 137 errors are typically caused by out-of-memory issues in your Python function app. As a result, you get the following Azure Functions error message:
+
+> `Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 137`
+
+This error occurs when a Python function app is forced to terminate by the operating system with a SIGKILL signal. This signal usually indicates an out-of-memory error in your Python process. The Azure Functions platform has a [service limitation](functions-scale.md#service-limits) which will terminate any function apps that exceeded this limit.
+
+Please visit the tutorial section in [memory profiling on Python functions](python-memory-profiler-reference.md#memory-profiling-process) to analyze the memory bottleneck in your function app.
+
+---
+
+## Troubleshoot Python Exited With Code 139
+
+This section helps you troubleshoot segmentation fault errors in your Python function app. These errors typically result in the following Azure Functions error message:
+
+> `Microsoft.Azure.WebJobs.Script.Workers.WorkerProcessExitException : python exited with code 139`
+
+This error occurs when a Python function app is forced to terminate by the operating system with a SIGSEGV signal. This signal indicates a memory segmentation violation which can be caused by unexpectedly reading from or writing into a restricted memory region. In the following sections, we provide a list of common root causes.
+
+### A regression from third-party packages
+
+In your function app's requirements.txt, an unpinned package will be upgraded to the latest version in every Azure Functions deployment. Vendors of these packages may introduce regressions in their latest release. To recover from this issue, try commenting out the import statements, disabling the package references, or pinning the package to a previous version in requirements.txt.
+
+### Unpickling from a malformed .pkl file
+
+If your function app is using the Python pickel library to load Python object from .pkl file, it is possible that the .pkl contains malformed bytes string, or invalid address reference in it. To recover from this issue, try commenting out the pickle.load() function.
+
+### Pyodbc connection collision
+
+If your function app is using the popular ODBC database driver [pyodbc](https://github.com/mkleehammer/pyodbc), it is possible that multiple connections are opened within a single function app. To avoid this issue, please use the singleton pattern and ensure only one pyodbc connection is used across the function app.
+
+---
 
 ## Next steps
 

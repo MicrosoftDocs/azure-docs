@@ -24,6 +24,11 @@ landingContent:
         links:
           - text: What is Private Link?
             url: private-link-overview.md
+      - linkListType: video
+        links:
+          - text: Secure Azure PaaS resources using Private Link
+            url: https://www.youtube.com/watch?v=AZ0iFcyPDkc
+
 
   # Card (optional)
   - title: Connect to an Azure service

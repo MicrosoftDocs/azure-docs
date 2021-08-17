@@ -79,11 +79,11 @@ The Cognitive Services for Big Data requires Apache Spark. There are several Apa
 
 ### Azure Synapse Analytics
 
-[Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics) (formerly SQL Data Warehouse) is as enterprise data warehouse that uses massive parallel processing. With Synapse Analytics, you can quickly run complex queries across petabytes of data. Azure Synapse Analytics provides managed Spark Pools to run Spark Jobs with an intuitive Jupyter Notebook Interface.
+[Azure Synapse Analytics](/azure/databricks/data/data-sources/azure/synapse-analytics) is as enterprise data warehouse that uses massive parallel processing. With Synapse Analytics, you can quickly run complex queries across petabytes of data. Azure Synapse Analytics provides managed Spark Pools to run Spark Jobs with an intuitive Jupyter Notebook Interface.
 
 ### Azure Kubernetes Service
 
-[Azure Kubernetes Service (AKS)](../../aks/index.yml) orchestrates Docker Containers and distributed applications at massive scales. AKS is a managed Kubernetes offering that simplifies using Kubernetes in Azure. Kubernetes can enable fine-grained control of Cognitive Service scale, latency, and networking. However, we recommend using Azure Databricks or Synapse Analytics if you're unfamiliar with Apache Spark.
+[Azure Kubernetes Service (AKS)](../../aks/index.yml) orchestrates Docker Containers and distributed applications at massive scales. AKS is a managed Kubernetes offering that simplifies using Kubernetes in Azure. Kubernetes can enable fine-grained control of Cognitive Service scale, latency, and networking. However, we recommend using Azure Databricks or Azure Synapse Analytics if you're unfamiliar with Apache Spark.
 
 ### Data Connectors
 
