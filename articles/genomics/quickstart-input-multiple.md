@@ -6,7 +6,7 @@ services: genomics
 ms.service: genomics
 author: vigunase
 manager: cgronlund
-ms.author: grhuynh
+ms.author: vigunase
 ms.topic: conceptual
 ms.date: 02/05/2018
 

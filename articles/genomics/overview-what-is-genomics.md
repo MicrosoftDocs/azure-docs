@@ -5,7 +5,7 @@ description: Learn how Microsoft Genomics can power genome sequencing, using a c
 services: genomics
 author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: overview
 ms.date: 12/07/2017

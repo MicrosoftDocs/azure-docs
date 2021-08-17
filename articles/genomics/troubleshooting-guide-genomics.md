@@ -5,7 +5,7 @@ description: Learn about troubleshooting strategies for using Microsoft Genomics
 keywords: troubleshooting, error, debugging
 services: genomics
 author: vigunase
-ms.author: ruchir
+ms.author: vigunase
 ms.service: genomics
 ms.workload: genomics
 ms.topic: troubleshooting

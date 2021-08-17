@@ -5,7 +5,7 @@ description: This article demonstrates how to submit a workflow to the Microsoft
 services: genomics
 author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018

@@ -6,7 +6,7 @@ keywords: troubleshooting, error, debugging, support
 services: genomics
 author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018

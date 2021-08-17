@@ -4,7 +4,7 @@ description: The quickstart shows how to load input data into Azure Blob Storage
 services: genomics
 author: vigunase
 manager: cgronlun
-ms.author: grhuynh
+ms.author: vigunase
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
