@@ -134,7 +134,8 @@ Required authorizations are listed by log type. You only need the authorizations
 
 For more information, see:
 
-- [Tutorial: Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
-- [Deploy the Azure Sentinel SAP data connector on-premises](sap-solution-deploy-alternate.md)
+- [Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
+- [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: available security content](sap-solution-security-content.md)
+- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

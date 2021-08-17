@@ -57,10 +57,10 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2116601) | 15a94b637a39c53ac91a2d8b21cc3cca8905187e4d9fb4d895f4fa6fd2f30b9f
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2116601) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
 
 > [!NOTE]
-> The same script can be used to set up VMware appliance for either Azure public or Azure Government cloud with public or private endpoint connectivity.
+> The same script can be used to set up VMware appliance for either Azure public or Azure Government cloud.
 
 ### Run the script
 
@@ -114,10 +114,10 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2116657) | 15a94b637a39c53ac91a2d8b21cc3cca8905187e4d9fb4d895f4fa6fd2f30b9f
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2116657) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
 
 > [!NOTE]
-> The same script can be used to set up Hyper-V appliance for either Azure public or Azure Government cloud with public or private endpoint connectivity.
+> The same script can be used to set up Hyper-V appliance for either Azure public or Azure Government cloud.
 
 ### Run the script
 

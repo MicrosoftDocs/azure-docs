@@ -34,11 +34,11 @@ The following table shows how each Blob storage feature is supported with Data L
 |Archive Access Tier|Generally available|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
 |Lifecycle management policies (tiering)|Generally available|Not yet supported|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Lifecycle management policies (delete blob)|Generally available|Generally available|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
+|Container soft delete|Generally available|Generally available|[Soft delete for containers](soft-delete-container-overview.md)|
 |Logging in Azure Monitor|Preview |Preview|[Monitoring Azure Storage](./monitor-blob-storage.md)|
 |Snapshots|Preview|Preview|[Blob snapshots](snapshots-overview.md)|
 |Static websites|Generally Available<div role="complementary" aria-labelledby="preview-form"></div>|Generally Available<div role="complementary" aria-labelledby="preview-form"></div>|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
 |Immutable storage|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Store business-critical blob data with immutable storage](immutable-storage-overview.md)|
-|Container soft delete|Preview|Preview|[Soft delete for containers](soft-delete-container-overview.md)|
 |Azure Storage inventory|Preview|Preview|[Use Azure Storage inventory to manage blob data (preview)](blob-inventory.md)|
 |Custom domains|Preview<div role="complementary" aria-labelledby="preview-form-1"><sup>1</sup></div>|Preview<div role="complementary" aria-labelledby="preview-form-1"><sup>1</sup></div>|[Map a custom domain to an Azure Blob storage endpoint](storage-custom-domain-name.md)|
 |Blob soft delete|Preview|Preview|[Soft delete for blobs](./soft-delete-blob-overview.md)|

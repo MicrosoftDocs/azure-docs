@@ -14,7 +14,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/21/2021
+ms.date: 07/30/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -131,9 +131,8 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
             "riskState":"none",
             "riskEventTypes":[],
             "resourceDisplayName":"windows azure service management api",
-            "resourceId":"797f4846-ba00-4fd7-ba43-dac1f8f63013",
-            "authenticationMethodsUsed":[]
-        }
+            "resourceId":"797f4846-ba00-4fd7-ba43-dac1f8f63013"
+         }
 }
 ```
 
@@ -165,6 +164,8 @@ This article describes the Azure Active Directory (Azure AD) sign-in log schema 
 | Level | - | Provides the type of message. For audit, it's always *Informational*. |
 | Location | - | Provides the location of the sign-in activity. |
 | Properties | - | Lists all the properties that are associated with sign-ins.|
+
+
 
 ## Next steps
 

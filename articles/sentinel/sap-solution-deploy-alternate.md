@@ -361,3 +361,4 @@ For more information, see:
 - [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: security content reference](sap-solution-security-content.md)
+- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

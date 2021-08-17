@@ -190,13 +190,13 @@ Next, add environment variables in the function app's settings that allow it to 
 Use the **twins hub primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains the twins hub connection string:
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-twins-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-App-Service-function-app-name>
+az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-twins-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-function-app-name>
 ```
 
 Use the **time series hub primaryConnectionString** value that you saved earlier to create an app setting in your function app that contains the time series hub connection string:
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-time-series-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-App-Service-function-app-name>
+az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-time-series-hub-primaryConnectionString>" --resource-group <your-resource-group> --name <your-function-app-name>
 ```
 
 ## Create and connect a Time Series Insights instance

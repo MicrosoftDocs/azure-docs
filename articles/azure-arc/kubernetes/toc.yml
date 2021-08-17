@@ -4,7 +4,7 @@
   items:
   - name: About Azure Arc-enabled Kubernetes
     href: overview.md
-  - name: Azure Arc validation program
+  - name: Azure Arc validated partners
     href: validation-program.md
 - name: Quickstarts
   items:
