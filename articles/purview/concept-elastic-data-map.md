@@ -16,15 +16,15 @@ Azure Purview Data Map provides the foundation for data discovery and data gover
 
 ## Elastic data map
 
-All Azure Purview accounts have a Data Map that can elastically grow starting at one capacity unit. They scale up and down based on request load within the elasticity window ([check current limits](how-to-manage-quotas.md)). If you're working with very large datasets in a massive environment and require higher capacity, you can request an increase in quota with a larger capacity of elasticity window by completing the [survey here](https://aka.ms/PurviewProdSurvey).
+All Azure Purview accounts have a Data Map that can elastically grow starting at one capacity unit. They scale up and down based on request load within the elasticity window ([check current limits](how-to-manage-quotas.md)). If you're working with very large datasets or a massive environment and need higher capacity, you can request a larger capacity of elasticity window by completing the [survey here](https://aka.ms/PurviewProdSurvey).
 
 ## Data map capacity unit
 
-Elastic Data Map comes with operation throughput and storage components that are represented as Capacity Unit (CU). All Azure Purview accounts, by default, come with one capacity unit and elastically grow based on usage. Each Data Map capacity unit includes a throughput of 25 operations/sec and 2GB of metadata storage limit.  
+Elastic Data Map comes with operation throughput and storage components that are represented as Capacity Unit (CU). All Azure Purview accounts, by default, come with one capacity unit and elastically grow based on usage. Each Data Map capacity unit includes a throughput of 25 operations/sec and 2 GB of metadata storage limit.  
 
 ### Operations
 
-Operations are the throughput measure of the Purview Data Map and they include the Create, Read, Write, Update, and Delete operations on metadata stored in the Data Map. Some examples of operations are listed below:
+Operations are the throughput measure of the Purview Data Map. They include the Create, Read, Write, Update, and Delete operations on metadata stored in the Data Map. Some examples of operations are listed below:
 
 - Create an asset in Data Map
 - Add a relationship to an asset such as owner, steward, parent, lineage, etc.
@@ -35,11 +35,11 @@ Operations are the throughput measure of the Purview Data Map and they include t
 
 Storage is the second component of Data Map and includes technical, business, operational, and semantic metadata.
 
-The technical metadata includes schema, data type, columns, and so on that are automatically discovered from Purview [scanning](concept-scans-and-ingestion.md). The business metadata includes automated (for example, promoted from Power BI datasets, or descriptions from SQL tables) and manual tagging of descriptions, glossary terms, and so on. Examples of semantic metadata includes the collection mapping to data sources, or classifications. The operational metadata includes Data factory copy and data flow activity run status, and run time.
+The technical metadata includes schema, data type, columns, and so on, that are discovered from Purview [scanning](concept-scans-and-ingestion.md). The business metadata includes automated (for example, promoted from Power BI datasets, or descriptions from SQL tables) and manual tagging of descriptions, glossary terms, and so on. Examples of semantic metadata include the collection mapping to data sources, or classifications. The operational metadata includes Data factory copy and data flow activity run status, and runs time.
 
 ## Working with elastic data map
 
-- **Elastic Data Map with auto-scale** – you will start with a Data Map as low as one capacity unit that can autoscale based on load. For most organizations, this feature will lead to increased savings and a lower price point for starting with data governance projects. This feature will impact pricing.
+- **Elastic Data Map with auto-scale** – you'll start with a Data Map as low as one capacity unit that can autoscale based on load. For most organizations, this feature will lead to increased savings and a lower price point for starting data governance projects. This feature will impact pricing.
 
 - **Enhanced scanning & ingestion** – you can track and control the population of the data assets, and classification and lineage across both the scanning and ingestion processes. This feature will impact pricing.
 
@@ -47,15 +47,15 @@ The technical metadata includes schema, data type, columns, and so on that are a
 
 ## Scenario
 
-Claudia is an Azure admin at Contoso who wants to provision a new Azure Purview account from Azure portal. While provisioning, she doesn’t know the required size of Purview DataMap to support the future state of the platform. However, she knows that the Purview Data Map is billed by Capacity Units that has a storage and operations throughput component. She wants to provision the smallest Data Map to keep the cost low and grow the Data Map size elastically based on consumption.  
+Claudia is an Azure admin at Contoso who wants to provision a new Azure Purview account from Azure portal. While provisioning, she doesn’t know the required size of Purview DataMap to support the future state of the platform. However, she knows that the Purview Data Map is billed by Capacity Units, which is affected by storage and operations throughput. She wants to provision the smallest Data Map to keep the cost low and grow the Data Map size elastically based on consumption.  
 
-With few clicks Claudia can create a Purview account with the default Data Map size of 1 capacity unit that can automatically scale up and down. The auto-scaling feature also allows for capacity to be tuned based on intermittent or planned data bursts during specific periods. Claudia follows the next steps in provisioning experience to set up network configuration and completes the provisioning.  
+Claudia can create a Purview account with the default Data Map size of 1 capacity unit that can automatically scale up and down. The autoscaling feature also allows for capacity to be tuned based on intermittent or planned data bursts during specific periods. Claudia follows the next steps in provisioning experience to set up network configuration and completes the provisioning.  
 
 In the Azure monitor metrics page, Claudia can see the consumption of the Data Map storage and operations throughput. She can further set up an alert when the storage or operations throughput reaches a certain limit to monitor the consumption and billing of the new Purview account.  
 
 ## Data map billing
 
-Customers are at minimum billed for one capacity unit (25 ops/sec and 2GB) and extra billing is based on the consumption of each extra capacity unit rolled up to the hour. The DataMap operations scale in the increments of 25 operations/sec and metadata storage scales in the increments of 2GB size. Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). However, to get the next level of elasticity window, support ticket needs to be created.
+Customers are billed for one capacity unit (25 ops/sec and 2 GB) and extra billing is based on the consumption of each extra capacity unit rolled up to the hour. The DataMap operations scale in the increments of 25 operations/sec and metadata storage scales in the increments of 2 GB size. Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). However, to get the next level of elasticity window, support ticket needs to be created.
 
 Data Map Capacity unit comes with a cap on operations throughput and storage. If storage exceeds the current capacity unit, customers are charged for the next capacity unit even if the operations throughput isn't used. The below table shows the Data Map capacity unit ranges. Contact support if the Data Map capacity unit goes beyond 100 capacity unit.
 
@@ -76,23 +76,23 @@ Data Map Capacity unit comes with a cap on operations throughput and storage. If
 
 ### Billing examples
 
-- Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 1GB. Customers are billed for one capacity unit.
+- Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 1 GB. Customers are billed for one capacity unit.
 
-- Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 3GB. Customers are billed for two capacity unit.
+- Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 3 GB. Customers are billed for two capacity unit.
 
-- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 1GB. Customers are billed for two capacity unit.
+- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 1 GB. Customers are billed for two capacity unit.
 
-- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 5GB. Customers are billed for three capacity unit.
+- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 5 GB. Customers are billed for three capacity unit.
 
-- Purview Data Map’s operation throughput for the given hour is 250 Ops/Sec and storage size is 5GB. Customers are billed for 10 capacity unit
+- Purview Data Map’s operation throughput for the given hour is 250 Ops/Sec and storage size is 5 GB. Customers are billed for 10 capacity unit
 
 ### Detailed billing example
 
-The Data Map billing example below shows a Data Map with growing metadata storage and variable operations per second consumption over a six-hour window from 12 PM to 6 PM. The red line in the graph below is operations per second consumption and the blue dotted line is metadata storage consumption over this six-hour window: 
+The Data Map billing example below shows a Data Map with growing metadata storage and variable operations per second over a six-hour window from 12 PM to 6 PM. The red line in the graph is operations per second consumption, and the blue dotted line is metadata storage consumption over this six-hour window:
 
 :::image type="content" source="./media/concept-elastic-data-map/operations-and-metadata.png" alt-text="Chart depicting number of operations and growth of metadata over time.":::
 
-Each Data Map capacity unit supports 25 operations/second and 2GB of metadata storage. The Data Map is billed on an hourly basis. You are billed for the maximum Data Map capacity unit needed within the hour. At times, you may need more operations/second within the hour, and this will increase the number of capacity units needed within that hour. At other times, your operations/second usage may be low, but you may still need a large volume of metadata storage. In this case, the metadata storage is what determines how many capacity units you need within the hour.
+Each Data Map capacity unit supports 25 operations/second and 2GB of metadata storage. The Data Map is billed on an hourly basis. You are billed for the maximum Data Map capacity unit needed within the hour. At times, you may need more operations/second within the hour, and this will increase the number of capacity units needed within that hour. At other times, your operations/second usage may be low, but you may still need a large volume of metadata storage. The metadata storage is what determines how many capacity units you need within the hour.
 
 The table below shows the maximum number of operations/second and metadata storage used per hour for this billing example: 
 
@@ -108,7 +108,7 @@ Based on the Data Map operations/second and metadata storage consumption in this
 ## Summary
 
 With elastic Data Map, Purview provides low-cost barrier for customers to start their data governance journey.
-Purview DataMap can grow elastically with pay as you go model starting from as small as 1 Capacity unit  
+Purview DataMap can grow elastically with pay as you go model starting from as small as 1 Capacity unit.
 Customers don’t need to worry about choosing the correct Data Map size for their data estate at provision time and deal with platform migrations in the future due to size limits.
 
 ## Next Steps
