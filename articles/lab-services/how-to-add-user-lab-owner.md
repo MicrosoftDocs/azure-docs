@@ -14,14 +14,19 @@ This article shows you how you, as an administrator, can add additional owners t
 2. Select the **lab** to which you want to add user as an owner. 
 
     ![Select the lab ](./media/how-to-add-user-lab-owner/select-lab.png)  
-3. On the **Lab** page, select **Access control (IAM)** on the left menu.
-4. On the **Access control (IAM)** page, select **Add** on the toolbar, and the select **Add role assignment**.
-5. On the **Add a role assignment** page, do the following steps: 
-    1. Select **READER** for the **role**. 
-    2. Select the user. 
-    3. Select **Save**. 
-    
-![Reader lab role ](./media/how-to-add-user-lab-owner/reader-lab-account.png)
+1. In the navigation menu, select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment (Preview)**.
+
+    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. On the **Role** tab, select the **Reader** role.
+
+    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. On the **Members** tab, select the user you want to add to the Reader role.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 ## Add user to the owner role for the lab
 
 > [!NOTE]
