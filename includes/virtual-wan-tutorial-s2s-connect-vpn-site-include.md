@@ -12,7 +12,7 @@ ms.topic: include
 
    Complete the following fields:
 
-   * **Pre-shared key (PSK)**: Enter a pre-shared key. If you don't enter a key, Azure autogenerates one for you.
+   * **Pre-shared key (PSK)**: Enter the pre-shared key used by your VPN device. If you don't enter a key, Azure autogenerates one for you. You would then use that key when configuring your VPN device.
    * **Protocol and IPsec**: You can either leave the default settings for Protocol (IKEv2) and IPsec (Default), or you can configure custom settings. For more information, see [default/custom IPsec](../articles/virtual-wan/virtual-wan-ipsec.md).
    * **Propagate Default Route**: Only change this setting to **Enable** if you know you want to propagate the default route. Otherwise, leave it as **Disable**. You can always modify this setting later. 
    

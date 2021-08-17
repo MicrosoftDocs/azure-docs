@@ -18,13 +18,13 @@ In this tutorial you learn how to:
 > [!div class="checklist"]
 > * Create a virtual WAN
 > * Create a hub
-> * Create a Site-to-Site VPN gateway
+> * Create a site-to-site VPN gateway
 > * Create a site
 > * Connect a site to a hub
 > * Connect a VPN site to a hub
 > * Connect a VNet to a hub
 > * Download a configuration file
-> * Configure your VPN gateway
+> * View or edit your VPN gateway
 
 > [!NOTE]
 > If you have many sites, you typically would use a [Virtual WAN partner](https://aka.ms/virtualwan) to create this configuration. However, you can create this configuration yourself if you are comfortable with networking and proficient at configuring your own VPN device.
@@ -50,7 +50,7 @@ A hub is a virtual network that can contain gateways for site-to-site, ExpressRo
 
 ## <a name="gateway"></a>Create a site-to-site VPN gateway
 
-In this step, you configure site-to-site connectivity settings, and then proceed to create the hub and S2S VPN gateway in one step. A hub and gateway can take about 30 minutes to create.
+In this step, you configure site-to-site connectivity settings, and then proceed to create the hub and S2S VPN gateway. A hub and gateway can take about 30 minutes to create.
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
@@ -77,9 +77,12 @@ In this section, you create a connection between your hub and VNet.
 Use the VPN device configuration to configure your on-premises VPN device.
 
 1. On the page for your virtual WAN, click **Overview**.
-2. At the top of the **Hub ->VPNSite** page, click **Download VPN config**. Azure creates a storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN. After you have applied the configuration to your VPN devices, you can delete this storage account.
-3. Once the file has finished creating, you can click the link to download it.
-4. Apply the configuration to your on-premises VPN device.
+
+1. At the top of the **Hub ->VPNSite** page, click **Download VPN config**. Azure creates a storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN. After you have applied the configuration to your VPN devices, you can delete this storage account.
+
+1. Once the file has finished creating, you can click the link to download it.
+
+1. Apply the configuration to your on-premises VPN device.
 
 ### About the VPN device configuration file
 
@@ -219,23 +222,26 @@ The device configuration file contains the settings to use when configuring your
 
 If you need instructions to configure your device, you can use the instructions on the [VPN device configuration scripts page](~/articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#configscripts) with the following caveats:
 
-* The instructions on the VPN devices page are not written for Virtual WAN, but you can use the Virtual WAN values from the configuration file to manually configure your VPN device. 
+* The instructions on the VPN devices page are not written for Virtual WAN, but you can use the Virtual WAN values from the configuration file to manually configure your VPN device.
+ 
 * The downloadable device configuration scripts that are for VPN Gateway do not work for Virtual WAN, as the configuration is different.
+
 * A new Virtual WAN can support both IKEv1 and IKEv2.
+
 * Virtual WAN can use both policy based and route-based VPN devices and device instructions.
 
-## <a name="gateway-config"></a>Configure your VPN gateway
+## <a name="gateway-config"></a>View or edit gateway settings
 
-You can view and configure your VPN gateway settings at any time by selecting **View/Configure**.
+You can view and edit your VPN gateway settings at any time by navigating to **Virtual HUB -> VPN (Site to site)** and selecting **View/Configure**.
 
 :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Screenshot that shows the 'VPN (Site-to-site)' page with an arrow pointing to the 'View/Configure' action." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
 On the **Edit VPN Gateway** page, you can see the following settings:
 
-* VPN Gateway Public IP address (assigned by Azure)
-* VPN Gateway Private IP address (assigned by Azure)
-* VPN Gateway Default BGP IP address (assigned by Azure)
-* Configuration option for Custom BGP IP Address: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*. Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP.
+* **Public IP Address**: Assigned by Azure.
+* **Private IP Address**: Assigned by Azure.
+* **Default BGP IP Address**: Assigned by Azure.
+* **Custom BGP IP Address**: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*. Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP.
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Screenshot shows the Edit VPN Gateway page with the Edit button highlighted." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
