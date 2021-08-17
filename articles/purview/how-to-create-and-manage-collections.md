@@ -104,6 +104,8 @@ All assigned roles apply to sources, assets, and other objects within the collec
 
 Collection permissions are inherited automatically from the parent collection. For example, any permissions on the root collection (the collection at the top of the list that has the same name as your Purview resource), will be inherited by all collections below it. You can restrict inheritance from a parent collection at any time, using the restrict inherited permissions option.
 
+Once you restrict inheritance, you will need to add users directly to the restricted collection to grant them access.
+
 1. Navigate to the collection where you want to restrict inheritance and select the 'Role assignments' tab.
 1. Select “Restrict inherited permissions” and click “Restrict access” in the popup dialog to remove inherited permissions from this collection and any subcollections. Note that collection admin permissions won’t be affected.
 :::image type="content" source="./media/how-to-create-and-manage-collections/restrict-access-inheritance.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab selected, and the restrict inherited permissions slide button highlighted." border="true":::
