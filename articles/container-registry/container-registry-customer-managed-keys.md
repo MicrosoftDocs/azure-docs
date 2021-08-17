@@ -106,7 +106,7 @@ For use in later steps, get the resource ID of the key vault:
 keyvaultID=$(az keyvault show --resource-group <resource-group-name> --name <key-vault-name> --query 'id' --output tsv)
 ```
 
-#### Enable key vault access by trusted services
+### Enable key vault access by trusted services
 
 If the key vault is protected with a Key Vault firewall, enable the setting to allow access by trusted Azure services. For more information, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-cli).
 
