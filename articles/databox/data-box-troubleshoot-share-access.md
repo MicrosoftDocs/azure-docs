@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/16/2021
+ms.date: 08/17/2021
 ms.author: alkohli
 ---
 
@@ -23,8 +23,6 @@ The most common reasons for being unable to connect to a share on your device ar
 - [a permissions issue](#check-for-permissions-issues)
 
 ## Check for a domain issue
-
-*MAYA: What are they actually checking for? Is this actually a domain issue?* 
 
 To find out whether a domain issue is preventing a share connection:
 
