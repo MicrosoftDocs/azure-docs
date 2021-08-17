@@ -11,11 +11,6 @@ ms.author: duau
 
 # Azure Route Server (Preview) FAQ
 
-> [!IMPORTANT]
-> Azure Route Server (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## What is Azure Route Server?
 
 Azure Route Server is a fully managed service that allows you to easily manage routing between your network virtual appliance (NVA) and your virtual network.
