@@ -148,7 +148,9 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
 ## Control access to an SMB volume  
 
-Access to an SMB volume is managed through permissions. This section describes NTFS file and folder permissions.  
+Access to an SMB volume is managed through permissions. 
+
+### NTFS file and folder permissions  
 
 You can set permissions for a file or folder by using the **Security** tab of the object's properties in the Windows SMB client.
  
