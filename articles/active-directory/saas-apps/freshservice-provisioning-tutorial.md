@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Freshservice Provisioning for automatic user provisi
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Freshservice Provisioning.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: e03ec65a-25ef-4c91-a364-36b2f007443c
@@ -13,9 +13,9 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/09/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Freshservice Provisioning for automatic user provisioning
