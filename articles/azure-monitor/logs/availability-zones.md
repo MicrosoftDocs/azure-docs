@@ -30,7 +30,7 @@ Not all dedicated clusters can use availability zones. Dedicated clusters create
 > Application Insights resources can use availability zones only if they are workspace-based and the workspace uses a dedicated cluster. Classic Application Insights resources cannot use availability zones.
 
 
-## Determine current cluser for your workspace
+## Determine current cluster for your workspace
 To determine the current workspace link status for your workspace, use [CLI, PowerShell or REST](logs-dedicated-clusters.md#check-workspace-link-status) to retrieve the [cluster details](logs-dedicated-clusters.md#check-cluster-provisioning-status). If the cluster uses an availability zone, then it will have a property called `isAvailabilityZonesEnabled` with a value of `true`. Once a cluster is created, this property cannot be altered.
 
 ## Create dedicated cluster with availability zone
