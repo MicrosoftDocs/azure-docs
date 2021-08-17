@@ -59,7 +59,30 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         ```bash
         func new -n index -t HttpTrigger
         ```
-        
+        Open `index/function.json` and copy the following json codes:
+
+        ```json
+        {
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "methods": [
+                "get",
+                "post"
+              ]
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            }
+          ]
+        }
+        ```
+
         Open `index/__init__.py` and copy the following codes.
 
         ```javascript
@@ -86,7 +109,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
           "scriptFile": "__init__.py",
           "bindings": [
             {
-              "authLevel": "function",
+              "authLevel": "anonymous",
               "type": "httpTrigger",
               "direction": "in",
               "name": "req",
@@ -127,9 +150,9 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         # install requests
         pip install requests
         ```
-    
+
         Open `broadcast/function.json` and copy the following codes.
-    
+
         ```json
         {
           "scriptFile": "__init__.py",
@@ -171,7 +194,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
             }))
         ```
 
-3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `index` function, create a new file `index.html` in `content` directory. And copy the following content.
+3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `index` function, create a new file `index.html` in `content` directory under your project root folder. And copy the following content.
 
     ```html
     <html>
@@ -205,11 +228,11 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
         ![Search for the SignalR Service instance](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-    1. Select **Keys** to view the connection strings for the SignalR Service instance.
+    2. Select **Keys** to view the connection strings for the SignalR Service instance.
     
         ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. Copy the primary connection string. And execute the command below.
+    3. Copy the primary connection string. And execute the command below.
     
         ```bash
         func settings add AzureSignalRConnectionString '<signalr-connection-string>'

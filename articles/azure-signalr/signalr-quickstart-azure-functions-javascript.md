@@ -60,7 +60,30 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         ```bash
         func new -n index -t HttpTrigger
         ```
-        
+        Open `index/function.json` and copy the following json codes:
+
+        ```json
+        {
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "methods": [
+                "get",
+                "post"
+              ]
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            }
+          ]
+        }
+        ```
+
         Open `index/index.js` and copy the following codes.
 
         ```javascript
@@ -185,7 +208,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         }    
         ```
 
-3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `index` function, create a new file `index.html` in `content` directory. And copy the following content.
+3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `index` function, create a new file `index.html` in `content` directory under your project root folder. And copy the following content.
 
     ```html
     <html>
