@@ -37,7 +37,7 @@ Storage is the second component of Data Map and includes technical, business, op
 
 The technical metadata includes schema, data type, columns, and so on, that are discovered from Purview [scanning](concept-scans-and-ingestion.md). The business metadata includes automated (for example, promoted from Power BI datasets, or descriptions from SQL tables) and manual tagging of descriptions, glossary terms, and so on. Examples of semantic metadata include the collection mapping to data sources, or classifications. The operational metadata includes Data factory copy and data flow activity run status, and runs time.
 
-## Working with elastic data map
+## Work with elastic data map
 
 - **Elastic Data Map with auto-scale** – you'll start with a Data Map as low as one capacity unit that can autoscale based on load. For most organizations, this feature will lead to increased savings and a lower price point for starting data governance projects. This feature will impact pricing.
 
