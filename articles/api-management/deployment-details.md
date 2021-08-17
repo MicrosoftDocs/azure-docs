@@ -99,7 +99,7 @@ We also define who can access each product in the [/templates/apimmonetization-p
 - Pro
 - Enterprise
 
-Since the *Admin* product is only used internally for communication between services, The only product for which this is not true is the `Admin` product. This is purely used internally for communication between services, so we don't want to expose this as a product which consumers are able to sign up for and use.
+Since the *Admin* product is only used internally for communication between services, we don't want to expose it as a product available for consumer sign-up and use.
 
 ### APIs
 
@@ -120,7 +120,7 @@ Each of these APIs and products:
 
 #### Address API
 
-Address APIs are external APIs. Consumers can only subscribe to address APIs, using a set of differently-priced products. 
+Address APIs are external APIs. Consumers can only subscribe to address APIs, using a set of differently priced products. 
 
 We provided consumers access to an example address API via API Management and Stripe. In your own solution, replace the example API with the APIs to which your consumers will subscribe. In our example, a subscriber can post an address to the API, which will then be validated.
 
