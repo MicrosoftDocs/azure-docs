@@ -69,7 +69,7 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
 Many Azure Batch technologies which access other Azure resources, such as Azure Storage or Azure Container Registries, support using Managed Identities.
 Please refer to the following for more information on using Managed Identity with Azure Batch:
 
-- [Resource Files](../path/to/file.md)
+- [Resource Files](resource-files.md)
 - [Output Files](../path/to/file.md)
 - [Azure Container Registries](batch-docker-container-workloads.md#managed-identity-support-for-acr)
 - [Azure Blob Container Filesystem](virtual-file-mount.md#azure-blob-container)

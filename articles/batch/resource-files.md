@@ -30,6 +30,9 @@ Using a storage container URL means, with the correct permissions, you can acces
 
 In this C# example, the files have already been uploaded to an Azure storage container as blob storage. To access the data needed to create a resource file, we first need to get access to the storage container.
 
+
+#### Shared Access Signature
+
 Create a shared access signature (SAS) URI with the correct permissions to access the storage container. Set the expiration time and permissions for the SAS. In this case, no start time is specified, so the SAS becomes valid immediately and expires two hours after it's generated.
 
 ```csharp
@@ -60,7 +63,19 @@ If desired, you can use the [blobPrefix](/dotnet/api/microsoft.azure.batch.resou
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl, blobPrefix = yourPrefix);
 ```
 
-An alternative to generating a SAS URL is to enable anonymous, public read-access to a container and its blobs in Azure Blob storage. By doing so, you can grant read-only access to these resources without sharing your account key, and without requiring a SAS. Public read-access is typically used for scenarios where you want certain blobs to be always available for anonymous read-access. If this scenario suits your solution, see the [Anonymous access to blobs](../storage/blobs/anonymous-read-access-configure.md) article to learn more about managing access to your blob data.
+#### Managed Identity
+
+Create a User Assigned Managed Identity and assign it the `Storage Blob Data Reader` role for your Azure Storage container. Next, [assign the managed identity to your pool](managed-identity-pools.md) so that your VMs can access the identity. Finally, you can access the files in your container by specifying the identity for Batch to use.
+
+```csharp
+CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+
+ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(container.Uri, identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name" });
+```
+
+#### Public Access
+
+An alternative to generating a SAS URL or using a Managed Identity is to enable anonymous, public read-access to a container and its blobs in Azure Blob storage. By doing so, you can grant read-only access to these resources without sharing your account key, and without requiring a SAS. Public read-access is typically used for scenarios where you want certain blobs to be always available for anonymous read-access. If this scenario suits your solution, see the [Anonymous access to blobs](../storage/blobs/anonymous-read-access-configure.md) article to learn more about managing access to your blob data.
 
 ### Storage container name (autostorage)
 
@@ -94,6 +109,19 @@ You can also use a string that you define as a URL (or a combination of strings 
 
 ```csharp
 ResourceFile inputFile = ResourceFile.FromUrl(yourDomain + yourFile, filePath);
+```
+
+If your file is in Azure Storage, you can use a Managed Identity instead of generating a Shared Access Signature for the resource file.
+
+```csharp
+ResourceFile inputFile = ResourceFile.FromUrl(yourURLFromAzureStorage, 
+    identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name"},
+    filePath: filepath
+);
+```
+
+> [!Note]
+> Managed Identity authentication will only work with files in Azure Storage. The Managed Identity needs the `Storage Blob Data Reader` role assignment for the container the file is in and it must also be [assigned to the Batch pool](managed-identity-pools.md).
 ```
 
 ## Tips and suggestions
