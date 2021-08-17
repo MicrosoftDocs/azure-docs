@@ -28,7 +28,7 @@ This article assumes you have an Azure subscription and speech resource, and als
 Language identification currently has a limit of **four languages** for single-shot recognition, and **10 languages** for continuous recognition. Keep this limitation in mind when constructing your `AutoDetectSourceLanguageConfig` object. In the samples below, you use `AutoDetectSourceLanguageConfig` to define a list of possible languages that you want to identify, and then reference those languages when running speech recognition.
 
 > [!IMPORTANT]
-> Continuous language identification is currently in **preview** and only supported in C# and C++.
+> Continuous language identification is only supported in C#, C++, and Python.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -150,14 +150,11 @@ using (var audioInput = AudioConfig.FromWavFileInput(@"path-to-your-audio-file.w
 ```
 
 > [!NOTE]
-> `Latency` and `Accuracy` modes, and multilingual continuous recognition, are currently only supported in C# and C++.
+> `Latency` and `Accuracy` modes, and multilingual continuous recognition, are currently only supported in C#, C++, and Python.
  
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-
-> [!IMPORTANT]
-> This feature as shown below is currently in **preview**.
 
 The following example runs single-shot recognition, prioritizing `Latency`. This property can also be set to `Accuracy` depending on the priority for your use-case. `Latency` is the best option to use if you need a low-latency result (e.g. for a live streaming case), but don't know the language in the audio sample. 
 
@@ -260,7 +257,7 @@ recognizer->StopContinuousRecognitionAsync().get();
 ```
 
 > [!NOTE]
-> `Latency` and `Accuracy` modes, and multilingual continuous recognition, are currently only supported in C# and C++.
+> `Latency` and `Accuracy` modes, and multilingual continuous recognition, are currently only supported in C#, C++, and Python.
 
 ::: zone-end
 
@@ -401,22 +398,22 @@ See the [sample on GitHub](https://github.com/Azure-Samples/cognitive-services-s
 
 ::: zone pivot="programming-language-java"
 > [!IMPORTANT]
-> This feature is currently only supported in C# and C++.
+> This feature is currently only supported in C#, C++, and Python.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 > [!IMPORTANT]
-> This feature is currently only supported in C# and C++.
+> This feature is currently only supported in C#, C++, and Python.
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
 > [!IMPORTANT]
-> This feature is currently only supported in C# and C++.
+> This feature is currently only supported in C#, C++, and Python.
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 > [!IMPORTANT]
-> This feature is currently only supported in C# and C++.
+> This feature is currently only supported in C#, C++, and Python.
 ::: zone-end
 
 ## Use a custom model for language identification
