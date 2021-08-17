@@ -23,7 +23,7 @@ keywords: image recognition, image identifier, image recognition app, custom vis
 Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifiers. An image identifier applies labels (which represent classes or objects) to images, according to their visual characteristics. Unlike the [Computer Vision](../computer-vision/overview.md) service, Custom Vision allows you to specify the labels and train custom models to detect them.
 
 This documentation contains the following types of articles:
-* The [quickstarts](./quickstarts/getting-started-build-a-classifier.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time.
+* The [quickstarts](./getting-started-build-a-classifier.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time.
 * The [how-to guides](./test-your-model.md) contain instructions for using the service in more specific or customized ways.
 * The [tutorials](./iot-visual-alerts-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 <!--* The [conceptual articles](Vision-API-How-to-Topics/call-read-api.md) provide in-depth explanations of the service's functionality and features.-->
