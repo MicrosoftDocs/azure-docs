@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 08/16/2021
 tags: connectors
 ---
 
@@ -61,6 +61,8 @@ This article explains how you can access your SAP resources from Azure Logic App
     For more information, review [SAP Note 1850230 - GW: "Registration of tp &lt;program ID&gt; not allowed"](https://userapps.support.sap.com/sap/support/knowledge/en/1850230).
 
   * Set up your SAP gateway security logging to help find Access Control List (ACL) issues. For more information, review the [SAP help topic for setting up gateway logging](https://help.sap.com/erp_hcm_ias2_2015_02/helpdata/en/48/b2a710ca1c3079e10000000a42189b/frameset.htm).
+
+  * In the **Configuration of RFC Connections** (T-Code SM59) dialog box, create an RFC connection with the **TCP/IP** type. The **Activation Type** must be **Registered Server Program**. Set the RFC connection's **Communication Type with Target System** value to **Unicode**.
 
   * If you use this SAP trigger with the **IDOC Format** parameter set to **FlatFile** along with the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md), you have to use the `early_terminate_optional_fields` property in your flat file schema by setting the value to `true`.
 
@@ -440,7 +442,7 @@ Next, create an action to send your IDoc message to SAP when your [Request trigg
 
         ![Screenshot that shows how to create SAP message server connection.](./media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-        In SAP, the Logon Group is maintained by opening the **CCMS: Maintain Logon Groups** (T-code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317).
+        In SAP, the Logon Group is maintained by opening the **CCMS: Maintain Logon Groups** (T-Code SMLG) dialog box. For more information, review [SAP Note 26317 - Set up for LOGON group for automatic load balancing](https://service.sap.com/sap/support/notes/26317).
 
       By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
@@ -805,7 +807,7 @@ When you set up the array filter, the trigger only receives messages from the sp
 
 Any SAP action filtering happens at the level of the SAP adapter for your on-premises data gateway. For more information, review [how to send test IDocs to Azure Logic Apps from SAP](#test-sending-idocs-from-sap).
 
-If you can't send IDoc packets from SAP to your logic app workflow's trigger, review the Transactional RFC (tRFC) call rejection message in the SAP tRFC dialog box (T-code SM58). In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
+If you can't send IDoc packets from SAP to your logic app workflow's trigger, review the Transactional RFC (tRFC) call rejection message in the SAP tRFC (T-Code SM58) dialog box. In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
 
 ##### The RequestContext on the IReplyChannel was closed without a reply being sent
 
@@ -941,7 +943,7 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 
 #### Create RFC destination
 
-1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59** transaction code (T-code) with the **/n** prefix.
+1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59** transaction code (T-Code) with the **/n** prefix.
 
 1. Select **TCP/IP Connections** > **Create**.
 
@@ -959,7 +961,7 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
        > tRFC Monitor (T-Code SM58) when you attempt to send an IDoc to SAP:
        >
        > * **Function IDOC_INBOUND_ASYNCHRONOUS not found**
-       > * **Non-ABAP RFC client (partner type) not supported**
+       > * **Non-ABAP RFC client (partner type ) not supported**
        >
        > For more information from SAP, review the following notes (login required):
        > 
@@ -967,6 +969,10 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
        > * [https://launchpad.support.sap.com/#/notes/353597](https://launchpad.support.sap.com/#/notes/353597)
 
     1. On the **Unicode** tab, for **Communication Type with Target System**, select **Unicode**.
+
+       > [!NOTE]
+       > SAP .NET Client libraries support only Unicode character encoding. If you get the error `Non-ABAP RFC client (partner type ) not supported` when sending IDOC from SAP
+       >  to Azure Logic Apps, check that the **Communication Type with Target System** value is set to **Unicode**.
 
 1. Save your changes.
 
@@ -980,7 +986,7 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 
 #### Create ABAP connection
 
-1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59*** transaction code (T-code) with the **/n** prefix.
+1. To open the **Configuration of RFC Connections** settings, in your SAP interface, use the **sm59*** transaction code (T-Code) with the **/n** prefix.
 
 1. Select **ABAP Connections** > **Create**.
 
@@ -992,7 +998,7 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 
 #### Create receiver port
 
-1. To open the **Ports In IDOC processing** settings, in your SAP interface, use the **we21** transaction code (T-code) with the **/n** prefix.
+1. To open the **Ports In IDOC processing** settings, in your SAP interface, use the **we21** transaction code (T-Code) with the **/n** prefix.
 
 1. Select **Ports** > **Transactional RFC** > **Create**.
 
@@ -1004,7 +1010,7 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 
 #### Create sender port
 
-1.  To open the **Ports In IDOC processing** settings, in your SAP interface, use the **we21** transaction code (T-code) with the **/n** prefix.
+1.  To open the **Ports In IDOC processing** settings, in your SAP interface, use the **we21** transaction code (T-Code) with the **/n** prefix.
 
 1. Select **Ports** > **Transactional RFC** > **Create**.
 
@@ -1016,7 +1022,7 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 
 #### Create logical system partner
 
-1. To open the **Change View "Logical Systems": Overview** settings, in your SAP interface, use the **bd54** transaction code (T-code).
+1. To open the **Change View "Logical Systems": Overview** settings, in your SAP interface, use the **bd54** transaction code (T-Code).
 
 1. Accept the warning message that appears: **Caution: The table is cross-client**
 
@@ -1032,7 +1038,7 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 
 For production environments, you must create two partner profiles. The first profile is for the sender, which is your organization and SAP system. The second profile is for the receiver, which is your logic app.
 
-1. To open the **Partner profiles** settings, in your SAP interface, use the **we20** transaction code (T-code) with the **/n** prefix.
+1. To open the **Partner profiles** settings, in your SAP interface, use the **we20** transaction code (T-Code) with the **/n** prefix.
 
 1. Under **Partner Profiles**, select **Partner Type LS** > **Create**.
 
@@ -1060,7 +1066,7 @@ For production environments, you must create two partner profiles. The first pro
 
 #### Test sending messages
 
-1. To open the **Test Tool for IDoc Processing** settings, in your SAP interface, use the **we19** transaction code (T-code) with the **/n** prefix.
+1. To open the **Test Tool for IDoc Processing** settings, in your SAP interface, use the **we19** transaction code (T-Code) with the **/n** prefix.
 
 1. Under **Template for test**, select **Via message type**, and enter your message type, for example, **CREMAS**. Select **Create**.
 
@@ -1072,7 +1078,7 @@ For production environments, you must create two partner profiles. The first pro
 
 1. To start outbound IDoc processing, select **Continue**. When processing finishes, the **IDoc sent to SAP system or external program** message appears.
 
-1.  To check for processing errors, use the **sm58** transaction code (T-code) with the **/n** prefix.
+1.  To check for processing errors, use the **sm58** transaction code (T-Code) with the **/n** prefix.
 
 ## Receive IDoc packets from SAP
 
@@ -1273,7 +1279,7 @@ The following example gets details for a bank using the bank routing number, the
 
 #### XML samples for IDoc requests
 
-To generate a plain SAP IDoc XML schema, use the **SAP Logon** application and the T-code `WE-60`. Access the SAP documentation through the GUI and generate XML schemas in XSD format for your IDoc types and extensions. For an explanation of generic SAP formats and payloads, and their built-in dialogs, review the [SAP documentation](https://help.sap.com/viewer/index).
+To generate a plain SAP IDoc XML schema, use the **SAP Logon** application and the `WE-60` T-Code. Access the SAP documentation through the GUI and generate XML schemas in XSD format for your IDoc types and extensions. For an explanation of generic SAP formats and payloads, and their built-in dialogs, review the [SAP documentation](https://help.sap.com/viewer/index).
 
 This example declares the root node and namespaces. The URI in the sample code, `http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send`, declares the following configuration:
 

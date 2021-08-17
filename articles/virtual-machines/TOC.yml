@@ -256,6 +256,9 @@
       - name: Setup AMD GPU drivers
         displayName: AMD GPU drivers, AMD, GPU drivers, GPU
         href: ./windows/n-series-amd-driver-setup.md
+      - name: GPU compute migration guide
+        displayName: GPU compute migration guide
+        href: ./n-series-migration.md
       - name: NV-series retirement
         href: nv-series-retirement.md
       - name: NV-series migration guide
@@ -1361,7 +1364,7 @@
   items:
   - name: Overview
     displayName: Networking Overview
-    href: network-overview.md?context=/azure/virtual-machines/context/context
+    href: ../virtual-network/network-overview.md?context=/azure/virtual-machines/context/context
   - name: Optimize network throughput
     href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
   - name: Best practices
