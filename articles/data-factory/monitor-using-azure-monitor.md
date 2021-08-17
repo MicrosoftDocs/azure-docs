@@ -896,7 +896,7 @@ When querying SSIS IR operation logs on Logs Analytics, you can use **OperationN
 
 To query SSIS IR node status, you can set the **OperationName** property to `Heartbeat`. Each node normally sends one `Heartbeat` record per minute to Log Analytics with the **ResultType** property reflecting its status, which is `Healthy` when it's available for package executions and `Unhealthy` when it isn't. For example, if your SSIS IR has two available nodes, you'll always see two `Heartbeat` records with the **ResultType** property set to `Healthy` within any one-minute period.
 
-![Querying SSIS IR heartbeats on Log Analytics](media/data-factory-monitor-oms/log-analytics-query3.png)
+![Querying SSIS IR heartbeats on Log Analytics](media/data-factory-monitor-oms/log-analytics-query-3.png)
 
 You can query the following patterns to detect the unavailability of your SSIS IR node(s):
 
