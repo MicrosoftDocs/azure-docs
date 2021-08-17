@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 08/17/2021
 ms.author: barclayn
 ms.custom: ep-msia
 #Customer intent: As an administrator I want to know how to access Cosmos DB from a virtual machine using a managed identity
@@ -21,7 +21,7 @@ ms.custom: ep-msia
 # How to use managed identities to connect to Cosmos DB from an Azure virtual machine
 
 
-This article shows you how to use managed identities from a virtual machine to connect to Cosmos. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities](overview.md) for Azure resources allow your applications to authenticate when accessing resources while using an automatically managed identity. 
+In this article we set up a virtual machine to use managed identities to connect to Cosmos. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities](overview.md) for Azure resources allow your applications to authenticate when accessing resources while using an automatically managed identity. 
 
 ## Prerequisites
 
@@ -126,7 +126,7 @@ When you're done, the following sections should be added to the `resource` secti
 
 ### User-assigned managed identities
 
-User-assigned managed identities can be used on multiple resources. To learn more about managed identities, for information on how to create or delete user-assigned managed identities you can review [Manage user-assigned managed identities](how-manage-user-assigned-managed-identities.md)
+User-assigned managed identities may be used with multiple resources. For information on how to create or delete user-assigned managed identities you can review [Manage user-assigned managed identities](how-manage-user-assigned-managed-identities.md)
 
 To assign a user-assigned identity to a VM, your account needs the Virtual Machine Contributor and Managed Identity Operator role assignments. No additional Azure AD directory role assignments are required.
 
@@ -186,6 +186,7 @@ az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLT
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
+
 ---
 
 #### Assign a user-assigned managed identity to a Virtual machine
@@ -215,7 +216,8 @@ New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGN
 Retrieve the VM properties using the `Get-AzVM` cmdlet. Then to assign a user-assigned managed identity to the Azure VM, use the `-IdentityType` and `-IdentityID` switch on the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet.  The value for the`-IdentityId` parameter is the `Id` you noted in the previous step.  Replace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, and `<USER ASSIGNED IDENTITY NAME>` with your own values.
 
 > [!WARNING]
-> To retain any previously user-assigned managed identities assigned to the VM, query the `Identity` property of the VM object (for example, `$vm.Identity`).  If any user assigned managed identities are returned, include them in the following command along with the new user assigned managed identity you would like to assign to the VM.
+> To retain any previously user-assigned managed identities assigned to the VM, query the `Identity` property of the VM object (for example, `$vm.Identity`).  If any user assigned managed identities are returned, include them in the following command along with the new user assigned managed identity you would like to assign to the VM. 
+
 
 ```azurepowershell-interactive
 $vm = Get-AzVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
@@ -233,6 +235,37 @@ az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLT
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
+Depending on your API version you have to take [different steps](qs-configure-template-windows-vm.md#user-assigned-managed-identity). If your apiVersion is 2018-06-01, your user-assigned managed identities are stored in the userAssignedIdentities dictionary format and the <identityName> value is the name of a variable that you define in the variables section of your template. In the variable you point to the user assigned managed identity that you want to assign to the managed identity.
+
+```json
+    "variables": {
+	 "identityName": "my-user-assigned"	
+		
+	},
+```
+
+Under the resources element, add the following entry to assign a user-assigned managed identity to your VM. Be sure to replace <identityName> with the name of the user-assigned managed identity you created.
+
+```json
+
+"resources": [
+     {
+         //other resource provider properties...
+         "apiVersion": "2018-06-01",
+         "type": "Microsoft.Compute/virtualMachines",
+         "name": "[variables('vmName')]",
+         "location": "[resourceGroup().location]",
+         "identity": {
+             "type": "userAssigned",
+             "userAssignedIdentities": {
+                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<identityName>'))]": {}
+             }
+         }
+     }
+ ]
+
+
+```
 
 ---
 
@@ -247,13 +280,13 @@ Now that you have a virtual machine configured with a managed identity we need t
 
 Cosmos DB uses RBAC roles to grant access to either data plane or management plane operations. Access to management plane operations is controlled using [Azure RBAC roles](../../cosmos-db/role-based-access-control.md). Data plane access control is managed using Azure Cosmos DB [data plane RBAC](../../cosmos-db/how-to-setup-rbac.md) helps you manage access to data plane operations. In this example we will grant reader access to the vm's managed identity.
 
-1. Azure Cosmos DB exposes two built-in role definitions. We will use the **Cosmos DB Built-in Data Reader** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
+- Azure Cosmos DB exposes two built-in role definitions. We will use the **Cosmos DB Built-in Data Reader** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
 
 
 
 ### [Portal](#tab/azure-portal)
 
-**Purposely left empty**
+**At this time there is no role assignment option available in the Azure portal**
 
 
 ### [PowerShell](#tab/azure-powershell)
@@ -278,7 +311,15 @@ results-role-assignment.png
 
 ### [Azure CLI](#tab/azure-cli)
 
+```azurecli
 
+resourceGroupName='<myResourceGroup>'
+accountName='<myCosmosAccount>'
+readOnlyRoleDefinitionId = '00000000-0000-0000-0000-000000000001' # This is the ID of the Cosmos DB Built-in Data Reader role definition
+principalId = "1111111-1111-11111-1111-11111111" # This is the object ID of the managed identity.
+az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
+
+```
 
 ### [Resource Manager Template](#tab/azure-resource-manager)
 
