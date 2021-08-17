@@ -290,7 +290,7 @@ You can give TPM access to the IoT Edge runtime by overriding the systemd settin
 5. Trigger the udev system to evaluate the new rule.
 
    ```bash
-   /bin/udevadm trigger $tpm
+   /bin/udevadm trigger --subsystem-match=tpm --subsystem-match=tpmrm
    ```
 
 6. Verify that the rule was successfully applied.
