@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 08/15/2021
+ms.date: 08/16/2021
 ms.author: memildin
 
 ---
@@ -22,12 +22,13 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-| Planned change                                                                                                                                                                                          | Estimated date for change |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                                            | August 2021               |
-| [Enable Azure Defender security control to be included in secure score](#enable-azure-defender-security-control-to-be-included-in-secure-score)                                                         | Q3 2021                   |
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                                         | Q4 2021                   |
-| [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                                               | Q1 2022                   |
+| Planned change       | Estimated date for change |
+|----------------------|---------------------------|
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| August 2021|
+| [Changing prefix of some alert types from "ARM_" to "VM_"](#changing-prefix-of-some-alert-types-from-arm_-to-vm_)                                          | October 2021|
+| [Enable Azure Defender security control to be included in secure score](#enable-azure-defender-security-control-to-be-included-in-secure-score)             | Q3 2021    |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | Q4 2021    |
+| [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)   | Q1 2022    |
 
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
@@ -37,6 +38,43 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 The legacy implementation of ISO 27001 will be removed from Security Center's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Security Center, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 
 :::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Security Center's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
+
+### Changing prefix of some alert types from "ARM_" to "VM_" 
+
+**Estimated date for change:** October 2021
+
+In July 2021 we announced a [logical reorganization of Azure Defender for Resource Manager alerts](release-notes.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 
+
+As part of a logical reorganization of some of the Azure Defender plans, we moved twenty one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for servers](defender-for-servers-introduction.md).
+
+We're now planning to update the prefixes of these alerts to match this reassignment. We'll be replacing "ARM_" with "VM_" as shown in the following table.
+
+| Current name                                   | After this change                             |
+|------------------------------------------------|-----------------------------------------------|
+| ARM_AmBroadFilesExclusion                      | VM_AmBroadFilesExclusion                      |
+| ARM_AmDisablementAndCodeExecution              | VM_AmDisablementAndCodeExecution              |
+| ARM_AmDisablement                              | VM_AmDisablement                              |
+| ARM_AmFileExclusionAndCodeExecution            | VM_AmFileExclusionAndCodeExecution            |
+| ARM_AmTempFileExclusionAndCodeExecution        | VM_AmTempFileExclusionAndCodeExecution        |
+| ARM_AmTempFileExclusion                        | VM_AmTempFileExclusion                        |
+| ARM_AmRealtimeProtectionDisabled               | VM_AmRealtimeProtectionDisabled               |
+| ARM_AmTempRealtimeProtectionDisablement        | VM_AmTempRealtimeProtectionDisablement        |
+| ARM_AmRealtimeProtectionDisablementAndCodeExec | VM_AmRealtimeProtectionDisablementAndCodeExec |
+| ARM_AmMalwareCampaignRelatedExclusion          | VM_AmMalwareCampaignRelatedExclusion          |
+| ARM_AmTemporarilyDisablement                   | VM_AmTemporarilyDisablement                   |
+| ARM_UnusualAmFileExclusion                     | VM_UnusualAmFileExclusion                     |
+| ARM_CustomScriptExtensionSuspiciousCmd         | VM_CustomScriptExtensionSuspiciousCmd         |
+| ARM_CustomScriptExtensionSuspiciousEntryPoint  | VM_CustomScriptExtensionSuspiciousEntryPoint  |
+| ARM_CustomScriptExtensionSuspiciousPayload     | VM_CustomScriptExtensionSuspiciousPayload     |
+| ARM_CustomScriptExtensionSuspiciousFailure     | VM_CustomScriptExtensionSuspiciousFailure     |
+| ARM_CustomScriptExtensionUnusualDeletion       | VM_CustomScriptExtensionUnusualDeletion       |
+| ARM_CustomScriptExtensionUnusualExecution      | VM_CustomScriptExtensionUnusualExecution      |
+| ARM_VMAccessUnusualConfigReset                 | VM_VMAccessUnusualConfigReset                 |
+| ARM_VMAccessUnusualPasswordReset               | VM_VMAccessUnusualPasswordReset               |
+| ARM_VMAccessUnusualSSHReset                    | VM_VMAccessUnusualSSHReset                    |
+
+Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for servers](defender-for-servers-introduction.md) plans.
+
 
 ### Enable Azure Defender security control to be included in secure score
 
