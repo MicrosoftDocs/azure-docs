@@ -71,7 +71,7 @@ items:
   - name: Asset normalization
     href: concept-asset-normalization.md
   - name: Frequently asked questions
-    href: /azure/purview/frequently-asked-questions.yml
+    href: ./frequently-asked-questions.yml
 - name: How-to guides
   items:
   - name: Register & scan
@@ -189,6 +189,8 @@ items:
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
       href: how-to-link-azure-data-share.md
+    - name: Azure Synapse Analytics lineage
+      href: how-to-lineage-azure-synapse-analytics.md
     - name: Cassandra lineage
       href: how-to-lineage-cassandra.md
     - name: Erwin lineage
