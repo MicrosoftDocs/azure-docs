@@ -124,7 +124,7 @@ Clusters support System-assigned managed identity and identity `type` property s
   }
   ```
 
-Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#create-a-cluster). 
+Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#create-a-dedicated-cluster). 
 
 ## Grant Key Vault permissions
 
