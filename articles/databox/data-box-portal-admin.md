@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/18/2020
+ms.date: 08/17/2021
 ms.author: alkohli
 ---
 
@@ -250,6 +250,23 @@ If you're using self-managed shipping, after the copy is complete and before you
 |Picked up    |You have picked up the device.         |
 |Ready to receive at Azure datacenter     |The device is ready to be received at the Azure datacenter.        |
 |Received     |The device has been received at the Azure datacenter.      |
+
+## Get the device password
+
+When you order your device, you can choose to use the default system-generated device password or choose to bring your own password. The device password is set at the factory and can't be changed. 
+
+You can find out the device password by viewing your order in the Azure portal.<!--Wouldn't an org interested in using their own passwords also likely have an expiry policy for their device passwords?-->
+
+To get the device password for a Data Box, do these steps:
+
+1. Sign into the [Azure portal](https://portal.azure.com).<!--The setup article says to open General and then Device details after opening the portal. I couldn't reproduce that.-->
+1. Search for and select **Azure Data Box**.
+1. Open your order, and display **Device details**. Use the copy icon to copy the **Device password**.<!--1) When do Device details become available - after the device is set up? No basic boxes in the portal have available credentials. 2) For a completed order, seems like I recall they can change from a system-generated password to BYO or vice versa (a one-way thing; not sure which way this goes).-->
+
+    ![Get device credentials](media/data-box-portal-admin/data-box-device-credentials.png)
+
+
+    
 
 
 
