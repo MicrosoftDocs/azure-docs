@@ -170,6 +170,7 @@ The same can also be expressed with:
   "properties.desired.layeredProperties.SendInterval": 5
 }
 ```
+
 > Warning: Currently it is not possible to just have a layered deployment update only properties, without also adding user modules
 
 In summary, to create a layered deployment:
