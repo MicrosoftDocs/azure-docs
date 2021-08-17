@@ -61,6 +61,19 @@ Install the `@azure/ai-text-analytics` NPM package:
 npm install @azure/ai-text-analytics@5.2.0-beta.1
 ```
 
+Features included in this version of the Text Analytics API:
+
+* Sentiment analysis
+* Opinion mining
+* Language detection
+* Entity recognition
+* Entity linking
+* Personal Identifying Information recognition
+* Key phrase extraction
+* Asynchronous methods
+* Text Analytics for health
+* Text Summarization
+
 # [Version 3.1](#tab/version-3-1)
 
 Install the `@azure/ai-text-analytics` NPM package:
@@ -68,6 +81,18 @@ Install the `@azure/ai-text-analytics` NPM package:
 ```console
 npm install --save @azure/ai-text-analytics@5.1.0
 ```
+
+Features included in this version of the Text Analytics API:
+
+* Sentiment analysis
+* Opinion mining
+* Language detection
+* Entity recognition
+* Entity linking
+* Personal Identifying Information recognition
+* Key phrase extraction
+* Asynchronous methods
+* Text Analytics for health
 
 ---
 

@@ -34,7 +34,7 @@ ms.author: aahi
 
 After installing Python, you can install the client library with the following commands. 
 
-# [Version 3.2-preview.1](#tab/version-3-1)
+# [Version 3.2-preview.1](#tab/version-3-2)
 
 ```console
 pip install azure-ai-textanalytics==5.2.0b1
@@ -53,7 +53,7 @@ Features included in this version of the Text Analytics API:
 * Text Analytics for health
 * Text Summarization
 
-# [Version 3.1](#tab/version-3-2)
+# [Version 3.1](#tab/version-3-1)
 
 ```console
 pip install azure-ai-textanalytics==5.1.0
