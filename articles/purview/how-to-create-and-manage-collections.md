@@ -138,14 +138,6 @@ Assets and sources are also associated with collections. During a scan, if the s
 :::image type="content" source="./media/how-to-create-and-manage-collections/move-select-collection.png" alt-text="Screenshot of Purview studio pop-up window with the select a collection dropdown menu highlighted." border="true":::
 1. Click “Move” button on the bottom of the window to move the asset.
 
-### Move asset to another collection in batches
-
-1. You can list all the assets in the same collection in the collection management page.
-:::image type="content" source="./media/how-to-create-and-manage-collections/list-assets.png" alt-text="Screenshot of Purview studio collection window with the overview tab selected and the assets count box highlighted." border="true":::
-1. Click the “Assets” card to see all the assets that belong to this collection.
-:::image type="content" source="./media/how-to-create-and-manage-collections/assets-card.png" alt-text="Screenshot of Purview studio collection window with the overview tab selected and the assets card highlighted." border="true":::
-1. Choose the assets that you want to move by check the check box in the first column of the table. The “Move” button in the command bar will be enabled if you selected at least one collection. Click the “Move” button to move the assets you selected to another collection.
-
 ## Search and browse by collections
 
 ### Search by collection
