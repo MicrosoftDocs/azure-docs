@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and configure a Route S
 services: route-server
 author: duongau
 ms.author: duau
-ms.date: 08/20/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.service: route-server
 ms.custom: devx-track-azurepowershell
@@ -39,13 +39,13 @@ This article helps you configure Azure Route Server to peer with a Network Virtu
 Before you can create an Azure Route Server, you need designate a virtual network to host the deployment. Use the follow command to create a resource group and virtual network. If you already have a virtual network, you can skip to the next section.
 
 ```azurepowershell-interactive
-New-AzResourceGroup –Name "RouteServerRG” -Location “West US"
+New-AzResourceGroup –Name "RouteServerRG" -Location "West US"
 New-AzVirtualNetwork –ResourceGroupName "RouteServerRG" -Location "West US" -Name myVirtualNetwork –AddressPrefix 10.0.0.0/16
 ```
 
 ### Create dedicated subnet
 
-Azure Route Server requires a dedicated subnet named *RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server.
+Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or short prefix (such as /26 or /25) or you'll receive an error message when deploying the Route Server.
 
 1. Run the follow command to retrieve the virtual network resource and add the *RouteServerSubnet*.
 
@@ -58,7 +58,7 @@ Azure Route Server requires a dedicated subnet named *RouteServerSubnet. The sub
 1. Make note of the RouteServerSubnet ID. To see the resource ID of all subnets in the virtual network, use this command:
 
     ```azurepowershell-interactive
-    $vnet = Get-AzVirtualNetwork –Name "vnet_name" -ResourceGroupName "RouteServerRG"
+    $vnet = Get-AzVirtualNetwork –Name "myVirtualNetwork" -ResourceGroupName "RouteServerRG"
     $vnet.Subnets
     ```
 
@@ -73,13 +73,13 @@ To ensure connectivity to the backend service that manages Route Server configur
 1. Create a public IP resource using the following command:
 
     ```azurepowershell-interactive
-    $pip = New-AzPublicIpAddress -name RouteServerIP -ResourceGroupName RouteServerRG -Location "West US" -IpAddressVersion IPv4 -Sku Basic -AllocationMethod Dynamic
+    $pip = New-AzPublicIpAddress -name RouteServerIP -ResourceGroupName "RouteServerRG" -Location "West US" -IpAddressVersion IPv4 -Sku Standard
     ```
     
 2. Create the Route Server with the following command. Make sure to use the same location as the virtual network and to replace the HostedSubnet variable with the Subnet ID noted in the earlier steps.
 
     ```azurepowershell-interactive 
-    New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US" -HostedSubnet "RouteServerSubnet_ID" -PublicIpAddress $pip
+    New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName "RouteServerRG" -Location "West US" -HostedSubnet "RouteServerSubnet_ID" -PublicIpAddress $pip
     ```
 
 ## Create peering with an NVA
@@ -87,7 +87,7 @@ To ensure connectivity to the backend service that manages Route Server configur
 Use the following command to establish BGP peering from the Route Server to your NVA:
 
 ```azurepowershell-interactive 
-Add-AzRouteServerPeer -PeerName "myNVA" -PeerIp "nva_ip" -PeerAsn "nva_asn" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
+Add-AzRouteServerPeer -PeerName "myNVA" -PeerIp "nva_ip" -PeerAsn "nva_asn" -RouteServerName "myRouteServer" -ResourceGroupName "RouteServerRG"
 ```
 
 The “nva_ip” is the virtual network IP assigned to the NVA. The “nva_asn” is the Autonomous System Number (ASN) configured in the NVA. The ASN can be any 16-bit number other than the ones in the range of 65515-65520. This range of ASNs are reserved by Microsoft.
@@ -95,7 +95,7 @@ The “nva_ip” is the virtual network IP assigned to the NVA. The “nva_asn�
 To set up peering with a different NVA or another instance of the same NVA for redundancy, use this command:
 
 ```azurepowershell-interactive 
-Add-AzRouteServerPeer -PeerName "NVA2_name" -PeerIp "nva2_ip" -PeerAsn "nva2_asn" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
+Add-AzRouteServerPeer -PeerName "NVA2_name" -PeerIp "nva2_ip" -PeerAsn "nva2_asn" -RouteServerName "myRouteServer" -ResourceGroupName "RouteServerRG"
 ```
 
 ## Complete the configuration on the NVA
@@ -103,7 +103,7 @@ Add-AzRouteServerPeer -PeerName "NVA2_name" -PeerIp "nva2_ip" -PeerAsn "nva2_asn
 To complete the configuration on the NVA and enable the BGP sessions, you need the IP and the ASN of Azure Route Server. You can get this information by using this command:
 
 ```azurepowershell-interactive 
-Get-AzRouteServer -RouterServerName myRouteServer -ResourceGroupName RouteServerRG
+Get-AzRouteServer -RouterServerName "myRouteServer" -ResourceGroupName "RouteServerRG"
 ```
 
 The output will look like the following:
@@ -120,13 +120,13 @@ If you have an ExpressRoute and an Azure VPN gateway in the same virtual network
 1. To enable route exchange between Azure Route Server and the gateway(s) use this command:
 
 ```azurepowershell-interactive 
-Update-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -AllowBranchToBranchTraffic 
+Update-AzRouteServer -RouteServerName "myRouteServer" -ResourceGroupName "RouteServerRG" -AllowBranchToBranchTraffic 
 ```
 
 2. To disable route exchange between Azure Route Server and the gateway(s) use this command:
 
 ```azurepowershell-interactive 
-Update-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
+Update-AzRouteServer -RouteServerName "myRouteServer" -ResourceGroupName "RouteServerRG"
 ```
 
 ## Troubleshooting
@@ -144,13 +144,13 @@ If you no longer need the Azure Route Server, use the first command to remove th
 1. Remove the BGP peering between Azure Route Server and an NVA with this command:
 
 ```azurepowershell-interactive 
-Remove-AzRouteServerPeer -PeerName "nva_name" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
+Remove-AzRouteServerPeer -PeerName "nva_name" -RouteServerName "myRouteServer" -ResourceGroupName "RouteServerRG"
 ```
 
 2. Remove the Azure Route Server with this command:
 
 ```azurepowershell-interactive 
-Remove-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG
+Remove-AzRouteServer -RouteServerName "myRouteServer" -ResourceGroupName "RouteServerRG"
 ```
 
 ## Next steps

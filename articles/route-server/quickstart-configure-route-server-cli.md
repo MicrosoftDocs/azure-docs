@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 08/20/2021
+ms.date: 08/17/2021
 ms.author: duau
 ---
 
@@ -84,7 +84,7 @@ To ensure connectivity to the backend service that manages Route Server configur
 1. Create the public IP address by using this command:
 
     ```azurecli-interactive
-    $pip = az network public-ip create -n "RouteServerIP" -g "RouteServerRG" -version IPv4 -sku Standard
+    $pip = az network public-ip create -n "RouteServerIP" -g "RouteServerRG" -version IPv4 -sku Standard 
     ```
 
 2. Create the Route Server with the following command. Make sure to replace the HostedSubnet variable with the Subnet ID noted in the earlier steps.
