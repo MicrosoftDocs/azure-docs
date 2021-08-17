@@ -1,20 +1,20 @@
 ---
-title: A preset for content-aware encoding
+title: Content-aware encoding preset
 description: This article discusses content-aware encoding in Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
-author: IngridAtMicrosoft
+author: jiayali-ms
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 08/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ---
 
-# Use the content-aware encoding preset to find the optimal bitrate value for a given resolution
+# Content-aware encoding preset
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
