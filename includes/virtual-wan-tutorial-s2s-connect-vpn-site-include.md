@@ -1,13 +1,10 @@
 ---
- title: include file
- description: include file
- services: virtual-wan
- author: cherylmc
- ms.service: virtual-wan
- ms.topic: include
- ms.date: 05/26/2021
- ms.author: cherylmc
- ms.custom: include file
+ms.author: cherylmc
+author: cherylmc
+ms.date: 08/17/2021
+ms.service: virtual-wan
+ms.topic: include
+---
 ---
 1. Select **Connect VPN Sites** to open the **Connect sites** page.
 
@@ -17,7 +14,7 @@
 
    * Enter a pre-shared key. If you don't enter a key, Azure autogenerates one for you.
    * Select the Protocol and IPsec settings. For more information, see [default/custom IPsec](../articles/virtual-wan/virtual-wan-ipsec.md).
-   * Select the appropriate option for **Propagate Default Route**. The **Enable** option allows the virtual hub to propagate a learned default route to this connection. This flag enables default route propagation to a connection only if the default route is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced tunneling enabled. The default route does not originate in the Virtual WAN hub.
+   * Select the appropriate option for **Propagate Default Route**. The **Enable** option allows the virtual hub to propagate a learned default route to this connection. This flag enables default route propagation to a connection only if the default route is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced tunneling enabled. The default route does not originate in the Virtual WAN hub. Only change this setting to **Enable** if you know you want to propagate the default route. Otherwise, leave it as **Disable**. You can always modify this setting later.
 
 2. Select **Connect**.
 3. After a few minutes, the site will show the connection and connectivity status.
