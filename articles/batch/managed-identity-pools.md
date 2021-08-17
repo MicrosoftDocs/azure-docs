@@ -66,7 +66,15 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
 
 ## Use user-assigned managed identities in Batch nodes
 
-After you've created your pools, your user-assigned managed identities can access the pool nodes via Secure Shell (SSH) or Remote Desktop (RDP). You can also configure your tasks so that the managed identities can directly access [Azure resources that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+Many Azure Batch technologies which access other Azure resources, such as Azure Storage or Azure Container Registries, support using Managed Identities.
+Please refer to the following for more information on using Managed Identity with Azure Batch:
+
+- [Resource Files](../path/to/file.md)
+- [Output Files](../path/to/file.md)
+- [Azure Container Registries](../path/to/file.md)
+- [Azure Blob Container Filesystem](virtual-file-mount.md#azure-blob-container)
+
+You can also manually configure your tasks so that the managed identities can directly access [Azure resources that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 Within the Batch nodes, you can get managed identity tokens and use them to authenticate through Azure AD authentication via the [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md).
 
