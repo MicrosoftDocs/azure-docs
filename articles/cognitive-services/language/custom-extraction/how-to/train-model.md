@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Train your custom text extraction model
 
-After you have completed tagging your data, you can start training your model. You can create and train multiple models within the same project]. However, if you re-train a specific model, it will overwrite it's previous version.
+After you have completed tagging your data, you can start training your model. You can create and train multiple models within the same project]. However, if you retrain a specific model, it will overwrite its previous version.
 
 The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
 
@@ -53,7 +53,7 @@ You must have minimum of 10 docs in your project for the [evaluation](view-model
 
 4. Click on the **Train** button at the bottom of the page.
 
-5. If the model you selected is already trained, a pop up will appear to confirm overwriting the last model state.
+5. If the model you selected is already trained, a window will appear to confirm overwriting the last model state.
 
 ## Next steps
 

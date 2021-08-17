@@ -47,7 +47,7 @@ Use the following information to help guide model improvements.
 
 * If entity `X` is constantly identified as entity `Y`, it means that there is ambiguity between these entity types and you need to reconsider your schema.
 
-* If a complex entity is usually not extracted, consider breaking it down to simpler entities for easier extraction.
+* If a complex entity is repeatedly not extracted, consider breaking it down to simpler entities for easier extraction.
 
 * If an entity is predicted while it was not tagged in your data, this means to you need to review your tags. Be sure that all instances of an entity are properly tagged in all files.
 
@@ -55,9 +55,9 @@ Use the following information to help guide model improvements.
     
 ### Examine data distribution
 
-By examining data distribution in your files, you can decide if any entity is underrepresented. Data imbalance happens when tags are not distributed equally among your entities, and is a risk to your model's performance. For example, if *entity 1* has 50 tags while *entity 2* has 10 tags only, this a clear case of data imbalance where *entity 1* is over represented, and *entity 2* is underrepresented. In this case the model is biased towards extracting *entity 1* and might overlook *entity 2*. More complex issues may come from data imbalance if the schema is ambiguous. If the two entities are some how similar and *entity 2* is under represented the model most likely will extract it as *entity 1*.
+By examining data distribution in your files, you can decide if any entity is underrepresented. Data imbalance happens when tags are not distributed equally among your entities, and is a risk to your model's performance. For example, if *entity 1* has 50 tags while *entity 2* has 10 tags only, this is an example of data imbalance where *entity 1* is over represented, and *entity 2* is underrepresented. The model is biased towards extracting *entity 1* and might overlook *entity 2*. More complex issues may come from data imbalance if the schema is ambiguous. If the two entities are some how similar and *entity 2* is underrepresented the model most likely will extract it as *entity 1*.
 
-In [model evaluation](view-model-evaluation.md), entities that are over represented tends to have a higher recall than other entities, while under represented entities have lower recall.
+In [model evaluation](view-model-evaluation.md), entities that are over represented tend to have a higher recall than other entities, while under represented entities have lower recall.
 
 To examine data distribution in your dataset:
 

@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Run a custom entity extraction task
 
-After deploying your model it is ready to be used. You can only send entity extraction tasks through the API, not from Language Studio.
+After deploying your model, it is ready to be used. You can only send entity extraction tasks through the API, not from Language Studio.
 
 ## Prerequisites
 
@@ -31,13 +31,13 @@ After deploying your model it is ready to be used. You can only send entity extr
 
 3. make sure your model you want to use is deployed, and click on **Get prediction URL**.
 
-4. In the window that appears under the the **Submit** pivot, and copy the sample request into a text editor. 
+4. In the window that appears under the **Submit** pivot, and copy the sample request into a text editor. 
 
     :::image type="content" source="../media/get-prediction-url.png" alt-text="Screenshot showing the prediction request and URL" lightbox="../media/get-prediction-url.png":::
 
 5. Replace `<YOUR_DOCUMENT_HERE>` with the actual text you want to extract entities from.
 
-6. Submit the `POST` cURL request request in your terminal or command prompt. You'll receive a 202 response if the request was successful.
+6. Submit the `POST` cURL request in your terminal or command prompt. You'll receive a 202 response if the request was successful.
 
 
     > [!NOTE]
@@ -62,7 +62,7 @@ After deploying your model it is ready to be used. You can only send entity extr
 
 2. Replace `<OPERATION_ID>` with the `jobId` from the previous step. 
 
-3. Submit the `GET` cURL request request in your terminal or command prompt. You'll receive a 202 response and JSON similar to the below, if the request was successful.
+3. Submit the `GET` cURL request in your terminal or command prompt. You'll receive a 202 response and JSON similar to the below, if the request was successful.
 
     ```json
     {

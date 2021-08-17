@@ -26,7 +26,7 @@ Before building your custom entity extraction models, you need to have tagged da
 
 2. From the left side menu, select **Tag data**
 
-3. You can find a list of all `.txt` files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button form the top right menu to navigate.
+3. You can find a list of all `.txt` files available in your projects to the left. You can select the file you want to start tagging or you can use the **Back** and **Next** button form the top-right menu to navigate.
 
 4. To start tagging, click **Add entities** in the top-right corner. You can either view all files or only tagged files by changing the view from the **Viewing** drop down.
 
@@ -36,13 +36,13 @@ Before building your custom entity extraction models, you need to have tagged da
 
 :::image type="content" source="../media/tagging-screen.png" alt-text="A screenshot showing the Language Studio screen for tagging data." lightbox="../media/tagging-screen.png":::
 
-If you enabled multiple languages for your project, you will find an additional **Language** dropdown which lets you select the language of each document.
+If you enabled multiple languages for your project, you will find a **Language** dropdown, which lets you select the language of each document.
 
 While tagging, routinely check on the status indicator next to **Tag data**.
 
 * Green indicates that your changes have been saved.
 * Yellow indicates that saving is in progress.
-* Red indicates that yor changes have not been saved yet.
+* Red indicates that your changes have not been saved yet.
 
 If you want to save manually, hover your cursor over the red indicator and click on **Save now**.
 
@@ -107,11 +107,11 @@ When you tag entities, the tags are saved as in the following JSON format. If yo
 }
 ```
 
-The following list describe the various JSON properties of the sample above.
+The following list describes the various JSON properties of the sample above.
 
-* `entityNames`: An array of entity names. Index of the entity within the array is used as its id.
+* `entityNames`: An array of entity names. Index of the entity within the array is used as its ID.
 * `documents`: An array of tagged documents.
-  * `location`: The path of the document relative to the JSON file. e.g for docs on the same level as the tags file `file.txt`, for docs inside one directory level `dir1/file.txt`, for docs one level outside `../file.txt`.
+  * `location`: The path of the document relative to the JSON file. For example, docs on the same level as the tags file `file.txt`, for docs inside one directory level `dir1/file.txt`, for docs one level outside `../file.txt`.
   * `culture`: culture/language of the document. See [language support](../language-support.md) for more information.
   * `entities`: Specifies the entity recognition tags.
     * `regionStart`: The inclusive character position of the start of the text.
