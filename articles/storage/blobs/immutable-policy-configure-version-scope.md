@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 08/16/2021
 ms.author: tamram
 ms.subservice: blobs 
 ---
@@ -42,6 +42,8 @@ Keep in mind that enabling version-level immutability support for a container do
 
 To use a version-level immutability policy, you must first explicitly enable support for version-level WORM on the container. You can enable support for version-level WORM either when you create the container, or when you add a version-level immutability policy to an existing container.
 
+#### [Portal](#tab/azure-portal)
+
 To create a container that supports version-level immutability in the Azure portal, follow these steps:
 
 1. Navigate to the **Containers** page for your storage account in the Azure portal, and select **Add**.
@@ -49,6 +51,16 @@ To create a container that supports version-level immutability in the Azure port
 1. Select **Enable version-level immutability support** to enable version-level immutability for the container.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/create-container-version-level-immutability.png" alt-text="Screenshot showing how to create a container with version-level immutability enabled":::
+
+#### [PowerShell](#tab/azure-powershell)
+
+To create a container that supports version-level immutability with PowerShell,
+
+#### [Azure CLI](#tab/azure-cli)
+
+To create a container that supports version-level immutability with Azure CLI,
+
+---
 
 ### Migrate an existing container to support version-level immutability
 
