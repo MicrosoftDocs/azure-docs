@@ -43,7 +43,7 @@ The Azure Data Lake Analytics linked service requires a service principal authen
 * Application key 
 * Tenant ID
 
-Grant service principal permission to your Azure Data Lake Anatlyics using the [Add User Wizard](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
+Grant service principal permission to your Azure Data Lake Analytics using the [Add User Wizard](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
 Use service principal authentication by specifying the following properties:
 
