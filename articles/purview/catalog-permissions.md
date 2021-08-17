@@ -41,7 +41,7 @@ Azure Purview uses a set of predefined roles to control who can access what with
 |I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data Source Admin|
 |I need to put users into roles in Azure Purview | Collection Admin |
 
-## Understanding how to use Azure Purview's roles and collections
+## Understand how to use Azure Purview's roles and collections
 
 All access control is managed in Purview's collections. Purview's collections can be found in the [Purview Studio](use-purview-studio.md). Open your Purview account in the Azure portal and select the Purview Studio tile on the Overview page. From there, navigate to the data map on the left menu, and then select the 'Collections' tab.
 
@@ -53,11 +53,11 @@ All other users can only access information within the Azure Purview instance if
 
 Users can only be added to a collection by a collection admin, or through permissions inheritance. The permissions of a parent collection are automatically inherited by its subcollections. However, you can choose to [restrict permission inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on any collection. If you do this, its subcollections will no longer inherit permissions from the parent, though collection admins that are automatically inherited from a parent collection can't be removed.
 
-## Assigning permissions to your users
+## Assign permissions to your users
 
 After creating an Azure Purview instance, the first thing to do is create collections and assign users to roles within those collections.
 
-### Creating collections
+### Create collections
 
 Collections can be customized for structure of the sources in your Purview instance, and can act like organized storage bins for these resources. When you're thinking about the collections you might need, consider how your users will access or discover information. Are your sources broken up by departments? Are there specialized groups within those departments that will only need to discover some assets? Are there some sources that should be discoverable by all your users?
 
@@ -80,7 +80,7 @@ Similarly with the Data Curator and Data Source Admin roles, permissions for tho
 
 :::image type="content" source="./media/catalog-permissions/collection-permissions-example.png" alt-text="Chart showing a sample collections hierarchy broken up by region and department showing permissions distribution." border="true":::
 
-### Adding users to roles
+### Add users to roles
 
 Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the Purview Studio, navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they will be able to add and manage users who need permissions.
 
@@ -104,7 +104,7 @@ Azure Purview defines a set of pre-defined Data Plane roles that can be used to 
 * **Purview Data Curator Role** - Has access to the Purview portal and can read all content in Azure Purview except for scan bindings, can edit information about assets, can edit classification definitions and glossary terms, and can apply classifications and glossary terms to assets.
 * **Purview Data Source Administrator Role** - Does not have access to the Purview Portal (the user needs to also be in the Data Reader or Data Curator roles) and can manage all aspects of scanning data into Azure Purview but does not have read or write access to content in Azure Purview beyond those related to scanning.
 
-### Understanding how to use Azure Purview's legacy Data Plane roles
+### Understand how to use Azure Purview's legacy Data Plane roles
 
 When an Azure Purview Account is created, the creator will be treated as if they are in both the Purview Data Curator and Purview Data Source Administrator Roles. But the account creator is not assigned to these roles in the role store. Azure Purview recognizes that the principal is the creator of the account and extends these capabilities to them based on their identity.
 
