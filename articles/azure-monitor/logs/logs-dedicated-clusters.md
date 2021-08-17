@@ -85,7 +85,7 @@ You can have up to 2 active clusters per subscription per region. If cluster is 
 The user account that creates the clusters must have the standard Azure resource creation permission: `Microsoft.Resources/deployments/*` and cluster write permission `Microsoft.OperationalInsights/clusters/write` by having in their role assignments this specific action or `Microsoft.OperationalInsights/*` or `*/write`.
 
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell1)
 
 ```powershell
 New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} -AsJob
@@ -94,7 +94,7 @@ New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Clust
 Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 ```
 
-# [REST](#tab/rest)
+# [REST](#tab/rest1)
 
 *Call* 
 ```rst
@@ -130,7 +130,7 @@ Should be 202 (Accepted) and a header.
 The provisioning of the Log Analytics cluster takes a while to complete. You can check the provisioning state in several ways:
 
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell1)
 
 - Run Get-AzOperationalInsightsCluster PowerShell command with the resource group name and check the ProvisioningState property. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
   ```powershell
@@ -139,7 +139,7 @@ The provisioning of the Log Analytics cluster takes a while to complete. You can
 
 - Copy the Azure-AsyncOperation URL value from the response and follow the asynchronous operations status check.
 
-# [REST](#tab/rest)
+# [REST](#tab/rest1)
 
 - Send a GET request on the *Cluster* resource and look at the *provisioningState* value. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
@@ -207,7 +207,7 @@ As any cluster operation, linking a workspace can be performed only after the co
 > Linking a workspace to a cluster requires syncing multiple backend components and assuring cache hydration. This operation may take up to two hours to complete. We recommended you run it asynchronously.
 
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell1)
 
 Use the following PowerShell command to link to a cluster:
 
@@ -222,7 +222,7 @@ Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} 
 Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Property *
 ```
 
-# [REST](#tab/rest)
+# [REST](#tab/rest1)
 
 Use the following REST call to link to a cluster:
 
@@ -251,21 +251,20 @@ Content-type: application/json
 When cluster is configured with customer-managed keys, data ingested to the workspaces after the link operation completion is stored encrypted with your managed key. The workspace link operation can take up to 90 minutes to complete and you can check the state in two ways:
 
 - Copy the Azure-AsyncOperation URL value from the response and follow the asynchronous operations status check.
-
 - Perform Get operation on the workspace and observe if *clusterResourceId* property is present in the response under *features*.
 
-# [CLI](#tab/cli)
+# [CLI](#tab/cli2)
 
 ```azurecli
 az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell2)
 
 ```powershell
 Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
-# [REST](#tab/rest)
+# [REST](#tab/rest2)
 
 *Call*
 
@@ -327,18 +326,18 @@ After you create your *Cluster* resource and it is fully provisioned, you can ed
 
 ### Get all clusters in resource group
 
-# [CLI](#tab/cli)
+# [CLI](#tab/cli2)
 
 ```azurecli
 az monitor log-analytics cluster list --resource-group "resource-group-name"
 ```
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell2)
 
 ```powershell
 Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 ```
 
-# [REST](#tab/rest)
+# [REST](#tab/rest2)
 
 *Call*
 
@@ -390,18 +389,18 @@ Authorization: Bearer <token>
 
 ### Get all clusters in subscription
 
-# [CLI](#tab/cli)
+# [CLI](#tab/cli2)
 
 ```azurecli
 az monitor log-analytics cluster list
 ```
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell2)
 
 ```powershell
 Get-AzOperationalInsightsCluster
 ```
-# [REST](#tab/rest)
+# [REST](#tab/rest2)
 
 *Call*
 
@@ -421,20 +420,20 @@ The same as for 'clusters in a resource group', but in subscription scope.
 
 When the data volume to your linked workspaces change over time and you want to update the Commitment Tier level appropriately. The tier is specified in units of GB and can have values of 500, 1000, 2000 or 5000 GB/day. Note that you don’t have to provide the full REST request body but should include the sku.
 
-# [CLI](#tab/cli)
+# [CLI](#tab/cli2)
 
 
 ```azurecli
 az monitor log-analytics cluster update --name "cluster-name" --resource-group "resource-group-name" --sku-capacity 500
 ```
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell2)
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity 500
 ```
 
-# [REST](#tab/rest)
+# [REST](#tab/rest2)
 
 *Call*
 
@@ -485,13 +484,13 @@ Old data of the unlinked workspace might be left on the cluster. If this data is
 > [!WARNING] 
 > There is a limit of two linking operations for a specific workspace within a month. Take time to consider and plan unlinking actions accordingly.
 
-# [CLI](#tab/cli)
+# [CLI](#tab/cli2)
 
 ```azurecli
 az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "workspace-name" --name cluster
 ```
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell2)
 
 Use the following PowerShell command to unlink a workspace from cluster:
 
@@ -518,7 +517,7 @@ Within the 14 days after deletion, the cluster resource name is reserved and can
 > [!WARNING] 
 > There is a limit of three clusters per subscription. Both active and soft-deleted clusters are counted as part of this. Customers should not create recurrent procedures that create and delete clusters. It has a significant impact on Log Analytics backend systems.
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/powershell1)
 
 Use the following PowerShell command to delete a cluster:
 
@@ -526,7 +525,7 @@ Use the following PowerShell command to delete a cluster:
 Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
 ```
 
-# [REST](#tab/rest)
+# [REST](#tab/rest1)
 
 Use the following REST call to delete a cluster:
 
