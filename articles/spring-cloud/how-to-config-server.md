@@ -135,11 +135,11 @@ Now that your configuration files are saved in a repository, you need to connect
 
 4. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics-config".
 
-5. Click **Validate**.
+5. Select **Validate**.
 
     ![Navigate to config server](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
-6. When validation is complete, click **Apply** to save your changes.
+6. When validation is complete, select **Apply** to save your changes.
 
     ![Validating config server](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
 
@@ -200,25 +200,25 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
 
 ### Get repo url and credentials
 
-1. In the Azure Repos portal for your project, click the "Clone" button:
+1. In the Azure Repos portal for your project, select the **Clone** button:
 
     ![Clone Button](media/spring-cloud-tutorial-config-server/clone-button.png)
 
 1. Copy the clone URL from the textbox. This URL will typically be in the form:
 
-    ```Text
+    ```text
     https://<organization name>@dev.azure.com/<organization name>/<project name>/_git/<repository name>
     ```
 
     Remove everything after `https://` and before `dev.azure.com`, including the `@`. The resulting URL should be in the form:
 
-    ```Text
+    ```text
     https://dev.azure.com/<organization name>/<project name>/_git/<repository name>
     ```
 
     Save this URL for use in the next section.
 
-1. Click "Generate Git Credentials". A username and password will appear. Save these for use in the next section.
+1. Select **Generate Git Credentials**. A username and password will appear. Save these for use in the next section.
 
 ### Configure Azure Spring Cloud to access the Git repository
 
@@ -230,11 +230,11 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
 
 1. In the left pane of the service page, under **Settings**, select the **Config Server** tab. Configure the repository we previously created:
 
-   - Add the repository URL that you have saved from the previous section
-   - Click on `Authentication` and select `HTTP Basic`
-   - The __username__ is the username saved from the previous section
-   - The __password__ is the password saved from the previous section
-   - Click on "Apply" and wait for the operation to succeed
+   - Add the repository URL that you have saved from the previous section.
+   - Select **Authentication** and then select **HTTP Basic**.
+   - The __username__ is the username saved from the previous section.
+   - The __password__ is the password saved from the previous section.
+   - Select **Apply** and then wait for the operation to succeed.
 
    ![Spring Cloud config server](media/spring-cloud-tutorial-config-server/config-server-azure-repos.png)
 
@@ -259,7 +259,7 @@ When properties are changed, services consuming those properties need to be noti
 - Second enable auto-refresh and set the appropriate refresh interval in your application.yml. In this example, the client will poll for config changes every 5 seconds, which is the minimum value you can set for refresh interval.
 By default auto-refresh is set to false and refresh-interval is set to 60 seconds.
 
-  ``` yml
+  ```yml
   spring:
     cloud:
       config:
@@ -269,7 +269,7 @@ By default auto-refresh is set to false and refresh-interval is set to 60 second
 
 - Finally add @refreshScope in your code. In this example, the variable connectTimeout will be automatically refreshed every 5 seconds.
 
-  ``` java
+  ```java
   @RestController
   @RefreshScope
   public class HelloController {
