@@ -407,7 +407,7 @@ It takes a few minutes for the *gpunodepool* to be successfully created.
 When creating a node pool, you can add taints, labels, or tags to that node pool. When you add a taint, label, or tag, all nodes within that node pool also get that taint, label, or tag.
 
 > [!IMPORTANT]
-> Adding taints, labels, or tags to nodes should be done for the entire node pool using `az aks nodepool`. Applying taints, lablels, or tags to individual nodes in a node pool using `kubectl` is not recommended.  
+> Adding taints, labels, or tags to nodes should be done for the entire node pool using `az aks nodepool`. Applying taints, labels, or tags to individual nodes in a node pool using `kubectl` is not recommended.  
 
 ### Setting nodepool taints
 
