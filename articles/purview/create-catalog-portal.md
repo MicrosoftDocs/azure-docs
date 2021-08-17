@@ -28,7 +28,7 @@ This quickstart describes the steps to create an Azure Purview account by using 
     1. Select a **resource group**.
     1. Enter a **Purview account name**. Spaces and symbols aren't allowed.
     1. Choose a **location**.
-    1. Enter a **managed resource group name** for a resource group that Purview will create to house a storage account and an Eventhub for catalog ingestion.
+    1. Enter a **managed resource group name** for a resource group that Purview will create to house a storage account and an Event Hub for catalog ingestion.
 1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the creation. The newly created Azure Purview account instance appears in the list on your **Purview accounts** page.
 
 ## Open Purview Studio
