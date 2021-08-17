@@ -23,7 +23,8 @@ On the end-of-life date for a language version, you can no longer create new fun
 
 After the language end-of-life date, function apps that use retired language versions won't be eligible for new features, security patches, and performance optimizations. However, these function apps will continue to run on the platform. You're highly encouraged to upgrade the language version of your affected function apps to a supported version.
 
->[!NOTE] if you're running functions apps using unsupported language version, you will be asked to upgrade when requesting support for the function apps.
+>[!NOTE] 
+>If you're running functions apps using unsupported language version, you will be asked to upgrade when requesting support for the function apps.
 >
 
 
