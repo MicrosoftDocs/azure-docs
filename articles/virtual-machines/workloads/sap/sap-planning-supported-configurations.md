@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/11/2020
+ms.date: 08/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -290,7 +290,7 @@ Other scenarios, which are not supported are scenarios like:
 	- Deploying the two layers with two different cloud vendors. For example, deploying the DBMS tier in Oracle Cloud Infrastructure and the application tier in Azure
 - Multi-Instance HANA Pacemaker cluster configurations
 - Windows Cluster configurations with shared disks through SOFS or SMB on ANF for SAP databases supported on Windows. Instead we recommend the usage of native high availability replication of the particular databases and use separate storage stacks
-- Deployment of SAP databases supported on Linux with database files located in NFS shares on top of ANF with the exception of SAP HANA
+- Deployment of SAP databases supported on Linux with database files located in NFS shares on top of ANF with the exception of SAP HANA, Oracle on Oracle Linux, and Db2 on Suse and Red Hat
 - Deployment of Oracle DBMS on any other guest OS than Windows and Oracle Linux. See also [SAP support note #2039619](https://launchpad.support.sap.com/#/notes/2039619)
 
 Scenario(s) that we did not test and therefore have no experience with list like:
