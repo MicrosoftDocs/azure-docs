@@ -84,7 +84,9 @@ This document shows you how to create data collection rules.
 > - **Collect security events from non-Azure machines**
 > 
 >   To collect security events from any system that is not an Azure virtual machine, the system must have [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-install.md) installed and enabled *before* you enable the Azure Monitor Agent-based connector.
+>   
 >   This includes:
+>   
 >       - Windows servers installed on physical machines
 >       - Windows servers installed on on-premises virtual machines
 >       - Windows servers installed on virtual machines in non-Azure clouds
