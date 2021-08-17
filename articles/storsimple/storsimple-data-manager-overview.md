@@ -61,7 +61,7 @@ This set is larger because the resource deployment in any of the above regions i
 ## Choosing a region
 
 We recommend that:
- - Your source storage account (the one associated with your StorSimple device) and target storage account (where you want the data in native format) be in the same Azure region.
+ - Your source storage account (the one associated with your StorSimple device) and target storage account (where you want the data in native format) are in the same Azure region.
  - You bring up your Data Manager and job definition in the region that contains the StorSimple storage account. If this is not possible, bring up the Data Manager in the nearest Azure region and then create the Job Definition in the same region as your StorSimple storage account. 
 
     If your StorSimple storage account is not in the 26 regions that support job definition creation, we recommend that you do not run StorSimple Data Manager as you see long latencies and potential egress charges.
@@ -84,7 +84,7 @@ If your Data Manager region is different from your job definition region, it is 
 
 The StorSimple Data Manager does not collect or display any personal information. For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 
-## Known Limitations
+## Known limitations
 
 StorSimple Data Manager has the following limitations:
 - The service doesn't work with volumes that are BitLocker encrypted. You will see job failures if you try to run the service with an encrypted drive.
