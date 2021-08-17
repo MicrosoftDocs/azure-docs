@@ -534,7 +534,8 @@ Review your scripts for firewall changes/enablement, or changes to SSH or WinRM,
 ### JWT errors in log early in the build
 
 #### Error
-Early in the build process, the build fails, and the log indicates a JWT error:
+Early in the build process, the build fails and the log indicates a JWT error:
+
 ```text
 PACKER OUT Error: Failed to prepare build: "azure-arm"
 PACKER ERR 
@@ -547,7 +548,7 @@ PACKER OUT 1 error(s) occurred:
 The `buildTimeoutInMinutes` value in the template is set to between 1 and 5 minutes.
 
 #### Solution
-As [documented](./image-builder-json.md), the timeout must be set to 0 to use the default, or above 5 minutes to override the default.  Change the timeout in your template to 0 to use the default, or a minimum of 6 minutes.
+As described in [Create an Azure Image Builder template](./image-builder-json.md), the timeout must be set to 0 to use the default or above 5 minutes to override the default.  Change the timeout in your template to 0 to use the default or to a minimum of 6 minutes.
 
 ## DevOps task 
 
