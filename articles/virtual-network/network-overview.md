@@ -1,14 +1,12 @@
 ---
 title: Virtual networks
 description: Learn about networking as it relates to creating Linux virtual machines in Azure.
-services: virtual-machines
-author: cynthn
-ms.service: virtual-machines
-ms.subservice: networking
-ms.workload: infrastructure-services
+services: virtual-network
+author: asudbring
+ms.service: virtual-network
 ms.topic: conceptual
 ms.date: 07/17/2017
-ms.author: cynthn
+ms.author: asudbring
 
 ---
 
