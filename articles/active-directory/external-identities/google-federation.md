@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 08/17/2021
 
 ms.author: mimart
 author: msmimart
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Gmail accounts, without having to create Microsoft accounts.
 
-After you've added Google as one of your application's sign-in options, on the **Sign in** page, a user can simply enter the Gmail address they use to sign in to Google, and then they'll be redirected to the Google sign-in page for authentication.
+After you've added Google as one of your application's sign-in options, on the **Sign in** page, a user can simply enter the Gmail address they use to sign in to Google.
 
 ![Sign in options for Google users](media/google-federation/sign-in-with-google-overview.png)
 
@@ -150,7 +150,7 @@ First, create a new project in the Google Developers Console to obtain a client 
 
     ![Screenshot that shows the OAuth client ID and client secret.](media/google-federation/google-auth-client-id-secret.png)
 
-13. On the OAuth consent screen, select **Publish app**.
+13. You can leave your project at a publishing status of **Testing** and add test users to the OAuth consent screen. Or you can select the **Publish app** button on the OAuth consent screen to make the app available to any user with a Google Account.
 
 ## Step 2: Configure Google federation in Azure AD 
 
