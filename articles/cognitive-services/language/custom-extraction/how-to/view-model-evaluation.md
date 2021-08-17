@@ -30,7 +30,7 @@ After model training is completed, you can view the model details and see how we
 
 3. View your model training status in the **Status** column, and the F1 score for the model in the **F1 score** column. you can click on the model name for more details.
 
-4. You can find the **model-level** evaluation metrics under **Overview**, and the **entity-level** evaluation metrics under **Entity performance metrics**. See [evaluation metrics](../concepts/evaluation-metrics.md) for more information. The [confusion matrix](../concepts/evaluation-metrics.md#confusion-matrix) for the model is located under **Test set confusion matrix**
+4. You can find the **model-level** evaluation metrics under **Overview**, and the **entity-level** evaluation metrics under **Entity performance metrics**. The confusion matrix for the model is located under **Test set confusion matrix**
 
     :::image type="content" source="../media/model-details.png" alt-text="A screenshot of the model performance metrics in Language Studio" lightbox="../media/model-details.png":::
 
@@ -39,5 +39,5 @@ After model training is completed, you can view the model details and see how we
 
 ## Next steps
 
-After reviewing your model's evaluation and [metrics](../concepts/evaluation-metrics.md), you can start [improving your model](improve-model.md)
+After reviewing your model's evaluation, you can start [improving your model](improve-model.md)
 
