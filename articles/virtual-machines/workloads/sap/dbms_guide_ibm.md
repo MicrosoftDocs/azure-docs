@@ -141,35 +141,37 @@ The performance tier and the size of the volumes must be chosen based on the per
 
 As of mount options, mounting those volumes could look like:
 
-    vi /etc/idmapd.conf
-     # Example
-     [General]
-     Domain = defaultv4iddomain.com
-     [Mapping]
-     Nobody-User = nobody
-     Nobody-Group = nobody
+```
+vi /etc/idmapd.conf   
+ # Example
+ [General]
+ Domain = defaultv4iddomain.com
+ [Mapping]
+ Nobody-User = nobody
+ Nobody-Group = nobody
 
-    mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2shared /mnt 
-    mkdir -p /db2/Software /db2/AN1/saptmp /usr/sap/AN1 /sapmnt/AN1 /home/an1adm /db2/db2an1 /db2/AN1/db2_software
-    mkdir -p /mnt/Software /mnt/saptmp  /mnt/usr_sap /mnt/sapmnt /mnt/an1_home /mnt/db2_software /mnt/db2an1
-    umount /mnt
-    
-    mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2data /mnt
-    mkdir -p /db2/AN1/sapdata/sapdata1 /db2/AN1/sapdata/sapdata2 /db2/AN1/sapdata/sapdata3 /db2/AN1/sapdata/sapdata4
-    mkdir -p /mnt/sapdata1 /mnt/sapdata2 /mnt/sapdata3 /mnt/sapdata4
-    umount /mnt
-    
-    mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2log /mnt 
-    mkdir /db2/AN1/log_dir
-    mkdir /mnt/log_dir
-    umount /mnt
-    
-    mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2backup /mnt
-    mkdir /db2/AN1/backup
-    mkdir /mnt/backup
-    mkdir /db2/AN1/offline_log_dir /db2/AN1/db2dump
-    mkdir /mnt/offline_log_dir /mnt/db2dump
-    umount /mnt
+mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2shared /mnt 
+mkdir -p /db2/Software /db2/AN1/saptmp /usr/sap/AN1 /sapmnt/AN1 /home/an1adm /db2/db2an1 /db2/AN1/db2_software
+mkdir -p /mnt/Software /mnt/saptmp  /mnt/usr_sap /mnt/sapmnt /mnt/an1_home /mnt/db2_software /mnt/db2an1
+umount /mnt
+
+mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2data /mnt
+mkdir -p /db2/AN1/sapdata/sapdata1 /db2/AN1/sapdata/sapdata2 /db2/AN1/sapdata/sapdata3 /db2/AN1/sapdata/sapdata4
+mkdir -p /mnt/sapdata1 /mnt/sapdata2 /mnt/sapdata3 /mnt/sapdata4
+umount /mnt
+
+mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2log /mnt 
+mkdir /db2/AN1/log_dir
+mkdir /mnt/log_dir
+umount /mnt
+
+mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2backup /mnt
+mkdir /db2/AN1/backup
+mkdir /mnt/backup
+mkdir /db2/AN1/offline_log_dir /db2/AN1/db2dump
+mkdir /mnt/offline_log_dir /mnt/db2dump
+umount /mnt
+```
 
 >[!NOTE]
 > The mount option hard and sync are required
