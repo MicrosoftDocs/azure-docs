@@ -8,27 +8,32 @@ ms.custom: devx-track-java
 ms.author: jgol
 ---
 
-# Java codeless application monitoring Azure Monitor Application Insights
+# Azure Monitor OpenTelemetry-based Auto-Instrumentation for Java Applications
 
 > [!NOTE]
 > If you are looking for the old 2.x docs, go [here](./java-2x-get-started.md).
 
-Java codeless application monitoring is all about simplicity - there are no code changes, the Java agent can be enabled through just a couple of configuration changes.
+This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Java offering. When you complete the instructions in this article, you’ll be able to use Azure Monitor Application Insights to monitor your application.
 
-The Java agent works in any environment, and allows you to monitor all of your Java applications. In other words, whether you are running your Java apps on VMs, on-premises, in AKS, on Windows, Linux - you name it,
-the Application Insights Java agent will monitor your app.
+Java auto-instrumentation is all about simplicity - there are no code changes, Java auto-instrumentation can be enabled through just a couple of configuration changes.
+
+Java auto-instrumentation works in any environment, and allows you to monitor all of your Java applications. In other words, whether you are running your Java apps on VMs, on-premises, in AKS, on Windows, Linux - you name it,
+ Application Insights Java auto-instrumentation will monitor your app.
 
 Adding the Application Insights Java 2.x SDK to your application is no longer required,
-as the Application Insights Java 3.x agent auto-collects requests, dependencies and logs all on its own.
+as Application Insights Java 3.x auto-instrumentation auto-collects requests, dependencies and logs all on its own.
 
 You can still send custom telemetry from your application.
-The 3.x agent will track and correlate it along with all of the auto-collected telemetry.
+Java 3.x will track and correlate it along with all of the auto-collected telemetry.
 
-The 3.x agent supports Java 8 and above.
+## Get Started
+### Prerequisites
+- Java Application using version 8+
+- Azure Subscription (Free to [create](https://azure.microsoft.com/free/))
+- Application Insights Resource (Free to [create](create-workspace-resource.md#create-workspace-based-resource))
 
-## Quickstart
-
-**1. Download the agent**
+### Enable Azure Monitor Application Insights
+**1. Download the jar file**
 
 > [!WARNING]
 > **If you are upgrading from 3.0 Preview**
@@ -46,17 +51,15 @@ The 3.x agent supports Java 8 and above.
 
 Download [applicationinsights-agent-3.1.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.1/applicationinsights-agent-3.1.1.jar)
 
-**2. Point the JVM to the agent**
+**2. Point the JVM to the jar file**
 
 Add `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` to your application's JVM args. 
 
 For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
 
-**3. Point the agent to your Application Insights resource**
+**3. Point the jar file to your Application Insights resource**
 
-If you do not already have an Application Insights resource, you can create a new one by following the steps in the [resource creation guide](./create-new-resource.md).
-
-Point the agent to your Application Insights resource, either by setting an environment variable:
+Point the jar file to your Application Insights resource, either by setting an environment variable:
 
 ```
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
