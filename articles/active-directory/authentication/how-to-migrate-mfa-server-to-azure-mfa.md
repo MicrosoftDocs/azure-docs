@@ -148,7 +148,7 @@ Others might include:
   - The Cisco VPN supports both RADIUS and [SAML authentication for SSO](../saas-apps/cisco-anyconnect.md).
   - By moving from RADIUS authentication to SAML, you can integrate the Cisco VPN without deploying the NPS extension.
 - All VPNs
-  - We recommend federating your VPN as a SAML app if possible. This will allow you to use Conditional Access. For more information, see a [list of VPN vendors that are integrated into the Azure AD](../manage-apps/secure-hybrid-access.md#sha-through-azure-ad-partner-integrations) App gallery.
+  - We recommend federating your VPN as a SAML app if possible. This will allow you to use Conditional Access. For more information, see a [list of VPN vendors that are integrated into the Azure AD](../manage-apps/secure-hybrid-access.md#secure-hybrid-access-through-azure-ad-partner-integrations) App gallery.
 
 
 ### Resources for deploying NPS
