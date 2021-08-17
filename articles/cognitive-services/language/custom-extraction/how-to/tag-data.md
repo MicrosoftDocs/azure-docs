@@ -115,9 +115,8 @@ The following list describe the various JSON properties of the sample above.
   * `culture`: culture/language of the document. See [language support](../language-support.md) for more information.
   * `entities`: Specifies the entity recognition tags.
     * `regionStart`: The inclusive character position of the start of the text.
-    * `regionLength`: The length of the bounding box in terms of UTF16 characters.
-    
-    Training only considers the data in this region, so if this is a tagged file, set the `regionStart` to 0 and the `regionLength` to the last index of last character in the file. You can also set this region if you want to introduce a negative sample to the training, by defining the region as a portion of the file with no tags.
+    * `regionLength`: The length of the bounding box in terms of UTF16 characters. Training only considers the data in this region, so if this is a tagged file, set the `regionStart` to 0 and the `regionLength` to the last index of last character in the file. You can also set this region if you want to introduce a negative sample to the training, by defining the region as a portion of the file with no tags.
+
     * `labels`: All tags occurring within the bounding box.
       * `entity`: The index of the entity in the `entityNames` array.
       * `start`: The inclusive character position of the start of the tag in the document text. This is not relative to the bounding box.
