@@ -235,7 +235,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     3. Copy the primary connection string. And execute the command below.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
     
 5. Run the Azure Function in local:
