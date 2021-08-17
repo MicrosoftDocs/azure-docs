@@ -2,7 +2,7 @@
 title: Azure Functions language runtime support policy 
 description: Learn about Azure Functions language runtime support policy 
 ms.topic: conceptual
-ms.date: 06/14/2021
+ms.date: 08/17/2021
 ---
 
 # Language runtime support policy
@@ -15,13 +15,13 @@ Azure Functions runtime is built around various components, including operating 
 
 ### Notification phase
 
-We'll send notification emails to function app users about upcoming language version retirements. The notifications will be at least one year prior to the date of retirement. Upon the notification, you should prepare to upgrade the language version that your functions apps use to a supported version.
+We'll send notification emails to function app users about upcoming language version retirements. The notifications will be at least one year before the date of retirement. Upon the notification, you should prepare to upgrade the language version that your functions apps use to a supported version.
 
 ### Retirement phase
 
 On the end-of-life date for a language version, you can no longer create new function apps targeting that language version.
 
-After the language end-of-life date, function apps that use retired language versions will not be eligible for new features, security patches, and performance optimizations. However, these function apps will continue to run on the platform. You're highly encouranged to upgrade the language version of your affected function apps to a supported version.
+After the language end-of-life date, function apps that use retired language versions won't be eligible for new features, security patches, and performance optimizations. However, these function apps will continue to run on the platform. You're highly encouraged to upgrade the language version of your affected function apps to a supported version.
 
 >[!NOTE] if you're running functions apps using unsupported language version, you will be asked to upgrade when requesting support for the function apps.
 >
