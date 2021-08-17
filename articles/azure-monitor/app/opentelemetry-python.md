@@ -40,6 +40,7 @@ Find the connection string on your Application Insights Resource.
 //screenshot
 
 3. Confirm Data is Flowing
+
 Generate requests in your application and open your Application Insights Resource.
 It may take up to a couple minutes for data to start flowing.
 
