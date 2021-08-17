@@ -34,7 +34,7 @@ The `redis-benchmark.exe` doesn't support TLS. You'll have to [enable the Non-TL
 ### Redis-Benchmark examples
 
 **Pre-test setup**:
-Prepare the cache instance with data required for the latency and throughput testing: 
+Prepare the cache instance with data required for the latency and throughput testing:
 
 ```azurecli
 redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024
