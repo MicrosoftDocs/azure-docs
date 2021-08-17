@@ -150,14 +150,13 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 ::: zone-end  
 
-## Run the function locally
-
 ::: zone pivot="programming-language-csharp"  
 
 [!INCLUDE [functions-run-function-test-local-vs-code-csharp](../../includes/functions-run-function-test-local-vs-code-csharp.md)]
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"  
+## Run the function locally
 
 1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. 
 

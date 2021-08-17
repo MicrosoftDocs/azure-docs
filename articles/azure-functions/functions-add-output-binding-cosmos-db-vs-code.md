@@ -307,13 +307,13 @@ This code now returns a `MultiResponse` object that contains both a document and
 
 ::: zone-end  
 
-## Run the function locally
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-run-function-test-local-vs-code-csharp](../../includes/functions-run-function-test-local-vs-code-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+## Run the function locally
+
 1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. 
 
 1. With Core Tools running, go to the **Azure: Functions** area. Under **Functions**, expand **Local Project** > **Functions**. Right-click (Ctrl-click on Mac) the `HttpExample` function and choose **Execute Function Now...**.
