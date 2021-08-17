@@ -30,7 +30,7 @@ To broadly support your Azure Database for MySQL solution, you can choose from a
 To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/).
 
 <!--Image references-->
-[1]: ./media/partner-migration-mysql/devart_logo.png
+[1]: ./media/partner-migration-mysql/devart-logo.png
 [2]: ./media/partner-migration-mysql/SNP_Logo.png
 [3]: ./media/partner-migration-mysql/PW-logo-text-CMYK1000.png
 [4]: ./media/partner-migration-mysql/InfosysLogo.png
