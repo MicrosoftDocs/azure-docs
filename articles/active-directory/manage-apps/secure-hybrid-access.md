@@ -19,17 +19,17 @@ You can now protect your on-premises and cloud legacy authentication application
 
 - [Azure AD Application Proxy](#sha-through-azure-ad-application-proxy)
 
-- [Secure hybrid access (SHA) partners](#sha-through-azure-ad-partner-integrations)
+- [Secure hybrid access partners](#sha-through-azure-ad-partner-integrations)
 
-You can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities like [Azure AD Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) and [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection). By having Azure AD as an Identity provider (IDP), you can use modern authentication and authorization methods like [Azure AD single sign-on (SSO)](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) and [Azure AD multifactor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) to secure your on-premises legacy applications.
+You can bridge the gap and strengthen your security posture across all applications with Azure AD capabilities like [Azure AD Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) and [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection). By having Azure AD as an Identity provider (IDP), you can use modern authentication and authorization methods like [Single sign-on (SSO)](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) and [multifactor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) to secure your on-premises legacy applications.
 
-## SHA through Azure AD Application Proxy
+## Secure hybrid access through Azure AD Application Proxy
   
 Using [Application Proxy](https://docs.microsoft.com/azure/active-directory/app-proxy/what-is-application-proxy) you can provide [secure remote access](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-add-on-premises-application) to your on-premises web applications. Your users don’t need to use a VPN. Users benefit by easily connecting to their applications from any device after a [SSO](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-config-sso-how-to#how-to-configure-single-sign-on). Application Proxy provides remote access as a service and allows you to [easily publish your on-premise applications](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-add-on-premises-application) to users outside the corporate network. It helps you scale your cloud access management without requiring you to modify your on-premises applications. [Plan an Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/app-proxy/application-proxy-deployment-plan) deployment as a next step.
 
-## SHA through Azure AD partner integrations  
+## Secure hybrid access through Azure AD partner integrations  
 
-In addition to [Azure AD Application Proxy](https://aka.ms/whyappproxy), to enable you to use the [Zero Trust framework](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/), Microsoft partners with third-party providers.
+In addition to [Azure AD Application Proxy](https://aka.ms/whyappproxy), enable you to secure access to the on-premises apps or apps that use legacy authentication, Microsoft partners with third-party providers.
 
 ![Image shows secure hybrid access with app proxy and partners](./media/secure-hybrid-access/secure-hybrid-access.png)
 
