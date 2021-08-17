@@ -214,6 +214,12 @@ If you're using Azure Firewall like on this [example](limit-egress-traffic.md#re
 
 If you are using cluster autoscaler, when you start your cluster back up your current node count may not be between the min and max range values you set. This behavior is expected. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count and your cluster will eventually enter and remain in that desired range until you stop your cluster.
 
+## Traffic not reaching all workloads in my AKS cluster with Basic SKU Load Balancer and multiple node pools.
+
+[`externalTrafficPolicy: Local`](load-balancer-standard#maintain-the-clients-ip-on-inbound-connections), if set in the LoadBalancer service definition, is not compatible with Basic SKU Load Balancer. It will result in the incoming traffic not landing on the workload pod(s) running in the secondary node pools.
+
+Basic SKU load balancer is not supported for [clusters with multiple node pools](use-multiple-node-pools.md). Use Standard SKU load balancer.
+
 ## Azure Storage and AKS Troubleshooting
 
 ### Failure when setting uid and `GID` in mountOptions for Azure Disk
