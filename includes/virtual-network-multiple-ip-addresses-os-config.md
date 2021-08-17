@@ -333,8 +333,9 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 	- **10.0.0.1** to your default gateway
 	- **eth2** to the name of your secondary NIC
 
+
 </details>
-	
+
 ### Debian GNU/Linux
 
 <details>
