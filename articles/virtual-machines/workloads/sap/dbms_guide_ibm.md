@@ -70,9 +70,9 @@ Alternatively, you can use Windows Storage Pools (only available in Windows Serv
 
 <!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-For Azure M-Series VM, the latency writing into the transaction logs can be reduced by factors, compared to Azure Premium Storage performance, when using Azure Write Accelerator. Hence, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../how-to-enable-write-accelerator.md).
+For Azure M-Series VM, the latency writing into the transaction logs can be reduced by factors, compared to Azure Premium storage performance, when using Azure Write Accelerator. Therefore, you should deploy Azure Write Accelerator for the VHD(s) that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../how-to-enable-write-accelerator.md).
 
-IBM Db2 LUW 11.5 released support for 4-KB sector size. For older Db2 versions a 512-Byte sector size must be used. Premium SSD disks are 4-KB native and have 512-Byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512-Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This 512-Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
+IBM Db2 LUW 11.5 released support for 4-KB sector size. For older Db2 versions, a 512-Byte sector size must be used. Premium SSD disks are 4-KB native and have 512-Byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512-Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This 512-Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
 
 On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512-Byte. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
@@ -137,14 +137,14 @@ The usage of NFS v4.1 volumes based on Azure NetApp Files (ANF) is supported wit
 - One log volume for the redo log directory
 - One volume for the log archives and backups
 
-A fifth potential volume could be an ANF volume that you use for more long term backups that you use to snapshot and store the snapshots in Azure Blob store.
+A fifth potential volume could be an ANF volume that you use for more long-term backups that you use to snapshot and store the snapshots in Azure Blob store.
 
 The configuration could look like shown here
 
 ![Example of Db2 configuration using ANF](./media/dbms_guide_ibm/anf-configuration-example.png)
 
 
-The performance tier and the size of the ANF hosted volumes must be chosen based on the performance requirements. However, we recommend to take the Ultra performance level for the data and the log volume. It is not supported to mix block storage and shared storage types for the data and log volume.
+The performance tier and the size of the ANF hosted volumes must be chosen based on the performance requirements. However, we recommend taking the Ultra performance level for the data and the log volume. It is not supported to mix block storage and shared storage types for the data and log volume.
 
 As of mount options, mounting those volumes could look like (you need to replace ```<SID>``` and ```<sid>``` by the SID of your SAP system):
 
@@ -197,7 +197,7 @@ As in bare-metal deployments, backup/restore performance depends on how many vol
 
 To increase the number of targets to write to, two options can be used/combined depending on your needs:
 
-* Striping the backup target volume over multiple disks in order to improve the IOPS throughput on that striped volume
+* Striping the backup target volume over multiple disks to improve the IOPS throughput on that striped volume
 * Using more than one target directory to write the backup to
 
 >[!NOTE]
@@ -224,9 +224,9 @@ For Db2 deployments on Windows, it is highly recommended to use the Azure functi
 
 
 ### Specifics for Linux deployments
-As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single disk. Whereas you always should separate the data files and transaction log files on different disks/VHDs.
+As long as the current IOPS quota per disk is sufficient, it is possible to store all the database files on one single disk. Whereas you always should separate the data files and transaction log files on different disks.
 
-Alternatively, if the IOPS or I/O throughput of a single Azure VHD is not sufficient, you can use LVM (Logical Volume Manager) or MDADM as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) to create one large logical device over multiple disks.
+If the IOPS or I/O throughput of a single Azure VHD is not sufficient, you can use LVM (Logical Volume Manager) or MDADM as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) to create one large logical device over multiple disks.
 For the disks containing the Db2 storage paths for your sapdata and saptmp directories, you must specify a physical disk sector size of 512 KB.
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
