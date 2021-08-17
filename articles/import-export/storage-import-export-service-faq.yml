@@ -6,7 +6,7 @@ metadata:
   services: storage
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 01/14/2021
+  ms.date: 08/17/2021
   ms.author: alkohli
   ms.subservice: common
     
@@ -127,6 +127,12 @@ sections:
           When shipping my drive, the carrier asks for the data center contact address and phone number. What should I provide?
         answer: |
           The phone number and DC address is provided as part of job creation.
+
+        - question: |
+          My tracking shows that the package is Delivered, but the status of my Import/Export order is still Shipping. Should I be concerned?
+        answer: |
+          No. After the carrier delivers a physical device, it takes a little time for the delivery to be processed in Azure Import/Export. When processing completes, the order's status will change to Received.
+
 
   - name: Miscellaneous
     questions:
