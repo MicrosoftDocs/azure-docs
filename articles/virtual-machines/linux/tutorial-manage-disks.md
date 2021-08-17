@@ -108,7 +108,7 @@ Once a disk has been attached to the virtual machine, the operating system needs
 Create an SSH connection with the virtual machine. Replace the example IP address with the public IP of the virtual machine.
 
 ```console
-ssh 10.101.10.10
+ssh azureuser@10.101.10.10
 ```
 
 Partition the disk with `parted`.
