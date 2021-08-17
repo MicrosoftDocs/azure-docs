@@ -42,7 +42,7 @@ The dashboard includes the following sections:
 
 In this article, you learned about the Azure Defender dashboard. 
 
-For more on Azure Defender, see [Introduction to Azure Defender](azure-defender.md)
-
 > [!div class="nextstepaction"]
 > [Enable Azure Defender](enable-azure-defender.md)
+
+For more on Azure Defender, see [Introduction to Azure Defender](azure-defender.md)

@@ -382,6 +382,7 @@ Multi-container is currently in preview. The following App Service platform feat
 - Managed Identities
 - CORS
 - VNET integration is not supported for Docker Compose scenarios
+- Docker Compose on Azure App Services currently has a limit of 4,000 characters at this time.
 
 ### Docker Compose options
 
@@ -427,4 +428,5 @@ The following lists show supported and unsupported Docker Compose configuration 
 
 Or, see additional resources:
 
-[Load certificate in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificate-in-linuxwindows-containers)
+- [Environment variables and app settings reference](reference-app-settings.md)
+- [Load certificate in Windows/Linux containers](configure-ssl-certificate-in-code.md#load-certificate-in-linuxwindows-containers)

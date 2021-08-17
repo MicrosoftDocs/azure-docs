@@ -3,7 +3,7 @@ title: Deploy a Linux Hybrid Runbook Worker in Azure Automation
 description: This article tells how to install an Azure Automation Hybrid Runbook Worker to run runbooks on Linux-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/14/2021
+ms.date: 08/05/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -62,9 +62,11 @@ The minimum requirements for a Linux system and user Hybrid Runbook Worker are:
 |Glibc |GNU C Library| 2.5-12 |
 |Openssl| OpenSSL Libraries | 1.0 (TLS 1.1 and TLS 1.2 are supported)|
 |Curl | cURL web client | 7.15.5|
-|Python-ctypes | Python 2.x or Python 3.x are required |
+|Python-ctypes | Foreign function library for Python| Python 2.x or Python 3.x are required |
 |PAM | Pluggable Authentication Modules|
+
 | **Optional package** | **Description** | **Minimum version**|
+|--------------------- | --------------------- | -------------------|
 | PowerShell Core | To run PowerShell runbooks, PowerShell Core needs to be installed. See [Installing PowerShell Core on Linux](/powershell/scripting/install/installing-powershell-core-on-linux) to learn how to install it. | 6.0.0 |
 
 ### Adding a machine to a Hybrid Runbook Worker group

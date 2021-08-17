@@ -2,7 +2,7 @@
 title: Install Azure IoT Edge | Microsoft Docs
 description: Azure IoT Edge installation instructions on Windows or Linux devices
 author: kgremban
-manager: philmea
+
 # this is the PM responsible
 ms.reviewer: veyalla
 ms.service: iot-edge

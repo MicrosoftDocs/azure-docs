@@ -1,13 +1,16 @@
 ---
-title: Copy data from an HTTP source by using Azure Data Factory 
-description: Learn how to copy data from a cloud or on-premises HTTP source to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+title: Copy data from an HTTP source
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from a cloud or on-premises HTTP source to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/17/2021
 ms.author: jianleishen
 ---
-# Copy data from an HTTP endpoint by using Azure Data Factory
+# Copy data from an HTTP endpoint by using Azure Data Factory or Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-http-connector.md)
@@ -15,7 +18,7 @@ ms.author: jianleishen
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from an HTTP endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse to copy data from an HTTP endpoint. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
 The difference among this HTTP connector, the [REST connector](connector-rest.md) and the [Web table connector](connector-web-table.md) are:
 
@@ -39,7 +42,7 @@ You can use this HTTP connector to:
 - Copy the HTTP response as-is or parse it by using [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 > [!TIP]
-> To test an HTTP request for data retrieval before you configure the HTTP connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
+> To test an HTTP request for data retrieval before you configure the HTTP connector, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
 
 ## Prerequisites
 
@@ -49,7 +52,7 @@ You can use this HTTP connector to:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties you can use to define Data Factory entities that are specific to the HTTP connector.
+The following sections provide details about properties you can use to define entities that are specific to the HTTP connector.
 
 ## Linked service properties
 
@@ -71,7 +74,7 @@ Set the **authenticationType** property to **Basic**, **Digest**, or **Windows**
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | The user name to use to access the HTTP endpoint. | Yes |
-| password | The password for the user (the **userName** value). Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| password | The password for the user (the **userName** value). Mark this field as a **SecureString** type to store it securely. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Example**
 
@@ -105,7 +108,7 @@ To use ClientCertificate authentication, set the **authenticationType** property
 |:--- |:--- |:--- |
 | embeddedCertData | Base64-encoded certificate data. | Specify either **embeddedCertData** or **certThumbprint**. |
 | certThumbprint | The thumbprint of the certificate that's installed on your self-hosted Integration Runtime machine's cert store. Applies only when the self-hosted type of Integration Runtime is specified in the **connectVia** property. | Specify either **embeddedCertData** or **certThumbprint**. |
-| password | The password that's associated with the certificate. Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password that's associated with the certificate. Mark this field as a **SecureString** type to store it securely. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 
 If you use **certThumbprint** for authentication and the certificate is installed in the personal store of the local computer, grant read permissions to the self-hosted Integration Runtime:
 
@@ -298,7 +301,7 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 ## Legacy models
 
 >[!NOTE]
->The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the ADF authoring UI has switched to generating the new model.
+>The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the authoring UI has switched to generating the new model.
 
 ### Legacy dataset model
 
@@ -395,4 +398,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## Next steps
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

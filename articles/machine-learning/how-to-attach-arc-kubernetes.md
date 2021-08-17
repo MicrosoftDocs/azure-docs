@@ -189,7 +189,7 @@ The following custom compute target properties can be configured using a configu
     >    "defaultInstanceType": "defaultInstanceType",
     >    "instanceTypes": {
     >       "defaultInstanceType": {
-    >          "nodeSelector": "null",
+    >          "nodeSelector": null,
     >          "resources": {
     >             "requests": {
     >                "cpu": "1",

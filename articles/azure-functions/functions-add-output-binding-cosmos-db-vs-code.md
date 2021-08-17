@@ -141,7 +141,7 @@ Open the *HttpExample.cs* project file and add the following parameter to the `R
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-cosmos-db/HttpExample.cs" range="18-20":::
 
-The `documentsOut` parameter is an `IAsyncCollector<T>` type, which represents a collection of JSON documents that will be written to your Azure Cosmos DB container when the function completes. 
+The `documentsOut` parameter is an `IAsyncCollector<T>` type, which represents a collection of JSON documents that are written to your Azure Cosmos DB container when the function completes. Specific attributes indicate the names of the container and its parent database. The connection string for your Azure Cosmos DB account is set by the `ConnectionStringSettingAttribute`.
 
 # [Isolated process](#tab/isolated-process)
 

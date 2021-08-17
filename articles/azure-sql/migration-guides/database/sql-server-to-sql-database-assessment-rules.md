@@ -59,21 +59,6 @@ GROUP BY SalesOrderID, UnitPrice, UnitPriceDiscount WITH ROLLUP;
 
 More information: [Discontinued Database Engine functionality in SQL Server ](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Change data capture (CDC)<a id="CDC"></a>
-
-**Title: Change Data Capture (CDC) is not supported in Azure SQL Database**   
-**Category**: Issue   
-
-
-**Description**   
-Change Data Capture (CDC) is not supported in Azure SQL Database. Evaluate if Change Tracking can be used instead.  Alternatively, migrate to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines. 
-
-
-**Recommendation**   
-Change Data Capture (CDC) is not supported in Azure SQL Database. Evaluate if Change Tracking can be used instead or consider migrating to Azure SQL Managed Instance.
-
-More information: [Enable Azure SQL change tracking](https://social.technet.microsoft.com/wiki/contents/articles/2976.azure-sql-how-to-enable-change-tracking.aspx)
-
 ## CLR assemblies<a id="ClrAssemblies"></a>
 
 **Title: SQL CLR assemblies are not supported in Azure SQL Database**   

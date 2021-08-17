@@ -2,7 +2,7 @@
 title: Weather forecast using Azure Machine Learning Studio (classic) with IoT Hub data
 description: Use Azure Machine Learning Studio (classic) to predict the chance of rain based on the temperature and humidity data your IoT hub collects from a sensor.
 author: robinsh
-manager: philmea
+
 keywords: weather forecast machine learning
 ms.service: iot-hub
 services: iot-hub

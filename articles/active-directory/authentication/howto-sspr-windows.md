@@ -42,6 +42,7 @@ The following limitations apply to using SSPR from the Windows sign-in screen:
     - *HideFastUserSwitching* is set to enabled or 1
     - *DontDisplayLastUserName* is set to enabled or 1
     - *NoLockScreen* is set to enabled or 1
+    - *BlockNonAdminUserInstall* is set to enabled or 1
     - *EnableLostMode* is set on the device
     - Explorer.exe is replaced with a custom shell
 - The combination of the following specific three settings can cause this feature to not work.

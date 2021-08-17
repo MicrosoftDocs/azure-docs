@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
-manager: philmea
+
 ---
 
 # Azure Maps Weather services coverage

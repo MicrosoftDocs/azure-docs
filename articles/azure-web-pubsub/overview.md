@@ -18,7 +18,7 @@ This article provides an overview of Azure Web PubSub service.
 
 Any scenario that requires real-time publish-subscribe messaging between server and clients or among clients, can use Azure Web PubSub service. Traditional real-time features that often require polling from server or submitting HTTP requests, can also use Azure Web PubSub service.
 
-Azure Web PubSub service has been used in a wide variety of industries, for any application type that requires real-time content updates. We list some examples that are good to use Azure Web PubSub service:
+Azure Web PubSub service can be used in any application type that requires real-time content updates. We list some examples that are good to use Azure Web PubSub service:
 
 * **High frequency data updates:** gaming, voting, polling, auction.
 * **Live dashboards and monitoring:** company dashboard, financial market data, instant sales update, multi-player game leader board, and IoT monitoring.
@@ -39,14 +39,14 @@ Azure Web PubSub service is designed for large-scale real-time applications. The
 
 **Support for a wide variety of client SDKs and programming languages:**
 
-Azure Web PubSub service works with a broad range of clients, such as web and mobile browsers, desktop apps, mobile apps, server process, IoT devices, and game consoles. Since this service supports the raw WebSocket with publish-subscribe pattern, it is easily to use any standard WebSocket client SDK in different languages with this service. 
+Azure Web PubSub service works with a broad range of clients, such as web and mobile browsers, desktop apps, mobile apps, server process, IoT devices, and game consoles. Since this service supports the standard WebSocket connection with publish-subscribe pattern, it is easily to use any standard WebSocket client SDK in different languages with this service. 
 
 **Offer rich APIs for different messaging patterns:**
 
 Azure Web PubSub service is a bi-directional messaging service that allows different messaging patterns among server and clients, for example:
 
-* The server sends messages to a particular connection, all connections, or a subset of connections that belong to a specific user, or have been placed in an arbitrary group. 
-* The client sends messages to a particular connection, all connections, or a subset of connections that belong to an arbitrary group.
+* The server sends messages to a particular client, all clients, or a subset of clients that belong to a specific user, or have been placed in an arbitrary group. 
+* The client sends messages to clients that belong to an arbitrary group.
 * The clients send messages to server.
 
 
@@ -55,4 +55,6 @@ Azure Web PubSub service is a bi-directional messaging service that allows diffe
 There are many different ways to program with Azure Web PubSub service, as some of the samples listed here:
 
 - **Build serverless real-time applications**: Use Azure Functions' integration with Azure Web PubSub service to build serverless real-time applications in languages such as JavaScript, C#, Java and Python. 
+- **Use WebSocket subprotocol to do client-side only Pub/Sub** - Azure Web PubSub service provides WebSocket subprotocols to empower authorized clients to publish to other clients in a convenience manner.
+- **Use provided SDKs to manage the WebSocket connections in self-host app servers** - Azure Web PubSub service provides SDKs in C#, JavaScript, Java and Python to manage the WebSocket connections easily, including broadcast messages to the connections, add connections to some groups, or close the connections, etc.
 - **Send messages from server to clients via REST API** - Azure Web PubSub service provides REST API to enable applications to post messages to clients connected, in any REST capable programming languages.
