@@ -191,7 +191,7 @@ Azure Sentinel uses machine learning analytics to create high-fidelity and actio
 
 - Make sure to select use cases that justify rule migration, considering business priority and efficiency.
 
-- Review [built-in analytics rules](tutorial-detect-threats-built-in.md) that may already address your use cases. In Azure Sentinel, go to the **Configuration > Analytics > Rule templates** tab to create rules based on built-in templates.
+- Review [built-in analytics rules](detect-threats-built-in.md) that may already address your use cases. In Azure Sentinel, go to the **Configuration > Analytics > Rule templates** tab to create rules based on built-in templates.
 
 - Review any rules that haven't triggered any alerts in the past 6-12 months, and determine whether they're still relevant.
 
@@ -213,7 +213,7 @@ Azure Sentinel uses machine learning analytics to create high-fidelity and actio
 
         In Azure Sentinel, go to the **Configuration > Analytics > Rule templates** tab, and create and update each relevant analytics rule.
 
-        For more information, see [Detect threats out-of-the-box](tutorial-detect-threats-built-in.md).
+        For more information, see [Detect threats out-of-the-box](detect-threats-built-in.md).
 
     - **If you have detections that aren't covered by Azure Sentinel's built-in rules**, try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL.
 
@@ -242,8 +242,8 @@ Azure Sentinel uses machine learning analytics to create high-fidelity and actio
 
 **For more information, see**:
 
-- [**Create custom analytics rules to detect threats**](tutorial-detect-threats-custom.md). Use [alert grouping](tutorial-detect-threats-custom.md#alert-grouping) to reduce alert fatigue by grouping alerts that occur within a given timeframe.
-- [**Map data fields to entities in Azure Sentinel**](map-data-fields-to-entities.md) to enable SOC engineers to define entities as part of the evidence to track during an investigation. Entity mapping also makes it possible for SOC analysts to take advantage of an intuitive [investigation graph (tutorial-investigate-cases.md#use-the-investigation-graph-to-deep-dive) that can help reduce time and effort.
+- [**Create custom analytics rules to detect threats**](detect-threats-custom.md). Use [alert grouping](detect-threats-custom.md#alert-grouping) to reduce alert fatigue by grouping alerts that occur within a given timeframe.
+- [**Map data fields to entities in Azure Sentinel**](map-data-fields-to-entities.md) to enable SOC engineers to define entities as part of the evidence to track during an investigation. Entity mapping also makes it possible for SOC analysts to take advantage of an intuitive [investigation graph (investigate-cases.md#use-the-investigation-graph-to-deep-dive) that can help reduce time and effort.
 - [**Investigate incidents with UEBA data**](investigate-with-ueba.md), as an example of how to use evidence to surface events, alerts, and any bookmarks associated with a particular incident in the incident preview pane.
 - [**Kusto Query Language (KQL)**](/azure/data-explorer/kusto/query/), which you can use to send read-only requests to your [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) database to process data and return results. KQL is also used across other Microsoft services, such as [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) and [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
@@ -265,7 +265,7 @@ Use the following checklist to make sure that you're fully migrated to Azure Sen
 |Readiness area  |Details  |
 |---------|---------|
 |**Technology readiness**     | **Check critical data**: Make sure all sources and alerts are available in Azure Sentinel. <br><br>**Archive all records**: Save critical past incident and case records, raw data optional, to retain institutional history.   |
-|**Process readiness**     |  **Playbooks**: Update [investigation and hunting processes](tutorial-investigate-cases.md) to Azure Sentinel.<br><br>**Metrics**: Ensure that you can get all key metrics from Azure Sentinel.<br><br>**Workbooks**: Create [custom workbooks](tutorial-monitor-your-data.md) or use built-in workbook templates to quickly gain insights as soon as you [connect to data sources](connect-data-sources.md).<br><br>**Incidents**: Make sure to transfer all current incidents to the new system, including required source data.        |
+|**Process readiness**     |  **Playbooks**: Update [investigation and hunting processes](investigate-cases.md) to Azure Sentinel.<br><br>**Metrics**: Ensure that you can get all key metrics from Azure Sentinel.<br><br>**Workbooks**: Create [custom workbooks](monitor-your-data.md) or use built-in workbook templates to quickly gain insights as soon as you [connect to data sources](connect-data-sources.md).<br><br>**Incidents**: Make sure to transfer all current incidents to the new system, including required source data.        |
 |**People readiness**     |  **SOC analysts**: Make sure everyone on your team is trained on Azure Sentinel and is comfortable leaving the legacy SIEM.   |
 |     |         |
 ## Next steps

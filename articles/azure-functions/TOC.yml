@@ -517,6 +517,8 @@
           href: /python/api/azure-functions/azure.functions
     - name: App settings reference
       href: functions-app-settings.md
+    - name: Azure Functions Core Tools 
+      href: functions-core-tools-reference.md
     - name: Triggers and bindings
       items:
         - name: Blob storage

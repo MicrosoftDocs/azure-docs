@@ -2,7 +2,7 @@
 title: Tutorial - Use OpenSSL to create X.509 test certificates for Azure IoT Hub| Microsoft Docs
 description: Tutorial - Use OpenSSL to create CA and device certificates for Azure IoT hub
 author: v-gpettibone
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial

@@ -4,8 +4,8 @@ description: Private offers in the Microsoft commercial marketplace for app and 
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace
 ms.topic: article
-author: vikrambmsft
-ms.author: vikramb
+author: navits09
+ms.author: navits
 ms.date: 02/22/2021
 ---
 
@@ -66,8 +66,6 @@ Once signed into the Azure portal, customers can follow these steps to select yo
 Private offers will also appear in search results and can be deployed via command line and Azure Resource Manager templates, like any other offers.
 
 [![[Private offers appearing in search results.]](media/marketplace-publishers-guide/private-offer.png)](media/marketplace-publishers-guide/private-offer.png#lightbox)
-
-Private offers will also appear in search results. Just look for the **Private** badge.
 
 >[!Note]
 >Private offers are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.

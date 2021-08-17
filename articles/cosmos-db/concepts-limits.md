@@ -224,7 +224,7 @@ Cosmos DB supports querying items using [SQL](./sql-query-getting-started.md). T
 
 ## MongoDB API-specific limits
 
-Cosmos DB supports the MongoDB wire protocol for applications written against MongoDB. You can find the supported commands and protocol versions at [Supported MongoDB features and syntax](mongodb-feature-support.md).
+Cosmos DB supports the MongoDB wire protocol for applications written against MongoDB. You can find the supported commands and protocol versions at [Supported MongoDB features and syntax](mongodb/feature-support-32.md).
 
 The following table lists the limits specific to MongoDB feature support. Other service limits mentioned for the SQL (core) API also apply to the MongoDB API.
 
@@ -275,7 +275,7 @@ Read more about Cosmos DB's core concepts [global distribution](distribute-data-
 Get started with Azure Cosmos DB with one of our quickstarts:
 
 * [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
-* [Get started with Azure Cosmos DB's API for MongoDB](create-mongodb-nodejs.md)
+* [Get started with Azure Cosmos DB's API for MongoDB](mongodb/create-mongodb-nodejs.md)
 * [Get started with Azure Cosmos DB Cassandra API](cassandra/manage-data-dotnet.md)
 * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB Table API](table/create-table-dotnet.md)

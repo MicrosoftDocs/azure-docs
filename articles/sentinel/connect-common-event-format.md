@@ -103,5 +103,5 @@ In this document, you learned how Azure Sentinel collects CEF logs from security
 To learn more about what to do with the data you've collected in Azure Sentinel, see the following articles:
 
 - Learn about [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).

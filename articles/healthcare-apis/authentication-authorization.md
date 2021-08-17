@@ -18,7 +18,7 @@ This article provides an overview of the authentication and authorization proces
 
 ## Authentication
 
-The Healthcare APIs is a collection of secured managed services using [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/).
+The Healthcare APIs is a collection of secured managed services using [Azure Active Directory (Azure AD)](../active-directory/index.yml), a global identity provider that supports [OAuth 2.0](https://oauth.net/2/).
 
 For the Healthcare APIs services to access Azure resources, such as storage accounts and event hubs, you must **enable the system managed identity**, and **grant proper permissions** to the managed identity. For more information, see [Azure managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 

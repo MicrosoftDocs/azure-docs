@@ -6,18 +6,18 @@ ms.service: virtual-machines
 ms.subservice: automatic-extension-upgrade
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 08/10/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
 
 ---
 
-# Preview: Automatic Extension Upgrade for VMs and Scale Sets in Azure
+# Automatic Extension Upgrade for VMs and Scale Sets in Azure
 
-Automatic Extension Upgrade is available in preview for Azure VMs and Azure Virtual Machine Scale Sets. When Automatic Extension Upgrade is enabled on a VM or scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension.
+Automatic Extension Upgrade is available for Azure VMs and Azure Virtual Machine Scale Sets. When Automatic Extension Upgrade is enabled on a VM or scale set, the extension is upgraded automatically whenever the extension publisher releases a new version for that extension.
 
  Automatic Extension Upgrade has the following features:
-- Supported for Azure VMs and Azure Virtual Machine Scale Sets. Service Fabric Virtual Machine Scale Sets are currently not supported.
+- Supported for Azure VMs and Azure Virtual Machine Scale Sets.
 - Upgrades are applied in an availability-first deployment model (detailed below).
 - For a Virtual Machine Scale Set, no more than 20% of the scale set virtual machines will be upgraded in a single batch. The minimum batch size is one virtual machine.
 - Works for all VM sizes, and for both Windows and Linux extensions.
@@ -25,13 +25,6 @@ Automatic Extension Upgrade is available in preview for Azure VMs and Azure Virt
 - Automatic extension upgrade can be enabled on a Virtual Machine Scale Sets of any size.
 - Each supported extension is enrolled individually, and you can choose which extensions to upgrade automatically.
 - Supported in all public cloud regions.
-
-
-> [!IMPORTANT]
-> Automatic Extension Upgrade is currently in Public Preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## How does Automatic Extension Upgrade work?
 The extension upgrade process replaces the existing extension version on a VM with a new version of the same extension when published by the extension publisher. The health of the VM is monitored after the new extension is installed. If the VM is not in a healthy state within 5 minutes of the upgrade completion, the extension version is rolled back to the previous version.
@@ -72,9 +65,11 @@ The above process continues until all instances in the scale set have been upgra
 The scale set upgrade orchestrator checks for the overall scale set health before upgrading every batch. While upgrading a batch, there could be other concurrent planned or unplanned maintenance activities that could impact the health of your scale set virtual machines. In such cases, if more than 20% of the scale set's instances become unhealthy, then the scale set upgrade stops at the end of current batch.
 
 ## Supported extensions
-The preview of Automatic Extension Upgrade supports the following extensions (and more are added periodically):
-- Dependency Agent – [Windows](./extensions/agent-dependency-windows.md) and [Linux](./extensions/agent-dependency-linux.md)
-- [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) – Windows and Linux
+Automatic Extension Upgrade supports the following extensions (and more are added periodically):
+- Dependency Agent – [Linux](./extensions/agent-dependency-linux.md) and [Windows](./extensions/agent-dependency-windows.md)
+- [Application Health Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) – Linux and Windows
+- [Guest Configuration Extension](./extensions/guest-configuration.md) – Linux and Windows
+- Key Vault – [Linux](./extensions/key-vault-linux.md) and [Windows](./extensions/key-vault-windows.md)
 
 
 ## Enabling Automatic Extension Upgrade

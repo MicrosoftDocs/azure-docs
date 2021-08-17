@@ -3,14 +3,14 @@ title: Human-labeled transcriptions guidelines - Speech service
 titleSuffix: Azure Cognitive Services
 description: To improve speech recognition accuracy, such as when words are deleted or incorrectly substituted, you can use human-labeled transcriptions along with your audio data. Human-labeled transcriptions are word-by-word, verbatim transcriptions of an audio file.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: erhopf
+ms.author: lajanuar
 ---
 
 # How to create human-labeled transcriptions

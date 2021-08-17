@@ -141,4 +141,4 @@ Heartbeat
 ```
 
 ## Next steps
-* Read the [Service Level Agreement (SLA)](https://azure.microsoft.com/en-us/support/legal/sla/monitor/v1_3/) for Azure Monitor.
+* Read the [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/monitor/v1_3/) for Azure Monitor.

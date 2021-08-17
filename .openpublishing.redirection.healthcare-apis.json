@@ -59,12 +59,12 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/azure-ad-hcapi-token-validation.md",
-        "redirect_url": "/azure/healthcare-apis/fhir/azure-ad-hcapi-token-validation",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/azure-api-fhir-access-token-validation",
         "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/azure-ad-hcapi.md",
-        "redirect_url": "/azure/healthcare-apis/fhir/azure-ad-hcapi",
+        "redirect_url": "/azure/healthcare-apis/fhir/azure-active-directory-identity-configuration",
         "redirect_document_id": true
     },
     {
@@ -120,11 +120,6 @@
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir-features-supported.md",
         "redirect_url": "/azure/healthcare-apis/fhir/fhir-features-supported",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/fhir-paas-arm-template-quickstart.md",
-        "redirect_url": "/azure/healthcare-apis/fhir/fhir-paas-arm-template-quickstart",
         "redirect_document_id": true
     },
     {
@@ -279,7 +274,7 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-paas-arm-template-quickstart.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/fhir-paas-arm-template-quickstart",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/azure-api-fhir-resource-manager-template",
         "redirect_document_id": true
     },
     {
@@ -309,7 +304,7 @@
     },
     {
         "source_path_from_root": "/articles/healthcare-apis/fhir/iot-fhir-arm-template-quickstart.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/iot-fhir-arm-template-quickstart",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/iot-azure-resource-manager-template-quickstart",
         "redirect_document_id": true
     },
     {
@@ -421,7 +416,41 @@
         "source_path_from_root": "/articles/healthcare-apis/fhir/disaster-recovery.md",
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/disaster-recovery",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/azure-ad-hcapi.md",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/azure-active-directory-identity-configuration",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/cms-tutorial-introduction.md",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/centers-for-medicare-tutorial-introduction",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/fhir/cms-tutorial-introduction.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/centers-for-medicare-tutorial-introduction",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/azure-api-for-fhir/iot-fhir-arm-template-quickstart.md",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/iot-azure-resource-manager-template-quickstart",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/fhir/azure-ad-hcapi.md",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/azure-active-directory-identity-configuration",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/fhir/azure-ad-hcapi-token-validation.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/fhir-service-access-token-validation",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-arm-template-quickstart.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/fhir-service-resource-manager-template",
+        "redirect_document_id": true
     }
-
   ]
 }

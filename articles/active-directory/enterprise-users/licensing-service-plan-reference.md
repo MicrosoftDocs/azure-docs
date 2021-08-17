@@ -13,7 +13,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: reference
 ms.workload: identity
-ms.date: 8/04/2021
+ms.date: 8/11/2021
 ms.author: nicholak
 ms.reviewer: Nicholak-MS
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -32,7 +32,7 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 - **Service plans included (friendly names)**: A list of service plans (friendly names) in the product that correspond to the string ID and GUID
 
 >[!NOTE]
->This information last updated on August 4th, 2021. 
+>This information last updated on August 11th, 2021. 
 
 | Product name | String ID | GUID | Service plans included | Service plans included (friendly names) |
 | --- | --- | --- |--- | --- |
@@ -160,6 +160,7 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 | Power Automate unattended RPA add-on | POWERAUTOMATE_UNATTENDED_RPA | 3539d28c-6e35-4a30-b3a9-cd43d5d3e0e2 |CDS_UNATTENDED_RPA (b475952f-128a-4a44-b82a-0b98a45ca7fb)<br/>EXCHANGE_S_FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318)<br/>POWER_AUTOMATE_UNATTENDED_RPA (0d373a98-a27a-426f-8993-f9a425ae99c5) | 	Common Data Service Unattended RPA (b475952f-128a-4a44-b82a-0b98a45ca7fb)<br/>Exchange Foundation (113feb6c-3fe4-4440-bddc-54d774bf0318)<br/>Power Automate Unattended RPA add-on (0d373a98-a27a-426f-8993-f9a425ae99c5) |
 | POWER BI (FREE)	| POWER_BI_STANDARD	| a403ebcc-fae0-4ca2-8c8c-7a907fd6c235	| BI_AZURE_P0 (2049e525-b859-401b-b2a0-e0a31c4b1fe4)<br/>EXCHANGE_S_FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318) | POWER BI (FREE) (2049e525-b859-401b-b2a0-e0a31c4b1fe4)<br/>EXCHANGE FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318) | 
 | POWER BI FOR OFFICE 365 ADD-ON	| POWER_BI_ADDON	| 45bc2c81-6072-436a-9b0b-3b12eefbc402	| BI_AZURE_P1 (2125cfd7-2110-4567-83c4-c1cd5275163d)<br/>SQL_IS_SSIM (fc0a60aa-feee-4746-a0e3-aecfe81a38dd) |MICROSOFT POWER BI REPORTING AND ANALYTICS PLAN 1 (2125cfd7-2110-4567-83c4-c1cd5275163d)<br/>MICROSOFT POWER BI INFORMATION SERVICES PLAN 1(fc0a60aa-feee-4746-a0e3-aecfe81a38dd) |
+| Power BI Premium Per User |	PBI_PREMIUM_PER_USER | c1d032e0-5619-4761-9b5c-75b6831e1711 | EXCHANGE_S_FOUNDATION (113feb6c-3fe4-4440-bddc-54d774bf0318)<br/>BI_AZURE_P3 (0bf3c642-7bb5-4ccc-884e-59d09df0266c)<br/>BI_AZURE_P2 (70d33638-9c74-4d01-bfd3-562de28bd4ba) | Exchange Foundation (113feb6c-3fe4-4440-bddc-54d774bf0318)<br/>Power BI Premium Per User (0bf3c642-7bb5-4ccc-884e-59d09df0266c)<br/>Power BI Pro (70d33638-9c74-4d01-bfd3-562de28bd4ba) |
 | POWER BI PRO	| POWER_BI_PRO	| f8a1db68-be16-40ed-86d5-cb42ce701560	| BI_AZURE_P2 (70d33638-9c74-4d01-bfd3-562de28bd4ba) | POWER BI PRO (70d33638-9c74-4d01-bfd3-562de28bd4ba) |
 | Power BI Pro | POWER_BI_PRO_CE | 420af87e-8177-4146-a780-3786adaffbca | EXCHANGE_S_FOUNDATION( 113feb6c-3fe4-4440-bddc-54d774bf0318)<br/>BI_AZURE_P2 (70d33638-9c74-4d01-bfd3-562de28bd4ba) | Exchange Foundation (113feb6c-3fe4-4440-bddc-54d774bf0318)<br/>Power BI Pro (70d33638-9c74-4d01-bfd3-562de28bd4ba) |
 | Power Virtual Agent |	VIRTUAL_AGENT_BASE | e4e55366-9635-46f4-a907-fc8c3b5ec81f | CDS_VIRTUAL_AGENT_BASE (0a0a23fa-fea1-4195-bb89-b4789cb12f7f)<br/>FLOW_VIRTUAL_AGENT_BASE (4b81a949-69a1-4409-ad34-9791a6ec88aa)<br/>VIRTUAL_AGENT_BASE (f6934f16-83d3-4f3b-ad27-c6e9c187b260) | Common Data Service for Virtual Agent Base (0a0a23fa-fea1-4195-bb89-b4789cb12f7f)<br/>Power Automate for Virtual Agent (4b81a949-69a1-4409-ad34-9791a6ec88aa)<br/>Virtual Agent Base (f6934f16-83d3-4f3b-ad27-c6e9c187b260) |

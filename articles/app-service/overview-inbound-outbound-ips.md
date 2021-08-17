@@ -78,7 +78,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 ```
 
 ## Get a static outbound IP
-You can control the IP address of outbound traffic from your app by using regional VNet integration together with a virtual network NAT gateway to direct traffic through a static public IP address. [Regional VNet integration](/azure/app-service/web-sites-integration-with-vnet) is available on **Standard**, **Premium**, **PremiumV2** and **PremiumV3** App Service plans. To learn more about this setup, see [NAT gateway integration](/azure/app-service/networking/nat-gateway-integration).
+You can control the IP address of outbound traffic from your app by using regional VNet integration together with a virtual network NAT gateway to direct traffic through a static public IP address. [Regional VNet integration](/azure/app-service/web-sites-integration-with-vnet) is available on **Standard**, **Premium**, **PremiumV2** and **PremiumV3** App Service plans. To learn more about this setup, see [NAT gateway integration](./networking/nat-gateway-integration.md).
 
 ## Next steps
 
