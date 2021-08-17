@@ -46,14 +46,18 @@ Once your model has been published, you can retrieve the required information by
 
 ## Submit data to the service
 
-This guide assumes that you already constructed a FaceClient object, named faceClient, with a Face subscription key and endpoint URL. For instructions on how to set up this feature, follow one of the quickstarts.
+This guide assumes that you already constructed a **[CustomVisionPredictionClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet-preview)** object, named `predictionClient`, with a Custom Vision prediction key and endpoint URL. For instructions on how to set up this feature, follow one of the [quickstarts](quickstarts/image-classification.md).
 
-In this guide, you will use a local image, so download an image you'd like to use. Copy the corresponding __Prediction-Key__ value as well.
+In this guide, you'll use a local image, so download an image you'd like to use.
 
-
+TBD: this method has since been replaced but the ref docs don't reflect that.
 The **[PredictImageAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclientextensions.predictimageasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_CustomVisionPredictionClientExtensions_PredictImageAsync_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_ICustomVisionPredictionClient_System_Guid_System_IO_Stream_System_Nullable_System_Guid__System_String_System_Threading_CancellationToken_)** method.
-## Create the application
 
+```csharp
+// Make a prediction against the new project
+    Console.WriteLine("Making a prediction:");
+    var result = predictionApi.ClassifyImage(project.Id, publishedModelName, testImage);
+```
 ## Determine how to process the data
 
 ## Get results from the service
@@ -144,6 +148,8 @@ When you run the application, you are prompted to enter a path to an image file 
     ]
 }
 ```
+---
+
 
 ## Next steps
 
