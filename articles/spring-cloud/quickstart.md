@@ -411,7 +411,7 @@ The following procedure builds and deploys the application using the Azure CLI. 
     az login
     ```
 
-   If you have more than one subscription, choose the one you want to use for this quickstart.
+   If you have more than one subscription, use the following command to list the subscriptions you have access to, then choose the one you want to use for this quickstart.
 
    ```azurecli
    az account list -o table
