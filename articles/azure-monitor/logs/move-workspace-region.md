@@ -244,14 +244,14 @@ Example template including the workspace, saved search, solutions, alert and que
 18. Click **Review + create** button to verify your template
 19. Click **Create** to deploy workspace and selected resource to the target region
 20. Your workspace including selected resources are now deployed in target region and you can complete the remaining configuration in the workspace for paring functionality to original workspace
-    - Connect agents -- Use any of the available options including DCR to configure the required agents on virtual machine and virtual machine scale set and specify the new target workspace as destination
+    - Connect agents -- Use any of the available options including DCR to configure the required agents on virtual machines and virtual machine scale sets and specify the new target workspace as destination
     - Install solutions -- Some solutions such as [Azure Sentinel](../../sentinel/quickstart-onboard.md) require certain onboarding procedure and weren't included in the template. You should onboard them separately to the new workspace
-    - Data collector API -- Configure data collector API instances to send data to workspace in target region
+    - Data collector API -- Configure data collector API instances to send data to target workspace
     - Alert rules -- When alerts aren't exported in template, you need to configure them manually in target workspace
 
 ## Discard
 
-If you wish to discard the source workspace, delete the resource group that contains the target workspace. To do so, select the newly created resource group in Azure portal and click **Delete** at the toolbar in Overview page.
+If you wish to discard the source workspace, delete the exported resources or resource group that contains these. To do so, select the target resource group in Azure portal - if you created a new resource group for this deployment, click **Delete resource group** at the toolbar in Overview page. If template was deployed to existing resource group, select the resources that were deployed with template and click **Delete** in toolbar.
 
 ## Clean up
 
