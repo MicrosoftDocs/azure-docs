@@ -28,7 +28,7 @@ Major changes to the way content is published in v3 API. The new publishing mode
 1. Create [Content Key Policies](drm-content-key-policy-concept.md).
 1. Create [Streaming Locators](stream-streaming-locators-concept.md).
 1. Get the [Streaming paths](create-streaming-locator-build-url.md) 
-    1. Configure it for a [DASH](encode-dynamic-packaging-concept.md#Deliver-DASH) or [HLS](encode-dynamic-packaging-concept.md#Deliver-HLS) player.
+    1. Configure it for a [DASH](encode-dynamic-packaging-concept.md#deliver-dash) or [HLS](encode-dynamic-packaging-concept.md#deliver-hls) player.
 
 See publishing concepts, tutorials and how to guides below for specific steps.
 
