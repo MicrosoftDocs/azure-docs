@@ -71,7 +71,7 @@ Please refer to the following for more information on using Managed Identity wit
 
 - [Resource Files](../path/to/file.md)
 - [Output Files](../path/to/file.md)
-- [Azure Container Registries](../path/to/file.md)
+- [Azure Container Registries](batch-docker-container-workloads.md#managed-identity-support-for-acr)
 - [Azure Blob Container Filesystem](virtual-file-mount.md#azure-blob-container)
 
 You can also manually configure your tasks so that the managed identities can directly access [Azure resources that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
