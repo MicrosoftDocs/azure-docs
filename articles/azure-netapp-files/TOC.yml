@@ -143,16 +143,6 @@
     href: monitor-volume-capacity.md
   - name: Dynamically change the service level of a volume
     href: dynamic-change-volume-service-level.md
-  - name: Manage cross-region replication
-    items:
-    - name: Create volume replication
-      href: cross-region-replication-create-peering.md
-    - name: Display health status of replication relationship
-      href: cross-region-replication-display-health-status.md
-    - name: Manage disaster recovery
-      href: cross-region-replication-manage-disaster-recovery.md
-    - name: Delete volume replications or volumes
-      href: cross-region-replication-delete.md
   - name: Manage Azure NetApp Files backup 
     items:
     - name: Configure backups
@@ -171,6 +161,16 @@
       href: backup-disable.md
     - name: Delete backups 
       href: backup-delete.md 
+  - name: Manage cross-region replication
+    items:
+    - name: Create volume replication
+      href: cross-region-replication-create-peering.md
+    - name: Display health status of replication relationship
+      href: cross-region-replication-display-health-status.md
+    - name: Manage disaster recovery
+      href: cross-region-replication-manage-disaster-recovery.md
+    - name: Delete volume replications or volumes
+      href: cross-region-replication-delete.md
   - name: Manage billing by using tags
     href: manage-billing-tags.md
   - name: Develop

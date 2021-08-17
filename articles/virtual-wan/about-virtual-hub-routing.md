@@ -26,6 +26,29 @@ The following sections describe the key concepts in virtual hub routing.
 
 A virtual hub route table can contain one or more routes. A route includes its name, a label, a destination type, a list of destination prefixes, and next hop information for a packet to be routed. A **Connection** typically will have a routing configuration that associates or propagates to a route table.
 
+### <a name= "hub-route"></a> Hub routing intent and policies
+>[!NOTE]  
+> Hub Routing Policies are currently in Managed Preview. 
+>  
+>To obtain access to this preview, please reach out to previewinterhub@microsoft.com with the Virtual WAN ID, Subscription ID and Azure Region you wish to configure Routing Policies in. Please expect a response within 24-48 hours with confirmation of feature enablement. 
+>
+> For more information on how to configure Routing Intent and Policies please view the following [document](how-to-routing-policies.md).
+
+
+Customers using Azure Firewall manager to set up policies for public and private traffic now can set up their networks in a much simpler manner using Routing Intent and Routing Policies.
+
+Routing Intent and Routing policies allow you to specify how the Virtual WAN hub forwards Internet-bound and Private (Point-to-site, Site-to-site, ExpressRoute, Network Virtual Appliances inside the Virtual WAN Hub and Virtual Network) Traffic. There are two types of Routing Policies: Internet Traffic and Private Traffic Routing Policies. Each Virtual WAN Hub may have at most one Internet Traffic Routing Policy and one Private Traffic Routing Policy, each with a Next Hop resource. 
+
+While Private Traffic includes both branch and Virtual Network address prefixes, Routing Policies considers them as one entity within the Routing Intent Concept.
+
+
+* **Internet Traffic Routing Policy**:  When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (User VPN (Point-to-site VPN), Site-to-site VPN and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub will forward Internet-bound traffic to the Azure Firewall resource or Third-Party Security provider specified as part of the Routing Policy.
+ 
+
+* **Private Traffic Routing Policy**: When a Private Traffic Routing Policy is configured on a Virtual WAN hub, **all** branch and Virtual Network traffic in and out of the Virtual WAN Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource that was specified in the Private Traffic Routing Policy. 
+
+For more information on how to configure Routing Intent and Policies please view the following [document](how-to-routing-policies.md).
+
 ### <a name="connection"></a>Connections
 
 Connections are Resource Manager resources that have a routing configuration. The four types of connections are:
@@ -43,7 +66,7 @@ Each connection is associated to one route table. Associating a connection to a 
 
 By default, all connections are associated to a **Default route table** in a virtual hub. Each virtual hub has its own Default route table, which can be edited to add a static route(s). Routes added statically take precedence over dynamically learned routes for the same prefixes.
 
-:::image type="content" source="./media/about-virtual-hub-routing/concepts-association.png" alt-text="Association":::
+:::image type="content" source="./media/about-virtual-hub-routing/concepts-association.png" alt-text="Association"lightbox="./media/nat-rules-vpn-gateway/edit-site-bgp.png":::
 
 ### <a name="propagation"></a>Propagation
 

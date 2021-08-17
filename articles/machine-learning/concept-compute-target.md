@@ -20,7 +20,7 @@ In a typical model development lifecycle, you might:
 
 1. Start by developing and experimenting on a small amount of data. At this stage, use your local environment, such as a local computer or cloud-based virtual machine (VM), as your compute target.
 1. Scale up to larger data, or do distributed training by using one of these [training compute targets](#train).
-1. After your model is ready, deploy it to a web hosting environment or IoT device with one of these [deployment compute targets](#deploy).
+1. After your model is ready, deploy it to a web hosting environment with one of these [deployment compute targets](#deploy).
 
 The compute resources you use for your compute targets are attached to a [workspace](concept-workspace.md). Compute resources other than the local machine are shared by users of the workspace.
 

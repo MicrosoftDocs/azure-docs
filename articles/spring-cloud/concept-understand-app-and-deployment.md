@@ -22,6 +22,7 @@ You can have multiple service instances within a single Azure subscription, but 
 Azure Spring Cloud standard tier allows one App to have one production deployment and one staging deployment, so that you can do blue/green deployment on it easily.
 
 ## App
+
 The following features/properties are defined on App level.
 
 | Features | Description |
@@ -53,4 +54,5 @@ The following features/properties are defined on Deployment level, and will be e
 * **Deployment management is not available in Basic Tier**: Use Standard tier for Blue-Green deployment capability.
 
 ## See also
+
 * [Set up a staging environment in Azure Spring Cloud](./how-to-staging-environment.md)

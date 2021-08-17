@@ -5,7 +5,7 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 08/10/2021
 ms.custom: template-how-to 
 ---
 

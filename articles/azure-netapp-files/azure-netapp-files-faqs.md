@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/15/2021
+ms.date: 08/17/2021
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -225,6 +225,10 @@ Use the **JSON View** link on the volume overview pane, and look for the **start
 
 No. However, Azure NetApp Files SMB shares can serve as a DFS Namespace (DFS-N) folder target.   
 To use an Azure NetApp Files SMB share as a DFS-N folder target, provide the Universal Naming Convention (UNC) mount path of the Azure NetApp Files SMB share by using the [DFS Add Folder Target](/windows-server/storage/dfs-namespaces/add-folder-targets#to-add-a-folder-target) procedure.  
+
+### Can the SMB share permissions be changed?   
+
+No, the share permissions cannot be changed. However, the NTFS permissions of the `root` volume can be changed using the [NTFS file and folder permissions](azure-netapp-files-create-volumes-smb.md#ntfs-file-and-folder-permissions) procedure. 
 
 ## Capacity management FAQs
 
