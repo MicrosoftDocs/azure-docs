@@ -20,7 +20,7 @@ ms.author: bagold
 
 # Troubleshoot your CEF or Syslog data connector
 
-This article describes common methods for troubleshooting a CEF or Syslog data connector for Azure Sentinel.
+This article describes common methods for troubleshooting a CEF or Syslog data connector for Azure Sentinel when issues arise, such as if your data source fails to connector or data is not ingested.
 
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md) and [Collect data from Linux-based sources using Syslog](connect-syslog.md).
 
@@ -34,7 +34,11 @@ If you're using an Azure Virtual Machine as a Syslog collector, verify the follo
 
 - While you are setting up your Syslog data connector, make sure to turn off your [Azure Security Center auto-provisioning settings](/azure/security-center/security-center-enable-data-collection) for the [MMA/OMS agent](connect-windows-security-events.md#connector-options).
 
-    You can turn them back on after your data connector is completely setup.
+    You can turn them back on after your data connector is completely set up.
+
+    > [!NOTE]
+    > The Log Analytics agent for Windows is often referred to as Microsoft Monitoring Agent (MMA). The Log Analytics agent for Linux is often referred to as OMS agent.
+    >
 
 - Before you deploy the [Common Event Format Data connector python script](connect-cef-agent.md), make sure that your Virtual Machine isn't already connected to an existing Syslog workspace. You can find this information on the Log Analytics Workspace Virtual Machine list, where a VM that's connected to a Syslog workspace is listed as **Connected**.
 
@@ -58,7 +62,7 @@ sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sent
 
 ### Enable your Syslog facility and log severity collection
 
-The rsyslog server forwards any data defined in the **/etc/rsyslod.d/95.omsagent.conf** files, which is automatically populated by the settings defined in your Log Analytics workspace.
+The Syslog server ([either rsyslog or syslog-ng](connect-cef-agent.md)) forwards any data defined in the **/etc/rsyslod.d/95.omsagent.conf** files, which is automatically populated by the settings defined in your Log Analytics workspace.
 
 Make sure to add details about the facilities and severity log levels that you want to be ingested into Azure Sentinel. The configuration process may take about 20 minutes.
 
@@ -112,7 +116,7 @@ This procedure describes how to troubleshoot issues that are certainly derived f
     watch -n 2 -d iptables -nvL
     ```
 
-1. Verify whether the rsyslog server is processing the logs. Run:
+1. Verify whether the Syslog server is processing the logs. Run:
 
     ```config
     tail -f /var/log/messages or tail -f /var/log/syslog
