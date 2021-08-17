@@ -77,7 +77,7 @@ To enable sign-in for users with an Apple ID in Azure Active Directory B2C (Azur
 1. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Select **Identity providers**, then select **Apple (Preview)**.
-1. Enter a **Name**. For example, *Apple*.
+1. For the **Name**, enter **Sign in with Apple**. 
 1. Enter the **Apple developer ID (Team ID)**.
 1. Enter the **Apple service ID (Client ID)**.
 1. Enter the **Apple key ID** from step [Creating an Apple client secret](#creating-an-apple-client-secret).
@@ -89,6 +89,7 @@ To enable sign-in for users with an Apple ID in Azure Active Directory B2C (Azur
 > - Sign in with Apple requires the Admin to renew their client secret every 6 months. 
 > - During the public preview of this feature, you'll need to manually renew the Apple client secret if it expires. A warning will appear in advance on Apple identity providers Configure social IDP page, but we recommend you set your own reminder. 
 > - If you need to renew the secret, open Azure AD B2C in the Azure portal, go to **Identity providers** > **Apple**, and select **Renew secret**.
+> - Follow the guidelines how to [offer Sign in with Apple button](#customize-your-user-interface).
 
 ## Add the Apple identity provider to a user flow
 
@@ -178,7 +179,7 @@ You can define an Apple ID as a claims provider by adding it to the **ClaimsProv
       <DisplayName>Apple</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="Apple-OIDC">
-          <DisplayName>Apple</DisplayName>
+          <DisplayName>Sign in with Apple</DisplayName>
           <Protocol Name="OpenIdConnect" />
           <Metadata>
             <Item Key="ProviderName">apple</Item>
@@ -253,3 +254,13 @@ You can define an Apple ID as a claims provider by adding it to the **ClaimsProv
 If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 
 ::: zone-end
+
+## Customize your user interface
+
+Follow the guidelines how to [offer Sign in with Apple](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/introduction/). Apple provides several **Sign in with Apple** buttons you can use to let people set up an account and sign in. If necessary, create a custom button to offer Sign in with Apple. Learn how to [display a Sign in with Apple button](https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/buttons/).
+
+To align with the Apple user interface guidelines, follow these guidances:
+
+- [Customize the user interface with HTML templates](customize-ui-with-html.md)
+- [Localize](language-customization.md) the identity provider name.
+
