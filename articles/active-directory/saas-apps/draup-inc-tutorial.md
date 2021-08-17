@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 07/16/2021
 ms.author: jeedes
 
 ---
@@ -70,33 +70,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-    a. In the **Identifier** box, type a URL using one of the following patterns:
+1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    | Identifier URL |
-    |---|
-    |`https://<SUBDOMAIN>.draup.technology/<INSTANCE_NAME>`|
-    |`https://<SUBDOMAIN>.draup.com/<INSTANCE_NAME>`|
-    |
-
-    b. In the **Reply URL** text box, type a URL using one of the following patterns:
-
-    | Reply URL |
-    |---|
-    |`https://<SUBDOMAIN>.draup.technology/<INSTANCE_NAME>`|
-    |`https://<SUBDOMAIN>.draup.com/<INSTANCE_NAME>`|
-    |
-
-    c. In the **Sign-on URL** text box, type a URL using one of the following patterns:
-
-    | Sign-on URL |
-    |---|
-    |`https://<SUBDOMAIN>.draup.technology/<INSTANCE_NAME>`|
-    |`https://<SUBDOMAIN>.draup.com/<INSTANCE_NAME>`|
-    |
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign-On URL. Contact [Draup, Inc Client support team](mailto:support@draup.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    a. In the **Sign-on URL** text box, type the URL:
+    `https://platform.draup.com/saml2/login/`
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
 

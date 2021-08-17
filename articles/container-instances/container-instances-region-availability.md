@@ -27,6 +27,7 @@ The following regions and maximum resources are available to container groups wi
 | Region | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | GPU SKUs (preview) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
 | Australia East | 4 | 16 | 4 | 16 | 50 | N/A |
+| Australia Southeast | 4 | 14 | N/A | N/A | 50 | N/A |
 | Brazil South | 4 | 16 | 2 | 8 | 50 | N/A |
 | Canada Central | 4 | 16 | 4 | 16 | 50 | N/A |
 | Canada East | 4 | 16 | 4 | 16 | 50 | N/A |
@@ -42,12 +43,13 @@ The following regions and maximum resources are available to container groups wi
 | Korea Central | 4 | 16 | N/A | N/A | 50 | N/A |
 | North Central US | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 |
 | North Europe | 4 | 16 | 4 | 16 | 50 | K80 |
+| Norway East | 4 | 16 | N/A | N/A | 50 | N/A |
 | South Central US | 4 | 16 | 4 | 16 | 50 | V100 |
 | Southeast Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | South India | 4 | 16 | N/A | N/A | 50 | K80 |
 | Switzerland North | 4 | 16 | N/A | N/A | 50 | N/A |
 | UK South | 4 | 16 | 4 | 16 | 50 | N/A |
-| UK West | 4 | 16 | 4 | 16 | 50 | N/A |
+| UK West | 4 | 16 | N/A | N/A | 50 | N/A |
 | UAE North | 4 | 16 | N/A | N/A | 50 | N/A |
 | West Central US| 4 | 16 | 4 | 16 | 50 | N/A |
 | West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
@@ -70,7 +72,7 @@ The following maximum resources are available to a container group deployed with
 
 ## Windows container groups
 
-The following regions and maximum resources are available to container groups with [supported and preview](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server containers.
+The following regions and maximum resources are available to container groups with [supported and preview](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported) Windows Server containers.
 
 > [!IMPORTANT]
 > At this time, deployments with Windows container groups are not supported in an Azure virtual network deployment.

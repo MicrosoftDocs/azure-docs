@@ -30,6 +30,9 @@ Azure Automanage also automatically monitors for drift and corrects for it when 
 
 Automanage doesn't store/process customer data outside the geography your VMs are located. In the SoutheastAsia region, Automanage does not store/process data outside of SoutheastAsia.
 
+> [!NOTE]
+> Automanage can be enabled on Azure virtual machines as well as Arc enabled servers. Automanage is not available in US Government Cloud at this time.
+
 ## Prerequisites
 
 There are several prerequisites to consider before trying to enable Azure Automanage on your virtual machines.
@@ -38,6 +41,7 @@ There are several prerequisites to consider before trying to enable Azure Automa
 - VMs must be in a supported region (see below)
 - User must have correct permissions (see below)
 - Automanage does not support Sandbox subscriptions at this time
+- Automanage does not support Windows 10 at this time
 
 ### Supported regions
 Automanage only supports VMs located in the following regions:

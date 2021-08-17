@@ -3,8 +3,8 @@ title: 'Tutorial: Configure monday.com for automatic user provisioning with Azur
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to monday.com.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 7dba523e-c75a-4895-bad4-82239a263afe
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure monday.com for automatic user provisioning

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/22/2021
+ms.date: 06/18/2021
 ms.author: jeedes
 
 ---
@@ -47,7 +47,6 @@ To configure the integration of Saba Cloud into Azure AD, you need to add Saba C
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Saba Cloud** in the search box.
 1. Select **Saba Cloud** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Saba Cloud
 
@@ -99,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the **User Attributes & Claims** section, adjust the Unique User Identifier to whatever you organization intends to use as the primary username for Saba users.
 
-   This step is required only if you're attempting to convert from username/password to SSO. If this is a new Saba Cloud deployment that doesn't have existing usrs, you can skip this step.
+   This step is required only if you're attempting to convert from username/password to SSO. If this is a new Saba Cloud deployment that doesn't have existing users, you can skip this step.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -135,7 +134,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Saba Cloud SSO
 
-1. Sign in to your Saba Cloud company site as an administrator.
+1. To automate the configuration within Saba Cloud, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
+
+	![My apps extension](common/install-myappssecure-extension.png)
+
+1. After adding extension to the browser, click on **Set up Saba Cloud** will direct you to the Saba Cloud application. From there, provide the admin credentials to sign into Saba Cloud. The browser extension will automatically configure the application for you and automate steps 3-9.
+
+	![Setup configuration](common/setup-sso.png)
+
+1. If you want to setup Saba Cloud manually, in a different web browser window, sign in to your Saba Cloud company site as an administrator.
+
 1. Click on **Menu** icon and click **Admin**, then select **System Admin** tab.
 
     ![screenshot for system admin](./media/saba-cloud-tutorial/system.png)

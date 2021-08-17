@@ -3,8 +3,8 @@ title: 'Tutorial: Configure AWS Single Sign-On for automatic user provisioning w
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to AWS Single Sign-On.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 54a9f704-7877-4ade-81af-b8d3f7fb9255
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure AWS Single Sign-On for automatic user provisioning

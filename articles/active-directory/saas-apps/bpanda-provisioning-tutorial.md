@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Bpanda for automatic user provisioning with Azure Ac
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Bpanda.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 57e424f8-6fbc-4701-a312-899b562589ea
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Bpanda for automatic user provisioning
@@ -47,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Step 2. Configure Bpanda to support provisioning with Azure AD
 1. Reach out to support@mid.de for more information on your authentication Tenant URL.
 
-2. A client secret for further generating access tokens. This must have been transmitted to you in a secure way. Reach out to support@mid.de for more information.
+2. A client secret for further generating access tokens. This secret must have been transmitted to you in a secure way. Reach out to support@mid.de for more information.
 
 3. For establishing a successful connection between Azure AD and Bpanda, an access token must be retrieved in either of the following ways.
 
@@ -79,7 +79,7 @@ Add Bpanda from the Azure AD application gallery to start managing provisioning 
 
 The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* When assigning users and groups to Bpanda, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add additional roles. 
+* When assigning users and groups to Bpanda, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add other roles. 
 
 * Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -132,6 +132,7 @@ This section guides you through the steps to configure the Azure AD provisioning
    |phoneNumbers[type eq "mobile"].value|String|
    |externalId|String|
    |title|String|
+   |preferredLanguage|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|

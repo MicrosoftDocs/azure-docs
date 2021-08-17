@@ -8,7 +8,7 @@ ms.author: pgibson
 
 ## Download and install the OSM client binary
 
-In a PowerShell-based shell on Windows, use `Invoke-WebRequest` to download the Istio release and then extract with `Expand-Archive` as follows:
+In a PowerShell-based shell on Windows, use `Invoke-WebRequest` to download the OSM release and then extract with `Expand-Archive` as follows:
 
 ```powershell
 # Specify the OSM version that will be leveraged throughout these instructions

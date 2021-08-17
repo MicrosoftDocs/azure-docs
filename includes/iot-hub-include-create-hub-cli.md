@@ -17,7 +17,7 @@ To create an IoT hub and a resource group:
     - If you're using Cloud Shell, select the **Try It** button on the CLI commands to launch Cloud Shell in a split browser window. Or you can open the [Cloud Shell](https://shell.azure.com/bash) in a separate browser tab.
     - If you're using Azure CLI locally, start your CLI console app and sign in to Azure CLI.
 
-1. Run [az extension add](/cli/azure/extension?view=azure-cli-latest#az_extension_add) to install or upgrade the *azure-iot* extension to the current version.
+1. Run [az extension add](/cli/azure/extension#az_extension_add) to install or upgrade the *azure-iot* extension to the current version.
 
     ```azurecli-interactive
     az extension add --upgrade --name azure-iot
@@ -39,7 +39,7 @@ To create an IoT hub and a resource group:
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
     ```
     > [!TIP]
-    > After creating an IoT hub, in the rest of this quickstart you can continue to use CLI commands to interact with the hub. Optionally, you could use Azure IoT Explorer in place of the CLI commands. IoT Explorer is a GUI application that lets you connect to an existing IoT Hub and add, manage, and monitor devices. To learn more, see [Install and use Azure IoT explorer](../articles/iot-pnp/howto-use-iot-explorer.md).
+    > After creating an IoT hub, in the rest of this quickstart you can continue to use CLI commands to interact with the hub. Optionally, you could use Azure IoT Explorer in place of the CLI commands. IoT Explorer is a GUI application that lets you connect to an existing IoT Hub and add, manage, and monitor devices. To learn more, see [Install and use Azure IoT explorer](../articles/iot-fundamentals/howto-use-iot-explorer.md).
 
 ## Create a simulated device
 In this section, you create a simulated IoT device that is connected to your IoT hub. 

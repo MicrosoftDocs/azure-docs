@@ -4,9 +4,10 @@ description: Learn how to use Azure portal to create and share virtual machine i
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/06/2019
+ms.date: 06/21/2021
 ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
@@ -45,7 +46,7 @@ Now you can create one or more new VMs. This example creates a VM named *myVM*, 
 1. For **Availability options**, leave the default of *No infrastructure redundancy required*.
 1. The value for **Image** is automatically filled with the `latest` image version if you started from the page for the image definition.
 1. For **Size**, choose a VM size from the list of available sizes and then choose **Select**.
-1. Under **Administrator account**, if the image was generalized, you need to provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm). If your image was specialized, the username and password fields will greyed out because the username and password for the source VM are used.
+1. Under **Administrator account**, if the image was generalized, you need to provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-). If your image was specialized, the username and password fields will greyed out because the username and password for the source VM are used.
 1. If you want to allow remote access to the VM, under **Public inbound ports**, choose **Allow selected ports** and then select **RDP (3389)** from the drop-down. If you don't want to allow remote access to the VM, leave **None** selected for **Public inbound ports**.
 1. When you are finished, select the **Review + create** button at the bottom of the page.
 1. After the VM passes validation, select **Create** at the bottom of the page to start the deployment.
@@ -64,6 +65,5 @@ You can also create Shared Image Gallery resource using templates. There are sev
 - [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 For more information about Shared Image Galleries, see the [Overview](../shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](../troubleshooting-shared-images.md).

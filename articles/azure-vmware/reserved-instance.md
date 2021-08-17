@@ -66,13 +66,13 @@ CSPs that want to purchase reserved instances for their customers must use the *
 
 3. Expand customer details and select **Microsoft Azure Management Portal**. 
 
-   :::image type="content" source="media/reserved-instances/csp-partner-center-aobo.png" alt-text="Microsoft Partner Center customers area" lightbox="media/reserved-instances/csp-partner-center-aobo.png":::
+   :::image type="content" source="media/reserved-instances/csp-partner-center-aobo.png" alt-text="Screenshot showing the Microsoft Partner Center customer area with Microsoft Azure Management Portal selected." lightbox="media/reserved-instances/csp-partner-center-aobo.png":::
 
 4. In the Azure portal, select **All services** > **Reservations**.
 
 5. Select **Purchase Now** and then select **Azure VMware Solution**.
 
-   :::image type="content" source="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png" alt-text="Microsoft Azure portal reservations" lightbox="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png":::
+   :::image type="content" source="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png" alt-text="Screenshot showing where to purchase Azure VMware Solution reservations in the Microsoft Azure portal." lightbox="media/reserved-instances/csp-buy-reserved-instance-azure-portal.png":::
 
 6. Enter the required fields. The selected attributes that match running Azure VMware Solution hosts qualify for the reservation discount.  Attributes include the SKU, regions (where applicable), and scope. Reservation scope selects where the reservation savings apply.
 

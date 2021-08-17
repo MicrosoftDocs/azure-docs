@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 06/08/2021
+ms.date: 06/18/2021
 ms.reviewer: laobri
+ms.custom: devx-track-azurecli, devplatv2
 ---
 
 # Train models (create jobs) with the 2.0 CLI (preview)
@@ -26,7 +26,7 @@ Training a machine learning model is typically an iterative process. Modern tool
 
 ## Prerequisites
 
-- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 - [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
 - Clone the examples repository:
 
@@ -60,14 +60,13 @@ For instance, look at the `jobs/train/lightgbm/iris` project directory in the ex
 
 ```tree
 .
-├── environment.yml
 ├── job-sweep.yml
 ├── job.yml
 └── src
     └── main.py
 ```
 
-This directory contains two job files, a conda environment file, and a source code subdirectory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
+This directory contains two job files and a source code subdirectory `src`. While this example only has a single file under `src`, the entire subdirectory is recursively uploaded and available for use in the job.
 
 The basic command job is configured via the `job.yml`:
 
@@ -89,7 +88,7 @@ While running this job locally is slower than running `python main.py` in a loca
 > [Docker](https://docker.io) needs to be installed and running locally. Python needs to be installed in the job's environment. For local runs which use `inputs`, the Python package `azureml-dataprep` needs to be installed in the job's environment.
 
 > [!TIP]
-> This will take a few minutes to pull the base Docker image and create the conda environment on top of it. Use prebuilt Docker images to avoid the image build time.
+> This will take a few minutes to pull the base Docker image. Use prebuilt Docker images to avoid the image build time.
 
 ## Create compute
 
@@ -100,6 +99,8 @@ You can create an Azure Machine Learning compute cluster from the command line. 
 Note that you are not charged for compute at this point as `cpu-cluster` and `gpu-cluster` will remain at 0 nodes until a job is submitted. Learn more about how to [manage and optimize cost for AmlCompute](how-to-manage-optimize-cost.md#use-azure-machine-learning-compute-cluster-amlcompute).
 
 Use `az ml compute create -h` for more details on compute create options.
+
+[!INCLUDE [arc-enabled-kubernetes](../../includes/machine-learning-create-arc-enabled-training-computer-target.md)]
 
 ## Basic Python training job
 
@@ -163,7 +164,7 @@ Create job and open in the studio:
 
 ## Distributed training
 
-You can specify the `distributed` section in a command job. Azure ML supports distributed training for PyTorch, Tensorflow, and MPI compatible frameworks. PyTorch and TensorFlow enable native distributed training for the respective frameworks, such as `tf.distributed.Strategy` APIs for TensorFlow.
+You can specify the `distribution` section in a command job. Azure ML supports distributed training for PyTorch, Tensorflow, and MPI compatible frameworks. PyTorch and TensorFlow enable native distributed training for the respective frameworks, such as `tf.distributed.Strategy` APIs for TensorFlow.
 
 Be sure to set the `compute.instance_count`, which defaults to 1, to the desired number of nodes for the job.
 

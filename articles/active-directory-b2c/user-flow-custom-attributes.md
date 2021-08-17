@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 08/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -23,7 +23,7 @@ In the [Add claims and customize user input using custom policies](configure-use
 
 Your Azure AD B2C directory comes with a [built-in set of attributes](user-profile-attributes.md). However, you often need to create your own attributes to manage your specific scenario, for example when:
 
-* A customer-facing application needs to persist a **LoyaltyId** attribute.
+* A customer-facing application needs to persist a **loyaltyId** attribute.
 * An identity provider has a unique user identifier, **uniqueUserGUID**, that must be persisted.
 * A custom user journey needs to persist the state of the user, **migrationStatus**, for other logic to operate on.
 
@@ -64,7 +64,24 @@ Once you've created a new user using a user flow, which uses the newly created c
 
 ## Azure AD B2C extensions app
 
-Extension attributes can only be registered on an application object, even though they might contain data for a user. The extension attribute is attached to the application called `b2c-extensions-app`. Do not modify this application, as it's used by Azure AD B2C for storing user data. You can find this application under Azure AD B2C, app registrations. Get the application properties:
+Extension attributes can only be registered on an application object, even though they might contain data for a user. The extension attribute is attached to the application called `b2c-extensions-app`. Do not modify this application, as it's used by Azure AD B2C for storing user data. You can find this application under Azure AD B2C, app registrations. 
+
+::: zone pivot="b2c-user-flow"
+
+To get the application ID:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Select **App registrations**, and then select **All applications**.
+1. Select the `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` application.
+1. Copy the **Application ID**. Example: `11111111-1111-1111-1111-111111111111`.
+ 
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Get the application properties:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
@@ -74,8 +91,6 @@ Extension attributes can only be registered on an application object, even thoug
 1. Copy the following identifiers to your clipboard and save them:
     * **Application ID**. Example: `11111111-1111-1111-1111-111111111111`.
     * **Object ID**. Example: `22222222-2222-2222-2222-222222222222`.
-
-::: zone pivot="b2c-custom-policy"
 
 ## Modify your custom policy
 

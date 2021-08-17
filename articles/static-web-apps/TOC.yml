@@ -65,6 +65,8 @@
       href: functions-bring-your-own.md
     - name: Secure authentication secrets
       href: key-vault-secrets.md
+    - name: Set up a private endpoint
+      href: private-endpoint.md
 - name: Tutorials
   items:
     - name: Publish from a static site generator

@@ -46,7 +46,7 @@ Maven creates the project files in a new folder with a name of _artifactId_. The
 > [Azure Functions Core Tools, version 2](functions-run-local.md#v2) must be installed to run and debug functions locally.
 
 1. Right-click on the generated project, then choose **Run As** and **Maven build**.
-1. In the **Edit Configuration** dialog, Enter `package` in the **Goals** and **Name** fields, then select **Run**. This will build and package the function code.
+1. In the **Edit Configuration** dialog, Enter `package` in the **Goals**, then select **Run**. This will build and package the function code.
 1. Once the build is complete, create another Run configuration as above, using `azure-functions:run` as the goal and name. Select **Run** to run the function in the IDE.
 
 Terminate the runtime in the console window when you're done testing your function. Only one function host can be active and running locally at a time.

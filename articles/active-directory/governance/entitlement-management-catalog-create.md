@@ -29,6 +29,9 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 **Prerequisite role:** Global administrator, Identity Governance administrator, User administrator, or Catalog creator
 
+> [!NOTE]
+> Users that have been assigned the User administrator role will no longer be able to create catalogs or manage access packages in a catalog they do not own. If users in your organization have been assigned the User administrator role to configure catalogs, access packages, or policies in entitlement management, you should instead assign these users the **Identity Governance administrator** role.
+
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
 1. In the left menu, click **Catalogs**.
@@ -49,13 +52,28 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 1. Click **Create** to create the catalog.
 
-### Creating a catalog programmatically
+## Create a catalog programmatically
+### Create a catalog with Microsoft Graph
 
-You can also create a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta&preserve-view=true).
+You can also create a catalog using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to [create an accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta&preserve-view=true).
+
+### Create a catalog  with PowerShell
+
+You can create a catalog in PowerShell with the `New-MgEntitlementManagementAccessPackageCatalog` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All"
+Select-MgProfile -Name "beta"
+$catalog = New-MgEntitlementManagementAccessPackageCatalog -DisplayName "Marketing"
+```
 
 ## Add resources to a catalog
 
-To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites. The groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups. The applications can be Azure AD enterprise applications, including both SaaS applications and your own applications federated to Azure AD. The sites can be SharePoint Online sites or SharePoint Online site collections.
+To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites.
+
+* The groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups.  Groups that originate in an on-premises Active Directory cannot be assigned as resources because their owner or member attributes cannot be changed in Azure AD.   Groups that originate in Exchange Online as Distribution groups cannot be modified in Azure AD either.
+* The applications can be Azure AD enterprise applications, including both SaaS applications and your own applications integrated with Azure AD. For more information on selecting appropriate resources for applications with multiple roles, see [add resource roles](entitlement-management-access-package-resources.md#add-resource-roles).
+* The sites can be SharePoint Online sites or SharePoint Online site collections.
 
 **Prerequisite role:** See [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
@@ -79,17 +97,17 @@ To include resources in an access package, the resources must exist in a catalog
 
     These resources can now be included in access packages within the catalog.
 
-### Add a Multi-geo SharePoint Site (Preview)
+### Add a Multi-geo SharePoint Site
 
 1. If you have [Multi-Geo](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365) enabled for SharePoint, select the environment you would like to select sites from.
     
-    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multigeo-select.png" alt-text="Access package - Add resource roles - Select SharePoint Multi-geo sites":::
+    :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multi-geo-select.png" alt-text="Access package - Add resource roles - Select SharePoint Multi-geo sites":::
 
 1. Then select the sites you would like to be added to the catalog. 
 
 ### Adding a resource to a catalog programmatically
 
-You can also add a resource to a catalog using Microsoft Graph.  A user in an appropriate role, or a catalog and resource owner, with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&preserve-view=true).
+You can also add a resource to a catalog using Microsoft Graph.  A user in an appropriate role, or a catalog and resource owner, with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&preserve-view=true).  An application with application permissions cannot yet programmatically add a resource without a user context at the time of the request, however.
 
 ## Remove resources from a catalog
 

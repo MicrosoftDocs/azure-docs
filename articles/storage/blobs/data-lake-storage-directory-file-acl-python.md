@@ -89,7 +89,7 @@ This example adds a directory named `my-directory` to a container.
 
 Rename or move a directory by calling the **DataLakeDirectoryClient.rename_directory** method. Pass the path of the desired directory a parameter. 
 
-This example renames a sub-directory to the name `my-subdirectory-renamed`.
+This example renames a sub-directory to the name `my-directory-renamed`.
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/python-v12/crud_datalake.py" id="Snippet_RenameDirectory":::
 

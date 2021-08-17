@@ -15,4 +15,4 @@ The following table includes links to Azure Resource Manager templates for Azure
 
 | Title | Description |
 | ------ | ----------- |
-| [Route Server and Quagga](https://github.com/Azure/azure-quickstart-templates/tree/master/101-route-server-quagga) | Deploy an Azure Route Server and Quagga (NVA) in a virtual network. |
+| [Route Server and Quagga](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/route-server-quagga) | Deploy an Azure Route Server and Quagga (NVA) in a virtual network. |

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 05/25/2021
+ms.date: 08/05/2021
 ms.topic: how-to
-ms.custom: how-to 
+ms.custom: how-to, devplatv2
 ---
 
 # Safe rollout for online endpoints (preview)
 
-You have an existing model deployed in production and you want to deploy a new version of the model. How do you roll out your new ML model without causing any disruption? A good answer is blue-green deployment, an approach in which a new version of a web service is introduced to production by rolling out the change to a small subset of users/requests before rolling it out completely. 
+You have an existing model deployed in production and you want to deploy a new version of the model. How do you roll out your new ML model without causing any disruption? A good answer is blue-green deployment, an approach in which a new version of a web service is introduced to production by rolling out the change to a small subset of users/requests before rolling it out completely. This article assumes you're using online endpoints; for more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
 
 In this article, you'll learn to:
 
@@ -32,7 +32,7 @@ In this article, you'll learn to:
 
 ## Prerequisites
 
-* To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
 
@@ -140,3 +140,15 @@ Update the deployment with:
 If you are not going use the deployment, you should delete it with:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
+
+
+## Next steps
+- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
+- [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Tutorial: Access Azure resources with a managed online endpoint and system-managed identity (preview)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
+- [Monitor managed online endpoints (preview)](how-to-monitor-online-endpoints.md)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)
+- [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
+- [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md)
+- [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md)

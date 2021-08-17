@@ -39,7 +39,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Airnet Group](https://www.airnetgroup.com/)|
 |[AIS Network](https://www.aisn.net/)|
 |[Alcala Consulting Inc.](https://www.alcalaconsulting.com/)|
-|[Alexan Consulting Enterprise Services, LLC (ACES)](http://www.acesred.com)|
+|Alexan Consulting Enterprise Services, LLC (ACES)|
 |[Alliance Enterprises, Inc.](https://www.allianceenterprises.com)|
 |[Alvarez Technology Group](https://www.alvareztg.com/)|
 |[Amalgama Technologies Inc](http://amalgamatetech.com/)|

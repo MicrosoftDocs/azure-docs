@@ -4,9 +4,10 @@ description: Learn about how Azure Private Link works in Azure Data Factory.
 ms.author: lle
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/10/2021
+ms.date: 06/16/2021
 ---
 
 # Azure Private Link for Azure Data Factory
@@ -41,7 +42,7 @@ With the support of Private Link for Azure Data Factory, you can:
 
 The communications to Azure Data Factory service go through Private Link and help provide secure private connectivity. 
 
-![Diagram of Private Link for Azure Data Factory architecture.](./media/data-factory-private-link/private-link-architecture.png)
+:::image type="content" source="./media/data-factory-private-link/private-link-architecture.png" alt-text="Diagram of Private Link for Azure Data Factory architecture.":::
 
 Enabling the Private Link service for each of the preceding communication channels offers the following functionality:
 - **Supported**:
@@ -55,7 +56,7 @@ Enabling the Private Link service for each of the preceding communication channe
    > For functionality that's not currently supported, you still need to configure the previously mentioned domain and port in the virtual network or your corporate firewall. 
 
    > [!NOTE]
-   > Connecting to Azure Data Factory via private endpoint is only applicable to self-hosted integration runtime in data factory. It's not supported in Synapse.
+   > Connecting to Azure Data Factory via private endpoint is only applicable to self-hosted integration runtime in data factory. It is not supported for Azure Synapse.
 
 > [!WARNING]
 > If you enable Private Link in Azure Data Factory and block public access at the same time, make sure when you create a linked service, your credentials are stored in an Azure key vault. Otherwise, the credentials won't work.

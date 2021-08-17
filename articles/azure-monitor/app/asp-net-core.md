@@ -182,6 +182,9 @@ The `.cshtml` file names referenced earlier are from a default MVC application t
 
 If your project doesn't include `_Layout.cshtml`, you can still add [client-side monitoring](./website-monitoring.md). To do this, add the JavaScript snippet to an equivalent file that controls the `<head>` of all pages within your app. Or you can add the snippet to multiple pages, but this solution is difficult to maintain and we generally don't recommend it.
 
+> [!NOTE]
+> JavaScript injection provides a default configuration experience. If you require [configuration](./javascript.md#configuration) beyond setting the instrumentation key, you are required to remove auto-injection as described above and manually add the [JavaScript SDK](./javascript.md#adding-the-javascript-sdk).
+
 ## Configure the Application Insights SDK
 
 You can customize the Application Insights SDK for ASP.NET Core to change the default configuration. Users of the Application Insights ASP.NET SDK might be familiar with changing configuration by using `ApplicationInsights.config` or by modifying `TelemetryConfiguration.Active`. For ASP.NET Core, make almost all configuration changes in the `ConfigureServices()` method of your `Startup.cs` class, unless you're directed otherwise. The following sections offer more information.
@@ -459,7 +462,7 @@ It's important to note that the following doesn't cause the ApplicationInsights 
 }
 ```
 
-For more information, see [ILogger configuration](ilogger.md#control-logging-level).
+For more information, see [ILogger configuration](ilogger.md#logging-level).
 
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 
@@ -479,9 +482,9 @@ If the SDK is installed at build time as shown in this article, you don't need t
    * You can track additional custom telemetry by using the `TrackXXX()` API.
    * You have full control over the configuration.
 
-### Can I enable Application Insights monitoring by using tools like Status Monitor?
+### Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formerly Status Monitor v2)?
 
-No. [Status Monitor](./monitor-performance-live-website-now.md) and [Status Monitor v2](./status-monitor-v2-overview.md) currently support only ASP.NET 4.x.
+No, [Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md) currently supports only ASP.NET 4.x.
 
 ### If I run my application in Linux, are all features supported?
 

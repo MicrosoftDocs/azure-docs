@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 06/29/2021
 ms.author: jeedes
 ---
 
@@ -97,6 +97,17 @@ application integration page, find the **Manage** section and select **single si
 	| FirstName | user.givenname |
     | LastName | user.surname |
     | Email |user.mail |
+
+1. In **User Attributes & Claims** section, click the pencil icon to edit and click **Add a group claim**.
+
+    ![Screenshot for User Attributes & Claims.](./media/solarwinds-orion-tutorial/group-claim.png)
+
+1. Choose **Security groups**.
+1. If you have Azure AD synchronized with your on-premises AD, change **Source attribute** to **sAMAccountName**. Otherwise, leave it as Group ID.
+
+1. In the **Advanced options**, tick mark **Customize the name of the group claim** and give OrionGroups as the name.
+
+1. Click **Save**.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 

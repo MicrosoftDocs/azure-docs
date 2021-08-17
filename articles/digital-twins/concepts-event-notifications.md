@@ -158,7 +158,7 @@ Inside the message, the `data` field contains the data of the affected digital t
 
 For creation events, the `data` payload reflects the state of the twin after the resource is created, so it should include all system generated-elements just like a `GET` call.
 
-Here is an example of a the data for an [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) device, with components and no top-level properties. Properties that do not make sense for devices (such as reported properties) should be omitted. This is the information that will go in the `data` field of the lifecycle notification message.
+Here is an example of a the data for an [IoT Plug and Play (PnP)](../iot-develop/overview-iot-plug-and-play.md) device, with components and no top-level properties. Properties that do not make sense for devices (such as reported properties) should be omitted. This is the information that will go in the `data` field of the lifecycle notification message.
 
 ```json
 {
@@ -313,4 +313,4 @@ Here is an example telemetry message body:
 ## Next steps
 
 Learn about delivering events to different destinations, using endpoints and routes:
-* [Concepts: Event routes](concepts-route-events.md)
+* [Event routes](concepts-route-events.md)

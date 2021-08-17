@@ -2,15 +2,15 @@
 title: Plan an Azure Active Directory single sign-on deployment
 description: Guide to help you plan, deploy, and manage SSO in your organization.
 services: active-directory
-author: iantheninja
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/10/2020
-ms.author: iangithinji
-ms.reviewer: jeedes
+ms.author: davidmu
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 # Customer intent: As an IT admin, I need to learn about single-sign on (SSO) so I can understand the feature and help others in my organization to understand its value.
@@ -22,7 +22,7 @@ Single sign-on (SSO) means accessing all applications and resources a user needs
 
 ## Benefits of SSO
 
-Single sign-on (SSO) adds security and convenience when users sign on to applications in Azure Active Directory (Azure AD). 
+Single sign-on (SSO) adds security and convenience when users sign on to applications in Azure Active Directory (Azure AD).
 
 Many organizations rely on software as a service (SaaS) applications, such as Microsoft 365, Box, and Salesforce, for end user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users needed to remember a password for each.
 
@@ -30,13 +30,13 @@ The Azure Marketplace has over 3000 applications with pre-integrated SSO connect
 
 ## Licensing
 
-- **Azure AD licensing** - SSO for pre-integrated SaaS applications is free. However, the number of objects in your directory and the features you wish to deploy may require additional licenses. For a full list of license requirements, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+- **Azure AD licensing** - SSO for pre-integrated SaaS applications is free. However, the number of objects in your directory and the features you wish to deploy may require additional licenses. For a full list of license requirements, see [Azure Active Directory Pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 - **Application licensing** - You'll need the appropriate licenses for your SaaS applications to meet your business needs. Work with the application owner to determine whether the users assigned to the application have the appropriate licenses for their roles within the application. If Azure AD manages the automatic provisioning based on roles, the roles assigned in Azure AD must align with the number of licenses owned within the application. Improper number of licenses owned in the application may lead to errors during the provisioning/updating of a user.
 
 ## Plan your SSO team
 
 - **Engage the right stakeholders** - When technology projects fail, it's typically due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure that you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholders understand their roles.
-- **Plan communications** - Communication is critical to the success of any new service. Proactively communicate to your users about how their experience will change, when it will change, and how to gain support if they experience issues. Review the options for [how end-users will access their SSO enabled applications](end-user-experiences.md), and craft your communications to match your selection. 
+- **Plan communications** - Communication is critical to the success of any new service. Proactively communicate to your users about how their experience will change, when it will change, and how to gain support if they experience issues. Review the options for [how end-users will access their SSO enabled applications](end-user-experiences.md), and craft your communications to match your selection.
 
 ## Plan your SSO protocol
 
@@ -83,10 +83,10 @@ From the sign-in perspective, applications with shared accounts aren't different
 
 1. Work with application business users to document the following:
    1. Set of users in the organization who will use the application
-   1. Existing set of credentials in the application associated with the set of users 
+   1. Existing set of credentials in the application associated with the set of users
 1. For each combination of user set and credentials, create a security group in the cloud or on-premises based on your requirements.
-1. Reset the shared credentials. Once the app is deployed in Azure AD, individuals don't need the password of the shared account. Since Azure AD will store the password, consider setting it to be very long and complex. 
-1. Configure automatic rollover of the password if the application supports it. That way, not even the administrator who did the initial setup will know the password of the shared account. 
+1. Reset the shared credentials. Once the app is deployed in Azure AD, individuals don't need the password of the shared account. Since Azure AD will store the password, consider setting it to be very long and complex.
+1. Configure automatic rollover of the password if the application supports it. That way, not even the administrator who did the initial setup will know the password of the shared account.
 
 ## Plan your authentication method
 
@@ -94,9 +94,9 @@ Choosing the correct authentication method is a crucial first decision in settin
 
 To choose an authentication method, you need to consider the time, existing infrastructure, complexity, and cost of implementing your choice. These factors are different for every organization and might change over time. You should choose the one that most closely matches your specific scenario. For more information, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../hybrid/choose-ad-authn.md).
 
-## Plan your security and governance 
+## Plan your security and governance
 
-Identity is the new primary pivot for security attention and investments because network perimeters have become increasingly porous and less effective with the explosion of BYOD devices and cloud applications. 
+Identity is the new primary pivot for security attention and investments because network perimeters have become increasingly porous and less effective with the explosion of BYOD devices and cloud applications.
 
 ### Plan access reviews
 
@@ -112,7 +112,7 @@ Some of the key topics to plan for while setting up access reviews include:
 
 ### Plan auditing
 
-Azure AD provides [reports containing technical and business insights](../reports-monitoring/overview-reports.md). 
+Azure AD provides [reports containing technical and business insights](../reports-monitoring/overview-reports.md).
 
 Both security and activity reports are available. Security reports show users flagged for risk, and risky sign-ins. Activity reports help you understand the behavior of users in your organization by detailing sign-in activity and providing audit trails of all logins. You can use reports to manage risk, increase productivity, and monitor compliance.
 
@@ -163,9 +163,9 @@ There's a pre-configured set of attributes and attribute-mappings between Azure 
 
 ### Certificate requirements
 
-The certificate for the application must be up-to-date, or there's a risk of users not being able to access the application. Most SaaS application certificates are good for 36 months. You change that certificate duration in the application blade. Make sure to document the expiration and know how you will manage your certificate renewal. 
+The certificate for the application must be up-to-date, or there's a risk of users not being able to access the application. Most SaaS application certificates are good for 36 months. You change that certificate duration in the application blade. Make sure to document the expiration and know how you will manage your certificate renewal.
 
-There are two ways to manage your certificates. 
+There are two ways to manage your certificates.
 
 - **Automatic certificate rollover** - Microsoft supports [Signing key rollover in Azure AD](../develop/active-directory-signing-key-rollover.md). While this is our preferred method for managing certificates, not all ISV’s supports this scenario.
 
@@ -180,7 +180,7 @@ Use the following phases to plan for and deploy your solution in your organizati
 - **Identify your test users**
 
    Contact to the app owner and ask them to create a minimum of three test users within the application. Ensure the information that you'll use as the primary identifier is populated correctly and matches an attribute that is available in Azure AD. In most cases this will map to the “NameID” for SAML-based applications. For JWT tokens, it's the “preferred_username.”
-   
+
    Create the user in Azure AD either manually as a cloud-based user or sync the user from on-premises using the Azure AD Connect sync engine. Ensure the information matches the claims being sent to the application.
 
 - **Configure SSO**
@@ -255,7 +255,7 @@ After you complete testing based on your test cases, it’s time to move into pr
 
 The availability of authentication methods within the application will determine your best strategy. Always ensure you have detailed documentation for app owners on exactly how to get back to the original login configuration state in case your deployment runs into issues.
 
-- **If your app supports multiple identity providers**, for example LDAP and AD FS and Ping, do not delete the existing SSO configuration during rollout. Instead, disable it during migration in case you need to switch it back later. 
+- **If your app supports multiple identity providers**, for example LDAP and AD FS and Ping, do not delete the existing SSO configuration during rollout. Instead, disable it during migration in case you need to switch it back later.
 
 - **If your app does not support multiple IDPs** but allows users to log in using forms-based authentication (username/password), ensure that users can fall back to this approach in case the new SSO configuration rollout fails.
 
@@ -289,10 +289,9 @@ The following links present troubleshooting scenarios. You may want to create a 
 
 #### SSO issues for applications
 
-- [Problem with password SSO for applications](./troubleshoot-password-based-sso.md) 
+- [Problem with password SSO for applications](./troubleshoot-password-based-sso.md)
 
-- [Problems signing in to SAML-based single sign-on configured apps](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)   
-
+- [Problems signing in to SAML-based single sign-on configured apps](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)
 
 ## Next steps
 

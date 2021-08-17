@@ -31,13 +31,13 @@ This article shows how to do the following tasks:
 
 > [!TIP]
 > If you're looking for information on monitoring the Azure Machine Learning service and associated Azure services, see [How to monitor Azure Machine Learning](monitor-azure-machine-learning.md).
-> If you're looking for information on monitoring models deployed as web services or IoT Edge modules, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
+> If you're looking for information on monitoring models deployed as web services, see [Collect model data](how-to-enable-data-collection.md) and [Monitor with Application Insights](how-to-enable-app-insights.md).
 
 ## Prerequisites
 
 You'll need the following items:
 
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
@@ -96,7 +96,7 @@ You'll need the following items:
     
         This command creates a `.azureml` subdirectory that contains example runconfig and conda environment files. It also contains a `config.json` file that is used to communicate with your Azure Machine Learning workspace.
     
-        For more information, see [az ml folder attach](/cli/azure/ml/folder?preserve-view=true&view=azure-cli-latest#az_ml_folder_attach).
+        For more information, see [az ml folder attach](/cli/azure/ml(v1)/folder#az_ml_folder_attach).
     
     2. To start the run, use the following command. When using this command, specify the name of the runconfig file (the text before \*.runconfig if you're looking at your file system) against the -c parameter.
     
@@ -111,7 +111,7 @@ You'll need the following items:
         >
         > For more example runconfig files, see [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/).
     
-        For more information, see [az ml run submit-script](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_submit-script).
+        For more information, see [az ml run submit-script](/cli/azure/ml(v1)/run#az_ml_run_submit-script).
 
     # [Studio](#tab/azure-studio)
 
@@ -162,7 +162,7 @@ You'll need the following items:
     
         This command returns a JSON document that lists information about runs for this experiment.
     
-        For more information, see [az ml experiment list](/cli/azure/ml/experiment?preserve-view=true&view=azure-cli-latest#az_ml_experiment_list).
+        For more information, see [az ml experiment list](/cli/azure/ml(v1)/experiment#az_ml_experiment_list).
     
     * To view information on a specific run, use the following command. Replace `runid` with the ID of the run:
     
@@ -172,7 +172,7 @@ You'll need the following items:
     
         This command returns a JSON document that lists information about the run.
     
-        For more information, see [az ml run show](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_show).
+        For more information, see [az ml run show](/cli/azure/ml(v1)/run#az_ml_run_show).
     
     
     # [Studio](#tab/azure-studio)
@@ -256,7 +256,7 @@ In Azure Machine Learning, you can use properties and tags to help organize and 
     az ml run update -r runid --add-tag quality='fantastic run'
     ```
     
-    For more information, see [az ml run update](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_update).
+    For more information, see [az ml run update](/cli/azure/ml(v1)/run#az_ml_run_update).
     
     # [Studio](#tab/azure-studio)
     
@@ -334,7 +334,7 @@ To cancel a run using the CLI, use the following command. Replace `runid` with t
 az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
-For more information, see [az ml run cancel](/cli/azure/ml/run?preserve-view=true&view=azure-cli-latest#az_ml_run_cancel).
+For more information, see [az ml run cancel](/cli/azure/ml(v1)/run#az_ml_run_cancel).
 
 # [Studio](#tab/azure-studio)
 

@@ -11,7 +11,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/9/2021
+ms.date: 8/13/2021
 ms.author: gunnarc
 ---
 # Azure Guest OS releases and SDK compatibility matrix
@@ -37,6 +37,11 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
+###### **August 13, 2021**
+The July Guest OS has released. 
+
+###### **July 1, 2021**
+The June Guest OS has released. 
 
 ###### **May 26, 2021**
 The May Guest OS has released. 
@@ -155,8 +160,10 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-6.31_202105-01 |  May 26, 2021  |  Post 6.33  |  
-|  WA-GUEST-OS-6.30_202104-01 |  April 30, 2021  |  Post 6.32  |  
+|  WA-GUEST-OS-6.33_202107-01 |  August 13, 2021  |  Post 6.35  |
+|  WA-GUEST-OS-6.32_202106-01 |  July 1, 2021  |  Post 6.34  |
+|~~WA-GUEST-OS-6.31_202105-0~~|  May 26, 2021  |  August 13, 2021  |  
+|~~WA-GUEST-OS-6.30_202104-01~~|  April 30, 2021  |  July 1, 2021  |  
 |~~WA-GUEST-OS-6.29_202103-01~~|  March 28, 2021  |  May 26, 2021  |  
 |~~WA-GUEST-OS-6.28_202102-01~~|  February 19, 2021  |  April 30, 2021  |  
 |~~WA-GUEST-OS-6.27_202101-01~~|  February 5, 2021  |  March 28, 2021  |  
@@ -199,8 +206,10 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-5.55_202105-01  |  May 26, 2021  |  Post 5.57  | 
-|  WA-GUEST-OS-5.54_202104-01  |  April 30, 2021  |  Post 5.56  | 
+|  WA-GUEST-OS-5.57_202107-01  |  August 13, 2021  |  Post 5.59  | 
+|  WA-GUEST-OS-5.56_202106-01  |  July 1, 2021  |  Post 5.58  | 
+|~~WA-GUEST-OS-5.55_202105-01~~|  May 26, 2021  |  August 13, 2021  | 
+|~~WA-GUEST-OS-5.54_202104-01~~|  April 30, 2021  |  July 1, 2021  | 
 |~~WA-GUEST-OS-5.53_202103-01~~|  March 28, 2021  |  May 26, 2021  | 
 |~~WA-GUEST-OS-5.52_202102-01~~|  February 19, 2021  |  April 30, 2021  | 
 |~~WA-GUEST-OS-5.51_202101-01~~|  February 5, 2021  |  March 28, 2021  | 
@@ -240,8 +249,10 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-4.90_202105-01  |  May 26, 2021  |  Post 4.92  | 
-|  WA-GUEST-OS-4.89_202104-01  |  April 30, 2021  |  Post 4.91  | 
+|  WA-GUEST-OS-4.92_202107-01  |  August 13, 2021  |  Post 4.94  |
+|  WA-GUEST-OS-4.91_202106-01  |  July 1, 2021  |  Post 4.93  | 
+|~~WA-GUEST-OS-4.90_202105-01~~|  May 26, 2021  |  August 13, 2021  | 
+|~~WA-GUEST-OS-4.89_202104-01~~|  April 30, 2021  | July 1, 2021  | 
 |~~WA-GUEST-OS-4.88_202103-01~~|  March 28, 2021  |  May 26, 2021  | 
 |~~WA-GUEST-OS-4.87_202102-01~~|  February 19, 2021  |  April 30, 2021  | 
 |~~WA-GUEST-OS-4.86_202101-01~~|  February 5, 2021  |  March 28, 2021  | 
@@ -281,8 +292,10 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-3.97_202105-01  |  May 26, 2021  |  Post 3.99  |
-|  WA-GUEST-OS-3.96_202104-01  |  April 30, 2021  |  Post 3.98  |
+|  WA-GUEST-OS-3.99_202107-01  |  August 13, 2021  |  Post 3.101  |
+|  WA-GUEST-OS-3.98_202106-01  |  July 1, 2021  |  Post 3.100  |
+|~~WA-GUEST-OS-3.97_202105-01~~|  May 26, 2021  |  August 13, 2021  |
+|~~WA-GUEST-OS-3.96_202104-01~~|  April 30, 2021  |  July 1, 2021  |
 |~~WA-GUEST-OS-3.95_202103-01~~|  March 28, 2021  |  May 26, 2021  |
 |~~WA-GUEST-OS-3.94_202102-01~~|  February 19, 2021  |  April 30, 2021  |
 |~~WA-GUEST-OS-3.93_202101-01~~|  February 5, 2021  |  March 28, 2021  |
@@ -322,8 +335,10 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-2.110_202105-01  |  May 26, 2021  |  Post 2.112  |
-|  WA-GUEST-OS-2.109_202104-01  |  April 30, 2021  |  Post 2.111  |
+|  WA-GUEST-OS-2.112_202107-01  |  August 13, 2021  |  Post 2.114  |
+|  WA-GUEST-OS-2.111_202106-01  |  July 1, 2021  |  Post 2.113  |
+|~~WA-GUEST-OS-2.110_202105-01~~|  May 26, 2021  |  August 13, 2021  |
+|~~WA-GUEST-OS-2.109_202104-01~~|  April 30, 2021  |  July 1, 2021  |
 |~~WA-GUEST-OS-2.108_202103-01~~|  March 28, 2021  |  May 26, 2021  |
 |~~WA-GUEST-OS-2.107_202102-01~~|  February 19, 2021  |  April 30, 2021  |  
 |~~WA-GUEST-OS-2.106_202101-01~~|  February 5, 2021  |  March 28, 2021  |  

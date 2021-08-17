@@ -3,8 +3,8 @@ title: 'Tutorial: Configure getAbstract for automatic user provisioning with Azu
 description: Learn how to automatically provision and deprovision user accounts from Azure Active Directory to getAbstract.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: bd8898f9-7a01-4e85-9dd4-61ae4b01ab5b
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure getAbstract for automatic user provisioning

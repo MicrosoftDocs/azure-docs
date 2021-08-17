@@ -41,7 +41,7 @@ The following are the high-level steps that Azure AD uses to determine if you ha
 1. A user (or service principal) acquires a token to the Microsoft Graph or Azure AD Graph endpoint.
 1. The user makes an API call to Azure Active Directory (Azure AD) via Microsoft Graph or Azure AD Graph using the issued token.
 1. Depending on the circumstance, Azure AD takes one of the following actions:
-   - Evaluates the user’s role memberships based on the [wids claim](../../active-directory-b2c/access-tokens.md) in the user’s access token.
+   - Evaluates the user’s role memberships based on the [wids claim](../develop/access-tokens.md) in the user’s access token.
    - Retrieves all the role assignments that apply for the user, either directly or via group membership, to the resource on which the action is being taken.
 1. Azure AD determines if the action in the API call is included in the roles the user has for this resource.
 1. If the user doesn't have a role with the action at the requested scope, access is not granted. Otherwise access is granted.
@@ -77,7 +77,7 @@ A scope is the restriction of permitted actions to a particular Azure AD resourc
 
 ## License requirements
 
-Using built-in roles in Azure AD is free, while custom roles requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
+Using built-in roles in Azure AD is free, while custom roles requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Next steps
 

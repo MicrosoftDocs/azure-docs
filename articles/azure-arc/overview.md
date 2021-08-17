@@ -24,7 +24,8 @@ Today, Azure Arc allows you to manage the following resource types hosted outsid
 
 * Servers - both physical and virtual machines running Windows or Linux.
 * Kubernetes clusters - supporting multiple Kubernetes distributions.
-* Azure data services - Azure SQL Database and PostgreSQL Hyperscale services.
+* Azure data services - Azure SQL Managed Instance and PostgreSQL Hyperscale services.
+* SQL Server - enroll instances from any location.
 
 ## What does Azure Arc deliver?
 
@@ -42,7 +43,7 @@ Key features of Azure Arc include:
 
 * Run [Azure data services](../azure-arc/kubernetes/custom-locations.md) on any Kubernetes environment as if it runs in Azure (specifically Azure SQL Managed Instance and Azure Database for PostgreSQL Hyperscale, with benefits such as upgrades, updates, security, and monitoring). Use elastic scale and apply updates without any application downtime, even without continuous connection to Azure.
 
-* Create [custom locations](./kubernetes/custom-locations.md) on top of your [Azure Arc enabled Kubernetes](./kubernetes/overview.md) clusters, using them as target locations for deploying Azure services instances. Deploy your Azure service cluster extensions for [Azure Arc enabled Data Services](./data/deploy-data-controller-direct-mode.md), [App Services on Azure Arc](../app-service/overview-arc-integration.md) (including web, function, and logic apps) and [Event Grid on Kubernetes](../event-grid/kubernetes/overview.md).
+* Create [custom locations](./kubernetes/custom-locations.md) on top of your [Azure Arc enabled Kubernetes](./kubernetes/overview.md) clusters, using them as target locations for deploying Azure services instances. Deploy your Azure service cluster extensions for [Azure Arc enabled Data Services](./data/create-data-controller-direct-azure-portal.md), [App Services on Azure Arc](../app-service/overview-arc-integration.md) (including web, function, and logic apps) and [Event Grid on Kubernetes](../event-grid/kubernetes/overview.md).
 
 * A unified experience viewing your Azure Arc enabled resources whether you are using the Azure portal, the Azure CLI, Azure PowerShell, or Azure REST API.
 

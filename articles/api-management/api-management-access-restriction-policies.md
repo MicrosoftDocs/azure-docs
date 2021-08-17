@@ -7,7 +7,7 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: article
-ms.date: 06/02/2021
+ms.date: 06/22/2021
 ms.author: apimpm
 ---
 
@@ -563,7 +563,7 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 | failed-validation-httpcode      | HTTP Status code to return if the JWT doesn't pass validation.                                                                                                                                                                                                                                                                                                                                                                                         | No                                                                               | 401                                                                               |
 | header-name                     | The name of the HTTP header holding the token.                                                                                                                                                                                                                                                                                                                                                                                                         | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | query-parameter-name            | The name of the query parameter holding the token.                                                                                                                                                                                                                                                                                                                                                                                                     | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
-| token-value                     | Expression returning a string containing JWT token                                                                                                                                                                                                                                                                                                                                                                                                     | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
+| token-value                     | Expression returning a string containing JWT token. You must not return `Bearer ` as part of the token value.                                                                                                                                                                                                                                                                                                                                           | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | id                              | The `id` attribute on the `key` element allows you to specify the string that will be matched against `kid` claim in the token (if present) to find out the appropriate key to use for signature validation.                                                                                                                                                                                                                                           | No                                                                               | N/A                                                                               |
 | match                           | The `match` attribute on the `claim` element specifies whether every claim value in the policy must be present in the token for validation to succeed. Possible values are:<br /><br /> - `all` - every claim value in the policy must be present in the token for validation to succeed.<br /><br /> - `any` - at least one claim value must be present in the token for validation to succeed.                                                       | No                                                                               | all                                                                               |
 | require-expiration-time         | Boolean. Specifies whether an expiration claim is required in the token.                                                                                                                                                                                                                                                                                                                                                                               | No                                                                               | true                                                                              |
@@ -597,42 +597,42 @@ For more information about custom CA certificates and certificate authorities, s
 ### Policy statement
 
 ```xml
-<validate-client-certificate> 
-    validate-revocation="true|false" 
-    validate-trust="true|false" 
-    validate-not-before="true|false" 
-    validate-not-after="true|false" 
-    ignore-error="true|false"> 
-    <identities> 
-        <identity  
-            thumbprint="certificate thumbprint"  
-            serial-number="certificate serial number" 
-            common-name="certificate common name"  
-            subject="certificate subject string"  
-            dns-name="certificate DNS name" 
-            issuer="certificate issuer" 
-            issuer-thumbprint="certificate issuer thumbprint"  
-            issuer-certificate-id="certificate identifier" /> 
-    </identities> 
+<validate-client-certificate 
+    validate-revocation="true|false"
+    validate-trust="true|false" 
+    validate-not-before="true|false" 
+    validate-not-after="true|false" 
+    ignore-error="true|false">
+    <identities>
+        <identity 
+            thumbprint="certificate thumbprint"
+            serial-number="certificate serial number"
+            common-name="certificate common name"
+            subject="certificate subject string"
+            dns-name="certificate DNS name"
+            issuer-subject="certificate issuer"
+            issuer-thumbprint="certificate issuer thumbprint"
+            issuer-certificate-id="certificate identifier" />
+    </identities>
 </validate-client-certificate> 
 ```
 
 ### Example
 
-The following example validates a client certificate to match the policy's default validation rules and checks whether the subject and issuer match specified values.
+The following example validates a client certificate to match the policy's default validation rules and checks whether the subject and issuer name match specified values.
 
 ```xml
-<validate-client-certificate> 
-    validate-revocation="true" 
-    validate-trust="true" 
-    validate-not-before="true" 
-    validate-not-after="true" 
-    ignore-error="false"
-    <identities> 
-        <identity 
+<validate-client-certificate 
+    validate-revocation="true" 
+    validate-trust="true" 
+    validate-not-before="true" 
+    validate-not-after="true" 
+    ignore-error="false">
+    <identities>
+        <identity
             subject="C=US, ST=Illinois, L=Chicago, O=Contoso Corp., CN=*.contoso.com"
-            issuer="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
-    </identities> 
+            issuer-subject="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
+    </identities>
 </validate-client-certificate> 
 ```
 
@@ -658,9 +658,9 @@ The following example validates a client certificate to match the policy's defau
 | common-name | Certificate common name (part of Subject string). | no | N/A |
 | subject | Subject string. Must follow format of Distinguished Name. | no | N/A |
 | dns-name | Value of dnsName entry inside Subject Alternative Name claim. | no | N/A | 
-| issuer | Issuer’s subject. Must follow format of Distinguished Name. | no | N/A | 
+| issuer-subject | Issuer’s subject. Must follow format of Distinguished Name. | no | N/A | 
 | issuer-thumbprint | Issuer thumbprint. | no | N/A | 
-| issuer-certificate-id | Identifier of existing Certificate entity representing Issuer’s public key. | no | N/A | 
+| issuer-certificate-id | Identifier of existing certificate entity representing the issuer’s public key. Mutually exclusive with other issuer attributes.  | no | N/A | 
 
 ### Usage
 

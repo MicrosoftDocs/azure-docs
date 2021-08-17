@@ -13,9 +13,9 @@ ms.custom: devx-track-azurepowershell
 
 # Virtual machines in an Azure Resource Manager template
 
-This article describes aspects of an Azure Resource Manager template that apply to virtual machines. This article doesn’t describe a complete template for creating a virtual machine; for that you need resource definitions for storage accounts, network interfaces, public IP addresses, and virtual networks. For more information about how these resources can be defined together, see the [Resource Manager template walkthrough](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+This article describes aspects of an Azure Resource Manager template that apply to virtual machines. This article doesn't describe a complete template for creating a virtual machine; for that you need resource definitions for storage accounts, network interfaces, public IP addresses, and virtual networks. For more information about how these resources can be defined together, see the [Resource Manager template walkthrough](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-There are many [templates in the gallery](https://azure.microsoft.com/documentation/templates/?term=VM) that include the VM resource. Not all elements that can be included in a template are described here.
+There are many [templates in the gallery](https://azure.microsoft.com/resources/templates/?term=VM) that include the VM resource. Not all elements that can be included in a template are described here.
 
  
 
@@ -29,7 +29,7 @@ This example shows a typical resource section of a template for creating a speci
     "name": "[concat('myVM', copyindex())]", 
     "location": "[resourceGroup().location]",
     "copy": {
-      "name": "virtualMachineLoop",	
+      "name": "virtualMachineLoop",  
       "count": "[parameters('numberOfInstances')]"
     },
     "dependsOn": [
@@ -213,7 +213,7 @@ When you need more than one virtual machine for your application, you can use a 
 
 ```json
 "copy": {
-  "name": "virtualMachineLoop",	
+  "name": "virtualMachineLoop",  
   "count": "[parameters('numberOfInstances')]"
 },
 ```
@@ -233,7 +233,7 @@ Also, notice in the example that the loop index is used when specifying some of 
 >
 >
 
-Keep in mind that creating a loop for one resource in the template may require you to use the loop when creating or accessing other resources. For example, multiple VMs can’t use the same network interface, so if your template loops through creating three VMs it must also loop through creating three network interfaces. When assigning a network interface to a VM, the loop index is used to identify it:
+Keep in mind that creating a loop for one resource in the template may require you to use the loop when creating or accessing other resources. For example, multiple VMs can't use the same network interface, so if your template loops through creating three VMs it must also loop through creating three network interfaces. When assigning a network interface to a VM, the loop index is used to identify it:
 
 ```json
 "networkInterfaces": [ { 
@@ -444,7 +444,7 @@ If you're curious about the status of resources in the deployment, view the reso
 
 ![Get deployment information](./media/template-description/virtual-machines-deployment-info.png)
     
-It’s not a problem to use the same template to create resources or to update existing resources. When you use commands to deploy templates, you have the opportunity to say which [mode](../../azure-resource-manager/templates/deploy-powershell.md) you want to use. The mode can be set to either **Complete** or **Incremental**. The default is to do incremental updates. Be careful when using the **Complete** mode because you may accidentally delete resources. When you set the mode to **Complete**, Resource Manager deletes any resources in the resource group that aren't in the template.
+It's not a problem to use the same template to create resources or to update existing resources. When you use commands to deploy templates, you have the opportunity to say which [mode](../../azure-resource-manager/templates/deploy-powershell.md) you want to use. The mode can be set to either **Complete** or **Incremental**. The default is to do incremental updates. Be careful when using the **Complete** mode because you may accidentally delete resources. When you set the mode to **Complete**, Resource Manager deletes any resources in the resource group that aren't in the template.
 
 ## Next Steps
 

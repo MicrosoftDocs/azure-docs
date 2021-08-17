@@ -145,9 +145,10 @@ The IntelliSense features are at different levels of maturity for different lang
 |PySpark (Python)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Spark (Scala)|Yes|Yes|Yes|Yes|-|-|-|Yes|
 |SparkSQL|Yes|Yes|-|-|-|-|-|-|
-|.NET for Spark (C#)|Yes|-|-|-|-|-|-|-|
+|.NET for Spark (C#)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 
-
+>[!Note]
+> An active Spark session is required to benefit the Variable Code Completion, System Function Code Completion，User Function Code Completion for .NET for Spark (C#).
 
 ### Code Snippets
 
@@ -332,13 +333,14 @@ Not supported.
 
 # [Preview Notebook](#tab/preview)
 
-You can use ```%run <notebook path>``` magic command to reference another notebook within current notebook's context. All the variables defined in the reference notebook are available in the current notebook. ```%run``` magic command supports nested calls but not support recursive calls. You will receive an exception if the statement depth is larger than five. ```%run``` command currently only supports to pass a notebook path as parameter. 
+You can use ```%run <notebook path>``` magic command to reference another notebook within current notebook's context. All the variables defined in the reference notebook are available in the current notebook. ```%run``` magic command supports nested calls but not support recursive calls. You will receive an exception if the statement depth is larger than five.  ```%run``` command currently only supports to pass a notebook path as parameter. 
 
 Example: ``` %run /path/notebookA ```.
 
+Notebook reference works in both interactive mode and Synapse pipeline.
+
 > [!NOTE]
-> Notebook reference is not supported in Synapse pipeline.
->
+> The referenced notebooks are required to be published. You need to publish the notebooks to reference them. Synapse Studio does not recognize the unpublished notebooks from the Git repo. 
 >
 
 ---
@@ -381,12 +383,12 @@ You can specify the timeout duration, the number, and the size of executors to g
 [![session-management](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-spark-session-management.png#lightbox)
 
 #### Spark session config magic command
-You can also specify spark session settings via a magic command **%%configure**. The spark session needs to restart to make the settings effect. We recommend you to run the **%%configure** at the beginning of your notebook. Here is a sample, refer to https://github.com/cloudera/livy#request-body for full list of valid parameters 
+You can also specify spark session settings via a magic command **%%configure**. The spark session needs to restart to make the settings effect. We recommend you to run the **%%configure** at the beginning of your notebook. Here is a sample, refer to https://github.com/cloudera/livy#request-body for full list of valid parameters. 
 
-```
-%%configure -f
+```json
+%%configure
 {
-    to config the session.
+    // refer to https://github.com/cloudera/livy#request-body for a list of valid parameters to config the session.
     "driverMemory":"2g",
     "driverCores":3,
     "executorMemory":"2g",
@@ -398,8 +400,8 @@ You can also specify spark session settings via a magic command **%%configure**.
 }
 ```
 > [!NOTE]
-> Spark session config magic command is not supported in Synapse pipeline.
->
+> - You can use Spark session config magic command in Synapse pipelines. It only takes effect when it's called in the top level. The %%configure used in referenced notebook is going to be ignored.
+> - The Spark configuration properties has to be used in the "conf" body. We do not support top level reference for the Spark configuration properties.
 >
 
 ## Bring data to a notebook

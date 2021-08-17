@@ -11,7 +11,7 @@ ms.date: 09/29/2020
 >[!NOTE]
 >This document focuses on the VMware Horizon product, formerly known as Horizon 7. Horizon is a different solution than Horizon Cloud on Azure, although there are some shared components. Key advantages of the Azure VMware Solution include both a more straightforward sizing method and the integration of VMware Cloud Foundation management into the Azure portal.
 
-[VMware Horizon](https://www.vmware.com/products/horizon.html)®, a virtual desktop and applications platform, run in the data center and provides simple and centralized management. It delivers virtual desktops and applications on any device, anywhere. Horizon lets you create and broker connections to Windows and Linux virtual desktops, Remote Desktop Server (RDS) hosted applications, desktops, and physical machines.
+[VMware Horizon](https://www.vmware.com/products/horizon.html)®, a virtual desktop and applications platform, runs in the datacenter and provides simple and centralized management. It delivers virtual desktops and applications on any device, anywhere. Horizon lets you create and broker connections to Windows and Linux virtual desktops, Remote Desktop Server (RDS) hosted applications, desktops, and physical machines.
 
 Here, we focus specifically on deploying Horizon on Azure VMware Solution. For general information on VMware Horizon, refer to the Horizon production documentation:
 
@@ -23,9 +23,9 @@ Here, we focus specifically on deploying Horizon on Azure VMware Solution. For g
 
 With Horizon's introduction on Azure VMware Solution, there are now two Virtual Desktop Infrastructure (VDI) solutions on the Azure platform. The following diagram summarizes the key differences at a high level.
 
-:::image type="content" source="media/horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Horizon on Azure VMware Solution and Horizon Cloud on Azure" border="false":::
+:::image type="content" source="media/vmware-horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Diagram showing the differences between Horizon on Azure VMware Solution and Horizon Cloud on Azure." border="false":::
 
-Horizon 2006 and later versions on the Horizon 8 release line supports both on-premises deployment and Azure VMware Solution deployment. There are a few Horizon features that are supported on-premises but not on Azure VMware Solution. Additional products in the Horizon ecosystem are also supported. For for information, see [feature parity and interoperability](https://kb.vmware.com/s/article/80850).
+Horizon 2006 and later versions on the Horizon 8 release line supports both on-premises deployment and Azure VMware Solution deployment. There are a few Horizon features that are supported on-premises but not on Azure VMware Solution. Other products in the Horizon ecosystem are also supported. For more information, see [feature parity and interoperability](https://kb.vmware.com/s/article/80850).
 
 ## Deploy Horizon in a hybrid cloud
 
@@ -34,9 +34,9 @@ You can deploy Horizon in a hybrid cloud environment when you use Horizon Cloud 
 >[!IMPORTANT]
 >CPA is not a stretched deployment; each Horizon pod is distinct, and all Connection Servers that belong to each of the individual pods are required to be located in a single location and run on the same broadcast domain from a network perspective.
 
-Like on-premises or private data center, Horizon can be deployed in an Azure VMware Solution private cloud. We'll discuss key differences in deploying Horizon on-premises and on Azure VMware Solution in the following sections.
+Like on-premises or private datacenter, Horizon can be deployed in an Azure VMware Solution private cloud. We'll discuss key differences in deploying Horizon on-premises and on Azure VMware Solution in the following sections.
 
-The Azure private cloud is conceptually the same as the VMware SDDC, a term typically used in Horizon documentation. The rest of this document uses the terms Azure private cloud and VMware SDDC interchangeable.
+The Azure private cloud is conceptually the same as the VMware SDDC, a term typically used in Horizon documentation. The rest of this document uses the terms Azure private cloud and VMware SDDC interchangeably.
 
 The Horizon Cloud Connector is required for Horizon on Azure VMware Solution to manage subscription licenses. Cloud Connector can be deployed in Azure Virtual Network alongside Horizon Connection Servers.
 
@@ -82,7 +82,7 @@ Given the Azure private cloud and SDDC max limit, we recommend a deployment arch
 
 The connection from Azure Virtual Network to the Azure private clouds / SDDCs should be configured with ExpressRoute FastPath. The following diagram shows a basic Horizon pod deployment.
 
-:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Typical Horizon pod deployment using ExpressPath Fast Path" border="false":::
+:::image type="content" source="media/vmware-horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Diagram showing the typical Horizon pod deployment using ExpressPath Fast Path." border="false":::
 
 ## Network connectivity to scale Horizon on Azure VMware Solution
 
@@ -90,7 +90,7 @@ This section lays out the network architecture at a high level with some common 
 
 ### Single Horizon pod on Azure VMware Solution
 
-:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Single Horizon pod on Azure VMware Solution" border="false":::
+:::image type="content" source="media/vmware-horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Diagram showing a single Horizon pod on Azure VMware Solution." border="false":::
 
 A single Horizon pod is the most straight forward deployment scenario because you deploy just one Horizon pod in the US East region.  Since each private cloud and SDDC is estimated to handle 4,000 desktop sessions, you deploy the maximum Horizon pod size.  You can plan the deployment of up to three private clouds/SDDCs.
 
@@ -100,7 +100,7 @@ Key assumptions for this basic deployment example include that:
 
 * You don't have an on-premises Horizon pod that you want to connect to this new pod using Cloud Pod Architecture (CPA).
 
-* End users connect to their virtual desktops through the internet (vs. connecting via an on-premises data center).
+* End users connect to their virtual desktops through the internet (vs. connecting via an on-premises datacenter).
 
 You connect your AD domain controller in Azure Virtual Network with your on-premises AD through VPN or ExpressRoute circuit.
 
@@ -108,17 +108,17 @@ A variation on the basic example might be to support connectivity for on-premise
 
 The diagram shows how to support connectivity for on-premises resources. To connect to your corporate network to the Azure Virtual Network, you'll need an ExpressRoute circuit.  You'll also need to connect your corporate network with each of the private cloud and SDDCs using ExpressRoute Global Reach.  It allows the connectivity from the SDDC to the ExpressRoute circuit and on-premises resources. 
 
-:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Connect your corporate network to an Azure Virtual Network" border="false":::
+:::image type="content" source="media/vmware-horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Diagram showing the connection of a corporate network to an Azure Virtual Network." border="false":::
 
 ### Multiple Horizon pods on Azure VMware Solution across multiple regions
 
 Another scenario is scaling Horizon across multiple pods.  In this scenario, you deploy two Horizon pods in two different regions and federate them using CPA. It's similar to the network configuration in the previous example, but with some additional cross-regional links. 
 
-You'll connect the Azure Virtual Network in each region to the private clouds/SDDCs in the other region. It allows Horizon connection servers part of the CPA federation to connect to all desktops under management. Adding additional private clouds/SDDCs to this configuration would allow you to scale to 24,000 sessions overall. 
+You'll connect the Azure Virtual Network in each region to the private clouds/SDDCs in the other region. It allows Horizon connection servers part of the CPA federation to connect to all desktops under management. Adding extra private clouds/SDDCs to this configuration would allow you to scale to 24,000 sessions overall. 
 
 The same principles apply if you deploy two Horizon pods in the same region.  Make sure to deploy the second Horizon pod in a *separate Azure Virtual Network*. Just like the single pod example, you can connect your corporate network and on-premises pod to this multi-pod/region example using ExpressRoute and Global Reach. 
 
-:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text=" Multiple Horizon pods on Azure VMware Solution across multiple regions" border="false":::
+:::image type="content" source="media/vmware-horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text=" Diagram showing multiple Horizon pods on Azure VMware Solution across multiple regions." border="false":::
 
 ## Size Azure VMware Solution hosts for Horizon deployments 
 
@@ -207,7 +207,7 @@ Work with your VMware EUC sales team to determine the Horizon licensing cost bas
 
 ### Azure Instance Types
 
-To understand the Azure virtual machine sizes which will be required for the Horizon Infrastructure please refer to VMware's guidelines which can be found [here](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
+To understand the Azure virtual machine sizes that will be required for the Horizon Infrastructure, see [Horizon Installation on Azure VMware Solution](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
 
 ## References
 [System Requirements For Horizon Agent for Linux](https://docs.vmware.com/en/VMware-Horizon/2012/linux-desktops-setup/GUID-E268BDBF-1D89-492B-8563-88936FD6607A.html)

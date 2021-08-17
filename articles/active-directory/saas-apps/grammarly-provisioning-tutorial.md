@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Grammarly for automatic user provisioning with Azure
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Grammarly.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: cd2dd9d7-4901-40c8-8888-98850557b072
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Grammarly for automatic user provisioning

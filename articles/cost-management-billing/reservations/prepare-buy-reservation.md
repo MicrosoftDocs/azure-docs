@@ -32,7 +32,7 @@ You have three options to scope a reservation, depending on your needs:
 
 - **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
 - **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
-- **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context.
+- **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. If a subscription was moved to different billing context, the benefit will no longer be applied to this subscription and will continue to apply to other subscriptions in the billing context.
     - For Enterprise Agreement customers, the billing context is the enrollment. The reservation shared scope would include multiple Active Directory tenants in an enrollment.
     - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
     - For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.

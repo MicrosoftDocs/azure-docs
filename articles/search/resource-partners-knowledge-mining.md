@@ -7,12 +7,12 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 06/24/2021
 ---
 
 # Partner spotlight
 
-Get expert help from Microsoft partners who build end-to-end solutions that include Azure Cognitive Search. The following partners have deep experience in leveraging full-text search and AI enrichment across a range of business and technical scenarios.
+Get expert help from Microsoft partners who build comprehensive solutions that include Azure Cognitive Search. The following partners have deep experience with integration of full-text search and AI enrichment across a range of business and technical scenarios.
 
 | Partner | Description | Product link |
 |---------|-------------|----------------------|
@@ -23,4 +23,4 @@ Get expert help from Microsoft partners who build end-to-end solutions that incl
 | ![Neudesic](media/resource-partners/neudesic-logo.png "Neudesic company logo") | [**Neudesic**](https://www.neudesic.com/) is the trusted technology partner in business innovation, delivering impactful business results to clients through digital modernization and evolution. Our consultants bring business and technology expertise together, offering a wide range of cloud and data-driven solutions, including custom application development, data and artificial intelligence, comprehensive managed services, and business software products. Founded in 2002, Neudesic is a privately held company headquartered in Irvine, California. | [Product page](https://www.neudesic.com/services/modern-workplace/document-intelligence-platform-schedule-demo/)|
 | ![OrangeNXT](media/resource-partners/orangenxt-beldmerk-boven-160px.png "OrangeNXT company logo") | [**OrangeNXT**](https://orangenxt.com/) offers expertise in data consolidation, data modeling, and building skillsets that include custom logic developed for specific use-cases.</br></br>digitalNXT Search is an OrangeNXT solution that combines AI, optical character recognition (OCR), and natural language processing in Azure Cognitive Search pipeline to help you extract search results from multiple structured and unstructured data sources. Integral to digitalNXT Search is advanced custom cognitive skills for interpreting and correlating selected data.</br></br>| [Product page](https://orangenxt.com/solutions/digitalnxt/digitalnxt-search/)|
 | ![Plain Concepts](media/resource-partners/plain-concepts-logo.png "Plain Concepts company logo") | [**Plain Concepts**](https://www.plainconcepts.com/contact/) is a Microsoft Partner with over 15 years of cloud, data, and AI expertise on Azure, and more than 12 Microsoft MVP awards. We specialize in the creation of new data relationships among heterogeneous information  sources, which combined with our experience with Artificial Intelligence, Machine Learning, and Cognitive Services, exponentially increases the productivity of both machines and human teams. We help customers to face the digital revolution with the AI-based solutions that best suits their company requirements.| [Product page](https://www.plainconcepts.com/artificial-intelligence/) |
-
+| ![Raytion](media/resource-partners/raytion-logo-blue.png "Raytion company logo") | [**Raytion**](https://www.raytion.com/) is an internationally operating IT business consultancy with a strategic focus on collaboration, search and cloud. Raytion offers intelligent and fully featured search solutions based on Microsoft Azure Cognitive Search and the Raytion product suite. Raytion's solutions enable an easy indexation of a broad range of enterprise content systems and provide a sophisticated search experience, which can be tailored to individual requirements. They are the foundation of enterprise search, knowledge searches, service desk agent support and many more applications. | [Product page](https://www.raytion.com/connectors) |

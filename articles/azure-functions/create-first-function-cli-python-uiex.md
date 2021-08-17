@@ -137,7 +137,7 @@ In this section, you create a local <abbr title="A logical container for one or 
     <details>
     <summary><strong>What's created in the LocalFunctionProj folder?</strong></summary>
     
-    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    This folder contains various files for the project, including configurations files named [local.settings.json](functions-develop-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
     </details>
 
 1. Add a function to your project by using the following command:

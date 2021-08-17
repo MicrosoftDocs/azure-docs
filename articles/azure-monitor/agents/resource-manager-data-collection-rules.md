@@ -13,6 +13,9 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
+## Create rule (sample)
+
+View [template format](/azure/templates/microsoft.insights/datacollectionrules)
 
 ## Create association with Azure VM
 
@@ -108,7 +111,7 @@ The following sample creates an association between an Azure Arc-enabled server 
     "resources": [
         {
             "type": "Microsoft.HybridCompute/machines/providers/dataCollectionRuleAssociations",
-            "name": "[concat(parameters('machineName'),'/microsoft.insights/', parameters('associationName'))]",
+            "name": "[concat(parameters('vmName'),'/microsoft.insights/', parameters('associationName'))]",
             "apiVersion": "2019-11-01-preview",
             "properties": {
                 "description": "Association of data collection rule. Deleting this association will break the data collection for this Arc server.",

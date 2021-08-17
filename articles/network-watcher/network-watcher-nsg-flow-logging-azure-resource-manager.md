@@ -29,7 +29,7 @@ ms.custom: fasttrack-edit, devx-track-azurepowershell
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
-[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) is Azure's native and powerful way to manage your [infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code).
+[Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) is Azure's native and powerful way to manage your [infrastructure as code](/devops/deliver/what-is-infrastructure-as-code).
 
 This article shows how you to enable [NSG Flow Logs](./network-watcher-nsg-flow-logging-overview.md) programmatically using an Azure Resource Manager template and Azure PowerShell. We start by providing an overview of the properties of the NSG Flow Log object, followed by a few sample templates. Then we the deploy template using a local PowerShell instance.
 

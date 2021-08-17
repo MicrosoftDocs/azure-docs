@@ -38,3 +38,6 @@ items:
   - name: Synapse Analytics
     tocHref: /dynamics365/customer-insights/
     topicHref: /azure/synapse-analytics/index
+  - name: Synapse Analytics
+    tocHref: /powershell/module/
+    topicHref: /azure/synapse-analytics/index

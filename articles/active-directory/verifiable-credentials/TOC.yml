@@ -24,6 +24,14 @@
 - name: How-to guides
   expanded: true
   items:
+  - name: Plan and design 
+    items:
+    - name: Architecture planning overview
+      href: introduction-to-verifiable-credentials-architecture.md
+    - name: Plan your issuance solution
+      href: plan-issuance-solution.md
+    - name: Plan your verification solution
+      href: plan-verification-solution.md
   - name: How to customize your credentials
     href: credential-design.md
   - name: Manage credential revocation

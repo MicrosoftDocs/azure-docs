@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/07/2021
+ms.date: 08/05/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -49,7 +49,7 @@ A user flow lets you determine how users interact with your application when the
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 - [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant).
-- [Create a Facebook application](identity-provider-facebook.md#create-a-facebook-application). Skip the prerequisites and the reset of the steps in the [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) article. Although a Facebook application is not required for using custom policies, it's used in this walkthrough to demonstrate enabling social login in a custom policy.
+- [Create a Facebook application](identity-provider-facebook.md#create-a-facebook-application). Skip the prerequisites and the rest of the steps in the [Set up sign-up and sign-in with a Facebook account](identity-provider-facebook.md) article. Although a Facebook application is not required for using custom policies, it's used in this walkthrough to demonstrate enabling social login in a custom policy.
 
 ::: zone-end
 
@@ -335,9 +335,17 @@ In this article, you learned how to:
 > * Create a profile editing user flow
 > * Create a password reset user flow
 
-Next, learn how to use Azure AD B2C to sign in and sign up users in an application. Follow the ASP.NET web application linked below, or navigate to another application in the table of contents under **Authenticate users**.
+Next, learn how to use Azure AD B2C to sign in and sign up users in an application. Follow the sample apps linked below:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Enable authentication in a web application using Azure AD B2C >](tutorial-web-app-dotnet.md)
+- [Configure a sample ASP.NET Core web app](configure-authentication-sample-web-app.md)
+- [Configure a sample ASP.NET Core web app that calls a web API](configure-authentication-sample-web-app-with-api.md)
+- [Configure authentication in a sample Python web application](configure-authentication-sample-python-web-app.md)
+- [Configure a sample Single-page application (SPA)](configure-authentication-sample-spa-app.md)
+- [Configure a sample Angular single-page app](configure-authentication-sample-angular-spa-app.md)
+- [Configure a sample Android mobile app](configure-authentication-sample-android-app.md)
+- [Configure a sample iOS mobile app](configure-authentication-sample-ios-app.md)
+- [Configure authentication in a sample WPF desktop application](configure-authentication-sample-wpf-desktop-app.md)
+- [Enable authentication in your web API](enable-authentication-web-api.md)
+- [Configure a SAML application](saml-service-provider.md) 
 
 You can also learn more in the [Azure AD B2C Architecture Deep Dive Series](https://www.youtube.com/playlist?list=PLOPotgzC07IKXXCTZcrpuLWbVe3y51kfm).

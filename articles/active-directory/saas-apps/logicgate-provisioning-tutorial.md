@@ -3,8 +3,8 @@ title: 'Tutorial: Configure LogicGate for automatic user provisioning with Azure
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to LogicGate.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: eea988ef-b0f1-4d22-b867-310f167540c3
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure LogicGate for automatic user provisioning

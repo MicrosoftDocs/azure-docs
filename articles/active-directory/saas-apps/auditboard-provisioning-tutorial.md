@@ -3,8 +3,8 @@ title: 'Tutorial: Configure AuditBoard for automatic user provisioning with Azur
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to AuditBoard.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: e6ab736b-2bb7-4a5a-9f01-67c33f0ff97d
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure AuditBoard for automatic user provisioning

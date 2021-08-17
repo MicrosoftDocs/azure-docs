@@ -1,13 +1,13 @@
 ---
 title: Install Connected Machine agent using Windows PowerShell DSC
-description: In this article, you learn how to connect machines to Azure using Azure Arc enabled servers using Windows PowerShell DSC.
-ms.date: 09/24/2020
+description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using Windows PowerShell DSC.
+ms.date: 07/16/2021
 ms.topic: conceptual
 ---
 
 # How to install the Connected Machine agent using Windows PowerShell DSC
 
-Using [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/getting-started/winGettingStarted) (DSC), you can automate software installation and configuration for a Windows computer. This article describes how to use DSC to install the Azure Arc enabled servers Connected Machine agent on hybrid Windows machines.
+Using [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/getting-started/winGettingStarted) (DSC), you can automate software installation and configuration for a Windows computer. This article describes how to use DSC to install the Azure Arc-enabled servers Connected Machine agent on hybrid Windows machines.
 
 ## Requirements
 
@@ -15,7 +15,7 @@ Using [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc
 
 - The [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc) DSC module
 
-- A service principal to connect the machines to Azure Arc enabled servers non-interactively. Follow the steps under the section [Create a Service Principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) if you have not created a service principal for Arc enabled servers already.
+- A service principal to connect the machines to Azure Arc-enabled servers non-interactively. Follow the steps under the section [Create a Service Principal for onboarding at scale](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) if you have not created a service principal for Arc-enabled servers already.
 
 ## Install the ConnectedMachine DSC module
 
@@ -72,7 +72,7 @@ The following are the parameters you pass to the PowerShell script to use.
 
 3. This will create a `localhost.mof file` in a new folder named `C:\dsc`.
 
-After you install the agent and configure it to connect to Azure Arc enabled servers, go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
+After you install the agent and configure it to connect to Azure Arc-enabled servers, go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 
 ## Adding to existing configurations
 
@@ -84,6 +84,6 @@ The [CompositeResource](https://www.powershellgallery.com/packages/compositereso
 
 * Troubleshooting information can be found in the [Troubleshoot Connected Machine agent guide](troubleshoot-agent-onboard.md).
 
-* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
+* Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
-* Learn more about the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to proactively monitor the OS and workloads running on the machine, manage it using Automation runbooks or solutions like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).
+* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.

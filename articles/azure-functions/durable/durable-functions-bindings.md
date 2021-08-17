@@ -2,7 +2,7 @@
 title: Bindings for Durable Functions - Azure
 description: How to use triggers and bindings for the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 05/07/2021
+ms.date: 08/03/2021
 ms.author: azfuncdf
 ---
 
@@ -392,6 +392,21 @@ Entity triggers allow you to author [entity functions](durable-functions-entitie
 > Entity triggers are available starting in Durable Functions 2.x.
 
 Internally, this trigger binding polls the configured durable store for new entity operations that need to be executed.
+
+If you're authoring functions in .NET, the entity trigger is configured using the [EntityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.entitytriggerattribute) .NET attribute.
+
+If you're using JavaScript, Python, or PowerShell, the entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "entityName": "<Optional - name of the entity>",
+    "type": "entityTrigger",
+    "direction": "in"
+}
+```
+
+By default, the name of an entity is the name of the function.
 
 ### Trigger behavior
 

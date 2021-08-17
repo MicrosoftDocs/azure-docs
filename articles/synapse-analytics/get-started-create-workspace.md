@@ -60,8 +60,14 @@ Select **Review + create** > **Create**. Your workspace is ready in a few minute
 
 After your Azure Synapse workspace is created, you have two ways to open Synapse Studio:
 
-* Open your Synapse workspace in the [Azure portal](https://portal.azure.com), in the **Overview** section of the Synapse workspace, select **Open** in the Open Synapse Studio box.
-* Go to the `https://web.azuresynapse.net` and sign in to your workspace.
+1. Open your Synapse workspace in the [Azure portal](https://portal.azure.com), in the **Overview** section of the Synapse workspace, select **Open** in the Open Synapse Studio box.
+1. Go to the `https://web.azuresynapse.net` and sign in to your workspace.
+
+    ![Log in to workspace](./security/media/common/login-workspace.png)
+
+> [!NOTE]
+> To sign into your workspace, there are two **Account selection methods**. One is from **Azure subscription**, the other is from **Enter manually**. If you have the Synapse Azure role or higher level Azure roles, you can use both methods to log into the workspace. If you don't have the related Azure roles, and you were granted as the Synapse RBAC role, **Enter manually** is the only way to log into the workspace. To learn more about the Synapse RBAC, refer to [What is Synapse role-based access control (RBAC)](./security/synapse-workspace-synapse-rbac.md).
+
 
 ## Place sample data into the primary storage account
 We are going to use a small 100K row sample dataset of NYX Taxi Cab data for many examples in this getting started guide. We begin by placing it in the primary storage account you created for the workspace.
@@ -73,7 +79,7 @@ We are going to use a small 100K row sample dataset of NYX Taxi Cab data for man
 * Select the container named **users (Primary)**.
 * Select **Upload** and select the `NYCTripSmall.parquet` file you downloaded.
 
-One the parquet file is uploaded it is available through two equivalent URIs:
+Once the parquet file is uploaded it is available through two equivalent URIs:
 * `https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet` 
 * `abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet`
 
