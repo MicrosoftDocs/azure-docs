@@ -14,8 +14,6 @@ ms.date: 08/30/2021
 ---
 # Autoscale a managed endpoint (preview)
 
-{>> TODO: Figure out where in TOC this should live.  <<}
-
 Autoscale automatically runs the right amount of resources to handle the load on your application. [Managed endpoints](concept-endpoints.md) supports autoscaling through integration with the Azure monitor autoscale feature. 
 
 Azure monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more, see [Overview of autoscale in Microsoft Azure](/azure-monitor/autoscale/autoscale-overview.md).
@@ -27,8 +25,6 @@ Today, you can manage autoscaling using either the Azure CLI, REST, ARM, or the 
 ## Prerequisites
 
 * A deployed endpoint. See [What are Azure Machine Learning endpoints (preview)](concept-endpoints.md) and [Deploy and score a machine learning model by using a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md). 
-
-* [Optional] To manage autoscaling using the Azure CLI, you'll need at least the tk version of the `ml` extension. For more, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). {>> ??? <<}
 
 ## Go to autoscale settings
 
