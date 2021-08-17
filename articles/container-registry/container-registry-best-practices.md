@@ -75,13 +75,17 @@ Use the Azure CLI command [az acr show-usage][az-acr-show-usage] to display the 
 az acr show-usage --resource-group myResourceGroup --name myregistry --output table
 ```
 
-```output
-NAME      LIMIT         CURRENT VALUE    UNIT
---------  ------------  ---------------  ------
-Size      536870912000  185444288        Bytes
-Webhooks  100           10               Count
-IPRules   100           1                Count
-VNetRules 100           0                Count
+Sample output:
+
+```
+NAME                        LIMIT         CURRENT VALUE    UNIT
+--------------------------  ------------  ---------------  ------
+Size                        536870912000  215629144        Bytes
+Webhooks                    500           1                Count
+Geo-replications            -1            3                Count
+IPRules                     100           1                Count
+VNetRules                   100           0                Count
+PrivateEndpointConnections  10            0                Count
 ```
 
 You can also find the current storage usage in the **Overview** of your registry in the Azure portal:
