@@ -9,7 +9,8 @@ ms.date: 10/05/2020
 
 # Use Azure Private Link to connect networks to Azure Monitor
 
-With [Azure Private Link](../../private-link/private-link-overview.md), you can securely link Azure platform as a service (PaaS) services to your virtual network by using private endpoints. For many services, you just set up an endpoint for each resource. However, Azure Monitor is a constellation of different interconnected services that work together to monitor your workloads. 
+With [Azure Private Link](../../private-link/private-link-overview.md), you can securely link Azure platform as a service (PaaS) resources to your virtual network by using private endpoints. Azure Monitor is a constellation of different interconnected services that work together to monitor your workloads. An Azure Monitor Private Link connects a private endpoint to a set of Azure Monitor resources, defining the boundaries of your monitoring network. That set is called an Azure Monitor Private Link Scope (AMPLS).
+
 
 ## Advantages
 
@@ -25,19 +26,21 @@ For more information, see  [Key Benefits of Private Link](../../private-link/pri
 
 ## How it works
 
-Azure Monitor Private Link Scope (AMPLS) connects private endpoints (and the VNets they're contained in) to one or more Azure Monitor resources - Log Analytics workspaces and Application Insights components.
+### Overview
+An Azure Monitor Private Link Scope connects private endpoints (and the VNets they're contained in) to one or more Azure Monitor resources - Log Analytics workspaces and Application Insights components.
 
 ![Diagram of basic resource topology](./media/private-link-security/private-link-basic-topology.png)
 
 * The Private Endpoint on your VNet allows it to reach Azure Monitor endpoints through private IPs from your network's pool, instead of using to the public IPs of these endpoints. That allows you to keep using your Azure Monitor resources without opening your VNet to unrequired outbound traffic. 
-* Traffic from the Private Endpoint to your Azure Monitor resources will go over the Microsoft Azure backbone, and not routed to public networks. 
+* Traffic from the Private Endpoint to your Azure Monitor resources will go over the Microsoft Azure backbone, and not routed to public networks.
+* You can configure your Azure Monitor Private Link Scope (or specific networks) to use the preferred access mode - either allow traffic only to Private Link resources, or allow traffic to both Private Link resources and non-Private-Link resources (resources out of the AMPLS)
 * You can configure each of your workspaces or components to allow or deny ingestion and queries from public networks. That provides a resource-level protection, so that you can control traffic to specific resources.
 
 > [!NOTE]
-> A single Azure Monitor resource can belong to multiple AMPLSs, but you cannot connect a single VNet to more than one AMPLS. 
+> A single Azure Monitor resource can belong to multiple AMPLSs, but you cannot connect a single VNet to more than one AMPLS.
 
-### Azure Monitor Private Links and your DNS: It's All or Nothing
-Some Azure Monitor services use global endpoints, meaning they serve requests targeting any workspace/component. When you set up a Private Link connection your DNS is updated to map Azure Monitor endpoints to private IPs, in order to send traffic through the Private Link. When it comes to global endpoints, setting up a Private Link (even to a single resource) affects traffic to all resources. In other words, it's impossible to create a Private Link connection only for a specific component or workspace.
+### Azure Monitor Private Link relies on your DNS
+When you set up a Private Link connection, your DNS zones are set to map Azure Monitor endpoints to private IPs, in order to send traffic through the Private Link. Azure Monitor uses both resource-specific endpoints, and shared, global endpoints that handle traffic to all workspaces/components. When it comes to global endpoints, setting up a Private Link (even for a single resource) affects the same shared DNS mapping that controls traffic to all resources. In other words, traffic to all workspaces or components could be affected by a single Private Link setup.
 
 #### Global endpoints
 Most importantly, traffic to the below global endpoints will be sent through the Private Link:
@@ -48,18 +51,22 @@ That effectively means that all Application Insights traffic will be sent to the
 
 Traffic to Application Insights resource not added to your AMPLS will not pass the Private Link validation, and will fail.
 
-![Diagram of All or Nothing behavior](./media/private-link-security/all-or-nothing.png)
-
 #### Resource-specific endpoints
 All Log Analytics endpoints except the Query endpoint, are workspace-specific. So, creating a Private Link to a specific Log Analytics workspace won't affect ingestion (or other) traffic to other workspaces, which will continue to use the public Log Analytics endpoints. All queries, however, will be sent through the Private Link.
 
-### Azure Monitor Private Link applies to all networks that share the same DNS
-Some networks are composed of multiple VNets or other connected networks. If these networks share the same DNS, setting up a Private Link on any of them would update the DNS and affect traffic across all networks. That's especially important to note due to the "All or Nothing" behavior described above.
+#### Avoid DNS overrides by using a single AMPLS
+Some networks are composed of multiple VNets or other connected networks. If these networks share the same DNS, setting up a Private Link on any of them would update the DNS and affect traffic across all networks.
 
 ![Diagram of DNS overrides in multiple VNets](./media/private-link-security/dns-overrides-multiple-vnets.png)
 
 In the above diagram, VNet 10.0.1.x first connects to AMPLS1 and maps the Azure Monitor global endpoints to IPs from its range. Later, VNet 10.0.2.x connects to AMPLS2, and overrides the DNS mapping of the *same global endpoints* with IPs from its range. Since these VNets aren't peered, the first VNet now fails to reach these endpoints.
 
+### Private Link access modes: Private Only vs Open
+Because Azure Monitor Private Link relies on shared endpoints and a common DNS configuration, there isn't really a way to create a Private Link that targets a specific workspace or components.
+
+Instead, Private Links affect traffic to all Azure Monitor resources. For example, setting up a Private Link for a single resource immediately causes all ingestion requests (to all other Azure Monitor resources) to go through the Private Link as well. That also meant ingestion to resources not in the AMPLS started failing.
+
+To help control how Private Links affect your network traffic, we're introducing Private Link access modes (starting August 2021) - the Private Only mode to allows traffic only to Private Link resources, while the Open mode allows traffic to non-Private-Link resources as well.
 
 ## Next steps
 - [Design your Private Link setup](private-link-design.md)
