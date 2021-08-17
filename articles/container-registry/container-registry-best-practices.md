@@ -99,7 +99,7 @@ You can also find the current storage usage in the **Overview** of your registry
 
 Azure Container Registry supports several methods for deleting image data from your container registry. You can delete images by tag or manifest digest, or delete a whole repository.
 
-For details on deleting image data from your registry, including untagged (sometimes called "dangling" or "orphaned") images, see [Delete container images in Azure Container Registry](container-registry-delete.md).
+For details on deleting image data from your registry, including untagged (sometimes called "dangling" or "orphaned") images, see [Delete container images in Azure Container Registry](container-registry-delete.md). You can also set a [retention policy](container-registry-retention-policy.md) for untagged manifests.
 
 ## Next steps
 
