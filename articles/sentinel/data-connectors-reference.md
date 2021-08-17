@@ -103,7 +103,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** | alcide_kaudit_activity_1_CL<br>alcide_kaudit_detections_1_CL<br>alcide_kaudit_selections_count_1_CL<br>alcide_kaudit_selections_details_1_CL |
+| **Log Analytics table(s)** | alcide_kaudit_activity_1_CL - Alcide kAudit activity logs<br>alcide_kaudit_detections_1_CL - Alcide kAudit detections<br>alcide_kaudit_selections_count_1_CL - Alcide kAudit activity counts<br>alcide_kaudit_selections_details_1_CL - Alcide kAudit activity details |
 | **Vendor documentation/<br>installation instructions** | [Alcide kAudit installation guide](https://awesomeopensource.com/project/alcideio/kaudit?categoryPage=29#before-installing-alcide-kaudit) |
 | **Supported by** | [Alcide](https://www.alcide.io/company/contact-us/) |
 |
@@ -343,23 +343,30 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | **Supported by** | [Barracuda](https://www.barracuda.com/support) |
 |
 
-## BETTER Mobile Threat Defense
+## BETTER Mobile Threat Defense (MTD) (Preview)
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
+| **Log Analytics table(s)** | BetterMTDDeviceLog_CL<br>BetterMTDIncidentLog_CL<br>BetterMTDAppLog_CL<br>BetterMTDNetflowLog_CL |
+| **Vendor documentation/<br>installation instructions** | [BETTER MTD Documentation](https://mtd-docs.bmobi.net/integrations/azure-sentinel/setup-integration) |
+| **Supported by** | [Better Mobile](mailto:support@better.mobi) |
 |
+
+### Configure threat policies to send data to Sentinel
+
+Threat Policy setup (Which incidents should be reported to Azure Sentinel):
+
+1. In **Better MTD Console**, click on **Policies** on the side bar.
+1. Click on the **Edit** button of the Policy that you are using.
+1. For each Incident type that you want to be logged, go to **Send to Integrations** field and select **Sentinel**.
 
 ## Beyond Security beSECURE
 
-
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
+| **Log Analytics table(s)** | beSECURE_ScanResults_CL<br>beSECURE_ScanEvents_CL<br>beSECURE_Audit_CL |
+| **Vendor documentation/<br>installation instructions** | Access the **Integration** menu:<br><ol><li>Click on the **More** menu option.<li>Select **Server**<li>Select **Integration**<li>Enable Azure Sentinel<li>Paste the **Workspace ID** and **Primary Key** values in the beSECURE configuration.<li>Click Modify. |
+| **Supported by** | [Beyond Security](https://beyondsecurity.freshdesk.com/support/home) |
 |
 
 
@@ -470,9 +477,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
+| **Log Analytics table(s)** | CitrixAnalytics_SAlerts_CL​ |
+| **Vendor documentation/<br>installation instructions** | [Connect Citrix to Azure Sentinel](https://aka.ms/Sentinel-Citrix-Connector) |
+| **Supported by** | [Citrix Systems](https://www.citrix.com/support/) |
 |
 
 ## Citrix Web App Firewall (WAF) (Preview)
@@ -480,15 +487,15 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 | Data ingestion method: | [Common Event Format (CEF)](connect-common-event-format.md) over Syslog |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | To configure WAF, see [Support WIKI - WAF Configuration with NetScaler](https://support.citrix.com/article/CTX234174).<br>To configure CEF logs, see [CEF Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146).<br>To forward the logs to proxy, see [Configuring Citrix ADC appliance for audit logging](https://docs.citrix.com/en-us/citrix-adc/13/system/audit-logging/configuring-audit-logging.html). |
-| **Supported by** | [Citrix](https://www.citrix.com/support/) |
+| **Vendor documentation/<br>installation instructions** | To configure WAF, see [Support WIKI - WAF Configuration with NetScaler](https://support.citrix.com/article/CTX234174).<br>To configure CEF logs, see [CEF Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146).<br>To forward the logs to proxy, see [Configuring Citrix ADC appliance for audit logging](https://docs.citrix.com/en-us/citrix-adc/current-release/system/audit-logging/configuring-audit-logging.html). |
+| **Supported by** | [Citrix Systems](https://www.citrix.com/support/) |
 
 ## Cognni (Preview)
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
+| **Log Analytics table(s)** | CognniIncidents_CL |
+| **Vendor documentation/<br>installation instructions** | **Connect to Cognni**<br><ol><li>Go to [Cognni integrations page](https://intelligence.cognni.ai/integrations).<li>Click **Connect** on the Azure Sentinel box.<li>Paste **workspaceId** and **sharedKey** (Primary Key) to the fields on Cognni's integrations screen.<li>Click the **Connect** botton to complete the configuration. |
 | **Supported by** | [Cognni](https://cognni.ai/contact-support/)
 |
 
@@ -506,9 +513,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** | [Azure Sentinel](https://www.cyberpion.com/resource-center/integrations/azure-sentinel/) |
-| **Supported by** | Cyberpion |
+| **Log Analytics table(s)** | CyberpionActionItems_CL |
+| **Vendor documentation/<br>installation instructions** | [Get a Cyberpion subscription](https://azuremarketplace.microsoft.com/en/marketplace/apps/cyberpion1597832716616.cyberpion)<br>[Integrate Cyberpion security alerts into Azure Sentinel](https://www.cyberpion.com/resource-center/integrations/azure-sentinel/) |
+| **Supported by** | [Cyberpion](https://www.cyberpion.com/) |
 |
 
 ## Domain name server
@@ -683,9 +690,9 @@ Configure Eset Logs using BSD style and JSON format.
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
+| **Log Analytics table(s)** | F5Telemetry_LTM_CL<br>F5Telemetry_system_CL<br>F5Telemetry_ASM_CL |
+| **Vendor documentation/<br>installation instructions** | [Integrating the F5 BIG-IP with Azure Sentinel](https://aka.ms/F5BigIp-Integrate) |
+| **Supported by** | [F5 Networks](https://support.f5.com/csp/home) |
 |
 
 ## F5 Networks (ASM)
@@ -694,7 +701,7 @@ Configure Eset Logs using BSD style and JSON format.
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Configuring Application Security Event Logging](https://aka.ms/asi-syslog-f5-forwarding) |
-| **Supported by** | Microsoft |
+| **Supported by** | [F5 Networks](https://support.f5.com/csp/home) |
 | 
 
 
@@ -722,7 +729,7 @@ Configure Eset Logs using BSD style and JSON format.
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
+| **Log Analytics table(s)** | ForcepointDLPEvents_CL |
 | **Vendor documentation/<br>installation instructions** | [Forcepoint Data Loss Prevention and Azure Sentinel](https://forcepoint.github.io/docs/dlp_and_azure_sentinel/) |
 | **Supported by** | [Forcepoint](https://support.forcepoint.com/) |
 |
@@ -773,14 +780,6 @@ end
 - Set the **syslog port** to **514** or the port set on the Syslog daemon on the forwarder.
 - To enable CEF format in early FortiOS versions, you might need to run the command set **csv disable**.
 
-## GitHub Enterprise Cloud Audit Log - Polling (Preview)
-
-| Data ingestion method: | [REST-API](connect-rest-api-template.md) |
-| --- | --- |
-| **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** |  |
-| **Supported by** |  |
-|
 
 ## Google Workspace (G-Suite) (Preview)
 
@@ -938,7 +937,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
+| **Log Analytics table(s)** | BSMmacOS_CL |
 | **Vendor documentation/<br>installation instructions** | [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
 | **Supported by** | [NXLog](https://nxlog.co/community-forum) |
 |
@@ -948,7 +947,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
+| **Log Analytics table(s)** | DNS_Logs_CL |
 | **Vendor documentation/<br>installation instructions** | [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
 | **Supported by** | [NXLog](https://nxlog.co/community-forum) |
 |
@@ -958,7 +957,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
+| **Log Analytics table(s)** | LinuxAudit_CL |
 | **Vendor documentation/<br>installation instructions** |  [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
 | **Supported by** | [NXLog](https://nxlog.co/community-forum) |
 |
@@ -1016,7 +1015,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
+| **Log Analytics table(s)** | OrcaAlerts_CL |
 | **Vendor documentation/<br>installation instructions** | [Azure Sentinel integration](https://orcasecurity.zendesk.com/hc/en-us/articles/360043941992-Azure-Sentinel-configuration) |
 | **Supported by** | [Orca Security](http://support.orca.security/) |
 |
@@ -1048,7 +1047,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
+| **Log Analytics table(s)** | Perimeter81_CL |
 | **Vendor documentation/<br>installation instructions** | [Perimeter 81 documentation](https://support.perimeter81.com/docs/360012680780) |
 | **Supported by** | [Perimeter 81](https://support.perimeter81.com/) |
 |
@@ -1230,8 +1229,8 @@ Follow the instructions to obtain the credentials.
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
-| **Vendor documentation/<br>installation instructions** | [Azure Sentinel integrations page](https://optix.sophos.com/#/integrations/sentinel) |
+| **Log Analytics table(s)** | SophosCloudOptix_CL |
+| **Vendor documentation/<br>installation instructions** | [Integrate with Azure Sentinel](https://docs.sophos.com/pcg/optix/help/en-us/pcg/optix/tasks/IntegrateAzureSentinel.html) (SKIP STEP 1!)<br>[Sophos query samples](https://docs.sophos.com/pcg/optix/help/en-us/pcg/optix/concepts/ExampleAzureSentinelQueries.html) |
 | **Supported by** | [Sophos](https://secure2.sophos.com/en-us/support.aspx) |
 |
 
@@ -1251,7 +1250,7 @@ Follow the instructions to obtain the credentials.
 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
-| **Log Analytics table(s)** |  |
+| **Log Analytics table(s)** | secRMM_CL |
 | **Vendor documentation/<br>installation instructions** | [secRMM Azure Sentinel Administrator Guide](https://www.squadratechnologies.com/StaticContent/ProductDownload/secRMM/9.9.0.0/secRMMAzureSentinelAdministratorGuide.pdf) |
 | **Supported by** | [Squadra Technologies](https://www.squadratechnologies.com/Contact.aspx) |
 |
@@ -1388,7 +1387,7 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | Contact [WireX support](https://wirexsystems.com/contact-us/) in order to configure your NFP solution to send Syslog messages in CEF format. |
-| **Supported by** | [WireX Systems](support@wirexsystems.com) |
+| **Supported by** | [WireX Systems](mailto:support@wirexsystems.com) |
 | 
 
 

@@ -25,7 +25,7 @@ API integrations built by third-party vendors pull data from their products' dat
 
 For the most part, you can find all the information you need to configure these data sources to connect to Azure Sentinel in each vendor's documentation.
 
-Check your product's section in the [data connectors reference](data-connectors-reference) page for any extra instructions that may appear there, and for the links to your vendor's instructions.
+Check your product's section in the [data connectors reference](data-connectors-reference.md) page for any extra instructions that may appear there, and for the links to your vendor's instructions.
 
 > [!NOTE]
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
@@ -34,7 +34,7 @@ Check your product's section in the [data connectors reference](data-connectors-
 
 - You must have read and write permissions on the Azure Sentinel workspace.
 
-- You must have read permissions to shared keys for the workspace.
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
 
 ## Configure and connect your data source
 
@@ -50,7 +50,7 @@ Check your product's section in the [data connectors reference](data-connectors-
 
 ## Find your data
 
-After a successful connection is established, the data appears in **Logs** under the **CustomLogs** section. See your product's section in the [data connectors reference](data-connectors-reference) page for the table names.
+After a successful connection is established, the data appears in **Logs** under the **CustomLogs** section. See your product's section in the [data connectors reference](data-connectors-reference.md) page for the table names.
 
 To query the data from your product, use those table names in your query.
 
