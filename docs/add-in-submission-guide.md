@@ -15,7 +15,7 @@ This article is a step-by-step guide that will detail how to submit your app to 
 
 From the Overview tab in the Microsoft Partner Center, select **Create a new** and select the type of app you're submitting. The example screenshots in this article show an Office Add-in, but the steps apply to Teams apps, SharePoint solutions, etc.
 
-![Overview tab selected in the Microsoft Partner Center menu.](./images/new/step-select-type-of-add-in.png)
+![Overview tab selected in the Microsoft Partner Center menu](./images/new/step-select-type-of-add-in.png)
 
 ## Step 2: Name your app
 
@@ -48,7 +48,7 @@ Remember to pre-test your package to prevent any unexpected failures in this ste
 
 When your manifest is uploaded and is correct, you will receive a confirmation and see that manifest checks have passed, as shown in the following screenshot.
 
-![A completed manifest upload.](./images/new/step-4-packages-complete-upload.jpg)
+![A completed manifest upload](./images/new/step-4-packages-complete-upload.jpg)
 
 ## Step 5: Define the metadata that will categorize your app in the store
 
@@ -97,7 +97,7 @@ You can schedule when your app will be available. Note it typically takes 4 to 6
 
 ![Make my product available in a future market is selected in the Availability step](./images/new/step-8-set-availability-time-date.png)
 
-## Step 9: Make sure you add your critical testing instructions
+## Step 9:  Make sure you add your critical testing instructions
 
 This final critical step requires you include notes for certification. Provide any instructions for the reviewer who will be testing your app, including test accounts, license keys, and testing credentials.
 
