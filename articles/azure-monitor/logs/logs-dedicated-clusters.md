@@ -85,6 +85,9 @@ You can have up to 2 active clusters per subscription per region. If cluster is 
 The user account that creates the clusters must have the standard Azure resource creation permission: `Microsoft.Resources/deployments/*` and cluster write permission `Microsoft.OperationalInsights/clusters/write` by having in their role assignments this specific action or `Microsoft.OperationalInsights/*` or `*/write`.
 
 
+# [CLI1](#tab/cli1)
+This is CLI
+
 # [PowerShell](#tab/powershell1)
 
 ```powershell
