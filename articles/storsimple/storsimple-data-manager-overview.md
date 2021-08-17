@@ -98,7 +98,7 @@ StorSimple Data Manager has the following limitations:
   - Maximum supported file size for a blob is 4.7 TiB.
   - Most recent available backup set will be used.
   - File metadata is not uploaded with the file content.
-  - Uploaded blobs are of the Block Blob type. Thus, any uploaded VHD can't be used with Azure virtual machines.
+  - Uploaded blobs are of the Block Blob type. Thus, any uploaded VHD can't be used in Azure virtual machines.
 
 ## Next steps
 
