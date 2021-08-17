@@ -331,7 +331,7 @@
       href: logic-apps-enterprise-integration-rosettanet.md
     - name: Salesforce
       href: ../connectors/connectors-create-api-salesforce.md
-    - name: SAP (New)
+    - name: SAP
       href: logic-apps-using-sap-connector.md
     - name: SendGrid
       href: ../connectors/connectors-create-api-sendgrid.md
