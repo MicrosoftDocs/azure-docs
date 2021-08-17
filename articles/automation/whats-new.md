@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice: 
 ms.topic: overview
-ms.date: 07/27/2021
+ms.date: 08/17/2021
 ms.custom: references_regions
 ---
 
@@ -24,7 +24,7 @@ This page is updated monthly, so revisit it regularly.
 
 **Type:** Plan for change
 
-Customers should evaluate and plan for migration from Azure Automation State Configuration to Azure Policy Guest Configuration (preview). For more information, see [Azure Policy Guest Configuration](../governance/policy/concepts/guest-configuration.md).
+Customers should evaluate and plan for migration from Azure Automation State Configuration to Azure Policy guest configuration. For more information, see [Azure Policy guest configuration](../governance/policy/concepts/guest-configuration.md).
 
 ## July 2021
 
