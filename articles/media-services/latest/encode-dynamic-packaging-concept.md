@@ -47,7 +47,7 @@ As a result, you only need to store and pay for the files in single storage form
 
 If you plan to protect your content by using Media Services dynamic encryption, see [Streaming protocols and encryption types](drm-content-protection-concept.md#streaming-protocols-and-encryption-types).
 
-## Deliver HLS manifests
+## Deliver HLS
 ### HLS dynamic packaging
 
 Your streaming client can specify the following HLS formats. We recommend using the CMAF format for compatibility with the latest players and iOS devices.  For legacy devices, the v4 and v3 formats are available as well by simply changing the format query string.
@@ -83,7 +83,7 @@ Example .ism server manifest with **fragmentsPerHLSSegment** set to 1.
    </smil>
 ```
 
-## Deliver MPEG-DASH  manifests
+## Deliver DASH
 ### DASH dynamic packaging
 
 Your streaming client can specify the following MPEG-DASH formats:
