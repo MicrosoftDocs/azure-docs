@@ -2,11 +2,11 @@
 title: Configure network settings for Service Fabric managed clusters
 description: Learn how to configure your Service Fabric managed cluster for NSG rules, RDP port access, load balancing rules, and more.
 ms.topic: how-to
-ms.date: 8/02/2021
+ms.date: 8/23/2021
 ---
 # Configure network settings for Service Fabric managed clusters
 
-Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated with mandatory NSG rules for essential cluster functionality, and a few optional rules such as allowing all outbound traffic by default, which are intended to make customer configuration easier. You can integrate your managed cluster with other Azure networking features. This document walks through how to modify the following default networking configuration options and more:
+Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated, and a NSG configured with mandatory NSG rules for essential cluster functionality. There are also optional rules applied such as allowing all outbound traffic by default which are intended to make customer configuration easier. This document walks through how to modify the following networking configuration options and more:
 
 - [Manage NSG Rules](#nsgrules)
 - [Manage RDP access](#rdp)
@@ -316,7 +316,7 @@ In the following example, we'll create a resource group called `MyResourceGroup`
     New-AzResourceGroup -Name MyResourceGroup -Location westus
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile AzureDeploy.json
 ```
-After deployment, your clusters virtual network and resources will be dual-stack. As a result, the clusters frontend load balancer will have a unique dns address created e.g. `mycluster-ipv6.southcentralus.cloudapp.azure.com` that is associated to a public IPv6 address and private IPv6 addresses on the VMs. 
+After deployment, your clusters virtual network and resources will be dual-stack. As a result, the clusters frontend load balancer will have a unique dns address created e.g. `mycluster-ipv6.southcentralus.cloudapp.azure.com` that is associated to a public IPv6 address on the Azure Load Balancer and private IPv6 addresses on the VMs. 
 
 
 <a id="byovnet"></a>
