@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: sharrai
-ms.date: 06/30/2021
+ms.date: 08/19/2021
 ---
 
 # Plan capacity and scaling for VMware disaster recovery to Azure
