@@ -26,9 +26,11 @@ There are several sources that explain the three pillars in detail including the
 
 In the following sections, we'll cover some telemetry collection basics.
 
-### How telemetry is collected
+### How to instrument your application
 
-There are two methods to instrument your application (meaning how telemetry is collected):
+Instrumenting is making changes to your application to capture telemetry. At a minimum, this means adding the OpenTelemetry API.
+
+There are two methods to instrument your application:
 1.	Manual Instrumentation
 2.	Automatic Instrumentation (Auto-Instrumentation)
 
@@ -46,11 +48,11 @@ A direct exporter sends telemetry in-process (from the application’s code) dir
 
 Alternatively, sending via an agent may use the OpenTelemetry-Collector or a vendor-specific agent, such as the Azure Monitor Agent. The main advantage of this approach is it allows users to combine receivers, exporters, and processors in a way that unlocks more scenarios.
 
-**All Azure Monitor’s currently supported offerings use a direct exporter**, though some customers use the OpenTelemetry-Collector even though Microsoft doesn’t officially support it. We expect to support an agent-based approach in the future, though the details and timeline aren't available yet.
+**All Azure Monitor’s currently supported OpenTelemetry-based offerings use a direct exporter**, though some customers use the OpenTelemetry-Collector even though Microsoft doesn’t officially support it. We expect to support an agent-based approach in the future, though the details and timeline aren't available yet.
 
 ## Terms
 
-See [glossary](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/glossary.md) in OpenTelemetry's specifications.
+See [glossary](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/glossary.md) in the OpenTelemetry specifications.
 
 Some legacy terms in Application Insights are confusing given the industry convergence on OpenTelemetry. The table below highlights these differences. Eventually Application Insights terms will be replaced by OpenTelemetry terms.
 
