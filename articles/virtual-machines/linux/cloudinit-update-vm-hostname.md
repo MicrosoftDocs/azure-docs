@@ -23,7 +23,7 @@ To see upgrade process in action, create a file in your current shell named *clo
 
 ```yaml
 #cloud-config
-hostname: myhostname
+fqdn: myhostname
 ```
 
 Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
