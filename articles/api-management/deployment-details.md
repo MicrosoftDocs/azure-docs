@@ -11,13 +11,15 @@ ms.service: api-management
 
 # Azure API Management monetization strategy deployment details
 
-The following resources are deployed as part of the demo:
+In this article, you will learn about the technology, resources, and tools that API Management uses to deploy your monetization strategy. Using the provided demo, you will deploy a monetization strategy and define a set of products, APIs, and named values. 
+
+As part of the demo, you'll deploy the following resources:
 - An [API Management service](https://azure.microsoft.com/en-gb/services/api-management/), with the API Management resources required to support the demo project (APIs, Products, Policies, Named Values).
 - An [App Service plan](./azure/app-service/overview.md).
 - A [Web App for containers](https://azure.microsoft.com/en-gb/services/app-service/containers/), using the billing portal app container image.
-- A [Service Principal RBAC assignment](./azure/role-based-access-control/overview.md).
+- A [Service Principal role-based access control assignment](./azure/role-based-access-control/overview.md).
 
-## Technology
+## Bicep templates
 
 This project is currently using [Bicep](./azure/azure-resource-manager/templates/bicep-overview.md) for local development and deployment. Bicep is a templating language for declaratively deploying Azure resources. Currently, the **Deploy to Azure** button does not support Bicep. 
 
