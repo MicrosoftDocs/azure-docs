@@ -152,6 +152,13 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 ## Run the function locally
 
+::: zone pivot="programming-language-csharp"  
+
+[!INCLUDE [functions-run-function-test-local-vs-code-csharp](../../includes/functions-run-function-test-local-vs-code-csharp.md)]
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"  
+
 1. As in the previous article, press <kbd>F5</kbd> to start the function app project and Core Tools. 
 
 1. With Core Tools running, go to the **Azure: Functions** area. Under **Functions**, expand **Local Project** > **Functions**. Right-click (Ctrl-click on Mac) the `HttpExample` function and choose **Execute Function Now...**.
@@ -163,6 +170,8 @@ After the binding is defined, you can use the `name` of the binding to access it
 1. After a response is returned, press <kbd>Ctrl + C</kbd> to stop Core Tools.
 
 Because you are using the storage connection string, your function connects to the Azure storage account when running locally. A new queue named **outqueue** is created in your storage account by the Functions runtime when the output binding is first used. You'll use Storage Explorer to verify that the queue was created along with the new message.
+
+::: zone-end
 
 ### Connect Storage Explorer to your account
 

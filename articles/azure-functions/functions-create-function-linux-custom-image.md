@@ -63,14 +63,14 @@ In a terminal or command prompt, run the following command for your chosen langu
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 
-# [.NET Core 3.1](#tab/dotnet3)
+# [In-process](#tab/in-process)
 ```console
 func init LocalFunctionsProject --worker-runtime dotnet --docker
 ```
 
-# [.NET 5.0](#tab/dotnet5)
+# [Isolated process](#tab/isolated-process)
 ```console
-func init LocalFunctionsProject --worker-runtime dotnet --docker
+func init LocalFunctionsProject --worker-runtime dotnet-isolated --docker
 ```
 ---
 ::: zone-end  
@@ -152,9 +152,9 @@ cd fabrikam-functions
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 
-# [.NET Core 3.1](#tab/dotnet3)
+# [In-process](#tab/in-process)
 No changes are needed to the Dockerfile.
-# [.NET 5.0](#tab/dotnet5)
+# [Isolated process](#tab/isolated-process)
 Open the Dockerfile and add the following lines after the first `FROM` statement, if not already present:
 
 ```docker
