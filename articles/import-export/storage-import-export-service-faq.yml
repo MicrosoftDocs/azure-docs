@@ -129,9 +129,9 @@ sections:
           The phone number and DC address is provided as part of job creation.
 
       - question: |
-          My tracking shows that the package is Delivered, but the status of my Import/Export order is still Shipping. Should I be concerned?
+          Why is my order status still Shipping when my device has already been delivered?
         answer: |
-          No. After the carrier delivers a physical device, it takes a little time for the delivery to be processed in Azure Import/Export. When processing completes, the order's status will change to Received.
+          After the carrier delivers a physical device, it takes a little time for the delivery to be processed in Azure Import/Export. When processing completes, the order's status will change to Received.
 
 
   - name: Miscellaneous
