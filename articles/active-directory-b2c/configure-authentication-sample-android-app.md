@@ -136,7 +136,7 @@ Do either of the following:
 This sample acquires an access token with the relevant scopes that the mobile app can use for a web API. To call a web API from code, do the following:
 
 1. Use an existing web API, or create a new one. For more information, see [Enable authentication in your own web API by using Azure AD B2C](enable-authentication-web-api.md).
-1. Change the sample code to [call a web API](enable-authentication-android-app.md#call-a-web-api).
+1. Change the sample code to [call a web API](enable-authentication-android-app.md#step-6-call-a-web-api).
 
 ## Step 5: Configure the sample mobile app
 
