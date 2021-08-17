@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/27/2021
+ms.date: 08/17/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -129,6 +129,54 @@ Following is a baseline configuration for various sizes and uses of SAP on Db2 d
 | |/db2/<SID>/offline_log_dir |P30 |1 |5,000  |200  |1.024  |5,000  |200  || |
 
 
+### Using Azure NetApp Files
+The usage of NFS v4.1 volumes based on Azure NetApp files is supported with IBM Db2, hosted in Suse or Red Hat Linux guest OS, as well. You should create at least four different volumes that list like:
+
+- Shared volume for saptmp1, sapmnt, usr_sap, an1_home, db2an1_home, db2_software
+- One data volume for sapdata1 to sapdatan
+- One log volume for the redo log directory
+- One volume for the log archives and backups
+
+The performance tier and the size of the volumes must be chosen based on the performance requirements. However, we recommend to take the Ultra performance level for the data and the log volume. It is not supported to mix block storage and shared storage types for the data and log volume.
+
+As of mount options, mounting those volumes could look like:
+
+```
+vi /etc/idmapd.conf   
+ # Example
+ [General]
+ Domain = defaultv4iddomain.com
+ [Mapping]
+ Nobody-User = nobody
+ Nobody-Group = nobody
+
+mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2shared /mnt 
+mkdir -p /db2/Software /db2/AN1/saptmp /usr/sap/AN1 /sapmnt/AN1 /home/an1adm /db2/db2an1 /db2/AN1/db2_software
+mkdir -p /mnt/Software /mnt/saptmp  /mnt/usr_sap /mnt/sapmnt /mnt/an1_home /mnt/db2_software /mnt/db2an1
+umount /mnt
+
+mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2data /mnt
+mkdir -p /db2/AN1/sapdata/sapdata1 /db2/AN1/sapdata/sapdata2 /db2/AN1/sapdata/sapdata3 /db2/AN1/sapdata/sapdata4
+mkdir -p /mnt/sapdata1 /mnt/sapdata2 /mnt/sapdata3 /mnt/sapdata4
+umount /mnt
+
+mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2log /mnt 
+mkdir /db2/AN1/log_dir
+mkdir /mnt/log_dir
+umount /mnt
+
+mount -t nfs -o rw,hard,sync,rsize=1048576,wsize=1048576,sec=sys,vers=4.1,tcp 172.17.10.4:/db2backup /mnt
+mkdir /db2/AN1/backup
+mkdir /mnt/backup
+mkdir /db2/AN1/offline_log_dir /db2/AN1/db2dump
+mkdir /mnt/offline_log_dir /mnt/db2dump
+umount /mnt
+```
+
+>[!NOTE]
+> The mount option hard and sync are required
+
+
 ### Backup/Restore
 The backup/restore functionality for IBM Db2 for LUW is supported in the same way as on standard Windows Server Operating Systems and Hyper-V.
 
@@ -179,6 +227,13 @@ For the disks containing the Db2 storage paths for your sapdata and saptmp direc
 
 ### Other
 All other general areas like Azure Availability Sets or SAP monitoring apply as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) for deployments of VMs with the IBM Database as well.
+
+## Next steps
+Read the article 
+
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
+
+
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -226,14 +281,6 @@ All other general areas like Azure Availability Sets or SAP monitoring apply as 
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
-
-
-## Next steps
-Read the article 
-
-- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md)
-
-
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
