@@ -49,9 +49,11 @@ Wait for the refresh operation to complete. You should now see up-to-date inform
 ## Deleted servers appear in portal
 
 **Error**
+
 You get this error when the deleted servers continue to appear in the portal.
 
 **Remediation**
+
 If the data continues to appear, wait for 30 minutes and do as follows:
 
 In **Windows, Linux and SQL Servers**, **Azure Migrate: Discovery and assessment**, select **Overview**.
@@ -70,6 +72,7 @@ Import the CSV again. You can download the previous upload error report and foll
 ## Do not see software inventory details even after updating guest credentials
 
 **Remediation**
+
 The software inventory discovery runs once every 24 hours. This may take a few minutes depending on the number of servers discovered. If you would like to see the details immediately, refresh as follows.
 
 1. In **Windows, Linux and SQL Servers**, **Azure Migrate: Discovery and assessment**, select **Overview**.
@@ -80,6 +83,7 @@ Wait for the refresh operation to complete. You should now see up-to-date inform
 ## Unable to export software inventory
 
 **Error**
+
 You get this error when you don't have Contributor privileges
 
 **Remediation**
