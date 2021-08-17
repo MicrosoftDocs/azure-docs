@@ -16,7 +16,7 @@ ms.date: 01/03/2021
 
 # Tutorial: Migrate SQL Server to Azure SQL Database using DMS
 
-You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to [Azure SQL Database](/azure/sql-database/). In this tutorial, you migrate the [Adventureworks2016](/sql/samples/adventureworks-install-configure#download-backup-files) database restored to an on-premises instance of SQL Server 2016 (or later) to a single database or pooled database in Azure SQL Database by using Azure Database Migration Service.
+You can use Azure Database Migration Service to migrate the databases from a SQL Server instance to [Azure SQL Database](/azure/sql-database/). In this tutorial, you migrate the [AdventureWorks2016](/sql/samples/Adventureworks-install-configure#download-backup-files) database restored to an on-premises instance of SQL Server 2016 (or later) to a single database or pooled database in Azure SQL Database by using Azure Database Migration Service.
 
 You will learn how to:
 > [!div class="checklist"]
@@ -36,6 +36,7 @@ To complete this tutorial, you need to:
 
 - Download and install [SQL Server 2016 or later](https://www.microsoft.com/sql-server/sql-server-downloads).
 - Enable the TCP/IP protocol, which is disabled by default during SQL Server Express installation, by following the instructions in the article [Enable or Disable a Server Network Protocol](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+- [Restore the AdventureWorks2016 database to the SQL Server instance.](https://docs.microsoft.com/sql/samples/Adventureworks-install-configure?view=sql-server-ver15&tabs=ssms#restore-to-sql-server)
 - Create a database in Azure SQL Database, which you do by following the details in the article [Create a database in Azure SQL Database using the Azure portal](../azure-sql/database/single-database-create-quickstart.md). For purposes of this tutorial, the name of the Azure SQL Database is assumed to be **AdventureWorksAzure**, but you can provide whatever name you wish.
 
     > [!NOTE]
@@ -153,7 +154,7 @@ Before you can migrate data from a SQL Server instance to a single database or p
 
 3. In the Data Migration Assistant, on the **Options** screen, select **Next**.
 4. On the **Select sources** screen, in the **Connect to a server** dialog box, provide the connection details to your SQL Server, and then select **Connect**.
-5. In the **Add sources** dialog box, select **Adventureworks2016**, select **Add**, and then select **Start Assessment**.
+5. In the **Add sources** dialog box, select **AdventureWorks2016**, select **Add**, and then select **Start Assessment**.
 
     > [!NOTE]
     > If you use SSIS, DMA does not currently support the assessment of the source SSISDB. However, SSIS projects/packages will be assessed/validated as they are redeployed to the destination SSISDB hosted by Azure SQL Database. For more information about migrating SSIS packages, see the article [Migrate SQL Server Integration Services packages to Azure](./how-to-migrate-ssis-packages.md).
@@ -179,7 +180,7 @@ After you're comfortable with the assessment and satisfied that the selected dat
 > [!IMPORTANT]
 > If you use SSIS, DMA does not currently support the migration of source SSISDB, but you can redeploy your SSIS projects/packages to the destination SSISDB hosted by Azure SQL Database. For more information about migrating SSIS packages, see the article [Migrate SQL Server Integration Services packages to Azure](./how-to-migrate-ssis-packages.md).
 
-To migrate the **Adventureworks2016** schema to a single database or pooled database Azure SQL Database, perform the following steps:
+To migrate the **AdventureWorks2016** schema to a single database or pooled database Azure SQL Database, perform the following steps:
 
 1. In the Data Migration Assistant, select the New (+) icon, and then under **Project type**, select **Migration**.
 2. Specify a project name, in the **Source server type** text box, select **SQL Server**, and then in the **Target server type** text box, select **Azure SQL Database**.
@@ -190,7 +191,7 @@ To migrate the **Adventureworks2016** schema to a single database or pooled data
     ![Create Data Migration Assistant Project](media/tutorial-sql-server-to-azure-sql/dma-create-project.png)
 
 4. Select **Create** to create the project.
-5. In the Data Migration Assistant, specify the source connection details for your SQL Server, select **Connect**, and then select the **Adventureworks2016** database.
+5. In the Data Migration Assistant, specify the source connection details for your SQL Server, select **Connect**, and then select the **AdventureWorks2016** database.
 
     ![Data Migration Assistant Source Connection Details](media/tutorial-sql-server-to-azure-sql/dma-source-connect.png)
 
@@ -198,7 +199,7 @@ To migrate the **Adventureworks2016** schema to a single database or pooled data
 
     ![Data Migration Assistant Target Connection Details](media/tutorial-sql-server-to-azure-sql/dma-target-connect.png)
 
-7. Select **Next** to advance to the **Select objects** screen, on which you can specify the schema objects in the **Adventureworks2016** database that need to be deployed to Azure SQL Database.
+7. Select **Next** to advance to the **Select objects** screen, on which you can specify the schema objects in the **AdventureWorks2016** database that need to be deployed to Azure SQL Database.
 
     By default, all objects are selected.
 
@@ -214,7 +215,7 @@ To migrate the **Adventureworks2016** schema to a single database or pooled data
 
 [!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]   
 
-## Create an instance
+## Create an Azure Database Migration Service instance
 
 1. In the Azure portal menu or on the **Home** page, select **Create a resource**. Search for and select **Azure Database Migration Service**.
 
@@ -243,7 +244,7 @@ To migrate the **Adventureworks2016** schema to a single database or pooled data
 
     ![Configure Azure Database Migration Service instance networking settings](media/tutorial-sql-server-to-azure-sql/dms-settings-3.png)
 
-    - Select **Review + Create** to create the service.
+    - Select **Review + Create** to review the details and then select **Create** to create the service.
 
 ## Create a migration project
 
