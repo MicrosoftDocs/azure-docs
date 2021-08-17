@@ -895,15 +895,15 @@ When querying SSIS IR operation logs on Logs Analytics, you can use **OperationN
 
 ![Querying SSIS IR operation logs on Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
 
-If you want to query SSIS IR node status, you can set **OperationName** to `Heartbeat`, **ResultType** reflects the status of each node, `Healthy` means node is available and `Unhealthy` means node is unavailable. Normally, each node will send 1 `Heartbeat` record to Log Analytics per minute. For example, if your SSIS IR has two nodes which are available now, you will see two `Healthy` records within one minute.
+To query SSIS IR node status, you can set the **OperationName** property to `Heartbeat`. Each node normally sends one `Heartbeat` record per minute to Log Analytics with the **ResultType** property reflecting its status, which is `Healthy` when it's available for package executions and `Unhealthy` when it isn't. For example, if your SSIS IR has two available nodes, you'll always see two `Heartbeat` records with the **ResultType** property set to `Healthy` within any one-minute period.
 
 ![Querying SSIS IR operation logs on Log Analytics](media/data-factory-monitor-oms/log-analytics-query3.png)
 
-There are two cases maybe imply your nodes are unavailable now:
-* The `Heartbeat` records are missing. For example, you didn't stop your SSIS IR manually, but there have no `Heartbeat` records at a certain time.
-* The **ResultType** of `Heartbeat` is `Unhealthy`. This is a remarkable signal that imply your one node or multiple nodes are unavailable.
+You can query the following patterns to detect the unavailability of your SSIS IR node(s):
+* There are missing `Heartbeat` records in many one-minute periods when your SSIS IR is still running.
+* There are `Heartbeat` records with the **ResultType** property set to `Unhealthy` in many one-minute periods when your SSIS IR is still running.
 
-You can leverage above two cases to fire an [alert](../azure-monitor/alerts/alerts-unified-log.md) to hint that your nodes maybe have something wrong, go to [monitor](https://docs.microsoft.com/en-us/azure/data-factory/monitor-integration-runtime#monitor-the-azure-ssis-integration-runtime-in-azure-portal) page could for double check.
+You can turn the above queries into [alerts](../azure-monitor/alerts/alerts-unified-log.md) and go to your [SSIS IR monitoring page](monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) to confirm when you receive those alerts.
 
 When querying SSIS package execution logs on Logs Analytics, you can join them using **OperationId**/**ExecutionId**/**CorrelationId** properties. **OperationId**/**ExecutionId** are always set to `1` for all operations/executions related to packages **not** stored in SSISDB/invoked via T-SQL.
 
