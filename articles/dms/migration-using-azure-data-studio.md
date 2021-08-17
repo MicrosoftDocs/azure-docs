@@ -10,20 +10,18 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 09/01/2021
 ---
 
 # Migrate databases using the Azure SQL Migration extension for Azure Data Studio (Preview)
 
 The Azure SQL Migration extension for [Azure Data Studio](../../sql/azure-data-studio/what-is-azure-data-studio.md) enables you to use the new SQL Server assessment and migration capability in Azure Data Studio.
 
-
-
 [!INCLUDE [database-migration-services-sql-mi-sql-vm](../../includes/database-migration-services-sql-mi-sql-vm.md)]
 
 ## What is the role of Database Migration Service in the Azure SQL Migration extension for Azure Data Studio?
 
-Azure Database Migration Service (DMS) is a core component in the overall architecture by providing a robust and reliable migration orchestrator to enable database migrations to Azure SQL. Using the Azure SQL Migration extension in Azure Data Studio (ADS), you can either create a new DMS or reuse an existing DMS that you might have previously created using ADS. DMS leverages Azure Data Factory's self-hosted integration runtime (SHIR) to access and upload valid backup files from your on-premises network share or your Azure Storage account. Below is the overall architectural workflow of the migration process using the Azure SQL Migration extension in ADS with DMS.
+Azure Database Migration Service (DMS) is a core component in the overall architecture by providing a robust and reliable migration orchestrator to enable database migrations to Azure SQL. Using the Azure SQL Migration extension in Azure Data Studio (ADS), you can either create a new DMS or reuse an existing DMS that you might have previously created using ADS. DMS leverages Azure Data Factory's self-hosted integration runtime to access and upload valid backup files from your on-premises network share or your Azure Storage account. Below is the overall architectural workflow of the migration process using the Azure SQL Migration extension in ADS with DMS.
 
 :::image type="content" source="media/migration-using-azure-data-studio/architecture-ads-sql-migration.png" alt-text="Architecture for database migration using Azure Data Studio with DMS":::
 
@@ -97,7 +95,8 @@ Azure Database Migration Service prerequisites that are common across all suppor
     - SSIS packages
     - Server roles
     - Server audit
-- Automating migrations with Azure Data Studio using PowerShell / CLI is not supported
+- Automating migrations with Azure Data Studio using PowerShell / CLI is not supported.
+- Migrating to Azure SQL Database is not supported.
 
 ### Regions
 You can migrate SQL Server database(s) to your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine in any of the following regions during Preview.
@@ -125,7 +124,3 @@ You can migrate SQL Server database(s) to your target Azure SQL Managed Instance
 ## Next steps
 
 - For an overview and installation of the Azure SQL Migration extension, see [Azure SQL Migration extension for Azure Data Studio](../../sql/azure-data-studio/extensions/azure-sql-migration-extension.md).
-- For a step-by-step tutorial to migrate your database(s) to Azure SQL Managed Instance using the online mode, see [Tutorial: Migrate SQL Server to an Azure SQL Managed Instance online using Azure Data Studio with DMS](tutorial-sql-server-managed-instance-online-ads).
-- For a step-by-step tutorial to migrate your database(s) to Azure SQL Managed Instance using the offline mode, see [Tutorial: Migrate SQL Server to an Azure SQL Managed Instance offline using Azure Data Studio with DMS](tutorial-sql-server-managed-instance-offline-ads).
-- For a step-by-step tutorial to migrate your database(s) to SQL Server on Azure Virtual Machine using the online mode, see [Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machine online using Azure Data Studio with DMS](tutorial-sql-server-azure-vm-online-ads).
-- For a step-by-step tutorial to migrate your database(s) to SQL Server on Azure Virtual Machine using the offline mode, see [Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machine offline using Azure Data Studio with DMS](tutorial-sql-server-azure-vm-offline-ads).
