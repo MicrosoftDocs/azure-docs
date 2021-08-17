@@ -1,7 +1,7 @@
 ---
 title: Micro agent configurations (Preview)
 description: The collector sends all current data immediately after any configuration change is made. The changes are then applied.
-ms.date: 08/16/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 
@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 This article describes the different types of configurations that the micro agent supports. Customers can configure the micro agent to fit the needs of their devices, and network environments.  
 
-The micro agent's behavior is configured by a set of module twin properties. You can configure the micro agent to best suit your needs. For example, you can exclude events automatically, minimize power consumption, and **NEED 3rd example**.
+The micro agent's behavior is configured by a set of module twin properties. You can configure the micro agent to best suit your needs. For example, you can exclude events automatically, minimize power consumption, and reduce network bandwidth.
 
 After any change in configuration, the collector will immediately send all unsent event data. After the data is sent, the changes will be applied, and all the collectors will restart.
 
