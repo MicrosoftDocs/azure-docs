@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/12/2019
+ms.date: 08/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -34,7 +34,8 @@ Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to 
 ## Run the application in Visual Studio
 
 1. In the sample application project folder, open the **active-directory-b2c-wpf.sln** solution in Visual Studio.
-2. Press **F5** to debug the application.
+2. [Restore the NuGet packages](/nuget/consume-packages/package-restore.md).
+3. Press **F5** to debug the application.
 
 ## Sign in using your account
 
