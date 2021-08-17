@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.author: normesta
-ms.date: 07/12/2021
+ms.date: 08/16/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to

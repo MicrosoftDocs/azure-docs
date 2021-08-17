@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 07/12/2021
+ms.date: 08/16/2021
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: klaasl
@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 # Azure Storage blob inventory
 
-The Azure Storage blob inventory feature provides an overview of your containers, blobs, snapshots, and blob versions within a storage account. Use the inventory report to understand various attributes of blobs and containers such as your total data size, age, encryption status, immutability policy, and legal hold and so on. The report provides an overview of your data for business and compliance requirements. 
+The Azure Storage blob inventory feature provides an overview of your containers, blobs, snapshots, and blob versions within a storage account. Use the inventory report to understand various attributes of blobs and containers such as your total data size, age, encryption status, immutability policy, and legal hold and so on. The report provides an overview of your data for business and compliance requirements.
 
 ## Inventory features
 
@@ -311,9 +311,13 @@ Each inventory run for a rule generates the following files:
 
 ## Pricing and billing
 
-Configuring an inventory policy can result in additional charges to your account. For each successful inventory run, the account is billed per million objects listed. Once an inventory rule is completed, additional standard data storage and operations charges will be incurred for storing, reading, and writing the inventory generated blobs in the account.
+Pricing for inventory is based on the number of blobs and containers that are scanned during the billing period. As an example, suppose an account contains one million blobs, and blob inventory is set to run once per week. After four weeks, four million blob entries will have been scanned.
 
-If a rule contains a prefix that overlaps with a prefix of any other rule, then the same blob can appear in more than one inventory report. You'll be billed for both instances. For example, assume that the `prefixMatch` element of one rule is set to `["inventory-blob-1", "inventory-blob-2"]`, and the `prefixMatch` element of another rule is set to `["inventory-blob-10", "inventory-blob-20"]`. An object named `inventory-blob-200` appears in both inventory reports.
+Blob inventory metering begin charging on October 1, 2021. Regional pricing will be published at that time. The baseline price without regional adjustment is approximately $0.0025 USD per million entries scanned for blob storage and $0.0035 USD if Data Lake Storage Gen2 is enabled. After inventory files are created, additional standard data storage and operations charges will be incurred for storing, reading, and writing the inventory-generated files in the account.
+
+After an inventory report is complete, additional standard data storage and operations charges are incurred for storing, reading, and writing the inventory report in the storage account.
+
+If a rule contains a prefix that overlaps with a prefix of any other rule, then the same blob can appear in more than one inventory report. In this case, you are billed for both instances. For example, assume that the `prefixMatch` element of one rule is set to `["inventory-blob-1", "inventory-blob-2"]`, and the `prefixMatch` element of another rule is set to `["inventory-blob-10", "inventory-blob-20"]`. An object named `inventory-blob-200` appears in both inventory reports.
 
 Snapshots and versions of a blob also count towards billing even if you've set `includeSnapshots` and `includeVersions` filters to `false`. Those filter values don't affect billing. You can use them only to filter what appears in the report.
 
