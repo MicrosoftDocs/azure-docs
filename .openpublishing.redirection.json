@@ -56073,6 +56073,11 @@
       "source_path_from_root": "/articles/cognitive-services/translator/translator-info-overview.md",
       "redirect_url": "/azure/cognitive-services/translator/translator-overview",
       "redirect_document_id": false
+   },
+   {
+    "source_path_from_root": "/articles/virtual-machines/network-overview.md",
+    "redirect_url": "/azure/virtual-network/network-overview",
+    "redirect_document_id": false
    }
   ]
 }
