@@ -9,7 +9,7 @@ ms.date: 07/30/2021
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
 
-An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter, extra steps are needed for integration with your on-premises environment. Setting up an ExpressRoute circuit and a virtual network gateway is also required.
+An Azure VMware Solution private cloud requires an Azure Virtual Network. Because Azure VMware Solution doesn't support your on-premises vCenter, you'll need to do additional steps to integrate with your on-premises environment. Setting up an ExpressRoute circuit and a virtual network gateway is also required.
 
 [!INCLUDE [disk-pool-planning-note](includes/disk-pool-planning-note.md)]
 
@@ -46,12 +46,12 @@ When you select an existing vNet, the Azure Resource Manager (ARM) template that
 
 3. Select **Save**.
 
-   At this point, the vNet validates if overlapping IP address spaces between Azure VMware Solution and vNet are detected. If detected, then change the network address of either the private cloud or the vNet so they don't overlap. 
+   At this point, the vNet validates if overlapping IP address spaces between Azure VMware Solution and vNet are detected. If detected, change the network address of either the private cloud or the vNet so they don't overlap. 
 
 
 ### Create a new vNet
 
-When you create a new vNet, the required components needed to connect to Azure VMware Solution get created automatically.
+When you create a new vNet, the required components to connect to Azure VMware Solution are automatically created.
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Connectivity**.
 
@@ -61,7 +61,7 @@ When you create a new vNet, the required components needed to connect to Azure V
 
 3. Provide or update the information for the new vNet and then select **OK**.
 
-   At this point, the vNet validates if overlapping IP address spaces between Azure VMware Solution and vNet are detected. If detected, change the network address of either the private cloud or the vNet so they don't overlap. 
+   At this point, the vNet validates if overlapping IP address spaces between Azure VMware Solution and vNet are detected. If detected, change the private cloud or vNet's network address so they don't overlap. 
 
    :::image type="content" source="media/networking/create-new-virtual-network.png" alt-text="Screenshot showing the Create virtual network window.":::
 

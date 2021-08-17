@@ -31,7 +31,7 @@ This article provides an overview of the limitations of ledger tables used with 
 | Sparse column sets | Sparse column sets aren't supported. |
 | Ledger truncation | Deleting older data in [append-only ledger tables](ledger-append-only-ledger-tables.md) or the history table of [updatable ledger tables](ledger-updatable-ledger-tables.md) isn't supported. |
 | Converting existing tables to ledger tables | Existing tables in a database that aren't ledger-enabled can't be converted to ledger tables. |
-|Locally redundant storage (LRS) support for [automated digest management](ledger-digest-management-and-database-verification.md) | Automated digest management with ledger tables by using [Azure Storage immutable blobs](../../storage/blobs/storage-blob-immutable-storage.md) doesn't offer the ability for users to use [LRS](../../storage/common/storage-redundancy.md#locally-redundant-storage) accounts.|
+|Locally redundant storage (LRS) support for [automated digest management](ledger-digest-management-and-database-verification.md) | Automated digest management with ledger tables by using [Azure Storage immutable blobs](../../storage/blobs/immutable-storage-overview.md) doesn't offer the ability for users to use [LRS](../../storage/common/storage-redundancy.md#locally-redundant-storage) accounts.|
 
 ## Remarks
 

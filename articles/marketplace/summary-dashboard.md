@@ -4,9 +4,10 @@ description: Learn how to access graphs, trends, and values of aggregate data th
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/09/2020
 author: smannepalle
 ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 08/06/2021
 ---
 
 # Summary dashboard in commercial marketplace analytics

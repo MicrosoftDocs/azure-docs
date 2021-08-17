@@ -574,7 +574,7 @@ In this section, you make a change to the web app code, rebuild the image, and t
 1. Update the version number in the image's tag to v1.0.1:
 
     ```bash
-    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
+    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:v1.0.1
     ```
 
     Replace `<registry-name>` with the name of your registry.
@@ -582,7 +582,7 @@ In this section, you make a change to the web app code, rebuild the image, and t
 1. Push the image to the registry:
 
     ```bash
-    docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
+    docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:v1.0.1
     ```
 
 1. Once the image push is complete, the webhook notifies App Service about the push, and App Service tries to pull in the updated image. Wait a few minutes, and then verify that the update has been deployed by browsing to `https://<app-name>.azurewebsites.net`.
