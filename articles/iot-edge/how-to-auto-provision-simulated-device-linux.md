@@ -353,8 +353,8 @@ You can give access to the TPM by overriding the systemd settings so that the `a
    Successful output appears as follows:
 
    ```output
-   crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpm0
-   crw-rw---- 1 root aziottpm 10, 224 Jul 20 16:27 /dev/tpmrm0
+   crw-rw---- 1 aziottpm root 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 aziottpm root 10, 224 Jul 20 16:27 /dev/tpmrm0
    ```
 
    If you don't see that the correct permissions have been applied, try rebooting your machine to refresh udev. 
