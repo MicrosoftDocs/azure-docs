@@ -131,17 +131,15 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 2. Select the IoT hub under the list of resources. This tutorial uses **ContosoTestHub**.
 
-3. Select **Message Routing**. In the **Message Routing** pane, select +**Add**. On the **Add a Route** pane, select +**Add endpoint** next to the Endpoint field to show the supported endpoints, as displayed in the following picture:
+3. Select **Message Routing**. In that pane, select +**Add** to see the **Add a Route** pane. Select +**Add endpoint** next to the Endpoint field to show the supported endpoints (like storage). This is displayed in the following picture:
 
-   ![Start adding an endpoint for a route]i (./media/tutorial-routing/01-add-a-route-to-storage.png)
+   ![Start adding an endpoint for a route](./media/tutorial-routing/01-add-a-route-to-storage.png)
 
 4. Select **Storage**. You see the **Add a storage endpoint** pane.
 
 5. Enter a name for the endpoint. This tutorial uses **ContosoStorageEndpoint**.
 
    ![Name the endpoint](./media/tutorial-routing/02-add-a-storage-endpoint.png)
-
-** THESE INSTRUCTIONS ARE REALLY MESSED UP. **
 
 6. Select **Pick a container**. This takes you to a list of your storage accounts. Select the one you set up in the preparation steps. This tutorial uses **contosostorage**. It shows a list of containers in that storage account. **Select** the container you set up in the preparation steps. This tutorial uses **contosoresults**. Then click **Select** at the bottom of the screen. It returns to a different **Add a storage endpoint** pane. You see the URL for the selected container. 
 
@@ -175,7 +173,7 @@ Now set up the routing for the storage account. You go to the Message Routing pa
 
 ### Route to a Service Bus queue
 
-Now set up the routing for the Service Bus queue. You go to the Message Routing pane, then add a route. When adding the route, define a Service Bus Queue as the endpoint for the route. After this route is set up, messages where the **level** property is set to **critical** are written to the Se rvice Bus queue, which triggers a Logic App, which then sends an e-mail with the information.
+Now set up the routing for the Service Bus queue. You go to the Message Routing pane, then add a route. When adding the route, define a Service Bus Queue as the endpoint for the route. After this route is set up, messages where the **level** property is set to **critical** are written to the Service Bus queue, which triggers a Logic App, which then sends an e-mail with the information.
 
 1. On the Resource group page, select your IoT hub, then select **Message Routing**.
 
