@@ -30,7 +30,7 @@ Azure AD lets you assign a cloud Azure AD security group to an Azure AD role. Gl
 Privileged Access groups enable users to elevate to the owner or member role of an Azure AD security group. This feature allows you to set up just-in-time workflows for not only Azure AD and Azure roles in batches, and also enables just-in-time scenarios for other use cases like Azure SQL, Azure Key Vault, Intune, or other application roles. For more information, see [Management capabilities for Privileged Access groups](groups-features.md).
 
 >[!Note]
->!For privileged access groups used for elevating into Azure AD roles, Microsoft recommends that you require an approval process for eligible member assignments. Assignments that can be activated without approval can leave you vulnerable to a security risk from less-privileged administrators. For example, the Helpdesk Administrator has permission to reset an eligible user's passwords.
+>For privileged access groups used for elevating into Azure AD roles, Microsoft recommends that you require an approval process for eligible member assignments. Assignments that can be activated without approval can leave you vulnerable to a security risk from less-privileged administrators. For example, the Helpdesk Administrator has permission to reset an eligible user's passwords.
 
 ## When to use each type of group
 
@@ -41,7 +41,7 @@ If you want to assign a group to an Azure AD or Azure Resource role and require 
 - **Assign the group persistently to a role**. You then grant users eligible member access to the group in PIM. Eligible users must then activate their membership to get into the group that is permanently assigned to the role. This path requires a role-assignable group to be enabled in PIM as a privileged access group for the Azure AD role.
 - **Assign the group as eligible for a role** through PIM. Everyone in the group must activate their assignment to get access to the role. This path requires a role-assignable group for the Azure AD role, and a security group for Azure resources.
 
-    ![Two ways to assign role using privileged access groups in PIM](./media/concept-privileged-access-versus-role-assignable/concept-privileged-access.png)
+    ![Diagram showing two ways to assign role using privileged access groups in PIM.](./media/concept-privileged-access-versus-role-assignable/concept-privileged-access.png)
 
 Either of these methods will work for the end-to-end scenario. We recommend that you use the first method in most cases. You should use the second method only if you are trying to:
 
