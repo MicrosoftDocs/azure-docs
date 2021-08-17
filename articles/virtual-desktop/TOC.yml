@@ -246,7 +246,7 @@
     href: /architecture-center/docs/example-scenario/wvd/windows-virtual-desktop-fslogix-content.md
   - name: Email discovery
     href: /windows-server/remote/remote-desktop-services/rds-email-discovery
-  - name: Protect AVD with Azure Firewall
+  - name: Protect Azure Virtual Desktop with Azure Firewall
     href: /firewall/protect-windows-virtual-desktop.md
   - name: Desktop Virtualization - Microsoft CAF for Azure
     href: /cloud-adoption-framework/docs/scenarios/wvd/index.md
