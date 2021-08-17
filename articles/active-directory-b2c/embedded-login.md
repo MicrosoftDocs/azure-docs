@@ -28,10 +28,10 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone pivot="b2c-custom-policy"
 
-For a simpler sing-up or sign-in experience, you can avoid redirecting users to a separate sing-up or sign-in page, or generating a pop-up window. By using the inline frame element `<iframe>`, you can embed the Azure AD B2C sign-in user interface directly into your web application. 
+For a simpler sing-up or sign-in experience, you can avoid redirecting users to a separate sing-up or sign-in page, or generating a pop-up window. By using the inline frame *&lt;iframe&gt; HTML element, you can embed the Azure AD B2C sign-in user interface directly into your web application. 
 
 > [!TIP]
-> With the embedded experience you can include any policy, such as [sign-up or sign-in](add-sign-up-and-sign-in-policy.md), [edit profile](add-profile-editing-policy.md), or [change password](add-password-change-policy.md).
+> Use the &lt;iframe&gt; HTML element to embed the [sign-up or sign-in](add-sign-up-and-sign-in-policy.md), [edit profile](add-profile-editing-policy.md), or [change password](add-password-change-policy.md) into your web or single page app.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
