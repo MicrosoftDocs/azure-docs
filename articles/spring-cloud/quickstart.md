@@ -400,7 +400,6 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 6. Select **Review and create**.
 
-
 ## Build and deploy the app
 
 #### [CLI](#tab/Azure-CLI)
