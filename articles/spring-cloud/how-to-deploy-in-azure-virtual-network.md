@@ -21,6 +21,12 @@ The deployment enables:
 * Azure Spring Cloud interaction with systems in on-premises data centers or Azure services in other virtual networks.
 * Empowerment of customers to control inbound and outbound network communications for Azure Spring Cloud.
 
+The following video describes how to secure Spring Boot applications using managed virtual networks.
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/LbHD0jd8DTQ?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
+
 > [!Note]
 > You can select your Azure virtual network only when you create a new Azure Spring Cloud service instance. You cannot change to use another virtual network after Azure Spring Cloud has been created.
 
