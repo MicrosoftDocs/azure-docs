@@ -16,7 +16,7 @@ This guide demonstrates how to perform common scenarios using Azure Blob storage
 To learn more about Blob storage, see [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
 > [!NOTE]
-> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. Microsoft recommends using the latest version of the Storage Client Library for C++, available via [NuGet](https://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
+> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and later, up until version 12.x. Microsoft recommends using the latest version of the Storage Client Library for C++, available via [GitHub](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage). For more information, see the latest [quickstart](quickstart-blobs-c-plus-plus.md).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -54,7 +54,7 @@ An Azure storage client uses a storage connection string to store endpoints and 
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-To test your application in your local Windows computer, you can use the [Azurite storage emulator](../common/storage-use-azurite.md). Azurite is a utility that simulates the Blob and Queue services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
+To test your application in your local Windows computer, you can use the [Azurite storage emulator](../common/storage-use-azurite.md). Azurite is a utility that simulates the Blob, Queue, and Table services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
 
 ```cpp
 // Define the connection-string with Azurite.
@@ -66,7 +66,7 @@ To start Azurite, see [Use the Azurite emulator for local Azure Storage developm
 The following samples assume that you have used one of these two methods to get the storage connection string.
 
 ## Retrieve your storage account
-You can use the **cloud_storage_account** class to represent your Storage Account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.
+You can use the **cloud_storage_account** class to represent your storage account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.
 
 ```cpp
 // Retrieve storage account from connection string.

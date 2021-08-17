@@ -60,7 +60,7 @@ To assign the custom role:
 
 2. Select the role you just created.
 
-3. In the search bar, enter and select **Azure Virtual Desktop**.
+3. In the search bar, enter and select **Windows Virtual Desktop** (this will soon be updated to "Azure Virtual Desktop").
 
       >[!NOTE]
       >You might see two apps if you have deployed Azure Virtual Desktop (classic). Assign the role to both apps you see.

@@ -15,13 +15,16 @@ Dashboards are an insightful way to monitor your business and view all your most
 ## Suggested pre-reading
 
 - Azure Video Analyzer [player widget](player-widget.md)
-- Introduction to [Power BI dashboards](https://docs.microsoft.com/power-bi/create-reports/service-dashboards)
+- Introduction to [Power BI dashboards](/power-bi/create-reports/service-dashboards)
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 - Complete either [Detect motion and record video](detect-motion-record-video-clips-cloud.md) or [Continuous video recording](continuous-video-recording.md) - a pipeline with video sink is required.
-  [!NOTE] Your video analyzer account should have a minimum of one video recorded to proceed. Check for list of videos by logging into your Azure Video Analyzer account > Videos > Video Analyzer section.
+
+  > [!NOTE] 
+  > Your video analyzer account should have a minimum of one video recorded to proceed. Check for list of videos by logging into your Azure Video Analyzer account > Videos > Video Analyzer section.
+
 - A [Power BI](https://powerbi.microsoft.com/) account.
 
 ## Create a token
@@ -37,7 +40,7 @@ Dashboards are an insightful way to monitor your business and view all your most
 4. Select any video from the list.
 5. Click on **Widget** setup. A pane **Use widget in your application** opens on the right-hand side. Scroll down to **Option 2 – using HTML** and copy the code and paste it in a text editor. Click the **Close** button.
 
-   :::image type="content" source="./media/power-bi/widget-code.png" alt-text="Copy widget HTML code":::
+   :::image type="content" source="./media/power-bi/widget-code.png" alt-text="Screenshot of copy widget HTML code from AVA portal and save for later.":::
 
 6. Edit the HTML code copied in step 5 to replace values for
    - Token **AVA-API-JWT-TOKEN** - replace with the value of Token that you saved in the “Create a token” step. Ensure to remove the angular brackets.
@@ -47,16 +50,16 @@ Dashboards are an insightful way to monitor your business and view all your most
 
 1. Open the [Power BI service](http://app.powerbi.com/) in your browser. From the navigation pane, select **My Workspace**
 
-   :::image type="content" source="./media/power-bi/power-bi-workspace.png" alt-text="Power BI workspace":::
+   :::image type="content" source="./media/power-bi/power-bi-workspace.png" alt-text="Screenshot of Power BI workspace home page.":::
 
 2. Create a new dashboard by clicking **New** > **Dashboard** or open an existing dashboard. Select the **Edit** drop down arrow and then **Add a tile**. Select **Web content** > **Next**.
 3. In **Add web content tile**, enter your **Embed code** from previous section. Click **Apply**.
 
-   :::image type="content" source="./media/power-bi/embed-code.png" alt-text="Embed the html code in tile":::
+   :::image type="content" source="./media/power-bi/embed-code.png" alt-text="Screenshot of embedding the html code in a Power BI dashboard tile.":::
 
 4. You will see a player widget pinned to the dashboard with a video.
 
-   :::image type="content" source="./media/power-bi/one-player-added.png" alt-text="One video player widget added":::
+   :::image type="content" source="./media/power-bi/one-player-added.png" alt-text="Screenshot of one video player widget added.":::
 
 5. To add more videos from Azure Video Analyzer Videos section, follow the same steps in this section.
 
@@ -66,7 +69,7 @@ Dashboards are an insightful way to monitor your business and view all your most
 Here is a sample of multiple videos pinned to a single Power BI dashboard.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/two-players-added.png" alt-text="Two video player widgets added":::
+> :::image type="content" source="./media/power-bi/two-players-added.png" alt-text="Screenshot of two video player widgets added as an example.":::
 
 ## Next steps
 

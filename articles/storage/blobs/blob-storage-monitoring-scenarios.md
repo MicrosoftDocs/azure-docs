@@ -16,11 +16,11 @@ This article features a collection of common storage monitoring scenarios, and p
 
 ## Identify storage accounts with no or low use
 
-Storage Insights is a dashboard on top of Azure Storage metrics and logs. You can use Storage Insights to examine the transaction volume and used capacity of all your accounts. That information can help you decide which accounts you might want to retire. To configure Storage Insights, see [Monitoring your storage service with Azure Monitor Storage insights](../../azure-monitor/insights/storage-insights-overview.md). 
+Storage Insights is a dashboard on top of Azure Storage metrics and logs. You can use Storage Insights to examine the transaction volume and used capacity of all your accounts. That information can help you decide which accounts you might want to retire. To configure Storage Insights, see [Monitoring your storage service with Azure Monitor Storage insights](../common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json). 
 
 ### Analyze transaction volume
 
-From the [Storage Insights view in Azure monitor](../../azure-monitor/insights/storage-insights-overview.md#view-from-azure-monitor), sort your accounts in ascending order by using the **Transactions** column. The following image shows an account with low transaction volume over the specified period. 
+From the [Storage Insights view in Azure monitor](../common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json#view-from-azure-monitor), sort your accounts in ascending order by using the **Transactions** column. The following image shows an account with low transaction volume over the specified period. 
 
 > [!div class="mx-imgBorder"]
 > ![transaction volume in Storage Insights](./media/blob-storage-monitoring-scenarios/storage-insights-transaction-volume.png)
@@ -187,6 +187,4 @@ With Azure Synapse, you can create server-less SQL pool to query log data when y
 - [Monitoring Azure Blob Storage](monitor-blob-storage.md).
 - [Tutorial: Use Kusto queries in Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 - [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
-
-  
 

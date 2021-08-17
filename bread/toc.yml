@@ -91,11 +91,11 @@
     topicHref: /azure/applied-ai-services/
     items:
     - name: Immersive Reader
-      tocHref: /azure/cognitive-services/immersive-reader/
-      topicHref: /azure/cognitive-services/immersive-reader/
+      tocHref: /azure/applied-ai-services/immersive-reader/
+      topicHref: /azure/applied-ai-services/immersive-reader/
     - name: Metrics Advisor
-      tocHref: /azure/cognitive-services/metrics-advisor/
-      topicHref: /azure/cognitive-services/metrics-advisor/
+      tocHref: /azure/applied-ai-services/metrics-advisor/
+      topicHref: /azure/applied-ai-services/metrics-advisor/
     - name: Form Recognizer
       tocHref: /azure/cognitive-services/form-recognizer/
       topicHref: /azure/cognitive-services/form-recognizer/
@@ -497,11 +497,17 @@
       tocHref: /azure/cosmos-db/mongodb
       topicHref: /azure/cosmos-db/mongodb
     - name: Table API
-      tocHref: /azure/cosmos-db/table/introduction
-      topicHref: /azure/cosmos-db/table/introduction
+      tocHref: /azure/cosmos-db/table/
+      topicHref: /azure/cosmos-db/table/
     - name: Cassandra API
       tocHref: /azure/cosmos-db/cassandra/
       topicHref: /azure/cosmos-db/cassandra/
+    - name: Gremlin API
+      tocHref: /azure/cosmos-db/graph/
+      topicHref: /azure/cosmos-db/graph/
+    - name: SQL API
+      tocHref: /azure/cosmos-db/sql/
+      topicHref: /azure/cosmos-db/sql/
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/

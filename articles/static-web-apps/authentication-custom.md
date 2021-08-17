@@ -86,6 +86,9 @@ Make sure to replace `<TENANT_ID>` with your Azure Active Directory tenant ID.
 
 For more information on how to configure Azure Active Directory, see the [App Service Authentication/Authorization documentation](../app-service/configure-authentication-provider-aad.md).
 
+> [!NOTE]
+> While the configuration section for Azure Active Directory is `azureActiveDirectory`, the platform aliases this to `aad` in the URL's for login, logout and purging user information. Refer to the [authentication and authorisation](authentication-authorization.md) section for more information.
+
 # [Apple](#tab/apple)
 
 To create the registration, begin by creating the following application settings:
@@ -303,7 +306,7 @@ If you are using Azure Active Directory, use `aad` as the value for the `<AUTHEN
 
 ### Authentication callbacks
 
-Authentication providers require redirect URL to complete the login or logout request. The following endpoints are available as redirect destinations.
+Custom OIDC providers require redirect URL to complete the login or logout request. The following endpoints are available as redirect destinations.
 
 | Type   | URL pattern                                                 |
 | ------ | ----------------------------------------------------------- |

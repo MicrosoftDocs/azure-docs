@@ -213,6 +213,9 @@
     - name: AD FS
       href: identity-provider-adfs.md
       displayName: AD-FS, ADFS
+    - name: AD FS (SAML)
+      href: identity-provider-adfs-saml.md
+      displayName: AD-FS, ADFS
     - name: Amazon
       href: identity-provider-amazon.md
     - name: Apple (Preview)

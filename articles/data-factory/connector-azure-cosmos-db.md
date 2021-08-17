@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/18/2021
+ms.date: 08/09/2021
 ---
 
 # Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory
@@ -54,8 +54,8 @@ The following sections provide details about properties you can use to define en
 The Azure Cosmos DB (SQL API) connector supports the following authentication types. See the corresponding sections for details:
 
 - [Key authentication](#key-authentication)
-- [Service principal authentication (Preview)](#service-principal-authentication)
-- [Managed identities for Azure resources authentication (Preview)](#managed-identity)
+- [Service principal authentication](#service-principal-authentication)
+- [Managed identities for Azure resources authentication](#managed-identity)
 
 ### Key authentication
 
@@ -109,7 +109,7 @@ The Azure Cosmos DB (SQL API) connector supports the following authentication ty
 }
 ```
 
-### <a name="service-principal-authentication"></a> Service principal authentication (Preview)
+### <a name="service-principal-authentication"></a> Service principal authentication
 
 >[!NOTE]
 >Currently, the service principal authentication is not supported in data flow.
@@ -195,7 +195,7 @@ You can also store service principal key in Azure Key Vault.
 }
 ```
 
-### <a name="managed-identity"></a> Managed identities for Azure resources authentication (Preview)
+### <a name="managed-identity"></a> Managed identities for Azure resources authentication
 
 >[!NOTE]
 >Currently, the managed identity authentication is not supported in data flow.

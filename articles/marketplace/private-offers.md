@@ -67,8 +67,6 @@ Private offers will also appear in search results and can be deployed via comman
 
 [![[Private offers appearing in search results.]](media/marketplace-publishers-guide/private-offer.png)](media/marketplace-publishers-guide/private-offer.png#lightbox)
 
-Private offers will also appear in search results. Just look for the **Private** badge.
-
 >[!Note]
 >Private offers are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
 
