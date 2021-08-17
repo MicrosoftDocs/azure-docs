@@ -21,7 +21,7 @@ The following table provides a list of compute environments that are supported b
 | ---------------------------------------- | ---------------------------------------- |
 | [On-demand Azure HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
-| [ML Studio (classic)](#azure-machine-learning-studio-classic-linked-service) | [Studio (classic) activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
+| [ML Studio (classic)](#ml-studio-classic-linked-service) | [Studio (classic) activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
 | [Azure SQL](#azure-sql-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure Activity](data-factory-stored-proc-activity.md) |
 
