@@ -28,7 +28,7 @@ In the following sections, we'll cover some telemetry collection basics.
 
 ### Instrumenting your application
 
-Instrumenting is making changes to your application to capture telemetry. At a minimum, this means adding the OpenTelemetry API.
+Instrumenting is making changes to your application to capture telemetry.
 
 There are two methods to instrument your application:
 1.	Manual Instrumentation
@@ -48,7 +48,7 @@ A direct exporter sends telemetry in-process (from the application’s code) dir
 
 Alternatively, sending via an agent may use the OpenTelemetry-Collector or a vendor-specific agent, such as the Azure Monitor Agent. The main advantage of this approach is it allows users to combine receivers, exporters, and processors in a way that unlocks more scenarios.
 
-**All Azure Monitor’s currently supported OpenTelemetry-based offerings use a direct exporter**, though some customers use the OpenTelemetry-Collector even though Microsoft doesn’t officially support it. We expect to support an agent-based approach in the future, though the details and timeline aren't available yet.
+**All Azure Monitor’s currently supported OpenTelemetry-based offerings use a direct exporter**. Some customers use the OpenTelemetry-Collector even though Microsoft doesn’t officially support it. We expect to support an agent-based approach in the future, though the details and timeline aren't available yet.
 
 ## Terms
 
