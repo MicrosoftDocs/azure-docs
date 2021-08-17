@@ -2,7 +2,7 @@
  title: include file
  description: include file
  services: virtual-network
- author: jimdial
+ author: asudbring
  ms.service: virtual-network
  ms.topic: include
  ms.date: 05/10/2019
@@ -39,15 +39,16 @@ Connect and sign in to a VM you created with multiple private IP addresses. You 
 6. From a command prompt, type *ipconfig /all*. Verify all IP addresses you added are shown and DHCP is turned off.
 7. Configure Windows to use the private IP address of the primary IP configuration in Azure as the primary IP address for Windows. See [No Internet access from Azure Windows VM that has multiple IP addresses](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) for details. 
 
-### Validation (Windows Server)
+#### Validation (Windows Server)
 
 To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, once you have added it correctly using steps above, use the following command (replacing 10.0.0.7 with the secondary, private IP address):
 
 ```bash
 ping -S 10.0.0.7 outlook.com
 ```
->[!NOTE]
->For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+ 
+> [!NOTE]
+> For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
 </details>
 
@@ -115,7 +116,7 @@ We recommend looking at the latest documentation for your Linux distribution.
 
    You should see the IP address you added as part of the list.
 
-### Validation (Ubuntu 14/16)
+#### Validation (Ubuntu 14/16)
 
 To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
 
@@ -219,7 +220,7 @@ Ubuntu 18.04 and above have changed to `netplan` for OS network management. We r
         valid_lft forever preferred_lft forever
     ```
 
-### Validation (Ubuntu 18.04+)
+#### Validation (Ubuntu 18.04+)
 
 To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
 
@@ -309,7 +310,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 
 	You should see the IP address you added, *eth0:0*, in the list returned.
 
-### Validation (Red Hat, CentOS, and others)
+#### Validation (Red Hat, CentOS, and others)
 
 To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
 
@@ -389,7 +390,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
    service networking restart
    ```
 
-1. Verify thatthe IP address is added to the network interface with the following command:
+1. Verify that the IP address is added to the network interface with the following command:
 
    ```bash
    ip addr list eth0
