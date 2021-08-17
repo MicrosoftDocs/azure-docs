@@ -468,13 +468,13 @@ To call a [token-based authorization web API](enable-authentication-web-api.md),
 Authorization: Bearer <access-token>
 ```
 
-When users [sign in interactively](#interactive-authorization-request), the app gets an access token in the `getAuthInteractiveCallback` callback method. For consecutive web API calls, use the acquire token silent procedure as described in this section. 
+When users [sign in interactively](#step-53-start-an-interactive-authorization-request), the app gets an access token in the `getAuthInteractiveCallback` callback method. For consecutive web API calls, use the acquire token silent procedure as described in this section. 
 
 Before you call a web API, call the `acquireTokenSilentAsync` method with the appropriate scopes for your web API endpoint. The MSAL library does the following:
 
 1. Attempts to fetch an access token with the requested scopes from the token cache. If the token is present, the token is returned. 
 1. If the token isn't present in the token cache, MSAL attempts to use its refresh token to acquire a new token. 
-1. If the refresh token doesn't exist or has expired, an exception is returned. We recommend that you prompt the user to [sign in interactively](#interactive-authorization-request).  
+1. If the refresh token doesn't exist or has expired, an exception is returned. We recommend that you prompt the user to [sign in interactively](#step-53-start-an-interactive-authorization-request).  
 
 The following code snippet demonstrates how to acquire an access token:
 
