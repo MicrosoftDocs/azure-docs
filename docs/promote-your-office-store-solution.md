@@ -12,7 +12,7 @@ After you submit your solution and it's approved for addition to Microsoft AppSo
 
     ![Screenshot of the Get it from Microsoft AppSource badge](images/MS_AppSource.png)
 
-3. Add the badge to the webpage for your solution and add a link to your associated product listing landing page. This makes it clear to your users that they can download your solution from Microsoft AppSource, and simplifies the user experience by providing a direct link to your solution.
+1. Add the badge to the webpage for your solution and add a link to your associated product listing landing page. This makes it clear to your users that they can download your solution from Microsoft AppSource, and simplifies the user experience by providing a direct link to your solution.
 
 ## Guidelines for using the Microsoft AppSource badge
 
@@ -23,7 +23,7 @@ The following guidelines apply to using the **Get it from Microsoft AppSource** 
 - Provide a link to the associated product listing landing page.
 - Always use the full name by referencing "Microsoft AppSource".
 
-## Track your campaign performance and customize your add-in for targeted audiences
+## Track your campaign performance and customize your app for targeted audiences
 
 > [!NOTE]
 > Campaign tracking is enabled for all Office 365 listings on Microsoft AppSource. Currently, activation data is only provided for Word, Excel, and PowerPoint add-ins.
@@ -54,8 +54,7 @@ if (Office.context.document.settings) {
 The value that is sent to the document is the value of the  _mktcmpid_ parameter.
 
 ## See also
-<a name="bk_addresources"> </a>
 
 - [Make your solutions available in AppSource and within Office](submit-to-appsource-via-partner-center.md)
-- [Office Add-ins](https://docs.microsoft.com/office/dev/add-ins/overview/office-add-ins)  
-- [SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
+- [Office Add-ins](/office/dev/add-ins/overview/office-add-ins)  
+- [SharePoint Add-ins](/sharepoint/dev/sp-add-ins/sharepoint-add-ins)

@@ -7,13 +7,13 @@ localization_priority: Priority
 
 # Create or update client IDs and secrets in Partner Center
 
-Create or delete client IDs and secrets, update or replace expiring client secrets, and associate them with your add-ins in Partner Center to enable OAuth in your SharePoint Add-ins.
+Create or delete client IDs and secrets, update or replace expiring client secrets, and associate them with your apps in Partner Center to enable OAuth in your SharePoint Add-ins.
 
 ### To update expiring client secrets in SharePoint Add-ins
 
 1. Generate and add a new client secret in Partner Center to associate with that particular add-in client ID. For specific steps, see **To generate additional client secrets** in [Update the client secret associated with your client ID](#update-the-client-secret-associated-with-your-client-id) later in this article.
 
-2. Update your remote web application to use the new client secret. For information about how to do this using Microsoft Office Developer Tools for Visual Studio, see **Update the remote web application in Visual Studio to use the new secret** in [Replace an expiring client secret in a SharePoint Add-in](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/replace-an-expiring-client-secret-in-a-sharepoint-add-in). 
+2. Update your remote web application to use the new client secret. For information about how to do this using Microsoft Office Developer Tools for Visual Studio, see **Update the remote web application in Visual Studio to use the new secret** in [Replace an expiring client secret in a SharePoint Add-in](/sharepoint/dev/sp-add-ins/replace-an-expiring-client-secret-in-a-sharepoint-add-in). 
 
 3. Republish your remote web application.
 
@@ -31,10 +31,10 @@ If your add-in requires this type of authorization, you have to associate OAuth 
 
 When a user installs an add-in that has an associated client ID and client secret, a consent dialog box appears. If the user gives consent, the add-in can act on behalf of the user to access the data that the add-in requires. Users can only grant the permissions that they have. Grants represent the permissions that a user has delegated to an add-in. 
 
-For example, your add-in could be a trip calendar add-in that opens as an **IFRAME** on an Office 365 SharePoint site. OAuth would allow the add-in to identify the user to whom the trip calendar belongs, or if the trip calendar add-in needed to access other aspects of Office 365, such as resources or calendar information, it could access those on behalf of the signed-in user.
+For example, your add-in could be a trip calendar add-in that opens as an **IFRAME** on a Microsoft 365 SharePoint site. OAuth would allow the add-in to identify the user to whom the trip calendar belongs, or if the trip calendar add-in needed to access other aspects of Microsoft 365, such as resources or calendar information, it could access those on behalf of the signed-in user.
 
 > [!NOTE]
-> For more information about OAuth, client ID and client secrets, see [Authorization and authentication of SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins), [Context Token OAuth flow for SharePoint Add-ins](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/context-token-oauth-flow-for-sharepoint-add-ins), and [Register SharePoint Add-ins 2013](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/register-sharepoint-add-ins).
+> For more information about OAuth, client ID and client secrets, see [Authorization and authentication of SharePoint Add-ins](/sharepoint/dev/sp-add-ins/authorization-and-authentication-of-sharepoint-add-ins), [Context Token OAuth flow for SharePoint Add-ins](/sharepoint/dev/sp-add-ins/context-token-oauth-flow-for-sharepoint-add-ins), and [Register SharePoint Add-ins 2013](/sharepoint/dev/sp-add-ins/register-sharepoint-add-ins).
 
 <a name="bk_addclientid"> </a>
 ## Add a client ID and client secret
@@ -199,9 +199,7 @@ You might want to delete a client ID in certain situations, for example:
 ## See also
 
 - [Submit your Office solution to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md)
-- [Microsoft AppSource submission FAQ](appsource-submission-faq.md)
-- [Certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies)
+- [Microsoft AppSource submission FAQ](appsource-submission-faq.yml)
+- [Certification policies](/legal/marketplace/certification-policies)
 
     
- 
-

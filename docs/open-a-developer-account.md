@@ -43,7 +43,7 @@ If you're new to Partner Center, follow the instructions in this section to crea
 2. Sign in with a work account so you so that you can link your company's work email account domain to your new Partner Center account. By associating these accounts, your company employees can sign in to Partner Center with their work account user names and passwords.
 
   > [!NOTE]
-  > To determine whether your company already has a work account and for information about how to create a new work account or set up multiple work accounts to use with Partner Center, see [Your company work account and Partner Center](https://docs.microsoft.com//azure/marketplace/partner-center-portal/company-work-accounts).
+  > To determine whether your company already has a work account and for information about how to create a new work account or set up multiple work accounts to use with Partner Center, see [Your company work account and Partner Center](/azure/marketplace/partner-center-portal/company-work-accounts).
 
 3. Provide your publisher profile. Your publisher profile includes your company info, publisher info, and contact info.
 4. After you've confirmed your publisher profile information, agree to the terms and conditions in the Microsoft Office Agreement and select **Accept and continue** to create your Partner Center account.
@@ -51,13 +51,13 @@ If you're new to Partner Center, follow the instructions in this section to crea
 > [!IMPORTANT]
 > You must be authorized to act on your company's behalf in order to accept these terms.
 
-If your tenant already has an existing enrollment in Partner Center, you will see a list of accounts in the dropdown to choose from. Select an account, and your Office enrollmnent will be associated with the same accounts.
+If your tenant already has an existing enrollment in Partner Center, you will see a list of accounts in the dropdown to choose from. Select an account, and your Office enrollment will be associated with the same accounts.
 
 ### Create an account using an existing Partner Center enrollment
 If you already have an enrollment in Partner Center, to create your account:
 
 - Sign in to Partner Center using your existing credentials.
-- Cick the gear icon, and then choose **Developer settings** > **Programs**.
+- Cick the gear icon, and then choose **Account settings** > **Programs**.
 - On the Your Programs page, in the Office Store tile, choose **Get Started**.
 - Complete the details on the publisher profile page.
 - Read the terms and conditions in the Microsoft Office Store Agreement, and then select **Accept and continue** to complete your enrollment.
@@ -66,25 +66,20 @@ If you already have an enrollment in Partner Center, to create your account:
 If you're already enrolled in a Partner Center developer program, create your account directly from Partner Center.
 
 > [!NOTE]
-> To sign up for the Office Store under the same account you're signed in as, you need to have registered on Partner Center using a company account. If you signed up with an individual account, your Office Store enrollment will appear under a new account.
-> Individual accounts are for single developers working on their own. Company accounts are for organizations and businesses. Company accounts give you access to submit apps with additional functionality. We require greater verification for company accounts after you register to confirm that you're authorized to set up the account for your company. This verification can take from a few days to a couple of weeks, and often includes a phone call to your company. Both types of accounts allow you to submit apps, add-ins, and services. For more info, see Account types, locations, and fees.
+> To sign up for the Office Store under the same account you're signed in as, you need to have registered on Partner Center using a company account. Note that you must use a company account to submit apps. We require greater verification for company accounts after you register to confirm that you're authorized to set up the account for your company. This verification can take from a few days to a couple of weeks, and often includes a phone call to your company. 
 
 Sign in to Partner Center with your Partner Center account to enroll into the Office Store program under the same account. By signing up for Office Store using the same account, you can see both your existing program enrollments and Office Store in the left navigation menu of Partner Center.
 
 After you sign in, use the following steps to finish setting up your account:
 
-- From Partner Center, select **Settings** > **Developer Settings** > **Programs** > **Get Started**, and enter your work email address.
+- From Partner Center, select **Settings** > **Account Settings** > **Programs** > **Get Started**, and enter your work email address.
 - Complete the details on the publisher profile page.
 - Read the terms and conditions in the Microsoft Office Store Agreement, and then select **Accept and continue** to complete your enrollment.
 
 > [!IMPORTANT]
 > You must be authorized to act on your company's behalf in order to accept these terms.
 
-After you're enrolled, you're directed to the Office Store Overview page. Office Store is displayed in the left navigation bar. If you select **Settings** > **Developer Settings** > **Programs**, you'll see that Office Store is listed as registered.
-
 ## Next steps
 Now you're ready to [submit your solutions to Microsoft AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md).
 
 You can also [Manage your account settings and profile](manage-account-settings-and-profile.md).
-
-
