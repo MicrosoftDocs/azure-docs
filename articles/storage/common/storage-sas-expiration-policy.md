@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 08/16/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
