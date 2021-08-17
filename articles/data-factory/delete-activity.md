@@ -1,19 +1,19 @@
 ---
 title: Delete Activity in Azure Data Factory 
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to delete files in various file stores with the Delete Activity in Azure Data Factory.
+description: Learn how to delete files in various file stores with the Delete Activity in Azure Data Factory and Azure Synapse Analytics.
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 08/12/2020
 ---
 
-# Delete Activity in Azure Data Factory
+# Delete Activity in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
 
 You can use the Delete Activity in Azure Data Factory to delete files or folders from on-premises storage stores or cloud storage stores. Use this activity to clean up or archive files when they are no longer needed.
 
@@ -26,7 +26,7 @@ Here are some recommendations for using the Delete activity:
 
 -   Back up your files before deleting them with the Delete activity in case you need to restore them in the future.
 
--   Make sure that Data Factory has write permissions to delete folders or files from the storage store.
+-   Make sure that the service has write permissions to delete folders or files from the storage store.
 
 -   Make sure you are not deleting files that are being written at the same time. 
 
@@ -139,7 +139,7 @@ Now you are using the Delete activity to delete folder or files by the combinati
 
 ### Periodically clean up the time-partitioned folder or files
 
-You can create a pipeline to periodically clean up the time partitioned folder or files.  For example, the folder structure is similar as: `/mycontainer/2018/12/14/*.csv`.  You can leverage ADF system variable from schedule trigger to identify which folder or files should be deleted in each pipeline run. 
+You can create a pipeline to periodically clean up the time partitioned folder or files.  For example, the folder structure is similar as: `/mycontainer/2018/12/14/*.csv`.  You can leverage the service system variable from schedule trigger to identify which folder or files should be deleted in each pipeline run. 
 
 #### Sample pipeline
 
@@ -762,6 +762,6 @@ You can also get the template to move files from [here](solution-template-move-f
 
 ## Next steps
 
-Learn more about moving files in Azure Data Factory.
+Learn more about moving files in Azure Data Factory and Synapse pipelines.
 
--   [Copy Data tool in Azure Data Factory](copy-data-tool.md)
+-   [Copy Data tool](copy-data-tool.md)

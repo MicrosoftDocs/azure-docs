@@ -5,6 +5,7 @@ description: Learn how to copy data from supported source data stores to or from
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 11/20/2019

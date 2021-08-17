@@ -5,6 +5,7 @@ description: Learn how to copy data from Oracle Service Cloud to supported sink 
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 08/01/2019

@@ -90,7 +90,7 @@ The following example starts a child runbook with parameters and then waits for 
 Disable-AzContextAutosave -Scope Process
 
 # Connect to Azure with Run As account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+$ServicePrincipalConnection = Get-AzAutomationConnection -Name 'AzureRunAsConnection'
 
 Connect-AzAccount `
     -ServicePrincipal `

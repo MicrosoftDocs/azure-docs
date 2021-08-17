@@ -1,9 +1,10 @@
 ---
 title: Schema and data type mapping in copy activity 
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn about how copy activity in Azure Data Factory maps schemas and data types from source data to sink data.
+description: Learn about how copy activity in Azure Data Factory and Azure Synapse Analytics pipelines map schemas and data types from source data to sink data.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/22/2020
@@ -36,14 +37,14 @@ Learn more about:
 - [Hierarchical source to tabular sink](#hierarchical-source-to-tabular-sink)
 - [Tabular/Hierarchical source to hierarchical sink](#tabularhierarchical-source-to-hierarchical-sink)
 
-You can configure the mapping on Data Factory authoring UI -> copy activity -> mapping tab, or programmatically specify the mapping in copy activity -> `translator` property. The following properties are supported in `translator` -> `mappings` array -> objects ->  `source` and `sink`, which points to the specific column/field to map data.
+You can configure the mapping on the Authoring UI -> copy activity -> mapping tab, or programmatically specify the mapping in copy activity -> `translator` property. The following properties are supported in `translator` -> `mappings` array -> objects ->  `source` and `sink`, which points to the specific column/field to map data.
 
 | Property | Description                                                  | Required |
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Name of the source or sink column/field. Apply for tabular source and sink. | Yes      |
 | ordinal  | Column index. Start from 1. <br>Apply and required when using delimited text without header line. | No       |
 | path     | JSON path expression for each field to extract or map. Apply for hierarchical source and sink, for example, Cosmos DB, MongoDB, or REST connectors.<br>For fields under the root object, the JSON path starts with root `$`; for fields inside the array chosen by `collectionReference` property, JSON path starts from the array element without `$`. | No       |
-| type     | Data Factory interim data type of the source or sink column. In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
+| type     | Interim data type of the source or sink column. In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
 | culture  | Culture of the source or sink column. Apply when type is `Datetime` or `Datetimeoffset`. The default is `en-us`.<br>In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
 | format   | Format string to be used when type is `Datetime` or `Datetimeoffset`. Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) on how to format datetime. In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
 
@@ -171,11 +172,11 @@ And you want to copy it into a text file in the following format with header lin
 
 You can define such mapping on Data Factory authoring UI:
 
-1. On copy activity -> mapping tab, click **Import schemas** button to import both source and sink schemas. As Data Factory samples the top few objects when importing schema, if any field doesn't show up, you can add it to the correct layer in the hierarchy - hover on an existing field name and choose to add a node, an object, or an array.
+1. On copy activity -> mapping tab, click **Import schemas** button to import both source and sink schemas. As the service samples the top few objects when importing schema, if any field doesn't show up, you can add it to the correct layer in the hierarchy - hover on an existing field name and choose to add a node, an object, or an array.
 
 2. Select the array from which you want to iterate and extract data. It will be auto populated as **Collection reference**. Note only single array is supported for such operation.
 
-3. Map the needed fields to sink. Data Factory automatically determines the corresponding JSON paths for the hierarchical side.
+3. Map the needed fields to sink. The service automatically determines the corresponding JSON paths for the hierarchical side.
 
 > [!NOTE]
 > For records where the array marked as collection reference is empty and the check box is selected, the entire record is skipped.
@@ -269,9 +270,9 @@ If explicit mapping is needed, you can:
 
 Copy activity performs source types to sink types mapping with the following flow: 
 
-1. Convert from source native data types to Azure Data Factory interim data types.
+1. Convert from source native data types to interim data types used by Azure Data Factory and Synapse pipelines.
 2. Automatically convert interim data type as needed to match corresponding sink types, applicable for both [default mapping](#default-mapping) and [explicit mapping](#explicit-mapping).
-3. Convert from Azure Data Factory interim data types to sink native data types.
+3. Convert from interim data types to sink native data types.
 
 Copy activity currently supports the following interim data types: Boolean, Byte, Byte array, Datetime, DatetimeOffset, Decimal, Double, GUID, Int16, Int32, Int64, SByte, Single, String, Timespan, UInt16, UInt32, and UInt64.
 
@@ -303,7 +304,7 @@ The following properties are supported in copy activity for data type conversion
 
 | Property                         | Description                                                  | Required |
 | -------------------------------- | ------------------------------------------------------------ | -------- |
-| typeConversion                   | Enable the new data type conversion experience. <br>Default value is false due to backward compatibility.<br><br>For new copy activities created via Data Factory authoring UI since late June 2020, this data type conversion is enabled by default for the best experience, and you can see the following type conversion settings on copy activity -> mapping tab for applicable scenarios. <br>To create pipeline programmatically, you need to explicitly set `typeConversion` property to true to enable it.<br>For existing copy activities created before this feature is released, you won't see type conversion options on Data Factory authoring UI for backward compatibility. | No       |
+| typeConversion                   | Enable the new data type conversion experience. <br>Default value is false due to backward compatibility.<br><br>For new copy activities created via Data Factory authoring UI since late June 2020, this data type conversion is enabled by default for the best experience, and you can see the following type conversion settings on copy activity -> mapping tab for applicable scenarios. <br>To create pipeline programmatically, you need to explicitly set `typeConversion` property to true to enable it.<br>For existing copy activities created before this feature is released, you won't see type conversion options on the authoring UI for backward compatibility. | No       |
 | typeConversionSettings           | A group of type conversion settings. Apply when `typeConversion` is set to `true`. The following properties are all under this group. | No       |
 | *Under `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Allow data truncation when converting source data to sink with different type during copy, for example, from decimal to integer, from DatetimeOffset to Datetime. <br>Default value is true. | No       |
@@ -346,7 +347,7 @@ The following properties are supported in copy activity for data type conversion
 ## Legacy models
 
 > [!NOTE]
-> The following models to map source columns/fields to sink are still supported as is for backward compatibility. We suggest that you use the new model mentioned in [schema mapping](#schema-mapping). Data Factory authoring UI has switched to generating the new model.
+> The following models to map source columns/fields to sink are still supported as is for backward compatibility. We suggest that you use the new model mentioned in [schema mapping](#schema-mapping). The authoring UI has switched to generating the new model.
 
 ### Alternative column-mapping (legacy model)
 

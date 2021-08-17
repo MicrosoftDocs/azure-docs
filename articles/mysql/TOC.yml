@@ -456,6 +456,12 @@
       - name: Networking concepts 
         href: flexible-server/concepts-networking.md
         displayName: virtual network, IP address, public access
+      - name: Private Access 
+        href: flexible-server/concepts-networking-vnet.md
+        displayName: virtual network
+      - name: Public Access 
+        href: flexible-server/concepts-networking-public.md
+        displayName: Public access,
     - name: Service Maintenance
       items:
       - name: Scheduled Maintenance

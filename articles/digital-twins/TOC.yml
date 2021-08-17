@@ -103,8 +103,8 @@
       href: how-to-manage-twin.md
     - name: Manage the twin graph and relationships
       href: how-to-manage-graph.md
-    - name: Set up an Azure function for processing data
-      href: how-to-create-azure-function.md
+    - name: Set up twin-to-twin event handling
+      href: how-to-send-twin-to-twin-events.md
     - name: Query the twin graph
       href: how-to-query-graph.md
   - name: Develop client apps

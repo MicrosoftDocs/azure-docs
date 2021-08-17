@@ -554,6 +554,8 @@ You can use a startup script to perform actions before a web app starts. The sta
 3. Make the required configuration changes.
 4. Indicate that configuration was successfully completed.
 
+For Windows sites, create a file named `startup.cmd` or `startup.ps1` in the `wwwroot` directory. This will automatically be executed before the Tomcat server starts.
+
 Here's a PowerShell script that completes these steps:
 
 ```powershell

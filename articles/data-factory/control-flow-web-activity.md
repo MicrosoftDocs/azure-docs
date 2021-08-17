@@ -1,20 +1,21 @@
 ---
-title: Web Activity in Azure Data Factory 
+title: Web Activity
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how you can use Web Activity, one of the control flow activities supported by Data Factory, to invoke a REST endpoint from a pipeline.
+description: Learn how you can use Web Activity, one of the control flow activities supported by Azure Data Factory and Azure Synapse Analytics, to invoke a REST endpoint from a pipeline.
 author: nabhishek
 ms.author: abnarain
 ms.service: data-factory
+ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 12/19/2018
 ---
 
-# Web activity in Azure Data Factory
+# Web activity in Azure Data Factory and Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 
-Web Activity can be used to call a custom REST endpoint from a Data Factory pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
+Web Activity can be used to call a custom REST endpoint from an Azure Data Factory or Synapse pipeline. You can pass datasets and linked services to be consumed and accessed by the activity.
 
 > [!NOTE]
 > Web Activity is supported for invoking URLs that are hosted in a private virtual network as well by leveraging self-hosted integration runtime. The integration runtime should have a line of sight to the URL endpoint. 
@@ -125,7 +126,7 @@ Specify base64-encoded contents of a PFX file and the password.
 
 ### Managed Identity
 
-Specify the resource uri for which the access token will be requested using the managed identity for the data factory. To call the Azure Resource Management API, use `https://management.azure.com/`. For more information about how managed identities works see the [managed identities for Azure resources overview page](../active-directory/managed-identities-azure-resources/overview.md).
+Specify the resource uri for which the access token will be requested using the managed identity for the data factory or Synapse workspace instance. To call the Azure Resource Management API, use `https://management.azure.com/`. For more information about how managed identities works see the [managed identities for Azure resources overview page](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {
@@ -135,7 +136,7 @@ Specify the resource uri for which the access token will be requested using the 
 ```
 
 > [!NOTE]
-> If your data factory is configured with a git repository, you must store your credentials in Azure Key Vault to use basic or client certificate authentication. Azure Data Factory doesn't store passwords in git.
+> If your data factory or Synapse workspace is configured with a git repository, you must store your credentials in Azure Key Vault to use basic or client certificate authentication. The service does not store passwords in git.
 
 ## Request payload schema
 When you use the POST/PUT method, the body property represents the payload that is sent to the endpoint. You can pass linked services and datasets as part of the payload. Here is the schema for the payload:
@@ -255,7 +256,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## Next steps
-See other control flow activities supported by Data Factory:
+See other supported control flow activities:
 
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)
 - [For Each Activity](control-flow-for-each-activity.md)

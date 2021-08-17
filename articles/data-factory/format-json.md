@@ -1,16 +1,17 @@
 ---
-title: JSON format in Azure Data Factory 
+title: JSON format
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 'This topic describes how to deal with JSON format in Azure Data Factory.'
+description: This topic describes how to deal with JSON format in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jianleishen
 ---
 
-# JSON format in Azure Data Factory
+# JSON format in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -79,8 +80,8 @@ Supported **JSON read settings** under `formatSettings`:
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | The type of formatSettings must be set to **JsonReadSettings**. | Yes      |
 | compressionProperties | A group of properties on how to decompress data for a given compression codec. | No       |
-| preserveZipFileNameAsFolder<br>(*under `compressionProperties`->`type` as `ZipDeflateReadSettings`*)  | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, Data Factory writes unzipped files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
-| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties`->`type` as `TarGZipReadSettings` or `TarReadSettings`*) | Applies when input dataset is configured with **TarGzip**/**Tar** compression. Indicates whether to preserve the source compressed file name as folder structure during copy.<br>- When set to **true (default)**, Data Factory writes decompressed files to `<path specified in dataset>/<folder named as source compressed file>/`. <br>- When set to **false**, Data Factory writes decompressed files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source files to avoid racing or unexpected behavior. | No |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties`->`type` as `ZipDeflateReadSettings`*)  | Applies when input dataset is configured with **ZipDeflate** compression. Indicates whether to preserve the source zip file name as folder structure during copy.<br>- When set to **true (default)**, the service writes unzipped files to `<path specified in dataset>/<folder named as source zip file>/`.<br>- When set to **false**, the service writes unzipped files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source zip files to avoid racing or unexpected behavior.  | No |
+| preserveCompressionFileNameAsFolder<br>(*under `compressionProperties`->`type` as `TarGZipReadSettings` or `TarReadSettings`*) | Applies when input dataset is configured with **TarGzip**/**Tar** compression. Indicates whether to preserve the source compressed file name as folder structure during copy.<br>- When set to **true (default)**, the service writes decompressed files to `<path specified in dataset>/<folder named as source compressed file>/`. <br>- When set to **false**, the service writes decompressed files directly to `<path specified in dataset>`. Make sure you don't have duplicated file names in different source files to avoid racing or unexpected behavior. | No |
 
 ### JSON as sink
 
@@ -251,7 +252,7 @@ If **Document per line** is selected, mapping data flows read one JSON document 
 
 ``` json
 File1.json
-{"json": "record 1 }
+{"json": "record 1"}
 
 File2.json
  {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}

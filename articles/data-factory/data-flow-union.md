@@ -5,6 +5,7 @@ description: Azure Data Factory mapping data flow New Branch Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 04/27/2020

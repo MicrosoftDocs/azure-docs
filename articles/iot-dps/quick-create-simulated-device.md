@@ -7,7 +7,7 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
-manager: philmea
+
 ms.custom:  [mvc, amqp, mqtt]
 #Customer intent: As a new IoT developer, I want simulate a TPM device using the C SDK so that I can learn how secure provisioning works.
 ---

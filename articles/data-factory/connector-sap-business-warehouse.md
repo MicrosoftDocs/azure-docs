@@ -5,6 +5,7 @@ description: Learn how to copy data from SAP Business Warehouse to supported sin
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 09/04/2019

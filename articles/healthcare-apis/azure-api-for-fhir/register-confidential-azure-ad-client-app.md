@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 08/05/2021
 ms.author: cavoeg
 ---
 
@@ -24,7 +24,7 @@ To register a new confidential client application, refer to the steps below.
 
 1. Select **App registrations**. 
 
-    :::image type="content" source="media/how-to-aad/portal-aad-new-app-registration.png" alt-text="Azure portal. New App Registration.":::
+    :::image type="content" source="media/add-azure-active-directory/portal-aad-new-app-registration.png" alt-text="Azure portal. New App Registration.":::
 
 1. Select **New registration**.
 
@@ -34,7 +34,7 @@ To register a new confidential client application, refer to the steps below.
 
 1. (Optional) Provide a **Redirect URI**. These details can be changed later, but if you know the reply URL of your application, enter it now.
 
-    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png" alt-text="New Confidential Client App Registration.":::
+    :::image type="content" source="media/add-azure-active-directory/portal-aad-register-new-app-registration-confidential-client.png" alt-text="New Confidential Client App Registration.":::
 
 1. Select **Register**.
 
@@ -44,7 +44,7 @@ Now that you've registered your application, you must select which API permissio
 
 1. Select **API permissions**.
 
-    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png" alt-text="Confidential client. API Permissions.":::
+    :::image type="content" source="media/add-azure-active-directory/portal-aad-register-new-app-registration-confidential-client-api-permissions.png" alt-text="Confidential client. API Permissions.":::
 
 1. Select **Add a permission**.
 
@@ -53,27 +53,27 @@ Now that you've registered your application, you must select which API permissio
     If you're referencing a different resource application, select your [FHIR API Resource Application Registration](register-resource-azure-ad-client-app.md) that you created previously under **My APIs**.
 
 
-    :::image type="content" source="media/conf-client-app/confidential-client-org-api.png" alt-text="Confidential client. My Org APIs" lightbox="media/conf-client-app/confidential-app-org-api-expanded.png":::
+    :::image type="content" source="media/confidential-client-application/confidential-client-org-api.png" alt-text="Confidential client. My Org APIs" lightbox="media/confidential-client-application/confidential-app-org-api-expanded.png":::
     
 
 1. Select scopes (permissions) that the confidential client application will ask for on behalf of a user. Select **user_impersonation**, and then select **Add permissions**.
 
-    :::image type="content" source="media/conf-client-app/confidential-client-add-permission.png" alt-text="Confidential client. Delegated Permissions":::
+    :::image type="content" source="media/confidential-client-application/confidential-client-add-permission.png" alt-text="Confidential client. Delegated Permissions":::
 
 
 ## Application secret
 
 1. Select **Certificates & secrets**, and then select **New client secret**. 
 
-    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png" alt-text="Confidential client. Application Secret.":::
+    :::image type="content" source="media/add-azure-active-directory/portal-aad-register-new-app-registration-confidential-client-secret.png" alt-text="Confidential client. Application Secret.":::
 
 1. Enter a **Description** for the client secret. Select the **Expires** drop-down menu to choose an expiration time frame, and then click **Add**.
 
-   :::image type="content" source="media/how-to-aad/add-a-client-secret.png" alt-text="Add a client secret.":::
+   :::image type="content" source="media/add-azure-active-directory/add-a-client-secret.png" alt-text="Add a client secret.":::
 
 1. After the client secret string is created, copy its **Value** and **ID**, and store them in a secure location of your choice.
 
-   :::image type="content" source="media/how-to-aad/client-secret-string-password.png" alt-text="Client secret string."::: 
+   :::image type="content" source="media/add-azure-active-directory/client-secret-string-password.png" alt-text="Client secret string."::: 
 
 > [!NOTE]
 >The client secret string is visible only once in the Azure portal. When you navigate away from the Certificates & secrets web page and then return back to it, the Value string becomes masked. It's important to make a copy your client secret string immediately after it is generated. If you don't have a backup copy of your client secret, you must repeat the above steps to regenerate it.

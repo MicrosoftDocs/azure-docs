@@ -5,6 +5,7 @@ description: Learn how to copy data from ServiceNow to supported sink data store
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
 ms.date: 08/01/2019

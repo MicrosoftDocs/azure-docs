@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/05/2021
+ms.date: 08/17/2021
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
 
-Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. 
+Azure NetApp Files supports creating volumes using NFS (NFSv3 or NFSv4.1), SMB3, or dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB). A volume's capacity consumption counts against its pool's provisioned capacity. 
 
 This article shows you how to create an SMB3 volume. For NFS volumes, see [Create an NFS volume](azure-netapp-files-create-volumes.md). For dual-protocol volumes, see [Create a dual-protocol volume](create-volumes-dual-protocol.md).
 
@@ -148,16 +148,7 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
 ## Control access to an SMB volume  
 
-Access to an SMB volume is managed through permissions.  
-
-### Share permissions  
-
-By default, a new volume has the **Everyone / Full Control** share permissions. Members of the Domain Admins group can change the share permissions as follows:  
-
-1. Map the share to a drive.  
-2. Right-click the drive, select **Properties**, then go to the **Security** tab.
-
-[ ![Set share permissions](../media/azure-netapp-files/set-share-permissions.png)](../media/azure-netapp-files/set-share-permissions.png#lightbox)
+Access to an SMB volume is managed through permissions. 
 
 ### NTFS file and folder permissions  
 

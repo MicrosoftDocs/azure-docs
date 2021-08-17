@@ -4,6 +4,7 @@ description: In this tutorial, you create an Azure Data Factory pipeline that co
 ms.author: yexu
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 02/18/2021

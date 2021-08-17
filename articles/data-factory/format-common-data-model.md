@@ -4,6 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Transform data using the Common Data Model metadata system
 author: kromerm
 ms.service: data-factory
+ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 02/04/2021
@@ -81,7 +82,7 @@ When mapping data flow columns to entity properties in the Sink transformation, 
 2. Find the partitions.Location property 
 3. Change "blob.core.windows.net" to "dfs.core.windows.net"
 4. Fix any "%2F" encoding in the URL to "/"
-5. If using ADF Data Flows, Special characters in the partition file path must be replaced with alpha-numeric values, or switch to Synapse Data Flows
+5. If using ADF Data Flows, Special characters in the partition file path must be replaced with alpha-numeric values, or switch to Azure Synapse Data Flows
 
 ### CDM source data flow script example
 

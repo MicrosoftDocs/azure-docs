@@ -77,6 +77,26 @@ The following parameters can be leveraged to configure Private DNS Zone.
 * The AKS Preview version 0.5.19 or later
 * The api version 2021-05-01 or later
 
+To use the fqdn-subdomain feature, you must enable the `EnablePrivateClusterFQDNSubdomain` feature flag on your subscription. 
+
+Register the `EnablePrivateClusterFQDNSubdomain` feature flag by using the [az feature register][az-feature-register] command as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "EnablePrivateClusterFQDNSubdomain"
+```
+
+You can check on the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnablePrivateClusterFQDNSubdomain')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
 ### Create a private AKS cluster with Private DNS Zone
 
 ```azurecli-interactive
@@ -95,9 +115,9 @@ The Public DNS option can be leveraged to simplify routing options for your Priv
 
 ![Public DNS](https://user-images.githubusercontent.com/50749048/124776520-82629600-df0d-11eb-8f6b-71c473b6bd01.png)
 
-1. By specifying `--enable-public-fqdn` when you provision a private cluster, you create an additional A record for the new FQDN in the AKS public DNS zone. The agentnode still uses the A record in the private zone to resolve the IP address of the private endpoint for communication to the API server.
+1. By specifying `--enable-public-fqdn` when you provision a private AKS cluster, AKS creates an additional A record for its FQDN in Azure public DNS. The agent nodes still use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.
 
-2. If you use both `--enable-public-fqdn` and `--private-dns-zone none`, the cluster public FQDN and private FQDN have the same value. The value is in the AKS public DNS zone `hcp.{REGION}.azmk8s.io`. It's a breaking change for the private DNS zone mode cluster. 
+2. If you use both `--enable-public-fqdn` and `--private-dns-zone none`, the cluster will only have a public FQDN. When using this option, no Private DNS Zone is created or used for the name resolution of the FQDN of the API Server. The IP of the API is still private and not publicly routable.
 
 ### Register the `EnablePrivateClusterPublicFQDN` preview feature
 
@@ -232,6 +252,7 @@ As mentioned, virtual network peering is one way to access your private cluster.
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
