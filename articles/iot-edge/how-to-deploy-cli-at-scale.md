@@ -171,12 +171,12 @@ The same can also be expressed with:
 }
 ```
 
-> Warning: Currently it is not possible to just have a layered deployment update only properties, without also adding user modules
+> Warning: Currently there is a bug with a layered deployment that updates only properties, where the deployment is never marked as applied in the portal
 
 In summary, to create a layered deployment:
 
 - Must add the `--layered` flag to the Azure CLI create command
-- Must contain user modules
+- It may not contain system modules
 - Must use the 'dot notation' under `$edgeAgent` and `$edgeHub`
 
 For more information about configuring module twins in layered deployments, see [Layered deployment](module-deployment-monitoring.md#layered-deployment)
