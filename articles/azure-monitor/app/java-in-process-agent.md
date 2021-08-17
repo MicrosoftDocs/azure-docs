@@ -435,10 +435,10 @@ String operationId = requestTelemetry.getContext().getOperation().getId();
 ```
 
 ## Troubleshooting
-See [Troubleshooting](./troubleshooting.md).
+See [Troubleshooting](./java-standalone-troubleshoot.md).
 
 ## Support
-- Review [Troubleshooting steps](./troubleshooting.md).
+- Review [Troubleshooting steps](./java-standalone-troubleshoot.md).
 - For Azure support issues, file an Azure SDK GitHub issue or open a CSS Ticket.
 - For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
 
