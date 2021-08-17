@@ -108,7 +108,9 @@ keyvaultID=$(az keyvault show --resource-group <resource-group-name> --name <key
 
 ### Enable key vault access by trusted services
 
-If the key vault is protected with a Key Vault firewall, enable the setting to allow access by trusted Azure services. For more information, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-cli).
+If the key vault is protected with a firewall or virtual network (private endpoint), enable the network setting to allow access by [trusted Azure services](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). 
+
+For more information, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-cli).
 
 
 ### Enable key vault access by managed identity
@@ -257,7 +259,9 @@ When creating a key vault for a customer-managed key, in the **Basics** tab, ena
 
 ### Enable key vault access by trusted services
 
-If the key vault is protected with a Key Vault firewall, enable the setting to **Allow Trusted Microsoft Services to bypass this firewall**. For more information, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-portal).
+If the key vault is protected with a firewall or virtual network (private endpoint), enable the network setting to allow access by [trusted Azure services](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). 
+
+For more information, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-portal).
 
 ### Enable key vault access by managed identity
 
@@ -549,6 +553,12 @@ Then, after changing the key and assigning a different identity, you can remove 
 **System-assigned identity**
 
 If this issue occurs with a system-assigned identity, please [create an Azure support ticket](https://azure.microsoft.com/support/create-ticket/) for assistance to restore the identity.
+
+### Enabling key vault firewall
+
+If you enable a key vault firewall or virtual network after creating an encrypted registry, you might see HTTP 403 or other errors with image import or automated key rotation. To correct this problem, reconfigure the managed identity and key you used initially for encryption. See steps in [Rotate key](#rotate-key). 
+
+If the problem persists, please contact Azure Support.
 
 ## Next steps
 
