@@ -21,7 +21,7 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 - Application Insights Resource (Free to [create](create-workspace-resource.md#create-workspace-based-resource))
 
 ### Enable Azure Monitor Application Insights
-1. Install package
+**1. Install package**
 
 Add code to xyz.file in your application
 
@@ -29,20 +29,22 @@ Add code to xyz.file in your application
 Placeholder
 ```
 
-2. Add connection string
+**2. Add connection string**
 
 Replace placeholder connection string with YOUR connection string.
 
-//language specific screenshot here
+:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
 
 Find the connection string on your Application Insights Resource.
 
 //screenshot
 
-3. Confirm Data is Flowing
+**3. Confirm Data is Flowing**
 
 Generate requests in your application and open your Application Insights Resource.
-It may take up to a couple minutes for data to start flowing.
+
+> [!NOTE]
+> It may take a couple minutes for data to show up in the Portal.
 
 //screenshot
 
@@ -63,6 +65,21 @@ OpenTelemetry SDKs provide built-in sampling as a way to control data volume and
 
 > [!WARNING]
 > We do not recommend enabling sampling in the preview release because it will result in broken traces if used alongside the existing Application Insights SDKs and it will make standard and log-based metrics inaccurate.
+
+## Instrumentation Libraries
+Microsoft has tested and validated that the following instrumentation libraries will work with the **Preview** Release.
+
+> [!NOTE]
+> Instrumentation libraries are based on experimental OpenTelemetry specifications. Microsoft’s **preview** support commitment is to ensure the libraries listed below emit data to Azure Monitor Application Insights, but it’s possible that breaking changes or experimental mapping will block some data elements.
+
+### HTTP
+- XYZ (version X.X)
+
+### Database
+- XYZ (version X.X)
+
+> [!NOTE]
+> The **preview** offering only includes instrumentations that handle HTTP and Database requests. In the future, we plan to support other request types. See [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions) to learn more.
 
 ## Modify Telemetry
 ### Filter Telemetry
@@ -92,21 +109,6 @@ Placeholder
 
 For more information, see [GitHub Repo](link).
 
-## Instrumentation Libraries
-Microsoft has tested and validated that the following instrumentation libraries will work with the **Preview** Release.
-
-> [!NOTE]
-> Instrumentation libraries are based on experimental OpenTelemetry specifications. Microsoft’s **preview** support commitment is to ensure the libraries listed below emit data to Azure Monitor Application Insights, but it’s possible that breaking changes or experimental mapping will block some data elements.
-
-### HTTP
-- XYZ (version X.X)
-
-### Database
-- XYZ (version X.X)
-
-> [!NOTE]
-> The **preview** offering only includes instrumentations that handle HTTP and Database requests. In the future, we plan to support other request types. See [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions) to learn more.
-
 ## Troubleshooting
 ### Enable Diagnostic Logging
 Placeholder
@@ -127,3 +129,4 @@ Placeholder
 - [Azure Monitor PyPI Package](https://pypi.org/project/pip/)
 - [Azure Monitor Sample Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python)
 - [OpenTelemetry Community Language GitHub Repository](https://github.com/open-telemetry/opentelemetry-python)
+- [Enable web/browser user monitoring](./javascript.md)
