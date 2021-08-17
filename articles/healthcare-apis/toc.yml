@@ -37,6 +37,8 @@ items:
       href: using-rest-client.md
     - name: Register applications
       href: register-application.md
+    - name: Logging
+      href: logging.md
 
 - name: Resources
   expanded: true
