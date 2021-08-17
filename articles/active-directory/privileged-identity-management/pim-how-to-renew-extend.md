@@ -93,7 +93,7 @@ While conceptually similar to the process for requesting an extension, the proce
 
 ### Self-renew
 
-Users who can no longer access resources can access up to 30 days of expired assignment history. To do this, they browse to **My Roles** in the left pane, and then select the **Expired roles** tab in the Azure roles section.
+Users who can no longer access resources can access up to 30 days of expired assignment history. To do this, they browse to **My Roles** in the left pane, and then select the **Expired roles** tab in the Azure AD roles section.
 
 ![My roles page - Expired roles tab](./media/pim-how-to-renew-extend/renew-from-myroles.png)
 
