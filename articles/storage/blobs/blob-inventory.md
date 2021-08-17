@@ -23,7 +23,7 @@ The following list describes features and capabilities that are available in the
 
 - **Inventory reports for blobs and containers**
 
-  You can generate inventory reports for blobs and containers. A report for blobs can contain base blobs, snapshots, blob versions and their associated properties such as creation time, last modified time. A report for containers describes containers and their associated properties such as immutability policy status, legal hold status. 
+  You can generate inventory reports for blobs and containers. A report for blobs can contain base blobs, snapshots, blob versions and their associated properties such as creation time, last modified time. A report for containers describes containers and their associated properties such as immutability policy status, legal hold status.
 
 - **Custom Schema**
 
@@ -31,7 +31,7 @@ The following list describes features and capabilities that are available in the
 
 - **CSV and Apache Parquet output format**
 
-  You can generate an inventory report in either CSV or Apache Parquet output format. 
+  You can generate an inventory report in either CSV or Apache Parquet output format.
 
 - **Manifest file and Azure Event Grid event per inventory report**
 
@@ -47,7 +47,7 @@ If you are an existing Azure Storage blob inventory user who has configured inve
 
 - A destination container is now supported for every rule instead of just being supported for the policy.
 
-- A manifest file and Azure Event Grid event are now generated per rule instead of per policy. 
+- A manifest file and Azure Event Grid event are now generated per rule instead of per policy.
 
 ## Inventory policy
 
@@ -74,10 +74,10 @@ An inventory policy is a collection of rules in a JSON document.
 
 View the JSON for an inventory policy by selecting the **Code view** tab in the **Blob inventory** section of the Azure portal.
 
-| Parameter name | Parameter type        | Notes | Required? |
-|----------------|-----------------------|-------|-----------|
-| enabled        | boolean               | Used to disable the entire policy. When set to **true**, the rule level enabled field overrides this parameter. When disabled, inventory for all rules will be disabled. | Yes |
-| rules          | Array of rule objects | At least one rule is required in a policy. Up to 100 rules are supported per policy. | Yes |
+| Parameter name | Parameter type | Notes | Required? |
+|--|--|--|--|
+| enabled | boolean | Used to disable the entire policy. When set to **true**, the rule level enabled field overrides this parameter. When disabled, inventory for all rules will be disabled. | Yes |
+| rules | Array of rule objects | At least one rule is required in a policy. Up to 100 rules are supported per policy. | Yes |
 
 ## Inventory rules
 
@@ -85,12 +85,12 @@ A rule captures the filtering conditions and output parameters for generating an
 
 Each rule within the policy has several parameters:
 
-| Parameter name | Parameter type                 | Notes | Required? |
-|----------------|--------------------------------|-------|-----------|
-| name           | string                         | A rule name can include up to 256 case-sensitive alphanumeric characters. The name must be unique within a policy. | Yes |
-| enabled        | boolean                        | A flag allowing a rule to be enabled or disabled. The default value is **true**. | Yes |
-| definition     | JSON inventory rule definition | Each definition is made up of a rule filter set. | Yes |
-| destination    | string                | The destination container where all inventory files will be generated. The destination container must already exist.|
+| Parameter name | Parameter type | Notes | Required? |
+|--|--|--|--|
+| name | string | A rule name can include up to 256 case-sensitive alphanumeric characters. The name must be unique within a policy. | Yes |
+| enabled | boolean | A flag allowing a rule to be enabled or disabled. The default value is **true**. | Yes |
+| definition | JSON inventory rule definition | Each definition is made up of a rule filter set. | Yes |
+| destination | string | The destination container where all inventory files will be generated. The destination container must already exist. |
 
 The global **Blob inventory enabled** flag takes precedence over the *enabled* parameter in a rule.
 
@@ -108,12 +108,12 @@ The global **Blob inventory enabled** flag takes precedence over the *enabled* p
 
 Several filters are available for customizing a blob inventory report:
 
-| Filter name         | Filter type                     | Notes | Required? |
-|---------------------|---------------------------------|-------|-----------|
-| blobTypes           | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field is not applicable for inventory on a container, (objectType: `container`). | Yes |
-| prefixMatch         | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, `container`, `container1/foo`.| No |
-| includeSnapshots    | boolean                         | Specifies whether the inventory should include snapshots. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`).| No |
-| includeBlobVersions | boolean                         | Specifies whether the inventory should include blob versions. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`).| No |
+| Filter name | Filter type | Notes | Required? |
+|--|--|--|--|
+| blobTypes | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field is not applicable for inventory on a container, (objectType: `container`). | Yes |
+| prefixMatch | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, `container`, `container1/foo`. | No |
+| includeSnapshots | boolean | Specifies whether the inventory should include snapshots. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`). | No |
+| includeBlobVersions | boolean | Specifies whether the inventory should include blob versions. Default is `false`. This field is not applicable for inventory on a container, (objectType: `container`). | No |
 
 View the JSON for inventory rules by selecting the **Code view** tab in the **Blob inventory** section of the Azure portal. Filters are specified within a rule definition.
 
@@ -313,7 +313,7 @@ Each inventory run for a rule generates the following files:
 
 Pricing for inventory is based on the number of blobs and containers that are scanned during the billing period. As an example, suppose an account contains one million blobs, and blob inventory is set to run once per week. After four weeks, four million blob entries will have been scanned.
 
-Blob inventory metering begins charging on October 1, 2021. Regional pricing will be published at that time. The baseline price without regional adjustment is approximately $0.0025 USD per million entries scanned for blob storage and $0.0035 USD if Data Lake Storage Gen2 is enabled. After inventory files are created, additional standard data storage and operations charges will be incurred for storing, reading, and writing the inventory-generated files in the account.
+Billing for blob inventory begins on October 1, 2021. Regional pricing will be published at that time. The baseline price without regional adjustment is approximately $0.0025 USD per million entries scanned for blob storage and $0.0035 USD if Data Lake Storage Gen2 is enabled. After inventory files are created, additional standard data storage and operations charges will be incurred for storing, reading, and writing the inventory-generated files in the account.
 
 After an inventory report is complete, additional standard data storage and operations charges are incurred for storing, reading, and writing the inventory report in the storage account.
 
