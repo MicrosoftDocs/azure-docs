@@ -204,7 +204,7 @@ A Kubelet identity enables access to be granted to the existing identity prior t
 ### Limitations
 
 - Only works with a User-Assigned Managed cluster.
-- Azure China 21Vianet isn't currently supported.
+- China East, China North in Azure China 21Vianet aren't currently supported.
 
 ### Create or obtain managed identities
 
