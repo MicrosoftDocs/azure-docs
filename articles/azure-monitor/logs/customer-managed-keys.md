@@ -124,7 +124,7 @@ Clusters support System-assigned managed identity and identity `type` property s
   }
   ```
 
-Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#creating-a-cluster). 
+Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#create-a-cluster). 
 
 ## Grant Key Vault permissions
 
@@ -242,7 +242,7 @@ A response to GET request should look like this when the key update is complete:
 
 You need to have 'write' permissions to both your workspace and cluster to perform this operation, which include `Microsoft.OperationalInsights/workspaces/write` and `Microsoft.OperationalInsights/clusters/write`.
 
-Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#link-a-workspace-to-cluster).
+Follow the procedure illustrated in [Dedicated Clusters article](./logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 
 ## Key revocation
 

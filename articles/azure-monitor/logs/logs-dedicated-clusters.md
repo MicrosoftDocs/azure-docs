@@ -88,7 +88,7 @@ You can have up to 2 active clusters per subscription per region. If the cluster
 
 The user account that creates the clusters must have the standard Azure resource creation permission: `Microsoft.Resources/deployments/*` and cluster write permission `Microsoft.OperationalInsights/clusters/write` by having in their role assignments this specific action or `Microsoft.OperationalInsights/*` or `*/write`.
 
-### PowerShell
+**PowerShell**
 
 ```powershell
 New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} -AsJob
@@ -97,7 +97,7 @@ New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Clust
 Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 ```
 
-### REST API
+**REST API**
 
 *Call* 
 
@@ -131,7 +131,7 @@ Should be 202 (Accepted) and a header.
 
 The provisioning of the Log Analytics cluster takes a while to complete. Use one of the following methods to check the provisioning state:
 
-#### PowerShell
+**PowerShell**
 
 Run *Get-AzOperationalInsightsCluster* with the resource group name and check the *ProvisioningState* property. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed. Copy the Azure-AsyncOperation URL value from the response and follow the asynchronous operations status check.
 
@@ -141,7 +141,7 @@ Run *Get-AzOperationalInsightsCluster* with the resource group name and check th
   ```
 
  
-#### REST API
+**REST API**
 
 Send a GET request on the cluster resource and look at the *provisioningState* value. The value is *ProvisioningAccount* while provisioning and *Succeeded* when completed.
 
@@ -210,7 +210,7 @@ Linking a workspace can be performed only after the completion of the Log Analyt
 > Linking a workspace to a cluster requires syncing multiple backend components and assuring cache hydration. Since this operation may take up to two hours to complete, you should you run it asynchronously.
 
 
-### PowerShell
+**PowerShell**
 
 Use the following PowerShell command to link to a cluster:
 
@@ -225,7 +225,7 @@ Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} 
 Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Property *
 ```
 
-### REST API
+**REST API**
 
 Use the following REST call to link to a cluster:
 
@@ -256,17 +256,17 @@ When a cluster is configured with customer-managed keys, data ingested to the wo
 - Copy the Azure-AsyncOperation URL value from the response and follow the asynchronous operations status check.
 - Perform Get operation on the workspace and observe if *clusterResourceId* property is present in the response under *features*.
 
-#### CLI 
+**CLI **
 ```azurecli
 az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
-#### PowerShell
+**PowerShell**
 
 ```powershell
 Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
 
-#### REST API
+**REST API**
 
 *Call*
 
@@ -329,18 +329,18 @@ After you create your cluster resource and it is fully provisioned, you can edit
 
 ## Get all clusters in resource group
 
-### CLI
+**CLI**
 
 ```azurecli
 az monitor log-analytics cluster list --resource-group "resource-group-name"
 ```
-### PowerShell
+**PowerShell**
 
 ```powershell
 Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 ```
 
-### REST API
+**REST API**
 
 *Call*
 
@@ -392,18 +392,18 @@ Authorization: Bearer <token>
 
 ## Get all clusters in subscription
 
-### CLI
+**CLI**
 
 ```azurecli
 az monitor log-analytics cluster list
 ```
 
-### PowerShell
+**PowerShell**
 
 ```powershell
 Get-AzOperationalInsightsCluster
 ```
-### REST API
+**REST API**
 
 *Call*
 
@@ -423,7 +423,7 @@ The same as for 'clusters in a resource group', but in subscription scope.
 
 When the data volume to your linked workspaces change over time and you want to update the Commitment Tier level appropriately. The tier is specified in units of GB and can have values of 500, 1000, 2000 or 5000 GB/day. Note that you don’t have to provide the full REST request body but should include the sku.
 
-### CLI
+**CLI**
 
 
 ```azurecli
@@ -487,13 +487,13 @@ Old data of the unlinked workspace might be left on the cluster. If this data is
 > [!WARNING] 
 > There is a limit of two linking operations for a specific workspace within a month. Take time to consider and plan unlinking actions accordingly.
 
-# [CLI](#tab/cli3)
+**CLI**
 
 ```azurecli
 az monitor log-analytics workspace linked-service delete --resource-group "resource-group-name" --workspace-name "workspace-name" --name cluster
 ```
 
-# [PowerShell](#tab/powershell3)
+**PowerShell**
 
 Use the following PowerShell command to unlink a workspace from cluster:
 
@@ -520,7 +520,7 @@ Within the 14 days after deletion, the cluster resource name is reserved and can
 > [!WARNING] 
 > There is a limit of three clusters per subscription. Both active and soft-deleted clusters are counted as part of this. Customers should not create recurrent procedures that create and delete clusters. It has a significant impact on Log Analytics backend systems.
 
-### PowerShell
+**PowerShell**
 
 Use the following PowerShell command to delete a cluster:
 
@@ -528,7 +528,7 @@ Use the following PowerShell command to delete a cluster:
 Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
 ```
 
-### REST API
+**REST API**
 
 Use the following REST call to delete a cluster:
 
@@ -577,9 +577,9 @@ Authorization: Bearer <token>
 
 - Workspace link to cluster will fail if it is linked to another cluster.
 
-### Error messages
+## Error messages
   
-#### Cluster Create
+### Cluster Create
 
 -  400 -- Cluster name is not valid. Cluster name can contain characters a-z, A-Z, 0-9 and length of 3-63.
 -  400 -- The body of the request is null or in bad format.
@@ -592,7 +592,7 @@ Authorization: Bearer <token>
 -  400 -- KeyVaultProperties are set on creation. Update KeyVaultProperties after cluster creation.
 -  400 -- Operation cannot be executed now. Async operation is in a state other than succeeded. Cluster must complete its operation before any update operation is performed.
 
-#### Cluster Update
+### Cluster Update
 
 -  400 -- Cluster is in deleting state. Async operation is in progress . Cluster must complete its operation before any update operation is performed.
 -  400 -- KeyVaultProperties is not empty but has a bad format. See [key identifier update](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details).
