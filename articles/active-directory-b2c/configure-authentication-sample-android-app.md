@@ -49,7 +49,7 @@ The apps registration and application architecture are illustrated in the follow
 
 [!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-app-integration-call-api.md)]
 
-### Sign-out
+### The sign-out flow
 
 [!INCLUDE [active-directory-b2c-app-integration-sign-out-flow](../../includes/active-directory-b2c-app-integration-sign-out-flow.md)]
 
@@ -140,7 +140,7 @@ This sample acquires an access token with the relevant scopes that the mobile ap
 
 ## Step 5: Configure the sample mobile app
 
-Open the sample project with Android Studio, or other code editor.  Then open the `/app/src/main/res/raw/auth_config_b2c.json` file. 
+Open the sample project with Android Studio or another code editor, and then open the */app/src/main/res/raw/auth_config_b2c.json* file. 
 
 The *auth_config_b2c.json* configuration file contains information about your Azure AD B2C identity provider. The mobile app uses this information to establish a trust relationship with Azure AD B2C, sign users in and out, acquire tokens, and validate them. 
 
@@ -182,7 +182,7 @@ Open the `B2CConfiguration` class, and update the following class members:
 
 1. Sign up or sign in with your Azure AD B2C local or social account.
 
-1. After successful authentication, you'll see your display name in the navigation bar.
+1. After successful authentication, you'll see your display name on the **B2C mode** pane.
 
     ![Screenshot showing a successful authentication, with signed-in user and policy displayed.](./media/configure-authentication-sample-android-app/access-token.png) 
 
