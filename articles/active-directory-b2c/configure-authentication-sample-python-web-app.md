@@ -36,7 +36,7 @@ The sign-in flow involves the following steps:
 
 ## Prerequisites
 
-A computer that's running either of the following: 
+A computer that's running: 
 
 * [Visual Studio Code](https://code.visualstudio.com/) or another code editor
 * [Python](https://nodejs.org/en/download/) 2.7+ or 3+ 
