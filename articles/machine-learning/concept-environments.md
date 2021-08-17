@@ -101,6 +101,9 @@ The following diagram shows three environment definitions. Two of them have diff
 
 To update the package, specify a version number to force image rebuild, for example ```numpy==1.18.1```. New dependencies, including nested ones, will be installed that might break a previously working scenario. 
 
+>[!IMPORTANT]
+> Using an unpinned base image in your environment definition, for example ```mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04```, will result in rebuilding the environment every time the latest tag is updated, as we assume you want to keep up to date with the latest version for various reasons like vulnerabilities, system updates and patches. 
+
 > [!WARNING]
 >  The [Environment.build](/python/api/azureml-core/azureml.core.environment.environment#build-workspace--image-build-compute-none-) method will rebuild the cached image, with possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.
 
