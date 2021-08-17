@@ -26,7 +26,7 @@ There are several sources that explain the three pillars in detail including the
 
 In the following sections, we'll cover some telemetry collection basics.
 
-### How to instrument your application
+### Instrumenting your application
 
 Instrumenting is making changes to your application to capture telemetry. At a minimum, this means adding the OpenTelemetry API.
 
@@ -38,7 +38,7 @@ Manual instrumentation is installing a package or SDK in your code. Auto-instrum
 
 Manual instrumentation packages consist of our Azure Monitor OpenTelemetry-based exporters/distros **preview** offering in C#, Java, JavaScript (Node.js), and Python. Auto-instrumentation packages consist of our Java 3.X GA OpenTelemetry-based GA offering.
 
-### How telemetry is sent
+### Sending your telemetry
 
 There are also two ways to send your data to Azure Monitor (or any vendor).
 1. Direct Exporter
