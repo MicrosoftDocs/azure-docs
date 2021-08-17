@@ -95,13 +95,13 @@ While conceptually similar to the process for requesting an extension, the proce
 
 Users who can no longer access resources can access up to 30 days of expired assignment history. To do this, they browse to **My Roles** in the left pane, and then select the **Expired roles** tab in the Azure roles section.
 
-![My roles page - Expired roles tab](./media/pim-how-to-renew-extend/aadpim-rbac-renew-from-myroles.png)
+![My roles page - Expired roles tab](./media/pim-how-to-renew-extend/renew-from-myroles.png)
 
 The list of roles shown defaults to **Eligible roles**. Select Eligible or Active assigned roles.
 
 To request renewal for any of the role assignments in the list, select the **Renew** action. Then provide a reason for the request. It's helpful to provide a duration in addition to any additional context or a business justification that can help the administrator decide whether to approve or deny.
 
-![Renew role assignment pane showing Reason box](./media/pim-how-to-renew-extend/aadpim-rbac-renew-request-form.png)
+![Renew role assignment pane showing Reason box](./media/pim-how-to-renew-extend/renew-request-form.png)
 
 After the request has been submitted, administrators are notified of a pending request to renew a role assignment.
 
@@ -119,9 +119,9 @@ When approving a request to renew role assignment, administrators must enter a n
 
 ### Admin renew
 
-They can also renew expired role assignments from within the **Expired** roles tab of an Azure AD role. To view a list of all expired role assignments, on the **Members** screen, select **Expired roles**.
+They can also renew expired role assignments from within the **Expired** roles tab of an Azure AD role. To view a list of all expired role assignments, on the **Assignments** screen, select **Expired roles**.
 
-![Azure AD roles - Members page listing expired roles with links to renew](./media/pim-how-to-renew-extend/aadpim-rbac-renew-from-member-blade.png)
+![Azure AD roles - Assignments page listing expired roles with links to renew](./media/pim-how-to-renew-extend/renew-from-assignments-pane.png)
 
 ## Next steps
 
