@@ -1,5 +1,5 @@
 ---
-title: Create a placement policy
+title: Create a placement policy (Preview)
 description: Learn how to create a placement policy in Azure VMware Solution to control the placement of virtual machines (VMs) on hosts within a cluster through the Azure portal.
 ms.topic: how-to 
 ms.date: 8/16/2021
@@ -8,7 +8,7 @@ ms.date: 8/16/2021
 
 ---
 
-# Create a placement policy in Azure VMware Solution
+# Create a placement policy in Azure VMware Solution (Preview)
 
 >[!IMPORTANT]
 >Azure VMware Solution placement policy (Preview) is currently in preview. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
