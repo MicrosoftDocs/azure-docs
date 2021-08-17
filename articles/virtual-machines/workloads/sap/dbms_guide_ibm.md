@@ -81,13 +81,13 @@ On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` an
 
 IBM Db2 for SAP NetWeaver Applications is supported on any VM type listed in SAP support note [1928533].  Recommended VM families for running IBM Db2 database are Esd_v4/Eas_v4/Es_v3 and M/M_v2-series for large multi-terabyte databases. The IBM Db2 transaction log disk write performance can be improved by enabling the M-series Write Accelerator. 
 
-Following is a baseline configuration for various sizes and uses of SAP on Db2 deployments from small to large. The list is based on Azure premium storage. However, Azure Ultra disk is fully supported with Db2 as well and can be used as well. Use the values for capacity, burst throughput, and burst IOPS to define the Ultra disk configuration. You can limit the IOPS for the /db2/*<SID>*/log_dir at around 5000 IOPS. 
+Following is a baseline configuration for various sizes and uses of SAP on Db2 deployments from small to large. The list is based on Azure premium storage. However, Azure Ultra disk is fully supported with Db2 as well and can be used as well. Use the values for capacity, burst throughput, and burst IOPS to define the Ultra disk configuration. You can limit the IOPS for the /db2/```<SID>```/log_dir at around 5000 IOPS. 
 
 #### Extra small SAP system: database size 50 - 200 GB: example Solution Manager
 | VM Name / Size |Db2 mount point |Azure Premium Disk |NR of Disks |IOPS |Throughput [MB/s] |Size [GB] |Burst IOPS |Burst Thr [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  ||  |
-|vCPU: 4 |/db2/*<SID>*/sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256 KB |ReadOnly |
+|vCPU: 4 |/db2/```<SID>```/sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256 KB |ReadOnly |
 |RAM: 32 GiB |/db2/*<SID>*/saptmp |P6 |1 |240  |50  |128  |3,500  |170  | ||
 | |/db2/*<SID>*/log_dir |P6 |2 |480  |100  |128  |7,000  |340  |64 KB ||
 | |/db2/*<SID>*/offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  || |
