@@ -2,7 +2,7 @@
 title: Encrypt registry with a customer-managed key
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 08/16/2021
 ms.custom: subject-rbac-steps
 ---
 
@@ -106,11 +106,12 @@ For use in later steps, get the resource ID of the key vault:
 keyvaultID=$(az keyvault show --resource-group <resource-group-name> --name <key-vault-name> --query 'id' --output tsv)
 ```
 
-### Enable key vault access
-
-#### Enable access by trusted services
+#### Enable key vault access by trusted services
 
 If the key vault is protected with a Key Vault firewall, enable the setting to allow access by trusted Azure services. For more information, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-cli).
+
+
+### Enable key vault access by managed identity
 
 #### Enable key vault access policy
 
@@ -254,11 +255,11 @@ When creating a key vault for a customer-managed key, in the **Basics** tab, ena
 
 :::image type="content" source="media/container-registry-customer-managed-keys/create-key-vault.png" alt-text="Create key vault in the Azure portal":::
 
-### Enable key vault access
-
-#### Enable access by trusted services
+### Enable key vault access by trusted services
 
 If the key vault is protected with a Key Vault firewall, enable the setting to **Allow Trusted Microsoft Services to bypass this firewall**. For more information, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-portal).
+
+### Enable key vault access by managed identity
 
 #### Enable key vault access policy
 
@@ -280,7 +281,7 @@ For detailed steps, see [Assign Azure roles using the Azure portal](../role-base
 
 ### Create key (optional)
 
-Optionally create a key in the key vault for use to encrypt the registry. Follow these steps if you want to select a specific key version as a customer-managed key. Also create a key if key vault access is restricted to a private endpoint or selected networks. 
+Optionally create a key in the key vault for use to encrypt the registry. Follow these steps if you want to select a specific key version as a customer-managed key. You may also need to create a key before creating the registry if key vault access is restricted to a private endpoint or selected networks. 
 
 1. Navigate to your key vault.
 1. Select **Settings** > **Keys**.
@@ -451,7 +452,7 @@ When rotating a key, typically you specify the same identity used when creating 
 
 > [!NOTE]
 > * To enable the registry's system-assigned identity in the portal, select **Settings** > **Identity** and set the system-assigned identity's status to **On**.
-> * Ensure that the required [key vault access](#enable-key-vault-access) is set for the identity you configure for key access.
+> * Ensure that the required [key vault access](#enable-key-vault-access-by-managed-identity) is set for the identity you configure for key access.
 
 ### Update key version
 
