@@ -171,7 +171,7 @@ The same can also be expressed with:
 }
 ```
 
-> Warning: Currently there is a bug with a layered deployment that updates only properties, where the deployment is never marked as applied in the portal
+> Warning: Currently there is a bug with a layered deployment that updates only properties. These layers need an empty edgeAgent object (i.e. `"$edgeAgent":{}`) in the deployment manifest to be considered a valid layered deployment. They will also only be shown as applied in the module twins they target. For the `$edgeAgent` module twin, and hence in the Azure portal, the layer will only ever be marked as targeted, not applied.
 
 In summary, to create a layered deployment:
 
