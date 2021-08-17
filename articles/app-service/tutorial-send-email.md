@@ -315,3 +315,4 @@ If you're testing this code on the sample app for [Build a Ruby and Postgres app
 [Tutorial: Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md)  
 [HTTP request/response reference for Logic Apps](../connectors/connectors-native-reqres.md)  
 [Quickstart: Create your first workflow by using Azure Logic Apps - Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+- [Environment variables and app settings reference](reference-app-settings.md)

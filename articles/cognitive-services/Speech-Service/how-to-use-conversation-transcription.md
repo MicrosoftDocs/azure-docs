@@ -3,13 +3,13 @@ title: Real-time Conversation Transcription quickstart - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use real-time Conversation Transcription with the Speech SDK. Conversation Transcription allows you to transcribe meetings and other conversations with the ability to add, remove, and identify multiple participants by streaming audio to the Speech service.
 services: cognitive-services
-author: trevorbye
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.author: trbye
+ms.author: lajanuar
 zone_pivot_groups: acs-js-csharp
 ---
 

@@ -9,19 +9,22 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 06/18/2021
 ms.author: justinha
 
 ---
 # Administer DNS and create conditional forwarders in an Azure Active Directory Domain Services managed domain
 
-In Azure Active Directory Domain Services (Azure AD DS), a key component is DNS (Domain Name Resolution). Azure AD DS includes a DNS server that provides name resolution for the managed domain. This DNS server includes built-in DNS records and updates for the key components that allow the service to run.
+Azure AD DS includes a Domain Name System (DNS) server that provides name resolution for the managed domain. This DNS server includes built-in DNS records and updates for the key components that allow the service to run.
 
 As you run your own applications and services, you may need to create DNS records for machines that aren't joined to the domain, configure virtual IP addresses for load balancers, or set up external DNS forwarders. Users who belong to the *AAD DC Administrators* group are granted DNS administration privileges on the Azure AD DS managed domain and can create and edit custom DNS records.
 
 In a hybrid environment, DNS zones and records configured in other DNS namespaces, such as an on-premises AD DS environment, aren't synchronized to the managed domain. To resolve named resources in other DNS namespaces, create and use conditional forwarders that point to existing DNS servers in your environment.
 
 This article shows you how to install the DNS Server tools then use the DNS console to manage records and create conditional forwarders in Azure AD DS.
+
+>[!NOTE]
+>Creating or changing server-level DNS forwarders is not supported and will cause issues for the Azure AD DS managed domain.
 
 ## Before you begin
 

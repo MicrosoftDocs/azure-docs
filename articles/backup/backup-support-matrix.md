@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 07/05/2021
 ms.custom: references_regions 
 ---
 
@@ -150,6 +150,17 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 | SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central, UG IOWA, and UG Virginia. |
 | MARS Agent/On premises  | No                                                           | N/A               |
 | AFS (Azure file shares)                 | No                                                           | N/A               |
+
+## Resource health
+
+The resource health check functions in following conditions:
+
+|     |     |
+| --- | --- |
+| **Supported Resources** | Recovery Services vault |
+| **Supported Regions** | East US 2, East Asia, and France Central. |
+| **For unsupported regions** | The resource health status is shown as "Unknown". |
+
 
 ## Next steps
 

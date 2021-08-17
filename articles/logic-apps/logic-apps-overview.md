@@ -94,7 +94,7 @@ In a logic app, each workflow always starts with a single [trigger](#trigger). A
 
 The following screenshot shows part of an example enterprise workflow. This workflow uses conditions and switches to determine the next action. Let's say you have an order system, and your workflow processes incoming orders. You want to review orders above a certain cost manually. Your workflow already has previous steps that determine how much an incoming order costs. So, you create an initial condition based on that cost value. For example:
 
-- If the order is above a certain amount, the condition is false. So, the workflow processes the order.
+- If the order is below a certain amount, the condition is false. So, the workflow processes the order.
 - If the condition is true, the workflow sends an email for manual review. A switch determines the next step. 
   - If the reviewer approves, the workflow continues to process the order.
   - If the reviewer escalates, the workflow sends an escalation email to get more information about the order. 

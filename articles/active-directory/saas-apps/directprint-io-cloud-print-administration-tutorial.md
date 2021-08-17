@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/19/2021
+ms.date: 07/30/2021
 ms.author: jeedes
 
 ---
@@ -34,6 +34,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * directprint.io Cloud Print Administration supports **IDP** initiated SSO.
+
+* directprint.io Cloud Print Administration supports **Just In Time** user provisioning.
 
 ## Add directprint.io Cloud Print Administration from the gallery
 
@@ -71,9 +73,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section the application is pre-configured in IDP initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![The Certificate download link](common/copy-metadataurl.png)
 
 1. On the **Set up directprint.io Cloud Print Administration** section, copy the appropriate URL(s) based on your requirement.
 
@@ -105,11 +107,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure directprint.io Cloud Print Administration SSO
 
-To configure single sign-on on **directprint.io Cloud Print Administration** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [directprint.io Cloud Print Administration support team](mailto:support@directprint.io). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **directprint.io Cloud Print Administration** side, you need to send the **App Federation Metadata Url** to [directprint.io Cloud Print Administration support team](mailto:support@directprint.io). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create directprint.io Cloud Print Administration test user
 
-In this section, you create a user called Britta Simon in directprint.io Cloud Print Administration. Work with [directprint.io Cloud Print Administration support team](mailto:support@directprint.io) to add the users in the directprint.io Cloud Print Administration platform. Users must be created and activated before you use single sign-on.
+In this section, a user called B.Simon is created in directprint.io Cloud Print Administration. directprint.io Cloud Print Administration supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in directprint.io Cloud Print Administration, a new one is created after authentication.
 
 ## Test SSO 
 

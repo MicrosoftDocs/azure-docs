@@ -2,7 +2,7 @@
 title: Container workloads
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 08/13/2021
 ms.custom: "seodec18, devx-track-csharp"
 ---
 # Run container applications on Azure Batch
@@ -26,14 +26,13 @@ You should be familiar with container concepts and how to create a Batch pool an
   - Batch Java SDK version 3.0
   - Batch Node.js SDK version 3.0
 
-- **Accounts**: In your Azure subscription, you need to create a Batch account and optionally an Azure Storage account.
+- **Accounts**: In your Azure subscription, you need to create a [Batch account](accounts.md) and optionally an Azure Storage account.
 
-- **A supported VM image**: Containers are only supported in pools created with the Virtual Machine Configuration, from images detailed in the following section, "Supported virtual machine images." If you provide a custom image, see the considerations in the following section and the requirements in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
+- **A supported VM image**: Containers are only supported in pools created with the Virtual Machine Configuration, from a supported image (listed in the next section). If you provide a custom image, see the considerations in the following section and the requirements in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 
 Keep in mind the following limitations:
 
 - Batch provides RDMA support only for containers running on Linux pools.
-
 - For Windows container workloads, we recommend choosing a multicore VM size for your pool.
 
 ## Supported virtual machine images
@@ -65,10 +64,8 @@ For Linux container workloads, Batch currently supports the following Linux imag
 These images are only supported for use in Azure Batch pools and are geared for Docker container execution. They feature:
 
 - A pre-installed Docker-compatible [Moby](https://github.com/moby/moby) container runtime
-
 - Pre-installed NVIDIA GPU drivers and NVIDIA container runtime, to streamline deployment on Azure N-series VMs
-
-- Pre-installed/pre-configured image with support for Infiniband RDMA VM sizes for images with the suffix of `-rdma`. Currently these images do not support SR-IOV IB/RDMA VM sizes.
+- VM images with the suffix of '-rdma' are pre-configured with support for InfiniBand RDMA VM sizes. These VM images should not be used with VM sizes that do not have InfiniBand support.
 
 You can also create custom images from VMs running Docker on one of the Linux distributions that is compatible with Batch. If you choose to provide your own custom Linux image, see the instructions in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 
@@ -77,7 +74,6 @@ For Docker support on a custom image, install [Docker Community Edition (CE)](ht
 Additional considerations for using a custom Linux image:
 
 - To take advantage of the GPU performance of Azure N-series sizes when using a custom image, pre-install NVIDIA drivers. Also, you need to install the Docker Engine Utility for NVIDIA GPUs, [NVIDIA Docker](https://github.com/NVIDIA/nvidia-docker).
-
 - To access the Azure RDMA network, use an RDMA-capable VM size. Necessary RDMA drivers are installed in the CentOS HPC and Ubuntu images supported by Batch. Additional configuration may be needed to run MPI workloads. See [Use RDMA-capable or GPU-enabled instances in Batch pool](batch-pool-compute-intensive-sizes.md).
 
 ## Container configuration for Batch pool
@@ -279,7 +275,7 @@ To run a container task on a container-enabled pool, specify container-specific 
 
 - If you run tasks on container images, the [cloud task](/dotnet/api/microsoft.azure.batch.cloudtask) and [job manager task](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) require container settings. However, the [start task](/dotnet/api/microsoft.azure.batch.starttask), [job preparation task](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), and [job release task](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) do not require container settings (that is, they can run within a container context or directly on the node).
 
-- For Windows, tasks must be run with [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) set to `admin`. 
+- For Windows, tasks must be run with [ElevationLevel](/rest/api/batchservice/task/add#elevationlevel) set to `admin`.
 
 - For Linux, Batch will map the user/group permission to the container. If access to any folder within the container requires Administrator permission, you may need to run the task as pool scope with admin elevation level. This will ensure Batch runs the task as root in the container context. Otherwise, a non-admin user may not have access to those folders.
 
@@ -355,7 +351,7 @@ containerTask.ContainerSettings = cmdContainerSettings;
 
 ## Next steps
 
-- For easy deployment of container workloads on Azure Batch through [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes), see the [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit .
+- For easy deployment of container workloads on Azure Batch through [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes), see the [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit.
 - For information on installing and using Docker CE on Linux, see the [Docker](https://docs.docker.com/engine/installation/) documentation.
 - Learn how to [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 - Learn more about the [Moby project](https://mobyproject.org/), a framework for creating container-based systems.

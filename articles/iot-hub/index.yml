@@ -23,7 +23,7 @@ landingContent:
       - text: Send telemetry from a device to a hub using CLI
         url: quickstart-send-telemetry-cli.md
       - text: Control a device connected to a hub
-        url: quickstart-control-device-node.md
+        url: quickstart-control-device.md
     - linkListType: get-started
       links:
       - text: Device management 

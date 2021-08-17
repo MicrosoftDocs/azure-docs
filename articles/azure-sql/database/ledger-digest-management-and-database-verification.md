@@ -1,8 +1,8 @@
 ---
 title: "Digest management and database verification"
 description: This article provides information on digest management and database verification for a ledger database in Azure SQL Database.
-ms.custom: ""
-ms.date: "05/25/2021" 
+ms.custom: references_regions
+ms.date: "07/23/2021" 
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
@@ -16,7 +16,7 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview and available in West Central US.
+> Azure SQL Database ledger is currently in public preview and available in West Europe, Brazil South, and West Central US.
 
 Azure SQL Database ledger provides a form of data integrity called *forward integrity*, which provides evidence of data tampering on data in your ledger tables. For example, if a banking transaction occurs on a ledger table where a balance has been updated to value `x`, and an attacker later modifies the data by changing the balance from `x` to `y`, database verification will detect this tampering activity.  
 
@@ -34,14 +34,14 @@ The verification process and the integrity of the database depend on the integri
 
 ### Automatic generation and storage of database digests
 
-Azure SQL Database ledger integrates with the [immutable storage feature of Azure Blob Storage](../../storage/blobs/storage-blob-immutable-storage.md) and [Azure Confidential Ledger](../../confidential-ledger/index.yml). This integration provides secure storage services in Azure to help protect the database digests from potential tampering. This integration provides a simple and cost-effective way for users to automate digest management without having to worry about their availability and geographic replication. 
+Azure SQL Database ledger integrates with the [immutable storage feature of Azure Blob Storage](../../storage/blobs/immutable-storage-overview.md) and [Azure Confidential Ledger](../../confidential-ledger/index.yml). This integration provides secure storage services in Azure to help protect the database digests from potential tampering. This integration provides a simple and cost-effective way for users to automate digest management without having to worry about their availability and geographic replication. 
 
 You can configure automatic generation and storage of database digests through the Azure portal, PowerShell, or the Azure CLI. When you configure automatic generation and storage, database digests are generated on a predefined interval of 30 seconds and uploaded to the selected storage service. If no transactions occur in the system in the 30-second interval, a database digest won't be generated and uploaded. This mechanism ensures that database digests are generated only when data has been updated in your database.
 
 :::image type="content" source="media/ledger/automatic-digest-management.png" alt-text="Screenshot that shows the selections for enabling digest storage."::: 
 
 > [!IMPORTANT]
-> Configure an [immutability policy](../../storage/blobs/storage-blob-immutability-policies-manage.md) on your container after provisioning to ensure that database digests are protected from tampering.
+> Configure an [immutability policy](../../storage/blobs/immutable-policy-configure-version-scope.md) on your container after provisioning to ensure that database digests are protected from tampering.
 
 ### Manual generation and storage of database digests
 

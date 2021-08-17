@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 08/09/2021
 ms.author: lajanuar
 ---
 
@@ -29,12 +29,12 @@ The data extracted with the IDs API can be used to perform a variety of tasks fo
 
 The IDs API also powers the [AI Builder ID reader feature](/ai-builder/prebuilt-id-reader).
 
-## Try it out
+## Try it
 
 To try out the Form Recognizer IDs service, go to the online Sample UI Tool:
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
+> [Try ID document model](https://aka.ms/fott-2.1-ga "Start with a prebuilt model to extract data from identity documents.")
 
 ## What does the ID service do?
 

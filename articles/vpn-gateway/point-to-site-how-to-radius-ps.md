@@ -7,14 +7,14 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 07/27/2021
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
 ---
 # Configure a Point-to-Site connection to a VNet using RADIUS authentication: PowerShell
 
-This article shows you how to create a VNet with a Point-to-Site connection that uses RADIUS authentication. This configuration is only available for the Resource Manager deployment model.
+This article shows you how to create a VNet with a Point-to-Site connection that uses RADIUS authentication. This configuration is only available for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
 
 A Point-to-Site (P2S) VPN gateway lets you create a secure connection to your virtual network from an individual client computer. Point-to-Site VPN connections are useful when you want to connect to your VNet from a remote location, such as when you are telecommuting from home or a conference. A P2S VPN is also a useful solution to use instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet.
 
@@ -30,7 +30,7 @@ This article helps you configure a P2S configuration with authentication using R
 
 Point-to-Site connections do not require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), OpenVPN or IKEv2.
 
-* SSTP is a TLS-based VPN tunnel that is supported only on Windows client platforms. It can penetrate firewalls, which makes it an ideal option to connect to Azure from anywhere. On the server side, we support SSTP versions 1.0, 1.1, and 1.2. The client decides which version to use. For Windows 8.1 and above, SSTP uses 1.2 by default.
+* SSTP is a TLS-based VPN tunnel that is supported only on Windows client platforms. It can penetrate firewalls, which makes it a good option to connect Windows devices to Azure from anywhere. On the server side, we support TLS version 1.2 only. For improved performance, scalability and security, consider using OpenVPN protocol instead.
 
 * OpenVPN® Protocol, an SSL/TLS based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux and Mac devices (macOS versions 10.13 and above).
 
@@ -157,7 +157,7 @@ The [Network Policy Server (NPS)](/windows-server/networking/technologies/nps/np
 Configure and create the VPN gateway for your VNet.
 
 * The -GatewayType must be 'Vpn' and the -VpnType must be 'RouteBased'.
-* A VPN gateway can take up to 45 minutes to complete, depending on the [gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) you select.
+* A VPN gateway can take 45 minutes or more to complete, depending on the [gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) you select.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `

@@ -31,7 +31,7 @@ Translator container enables you to build a translator application architecture 
 
 To get started, you'll need an active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-You'll also need the following to use Translator containers:
+You'll also need the following:
 
 | Required | Purpose |
 |--|--|

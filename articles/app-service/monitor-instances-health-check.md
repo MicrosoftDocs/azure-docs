@@ -1,13 +1,13 @@
 ---
 title: Monitor the health of App Service instances
 description: Learn how to monitor the health of App Service instances using Health check.
-keywords: azure app service, web app, health check, route traffic, healthy instances, path, monitoring,
+keywords: azure app service, web app, health check, route traffic, healthy instances, path, monitoring, remove faulty instances, unhealthy instances, remove workers
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 12/03/2020
+ms.date: 07/19/2021
 ms.author: msangapu
-
+ms.custom: contperf-fy22q1
 ---
 
 # Monitor App Service instances using Health check
@@ -99,6 +99,7 @@ In the scenario where all instances of your application are unhealthy, App Servi
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
+- [Environment variables and app settings reference](reference-app-settings.md)
 
 [1]: ./media/app-service-monitor-instances-health-check/health-check-diagram.png
 [2]: ./media/app-service-monitor-instances-health-check/health-check-multi-app-diagram.png

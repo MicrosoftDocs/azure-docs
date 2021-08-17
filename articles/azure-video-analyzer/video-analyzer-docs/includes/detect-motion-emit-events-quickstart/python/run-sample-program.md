@@ -23,14 +23,16 @@ Follow these steps to run the sample code:
 1. On the `pipelineTopologySet` node, make sure you see the following value:
 
    ```
-   "topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-detection/topology.json"
+   "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-detection/topology.json"
    ```
 
 1. On the `livePipelineSet` and `livePipelineDelete` nodes, ensure that the value of **topologyName** matches the value of the **name** property in the pipeline topology:
 
    `"topologyName" : "MotionDetection"`
 
-1. Start a debugging session by selecting the F5 key. The **TERMINAL** window will display some messages.
+1. * Navigate to the `TERMINAL` window in VS Code
+   * Use the cd command to navigate to /video-analyzer-iot-edge-python-main/src/cloud-to-device-console-app directory
+   * Run "python main.py" then you will see messages printed in the `TERMINAL` window
 1. The _operations.json_ file starts off with calls to `pipelineTopologyList` and `livePipelineList`. If you cleaned up resources after you finished previous quickstarts, then this process will return empty lists.
 
    ```

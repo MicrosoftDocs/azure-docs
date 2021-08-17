@@ -102,10 +102,12 @@ landingContent:
 
   - title: Advanced development with Azure Percept
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
           - text: Advanced development on Azure Percept
             url: overview-advanced-code.md
+          - text: Vision AI module and workload
+            url: azureeyemodule-overview.md
       - linkListType: how-to-guide
         links:
           - text: Dev Tools Pack Installer

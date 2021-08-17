@@ -142,7 +142,7 @@ The fields below are specific to DNS events. That said, many of them do have sim
 | **DstIpAddr** | Optional | IP Address |  `127.0.0.1` | The IP address of the server receiving the DNS request. For a regular DNS request, this value would typically be the reporting device, and in most cases set to **127.0.0.1**. |
 | **DstPortNumber** | Optional | Integer |  `53` | Destination Port number |
 | **IpAddr** | | Alias | | Alias for SrcIpAddr |
-| <a name=query></a>**DnsQuery** | Mandatory | String | `www.malicious.com` | The domain that needs to be resolved. <br><br>While the DNS protocol allows for multiple queries in a single request, this scenario is rare, if it's found at all. If the request has multiple queries, store the first one in this field, and then and optionally keep the rest in the [AdditionalFields](#additionalfields) field. |
+| <a name=query></a>**DnsQuery** | Mandatory | FQDN | `www.malicious.com` | The domain that needs to be resolved. <br><br>Note that there are sources that send the query in a different format. Most notably, in the DNS protocol itself, the query includes a dot at the end. This should be removed.<br><br>While the DNS protocol allows for multiple queries in a single request, this scenario is rare, if it's found at all. If the request has multiple queries, store the first one in this field, and then and optionally keep the rest in the [AdditionalFields](#additionalfields) field. |
 | **Domain** | | Alias || Alias to [Query](#query). |
 | **DnsQueryType** | Optional | Integer | `28` | This field may contain [DNS Resource Record Type codes](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml)). |
 | **DnsQueryTypeName** | Mandatory | Enumerated | `AAAA` | The field may contain [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) names. <br><br>**Note**: IANA does not define the case for the values, so analytics must normalize the case as needed. If the source provides only a numerical query type code and not a query type name, the parser must include a lookup table to enrich with this value. |
@@ -150,7 +150,7 @@ The fields below are specific to DNS events. That said, many of them do have sim
 | <a name=responsecodename></a>**DnsResponseCodeName** |  Mandatory | Enumerated | `NXDOMAIN` | The [DNS response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Note**: IANA does not define the case for the values, so analytics must normalize the case. If the source provides only a numerical response code and not a response code name, the parser must include a lookup table to enrich with this value. <br><br> If this record represents a request and not a response, set to **NA**. |
 | **DnsResponseCode** | Optional | Integer | `3` | The [DNS numerical response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).|
 | **TransactionIdHex** | Recommended | String | | The DNS unique hex transaction ID. |
-| **NetworkProtocol** | Optional | String | `UDP` | The transport protocol used by the network resolution event. The value can be **UDP** or **TCP**, and is most commonly set to **UDP** for DNS. |
+| **NetworkProtocol** | Optional | Enumerated | `UDP` | The transport protocol used by the network resolution event. The value can be **UDP** or **TCP**, and is most commonly set to **UDP** for DNS. |
 | **DnsQueryClass** | Optional | Integer | | The [DNS class ID](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, making this field less valuable.|
 | **DnsQueryClassName** | Optional | String | `"IN"` | The [DNS class name](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, making this field less valuable. |
 | <a name=flags></a>**DnsFlags** | Optional | List of strings | `["DR"]` | The flags field, as provided by the reporting device. If flag information is provided in multiple fields, concatenate them with comma as a separator. <br><br>Since DNS flags are complex to parse and are less often used by analytics, parsing and normalization are not required, and Azure Sentinel uses an auxiliary function to provide flags information. For more information, see [Handling DNS response](#handling-dns-response).|
@@ -241,7 +241,8 @@ You can also provide an extra KQL function called `_imDNS<vendor>Flags_`, which 
 For more information, see:
 
 - [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
 - [Azure Sentinel data normalization schema reference](normalization-schema.md)
-- [Azure Sentinel Process Event normalization schema reference](process-events-normalization-schema.md)
-- [Azure Sentinel Registry Event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Azure Sentinel process event normalization schema reference](process-events-normalization-schema.md)
+- [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)

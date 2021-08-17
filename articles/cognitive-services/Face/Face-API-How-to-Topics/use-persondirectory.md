@@ -78,7 +78,7 @@ First, you should define a data model like the following to handle the status re
 public class AsyncStatus
 {
     [DataMember(Name = "status")]
-    public string AsyncStatus { get; set; }
+    public string Status { get; set; }
 
     [DataMember(Name = "createdTime")]
     public DateTime CreatedTime { get; set; }

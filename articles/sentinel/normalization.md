@@ -43,7 +43,7 @@ The Azure Sentinel Information Model includes the following components:
 
 |Component  |Description  |
 |---------|---------|
-|**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Network Session](normalization-schema.md)<br> - [DNS Activity](dns-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md) |
+|**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Network Session](normalization-schema.md)<br> - [DNS Activity](dns-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md)<br> - [File Activity](file-event-normalization-schema.md) |
 |**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Deploy the Microsoft-developed normalizing parsers from the [Azure Sentinel GitHub Parsers folder](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers). Normalized parsers are located in subfolders starting with **ASim**.       |
 |**Content for each normalized schema**     |    Includes analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content.     |
 
@@ -95,6 +95,7 @@ Each schema field has a type. Some have built-in, Azure Log Analytics types such
 |**Date/Time**     |  Depending on the ingestion method capability, use any of the following physical representations in descending priority: <br><br>- Log Analytics built-in datetime type <br>- An integer field using Log Analytics datetime numerical representation. <br>- A string field using Log Analytics datetime numerical representation <br>- A string field storing a supported [Log Analytics date/time format](/azure/data-explorer/kusto/query/scalar-data-types/datetime).       |  [Log Analytics date and time representation](/azure/kusto/query/scalar-data-types/datetime) is similar but different than Unix time representation. For more information, see the [conversion guidelines](/azure/kusto/query/datetime-timespan-arithmetic). <br><br>**Note**: When applicable, the time should be time zone adjusted. |
 |**MAC Address**     |  String       | Colon-Hexadecimal notation        |
 |**IP Address**     |String         |    Azure Sentinel schemas do not have separate IPv4 and IPv6 addresses. Any IP address field may include either an IPv4 address or IPv6 address, as follows: <br><br>- **IPv4** in a dot-decimal notation, for example  <br>- **IPv6** in 8 hextets notation, allowing for the short form<br><br>For example:<br>`192.168.10.10` (IPv4)<br>`FEDC:BA98:7654:3210:FEDC:BA98:7654:3210` (IPv6)<br>`1080::8:800:200C:417A` (IPv6 short form)     |
+|**FQDN**        |   string      |    A fully qualified domain name using a dot notation, for example `docs.microsoft.com` |
 |**Country**     |   String      |    A string using [ISO 3166-1](https://www.iso.org/iso-3166-country-codes.html), according to the following priority: <br><br> - Alpha-2 codes, such as `US` for the United States <br> - Alpha-3 codes, such as `USA` for the United States) <br>- Short name<br><br>The list of code can be found on the [International Standards Organization (ISO) Web Site](https://www.iso.org/obp/ui/#search)|
 |**Region**     | String        |   The country subdivision name, using ISO 3166-2<br><br>The list of code can be found on the [International Standards Organization (ISO) Web Site](https://www.iso.org/obp/ui/#search)|
 |**City**     |  String       |         |
@@ -140,7 +141,7 @@ The following fields are common to all ASIM schemas. Common fields are listed bo
 | **AdditionalFields**    | Optional    | Dynamic    | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic **AdditionalFields** field, and add to it the extra information as key/value pairs.    |
 
 > [!NOTE]
-> Log Analytics also adds other fields that are less relevant to security use cases. For more information, see [Standard columns in Azure Monitor Logs](/azure/azure-monitor/logs/log-standard-columns).
+> Log Analytics also adds other fields that are less relevant to security use cases. For more information, see [Standard columns in Azure Monitor Logs](../azure-monitor/logs/log-standard-columns.md).
 >
 
 
@@ -541,5 +542,6 @@ For more information, see:
 
 - [Azure Sentinel Network normalization schema reference](normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Azure Sentinel File Event normalization schema reference (Public preview)](file-event-normalization-schema.md)
 - [Azure Sentinel Process Event normalization schema reference](process-events-normalization-schema.md)
 - [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)

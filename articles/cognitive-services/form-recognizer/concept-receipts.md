@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 08/09/2021
 ms.author: lajanuar
 ---
 
@@ -39,12 +39,12 @@ Receipts contain useful data which you can use to analyze consumer behavior and 
 
 The Receipt API also powers the [AI Builder Receipt Processing feature](/ai-builder/prebuilt-receipt-processing).
 
-## Try it out
+## Try it
 
 To try out the Form Recognizer receipt service, go to the online Sample UI Tool:
 
 > [!div class="nextstepaction"]
-> [Try Prebuilt Models](https://aka.ms/fott-2.1-ga)
+> [Try receipt model](https://aka.ms/fott-2.1-ga "Start with  prebuilt model to extract data from receipts.")
 
 ## What does the Receipt service do?
 
@@ -86,8 +86,7 @@ The Receipt API also returns the following information:
 
 ## Supported locales
 
-* **Pre-built receipt v2.0** supports sales receipts in the **en-us** locale
-* **Pre-built receipt v2.1** adds additional support for the following English receipt locales: **en-au**, **en-ca**, **en-gb**, **en-in**
+* **Pre-built receipt v2.1** supports sales receipts in the **en-au**, **en-ca**, **en-gb**, **en-in**, and **en-us** English locales
 
   > [!NOTE]
   > Language input
@@ -100,7 +99,7 @@ The [Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/f
 
 |Response header| Result URL |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/56a36454-fc4d-4354-aa07-880cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/prebuilt/receipt/analyzeResults/56a36454-fc4d-4354-aa07-880cfbf0064f` |
 
 ## Get Analyze Receipt Result
 
