@@ -15,6 +15,7 @@
 Connect and sign in to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses (including the primary) that you added to the VM. Complete the steps that following for your VM operating system.
 
 ### Windows Server
+
 <details>
   <summary>Expand</summary>
 
@@ -47,11 +48,14 @@ ping -S 10.0.0.7 outlook.com
 ```
 >[!NOTE]
 >For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+
 </details>
 
 ### Linux (Ubuntu 14/16)
+
 <details>
   <summary>Expand</summary>
+
 We recommend looking at the latest documentation for your Linux distribution. 
 
 1. Open a terminal window.
@@ -118,8 +122,9 @@ To ensure you are able to connect to the internet from your secondary IP configu
 ```bash
 ping -I 10.0.0.5 outlook.com
 ```
->[!NOTE]
->For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
+
+> [!NOTE]
+> For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
 For Linux VMs, when trying to validate outbound connectivity from a secondary NIC, you may need to add appropriate routes. There are many ways to do this. Please see appropriate documentation for your Linux distribution. The following is one method to accomplish this:
 
@@ -128,17 +133,20 @@ echo 150 custom >> /etc/iproute2/rt_tables
 
 ip rule add from 10.0.0.5 lookup custom
 ip route add default via 10.0.0.1 dev eth2 table custom
-
 ```
+
 - Be sure to replace:
 	- **10.0.0.5** with the private IP address that has a public IP address associated to it
 	- **10.0.0.1** to your default gateway
 	- **eth2** to the name of your secondary NIC
+
 </details>
 
 ### Linux (Ubuntu 18.04+)
+
 <details>
   <summary>Expand</summary>
+
 Ubuntu 18.04 and above have changed to `netplan` for OS network management. We recommend looking at the latest documentation for your Linux distribution. 
 
 1. Open a terminal window.
@@ -177,8 +185,8 @@ Ubuntu 18.04 and above have changed to `netplan` for OS network management. We r
 	netplan try
     ```
 
-> [!NOTE]
-> `netplan try` will apply the changes temporarily and roll the changes back after 120 seconds. If there is a loss of connectivity, please wait 120 seconds, and then reconnect. At that time, the changes will have been rolled back.
+	> [!NOTE]
+	> `netplan try` will apply the changes temporarily and roll the changes back after 120 seconds. If there is a loss of connectivity, please wait 120 seconds, and then reconnect. At that time, the changes will have been rolled back.
 
 7. Assuming no issues with `netplan try`, apply the configuration changes:
 
@@ -210,6 +218,7 @@ Ubuntu 18.04 and above have changed to `netplan` for OS network management. We r
         inet6 fe80::20d:3aff:fe8c:14a5/64 scope link
         valid_lft forever preferred_lft forever
     ```
+
 ### Validation (Ubuntu 18.04+)
 
 To ensure you are able to connect to the internet from your secondary IP configuration via the public IP associated it, use the following command:
@@ -217,6 +226,7 @@ To ensure you are able to connect to the internet from your secondary IP configu
 ```bash
 ping -I 10.0.0.5 outlook.com
 ```
+
 >[!NOTE]
 >For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
@@ -227,15 +237,17 @@ echo 150 custom >> /etc/iproute2/rt_tables
 
 ip rule add from 10.0.0.5 lookup custom
 ip route add default via 10.0.0.1 dev eth2 table custom
-
 ```
+
 - Be sure to replace:
 	- **10.0.0.5** with the private IP address that has a public IP address associated to it
 	- **10.0.0.1** to your default gateway
 	- **eth2** to the name of your secondary NIC
+
 </details>
 
 ### Linux (Red Hat, CentOS, and others)
+
 <details>
   <summary>Expand</summary>
 
@@ -314,15 +326,17 @@ echo 150 custom >> /etc/iproute2/rt_tables
 
 ip rule add from 10.0.0.5 lookup custom
 ip route add default via 10.0.0.1 dev eth2 table custom
-
 ```
+
 - Be sure to replace:
 	- **10.0.0.5** with the private IP address that has a public IP address associated to it
 	- **10.0.0.1** to your default gateway
 	- **eth2** to the name of your secondary NIC
+
 </details>
 	
 ### Debian GNU/Linux
+
 <details>
   <summary>Expand</summary>
 
@@ -398,4 +412,5 @@ You should see the IP address you added as part of the list. Example:
   inet6 fe80::20d:3aff:fe1d:1d64/64 scope link
      valid_lft forever preferred_lft forever
  ```
+
 </details>
