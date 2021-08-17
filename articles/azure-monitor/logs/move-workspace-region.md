@@ -40,10 +40,10 @@ The following steps show how to prepare the workspace and resources for the move
 3. To view alerts resource, select **Show hidden types** checkbox
 4. Click the 'Type' filter and select **Log Analytics workspace**, **Solution**, **SavedSearches**, **microsoft.insights/scheduledqueryrules** and **defaultQueryPack** as applicable, then click Apply
 5. Select the workspace, solutions, alerts, saved searches and query pack(s) that you want to move, then click **Export template** in the toolbar
-    ```
+    
     > [!NOTE]
     > Sentinel can't be exported with template and you need to [on-board Sentinel](../../sentinel/quickstart-onboard.md) to target workspace.
-   ```
+   
 6. Click **Deploy** in the toolbar to edit and prepare the template for deployment
 7. Click **Edit parameters** in the toolbar to open the **parameters.json** file in the online editor
 8. To edit the parameters, change the **value** property under **parameters**
@@ -258,7 +258,7 @@ It's recommended to remain the original resource group including workspace durin
 
 ## Next steps
 
-In this tutorial, you moved an Log ANalytics workspace and associated resources from one region to another and cleaned up the source resources. To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+In this tutorial, you moved an Log Analytics workspace and associated resources from one region to another and cleaned up the source resources. To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 - [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - [Move Azure VMs to another region](../../site-recovery/azure-to-azure-tutorial-migrate.md)
