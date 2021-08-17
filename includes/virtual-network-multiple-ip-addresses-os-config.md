@@ -323,7 +323,6 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 </details>
 	
 ### Debian GNU/Linux
-
 <details>
   <summary>Expand</summary>
 
