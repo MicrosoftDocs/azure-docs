@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 09/01/2021
 ms.author: duau
 ---
 
