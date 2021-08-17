@@ -151,8 +151,6 @@ Here's a basic layered deployment manifest with one module as an example:
 }
 ```
 
-
-
 The previous example showed a layered deployment setting the `properties.desired` for a module. If this layered deployment targeted a device where the same module was already applied, it would overwrite any existing desired properties. In order to update, instead of overwrite, desired properties, you can define a new subsection. For example:
 
 ```json
