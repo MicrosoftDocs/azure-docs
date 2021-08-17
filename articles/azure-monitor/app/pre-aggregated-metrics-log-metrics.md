@@ -73,6 +73,13 @@ All metrics that you send using [trackMetric](./api-custom-events-metrics.md#tra
 
 ![Usage and estimated cost](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
+## Quotas
+
+Pre-aggregated metrics are stored as timeseries in Azure Monitor, and [Azure Monitor's quotas on custom metrics](../essentials/metrics-custom-overview#quotas-and-limits) apply.
+
+> [!NOTE]
+> Going over the quota might have unpleasant consequences, making Azure Monitor unreliable in the given subscription/region. Consult [Design limitations and considerations](../essentials/metrics-custom-overview#design-limitations-and-considerations) to make sure this doesn't happen.
+  
 ## Why is collection of custom metrics dimensions turned off by default?
 
 The collection of custom metrics dimensions is turned off by default because in the future storing custom metrics with dimensions will be billed separately from Application Insights, while storing the non-dimensional custom metrics will remain free (up to a quota). You can learn about the upcoming pricing model changes on our official [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
