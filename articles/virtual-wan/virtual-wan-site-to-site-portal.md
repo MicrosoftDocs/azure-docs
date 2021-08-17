@@ -44,13 +44,13 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="hub"></a>Create a hub
 
-A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. For this tutorial, you begin by filling out the **Basics** tab for the virtual hub and then continue on to fill out the site-to-site tab. The hub is then created with the site-to-site settings. Note that it is possible to create an empty hub (a hub that is not configured with connectivity settings). Once a hub is created, you'll be charged for the hub, even if you don't attach any sites.
+A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. For this tutorial, you begin by filling out the **Basics** tab for the virtual hub and then continue on to fill out the site-to-site tab in the next section. Note that it is possible to create an empty hub (a hub that does not contain any gateways) and then add gateways (S2S, P2S, ExpressRoute, etc.) later. Once a hub is created, you'll be charged for the hub, even if you don't attach any sites or create any gateways within the hub.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
 ## <a name="gateway"></a>Create a site-to-site VPN gateway
 
-In this step, you configure the site-to-site connectivity settings and then proceed to create the hub along with the settings you specify. A hub can take up to 30 minutes to create.
+In this step, you configure site-to-site connectivity settings, and then proceed to create the hub and S2S VPN gateway in one step. A hub and gateway can take about 30 minutes to create.
 
 [!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
