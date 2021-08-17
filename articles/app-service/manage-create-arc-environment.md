@@ -205,8 +205,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --workspace-name $workspaceName `
         --query primarySharedKey `
         --output tsv)
-    $logAnalyticsKeyEncWithSpace=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($logAnalyticsKey))
-    $logAnalyticsKeyEnc=$(echo -n "${logAnalyticsKeyEncWithSpace//[[:space:]]/}") # Needed for the next step
+    $logAnalyticsKeyEnc=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($logAnalyticsKey))
     ```
     
     ---
