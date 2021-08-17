@@ -19,7 +19,7 @@ This article describes how you can enable, customize, and enhance the Azure Acti
 
 Before you start, familiarize yourself with the following articles: 
 * [Configure authentication in a sample Android app by using Azure AD B2C](configure-authentication-sample-android-app.md)
-* [Enable authentication in your own Android app by using Azure AD B2C](enable-authentication-android-app.md).
+* [Enable authentication in your own Android app by using Azure AD B2C](enable-authentication-android-app.md)
 
 [!INCLUDE [active-directory-b2c-app-integration-custom-domain](../../includes/active-directory-b2c-app-integration-custom-domain.md)]
 
