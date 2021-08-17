@@ -42,7 +42,7 @@ The maximum number of connections per pricing tier and vCores are shown below. T
 | E64s_v3              | 64     | 432 GiB     | 5000            | 4997                 |
 
 When connections exceed the limit, you may receive the following error:
-> FATAL:  sorry, too many clients already
+> FATAL:  sorry, too many clients already.
 
 > [!IMPORTANT]
 > For best experience, we recommend that you use a connection pooler like PgBouncer to efficiently manage connections.
