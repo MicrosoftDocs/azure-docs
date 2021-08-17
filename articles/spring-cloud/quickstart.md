@@ -417,6 +417,8 @@ The following procedure builds and deploys the application using the Azure CLI. 
    az account list -o table
    ```
 
+Use the following command to set the default subscription to use with the Azure CLI commands in this quickstart.
+
    ```azurecli
    az account set --subscription <Name or ID of a subscription from the last step>
    
