@@ -170,7 +170,7 @@ For business continuity and disaster recovery (BCDR) reasons you may have create
 
 - If you use locally redundant (LRS) or zone redundant (ZRS) storage accounts, you only need to enable the URL listed under "Primary endpoint URL".
 
-- If you use geo-redundant (GRS) storage accounts, enable three URLs.
+- If you use a storage account configured for GRS, enable three URLs.
 
 **Example:** You deploy a storage sync service in `"West US"` and register your server with it. The URLs to allow the server to communicate to for this case are:
 
