@@ -34,6 +34,16 @@ The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
 | TypeHandlerVersion  | 1.0 | 1.5 |
 
+## Extension versions
+It is strongly recommended to update to GA+ versions instead of using preview versions.
+
+| Release Date | Release notes | Windows | Linux |
+|:---|:---|:---|:---|:---|
+| June 2021 | General availability announced. <ul><li>All features except metrics destination now generally available</li><li>Production quality, security and compliance</li><li>Availability in all public regions</li><li>Performance and scale improvements for higher EPS</li></ul> [Learn more](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12.0 | 1.9.1.0 |
+| July 2021 | <ul><li>Support for direct proxies</li><li>Support for Log Analytics gateway</li></ul> [Learn more](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |
+| August 2021 | AMA extensibility improvements and minor bugfixes | 1.1.2.0 | 1.12.0.0 |
+
+
 
 ## Install with Azure portal
 To install the Azure Monitor agent using the Azure portal, follow the process to [create a data collection rule](data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal) in the Azure portal. This allows you to associate the data collection rule with one or more Azure virtual machines or Azure Arc enabled servers. The agent will be installed on any of these virtual machines that don't already have it.
