@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: Configure DNS Name Resolution for private endpoints
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 08/18/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
@@ -24,6 +24,8 @@ The following example shows Azure Purview DNS name resolution from outside the v
 The following example shows Azure Purview DNS name resolution from inside the virtual network.
 
    :::image type="content" source="media/catalog-private-link/purview-name-resolution-private-link.png" alt-text="Screenshot that shows Purview name resolution from inside CorpNet.":::
+
+## Deployment options 
 
 Use any of the following options to sent up internal name resolution when using private endpoints for your Azure Purview account:
 1. [Deploy new Azure Private DNS Zones](#option-1---deploy-new-azure-private-dns-zones) in your Azure environment part of private endpoint deployment. (Default option)
@@ -104,9 +106,9 @@ If you are using a custom DNS server on your network, clients must be able to re
 
 For more information, see [Azure private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
-## Verify and test name resolution
+## Verify and DNS test name resolution and connectivity 
 
-1. If you are using Azure Private DNS Zones, make sure the following DNS Zones are created on your Azure Subscription. Make sure all the required A records are created inside each Zone:
+1. If you are using Azure Private DNS Zones, make sure the following DNS Zones and the corresponding A records are created in your Azure Subscription:
 
    |Private endpoint  |Private endpoint associated to  |DNS Zone  |A Record )(example) |
    |---------|---------|---------|---------|
@@ -116,9 +118,9 @@ For more information, see [Azure private endpoint DNS configuration](../private-
    |Ingestion   |Purview managed Storage Account - Queue         |`privatelink.queue.core.windows.net`         |scaneastusabcd1234         |
    |Ingestion     |Purview managed Storage Account - Event Hub         |`privatelink.servicebus.windows.net`         |atlas-12345678-1234-1234-abcd-123456789abc         |
 
-2. Create [Virtual network links](../dns/private-dns-virtual-network-links.md) to your Azure Private DNS Zones in your Azure Virtual Networks to allow internal name resolution.
+2. Create [Virtual network links](../dns/private-dns-virtual-network-links.md) in your Azure Private DNS Zones for your Azure Virtual Networks to allow internal name resolution.
    
-3. From your management PC and self-hosted integration runtime VM, test name resolution and connectivity to your Azure Purview account using tools such as Nslookup.exe and PowerShell.
+3. From your management PC and self-hosted integration runtime VM, test name resolution and network connectivity to your Azure Purview account using tools such as Nslookup.exe and PowerShell
 
 To test name resolution you need to resolve the following FQDNs through their private IP addresses:
 (Instead of PurviewA, scaneastusabcd1234 or atlas-12345678-1234-1234-abcd-123456789abc, use the hostname associated with your purview account name and managed resources names)
@@ -129,16 +131,14 @@ To test name resolution you need to resolve the following FQDNs through their pr
 - `scaneastusabcd1234.queue.core.windows.net`
 - `atlas-12345678-1234-1234-abcd-123456789abc.servicebus.windows.net`
 
-## Verify network connectivity
-
 To test network connectivity, from self-hosted integration runtime VM you can launch PowerShell console and test connectivity using `Test-NetConnection`. 
 You must resolve each endpoint by their private endpoint and obtain TcpTestSucceeded as True. (Instead of PurviewA, scaneastusabcd1234 or atlas-12345678-1234-1234-abcd-123456789abc, use the hostname associated with your purview account name and managed resources names)
 
-Test-NetConnection -ComputerName PurviewA.purview.azure.com -port 443
-Test-NetConnection -ComputerName web.purview.azure.com -port 443
-Test-NetConnection -ComputerName scaneastusabcd1234.blob.core.windows.net -port 443
-Test-NetConnection -ComputerName scaneastusabcd1234.queue.core.windows.net -port 443
-Test-NetConnection -ComputerName atlas-12345678-1234-1234-abcd-123456789abc.servicebus.windows.net -port 443 
+- `Test-NetConnection -ComputerName PurviewA.purview.azure.com -port 443`
+- `Test-NetConnection -ComputerName web.purview.azure.com -port 443`
+- `Test-NetConnection -ComputerName scaneastusabcd1234.blob.core.windows.net -port 443`
+- `Test-NetConnection -ComputerName scaneastusabcd1234.queue.core.windows.net -port 443`
+- `Test-NetConnection -ComputerName atlas-12345678-1234-1234-abcd-123456789abc.servicebus.windows.net -port 443` 
 
 ## Next steps
 

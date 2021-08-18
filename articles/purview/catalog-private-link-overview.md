@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog-overview
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 08/18/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
@@ -45,7 +45,8 @@ Use the following recommended checklist to perform deployment of Azure Purview a
 |**Scenario 2** - [Scan data sources from restricted network](./catalog-private-link-ingestion.md)  | You need to scan data sources in on-premises and Azure behind a virtual network using self-hosted integration runtime. (Deploy _ingestion_ private endpoints.)    |
 |**Scenario 3** - [Connect to your Purview account and scan data sources from restricted network for an end to end isolation](./catalog-private-link-end-to-end.md) |You need to restrict access to your Azure Purview account only via a private endpoint, including access to Azure Purview Studio, Atlas APIs and scan data sources in on-premises and Azure behind a virtual network using self-hosted integration runtime ensuring end to end network isolation. (Deploy _account_, _portal_ and _ingestion_ private endpoints.)   |
 
-## Scanning data sources through _ingestion_ private endpoints support matrix
+## Support matrix for Scanning data sources through _ingestion_ private endpoint
+
 For scenarios where _ingestion_ private endpoint is used in your Azure Purview account, and public access on your data sources is disabled, Azure Purview can scan the following data sources that are behind a private endpoint:
 
 |Data source behind a private endpoint  |Integration runtime type  |Credential type  |
@@ -72,4 +73,4 @@ To view list of current limitations related to Azure Purview private endpoints, 
 
 ## Next steps
 
-- [Deploy ingestion private endpoints ](./catalog-private-link-ingestion.md)
+- [Deploy ingestion private endpoints](./catalog-private-link-ingestion.md)

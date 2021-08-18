@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 08/18/2021
 # Customer intent: As an Azure Purview admin, I want to set up private endpoints for my Azure Purview to scan data sources from restricted network.
 ---
 
@@ -29,7 +29,7 @@ Using one of the deployment options from this guide, enable ingestion private en
    - Deploy a [new virtual network](../virtual-network/quick-create-portal.md) in your Azure subscription.
    - Locate an existing Azure virtual network and a subnet in your Azure subscription.
   
-2. Define an appropriate name resolution method for ingestion, so Azure Purview can scan data sources using private network. You can use any of the following options:
+2. Define an appropriate [DNS name resolution method](./catalog-private-link-name-resolution.md#deployment-options) for ingestion, so Azure Purview can scan data sources using private network. You can use any of the following options:
    - Deploy new Azure DNS zones using the steps explained further in this guide.
    - Add required DNS records to existing Azure DNS zones using the steps explained further in this guide.
    - After completing the steps in this guide, add required DNS A records in your existing DNS servers manually.
@@ -44,9 +44,9 @@ Using one of the deployment options from this guide, enable ingestion private en
 
 2. Fill in the basic information, and on the **Networking** tab, set the connectivity method to **Private endpoint**. Set enable private endpoint to **Ingestion only**.
 
-3. Set up your ingestion private endpoints by providing details for **Subscription**, **Virtual network**, and **Subnet** that you want to pair with your private endpoint.
+      :::image type="content" source="media/catalog-private-link/purview-pe-scenario2-1.png" alt-text="Screenshot that shows Create private endpoint page selections.":::
 
-   :::image type="content" source="media/catalog-private-link/create-pe-azure-portal.png" alt-text="Screenshot that shows creating a private endpoint in the Azure portal.":::
+3. Set up your ingestion private endpoints by providing details for **Subscription**, **Virtual network**, and **Subnet** that you want to pair with your private endpoint.
 
 4. Optionally, select **Private DNS integration** to use Azure Private DNS Zones.
    
@@ -67,9 +67,13 @@ Using one of the deployment options from this guide, enable ingestion private en
 
 3. Fill in the basic information, selecting your existing virtual network and a subnet details. Optionally, select **Private DNS integration** to use Azure Private DNS Zones. 
    
-   > [!IMPORTANT]
-   > It is important to select correct Azure Private DNS Zones to allow correct name resolution between Azure Purview and data sources. You can also use your existing Azure Private DNS Zones or create DNS records in your DNS Servers manually later. For more information, see [Configure DNS Name Resolution for private endpoints](./catalog-private-link-name-resolution.md)
    :::image type="content" source="media/catalog-private-link/ingestion-pe-fill-details.png" alt-text="Screenshot that shows filling in private endpoint details.":::
+   
+   > [!IMPORTANT]
+   > It is important to select correct Azure Private DNS Zones to allow correct name resolution between Azure Purview and data sources. You can also use your existing Azure Private DNS Zones or create DNS records in your DNS Servers manually later. 
+   > 
+   >For more information, see [Configure DNS Name Resolution for private endpoints](./catalog-private-link-name-resolution.md).
+
 
 4. Select **Create** to finish the setup.
 

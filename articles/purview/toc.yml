@@ -215,8 +215,18 @@ items:
       href: file-extension-insights.md
   - name: Security & Networking
     items:
-    - name: Manage Private endpoints
-      href: catalog-private-link.md
+    - name: Azure Purview private endpoints overview
+      href: catalog-private-link-overview.md
+    - name: Connect to your Purview account from restricted network
+      href: catalog-private-link-account-portal.md
+    - name: Scan data sources from restricted network
+      href: catalog-private-link-ingestion.md
+    - name: Azure Purview private endpoints for end to end isolation
+      href: catalog-private-link-end-to-end.md
+    - name: Azure Purview private endpoints DNS configuration
+      href: catalog-private-link-name-resolution.md
+    - name: Azure Purview private endpoints troubleshooting guide
+      href: catalog-private-link-troubleshooting.md                     
     - name: Azure Purview Private endpoints FAQs
       href: catalog-private-link-faqs.md
   - name: Disaster recovery

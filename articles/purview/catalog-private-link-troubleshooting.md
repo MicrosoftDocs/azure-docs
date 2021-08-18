@@ -6,7 +6,7 @@ ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog-overview
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 08/18/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
@@ -17,7 +17,7 @@ ms.date: 08/16/2021
 - We currently do not support ingestion private endpoints that work with your AWS sources.
 - Scanning Azure Multiple Sources using self-hosted integration runtime is not supported.
 - Using Azure integration runtime to scan data sources behind private endpoint is not supported.
-- Using Azure Portal, The ingestion private endpoints can be created via the Azure Purview portal experience described in the preceding steps. They can't be created from the Private Link Center.
+- Using Azure Portal, the ingestion private endpoints can be created via the Azure Purview portal experience described in the preceding steps. They can't be created from the Private Link Center.
 - Creating DNS A records for ingestion private endpoints inside existing Azure DNS Zones, while the Azure Private DNS Zones are located in a different subscription than the private endpoints is not supported via the Azure Purview portal experience. A records can be added manually in the destination DNS Zones in the other subscription. 
 - Self-hosted integration runtime machine must be deployed in the same VNet where Azure Purview ingestion private endpoint is deployed.
 - We currently do not support ingestion private endpoints to connect to Azure Data Factory.
@@ -45,51 +45,98 @@ ms.date: 08/16/2021
 3. If Azure Private DNS Zones are used, make sure the required Azure DNS Zones are deployed and there is DNS (A) record for each private endpoint.
 
 4. Test network connectivity and name resolution from management machine to Purview endpoint and purview web url. If account and portal private endpoints are deployed, the endpoints must be resolved through private IP addresses.
-  
-  :::image type="content" source="media/catalog-private-link/purview-private-link-tr01.png" alt-text="Screenshot that shows how to troubleshoot Azure Purview with Private Endpoints."::: 
 
+
+    ```powershell
+    Test-NetConnection -ComputerName web.purview.azure.com -Port 443
+    ```
+
+    Example of successful outbound connection through private IP address:
+
+    ```
+    ComputerName     : web.purview.azure.com
+    RemoteAddress    : 10.9.1.7
+    RemotePort       : 443
+    InterfaceAlias   : Ethernet 2
+    SourceAddress    : 10.9.0.10
+    TcpTestSucceeded : True
+    ```
+
+    ```powershell
+    Test-NetConnection -ComputerName purview-test01.purview.azure.com -Port 443
+    ```
+
+    Example of successful outbound connection through private IP address:
+
+    ```
+    ComputerName     : purview-test01.purview.azure.com
+    RemoteAddress    : 10.9.1.8
+    RemotePort       : 443
+    InterfaceAlias   : Ethernet 2
+    SourceAddress    : 10.9.0.10
+    TcpTestSucceeded : True
+    ```
+    
 5. If you have created your Azure Purview account after 18th August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
    
-6. From self-hosted integration runtime VM, test network connectivity and name resolution to Purview endpoint:
+6. From self-hosted integration runtime VM, test network connectivity and name resolution to Purview endpoint.
 
-  :::image type="content" source="media/catalog-private-link/purview-private-link-tr02.png" alt-text="Screenshot that shows how to troubleshoot Azure Purview with Private Endpoints."::: 
+7. From self-hosted integration runtime, test network connectivity and name resolution to Azure Purview managed resources such as blob queue and event hub through port 443 and private IP addresses. (Replace the managed storage account and Eventhub namespace with corresponding managed resource name assigned to your Azure Purview account).
 
+    ```powershell
+    Test-NetConnection -ComputerName `scansoutdeastasiaocvseab`.blob.core.windows.net -Port 443
+    ```
+    Example of successful outbound connection to managed blob storage through private IP address:
 
-6. From self-hosted integration runtime, test network connectivity and name resolution to Azure Purview managed resources such as blob queue and event hub through port 443 and private IP addresses.
+    ```
+    ComputerName     : scansoutdeastasiaocvseab.blob.core.windows.net
+    RemoteAddress    : 10.15.1.6
+    RemotePort       : 443
+    InterfaceAlias   : Ethernet 2
+    SourceAddress    : 10.15.0.4
+    TcpTestSucceeded : True
+    ```
 
-  :::image type="content" source="media/catalog-private-link/purview-private-link-tr02.png" alt-text="Screenshot that shows how to troubleshoot Azure Purview with Private Endpoints."::: 
+    ```powershell
+    Test-NetConnection -ComputerName `scansoutdeastasiaocvseab`.queue.core.windows.net -Port 443
+    ```
+    Example of successful outbound connection to managed queue storage through private IP address:
 
- 7. From the network where data source is located, test network connectivity and name resolution to Purview endpoint and managed resources endpoints.
+    ```
+    ComputerName     : scansoutdeastasiaocvseab.blob.core.windows.net
+    RemoteAddress    : 10.15.1.5
+    RemotePort       : 443
+    InterfaceAlias   : Ethernet 2
+    SourceAddress    : 10.15.0.4
+    TcpTestSucceeded : True
+    ```
 
-8. If data sources are located in on-premises network, review your DNS forwarder configuration. Test name resolution from within the same network where data sources are located to self-hosted integration runtime, Azure Purview endpoints and managed resources. It is expected to obtain a valid private IP address from DNS query for each endpoint.
+    ```powershell
+    Test-NetConnection -ComputerName `Atlas-1225cae9-d651-4039-86a0-b43231a17a4b`.servicebus.windows.net -Port 443
+    ```
+    Example of successful outbound connection to eventhub namespace through private IP address:
+
+    ```
+    ComputerName     : Atlas-1225cae9-d651-4039-86a0-b43231a17a4b.servicebus.windows.net
+    RemoteAddress    : 10.15.1.4
+    RemotePort       : 443
+    InterfaceAlias   : Ethernet 2
+    SourceAddress    : 10.15.0.4
+    TcpTestSucceeded : True
+    ```
+
+8. From the network where data source is located, test network connectivity and name resolution to Purview endpoint and managed resources endpoints.
+
+9.  If data sources are located in on-premises network, review your DNS forwarder configuration. Test name resolution from within the same network where data sources are located to self-hosted integration runtime, Azure Purview endpoints and managed resources. It is expected to obtain a valid private IP address from DNS query for each endpoint.
    
    For more information, see [Virtual network workloads without custom DNS server](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server) and [On-premises workloads using a DNS forwarder](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) scenarios in [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
-9.  If ingestion private endpoint is used, make sure self-hosted integration runtime is registered successfully inside Purview account and shows as running both inside the SHIR VM and in Azure Purview Studio.
-  
-  :::image type="content" source="media/catalog-private-link/purview-private-link-tr03.png" alt-text="Screenshot that shows how to troubleshoot Azure Purview with Private Endpoints."::: 
-
 10. If management machine and self-hosted integration runtime VMs are deployed in on-premises network and you have set up DNS forwarder in your environment, verify DNS and network settings in your environment. 
 
+11. If ingestion private endpoint is used, make sure self-hosted integration runtime is registered successfully inside Purview account and shows as running both inside the self-hosted integration runtime VM and in Azure Purview Studio.
+
+
 ## Common errors and messages
-
-### Issue 
-Purview account is behind a private endpoint and I could not retrieve scanned asset counts.
-
-### Cause
-
-### Resolution 
-
-
-### Issue
-I have created an Azure Purview account with private endpoints. When I click to launch Azure Purview Studio, I receive an error message that  can't be reached error page. I have also seen an error page where studio loads partially and throws a Network Error message. 
-
-### Cause 
-
-
-### Resolution 
-
-
 
 ### Issue 
 You may receive the following error message when running a scan:
@@ -100,22 +147,23 @@ You may receive the following error message when running a scan:
 This can be an indication of issues related to connectivity or name resolution between the VM running self-hosted integration runtime and Azure Purview's managed resources storage account or event hub.
 
 ### Resolution 
-Validate if name resolution between the VM running Self-Hosted Integration Runtime 
+Validate if name resolution between the VM running Self-Hosted Integration Runtime.
 
 
 ### Issue 
-Error: (3815) Failed to access the Azure blob storage account with the Managed Identity
+You may receive the following error message when running a new scan:
 
-### Cause
-'_Allow Azure services on the trusted services list to access this storage account._' is disabled on Azure data source.
+  ```message: Unable to setup config overrides for this scan. Exception:'Type=Microsoft.WindowsAzure.Storage.StorageException,Message=The remote server returned an error: (404) Not Found.,Source=Microsoft.WindowsAzure.Storage,StackTrace= at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndExecuteAsync[T](IAsyncResult result)```
 
-### Resolution
+### Cause 
+This can be an indication of running an older version of self-hosted integration runtime. If you have created your Azure Purview account after 18th August 2021, you need to use the elf-hosted integration runtime version 5.9.7885.3.
 
+### Resolution 
+Upgrade self-hosted integration runtime to 5.9.7885.3.
 
-## Azure Policy Violation - Disallowed Azure resource types 
 
 ### Issue 
-The template deployment failed because of policy violation 
+Azure Purview account with private endpoint deployment failed with Azure Policy validation error during the deployment.
 
 ### Cause
 This error suggests that there may be an existing Azure Policy Assignment on your Azure subscription that is preventing the deployment of any of the required Azure resources. 
@@ -131,16 +179,15 @@ Review your existing Azure Policy Assignments and make sure deployment of the fo
 >  -   Event Hub Name Space (Microsoft.EventHub/namespaces)
 >  -   Storage Account (Microsoft.Storage/storageAccounts)
 
-## Access to Purview Studio - Not authorized to access this Purview account.
 
 ### Issue
 Not authorized to access this Purview account. This Purview account is behind a private endpoint. Please access the account from a client in the same virtual network (VNet) that has been configured for the Purview account's private endpoint.
 
 ### Cause 
-Connecting to Azure Purview from a public endpoint where **Public network access** is set to **Deny** results in the following error message:
+User is trying to connect to Azure Purview from a public endpoint or using Azure Purview public endpoints where **Public network access** is set to **Deny**.
 
 ### Resolution
-In this case, to open Azure Purview Studio, either use a machine that's deployed in the same virtual network as the Azure Purview portal private endpoint or use a VM that's connected to your CorpNet in which hybrid connectivity is allowed.
+In this case, to open Azure Purview Studio, either use a machine that is deployed in the same virtual network as the Azure Purview portal private endpoint or use a VM that is connected to your CorpNet in which hybrid connectivity is allowed.
 
 ## Next steps
 
