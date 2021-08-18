@@ -13,14 +13,18 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2021
-ms.author: bagold
+ms.date: 08/18/2021
+ms.author: bagol
 
 ---
 
 # Troubleshoot your CEF or Syslog data connector
 
-This article describes common methods for troubleshooting a CEF or Syslog data connector for Azure Sentinel when issues arise, such as if your data source fails to connector or data is not ingested.
+This article describes common methods for troubleshooting a CEF or Syslog data connector for Azure Sentinel.
+
+For example, if your logs are not appearing in Azure Sentinel, either in the Syslog or the Common Security Log tables, your data source may be failing to connect or there may be another reason your data is not being ingested.
+
+We recommend that you work through the steps in this article in the order they're presented to check and resolve issues in your Syslog Collector, operating system, or OMS agent.
 
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md) and [Collect data from Linux-based sources using Syslog](connect-syslog.md).
 
@@ -37,7 +41,7 @@ If you're using an Azure Virtual Machine as a Syslog collector, verify the follo
     You can turn them back on after your data connector is completely set up.
 
     > [!NOTE]
-    > The Log Analytics agent for Windows is often referred to as Microsoft Monitoring Agent (MMA). The Log Analytics agent for Linux is often referred to as OMS agent.
+    > The Log Analytics agent for Windows is often referred to as the *Microsoft Monitoring Agent (MMA)*. The Log Analytics agent for Linux is often referred to as the *OMS agent*.
     >
 
 - Before you deploy the [Common Event Format Data connector python script](connect-cef-agent.md), make sure that your Virtual Machine isn't already connected to an existing Syslog workspace. You can find this information on the Log Analytics Workspace Virtual Machine list, where a VM that's connected to a Syslog workspace is listed as **Connected**.
@@ -210,7 +214,7 @@ This procedure describes how to verify whether a firewall policy is blocking the
     watch -n 2 -d iptables -nvL
     ```
 
-1. To keep the firewall policy enabled, create a policy rule to allow the connections. Add rules as needed to allow the TCP/UDP ports 25226 and 25224 through the active firewall.
+1. To keep the fireconnectionswall policy enabled, create a policy rule to allow the . Add rules as needed to allow the TCP/UDP ports 25226 and 25224 through the active firewall.
 
     For example:
 
@@ -276,6 +280,8 @@ In such cases, continue troubleshooting by verifying the following:
 - Make sure that you can see data packets flowing on port 25524, 25526, or both
 
 - Make sure that your virtual machine has an outbound connection to port 443 via TCP, or can connect to the [Log Analytics endpoints](/azure/azure-monitor/agents/log-analytics-agent#network-requirements)
+
+- Make sure that you have access to required URLs for your from your Syslog collector through your firewall policy. For more information, see [Log Analytics agent firewall requirements](/azure/azure-monitor/agents/log-analytics-agent).
 
 - Make sure that your Azure Virtual Machine is shown as connected in your workspace's list of virtual machines.
 
