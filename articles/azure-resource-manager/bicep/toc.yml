@@ -85,6 +85,12 @@
       href: linter.md
     - name: Best practices
       href: best-practices.md
+    - name: Patterns
+      items:
+      - name: Configuration set
+        href: patterns-configuration-set.md
+      - name: Shared variable file
+        href: patterns-shared-variable-file.md
   - name: Deploy
     items:
     - name: Predeployment checks
