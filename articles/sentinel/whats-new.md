@@ -30,17 +30,22 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## August 2021
 
+- [Data connector health enhancements (Public preview)](#data-connector-health-enhancements-public-preview)
 - [Advanced incident search (Public preview)](#advanced-incident-search-public-preview)
 - [Fusion detection for Ransomware (Public preview)](#fusion-detection-for-ransomware-public-preview)
 - [Watchlist templates for UEBA data](#watchlist-templates-for-ueba-data-public-preview)
 - [File event normalization schema (Public preview)](#file-event-normalization-schema-public-preview)
 - [New in docs: Best practice guidance](#new-in-docs-best-practice-guidance)
 
-### Data connector health enhancements
+### Data connector health enhancements (Public preview)
 
 Azure Sentinel now provides the ability to enhance your data connector health monitoring with a new *SentinelHealth* table. The *SentinelHealth* table is created after you've turned on the <name tbd> feature in your Azure Sentinel workspace, at the first success or failure health event that's generated.
 
 To turn on the feature for your workspace, <TBD>. For more information, see [Monitor the health of your data connectors with this Azure Sentinel workbook](monitor-data-connector-health.md).
+
+> [!NOTE]
+> The *SentinelHealth* data table is currently supported only for selected data connectors. For more information, see [Supported data connectors](monitor-data-connector-health.md#supported-data-connectors).
+>
 
 ### Advanced incident search (Public preview)
 

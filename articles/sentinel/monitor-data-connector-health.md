@@ -28,7 +28,7 @@ This article describes how to use the following features, which allow you to kee
 
 - **Data connectors health monitoring workbook**. This workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
 
-- ***SentinelHealth* data table**. Provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions.
+- ***SentinelHealth* data table**. (Public preview) Provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions.
 
     > [!NOTE]
     > The *SentinelHealth* data table is currently supported only for selected data connectors. For more information, see [Supported data connectors](#supported-data-connectors).
@@ -74,7 +74,7 @@ volume measures, EPS rates and time last log received.
 
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="data connector health monitoring workbook agent info page" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 
-## Use the SentinelHealth data table
+## Use the SentinelHealth data table (Public preview)
 
 To get data connector health data from the *SentinelHealth* data table, you must first turn on the <name tbd> feature for your workspace.
 
@@ -120,11 +120,11 @@ The following types of health events are logged in the *SentinelHealth* table:
 
 - **Data fetch status change**. Logged once an hour as long as a data connector status remains stable, with either continuous success or failure events. For as long as a data connector's status does not change, monitoring only hourly works to prevent redundant auditing and reduce table size. If the data connector's status has continuous failures, additional details about the failures are included in the *ExtendedProperties* column.
 
-    If the data connector's status changes, either from a success to failure, or from failure to success, the event is logged immediately to allow your team to take proactive and immediate action.
+    If the data connector's status changes, either from a success to failure, from failure to success, or has changes in failure reasons, the event is logged immediately to allow your team to take proactive and immediate action.
 
     Potentially transient errors, such as source service throttling, are logged only after they've continued for more than 60 minutes. These 60 minutes allow Azure Sentinel to overcome a transient issue in the backend and catch up with the data, without requiring any user action. Errors that are definitely not transient are logged immediately.
 
-- **Result summary**. Logged once an hour, per connector, per workspace, with aggregated summary and audit information. Result summary events contain any extra details provided in the *ExtendedProperties* column, such as the time period for which the connector's source platform was queried, the number of calls the succeeded and returned, or the number of calls that returned without results, or with failures. 
+- **Result summary**. Logged once an hour, per connector, per workspace, with aggregated summary and audit information. Result summary events contain any extra details provided in the *ExtendedProperties* column, such as the time period for which the connector's source platform was queried, the number of calls the succeeded and returned, or the number of calls that returned without results, or with failures.
 
 For more information, see [SentinelHealth table columns schema](#sentinelhealth-table-columns-schema).
 
