@@ -1,7 +1,7 @@
 ---
 title: Micro agent configurations (Preview)
 description: The collector sends all current data immediately after any configuration change is made. The changes are then applied.
-ms.date: 08/17/2021
+ms.date: 08/18/2021
 ms.topic: conceptual
 ---
 
@@ -47,3 +47,7 @@ Define the frequency in which messages are sent for each priority level. The def
 | High | 30 (.5 hours) |
 
 To reduce the number of messages sent to cloud, each priority should be set as a multiple of the one below it. For example, High: 60 minutes, Medium: 120 minutes, Low: 480 minutes.
+
+## Next Steps
+
+Learn about the [Micro agent event collection (Preview)](concept-event-aggregation.md).
