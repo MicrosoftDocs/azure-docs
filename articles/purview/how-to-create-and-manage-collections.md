@@ -143,25 +143,25 @@ Assets and sources are also associated with collections. During a scan, if the s
 
 ### Search by collection
 
-In Azure Purview, the search bar is located at the top of the Purview studio UX.
+1. In Azure Purview, the search bar is located at the top of the Purview studio UX.
 
-:::image type="content" source="./media/how-to-create-and-manage-collections/purview-search-bar.png" alt-text="Screenshot showing the location of the Azure Purview search bar" border="true":::
+   :::image type="content" source="./media/how-to-create-and-manage-collections/purview-search-bar.png" alt-text="Screenshot showing the location of the Azure Purview search bar" border="true":::
 
-When you select the search bar, you can see your recent search history and recently accessed assets. Select **View all** to see all of the recently viewed assets.
+1. When you select the search bar, you can see your recent search history and recently accessed assets. Select **View all** to see all of the recently viewed assets.
 
-:::image type="content" source="./media/how-to-create-and-manage-collections/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
+   :::image type="content" source="./media/how-to-create-and-manage-collections/search-no-keywords.png" alt-text="Screenshot showing the search bar before any keywords have been entered" border="true":::
 
-Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in keywords relating to your desired asset, Azure Purview displays suggestions on what to search and potential asset matches. To complete your search, select **View search results** or press **Enter**.
+1. Enter in keywords that help identify your asset such as its name, data type, classifications, and glossary terms. As you enter in keywords relating to your desired asset, Azure Purview displays suggestions on what to search and potential asset matches. To complete your search, select **View search results** or press **Enter**.
 
-:::image type="content" source="./media/how-to-create-and-manage-collections/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
+   :::image type="content" source="./media/how-to-create-and-manage-collections/search-keywords.png" alt-text="Screenshot showing the search bar as a user enters in keywords" border="true":::
 
-The search results page shows a list of assets that match the keywords provided in order of relevance. There are various factors that can affect the relevance score of an asset. You can filter down the list more by selecting specific collections, data stores, classifications, contacts, labels, and glossary terms that apply to the asset you are looking for.
+1. The search results page shows a list of assets that match the keywords provided in order of relevance. There are various factors that can affect the relevance score of an asset. You can filter down the list more by selecting specific collections, data stores, classifications, contacts, labels, and glossary terms that apply to the asset you are looking for.
 
-:::image type="content" source="./media/how-to-create-and-manage-collections/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
+   :::image type="content" source="./media/how-to-create-and-manage-collections/search-results.png" alt-text="Screenshot showing the results of a search" border="true":::
 
- Select your desired asset to view the asset details page where you can view properties including schema, lineage, and asset owners.
+1. Select your desired asset to view the asset details page where you can view properties including schema, lineage, and asset owners.
 
-:::image type="content" source="./media/how-to-create-and-manage-collections/search-by-collection.png" alt-text="Screenshot showing search results with collections." border="true":::
+   :::image type="content" source="./media/how-to-create-and-manage-collections/search-by-collection.png" alt-text="Screenshot showing search results with collections." border="true":::
 
 ### Browse by collection
 
