@@ -2,6 +2,7 @@
 title: View the usage report in Partner Center
 description: Analyze the usage of your app or add-in after users acquire it from Microsoft AppSource.
 localization_priority: Normal
+ms.author: mingshen
 ms.date: 11/24/2020
 ---
 
