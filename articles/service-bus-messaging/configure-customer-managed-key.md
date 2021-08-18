@@ -77,7 +77,7 @@ After you enable customer-managed keys, you need to associate the customer manag
     >     * [Set up the access policy](../key-vault/general/assign-access-policy-portal.md) for the managed identity for the secondary namespace to the key vault.
     >     * Pair the primary and secondary namespaces.
 
-## Using managed identities
+## Managed identities
 There are two types of managed identities that you can assign to a Service Bus namespace.
 
 - **System-assigned**: You can enable a managed identity directly on a Service Bus namespace. When you enable a system-assigned managed identity, an identity is created in Azure AD that's tied to the lifecycle of that Service Bus namespace. So when the namespace is deleted, Azure automatically deletes the identity for you. By design, only that Azure resource (namespace) can use this identity to request tokens from Azure AD.
