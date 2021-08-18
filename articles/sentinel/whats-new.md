@@ -38,13 +38,13 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ### Advanced incident search (Public preview)
 
-By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. Azure Sentinel now provides [advanced search options](tutorial-investigate-cases.md#search-for-incidents) to search across more data, including alert details, descriptions, entities, tactics, and more.
+By default, incident searches run across the **Incident ID**, **Title**, **Tags**, **Owner**, and **Product name** values only. Azure Sentinel now provides [advanced search options](investigate-cases.md#search-for-incidents) to search across more data, including alert details, descriptions, entities, tactics, and more.
 
 For example:
 
 :::image type="content" source="media/tutorial-investigate-cases/advanced-search.png" alt-text="Screenshot of the Incidents page advanced search options.":::
 
-For more information, see [Search for incidents](tutorial-investigate-cases.md#search-for-incidents).
+For more information, see [Search for incidents](investigate-cases.md#search-for-incidents).
 
 ### Fusion detection for Ransomware (Public preview)
 
@@ -58,7 +58,7 @@ Supported data connectors include:
 - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
 - [Microsoft Defender for Identity](connect-azure-atp.md)
 - [Microsoft Cloud App Security](connect-cloud-app-security.md)
-- [Azure Sentinel scheduled analytics rules](tutorial-detect-threats-built-in.md#scheduled)
+- [Azure Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled)
 
 For more information, see [Multiple alerts possibly related to Ransomware activity detected](fusion.md#multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview).
 
@@ -214,13 +214,13 @@ The upgrades are not automatic. Users of these connectors are encouraged to enab
 
 ### Export and import analytics rules (Public preview)
 
-You can now export your analytics rules to JSON-format Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Azure Sentinel deployments as code. Any type of [analytics rule](tutorial-detect-threats-built-in.md) - not just **Scheduled** - can be exported to an ARM template. The template file includes all the rule's information, from its query to its assigned MITRE ATT&CK tactics.
+You can now export your analytics rules to JSON-format Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Azure Sentinel deployments as code. Any type of [analytics rule](detect-threats-built-in.md) - not just **Scheduled** - can be exported to an ARM template. The template file includes all the rule's information, from its query to its assigned MITRE ATT&CK tactics.
 
 For more information, see [Export and import analytics rules to and from ARM templates](import-export-analytics-rules.md).
 
 ### Alert enrichment: alert details (Public preview)
 
-In addition to enriching your alert content with entity mapping and custom details, you can now custom-tailor the way alerts - and by extension, incidents - are presented and displayed, based on their particular content. Like the other alert enrichment features, this is configurable in the [analytics rule wizard](tutorial-detect-threats-custom.md).
+In addition to enriching your alert content with entity mapping and custom details, you can now custom-tailor the way alerts - and by extension, incidents - are presented and displayed, based on their particular content. Like the other alert enrichment features, this is configurable in the [analytics rule wizard](detect-threats-custom.md).
 
 For more information, see [Customize alert details in Azure Sentinel](customize-alert-details.md).
 
@@ -274,7 +274,7 @@ Then, select your entity type and the relevant details you want to match:
 
 :::image type="content" source="media/whats-new/alert-grouping-details.png" alt-text="Group alerts by matching entity details.":::
 
-For more information, see [Alert grouping](tutorial-detect-threats-custom.md#alert-grouping).
+For more information, see [Alert grouping](detect-threats-custom.md#alert-grouping).
 
 ### Azure Sentinel solutions (Public preview)
 
@@ -294,7 +294,7 @@ For more information, see [Tutorial: Deploy the Azure Sentinel solution for SAP 
 
 ### Threat intelligence integrations (Public preview)
 
-Azure Sentinel gives you a few different ways to [use threat intelligence](import-threat-intelligence.md) feeds to enhance your security analysts' ability to detect and prioritize known threats.
+Azure Sentinel gives you a few different ways to [use threat intelligence](./understand-threat-intelligence.md) feeds to enhance your security analysts' ability to detect and prioritize known threats.
 
 You can now use one of many newly available integrated threat intelligence platform (TIP) products, connect to TAXII servers to take advantage of any STIX-compatible threat intelligence source, and make use of any custom solutions that can communicate directly with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator).
 
@@ -304,7 +304,7 @@ For more information, see [Threat intelligence integration in Azure Sentinel](th
 
 ### Fusion over scheduled alerts (Public preview)
 
-The **Fusion** machine-learning correlation engine can now detect multi-stage attacks using alerts generated by a set of [scheduled analytics rules](tutorial-detect-threats-custom.md) in its correlations, in addition to the alerts imported from other data sources.
+The **Fusion** machine-learning correlation engine can now detect multi-stage attacks using alerts generated by a set of [scheduled analytics rules](detect-threats-custom.md) in its correlations, in addition to the alerts imported from other data sources.
 
 For more information, see [Advanced multistage attack detection in Azure Sentinel](fusion.md).
 
@@ -366,7 +366,7 @@ We know that compliance isn’t just an annual requirement, and organizations mu
 - Features over 75 control cards, aligned to the TIC 3.0 security capabilities, with selectable GUI buttons for navigation.
 - Is designed to augment staffing through automation, artificial intelligence, machine learning, query/alerting generation, visualizations, tailored recommendations, and respective documentation references.
 
-For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
+For more information, see [Visualize and monitor your data](monitor-your-data.md).
 
 ## April 2021
 
@@ -393,7 +393,7 @@ For example:
 
 :::image type="content" source="media/tutorial-investigate-cases/incident-timeline.png" alt-text="Incident timeline tab":::
 
-For more information, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md).
+For more information, see [Tutorial: Investigate incidents with Azure Sentinel](investigate-cases.md).
 
 ## March 2021
 
@@ -418,11 +418,11 @@ In each workbook or workbook template, select :::image type="icon" source="media
 
     Intervals are also restarted if you manually refresh the workbook by selecting the :::image type="icon" source="media/whats-new/manual-refresh-button.png" border="false"::: **Refresh** button.
 
-For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md) and the [Azure Monitor documentation](../azure-monitor/visualize/workbooks-overview.md).
+For more information, see [Visualize and monitor your data](monitor-your-data.md) and the [Azure Monitor documentation](../azure-monitor/visualize/workbooks-overview.md).
 
 ### New detections for Azure Firewall
 
-Several out-of-the-box detections for Azure Firewall have been added to the [Analytics](import-threat-intelligence.md#analytics-puts-your-threat-indicators-to-work-detecting-potential-threats) area in Azure Sentinel. These new detections allow security teams to get alerts if machines on the internal network attempt to query or connect to internet domain names or IP addresses that are associated with known IOCs, as defined in the detection rule query.
+Several out-of-the-box detections for Azure Firewall have been added to the [Analytics](./understand-threat-intelligence.md) area in Azure Sentinel. These new detections allow security teams to get alerts if machines on the internal network attempt to query or connect to internet domain names or IP addresses that are associated with known IOCs, as defined in the detection rule query.
 
 The new detections include:
 
@@ -472,12 +472,12 @@ In your workbook, select the options menu > :::image type="icon" source="media/w
 
 :::image type="content" source="media/whats-new/print-workbook.png" alt-text="Print your workbook or save as PDF.":::
 
-For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
+For more information, see [Visualize and monitor your data](monitor-your-data.md).
 
 ### Incident filters and sort preferences now saved in your session (Public preview)
 
 Now your incident filters and sorting is saved throughout your Azure Sentinel session, even while navigating to other areas of the product.
-As long as you're still in the same session, navigating back to the [Incidents](tutorial-investigate-cases.md) area in Azure Sentinel shows your filters and sorting just as you left it.
+As long as you're still in the same session, navigating back to the [Incidents](investigate-cases.md) area in Azure Sentinel shows your filters and sorting just as you left it.
 
 > [!NOTE]
 > Incident filters and sorting are not saved after leaving Azure Sentinel or refreshing your browser.
@@ -510,4 +510,4 @@ Customers will still be able to send the logs manually for specific instances an
 >[On-board Azure Sentinel](quickstart-onboard.md)
 
 > [!div class="nextstepaction"]
->[Get visibility into alerts](quickstart-get-visibility.md)
+>[Get visibility into alerts](get-visibility.md)
