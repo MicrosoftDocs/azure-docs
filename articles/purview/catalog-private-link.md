@@ -1,5 +1,5 @@
 ---
-title: Use private endpoints for secure access to Azure Purview
+title: Use private endpoints for your Azure Purview account - deprecated 
 description: This article describes how you can set up a private endpoint for your Azure Purview account.
 author: viseshag
 ms.author: viseshag
