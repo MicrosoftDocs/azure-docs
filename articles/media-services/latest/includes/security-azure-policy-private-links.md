@@ -8,7 +8,7 @@ ms.author: johndeu
 
 ## Azure Policy definitions for Private Links
 
-Azure Media Services supports several built-in use case based [Azure Policy](../../governance/policy/overview.md) definitions. 
+Azure Media Services supports several built-in use case based [Azure Policy](../../../governance/policy/overview.md) definitions. 
 
 The following policy definitions are available for use with Private Links:
 
@@ -19,6 +19,6 @@ The following policy definitions are available for use with Private Links:
 |[Configure Azure Media Services to use private DNS zones](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4a7f6c1-585e-4177-ad5b-c2c93f4bb991) |Use private DNS zones to override the DNS resolution for a private endpoint. A private DNS zone links to your virtual network to resolve to Media Services account. Learn more at: [https://aka.ms/mediaservicesprivatelinkdocs](../../../../articles/media-services/latest/security-private-link-how-to.md). |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Media%20Services/MediaServices_PrivateLinkDns_DeployIfNotExists.json) |
 |[Configure Azure Media Services with private endpoints](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5632066-946d-4766-9544-cd79bcc1286e) |Private endpoints connect your virtual networks to Azure services without a public IP address at the source or destination. By mapping private endpoints to Media Services, you can reduce data leakage risks. Learn more about private links at: [https://aka.ms/mediaservicesprivatelinkdocs](../../../../articles/media-services/latest/security-private-link-how-to.md). |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Media%20Services/MediaServices_PrivateLink_DeployIfNotExists.json) |
 
-Refer to [Azure Policy for Media Services](security-azure-policy.md) for a complete list of all built-in policy definitions and use cases.
+Refer to [Azure Policy for Media Services](../security-azure-policy.md) for a complete list of all built-in policy definitions and use cases.
 
 For details on how to deploy and use Azure Policy definitions see the article ["What is Azure Policy?"](../../../governance/policy/overview.md)

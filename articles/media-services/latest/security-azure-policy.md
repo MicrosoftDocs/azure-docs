@@ -29,7 +29,7 @@ Several built in policy use case definitions are available for use with Media Se
 
 [!INCLUDE [Azure Policy Media Services](../../../../includes/policy/reference/bycat/policies-media-services.md)]
 
-The [list of built-in policy definitions for Media Services](../../../governance/policy/samples/built-in-policies#media-services) provides the latest definitions and links the code definitions and how to access them in the Portal.
+The [list of built-in policy definitions for Media Services](../../../governance/policy/samples/built-in-policies.md#media-services) provides the latest definitions and links the code definitions and how to access them in the Portal.
 
 ## Common scenarios that require Azure Policy
 
@@ -44,9 +44,9 @@ See the [built-in policy definitions for Media Services](https://github.com/Azur
 
 See the following articles for more information:
 
-- [What is Azure Policy](../../governance/policy/overview.md)
-- [Quickstart:Create a policy in the Portal](../../governance/policy/assign-policy-portal.md)
-- [List of built-in policy definitions for Media Services](../../governance/policy/samples/built-in-policies#media-services)
+- [What is Azure Policy](../../../governance/policy/overview.md)
+- [Quickstart:Create a policy in the Portal](../../../governance/policy/assign-policy-portal.md)
+- [List of built-in policy definitions for Media Services](../../../governance/policy/samples/built-in-policies.md#media-services)
 
 ## Next steps
 
