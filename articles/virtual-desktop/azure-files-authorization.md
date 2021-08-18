@@ -66,8 +66,6 @@ If you haven't created a storage account already, follow the directions in [Crea
 >[!NOTE]
 >If you're creating a **Premium** storage account make sure **Account Kind** is set to **FileStorage**.
 
-![](media/0d7d5be429505166b3cb590db41c7d34.png)
-
 ## Get RBAC permissions
 
 To get RBAC permissions:
@@ -76,16 +74,12 @@ To get RBAC permissions:
 
 2. Select **Access Control (IAM)**, then select **Add**. Next, select **Add role assignments** from the drop-down menu.
 
-![](media/a4a78f167eab9602b5555c76c58254f3.png)
-
 3. In the **Add role assignment** screen, select the following values:
 
     - For **Role**, select **Storage File Data SMB Share Contributor**.
     - For **Assign access to**, select **User, Group, or Service Principal**.
     - For **Subscription**, select **Based on your environment**.
     - For **Select**, select the name of the Active Directory group that contains your session hosts.
-
-    ![](media/4890d22e04a668a1bb354b23b8366271.png)
 
 4. Select **Save**.
 
