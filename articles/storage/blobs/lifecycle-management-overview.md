@@ -31,9 +31,15 @@ Consider a scenario where data is frequently accessed during the early stages of
 > [!IMPORTANT]
 > If a data set needs to be readable, do not set a policy to move blobs to the archive tier. Blobs in the archive tier cannot be read unless they are first rehydrated, a process which may be time-consuming and expensive. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
-## Policy definition
+## About lifecycle management
 
-A lifecycle management policy is a collection of rules in a JSON document:
+>[!NOTE]
+>- Lifecycle management supports block blob and append blob types.<br>
+>- Lifecycle management does not affect system containers like $logs and $web.
+
+## Lifecycle management policy definition
+
+A lifecycle management policy is a collection of rules in a JSON document. The following sample JSON shows a complete rule definition:
 
 ```json
 {
@@ -53,32 +59,28 @@ A lifecycle management policy is a collection of rules in a JSON document:
 }
 ```
 
-A policy is a collection of rules:
+A policy is a collection of rules, as described in the following table:
 
 | Parameter name | Parameter type | Notes |
 |----------------|----------------|-------|
 | `rules`        | An array of rule objects | At least one rule is required in a policy. You can define up to 100 rules in a policy.|
 
-Each rule within the policy has several parameters:
+Each rule within the policy has several parameters, described in the following table:
 
 | Parameter name | Parameter type | Notes | Required |
-|----------------|----------------|-------|----------|
-| `name`         | String |A rule name can include up to 256 alphanumeric characters. Rule name is case-sensitive. It must be unique within a policy. | True |
-| `enabled`      | Boolean | An optional boolean to allow a rule to be temporary disabled. Default value is true if it's not set. | False | 
-| `type`         | An enum value | The current valid type is `Lifecycle`. | True |
-| `definition`   | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
+|--|--|--|--|
+| `name` | String | A rule name can include up to 256 alphanumeric characters. Rule name is case-sensitive. It must be unique within a policy. | True |
+| `enabled` | Boolean | An optional boolean to allow a rule to be temporary disabled. Default value is true if it's not set. | False |  |
+| `type` | An enum value | The current valid type is `Lifecycle`. | True |
+| `definition` | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
 
-## Rule definition
+## Lifecycle management rule definition
 
-Each rule definition includes a filter set and an action set. The [filter set](#rule-filters) limits rule actions to a certain set of objects within a container or objects names. The [action set](#rule-actions) applies the tier or delete actions to the filtered set of objects.
+Each rule definition within a policy includes a filter set and an action set. The [filter set](#rule-filters) limits rule actions to a certain set of objects within a container or objects names. The [action set](#rule-actions) applies the tier or delete actions to the filtered set of objects.
 
 ### Sample rule
 
 The following sample rule filters the account to run the actions on objects that exist inside `sample-container` and start with `blob1`.
-
->[!NOTE]
->- Lifecycle management supports block blob and append blob types.<br>
->- Lifecycle management does not affect system containers like $logs and $web.
 
 - Tier blob to cool tier 30 days after last modification
 - Tier blob to archive tier 90 days after last modification
@@ -135,10 +137,9 @@ Filters include:
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only delete is supported for `appendBlob`, set tier is not supported. | Yes |
 | prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-senstive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
-| blobIndexMatch | An array of dictionary values consisting of Blob Index tag key and value conditions to be matched. Each rule can define up to 10 Blob Index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
+| blobIndexMatch | An array of dictionary values consisting of blob index tag key and value conditions to be matched. Each rule can define up to 10 blob index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
-> [!NOTE]
-> To learn more about the Blob index feature along with known issues and limitations, see [Manage and find data on Azure Blob Storage with Blob Index](storage-manage-find-blobs.md).
+To learn more about the blob index feature together with known issues and limitations, see [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md).
 
 ### Rule actions
 
@@ -158,13 +159,13 @@ Lifecycle management supports tiering and deletion of blobs, previous blob versi
 
 The run conditions are based on age. Base blobs use the last modified time, blob versions use the version creation time, and blob snapshots use the snapshot creation time to track age.
 
-| Action run condition               | Condition value                          | Description                                                                      |
-|------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
-| daysAfterModificationGreaterThan   | Integer value indicating the age in days | The condition for base blob actions                                              |
-| daysAfterCreationGreaterThan       | Integer value indicating the age in days | The condition for blob version and blob snapshot actions                         |
+| Action run condition | Condition value | Description |
+|--|--|--|
+| daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for base blob actions |
+| daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for blob version and blob snapshot actions |
 | daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for base blob actions when last accessed time is enabled |
 
-## Examples
+## Examples of lifecycle policies
 
 The following examples demonstrate how to address common scenarios with lifecycle policy rules.
 
@@ -198,7 +199,7 @@ This example shows how to transition block blobs prefixed with `sample-container
 
 ### Move data based on last accessed date
 
-You can enable last access time tracking to keep a record of when your blob is last read or written. You can use last access time as a filter to manage tiering and retention of your blob data.
+You can enable last access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data.
 
 In order to use the **Last accessed** option, select **Access tracking enabled** on the **Lifecycle Management** page in the Azure portal.
 
@@ -257,7 +258,7 @@ Each last access time update is considered an [other operation](https://azure.mi
 Some data stays idle in the cloud and is rarely, if ever, accessed once stored. The following lifecycle policy is configured to archive data shortly after it is ingested. This example transitions block blobs in the storage account within container `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time:
 
 > [!NOTE]
-> It is recommended to upload your blobs directly the archive tier to be more efficient. You can use the x-ms-access-tier header for [PutBlob](/rest/api/storageservices/put-blob) or [PutBlockList](/rest/api/storageservices/put-block-list) with REST version 2018-11-09 and newer or our latest blob storage client libraries.
+> Microsoft recommends that you upload your blobs directly the archive tier for greater efficiency. You can specify the archive tier in the *x-ms-access-tier* header on the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operation. The *x-ms-access-tier* header is supported with REST version 2018-11-09 and newer or the latest blob storage client libraries.
 
 ```json
 {
@@ -309,9 +310,9 @@ Some data is expected to expire days or months after creation. You can configure
 }
 ```
 
-### Delete data with Blob Index tags
+### Delete data with blob index tags
 
-Some data should only be expired if explicitly marked for deletion. You can configure a lifecycle management policy to expire data that are tagged with blob index key/value attributes. The following example shows a policy that deletes all block blobs tagged with `Project = Contoso`. To learn more about the Blob Index, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
+Some data should only be expired if explicitly marked for deletion. You can configure a lifecycle management policy to expire data that are tagged with blob index key/value attributes. The following example shows a policy that deletes all block blobs tagged with `Project = Contoso`. To learn more about blob index, see [Manage and find data on Azure Blob Storage with blob index (Preview)](storage-manage-find-blobs.md).
 
 ```json
 {
@@ -408,6 +409,6 @@ Learn how to recover data after accidental deletion:
 
 - [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md)
 
-Learn how to manage and find data with Blob Index:
+Learn how to manage and find data with blob index:
 
-- [Manage and find data on Azure Blob Storage with Blob Index](storage-manage-find-blobs.md)
+- [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md)
