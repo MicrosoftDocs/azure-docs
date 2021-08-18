@@ -30,6 +30,10 @@ This article describes how to use the following features, which allow you to kee
 
 - ***SentinelHealth* data table**. Provides insights on health drifts, such as latest failure events per connector, or connectors with changes from success to failure states, which you can use to create alerts and other automated actions.
 
+    > [!NOTE]
+    > The *SentinelHealth* data table is currently supported only for selected data connectors. For more information, see [Supported data connectors](#supported-data-connectors).
+    >
+
 ## Use the health monitoring workbook
 
 1. From the Azure Sentinel portal, select **Workbooks** from the **Threat management** menu.
@@ -76,10 +80,6 @@ To get data connector health data from the *SentinelHealth* data table, you must
 
 Once the <name tbd> feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for your data connectors.
 
-**To turn on <name tbd> for your workspace**:
-
-TBD
-
 > [!TIP]
 > To configure the retention time for your health events, see the [Log Analytics retention configuration documentation](/azure/azure-monitor/logs/manage-cost-storage).
 >
@@ -90,7 +90,22 @@ TBD
 >
 -->
 
-**To access the *SentinelHealth* table**:
+### Supported data connectors
+
+The *SentinelHealth* data table is currently supported only for the following data connectors:
+
+- [Amazon Web Services (CloudTrail)](connect-aws.md)
+- [Dynamics 365](connect-dynamics-365.md)
+- [Office 365](connect-office-365.md)
+- [Office ATP](connect-microsoft-defender-advanced-threat-protection.md)
+- [Threat Intelligence - TAXII](connect-threat-intelligence-taxii.md)
+- [Threat Intelligence Platforms](connect-threat-intelligence-tip.md)
+
+### Turn on <name tbd> for your workspace
+
+TBD
+
+### Access the *SentinelHealth* table
 
 In the Azure Sentinel **Logs** page, run a query on the  *SentinelHealth* table. For example:
 
@@ -107,7 +122,7 @@ The following types of health events are logged in the *SentinelHealth* table:
 
     If the data connector's status changes, either from a success to failure, or from failure to success, the event is logged immediately to allow your team to take proactive and immediate action.
 
-    Potentially transient errors, such as source service throttling, are logged only after they've continued for more than 15 minutes. These 15 minutes allows Azure Sentinel to overcome a transient issue in the backend and catch up with the data, without requiring any user action. Errors that are definitely not transient are logged immediately.
+    Potentially transient errors, such as source service throttling, are logged only after they've continued for more than 60 minutes. These 60 minutes allow Azure Sentinel to overcome a transient issue in the backend and catch up with the data, without requiring any user action. Errors that are definitely not transient are logged immediately.
 
 - **Result summary**. Logged once an hour, per connector, per workspace, with aggregated summary and audit information. Result summary events contain any extra details provided in the *ExtendedProperties* column, such as the time period for which the connector's source platform was queried, the number of calls the succeeded and returned, or the number of calls that returned without results, or with failures. 
 
