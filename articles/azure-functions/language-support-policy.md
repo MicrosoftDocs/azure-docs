@@ -19,7 +19,7 @@ We'll send notification emails to function app users about upcoming language ver
 
 ### Retirement phase
 
-On the end-of-life date for a language version, you can no longer create new function apps targeting that language version.
+Starting on the end-of-life date for a language version, you can no longer create new function apps targeting that language version.
 
 After the language end-of-life date, function apps that use retired language versions won't be eligible for new features, security patches, and performance optimizations. However, these function apps will continue to run on the platform. You're highly encouraged to upgrade the language version of your affected function apps to a supported version.
 
