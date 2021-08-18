@@ -76,6 +76,10 @@ $SecondCommand = @()
 foreach ($record in $output) {
     if ($record.DataType -eq 'System.DateTime') {
         $dataType = 'datetime'
+    } elseif ($record.DataType -eq 'System.Int32') {
+        $dataType = 'int32'
+    } elseif ($record.DataType -eq 'System.Double') {
+        $dataType = 'double'
     } else {
         $dataType = 'string'
     }

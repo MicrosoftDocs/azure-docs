@@ -91,6 +91,31 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 > [!NOTE]
 > If using this example with Linux, be sure to change the backslashes to forward slashes.
 
+## Specify output files using managed identity
+
+Instead of generating and passing a SAS with write access to the container to Batch, a managed identity can be used to authenticate with Azure Storage. The identity must be [assigned to the Batch Pool](managed-identity-pools.md), and also have the `Storage Blob Data Contributor` role assignment for the container to be written to. The Batch service can then be told to use the managed identity instead of a SAS to authenticate access to the container.
+
+```csharp
+CloudBlobContainer container = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
+await container.CreateIfNotExists();
+
+new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
+{
+    OutputFiles = new List<OutputFile>
+    {
+        new OutputFile(
+            filePattern: @"..\std*.txt",
+            destination: new OutputFileDestination(
+         new OutputFileBlobContainerDestination(
+                    containerUrl: container.Uri,
+                    path: taskId,
+                    identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name"} })),
+            uploadOptions: new OutputFileUploadOptions(
+            uploadCondition: OutputFileUploadCondition.TaskCompletion))
+    }
+}
+```
+
 ### Specify a file pattern for matching
 
 When you specify an output file, you can use the [OutputFile.FilePattern](/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) property to specify a file pattern for matching. The file pattern may match zero files, a single file, or a set of files that are created by the task.

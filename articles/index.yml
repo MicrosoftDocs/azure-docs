@@ -59,7 +59,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: /azure/applied-ai-services/
+      url: ./applied-ai-services/index.yml
     # Card
     - title: Azure Bot Service
       summary: Intelligent, serverless bot service that scales on demand
@@ -178,7 +178,7 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
       azureCategories:
         - ai-machine-learning
-      url: cognitive-services/immersive-reader/index.yml
+      url: ./applied-ai-services/immersive-reader/index.yml
     # Card
     - title: Kinect DK
       summary: Build computer vision and speech models using a developer kit with advanced AI sensors

@@ -19,10 +19,10 @@ This quickstart shows you how to create Azure Web PubSub instance from Azure por
 ## Try the newly created instance
 
 > [!div class="nextstepaction"]
-> [Try the instance from the browser](./quickstart-live-demo.md)
+> [Try the instance from the browser](./quickstart-live-demo.md#try-the-instance-with-an-online-demo)
 
 > [!div class="nextstepaction"]
-> [Try the instance with Azure CLI](./quickstart-cli-try.md)
+> [Try the instance with Azure CLI](./quickstart-cli-try.md#play-with-the-instance)
 
 ## Next steps
 
