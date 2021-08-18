@@ -336,7 +336,7 @@ You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. Yo
 
 ### What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
 
-Using Azure NetApp Files NFS or SMB volumes with AVS is supported in the following regions - East US, West US , West Europe, and Australia East.
+Using Azure NetApp Files NFS or SMB volumes with AVS is supported in [all AVS and ANF enabled regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware,netapp) - East US, West US , West Europe, and Australia East.
 
 ### Does Azure NetApp Files work with Azure Policy?
 
