@@ -281,7 +281,7 @@ In such cases, continue troubleshooting by verifying the following:
 
 - Make sure that your virtual machine has an outbound connection to port 443 via TCP, or can connect to the [Log Analytics endpoints](/azure/azure-monitor/agents/log-analytics-agent#network-requirements)
 
-- Make sure that you have access to required URLs for your from your Syslog collector through your firewall policy. For more information, see [Log Analytics agent firewall requirements](/azure/azure-monitor/agents/log-analytics-agent).
+- Make sure that you have access to required URLs for your from your Syslog collector through your firewall policy. For more information, see [Log Analytics agent firewall requirements](/azure/azure-monitor/agents/log-analytics-agent##firewall-requirements).
 
 - Make sure that your Azure Virtual Machine is shown as connected in your workspace's list of virtual machines.
 
