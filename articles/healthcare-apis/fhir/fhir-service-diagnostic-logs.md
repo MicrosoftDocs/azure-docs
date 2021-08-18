@@ -22,7 +22,7 @@ In this article, you'll learn how to enable diagnostic settings in the FHIR serv
 
 2. Browse to **Diagnostic** settings under the **Monitoring** menu option.
 
-   [ ![Add Azure FHIR Diagnostic Settings.](media/diagnostic-logs/fhir-diagnostic-settings-screen.png) ](media/diagnostic-logs/fhir-diagnostic-settings-screen.png#lightbox)
+   [ ![Add Azure FHIR diagnostic settings.](media/diagnostic-logs/fhir-diagnostic-settings-screen.png) ](media/diagnostic-logs/fhir-diagnostic-settings-screen.png#lightbox)
 
 3. Select **+ Add diagnostic settings**.
 
@@ -41,7 +41,7 @@ You will need to create your Logs Analytics Workspace before you can select this
 
 6. Select **AuditLogs**.
 
-   [ ![Azure FHIR Diagnostic Settings. Select Audit Logs.](media/diagnostic-logs/fhir-diagnostic-settings-add.png) ](diagnostic-logs/media/fhir-diagnostic-settings-add.png#lightbox)
+   [ ![Azure FHIR diagnostic settings audit logs.](media/diagnostic-logs/fhir-diagnostic-settings-add.png) ](diagnostic-logs/media/fhir-diagnostic-settings-add.png#lightbox)
 
 7. Select **Save**.
 
