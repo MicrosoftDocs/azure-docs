@@ -62,8 +62,8 @@ A private link resource is the destination target of a given private endpoint. T
 | **Azure Automation** | Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 | **Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Table |
 | **Azure Batch** | Microsoft.Batch/batchAccounts | batch account |
-| **Azure Cache for Redis** | Microsoft.Cache/Redis | cache account |
-| **Azure Cache for Redis Enterprise** | Microsoft.Cache/redisEnterprise | cache account |
+| **Azure Cache for Redis** | Microsoft.Cache/Redis | redisCache |
+| **Azure Cache for Redis Enterprise** | Microsoft.Cache/redisEnterprise | redisEnterprise |
 | **Cognitive Services** | Microsoft.CognitiveServices/accounts | account |
 | **Azure Managed Disks** | Microsoft.Compute/diskAccesses | managed disk |
 | **Azure Container Registry** | Microsoft.ContainerRegistry/registries | registry |
