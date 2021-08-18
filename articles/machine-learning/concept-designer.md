@@ -1,7 +1,7 @@
 ---
 title: What is the Azure Machine Learning designer?
 titleSuffix: Azure Machine Learning
-description: Learn what the Azure Machine Learning designer is and what tasks you can use it for. The drag-and-drop UI enables modeling training and deployment. 
+description: Learn what the Azure Machine Learning designer is and what tasks you can use it for. The drag-and-drop UI enables model training and deployment. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: How to deploy the video analytics - object and motion detection Azure IoT Central application template'
-description: Tutorial - This guide summarizes the steps to deploy an Azure IoT Central application using the video analytics - object and motion detection application template.
+title: Tutorial - Azure IoT video analytics - object and motion detection | Microsoft Docs
+description:  This tutorial shows you how to deploy and use the video analytics - object and motion detection application template for IoT Central.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
@@ -9,9 +9,29 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
 ---
-# Tutorial: How to deploy an IoT Central application using the video analytics - object and motion detection application template
+# Tutorial: Deploy and walk through the video analytics - object and motion detection application template
 
-For an overview of the key *video analytics - object and motion detection* application components, see [object and motion detection video analytics application architecture](architecture-video-analytics.md).
+For an overview of the key *video analytics - object and motion detection* application The **Video analytics - object and motion detection** application template lets you build IoT solutions include live video analytics capabilities.
+
+:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Diagram of Video analytics object and motion detection components overview.":::
+
+The key components of the video analytics solution include:
+
+### Live video analytics (LVA)
+
+LVA provides a platform for you to build intelligent video applications that span the edge and the cloud. The platform lets you build intelligent video applications that span the edge and the cloud. The platform offers the capability to capture, record, analyze live video, and publish the results, which could be video or video analytics, to Azure services. The Azure services could be running in the cloud or the edge. The platform can be used to enhance IoT solutions with video analytics.
+
+For more information, see [Live Video Analytics](https://github.com/Azure/live-video-analytics) on GitHub.
+
+### IoT Edge LVA gateway module
+
+The IoT Edge LVA gateway module instantiates cameras as new devices and connects them directly to IoT Central using the IoT device client SDK.
+
+In this reference implementation, devices connect to the solution using symmetric keys from the edge. For more information about device connectivity, see [Get connected to Azure IoT Central](../core/concepts-get-connected.md)
+
+### Media graph
+
+Media graph lets you define where to capture the media from, how to process it, and where to deliver the results. You configure media graph by connecting components, or nodes, in the desired manner. For more information, see [Media Graph](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph) on GitHub.
 
 The following video gives a walkthrough of how to use the _video analytics - object and motion detection application template_ to deploy an IoT Central solution:
 
@@ -26,7 +46,8 @@ In this set of tutorials, you learn how to:
 
 ## Prerequisites
 
-An Azure subscription is recommended. Alternatively, you can use a free, 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
+* There are no specific prerequisites required to deploy this app.
+* You can use the free pricing plan or use an Azure subscription.
 
 ## Deploy the application
 
