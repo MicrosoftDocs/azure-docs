@@ -32,6 +32,10 @@ The following platforms are supported:
 - [Python](https://aka.ms/ava/sdk/client/python)
 - [Java](https://aka.ms/ava/sdk/client/java)
 
+## Management & Operations APIs
+
+You can refer Azure Video Analyzer [Management plane APIs](https://docs.microsoft.com/en-us/rest/api/videoanalyzer/) here.
+
 <!-- links -->
 [docs-direct-methods]: direct-methods.md
 [docs-iot-hub-sdks]: ../../iot-hub/iot-hub-devguide-sdks.md
