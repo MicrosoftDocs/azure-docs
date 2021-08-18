@@ -10,7 +10,7 @@ ms.date: 08/16/2021
 
 # Tutorial: Create a chat app with Azure Web PubSub service
 
-In [Publish and subscribe message tutorial](../tutorial-pub-sub-messages.md) you have learned the basics of publishing and subscribing messages with Azure Web PubSub. In this tutorial you'll learn the event system of Azure Web PubSub so use it to build a complete web application with real time communication functionality. 
+In [Publish and subscribe message tutorial](./tutorial-pub-sub-messages.md) you have learned the basics of publishing and subscribing messages with Azure Web PubSub. In this tutorial you'll learn the event system of Azure Web PubSub so use it to build a complete web application with real time communication functionality. 
 
 In this tutorial, you learn how to:
 
@@ -44,7 +44,7 @@ Copy the fetched **ConnectionString** and it will be used later when using servi
 
 # [C#](#tab/csharp)
 
-* [ASP.NET Core 3.1 or above](https://docs.microsoft.com/en-us/aspnet/core)
+* [ASP.NET Core 3.1 or above](/aspnet/core)
 
 # [JavaScript](#tab/javascript)
 
@@ -60,7 +60,7 @@ In this tutorial, we will build a real time chat web application. In a real web 
 
 # [C#](#tab/csharp)
 
-We will use [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/) to host the web pages and handle incoming requests.
+We will use [ASP.NET Core](/aspnet/core) to host the web pages and handle incoming requests.
 
 First let's create an empty ASP.NET Core app.
 
@@ -255,10 +255,6 @@ You may remember in last tutorial the subscriber uses an API in Web PubSub SDK t
 
     You can test it by open the home page, input your user name, then you'll see `connected` being printed out in browser console.
 
-# [Python](#tab/python)
-
-# [Java](#tab/java)
-
 ---
 
 ##  Handle events
@@ -360,7 +356,7 @@ Then we need to set the Webhook url in the service so it can know where to call 
 
 ngrok will print out an url (`https://<domain-name>.ngrok.io`) that can be accessed from internet.
 
-[!INCLUDE [update event handler](cli-awps-update-event-handler.md)]
+[!INCLUDE [update event handler](includes/cli-awps-update-event-handler.md)]
 
 After the update is completed, open the home page, input your user name, you’ll see the connected message printed out in the server console.
 

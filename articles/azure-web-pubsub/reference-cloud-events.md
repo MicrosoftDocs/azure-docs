@@ -1,6 +1,6 @@
 ---
 title: Reference - CloudEvents extension for Azure Web PubSub
-description: The reference describing CloudEvents extension defined for Azure Web PubSub service
+description: The reference describes CloudEvents extension defined for Azure Web PubSub service
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub

@@ -69,6 +69,8 @@
 
 - name: Concepts
   items:
+  - name: Client protocol overview
+    href: concept-client-protocols.md
   - name: Azure Web PubSub service internals
     href: https://azure.github.io/azure-webpubsub/concepts/service-internals
   - name: Billing model
@@ -80,9 +82,12 @@
 - name: Reference 
   items:
   - name: WebSocket Subprotocols supported by Web PubSub
-    href: https://azure.github.io/azure-webpubsub/references/pubsub-websocket-subprotocol
+    expanded: true
+    items:
+    - name: JSON WebSocket subprotocol
+      href: reference-json-webpubsub-subprotocol.md
   - name: CloudEvents extension for Azure Web PubSub
-    href: reference-cloude-events.md
+    href: reference-cloud-events.md
   - name: Server SDKs
     href: choose-server-sdks.md
   - name: REST API
