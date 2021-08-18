@@ -267,7 +267,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ...
 ```
 
-### Managed Identity support for ACR
+### Managed identity support for ACR
 
 When accessing containers stored in [Azure Container Registry](https://azure.microsoft.com/services/container-registry), either a username/password or a managed identity can be used to authenticate with the service. To use a managed identity, first ensure that the identity has been [assigned to the pool](managed-identity-pools.md) and that the identity has the `AcrPull` role assigned for the container registry you wish to access. Then, simply tell Batch which identity to use when authenticating with ACR.
 

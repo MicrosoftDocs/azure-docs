@@ -73,11 +73,16 @@ new PoolAddParameter
 
 ### Azure Blob container
 
-Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Mounting a blob file system requires an `AccountKey`, `SasKey` or `Managed Identity` with access to your storage account. For information on getting these keys, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md), [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md), and [Configure managed identities in Batch pools](managed-identity-pools.md). For more information and tips on using blobfuse, see the [blobfuse project](https://github.com/Azure/azure-storage-fuse).
+Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Mounting a blob file system requires an `AccountKey`, `SasKey` or `Managed Identity` with access to your storage account.
+
+For information on getting these keys, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md), [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md), and [Configure managed identities in Batch pools](managed-identity-pools.md). For more information and tips on using blobfuse, see the [blobfuse project](https://github.com/Azure/azure-storage-fuse).
 
 To get default access to the blobfuse mounted directory, run the task as an **Administrator**. Blobfuse mounts the directory at the user space, and at pool creation it is mounted as root. In Linux all **Administrator** tasks are root. All options for the FUSE module are described in the [FUSE reference page](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 Review the [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) for more information and tips on using blobfuse. You can also review [GitHub issues in the blobfuse repository](https://github.com/Azure/azure-storage-fuse/issues) to check on current blobfuse issues and resolutions.
+
+> [!NOTE]
+> The example below shows `AccountKey`, `SasKey` and `IdentityReference`, but they are mutually exclusive; only one can be specified.
 
 ```csharp
 new PoolAddParameter
@@ -102,10 +107,7 @@ new PoolAddParameter
 }
 ```
 
-> [!NOTE]
-> `AccountKey`, `SasKey` and `IdentityReference` are mutually exclusive, only one can be specified.
-
-> [!NOTE]
+> [!TIP]
 >If using a managed identity, ensure that the identity has been [assigned to the pool](managed-identity-pools.md) so that it is available on the VM doing the mounting. The identity will need to have the `Storage Blob Data Contributor` role in order to function properly.
 
 ### Network File System
