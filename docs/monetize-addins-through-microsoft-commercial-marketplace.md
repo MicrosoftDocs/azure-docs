@@ -1,14 +1,15 @@
 ---
 title: Monetize your Microsoft 365 add-in or app through Microsoft Commercial Marketplace
-description: This article describes how to sell your app through Microsoft by using Partner Center to submit your service for purchase as a SaaS offer. 
+description: This article describes how to sell your app through Microsoft by using Partner Center to submit your service for purchase as a SaaS offer.
+ms.author: mingshen
 localization_priority: Priority
 ---
 
 # Monetize your app through Microsoft Commercial Marketplace
 
-This article describes how to sell your app through Microsoft by using Partner Center to submit your service for purchase as a SaaS offer. Your app will be free for your customers to download, but will require a license to your service.
+This article describes how to sell your app through Microsoft by using Partner Center to submit your service for purchase as a software-as-a-service (SaaS) offer. Your app will be free for your customers to download, but will require a license to your service.
 
-When you're ready to begin selling your service in Commercial Marketplace, we recommend that you submit a single software-as-a-service (SaaS) application with connected apps, apps, and extensions. You'll be able to reach Microsoft customers through Microsoft AppSource, in addition to selling your service through partners and through the Microsoft sales team.
+When you're ready to begin selling your service in Commercial Marketplace, we recommend that you submit a single SaaS application with connected apps, apps, and extensions. You'll be able to reach Microsoft customers through Microsoft AppSource, in addition to selling your service through partners and through the Microsoft sales team.
 
 We’re making it easier for customers to discover these Microsoft 365 app solutions, and deploy them across Microsoft Teams, Word, Outlook, Excel, PowerPoint, and SharePoint.
 
@@ -20,7 +21,7 @@ In this monetization model, your app is authenticated by your SaaS offering, whi
 
 You are also free to monetize using your own payment model.
 
-> [!NOTE] 
+> [!NOTE]
 > Transactable SaaS apps are only purchasable using a work or school account. If you want to sell your app to Microsoft account-based users, you should consider implementing your own billing model.
 
 ## Preparing your SaaS offer
@@ -138,7 +139,7 @@ Review the information on the [Welcome to Microsoft Partner Center](https://part
 ### Where can I find documentation about integrating with Azure Active Directory?
 
 For extensive documentation, samples, and guidance, see [Microsoft identity platform overview](/azure/active-directory/develop/v2-overview).
-To start, we recommend that you have a subscription dedicated to your Azure Marketplace publishing, to isolate the work from other initiatives. Then you can start deploying your SaaS application in this subscription to start the development work.
+We recommend that you have a subscription dedicated to your Azure Marketplace publishing, to isolate the work from other initiatives. Then you can start deploying your SaaS application in this subscription to start the development work.
 You can also check for [Azure AD service updates](https://azure.microsoft.com/updates/?product=active-directory).
 
 ### How does my app authenticate a user with Azure AD?
@@ -153,5 +154,5 @@ As a partner, you can monitor your offer listings using the data visualization a
 
 For any questions, contact [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport). 
 
-> [!NOTE] 
+> [!NOTE]
 > Starting July 29th 2019, we will no longer accept new paid add-in submissions to Microsoft AppSource. Customers will be able to purchase existing paid add-ins in Microsoft AppSource until January 2020. They will then be hidden from the store, but will still be available for existing users. If these add-ins have not been migrated by July 2020, they will be removed from Microsoft AppSource and for existing users.
