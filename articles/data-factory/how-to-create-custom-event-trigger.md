@@ -91,34 +91,36 @@ Data Factory expects events to follow the [Event Grid event schema](../event-gri
 
 ## Advanced filtering
 
-Custom event trigger supports advanced filtering capabilities, similar to [Event Grid Advanced Filtering](../event-grid/event-filtering#advanced-filtering). This allows pipelines to trigger based upon the _values_ of event payload. For instance, you may have a field in the event payload, named _Department_ and pipeline should only trigger if _Department_ equals to _Finance_. You may also specify complex logic, such as _date_ field in list [1, 2, 3, 4, 5], _month_ field __not__ in list [11, 12], _tag_ field contains any of ['Fiscal Year 2021', 'FiscalYear2021', 'FY2021'].
+Custom event trigger supports advanced filtering capabilities, similar to [Event Grid Advanced Filtering](../event-grid/event-filtering.md#advanced-filtering). This allows pipelines to trigger based upon the _values_ of event payload. For instance, you may have a field in the event payload, named _Department_ and pipeline should only trigger if _Department_ equals to _Finance_. You may also specify complex logic, such as _date_ field in list [1, 2, 3, 4, 5], _month_ field __not__ in list [11, 12], _tag_ field contains any of ['Fiscal Year 2021', 'FiscalYear2021', 'FY2021'].
 
  :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-5-advanced-filters.png" alt-text="Screenshot of setting advanced filters for customer event trigger":::
 
-As of today custom event trigger supports a __subset__ of advanced filtering operations in Event Grid. Following filter conditions are supported:
+As of today custom event trigger supports a __subset__ of [advanced filtering operators](../event-grid/event-filtering.md#advanced-filtering) in Event Grid. Following filter conditions are supported:
 
-* [NumberIn](../event-grid/event-filtering#numberin)
-* [NumberNotIn](../event-grid/event-filtering#numbernotin)
-* [NumberLessThan](../event-grid/event-filtering#numberlessthan)
-* [NumberGreaterThan](../event-grid/event-filtering#numbergreaterthan)
-* [NumberLessThanOrEquals](../event-grid/event-filtering#numberlessthanorequals)
-* [NumberGreaterThanOrEquals](../event-grid/event-filtering#numbergreaterthanorequals)
-* [BoolEquals](../event-grid/event-filtering#boolequals)
-* [StringContains](../event-grid/event-filtering#stringcontains)
-* [StringBeginsWith](../event-grid/event-filtering#stringbeginswith)
-* [StringEndsWith](../event-grid/event-filtering#stringendswith)
-* [StringIn](../event-grid/event-filtering#stringin)
-* [StringNotIn](../event-grid/event-filtering#stringnotin)
+* NumberIn
+* NumberNotIn
+* NumberLessThan
+* NumberGreaterThan
+* NumberLessThanOrEquals
+* NumberGreaterThanOrEquals
+* BoolEquals
+* StringContains
+* StringBeginsWith
+* StringEndsWith
+* StringIn
+* StringNotIn
 
 Click **+New** to add new filter conditions. 
 
-Additionally, custom event triggers obey the [same limitations as event grid](../event-grid/event-filtering#limitations), including:
+Additionally, custom event triggers obey the [same limitations as event grid](../event-grid/event-filtering.md#limitations), including:
 
 * 5 advanced filters and 25 filter values across all the filters per custom event trigger
 * 512 characters per string value
 * 5 values for in and not in operators
-* keys cannot have . (dot) character in them, for example, john.doe@contoso.com. Currently, there's no support for escape characters in keys.
+* keys cannot have . (dot) character in them, for example, `john.doe@contoso.com`. Currently, there's no support for escape characters in keys.
 * The same key can be used in more than one filter.
+
+Data Factory relies upon the latest _GA_ version of [Event Grid API](../event-grid/whats-new.md). As new API versions get to GA stage, Data Factory will expand its support for more advanced filtering operators.
 
 ## JSON schema
 
@@ -130,6 +132,7 @@ The following table provides an overview of the schema elements that are related
 | `events` | The type of events that cause this trigger to fire. | Array of strings    |  | Yes, at least one value is expected. |
 | `subjectBeginsWith` | The `subject` field must begin with the provided pattern for the trigger to fire. For example, *factories* only fires the trigger for event subjects that start with *factories*. | String   | | No |
 | `subjectEndsWith` | The `subject` field must end with the provided pattern for the trigger to fire. | String   | | No |
+| `advancedFilters` | List of JSON blobs, each specifying a filter condition. Each blob specifies `key`, `operatorType` and `values`. | List of JSON blob | | No |
 
 ## Role-based access control
 
