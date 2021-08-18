@@ -74,10 +74,33 @@
       href: enable-public-internet-access.md
     - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
-    - name: Configure GitHub Enterprise Server
-      href: configure-github-enterprise-server.md
-    - name: Configure Windows Server Failover Cluster
+  - name: Configure GitHub Enterprise Server
+    href: configure-github-enterprise-server.md
+  - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
+  - name: Disaster recovery 
+    - name: Disaster recovery using Zerto
+      href: deploy-zerto-disaster-recovery.md
+    - name: Disaster recovery using VMware SRM
+      href: disaster-recovery-using-vmware-site-recovery-manager.md
+    - name: Disaster recovery using VMware HCX
+      href: deploy-disaster-recovery-using-vmware-hcx.md
+    - name: Disaster recovery using Azure Site Recovery
+      items:
+      - name: Prepare Azure
+        href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Prepare Azure VMware Solution
+        href: ../site-recovery/avs-tutorial-prepare-avs.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Set up replication
+        href: ../site-recovery/avs-tutorial-replication.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Run a disaster recovery drill
+        href: ../site-recovery/avs-tutorial-dr-drill-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Fail over to Azure
+        href: ../site-recovery/avs-tutorial-failover.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Reprotect VMs
+        href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
+      - name: Fail back from Azure
+        href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
   - name: Rotate cloudadmin credentials
     href: rotate-cloudadmin-credentials.md
   - name: Connect multiple private clouds in same region
@@ -110,8 +133,6 @@
         href: set-up-backup-server-for-azure-vmware-solution.md
       - name: Back up private cloud VMs with Backup Server
         href: backup-azure-vmware-solution-virtual-machines.md
-    - name: Disaster recovery using Zerto
-      href: deploy-zerto-disaster-recovery.md
     - name: Disaster recovery using Azure Site Recovery
       items:
       - name: Prepare Azure
