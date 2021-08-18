@@ -10,15 +10,14 @@ ms.date: 08/16/2021
 
 # Tutorial: Create a chat app with Azure Web PubSub service
 
-In [Publish and subscribe message tutorial](./tutorial-pub-sub-messages.md) you have learned the basics of publishing and subscribing messages with Azure Web PubSub. In this tutorial you'll learn the event system of Azure Web PubSub so use it to build a complete web application with real time communication functionality. 
+In [Publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), you've learned the basics of publishing and subscribing messages with Azure Web PubSub. In this tutorial, you'll learn the event system of Azure Web PubSub so use it to build a complete web application with real-time communication functionality. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Web PubSub service instance
 > * Configure event handler settings for Azure Web PubSub
-> * Build a real-time chat app and run locally
-
+> * Build a real-time chat app
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,7 +37,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [Get the connection string](includes/cli-awps-connstr.md)]
 
-Copy the fetched **ConnectionString** and it will be used later when using service SDK as the value of `<connection_string>`.
+Copy the fetched **ConnectionString** and it will be used later in this tutorial as the value of `<connection_string>`.
 
 ## Set up the project
 
@@ -54,15 +53,15 @@ Copy the fetched **ConnectionString** and it will be used later when using servi
 
 ---
 
-### Create a server
+### Create the application
 
-In Azure Web PubSub, there're two roles, server and client. This is similar to the sever and client roles in a web application. Server is responsible for managing the clients, listen and respond to client messages, while client's role is to send user's messages to server, and receive messages from server and visualize them to end user.
+In Azure Web PubSub, there are two roles, server and client. This concept is similar to the sever and client roles in a web application. Server is responsible for managing the clients, listen and respond to client messages, while client's role is to send user's messages to server, and receive messages from server and visualize them to end user.
 
-In this tutorial, we will build a real time chat web application. In a real web application, server's responsibility also includes authenticating clients and serving static web pages for the application UI. 
+In this tutorial, we'll build a real-time chat web application. In a real web application, server's responsibility also includes authenticating clients and serving static web pages for the application UI. 
 
 # [C#](#tab/csharp)
 
-We will use [ASP.NET Core](/aspnet/core) to host the web pages and handle incoming requests.
+We'll use [ASP.NET Core](/aspnet/core) to host the web pages and handle incoming requests.
 
 First let's create an empty ASP.NET Core app.
 
@@ -93,7 +92,7 @@ First let's create an empty ASP.NET Core app.
     }
     ```
 
-3.  Also create an HTML file and save it as `wwwroot/index.html`, we will use it for the UI of the chat app later.
+3.  Also create an HTML file and save it as `wwwroot/index.html`, we'll use it for the UI of the chat app later.
 
     ```html
     <html>
@@ -106,7 +105,7 @@ First let's create an empty ASP.NET Core app.
 
 You can test the server by running `dotnet run` and access `http://localhost:5000/index.html` in browser.
 
-You may remember in last tutorial the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This is usually not safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
+You may remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md) the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This is usually not safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
 
 1.  Install Microsoft.Extensions.Azure
 
@@ -144,7 +143,7 @@ You may remember in last tutorial the subscriber uses an API in Web PubSub SDK t
     });
     ```
 
-    This token generation code is very similar to the one we used in the last tutorial, except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
+    This token generation code is very similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
 
     You can test this API by running `dotnet run` and accessing `http://localhost:5000/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
 
@@ -167,7 +166,7 @@ You may remember in last tutorial the subscriber uses an API in Web PubSub SDK t
 
 # [JavaScript](#tab/javascript)
 
-We will use [express.js](https://expressjs.com/), a popular web framework for node.js to achieve this job.
+We'll use [express.js](https://expressjs.com/), a popular web framework for node.js to achieve this job.
 
 First let's create an empty express app.
 
@@ -188,7 +187,7 @@ First let's create an empty express app.
     app.listen(8080, () => console.log('server started'));
     ```
 
-3.  Also create an HTML file and save it as `public/index.html`, we will use it for the UI of the chat app later.
+3.  Also create an HTML file and save it as `public/index.html`, we'll use it for the UI of the chat app later.
 
     ```html
     <html>
@@ -202,7 +201,8 @@ First let's create an empty express app.
 
 You can test the server by running `node server` and access `http://localhost:8080` in browser.
 
-You may remember in last tutorial the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This is usually not safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
+
+You may remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md) the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This is usually not safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
 
 1.  Install Azure Web PubSub SDK
 
@@ -237,7 +237,7 @@ You may remember in last tutorial the subscriber uses an API in Web PubSub SDK t
     app.listen(8080, () => console.log('server started'));
     ```
 
-    This token generation code is very similar to the one we used in the last tutorial, except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
+    This token generation code is very similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
 
     You can test this API by running `node server "<connection-string>"` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
 
@@ -263,12 +263,12 @@ You may remember in last tutorial the subscriber uses an API in Web PubSub SDK t
 
 In Azure Web PubSub, when there are certain activities happening at client side (for example a client is connected or disconnected), service will send notifications to sever so it can react to these events.
 
-Events are delivered to server in the form of Webhook. Webhook is a set of REST APIs exposed by server and registered at service side, so service will callback these APIs whenever an event happens.
+Events are delivered to server in the form of Webhook. Webhook is served and exposed by the application server and registered at the Azure Web PubSub service side. The service invokes the webhooks whenever an event happens.
 
-Azure Web PubSub follows [CloudEvents](https://cloudevents.io/) to describe event data. 
+Azure Web PubSub follows [CloudEvents](./reference-cloud-events.md) to describe the event data. 
 
 # [C#](#tab/csharp)
-For now, you need to implement the event handler by your own in C#, the steps are pretty straight forward following the protocol spec as well as illustrated below.
+For now, you need to implement the event handler by your own in C#, the steps are pretty straight forward following [the protocol spec](./reference-cloud-events.md) as well as illustrated below.
 
 1. Add event handlers inside `UseEndpoints`. Specify the endpoint path for the events, let's say `/eventhandler`. 
 
@@ -350,7 +350,9 @@ In the above code we simply print a message to console when a client is connecte
 
 ### Set up the event handler
 
-Then we need to set the Webhook url in the service so it can know where to call when there is a new event. But there is a problem that our server is running on localhost so does not have an internet accessible endpoint. Here we use [ngrok](https://ngrok.com/) to expose our localhost to internet.
+#### Expose localhost
+
+Then we need to set the Webhook URL in the service so it can know where to call when there is a new event. But there is a problem that our server is running on localhost so does not have an internet accessible endpoint. Here we use [ngrok](https://ngrok.com/) to expose our localhost to internet.
 
 1.  First download ngrok from https://ngrok.com/download, extract the executable to your local folder or your system bin folder.
 2.  Start ngrok
@@ -358,15 +360,19 @@ Then we need to set the Webhook url in the service so it can know where to call 
     ngrok http 8080
     ```
 
-ngrok will print out an url (`https://<domain-name>.ngrok.io`) that can be accessed from internet.
+ngrok will print out an URL (`https://<domain-name>.ngrok.io`) that can be accessed from internet.
+
+#### Set event handler
+
+Then we update the service event handler and set the Webhook URL.
 
 [!INCLUDE [update event handler](includes/cli-awps-update-event-handler.md)]
 
-After the update is completed, open the home page, input your user name, you’ll see the connected message printed out in the server console.
+After the update is completed, open the home page http://localhost:5000/index.html, input your user name, you’ll see the connected message printed out in the server console.
 
 ### Message events
 
-Besides system events like connected or disconnected, client can also send messages through the WebSocket connection and these messages will be delivered to server as a special type of event called message event. We can use this event to receive messages from one client and broadcast them to all clients so they can talk to each other.
+Besides system events like `connected` or `disconnected`, client can also send messages through the WebSocket connection and these messages will be delivered to server as a special type of event called `message` event. We can use this event to receive messages from one client and broadcast them to all clients so they can talk to each other.
 
 # [C#](#tab/csharp)
 
@@ -410,9 +416,7 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
 
     This event handler uses `WebPubSubServiceClient.SendToAllAsync()` to broadcast the received message to all clients.
 
-2.  Then go to the event handler settings in the Azure portal and add `message` to User Event Pattern (if you didn't leave it `*`), and save.
-
-3.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
+2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
 
     ```html
     <html>
@@ -447,7 +451,7 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
 
     You can see in the above code we use `WebSocket.send()` to send message and `WebSocket.onmessage` to listen to message from service.
 
-4.  Finally let's also update the `onConnected` handler to broadcast the connected event to all clients so they can see who joined the chat room.
+3.  Finally let's also update the `onConnected` handler to broadcast the connected event to all clients so they can see who joined the chat room.
 
     ```csharp
     app.UseEndpoints(endpoints =>
@@ -493,7 +497,8 @@ The complete code sample of this tutorial can be found [here][code].
         ...
       },
       handleUserEvent: async (req, res) => {
-        if (req.context.eventName === 'message') await serviceClient.sendToAll(`[${req.context.userId}] ${req.data}`, { contentType: 'text/plain' });
+        if (req.context.eventName === 'message') 
+            await serviceClient.sendToAll(`[${req.context.userId}] ${req.data}`, { contentType: 'text/plain' });
         res.success();
       }
     });
@@ -503,9 +508,7 @@ The complete code sample of this tutorial can be found [here][code].
 
     You can see `handleUserEvent` also has a `res` object where you can send message back to the event sender. Here we simply call `res.success()` to make the WebHook return 200 (please note this is required even you don't want to return anything back to client, otherwise the WebHook will never return and client connection will be closed).
 
-2.  Then go to the event handler settings in Azure portal and add `message` to User Event Pattern, and save.
-
-3.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
+2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
 
     ```html
     <html>
@@ -540,7 +543,7 @@ The complete code sample of this tutorial can be found [here][code].
 
     You can see in the above code we use `WebSocket.send()` to send message and `WebSocket.onmessage` to listen to message from service.
 
-4. `sendToAll` accepts object as an input and send JSON text to the clients. In real scenarios, we probably need complex object to carry more information about the message. Finally let's also update the handlers to broadcast JSON objects to all clients: .
+3. `sendToAll` accepts object as an input and send JSON text to the clients. In real scenarios, we probably need complex object to carry more information about the message. Finally let's also update the handlers to broadcast JSON objects to all clients: .
 
     ```javascript
     let handler = new WebPubSubEventHandler(hubName, ['*'], {
@@ -564,7 +567,7 @@ The complete code sample of this tutorial can be found [here][code].
     });
     ```
 
-5. And update the client to parse JSON data:
+4. And update the client to parse JSON data:
     ```javascript
     ws.onmessage = event => {
       let m = document.createElement('p');
@@ -584,6 +587,9 @@ The complete code sample of this tutorial can be found [here][code].
 
 ## Next steps
 
-This quickstart provides you a basic idea of how to connect to the Web PubSub service and how to publish messages to the connected clients.
+This tutorial provides you a basic idea of how the event system works in Azure Web PubSub service.
 
-[!INCLUDE [next step](includes/include-next-step.md)]
+Check other tutorials to further dive into how to use the service.
+
+> [!div class="nextstepaction"]
+> [Explore more Azure Web PubSub samples](https://aka.ms/awps/samples)

@@ -28,6 +28,7 @@
     - name: Pub/sub using Service SDK
       href: quickstart-use-sdk.md
 - name: Tutorials
+  expanded: true
   items:
     - name: Serverless Development
       expanded: true
@@ -78,12 +79,9 @@
   - name: Billing model
     href: concept-billing-model.md
 
-- name: Samples
-  href: https://aka.ms/awps/samples
-
 - name: Reference 
   items:
-  - name: WebSocket Subprotocols supported by Web PubSub
+  - name: WebSocket Subprotocols
     expanded: true
     items:
     - name: JSON WebSocket subprotocol
@@ -97,6 +95,8 @@
 
 - name: Resources
   items:
+  - name: Samples
+    href: https://aka.ms/awps/samples
   - name: Solutions
     href: /azure/architecture/
   - name: Region availability

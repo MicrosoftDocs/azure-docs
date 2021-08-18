@@ -29,7 +29,7 @@ The data sending from service to server is always in CloudEvents `binary` format
 
 The Webhook validation follows [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). The request always contains `WebHook-Request-Origin: xxx.webpubsub.azure.com` in the header.
 
-If and only if the delivery target does allow delivery of the events, it MUST reply to the request by including `WebHook-Allowed-Origin` header, e.g.
+If and only if the delivery target does allow delivery of the events, it MUST reply to the request by including `WebHook-Allowed-Origin` header, for example:
 
 `WebHook-Allowed-Origin: *`
 
@@ -37,7 +37,7 @@ Or:
 
 `WebHook-Allowed-Origin: xxx.webpubsub.azure.com`
 
-For now , we do not support [WebHook-Request-Rate](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#414-webhook-request-rate) and [WebHook-Request-Callback](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#413-webhook-request-callback).
+For now, [WebHook-Request-Rate](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#414-webhook-request-rate) and [WebHook-Request-Callback](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#413-webhook-request-callback) are not supported.
 
 
 ## Web PubSub CloudEvents Attribute Extension
@@ -56,11 +56,11 @@ This extension defines attributes used by Web PubSub for every event it produces
 | `connectionId` | `string` | The connectionId is unique for the client connection | |
 | `eventName` | `string` | The name of the event without prefix | |
 | `subprotocol` | `string` | The subprotocol the client is using if any | |
-| `signature` | `string` | The signature for the upstream webhook to validate if the incoming request is from the expected origin. The service calcuates the value using both primary access key and secondary access key as the HMAC key: `Hex_encoded(HMAC_SHA256(accessKey, connectionId))`. The upstream should check if the request is valid before processing it. | |
+| `signature` | `string` | The signature for the upstream webhook to validate if the incoming request is from the expected origin. The service calculates the value using both primary access key and secondary access key as the HMAC key: `Hex_encoded(HMAC_SHA256(accessKey, connectionId))`. The upstream should check if the request is valid before processing it. | |
 
 ## Events
 
-There are two types of events, one is *blocking* events that the service waits for the response of the event to continue. One is *unblocking* events that the service does not waiting for the response of such event before processing the next message.
+There are two types of events, one is *blocking* events that the service waits for the response of the event to continue. One is *unblocking* events that the service doesn't wait for the response of such event before processing the next message.
 
 - Blocking events
     - [System `connect` event](#connect)
@@ -131,19 +131,19 @@ HTTP/1.1 200 OK
 
     If the request contains the `subprotocols` property, the server should return one subprotocol it supports. If the server doesn't want to use any subprotocols, it should **not** send the `subprotocol` property in response. [Sending a blank header is invalid](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#Subprotocols).
 
-* `userId`: `{authed user id}`
+* `userId`: `{auth-ed user ID}`
 
-    As the service allows anonymous connections, it is the `connect` event's responsibility to tell the service the user id of the client connection. The Service will read the user id from the response payload `userId` if it exists. The connection will be dropped if user id cannot be read from the request claims nor the `connect` event's response payload.
+    As the service allows anonymous connections, it's the `connect` event's responsibility to tell the service the user ID of the client connection. The Service will read the user ID from the response payload `userId` if it exists. The connection will be dropped if user ID cannot be read from the request claims nor the `connect` event's response payload.
 
 <a name="connect_response_header_group"></a>
  
 * `groups`: `{groups to join}`
 
-    The property provides a convenient way for user to add this connection to one or multiple groups. In this way, there is no need to have an additional call to add this connection to some group.
+    The property provides a convenient way for user to add this connection to one or multiple groups. In this way, there's no need to have another call to add this connection to some group.
 
 * `roles`: `{roles the client has}`
     
-    The property provides a way for the upstream to authorize the client. Different roles defines different initial permissions the client has, it can be useful when the client is a PubSub WebSocket client. Details about the permissions a role has is described in [Client permissions](./concept-client-protocols.md#permissions).
+    The property provides a way for the upstream to authorize the client. Different roles define different initial permissions the client has, it can be useful when the client is a PubSub WebSocket client. Details about the permissions are described in [Client permissions](./concept-client-protocols.md#permissions).
 
 #### Error Response Format:
 
@@ -313,7 +313,7 @@ The service calls the event handler webhook for every valid custom event message
 }
 ```
 
-What the upstream event handler receives like below, please note that the `Content-Type` for the CloudEvents HTTP request is `text/plain` for `dataType`=`text`
+What the upstream event handler receives like below, the `Content-Type` for the CloudEvents HTTP request is `text/plain` for `dataType`=`text`
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -349,7 +349,7 @@ text data
 }
 ```
 
-What the upstream event handler receives like below, please note that the `Content-Type` for the CloudEvents HTTP request is `application/json` for `dataType`=`json`
+What the upstream event handler receives like below, the `Content-Type` for the CloudEvents HTTP request is `application/json` for `dataType`=`json`
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -385,7 +385,7 @@ ce-subprotocol: json.webpubsub.azure.v1
 }
 ```
 
-What the upstream event handler receives like below, please note that the `Content-Type` for the CloudEvents HTTP request is `application/octet-stream` for `dataType`=`binary`
+What the upstream event handler receives like below, the `Content-Type` for the CloudEvents HTTP request is `application/octet-stream` for `dataType`=`binary`
 
 ```HTTP
 POST /upstream HTTP/1.1

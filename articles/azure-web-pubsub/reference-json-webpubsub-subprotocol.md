@@ -1,5 +1,5 @@
 ---
-title: Reference - Azure Web PubSub supported WebSocket subprotocol `json.webpubsub.azure.v1`
+title: Reference - Azure Web PubSub supported JSON WebSocket subprotocol `json.webpubsub.azure.v1`
 description: The reference describes Azure Web PubSub supported WebSocket subprotocol `json.webpubsub.azure.v1`
 author: vicancy
 ms.author: lianwei
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 08/16/2021
 ---
 
-#  Azure Web PubSub supported WebSocket subprotocol `json.webpubsub.azure.v1`
+#  Azure Web PubSub supported JSON WebSocket subprotocol
      
 This document describes the subprotocol `json.webpubsub.azure.v1`.
 
@@ -23,11 +23,11 @@ For example, in JS, a PubSub WebSocket client can be created using:
 // PubSub WebSocket client
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.webpubsub.azure.v1');
 ```
-For a simple WebSocket client, the *server* is a MUST HAVE role to handle the events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and always relies on the server-side to process messages and do other operations. With the help of the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group using [join requests](#join-group) and publish messages to a group using [publish requests](#publish-messages) directly. It can also route messages to different upstreams (event handlers) by customizing the *event* the message belongs using [event requests](#send-custom-events). 
+For a simple WebSocket client, the *server* is a MUST HAVE role to handle the events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and always relies on the server-side to process messages and do other operations. With the help of the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group using [join requests](#join-group) and publish messages to a group using [publish requests](#publish-messages) directly. It can also route messages to different upstream (event handlers) by customizing the *event* the message belongs using [event requests](#send-custom-events). 
 
 ## Permissions
 
-As you may have noticed when we describe the PubSub WebSocket clients, that a client can publish to other clients only when it is *authorized* to. The `role`s of the client determines the *initial* permissions the client have:
+You may have noticed that when we describe the PubSub WebSocket clients, a client can publish to other clients only when it's *authorized* to. The `role`s of the client determines the *initial* permissions the client have:
 
 | Role | Permission |
 |---|---|
@@ -53,7 +53,7 @@ Format:
 }
 ```
 
-* `ackId` is optional, it is an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
+* `ackId` is optional, it's an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
 
 ### Leave Group
 
@@ -68,7 +68,7 @@ Format:
 }
 ```
 
-* `ackId` is optional, it is an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
+* `ackId` is optional, it's an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
 
 ### Publish Messages
 
@@ -84,10 +84,10 @@ Format:
 }
 ```
 
-* `ackId` is optional, it is an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
+* `ackId` is optional, it's an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
 
 `dataType` can be one of `json`, `text`, or `binary`:
-* `json`: `data` can be any type that JSON supports and will be published as what it is; If `dataType` is not specified, it defaults to `json`.
+* `json`: `data` can be any type that JSON supports and will be published as what it is; If `dataType` isn't specified, it defaults to `json`.
 * `text`: `data` should be in string format, and the string data will be published;
 * `binary`: `data` should be in base64 format, and the binary data will be published;
 
@@ -175,7 +175,7 @@ Format:
 }
 ```
 
-`dataType` can be one of `text`, `binary` or `json`:
+`dataType` can be one of `text`, `binary`, or `json`:
 * `json`: data can be any type json supports and will be published as what it is; If `dataType` is not specified, it defaults to `json`.
 * `text`: data should be in string format, and the string data will be published;
 * `binary`: data should be in base64 format, and the binary data will be published;
@@ -190,7 +190,7 @@ Format:
 }
 ```
 
-What the upstream event handler receives like below, please note that the `Content-Type` for the CloudEvents HTTP request is `text/plain` for `dataType`=`text`
+What the upstream event handler receives like below, the `Content-Type` for the CloudEvents HTTP request is `text/plain` for `dataType`=`text`
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -225,7 +225,7 @@ text data
 }
 ```
 
-What the upstream event handler receives like below, please note that the `Content-Type` for the CloudEvents HTTP request is `application/json` for `dataType`=`json`
+What the upstream event handler receives like below, the `Content-Type` for the CloudEvents HTTP request is `application/json` for `dataType`=`json`
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -260,7 +260,7 @@ ce-eventName: <event_name>
 }
 ```
 
-What the upstream event handler receives like below, please note that the `Content-Type` for the CloudEvents HTTP request is `application/octet-stream` for `dataType`=`binary`
+What the upstream event handler receives like below, the `Content-Type` for the CloudEvents HTTP request is `application/octet-stream` for `dataType`=`binary`
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -308,7 +308,7 @@ Format:
 }
 ```
 
-The client implementation should always first check if the `success` is `true` or `false`. Only when `success` is `false` should the client reads from `error`.
+The client implementation SHOULD always check if the `success` is `true` or `false` first. Only when `success` is `false` the client reads from `error`.
 
 ### Message response
 
@@ -363,10 +363,10 @@ Clients can receive messages published from one group the client joined, or from
     }
     ```
 
-Please NOTE that if the REST API is sending a string `Hello World` using `application/json` content type, what the simple WebSocket client receives is a JSON string, which is `"Hello World"` that wrapps the string with `"`.
+If the REST API is sending a string `Hello World` using `application/json` content type, what the simple WebSocket client receives is a JSON string, which is `"Hello World"` that wraps the string with `"`.
 
 #### Case 3:  Sending binary data to the connection through REST API with `Content-Type`=`application/octet-stream`
-* What a simple WebSocket client receives is a binary WebSocket frame with the bianry data.
+* What a simple WebSocket client receives is a binary WebSocket frame with the binary data.
 * What a PubSub WebSocket client receives is as follows:
     ```json
     {
