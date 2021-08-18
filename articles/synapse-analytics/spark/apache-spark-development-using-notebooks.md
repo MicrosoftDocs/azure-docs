@@ -221,7 +221,7 @@ We support comment on code cell in Preview Notebook for now.
 
 3. User could **Edit comment**, **Resolve thread**, or **Delete thread** by clicking the more button beside the comment. 
 
-   ![Synapse new comment](./media/apache-spark-development-using-notebooks/synapse-edit-comments.png)
+   ![Synapse edit comment](./media/apache-spark-development-using-notebooks/synapse-edit-comments.png)
 
 > [!NOTE]
 >  If a cell is removed during undo operation, its comments will be deleted and could not be revoked by **Redo** operation. 
