@@ -29,17 +29,13 @@ Using [Application Proxy](https://docs.microsoft.com/azure/active-directory/app-
 
 ## Secure hybrid access through Azure AD partner integrations  
 
-In addition to [Azure AD Application Proxy](https://aka.ms/whyappproxy), enable you to secure access to the on-premises apps or apps that use legacy authentication, Microsoft partners with third-party providers.
+In addition to [Azure AD Application Proxy](https://aka.ms/whyappproxy), Microsoft partners with third-party providers to enable secure access to your on-premises applications or applications that use legacy authentication.
 
 ![Image shows secure hybrid access with app proxy and partners](./media/secure-hybrid-access/secure-hybrid-access.png)
 
-The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD.
-
-- [Akamai Enterprise Application Access](https://docs.microsoft.com/azure/active-directory/saas-apps/akamai-tutorial)
+The following partners offer pre-built solutions to support conditional access policies per application and provide detailed guidance for integrating with Azure AD. 
 
 - [Citrix Application Delivery Controller (ADC)](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)  
-
-- [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
 
 - [Datawiza Access Broker](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
 
@@ -47,20 +43,26 @@ The following partners offer pre-built solutions and detailed guidance for integ
 
 - [F5 Big-IP APM VPN](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)
 
-- [Fortinet](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial)
-
 - [Kemp](https://docs.microsoft.com/azure/active-directory/saas-apps/kemp-tutorial)
 
-- [Palo Alto Networks Global Protect](https://docs.microsoft.com/azure/active-directory/saas-apps/paloaltoadmin-tutorial)
-
 - [Perimeter 81](https://docs.microsoft.com/azure/active-directory/saas-apps/perimeter-81-tutorial)
-
-- [Pulse Secure Pulse Connect Secure (PCS)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-pcs-tutorial)
-
-- [Pulse Secure Virtual Traffic Manager (VTM)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-virtual-traffic-manager-tutorial)
 
 - [Silverfort Authentication Platform](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
 
 - [Strata](https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
+
+The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD. 
+
+- [Akamai Enterprise Application Access](https://docs.microsoft.com/azure/active-directory/saas-apps/akamai-tutorial)
+
+- [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
+
+- [Fortinet](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial)
+
+- [Palo Alto Networks Global Protect](https://docs.microsoft.com/azure/active-directory/saas-apps/paloaltoadmin-tutorial)
+
+- [Pulse Secure Pulse Connect Secure (PCS)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-pcs-tutorial)
+
+- [Pulse Secure Virtual Traffic Manager (VTM)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-virtual-traffic-manager-tutorial)
 
 - [Zscaler Private Access (ZPA)](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial)
