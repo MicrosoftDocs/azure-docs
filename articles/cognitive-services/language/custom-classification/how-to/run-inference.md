@@ -21,10 +21,11 @@ After deploying your model it is ready to be used via the Analyze API.
 
 ## Prerequisites
 
-* Successfully created a [Custom text classification project](create-project.md)
+* Successfully created a [Custom text classification project](../quickstart/using-language-studio.md) with
+    * Model training completed 
+    * Successful model deployment.
 * Completed [data tagging](tag-data.md).
-* Completed [model training](train-model.md) successfully. 
-* Completed [model deployment](deploy-model.md) successfully.
+
 * [cURL](https://curl.haxx.se/) installed
 
 ## Create a text classification job

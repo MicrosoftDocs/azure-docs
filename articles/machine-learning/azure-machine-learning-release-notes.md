@@ -116,7 +116,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 
 ## 2021-05-25
 
-### Announcing the 2.0 CLI (preview) for Azure Machine Learning
+### Announcing the CLI (v2) (preview) for Azure Machine Learning
 
 The `ml` extension to the Azure CLI is the next-generation interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle. [Install and get started](how-to-configure-cli.md).
 

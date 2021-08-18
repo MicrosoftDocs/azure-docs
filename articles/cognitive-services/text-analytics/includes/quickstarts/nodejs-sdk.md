@@ -117,6 +117,8 @@ Text is sent to the API as a list of `documents`, which are `dictionary` objects
 
 The response object is a list containing the analysis information for each document. 
 
+[!INCLUDE [text-analytics-character-limits](../character-limits.md)]
+
 ## Code examples
 
 * [Client Authentication](#authenticate-the-client)

@@ -18,7 +18,7 @@ After you've trained your model you reviewed its evaluation details, you can sta
 
 ## Prerequisites
 
-* Successfully created a [Custom text classification project](create-project.md).
+* Successfully created a [Custom text classification project](../quickstart/using-language-studio.md).
 * Completed [model training](train-model.md) successfully.
 * Viewed [model evaluation details](view-model-evaluation.md).
 
@@ -132,5 +132,4 @@ Replace `{YOUR-ENDPOINT}` by the endpoint you got earlier, replace `{projectName
 
 ## Next steps
 
-* [Deploy model](deploy-model.md)
 * [view recommended practices](../concepts/recommended-practices.md)
