@@ -336,9 +336,9 @@ You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. Yo
 
 ### What regions are supported for using Azure NetApp Files NFS or SMB volumes with Azure VMware Solution (AVS)?
 
-Using Azure NetApp Files NFS or SMB volumes with AVS is supported in [all AVS and ANF enabled regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware,netapp).
+Using Azure NetApp Files NFS or SMB volumes with AVS for *Guest OS mounts* is supported in [all AVS and ANF enabled regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware,netapp).
 
-### Is the number of the IP addresses using Azure VMWare Solutions __for Guest OS mounts__ [limited to 1000](./azure-netapp-files-resource-limits.md)?
+### Is the number of the IP addresses using Azure VMWare Solutions for Guest OS mounts [limited to 1000](azure-netapp-files-resource-limits.md#resource-limits)?
 
 No. Azure VMWare Solutions is behind an ER gateway, which makes it behave similar to on-premises systems. The number of AVS "Hosts" and "Guests" is not visible to Azure NetApp Files, and the 1000 IP address limit is not applicable.
 
