@@ -35,7 +35,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
 1. Paste the following code into the editor:
 
-    :::code language="hcl" source="~/terraform/quickstart/template/main.tf":::
+    :::code language="hcl" source="~/terraform/blob/master/quickstart/template/main.tf":::
 
     ```hcl
     provider "azurerm" {
