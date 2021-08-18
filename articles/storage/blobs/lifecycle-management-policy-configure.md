@@ -15,6 +15,53 @@ ms.custom: "devx-track-azurepowershell, references_regions"
 
 # Configure a lifecycle management policy
 
+
+## Optionally enable access time tracking
+
+Before you configure a lifecycle management policy, you can choose to enable access time tracking. When access time tracking is enabled, a lifecycle management policy can include an action based on the time that the blob was last accessed with a read or write operation. Use the **daysAfterLastAccessTimeGreaterThan** property to specify the number of days from last access after which an action should be taken on a blob.
+
+#### [Portal](#tab/azure-portal)
+
+To enable last access time tracking with the Azure portal, follow these steps:
+
+1. Navigate to your storage account in the Azure portal.
+1. In the **Data management** section, select **Enable access tracking**.
+
+    :::image type="content" source="media/lifecycle-management-policy-configure/last-access-tracking-enable.png" alt-text="Screenshot showing how to enable last access tracking in Azure portal":::
+
+#### [PowerShell](#tab/azure-powershell)
+
+To enable last access time tracking with PowerShell, call the [Enable-AzStorageBlobLastAccessTimeTracking](/powershell/module/az.storage/enable-azstoragebloblastaccesstimetracking) command, as shown in the following example. Remember to replace placeholder values in angle brackets with your own values:
+
+```powershell
+# Initialize these variables with your values.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+Enable-AzStorageBlobLastAccessTimeTracking  -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -PassThru
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To enable last access time tracking with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command, as shown in the following example. Remember to replace placeholder values in angle brackets with your own values:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource-group> \
+    --account-name <storage-account> \
+    --enable-last-access-tracking true
+```
+
+# [Template](#tab/template)
+
+TBD
+
+---
+
+
+
 ## Add or remove a policy
 
 You can add, edit, or remove a lifecycle management policy with the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template.
@@ -182,49 +229,6 @@ You can define lifecycle management by using Azure Resource Manager templates. H
   "outputs": {}
 }
 ```
-
----
-
-## Enable last access time tracking
-
-
-#### [Portal](#tab/azure-portal)
-
-To enable last access time tracking with the Azure portal, follow these steps:
-
-1. Navigate to your storage account in the Azure portal.
-1. In the **Data management** section, select **Enable access tracking**.
-
-    :::image type="content" source="media/lifecycle-management-policy-configure/last-access-tracking-enable.png" alt-text="Screenshot showing how to enable last access tracking in Azure portal":::
-
-#### [PowerShell](#tab/azure-powershell)
-
-To enable last access time tracking with PowerShell, call the [Enable-AzStorageBlobLastAccessTimeTracking](/powershell/module/az.storage/enable-azstoragebloblastaccesstimetracking) command, as shown in the following example. Remember to replace placeholder values in angle brackets with your own values:
-
-```powershell
-# Initialize these variables with your values.
-$rgName = "<resource-group>"
-$accountName = "<storage-account>"
-
-Enable-AzStorageBlobLastAccessTimeTracking  -ResourceGroupName $rgName `
-    -StorageAccountName $accountName `
-    -PassThru
-```
-
-#### [Azure CLI](#tab/azure-cli)
-
-To enable last access time tracking with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command, as shown in the following example. Remember to replace placeholder values in angle brackets with your own values:
-
-```azurecli
-az storage account blob-service-properties update \
-    --resource-group <resource-group> \
-    --account-name <storage-account> \
-    --enable-last-access-tracking true
-```
-
-# [Template](#tab/template)
-
-TBD
 
 ---
 

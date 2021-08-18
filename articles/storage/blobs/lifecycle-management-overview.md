@@ -159,7 +159,7 @@ The run conditions are based on age. Base blobs use the last modified time, blob
 |--|--|--|
 | daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for base blob actions |
 | daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for blob version and blob snapshot actions |
-| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for base blob actions when last accessed time is enabled |
+| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for base blob actions when  access tracking is enabled |
 
 ## Examples of lifecycle policies
 
