@@ -14,7 +14,7 @@ ms.date: 08/18/2020
 Azure Purview uses **Collections** to organize and manage access across its sources, assets, and other artifacts. This article describes collections and access management in your Azure Purview instance.
 
 > [!NOTE]
-> At this time, this information only applies for Purview instances created **on or after August 18th**. Instances created before August 18th are able to create collections, but do not manage permissions through those collections. For information on access control for a Purview instance created before August 18th, see our [**legacy permission guide**](#legacy-permission-guide) at the bottom of the page.
+> At this time, this information only applies for Purview instances created **on or after August 18, 2021**. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on access control for a Purview instance created before August 18, see our [**legacy permission guide**](#legacy-permission-guide) at the bottom of the page.
 
 ## Collections
 
@@ -89,7 +89,7 @@ For full instructions, see our [how-to guide for adding role assignments](how-to
 ## Legacy permission guide
 
 > [!NOTE]
-> This legacy collection guide is only for Purview instances created before August 18th. Instances created after that time should follow the guide above.
+> This legacy collection guide is only for Purview instances created before August 18, 2021. Instances created after that time should follow the guide above.
 
 This article describes how Role-Based Access Control (RBAC) is implemented in Azure Purview's [Data Plane](../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) for Purview resources created before August 18th.
 
