@@ -16,34 +16,46 @@ This article explains how to access the Spring Cloud Config Server and Spring Cl
 
 ## Assign role to Azure AD user/group, MSI, or service principal
 
-Assign the [azure-spring-cloud-data-reader](../role-based-access-control/built-in-roles.md#azure-spring-cloud-data-reader) role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
+Assign the role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
+| Role name | Description |
+| - | - |
+| Azure Spring Cloud Config Server Reader | Allow read access to Azure Spring Cloud Config Server |
+| Azure Spring Cloud Config Server Contributor | Allow read, write and delete access to Azure Spring Cloud Config Server |
+| Azure Spring Cloud Service Registry Reader | Allow read access to Azure Spring Cloud Service Registry |
+| Azure Spring Cloud Service Registry Contributor | Allow read, write and delete access to Azure Spring Cloud Service Registry |
 
 For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ## Access Config Server and Service Registry Endpoints
 
-After the Azure Spring Cloud Data Reader role is assigned, customers can access the Spring Cloud Config Server and the Spring Cloud Service Registry endpoints. Use the following procedures:
+After the role is assigned, customers can access the Spring Cloud Config Server and the Spring Cloud Service Registry endpoints. Use the following procedures:
 
-1. Get an access token. After an Azure AD user is assigned the Azure Spring Cloud Data Reader role, customers can use the following commands to log in to Azure CLI with user, service principal, or managed identity to get an access token. For details, see [Authenticate Azure CLI](/cli/azure/authenticate-azure-cli).
+1. Get an access token. After an Azure AD user is assigned the role, customers can use the following commands to log in to Azure CLI with user, service principal, or managed identity to get an access token. For details, see [Authenticate Azure CLI](/cli/azure/authenticate-azure-cli). 
 
     ```azurecli
     az login
     az account get-access-token
     ```
+1. Compose the endpoint. We support default endpoints of the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Cloud. For more information, see [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints).
 
-2. Compose the endpoint. We support default endpoints of the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Cloud. For more information, see [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints). Customers can also get a full list of supported endpoints of the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Cloud by accessing endpoints:
+    * *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/{path}/'*
+    * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/{path}/'* 
 
-    * *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/'*
-    * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/'*
+    >[!NOTE]
+    > If you are using Azure China, please replace `*.azuremicroservices.io` with `*.microservices.azure.cn`, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 
->[!NOTE]
-> If you are using Azure China, please replace `*.azuremicroservices.io` with `*.microservices.azure.cn`, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+1. Access the composed endpoint with the access token. Put the access token in a header to provide authorization: `--header 'Authorization: Bearer {TOKEN_FROM_PREVIOUS_STEP}`.
 
-3. Access the composed endpoint with the access token. Put the access token in a header to provide authorization: `--header 'Authorization: Bearer {TOKEN_FROM_PREVIOUS_STEP}`.  Only the "GET" method is supported.
+    For example, 
 
-    For example, access an endpoint like *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/actuator/health'* to see the health status of eureka.
+    a. access an endpoint like *'https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/health'* to see the health status of Config Server.
+
+    b. access an endpoint like *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/eureka/apps'* to see the registered apps in eureka.
 
     If the response is *401 Unauthorized*, check to see if the role is successfully assigned.  It will take several minutes for the role take effect or verify that the access token has not expired.
+
+## Access Config Server and Service Registry in Java application
+Both Config Server and Service Registry support [custom rest template](https://cloud.spring.io/spring-cloud-config/reference/html/#custom-rest-template) to inject the bearer token for authentication. Please check the [code example (branch `dataplane`)](https://github.com/leonard520/spring-petclinic-microservices.git) about how to implement your own Config Server / Service Registry rest template integrated with Azure AD.
 
 ## Next steps
 
