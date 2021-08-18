@@ -20,7 +20,7 @@ Azure Purview can scan data sources in Azure or an on-premises environment by us
 - Queue private endpoint is linked to an Azure Purview managed storage account.
 - namespace private endpoint is linked to an Azure Purview managed event hub namespace.
 
-:::image type="content" source="media/catalog-private-link/purview-private-link-architecture-ingestion.png" alt-text="Diagram that shows Azure Purview and Private Link architecture." "lightbox="media/catalog-private-link/purview-private-link-architecture-ingestion.png":::
+:::image type="content" source="media/catalog-private-link/purview-private-link-architecture-ingestion.png" alt-text="Diagram that shows Azure Purview and Private Link architecture.":::
 
 ## Deployment checklist
 Using one of the deployment options from this guide, enable ingestion private endpoints for your Azure Purview account:
