@@ -1,6 +1,6 @@
 ---
 title: Best practices for disaster recovery with Azure File Sync
-description: Learn about best practices for disaster recovery with Azure File Sync
+description: Learn about best practices for disaster recovery with Azure File Sync. Specifically, high availability, data protection, and data redundancy.
 author: roygara
 ms.service: storage
 ms.topic: how-to
