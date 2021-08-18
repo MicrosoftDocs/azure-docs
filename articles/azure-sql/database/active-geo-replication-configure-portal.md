@@ -82,7 +82,7 @@ After the secondary is created and seeded, data begins replicating from the prim
 > The secondary database must have the same edition as the primary.
 
 2. For the server region, you can select any region other than the region hosting the primary database, but we recommend the [paired region](../../best-practices-availability-paired-regions.md).
-3. Create your secondary database. Optionally, you can add a secondary database to an elastic pool. To create the secondary database in a pool, use the `--elastic-pool` value. A pool must already exist on the target server. This workflow does not create a pool.
+3. Create your secondary database. Optionally, you can add a secondary database to an elastic pool. To create the secondary database in a pool, use the `--elastic-pool` command. A pool must already exist on the target server. This workflow does not create a pool.
 
     ```azurecli
     az sql db replica create -g mygroup -s myserver -n originalDb --partner-server newDbname --service-objective S2 --secondary-type Geo
@@ -92,7 +92,7 @@ After the secondary is created and seeded, data begins replicating from the prim
 5. When the seeding process is complete, you can check the status of the secondary database with the following command:
     
     ```azurecli
-    az sql db replica list-links -n MyAzureSQLDatabase -g MyResourceGroup -s myserver
+    az sql db replica list-links -n MyAzureSQLDatabase -g MyResourceGroup -s MyServer
     ```
 
 ---
