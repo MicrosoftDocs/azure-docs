@@ -35,6 +35,8 @@ In addition to [Azure AD Application Proxy](https://aka.ms/whyappproxy), Microso
 
 The following partners offer pre-built solutions to support conditional access policies per application and provide detailed guidance for integrating with Azure AD. 
 
+- [Akamai Enterprise Application Access](https://docs.microsoft.com/azure/active-directory/saas-apps/akamai-tutorial)
+
 - [Citrix Application Delivery Controller (ADC)](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)  
 
 - [Datawiza Access Broker](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
@@ -52,8 +54,6 @@ The following partners offer pre-built solutions to support conditional access p
 - [Strata](https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
 
 The following partners offer pre-built solutions and detailed guidance for integrating with Azure AD. 
-
-- [Akamai Enterprise Application Access](https://docs.microsoft.com/azure/active-directory/saas-apps/akamai-tutorial)
 
 - [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
 

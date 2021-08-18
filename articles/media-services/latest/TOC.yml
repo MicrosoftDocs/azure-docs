@@ -450,6 +450,9 @@
     - name: Copy videos without re-encoding with REST
       href: transform-create-copy-video-audio-how-to.md
       displayName: copy videos, copy, copy codec, copy video codec, copy audio codec, fast encoding, fast remux, remuxing, re-package, packaging, re-encoding
+    - name: Use the content aware encoding preset
+      href: encode-content-aware-how-to.md
+      displayName: encode, encoder, transcode, custom preset, content aware, transform 
   - name: Create jobs
     items:
     - name: Create jobs with CLI
@@ -551,6 +554,9 @@
     - name: Azure RBAC
       href: security-rbac-concept.md
       displayName: RBAC, role based access, role based access control, roles, access, secure, security, authorization
+    - name: Azure Policy
+      href: security-azure-policy.md
+      displayName: Policy, Azure Policy, access, secure, security, public network, private link, vnet, content key, token authentication, HTTP input, HTTPS input, private DNS, DNS
     - name: Roll storage access keys
       href: security-storage-roll-access-keys-how-to.md
       displayName: storage, storage account, roll, rolling keys, rotate keys, storage keys, storage access

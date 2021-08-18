@@ -10,7 +10,7 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
-ms.custom: seodec18, has-adal-ref, devx-track-azurecli
+ms.custom: seodec18, devx-track-azurecli
 ---
 
 # Authentication and authorization for Azure Time Series Insights API
