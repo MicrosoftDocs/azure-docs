@@ -105,7 +105,7 @@ For all scenarios, you must read and acknowledge the updated [Azure VMware Solut
 
 Currently, Zerto Disaster Recovery on Azure VMware Solution is in Initial Availability (IA) phase. In the IA phase, you must contact to Microsoft or Zerto to request and qualify for IA support.
 
-To request IA support for Zerto on Azure VMware Solution, send an email request to both email aliases: <<Microsoft alias>> and <<Zerto Alias>>.
+To request IA support for Zerto on Azure VMware Solution, send an email request to both email aliases: Microsoft and Zerto.
 
 In the IA phase, Azure VMware Solution only supports manual installation and onboarding of Zerto on Azure VMware Solution.
 
