@@ -43,23 +43,15 @@ Organizations that use Azure AD B2C as their customer identity and access manage
 
 ## Prerequisites
 
-Before you follow the procedures in this article, you need:
+For the scenario in this article, you need:
 
 * The *SocialAndLocalAccounts* custom policy from a custom policy starter pack. Complete the steps in [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). 
 * A basic understanding of the SAML protocol and familiarity with the application's SAML implementation.
-* A web application configured as a SAML application. For this tutorial, you can use a [SAML test application][samltest] that we provide.
-
-## Components
-
-Three main components are required for this scenario:
-
-* A SAML *application* with the ability to send SAML AuthN requests and to receive, decode, and verify SAML responses from Azure AD B2C. The SAML application is also known as the relying party application or service provider.
+* A web application configured as a SAML application that has the ability to send SAML AuthN requests and to receive, decode, and verify SAML responses from Azure AD B2C. The SAML application is also known as the relying party application or service provider. 
 * The SAML application's publicly available SAML *metadata endpoint* or XML document.
 * An [Azure AD B2C tenant](tutorial-create-tenant.md).
 
-If you don't yet have a SAML application and an associated metadata endpoint, you can use this sample SAML application that we've made available for testing:
-
-[SAML Test Application][samltest]
+If you don't yet have a SAML application and an associated metadata endpoint, you can use the [SAML test application][samltest] that we've made available for testing.
 
 [!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
 
