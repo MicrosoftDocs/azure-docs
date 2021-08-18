@@ -19,6 +19,7 @@
     - name: CLI
       href: quickstart-cli-create.md
   - name: Connect to the instance
+    expanded: true
     items:
     - name: Pub/sub from the browser
       href: quickstart-live-demo.md

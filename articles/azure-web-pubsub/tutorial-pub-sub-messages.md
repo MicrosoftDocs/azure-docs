@@ -40,7 +40,8 @@ In this tutorial, you learn how to:
 
 Copy the fetched **ConnectionString** and it will be used later when using service SDK as the value of `<connection_string>`.
 
-## Prerequisites
+## Set up the project
+### Prerequisites
 
 # [C#](#tab/csharp)
 
@@ -59,7 +60,7 @@ Copy the fetched **ConnectionString** and it will be used later when using servi
 
 ---
 
-## Set up the subscriber
+### Set up the subscriber
 
 Clients connect to the Azure Web PubSub service through the standard WebSocket protocol. WebSocket is a full-duplex communication channel so service can push messages to your client in real time. You can use any API/library that supports WebSocket to connect to the service.
 
@@ -178,22 +179,23 @@ The WebSocket clients use JWT token to connect to the Web PubSub service. The se
 # [Python](#tab/python)
 
 1. First let's create a new folder `subscriber` for this project and install required dependencies:
-    * When using bash
-        ```bash
-        mkdir subscriber
-        cd subscriber
-        # Create venv
-        python -m venv env
 
-        # Active venv
-        ./env/Scripts/activate
+    ```bash
+    mkdir subscriber
+    cd subscriber
+    # Create venv
+    python -m venv env
 
-        # Or call .\env\Scripts\activate when you are using CMD under Windows
+    # Active venv
+    ./env/Scripts/activate
 
-        pip install azure-messaging-webpubsubservice
-        pip install websockets
+    # Or call .\env\Scripts\activate when you are using CMD under Windows
 
-        ```
+    pip install azure-messaging-webpubsubservice
+    pip install websockets
+
+    ```
+
 2. Then use WebSocket API to connect to service. Create a `subscribe.py` file with the below code:
 
     ```python
@@ -241,6 +243,7 @@ The WebSocket clients use JWT token to connect to the Web PubSub service. The se
 # [Java](#tab/java)
 
 1. First let's use Maven to create a new console app `webpubsub-quickstart-subscriber` and switch into the *webpubsub-quickstart-subscriber* folder:
+
     ```console
     mvn archetype:generate --define interactiveMode=n --define groupId=com.webpubsub.quickstart --define artifactId=webpubsub-quickstart-subscriber --define archetypeArtifactId=maven-archetype-quickstart --define archetypeVersion=1.4
     cd webpubsub-quickstart-subscriber
@@ -248,8 +251,8 @@ The WebSocket clients use JWT token to connect to the Web PubSub service. The se
 
 2. Let's add WebSocket and Azure Web PubSub SDK dependency into the `dependencies` node of `pom.xml`:
 
->    * azure-messaging-webpubsub: Web PubSub service SDK for Java
->    * Java-WebSocket: WebSocket client SDK for Java
+    * `azure-messaging-webpubsub`: Web PubSub service SDK for Java
+    * `Java-WebSocket`: WebSocket client SDK for Java
 
     ```xml
     <dependency>
@@ -356,7 +359,7 @@ The WebSocket clients use JWT token to connect to the Web PubSub service. The se
 
 ---
 
-## Publish messages using service SDK
+### Publish messages using service SDK
 
 Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 

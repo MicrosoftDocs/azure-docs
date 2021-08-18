@@ -40,7 +40,9 @@ In this tutorial, you learn how to:
 
 Copy the fetched **ConnectionString** and it will be used later when using service SDK as the value of `<connection_string>`.
 
-## Prerequisites
+## Set up the project
+
+### Prerequisites
 
 # [C#](#tab/csharp)
 
@@ -52,7 +54,7 @@ Copy the fetched **ConnectionString** and it will be used later when using servi
 
 ---
 
-## Create a server
+### Create a server
 
 In Azure Web PubSub, there're two roles, server and client. This is similar to the sever and client roles in a web application. Server is responsible for managing the clients, listen and respond to client messages, while client's role is to send user's messages to server, and receive messages from server and visualize them to end user.
 
@@ -257,7 +259,7 @@ You may remember in last tutorial the subscriber uses an API in Web PubSub SDK t
 
 ---
 
-##  Handle events
+### Handle events
 
 In Azure Web PubSub, when there are certain activities happening at client side (for example a client is connected or disconnected), service will send notifications to sever so it can react to these events.
 
@@ -346,7 +348,7 @@ In the above code we simply print a message to console when a client is connecte
 
 ---
 
-## Set up the event handler
+### Set up the event handler
 
 Then we need to set the Webhook url in the service so it can know where to call when there is a new event. But there is a problem that our server is running on localhost so does not have an internet accessible endpoint. Here we use [ngrok](https://ngrok.com/) to expose our localhost to internet.
 
@@ -362,7 +364,7 @@ ngrok will print out an url (`https://<domain-name>.ngrok.io`) that can be acces
 
 After the update is completed, open the home page, input your user name, you’ll see the connected message printed out in the server console.
 
-## Message events
+### Message events
 
 Besides system events like connected or disconnected, client can also send messages through the WebSocket connection and these messages will be delivered to server as a special type of event called message event. We can use this event to receive messages from one client and broadcast them to all clients so they can talk to each other.
 
