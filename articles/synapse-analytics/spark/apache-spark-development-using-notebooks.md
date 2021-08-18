@@ -179,24 +179,24 @@ Format button toolbar is not available for the preview notebook experience yet.
 
 # [Classical Notebook](#tab/classical)
 
-Select the **Undo** button or press **Ctrl+Z** to revoke the most recent cell operation. Now you can undo up to the latest 20 historical cell actions. 
+Select the **Undo** button or press **Ctrl+Z** to revoke the most recent cell operations. Now you can undo up to the latest 20 historical cell operations. 
 
    ![Synapse undo cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 
 # [Preview Notebook](#tab/preview)
 
-Select the **Undo** button or press **Z** to revoke the most recent cell-operation. Notice the in-cell text operation and commenting operation are not undoable.  Now you can undo up to the latest 10 historical cell actions.
+Select the **Undo** button or press **Z** to revoke the most recent cell operations. Now you can undo up to the latest 10 historical cell operations.
 
    ![Synapse undo cells of aznb](./media/apache-spark-development-using-notebooks/synapse-undo-cells-aznb.png)
 
-User could undo cell operations as following:
-+ Insert/Delete cell: User could revoke the insert/delete operation by choose "Undo", the text content will be kept along with the cell.
+Supported undo cell operations:
++ Insert/Delete cell: You could revoke the delete operations by selecting **Undo**, the text content will be kept along with the cell.
 + Reorder cell.
 + Toggle parameter.
 + Convert between Code cell and Markdown cell.
 
 > [!NOTE]
-> In-cell text operation and commenting operation won’t be undoable
+> In-cell text operations and comment operations are not undoable.
 
 
 ---
@@ -211,20 +211,20 @@ Not supported.
 
 We support comment on code cell in Preview Notebook for now.
 
-1. Select **Comments** button on the notebook toolbar to open **Comments** panel.
+1. Select **Comments** button on the notebook toolbar to open **Comments** pane.
 
    ![Synapse comment button](./media/apache-spark-development-using-notebooks/synapse-comments-button.png)
 
-2. Select code in the code cell, click **New** in the **Comments** panel, add comment then click **Post comment** button to save.
+2. Select code in the code cell, click **New** in the **Comments** pane, add comments then click **Post comment** button to save.
 
    ![Synapse new comment](./media/apache-spark-development-using-notebooks/synapse-new-comments.png)
 
-3. User could **Edit comment**, **Resolve thread**, or **Delete thread** by clicking the more button beside the comment. 
+3. You could perform **Edit comment**, **Resolve thread**, or **Delete thread** by clicking the **More** button besides your comment. 
 
    ![Synapse edit comment](./media/apache-spark-development-using-notebooks/synapse-edit-comments.png)
 
 > [!NOTE]
->  If a cell is removed during undo operation, its comments will be deleted and could not be revoked by **Redo** operation. 
+>  If a cell is deleted, its comments will be deleted and could not be revoked by **Redo** operation. 
 
 
 ---
