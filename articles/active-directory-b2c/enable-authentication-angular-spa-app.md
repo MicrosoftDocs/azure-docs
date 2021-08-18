@@ -80,7 +80,7 @@ ng generate component webapi
 
 ## Add the app settings
 
-Settings for the Azure AD B2C identity provider and the web API are stored in the *auth-config.ts* file. In your *src/app* folder, create a file named *auth-config.ts* that contains the following code. Then change the settings as described in [3.1 Configure the Angular sample](configure-authentication-sample-angular-spa-app.md#3.1-configure-the-angular-sample).
+Settings for the Azure AD B2C identity provider and the web API are stored in the *auth-config.ts* file. In your *src/app* folder, create a file named *auth-config.ts* that contains the following code. Then change the settings as described in [3.1 Configure the Angular sample](configure-authentication-sample-angular-spa-app.md#31-configure-the-angular-sample).
 
 ```typescript
 import { LogLevel, Configuration, BrowserCacheLocation } from '@azure/msal-browser';
