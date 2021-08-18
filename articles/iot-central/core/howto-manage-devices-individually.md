@@ -3,7 +3,7 @@ title: Manage devices individually in your Azure IoT Central application | Micro
 description: Learn how to manage devices individually in your Azure IoT Central application. Create, delete, and update devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/08/2021
+ms.date: 08/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -32,11 +32,11 @@ To view an individual device:
 
 1. In the right-hand pane of the **Devices** page, you see a list of devices accessible to your organization created from that device template. Choose an individual device to see the device details page for that device:
 
-    <!-- TODO update this screenshot to show organizations -->
+    <!-- TODO update this screenshot to show organizations hierarchy -->
     :::image type="content" source="media/howto-manage-devices-individually/device-list.png" alt-text="Screenshot showing device list.":::
 
-> [!TIP]
-> You can use the filter tool on this page to view devices in a specific organization.
+    > [!TIP]
+    > You can use the filter tool on this page to view devices in a specific organization.
 
 ## Add a device
 
@@ -73,7 +73,7 @@ To move a device to a different organization, you must have access to both the s
 
 1. Select the new organization for the device:
 
-    <!-- TODO: Add a screenshot here -->
+    :::image type="content" source="media/howto-manage-devices-individually/change-device-organization.png" alt-text="Screenshot that shows how to move a device to a new organization.":::
 
 1. Select **Save**.
 

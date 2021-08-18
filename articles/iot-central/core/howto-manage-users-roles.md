@@ -3,11 +3,10 @@ title: Manage users and roles in Azure IoT Central application | Microsoft Docs
 description: As an administrator, how to manage users and roles in your Azure IoT Central application
 author: lmasieri
 ms.author: lmasieri
-ms.date: 04/16/2021
+ms.date: 08/20/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: corywink
 
 # Administrator
 ---
@@ -95,12 +94,12 @@ Users in the **Org Viewer** role can view items such as devices and their data, 
 
 ## Create a custom role
 
-<!-- TODO - revisit before GA -->
-
 If your solution requires finer-grained access controls, you can create roles with custom sets of permissions. To create a custom role, navigate to the **Roles** page in the **Administration** section of your application, and choose one of these options:
 
 - Select **+ New**, add a name and description for your role, and select **Application** or **Organization** as the role type. This option lets you create a role definition from scratch.
-- Navigate to an existing role and select **Copy**. This option lets you start with an existing role definition that you can then customize.
+- Navigate to an existing role and select **Copy**. This option lets you start with an existing role definition that you can customize.
+
+:::image type="content" source="media/howto-manage-users-roles/create-custom-role-pnp.png" alt-text="Screenshot to build a custom role.":::
 
 > [!WARNING]
 > You can't change the role type after you create a role.
@@ -110,9 +109,7 @@ When you invite a user to your application, if you associate the user with:
 - The root organization, then only **Application** roles are available.
 - Any other organization, then only **Organization** roles are available.
 
-You can add users to your custom role in the same way that you add users to a built-in role:
-
-:::image type="content" source="media/howto-manage-users-roles/create-custom-role-pnp.png" alt-text="Screenshot to build a custom role.":::
+You can add users to your custom role in the same way that you add users to a built-in role
 
 ### Custom role options
 
