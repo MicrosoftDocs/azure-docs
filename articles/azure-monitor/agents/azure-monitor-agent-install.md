@@ -41,8 +41,7 @@ It is strongly recommended to update to GA+ versions instead of using preview ve
 |:---|:---|:---|:---|:---|
 | June 2021 | General availability announced. <ul><li>All features except metrics destination now generally available</li><li>Production quality, security and compliance</li><li>Availability in all public regions</li><li>Performance and scale improvements for higher EPS</li></ul> [Learn more](https://azure.microsoft.com/updates/azure-monitor-agent-and-data-collection-rules-now-generally-available/) | 1.0.12.0 | 1.9.1.0 |
 | July 2021 | <ul><li>Support for direct proxies</li><li>Support for Log Analytics gateway</li></ul> [Learn more](https://azure.microsoft.com/updates/general-availability-azure-monitor-agent-and-data-collection-rules-now-support-direct-proxies-and-log-analytics-gateway/) | 1.1.1.0 | 1.10.5.0 |
-| August 2021 | AMA extensibility improvements and minor bugfixes | 1.1.2.0 | 1.12.0.0 |
-
+| August 2021 | AMA extensibility improvements and minor bugfixes | 1.1.2.0 | 1.10.7.0 |
 
 
 ## Install with Azure portal
