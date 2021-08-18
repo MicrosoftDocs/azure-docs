@@ -143,7 +143,7 @@ HTTP/1.1 200 OK
 
 * `roles`: `{roles the client has}`
     
-    The property provides a way for the upstream to authorize the client. Different roles defines different initial permissions the client has, it can be useful when the client is a PubSub WebSocket client. Details about the permissions a role has is described in [Client roles](./2-client-protocols-in-detail.md#auth).
+    The property provides a way for the upstream to authorize the client. Different roles defines different initial permissions the client has, it can be useful when the client is a PubSub WebSocket client. Details about the permissions a role has is described in [Client permissions](./concept-client-protocols.md#permissions).
 
 #### Error Response Format:
 

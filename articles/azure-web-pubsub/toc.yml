@@ -68,6 +68,7 @@
       href: howto-troubleshoot-diagnostic-logs.md
 
 - name: Concepts
+  expanded: true
   items:
   - name: Client protocol overview
     href: concept-client-protocols.md

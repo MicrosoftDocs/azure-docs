@@ -56,6 +56,18 @@ For example, in JS, a PubSub WebSocket client can be created using:
 var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.webpubsub.azure.v1');
 ```
 
-When the client is using this subprotocol, both outgoing data frame and incoming data frame are expected to be JSON payloads.
+When the client is using this subprotocol, both outgoing data frame and incoming data frame are expected to be JSON payloads. An auth-ed client can publish messages to other clients directly through the Azure Web PubSub service.
+
+### Permissions
+
+As you may have noticed when we describe the PubSub WebSocket clients, that a client can publish to other clients only when it is *authorized* to. The permission of the client can be granted when it is connected or during the lifetime of the connection.
+
+| Role | Permission |
+|---|---|
+| Not specified | The client can send event requests.
+| `webpubsub.joinLeaveGroup` | The client can join/leave any group.
+| `webpubsub.sendToGroup` | The client can publish messages to any group.
+| `webpubsub.joinLeaveGroup.<group>` | The client can join/leave group `<group>`.
+| `webpubsub.sendToGroup.<group>` | The client can publish messages to group `<group>`.
 
 Details of the subprotocol is described in [JSON subprotocol](./reference-json-webpubsub-subprotocol.md).

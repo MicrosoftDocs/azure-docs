@@ -344,6 +344,8 @@ app.use(handler.getMiddleware());
 
 In the above code we simply print a message to console when a client is connected. You can see we use `req.context.userId` so we can see the identity of the connected client.
 
+---
+
 ## Set up the event handler
 
 Then we need to set the Webhook url in the service so it can know where to call when there is a new event. But there is a problem that our server is running on localhost so does not have an internet accessible endpoint. Here we use [ngrok](https://ngrok.com/) to expose our localhost to internet.
