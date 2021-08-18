@@ -175,7 +175,7 @@ Format button toolbar is not available for the preview notebook experience yet.
 
 ---
 
-### Undo cell operations
+### Undo cell operation
 
 # [Classical Notebook](#tab/classical)
 
@@ -201,7 +201,7 @@ Supported undo cell operations:
 
 ---
 
-### Comment a cell
+### Comment cell operation
 
 # [Classical Notebook](#tab/classical)
 
