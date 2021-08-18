@@ -50,6 +50,8 @@ items:
     href: custom-extraction/overview.md
   - name: Quickstart
     href: custom-extraction/quickstart.md
+  - name: Language support
+    href: custom-extraction/language-support.md
   - name: How-to guides
     items:
     - name: Improve a model
@@ -66,6 +68,10 @@ items:
     items:
       - name: Recommended practices
         href: custom-extraction/concepts/recommended-practices.md
+      - name: Definitions
+        href: custom-extraction/concepts/definitions.md
+      - name: Data limits
+        href: custom-extraction/concepts/limits.md
 - name: Entity linking
   items:
   - name: Overview
