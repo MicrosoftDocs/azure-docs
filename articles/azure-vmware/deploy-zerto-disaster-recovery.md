@@ -81,19 +81,19 @@ For all scenarios, you must read and acknowledge the updated [Azure VMware Solut
 
 - Azure VMware Solution private cloud must be deployed in the primary and secondary region.
 
-   :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2a-prerequisite.png" alt-text="Diagram showing the first prerequisite for scenario 2 of the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
+   :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2a-prerequisite.png" alt-text="Diagram showing the first prerequisite for scenario 2 of the Zerto disaster recovery solution on Azure VMware Solution.":::
 
  
 - Connectivity, like ExpressRoute Global Reach, between the source and target Azure VMware Solution private cloud.
 
-   :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2b-prerequisite.png" alt-text="Diagram showing the second prerequisite for scenario 2 of the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
+   :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2b-prerequisite.png" alt-text="Diagram showing the second prerequisite for scenario 2 of the Zerto disaster recovery solution on Azure VMware Solution.":::
 
 
 ### Azure VMware Solution IaaS VMs cloud DR
 
 - Network connectivity, ExpressRoute based, from Azure VMware Solution to the vNET used for Disaster Recovery.   
 
-   :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-3-prerequisite.png" alt-text="Diagram showing a prerequisite for scenario 3 of the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
+   :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-3-prerequisite.png" alt-text="Diagram showing a prerequisite for scenario 3 of the Zerto disaster recovery solution on Azure VMware Solution.":::
 
 - Follow the [Zerto Virtual Replication Azure Enterprise Guidelines](http://s3.amazonaws.com/zertodownload_docs/Latest/Zerto Virtual Replication Azure Enterprise Guidelines.pdf) for the rest of the prerequisites.
 
