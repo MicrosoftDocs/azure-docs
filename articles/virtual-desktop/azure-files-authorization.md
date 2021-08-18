@@ -64,7 +64,7 @@ To create a security group:
 If you haven't created a storage account already, follow the directions in [Create a storage account](../storage/common/storage-account-create.md) first. When you create a new storage account, make sure to also create a new file share.
 
 >[!NOTE]
->If you're creating a **Premium** storage account make sure **Account Kind** is set to **FileStorage.**
+>If you're creating a **Premium** storage account make sure **Account Kind** is set to **FileStorage**.
 
 ![](media/0d7d5be429505166b3cb590db41c7d34.png)
 
@@ -154,7 +154,9 @@ Next, you'll need to join storage account to AD DS. To join your account to AD D
 
 ## Get NTFS-level permissions
 
-In order to authenticate with AD DS computer accounts against an Azure Files storage account, we must also assign NTFS level permissions in addition to the RBAC permission we set up earlier.
+In order to authenticate with AD DS computer accounts against an Azure Files storage account, we must also assign NTFS-level permissions in addition to the RBAC permission we set up earlier.
+
+To assign NTFS permissions:
 
 1. Open the Azure portal and navigate to the storage account that we added to AD DS.
 
@@ -199,4 +201,4 @@ In order to authenticate with AD DS computer accounts against an Azure Files sto
 
 ## Next steps
 
-If you run into any issues after setup, check out our [Azure Files troubleshooting article](troubleshoot-azure-files-auth.md).
+If you run into any issues after setup, check out our [Azure Files troubleshooting article](troubleshoot-authorization.md).
