@@ -258,7 +258,7 @@ When you order your device, you can choose to use the default system-generated d
 You can find out the device password by viewing your order in the Azure portal.
 
 > [!NOTE]
-> After five attempts to log on to your device using an incorrect password, your device admin account will be locked off the device. The lock will clear after 15 minutes, and you'll be able to connect to the device.<!--Open issue: Checking with Alpa to verify whether the number of logins and the duration of the account lock vary with the Data Box release.-->
+> After five attempts to log on to your device using an incorrect password, your device admin account will be locked off the device. The login count may not be apparent because connection attempts by background processes are included. The account lock will clear after 15 minutes, and you'll be able to connect to the device.<!--Open issue: Checking with Alpa to verify whether the number of logins and the duration of the account lock vary with the Data Box release. Not sure sentence 2 is needed; the error message will tell them what they need to know?-->
 
 
 To get the device password, do these steps:
