@@ -62,21 +62,21 @@ sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sent
 
 ### Enable your Syslog facility and log severity collection
 
-The Syslog server ([either rsyslog or syslog-ng](connect-cef-agent.md)) forwards any data defined in the **/etc/rsyslod.d/95.omsagent.conf** files, which is automatically populated by the settings defined in your Log Analytics workspace.
+The Syslog server, either rsyslog or syslog-ng, forwards any data defined in the relevant configuration file, which is automatically populated by the settings defined in your Log Analytics workspace.
 
 Make sure to add details about the facilities and severity log levels that you want to be ingested into Azure Sentinel. The configuration process may take about 20 minutes.
 
-For more information, see [Configure Syslog in the Azure portal.](/azure/azure-monitor/agents/data-sources-syslog)
+For more information, see [Deployment script explained](connect-cef-agent.md#deployment-script-explained) and [Configure Syslog in the Azure portal](/azure/azure-monitor/agents/data-sources-syslog.md).
 
-To review your changes to the **/etc/rsyslod.d/95.omsagent.conf** files, display the current settings in your VM. Run:
+For example, for an rsyslog server, run the following command to display the current settings for your Syslog forwarding, and review any changes to the configuration file:
 
-```config
+```bash
 cat /etc/rsyslog.d/95-omsagent.conf
 ```
 
-For example, output similar to the following should display:
+In this case, for rsyslog, output similar to the following should display:
 
-```config
+```bash
 OMS Syslog collection for workspace c69fa733-da2e-4cf9-8d92-eee3bd23fe81
 auth.=alert;auth.=crit;auth.=debug;auth.=emerg;auth.=err;auth.=info;auth.=notice;auth.=warning  @127.0.0.1:25224
 authpriv.=alert;authpriv.=crit;authpriv.=debug;authpriv.=emerg;authpriv.=err;authpriv.=info;authpriv.=notice;authpriv.=warning  @127.0.0.1:25224
@@ -84,6 +84,18 @@ cron.=alert;cron.=crit;cron.=debug;cron.=emerg;cron.=err;cron.=info;cron.=notice
 local0.=alert;local0.=crit;local0.=debug;local0.=emerg;local0.=err;local0.=info;local0.=notice;local0.=warning  @127.0.0.1:25224
 local4.=alert;local4.=crit;local4.=debug;local4.=emerg;local4.=err;local4.=info;local4.=notice;local4.=warning  @127.0.0.1:25224
 syslog.=alert;syslog.=crit;syslog.=debug;syslog.=emerg;syslog.=err;syslog.=info;syslog.=notice;syslog.=warning  @127.0.0.1:25224
+```
+
+For CEF forwarding, for an rsyslog server, run the following command to display the current settings for your Syslog forwarding, and review any changes to the configuration file:
+
+```bash
+cat /etc/rsyslog.d/security-config-omsagent.conf
+```
+
+In this case, for rsyslog, output similar to the following should display:
+
+```bash
+if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226
 ```
 
 ## Troubleshoot operating system issues
