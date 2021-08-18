@@ -35,6 +35,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
 1. Paste the following code into the editor:
 
+    **main.tf**:
     :::code language="terraform" source="~/terraform/quickstart/101-machine-learning/main.tf":::
 
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
@@ -47,8 +48,10 @@ Below Terraform template files can be used to create an Azure Machine Learning w
 
 Some resources in Azure require globally unique names. Before deploying your resources using the below template, set the `name` variable to a value that is unique.
 
+**variables.tf**:
 :::code language="terraform" source="~/terraform/quickstart/101-machine-learning/variables.tf":::
 
+**workspace.tf**:
 :::code language="terraform" source="~/terraform/quickstart/101-machine-learning/workspace.tf":::
 
 # [Private network connectivity](#tab/privateworkspace)
@@ -59,11 +62,13 @@ Some resources in Azure require globally unique names. Before deploying your res
 
 There are several options to connect to your private link endpoint workspace. To learn more about these options, refer to [Securely connect to your workspace](/azure/machine-learning/how-to-secure-workspace-vnet#securely-connect-to-your-workspace).
 
-
+**variables.tf**:
 :::code language="terraform" source="~/terraform/quickstart/201-machine-learning-private/variables.tf":::
 
+**network.tf**:
 :::code language="terraform" source="~/terraform/quickstart/201-machine-learning-private/network.tf":::
 
+**workspace.tf**:
 :::code language="terraform" source="~/terraform/quickstart/201-machine-learning-private/workspace.tf":::
 
 ---
