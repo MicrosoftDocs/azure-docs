@@ -66,7 +66,7 @@ There are two types of managed identities that you can assign to an Event Hubs n
     For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 
-## Encrypt using system-assigned identities (Resource Manager template)
+## Encrypt using system-assigned identities (template)
 This section shows how to do the following tasks using **Azure Resource Manager templates**. 
 
 1. Create an **Event Hubs namespace** with a managed service identity.
@@ -322,7 +322,7 @@ In this step, you will update the Event Hubs namespace with key vault informatio
     New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
     ```
 
-## Encrypt using user-assigned identities (Resource Manager template)
+## Encrypt using user-assigned identities (template)
 
 1. Create a **user-assigned identity**.
 1. Create a **key vault** and grant access to the user-assigned identity via access policies.

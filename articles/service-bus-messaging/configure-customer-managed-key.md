@@ -85,7 +85,7 @@ There are two types of managed identities that you can assign to a Service Bus n
 
     For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
-## Encrypt using system-assigned identities (Resource Manager template)
+## Encrypt using system-assigned identities (template)
 This section shows how to do the following tasks: 
 
 1. Create a **premium** Service Bus namespace with a **managed service identity**.
@@ -301,7 +301,7 @@ In this step, you will update the Service Bus namespace with key vault informati
     New-AzResourceGroupDeployment -Name UpdateServiceBusNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateServiceBusNamespaceWithEncryption.json -TemplateParameterFile ./UpdateServiceBusNamespaceWithEncryptionParams.json
     ```    
 
-## Encrypt using user-assigned identities (Resource Manager template)
+## Encrypt using user-assigned identities (template)
 
 1. Create a **user-assigned identity**.
 1. Create a **key vault** and grant access to the user-assigned identity via access policies.
