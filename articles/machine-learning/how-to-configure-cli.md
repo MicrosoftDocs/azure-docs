@@ -104,7 +104,7 @@ cd azureml-examples/cli
 
 To run hello world locally via Python, see the example in the `jobs` subdirectory:
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/misc/hello-world.yml":::
 
 > [!IMPORTANT]
 > [Docker](https://docker.io) needs to be installed and running locally.

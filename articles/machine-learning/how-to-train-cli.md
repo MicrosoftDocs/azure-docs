@@ -45,7 +45,7 @@ For the Azure Machine Learning CLI, jobs are authored in YAML format. A job aggr
 
 The "hello world" job has all three:
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/misc/hello-world.yml":::
 
 This is just an example job which doesn't output anything other than a line in the log file. Typically you want to generate additional artifacts, such as model binaries and accompanying metadata, in addition to the system-generated logs.
 
