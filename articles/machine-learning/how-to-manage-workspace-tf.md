@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: deeikele
 author: denniseik
-ms.date: 04/22/2021
+ms.date: 08/18/2021
 ms.topic: how-to
 ms.custom: 
 
@@ -56,7 +56,7 @@ Some resources in Azure require globally unique names. Before deploying your res
 
 # [Private network connectivity](#tab/privateworkspace)
 
-The configuration below creates a workspace in an isolated network environment using Azure private link endpoints. [Private DNS zones](/azure/dns/private-dns-privatednszone) and [Private Link endpoints](/azure/private-link/private-endpoint-overview) are created so network traffic can be resolved within the virtual network.
+The configuration below creates a workspace in an isolated network environment using Azure private link endpoints. [Private DNS zones](/azure/dns/private-dns-privatednszone) are included so domain names can be resolved within the virtual network.
 
 Some resources in Azure require globally unique names. Before deploying your resources using the below templates, set the `resourceprefix` variable to a value that is unique.
 
