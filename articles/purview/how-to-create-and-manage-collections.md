@@ -121,7 +121,7 @@ Assets and sources are also associated with collections. During a scan, if the s
 1. Check the collection information in asset details. You can find collection information in the “Collection path” section on right-top corner of the asset details page.
 :::image type="content" source="./media/how-to-create-and-manage-collections/collection-path.png" alt-text="Screenshot of Purview studio asset window, with the collection path highlighted." border="true":::
 1. Permissions in asset details page:
-    1. Please check the collection based permission model by following the [adding roles and restricting access on collections guide above](#adding-roles-and-restricting-access-through-collections).
+    1. Please check the collection based permission model by following the [adding roles and restricting access on collections guide above](#add-roles-and-restrict-access-through-collections).
     1. If you don’t have read permission on a collection, the assets under that collection will not be listed in search results. If you get the direct URL of one asset and open it, you will see the no access page. In this case please contact your Purview admin to grant you the access. You can click the “Refresh” button to check the permission again.
     :::image type="content" source="./media/how-to-create-and-manage-collections/no-access.png" alt-text="Screenshot of Purview studio asset window where the user has no permissions, and has no access to information or options." border="true":::
     1. If you have the read permission to one collection but don’t have the write permission, you can browse the asset details page, but the following operations are disabled:
