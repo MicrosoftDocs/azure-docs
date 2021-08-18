@@ -26,18 +26,12 @@ The most common reasons for being unable to connect to a share on your device ar
 
 To find out whether a domain issue is preventing a share connection:
 
-1. Start by making sure you have the right share password. On a Windows Server client/host computer, go to **Connect and copy** in the local web UI, and select **SMB** to find access credentials for the shares associated with your storage account. For detailed steps, see [Copy data to Data Box via SMB](data-box-deploy-copy-data.md).
-
-1. When you access the share, enter the share password in one of the following formats:
+- Try to connect to the device, and enter your user name in one these formats:
 
     - `<device IP address>\<user name>`
     - `\<user name>`
 
-    To access a share associated with your storage account from your client/host computer, open a command window. At the command prompt, type the following command. You'll be prompted for a password.
-
-    `net use \\<IP address of the device>\<share name> /u:<IP address of the device>\<user name for the share>`
-
-    For a procedure, see [Copy data to Data Box via SMB](data-box-deploy-copy-data.md#connect-to-data-box).
+If you can access the device, a domain issue is not preventing your share connection.
 
 ## Account locked out of share
 
