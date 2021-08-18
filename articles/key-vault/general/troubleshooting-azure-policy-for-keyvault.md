@@ -1,6 +1,6 @@
 ## Troubleshoot
 
-This article guides you how to troubleshoot general errors that might occur When you set up the [Azure Policy for Key Vault](./azure-policy.md), and suggests ways to resolve them.
+This article guides you how to troubleshoot general errors that might occur when you set up the [Azure Policy for Key Vault](./azure-policy.md), and suggests ways to resolve them.
 
 ### Logging
 
@@ -14,7 +14,7 @@ When you enable logging, a new container called **AzurePolicyEvaluationDetails**
 > 
 
 Individual blobs are stored as text, formatted as a JSON blob. 
-Let's look at an example log entry for a certificate policy : [Keys should have expiration date set](https://docs.microsoft.com/azure/key-vault/general/azure-policy?tabs=keys#secrets-should-have-expiration-date-set-preview). This policy audits all keys in your key vaults and flags keys that do not have an expiration date set as non-compliant. You can also use this policy to block the creation of keys that do not have an expiration date set.
+Let's look at an example log entry for a Key policy : [Keys should have expiration date set](https://docs.microsoft.com/azure/key-vault/general/azure-policy?tabs=keys#secrets-should-have-expiration-date-set-preview). This policy evaluates all keys in your key vaults and flags keys that do not have an expiration date set as non-compliant.
 
 ```json
 {
@@ -56,7 +56,7 @@ The following table lists the field names and descriptions:
 | Field name | Description |
 | --- | --- |
 | **ObjectName** |Name of the object |
-| **ObjectType** |Type of key vault object, ie. Certificate, secret or key |
+| **ObjectType** |Type of key vault object, ie. certificate, secret or key |
 | **IsComplianceCheck** |True if evaluation occurred during nightly audit, false if evaluation occurred during resource creation or update |
 | **AssignmentId** | .. |
 | **AssignmentDisplayName** |.. |
@@ -76,7 +76,7 @@ For general policy errors like https://docs.microsoft.com/azure/governance/polic
 
 One of the reasons could be that your subscription (or management group) has a policy that is blocking the recovery. The fix is to adjust the policy so that it does not apply when a vault is being recovered.
 
-For the error type ```RequestDisallowedByPolicy``` for **built-in** policy, ensure that you are using the most updated version. 
+If you see the error type ```RequestDisallowedByPolicy``` for recovery due to **built-in** policy, ensure that you are using the most updated version. 
 
 If you created a **custom policy** with your own logic, here is an example of portion of a policy that can be used to require soft delete. The recovery of a soft deleted vault uses the same API as creating or updating a vault. However, instead of specifying the properties of the vault, it has a single "createMode" property with the value "recover". The vault will be restored with whatever properties it had when it was deleted. Policies that block requests unless they have specific properties configured will also block the recovery of soft deleted vaults. The fix is to include a clause that will cause the policy to ignore requests where "createMode" is "recover":
 
