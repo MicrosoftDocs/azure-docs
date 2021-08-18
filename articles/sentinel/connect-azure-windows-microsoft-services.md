@@ -15,7 +15,7 @@ ms.author: yelevin
 
 Azure Sentinel uses the Azure foundation to provide built-in, service-to-service support for data ingestion from many Azure and Microsoft 365 services, Amazon Web Services, and various Windows Server services. There are a few different methods through which these connections are made, and this article will outline the procedures for making these connections.
 
-This article will present information that is common to groups of connectors. See the accompanying [data connector reference](data-connector-reference.md) page for information that is unique to each connector - for example, licensing prerequisites and Log Analytics tables for data storage.
+This article will present information that is common to groups of connectors. See the accompanying [data connector reference](data-connectors-reference.md) page for information that is unique to each connector - for example, licensing prerequisites and Log Analytics tables for data storage.
 
 The following integrations are both more unique and more popular, and so are treated individually in their own articles:
 - [Microsoft 365 Defender](connect-microsoft-365-defender.md)
@@ -33,16 +33,16 @@ There are three main groups of connectors of this type that will be treated in t
 
 This section's following instructions apply to the following connectors:
 
-- [Azure Active Directory](data-connector-reference.md#azure-active-directory)
-- [Azure Active Directory Identity Protection](data-connector-reference.md#azure-active-directory-identity-protection)
-- [Azure Defender](data-connector-reference.md#azure-defender)
-- [Azure Defender for IoT](data-connector-reference.md#azure-defender-for-iot)
-- [Dynamics 365](data-connector-reference.md#dynamics-365)
-- [Microsoft Cloud App Security](data-connector-reference.md#microsoft-cloud-app-security-mcas)
-- [Microsoft Defender for Endpoint](data-connector-reference.md#microsoft-defender-for-endpoint)
-- [Microsoft Defender for Identity](data-connector-reference.md#microsoft-defender-for-identity)
-- [Microsoft Defender for Office 365](data-connector-reference.md#microsoft-defender-for-office-365)
-- [Office 365 Activity](data-connector-reference.md#microsoft-office-365)
+- [Azure Active Directory](data-connectors-reference.md#azure-active-directory)
+- [Azure Active Directory Identity Protection](data-connectors-reference.md#azure-active-directory-identity-protection)
+- [Azure Defender](data-connectors-reference.md#azure-defender)
+- [Azure Defender for IoT](data-connectors-reference.md#azure-defender-for-iot)
+- [Dynamics 365](data-connectors-reference.md#dynamics-365)
+- [Microsoft Cloud App Security](data-connectors-reference.md#microsoft-cloud-app-security-mcas)
+- [Microsoft Defender for Endpoint](data-connectors-reference.md#microsoft-defender-for-endpoint)
+- [Microsoft Defender for Identity](data-connectors-reference.md#microsoft-defender-for-identity)
+- [Microsoft Defender for Office 365](data-connectors-reference.md#microsoft-defender-for-office-365)
+- [Office 365 Activity](data-connectors-reference.md#microsoft-office-365)
 
 ### Prerequisites
 
@@ -52,14 +52,14 @@ This section's following instructions apply to the following connectors:
 
 This section's following instructions apply to the following connectors:
 
-- [Azure Activity](data-connector-reference.md#azure-activity)
-- [Azure DDoS Protection](data-connector-reference.md#azure-ddos-protection)
-- [Azure Firewall](data-connector-reference.md#azure-firewall)
-- [Azure Key Vault](data-connector-reference.md#azure-key-vault)
-- [Azure Kubernetes Service (AKS)](data-connector-reference.md#azure-kubernetes-service-aks)
-- [Azure SQL Databases](data-connector-reference.md#azure-sql-databases)
-- [Azure Storage Account](data-connector-reference.md#azure-storage-account)
-- [Azure Web Application Firewall](data-connector-reference.md#azure-web-application-firewall-waf)
+- [Azure Activity](data-connectors-reference.md#azure-activity)
+- [Azure DDoS Protection](data-connectors-reference.md#azure-ddos-protection)
+- [Azure Firewall](data-connectors-reference.md#azure-firewall)
+- [Azure Key Vault](data-connectors-reference.md#azure-key-vault)
+- [Azure Kubernetes Service (AKS)](data-connectors-reference.md#azure-kubernetes-service-aks)
+- [Azure SQL Databases](data-connectors-reference.md#azure-sql-databases)
+- [Azure Storage Account](data-connectors-reference.md#azure-storage-account)
+- [Azure Web Application Firewall](data-connectors-reference.md#azure-web-application-firewall-waf)
 
 ### Prerequisites
 
@@ -69,9 +69,9 @@ This section's following instructions apply to the following connectors:
 
 This section's following instructions apply to the following connectors:
 
-- [Domain Name Server](data-connector-reference.md#domain-name-server)
-- [Security Events](data-connector-reference.md#security-events)
-- [Windows Firewall](data-connector-reference.md#windows-firewall)
+- [Domain Name Server](data-connectors-reference.md#domain-name-server)
+- [Security Events](data-connectors-reference.md#security-events)
+- [Windows Firewall](data-connectors-reference.md#windows-firewall)
 
 ### Prerequisites
 
