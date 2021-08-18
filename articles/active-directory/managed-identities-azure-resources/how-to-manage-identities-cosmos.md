@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 08/18/2021
 ms.author: barclayn
 ms.custom: ep-msia
 #Customer intent: As an administrator I want to know how to access Cosmos DB from a virtual machine using a managed identity
@@ -329,7 +329,61 @@ TBD what we would show here
 ---
 
 
-### Test access (?????)
+## Get an access token
+
+
+### Windows
+
+1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top. 
+2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
+3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session.
+4. Using Powershell’s Invoke-WebRequest, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Resource Manager.
+
+   ```powershell
+   $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
+   ```
+
+   > [!NOTE]
+   > The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+    
+   Next, extract the "Content" element, which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object. 
+    
+   ```powershell
+   $content = $response.Content | ConvertFrom-Json
+   ```
+   Next, extract the access token from the response.
+    
+   ```powershell
+   $ArmToken = $content.access_token
+
+### Linux
+
+For the remainder of the tutorial, work from the virtual machine.
+
+To complete these steps, you need an SSH client. If you need assistance configuring your SSH client's keys, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+
+1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect** at the top. Copy the string to connect to your VM. 
+2. Connect to your VM using your SSH client.  
+3. Next, you are prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
+4. Use CURL to get an access token for Azure Resource Manager: 
+     
+    ```bash
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
+    ```
+ 
+    > [!NOTE]
+    > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
+    > In the following response, the access_token element as been shortened for brevity.
+    
+    ```bash
+    {"access_token":"eyJ0eXAiOi...",
+     "expires_in":"3599",
+     "expires_on":"1518503375",
+     "not_before":"1518499475",
+     "resource":"https://management.azure.com/",
+     "token_type":"Bearer",
+     "client_id":"1ef89848-e14b-465f-8780-bf541d325cd5"}
+     ```
 
 ## Clean up steps
 
