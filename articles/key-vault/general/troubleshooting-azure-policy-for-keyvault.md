@@ -120,10 +120,11 @@ You'll see that it has a clause that causes the policy to only apply when "creat
 #### 2. Latency on Azure policy assignment delete on Key Vault 
 
 Microsoft.KeyVault.Data: a deleted policy assignment can take up to 24 hours to stop being enforced. 
+
 Mitigation: update the policy assignment's effect to 'Disabled'.
 
 
 ## Next Steps
 
-Learn how to [Troubleshoot errors with using Azure Policy](https://docs.microsoft.com/azure/governance/policy/troubleshoot/general)
-Learn about [Azure Policy known issues](https://github.com/azure/azure-policy#known-issues)
+* Learn how to [Troubleshoot errors with using Azure Policy](https://docs.microsoft.com/azure/governance/policy/troubleshoot/general)
+* Learn about [Azure Policy known issues](https://github.com/azure/azure-policy#known-issues)
