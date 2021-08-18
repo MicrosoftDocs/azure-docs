@@ -72,6 +72,20 @@ items:
         href: custom-extraction/concepts/definitions.md
       - name: Data limits
         href: custom-extraction/concepts/limits.md
+- name: Dialog Understanding
+  items:
+  - name: Overview
+    href: dialog-understanding/overview.md
+  - name: How-to guides
+    items:
+      - name: Build a schema
+        href: dialog-understanding/how-to/build-schema.md
+      - name: Tag utterances
+        href: dialog-understanding/how-to/tag-utterances.md
+  - name: Concepts
+    items:
+      - name: Backwards compatibility
+        href: dialog-understanding/concepts/backwards-compatibility.md
 - name: Entity linking
   items:
   - name: Overview

@@ -18,10 +18,6 @@ Dialog Understanding is a cloud-based service that enables you to train conversa
 
 The API is a part of [Azure Cognitive Services](../../index.yml), a collection of machine learning and AI algorithms in the cloud for your development projects. You can use these features with the REST API, or the client libraries.
 
-This documentation contains the following types of articles:
-
-* [How-to guides](how-to/create-project.md) contain instructions for using the service in more specific or customized ways.
-
 ## Features
 
 Dialog Understanding applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
