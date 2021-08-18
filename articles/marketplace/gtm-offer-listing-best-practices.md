@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 08/17/2021
+ms.date: 08/20/2021
 ---
 
 # Offer listing best practices

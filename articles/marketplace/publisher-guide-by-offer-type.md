@@ -1,12 +1,12 @@
 ---
 title: Publishing guide by offer type - Microsoft commercial marketplace
-description: This article describes the offer types that are available in the Microsoft commercial marketplace.
+description: This article describes the offer types that are available in the Microsoft commercial marketplace (Azure Marketplace).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 04/06/2021
+ms.date: 08/20/2021
 ---
 
 # Publishing guide by offer type
@@ -37,6 +37,30 @@ The following table shows the commercial marketplace offer types in Partner Cent
 | [**Managed service**](./plan-managed-service-offer.md) | Create managed service offers and manage customer-delegated subscriptions or resource groups through [Azure Lighthouse](../lighthouse/overview.md).|
 | [**Power BI app**<br/>**Microsoft 365**](marketplace-dynamics-365.md) | Publish AppSource offers that build on or extend Power BI and Microsoft 365.|
 | [**Software as a Service**](plan-saas-offer.md) | Use the software as a service (SaaS) offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. For information on single sign-on requirements for SaaS offers, see [Azure AD and transactable SaaS offers in the commercial marketplace](azure-ad-saas.md). |
+
+## Category and industry listings by offer type
+
+Microsoft AppSource and Azure Marketplace are two different storefronts that serve different customer personas. Your offer will be published to Microsoft AppSource or Azure Marketplace depending on the category/subcategory selection, the offer t,ype and transaction capabilities. 
+
+Following are the categories and industries applicable to each online stores, by offer:
+
+| Offer type | Categories for Azure Marketplace | Categories for AppSource | Industries for AppSource |
+| :------------------- |:----------------:|:------:|:-------------:|
+| Azure Application     | &#x2714; |   |   |
+| Azure Container       | &#x2714; |   |   |
+| Azure Virtual Machine | &#x2714; |   |   |
+| IoT Edge Module | &#x2714;  |  |  |
+| Managed service | &#x2714; |  |  |
+| SaaS | &#x2714; | &#x2714; | &#x2714; |
+| Consulting Service    | &#x2714; |   | &#x2714; |
+| Dynamics 365 Customer Engagement & Power Apps | | &#x2714; | &#x2714; |
+| Dynamics 365 for Operations | | &#x2714; | &#x2714; |
+| Dynamics 365 business central | | &#x2714; | &#x2714; |
+| Power BI app | | &#x2714; | &#x2714; |
+|
+
+> [!IMPORTANT]
+> **SaaS Offers and Microsoft 365 Add-ins**: For specific details on how transact capabilities may affect how your offer can be viewed and purchased by marketplace customers, see [Transacting in the commercial marketplace](marketplace-commercial-transaction-capabilities-and-considerations.md). For SaaS offers, the offer's transaction capability as well as the category selection will determine the online store where your offer will be published.
 
 ## Next steps
 

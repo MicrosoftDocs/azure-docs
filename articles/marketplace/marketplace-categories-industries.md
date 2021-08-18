@@ -11,33 +11,11 @@ ms.date: 08/20/2021
 
 # Marketplace categories and industries
 
-This article discusses and lists the categories and industries available to choose from when creating an offer in our two different online stores: Microsoft AppSource or Azure Marketplace.
+This article discusses and lists the categories and industries available to choose from when creating an offer in Partner Center for our two different online stores: Microsoft AppSource or Azure Marketplace.
 
-## Online store listing details
+## Combining offer types
 
-Microsoft AppSource and Azure Marketplace are two different storefronts that serve different customer personas. Your offer will be published to Microsoft AppSource or Azure Marketplace depending on the category/subcategory selection, the offer t,ype and transaction capabilities. 
-
-Following are the categories and industries applicable to each online stores, by offer:
-
-| Offer type | Categories for Azure Marketplace | Categories for AppSource | Industries for AppSource |
-| :------------------- |:----------------:|:------:|:-------------:|
-| Azure Application     | &#x2714; |   |   |
-| Azure Container       | &#x2714; |   |   |
-| Azure Virtual Machine | &#x2714; |   |   |
-| IoT Edge Module | &#x2714;  |  |  |
-| Managed service | &#x2714; |  |  |
-| SaaS | &#x2714; | &#x2714; | &#x2714; |
-| Consulting Service    | &#x2714; |   | &#x2714; |
-| Dynamics 365 Customer Engagement & Power Apps | | &#x2714; | &#x2714; |
-| Dynamics 365 for Operations | | &#x2714; | &#x2714; |
-| Dynamics 365 business central | | &#x2714; | &#x2714; |
-| Power BI app | | &#x2714; | &#x2714; |
-|
-
-> [!IMPORTANT]
-> **SaaS Offers and Microsoft 365 Add-ins**: For specific details on how transact capabilities may affect how your offer can be viewed and purchased by marketplace customers, see [Transacting in the commercial marketplace](marketplace-commercial-transaction-capabilities-and-considerations.md). For SaaS offers, the offer's transaction capability as well as the category selection will determine the online store where your offer will be published.
-
-<br>Following are the combinations of options applicable to each online stores:
+Following are the combinations of options applicable to each online stores:
 
 | Metered billing | Microsoft 365 add-ins | Private-only plan | Public-only plan | Public & private plans | Applicable online store |
 |:-------------:|:---:|:--------:|:---------:|:---------------------:|:-------------:|
@@ -57,7 +35,7 @@ Following are the categories and industries applicable to each online stores, by
 > [!NOTE]
 > A listing plan and transactable plan cannot exist in the same offer.
 
-### Categories
+## Categories
 
 Categories in Azure Marketplace target IT professionals and developers while categories in Microsoft AppSource target business users looking for business and/or industry SaaS applications, Dynamics 365 add-ins, Microsoft 365 add-ins, and Power Platform apps.
 
@@ -68,32 +46,32 @@ Select categories and subcategories that best align with the value proposition o
 
 [!INCLUDE [categories and subcategories](./includes/categories.md)]
 
-### Industries
+## Industries
 
 Industry selection applies only for offers published to AppSource and Consulting Services published in Azure Marketplace. Select industries and/or verticals if your offer addresses industry-specific needs, calling out industry-specific capabilities in your offer description. You can select up to two industries and two verticals per industry.
 
 >[!Note]
 >For consulting service offers in Azure Marketplace, there are no industry verticals.
 
-| **Industries** |  **Verticals** |
+| Industries |  Verticals |
 | :------------------- | :----------------|
-| **Automotive** | |
-| **Financial Services** | Banking<br>Insurance<br>Capital Markets | 
-| **Government** |  Civilian Government<br>Public Safety and Justice |
-| **Defense and Intelligence** | |
-| **Healthcare** | Health Payor<br>Health Provider<br>Life Sciences | 
-| **Education** | Higher Education<br>Primary and Secondary Edu/K-12<br>Libraries and Museums |
-| **Nonprofit and IGO** | |
-| **Manufacturing** | Process Manufacturing<br>Discrete Manufacturing<br>Agriculture |
-| **Energy** | |
-| **Retail** | Retail<br>Customer Goods |
-| **Media and Communications** | Media and Entertainment<br>Telecommunications | 
-| **Professional Services** | Partner Professional Services<br>Legal<br>Architecture and Construction<br>Real Estate | 
-| **Distribution** | Wholesale<br>Parcel and Package Shipping |  
-| **Hospitality and Travel** | Travel & Transportation<br>Hotels and Leisure<br>Restaurants and Food Services | 
+| Automotive | |
+| Financial Services | Banking<br>Insurance<br>Capital Markets | 
+| Government |  Civilian Government<br>Public Safety and Justice |
+| Defense and Intelligence | |
+| Healthcare | Health Payor<br>Health Provider<br>Life Sciences | 
+| Education | Higher Education<br>Primary and Secondary Edu/K-12<br>Libraries and Museums |
+| Nonprofit and IGO | |
+| Manufacturing | Process Manufacturing<br>Discrete Manufacturing<br>Agriculture |
+| Energy | |
+| Retail | Retail<br>Customer Goods |
+| Media and Communications | Media and Entertainment<br>Telecommunications | 
+| Professional Services | Partner Professional Services<br>Legal<br>Architecture and Construction<br>Real Estate | 
+| Distribution | Wholesale<br>Parcel and Package Shipping |  
+| Hospitality and Travel | Travel & Transportation<br>Hotels and Leisure<br>Restaurants and Food Services | 
 |
 
-### Applicable products
+## Applicable products
 
 Select the applicable products your app works with for the offer to show up under selected products in Microsoft AppSource.
 
