@@ -19,7 +19,7 @@ The Azure Purview _portal_ private endpoint is required to enable connectivity t
 
    :::image type="content" source="media/catalog-private-link/purview-private-link-account-portal.png" alt-text="Diagram that shows Azure Purview and Private Link architecture.":::
 
-For more information about Azure Private Link service, see [private links and private endpoints](../../private-link/index.yml) to learn more.
+For more information about Azure Private Link service, see [private links and private endpoints](../private-link/private-endpoint-overview.md) to learn more.
 
 ## Deployment checklist
 Using one of the deployment options from this guide, you can deploy a new Azure Purview account with _account_ and _portal_ private endpoints or you can choose to deploy these private endpoints for an existing Azure Purview account:
