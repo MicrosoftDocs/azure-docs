@@ -282,9 +282,7 @@ Assign a user assigned managed identity to an existing VM
 
 ## Grant access 
 
-Now that you have a virtual machine configured with a managed identity we need to [grant the managed identity access](../../cosmos-db/how-to-setup-rbac.md) to Cosmos.
-
-Cosmos DB uses RBAC roles to grant access to either data plane or management plane operations. Access to management plane operations is controlled using [Azure RBAC roles](../../cosmos-db/role-based-access-control.md). Data plane access control is managed using Azure Cosmos DB [data plane RBAC](../../cosmos-db/how-to-setup-rbac.md) helps you manage access to data plane operations. In this example we will grant reader access to the vm's managed identity.
+Now that you have a virtual machine configured with a managed identity we need to [grant the managed identity access](../../cosmos-db/how-to-setup-rbac.md) to Cosmos. Cosmos DB uses RBAC roles to grant access to either data plane or management plane operations. Access to management plane operations is controlled using [Azure RBAC roles](../../cosmos-db/role-based-access-control.md). Data plane access control is managed using Azure Cosmos DB [data plane RBAC](../../cosmos-db/how-to-setup-rbac.md) helps you manage access to data plane operations. In this example we will grant reader access to the vm's managed identity.
 
 >[!NOTE] Azure Cosmos DB exposes two built-in role definitions. We will use the **Cosmos DB Built-in Data Reader** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
 
@@ -309,9 +307,8 @@ New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -PrincipalId $principalId
 ```
 
-When the role assignment step completes you can see results like the ones below
+When the role assignment step completes you should see results similar to the ones shown below.
 
-results-role-assignment.png
 
 :::image type="content" source="media/how-to-manage-identities-vm-cosmos/results-role-assignment.png" alt-text="This shows the results of the role assignment":::
 
@@ -364,9 +361,7 @@ TBD what we would show here
 
 ### Linux
 
-For the remainder of the tutorial, work from the virtual machine.
-
-To complete these steps, you need an SSH client. If you need assistance configuring your SSH client's keys, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Remaining steps are performed from the virtual machine. To complete these steps, you need an SSH client. If you need assistance configuring your SSH client's keys, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect** at the top. Copy the string to connect to your VM. 
 2. Connect to your VM using your SSH client.  
