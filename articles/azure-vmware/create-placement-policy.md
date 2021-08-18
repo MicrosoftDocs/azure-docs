@@ -61,11 +61,7 @@ In addition to choosing a name and cluster for the policy, a **VM-Host** policy 
 - **VM-Host Anti-Affinity** policies instruct DRS to try running the specified VMs on hosts other than those defined.
 
 
-
-
 ## Considerations
-
-
 
 ### Cluster scale in
 
