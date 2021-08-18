@@ -1,7 +1,7 @@
 ---
 title: Configure a lifecycle management policy
 titleSuffix: Azure Storage
-description: Create automated rules for moving data between hot, cool, and archive tiers.
+description: Configure a lifecycle management policy to automatically move data between hot, cool, and archive tiers during the data lifecycle.
 author: tamram
 
 ms.author: tamram
@@ -64,7 +64,7 @@ There are two ways to add a policy through the Azure portal.
    > [!IMPORTANT]
    > The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
 
-   To use the **Last accessed** option, select **Access tracking enabled** on the **Lifecycle Management** page in the Azure portal. For more information about the **Last accessed** option, see [Move data based on last accessed date (preview)](#move-data-based-on-last-accessed-date-preview).
+   To use the **Last accessed** option, select **Access tracking enabled** on the **Lifecycle Management** page in the Azure portal. For more information about the **Last accessed** option, see [Move data based on last accessed date](lifecycle-management-overview.md#move-data-based-on-last-accessed-date).
 
 1. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs in the *mylifecyclecontainer* container that begin with "log".
 
@@ -113,7 +113,7 @@ There are two ways to add a policy through the Azure portal.
 
 1. Select **Save**.
 
-1. For more information about this JSON example, see the [Policy](#policy) and [Rules](#rules) sections.
+1. For more information about policy and rule definitions, see [Optimize costs by automating Azure Blob Storage access tiers](lifecycle-management-overview.md).
 
 # [PowerShell](#tab/azure-powershell)
 

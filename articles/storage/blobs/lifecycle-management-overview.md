@@ -31,7 +31,7 @@ Consider a scenario where data is frequently accessed during the early stages of
 > [!IMPORTANT]
 > If a data set needs to be readable, do not set a policy to move blobs to the archive tier. Blobs in the archive tier cannot be read unless they are first rehydrated, a process which may be time-consuming and expensive. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
-## Policy
+## Policy definition
 
 A lifecycle management policy is a collection of rules in a JSON document:
 
@@ -68,13 +68,13 @@ Each rule within the policy has several parameters:
 | `type`         | An enum value | The current valid type is `Lifecycle`. | True |
 | `definition`   | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
 
-## Rules
+## Rule definition
 
 Each rule definition includes a filter set and an action set. The [filter set](#rule-filters) limits rule actions to a certain set of objects within a container or objects names. The [action set](#rule-actions) applies the tier or delete actions to the filtered set of objects.
 
 ### Sample rule
 
-The following sample rule filters the account to run the actions on objects that exist inside `container1` and start with `foo`.
+The following sample rule filters the account to run the actions on objects that exist inside `sample-container` and start with `blob1`.
 
 >[!NOTE]
 >- Lifecycle management supports block blob and append blob types.<br>
@@ -90,7 +90,7 @@ The following sample rule filters the account to run the actions on objects that
   "rules": [
     {
       "enabled": true,
-      "name": "rulefoo",
+      "name": "sample-rule",
       "type": "Lifecycle",
       "definition": {
         "actions": {
@@ -116,7 +116,7 @@ The following sample rule filters the account to run the actions on objects that
             "blockBlob"
           ],
           "prefixMatch": [
-            "container1/foo"
+            "sample-container/blob1"
           ]
         }
       }
@@ -134,7 +134,7 @@ Filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | The current release supports `blockBlob` and `appendBlob`. Only delete is supported for `appendBlob`, set tier is not supported. | Yes |
-| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-senstive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/container1/foo/...` for a rule, the prefixMatch is `container1/foo`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
+| prefixMatch | An array of strings for prefixes to be matched. Each rule can define up to 10 case-senstive prefixes. A prefix string must start with a container name. For example, if you want to match all blobs under `https://myaccount.blob.core.windows.net/sample-container/blob1/...` for a rule, the prefixMatch is `sample-container/blob1`. | If you don't define prefixMatch, the rule applies to all blobs within the storage account. | No |
 | blobIndexMatch | An array of dictionary values consisting of Blob Index tag key and value conditions to be matched. Each rule can define up to 10 Blob Index tag condition. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/` for a rule, the blobIndexMatch is `{"name": "Project","op": "==","value": "Contoso"}`. | If you don't define blobIndexMatch, the rule applies to all blobs within the storage account. | No |
 
 > [!NOTE]
@@ -170,7 +170,7 @@ The following examples demonstrate how to address common scenarios with lifecycl
 
 ### Move aging data to a cooler tier
 
-This example shows how to transition block blobs prefixed with `container1/foo` or `container2/bar`. The policy transitions blobs that haven't been modified in over 30 days to cool storage, and blobs not modified in 90 days to the archive tier:
+This example shows how to transition block blobs prefixed with `sample-container/blob1` or `container2/blob2`. The policy transitions blobs that haven't been modified in over 30 days to cool storage, and blobs not modified in 90 days to the archive tier:
 
 ```json
 {
@@ -182,7 +182,7 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "container1/foo", "container2/bar" ]
+          "prefixMatch": [ "sample-container/blob1", "container2/blob2" ]
         },
         "actions": {
           "baseBlob": {
