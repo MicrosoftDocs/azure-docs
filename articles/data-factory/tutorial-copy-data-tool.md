@@ -4,9 +4,10 @@ description: Create an Azure Data Factory and then use the Copy Data tool to cop
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 07/06/2021
+ms.date: 07/08/2021
 ---
 
 # Copy data from Azure Blob storage to a SQL Database by using the Copy Data tool

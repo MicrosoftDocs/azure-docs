@@ -20,7 +20,7 @@ Azure Cognitive Services are cloud-based services with REST APIs and client libr
 
 ## Categories of Cognitive Services
 
-The catalog of cognitive services that provide cognitive understanding are categorized into five main pillars:
+The catalog of cognitive services that provide cognitive understanding is categorized into five main pillars:
 
 * Vision
 * Speech
@@ -28,7 +28,7 @@ The catalog of cognitive services that provide cognitive understanding are categ
 * Decision
 * Search
 
-The following sections in this article provides a list of services that are part of these five pillars.
+The following sections in this article provide a list of services that are part of these five pillars.
 
 ## Vision APIs
 
@@ -61,7 +61,7 @@ The following sections in this article provides a list of services that are part
 
 |Service Name|Service Description|
 |:-----------|:------------------|
-|[Anomaly Detector](./anomaly-detector/index.yml "Anomaly Detector") |Anomaly Detector allows you to monitor and detect abnormalities in your time series data. See [Anomaly Detector quickstart](./anomaly-detector/quickstarts/client-libraries.md) to get started with the service|
+|[Anomaly Detector](./anomaly-detector/index.yml "Anomaly Detector") |Anomaly Detector allows you to monitor and detect abnormalities in your time series data. See [Anomaly Detector quickstart](./anomaly-detector/quickstarts/client-libraries.md) to get started with the service.|
 |[Content Moderator](./content-moderator/overview.md "Content Moderator")|Content Moderator provides monitoring for possible offensive, undesirable, and risky content. See [Content Moderator quickstart](./content-moderator/client-libraries.md) to get started with the service.|
 |[Personalizer](./personalizer/index.yml "Personalizer")|Personalizer allows you to choose the best experience to show to your users, learning from their real-time behavior. See [Personalizer quickstart](./personalizer/quickstart-personalizer-sdk.md) to get started with the service.|
 
@@ -79,7 +79,7 @@ The following sections in this article provides a list of services that are part
 |[Bing Custom Search](/azure/cognitive-services/bing-custom-search "Bing Custom Search")|Bing Custom Search allows you to create tailored search experiences for topics that you care about.|
 |[Bing Entity Search](/azure/cognitive-services/bing-entities-search/ "Bing Entity Search")|Bing Entity Search returns information about entities that Bing determines are relevant to a user's query.|
 |[Bing Image Search](/azure/cognitive-services/bing-image-search "Bing Image Search")|Bing Image Search returns a display of images determined to be relevant to the user's query.|
-|[Bing Visual Search](/azure/cognitive-services/bing-visual-search "Bing Visual Search")|Bing Visual Search provides returns insights about an image such as visually similar images, shopping sources for products found in the image, and related searches.|
+|[Bing Visual Search](/azure/cognitive-services/bing-visual-search "Bing Visual Search")|Bing Visual Search returns insights about an image such as visually similar images, shopping sources for products found in the image, and related searches.|
 |[Bing Local Business Search](/azure/cognitive-services/bing-local-business-search/ "Bing Local Business Search")| Bing Local Business Search API enables your applications to find contact and location information about local businesses based on search queries.|
 |[Bing Spell Check](/azure/cognitive-services/bing-spell-check/ "Bing Spell Check")|Bing Spell Check allows you to perform contextual grammar and spell checking.|
 

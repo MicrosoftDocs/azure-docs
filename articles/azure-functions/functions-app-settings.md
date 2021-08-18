@@ -2,16 +2,16 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables.
 ms.topic: conceptual
-ms.date: 09/22/2018
+ms.date: 07/27/2021
 ---
 
 # App settings reference for Azure Functions
 
-App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are accessed as local [environment variables](functions-run-local.md#local-settings-file). This article lists the app settings that are available in function apps.
+App settings in a function app contain global configuration options that affect all functions for that function app. When you run locally, these settings are accessed as local [environment variables](functions-develop-local.md#local-settings-file). This article lists the app settings that are available in function apps.
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-There are other global configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-run-local.md#local-settings-file) file.
+There are other global configuration options in the [host.json](functions-host-json.md) file and in the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 
 > [!NOTE]
 > You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values). Changes to function app settings require your function app to be restarted.
@@ -288,6 +288,16 @@ This setting controls logging from the Azure Functions scale controller. For mor
 The value for this key is supplied in the format `<DESTINATION>:<VERBOSITY>`, which is defined as follows:
 
 [!INCLUDE [functions-scale-controller-logging](../../includes/functions-scale-controller-logging.md)]
+
+## SCM\_LOGSTREAM\_TIMEOUT
+
+Controls the timeout, in seconds, when connected to streaming logs. The default value is 7200 (2 hours). 
+
+|Key|Sample value|
+|-|-|
+|SCM_LOGSTREAM_TIMEOUT|1800|
+
+The above sample value of `1800` sets a timeout of 30 minutes. To learn more, see [Enable streaming logs](functions-run-local.md#enable-streaming-logs).
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 

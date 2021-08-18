@@ -51,5 +51,5 @@ If Microsoft Defender for Endpoint is deployed and ingesting your data, the aler
 
 ## Next steps
 In this document, you learned how to connect Microsoft Defender for Endpoint to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).

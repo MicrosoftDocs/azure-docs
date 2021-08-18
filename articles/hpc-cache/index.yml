@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: ekpgh
   ms.author: v-erkel
-  ms.date: 11/07/2019
+  ms.date: 07/08/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -39,8 +39,10 @@ landingContent:
             url: hpc-cache-add-storage.md
           - text: Mount clients
             url: hpc-cache-mount.md
-          - text: Manage and monitor the cache
+          - text: Manage the cache
             url: hpc-cache-manage.md
+          - text: View cache metrics
+            url: metrics.md
       - linkListType: concept
         links:
           - text: Plan the aggregated namespace
@@ -57,6 +59,8 @@ landingContent:
             url: hpc-cache-support-ticket.md
           - text: Edit a storage target
             url: hpc-cache-edit-storage.md
+          - text: Manage storage targets
+            url: manage-storage-targets.md
           - text: Work around firewall settings to create Blob storage targets
             url: hpc-cache-blob-firewall-fix.md
           - text: Troubleshoot NFS storage target creation

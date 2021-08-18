@@ -87,6 +87,19 @@ Error: list: failed to list: secrets is forbidden: User "myuser" cannot list res
 
 The user connecting the cluster to Azure Arc should have `cluster-admin` role assigned to them on the cluster.
 
+
+### Unable to connect OpenShift cluster to Azure Arc
+
+If `az connectedk8s connect` is timing out and failing when connecting an OpenShift cluster to Azure Arc, check the following:
+
+1. The OpenShift cluster needs to meet the version prerequisites: 4.5.41+ or 4.6.35+ or 4.7.18+.
+
+1. Before running `az connectedk8s connnect`, the following command needs to be run on the cluster:
+
+    ```console
+    oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
+    ```
+
 ### Installation timeouts
 
 Connecting a Kubernetes cluster to Azure Arc enabled Kubernetes requires installation of Azure Arc agents on the cluster. If the cluster is running over a slow internet connection, the container image pull for agents may take longer than the Azure CLI timeouts.

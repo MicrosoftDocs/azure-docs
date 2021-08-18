@@ -4,6 +4,7 @@ description: Learn how to use Azure SQL Managed Instance with SQL Server Integra
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 4/15/2020
 ---

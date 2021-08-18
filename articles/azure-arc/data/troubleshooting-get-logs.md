@@ -1,54 +1,47 @@
 ---
-title: Get logs to troubleshoot Azure Arc enabled data services
-description: Learn how to get log files from a data controller to troubleshoot Azure Arc enabled data services.
+title: Get logs to troubleshoot Azure Arc-enabled data services
+description: Learn how to get log files from a data controller to troubleshoot Azure Arc-enabled data services.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Get logs to troubleshoot Azure Arc enabled data services
+# Get logs to troubleshoot Azure Arc-enabled data services
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Prerequisites
 
 Before you proceed, you need:
 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. For more information, see [Install client tools for deploying and managing Azure Arc data services](./install-client-tools.md).
-* An administrator account to sign in to the Azure Arc enabled data controller.
+* Azure CLI (`az`) with the `arcdata` extension. For more information, see [Install client tools for deploying and managing Azure Arc data services](./install-client-tools.md).
+* An administrator account to sign in to the Azure Arc-enabled data controller.
 
 ## Get log files
 
-You can get service logs across all pods or specific pods for troubleshooting purposes. One way is to use standard Kubernetes tools such as the `kubectl logs` command. In this article, you'll use the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] tool, which makes it easier to get all of the logs at once.
+You can get service logs across all pods or specific pods for troubleshooting purposes. One way is to use standard Kubernetes tools such as the `kubectl logs` command. In this article, you'll use the Azure (`az`) CLI `arcdata` extension, which makes it easier to get all of the logs at once.
 
-1. Sign in to the data controller with an administrator account.
+Run the following command to dump the logs:
 
-   ```console
-   azdata login
-   ```
-
-2. Run the following command to dump the logs:
-
-   ```console
-   azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+   ```azurecli
+   az arcdata dc debug copy-logs --exclude-dumps --skip-compress
    ```
 
    For example:
 
-   ```console
-   #azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
+   ```azurecli
+   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress
    ```
 
 The data controller creates the log files in the current working directory in a subdirectory called `logs`. 
 
 ## Options
 
-The `azdata arc dc debug copy-logs` command provides the following options to manage the output:
+The `az arcdata dc debug copy-logs` command provides the following options to manage the output:
 
 * Output the log files to a different directory by using the `--target-folder` parameter.
 * Compress the files by omitting the `--skip-compress` parameter.
@@ -58,14 +51,14 @@ The `azdata arc dc debug copy-logs` command provides the following options to ma
 
 With these parameters, you can replace the `<parameters>` in the following example: 
 
-```console
-azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
+```azurecli
+az arcdata dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name>
 ```
 
 For example:
 
 ```console
-#azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
+#az arcdata dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 
 ```
 
 The following folder hierarchy is an example. It's organized by pod name, then container, and then by directory hierarchy within the container.
@@ -189,6 +182,3 @@ The following folder hierarchy is an example. It's organized by pod name, then c
             └───openvpn
 ```
 
-## Next steps
-
-[azdata arc dc debug copy-logs](/sql/azdata/reference/reference-azdata-arc-dc-debug#azdata-arc-dc-debug-copy-logs?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json)

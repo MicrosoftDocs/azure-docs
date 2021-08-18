@@ -20,14 +20,14 @@ See [Monitoring Azure Application Gateway](monitor-application-gateway.md) for d
 <!-- REQUIRED if you support Metrics. If you don't, keep the section but call that out. Some services are only onboarded to logs.
 <!-- Please keep headings in this order -->
 
-<!--  OPTION 2 -  Link to the metrics as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the metrics-supported link. For highly customized example, see [CosmosDB](https://docs.microsoft.com/azure/cosmos-db/monitor-cosmos-db-reference#metrics). They even regroup the metrics into usage type vs. resource provider and type.
+<!--  OPTION 2 -  Link to the metrics as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the metrics-supported link. For highly customized example, see [CosmosDB](../cosmos-db/monitor-cosmos-db-reference.md#metrics). They even regroup the metrics into usage type vs. resource provider and type.
 -->
 
 <!-- Example format. Mimic the setup of metrics supported, but add extra information -->
 
 ### Application Gateway v2 metrics
 
-Resource Provider and Type: [Microsoft.Compute/applicationGateways](/azure/azure-monitor/platform/metrics-supported#microsoftnetworkapplicationgateways)
+Resource Provider and Type: [Microsoft.Compute/applicationGateways](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkapplicationgateways)
 
 #### Timing metrics
 Application Gateway provides several built‑in timing metrics related to the request and response, which are all measured in milliseconds.
@@ -108,7 +108,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 <!-- REQUIRED. Please  keep headings in this order -->
 <!-- If you have metrics with dimensions, outline it here. If you have no dimensions, say so.  Questions email azmondocs@microsoft.com -->
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 
 <!-- See https://docs.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
@@ -123,7 +123,7 @@ This section lists the types of resource logs you can collect for Azure Applicat
 
 <!-- List all the resource log types you can have and what they are for -->  
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
+For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md).
 
 > [!NOTE]
 > The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](#metrics) for performance data.
@@ -137,7 +137,7 @@ For more information, see [Back-end health and diagnostic logs for Application G
 
 ### Application Gateway
 
-Resource Provider and Type: [Microsoft.Network/applicationGateways](/azure/azure-monitor/essentials/resource-logs-categories#microsoftnetworkapplicationgateways)
+Resource Provider and Type: [Microsoft.Network/applicationGateways](../azure-monitor/essentials/resource-logs-categories.md#microsoftnetworkapplicationgateways)
 
 | Category | Display Name | Information|
 |:---------|:-------------|------------------|
@@ -192,4 +192,4 @@ sslEnabled_s | Does the client request have SSL enabled|
 
 <!-- replace below with the proper link to your main monitoring service article -->
 - See [Monitoring Azure Azure Application Gateway](monitor-application-gateway.md) for a description of monitoring Azure Azure Application Gateway.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

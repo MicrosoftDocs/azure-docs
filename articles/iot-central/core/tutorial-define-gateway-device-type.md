@@ -129,7 +129,7 @@ To add cloud properties to the **Smart Building gateway device** template.
 As a builder, you can customize the application to display relevant information about the environmental sensor device to an operator. Your customizations enable the operator to manage the environmental sensor devices connected to the application. You can create two types of views for an operator to use to interact with devices:
 
 * Forms to view and edit device and cloud properties.
-* Dashboards to visualize devices.
+* Views to visualize devices.
 
 To generate the default views for the **Smart Building gateway device** template:
 

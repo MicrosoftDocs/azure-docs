@@ -399,6 +399,8 @@
         - name: Analyze telemetry data
           href: analyze-telemetry-data.md
           displayName: App Insights, Application Insights, Kusto
+        - name: Monitor metrics
+          href: monitor-metrics.md  
         - name: Streaming logs
           href: streaming-logs.md
           displayName: monitoring
@@ -515,6 +517,8 @@
           href: /python/api/azure-functions/azure.functions
     - name: App settings reference
       href: functions-app-settings.md
+    - name: Azure Functions Core Tools 
+      href: functions-core-tools-reference.md
     - name: Triggers and bindings
       items:
         - name: Blob storage

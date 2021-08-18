@@ -34,7 +34,7 @@ Azure Arc enabled machine learning supports the following training scenarios:
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription [create a free account](https://azure.microsoft.com/free) before you begin.
-* Azure Arc enabled Kubernetes cluster. For more information, see the [Connect an existing Kubernetes cluster to Azure Arc quickstart guide](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
+* Azure Arc enabled Kubernetes cluster. For more information, see the [Connect an existing Kubernetes cluster to Azure Arc quickstart guide](../azure-arc/kubernetes/quickstart-connect-cluster.md).
 * Fulfill [Azure Arc enabled Kubernetes cluster extensions prerequisites](../azure-arc/kubernetes/extensions.md#prerequisites).
   * Azure CLI version >= 2.24.0
   * Azure CLI k8s-extension extension version >= 0.4.3
@@ -189,7 +189,7 @@ The following custom compute target properties can be configured using a configu
     >    "defaultInstanceType": "defaultInstanceType",
     >    "instanceTypes": {
     >       "defaultInstanceType": {
-    >          "nodeSelector": "null",
+    >          "nodeSelector": null,
     >          "resources": {
     >             "requests": {
     >                "cpu": "1",
@@ -311,4 +311,4 @@ else:
 - [Train a TensorFlow model](how-to-train-tensorflow.md)
 - [Train a PyTorch model](how-to-train-pytorch.md)
 - [Train using Azure Machine Learning pipelines](how-to-create-machine-learning-pipelines.md)
-- [Train model on-premise with outbound proxy server](/azure/azure-arc/kubernetes/quickstart-connect-cluster#5-connect-using-an-outbound-proxy-server)
+- [Train model on-premise with outbound proxy server](../azure-arc/kubernetes/quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server)
