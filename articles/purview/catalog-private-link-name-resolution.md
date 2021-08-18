@@ -4,7 +4,7 @@ description: This article describes an overview of how you can use a private end
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: Configure DNS Name Resolution for private endpoints
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/18/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
