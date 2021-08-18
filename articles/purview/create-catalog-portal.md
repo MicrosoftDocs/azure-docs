@@ -19,7 +19,7 @@ This quickstart describes the steps to create an Azure Purview account in the Az
 
 1. Go to the **Purview accounts** page in the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="media/create-catalog-portal/purview-accounts-page.png" alt-text="Screenshot the purview accounts page in the Azure Portal":::
+    :::image type="content" source="media/create-catalog-portal/purview-accounts-page.png" alt-text="Screenshot showing the purview accounts page in the Azure Portal":::
 
 1. Select **Create** to create a new Azure Purview account.
 
