@@ -128,14 +128,36 @@ When you're done, the following sections should be added to the `resource` secti
 
 #### Enable system assigned managed identities on existing VMs
 
+If you have an existing virtual machine you can enable system assigned managed identities anytime.
 
 # [Portal](#tab/azure-portal)
 
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM.
+
+2. Navigate to the desired Virtual Machine and select **Identity**.
+
+3. Under **System assigned**, **Status**, select **On** and then click **Save**:
+
 # [PowerShell](#tab/azure-powershell)
+
+Retrieve the VM properties using the `Get-AzVM` cmdlet. Then to enable a system-assigned managed identity, use the `-IdentityType` switch on the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet:
+
+   ```azurepowershell-interactive
+   $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
+   Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType SystemAssigned
+   ```
 
 # [Azure CLI](#tab/azure-cli)
 
+Use [az vm identity assign](/cli/azure/vm/identity/) with the `identity assign` command enable the system-assigned identity to an existing VM:
+
+   ```azurecli-interactive
+   az vm identity assign -g myResourceGroup -n myVm
+   ```
+
 # [Resource Manager Template](#tab/azure-resource-manager)
+
+TBD
 
 ---
 
