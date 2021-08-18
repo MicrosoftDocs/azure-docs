@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ---
 
 # How to: Customize browsers and WebViews for iOS/macOS
