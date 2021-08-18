@@ -37,7 +37,9 @@ In general, a good rule of thumb is that throughput scales as the product of vco
 
 ```
 
-Number of RU/s = (~1000 RU/s per vcore) * Number of vcores-per-server * Number of shards
+f(N, M) [provisioned RU/s] = (~1000 [provisioned RU/s per vcore]) 
+                                * N [# of vcores-per-server]
+                                * M [# of replica sets]
 
 ```
 
