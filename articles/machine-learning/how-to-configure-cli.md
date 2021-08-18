@@ -1,5 +1,5 @@
 ---
-title: 'Install, set up, and use the 2.0 CLI'
+title: 'Install, set up, and use the CLI (v2)'
 titleSuffix: Azure Machine Learning
 description: Learn how to install, set up, and use the Azure CLI extension for Machine Learning.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
 ---
 
-# Install, set up, and use the 2.0 CLI (preview)
+# Install, set up, and use the CLI (v2) (preview)
 
 The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
 
