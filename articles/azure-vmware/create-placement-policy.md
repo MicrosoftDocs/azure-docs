@@ -213,7 +213,7 @@ Further, the lack of the desired granularity in the vSphere privileges presents 
 
 ###  What caveats should I be aware of?
 
-The VM-Host MUST rules block maintenance operations and not supported by Placement Policies. 
+The VM-Host MUST rules block maintenance operations and are not supported by Placement Policies. 
 
 VM-Host SHOULD rules are preferential rules, where vSphere DRS tries to accommodate the rules to the extent possible. vSphere DRS may vMotion virtual machines subjected to the VM-Host SHOULD rules occasionally to ensure that the workloads get the resources they need. This is a standard vSphere DRS behavior, and the Placement Policies feature does not change the underlying vSphere DRS behavior.
 
