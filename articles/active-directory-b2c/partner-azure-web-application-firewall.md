@@ -93,6 +93,6 @@ In case you want to switch back to the detection mode, you can do so by using Sw
 
 ## Next steps
 
-- [Configure a custom domain in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow)
+- [Azure Web Application Firewall monitoring and logging](https://docs.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-monitor/)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Web Application Firewall (WAF) with Front Door Service exclusion lists](https://docs.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-exclusion/)
