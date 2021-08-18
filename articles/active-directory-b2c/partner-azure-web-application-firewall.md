@@ -93,6 +93,6 @@ In case you want to switch back to the detection mode, you can do so by using Sw
 
 ## Next steps
 
-- [Azure Web Application Firewall monitoring and logging](https://docs.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-monitor/)
+- [Azure WAF monitoring and logging](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor/)
 
-- [Web Application Firewall (WAF) with Front Door Service exclusion lists](https://docs.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-exclusion/)
+- [WAF with Front Door service exclusion lists](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-exclusion/)
