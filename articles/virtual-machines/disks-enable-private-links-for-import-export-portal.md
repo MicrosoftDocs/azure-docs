@@ -10,7 +10,7 @@ ms.subservice: disks
 ms.custom: references_regions
 ---
 
-# Restrict import/export access for disks with Private Link using the Azure portal
+# Restrict import/export access for managed disks using Private Link
 
 You can use [private endpoints](../../private-link/private-endpoint-overview.md) to restrict the export and import of managed disks and securely access data over a [Private Link](../../private-link/private-link-overview.md) from clients on your Azure virtual network. The private endpoint uses an IP address from the virtual network address space for your managed disks service. Network traffic between clients on their virtual network and managed disks only traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
@@ -22,15 +22,14 @@ You can set the NetworkAccessPolicy property to `DenyAll` to prevent anybody fro
 
 [!INCLUDE [virtual-machines-disks-private-links-limitations](../../includes/virtual-machines-disks-private-links-limitations.md)]
 
-Before you can use Private Links to export/import managed disks, you must: 
+Before you can use Private Links to export/import managed disks, you must:
 
 1. Create a disk access resource.
 1. Link your disk access resource to a virtual network in the same subscription by creating a private endpoint. 
 1. Associate a disk or a snapshot with an instance of disk access.
 1. Set the NetworkAccessPolicy property of the disk or the snapshot to `AllowPrivate`. This will limit access to your virtual network.
 
-## Portal: Create a disk access resource
-## CLI: Create a disk access
+## Create a disk access resource
 
 # [Portal](#tab/azure-portal)
 
@@ -125,9 +124,7 @@ az network vnet subnet update --resource-group $resourceGroupName \
 
 ---
 
-## Portal: Create a private endpoint
-
-## CLI: Create a private endpoint for the disk access object
+## Portal: Create a private endpoint for disk access
 
 # [Portal](#tab/azure-portal)
 
@@ -204,8 +201,7 @@ az network private-endpoint dns-zone-group create \
 ---
 
 ## Portal: Enable private endpoint on your disk
-
-## CLI: Create a disk protected with Private Links 
+## CLI: Create a disk protected with Private Links
 
 # [Portal](#tab/azure-portal)
 
@@ -271,7 +267,7 @@ az snapshot create -n $snapshotNameSecuredWithPL \
 
 ---
 
-## Additional blurb not fitting elsewhere
+## Additional content not fitting elsewhere
 
 **
 You can generate a time-bound Shared Access Signature (SAS) URI for unattached managed disks and snapshots which can be used to:
