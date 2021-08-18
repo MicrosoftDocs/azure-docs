@@ -15,13 +15,13 @@ In this article, you will learn about the technology, resources, and tools that 
 
 As part of the demo, you'll deploy the following resources:
 - An [API Management service](https://azure.microsoft.com/en-gb/services/api-management/), with the API Management resources required to support the demo project (APIs, Products, Policies, Named Values).
-- An [App Service plan](./azure/app-service/overview.md).
+- An [App Service plan](../app-service/overview.md).
 - A [Web App for containers](https://azure.microsoft.com/en-gb/services/app-service/containers/), using the billing portal app container image.
-- A [Service Principal role-based access control assignment](./azure/role-based-access-control/overview.md).
+- A [Service Principal role-based access control assignment](../role-based-access-control/overview.md).
 
 ## Bicep templates
 
-This project is currently using [Bicep](./azure/azure-resource-manager/templates/bicep-overview.md) for local development and deployment. Bicep is a templating language for declaratively deploying Azure resources. Currently, the **Deploy to Azure** button does not support Bicep. 
+This project is currently using [Bicep](../azure-resource-manager/templates/bicep-overview.md) for local development and deployment. Bicep is a templating language for declaratively deploying Azure resources. Currently, the **Deploy to Azure** button does not support Bicep. 
 
 * Prior to deployment, Bicep must be decompiled into an Azure Resource Manager template, which happens when the solution is built by running the [build.ps1](../build.ps1) script.
 * You can find the Azure Resource Manager template generated on build in the [/output](../output/) folder.

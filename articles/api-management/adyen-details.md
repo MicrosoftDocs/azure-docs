@@ -14,7 +14,7 @@ You can configure the API Management and the associated billing app to implement
 
 To deliver a consistent end-to-end API consumer experience, you'll synchronize the API Management product policies and the billing app configuration using a shared configuration file [payment/monetizationModels.json](../payment/monetizationModels.json).
 
-In this demo project, we'll implement the example revenue model defined in [the monetization overview](./monetization-overview.md#step-4---design-the-revenue-model) to demonstrate integrating Azure API Management with Adyen.
+In this demo project, we'll implement the example revenue model defined in [the monetization overview](monetization-overview.md#step-4---design-the-revenue-model) to demonstrate integrating Azure API Management with Adyen.
 
 ## Adyen 
 
@@ -40,7 +40,7 @@ The API consumer flow describes the end-to-end user journey supported by the sol
 ### API consumer flow
 
 1. Consumer selects **Sign up** in the API Management developer portal.
-2. Developer portal redirects consumer to the billing portal app to register their account via [API Management delegation](api-management-howto-setup-delegation).
+2. Developer portal redirects consumer to the billing portal app to register their account via [API Management delegation](api-management-howto-setup-delegation.md).
 3. Upon successful registration, consumer is authenticated and returned back to the developer portal.
 4. Consumer selects a product to subscribe to in the developer portal.
 5. Developer portal redirects consumer to the billing portal app via delegation.
