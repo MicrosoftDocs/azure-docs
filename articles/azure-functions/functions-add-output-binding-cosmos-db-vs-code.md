@@ -108,7 +108,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB
 ```
 # [Isolated process](#tab/isolated-process)
 ```bash
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
 ```
 ---
 Now, you can add the storage output binding to your project.  

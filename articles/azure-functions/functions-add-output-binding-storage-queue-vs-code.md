@@ -78,11 +78,7 @@ Extension bundles usage is enabled in the host.json file at the root of the proj
 
 ::: zone pivot="programming-language-csharp"
 
-With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Storage extension package to your project.
-
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage
-```
+[!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
 
 ::: zone-end
 
