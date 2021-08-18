@@ -44,6 +44,8 @@ In addition, to the options listed above you may also choose between Linux and W
 
 ### System assigned
 
+#### Create a VM with a system assigned managed identity
+
 To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
 
 # [Portal](#tab/azure-portal)
@@ -121,6 +123,19 @@ When you're done, the following sections should be added to the `resource` secti
         }
     ]
    ```
+
+---
+
+#### Enable system assigned managed identities on existing VMs
+
+
+# [Portal](#tab/azure-portal)
+
+# [PowerShell](#tab/azure-powershell)
+
+# [Azure CLI](#tab/azure-cli)
+
+# [Resource Manager Template](#tab/azure-resource-manager)
 
 ---
 
@@ -214,6 +229,7 @@ Under the resources element, add the following entry to assign a user-assigned m
          }
      }
  ]
+```
 
 ---
 
@@ -261,7 +277,6 @@ az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLT
 
 Assign a user assigned managed identity to an existing VM
 
-```
 
 ---
 
