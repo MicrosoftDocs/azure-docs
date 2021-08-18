@@ -699,7 +699,7 @@ Specific scenarios that can cause internal server errors are shown as follows.
 
 #### Scenario 1: Not choosing the appropriate compute size/type and other factors
 
-  Successful execution of data flows depends on many factors, including the compute size/type, numbers of source/sinks to process, partition specifications, transformations involved, sizes of datasets, the data skewness and so on.<br/>
+  Successful execution of data flows depends on many factors, including the compute size/type, numbers of source/sinks to process, the partition specification, transformations involved, sizes of datasets, the data skewness and so on.<br/>
   
   For more guidance, see [Optimizing the Azure Integration Runtime](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance?WT.mc_id=Portal-Microsoft_Azure_Support#ir).
 

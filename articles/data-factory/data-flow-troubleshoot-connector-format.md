@@ -796,7 +796,8 @@ For the Snowflake VARIANT, it can only accept the data flow value that is struct
         ```SQL
         alter table tablename add newcolumnname varchar;
         ```    
-    1. Copy the value of VARIANT into new column. <br/>
+    1. Copy the value of VARIANT into the new column. <br/>
+    
         ```SQL
         update tablename t1 set newcolumnname = t1."details"
         ```
@@ -804,7 +805,7 @@ For the Snowflake VARIANT, it can only accept the data flow value that is struct
         ```SQL
         alter table tablename drop column "details";
         ```
-    1. Rename the new column to be the old name. <br/>
+    1. Rename the new column to the old name. <br/>
         ```SQL
         alter table tablename rename column newcolumnname to "details";
         ```
