@@ -145,10 +145,8 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 Spring Boot version | Spring Cloud version
 ---|---
-2.2.x | Hoxton.SR8+
 2.3.x | Hoxton.SR8+
-2.4.x | 2020.0 +
-2.5.x | 2021.0 +
+2.4.x, 2.5.x | 2020.0 aka Ilford +
 
 > [!NOTE]
 > - Please upgrade Spring Boot to 2.5.2 or 2.4.8 to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you are using Spring Security, please upgrade it to 5.5.1, 5.4.7, 5.3.10 or 5.2.11.
