@@ -103,7 +103,7 @@ Make sure to review the requirements for the [policy type](#placement-policy-typ
    >[!WARNING]
    >If you disable the policy, then the policy and the underlying DRS rule are created, but the policy actions are ignored until you enable the policy. 
 
-   :::image type="content" source="media/placement-policies/create-placement-policy-vm-vm-affinity-1.png" alt-text="Screenshot showing the placement policy options." lightbox="media/placement-policies/create-placement-policy-vm-vm-affinity-1.png":::   
+   :::image type="content" source="media/placement-policies/create-placement-policy-vm-host-affinity-1.png" alt-text="Screenshot showing the placement policy options." lightbox="media/placement-policies/create-placement-policy-vm-host-affinity-1.png":::   
 
 1. If you selected **VM-Host affinity** or **VM-Host anti-affinity** as the type, select **+ Add host** and the hosts to include in the policy. You can select multiple hosts.
 
