@@ -56,7 +56,7 @@ One of the most common reasons is that you don't have the streaming endpoint fro
 
 ### How does pagination work?
 
-When you're using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](filter-order-page-entitites-how-to.md).
+When you're using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](filter-order-page-entities-how-to.md).
 
 ### What features are not yet available in Azure Media Services v3?
 
