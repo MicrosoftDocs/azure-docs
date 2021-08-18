@@ -6,22 +6,26 @@ ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 08/12/2021
+ms.date: 08/18/2021
 ---
 # How to convert the number of vcores-per-server in your existing nonrelational database to Azure Cosmos DB RU/s as an aid in planning migration
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 In this article, we show you how to estimate Azure Cosmos DB RU/s in the scenario where you need to compare total cost of ownership (TCO) between your status-quo nonrelational database solution and Azure Cosmos DB, i.e. if you are considering planning an app migration or data migration to Azure Cosmos DB. This tutorial helps you to generate a ballpark TCO comparison regardless of what nonrelational database solution you currently employ, and regardless of whether your status-quo database solution is self-managed on-premise, self-managed in the cloud, or managed by a PaaS database service.
 
-# 1. Identify the number of vcores-per-server or vCPU-per-server in your status quo solution
+## 1. Identify the number of vcores-per-server or vCPU-per-server in your status quo solution
 
 Start by understanding your status quo cluster configuration
 * In the most general case, we asssume that your status-quo solution is a sharded and replicated nonrelational database
 * Here, *replication* refers to duplicating some or all of your data over multiple servers with independent compute and storage
 * *Replication factor* refers to the number of replicas
-* *Sharding* refers to subdividing your dataset over multiple logical servers with independent compute and storage, for the purpose of scaling *out* your storage or throughput
-* A *shard* is one logical server containing a subset of your data
+* *Sharding* refers to subdividing your dataset over multiple replica sets with independent compute and storage, for the purpose of scaling *out* your storage or throughput
+* A *shard* is one replica sets containing a subset of your data
 * *Sharding and replication* refers to a sharding arrangement in which each shard is itself replicated according to the replication factor, i.e. each shard consists of multiple servers at the physical level
+* Commonly, all shards exist in the same region and have the same configuration (especially, the same number of replicas per shard replica set.) This is a *homogenous* replica set configuration.
+    * However, some users employ *zoned sharding* strategies where one or more shards may be allocated to specific regions, with a customized replication factor in that geography according to the capacity demand. These are *heterogenous* replica set configurations.
+    * The formulas and guidance in this document assume homogenous configurations.
+    * However, you may apply the provided guidance and formulae to your heterogenous configuration: wherever a formula relies on replication factor, simply plug in the *average* replication factor across your heterogenous configuration, such that the formula makes sense for your use-case.
     
 Before continuing, please identify
 * vCores or vCPU per server for your cluster
@@ -30,7 +34,7 @@ Before continuing, please identify
 * If sharding is employed, how many shards exist?\
 * If sharding is not employed, you can treat "Number of shards" as being 1 (one) for the purposes of the below calculations
 
-# 2. Convert vcores-per-server or vCPU-per-server to RU/s
+## 2. Convert vcores-per-server or vCPU-per-server to RU/s
 
 
 In general, a good rule of thumb is that throughput scales as the product of vcores-per-server and shards:
@@ -59,7 +63,7 @@ For greater clarity, you can use the table below to help you estimate throughput
 
 Following the above process, you should end up with an estimate of your equivalent Cosmos DB RU/s
 
-# 3. Compare TCO
+## 3. Compare TCO
 
 The cost of Cosmos DB can be estimated based on throughput and storage
 * Manual/standard throughput cost: $0.008/hr per 100 RU/s * Number of single-master regions
