@@ -16,7 +16,7 @@ This article describes how to upload MSIX images to Azure NetApp Files in Azure 
 
 Before you can start uploading the images, you'll need to set up Azure NetApp Files if you haven't already.
 
-To set up an Azure NetApp Files, you'll need the following things:
+To set up Azure NetApp Files, you'll need the following things:
 
 - An Azure account with contributor or administrator access
 
