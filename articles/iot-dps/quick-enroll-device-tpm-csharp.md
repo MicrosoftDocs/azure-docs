@@ -38,7 +38,7 @@ For the sample in this quickstart, you need the connection string for your provi
 
 1. Choose **Shared access policies**, then select the access policy you want to use to open its properties. In **Access Policy**, copy and save the primary key connection string.
 
-    ![Get provisioning service connection string from the portal](media/quick-enroll-device-tpm-csharp/get-service-connection-string-vs2019.png)
+    :::image type="content" source="./media/quick-enroll-device-tpm-csharp/get-service-connection-string.png" alt-text="Get provisioning service connection string from the portal,":::
 
 ## Create the individual enrollment sample
 

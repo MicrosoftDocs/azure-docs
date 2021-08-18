@@ -207,8 +207,8 @@ In this section, you'll prepare a development environment that's used to build t
 
 The Azure IoT Device Provisioning Service supports two types of enrollments:
 
-- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
-- [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+* [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+* [Individual enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
 
 This article demonstrates an individual enrollment for a single device to be provisioned with an IoT hub.
 

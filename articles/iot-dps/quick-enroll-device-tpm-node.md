@@ -68,7 +68,7 @@ In this quickstart, you programmatically create an individual enrollment for a T
     1. Sign in to the Azure portal, select the **All resources** button on the left-hand menu and open your Device Provisioning Service. 
     2. Select **Shared access policies**, then select the access policy you want to use to open its properties. In the **Access Policy** window, copy and note down the primary key connection string. 
 
-       ![Get provisioning service connection string from the portal](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
+    :::image type="content" source="./media/quick-enroll-device-tpm-node/get-service-connection-string.png" alt-text="Get provisioning service connection string from the portal,":::
 
 
 2. You also need the endorsement key for your device. If you have followed the [Create and provision a simulated device](quick-create-simulated-device.md) quickstart to create a simulated TPM device, use the key created for that device. Otherwise, to create a sample individual enrollment, you can use the following endorsement key supplied with the [Node.js Service SDK](https://github.com/Azure/azure-iot-sdk-node):
