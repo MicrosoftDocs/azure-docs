@@ -79,7 +79,7 @@ For existing clusters, you may need to enable the Kubernetes resource view. To e
 CURRENT_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 
 # Add to AKS approved list
-az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP
 
 ```
 
