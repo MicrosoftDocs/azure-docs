@@ -13,7 +13,7 @@ ms.date: 08/18/2021
 # Configure and verify DNS Name Resolution for Azure Purview private endpoints
 
 ## Conceptual overview
-Correct name resolution is a critical requirement when setting up private endpoints for your Azure Purview accounts. 
+Accurate name resolution is a critical requirement when setting up private endpoints for your Azure Purview accounts. 
 
 You may require enabling internal name resolution in your DNS settings to resolve the private endpoint IP addresses to the fully qualified domain name (FQDN) from data sources and your management machine to Azure Purview account and self-hosted integration runtime, depending scenarios you are deploying.
 
