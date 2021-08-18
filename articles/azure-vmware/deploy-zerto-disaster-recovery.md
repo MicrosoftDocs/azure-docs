@@ -91,7 +91,7 @@ For all scenarios, you must read and acknowledge the updated [Azure VMware Solut
 
 - Network connectivity, ExpressRoute based, from Azure VMware Solution to the vNET used for Disaster Recovery.   
 
-- Follow the [Zerto Virtual Replication Azure Enterprise Guidelines](http://s3.amazonaws.com/zertodownload_docs/Latest/Zerto Virtual Replication Azure Enterprise Guidelines.pdf) for the rest of the prerequisites.
+- Follow the [Zerto Virtual Replication Azure Enterprise Guidelines](http://s3.amazonaws.com/zertodownload_docs/Latest/Zerto%20Virtual%20Replication%20Azure%20Enterprise%20Guidelines.pdf) for the rest of the prerequisites.
 
 
 
