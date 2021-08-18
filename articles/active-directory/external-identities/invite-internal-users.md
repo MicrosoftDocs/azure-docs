@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/03/2021
+ms.date: 08/18/2021
 
 ms.author: mimart
 author: msmimart
@@ -34,7 +34,7 @@ Sending an invitation to an existing internal account lets you retain that user�
 - **On-premises synced users**: For user accounts that are synced between on-premises and the cloud, the on-premises directory remains the source of authority after they’re invited to use B2B collaboration. Any changes you make to the on-premises account will sync to the cloud account, including disabling or deleting the account. Therefore, you can’t prevent the user from signing into their on-premises account while retaining their cloud account by simply deleting the on-premises account. Instead, you can set the on-premises account password to a random GUID or other unknown value.
 
 > [!NOTE]
-> If you are using Azure AD Connect Cloud Sync, there is a rule by default that writes the OnPremUserPrincipalName onto the user. This rule needs to be modified so that it does not write this property for users that you want to convert from internal to external users.
+> If you're using Azure AD Connect Cloud sync, there is a rule by default that writes the OnPremisesUserPrincipalName onto the user. This rule [needs to be modified](../cloud-sync/how-to-attribute-mapping.md) so that it doesn't write this property for users that you want to convert from internal to external users. Because the presence of an OnPremisesUserPrincipalName value can prevent the user from signing in using external credentials, we block conversions in such cases.
 
 ## How to invite internal users to B2B collaboration
 
