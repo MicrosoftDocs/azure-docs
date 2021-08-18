@@ -300,7 +300,7 @@ In this section, you add the sign-in and sign-out buttons to the *app* component
 
    Before interactions with the MSAL account object, check that the `InteractionStatus` property returns `InteractionStatus.None`. The `subscribe` event calls the `setLoginDisplay` method to check if the user is authenticated.
 1. Add class variables.
-1. Add the `login` method that initiates authorization flow.
+1. Add the `login` method that starts authorization flow.
 1. Add the `logout` method that signs out the user. 
 1. Add the `setLoginDisplay` method that checks if the user is authenticated.
 1. Add the [ngOnDestroy](https://angular.io/api/core/OnDestroy) method to clean up the `inProgress$` subscribe event.
