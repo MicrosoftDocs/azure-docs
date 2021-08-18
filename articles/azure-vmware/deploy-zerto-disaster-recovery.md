@@ -111,7 +111,7 @@ In the IA phase, Azure VMware Solution only supports manual installation and onb
 
 Once you're qualified for Zerto on Azure VMware Solution IA, you can use the Azure portal to open a Support Ticket to have Zerto installed on your private cloud.
 
-Microsoft will work with you to ensure that you can manually install Zerto on your Azure VMware Solution private cloud.
+Microsoft will work with you to ensure that you can manually install Zerto on your private cloud.
 
 General Availability of Zerto on Azure VMware Solution, self-services for installing Zerto on your private cloud.
 
