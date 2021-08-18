@@ -1,5 +1,5 @@
 ---
-title: Connect to your Purview account and scan data sources from restricted network
+title: Connect to your Azure Purview and scan data sources privately and securely
 description: This article describes how you can set up a private endpoint to connect to your Purview account and scan data sources from restricted network for an end to end isolation
 author: zeinam
 ms.author: zeinam
@@ -10,7 +10,7 @@ ms.date: 08/18/2021
 # Customer intent: As an Azure Purview admin, I want to set up private endpoints for my Azure Purview account to access purview account and scan data sources from restricted network.
 ---
 
-# Connect to your Purview account and scan data sources from restricted network
+# Connect to your Azure Purview and scan data sources privately and securely
 
 In this guide, you will learn how to deploy _account_, _portal_ and _ingestion_ private endpoints for your Azure Purview account to access purview account and scan data sources using self-hosted integration runtime, enabling a end to end network isolation.
 
