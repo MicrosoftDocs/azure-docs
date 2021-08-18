@@ -70,7 +70,7 @@ Many Azure Batch technologies which access other Azure resources, such as Azure 
 Please refer to the following for more information on using Managed Identity with Azure Batch:
 
 - [Resource Files](resource-files.md)
-- [Output Files](../path/to/file.md)
+- [Output Files](batch-task-output-files.md#specify-output-files-using-managed-identity)
 - [Azure Container Registries](batch-docker-container-workloads.md#managed-identity-support-for-acr)
 - [Azure Blob Container Filesystem](virtual-file-mount.md#azure-blob-container)
 
