@@ -19,9 +19,9 @@ This article uses a sample [iOS Swift](https://developer.apple.com/swift/) appli
 
 ## Overview
 
-OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. You can use OIDC to securely sign users in to an application. This mobile app sample uses the [Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md) with OIDC authorization code PKCE flow. The MSAL is a Microsoft-provided library that simplifies adding authentication and authorization support to mobile apps. 
+OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. You can use OIDC to securely sign users in to an application. This mobile app sample uses the [Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md) with OIDC authorization code Proof Key for Code Exchange (PKCE) flow. The MSAL is a Microsoft-provided library that simplifies adding authentication and authorization support to mobile apps. 
 
-The sign-in flow involves following steps:
+The sign-in flow involves the following steps:
 
 1. Users open the app and select **sign-in**.
 1. The app opens the mobile device's system browser and starts an authentication request to Azure AD B2C.
@@ -34,14 +34,14 @@ The sign-in flow involves following steps:
 
 ### App registration overview
 
-To enable your app to sign in with Azure AD B2C and call a web API, register two applications in the Azure AD B2C directory.  
+To enable your app to sign in with Azure AD B2C and call a web API, register two applications in the Azure AD B2C directory:  
 
 - The **mobile application** registration enables your app to sign in with Azure AD B2C. During app registration, specify the *redirect URI*. The redirect URI is the endpoint to which users are redirected by Azure AD B2C after they've authenticated with Azure AD B2C. The app registration process generates an *Application ID*, also known as the *client ID*, which uniquely identifies your mobile app (for example, *App ID: 1*).
 
 - The **web API** registration enables your app to call a protected web API. The registration exposes the web API permissions (scopes). The app registration process generates an *Application ID*, which uniquely identifies your web API (for example, *App ID: 2*). Grant your mobile app (App ID: 1) permissions to the web API scopes (App ID: 2). 
 
 
-The apps registration and application architecture are illustrated in the following diagrams:
+The application registration and architecture are illustrated in the following diagrams:
 
 ![Diagram of the mobile app with web API call registrations and tokens.](./media/configure-authentication-sample-ios-app/mobile-app-with-api-architecture.png) 
 
@@ -111,25 +111,25 @@ After you configure the web API, copy the URI of the web API endpoint. You will 
 
 ## Step 4: Get the iOS mobile app sample
 
-1. [Download the zip file](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/archive/refs/heads/vNext.zip), or clone the sample web application from [GitHub repo](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal). 
+1. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/archive/refs/heads/vNext.zip), or clone the sample web app from [GitHub repo](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal). 
 
     ```bash
     git clone https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/tree/vNext.git
     ``` 
 
-1. Use [CocoaPods](https://cocoapods.org/) to install the MSAL library. In a terminal window, navigate to the project root folder. This folder contains the `podfile`. Run the following command:
+1. Use [CocoaPods](https://cocoapods.org/) to install the MSAL library. In a terminal window, go to the project root folder. This folder contains the *podfile* file. Run the following command:
 
     ```bash
     pod install
     ```
 
-1. Open `MSALiOS.xcworkspace` workspace with Xcode.
+1. Open the `MSALiOS.xcworkspace` workspace with Xcode.
 
 
 
 ## Step 5: Configure the sample mobile app
 
-Open the `ViewController.swift` file. The `ViewController` class members contain information about your Azure AD B2C identity provider. The mobile app uses this information to establish a trust relationship with Azure AD B2C, sign users in and out, acquire tokens, and validate them. 
+Open the *ViewController.swift* file. The `ViewController` class members contain information about your Azure AD B2C identity provider. The mobile app uses this information to establish a trust relationship with Azure AD B2C, sign users in and out, acquire tokens, and validate them. 
 
 Update the following class members:
 
@@ -162,6 +162,6 @@ Update the following class members:
 ## Next steps
 
 Learn how to:
-* [Enable authentication in your own iOS app](enable-authentication-ios-app.md)
-* [Configure authentication options in an iOS app](enable-authentication-ios-app-options.md)
-* [Enable authentication in your own web API](enable-authentication-web-api.md)
+* [Enable authentication in your own iOS app by using Azure AD B2C](enable-authentication-ios-app.md)
+* [Configure authentication options in an iOS app by using Azure AD B2C](enable-authentication-ios-app-options.md)
+* [Enable authentication in your own web API by using Azure AD B2C](enable-authentication-web-api.md)
