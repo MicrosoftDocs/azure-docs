@@ -102,7 +102,7 @@ To create the mobile app registration, do the following:
 This sample acquires an access token with the relevant scopes that the mobile app can use for a web API. To call a web API from code, do the following:
 
 1. Use an existing web API, or create a new one. For more information, see [Enable authentication in your own web API by using Azure AD B2C](enable-authentication-web-api.md).
-1. Change the sample code to [call a web API](enable-authentication-iOs-app.md#call-a-web-api).
+1. Change the sample code to [call a web API](enable-authentication-iOs-app.md#step-63-call-a-web-api).
 
 After you configure the web API, copy the URI of the web API endpoint. You will use the web API endpoint in the next steps.
 

@@ -196,7 +196,7 @@ The `acquireTokenSilent` method does the following:
 
 1. It attempts to fetch an access token with the requested scopes from the token cache. If the token is present and hasn't expired, the token is returned. 
 1. If the token isn't present in the token cache or it has expired, the MSAL library attempts to use the refresh token to acquire a new access token. 
-1. If the refresh token doesn't exist or has expired, an exception is returned. In this case, you should prompt the user to [sign in interactively](##step-62-start-an-interactive-authorization-request).  
+1. If the refresh token doesn't exist or has expired, an exception is returned. In this case, you should prompt the user to [sign in interactively](#step-62-start-an-interactive-authorization-request).  
 
 The following code snippet demonstrates how to acquire an access token:
 
