@@ -49,7 +49,7 @@ Using one of the deployment options from this guide, you can deploy a new Azure 
 
 4. On the **Create a private endpoint** page, for **Purview sub-resource**, choose your location, provide a name for _account_ private endpoint and select **account**. Under **networking**, select your virtual network and subnet, and optionally, select **Integrate with private DNS zone** to create a new Azure Private DNS zone. 
    
-   :::image type="content" source="media/catalog-private-link/purview-pe-scenario1-2.png" alt-text="Screenshot that shows create account private endpoint page selections.":::
+   :::image type="content" source="media/catalog-private-link/purview-pe-scenario1-2.png" alt-text="Screenshot that shows create account private endpoint page.":::
 
 
    > [!NOTE]
