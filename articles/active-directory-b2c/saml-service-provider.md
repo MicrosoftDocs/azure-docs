@@ -1,7 +1,7 @@
 ---
 title: Configure Azure Active Directory B2C as a SAML IdP to your applications
 title-suffix: Azure Active Directory B2C
-description: How to configure Azure Active Directory B2C to provide SAML protocol assertions to your applications (service providers). Azure AD B2C will act as the single identity provider (IdP) to your SAML application.
+description: Learn how to configure Azure Active Directory B2C to provide SAML protocol assertions to your applications (service providers).
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -32,28 +32,30 @@ In this article, learn how to connect your Security Assertion Markup Language (S
 
 ## Overview
 
-Organizations that use Azure AD B2C as their customer identity and access management solution might require integration with applications that authenticate using the SAML protocol. The following diagram shows how Azure AD B2C serves as an *identity provider* (IdP) to achieve single-sign-on (SSO) with SAML-based applications.
+Organizations that use Azure AD B2C as their customer identity and access management solution might require integration with applications that authenticate by using the SAML protocol. The following diagram shows how Azure AD B2C serves as an *identity provider* (IdP) to achieve single-sign-on (SSO) with SAML-based applications.
 
-![Diagram with B2C as identity provider on left and B2C as service provider on right.](media/saml-service-provider/saml-service-provider-integration.png)
+![Diagram with Azure Active Directory B 2 C as an identity provider on the left and as a service provider on the right.](media/saml-service-provider/saml-service-provider-integration.png)
 
-1. The application creates a SAML AuthN Request that is sent to Azure AD B2C's SAML login endpoint.
+1. The application creates a SAML AuthN request that's sent to the SAML login endpoint for Azure AD B2C.
 2. The user can use an Azure AD B2C local account or any other federated identity provider (if configured) to authenticate.
-3. If the user signs in using a federated identity provider, a token response is sent to Azure AD B2C.
+3. If the user signs in by using a federated identity provider, a token response is sent to Azure AD B2C.
 4. Azure AD B2C generates a SAML assertion and sends it to the application.
 
 ## Prerequisites
 
-* Complete the steps in [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). You need the *SocialAndLocalAccounts* custom policy from the custom policy starter pack discussed in the article.
-* Basic understanding of the SAML protocol and familiarity with the application's SAML implementation.
+Before you follow the procedures in this article, you need:
+
+* The *SocialAndLocalAccounts* custom policy from a custom policy starter pack. Complete the steps in [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy). 
+* A basic understanding of the SAML protocol and familiarity with the application's SAML implementation.
 * A web application configured as a SAML application. For this tutorial, you can use a [SAML test application][samltest] that we provide.
 
 ## Components
 
-There are three main components required for this scenario:
+Three main components are required for this scenario:
 
-* A SAML **application** with the ability to send SAML AuthN requests and receive, decode, and verify SAML responses from Azure AD B2C. The SAML application is also known as the relying party application or service provider.
-* The SAML application's publicly available SAML **metadata endpoint** or XML document.
-* An [Azure AD B2C tenant](tutorial-create-tenant.md)
+* A SAML *application* with the ability to send SAML AuthN requests and to receive, decode, and verify SAML responses from Azure AD B2C. The SAML application is also known as the relying party application or service provider.
+* The SAML application's publicly available SAML *metadata endpoint* or XML document.
+* An [Azure AD B2C tenant](tutorial-create-tenant.md).
 
 If you don't yet have a SAML application and an associated metadata endpoint, you can use this sample SAML application that we've made available for testing:
 
