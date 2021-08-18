@@ -80,7 +80,6 @@ The following table lists the field names and descriptions:
 | **ExpressionValue** | .. |
 | **TargetValue** | .. |
 
-For general policy errors like https://docs.microsoft.com/azure/governance/policy/troubleshoot/general#general-errors
 
 
 ### Frequently Asked Questions
