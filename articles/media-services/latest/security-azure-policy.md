@@ -23,7 +23,7 @@ Common use cases for Azure Policy include implementing governance for resource c
 
 Media Services provides several common use case definitions for Azure Policy that a built-in to help you get started.
 
-## Built-in Azure Polices for Media Services
+## Built-in Azure Policy definitions for Media Services
 
 Several built in policy use case definitions are available for use with Media Services to help get you started, and allow you to define your own custom policies.
 
@@ -31,7 +31,7 @@ Several built in policy use case definitions are available for use with Media Se
 
 The [list of built-in policy definitions for Media Services](../../governance/policy/samples/built-in-policies#media-services) provides the latest definitions and links the code definitions and how to access them in the Portal.
 
-## Common scenarios for needing an Azure Policy with Media Services
+## Common scenarios that require Azure Policy
 
 * If your enterprise security requires you to ensure that all Media Services accounts are created with Private Links, you can use a policy definition to ensure that accounts are only created with the 2020-05-01 API (or later) to disable access to the legacy REST v2 API and access the Private Link feature.
 * If you want to enforce specific options on the tokens used for Content Key Policies, an Azure Policy definition can be constructed to support the specific requirements.
