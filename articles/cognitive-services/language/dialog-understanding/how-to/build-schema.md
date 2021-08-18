@@ -20,7 +20,7 @@ In Dialog Understanding, the *schema* is defined as the combination of intents a
 
 Consider the following guidelines when picking intents for your project:
 
-  1. Create distinct, separable intents. An intent is best described as a user's desired overall action. Think of the project you're building and identify all the different actions your users may take when interacting with your project. Sending, calling, and cancelling are all actions that are best represented as different intents. "Cancelling an order" and "cancelling an appointment" are very similar, with the distinction being *what* they are cancelling. Those two actions should be represented under the same intent.
+  1. Create distinct, separable intents. An intent is best described as a user's desired overall action. Think of the project you're building and identify all the different actions your users may take when interacting with your project. Sending, calling, and canceling are all actions that are best represented as different intents. "Canceling an order" and "canceling an appointment" are very similar, with the distinction being *what* they are canceling. Those two actions should be represented under the same intent.
   
   2. Create entities to extract relevant pieces of information within your text. The entities should be used to capture the relevant information needed to fulfill your user's action. For example, *order* or *appointment* could be different things a user is trying to cancel, and you should create an entity to capture that piece of information.
 
@@ -69,10 +69,10 @@ Clicking on the intent will take you to the [tag utterances](tag-utterances.md) 
 
 > [!IMPORTANT]
 > * Connected intents cannot be selecated because you cannot add training examples to a connected intent, as it already uses the target project's data to train its intent classification.
-> * You will only be able to connect to target services that are owned by the same resource. If you want to connect to a LUIS application, see [LUIS application backwards compatibility](../concepts/backwards-compatibility.md#change-ownership).
+> * You will only be able to connect to target services that are owned by the same resource. If you want to connect to a LUIS application, see [LUIS application backwards compatibility](../concepts/backwards-compatibility.md#create-or-import-a-luis-application-that-can-be-used-in-dialog-understanding).
 
 ## Next Steps
-* [Tag utterances](./how-to-tag-utterances.md)
+* [Tag utterances](tag-utterances.md)
 
 
 
