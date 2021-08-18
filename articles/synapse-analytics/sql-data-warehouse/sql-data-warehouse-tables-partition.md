@@ -280,6 +280,7 @@ ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInterne
 > [!NOTE]
 > If your source control tool is not configured to ignore partition schemas, altering a table's schema to update partitions may cause a table to be dropped and recreated as part of the deployment, which may be unfeasible. A custom solution to implement such a change, as describe below, may be necessary. Check that your continuous integration/continuous deployment (CICD) tool allows for this. In SQL Server Data Tools (SSDT), look for the Advanced Publish Settings "Ignore partition schemes" to avoid a generated script that cause a table to be dropped and recreated.
 
+This example is useful when updating partition schemas of an empty table. To continuously deploy partition changes on a table with data, follow the steps in [How to split a partition that contains data](#how-to-split-a-partition-that-contains-data) alongside deployment to temporarily move data out of each partition before applying the partition SPLIT RANGE.
 
 To avoid your table definition from **rusting** in your source control system, you may want to consider the following approach:
 
