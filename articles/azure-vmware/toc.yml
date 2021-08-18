@@ -79,6 +79,7 @@
   - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Disaster recovery 
+    items:
     - name: Disaster recovery using Zerto
       href: deploy-zerto-disaster-recovery.md
     - name: Disaster recovery using VMware SRM
