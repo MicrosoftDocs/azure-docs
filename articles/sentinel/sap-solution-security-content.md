@@ -35,7 +35,7 @@ Use the following built-in workbooks to visualize and monitor data ingested via 
 |**SAP - Persistency &  Data Exfiltration**     |    Displays data such as: <br><br>Internet Communication Framework (ICF) services, including activations and deactivations and data about new services and service handlers <br><br> Insecure operations, including both function modules and programs <br><br>Direct access to sensitive tables      | Uses data from the following logs: <br><br>[ABAPAuditLog_CL](sap-solution-log-reference.md#abap-security-audit-log) <br><br>[ABAPTableDataLog_CL](sap-solution-log-reference.md#abap-db-table-data-log)<br><br>[ABAPSpoolLog_CL](sap-solution-log-reference.md#abap-spool-log)<br><br>[ABAPSpoolOutputLog_CL](sap-solution-log-reference.md#apab-spool-output-log)<br><br>[Syslog](sap-solution-log-reference.md#abap-syslog) |
 |     |         | |
 
-For more information, see [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md) and [Deploy SAP continuous threat monitoring (public preview)](sap-deploy-solution.md).
+For more information, see [Tutorial: Visualize and monitor your data](monitor-your-data.md) and [Deploy SAP continuous threat monitoring (public preview)](sap-deploy-solution.md).
 
 ## Built-in analytics rules
 

@@ -2,7 +2,7 @@
 title: Azure Event Grid - Set custom headers on delivered events 
 description: Describes how you can set custom headers (or delivery properties) on delivered events. 
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 08/13/2021
 ---
 
 # Custom delivery properties
@@ -28,6 +28,20 @@ You may want check **Is secret?** when providing sensitive data. Sensitive data 
 You can set the value of a header based on a property in an incoming event. Use JsonPath syntax to refer to an incoming event's property value to be used as the value for a header in outgoing requests. For example, to set the value of a header named **Channel** using the value of the incoming event property **system** in the event data, configure your event subscription in the following way:
 
 :::image type="content" source="./media/delivery-properties/dynamic-header-property.png" alt-text="Delivery properties - dynamic":::
+
+## Use Azure CLI
+Use the `--delivery-attribute-mapping` parameter when creating a subscription using the `az eventgrid event-subscription create` command. Here's an example:
+
+```azurecli
+az eventgrid event-subscription create -n es1 \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1
+    --endpoint-type storagequeue \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.Storage/storageAccounts/sa1/queueservices/default/queues/q1 \
+    --enable-advanced-filtering-on-arrays true
+    --delivery-attribute-mapping staticproperty1 static somestaticvalue2 true 
+    --delivery-attribute-mapping staticproperty2 static somestaticvalue3 false 
+    --delivery-attribute-mapping dynamicproperty1 dynamic data.key1
+```
 
 ## Examples
 This section gives you a few examples of using delivery properties.

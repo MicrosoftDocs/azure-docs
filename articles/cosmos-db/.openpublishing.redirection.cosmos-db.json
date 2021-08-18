@@ -2281,6 +2281,561 @@
     "redirect_document_id": true
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-acos.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-acos",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-aggregate-avg.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-aggregate-avg",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-aggregate-count.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-aggregate-count",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-aggregate-functions.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-aggregate-functions",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-aggregate-max.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-aggregate-max",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-aggregate-min.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-aggregate-min",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-aggregate-sum.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-aggregate-sum",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-array-concat.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-array-concat",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-array-contains.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-array-contains",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-array-functions.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-array-functions",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-array-length.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-array-length",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-array-slice.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-array-slice",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-asin.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-asin",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-atan.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-atan",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-atn2.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-atn2",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-ceiling.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-ceiling",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-concat.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-concat",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-constants.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-constants",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-contains.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-contains",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-cos.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-cos",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-cot.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-cot",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-date-time-functions.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-date-time-functions",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-datetimeaddsql-query-datetimeadd.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-datetimeadd",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-datetimediff.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-datetimediff",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-datetimefromparts.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-datetimefromparts",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-datetimepart.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-datetimepart",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-datetimetoticks.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-datetimetoticks",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-datetimetotimestamp.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-datetimetotimestamp",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-degrees.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-degrees",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-endswith.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-endswith",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-exp.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-exp",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-floor.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-floor",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-from.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-from",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-geospatial-index.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-geospatial-index",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-geospatial-intro.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-geospatial-intro",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-geospatial-query.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-geospatial-query",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-getcurrentdatetime.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-getcurrentdatetime",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-getcurrentticks.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-getcurrentticks",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-getcurrenttimestamp.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-getcurrenttimestamp",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-getting-started.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-getting-started",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-group-by.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-group-by",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-index-of.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-index-of",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-is-array.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-is-array",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-is-bool.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-is-bool",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-is-defined.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-is-defined",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-is-null.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-is-null",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-is-number.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-is-number",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-is-object.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-is-object",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-is-primitive.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-is-primitive",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-is-string.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-is-string",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-join.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-join",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-keywords.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-keywords",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-left.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-left",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-length.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-length",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-linq-to-sql.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-linq-to-sql",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-log.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-log",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-log10.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-log10",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-lower.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-lower",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-ltrim.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-ltrim",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-mathematical-functions.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-mathematical-functions",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-object-array.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-object-array",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-offset-limit.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-offset-limit",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-operators.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-operators",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-order-by.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-order-by",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-pagination.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-pagination",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-parameterized-queries.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-parameterized-queries",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-pi.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-pi",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-power.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-power",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-radians.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-radians",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-rand.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-rand",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-regexmatch.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-regexmatch",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-replace.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-replace",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-replicate.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-replicate",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-reverse.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-reverse",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-right.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-right",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-round.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-round",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-rtrim.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-rtrim",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-scalar-expressions.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-scalar-expressions",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-select.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-select",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-sign.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-sign",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-sin.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-sin",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-spatial-functions.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-spatial-functions",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-sqrt.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-sqrt",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-square.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-square",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-st-distance.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-st-distance",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-st-intersects.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-st-intersects",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-st-isvalid.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-st-isvalid",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-st-isvaliddetailed.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-st-isvaliddetailed",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-st-within.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-st-within",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-startswith.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-startswith",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-string-functions.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-string-functions",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-stringequals.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-stringequals",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-stringtoarray.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-stringtoarray",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-stringtoboolean.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-stringtoboolean",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-stringtonull.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-stringtonull",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-stringtonumber.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-stringtonumber",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-stringtoobject.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-stringtoobject",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-subquery.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-subquery",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-substring.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-substring",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-system-functions.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-system-functions",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-tan.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-tan",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-tickstodatetime.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-tickstodatetime",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-timestamptodatetime.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-timestamptodatetime",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-tostring.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-tostring",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-trim.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-trim",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-trunc.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-trunc",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-type-checking-functions.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-type-checking-functions",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-udfs.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-udfs",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-upper.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-upper",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-where.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-where",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql-query-working-with-json.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-query-working-with-json",
+    "redirect_document_id": true
+  },
+  {
     "source_path_from_root": "/articles/cosmos-db/tutorial-functions-http-trigger.md",
     "redirect_url": "/azure/azure-functions/functions-bindings-cosmosdb",
     "redirect_document_id": false

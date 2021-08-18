@@ -44,8 +44,6 @@
     href: concepts-api-management.md
   - name: Hub and spoke
     href: concepts-hub-and-spoke.md
-  - name: Monitor and protection
-    href: concepts-monitor-protection.md
   - name: Networking and interconnectivity
     href: concepts-networking.md
   - name: Private clouds and clusters
@@ -60,6 +58,8 @@
     href: request-host-quota-azure-vmware-solution.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
+  - name: Create a placement policy
+    href: create-placement-policy.md
   - name: Configure networking
     items:
     - name: Configure DHCP server or relay
