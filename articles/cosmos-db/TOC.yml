@@ -195,8 +195,6 @@
               href: import-data.md
             - name: Using .NET bulk support
               href: tutorial-sql-api-dotnet-bulk-import.md
-            - name: Convert vcores to RU/s
-              href: tutorial-vcore-pricing.md
         - name: 3 - Query data
           href: tutorial-query-sql-api.md
         - name: 4 - Create a notebook
@@ -1530,6 +1528,8 @@
           href: cosmosdb-migrationchoices.md
         - name: Migrate hundreds of terabytes of data into Azure Cosmos DB
           href: migrate-cosmosdb-data.md
+        - name: Convert vcores to RU/s
+          href: tutorial-vcore-pricing.md  
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn
