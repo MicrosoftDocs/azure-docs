@@ -14,13 +14,17 @@ ms.author: inhenkel
 ms.custom: devx-track-csharp
 ---
 
-# How to use the content-aware encoding preset
+# How to use the content aware encoding preset
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-You can create transforms that use this preset as follows.
+## Introduction
+The [content aware encoding preset](encode-content-aware-how-to.md) better prepares content for delivery by [adaptive bitrate streaming](encode-autogen-bitrate-ladder.md), where videos need to encode at multiple bitrates.It includes custom logic that lets the encoder seek the optimal bitrate value for a given resolution without requiring extensive computational analysis. The preset determines the optimal number of layers, appropriate bitrate and resolution settings for delivery by adaptive streaming. 
 
-See the [Next steps](#next-steps) section for tutorials that use transform outputs. The output asset can be delivered from Media Services streaming endpoints in protocols such as MPEG-DASH and HLS (as shown in the tutorials).
+Compared to the adaptive streaming preset, content aware encoding is more effective for low and medium complexity videos, where the output files will be at a lower bitrate but still at a quality that delivers a good viewing experience.
+
+## Use the content aware encoding preset
+You can create transforms that use this preset as follows.
 
 > [!NOTE]
 > Make sure to use the **ContentAwareEncoding** preset not  ContentAwareEncodingExperimental. Or, if you would like to encode with HEVC, you can use **H265ContentAwareEncoding**.
@@ -40,6 +44,8 @@ TransformOutput[] output = new TransformOutput[]
    }
 };
 ```
+
+See the [Next steps](#next-steps) section for tutorials that use transform outputs. The output asset can be delivered from Media Services streaming endpoints in protocols such as MPEG-DASH and HLS (as shown in the tutorials).
 
 > [!NOTE]
 > Encoding jobs using the `ContentAwareEncoding` preset are being billed based on solely the output minutes. AMS uses two-pass encoding and there are not any additional charges associated with using any of the presets beyond what is listed on our [pricing page](https://azure.microsoft.com/pricing/details/media-services/#overview).
