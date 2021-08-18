@@ -2,7 +2,7 @@
 title: Create a placement policy (Preview)
 description: Learn how to create a placement policy in Azure VMware Solution to control the placement of virtual machines (VMs) on hosts within a cluster through the Azure portal.
 ms.topic: how-to 
-ms.date: 8/16/2021
+ms.date: 8/18/2021
 
 #Customer intent: As an Azure service administrator, I want to control the placement of virtual machines on hosts within a cluster in my private cloud. 
 
@@ -105,16 +105,17 @@ Make sure to review the requirements for the [policy type](#placement-policy-typ
 
    :::image type="content" source="media/placement-policies/create-placement-policy-vm-vm-affinity-1.png" alt-text="Screenshot showing the placement policy options." lightbox="media/placement-policies/create-placement-policy-vm-vm-affinity-1.png":::   
 
-1. If you selected **VM-Host affinity** or **VM-Host anti-affinity** as the type, your policy requires a host to be selected. Select **+ Add host** and the hosts to include in the policy. You can select multiple hosts.
+1. If you selected **VM-Host affinity** or **VM-Host anti-affinity** as the type, select **+ Add host** and the hosts to include in the policy. You can select multiple hosts.
 
-   :::image type="content" source="media/placement-policies/create-placement-policy-vm-host-affinity-2.png" alt-text="Screenshot showing the list of hosts to select.":::
+   >[!NOTE]
+   >The select hosts pane shows how many VM-Host policies are associated with the host and the total number of VMs contained in those associated policies.
+   >
+   >:::image type="content" source="media/placement-policies/hosts-associated-policies-vms.png" alt-text="Screenshot showing the number of VM-Host policies associated with the host along with the number of VMs contained in those associated policies.":::
+
 
 1. Select **+ Add virtual machine** and the VMs to include in the policy. You can select multiple VMs.
 
    :::image type="content" source="media/placement-policies/create-placement-policy-vm-vm-affinity-2.png" alt-text="Screenshot showing the list of VMs to select.":::
-
-   >[!NOTE]
-   >The select hosts pane shows how many VM-Host policies are associated with the host and the total number of VMs contained in those associated policies.
 
 1. Once you've finished adding the VMs you want, select **Add virtual machines**. 
 
