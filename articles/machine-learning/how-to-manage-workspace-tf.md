@@ -35,96 +35,21 @@ Create the Terraform configuration file that declares the Azure provider.
 
 1. Paste the following code into the editor:
 
-    :::code language="terraform" source="~/terraform/quickstart/template/main.tf":::
-
-    ```hcl
-    provider "azurerm" {
-        # The "feature" block is required for AzureRM provider 2.x. 
-        # If you are using version 1.x, the "features" block is not allowed.
-        version = "~>2.0"
-        features {}
-    }
-
-    data "azurerm_client_config" "current" {}
-    ```
+    :::code language="terraform" source="~/terraform/quickstart/101-machine-learning/main.tf":::
 
 1. Save the file (**&lt;Ctrl>S**) and exit the editor (**&lt;Ctrl>Q**).
 
 ## Deploy a workspace
 
-Below Terraform template can be used to create an Azure Machine Learning workspace. When you deploy an Azure Machine Learning workspace, various other services are required as dependencies. The template also creates these [associated resources](/azure/machine-learning/concept-workspace#resources). Dependent on your use case and organizational requirements, you can choose to use the template that creates resources with either public or private network connectivity.
+Below Terraform template files can be used to create an Azure Machine Learning workspace. When you deploy an Azure Machine Learning workspace, various other services are required as dependencies. The templates also create these [associated resources](/azure/machine-learning/concept-workspace#resources). Dependent on your use case and organizational requirements, you can choose to use the template that creates resources with either public or private network connectivity.
 
 # [Public network connectivity](#tab/publicworkspace)
 
-Some resources in Azure require globally unique names. Before deploying your resources using the below template, set the `resourceprefix` variable to a value that is unique.
+Some resources in Azure require globally unique names. Before deploying your resources using the below template, set the `name` variable to a value that is unique.
 
-```hcl
-variable "resourceprefix" {
-  type = string
-  default = "azureml777"
-}
+:::code language="terraform" source="~/terraform/quickstart/101-machine-learning/variables.tf":::
 
-resource "azurerm_resource_group" "azureml" {
-  name     = "${var.resourceprefix}-rgp"
-  location = "East US"
-}
-
-resource "azurerm_application_insights" "azureml" {
-  name                = "${var.resourceprefix}ain"
-  location            = azurerm_resource_group.azureml.location
-  resource_group_name = azurerm_resource_group.azureml.name
-  application_type    = "web"
-}
-
-resource "azurerm_key_vault" "azureml" {
-  name                     = "${var.resourceprefix}kv"
-  location                 = azurerm_resource_group.azureml.location
-  resource_group_name      = azurerm_resource_group.azureml.name
-  tenant_id                = data.azurerm_client_config.current.tenant_id
-  sku_name                 = "premium"
-  purge_protection_enabled = true
-  
-  network_acls {
-    default_action = "Deny"
-    bypass = "AzureServices"
-  }
-}
-
-resource "azurerm_storage_account" "azureml" {
-  name                     = "${var.resourceprefix}sa"
-  location                 = azurerm_resource_group.azureml.location
-  resource_group_name      = azurerm_resource_group.azureml.name
-  account_tier             = "Standard"
-  account_replication_type = "GRS"
-
-  network_rules {
-    default_action = "Deny"
-    bypass = ["AzureServices"]
-  }
-}
-
-resource "azurerm_container_registry" "azureml" {
-  name                     = "${var.resourceprefix}cr"
-  location                 = azurerm_resource_group.azureml.location
-  resource_group_name      = azurerm_resource_group.azureml.name
-  sku                      = "Premium"
-  admin_enabled            = true
-}
-
-resource "azurerm_machine_learning_workspace" "azureml" {
-  name                    = "${var.resourceprefix}ws"
-  location                = azurerm_resource_group.azureml.location
-  resource_group_name     = azurerm_resource_group.azureml.name
-  application_insights_id = azurerm_application_insights.azureml.id
-  key_vault_id            = azurerm_key_vault.azureml.id
-  storage_account_id      = azurerm_storage_account.azureml.id
-  container_registry_id   = azurerm_container_registry.azureml.id
-
-  identity {
-    type = "SystemAssigned"
-  }
-}
-```
+:::code language="terraform" source="~/terraform/quickstart/101-machine-learning/workspace.tf":::
 
 # [Private network connectivity](#tab/privateworkspace)
 
@@ -134,219 +59,12 @@ Some resources in Azure require globally unique names. Before deploying your res
 
 There are several options to connect to your private link endpoint workspace. To learn more about these options, refer to [Securely connect to your workspace](/azure/machine-learning/how-to-secure-workspace-vnet#securely-connect-to-your-workspace).
 
-```hcl
-variable "resourceprefix-ple" {
-  type = string
-  default = "azureml777ple"
-}
 
-resource "azurerm_resource_group" "azureml_ple" {
-  name     = "${var.resourceprefix-ple}-rgp"
-  location = "East US"
-}
+:::code language="terraform" source="~/terraform/quickstart/201-machine-learning-private/variables.tf":::
 
-resource "azurerm_application_insights" "azureml_ple" {
-  name                = "${var.resourceprefix-ple}ain"
-  location            = azurerm_resource_group.azureml_ple.location
-  resource_group_name = azurerm_resource_group.azureml_ple.name
-  application_type    = "web"
-}
+:::code language="terraform" source="~/terraform/quickstart/201-machine-learning-private/network.tf":::
 
-resource "azurerm_key_vault" "azureml_ple" {
-  name                     = "${var.resourceprefix-ple}kv"
-  location                 = azurerm_resource_group.azureml_ple.location
-  resource_group_name      = azurerm_resource_group.azureml_ple.name
-  tenant_id                = data.azurerm_client_config.current.tenant_id
-  sku_name                 = "premium"
-  purge_protection_enabled = true
-  
-  network_acls {
-    default_action = "Deny"
-    bypass = "AzureServices"
-  }
-}
-
-resource "azurerm_storage_account" "azureml_ple" {
-  name                     = "${var.resourceprefix-ple}sa"
-  location                 = azurerm_resource_group.azureml_ple.location
-  resource_group_name      = azurerm_resource_group.azureml_ple.name
-  account_tier             = "Standard"
-  account_replication_type = "GRS"
-
-  network_rules {
-    default_action = "Deny"
-    bypass = ["AzureServices"]
-  }
-}
-
-resource "azurerm_container_registry" "azureml_ple" {
-  name                     = "${var.resourceprefix-ple}cr"
-  location                 = azurerm_resource_group.azureml_ple.location
-  resource_group_name      = azurerm_resource_group.azureml_ple.name
-  sku                      = "Premium"
-  admin_enabled            = true
-}
-
-resource "azurerm_machine_learning_workspace" "azureml_ple" {
-  name                    = "${var.resourceprefix-ple}ws"
-  location                = azurerm_resource_group.azureml_ple.location
-  resource_group_name     = azurerm_resource_group.azureml_ple.name
-  application_insights_id = azurerm_application_insights.azureml_ple.id
-  key_vault_id            = azurerm_key_vault.azureml_ple.id
-  storage_account_id      = azurerm_storage_account.azureml_ple.id
-  container_registry_id   = azurerm_container_registry.azureml_ple.id
-
-  identity {
-    type = "SystemAssigned"
-  }
-}
-
-# Network
-resource "azurerm_virtual_network" "azureml_ple" {
-  name                = "${var.resourceprefix-ple}vnet"
-  address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.azureml_ple.location
-  resource_group_name = azurerm_resource_group.azureml_ple.name
-}
-
-resource "azurerm_subnet" "mlsubnet" {
-  name                 = "mlsubnet"
-  resource_group_name  = azurerm_resource_group.azureml_ple.name
-  virtual_network_name = azurerm_virtual_network.azureml_ple.name
-  address_prefixes     = ["10.0.1.0/24"]
-  enforce_private_link_endpoint_network_policies = true
-}
-
-# DNS zones
-resource "azurerm_private_dns_zone" "dnsvault" {
-  name                = "privatelink.vaultcore.azure.net"
-  resource_group_name = azurerm_resource_group.azureml_ple.name
-}
-
-resource "azurerm_private_dns_zone" "dnsstorageblob" {
-  name                = "privatelink.blob.core.windows.net"
-  resource_group_name = azurerm_resource_group.azureml_ple.name
-}
-
-resource "azurerm_private_dns_zone" "dnsstoragefile" {
-  name                = "privatelink.file.core.windows.net"
-  resource_group_name = azurerm_resource_group.azureml_ple.name
-}
-
-resource "azurerm_private_dns_zone" "dnscontainerregistry" {
-  name                = "privatelink.azurecr.io"
-  resource_group_name = azurerm_resource_group.azureml_ple.name
-}
-
-resource "azurerm_private_dns_zone" "dnsazureml" {
-  name                = "privatelink.api.azureml.ms"
-  resource_group_name = azurerm_resource_group.azureml_ple.name
-}
-
-resource "azurerm_private_dns_zone" "dnsnotebooks" {
-  name                = "privatelink.azureml.notebooks.net"
-  resource_group_name = azurerm_resource_group.azureml_ple.name
-}
-
-# Private endpoints
-resource "azurerm_private_endpoint" "keyvault_ple" {
-  name                = "${var.resourceprefix-ple}kv-ple"
-  location            = azurerm_resource_group.azureml_ple.location
-  resource_group_name = azurerm_resource_group.azureml_ple.name
-  subnet_id           = azurerm_subnet.mlsubnet.id
-
-  private_dns_zone_group {
-    name                 = "private-dns-zone-group"
-    private_dns_zone_ids = [azurerm_private_dns_zone.dnsvault.id]
-  }
-
-  private_service_connection {
-    name                           = "${var.resourceprefix-ple}kv-psc"
-    private_connection_resource_id = azurerm_key_vault.azureml_ple.id
-    subresource_names              = [ "vault" ]
-    is_manual_connection           = false
-  }
-}
-
-resource "azurerm_private_endpoint" "storage_ple_blob" {
-  name                = "${var.resourceprefix-ple}sa-ple-blob"
-  location            = azurerm_resource_group.azureml_ple.location
-  resource_group_name = azurerm_resource_group.azureml_ple.name
-  subnet_id           = azurerm_subnet.mlsubnet.id
-
-  private_dns_zone_group {
-    name                 = "private-dns-zone-group"
-    private_dns_zone_ids = [azurerm_private_dns_zone.dnsstorageblob.id]
-  }
-
-  private_service_connection {
-    name                           = "${var.resourceprefix-ple}sa-psc"
-    private_connection_resource_id = azurerm_storage_account.azureml_ple.id
-    subresource_names              = [ "blob" ]
-    is_manual_connection           = false
-  }
-}
-
-resource "azurerm_private_endpoint" "storage_ple_file" {
-  name                = "${var.resourceprefix-ple}sa-ple-file"
-  location            = azurerm_resource_group.azureml_ple.location
-  resource_group_name = azurerm_resource_group.azureml_ple.name
-  subnet_id           = azurerm_subnet.mlsubnet.id
-
-  private_dns_zone_group {
-    name                 = "private-dns-zone-group"
-    private_dns_zone_ids = [azurerm_private_dns_zone.dnsstoragefile.id]
-  }
-
-  private_service_connection {
-    name                           = "${var.resourceprefix-ple}sa-psc"
-    private_connection_resource_id = azurerm_storage_account.azureml_ple.id
-    subresource_names              = [ "file" ]
-    is_manual_connection           = false
-  }
-}
-
-resource "azurerm_private_endpoint" "cr_ple" {
-  name                = "${var.resourceprefix-ple}cr-ple"
-  location            = azurerm_resource_group.azureml_ple.location
-  resource_group_name = azurerm_resource_group.azureml_ple.name
-  subnet_id           = azurerm_subnet.mlsubnet.id
-
-  private_dns_zone_group {
-    name                 = "private-dns-zone-group"
-    private_dns_zone_ids = [azurerm_private_dns_zone.dnscontainerregistry.id]
-  }
-
-  private_service_connection {
-    name                           = "${var.resourceprefix-ple}cr-psc"
-    private_connection_resource_id = azurerm_container_registry.azureml_ple.id
-    subresource_names              = [ "registry" ]
-    is_manual_connection           = false
-  }
-}
-
-resource "azurerm_private_endpoint" "ml_ple" {
-  name                = "${var.resourceprefix-ple}ml-ple"
-  location            = azurerm_resource_group.azureml_ple.location
-  resource_group_name = azurerm_resource_group.azureml_ple.name
-  subnet_id           = azurerm_subnet.mlsubnet.id
-
-  private_dns_zone_group {
-    name                 = "private-dns-zone-group"
-    private_dns_zone_ids = [
-      azurerm_private_dns_zone.dnsazureml.id,
-      azurerm_private_dns_zone.dnsnotebooks.id
-    ]
-  }
-
-  private_service_connection {
-    name                           = "${var.resourceprefix-ple}ml-psc"
-    private_connection_resource_id = azurerm_machine_learning_workspace.azureml_ple.id
-    subresource_names              = [ "amlworkspace" ]
-    is_manual_connection           = false
-  }
-}
-```
+:::code language="terraform" source="~/terraform/quickstart/201-machine-learning-private/workspace.tf":::
 
 ---
 
@@ -359,6 +77,6 @@ resource "azurerm_private_endpoint" "ml_ple" {
 ## Next steps
 
 * To learn more about Terraform support on Azure, see [Terraform on Azure documentation](/azure/developer/terraform/).
+* To find "quick start" examples for Terraform, see [Azure Terraform QuickStart Templates](https://github.com/Azure/terraform/tree/master/quickstart).
 * For alternative ARM template-based deployments, see [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md).
 * To learn more about network configuration options, see [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](/azure/machine-learning/how-to-network-security-overview).
-* 
