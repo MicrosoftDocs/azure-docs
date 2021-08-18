@@ -161,5 +161,5 @@ If the payment fails, the API Management subscription is placed in a suspended s
 
 ## Next steps
 
-* Follow [Deploy demo with Adyen](adyen-deploy.md) to deploy the solution described in this document.
+* Follow [Deploy demo with Adyen](tutorial-adyen-deploy.md) to deploy the solution described in this document.
 * See if [deploying with Stripe](stripe-details.md) is a better method for you.
