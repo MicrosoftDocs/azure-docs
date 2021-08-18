@@ -43,7 +43,7 @@ After deploying your model, it is ready to be used. You can only send entity ext
     > [!NOTE]
     > When you send requests using the REST API, you will need to specify your API key, endpoint, and model ID. The example request in Language Studio contains these values. Additionally:
     > * You can find your model ID in **Deploy model**, after your model's status and deployment date.
-    > * You can find your key and Endpoint in **Project Settings.
+    > * You can find your key and endpoint in **Project Settings**.
 
 
 7. In the response header you receive, extract the value from `operation-location` which is formatted as: 
