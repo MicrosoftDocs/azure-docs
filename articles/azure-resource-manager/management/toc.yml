@@ -143,6 +143,8 @@
       href: manage-resources-powershell.md
   - name: Resource providers and types
     href: resource-providers-and-types.md
+  - name: Preview features
+    href: preview-features.md
   - name: Delete resource groups and resources
     href: delete-resource-group.md
   - name: Lock resources
