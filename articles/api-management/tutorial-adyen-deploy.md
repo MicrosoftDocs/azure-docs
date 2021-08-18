@@ -10,7 +10,7 @@ ms.service: api-management
 
 # Tutorial: Deploy API Management monetization with Adyen
 
-In this tutorial, you will deploy the demo Adyen account and learn how to:
+In this tutorial, you'll deploy the demo Adyen account and learn how to:
 
 > [!div class="checklist"]
 > * Set up an Adyen account, the required PowerShell and `az cli` tools, an Azure subscription, and a service principal on Azure. 
@@ -19,7 +19,7 @@ In this tutorial, you will deploy the demo Adyen account and learn how to:
 
 ## Pre-requisites
 
-For the purpose of this sample project, you'll need to:
+For this sample project, you'll need to:
 
 > [!div class="checklist"]
 > * Create an Adyen test account. 
@@ -29,7 +29,7 @@ For the purpose of this sample project, you'll need to:
 
 ### [Create an Adyen test account](https://www.adyen.com/signup)
 
-1. Set up a merchant **ECommerce** account.
+1. Set up a merchant **Ecommerce** account.
 1. On the **Account** tab at the top of the Adyen test homepage, select the **Web Service** username.
 1. Add the origin you will be using to the list of allowed origins.
 1. Retrieve the API key and client key.
@@ -49,7 +49,7 @@ For the solution to work, the Web App component needs a privileged credential on
 
 Before deploying the resources, set up the service principal in the Azure Active Directory (AAD) tenant used by the Web App to update the status of API Management subscriptions. 
 
-The simplest way to do this is using the Azure command line interface (CLI).
+The simplest method is using the Azure command-line interface (CLI).
 
 1. [Sign in with Azure CLI](../cli/azure/authenticate-azure-cli.md#sign-in-interactively):
 
@@ -108,7 +108,7 @@ You can deploy by running the `deploy.ps1` PowerShell script at the root of the 
 
 This example project uses the hosted [API Management developer portal](api-management-howto-developer-portal-customize.md). 
 
-You are required to complete a manual step to publish and make the resources visible to customers. To learn how to do this, see the [Publish the portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) instructions.
+You are required to complete a manual step to publish and make the resources visible to customers. See the [Publish the portal](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-developer-portal-customize#publish) for instructions.
 
 ## Next Steps
 * Learn more about [deploying API Management monetization with Adyen](adyen-details.md).
