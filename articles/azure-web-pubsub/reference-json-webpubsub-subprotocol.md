@@ -41,7 +41,7 @@ The server-side can also grant or revoke permissions of the client dynamically t
 
 ## Requests
 
-### Join Group
+### Join groups
 
 Format:
 
@@ -55,8 +55,7 @@ Format:
 
 * `ackId` is optional, it's an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
 
-### Leave Group
-
+### Leave groups
 
 Format:
 
@@ -70,7 +69,7 @@ Format:
 
 * `ackId` is optional, it's an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
 
-### Publish Messages
+### Publish messages
 
 Format:
 
@@ -113,7 +112,7 @@ Format:
 ```
 * What the raw client in this group `<group_name>` receives is string data `text data`.
 
-#### Case 2: publish json data:
+#### Case 2: publish JSON data:
 ```json
 {
     "type": "sendToGroup",
@@ -162,7 +161,7 @@ Format:
 ```
 * What the raw client in this group `<group_name>` receives is the **binary** data in the binary frame.
 
-### Send Custom Events
+### Send custom events
 
 Format:
 
@@ -213,7 +212,7 @@ text data
 
 ```
 
-#### Case 2: send event with json data:
+#### Case 2: send event with JSON data:
 ```json
 {
     "type": "event",
@@ -365,7 +364,7 @@ Clients can receive messages published from one group the client joined, or from
 
 If the REST API is sending a string `Hello World` using `application/json` content type, what the simple WebSocket client receives is a JSON string, which is `"Hello World"` that wraps the string with `"`.
 
-#### Case 3:  Sending binary data to the connection through REST API with `Content-Type`=`application/octet-stream`
+#### Case 3: Sending binary data to the connection through REST API with `Content-Type`=`application/octet-stream`
 * What a simple WebSocket client receives is a binary WebSocket frame with the binary data.
 * What a PubSub WebSocket client receives is as follows:
     ```json
@@ -405,3 +404,7 @@ When the server closes the connection, or when the service declines the client.
     "message": "reason"
 }
 ```
+
+## Next steps
+
+[!INCLUDE [next step](includes/include-next-step.md)]

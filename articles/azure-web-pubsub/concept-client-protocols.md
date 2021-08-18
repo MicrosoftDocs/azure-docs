@@ -13,7 +13,7 @@ ms.date: 08/16/2021
 Clients connect to Azure Web PubSub using the standard [WebSocket](https://datatracker.ietf.org/doc/html/rfc6455) protocol.
 
 ## Service Endpoint
-The service provides 2 types of endpoints for the clients to connect to:
+The service provides two types of endpoints for the clients to connect to:
 1. `/client/hubs/{hub}`
 2. `/client/?hub={hub}`
 
@@ -71,3 +71,7 @@ As you may have noticed when we describe the PubSub WebSocket clients, that a cl
 | `webpubsub.sendToGroup.<group>` | The client can publish messages to group `<group>`.
 
 Details of the subprotocol is described in [JSON subprotocol](./reference-json-webpubsub-subprotocol.md).
+
+## Next steps
+
+[!INCLUDE [next step](includes/include-next-step.md)]

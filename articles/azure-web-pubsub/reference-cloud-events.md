@@ -24,7 +24,8 @@ The data sending from service to server is always in CloudEvents `binary` format
         - [System `connected` event](#connected)
         - [System `disconnected` event](#disconnected)
 
-## Webhook Validation
+## Webhook validation
+
 <a name="protection"></a>
 
 The Webhook validation follows [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). The request always contains `WebHook-Request-Origin: xxx.webpubsub.azure.com` in the header.
@@ -40,7 +41,7 @@ Or:
 For now, [WebHook-Request-Rate](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#414-webhook-request-rate) and [WebHook-Request-Callback](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#413-webhook-request-callback) are not supported.
 
 
-## Web PubSub CloudEvents Attribute Extension
+## Web PubSub CloudEvents attribute extension
 <a name="extension"></a>
 
 > It was also noted that the HTTP specification is now following a similar pattern by no longer suggesting that extension HTTP headers be prefixed with X-.
@@ -75,7 +76,7 @@ There are two types of events, one is *blocking* events that the service waits f
 * `ce-type`: `azure.webpubsub.sys.connect`
 * `Content-Type`: `application/json`
 
-#### Request Format:
+#### Request format:
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -108,7 +109,7 @@ ce-eventName: connect
 
 ```
 
-#### Success Response Format:
+#### Success response format:
 
 * `204`: Success, with no content.
 * `200`: Success, the content SHOULD be a JSON format, with following properties allowed:
@@ -145,7 +146,7 @@ HTTP/1.1 200 OK
     
     The property provides a way for the upstream to authorize the client. Different roles define different initial permissions the client has, it can be useful when the client is a PubSub WebSocket client. Details about the permissions are described in [Client permissions](./concept-client-protocols.md#permissions).
 
-#### Error Response Format:
+#### Error response format:
 
 * `4xx`: Error, the response from Upstream will be returned as the response for the client request.
 
@@ -162,7 +163,7 @@ The service calls the Upstream when the client completes WebSocket handshake and
 
 Request body is empty JSON.
 
-#### Request Format:
+#### Request format:
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -186,7 +187,7 @@ ce-subprotocol: abc
 
 ```
 
-#### Response Format:
+#### Response format:
 
 `2xx`: success response.
 
@@ -204,7 +205,7 @@ HTTP/1.1 200 OK
 * `ce-type`: `azure.webpubsub.sys.disconnected`
 * `Content-Type`: `application/json`
 
-#### Request Format:
+#### Request format:
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -235,7 +236,7 @@ ce-subprotocol: abc
     The `reason` describes the reason the client disconnects.
 
 
-#### Response Format:
+#### Response format:
 
 `2xx`: success response.
 
@@ -255,7 +256,7 @@ The service invokes the event handler upstream for every WebSocket message frame
 
 UserPayload is what the client sends.
 
-#### Request Format:
+#### Request format:
 
 ```HTTP
 POST /upstream HTTP/1.1
@@ -278,7 +279,7 @@ UserPayload
 
 ```
 
-#### Success Response Format
+#### Success response format
 
 * Status code
     * `204`: Success, with no content.
@@ -295,10 +296,10 @@ Content-Length: nnnn
 UserResponsePayload
 ```
 
-#### Error Response Format
+#### Error response format
 When the status code is not success, it is considered to be error response. The connection would be **dropped** if the `message` response status code is not success.
 
-### User custom event `{custom_event}` for the PubSub WebSocket Client
+### User custom event `{custom_event}` for PubSub WebSocket clients
 <a name="custom_event"></a>
 
 The service calls the event handler webhook for every valid custom event message.
@@ -337,7 +338,7 @@ text data
 
 ```
 
-#### Case 2: send event with json data:
+#### Case 2: send event with JSON data:
 ```json
 {
     "type": "event",
@@ -409,7 +410,7 @@ ce-subprotocol: json.webpubsub.azure.v1
 
 ```
 
-#### Success Response Format
+#### Success response format
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -435,5 +436,9 @@ UserResponsePayload
 * When the `Content-Type` is `application/json`, the service sends `UserResponsePayload` to the client using `dataType`=`json` with `data` value token as the response payload body.
 
 
-#### Error Response Format
+#### Error response format
 When the status code is not success, it is considered to be error response. The connection would be **dropped** if the `{custom_event}` response status code is not success.
+
+## Next steps
+
+[!INCLUDE [next step](includes/include-next-step.md)]

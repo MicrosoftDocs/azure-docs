@@ -6,8 +6,6 @@ ms.topic: include
 ms.date: 08/06/2021
 ---
 
-In real-world applications, you can use SDKs in various languages build your own application. We also provide Function extensions for you to build serverless applications easily.
-
 Follow the tutorials listed below to start building your own application.
 
 > [!div class="nextstepaction"]
