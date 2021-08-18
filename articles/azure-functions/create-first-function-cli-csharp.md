@@ -196,15 +196,13 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
+    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. 
 
     # [Azure CLI](#tab/azure-cli/isolated-process)
 
     ```azurecli
     az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
-    ```
-    ---
-    
-    The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. 
+    ``` 
     
     # [Azure PowerShell](#tab/azure-powershell/in-process)
     

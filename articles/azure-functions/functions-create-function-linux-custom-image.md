@@ -613,6 +613,10 @@ This section shows you how to integrate your function with an Azure Storage queu
 [!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-csharp"  
+## Register binding extensions
+::: zone-end 
+
 [!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
 
 [!INCLUDE [functions-add-output-binding-cli](../../includes/functions-add-output-binding-cli.md)]

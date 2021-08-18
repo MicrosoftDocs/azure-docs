@@ -1,5 +1,11 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 08/16/2021
+ms.author: glenga
+---
 ::: zone pivot="programming-language-csharp"  
-## Register binding extensions
 
 With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Storage extension package to your project.
 
