@@ -6,7 +6,7 @@ ms.date: 08/17/2021
 ms.author: johndeu
 ---
 
-## Azure Policy defintions for Private Links
+## Azure Policy definitions for Private Links
 
 Azure Media Services supports several built-in use case based [Azure Policy](../../governance/policy/overview.md) definitions. 
 
