@@ -15,9 +15,10 @@ Configuring a Private Link requires a few steps:
 
 This article reviews how it's done through the Azure portal and provides an example Azure Resource Manager (ARM) template to automate the process. 
 
-## Create a Private Link connection
+## Create a Private Link connection through the Azure Portal
+In this section, we review the process of setting up a Private Link through the Azure Portal, step by step. See [Use APIs and command line](./#use-apis-and-command-line) to learn how to create and manage a Private Link using the command line or an Azure Resource Manager template (ARM template).
 
-Start by creating an Azure Monitor Private Link Scope resource.
+### Create an Azure Monitor Private Link Scope
 
 1. Go to **Create a resource** in the Azure portal and search for **Azure Monitor Private Link Scope**.
 
@@ -110,15 +111,101 @@ If you set **Allow public network access for ingestion** to **No**, then clients
 If you set **Allow public network access for queries** to **No**, then clients (machines, SDKs etc.) outside of the connected scopes can't query data in the resource. That data includes access to logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal and that query Log Analytics data also have to be running within the private-linked VNET.
 
 
-### Exceptions
+## Use APIs and command line
 
-#### Diagnostic logs
-Logs and metrics uploaded to a workspace via [Diagnostic Settings](../essentials/diagnostic-settings.md) go over a secure private Microsoft channel, and are not controlled by these settings.
+You can automate the process described earlier using Azure Resource Manager templates, REST, and command-line interfaces.
 
-#### Azure Resource Manager
-Restricting access as explained above applies to data in the resource. However, configuration changes, including turning these access settings on or off, are managed by Azure Resource Manager. To control these settings, you should restrict access to resources using the appropriate roles, permissions, network controls, and auditing. For more information, see [Azure Monitor Roles, Permissions, and Security](../roles-permissions-security.md)
+To create and manage private link scopes, use the [REST API](/rest/api/monitor/privatelinkscopes(preview)/private%20link%20scoped%20resources%20(preview)) or [Azure CLI (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
 
-Additionally, specific experiences (such as the LogicApp connector, Update Management solution, and the Workspace Summary blade in the portal, showing the solutions dashboard) query data through Azure Resource Manager and therefore won't be able to query data unless Private Link settings are applied to the Resource Manager as well.
+To manage the network access flag on your workspace or component, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [Log Analytics workspaces](/cli/azure/monitor/log-analytics/workspace) or [Application Insights components](/cli/azure/ext/application-insights/monitor/app-insights/component).
+
+### Example Azure Resource Manager template (ARM template)
+The below Azure Resource Manager template creates:
+* A private link scope (AMPLS) named "my-scope", with an Open access mode for both ingestion and query, meaning it allows traffic to non-Private-Link resources (resources out of the AMPLS)
+* A Log Analytics workspace named "my-workspace"
+* Add a scoped resource linked to the "my-scope" AMPLS, named "my-workspace-connection"
+
+```
+{
+    "$schema": https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#,
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "private_link_scope_name": {
+            "defaultValue": "my-scope",
+            "type": "String"
+        },
+        "workspace_name": {
+            "defaultValue": "my-workspace",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.insights/privatelinkscopes",
+            "apiVersion": "2021-07-01-preview",
+            "name": "[parameters('private_link_scope_name')]",
+            "location": "global",
+            "properties": {
+                "accessModeSettings":{
+                    "queryAccessMode":"Open",
+                    "ingestionAccessMode":"Open"
+                }
+            }
+        },
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-10-01",
+            "name": "[parameters('workspace_name')]",
+            "location": "westeurope",
+            "properties": {
+                "sku": {
+                    "name": "pergb2018"
+                },
+                "publicNetworkAccessForIngestion": "Enabled",
+                "publicNetworkAccessForQuery": "Enabled"
+            }
+        },
+        {
+            "type": "microsoft.insights/privatelinkscopes/scopedresources",
+            "apiVersion": "2019-10-17-preview",
+            "name": "[concat(parameters('private_link_scope_name'), '/', concat(parameters('workspace_name'), '-connection'))]",
+            "dependsOn": [
+                "[resourceId('microsoft.insights/privatelinkscopes', parameters('private_link_scope_name'))]",
+                "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspace_name'))]"
+            ],
+            "properties": {
+                "linkedResourceId": "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspace_name'))]"
+            }
+        }
+    ]
+}
+```
+
+### Set the access mode values for existing AMPLS using PowerShell
+The below PowerShell script updates an existing AMPLS and sets its access modes to Open, for both ingestion and query.
+If you'd like to set the AMPLS to allow only traffic to Private Links resources (resources in the AMPLS), set the access mode values to "PrivateOnly" instead of "Open".
+
+```
+# scope details
+$scopeSubscriptionId = "ab1800bd-ceac-48cd-...-..."
+$scopeResourceGroup = "my-resource-group"
+$scopeName = "my-scope"
+
+# login
+Connect-AzAccount
+
+# select subscription
+Select-AzSubscription -SubscriptionId $scopeSubscriptionId
+
+# get private link scope resource
+$scope = Get-AzResource -ResourceType Microsoft.Insights/privateLinkScopes -ResourceGroupName $scopeResourceGroup -ResourceName $scopeName -ApiVersion "2021-07-01-preview"
+
+# set access mode settings
+$scope.Properties.AccessModeSettings.QueryAccessMode = "Open";
+$scope.Properties.AccessModeSettings.IngestionAccessMode = "Open";
+$scope | Set-AzResource -Force
+```
 
 
 ## Review and validate your Private Link setup
@@ -172,72 +259,6 @@ This zone configures connectivity to the global agents' solution packs storage a
 
 * From a client on your protected network, use `nslookup` to any of the endpoints listed in your DNS zones. It should be resolved by your DNS server to the mapped private IPs instead of the public IPs used by default.
 
-
-## Use APIs and command line
-
-You can automate the process described earlier using Azure Resource Manager templates, REST, and command-line interfaces.
-
-To create and manage private link scopes, use the [REST API](/rest/api/monitor/privatelinkscopes(preview)/private%20link%20scoped%20resources%20(preview)) or [Azure CLI (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
-
-To manage the network access flag on your workspace or component, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [Log Analytics workspaces](/cli/azure/monitor/log-analytics/workspace) or [Application Insights components](/cli/azure/ext/application-insights/monitor/app-insights/component).
-
-### Example Azure Resource Manager template (ARM template)
-The below Azure Resource Manager template creates:
-* A private link scope (AMPLS) named "my-scope"
-* A Log Analytics workspace named "my-workspace"
-* Add a scoped resource to the "my-scope" AMPLS, named "my-workspace-connection"
-
-```
-{
-    "$schema": https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#,
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "private_link_scope_name": {
-            "defaultValue": "my-scope",
-            "type": "String"
-        },
-        "workspace_name": {
-            "defaultValue": "my-workspace",
-            "type": "String"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "microsoft.insights/privatelinkscopes",
-            "apiVersion": "2019-10-17-preview",
-            "name": "[parameters('private_link_scope_name')]",
-            "location": "global",
-            "properties": {}
-        },
-        {
-            "type": "microsoft.operationalinsights/workspaces",
-            "apiVersion": "2020-10-01",
-            "name": "[parameters('workspace_name')]",
-            "location": "westeurope",
-            "properties": {
-                "sku": {
-                    "name": "pergb2018"
-                },
-                "publicNetworkAccessForIngestion": "Enabled",
-                "publicNetworkAccessForQuery": "Enabled"
-            }
-        },
-        {
-            "type": "microsoft.insights/privatelinkscopes/scopedresources",
-            "apiVersion": "2019-10-17-preview",
-            "name": "[concat(parameters('private_link_scope_name'), '/', concat(parameters('workspace_name'), '-connection'))]",
-            "dependsOn": [
-                "[resourceId('microsoft.insights/privatelinkscopes', parameters('private_link_scope_name'))]",
-                "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspace_name'))]"
-            ],
-            "properties": {
-                "linkedResourceId": "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspace_name'))]"
-            }
-        }
-    ]
-}
-```
 
 ## Next steps
 
