@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 06/21/2021
 ms.author: jeedes
 
 ---
@@ -28,6 +28,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Acunetix 360 single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -49,7 +52,6 @@ To configure the integration of Acunetix 360 into Azure AD, you need to add Acun
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Acunetix 360** in the search box.
 1. Select **Acunetix 360** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Acunetix 360
 
@@ -74,7 +76,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     In the **Reply URL** text box, type a URL using the following pattern:
     `https://online.acunetix360.com/account/assertionconsumerservice/?spId=<SPID>`
@@ -150,10 +152,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### IDP initiated:
 
-* Click on **Test this application** in Azure portal and you should be automatically signed in to the Acunetix 360 for which you set up the SSO 
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Acunetix 360 for which you set up the SSO. 
 
 You can also use Microsoft My Apps to test the application in any mode. When you click the Acunetix 360 tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Acunetix 360 for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
 
 ## Next steps
 

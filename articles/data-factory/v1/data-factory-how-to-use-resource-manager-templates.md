@@ -1,5 +1,5 @@
 ---
-title: Use Resource Manager templates in Data Factory 
+title: Use Resource Manager templates in Data Factory
 description: Learn how to create and use Azure Resource Manager templates to create Data Factory entities.
 author: dcstwh
 ms.author: weetok
@@ -11,7 +11,7 @@ ms.date: 01/10/2018
 
 # Use templates to create Azure Data Factory entities
 > [!NOTE]
-> This article applies to version 1 of Data Factory. 
+> This article applies to version 1 of Data Factory.
 
 ## Overview
 While using Azure Data Factory for your data integration needs, you may find yourself reusing the same pattern across different environments or implementing the same task repetitively within the same solution. Templates help you implement and manage these scenarios in an easy manner. Templates in Azure Data Factory are ideal for scenarios that involve reusability and repetition.
@@ -23,7 +23,7 @@ In this case, a task needs to be repeated within the same environment, but with 
 Furthermore, as the organization wants to deploy these 10 data factories multiple times across different environments, templates can use this **reusability** by utilizing separate parameter files for development, test, and production environments.
 
 ## Templating with Azure Resource Manager
-[Azure Resource Manager templates](../../azure-resource-manager/templates/overview.md) are a great way to achieve templating in Azure Data Factory. Resource Manager templates define the infrastructure and configuration of your Azure solution through a JSON file. Because Azure Resource Manager templates work with all/most Azure services, it can be widely used to easily manage all resources of your Azure assets. See [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to learn more about the Resource Manager Templates in general.
+[Azure Resource Manager templates](../../azure-resource-manager/templates/overview.md) are a great way to achieve templating in Azure Data Factory. Resource Manager templates define the infrastructure and configuration of your Azure solution through a JSON file. Because Azure Resource Manager templates work with all/most Azure services, it can be widely used to easily manage all resources of your Azure assets. See [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to learn more about the Resource Manager Templates in general.
 
 ## Tutorials
 See the following tutorials for step-by-step instructions to create Data Factory entities by using Resource Manager templates:
@@ -34,12 +34,12 @@ See the following tutorials for step-by-step instructions to create Data Factory
 ## Data Factory templates on GitHub
 Check out the following Azure quickstart templates on GitHub:
 
-* [Create a Data factory to copy data from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
-* [Create a Data factory with Hive activity on Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
-* [Create a Data factory to copy data from Salesforce to Azure Blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy)
-* [Create a Data factory that chains activities: copies data from an FTP server to Azure Blobs, invokes a hive script on an on-demand HDInsight cluster to transform the data, and copies result into Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
+* [Create a Data factory to copy data from Azure Blob Storage to Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-blob-to-sql-copy)
+* [Create a Data factory with Hive activity on Azure HDInsight cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-hive-transformation)
+* [Create a Data factory to copy data from Salesforce to Azure Blobs](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-salesforce-to-blob-copy)
+* [Create a Data factory that chains activities: copies data from an FTP server to Azure Blobs, invokes a hive script on an on-demand HDInsight cluster to transform the data, and copies result into Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-ftp-hive-blob)
 
-Feel free to share your Azure Data Factory templates at [Azure quickstart](https://azure.microsoft.com/documentation/templates/). Refer to the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) while developing templates that can be shared via this repository.
+Feel free to share your Azure Data Factory templates at [Azure quickstart](https://azure.microsoft.com/resources/templates/). Refer to the [contribution guide](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE) while developing templates that can be shared via this repository.
 
 The following sections provide details about defining Data Factory resources in a Resource Manager template.
 
@@ -84,7 +84,7 @@ You define a data factory in the Resource Manager template as shown in the follo
     "location": "East US"
 }
 ```
-The dataFactoryName is defined in “variables” as:
+The dataFactoryName is defined in "variables" as:
 
 ```JSON
 "dataFactoryName": "[concat('<myDataFactoryName>', uniqueString(resourceGroup().id))]",
@@ -102,7 +102,7 @@ The dataFactoryName is defined in “variables” as:
 }
 ```
 
-See [Storage Linked Service](data-factory-azure-blob-connector.md#azure-storage-linked-service) or [Compute Linked Services](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details about the JSON properties for the specific linked service you wish to deploy. The “dependsOn” parameter specifies name of the corresponding data factory. An example of defining a linked service for Azure Storage is shown in the following JSON definition:
+See [Storage Linked Service](data-factory-azure-blob-connector.md#azure-storage-linked-service) or [Compute Linked Services](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) for details about the JSON properties for the specific linked service you wish to deploy. The "dependsOn" parameter specifies name of the corresponding data factory. An example of defining a linked service for Azure Storage is shown in the following JSON definition:
 
 ### Define datasets
 
@@ -118,7 +118,7 @@ See [Storage Linked Service](data-factory-azure-blob-connector.md#azure-storage-
     ...
 }
 ```
-Refer to [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) for details about the JSON properties for the specific dataset type you wish to deploy. Note the “dependsOn” parameter specifies name of the corresponding data factory and storage linked service. An example of defining dataset type of Azure blob storage is shown in the following JSON definition:
+Refer to [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) for details about the JSON properties for the specific dataset type you wish to deploy. Note the "dependsOn" parameter specifies name of the corresponding data factory and storage linked service. An example of defining dataset type of Azure blob storage is shown in the following JSON definition:
 
 ```JSON
 "type": "datasets",
@@ -164,7 +164,7 @@ Refer to [Supported data stores](data-factory-data-movement-activities.md#suppor
 }
 ```
 
-Refer to [defining pipelines](data-factory-create-pipelines.md#pipeline-json) for details about the JSON properties for defining the specific pipeline and activities you wish to deploy. Note the “dependsOn” parameter specifies name of the data factory, and any corresponding linked services or datasets. An example of a pipeline that copies data from Azure Blob Storage to Azure SQL Database is shown in the following JSON snippet:
+Refer to [defining pipelines](data-factory-create-pipelines.md#pipeline-json) for details about the JSON properties for defining the specific pipeline and activities you wish to deploy. Note the "dependsOn" parameter specifies name of the data factory, and any corresponding linked services or datasets. An example of a pipeline that copies data from Azure Blob Storage to Azure SQL Database is shown in the following JSON snippet:
 
 ```JSON
 "type": "datapipelines",
@@ -219,7 +219,7 @@ Refer to [defining pipelines](data-factory-create-pipelines.md#pipeline-json) fo
 }
 ```
 ## Parameterizing Data Factory template
-For best practices on parameterizing, see [Best practices for creating Azure Resource Manager templates](../../azure-resource-manager/templates/template-best-practices.md). In general, parameter usage should be minimized, especially if variables can be used instead. Only provide parameters in the following scenarios:
+For best practices on parameterizing, see [Best practices for creating Azure Resource Manager templates](../../azure-resource-manager/templates/best-practices.md). In general, parameter usage should be minimized, especially if variables can be used instead. Only provide parameters in the following scenarios:
 
 * Settings vary by environment (example: development, test, and production)
 * Secrets (such as passwords)

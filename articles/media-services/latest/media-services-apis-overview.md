@@ -22,9 +22,11 @@ ms.custom: seodec18
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-As a developer, you can use Media Services [REST API](/rest/api/media/) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
+As a developer, you can use client libraries for (.NET, Python, Node.js, Java, Go, and Ruby) that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
 
 This article discusses rules that apply to entities and APIs when you develop with Media Services v3.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
 
 ## Accessing the Azure Media Services API
 
@@ -64,12 +66,11 @@ see [Access Azure Media Services API](./access-api-howto.md).
 ### Samples
 
 See the following samples that show how to connect with Azure AD service principal:
-
-* [Connect with REST](setup-postman-rest-how-to.md)  
-* [Connect with Java](configure-connect-java-howto.md)
 * [Connect with .NET](configure-connect-dotnet-howto.md)
 * [Connect with Node.js](configure-connect-nodejs-howto.md)
 * [Connect with Python](configure-connect-python-howto.md)
+* [Connect with Java](configure-connect-java-howto.md)
+* [Connect with REST](setup-postman-rest-how-to.md)  
 
 ## Naming conventions
 

@@ -144,6 +144,8 @@ CREATE EXTERNAL TABLE Covid (
 );
 ```
 
+Delta Lake is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+
 ## Use an external table
 
 You can use [external tables](develop-tables-external-tables.md) in your queries the same way you use them in SQL Server queries.

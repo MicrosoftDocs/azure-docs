@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 * [Azure CLI](/cli/azure/overview), installed on your own computer. 
 * [Git](https://git-scm.com/)
-* [Java JDK](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [Java JDK](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Maven](https://maven.apache.org)
 
 ## Clone the sample TODO app and prepare the repo
@@ -183,7 +183,7 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.14.0</version>
+        <version>2.0.0</version>
         <configuration>
             <schemaVersion>v2</schemaVersion>
 
@@ -191,7 +191,7 @@ Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the 
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
-            <pricingTier>P1V2</princingTier>
+            <pricingTier>P1v2</pricingTier>
             <!-- Java Runtime Stack for Web App on Linux-->
             <runtime>
                  <os>linux</os>
@@ -248,18 +248,16 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
-[INFO] --- azure-webapp-maven-plugin:1.14.0:deploy (default-cli) @ spring-todo-app ---
-[INFO] Auth Type : AZURE_CLI, Auth Files : [C:\Users\testuser\.azure\azureProfile.json, C:\Users\testuser\.azure\accessTokens.json]
-[INFO] Subscription : xxxxxxxxx
-[INFO] Target Web App doesn't exist. Creating a new one...
+[INFO] --- azure-webapp-maven-plugin:2.0.0:deploy (default-cli) @ spring-todo-app ---
+Auth Type: AZURE_CLI
+Default subscription: xxxxxxxxx
+Username: xxxxxxxxx
+[INFO] Subscription: xxxxxxxxx
 [INFO] Creating App Service Plan 'ServicePlanb6ba8178-5bbb-49e7'...
 [INFO] Successfully created App Service Plan.
-[INFO] Successfully created Web App.
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 1 resource to /home/test/e2e-java-experience-in-app-service-linux-part-2/initial/spring-todo-app/target/azure-webapp/spring-todo-app-61bb5207-6fb8-44c4-8230-c1c9e4c099f7
+[INFO] Creating web App spring-todo-app...
+[INFO] Successfully created Web App spring-todo-app.
 [INFO] Trying to deploy artifact to spring-todo-app...
-[INFO] Renaming /home/test/e2e-java-experience-in-app-service-linux-part-2/initial/spring-todo-app/target/azure-webapp/spring-todo-app-61bb5207-6fb8-44c4-8230-c1c9e4c099f7/spring-todo-app-2.0-SNAPSHOT.jar to app.jar
-[INFO] Deploying the zip package spring-todo-app-61bb5207-6fb8-44c4-8230-c1c9e4c099f7718326714198381983.zip...
 [INFO] Successfully deployed the artifact to https://spring-todo-app.azurewebsites.net
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS

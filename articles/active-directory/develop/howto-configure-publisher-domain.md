@@ -10,10 +10,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/23/2020
+ms.date: 06/23/2021
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
-ms.custom: aaddev
+ms.custom: contperf-fy21q4, aaddev
 ---
 
 # How to: Configure an application's publisher domain
@@ -77,9 +77,7 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
    ```
 
 1. Replace the placeholder *{YOUR-APP-ID-HERE}* with the application (client) ID that corresponds to your app.
-
 1. Host the file at: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Replace the placeholder *{YOUR-DOMAIN-HERE}* to match the verified domain.
-
 1. Click the **Verify and save domain** button.
 
 You're not required to maintain the resources that are used for verification after a domain has been verified. When the verification is finished, you can remove the hosted file.
@@ -89,8 +87,8 @@ You're not required to maintain the resources that are used for verification aft
 If your tenant has verified domains, select one of the domains from the **Select a verified domain** dropdown.
 
 > [!NOTE]
-> The expected `Content-Type` header that should be returned is `application/json`. You may get an error as mentioned below if you use anything else, like `application/json; charset=utf-8`:
-> 
+> The expected `Content-Type` header that should be returned is `application/json`. You may get an error if you use anything else, like `application/json; charset=utf-8`:
+>
 > `Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value.`
 >
 
@@ -108,7 +106,7 @@ The behavior for new applications created after May 21, 2019 will depend on the 
 
 ## Implications on redirect URIs
 
-Applications that sign in users with any work or school account, or personal Microsoft accounts ([multi-tenant](single-and-multi-tenant-apps.md)) are subject to few restrictions when specifying redirect URIs.
+Applications that sign in users with any work or school account, or personal Microsoft accounts (multi-tenant) are subject to few restrictions when specifying redirect URIs.
 
 ### Single root domain restriction
 

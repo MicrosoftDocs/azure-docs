@@ -157,7 +157,7 @@ To change your logic app's location type or location, you have to open your logi
 > [!IMPORTANT]
 > Changing the location type from **Region** to 
 > [**Integration Service Environment**](connect-virtual-network-vnet-isolated-environment-overview.md) 
-> affects your logic app's [pricing model](logic-apps-pricing.md#fixed-pricing) that's used for billing, 
+> affects your logic app's [pricing model](logic-apps-pricing.md#ise-pricing) that's used for billing, 
 > [limits](logic-apps-limits-and-config.md#integration-account-limits), [integration account support](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus), and so on. 
 > Before you select a different location type, make sure that you understand the resulting impact on your logic app.
 

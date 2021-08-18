@@ -8,10 +8,9 @@ ms.author: mikben
 
 Get started with Azure Communication Services by using the Communication Services calling SDK to add 1 on 1 video calling to your app. You'll learn how to start and answer a video call using the Azure Communication Services Calling SDK for JavaScript.
 
+## Sample Code
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)
-
+If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
 
 ## Prerequisites
 - Obtain an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -130,7 +129,10 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Authenticate the client and access DeviceManager
 
-You need to replace <[USER_ACCESS_TOKEN](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/access-tokens-quickstart)> with a valid user access token for your resource. Refer to the user access token documentation if you don't already have a token available. Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationUserCredential` which will enable us to make and receive calls. 
+You **need to replace <USER_ACCESS_TOKEN> with a valid user access token** for your resource. Refer to the [user access token documentation](../../../access-tokens.md) if you don't already have a token available. 
+
+Using the `CallClient`, initialize a `CallAgent` instance with a `CommunicationUserCredential` which will enable us to make and receive calls. 
+
 To access the `DeviceManager` a callAgent instance must first be created. You can then use the `getDeviceManager` method on the `CallClient` instance to get the `DeviceManager`.
 
 Add the following code to `client.js`:
@@ -290,7 +292,7 @@ hangUpButton.addEventListener("click", async () => {
 
 ## Start and end video during the call
 You can stop the video during the current call by adding an event listener to the Stop Video button to dispose of the renderer of `localVideoStream`. 
- ```JavaScript       
+ ```JavaScript
 stopVideoButton.addEventListener("click", async () => {
     await call.stopVideo(localVideoStream);
     rendererLocal.dispose();
@@ -317,7 +319,4 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 
 :::image type="content" source="../../media/javascript/1-on-1-video-calling.png" alt-text="1 on 1 video calling page":::
 
-You can make an 1:1 outgoing video call by providing a user ID in the text field and clicking the Start Call button. 
-
-## Sample code
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
+You can make an 1:1 outgoing video call by providing a user ID in the text field and clicking the Start Call button.

@@ -11,9 +11,9 @@ ms.date: 09/14/2020
 
 # Tutorial: Assess servers using an imported CSV file
 
-As part of your migration journey to Azure, you discover your on-premises inventory and workloads. 
+As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
-This tutorial shows you how to assess on-premises machines with the Azure Migrate: Server Assessment tool, using an imported  comma-separate values (CSV) file. 
+This tutorial shows you how to assess on-premises machines with the Azure Migrate: Discovery and Assessment tool, using an imported  comma-separate values (CSV) file. 
 
 If you use a CSV file, you don't need to set up the Azure Migrate appliance to discover and assess servers. You can control the data you share in the file, and much of the data is optional. This method is useful if:
 
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 > * Assess servers
 
 > [!NOTE]
-> Tutorials show the quickest path for trying out a scenario, and use default options where possible. 
+> Tutorials show the quickest path for trying out a scenario, and use default options where possible.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
@@ -43,10 +43,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - You can add up to 20,000 servers in a single CSV file, and in an Azure Migrate project. 
 - Operating system names specified in the CSV file must contain and match [supported names](#supported-operating-system-names).
 
-
 ## Prepare an Azure user account
 
 To create an Azure Migrate project, you need an account with:
+
 - Contributor or Owner permissions on an Azure subscription.
 - Permissions to register Azure Active Directory apps.
 
@@ -56,7 +56,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Search box to search for the Azure subscription](./media/tutorial-discover-import/search-subscription.png)
 
-2. In the **Subscriptions** page, select the subscription in which you want to create an Azure Migrate project. 
+2. In the **Subscriptions** page, select the subscription in which you want to create an Azure Migrate project.
 3. In the subscription, select **Access control (IAM)** > **Check access**.
 4. In **Check access**, search for the relevant user account.
 5. In **Add a role assignment**, select **Add**.
@@ -71,8 +71,6 @@ If you just created a free Azure account, you're the owner of your subscription.
 8. In **User settings**, verify that Azure AD users can register applications (set to **Yes** by default).
 
     ![Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-import/register-apps.png)
-
-
 
 ## Set up a project
 
@@ -126,7 +124,7 @@ The following table summarizes the file fields to fill in:
 **OS version** | No | Server operating system version.
 **OS architecture** | No | Server OS architecture <br/> Valid values are: x64, x86, amd64, 32-bit or 64-bit
 **Number of disks** | No | Not needed if individual disk details are provided.
-**Disk 1 size**  | No | Maximum size of disk, in GB.<br/>You can add details for more disks by [adding columns](#add-multiple-disks) in the template. You can add up to eight disks.
+**Disk 1 size**  | No | Maximum size of disk, in GB.<br/>You can add details for more disks by [adding columns](#add-multiple-disks) in the template. You can add up to twenty disks.
 **Disk 1 read ops** | No | Disk read operations per second.
 **Disk 1 write ops** | No | Disk write operations per second.
 **Disk 1 read throughput** | No | Data read from the disk per second, in MB per second.
@@ -142,14 +140,13 @@ The following table summarizes the file fields to fill in:
 **Firmware type** | No | Server firmware. Values can be "BIOS" or "UEFI".
 **MAC address**| No | Server MAC address.
 
-
 ### Add operating systems
 
 Assessment recognizes specific operating system names. Any name you specify must exactly match one of the strings in the [supported names list](#supported-operating-system-names).
 
 ### Add multiple disks
 
-The template provides default fields for the first disk. You can add similar columns for up to eight disks.
+The template provides default fields for the first disk. You can add similar columns for up to twenty disks.
 
 For example, to specify all fields for a second disk, add these columns:
 
@@ -158,7 +155,6 @@ For example, to specify all fields for a second disk, add these columns:
 - Disk 2 write ops
 - Disk 2 read throughput
 - Disk 2 write throughput
-
 
 ## Import the server information
 
@@ -172,7 +168,7 @@ After adding information to the CSV template, import the CSV file into Server As
     - To view and fix warnings, select **Download warning details .CSV**. This operation downloads the CSV with warnings included. Review the warnings and fix issues as needed.
     - If errors appear in the status so that the import status is **Failed**, you must fix those errors before you can continue with the import:
         1. Download the CSV, which now includes error details.
-        1. Review and address the errors as necessary. 
+        1. Review and address the errors as necessary.
         1. Upload the modified file again.
 4. When the import status is **Completed**, the server information has been imported. Refresh if the import process doesn't seem to be complete.
 
@@ -188,8 +184,6 @@ To verify that the servers appear in the Azure portal after discovery:
 2. On the **Azure Migrate - Servers** > **Azure Migrate: Server Assessment** page, select the icon that displays the count for **Discovered servers**.
 3. Select the **Import based** tab.
 
-
-
 ## Supported operating system names
 
 Operating system names provided in the CSV must contain and match. If they don't, you won't be able to assess them. 
@@ -203,6 +197,6 @@ Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CentOS<br/>CentOS 4/5<br/>CoreOS Linux
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Created an Azure Migrate project 
-> * Discovered servers using an imported CSV file. 
+> * Created an Azure Migrate project.
+> * Discovered servers using an imported CSV file.
 Now, run an assessment for [VMware VM migration to Azure VMs](./tutorial-assess-vmware-azure-vm.md).

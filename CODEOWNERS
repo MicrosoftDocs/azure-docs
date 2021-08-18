@@ -45,7 +45,7 @@ articles/synapse-analytics/sql-data-warehouse/ @anumjs @ronortloff @julieMSFT
 articles/synapse-analytics/synapse-link/ @Rodrigossz @SnehaGunda @jovanpop-msft
 
 # Cognitive Services
-articles/cognitive-services/ @erhopf @aahill @trevorbye @patrickfarley @nitinme @mrbullwinkle @laujan
+articles/cognitive-services/ @aahill @patrickfarley @nitinme @mrbullwinkle @laujan
 
 # DevOps
 articles/ansible/ @TomArcherMsft
@@ -58,7 +58,7 @@ articles/virtual-machines/ @cynthn @mimckitt
 articles/virtual-machine-scale-sets/ @ju-shim @mimckitt
 articles/cloud-services/ @mimckitt
 articles/cloud-services-extended-support/ @mimckitt
-articles/service-fabric/ @erikadoyle @mimckitt
+articles/service-fabric/ @sukanyamsft @mimckitt
 articles/container-instances/ @macolso @mimckitt
 articles/container-registry/ @dlepow @mimckitt
 

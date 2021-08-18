@@ -75,7 +75,7 @@ For detailed information on the topic, see [KCD for single sign-on](application-
 
    * **Application publishing and administration** require the *Application Administrator* role. Application Administrators can manage all applications in the directory including registrations, SSO settings, user and group assignments and licensing, Application Proxy settings, and consent. It doesn't grant the ability to manage Conditional Access. The *Cloud Application Administrator* role has all the abilities of the Application Administrator, except that it does not allow management of Application Proxy settings.
 
-* **Licensing**: Application Proxy is available through an Azure AD Premium subscription. Refer to the [Azure Active Directory Pricing page](https://azure.microsoft.com/pricing/details/active-directory/) for a full list of licensing options and features.
+* **Licensing**: Application Proxy is available through an Azure AD Premium subscription. Refer to the [Azure Active Directory Pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) for a full list of licensing options and features.
 
 ### Application Discovery
 

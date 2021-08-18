@@ -79,9 +79,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	|------------|
 	| `https://<CustomerName>.us.ardoq.com/saml/v2` |
 	| `https://<CustomerName>.ardoq.com/saml/v2` |
-	|
-
-
+	
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<CustomerName>.ardoq.com/saml/v2`
 
@@ -93,7 +91,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	|-------------|
 	| `https://<CustomerName>.ardoq.com/saml/v2` |
 	| `https://<CustomerName>.us.ardoq.com/saml/v2` |
-	|
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Ardoq Client support team](mailto:support@ardoq.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -110,10 +107,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| assignedRoles | user.assignedroles |
 	| mail | user.mail |
 
-	> [!NOTE]
-    > Ardoq expects roles for users assigned to the application. Please set up these roles in Azure AD so that users can be assigned the appropriate roles. To understand how to configure roles in Azure AD, see [here](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
-
-
+  > [!NOTE]
+  > Ardoq expects roles for users that are assigned to the application. Be sure to set up these roles in Azure AD, so users can be assigned the appropriate roles. Your roles should be set up with the values "admin", "writer", "reader", and/or "contributor".
+  >
+  > Learn how to [configure roles in Azure AD](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui).    
+ 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
@@ -168,11 +166,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Ardoq for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Ardoq tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Ardoq for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Ardoq tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Ardoq for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## Next steps
 
-Once you configure Ardoq you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Once you configure Ardoq you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

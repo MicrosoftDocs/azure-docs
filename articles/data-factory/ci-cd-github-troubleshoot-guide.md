@@ -1,12 +1,15 @@
 ---
 title: Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Use different methods to troubleshoot CI-CD issues in ADF. 
 author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
+ms.subservice: ci-cd
+ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 04/27/2021
+ms.date: 06/27/2021
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in ADF 
@@ -19,13 +22,13 @@ If you have questions or issues in using source control or DevOps techniques, he
 
 - Refer to [Source Control in ADF](source-control.md) to learn how source control is practiced in ADF. 
 - Refer to  [CI-CD in ADF](continuous-integration-deployment.md) to learn more about how DevOps CI-CD is practiced in ADF.
- 
+
 ## Common errors and messages
 
 ### Connect to Git repository failed due to different tenant
 
 #### Issue
-    
+
 Sometimes you encounter Authentication issues like HTTP status 401. Especially when you have multiple tenants with guest account, things could become more complicated.
 
 #### Cause
@@ -60,7 +63,7 @@ The error occurs because we often delete a trigger, which is parameterized, ther
 
 CI/CD release pipeline failing with the following error:
 
-`
+```output
 2020-07-06T09:50:50.8716614Z There were errors in your deployment. Error code: DeploymentFailed.
 2020-07-06T09:50:50.8760242Z ##[error]At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.
 2020-07-06T09:50:50.8771655Z ##[error]Details:
@@ -68,7 +71,7 @@ CI/CD release pipeline failing with the following error:
 2020-07-06T09:50:50.8774148Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
 2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment#troubleshooting
 2020-07-06T09:50:50.8776801Z ##[error]Task failed while creating or updating the template deployment.
-`
+```
 
 #### Cause
 
@@ -76,10 +79,10 @@ This error is due to an integration runtime with the same name in the target fac
 
 #### Recommendation
 
-- Refer to this Best Practices for CI/CD below:
+- Refer to the [Best Practices for CI/CD](continuous-integration-deployment.md#best-practices-for-cicd)
 
-    https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
 - Integration runtimes don't change often and are similar across all stages in your CI/CD, so Data Factory expects you to have the same name and type of integration runtime across all stages of CI/CD. If the name and types & properties are different, make sure to match the source and target integration runtime configuration and then deploy the release pipeline.
+
 - If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type.
 
 ### Document creation or update failed because of invalid reference
@@ -152,17 +155,17 @@ Until recently, only way to publish ADF pipeline for deployments was using ADF P
 
 #### Resolution
 
-CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This method gives  your CI/CD pipelines a **true** continuous integration experience. Please follow [ADF CI/CD Publishing Improvements](./continuous-integration-deployment-improvements.md) for details. 
+CI/CD process has been enhanced. The **Automated** publish feature takes, validates, and exports all ARM template features from the ADF UX. It makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). This method allows you to programmatically trigger these actions instead of having to go to the ADF UI and do a button click. This method gives  your CI/CD pipelines a **true** continuous integration experience. Follow [ADF CI/CD Publishing Improvements](./continuous-integration-deployment-improvements.md) for details. 
 
-###  Cannot publish because of 4 MB ARM template limit  
+###  Cannot publish because of 4-MB ARM template limit  
 
 #### Issue
 
-You cannot deploy because you hit Azure Resource Manager limit of 4 MB total template size. You need a solution to deploy after crossing the limit. 
+You cannot deploy because you hit Azure Resource Manager limit of 4-MB total template size. You need a solution to deploy after crossing the limit. 
 
 #### Cause
 
-Azure Resource Manager restricts template size to be 4 MB. Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
+Azure Resource Manager restricts template size to be 4-MB. Limit the size of your template to 4-MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. But, you have crossed the limit. 
 
 #### Resolution
 
@@ -177,11 +180,11 @@ You cannot connect to GIT Enterprise because of permission issues. You can see e
 #### Cause
 
 * You have not configured Oauth for ADF. 
-* Your URL is misconfigured.
+* Your URL is misconfigured. The repoConfiguration should be of type [FactoryGitHubConfiguration](/dotnet/api/microsoft.azure.management.datafactory.models.factorygithubconfiguration?view=azure-dotnet&preserve-view=true)
 
-##### Resolution
+#### Resolution 
 
-You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, ADF will try *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* at first and fail. Then, it will try *https://hostname/api/v3/orgs/<org>/<repo>...*, and succeed. 
+You  grant  Oauth access to ADF at first. Then, you have to use correct URL to connect to GIT Enterprise. The configuration must be set to the customer organization(s). For example, ADF will try *https://hostname/api/v3/search/repositories?q=user%3&lt;customer credential&gt;....* at first and fail. Then, it will try *https://hostname/api/v3/orgs/&lt;org&gt;/&lt;repo&gt;...*, and succeed.  
  
 ### Cannot recover from a deleted data factory
 
@@ -238,6 +241,47 @@ If you have **Include in ARM template** selected for deploying global parameters
 
 #### Resolution
 Unselect **Include in ARM template** and deploy global parameters with PowerShell as described in Global parameters in CI/CD. 
+ 
+### Extra  left "[" displayed in published JSON file
+
+#### Issue
+When publishing ADF with DevOps, there is one more left "[" displayed. ADF adds one more left "[" in ARMTemplate in DevOps automatically. You will see expression like "[[" in JSON file.
+
+#### Cause
+Because [ is a reserved character for ARM, an extra [ is added automatically to escape "[".
+
+#### Resolution
+This is normal behavior during ADF publishing process for CI/CD.
+ 
+### Perform **CI/CD** during  progress/queued stage of pipeline run
+
+#### Issue
+You want to perform CI/CD during progress and queuing stage of pipeline run.
+
+#### Cause
+When pipeline is in progress/queued stage, you have to monitor the pipeline and  activities at first. Then, you can decide to wait until pipeline to finish or you can cancel the pipeline run. 
+ 
+#### Resolution
+You can monitor the pipeline using **SDK**, **Azure Monitor** or [ADF Monitor](./monitor-visually.md). Then, you can follow [ADF CI/CD Best Practices](./continuous-integration-deployment.md#best-practices-for-cicd) to guide you further. 
+
+### Perform **UNIT TESTING** during ADF development and deployment
+
+#### Issue
+You want to perform unit testing during development and deployment of ADF pipelines.
+
+#### Cause
+During development and deployment cycles, you may want to unit test your pipeline before you manually or automatically publish your pipeline. Test automation allows you to run more tests, in less time, with guaranteed repeatability. Automatically re-testing all your ADF pipelines before deployment gives you some protection against regression faults. Automated testing is a key component of CI/CD software development approaches: inclusion of automated tests in CI/CD deployment pipelines for Azure Data Factory can significantly improve quality. In long run, tested ADF pipeline artifacts are reused saving you cost and time.  
+ 
+#### Resolution
+Because customers may have different unit testing requirements with different skill sets, usual practice is to follow following steps:
+
+1. Setup Azure DevOps CI/CD project or develop  .NET/PYTHON/REST type SDK driven test strategy.
+2. For CI/CD, create build artifact containing all scripts and deploy resources in release pipeline. For SDK driven approach, develop Test units using PyTest in Python,  C# **Nunit** using .NET  SDK and so on.
+3. Run unit tests as part of release pipeline or independently with ADF Python/PowerShell/.NET/REST SDK. 
+
+For example, you want to delete duplicates in a file and then store curated file as table in a database. To test the pipeline, you set up a CI/CD project using Azure DevOps.
+You set up a TEST pipeline stage where you deploy your developed pipeline. You configure TEST stage to run Python tests for making sure table data is what you expected. If you do not use CI/CD, you use **Nunit** to trigger deployed pipelines with tests you want. Once you are satisfied with the results, you can finally publish the pipeline to a production data factory. 
+
 
 ## Next steps
 

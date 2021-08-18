@@ -23,7 +23,7 @@ This article covers the following tasks:
 > * Configure global distribution using the [SQL APIs](./introduction.md)
 
 <a id="portal"></a>
-[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## <a id="preferred-locations"></a> Connecting to a preferred region using the SQL API
 

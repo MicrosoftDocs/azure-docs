@@ -6,19 +6,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: trkeya
 ms.author: trkeya
-ms.date: 05/28/2021
+ms.date: 07/09/2021
 ms.custom: contperf-fy21q2
 ---
 
 # Update existing offers in the commercial marketplace
 
-This article explains how to make updates to existing offers and plans, and also how to remove an offer from the commercial marketplace. You can view your offers on the **Overview** tab of the [Commercial Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center.
+This article explains how to make updates to existing offers and plans, and also how to remove an offer from the commercial marketplace. You can view your offers in the [Commercial Marketplace portal](https://go.microsoft.com/fwlink/?linkid=2165935.) in Partner Center.
 
 ## Update a published offer
 
 Use these steps to update an offer that's been successfully published to Preview or Live state.
 
-1. Select the name of the offer you would like to update. The status of the offer may be listed as **Preview**, **Live**, **Publish in progress**, **Draft**, **Attention needed**, or **Not available** (if you've previously chosen to stop selling the offer). Once selected, the **Offer overview** page for that offer will open.
+1. Select the name of the offer you would like to update. The status of the offer may be listed as **Preview**, **Live**, **Publish in progress**, **Draft**, **Attention needed**, or **Not available** (if you've previously chosen to stop distribution of the offer). Once selected, the **Offer overview** page for that offer will open.
 1. Select the offer page you want to update, such as **Properties**, **Offer listing**, or **Preview** (or select **Update** from the applicable card on the **Offer overview** page).
 1. Make your changes and select **Save draft**. Repeat this process until all your changes are complete.
 1. Review your changes on the **[Compare](#compare-changes-to-your-offer)** page.
@@ -53,6 +53,21 @@ Complete these steps to make changes to a plan for an offer that you've already 
 1. Select **Review and publish** when you're ready to publish your updates. The **[Review and publish](review-publish-offer.md)** page opens and provides a completion status for your updates.
 1. Select **Publish** to submit the updated plan for publishing. We'll email you when a preview version of the updated offer is available for you to review and approve.
 
+## Update image versions for an existing VM offer
+
+Complete these steps to update available images in a plan for an offer that you've already published.
+
+1. With the **Offer overview** page for your existing offer open, choose the plan you want to change. If the plan isn't accessible from the **Plan overview** list, select **See all plans**.
+1. In the focus nav, select **Technical Configuration**.
+1. To add a new version, select **+ Add VM image**.
+1. To remove a version, select **Deprecate**. Note that you can’t deprecate the last VM from the plan.
+1. Select **Save draft** after making your changes.
+1. Select **Review and publish** when you're ready to publish your updates. The [Review and publish page](review-publish-offer.md) appears and provides a completion status for your updates.
+1. Select **Publish** to submit the updated plan for publishing. We'll email you when a preview version of the updated offer is available for you to review and approve.
+
+> [!NOTE]
+> At least one image version is required for a plan. If you want to stop offering the plan, deprecate the plan.
+
 ## Offer a virtual machine plan at a new price
 
 After a virtual machine plan is published, its price can’t be changed. To offer the same plan at a different price, you must hide the plan and create a new one with the updated price. First, hide the plan with the price you want to change:
@@ -66,7 +81,7 @@ Now that you have hidden the plan with the old price, create a copy of that plan
 2. Select **Create new plan**. Enter a **Plan ID** and a **Plan name**, then select **Create**.
 1. To reuse the technical configuration from the plan you’ve hidden, select the **Reuse technical configuration** checkbox. Read [Create plans for a VM offer](azure-vm-create-plans.md) to learn more.
     > [!IMPORTANT]
-    > If you select **This plan reuses technical configuration from another plan**, you won’t be able to stop selling the parent plan later. Don’t use this option if you want to stop selling the parent plan.
+    > If you select **This plan reuses technical configuration from another plan**, you won’t be able to stop distribution of the parent plan later. Don’t use this option if you want to stop distribution of the parent plan.
 3. Complete all the required sections for the new plan, including the new price.
 1. Select **Save draft**.
 1. After you've completed all the required sections for the new plan, select **Review and publish**. This will submit your offer for review and publication. Read [Review and publish an offer to the commercial marketplace](review-publish-offer.md) for more details.
@@ -120,21 +135,21 @@ If you have changes in preview that aren't live, you can compare new changes wit
 
 Remember to republish your offer after making updates for the changes to take effect.
 
-## Stop selling an offer or plan
+## Stop distribution of an offer or plan
 
 You can remove offer listings and plans from the Microsoft commercial marketplace, which will prevent new customers from finding and purchasing them. Any customers who previously acquired the offer or plan can still use it, and they can download it again if needed. However, they won't get updates if you decide to republish the offer or plan at a later time.
 
-- To stop selling an offer after you've published it, select **Stop selling** from the **Offer overview** page. Within a few hours of your confirmation, the offer will no longer be visible in the commercial marketplace.
+- To stop distribution of an offer after you've published it, select **Stop distribution** from the **Offer overview** page. Within a few hours of your confirmation, the offer will no longer be visible in the commercial marketplace.
 
-- To stop selling a plan, select **Stop selling** from the **Plan overview** page. The option to stop selling a plan is only available if you have more than one plan in the offer. You can choose to stop selling one plan without impacting other plans within your offer.
+- To stop distribution of a plan, select **Stop distribution** from the **Plan overview** page. The option to stop distribution of a plan is only available if you have more than one plan in the offer. You can choose to stop distribution of one plan without impacting other plans within your offer.
      >[!NOTE]
-     > Once you confirm you want to stop selling the plan, you must republish the offer for the change to take effect.
+     > Once you confirm you want to stop distribution of the plan, you must republish the offer for the change to take effect.
 
-After you stop selling an offer or plan, you'll still see it in Partner Center with a **Not available** status. If you decide to list or sell this offer or plan again, follow the instructions to [update a published offer](#update-a-published-offer). Don't forget that you will need to **publish** the offer or plan again after making any changes.
+After you stop distribution of an offer or plan, you'll still see it in Partner Center with a **Not available** status. If you decide to list or sell this offer or plan again, follow the instructions to [update a published offer](#update-a-published-offer). Don't forget that you will need to **publish** the offer or plan again after making any changes.
 
 ## Remove offers from existing customers
 
-To remove offers from existing customers, [log a support request](https://aka.ms/marketplacepublishersupport). In the support topic list, select **Commercial Marketplace** > **Offer or App Delisting, Removal, or Termination** and submit the request. The support team will guide you through the offer removal process.
+To remove offers from existing customers, [log a support request](https://go.microsoft.com/fwlink/?linkid=2165533). In the support topic list, select **Commercial Marketplace** > **Offer or App Delisting, Removal, or Termination** and submit the request. The support team will guide you through the offer removal process.
 
 When the offer removal is initiated by the publisher, the publisher owns communication of the removal to the customer.
 

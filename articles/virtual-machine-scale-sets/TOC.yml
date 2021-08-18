@@ -149,7 +149,7 @@
       href: ../virtual-machines/sizes-hpc.md
       maintainContext: true
     - name: Azure VMs with no temp disk
-      href: ../virtual-machines/azure-vms-no-temp-disk.md
+      href: ../virtual-machines/azure-vms-no-temp-disk.yml
       maintainContext: true
     - name: Azure VM sizes naming conventions
       href: ../virtual-machines/vm-naming-conventions.md
@@ -164,14 +164,14 @@
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true
-  - name: Orchestration modes (preview) 
+  - name: Orchestration modes (preview)
     href: virtual-machine-scale-sets-orchestration-modes.md
   - name: Maintenance and updates
     items:
     - name: Overview
       href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
       maintainContext: true
-    - name: Automatic extension upgrade (preview) 
+    - name: Automatic extension upgrade 
       href: ../virtual-machines/automatic-extension-upgrade.md
       maintainContext: true
   - name: Disk storage
@@ -447,8 +447,8 @@
   - name: FAQ
     items:
     - name: Linux
-      href: ../virtual-machines/linux/faq.md
+      href: ../virtual-machines/linux/faq.yml
     - name: Windows
-      href: ../virtual-machines/windows/faq.md
+      href: ../virtual-machines/windows/faq.yml
 - name: Support and troubleshooting
   href: vmss-support-help.md

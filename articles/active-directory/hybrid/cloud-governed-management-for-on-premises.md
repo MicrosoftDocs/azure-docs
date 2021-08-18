@@ -54,7 +54,7 @@ Azure AD improves the management for an organization's on-premises Active Direct
 
 * **Secure remote access and Conditional Access for on-premises applications**
 
-For many organizations, the first step in managing access from the cloud for on-premises AD-integrated web and remote desktop-based applications is to deploy the [application proxy](../manage-apps/application-proxy.md) in front of those applications to provide secure remote access.
+For many organizations, the first step in managing access from the cloud for on-premises AD-integrated web and remote desktop-based applications is to deploy the [application proxy](../app-proxy/application-proxy.md) in front of those applications to provide secure remote access.
 
 After a single sign-on to Azure AD, users can access both cloud and on-premises applications through an external URL or an internal application portal. For example, Application Proxy  provides remote access and single sign-on to Remote Desktop, SharePoint, as well as apps such as Tableau and Qlik, and line of business (LOB) applications. Furthermore, Conditional Access policies can include displaying the [terms of use](../conditional-access/terms-of-use.md) and [ensuring the user has agreed to them](../conditional-access/require-tou.md) before being able to access an application.
 

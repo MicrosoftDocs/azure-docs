@@ -246,7 +246,7 @@ Use Azure AD capabilities to securely manage devices.
         as the source of authority for all device management workloads.
 
 -   [**Deploy privileged access devices**](/security/compass/privileged-access-devices#device-roles-and-profiles):
-    Use privileged access to manage Microsoft 365 and Azure AD.
+    Use privileged access to manage Microsoft 365 and Azure AD as part of a complete approach to [Securing privileged access](/security/compass/overview).
 
 ## Workloads, applications, and resources 
 
@@ -266,7 +266,7 @@ Use Azure AD capabilities to securely manage devices.
 
 * **Legacy applications** 
 
-   * You can enable authentication, authorization, and remote access to legacy applications that don't support modern authentication. Use [Azure AD Application Proxy](../manage-apps/application-proxy.md). You can also enable them through a network or application delivery controller solution by using [secure hybrid access partner integrations](../manage-apps/secure-hybrid-access.md).   
+   * You can enable authentication, authorization, and remote access to legacy applications that don't support modern authentication. Use [Azure AD Application Proxy](../app-proxy/application-proxy.md). You can also enable them through a network or application delivery controller solution by using [secure hybrid access partner integrations](../manage-apps/secure-hybrid-access.md).   
 
    * Choose a VPN vendor that supports modern authentication. Integrate its authentication with Azure AD. In an on-premises compromise, you can use Azure AD to disable or block access by disabling the VPN.
 
@@ -290,7 +290,7 @@ authentication decisions. For more information, see the
 
 * If you're using a version of Azure AD that doesn't include Conditional Access, ensure that you're using the [Azure AD security defaults](../fundamentals/concept-fundamentals-security-defaults.md).
 
-   For more information about Azure AD feature licensing, see the [Azure AD pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
+   For more information about Azure AD feature licensing, see the [Azure AD pricing guide](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## Monitor 
 
@@ -307,7 +307,7 @@ monitor access to your business-critical applications and resources.
 
     Monitor all [Azure AD risk events](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation) for suspicious activity. [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) is natively integrated with Azure Security Center.
 
-    Define the network [named locations](../reports-monitoring/quickstart-configure-named-locations.md) to avoid noisy detections on location-based signals. 
+    Define the network [named locations](../conditional-access/location-condition.md) to avoid noisy detections on location-based signals. 
 *  **User and Entity Behavioral Analytics (UEBA) alerts** 
 
     Use UEBA

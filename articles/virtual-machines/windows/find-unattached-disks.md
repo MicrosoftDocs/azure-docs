@@ -2,9 +2,9 @@
 title: Find and delete unattached Azure managed and unmanaged disks 
 description: How to find and delete unattached Azure managed and unmanaged (VHDs/page blobs) disks by using Azure PowerShell.
 author: roygara
-ms.service: virtual-machines
+ms.service: storage
 ms.topic: how-to
-ms.date: 02/22/2019
+ms.date: 06/29/2021
 ms.author: rogarana
 ms.subservice: disks 
 ms.custom: devx-track-azurepowershell

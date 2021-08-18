@@ -137,8 +137,6 @@ landingContent:
         links:
           - text: Common routing issues
             url: troubleshoot-route-issues.md
-          - text: Allowed certificate authorities
-            url: troubleshoot-allowed-certificate-authority.md
 
   # Card
   - title: Learn about Azure Front Door

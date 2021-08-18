@@ -38,10 +38,14 @@ To create a cache, follow these steps:
 1. On the **Advanced** page, choose **Replica count**.
    
     :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count.":::
+    
+    > [!NOTE]
+    > Currently, you can't use Append-only File (AOF) persistence or geo-replication with multiple replicas (more than one replica).
+    >
 
 1. Leave other options in their default settings. 
 
-1. Click **Create**.
+1. Select **Create**.
    
     It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 

@@ -1,11 +1,13 @@
 ---
 title: Unpivot transformation in mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Azure Data Factory mapping data flow Unpivot Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 07/14/2020
 ---
 

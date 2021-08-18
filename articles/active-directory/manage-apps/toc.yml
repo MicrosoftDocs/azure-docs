@@ -12,8 +12,6 @@
   - name: Quickstarts
     expanded: true
     items:
-    - name: View your apps
-      href: view-applications-portal.md
     - name: Add an app
       href: add-application-portal.md
     - name: Configure an app
@@ -24,6 +22,8 @@
       href: add-application-portal-setup-sso.md
     - name: Set up OIDC-based single sign-on
       href: add-application-portal-setup-oidc-sso.md
+    - name: View your apps
+      href: view-applications-portal.md
     - name: Delete an app
       href: delete-application-portal.md
   - name: Tutorials
@@ -70,7 +70,7 @@
       - name: Linked-based SSO
         href: configure-linked-sign-on.md
       - name: Header-based SSO (on-prem apps)
-        href: application-proxy-configure-single-sign-on-with-headers.md
+        href: ../app-proxy/application-proxy-configure-single-sign-on-with-headers.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
     - name: Application security

@@ -129,4 +129,4 @@ To set a property to null, you can use `null` or `[json('null')]`. The [json fun
 ## Next steps
 
 * For the full list of template functions, see [ARM template functions](template-functions.md).
-* For more information about template files, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For more information about template files, see [Understand the structure and syntax of ARM templates](./syntax.md).

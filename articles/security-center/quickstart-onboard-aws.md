@@ -35,10 +35,10 @@ In the screenshot below you can see AWS accounts displayed in Security Center's 
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General Availability (GA)|
+|Release state:|General availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 
@@ -69,7 +69,7 @@ There are two ways to allow Security Center to authenticate to AWS:
 
 #### Create an IAM role for Security Center
 1. From your Amazon Web Services console, under **Security, Identity & Compliance**, select **IAM**.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="AWS services":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="AWS services.":::
 
 1. Select **Roles** and **Create role**.
 1. Select **Another AWS account**.
@@ -134,7 +134,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
     1. Confirm that the subscription is correct. It is the subscription that will include the connector and AWS Security Hub recommendations.
     1. Depending on the authentication option, you chose in [Step 2. Set up authentication for Security Center in AWS](#step-2-set-up-authentication-for-security-center-in-aws):
         - Select  **Assume Role** and paste the ARN from [Create an IAM role for Security Center](#create-an-iam-role-for-security-center).
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Pasting the ARN file in the relevant field of the AWS connection wizard in the Azure portal":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Pasting the ARN file in the relevant field of the AWS connection wizard in the Azure portal.":::
 
             OR
 

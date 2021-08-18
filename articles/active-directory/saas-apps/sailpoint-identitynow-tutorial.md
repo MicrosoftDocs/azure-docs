@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate SailPoint IdentityNow with Azure
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* SailPoint IdentityNow active subscription.  If you do not have IdentityNow, please contact [SailPoint IdentityNow support team](mailto:support@sailpoint.com).
+* SailPoint IdentityNow active subscription. If you do not have IdentityNow, please contact [SailPoint IdentityNow support team](mailto:support@sailpoint.com).
 
 ## Scenario description
 

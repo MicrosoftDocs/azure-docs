@@ -6,7 +6,7 @@ manager: mikben
 services: azure-communication-services
 
 ms.author: mikben
-ms.date: 03/20/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions

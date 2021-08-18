@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 06/07/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -48,8 +48,15 @@ To add sign-in policy:
 1. On the **Create a user flow** page, select the **Sign in** user flow.
 1. Under **Select a version**, select **Recommended**, and then select **Create**. ([Learn more](user-flow-versions.md) about user flow versions.)
 1. Enter a **Name** for the user flow. For example, *signupsignin1*.
-1. For **Identity providers**, select **Email sign-in**.
-1. For **Application claims**, choose the claims and attributes that you want to send to your application. For example, select **Show more**, and then choose attributes and claims for **Display Name**, **Given Name**,  **Surname**, and **User's Object ID**. Click **OK**.
+1. Under **Identity providers** select at least one identity provider:
+
+   * Under **Local accounts**, select one of the following: **Email signin**, **User ID signin**, **Phone signin**, **Phone/Email signin**, **User ID/Email signin**, or **None**. [Learn more](sign-in-options.md).
+   * Under **Social identity providers**, select any of the external social or enterprise identity providers you've set up. [Learn more](add-identity-provider.md).
+1. Under **Multifactor authentication**, if you want to require users to verify their identity with a second authentication method, choose the method type and when  to enforce multi-factor authentication (MFA). [Learn more](multi-factor-authentication.md).
+1. Under **Conditional access**, if you've configured Conditional Access policies for your Azure AD B2C tenant and you want to enable them for this user flow, select the **Enforce conditional access policies** check box. You don't need to specify a policy name. [Learn more](conditional-access-user-flow.md?pivots=b2c-user-flow).
+1. Under **Application claims**, choose the claims you want returned to the application in the token. For the full list of values, select **Show more**, choose the values, and then select **OK**.
+   > [!NOTE]
+   > You can also [create custom attributes](user-flow-custom-attributes.md?pivots=b2c-user-flow) for use in your Azure AD B2C tenant.
 1. Click **Create** to add the user flow. A prefix of *B2C_1* is automatically prepended to the name.
 
 ### Test the user flow

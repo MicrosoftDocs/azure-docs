@@ -1,7 +1,7 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure SQL Database
 description: Lists Azure Policy Regulatory Compliance controls available for Azure SQL Database and SQL Managed Instance. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 05/14/2021
+ms.date: 08/13/2021
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma

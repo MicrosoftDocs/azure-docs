@@ -21,7 +21,7 @@ This article shows you how to troubleshoot Azure Bastion.
 
 **A:** If you create and apply an NSG to *AzureBastionSubnet*, make sure you have added the required rules to the NSG. For a list of required rules, see [Working with NSG access and Azure Bastion](./bastion-nsg.md). If you do not add these rules, the NSG creation/update will fail.
 
-An example of the NSG rules is available for reference in the [quickstart template](https://azure.microsoft.com/resources/templates/101-azure-bastion-nsg/).
+An example of the NSG rules is available for reference in the [quickstart template](https://azure.microsoft.com/resources/templates/azure-bastion-nsg/).
 For more information, see [NSG guidance for Azure Bastion](bastion-nsg.md).
 
 ## <a name="sshkey"></a>Unable to use my SSH key with Azure Bastion
@@ -65,6 +65,13 @@ The key's randomart image is:
 **Q:** I am unable to connect to my Windows virtual machine that is domain-joined.
 
 **A:** Azure Bastion supports domain-joined VM sign-in for username-password based domain sign-in only. When specifying the domain credentials in  the Azure portal, use the UPN (username@domain) format instead of *domain\username* format to sign in. This is supported for domain-joined or hybrid-joined (both domain-joined as well as Azure AD-joined) virtual machines. It is not supported for Azure AD-joined-only virtual machines.
+
+## <a name="connectivity"></a> Unable to connect to virtual machine
+
+**Q:** I am unable to connect to my virtual machine (and I'm not experiencing the problems above).
+
+**A:** You can troubleshoot your connectivity issues by navigating to the **Connection Troubleshoot** tab (in the **Monitoring** section) of your Azure Bastion resource in the Azure portal. Network Watcher Connection Troubleshoot provides the capability to check a direct TCP connection from a virtual machine (VM) to a VM, fully qualified domain name (FQDN), URI, or IPv4 address. To start, choose a source to start the connection from, and the destination you wish to connect to and select "Check". [Learn more](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview).
+
 
 ## <a name="filetransfer"></a>File transfer issues
 

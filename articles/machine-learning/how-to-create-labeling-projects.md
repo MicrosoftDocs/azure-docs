@@ -21,7 +21,8 @@ Learn how to create and run projects to label images or label text data in Azure
 > [!Important]
 > Data images or text must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload files during project creation.)
 
-Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe", ".jfif", ".bmp", ".tif", ".tiff". Each file is an item to be labeled.
+Image data can be files with any of these types: ".jpg", ".jpeg", ".png", ".jpe", ".jfif", ".bmp", ".tif", ".tiff", ".dcm", ".dicom". Each file is an item to be labeled.
+ 
 Text data can be either ".txt" or ".csv" files.
 
 * For ".txt" files, each file represents one item to be labeled.
@@ -39,7 +40,7 @@ Azure Machine Learning data labeling is a central place to create, manage, and m
 - The data that you want to label, either in local files or in Azure blob storage.
 - The set of labels that you want to apply.
 - The instructions for labeling.
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 ## Create a data labeling project
@@ -61,7 +62,6 @@ To create a project, select **Add project**. Give the project an appropriate nam
   * Choose **Object Identification (Bounding Box)** for projects when you want to assign a label and a bounding box to each object within an image.
   * Choose **Instance Segmentation (Polygon)** for projects when you want to assign a label and draw a polygon around each object within an image.
 
-    
 * Select **Next** when you're ready to continue.
 
 ### Text labeling project (preview)
@@ -95,7 +95,9 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
-1. Choose the **Dataset type**.  Only file dataset types are supported for images. File and tabular types are available for text labeling.
+1. Choose the **Dataset type**.  Only file dataset types are supported for images. For a text labeling project:
+    * Select **Tabular** if you are using a .csv file, where each row is a response.
+    * Select **File** if you are using separate .txt files for each response.
 1. Select the datastore.
 1. If your data is in a subfolder within your blob storage, choose **Browse** to select the path.
     * Append "/**" to the path to include all the files in subfolders of the selected path.
@@ -110,7 +112,9 @@ To directly upload your data:
 
 1. Select **Create a dataset** > **From local files**.
 1. Assign a **Name** to your dataset.
-1. Choose the **Dataset type**.  Only file dataset types are supported for images. File and tabular types are available for text labeling.
+1. Choose the **Dataset type**.   Only file dataset types are supported for images. For a text labeling project:
+    * Select **Tabular** if you are using a .csv file, where each row is a response.
+    * Select **File** if you are using separate .txt files for each response.
 1. *Optional:* Select **Advanced settings** to customize the datastore, container, and path to your data.
 1. Select **Browse** to select the local files to upload.
 1. Provide a description of your dataset.
@@ -159,7 +163,7 @@ For bounding boxes, important questions include:
 
 ## Use ML-assisted data labeling
 
-The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. It is only available for image labeling.
+The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. It is only available for image labeling. Medical images (".dcm") are not included in assisted labeling.
 
 At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
 
@@ -173,7 +177,7 @@ The exact number of labeled data necessary to start assisted labeling is not a f
 Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
 
 > [!NOTE]
-> ML assisted data labelling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network.
+> ML assisted data labeling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network.
 
 ### Clustering
 
@@ -270,7 +274,7 @@ Use these steps to add one or more labels to a project:
 Use the **Export** button on the **Project details** page of your labeling project. You can export the label data for Machine Learning experimentation at any time. 
 
 * Text labels can be exported as:
-    * AvCSV file. The CSV file is created in the default blob store of the Azure Machine Learning workspace in a folder within *Labeling/export/csv*. 
+    * A CSV file. The CSV file is created in the default blob store of the Azure Machine Learning workspace in a folder within *Labeling/export/csv*. 
     * An [Azure Machine Learning dataset with labels](how-to-use-labeled-dataset.md). 
 
 * Image labels can be exported as:

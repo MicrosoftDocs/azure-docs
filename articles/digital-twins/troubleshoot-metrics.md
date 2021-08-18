@@ -23,7 +23,7 @@ Metrics are enabled by default. You can view Azure Digital Twins metrics from th
 
 ## How to view Azure Digital Twins metrics
 
-1. Create an Azure Digital Twins instance. You can find instructions on how to set up an Azure Digital Twins instance in [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md).
+1. Create an Azure Digital Twins instance. You can find instructions on how to set up an Azure Digital Twins instance in [Set up an instance and authentication](how-to-set-up-instance-portal.md).
 
 2. Find your Azure Digital Twins instance in the [Azure portal](https://portal.azure.com) (you can open the page for it by typing its name into the portal search bar). 
 

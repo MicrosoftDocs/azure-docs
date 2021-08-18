@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 04/23/2021
+ms.date: 06/09/2021
 ms.author: jenhayes
 ms.custom: include file
 ---
@@ -56,7 +56,7 @@ The subnet must allow inbound communication from the Batch service to be able to
 
 #### Network security groups: Specifying subnet-level rules
 
-You don't have to specify NSGs at the virtual network subnet level, because Batch configures its own NSGs (see above). If you have an NSG associated with the subnet where Batch compute nodes are deployed, or if you would like to apply custom NSG rules to override the defaults applied,  you must configure this NSG with at least the inbound and outbound security rules shown in the following tables.
+If you have an NSG associated with the subnet where Batch compute nodes are deployed, or if you would like to apply custom NSG rules to override the defaults applied,  you must configure this NSG with at least the inbound and outbound security rules shown in the following tables.
 
 Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need to permit remote access to the compute nodes from outside sources. You may need to enable port 22 rules on Linux if you require support for multi-instance tasks with certain MPI runtimes. Allowing traffic on these ports is not strictly required for the pool compute nodes to be usable.
 

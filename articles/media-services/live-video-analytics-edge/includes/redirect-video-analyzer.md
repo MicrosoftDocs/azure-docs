@@ -2,9 +2,9 @@
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 03/11/2021
+ms.date: 08/02/2021
 ms.author: juliako
 ---
 
 > [!NOTE]
-> For the latest version of the service, see [Azure Video Analyzer](https://aka.ms/video-analyzer-landing).
+> Live Video Analytics on IoT Edge will be retired on 1 November 2021 – please transition to [Azure Video Analyzer](../../../azure-video-analyzer/video-analyzer-docs/overview.md) using this [migration guide](../migrate-to-azure-video-analyzer.md).

@@ -10,6 +10,7 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: 
 zone_pivot_groups: programming-languages-spark-all-minus-sql
+ms.custom: subject-rbac-steps
 ---
 
 # Introduction to Microsoft Spark Utilities
@@ -20,15 +21,28 @@ Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily
 
 ### Configure access to Azure Data Lake Storage Gen2 
 
-Synapse notebooks use Azure Active Airectory (AAD) pass-through to access the ADLS Gen2 accounts. You need to be a **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder). 
+Synapse notebooks use Azure Active Directory (Azure AD) pass-through to access the ADLS Gen2 accounts. You need to be a **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder). 
 
 Synapse pipelines use workspace's Managed Service Identity (MSI) to access the storage accounts. To use MSSparkUtils in your pipeline activities, your workspace identity needs to be **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder).
 
 Follow these steps to make sure your Azure AD and workspace MSI have access to the ADLS Gen2 account:
 1. Open the [Azure portal](https://portal.azure.com/) and the storage account you want to access. You can navigate to the specific container you want to access.
-2. Select the **Access control (IAM)** from the left panel.
-3. Assign **your Azure AD account** and **your workspace identity** (same as your workspace name) to the **Storage Blob Data Contributor** role on the storage account if it is not already assigned. 
-4. Select **Save**.
+1. Select the **Access control (IAM)** from the left panel.
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Data Contributor |
+    | Assign access to | USER and MANAGEDIDENTITY |
+    | Members | your Azure AD account and your workspace identity |
+
+    > [!NOTE]
+    > The managed identity name is also the workspace name.
+
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+ 
+1. Select **Save**.
 
 You can access data on ADLS Gen2 with Synapse Spark via the following URL:
 

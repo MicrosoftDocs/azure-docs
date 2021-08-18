@@ -605,7 +605,7 @@ The following example shows how to use a base URL to create two URLs for linked 
 
 ```json
 "variables": {
-  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/postgre/postgresql-on-ubuntu/",
   "sharedTemplateUrl": "[uri(variables('templateBaseUrl'), 'shared-resources.json')]",
   "vmTemplateUrl": "[uri(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
 }
@@ -888,6 +888,6 @@ The following examples show common uses of linked templates.
 ## Next steps
 
 * To go through a tutorial, see [Tutorial: Deploy a linked template](./deployment-tutorial-linked-template.md).
-* To learn about the defining the deployment order for your resources, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md).
+* To learn about the defining the deployment order for your resources, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).
 * To learn how to define one resource but create many instances of it, see [Resource iteration in ARM templates](copy-resources.md).
 * For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md) or [Deploy resources with ARM templates and Azure CLI](deploy-cli.md).

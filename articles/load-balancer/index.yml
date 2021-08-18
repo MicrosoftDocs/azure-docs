@@ -128,4 +128,4 @@ landingContent:
           - text: ARM templates
             url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
           - text: Frequently asked Load Balancer questions
-            url: load-balancer-faqs.md
+            url: load-balancer-faqs.yml
