@@ -1,6 +1,6 @@
 ---
 title: How to authorize an Azure Virtual Desktop host pool for Azure Files - Azure
-description: How to authorize an Azure Virtual Desktop host pool to use.
+description: How to authorize an Azure Virtual Desktop host pool to use Azure Files.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 08/19/2021
