@@ -26,15 +26,15 @@ Suppose you have multiple Bicep files that define resources. You need to use a c
 
 Define a JSON file that includes the common naming prefixes that apply across your company:
 
-::: code language="json" source="~/../../azure-docs-bicep-samples/patterns-shared-variable-file/shared-prefixes.json" :::
+::: code language="json" source="~/../azure-docs-bicep-samples/patterns-shared-variable-file/shared-prefixes.json" :::
 
 In your Bicep file, declare a variable that imports the shared naming prefixes:
 
-::: code language="bicep" source="~/../../azure-docs-bicep-samples/patterns-shared-variable-file/example-1.bicep" range="1" :::
+::: code language="bicep" source="~/../azure-docs-bicep-samples/patterns-shared-variable-file/example-1.bicep" range="1" :::
 
 When you define your resource names, use string interpolation to concatenate the shared name prefixes with unique name suffixes:
 
-::: code language="bicep" source="~/../../azure-docs-bicep-samples/patterns-shared-variable-file/example-1.bicep" range="3-4" :::
+::: code language="bicep" source="~/../azure-docs-bicep-samples/patterns-shared-variable-file/example-1.bicep" range="3-4" :::
 
 ## Example 2: Network security group rules
 
@@ -42,19 +42,19 @@ Suppose you have multiple Bicep file that define their own network security grou
 
 Define a JSON file that includes the common security rules that apply across your company:
 
-::: code language="json" source="~/../../azure-docs-bicep-samples/patterns-shared-variable-file/shared-rules.json" :::
+::: code language="json" source="~/../azure-docs-bicep-samples/patterns-shared-variable-file/shared-rules.json" :::
 
 In your Bicep file, declare a variable that imports the shared security rules:
 
-::: code language="bicep" source="~/../../azure-docs-bicep-samples/patterns-shared-variable-file/example-2.bicep" range="5" :::
+::: code language="bicep" source="~/../azure-docs-bicep-samples/patterns-shared-variable-file/example-2.bicep" range="5" :::
 
 Create a variable array that represents the custom rules for this specific NSG:
 
-::: code language="bicep" source="~/../../azure-docs-bicep-samples/patterns-shared-variable-file/example-2.bicep" range="6-21" :::
+::: code language="bicep" source="~/../azure-docs-bicep-samples/patterns-shared-variable-file/example-2.bicep" range="6-21" :::
 
 Define the NSG resource. Use the `concat()` function to combine the two arrays together and set the `securityRules` property:
 
-::: code language="bicep" source="~/../../azure-docs-bicep-samples/patterns-shared-variable-file/example-2.bicep" range="23-29" highlight="5" :::
+::: code language="bicep" source="~/../azure-docs-bicep-samples/patterns-shared-variable-file/example-2.bicep" range="23-29" highlight="5" :::
 
 ## Considerations
 
