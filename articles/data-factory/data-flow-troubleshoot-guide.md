@@ -713,7 +713,7 @@ Specific scenarios that can cause internal server errors are shown as follows.
 
   Transient issues with microservices involved in the execution can cause the run to fail.<br/>
   
-  Configuring retries in the pipeline activity can resolve the problems caused by transient issues. For more guidance, see [Activity Policy](/concepts-pipelines-activities?WT.mc_id=Portal-Microsoft_Azure_Support#activity-policy).
+  Configuring retries in the pipeline activity can resolve the problems caused by transient issues. For more guidance, see [Activity Policy](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities?WT.mc_id=Portal-Microsoft_Azure_Support#activity-policy).
 
 ## Next steps
 
