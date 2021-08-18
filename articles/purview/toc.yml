@@ -216,7 +216,7 @@ items:
   - name: Security & Networking
     items:
     - name: Azure Purview private endpoints overview
-      href: catalog-private-link-overview.md
+      href: catalog-private-link.md
     - name: Connect privately and securely to your Purview account
       href: catalog-private-link-account-portal.md
     - name: Scan your data sources privately and securely
