@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 18/08/2021
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
