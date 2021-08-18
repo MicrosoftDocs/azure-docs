@@ -257,13 +257,15 @@ When you order your device, you can choose to use the default system-generated d
 
 You can find out the device password by viewing your order in the Azure portal.
 
-> [!NOTE]
-> After five attempts to log on to your device using an incorrect password, your device admin account will be locked off the device. The account lock will clear after 15 minutes, and you'll be able to connect to the device.
-
-
 To get the device password, do these steps:
 
 [!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
+
+
+> [!NOTE]
+> After several attempts to log on to your device using an incorrect password, your device admin account will be locked out of the device. The account lock will clear after a few minutes, and you'll be able to connect to the device. 
+> - In Data Box 4.1 and later, the account is locked after 5 attempts and is unlocked 15 minutes later. 
+> - In Data Box 4.0 and earlier, the account is locked after 3 attempts and is unlocked 30 minutes later.
 
 
 ## Next steps
