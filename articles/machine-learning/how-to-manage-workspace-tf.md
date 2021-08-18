@@ -15,11 +15,11 @@ ms.custom:
 
 # Manage Azure Machine Learning workspaces using Terraform (preview)
 
-In this article, you learn how to create and manage an Azure Machine Learning workspace using Terraform infrastructure-as-code templates. [Terraform](/azure/developer/terraform/) makes it easy to create resources as a single, coordinated operation. A Terraform configuration is a document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the configuration.
+In this article, you learn how to create and manage an Azure Machine Learning workspace using Terraform configuration files. [Terraform](/azure/developer/terraform/)'s template-based configuration files enable you to define, provision, and configure Azure resources in a repeatable and predictable manner. A Terraform configuration is a document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the configuration.
 
 ## Prerequisites
 
-* An **Azure subscription**. If you do not have one yet, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
+* An **Azure subscription**. If you don't have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * An installed version of the [Azure CLI](/cli/azure/).
 * Configure Terraform: follow the directions in this article and [Terraform and configure access to Azure](/azure/developer/terraform/get-started-cloud-shell).
 
@@ -27,7 +27,7 @@ In this article, you learn how to create and manage an Azure Machine Learning wo
 
 Create the Terraform configuration file that declares the Azure provider.
 
-1. Create a new file named `main.tf`. If you are working with Azure Cloud Shell, use bash:
+1. Create a new file named `main.tf`. If working with Azure Cloud Shell, use bash:
 
     ```bash
     code main.tf
@@ -42,7 +42,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
 ## Deploy a workspace
 
-Below Terraform configurations can be used to create an Azure Machine Learning workspace. When you deploy an Azure Machine Learning workspace, various other services are required as dependencies. The template also specifies [associated resources to the workspace](/azure/machine-learning/concept-workspace#resources). Dependent on your use case and organizational requirements, you can choose to use the template that creates resources with either public or private network connectivity.
+Below Terraform configurations can be used to create an Azure Machine Learning workspace. When you deploy an Azure Machine Learning workspace, various other services are required as dependencies. The template also specifies [associated resources to the workspace](/azure/machine-learning/concept-workspace#resources). Dependent on your needs, you can choose to use the template that creates resources with either public or private network connectivity.
 
 # [Public network connectivity](#tab/publicworkspace)
 
@@ -56,7 +56,7 @@ Some resources in Azure require globally unique names. Before deploying your res
 
 # [Private network connectivity](#tab/privateworkspace)
 
-The configuration below creates a workspace in an isolated network environment using Azure private link endpoints. In addition, [private DNS zones](/azure/dns/private-dns-privatednszone) and [Private Link endpoints](/azure/private-link/private-endpoint-overview) are created. 
+The configuration below creates a workspace in an isolated network environment using Azure private link endpoints. [Private DNS zones](/azure/dns/private-dns-privatednszone) and [Private Link endpoints](/azure/private-link/private-endpoint-overview) are created so network traffic can be resolved within the virtual network.
 
 Some resources in Azure require globally unique names. Before deploying your resources using the below templates, set the `resourceprefix` variable to a value that is unique.
 
