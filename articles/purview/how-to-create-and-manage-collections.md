@@ -90,9 +90,7 @@ All assigned roles apply to sources, assets, and other objects within the collec
 1. Select “Edit role assignments” or the person icon to edit each role member.
 :::image type="content" source="./media/how-to-create-and-manage-collections/edit-role-assignments.png" alt-text="Screenshot of Purview studio collection window, with the edit role assignments dropdown list selected." border="true":::
 1. Type in the textbox to search for users you want to add to the role member. Select “X” to remove members you don't want to add.
-
- :::image type="content" source="./media/how-to-create-and-manage-collections/remove-collection-admin.png" alt-text="Screenshot of Purview studio collection admins window, with the x button beside one of the names highlighted." border="true":::
-4. Click “OK” to save your changes, and you will see the new users reflected in the role assignments list.
+1. Click “OK” to save your changes, and you will see the new users reflected in the role assignments list.
 
 ### Remove role assignments
 
