@@ -152,7 +152,4 @@ As a partner, you can monitor your offer listings using the data visualization a
 
 ## Help and support
 
-For any questions, contact [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport). 
-
-> [!NOTE]
-> Starting July 29th 2019, we will no longer accept new paid add-in submissions to Microsoft AppSource. Customers will be able to purchase existing paid add-ins in Microsoft AppSource until January 2020. They will then be hidden from the store, but will still be available for existing users. If these add-ins have not been migrated by July 2020, they will be removed from Microsoft AppSource and for existing users.
+For any questions, contact [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport).

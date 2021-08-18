@@ -1,6 +1,7 @@
 ---
 title: View acquisitions report
 description: Analyze your app or add-in performance and see funnel and acquisitions metrics.
+ms.author: mingshen
 localization_priority: Normal
 ---
 

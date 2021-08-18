@@ -1,6 +1,7 @@
 ---
 title: Reserve a name for your solution
 description: To create a submission in Partner Center, the first step is to reserve a name.
+ms.author: mingshen
 localization_priority: Normal
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Prepare localized solutions
 description: Obtain localized metadata and create descriptions for each language beyond the primary language.
+ms.author: mingshen
 ms.date: 11/24/2020
 localization_priority: Normal
 ---
