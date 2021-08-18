@@ -25,7 +25,7 @@ With Azure Active Directory, you can use groups to manage the [licenses for your
 *	Configure periodic access reviews to ensure only users that need the licenses are in the group. 
 *	Allow other users to request membership of the group
 
-In this tutorial, you work for WoodGrove Bank as an IT administrator. You've been asked to create an access package to your organization to easily gain access to Office licenses. You should already have a group that manages your [Office licenses](/active-directory/enterprise-users/licensing-groups-assign.md). These users need to be reviewed yearly and allow new users to request Office licenses pending manager approval. 
+In this tutorial, you work for WoodGrove Bank as an IT administrator. You've been asked to create an access package to your organization to easily gain access to Office licenses. You should already have a group that manages your [Office licenses](/active-directory/enterprise-users/licensing-groups-assign.md). These users require yearly review and allow new users to request Office licenses pending manager approval. 
 
 ## Step 1: Configure Basics for your Access Package
 
@@ -63,19 +63,19 @@ In this tutorial, you work for WoodGrove Bank as an IT administrator. You've bee
 
     * **Require requestor justification** - sets the Justification field on the requestor form to be required
     * **How many stages** - Allows you to configure multiple stages of approval for the selected users and groups
-    * **Approver** - this has two options:
-      * **Manager as approver** - This allows the requestor's manager to approve the request. You can select some to be the Fallback approver if the system cannot find the manager
-      * **Choose specific approvers** - This allows you to set specific people to be the approver(s)
+    * **Approver** - this field has two options:
+      * **Manager as approver** - This option allows the requestor's manager to approve the request. You can select some to be the Fallback approver if the system can't find the manager
+      * **Choose specific approvers** - This option allows you to set specific people to be the approver(s)
     * **Decision must be made in how many days?** - Time limit for approvers
-    * **Require approver justification** - Approvers must fill in the justification field for their approvals in case you want to review this later
+    * **Require approver justification** - Approvers must fill in the justification field for their approvals in case you want to review later
 
-6.	Set **Enable new requests and assignments** to **Yes** to enable this access package to be requested as soon as it is created
+6.	Set **Enable new requests and assignments** to **Yes** to enable this access package to be requested as soon as it's created
 
 ## Step 4: Configure Requestor information for your access package
 
 1.	Click **Next** to open the **Requestor information** tab
 
-2.	On this screen you can ask additional questions to collect more information from your requestor. These questions are shown on their request form and can be set to required or optional
+2.	On this screen, you can ask more questions to collect more information from your requestor. These questions are shown on their request form and can be set to required or optional
 
 3.	Fill in any questions that are necessary and configure the type of answer you would expect.
 
@@ -83,16 +83,16 @@ In this tutorial, you work for WoodGrove Bank as an IT administrator. You've bee
 
 1. Click **Next** to open the **Lifecycle** tab
 
-2.	In the **Expiration** section, set **Access package** assignment expire to **Number of days**
+2.	In the **Expiration** section, set **Access package assignments expire** to **Number of days**
 	
-3.	Set **Assignment expire after** to **365** days. This determines when members who have access to this access package will need to renew their access.
+3.	Set **Assignments expire after** to **365** days. This field determines when members who have access to this access package will need to renew their access.
 
 4.	You can also configure **Access Reviews** which allows periodic checks of whether the guest still needs access to the access package. A review can be a self-review or you can set their manager, specific reviews for this task. For more information, see [Access Reviews](entitlement-management-access-reviews-create.md).
 
     1.	Set **Require access reviews** to **Yes**
-    2.	You can leave the **Starting on** to the current date - This is the date the access review campaign will start on. Once an access review has been created, you cannot update its start date
-    3.	Set **Review frequency** to be **Annually** - This determines how often the access review campaign runs
-    4.	Specify a **Duration (in days** - This is how many days each occurrence of the access review series will run
+    2.	You can leave the **Starting on** to the current date - This date is when the access review campaign will start. Once an access review has been created, you can't update its start date
+    3.	Set **Review frequency** to be **Annually** - This field determines how often the access review campaign runs
+    4.	Specify a **Duration (in days)** - This field is how many days each occurrence of the access review series will run
     5.	For the **Reviewers**, select **Manager**
 
 ## Step 6: Review and create your access package
@@ -101,7 +101,7 @@ In this tutorial, you work for WoodGrove Bank as an IT administrator. You've bee
 
 2.	On this screen, you can review the configuration for your access package before creating it. If there are any issues, you can use the tabs to navigate to a specific point in the create experience to make edits
 
-3.	Once you are happy with your selection, click **Create**. After a few moments, you should see a notification that the access package was successfully created.
+3.	Once you're happy with your selection, click **Create**. After a few moments, you should see a notification that the access package was successfully created.
 
-4.	When the access package has been created, you will be taken to the **Overview** page for your access package. You can find the **My Access portal link** here. Copy the link and share it with your team so that they can request the access package to access its resources.
+4.	When the access package has been created, you'll be taken to the **Overview** page for your access package. You can find the **My Access portal link** here. Copy the link and share it with your team so that they can request the access package to access its resources.
 
