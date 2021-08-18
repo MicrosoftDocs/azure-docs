@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
+ms.custom: has-adal-ref
 
 ms.collection: M365-identity-device-management
 ---
