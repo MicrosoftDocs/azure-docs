@@ -10,7 +10,7 @@ ms.date: 06/11/2021
 # Customer intent: As an Azure Purview admin, I want to set up private endpoints for my Azure Purview account for secure access.
 ---
 
-# Use private endpoints for your Azure Purview account
+# Use private endpoints for your Azure Purview account - deprecated 
 
 You can use private endpoints for your Azure Purview accounts to allow clients and users on a virtual network (VNet) to securely access the catalog over Azure Private Link. The private endpoint uses an IP address from the virtual network address space for your Azure Purview account. Network traffic between the clients on the virtual network and the Azure Purview account traverses over the virtual network and a private link on the Microsoft backbone network. This arrangement eliminates exposure from the public internet.
 
