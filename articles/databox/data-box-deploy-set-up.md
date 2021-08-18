@@ -120,6 +120,9 @@ Perform the following steps to set up your device using the local web UI and the
    ![Connect to local web UI](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
 1. You see a **Sign in** page for the local web UI. Ensure that the device serial number matches across both the portal UI and the local web UI. The device is locked at this point.
+
+[!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
+
 1. Sign into the [Azure portal](https://portal.azure.com).
 1. Download the device credentials from portal. Go to **General > Device details**. Copy the **Device password**. The device password is tied to a specific order in the portal. 
 
