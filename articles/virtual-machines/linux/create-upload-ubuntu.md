@@ -1,12 +1,12 @@
 ---
 title: Create and upload an Ubuntu Linux VHD in Azure
 description: Learn to create and upload an Azure virtual hard disk (VHD) that contains an Ubuntu Linux operating system.
-author: danielsollondon
+author: srijang
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 06/06/2020
-ms.author: danis
+ms.date: 07/28/2021
+ms.author: srijangupta
 
 ---
 # Prepare an Ubuntu virtual machine for Azure
@@ -14,8 +14,8 @@ ms.author: danis
 
 Ubuntu now publishes official Azure VHDs for download at [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). If you need to build your own specialized Ubuntu image for Azure, rather than use the manual procedure below it is recommended to start with these known working VHDs and customize as needed. The latest image releases can always be found at the following locations:
 
-* Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk](https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vmdk)
-* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64.vmdk](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vmdk)
+* Ubuntu 18.04/Bionic: [bionic-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64-azure.vhd.zip)
+* Ubuntu 20.04/Focal:  [focal-server-cloudimg-amd64-azure.vhd.zip](https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64-azure.vhd.zip)
 
 ## Prerequisites
 This article assumes that you have already installed an Ubuntu Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
@@ -46,7 +46,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
     # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
     ```
 
-	Ubuntu 16.04 and Ubuntu 18.04:
+	Ubuntu 18.04 and Ubuntu 20.04:
 
     ```console
     # sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
@@ -56,7 +56,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 4. The Ubuntu Azure images are now using the [Azure-tailored kernel](https://ubuntu.com/blog/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel). Update the operating system to the latest Azure-tailored kernel and install Azure Linux tools (including Hyper-V dependencies) by running the following commands:
 
-    Ubuntu 16.04 and Ubuntu 18.04:
+    Ubuntu 18.04 and Ubuntu 20.04:
 
     ```console
     # sudo apt update
@@ -76,7 +76,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 6. Ensure that the SSH server is installed and configured to start at boot time.  This is usually the default.
 
-7. Install cloud-init (the provisioning agent) and the Azure Linux Agent (the guest extensions handler). Cloud-init uses netplan to configure the system network configuration during provisioning and each subsequent boot.
+7. Install cloud-init (the provisioning agent) and the Azure Linux Agent (the guest extensions handler). Cloud-init uses `netplan` to configure the system network configuration during provisioning and each subsequent boot.
 
     ```console
     # sudo apt update
@@ -86,20 +86,20 @@ This article assumes that you have already installed an Ubuntu Linux operating s
    > [!Note]
    >  The `walinuxagent` package may remove the `NetworkManager` and `NetworkManager-gnome` packages, if they are installed.
 
-8. Remove cloud-init default configs and leftover netplan artifacts that may conflict with cloud-init provisioning on Azure:
+8. Remove cloud-init default configs and leftover `netplan` artifacts that may conflict with cloud-init provisioning on Azure:
 
     ```console
-    # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
+    # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg /etc/cloud/cloud.cfg.d/99-installer.cfg /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
     # rm -f /etc/cloud/ds-identify.cfg
     # rm -f /etc/netplan/*.yaml
     ```
 
 9. Configure cloud-init to provision the system using the Azure datasource:
 
-	```console
+    ```bash
 	# cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
 	datasource_list: [ Azure ]
-	EOF
+    EOF
 
 	# cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
     system_info:
@@ -116,7 +116,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
            failsafe:
              primary: http://ports.ubuntu.com/ubuntu-ports
              security: http://ports.ubuntu.com/ubuntu-ports
-	EOF
+    EOF
 
 	# cat > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg << EOF
     reporting:
@@ -124,8 +124,8 @@ This article assumes that you have already installed an Ubuntu Linux operating s
         type: log
       telemetry:
         type: hyperv
-	EOF
-	```
+    EOF
+    ```
 
 10. Configure the Azure Linux agent to rely on cloud-init to perform provisioning. Have a look at the [WALinuxAgent project](https://github.com/Azure/WALinuxAgent) for more information on these options.
 
@@ -158,7 +158,7 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 12. Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
 	> [!NOTE]
-	> The `sudo waagent -force -deprovision+user` command will attempt to clean the system and make it suitable for re-provisioning. The `+user` option deletes the last provisioned user account and associated data.
+	> The `sudo waagent -force -deprovision+user` command generalizes the image by attempting to clean the system and make it suitable for re-provisioning. The `+user` option deletes the last provisioned user account and associated data.
 
 	> [!WARNING]
 	> Deprovisioning using the command above does not guarantee that the image is cleared of all sensitive information and is suitable for redistribution.

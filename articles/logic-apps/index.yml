@@ -62,7 +62,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: "Template: Run timer jobs on a schedule"
-            url: https://azure.microsoft.com/resources/templates/301-logicapps-jobscheduler/
+            url: https://azure.microsoft.com/resources/templates/logicapps-jobscheduler/
       - linkListType: learn
         links:
           - text: Route and process data automatically
@@ -116,7 +116,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: "Sample: Connect to integration account and deploy with Azure DevOps"
-            url: /samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/
+            url: https://github.com/Azure-Samples/azure-logic-apps-deployment-samples/tree/master/storage-account-connections
       - linkListType: architecture
         links:
           - text: Basic enterprise integration
@@ -155,11 +155,8 @@ landingContent:
         links:
           - text: Create and deploy with Resource Manager templates
             url: /learn/modules/create-deploy-logic-apps-using-arm-templates/
-          - text: "Sample: Connect to Azure Storage and deploy with Azure DevOps"
-            url: /samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
-          - text: "Sample: Connect to Azure Service Bus and deploy with Azure DevOps"
-            url: /samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
-
+          - text: "Sample: Orchestrate Azure Pipelines by using Azure Logic Apps"
+            url: https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration
   # Card (optional)
   - title: More information
     linkLists:

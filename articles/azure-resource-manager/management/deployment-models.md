@@ -101,8 +101,8 @@ The following table describes changes in how Compute, Network, and Storage resou
 | Cloud Service for Virtual Machines |Cloud Service was a container for holding the virtual machines that required Availability from the platform and Load Balancing. |Cloud Service is no longer an object required for creating a Virtual Machine using the new model. |
 | Virtual Networks |A virtual network is optional for the virtual machine. If included, the virtual network can't be deployed with Resource Manager. |Virtual machine requires a virtual network that has been deployed with Resource Manager. |
 | Storage Accounts |The virtual machine requires a storage account that stores the virtual hard disks for the operating system, temporary, and additional data disks. |The virtual machine requires a storage account to store its disks in blob storage. |
-| Availability Sets |Availability to the platform was indicated by configuring the same “AvailabilitySetName” on the Virtual Machines. The maximum count of fault domains was 2. |Availability Set is a resource exposed by Microsoft.Compute Provider. Virtual Machines that require high availability must be included in the Availability Set. The maximum count of fault domains is now 3. |
-| Affinity Groups |Affinity Groups were required for creating Virtual Networks. However, with the introduction of Regional Virtual Networks, that wasn't required anymore. |To simplify, the Affinity Groups concept doesn’t exist in the APIs exposed through Azure Resource Manager. |
+| Availability Sets |Availability to the platform was indicated by configuring the same "AvailabilitySetName" on the Virtual Machines. The maximum count of fault domains was 2. |Availability Set is a resource exposed by Microsoft.Compute Provider. Virtual Machines that require high availability must be included in the Availability Set. The maximum count of fault domains is now 3. |
+| Affinity Groups |Affinity Groups were required for creating Virtual Networks. However, with the introduction of Regional Virtual Networks, that wasn't required anymore. |To simplify, the Affinity Groups concept doesn't exist in the APIs exposed through Azure Resource Manager. |
 | Load Balancing |Creation of a Cloud Service provides an implicit load balancer for the Virtual Machines deployed. |The Load Balancer is a resource exposed by the Microsoft.Network provider. The primary network interface of the Virtual Machines that needs to be load balanced should be referencing the load balancer. Load Balancers can be internal or external. A load balancer instance references the backend pool of IP addresses that include the NIC of a virtual machine (optional) and references a load balancer public or private IP address (optional). |
 | Virtual IP Address |Cloud Services gets a default VIP (Virtual IP Address) when a VM is added to a cloud service. The Virtual IP Address is the address associated with the implicit load balancer. |Public IP address is a resource exposed by the Microsoft.Network provider. Public IP address can be static (reserved) or dynamic. Dynamic public IPs can be assigned to a Load Balancer. Public IPs can be secured using Security Groups. |
 | Reserved IP Address |You can reserve an IP Address in Azure and associate it with a Cloud Service to ensure that the IP Address is sticky. |Public IP Address can be created in static mode and it offers the same capability as a reserved IP address. |
@@ -142,7 +142,7 @@ All the automation and scripts that you've built continue to work for the existi
 
 **Where can I find examples of Azure Resource Manager templates?**
 
-A comprehensive set of starter templates can be found on [Azure Resource Manager Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
+A comprehensive set of starter templates can be found on [Azure Resource Manager Quickstart Templates](https://azure.microsoft.com/resources/templates/).
 
 ## Next steps
 

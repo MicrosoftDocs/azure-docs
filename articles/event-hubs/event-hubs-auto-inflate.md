@@ -50,7 +50,7 @@ To enable the Auto-inflate feature and modify its settings for an existing, foll
 4. (optional) Update the **minimum** number of throughput units at the top of this page.
 
 > [!NOTE]
-> When you apply the auto-inflate configuration to increase throughput units, the Event Hubs service emits diagnostic logs that give you information about why and when the throughput increased. To enable diagnostic logging for an event hub, select **Diagnostic settings** on the left menu on the Event Hub page in the Azure portal. For more information, see [Set up diagnostic logs for an Azure event hub](event-hubs-diagnostic-logs.md).
+> When you apply the auto-inflate configuration to increase throughput units, the Event Hubs service emits diagnostic logs that give you information about why and when the throughput increased. To enable diagnostic logging for an event hub, select **Diagnostic settings** on the left menu on the Event Hub page in the Azure portal. For more information, see [Set up diagnostic logs for an Azure event hub](monitor-event-hubs-reference.md#resource-logs).
 
 
 ## Use an Azure Resource Manager template

@@ -12,6 +12,8 @@ ms.custom: mvc, devx-track-azurecli
 
 # Tutorial: Build a PHP (Laravel) and MySQL Flexible Server (Preview) app in Azure App Service
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 
 :::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="PHP Web App in Azure with Flexible Server":::
 
@@ -141,7 +143,7 @@ az mysql flexible-server create  --resource-group myResourceGroup --public-acces
 ```
 
 > [!IMPORTANT]
-> - Make a note of the **servername** and **connection string** to use it in the next step to connect and run laravel data migration.
+>- Make a note of the **servername** and **connection string** to use it in the next step to connect and run laravel data migration.
 > - For **IP-Address**  argument, provide the IP of your client machine. The server is locked when created and you need to permit access to your client machine to manage the server locally.
 
 ### Configure server firewall to allow web app to connect to the server

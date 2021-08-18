@@ -50,7 +50,7 @@
     - name: View and manage service providers 
       displayName: customer, update, visibility, control
       href: ./how-to/view-manage-service-providers.md
-    - name: View service provider activity
+    - name: Monitor service provider activity
       displayName: monitor, log, customer, visibility, transparency, control
       href: ./how-to/view-service-provider-activity.md
   - name: Onboarding and delegation management
@@ -73,6 +73,9 @@
     - name: Monitor delegation changes
       displayName: activity log
       href: ./how-to/monitor-delegation-changes.md
+    - name: Onboard subscriptions in a management group
+      displayName: mg, policy, logic app
+      href: ./how-to/onboard-management-group.md
   - name: View and manage customers 
     displayName: my customers
     href: ./how-to/view-manage-customers.md
@@ -115,7 +118,7 @@
   - name: REST
     href: /rest/api/managedservices/
   - name: OpenAPI
-    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./samples/policy-reference.md
@@ -127,8 +130,8 @@
   items:
   - name: Microsoft Q&A for Azure Lighthouse
     href: /answers/topics/azure-lighthouse.html
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
+  - name: Azure updates
+    href: https://azure.microsoft.com/updates/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability

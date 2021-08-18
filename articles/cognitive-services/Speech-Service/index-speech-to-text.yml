@@ -6,12 +6,12 @@ metadata:
   title: Speech-to-text documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: trevorbye
+  author: laujan
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/19/2020
-  ms.author: trbye
+  ms.author: lajanuar
 
 landingContent:
 - title: About speech-to-text
@@ -63,7 +63,7 @@ landingContent:
         - text: Language support
           url: language-support.md#speech-to-text
         - text: Speech-to-text FAQ
-          url: faq-stt.md
+          url: faq-stt.yml
         - text: Speech-to-text pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
 - title: Help and feedback

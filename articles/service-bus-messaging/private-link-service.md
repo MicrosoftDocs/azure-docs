@@ -100,7 +100,7 @@ If you already have an existing namespace, you can create a private endpoint by 
 
     ![Private endpoint created](./media/private-link-service/private-endpoint-created.png)
 
-[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+[!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
 ## Add a private endpoint using PowerShell
 The following example shows you how to use Azure PowerShell to create a private endpoint connection to a Service Bus namespace.

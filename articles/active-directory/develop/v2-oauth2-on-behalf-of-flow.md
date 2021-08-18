@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/7/2020
+ms.date: 07/16/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -18,13 +18,15 @@ ms.custom: aaddev
 
 # Microsoft identity platform and OAuth 2.0 On-Behalf-Of flow
 
-
 The OAuth 2.0 On-Behalf-Of flow (OBO) serves the use case where an application invokes a service/web API, which in turn needs to call another service/web API. The idea is to propagate the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from the Microsoft identity platform, on behalf of the user.
 
-This article describes how to program directly against the protocol in your application.  When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
+The OBO flow only works for user principals at this time. A service principal cannot request an app-only token, send it to an API, and have that API exchange that for another token that represents that original service principal. Additionally, the OBO flow is focused on acting on another party's behalf, known as a delegated scenario - this means that it uses only delegated *scopes*, and not application *roles*, for reasoning about permissions. *Roles* remain attached to the principal (the user) in the flow, never the application operating on the users behalf.
 
+This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Also take a look at the [sample apps that use MSAL](sample-v2-code.md).
 
 As of May 2018, some implicit-flow derived `id_token` can't be used for OBO flow. Single-page apps (SPAs) should pass an **access** token to a middle-tier confidential client to perform OBO flows instead. For more info about which clients can perform OBO calls, see [limitations](#client-limitations).
+
+[!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
 ## Protocol diagram
 
@@ -77,8 +79,8 @@ Host: login.microsoftonline.com/<tenant>
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
-&client_id=2846f71b-a7a4-4987-bab3-760035b2f389
-&client_secret=BYyVnAt56JpLwUcyo47XODd
+client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
+&client_secret=sampleCredentia1s
 &assertion=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiIyO{a lot of characters here}
 &scope=https://graph.microsoft.com/user.read+offline_access
 &requested_token_use=on_behalf_of
@@ -149,16 +151,16 @@ The following example shows a success response to a request for an access token 
 
 The above access token is a v1.0-formatted token for Microsoft Graph. This is because the token format is based on the **resource** being accessed and unrelated to the endpoints used to request it. The Microsoft Graph is setup to accept v1.0 tokens, so the Microsoft identity platform produces v1.0 access tokens when a client requests tokens for Microsoft Graph. Other apps may indicate that they want v2.0-format tokens, v1.0-format tokens, or even proprietary or encrypted token formats.  Both the v1.0 and v2.0 endpoints can emit either format of token - this way the resource can always get the right format of token regardless of how or where the token was requested by the client. 
 
-Only applications should look at access tokens. Clients **must not** inspect them. Inspecting access tokens for other apps in your code will result in your app unexpectedly breaking when that app changes the format of their tokens or starts encrypting them. 
+[!INCLUDE [remind-not-to-validate-access-tokens](includes/remind-not-to-validate-access-tokens.md)]
 
 ### Error response example
 
-An error response is returned by the token endpoint when trying to acquire an access token for the downstream API, if the downstream API has a Conditional Access policy (such as [multi-factor authentication](../authentication/concept-mfa-howitworks.md)) set on it. The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
+An error response is returned by the token endpoint when trying to acquire an access token for the downstream API, if the downstream API has a Conditional Access policy (such as [multifactor authentication](../authentication/concept-mfa-howitworks.md)) set on it. The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
 
 ```json
 {
     "error":"interaction_required",
-    "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
+    "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multifactor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
     "error_codes":[50079],
     "timestamp":"2017-05-01 22:43:20Z",
     "trace_id":"b72a68c3-0926-4b8e-bc35-3150069c2800",
@@ -198,7 +200,7 @@ A service-to-service request for a SAML assertion contains the following paramet
 | assertion |required | The value of the access token used in the request.|
 | client_id |required | The app ID assigned to the calling service during registration with Azure AD. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
 | client_secret |required | The key registered for the calling service in Azure AD. This value should have been noted at the time of registration. |
-| resource |required | The app ID URI of the receiving service (secured resource). This is the resource that will be the Audience of the SAML token. To find the app ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
+| scope |required | A space-separated list of scopes for the token request. For more information, see [scopes](v2-permissions-and-consent.md). For example, 'https://testapp.contoso.com/user_impersonation openid' |
 | requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
 | requested_token_type | required | Specifies the type of token requested. The value can be **urn:ietf:params:oauth:token-type:saml2** or **urn:ietf:params:oauth:token-type:saml1** depending on the requirements of the accessed resource. |
 

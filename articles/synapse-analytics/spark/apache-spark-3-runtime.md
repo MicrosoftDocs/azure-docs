@@ -8,6 +8,7 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 05/26/2021 
 ms.author: midesa 
+ms.custom: has-adal-ref
 ---
 
 # Azure Synapse Runtime for Apache Spark 3.0 (preview)
@@ -1272,5 +1273,5 @@ zipp=0.6.0
 ## Next steps
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Apache Spark Documentation](https://spark.apache.org/docs/2.4.4/)
+- [Apache Spark Documentation](https://spark.apache.org/docs/3.0.2/)
 - [Apache Spark Concepts](apache-spark-concepts.md)

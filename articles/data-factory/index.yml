@@ -11,15 +11,18 @@ metadata:
   ms.collection: collection
   author: jonburchel
   ms.author: jburchel
-  ms.date: 10/02/2019
+  ms.date: 06/14/2021
+  ms.custom: contperf-fy21q4
 
 landingContent:
   - title: About Azure Data Factory
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Data Factory?
+          - text: Introduction to Azure Data Factory
             url: ./introduction.md
+          - text: What's New in Azure Data Factory
+            url: ./whats-new.md
       - linkListType: reference
         links:
           - text: Whitepapers
@@ -36,6 +39,10 @@ landingContent:
             url: https://feedback.azure.com/forums/270578-azure-data-factory
   - title: Get started
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Pipelines and activities in Azure Data Factory
+            url: ./concepts-pipelines-activities.md    
       - linkListType: quickstart
         links:
           - text: Azure Data Factory UI
@@ -52,22 +59,26 @@ landingContent:
             url: ./quickstart-create-data-factory-rest-api.md
           - text: Resource manager template
             url: ./quickstart-create-data-factory-resource-manager-template.md
+      - linkListType: how-to-guide
+        links:
+          - text: Expressions and functions in Azure Data Factory
+            url: ./control-flow-expression-language-functions.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Data Factory
-            url: https://docs.microsoft.com/learn/modules/intro-to-azure-data-factory/
+            url: /learn/modules/intro-to-azure-data-factory/
   - title: Data movement
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Data lake and data warehouse migration
+            url: ./data-migration-guidance-overview.md
       - linkListType: concept
         links:
           - text: Copy activity overview
             url: ./copy-activity-overview.md
           - text: Copy performance tuning
-            url: ./copy-activity-performance.md
-      - linkListType: overview
-        links:
-          - text: Data lake and data warehouse migration
-            url: ./data-migration-guidance-overview.md
+            url: ./copy-activity-performance.md            
       - linkListType: tutorial
         links:
           - text: Copy data in cloud
@@ -86,10 +97,6 @@ landingContent:
             url: ./load-sap-bw-data.md
   - title: Data transformation
     linkLists:
-      - linkListType: concept 
-        links:
-          - text: What are mapping data flows?
-            url: ./concepts-data-flow-overview.md
       - linkListType: tutorial
         links:
           - text: Create data flow
@@ -104,12 +111,22 @@ landingContent:
             url: ./concepts-data-flow-monitoring.md
           - text: Data flow performance
             url: ./concepts-data-flow-performance.md
+      - linkListType: concept 
+        links:
+          - text: What are mapping data flows?
+            url: ./concepts-data-flow-overview.md
+          - text: Data transformation expressions in mapping data flow
+            url: ./data-flow-expression-functions.md          
   - title: Lift and shift SSIS packages
     linkLists:
       - linkListType: overview
         links:
           - text: Migrate SSIS packages to Azure SQL Managed Instance
             url: ./scenario-ssis-migration-ssisdb-mi.md
+      - linkListType: concept
+        links:
+          - text: Integration runtime in Azure Data Factory
+            url: ./concepts-integration-runtime.md
       - linkListType: tutorial
         links:
           - text: Running SSIS packages in Azure
@@ -122,51 +139,19 @@ landingContent:
             url: ./join-azure-ssis-integration-runtime-virtual-network.md
           - text: Run SSIS packages with Execute SSIS Package activity
             url: ./how-to-invoke-ssis-package-ssis-activity.md
-          - text: Schedule SSIS integration runtime
-            url: ./how-to-schedule-azure-ssis-integration-runtime.md
-          - text: Customize setup for SSIS IR
-            url: ./how-to-configure-azure-ssis-ir-custom-setup.md
-          - text: Install licensed components for SSIS IR
-            url: ./how-to-develop-azure-ssis-ir-licensed-components.md
-  - title: Security
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Data movement security considerations
-            url: ./data-movement-security-considerations.md
-          - text: Managed Identity for data factory
-            url: ./data-factory-service-identity.md
-          - text: Store credentials in Azure Key Vault
-            url: ./store-credentials-in-key-vault.md
+          - text: Create and configure a self-hosted integration Runtime
+            url: ./create-self-hosted-integration-runtime.md
   - title: Author, Monitor and Manage
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Visually monitor Azure data factories
             url: ./author-visually.md
+          - text: Troubleshoot Azure Data Factory connectors
+            url: ./connector-troubleshoot-guide.md
           - text: Source Control
             url: ./source-control.md
           - text: Continuous integration and delivery
             url: ./continuous-integration-deployment.md
-          - text: Iterative development and debugging
-            url: ./iterative-development-debugging.md
-          - text: Monitor visually
-            url: ./monitor-visually.md
           - text: Monitor with Azure Monitor
             url: ./monitor-using-azure-monitor.md
-          - text: Monitor with SDKs
-            url: ./monitor-programmatically.md
-  - title: Languages
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Azure PowerShell
-            url: /powershell/module/az.datafactory/
-          - text: .NET
-            url: /dotnet/api/microsoft.azure.management.datafactory/
-          - text: Python
-            url: /python/api/overview/azure/datafactory
-          - text: REST
-            url: /rest/api/datafactory/
-          - text: Resource Manager template
-            url: /azure/templates/microsoft.datafactory/allversions

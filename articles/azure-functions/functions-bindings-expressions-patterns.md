@@ -257,7 +257,9 @@ module.exports = function (context, info) {
 
 ### Dot notation
 
-If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. For example, suppose your JSON looks like this:
+If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. The dot notation does not work or [Cosmos DB](./functions-bindings-cosmosdb-v2.md) or [Table storage](./functions-bindings-storage-table-output.md) bindings. 
+
+For example, suppose your JSON looks like this:
 
 ```json
 {

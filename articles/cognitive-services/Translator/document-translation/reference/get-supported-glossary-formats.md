@@ -15,7 +15,7 @@ ms.author: v-jansk
 
 # Get supported glossary formats
 
-The Get supported glossary formats method returns a list of supported glossary formats supported by the Document Translation service. The list includes the common file extension used.
+The Get supported glossary formats method returns a list of glossary formats supported by the Document Translation service. The list includes the common file extension used.
 
 ## Request URL
 

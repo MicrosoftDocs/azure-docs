@@ -77,7 +77,7 @@ Connect-AzAccount
 If you have multiple subscriptions and want to specify one, use the [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) cmdlet to list them, followed by the [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet:
 
 ```powershell
-Set-AzContext -Subscription -Subscription <SubscriptionId>
+Set-AzContext -Subscription <SubscriptionId>
 ```
 
 Running the [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext) cmdlet will verify that the correct subscription has been selected.
@@ -188,7 +188,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ### Enable encryption on an existing or running Linux VM with a template
 
-You can enable disk encryption on an existing or running Linux VM in Azure by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad).
+You can enable disk encryption on an existing or running Linux VM in Azure by using the [Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm-without-aad).
 
 1. Click **Deploy to Azure** on the Azure quickstart template.
 

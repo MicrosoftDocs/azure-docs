@@ -17,10 +17,10 @@ ms.date: 01/27/2021
 In this quickstart, you create a [single database](single-database-overview.md) in Azure SQL Database using either the Azure portal, a PowerShell script, or an Azure CLI script. You then query the database using **Query editor** in the Azure portal.
 
 
-
 ## Prerequisite
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- You may also need the latest version of either [Azure PowerShell](/powershell/azure/install-az-ps) or the [Azure CLI](/cli/azure/install-azure-cli-windows), depending on the creation method you choose. 
 
 ## Create a single database
 

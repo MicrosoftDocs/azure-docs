@@ -30,6 +30,11 @@ Network Security Group flow logs are a feature of Network Watcher that allows yo
 
 The detailed specification of all NSG flow logs commands for various versions of AzPowerShell can be found [here](/powershell/module/az.network/#network-watcher)
 
+> [!NOTE]
+> - The commands [Get-AzNetworkWatcherFlowLogStatus](/powershell/module/az.network/get-aznetworkwatcherflowlogstatus) and [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) used in this doc, requires an additional "reader" permission in the resource group of the network watcher. Also, these commands are old and may soon be deprecated.
+> - It is recommended to use the new [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) and [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog) commands instead.
+> - The new [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) command offers four variants for flexibility. In case you are using the "Location <String>" variant of this command, an additional "reader" permission in the resource group of the network watcher would be required. For other variants, no additional permissions are required. 
+
 ## Register Insights provider
 
 In order for flow logging to work successfully, the **Microsoft.Insights** provider must be registered. If you are not sure if the **Microsoft.Insights** provider is registered, run the following script.

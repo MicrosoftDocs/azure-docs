@@ -5,7 +5,7 @@ author: anirudhcavale
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/13/2021
+ms.date: 06/01/2021
 ---
 # Custom metrics in Azure Monitor (Preview)
 
@@ -186,10 +186,7 @@ During the public preview, the ability to publish custom metrics is available on
 |Azure region |Regional endpoint prefix|
 |---|---|
 | All Public Cloud Regions | https://<azure_region_code>.monitoring.azure.com |
-| **Azure Government** | |
-| US Gov Arizona | https:\//usgovarizona.monitoring.azure.us |
-| **China** | |
-| China East 2 | https:\//chinaeast2.monitoring.azure.cn |
+
 
 ## Latency and storage retention
 
@@ -230,9 +227,9 @@ Again, this limit is not for an individual metric. It’s for the sum of all suc
 
 If you have a variable in the name or a high cardinality dimension, the following can occur:
 - Metrics become unreliable due to throttling
-- Metrics Explorer doesn’t work
+- Metrics Explorer won’t work
 - Alerting and notifications become unpredictable
-- Costs can increase unexpectedly -  Microsoft is not charging while the custom metrics with dimensions are in public preview. However, once charges start in the future, you will incur unexpected charges. The plan is to charge for metrics consumption based on the number of time-series monitored and number of API calls made.  
+- Costs can increase unexpectedly -  Microsoft is not charging for custom metrics with dimensions while this feature is in Public Preview. However, once charges start in the future, you will incur unexpected charges. The plan is to charge for metrics consumption based on the number of time-series monitored and number of API calls made.
 
 ## Next steps
 Use custom metrics from different services: 

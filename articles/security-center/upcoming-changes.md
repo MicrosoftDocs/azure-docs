@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 06/09/2021
+ms.date: 08/16/2021
 ms.author: memildin
 
 ---
@@ -22,60 +22,59 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-| Planned change                                                                                                                                                        | Estimated date for change |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Two recommendations from "Apply system updates" security control being deprecated](#two-recommendations-from-apply-system-updates-security-control-being-deprecated) | June 2021                  |
-| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)          | June 2021                 |
-| [Recommendations to encrypt with customer-managed keys (CMKs) being disabled](#recommendations-to-encrypt-with-customer-managed-keys-cmks-being-disabled)             | June 2021                 |
-| [Enhancements to SQL data classification recommendation](#enhancements-to-sql-data-classification-recommendation)                                                     | Q3 2021                   |
-| [Enable Azure Defender security control to be included in secure score](#enable-azure-defender-security-control-to-be-included-in-secure-score)                       | Q3 2021                   |
-|                                                                                                                                                                       |                           |
-
-
-### Two recommendations from "Apply system updates" security control being deprecated
-
-**Estimated date for change:** June 2021
-
-The following two recommendations are being deprecated:
-
-- **OS version should be updated for your cloud service roles** - By default, Azure periodically updates your guest OS to the latest supported image within the OS family that you've specified in your service configuration (.cscfg), such as Windows Server 2016.
-- **Kubernetes Services should be upgraded to a non-vulnerable Kubernetes version** - This recommendation's evaluations aren't as wide-ranging as we'd like them to be. The current version of this recommendation will eventually be replaced with an enhanced version that's better aligned with our customer's security needs.
+| Planned change       | Estimated date for change |
+|----------------------|---------------------------|
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| August 2021|
+| [Changing prefix of some alert types from "ARM_" to "VM_"](#changing-prefix-of-some-alert-types-from-arm_-to-vm_)                                          | October 2021|
+| [Enable Azure Defender security control to be included in secure score](#enable-azure-defender-security-control-to-be-included-in-secure-score)             | Q3 2021    |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | Q4 2021    |
+| [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)   | Q1 2022    |
 
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
+
+**Estimated date for change:** August 2021
 
 The legacy implementation of ISO 27001 will be removed from Security Center's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Security Center, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 
 :::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Security Center's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
-### Recommendations to encrypt with customer-managed keys (CMKs) being disabled
+### Changing prefix of some alert types from "ARM_" to "VM_" 
 
-**Estimated date for change:** June 2021
+**Estimated date for change:** October 2021
 
-Security Center includes multiple recommendations to encrypt data at rest with customer-managed keys, such as:
+In July 2021 we announced a [logical reorganization of Azure Defender for Resource Manager alerts](release-notes.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 
 
-- Container registries should be encrypted with a customer-managed key (CMK)
-- Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest
-- Azure Machine Learning workspaces should be encrypted with a customer-managed key (CMK)
+As part of a logical reorganization of some of the Azure Defender plans, we moved twenty one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for servers](defender-for-servers-introduction.md).
 
-Data in Azure is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when required for compliance with a specific policy your organization is choosing to enforce.
+We're now planning to update the prefixes of these alerts to match this reassignment. We'll be replacing "ARM_" with "VM_" as shown in the following table.
 
-With this change, the recommendations to use CMKs will be **disabled by default**. When relevant for your organization, you can enable them by changing the *Effect* parameter for the corresponding security policy to **AuditIfNotExists** or **Enforce**. Learn more in [Enable a security policy](tutorial-security-policy.md#enable-a-security-policy).
+| Current name                                   | After this change                             |
+|------------------------------------------------|-----------------------------------------------|
+| ARM_AmBroadFilesExclusion                      | VM_AmBroadFilesExclusion                      |
+| ARM_AmDisablementAndCodeExecution              | VM_AmDisablementAndCodeExecution              |
+| ARM_AmDisablement                              | VM_AmDisablement                              |
+| ARM_AmFileExclusionAndCodeExecution            | VM_AmFileExclusionAndCodeExecution            |
+| ARM_AmTempFileExclusionAndCodeExecution        | VM_AmTempFileExclusionAndCodeExecution        |
+| ARM_AmTempFileExclusion                        | VM_AmTempFileExclusion                        |
+| ARM_AmRealtimeProtectionDisabled               | VM_AmRealtimeProtectionDisabled               |
+| ARM_AmTempRealtimeProtectionDisablement        | VM_AmTempRealtimeProtectionDisablement        |
+| ARM_AmRealtimeProtectionDisablementAndCodeExec | VM_AmRealtimeProtectionDisablementAndCodeExec |
+| ARM_AmMalwareCampaignRelatedExclusion          | VM_AmMalwareCampaignRelatedExclusion          |
+| ARM_AmTemporarilyDisablement                   | VM_AmTemporarilyDisablement                   |
+| ARM_UnusualAmFileExclusion                     | VM_UnusualAmFileExclusion                     |
+| ARM_CustomScriptExtensionSuspiciousCmd         | VM_CustomScriptExtensionSuspiciousCmd         |
+| ARM_CustomScriptExtensionSuspiciousEntryPoint  | VM_CustomScriptExtensionSuspiciousEntryPoint  |
+| ARM_CustomScriptExtensionSuspiciousPayload     | VM_CustomScriptExtensionSuspiciousPayload     |
+| ARM_CustomScriptExtensionSuspiciousFailure     | VM_CustomScriptExtensionSuspiciousFailure     |
+| ARM_CustomScriptExtensionUnusualDeletion       | VM_CustomScriptExtensionUnusualDeletion       |
+| ARM_CustomScriptExtensionUnusualExecution      | VM_CustomScriptExtensionUnusualExecution      |
+| ARM_VMAccessUnusualConfigReset                 | VM_VMAccessUnusualConfigReset                 |
+| ARM_VMAccessUnusualPasswordReset               | VM_VMAccessUnusualPasswordReset               |
+| ARM_VMAccessUnusualSSHReset                    | VM_VMAccessUnusualSSHReset                    |
 
-Initially, this change will be reflected in the names of the recommendation with a new prefix, **[Enable if required]**, as shown in the following examples:
+Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for servers](defender-for-servers-introduction.md) plans.
 
-- [Enable if required] Storage accounts should use customer-managed key to encrypt data at rest
-- [Enable if required] Container registries should be encrypted with a customer-managed key (CMK)
-- [Enable if required] Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest
-
-:::image type="content" source="media/upcoming-changes/customer-managed-keys-disabled.png" alt-text="Security Center's CMK recommendations will be disabled by default." lightbox="media/upcoming-changes/customer-managed-keys-disabled.png":::
-
-
-### Enhancements to SQL data classification recommendation
-
-**Estimated date for change:** Q3 2021
-
-The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently, it's b0df6f56-862d-4730-8597-38c0fd4ebd59).
 
 ### Enable Azure Defender security control to be included in secure score
 
@@ -91,7 +90,33 @@ With this change, there will be an impact on the secure score of any subscriptio
 
 Learn more in [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
+### Changes to recommendations for managing endpoint protection solutions
+
+**Estimated date for change:** Q4 2021
+
+In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, see [the release note](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
+
+When the recommendations are released to general availability, they will replace the following existing recommendations:
+
+- **Endpoint protection should be installed on your machines** will replace:
+    - [Install endpoint protection solution on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/83f577bd-a1b6-b7e1-0891-12ca19d1e6df)
+    - [Install endpoint protection solution on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/383cf3bc-fdf9-4a02-120a-3e7e36c6bfee) 
+
+- **Endpoint protection health issues should be resolved on your machines** will replace the existing recommendation that has the same name. The two recommendations have different assessment keys:
+    - Assessment key for the **preview** recommendation: 37a3689a-818e-4a0e-82ac-b1392b9bb000
+    - Assessment key for the **GA** recommendation: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
+
+Learn more:
+- [Security Center's supported endpoint protection solutions](security-center-services.md#endpoint-supported)
+- [How these recommendations assess the status of your deployed solutions](security-center-endpoint-protection.md)
+
+### Enhancements to recommendation to classify sensitive data in SQL databases
+
+**Estimated date for change:** Q1 2022
+
+The recommendation **Sensitive data in your SQL databases should be classified** in the **Apply data classification** security control will be replaced with a new version that's better aligned with Microsoft's data classification strategy. As a result the recommendation's ID will also change (currently, it's b0df6f56-862d-4730-8597-38c0fd4ebd59).
+
 
 ## Next steps
 
-For all recent changes to the product, see [What's new in Azure Security Center?](release-notes.md).
+For all recent changes to Security Center, see [What's new in Azure Security Center?](release-notes.md)

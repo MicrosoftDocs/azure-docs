@@ -21,11 +21,11 @@ ms.date: 08/14/2019
 
 | For information about | See these articles |
 | --- | --- |
-| HDInsight on Linux and optimization | - [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md)<br>- [Apache Hadoop memory and performance troubleshooting](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Apache Hive query performance](https://web.archive.org/web/20190217214250/https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
+| HDInsight on Linux and optimization | - [Information about using HDInsight on Linux](hdinsight-hadoop-linux-information.md)<br>- [Apache Hadoop memory and performance troubleshooting](hdinsight-hadoop-stack-trace-error-messages.md) |
 | Logs and dumps | - [Access Apache Hadoop YARN application logs on Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Enable heap dumps for Apache Hadoop services on Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)|
 | Errors | - [Understand and resolve WebHCat errors](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Apache Hive settings to fix OutofMemory error](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Tools | - [Optimize Apache Hive queries](hdinsight-hadoop-optimize-hive-query.md)<br>- [HDInsight IntelliJ tool](./spark/apache-spark-intellij-tool-plugin.md)<br>- [HDInsight Eclipse tool](./spark/apache-spark-eclipse-tool-plugin.md)<br>- [HDInsight VSCode tool](hdinsight-for-vscode.md)<br>- [HDInsight Visual Studio tool](./hadoop/apache-hadoop-visual-studio-tools-get-started.md) |
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]

@@ -199,7 +199,8 @@ Learn more about app roles with the following resources.
 
 - Code samples on GitHub
   - [Add authorization using groups and group claims to an ASP.NET Core web app](https://aka.ms/groupssample)
-  - [Angular single-page application (SPA) calling a .NET Core web API and using app roles and security groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups/blob/master/README.md)
+  - [Angular single-page application (SPA) calling a .NET Core web API and using app roles and security groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/5-AccessControl)
+  - [React single-page application (SPA) calling a Node.js web API and using app roles and security groups](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/5-AccessControl)
 - Reference documentation
   - [Azure AD app manifest](./reference-app-manifest.md)
   - [Azure AD access tokens](access-tokens.md)

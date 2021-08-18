@@ -2,7 +2,7 @@
 title: 'Tutorial - Develop module for Windows devices using Azure IoT Edge'
 description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Windows containers for Windows devices
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial
@@ -175,6 +175,9 @@ The IoT Edge runtime needs your registry credentials to pull your container imag
 1. Add the **Username** and **Password** values that you copied from your Azure container registry.
 
 1. Save your changes to the .env file.
+
+>[!NOTE]
+>This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 ### Review the sample code
 

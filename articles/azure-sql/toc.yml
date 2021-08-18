@@ -201,6 +201,8 @@
           href: database/authentication-aad-directory-readers-role-tutorial.md
         - name: Enable Azure AD-only authentication
           href: database/authentication-azure-ad-only-authentication-tutorial.md
+        - name: Create server with Azure AD-only authentication enabled
+          href: database/authentication-azure-ad-only-authentication-create-server.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
       - name: Always Encrypted
@@ -304,6 +306,10 @@
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
+      - name: Hyperscale replicas
+        href: database/service-tier-hyperscale-replicas.md        
+      - name: Hyperscale replicas FAQ
+        href: database/service-tier-hyperscale-named-replicas-faq.yml
       - name: vCore
         href: database/service-tiers-sql-database-vcore.md
     - name: Plan and manage costs 
@@ -314,7 +320,7 @@
     items:
     - name: Create database
       items:
-      - name: Azure portal
+      - name: Azure portal, PowerShell, Az CLI
         href: database/single-database-create-quickstart.md
       - name: ARM template
         displayName: Resource Manager
@@ -369,6 +375,10 @@
         href: database/sql-data-sync-sql-server-configure.md
       - name: Migrate SQLite to serverless
         href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md  
+    - name: Scale out
+      items: 
+      - name: Configure security for named replicas
+        href: database/hyperscale-named-replica-security-configure.md
 
   - name: Migration guides
     items: 
@@ -511,7 +521,7 @@
       - name: Move sharded data
         href: database/elastic-scale-overview-split-and-merge.md
       - name: Elastic tools FAQ
-        href: database/elastic-scale-faq.md
+        href: database/elastic-scale-faq.yml
 
   - name: How to
     href: database/how-to-content-reference-guide.md
@@ -769,6 +779,8 @@
       href: database/arm-templates-content-guide.md?tabs=single-database
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
+    - name: Azure Resource Graph queries
+      href: database/resource-graph-samples.md
 
 - name: SQL Managed Instance (SQL MI)
   items:
@@ -794,7 +806,7 @@
       - name: Azure portal
         href: managed-instance/instance-create-quickstart.md
       - name: PowerShell
-        href: managed-instance/scripts/create-configure-managed-instance-powershell.md
+        href: managed-instance/create-configure-managed-instance-powershell-quickstart.md
       - name: ARM template
         displayName: Resource Manager
         href: managed-instance/create-template-quickstart.md
@@ -1104,8 +1116,8 @@
     
     - name: Migrate
       items: 
-      - name: Migrate to SQL Managed Instance
-        href: managed-instance/migrate-to-instance-from-sql-server.md
+      - name: Migrate SQL Server to Azure SQL Managed Instance Guide
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
       - name: Migrate database using Log Replay Service
         href: managed-instance/log-replay-service-migrate.md
       - name: Migrate TDE cert 
@@ -1182,10 +1194,10 @@
         - name: HADR configuration
           href: virtual-machines/windows/hadr-cluster-best-practices.md
           displayName: failover cluster instance, fci, availability group, ag, always on
-        - name: Collect baseline 
-          href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
+        - name: Collect baseline 
+          href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
       - name: Management
         items:
         - name: SQL IaaS Agent extension
@@ -1225,18 +1237,15 @@
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to UltraSSD
           href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-        - name: Enable SQL vulnerability assessments
-          href: ../security-center/defender-for-sql-on-machines-vulnerability-assessment.md
-        - name: Install SQL IaaS Agent extension
+        - name: SQL IaaS Agent extension
           displayName: resource provider, registration, sql vm rp
           items:
           - name: Automatic registration
             href: virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md
-          - name: Single VM
+          - name: Register single VM
             href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
           - name: Bulk register multiple VMs
             href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md
-
       - name: Migrate
         items:
         - name: SQL Server database to VM
@@ -1315,7 +1324,7 @@
       - name: Azure PowerShell
         href: /powershell/azure/
       - name: Azure CLI
-        href: /cli/azure/
+        href: /cli/azure/azure-cli-reference-for-sql
       - name: T-SQL
         href: /sql/t-sql/language-reference
       - name: SQL Server Drivers
@@ -1328,7 +1337,7 @@
     - name: Resources
       items:
       - name: FAQ
-        href: virtual-machines/windows/frequently-asked-questions-faq.md
+        href: virtual-machines/windows/frequently-asked-questions-faq.yml
       - name: Pricing
         href: virtual-machines/windows/pricing-guidance.md
       - name: Archived classic RM docs 
@@ -1367,7 +1376,7 @@
     - name: Resources
       items:
       - name: FAQ
-        href: virtual-machines/linux/frequently-asked-questions-faq.md
+        href: virtual-machines/linux/frequently-asked-questions-faq.yml
       - name: SQL Server on Linux Documentation
         href: /sql/linux/sql-server-linux-overview
       - name: SQL Server Data Tools (SSDT)
@@ -1402,7 +1411,7 @@
   - name: T-SQL language reference
     href: /sql/t-sql/language-reference
   - name: Azure CLI
-    href: /cli/azure/sql
+    href: /cli/azure/azure-cli-reference-for-sql
   - name: Azure PowerShell
     href: /powershell/module/az.sql
   - name: .NET

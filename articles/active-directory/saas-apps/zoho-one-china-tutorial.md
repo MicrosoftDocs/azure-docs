@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2021
+ms.date: 08/09/2021
 ms.author: jeedes
 ---
 
@@ -28,14 +28,14 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Zoho One China single sign-on (SSO) enabled subscription.
 
-> [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
-
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Zoho One China supports **SP and IDP** initiated SSO
+* Zoho One China supports **SP and IDP** initiated SSO.
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Add Zoho One China from the gallery
 
@@ -71,7 +71,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     In the **Reply URL** text box, type a URL using the following pattern:
     `https://accounts.zoho.com.cn/signin/samlsp/<zoid>`

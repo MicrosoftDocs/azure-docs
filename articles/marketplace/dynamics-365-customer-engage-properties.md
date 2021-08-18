@@ -27,7 +27,7 @@ See the full list of categories and subcategories in [Offer Listing Best Practic
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
-Select the **Applicable products** in Dynamics 365 this offer applies to.
+Select the **Applicable products** that apply to the offer: Customer Service, Customer Voice, Project Operations, Field Service, Marketing, Mixed Reality, Power Apps, Power Automate, Power Virtual Agents, Project Service Automation, and/or Sales. These selections allow customers to find your offer based on the AppSource Dynamics 365 product filters it displays under.
 
 Enter an **App version** for your offer. Customers will see this number listed on the offer's detail page.
 

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 06/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -111,7 +111,7 @@ To change your session behavior and SSO configurations, you add a **UserJourneyB
 
 ## Enable Keep me signed in (KMSI)
 
-You can enable the KMSI feature for users of your web and native applications who have local accounts in your Azure AD B2C directory. When you enable the feature, users can opt to stay signed in so the session remains active after they close the browser. Then they can reopen the browser without being prompted to reenter their username and password. This access is revoked when a user signs out.
+You can enable the KMSI feature for users of your web and native applications who have local accounts in your Azure AD B2C directory. When you enable the feature, users can opt to stay signed in so the session remains active after they close the browser. The session is maintained by setting a [persistent cookie](cookie-definitions.md). Users who select KMSI, can reopen the browser without being prompted to reenter their username and password. This access (persistent cookie) is revoked when a user signs out. 
 
 ![Example sign-up sign-in page showing a Keep me signed in checkbox](./media/session-behavior/keep-me-signed-in.png)
 
@@ -191,7 +191,7 @@ To add the KMSI checkbox to the sign-up and sign-in page, set the `setting.enabl
 
 ### Configure a relying party file
 
-Update the relying party (RP) file that initiates the user journey that you created. The keepAliveInDays parameter allows you to configure how the long the keep me signed in (KMSI) session cookie should persist. For example, if you set the value to 30, then KMSI session cookie will persist for 30 days. The range for the value is from 1 to 90 days.
+Update the relying party (RP) file that initiates the user journey that you created. The keepAliveInDays parameter allows you to configure how the long the keep me signed in (KMSI) session cookie should persist. For example, if you set the value to 30, then KMSI session cookie will persist for 30 days. The range for the value is from 1 to 90 days. Setting the value to 0 turns off KMSI functionality.
 
 1. Open your custom policy file. For example, *SignUpOrSignin.xml*.
 1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="User journey Id" />`, for example: `<DefaultUserJourney ReferenceId="SignUpOrSignIn" />`.

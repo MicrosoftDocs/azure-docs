@@ -60,6 +60,7 @@ You can configure a geo-filtering policy for your Front Door by using [Azure Pow
 | BZ | Belize|
 | CA | Canada|
 | CD | Democratic Republic of the Congo|
+| CG | Republic of the Congo |
 | CF | Central African Republic|
 | CH | Switzerland|
 | CI | Cote d'Ivoire|

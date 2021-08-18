@@ -221,7 +221,7 @@ Create a connection to Twitter so your app can poll for new tweets.
     | Setting | Value |
     | ------- | ----- |
     | Search text | **#my-twitter-tutorial** |
-    | How oven do you want to check for items? | **1** in the textbox, and <br> **Hour** in the dropdown. You may enter different values but be sure to review the current [limitations](https://docs.microsoft.com/connectors/twitterconnector/#limits) of the Twitter connector.  |
+    | How often do you want to check for items? | **1** in the textbox, and <br> **Hour** in the dropdown. You may enter different values but be sure to review the current [limitations](/connectors/twitterconnector/#limits) of the Twitter connector.  |
 
 1. Select the **Save** button on the toolbar to save your progress.
 

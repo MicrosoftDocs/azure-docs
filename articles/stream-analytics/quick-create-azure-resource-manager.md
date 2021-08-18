@@ -29,7 +29,7 @@ To complete this article, you need to:
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-streamanalytics-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/streamanalytics-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.streamanalytics/streamanalytics-create/azuredeploy.json":::
 

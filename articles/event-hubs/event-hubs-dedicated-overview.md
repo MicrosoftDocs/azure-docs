@@ -41,7 +41,7 @@ The self-serve experience to [create an Event Hubs cluster](event-hubs-dedicated
 
 ## FAQs
 
-[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
+[!INCLUDE [event-hubs-dedicated-clusters-faq](./includes/event-hubs-dedicated-clusters-faq.md)]
 
 ## Next steps
 

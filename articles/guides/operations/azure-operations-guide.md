@@ -275,7 +275,7 @@ The following mechanisms are available for deployment automation:
 
 - **Template linking**: From within one Resource Manager template, you can link to another template. This allows deployment decomposition into a set of targeted, purpose-specific templates.
 
-You can build Resource Manager templates in any text editor. However, the Azure SDK for Visual Studio includes tools to help you. By using Visual Studio, you can add resources to the template through a wizard, then deploy and debug the template directly from within Visual Studio. For more information, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md).
+You can build Resource Manager templates in any text editor. However, the Azure SDK for Visual Studio includes tools to help you. By using Visual Studio, you can add resources to the template through a wizard, then deploy and debug the template directly from within Visual Studio. For more information, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md).
 
 Finally, you can convert existing resource groups into a reusable template from the Azure portal. This can be helpful if you want to create a deployable template of an existing resource group, or you just want to examine the underlying JSON. To export a resource group, select the **Automation Script** button from the resource group's settings.
 

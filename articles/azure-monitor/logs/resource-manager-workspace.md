@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Resource Manager template samples for Log Analytics workspaces in Azure Monitor
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to create and configure Log Analytics workspaces in Azure Monitor. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

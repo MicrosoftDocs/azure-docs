@@ -261,13 +261,13 @@ Add secret to key vault with expiration date set to tomorrow, validity period fo
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyy-MM-ddTHH:mm:ssZ')
+$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyyy-MM-ddTHH:mm:ssZ')
 az keyvault secret set --name storageKey2 --vault-name vaultrotation-kv --value <key2Value> --tags "CredentialId=key2" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
 # [Azure PowerShell](#tab/azurepowershell)
 
 ```azurepowershell
-$tomorrowDate = (get-date).AddDays(+1).ToString("yyy-MM-ddTHH:mm:ssZ")
+$tomorrowDate = (get-date).AddDays(+1).ToString("yyyy-MM-ddTHH:mm:ssZ")
 $secretVaule = ConvertTo-SecureString -String '<key1Value>' -AsPlainText -Force
 $tags = @{
     CredentialId='key2';

@@ -37,6 +37,8 @@ The following data platform tools are supported on the DSVM.
 > June, 30. Existing deployments will continue to have access to the software but due to the reached support end date,
 > there will be no support for it after July 1, 2021.
 
+> [!NOTE]
+> We will remove SQL Server Developer Edition from DSVM images by end of November, 2021. Existing deployments will continue to have SQL Server Developer Edition installed. In new deployemnts, if you would like to have access to SQL Server Developer Edition you can install and use via Docker support see [Quickstart: Run SQL Server container images with Docker](/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-)
 
 ### Windows
 

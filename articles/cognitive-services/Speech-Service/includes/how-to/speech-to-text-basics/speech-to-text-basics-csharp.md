@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
 
@@ -31,7 +31,7 @@ For platform-specific installation instructions, see the following links:
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) by using your key and region. See the [Find keys and region](../../../overview.md#find-keys-and-region) page to find your key-region pair.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your key and associated location/region, endpoint, host, or authorization token. Create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) by using your key and location/region. See the [Find keys and location/region](../../../overview.md#find-keys-and-locationregion) page to find your key-location/region pair.
 
 ```csharp
 using System;
@@ -44,7 +44,7 @@ class Program
 {
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     }
 }
 ```
@@ -53,7 +53,7 @@ There are a few other ways that you can initialize a [`SpeechConfig`](/dotnet/ap
 
 * With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
 * With a host: pass in a host address. A key or authorization token is optional.
-* With an authorization token: pass in an authorization token and the associated region.
+* With an authorization token: pass in an authorization token and the associated region/location.
 
 > [!NOTE]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
@@ -83,7 +83,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
         await FromMic(speechConfig);
     }
 }
@@ -115,7 +115,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
         await FromFile(speechConfig);
     }
 }
@@ -158,7 +158,7 @@ class Program
 
     async static Task Main(string[] args)
     {
-        var speechConfig = SpeechConfig.FromSubscription("<paste-your-subscription-key>", "<paste-your-region>");
+        var speechConfig = SpeechConfig.FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
         await FromStream(speechConfig);
     }
 }
@@ -192,7 +192,7 @@ switch (result.Reason)
         {
             Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
             Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-            Console.WriteLine($"CANCELED: Did you update the subscription info?");
+            Console.WriteLine($"CANCELED: Did you update the speech key and location/region info?");
         }
         break;
 }
@@ -250,7 +250,7 @@ recognizer.Canceled += (s, e) =>
     {
         Console.WriteLine($"CANCELED: ErrorCode={e.ErrorCode}");
         Console.WriteLine($"CANCELED: ErrorDetails={e.ErrorDetails}");
-        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+        Console.WriteLine($"CANCELED: Did you update the speech key and location/region info?");
     }
 
     stopRecognition.TrySetResult(0);
@@ -306,7 +306,7 @@ Single words or complete phrases can be added to a Phrase List. During recogniti
 > [!IMPORTANT]
 > The Phrase List feature is available in the following languages: en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN
 >
-> For other locales and if you have a large number of phrases, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
+> The Phrase List feature should be used with no more than a few hundred phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
 >
 > Do not use the Phrase List feature with custom endpoints. Instead, train a custom model that includes the phrases.
 

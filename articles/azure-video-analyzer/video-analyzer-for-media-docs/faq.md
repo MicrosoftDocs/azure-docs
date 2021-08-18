@@ -1,11 +1,12 @@
 ---
 title: Frequently asked questions about Azure Video Analyzer for Media (formerly Video Indexer) - Azure
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: This article gives answers to frequently asked questions about Azure Video Analyzer for Media (formerly Video Indexer).
-services: media-services
+services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.date: 05/25/2021
 ms.author: juliako
 ---
@@ -99,9 +100,9 @@ If there are multiple audio streams, Video Analyzer for Media takes the first on
 
 ### Can a storage account connected to the Media Services account be behind a firewall?
 
-Your paid Video Analyzer for Media account uses the specified Media Services account that is connected to a storage account. Currently, the connected storage account cannot be behind a firewall.
+Your paid Video Analyzer for Media account uses the specified Media Services account that is connected to a storage account. Currently, to use the connected storage account that is behind firewall, you need to contact Video Analyzer for Media support and they will give the exact directions. 
 
-When calling the [Upload video](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) API, you can provide a URL to a video for Video Analyzer for Media to download from. If the URL is based on a storage account in the same region as the Video Analyzer for Media account and it has a firewall, it will not work.<br/>If the storage account is in another region, you can whitelist Video Analyzer for Media IPs and it will work.
+To open a new support request on Azure portal, navigate to [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ### What is the SLA for Video Analyzer for Media?
 
@@ -137,7 +138,7 @@ Per the [Azure Online Services Terms](https://www.microsoftvolumelicensing.com/D
 
 Yes, the content and its insights are kept within the Azure region (except for Singapore and Brazil South regions) unless you have a manual configuration in your Azure subscription that uses multiple Azure regions.
 
-Customer data in a region is replicated for BCDR reasons to the [paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs).
+Customer data in a region is replicated for BCDR reasons to the [paired region](../../best-practices-availability-paired-regions.md#azure-regional-pairs).
 
 ### What is the privacy policy for Video Analyzer for Media?
 

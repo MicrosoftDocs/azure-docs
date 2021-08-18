@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2021
+ms.date: 06/16/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -361,6 +361,14 @@ A successful response looks like the following example:
     "refresh_token_expires_in": 1209600
 }
 ```
+
+## Troubleshooting
+
+### The provided application is not configured to allow the 'OAuth' Implicit flow
+
+* **Symptom** - You run the ROPC flow, and get the following message: *AADB2C90057: The provided application is not configured to allow the 'OAuth' Implicit flow*.
+* **Possible causes** - The implicit flow is not allowed for your application.
+* **Resolution**: When creating your [app registration](#register-an-application) in Azure AD B2C, you need to manually edit the application manifest and set the value of the `oauth2AllowImplicitFlow` property to `true`. After you configure the `oauth2AllowImplicitFlow` property, it can take a few minutes (typically no more than five) for the change to take affect. 
 
 ## Use a native SDK or App-Auth
 
