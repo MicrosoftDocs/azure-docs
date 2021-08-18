@@ -457,6 +457,83 @@ You can access data in the primary storage account directly. There's no need to 
 
 ![data-to-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
+## IPython Widgets
+
+
+# [Classical Notebook](#tab/classical)
+
+Not supported.
+
+# [Preview Notebook](#tab/preview)
+
+Widgets are eventful python objects that have a representation in the browser, often as a control like a slider, textbox etc. IPython Widgets only works in Python environment, it's not supported in other languages (e.g. Scala, SQL, C#) yet. 
+
+### To use IPython Widget
+1. You need to import `ipywidgets` module first to use the Jupyter Widget framework.
+   ```python
+   import ipywidgets as widgets
+   ```
+2. You can use top-level `display` function to render a widget, or leave a expression of **widget** type at the last line of code cell.
+   ```python
+   slider = widgets.IntSlider()
+   display(slider)
+   ```
+
+   ```python
+   slider = widgets.IntSlider()
+   slider
+   ```
+   
+3. Run the cell, the widget will display at the output area.
+
+   ![ipython widgets slider](./media/apache-spark-development-using-notebooks/ipython-widgets-slider.png)
+
+4. You can use multiple `display()` calls to render the same widget instance multiple times, but they will remain in sync with each other.
+
+   ```python
+   slider = widgets.IntSlider()
+   display(slider)
+   display(slider)
+   ```
+
+   ![ipython widgets sliders](./media/apache-spark-development-using-notebooks/ipython-widgets-multiple-sliders.png)
+
+5. To render two widgets independent of each other, create two widget instances:
+
+   ```python
+   slider1 = widgets.IntSlider()
+   slider2 = widgets.IntSlider()
+   display(slider1)
+   display(slider2)
+   ```
+
+
+### Supported widgets
+
+|Widgets Type|Widgets|
+|--|--|
+|Numeric widgets|IntSlider, FloatSlider, FloatLogSlider, IntRangeSlider, FloatRangeSlider, IntProgress, FloatProgress, BoundedIntText, BoundedFloatText, IntText, FloatText|
+|Boolean widgets|ToggleButton, Checkbox, Valid|
+|Selection widgets|Dropdown, RadioButtons, Select, SelectionSlider, SelectionRangeSlider, ToggleButtons, SelectMultiple|
+|String Widgets|Text, Text area, Combobox, Password, Label, HTML, HTML Math, Image, Button|
+|Play (Animation) widgets|Date picker, Color picker, Controller|
+|Container/Layout widgets|Box, HBox, VBox, GridBox, Accordion, Tabs, Stacked|
+
+
+### Know issue
+
+The following widgets are not supported yet, you could follow workaround as below:
+
+|Functionality|Workaround|
+|--|--|
+|`Output` widget|You can use `print()` function instead to write text into stdout.|
+|`widgets.jslink()`|You can use `widgets.link()` function to link two similar widgets.|
+|`FileUpload` widget| Not support yet.|
+
+
+---
+
+
 ## Save notebooks
 
 You can save a single notebook or all notebooks in your workspace.
