@@ -21,4 +21,4 @@ The following policy definitions are available for use with Private Links:
 
 Refer to [Azure Policy for Media Services](security-azure-policy.md) for a complete list of all built-in policy definitions and use cases.
 
-For details on how to deploy and use Azure Policy definitions see the article ["What is Azure Policy?"](../../governance/policy/overview)
+For details on how to deploy and use Azure Policy definitions see the article ["What is Azure Policy?"](../../../governance/policy/overview.md)

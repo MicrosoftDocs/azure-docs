@@ -18,7 +18,7 @@ ms.custom: seodec18, devx-track-csharp
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Azure Media Services provides several built-in [Azure Policy](../../governance/policy/overview.md) definitions to help enforce organizational standards and compliance at-scale.
+Azure Media Services provides several built-in [Azure Policy](../../../governance/policy/overview.md) definitions to help enforce organizational standards and compliance at-scale.
 Common use cases for Azure Policy include implementing governance for resource consistency,regulatory compliance, security, cost and management.
 
 Media Services provides several common use case definitions for Azure Policy that a built-in to help you get started.
@@ -27,9 +27,9 @@ Media Services provides several common use case definitions for Azure Policy tha
 
 Several built in policy use case definitions are available for use with Media Services to help get you started, and allow you to define your own custom policies.
 
-[!INCLUDE [Azure Policy Media Services](../../../includes/policy/reference/bycat/policies-media-services.md)]
+[!INCLUDE [Azure Policy Media Services](../../../../includes/policy/reference/bycat/policies-media-services.md)]
 
-The [list of built-in policy definitions for Media Services](../../governance/policy/samples/built-in-policies#media-services) provides the latest definitions and links the code definitions and how to access them in the Portal.
+The [list of built-in policy definitions for Media Services](../../../governance/policy/samples/built-in-policies#media-services) provides the latest definitions and links the code definitions and how to access them in the Portal.
 
 ## Common scenarios that require Azure Policy
 
