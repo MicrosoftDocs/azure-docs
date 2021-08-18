@@ -15,7 +15,7 @@ ms.custom:
 
 # Manage Azure Machine Learning workspaces using Terraform (preview)
 
-In this article, you learn how to create and manage an Azure Machine Learning workspace using Terraform configuration files. [Terraform](/azure/developer/terraform/)'s template-based configuration files enable you to define, provision, and configure Azure resources in a repeatable and predictable manner. A Terraform configuration is a document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the configuration.
+In this article, you learn how to create and manage an Azure Machine Learning workspace using Terraform configuration files. [Terraform](/azure/developer/terraform/)'s template-based configuration files enable you to define, provision, and configure Azure resources in a repeatable and predictable manner. A Terraform configuration is a document that defines the resources that are needed for a deployment. It may also specify deployment variables. Variables are used to provide input values when using the configuration.
 
 ## Prerequisites
 
