@@ -122,7 +122,6 @@ ResourceFile inputFile = ResourceFile.FromUrl(yourURLFromAzureStorage,
 
 > [!Note]
 > Managed Identity authentication will only work with files in Azure Storage. The Managed Identity needs the `Storage Blob Data Reader` role assignment for the container the file is in and it must also be [assigned to the Batch pool](managed-identity-pools.md).
-```
 
 ## Tips and suggestions
 

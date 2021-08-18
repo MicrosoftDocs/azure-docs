@@ -93,7 +93,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 ## Specify output files using managed identity
 
-Instead of generating a SAS with write access to the container, a managed identity can be used to authenticate with Azure Storage. The identity must be [assigned to the Batch Pool](managed-identity-pools.md), and also have the `Storage Blob Data Contributor` role assignment for the container to be written to. The Batch service can then be told to use the managed identity instead of a SAS to authenticate access to the container.
+Instead of generating and passing a SAS with write access to the container to Batch, a managed identity can be used to authenticate with Azure Storage. The identity must be [assigned to the Batch Pool](managed-identity-pools.md), and also have the `Storage Blob Data Contributor` role assignment for the container to be written to. The Batch service can then be told to use the managed identity instead of a SAS to authenticate access to the container.
 
 ```csharp
 CloudBlobContainer container = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
