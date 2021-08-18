@@ -52,7 +52,7 @@ Before you get started, make sure to install the [Azure Databases extension](htt
 
     :::image type="content" source="./media/functions-add-output-binding-cosmos-db-vs-code/create-database.png" alt-text="Creating a new Azure Cosmos DB database from Visual Studio code" border="true":::
 
-1. When prompted, enter *my-database* as the **Database Name**.
+1. When prompted, enter `my-database` as the **Database Name**.
 
 1. After the database is created, right-click on its name and select **Create Collection...**
 
