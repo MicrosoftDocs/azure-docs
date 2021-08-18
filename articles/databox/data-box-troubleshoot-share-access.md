@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/17/2021
+ms.date: 08/18/2021
 ms.author: alkohli
 ---
 
@@ -26,12 +26,12 @@ The most common reasons for being unable to connect to a share on your device ar
 
 To find out whether a domain issue is preventing a share connection:
 
-- Try to connect to the device, and enter your user name in these formats:
+- Try to connect to the device, and use one of the following formats to enter your user name:
 
     - `<device IP address>\<user name>`
     - `\<user name>`
 
-If you can access the device, a domain issue is not preventing your share connection.
+If you can connect to the device, a domain issue isn't preventing your share connection.
 
 ## Account locked out of share
 
