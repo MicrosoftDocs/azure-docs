@@ -283,16 +283,14 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 - For RHEL 8:
     1. Create a config file:
         ```bash
-        vi rhel8.config
-        ```
-    1. Add the following content into the config file:
-        ```bash
+        cat <<EOF > rhel8.config
         [rhui-microsoft-azure-rhel8]
         name=Microsoft Azure RPMs for Red Hat Enterprise Linux 8
         baseurl=https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-2.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-3.microsoft.com/pulp/repos/microsoft-azure-rhel8
         enabled=1
         gpgcheck=1
         gpgkey=https://rhelimage.blob.core.windows.net/repositories/RPM-GPG-KEY-microsoft-azure-release sslverify=1
+        EOF
         ```
     1. Save the file and run the following command:
         ```bash
