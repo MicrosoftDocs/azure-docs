@@ -6,7 +6,7 @@ ms.date: 06/30/2021
 ms.author: mikben
 ---
 
-## Models
+## Models 
 
 ### Events model
 Each object in the calling sdk, has properties and collections values of which, change throughout the lifetime of the object.
@@ -360,8 +360,6 @@ callAgent.on('callsUpdated', e => {
 })
 ```
 
-
-
 ### Join a Teams Meeting
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
@@ -387,122 +385,7 @@ const locator = {
 const call = callAgent.join(locator);
 ```
 
-## Receive an incoming call
-
-
 See Call Diagnostics section to see how to handle this call diagnostic.
-
-
-
-
-
-
-## Render remote participant video streams
-
-To list the video streams and screen sharing streams of remote participants, inspect the `videoStreams` collections:
-
-```js
-const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
-const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
-```
-
-To render `RemoteVideoStream`, you have to subscribe to it's `isAvailableChanged` event. If the `isAvailable` property changes to `true`, a remote participant is sending a stream. After that happens, create a new instance of `VideoStreamRenderer`, and then create a new `VideoStreamRendererView` instance by using the asynchronous `createView` method.  You can then attach `view.target` to any UI element.
-
-Whenever availability of a remote stream changes you can choose to destroy the whole `VideoStreamRenderer`, a specific `VideoStreamRendererView`
-or keep them, but this will result in displaying blank video frame.
-
-```js
-subscribeToRemoteVideoStream = async (remoteVideoStream) => {
-    // Create a video stream renderer for the remote video stream.
-    let videoStreamRenderer = new VideoStreamRenderer(remoteVideoStream);
-    let view;
-    const remoteVideoContainer = document.getElementById('remoteVideoContainer');
-    const renderVideo = async () => {
-        try {
-            // Create a renderer view for the remote video stream.
-            view = await videoStreamRenderer.createView();
-            // Attach the renderer view to the UI.
-            remoteVideoContainer.appendChild(view.target);
-        } catch (e) {
-            console.warn(`Failed to createView, reason=${e.message}, code=${e.code}`);
-        }	
-    }
-    remoteVideoStream.on('isAvailableChanged', async () => {
-        // Participant has switched video on.
-        if (remoteVideoStream.isAvailable) {
-            await renderVideo();
-
-        // Participant has switched video off.
-        } else {
-            if (view) {
-                view.dispose();
-                view = undefined;
-            }
-        }
-    });
-
-    // Participant has video on initially.
-    if (remoteVideoStream.isAvailable) {
-        await renderVideo();
-    }
-}
-```
-
-### Remote video stream properties
-
-Remote video streams have the following properties:
-
-- `id`: The ID of a remote video stream.
-
-  ```js
-  const id: number = remoteVideoStream.id;
-  ```
-
-- `mediaStreamType`: Can be `Video` or `ScreenSharing`.
-
-  ```js
-  const type: MediaStreamType = remoteVideoStream.mediaStreamType;
-  ```
-
-- `isAvailable`: Whether a remote participant endpoint is actively sending a stream.
-
-  ```js
-  const type: boolean = remoteVideoStream.isAvailable;
-  ```
-
-### VideoStreamRenderer methods and properties
-Create a `VideoStreamRendererView` instance that can be attached in the application UI to render the remote video stream, use asynchronous `createView()` method, it resolves when stream is ready to render and returns an object with `target` property that represents `video` element that can be appended anywhere in the DOM tree
-
-  ```js
-  await videoStreamRenderer.createView()
-  ```
-
-Dispose of `videoStreamRenderer` and all associated `VideoStreamRendererView` instances:
-
-  ```js
-  videoStreamRenderer.dispose()
-  ```
-
-### VideoStreamRendererView methods and properties
-
-When you create a `VideoStreamRendererView`, you can specify the `scalingMode` and `isMirrored` properties. `scalingMode` can be `Stretch`, `Crop`, or `Fit`. If `isMirrored` is specified, the rendered stream is flipped vertically.
-
-```js
-const videoStreamRendererView: VideoStreamRendererView = await videoStreamRenderer.createView({ scalingMode, isMirrored });
-```
-
-Every `VideoStreamRendererView` instance has a `target` property that represents the rendering surface. Attach this property in the application UI:
-
-```js
-htmlElement.appendChild(view.target);
-```
-
-You can update `scalingMode` by invoking the `updateScalingMode` method:
-
-```js
-view.updateScalingMode('Crop')
-```
-
 
 
 ## Call Feature Extensions
@@ -748,95 +631,6 @@ subscribeToRemoteVideoStream = async (stream: RemoteVideoStream, participant: Re
 }
 ```
 
-FUCK SAKE THIS IS A SEPARATE ARTICLE
-### Call diagnostics
-Call diagnostics is an extended feature of the core `Call` API and allows you to diagnose an active call.
-
-```js
-const callDiagnostics = call.api(Features.Diagnostics);
-```
-
-The following users facing diagnostics are available:
-
-| Type    | Name                           | Description                                                     | Possible values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Use cases                                                                       |
-| ------- | ------------------------------ | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Network | noNetwork                      | There is no network available.                                  | - Set to `True` when a call fails to start because there is no network available. <br/> - Set to `False` when there are ICE candidates present.                                                                                                                                                                                                                                                                                                                                                      | Device is not connected to a network.                                           |
-| Network | networkRelaysNotReachable      | Problems with a network.                                        | - Set to `True` when the network has some constraint that is not allowing you to reach ACS relays. <br/> - Set to `False` upon making a new call.                                                                                                                                                                                                                                                                                                                                                    | During a call when the WiFi signal goes on and off.                             |  |
-| Network | networkReconnect               | The connection was lost and we are reconnecting to the network. | - Set to `Poor` when the media transport connectivity is lost                                                                                                                                 <br/> - Set to `Bad` when the network is disconnected <br/> - Set to `Good` when a new session is connected.                                                                                                                                                                                           | Low bandwidth, no internet                                                      |
-| Network | networkReceiveQuality          | An indicator regarding incoming stream quality.                 | - Set to `Bad` when there is a severe problem with receiving the stream. quality                                                                                                                           <br/> - Set to `Poor` when there is a mild problem with receiving the stream. quality                                                                                                                           <br/> - Set to `Good` when there is no problem with receiving the stream. | Low bandwidth                                                                   |
-| Media   | noSpeakerDevicesEnumerated     | There is no audio output device (speaker) on the user's system. | - Set to `True` when there are no speaker devices on the system, and speaker selection is supported. <br/> - Set to `False` when there is a least 1 speaker device on the system, and speaker selection is supported.                                                                                                                                                                                                                                                                                | All speakers are unplugged                                                      |
-| Media   | speakingWhileMicrophoneIsMuted | Speaking while being on mute.                                   | - Set to `True` when local microphone is muted and the local user is speaking. <br/> - Set to `False` when local user either stops speaking, or un-mutes the microphone. <br/> * Note: as of today, this isn't supported on safari yet, as the audio level samples are taken from webrtc. stats.                                                                                                                                                                                                     | During a call, mute your microphone and speak into it.                          |
-| Media   | noMicrophoneDevicesEnumerated  | No audio capture devices (microphone) on the user's system      | - Set to `True` when there are no microphone devices on the system. <br/> - Set to `False` when there is at least 1 microphone device on the system.                                                                                                                                                                                                                                                                                                                                                 | All microphones are unplugged during the call.                                  |
-| Media   | cameraFreeze                   | Camera stops producing frames for more than 5 seconds.          | - Set to `True` when the local video stream is frozen. This means the remote side is seeing your video frozen on their screen or it means that the remote participants are not rendering your video on their screen. <br/> - Set to `False` when the freeze ends and users can see your video as per normal.                                                                                                                                                                                         | The Camera was lost during the call or bad network caused the camera to freeze. |
-| Media   | cameraStartFailed              | Generic camera failure.                                         | - Set to `True` when we fail to start sending local video because the camera device may have been disabled in the system or it is being used by another process~. <br/> - Set to `False` when selected camera device successfully sends local video. again.                                                                                                                                                                                                                                           | Camera failures                                                                 |
-| Media   | cameraStartTimedOut            | Common scenario where camera is in bad state.                   | - Set to `True` when camera device times out to start sending video stream. <br/> - Set to `False` when selected camera device successfully sends local video again.                                                                                                                                                                                                                                                                                                                                 | Camera failures                                                                 |
-| Media   | microphoneNotFunctioning       | Microphone is not functioning.                                  | - Set to `True` when we fail to start sending local audio stream because the microphone device may have been disabled in the system or it is being used by another process. This UFD takes about 10 seconds to get raised. <br/> - Set to `False` when microphone starts to successfully send audio stream again.                                                                                                                                                                                    | No microphones available, microphone access disabled in a system                |
-| Media   | microphoneMuteUnexpectedly     | Microphone is muted                                             | - Set to `True` when microphone enters muted state unexpectedly. <br/> - Set to `False` when microphone starts to successfully send audio stream                                                                                                                                                                                                                                                                                                                                                     | Microphone is muted from the system.                                            |
-| Media   | screenshareRecordingDisabled   | System screen sharing was denied by preferences in Settings.     | - Set to `True` when screen sharing permission is denied by system settings (sharing). <br/> - Set to `False` on successful stream acquisition. <br/> Note: This diagnostic only works on macOS.Chrome.                                                                                                                                                                                                                                                                                               | Screen recording is disabled in Settings.                                       |
-| Media   | microphonePermissionDenied     | There is low volume from device or it’s almost silent on macOS. | - Set to `True` when audio permission is denied by system settings (audio). <br/> - Set to `False` on successful stream acquisition. <br/> Note: This diagnostic only works on macOS.                                                                                                                                                                                                                                                                                                                | Microphone permissions are disabled in the Settings.                            |
-| Media   | cameraPermissionDenied         | Camera permissions were denied in settings.                     | - Set to `True` when camera permission is denied by system settings (video). <br/> - Set to `False` on successful stream acquisition. <br> Note: This diagnostic only works on macOS Chrome                                                                                                                                                                                                                                                                                                          | Camera permissions are disabled in the settings.                                |
-
-- Subscribe to the `diagnosticChanged` event to monitor when any call diagnostic changes.
-```js
-/**
- *  Each diagnostic has the following data:
- * - diagnostic is the type of diagnostic, e.g. NetworkSendQuality, DeviceSpeakWhileMuted, etc...
- * - value is DiagnosticQuality or DiagnosticFlag:
- *     - DiagnosticQuality = enum { Good = 1, Poor = 2, Bad = 3 }.
- *     - DiagnosticFlag = true | false.
- * - valueType = 'DiagnosticQuality' | 'DiagnosticFlag'
- * - mediaType is the media type associated with the event, e.g. Audio, Video, ScreenShare. These are defined in `CallDiagnosticEventMediaType`.
- */
-const diagnosticChangedListener = (diagnosticInfo: NetworkDiagnosticChangedEventArgs | MediaDiagnosticChangedEventArgs) => {
-    console.log(`Diagnostic changed: ` +
-        `Diagnostic: ${diagnosticInfo.diagnostic}` +
-        `Value: ${diagnosticInfo.value}` + 
-        `Value type: ${diagnosticInfo.valueType}` +
-        `Media type: ${diagnosticInfo.mediaType}` +
-
-    if (diagnosticInfo.valueType === 'DiagnosticQuality') {
-        if (diagnosticInfo.value === DiagnosticQuality.Bad) {
-            console.error(`${diagnosticInfo.diagnostic} is bad quality`);
-
-        } else if (diagnosticInfo.value === DiagnosticQuality.Poor) {
-            console.error(`${diagnosticInfo.diagnostic} is poor quality`);
-        }
-
-    } else if (diagnosticInfo.valueType === 'DiagnosticFlag') {
-        if (diagnosticInfo.value === true) {
-            console.error(`${diagnosticInfo.diagnostic}`);
-        }
-    }
-};
-
-callDiagnostics.network.on('diagnosticChanged', diagnosticChangedListener);
-callDiagnostics.media.on('diagnosticChanged', diagnosticChangedListener);
-```
-
-- Get the latest call diagnostic values that were raised. If a diagnostic is undefined, that is because it was never raised.
-```js
-const latestNetworkDiagnostics = callDiagnostics.network.getLatest();
-	
-console.log(`noNetwork: ${latestNetworkDiagnostics.noNetwork.value}, ` +
-    `value type = ${latestNetworkDiagnostics.noNetwork.valueType}`);
-			
-console.log(`networkReconnect: ${latestNetworkDiagnostics.networkReconnect.value}, ` +
-    `value type = ${latestNetworkDiagnostics.networkReconnect.valueType}`);
-			
-console.log(`networkReceiveQuality: ${latestNetworkDiagnostics.networkReceiveQuality.value}, ` +
-    `value type = ${latestNetworkDiagnostics.networkReceiveQuality.valueType}`);
-
-
-const latestMediaDiagnostics = callDiagnostics.media.getLatest();
-	
-console.log(`speakingWhileMicrophoneIsMuted: ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.value}, ` +
-    `value type = ${latestMediaDiagnostics.speakingWhileMicrophoneIsMuted.valueType}`);
-			
-console.log(`cameraStartFailed: ${latestMediaDiagnostics.cameraStartFailed.value}, ` +
-    `value type = ${latestMediaDiagnostics.cameraStartFailed.valueType}`);
-			
-console.log(`microphoneNotFunctioning: ${latestMediaDiagnostics.microphoneNotFunctioning.value}, ` +
-    `value type = ${latestMediaDiagnostics.microphoneNotFunctioning.valueType}`);
 ```
 ## Releasing resources
 1. How to properly release resources when a call is finished:
