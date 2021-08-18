@@ -10,9 +10,11 @@ ms.date: 08/18/2021
 ---
 # How to convert the number of vcores-per-server in your existing nonrelational database to Azure Cosmos DB RU/s as an aid in planning migration
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
-[!INCLUDE[appliesto-mongo-api](includes/appliesto-mongo-api.md)]
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 In this article, we show you how to estimate Azure Cosmos DB RU/s in the scenario where you need to compare total cost of ownership (TCO) between your status-quo nonrelational database solution and Azure Cosmos DB, i.e. if you are considering planning an app migration or data migration to Azure Cosmos DB. This tutorial helps you to generate a ballpark TCO comparison regardless of what nonrelational database solution you currently employ, and regardless of whether your status-quo database solution is self-managed on-premise, self-managed in the cloud, or managed by a PaaS database service.
+
+Currently, only the Azure Cosmos DB SQL API and the Azure Cosmos DB API for MongoDB v4.0 are in-scope for this discussiion. We are working on a similar mapping for Cassandra and Gremlin.
 
 ## 1. Identify the number of vcores-per-server or vCPU-per-server in your status quo solution
 
@@ -31,9 +33,9 @@ Start by understanding your status quo cluster configuration
 Before continuing, please identify
 * vCores or vCPU per server for your cluster
 * The replication factor of your cluster
-* Whether or not sharding is employed in your cluster, and
-* If sharding is employed, how many shards exist?
-* If sharding is not employed, you can treat "Number of shards" as being 1 (one) for the purposes of the below calculations
+* Whether or not sharding is employed in your cluster
+* If sharding is used, how many shards exist?
+* If sharding is not used, you can treat "Number of shards" as being 1 (one) for the purposes of the below calculations
 
 ## 2. Convert vcores-per-server or vCPU-per-server to RU/s
 
@@ -48,11 +50,11 @@ f(N, M) [provisioned RU/s] = (R [provisioned RU/s per vcore])
 
 ```
 
-For the Azure Cosmos DB SQL API, a general rule of thumb is that the provisioned RU/s per vcore *R* is about 580.
+For the Azure Cosmos DB SQL API, a rule of thumb is that the provisioned RU/s per vcore *R* is about 580.
 
-For the Azure Cosmos DB API for MongoDB v4.0, a general rule of thumb is that the provisioned RU/s per vcore *R* is about 1000.
+For the Azure Cosmos DB API for MongoDB v4.0, a rule of thumb is that the provisioned RU/s per vcore *R* is about 1000. The API for Mongo runs on top of the SQL API and implements a different architecture; thus the provisioned RU/s per vcore is different from that of SQL API.
 
-For greater clarity, you can use the table below to help you estimate throughput:
+You can use the table below to help you estimate throughput:
 
 
 | vCores/vCPU | RU/s (SQL API) | RU/s (API for MongoDB v4.0) |
@@ -70,16 +72,10 @@ Following the above process, you should end up with an estimate of your equivale
 
 ## 3. Compare TCO
 
-The cost of Cosmos DB can be estimated based on throughput and storage
-* Manual/standard throughput cost: $0.008/hr per 100 RU/s * Number of single-master regions
-    * Autoscale: +50% premium on RU cost
-    * Multi-master: 2x RU cost
-    * Multi-master + autoscale: 2x RU cost
-* Storage cost: $0.25/mo per GB * Number of regions
+*Estimating the cost of Azure Cosmos DB* The cost of Cosmos DB can be estimated based on throughput and storage. To estimate the configuration-dependent cost of using Azure Cosmos DB, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/). Additionally, we recommend [reviewing the guide to planning and managing Azure Cosmos DB costs](https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs) and modeling your costs using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). Finally, if you are working with an account manager, please speak with them to clarify any additional pricing concerns which you may have.
 
-Estimating the cost of your status quo database solution
-* Ideally, you already know the cost of your status quo database solution
-* If you do not already have cost information - usually you can estimate the cost of your status quo solution from the cost of an individual server
+*Estimating the cost of your status quo database solution* Ideally, you already know the cost of your status quo database solution. If you do not already have cost information - 
+* Usually you can estimate the cost of your status quo solution from the cost of an individual server
 * Generally, a good rule of thumb is that the *cost* of your status-quo database solution scales as the product of shards and replication factor, or else as the product of vcores-per-server, shards, and replication factor:
 
 ```
