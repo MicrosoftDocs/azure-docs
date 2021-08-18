@@ -18,7 +18,7 @@ Before you get started, you'll need the following things:
 
 - An Active Directory Domain Services (AD DS) account synced to Azure Active Directory (Azure AD)
 - Permissions to create a group in AD DS
-- A storage account and the permissions needed to create a new storage account, if required
+- A storage account and the permissions needed to create a new storage account, if necessary
 - A virtual machine (VM) or physical machine joined to AD DS that you have permission to access
 - An Azure Virtual Desktop host pool in which all session hosts have been domain joined
 
@@ -61,7 +61,7 @@ To create a security group:
 
 ## Create a storage account
 
-If you haven't created a storage account already, follow the directions for how to create a storage account in the Azure portal in [Create a storage account](../storage/common/storage-account-create.md). When you create a new storage account, make sure to also create a new file share.
+If you haven't created a storage account already, follow the directions in [Create a storage account](../storage/common/storage-account-create.md) first. When you create a new storage account, make sure to also create a new file share.
 
 >[!NOTE]
 >If you're creating a **Premium** storage account make sure **Account Kind** is set to **FileStorage.**
@@ -154,7 +154,7 @@ Next, you'll need to join storage account to AD DS. To join your account to AD D
 
 ## Get NTFS-level permissions
 
-To be able to authenticate with AD DS computer accounts against an Azure Files storage account, we must also assign NTFS level permission in addition to the RBAC permission we set up earlier.
+In order to authenticate with AD DS computer accounts against an Azure Files storage account, we must also assign NTFS level permissions in addition to the RBAC permission we set up earlier.
 
 1. Open the Azure portal and navigate to the storage account that we added to AD DS.
 

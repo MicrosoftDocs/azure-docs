@@ -7,9 +7,9 @@ ms.date: 08/19/2021
 ms.author: helohr
 manager: femila
 ---
-# Toubleshooting Azure Files authorization
+# Troubleshoot Azure Files authorization
 
-This article describes common issues related to Azure Files authentication with Azure Active Directory (AD), as well as suggestions for how to fix them.
+This article describes common issues related to Azure Files authentication with Azure Active Directory (AD), and suggestions for how to fix them.
 
 ## My group membership isn't working
 
@@ -19,11 +19,11 @@ When you add a virtual machine (VM) to an Active Directory Domain Services (AD D
 
 First, check [Unable to mount Azure Files with AD credentials](../storage/files/storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) to see if your problem is listed there.
 
-These are the most common reasons users may encounter issues:
+Here are the most common reasons users may come across issues:
 
-- Ignore any warning messages that appear when creating the account in PowerShell. Ignoring warnings may cause the new account to have incorrectly configured settings. To fix this issue, you'll need ot delete the domain account representing the storage account and try again.
+- Ignoring any warning messages that appear when creating the account in PowerShell. Ignoring warnings may cause the new account to have incorrectly configured settings. To fix this issue, you should delete the domain account that represents the storage account and try again.
 
-- The account is using an incorrect organizational unit. To fix this issue, reenter the organizational unit with the following syntax:
+- The account is using an incorrect organizational unit (OU). To fix this issue, reenter the OU information with the following syntax:
     
     ```powershell
     DC=ouname,DC=domainprefix,DC=topleveldomain
@@ -43,11 +43,11 @@ If your storage account doesn't automatically sync with Azure AD after 30 minute
 
 ## My storage account says it needs additional permissions
 
-If your storage account needs additional permissions, that usually means it doesn't have the correct permissions to use MSIX app attach and FSLogix. To fix this issue, make sure you've assigned one of these permissions to your account:
+If your storage account needs additional permissions, you may not have permission to access MSIX app attach and FSLogix. To fix this issue, make sure you've assigned one of these permissions to your account:
 
 - The **Storage File Data SMB Share Contributor** RBAC permission.
 
-- The **Read & Execute** and **List folder content** permissions for NTFS.
+- The **Read & Execute** and **List folder content** NTFS permissions.
 
 ## Next steps
 
