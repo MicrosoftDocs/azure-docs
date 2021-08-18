@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 03/04/2021
+ms.date: 08/18/2021
 ms.author: memildin
 
 ---
@@ -62,9 +62,9 @@ To enable auto provisioning of the Log Analytics agent:
 
 1. From Security Center's menu, select **Pricing & settings**.
 1. Select the relevant subscription.
-1. In the **Auto provisioning** page, set the Log Analytics agent's status to **On**.
+1. In the **Auto provisioning** page, set the status of auto provisioning for the Log Analytics agent to **On**.
 
-    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Enabling auto-provisioning of the Log Analytics agent.":::
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Enabling auto-provisioning of the Log Analytics agent." lightbox="./media/security-center-enable-data-collection/enable-automatic-provisioning.png":::
 
 1. From the configuration options pane, define the workspace to use.
 
@@ -119,9 +119,10 @@ To enable auto provisioning of the Log Analytics agent:
 
         |Extension  |Policy  |
         |---------|---------|
-        |Policy Add-on for Kubernetes|[Deploy Azure Policy Add-on to Azure Kubernetes Service clusters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa8eff44f-8c92-45c3-a3fb-9880802d67a7)|
+        |Policy Add-on for Kubernetes                      |[Deploy Azure Policy Add-on to Azure Kubernetes Service clusters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fa8eff44f-8c92-45c3-a3fb-9880802d67a7)|
         |Microsoft Dependency agent (preview) (Windows VMs)|[Deploy Dependency agent for Windows virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1c210e94-a481-4beb-95fa-1571b434fb04)         |
-        |Microsoft Dependency agent (preview) (Linux VMs)|[Deploy Dependency agent for Linux virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da21710-ce6f-4e06-8cdb-5cc4c93ffbee)|
+        |Microsoft Dependency agent (preview) (Linux VMs)  |[Deploy Dependency agent for Linux virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da21710-ce6f-4e06-8cdb-5cc4c93ffbee)|
+        |Guest Configuration agent (preview)               |[Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://github.com/Azure/azure-policy/blob/64dcfa3033a3ff231ec4e73d2c1dad4db4e3b5dd/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json)|
         |||
 
 1. Select **Save**. If a workspace needs to be provisioned, agent installation might take up to 25 minutes.
