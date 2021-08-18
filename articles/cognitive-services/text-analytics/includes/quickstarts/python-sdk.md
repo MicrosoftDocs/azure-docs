@@ -87,6 +87,8 @@ The response object is a list containing the analyzed information for each docum
 
 ---
 
+[!INCLUDE [text-analytics-character-limits](../character-limits.md)]
+
 ## Code examples
 
 These code snippets show you how to do the following tasks with the Text Analytics client library for Python:
