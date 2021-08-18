@@ -33,7 +33,7 @@ This quickstart describes the steps to create an Azure Purview account in the Az
 
 1. Select an existing **resource group** or create a new one to hold your Purview account.
 
-    To learn more about resource groups, see our article on [using resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group.md).
+    To learn more about resource groups, see our article on [using resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
 1. Enter a **Purview account name**. Spaces and symbols aren't allowed.
     The name of the Purview account must be globally unique. If you see the following error, change the name of Purview account and try creating again.
