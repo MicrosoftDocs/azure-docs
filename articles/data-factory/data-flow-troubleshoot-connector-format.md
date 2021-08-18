@@ -776,13 +776,13 @@ When you store data with complex schemas (array/map/struct) in a new Snowflake t
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/physical-type-variant.png" alt-text="Screenshot that shows the VARIANT type in a table."::: 
 
-The related value is stored as JSON string, showing in the picture below.
+The related values are stored as JSON strings, showing in the picture below.
 
 :::image type="content" source="./media/data-flow-troubleshoot-connector-format/json-string.png" alt-text="Screenshot that shows the stored JSON string."::: 
 
 #### Recommendation
 
-For the Snowflake VARIANT, it can only accept the data flow value that is struct or map or array type. If the value of your input data column is JSON or XML or other string, use one of the following options to solve this issue:
+For the Snowflake VARIANT, it can only accept the data flow value that is struct or map or array type. If the value of your input data column is JSON or XML or other strings, use one of the following options to solve this issue:
 
 - **Option-1**: Use [parse transformation](./data-flow-parse.md) before using Snowflake as a sink to covert the input data column value into struct or map or array type, for example:
 

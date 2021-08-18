@@ -705,7 +705,7 @@ Specific scenarios that can cause internal server errors are shown as follows.
 
 #### Scenario 2: Using debug sessions with parallel activities
 
-  When triggering a run using the data flow debug session with constructs like ForEach in the pipeline, multiple parallel runs can be submitted to the same cluster. This can lead to cluster failure issues while running because of resource issues, such as being out of memory.<br/>
+  When triggering a run using the data flow debug session with constructs like ForEach in the pipeline, multiple parallel runs can be submitted to the same cluster. This situation can lead to cluster failure problems while running because of resource issues, such as being out of memory.<br/>
   
   To submit a run with the appropriate integration runtime configuration defined in the pipeline activity after publishing the changes, select **Trigger Now** or **Debug** > **Use Activity Runtime**.
 
