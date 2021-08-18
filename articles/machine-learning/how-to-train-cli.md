@@ -74,7 +74,6 @@ Often, a job involves running some source code that is edited and controlled loc
 For instance, look at the `jobs/train/lightgbm/iris` project directory in the examples repository:
 
 ```tree
-.
 ├── job-sweep.yml
 ├── job.yml
 └── src
