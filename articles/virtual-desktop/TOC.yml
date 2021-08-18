@@ -232,6 +232,8 @@
     href: troubleshoot-azure-ad-connections.md
   - name: Azure Monitor
     href: troubleshoot-azure-monitor.md
+  - name: Azure Files authorization
+    href: troubleshoot-authorization.md
 - name: Reference
   items:
   - name: Security best practices
