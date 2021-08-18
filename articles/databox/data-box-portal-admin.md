@@ -253,9 +253,13 @@ If you're using self-managed shipping, after the copy is complete and before you
 
 ## Get device password
 
-When you order your device, you can choose to use the default system-generated device password or choose to bring your own password. The device password is set at the factory and can't be changed. 
+When you order your device, you can choose to use the default system-generated device password or your own password. Either way, the device password is set at the factory and can't be changed. 
 
 You can find out the device password by viewing your order in the Azure portal.
+
+> [!NOTE]
+> After five attempts to log on to your device using an incorrect password, your device admin account will be locked off the device. The lock will clear after 15 minutes, and you'll be able to connect to the device.<!--Open issue: Checking with Alpa to verify whether the number of logins and the duration of the account lock vary with the Data Box release.-->
+
 
 To get the device password, do these steps:
 
