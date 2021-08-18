@@ -178,9 +178,10 @@ Failed migration will not block any control plane operations. If migration fails
 #### Is it possible to cancel the migration?
 It is not possible to cancel the migration because it is not a reversible operation.
 
-#### We have one CosmosDB resource with 1 write and 28 read regions. Is there a tool that can help estimate migration time based on the data usage and number of regions?
-There isn't a tool to estimate time. But our scale runs indicate single region with 1 TB of data takes roughly one and half hour. 
-For multi-region accounts, calculate the total data size as NumberOfRegions*DataInSingleRegion.
+#### Is there a tool that can help estimate migration time based on the data usage and number of regions?
+There isn't a tool to estimate time. But our scale runs indicate single region with 1 TB of data takes roughly one and half hour.
+
+For multi-region accounts, calculate the total data size as `Number_of_regions * Data_in_single_region`.
 
 #### Since the continuous backup mode is now GA, would you still recommend restoring a copy of your account and try migration on the copy before deciding to migrate the production account?
 It’s recommended to test the continuous backup mode feature to see it works as expected before migrating production accounts. Because migration is a one-way operation and it’s not reversible.
