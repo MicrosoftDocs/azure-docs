@@ -44,6 +44,7 @@ You can use SRM to implement different types of recovery, such as:
 >- VVOLs Protection Groups 
 >- SRM IP customization using SRM command-line tools
 >- One-to-Many and Many-to-One topology 
+>- Custom SRM plug-in identifier or extension ID
 
 
 ## Deployment workflow
@@ -212,6 +213,8 @@ After you've created the site pairing, follow the VMware documentation mentioned
 While Microsoft aims to simplify VMware SRM and vSphere Replication installation on an Azure VMware Solution private cloud, you are responsible for managing your license and the day-to-day operation of the disaster recovery solution. 
 
 ## Scale limitations
+
+Scale limitations are per private cloud.
 
 | Configuration | Limit |
 | --- | --- |
