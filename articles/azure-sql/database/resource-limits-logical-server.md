@@ -25,7 +25,9 @@ This article provides an overview of the resource limits for the [logical server
 
 | Resource | Limit |
 | :--- | :--- |
-| Databases per logical server | 5000 |
+| Dedicated SQL Pool databases | 5,000 |
+| Serverless SQL Pool databases | 20 |
+| Spark Pool databases | ???? |
 | Default number of logical servers per subscription in a region | 20 |
 | Max number of logical servers per subscription in a region | 200 |  
 | DTU / eDTU quota per logical server | 54,000 |  
