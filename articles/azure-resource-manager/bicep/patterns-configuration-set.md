@@ -53,7 +53,7 @@ Then create a _map variable_, which is an object that defines the specific confi
 
 When you define the resources, use the configuration map to define the resource properties:
 
-::: code language="bicep" source="~/../azure-docs-bicep-samples/samples/patterns-configuration-set/main.bicep" range="51-74" highlight="4, 14, 23" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/patterns-configuration-set/main.bicep" range="51-74" highlight="4, 14, 23" :::
 
 ## Considerations
 
