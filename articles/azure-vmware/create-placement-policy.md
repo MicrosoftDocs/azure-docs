@@ -210,15 +210,6 @@ Azure VMware Solution provides a VMware private cloud in Azure. In this managed 
 
 Further, the lack of the desired granularity in the vSphere privileges presents some challenges when managing the placement of the workloads on the private cloud. For example, vSphere DRS rules commonly used on-premises to define affinity and anti-affinity rules cannot be used as-is in a VMware Cloud environment, as some of those rules can block day-to-day operation the private cloud. Placement Policies offers you a way to define those rules via the AVS portal, thereby circumventing the need to use DRS rules. Coupled with a simplified experience, they also ensure that the rules do not impact the day-to-day infrastructure maintenance and operation activities. 
 
-### I can open an SR to elevate my privilege to add VM-Host affinity rules. Can I not continue with that approach? 
-
-This feature aims to alleviate the need to open SRs for creating affinity rules. Once you sign up for the preview, you'll use the script provided to create the rules/policies.
-
-Once the feature is made Generally Available, you'll no longer need to open an SR. Instead, you'll use the full Azure VMware Solution private cloud portal experience to create the policies. 
-
-### Who do we reach out to for support?  
-
-As a participant in the preview, you're added to a private Teams channel, where you can directly interact with the feature team during the preview to receive support for the feature and share feedback.
 
 ###  What caveats should I be aware of?
 
