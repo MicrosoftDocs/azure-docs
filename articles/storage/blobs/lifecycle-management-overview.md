@@ -14,7 +14,7 @@ ms.custom: "devx-track-azurepowershell, references_regions"
 
 # Optimize costs by automating Azure Blob Storage access tiers
 
-Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access often drops drastically as the data ages. Some data remains idle in the cloud and is rarely accessed once stored. Some data sets expire days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob Storage lifecycle management offers a rich, rule-based policy for general-purpose v2 and Blob Storage accounts. You can use the policy to transition your data to the appropriate access tiers or to expire at the end of the data lifecycle.
+Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access often drops drastically as the data ages. Some data remains idle in the cloud and is rarely accessed once stored. Some data sets expire days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob Storage lifecycle management offers a rule-based policy that you can use to transition your data to the appropriate access tiers or to expire data at the end of the data lifecycle.
 
 With the lifecycle management policy, you can:
 
@@ -26,16 +26,12 @@ With the lifecycle management policy, you can:
 
 Consider a scenario where data is frequently accessed during the early stages of the lifecycle, but only occasionally after two weeks. Beyond the first month, the data set is rarely accessed. In this scenario, hot storage is best during the early stages. Cool storage is most appropriate for occasional access. Archive storage is the best tier option after the data ages over a month. By moving data to the appropriate storage tier based on its age with lifecycle management policy rules, you can design the least expensive solution for your needs.
 
+Lifecycle management policies are supported for block blobs and append blobs in general-purpose v2, premium block blob, and Blob Storage accounts. Lifecycle management does not affect system containers such as the *$logs* or *$web* containers.
+
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!IMPORTANT]
 > If a data set needs to be readable, do not set a policy to move blobs to the archive tier. Blobs in the archive tier cannot be read unless they are first rehydrated, a process which may be time-consuming and expensive. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
-
-## About lifecycle management
-
->[!NOTE]
->- Lifecycle management supports block blob and append blob types.<br>
->- Lifecycle management does not affect system containers like $logs and $web.
 
 ## Lifecycle management policy definition
 
@@ -197,19 +193,15 @@ This example shows how to transition block blobs prefixed with `sample-container
 }
 ```
 
-### Move data based on last accessed date
+### Move data based on last accessed time
 
-You can enable last access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data.
-
-In order to use the **Last accessed** option, select **Access tracking enabled** on the **Lifecycle Management** page in the Azure portal.
-
-#### How last access time tracking works
+You can enable last access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data. To learn how to enable last access time tracking, see ???
 
 When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. A [Get Blob](/rest/api/storageservices/get-blob) operation is considered an access operation. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) are not access operations, and therefore don't update the last access time.
 
 To minimize the impact on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period do not update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
 
-In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days. The `enableAutoTierToHotFromCool` property is a Boolean value that indicates if a blob should automatically be tiered from cool back to hot if it is accessed again after being tiered to cool.
+In the following example, blobs are moved to cool storage if they haven't been accessed for 30 days. The `enableAutoTierToHotFromCool` property is a Boolean value that indicates whether a blob should automatically be tiered from cool back to hot if it is accessed again after being tiered to cool.
 
 ```json
 {
@@ -237,28 +229,11 @@ In the following example, blobs are moved to cool storage if they haven't been a
 }
 ```
 
-#### Storage account support
-
-Last access time tracking is available for the following types of storage accounts:
-
-- General-purpose v2 storage accounts
-- Block blob storage accounts
-- Blob storage accounts
-
-If your storage account is a general-purpose v1 account, use the Azure portal to upgrade to a general-purpose v2 account.
-
-Storage accounts with a hierarchical namespace enabled for use with Azure Data Lake Storage Gen2 are now supported.
-
-#### Pricing and billing
-
-Each last access time update is considered an [other operation](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Each last access time update is billed under the [other operations](https://azure.microsoft.com/pricing/details/storage/blobs/) category.
 
 ### Archive data after ingest
 
-Some data stays idle in the cloud and is rarely, if ever, accessed once stored. The following lifecycle policy is configured to archive data shortly after it is ingested. This example transitions block blobs in the storage account within container `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time:
-
-> [!NOTE]
-> Microsoft recommends that you upload your blobs directly the archive tier for greater efficiency. You can specify the archive tier in the *x-ms-access-tier* header on the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operation. The *x-ms-access-tier* header is supported with REST version 2018-11-09 and newer or the latest blob storage client libraries.
+Some data stays idle in the cloud and is rarely, if ever, accessed. The following lifecycle policy is configured to archive data shortly after it is ingested. This example transitions block blobs in a container named `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time:
 
 ```json
 {
@@ -283,6 +258,9 @@ Some data stays idle in the cloud and is rarely, if ever, accessed once stored. 
 }
 
 ```
+
+> [!NOTE]
+> Microsoft recommends that you upload your blobs directly the archive tier for greater efficiency. You can specify the archive tier in the *x-ms-access-tier* header on the [Put Blob](/rest/api/storageservices/put-blob) or [Put Block List](/rest/api/storageservices/put-block-list) operation. The *x-ms-access-tier* header is supported with REST version 2018-11-09 and newer or the latest blob storage client libraries.
 
 ### Expire data based on age
 

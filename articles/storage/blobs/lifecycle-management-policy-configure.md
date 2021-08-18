@@ -17,24 +17,12 @@ ms.custom: "devx-track-azurepowershell, references_regions"
 
 ## Add or remove a policy
 
-You can add, edit, or remove a policy by using any of the following methods:
+You can add, edit, or remove a lifecycle management policy with the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template.
 
-- The Azure portal
-- Azure PowerShell
-    - [Add-AzStorageAccountManagementPolicyAction](/powershell/module/az.storage/add-azstorageaccountmanagementpolicyaction)
-    - [New-AzStorageAccountManagementPolicyFilter](/powershell/module/az.storage/new-azstorageaccountmanagementpolicyfilter)
-    - [New-AzStorageAccountManagementPolicyRule](/powershell/module/az.storage/new-azstorageaccountmanagementpolicyrule)
-    - [Set-AzStorageAccountManagementPolicy](/powershell/module/az.storage/set-azstorageaccountmanagementpolicy)
-    - [Remove-AzStorageAccountManagementPolicy](/powershell/module/az.storage/remove-azstorageaccountmanagementpolicy)
-- [Azure CLI](/cli/azure/storage/account/management-policy)
-- [REST APIs](/rest/api/storagerp/managementpolicies)
-
-A policy can be read or written in full. Partial updates are not supported.
+A policy must be read or written in full. Partial updates are not supported.
 
 > [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
-
-This article shows how to manage policy by using the portal and PowerShell methods.
 
 # [Portal](#tab/azure-portal)
 
@@ -60,9 +48,6 @@ There are two ways to add a policy through the Azure portal.
 1. Select **Base blobs** to set the conditions for your rule. In the following example, blobs are moved to cool storage if they haven't been modified for 30 days.
 
    :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-base-blobs.png" alt-text="Lifecycle management base blobs page in Azure portal":::
-
-   > [!IMPORTANT]
-   > The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
 
    To use the **Last accessed** option, select **Access tracking enabled** on the **Lifecycle Management** page in the Azure portal. For more information about the **Last accessed** option, see [Move data based on last accessed date](lifecycle-management-overview.md#move-data-based-on-last-accessed-date).
 
@@ -117,33 +102,44 @@ There are two ways to add a policy through the Azure portal.
 
 # [PowerShell](#tab/azure-powershell)
 
-The following PowerShell script can be used to add a policy to your storage account. The `$rgname` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name.
+The following PowerShell script can be used to add a policy to your storage account. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name.
 
 ```powershell
-#Install the latest module
-Install-Module -Name Az -Repository PSGallery
+# Initialize the following variables with your values.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
 
-#Initialize the following with your resource group and storage account names
-$rgname = ""
-$accountName = ""
+# Create a new action object
+$action = Add-AzStorageAccountManagementPolicyAction -BaseBlobAction Delete `
+    -daysAfterModificationGreaterThan 180
+$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action `
+    -BaseBlobAction TierToArchive `
+    -daysAfterModificationGreaterThan 90
+$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action `
+    -BaseBlobAction TierToCool `
+    -daysAfterModificationGreaterThan 30
+$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action `
+    -SnapshotAction Delete `
+    -daysAfterCreationGreaterThan 90
 
-#Create a new action object
-$action = Add-AzStorageAccountManagementPolicyAction -BaseBlobAction Delete -daysAfterModificationGreaterThan 2555
-$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -BaseBlobAction TierToArchive -daysAfterModificationGreaterThan 90
-$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -BaseBlobAction TierToCool -daysAfterModificationGreaterThan 30
-$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -SnapshotAction Delete -daysAfterCreationGreaterThan 90
+# Create a new filter object.
+$filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd `
+    -BlobType appendBlob,blockBlob
 
-# Create a new filter object
-# PowerShell automatically sets BlobType as “blockblob” because it is the only available option currently
-$filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd
+# Create a new rule object.
+$rule1 = New-AzStorageAccountManagementPolicyRule -Name Test `
+    -Action $action `
+    -Filter $filter
 
-#Create a new rule object
-#PowerShell automatically sets Type as “Lifecycle” because it is the only available option currently
-$rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
-
-#Set the policy
-Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
+# Create the policy.
+Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -Rule $rule1
 ```
+
+#### [Azure CLI](#tab/azure-cli)
+
+TBD
 
 # [Template](#tab/template)
 
@@ -186,6 +182,49 @@ You can define lifecycle management by using Azure Resource Manager templates. H
   "outputs": {}
 }
 ```
+
+---
+
+## Enable last access time tracking
+
+
+#### [Portal](#tab/azure-portal)
+
+To enable last access time tracking with the Azure portal, follow these steps:
+
+1. Navigate to your storage account in the Azure portal.
+1. In the **Data management** section, select **Enable access tracking**.
+
+    :::image type="content" source="media/lifecycle-management-policy-configure/last-access-tracking-enable.png" alt-text="Screenshot showing how to enable last access tracking in Azure portal":::
+
+#### [PowerShell](#tab/azure-powershell)
+
+To enable last access time tracking with PowerShell, call the [Enable-AzStorageBlobLastAccessTimeTracking](/powershell/module/az.storage/enable-azstoragebloblastaccesstimetracking) command, as shown in the following example. Remember to replace placeholder values in angle brackets with your own values:
+
+```powershell
+# Initialize these variables with your values.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+Enable-AzStorageBlobLastAccessTimeTracking  -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -PassThru
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To enable last access time tracking with Azure CLI, call the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command, as shown in the following example. Remember to replace placeholder values in angle brackets with your own values:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource-group> \
+    --account-name <storage-account> \
+    --enable-last-access-tracking true
+```
+
+# [Template](#tab/template)
+
+TBD
 
 ---
 
