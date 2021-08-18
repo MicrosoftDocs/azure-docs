@@ -84,8 +84,6 @@ sections:
           * [Microsoft Q&A question page](/answers/topics/azure-cosmos-db.html)
           * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask).
           
-          To request new features, create a new request on [User voice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
-          
           To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
           
       - question: |
