@@ -34,7 +34,7 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 |Submit, start, and stop jobs     |Yes         |Yes         |Yes         |
 |View job metrics and diagram     |Yes         |Yes         |Yes         |
 |View job runtime errors     |Yes         |Yes         |Yes         |
-|Activity log     |Yes         |No         |Yes         |
+|Resource logs     |Yes         |No         |Yes         |
 |Custom message properties     |Yes         |Yes         |Yes       |
 |C# custom code function and Deserializer|Read-only mode|Yes|Yes|
 |JavaScript UDF and UDA     |Yes         |Yes         |Windows only         |
