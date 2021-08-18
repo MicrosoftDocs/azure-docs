@@ -338,6 +338,10 @@ You can mount Azure NetApp Files NFS volumes on AVS Windows VMs or Linux VMs. Yo
 
 Using Azure NetApp Files NFS or SMB volumes with AVS is supported in [all AVS and ANF enabled regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware,netapp) - East US, West US , West Europe, and Australia East.
 
+### Is the number of the IP addresses using Azure VMWare Solutions for Guest OS mounts [limited to 1000](./azure-netapp-files-resource-limits.md)?
+
+No. Azure VMWare Solutions is behind an ER gateway, which makes it behave similar to on-premise systems. The number of AVS "Hosts" and "Guests" is not visible to Azure NetApp Files, and the 1000 IP address limit is not applicable.
+
 ### Does Azure NetApp Files work with Azure Policy?
 
 Yes. Azure NetApp Files is a first-party service. It fully adheres to Azure Resource Provider standards. As such, Azure NetApp Files can be integrated into Azure Policy via *custom policy definitions*. For information about how to implement custom policies for Azure NetApp Files, see 
