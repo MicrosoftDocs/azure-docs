@@ -1,64 +1,70 @@
 ---
-title: Bicep access operators
+title: Bicep accessor operators
 description: Describes Bicep resource access operator and property access operator.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/22/2021
+ms.date: 07/29/2021
 ---
 
-# Bicep access operators
+# Bicep accessor operators
 
-The access operators are used to access properties of objects and resources. To run the examples, use Azure CLI or Azure PowerShell to [deploy a Bicep file](./quickstart-create-bicep-use-visual-studio-code.md#deploy-the-bicep-file).
+The accessor operators are used to access child resources and properties on objects. You can also use the property accessor to use some functions.
 
 | Operator | Name |
 | ---- | ---- |
-| `.` | [Nested resource accessor](#nested-resource-accessor) |
+| `::` | [Nested resource accessor](#nested-resource-accessor) |
 | `.`  | [Property accessor](#property-accessor) |
+| `.`  | [Function accessor](#function-accessor) |
 
 ## Nested resource accessor
 
-`<resource-symbolic-name>.<property-name>`
+`parentResource::nestedResource`
 
-Nested resource accessors are used to access resources that are declared inside another resource. The symbolic name declared by a nested resource can normally only be referenced within the body of the containing resource. To reference a nested resource outside the containing resource, it must be qualified with the containing resource name and the [::](./child-resource-name-type.md) operator. Other resources declared within the same containing resource can use the name without qualification.
+A nested resource is a resource that is declared within another resource. Use the nested resource accessor `::` to access that nested resources from outside of the parent resource.
+
+Within the parent resource, you reference the nested resource with just the symbolic name. You only need to use the nested resource accessor when referencing the nested resource from outside of the parent resource.
 
 ### Example
 
+The following example shows how to reference a nested resource from within the parent resource and from outside of the parent resource.
+
 ```bicep
-resource myParent 'My.Rp/parentType@2020-01-01' = {
-  name: 'myParent'
+resource demoParent 'demo.Rp/parentType@2020-01-01' = {
+  name: 'demoParent'
   location: 'West US'
 
-  // declares a nested resource inside 'myParent'
-  resource myChild 'childType' = {
-    name: 'myChild'
+  // Declare a nested resource within 'demoParent'
+  resource demoNested 'childType' = {
+    name: 'demoNested'
     properties: {
-      displayName: 'Child Resource'
+      displayName: 'The nested instance.'
     }
   }
 
-  // 'myChild' can be referenced inside the body of 'myParent'
-  resource mySibling 'childType' = {
-    name: 'mySibling'
+  // Declare another nested resource
+  resource demoSibling 'childType' = {
+    name: 'demoSibling'
     properties: {
-      displayName: 'Sibling of ${myChild.properties.displayName}'
+      // Use symbolic name to reference because this line is within demoParent
+      displayName: 'Sibling of ${demoNested.properties.displayName}'
     }
   }
 }
 
-// accessing 'myChild' here requires the resource access operator
-output displayName string = myParent::myChild.properties.displayName
+// Use nested accessor to reference because this line is outside of demoParent
+output displayName string = demoParent::demoNested.properties.displayName
 ```
-
-Because the declaration of `myChild` is contained within `myParent`, the access to `myChild`'s properties must be qualified with `myParent::`.
 
 ## Property accessor
 
-`<object-name>.<property-name>`
+`objectName.propertyName`
 
-Property accessors are used to access properties of an object. Property accessors can be used with any object, including parameters and variables of object types and object literals. Using a property accessor on an expression of non-object type is an error.
+Use property accessors to access properties of an object. Property accessors can be used with any object, including parameters and variables that are objects. You get an error when you use the property access on an expression that isn't an object.
 
 ### Example
+
+The following example shows an object variable and how to access the properties.
 
 ```bicep
 var x = {
@@ -80,9 +86,52 @@ Output from the example:
 | `outputZ` | string | 'Hello' |
 | `outputQ` | integer | 42 |
 
+Typically, you use the property accessor with a resource deployed in the Bicep file. The following example creates a public IP address and uses property accessors to return a value from the deployed resource.
+
+```bicep
+resource publicIp 'Microsoft.Network/publicIPAddresses@2020-06-01' = {
+  name: publicIpResourceName
+  location: location
+  properties: {
+    publicIPAllocationMethod: dynamicAllocation ? 'Dynamic' : 'Static'
+    dnsSettings: {
+      domainNameLabel: publicIpDnsLabel
+    }
+  }
+}
+
+// Use property accessor to get value
+output ipFqdn string = publicIp.properties.dnsSettings.fqdn
+```
+
+## Function accessor
+
+`resourceName.functionName()`
+
+Two functions - [getSecret](bicep-functions-resource.md#getsecret) and [list*](bicep-functions-resource.md#list) - support the accessor operator for calling the function. These two functions are the only functions that support the accessor operator.
+
+### Example
+
+The following example references an existing key vault, then uses `getSecret` to pass a secret to a module.
+
+```bicep
+resource kv 'Microsoft.KeyVault/vaults@2019-09-01' existing = {
+  name: kvName
+  scope: resourceGroup(subscriptionId, kvResourceGroup )
+}
+
+module sql './sql.bicep' = {
+  name: 'deploySQL'
+  params: {
+    sqlServerName: sqlServerName
+    adminLogin: adminLogin
+    adminPassword: kv.getSecret('vmAdminPassword')
+  }
+}
+```
+
 ## Next steps
 
+- To run the examples, use Azure CLI or Azure PowerShell to [deploy a Bicep file](./quickstart-create-bicep-use-visual-studio-code.md#deploy-the-bicep-file).
 - To create a Bicep file, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 - For information about how to resolve Bicep type errors, see [Any function for Bicep](./bicep-functions-any.md).
-- To compare syntax for Bicep and JSON, see [Comparing JSON and Bicep for templates](./compare-template-syntax.md).
-- For examples of Bicep functions, see [Bicep functions](./bicep-functions.md).

@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -47,7 +47,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows**, and then select **New user flow**.
 
-    ![User flows page in portal with New user flow button highlighted](./media/add-sign-up-and-sign-in-policy/signup-signin-user-flow.png)
+    ![User flows page in portal with New user flow button highlighted](./media/add-sign-up-and-sign-in-policy/sign-up-sign-in-user-flow.png)
 
 1. On the **Create a user flow** page, select the **Sign up and sign in** user flow.
 

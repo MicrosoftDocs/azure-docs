@@ -30,6 +30,6 @@ Download the [Azure Cosmos DB A3-sized query cheat sheets](https://go.microsoft.
 ## Next steps
 For more help writing queries, see the following articles:
 * For SQL API queries, see [Query using the SQL API](tutorial-query-sql-api.md), [SQL queries for Azure Cosmos DB](./sql-query-getting-started.md), and [SQL syntax reference](./sql-query-getting-started.md)
-* For MongoDB queries, see [Query using Azure Cosmos DB's API for MongoDB](tutorial-query-mongodb.md) and [Azure Cosmos DB's API for MongoDB feature support and syntax](mongodb-feature-support.md)
+* For MongoDB queries, see [Query using Azure Cosmos DB's API for MongoDB](mongodb/tutorial-query-mongodb.md) and [Azure Cosmos DB's API for MongoDB feature support and syntax](mongodb/feature-support-32.md)
 * For Gremlin API queries, see [Query using the Gremlin API](tutorial-query-graph.md) and [Azure Cosmos DB Gremlin graph support](gremlin-support.md)
 * For Table API queries, see [Query using the Table API](table/tutorial-query-table.md)

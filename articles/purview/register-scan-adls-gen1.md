@@ -144,10 +144,10 @@ To use a service principal, you must first create one following these steps:
 To register a new ADLS Gen1 account in your data catalog, do the following:
 
 1. Navigate to your Purview Data Catalog.
-2. Select **Sources** on the left navigation.
+2. Select **Data Map** on the left navigation.
 3. Select **Register**
 4. On **Register sources**, select **Azure Data Lake Storage Gen1**. 
-5. Select **Continue**.
+5. Select **Continue**
 
 On the Register sources (Azure Data Lake Storage Gen1) screen, do the following:
 

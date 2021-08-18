@@ -53,7 +53,7 @@ The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-
 
 To use the notebooks, you must first have the right permissions, depending on your user role.
 
-As Azure Sentinel notebooks run on [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) (Azure ML) platform, you must have appropriate access to both Azure Sentinel workspace and an [Azure ML workspace](../machine-learning/concept-workspace.md).
+As Azure Sentinel notebooks run on [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) (Azure ML) platform, you must have appropriate access to both Azure Sentinel workspace and an [Azure ML workspace](../machine-learning/concept-workspace.md).
 
 |Permission  |Description  |
 |---------|---------|

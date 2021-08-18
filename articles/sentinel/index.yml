@@ -33,6 +33,11 @@ landingContent:
         links:
           - text: What's new in Azure Sentinel?
             url: whats-new.md
+      - linkListType: concept
+        links:
+          - text: Best practices
+            url: best-practices.md
+
 
   # Card (optional)
   - title: Get started
@@ -41,14 +46,18 @@ landingContent:
         links:
           - text: Onboard Azure Sentinel
             url: quickstart-onboard.md
+      - linkListType: concept
+        links:
+          - text: Prerequisites
+            url: prerequisites.md
       - linkListType: how-to-guide
         links:
           - text: Connect data to Azure Sentinel
             url: connect-data-sources.md
-      - linkListType: tutorial
-        links:
           - text: Investigate incidents
-            url: tutorial-investigate-cases.md
+            url: investigate-cases.md
+          - text: Microsoft 365 Defender integration with Azure Sentinel
+            url: microsoft-365-defender-sentinel-integration.md
       - linkListType: learn
         links:
           - text: Create KQL queries for Azure Sentinel
@@ -59,6 +68,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Data collection best practices
+            url: best-practices-data.md
           - text: Normalizing and parsing data
             url: normalization.md
       - linkListType: how-to-guide
@@ -107,12 +118,12 @@ landingContent:
             url: identify-threats-with-entity-behavior-analytics.md
           - text: SOC-ML anomalies
             url: soc-ml-anomalies.md
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Use built-in-analytics to detect threats
-            url: tutorial-detect-threats-built-in.md
+            url: detect-threats-built-in.md
           - text: Create custom detection rules
-            url: tutorial-detect-threats-custom.md
+            url: detect-threats-custom.md
       - linkListType: reference
         links:
           - text: Entities reference
@@ -141,12 +152,14 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Monitor your data
-            url: tutorial-monitor-your-data.md
-      - linkListType: how-to-guide
-        links:
         - text: Investigate with UEBA
           url: investigate-with-ueba.md
+      - linkListType: how-to-guide
+        links:
+          - text: Investigate incidents
+            url: investigate-cases.md
+          - text: Monitor your data
+            url: monitor-your-data.md
       - linkListType: reference
         links:
         - text: Commonly used Azure Sentinel workbooks
@@ -172,10 +185,16 @@ landingContent:
 
 
   # Card
-  - title: Work with multiple tenants
+  - title: Manage Azure Sentinel
     linkLists:
+      - linkListType: concept
+        links:
+          - text: Workspace architecture best practices
+            url: best-practices-workspace-architecture.md
       - linkListType: how-to-guide
         links:
+          - text: Design your workspace architecture
+            url: design-your-workspace-architecture.md
           - text: Manage multiple tenants
             url: multiple-tenants-service-providers.md
           - text: Work with incidents in multiple workspaces
