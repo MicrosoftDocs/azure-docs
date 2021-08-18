@@ -144,7 +144,7 @@ In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signe
 ## Upload and test the policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity Experience Framework**.
