@@ -20,8 +20,8 @@ This article lists all built-in and preinstalled components, such as clients, dr
 
 | Name | Version |
 |------|---------|
-| **Windows versions** | Windows Server 2019 |
-| **.NET Framework version** | 4.7.2 |
+| **Windows** | Windows Server 2019 |
+| **.NET Framework** | 4.7.2 |
 
 ## Built-in and preinstalled clients, drivers, and providers on Azure-SSIS IR
 
