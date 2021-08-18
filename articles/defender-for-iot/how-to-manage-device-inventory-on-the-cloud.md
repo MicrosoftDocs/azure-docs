@@ -31,8 +31,6 @@ Here you can see the:
 
 - The number of new devices.
 
-- The number of inactive devices (sensor only).
-
 - A number of the devices by class.
 
 - A number of the devices by type.
