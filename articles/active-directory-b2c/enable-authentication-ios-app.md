@@ -15,13 +15,13 @@ ms.custom: "b2c-support"
 
 # Enable authentication in your own iOS Swift app by using Azure AD B2C
 
-This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own iOS Swift mobile application. Learn how to integrate an iOS Swift application with the [Microsoft Authentication Library (MSAL) for iOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc) authentication library. 
+This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own iOS Swift mobile application. Learn how to integrate an iOS Swift application with the [Microsoft Authentication Library (MSAL) for iOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc). 
 
 Use this article with [Configure authentication in a sample iOS Swift application](./configure-authentication-sample-ios-app.md), substituting the sample iOS Swift app with your own iOS Swift app. After you've completed the instructions in this article, your application will accept sign-ins via Azure AD B2C.
 
 ## Prerequisites
 
-Review the prerequisites and integration instructions in [Configure authentication in a sample iOS Swift app by using Azure AD B2C](configure-authentication-sample-ios-app.md) article.
+Review the prerequisites and integration instructions in [Configure authentication in a sample iOS Swift app by using Azure AD B2C](configure-authentication-sample-ios-app.md).
 
 ## Create an iOS Swift app project
 
@@ -51,7 +51,7 @@ If you don't already have an iOS Swift application, set up a new project by doin
    end
    ```
 
-1. Replace `<your-target-here>` with the name of your project. For example, `MSALiOS`. For more information, see [Podfile Syntax Reference](https://guides.cocoapods.org/syntax/podfile.html#podfile).
+1. Replace `<your-target-here>` with the name of your project (for example, `MSALiOS`). For more information, see [Podfile Syntax Reference](https://guides.cocoapods.org/syntax/podfile.html#podfile).
 1. In a terminal window, go to the folder that contains the *podfile* file, and then run *pod install* to install the MSAL library.
 1. After you run the `pod install` command, a *\<your project name>.xcworkspace* file is created. To reload the project in Xcode, close Xcode, and then open the *\<your project name>.xcworkspace* file.
 
@@ -96,7 +96,7 @@ Choose a `UIViewController` where users will authenticate.  In your `UIViewContr
 
 After you [add the authentication code](#step-3-add-the-authentication-code), configure your iOS Swift app with your Azure AD B2C settings. Azure AD B2C identity provider settings are configured in the `UIViewController` class that was chosen in the previous section. 
 
-To learn how, see [Configure authentication in a sample iOS Swift app by using Azure AD B2C](configure-authentication-sample-ios-app.md#step-5-configure-the-sample-mobile-app).
+To learn how to configure your iOS Swift app, see [Configure authentication in a sample iOS Swift app by using Azure AD B2C](configure-authentication-sample-ios-app.md#step-5-configure-the-sample-mobile-app).
 
 ## Step 5: Run and test the mobile app
 
@@ -106,13 +106,13 @@ To learn how, see [Configure authentication in a sample iOS Swift app by using A
 
 ## Step 6: Customize your code building blocks
 
-This section describes the code building blocks that enable authentication for your iOS Swift app. It lists the UIViewController's methods and how to customize your code. 
+This section describes the code building blocks that enable authentication for your iOS Swift app. It lists the UIViewController's methods and discusses how to customize your code. 
 
 ### Step 6.1: Instantiate a public client application
 
 Public client applications aren't trusted to safely keep application secrets, and they don't have client secrets. In [viewDidLoad](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload), instantiate an MSAL by using a public client application object.
 
-The following code snippet demonstrates how to initialize the MSAL with a `MSALPublicClientApplicationConfig` configuration object. 
+The following Swift code snippet demonstrates how to initialize the MSAL with a `MSALPublicClientApplicationConfig` configuration object. 
 
 The configuration object provides information about your Azure AD B2C environment. For example, it provides the client ID, redirect URI, and authority to build authentication requests to Azure AD B2C. For information about the configuration object, see [Configure the sample mobile app](configure-authentication-sample-ios-app.md#step-5-configure-the-sample-mobile-app).
 
@@ -135,7 +135,7 @@ do {
 
 The `initWebViewParams` method configures the [interactive authentication](../active-directory/develop/customize-webviews.md) experience. 
 
-The following Swift code snippet initializes the `webViewParameters` class member with the system web view. For more information, see the [Customize browsers and WebViews for iOS/macOS](../active-directory/develop/customize-webviews.md) article.
+The following Swift code snippet initializes the `webViewParameters` class member with the system web view. For more information, see [Customize browsers and WebViews for iOS/macOS](../active-directory/develop/customize-webviews.md).
 
 ```swift
 func initWebViewParams() {
@@ -171,7 +171,7 @@ self.updateLoggingText(text: "Access token is \(self.accessToken ?? "Empty")")
 }
 ```
  
-After users finish the authorization flow, whether successfully or unsuccessfully, the result is returned to the [closure](https://docs.swift.org/swift-book/LanguageGuide/Closures.html) of the `acquireToken` method. 
+After users finish the authorization flow, either successfully or unsuccessfully, the result is returned to the [closure](https://docs.swift.org/swift-book/LanguageGuide/Closures.html) of the `acquireToken` method. 
 
 The `acquireToken` method returns the `result` and `error` objects. Use this closure to:
 
@@ -259,7 +259,7 @@ self.updateLoggingText(text: "Unable to construct parameters before calling acqu
 }
 ```
 
-The `callGraphAPI` method retrieves the access token and calls the web API.
+The `callGraphAPI` method retrieves the access token and calls the web API, as shown here:
 
 ```swift
 @objc func callGraphAPI(_ sender: UIButton) {
@@ -297,7 +297,7 @@ The `callGraphAPI` method retrieves the access token and calls the web API.
 
 ### Step 6.4: Sign out users
 
-Signing out with MSAL removes all known information about users from the application. Use the sign-out method to sign out users and update the UI. For example, hide protected UI elements and the sign-out button, and show the sign-in button.
+Signing out with MSAL removes all known information about users from the application. Use the sign-out method to sign out users and update the UI. For example, you can hide protected UI elements, hide the sign-out button, or show the sign-in button.
 
 The following code snippet demonstrates how to sign out users:
 
