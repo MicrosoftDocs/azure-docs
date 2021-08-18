@@ -68,13 +68,15 @@ Make sure to add details about the facilities and severity log levels that you w
 
 For more information, see [Deployment script explained](connect-cef-agent.md#deployment-script-explained) and [Configure Syslog in the Azure portal](/azure/azure-monitor/agents/data-sources-syslog.md).
 
-For example, for an rsyslog server, run the following command to display the current settings for your Syslog forwarding, and review any changes to the configuration file:
+
+**For example, for an rsyslog server**, run the following command to display the current settings for your Syslog forwarding, and review any changes to the configuration file:
 
 ```bash
 cat /etc/rsyslog.d/95-omsagent.conf
 ```
 
-In this case, for rsyslog, output similar to the following should display:
+In this case, for rsyslog, output similar to the following should display. The contents of this file should reflect what's defined in the Syslog Configuration on the **Log Analytics Workspace Client configuration - Syslog facility settings** screen.
+
 
 ```bash
 OMS Syslog collection for workspace c69fa733-da2e-4cf9-8d92-eee3bd23fe81
@@ -86,7 +88,8 @@ local4.=alert;local4.=crit;local4.=debug;local4.=emerg;local4.=err;local4.=info;
 syslog.=alert;syslog.=crit;syslog.=debug;syslog.=emerg;syslog.=err;syslog.=info;syslog.=notice;syslog.=warning  @127.0.0.1:25224
 ```
 
-For CEF forwarding, for an rsyslog server, run the following command to display the current settings for your Syslog forwarding, and review any changes to the configuration file:
+
+**For CEF forwarding, for an rsyslog server**, run the following command to display the current settings for your Syslog forwarding, and review any changes to the configuration file:
 
 ```bash
 cat /etc/rsyslog.d/security-config-omsagent.conf
@@ -260,9 +263,11 @@ This procedure describes how to verify whether a firewall policy is blocking the
 > To disable the firewall, run: `sudo systemctl disable firewalld`
 >
 
-## OMS Agent or Azure-related issues
+## Linux and OMS Agent-related issues
 
-If you're having issues related to the OMS Agent or Azure, troubleshoot by verifying the following:
+If the steps described earlier in this article do not solve your issue, you may have a connectivity problem between the OMS Agent and the Azure Sentinel workspace.
+
+In such cases, continue troubleshooting by verifying the following:
 
 - Make sure that you can see packets arriving on TCP/UDP port 514 on the Syslog collector
 
@@ -274,7 +279,7 @@ If you're having issues related to the OMS Agent or Azure, troubleshoot by verif
 
 - Make sure that your Azure Virtual Machine is shown as connected in your workspace's list of virtual machines.
 
-Run the following command to determine if the agent is communicating successfully with Azure, or if the OMS agent is blocked from connecting to the Log Analytics workspace. <!--when will this work and when won't it work?-->
+Run the following command to determine if the agent is communicating successfully with Azure, or if the OMS agent is blocked from connecting to the Log Analytics workspace.
 
 ```config
 Heartbeat
