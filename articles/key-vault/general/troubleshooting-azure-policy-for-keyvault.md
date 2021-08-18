@@ -136,6 +136,11 @@ Microsoft.KeyVault.Data: a deleted policy assignment can take up to 24 hours to 
 Mitigation: update the policy assignment's effect to 'Disabled'.
 
 
+#### 3. Secret creation via ARM template missing out policy evaluation
+
+Data plane policies that evaluate secret creation would not be applicable on [secrets created via ARM template](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template?tabs=CLI) at the time of secret creation. After 24 hours, when the automated compliance check would occur, and the compliance results can be reviewed.
+
+
 ## Next Steps
 
 * Learn how to [Troubleshoot errors with using Azure Policy](https://docs.microsoft.com/azure/governance/policy/troubleshoot/general)
