@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/25/2021
+ms.date: 08/11/2021
 ---
 
 # Interactive debugging with Visual Studio Code
@@ -24,7 +24,7 @@ Use the Azure Machine Learning extension to validate, run, and debug your machin
 * Azure Machine Learning VS Code extension (preview). For more information, see [Set up Azure Machine Learning VS Code extension](how-to-setup-vs-code.md).
 
     > [!IMPORTANT]
-    > The Azure Machine Learning VS Code extension uses the 2.0 CLI by default. The instructions in this guide use 1.0 CLI. To switch to the 1.0 CLI, set the `azureML.CLI Compatibility Mode` setting in Visual Studio Code to `1.0`. For more information on modifying your settings in Visual Studio, see the [user and workspace settings documentation](https://code.visualstudio.com/docs/getstarted/settings).
+    > The Azure Machine Learning VS Code extension uses the CLI (v2) by default. The instructions in this guide use 1.0 CLI. To switch to the 1.0 CLI, set the `azureML.CLI Compatibility Mode` setting in Visual Studio Code to `1.0`. For more information on modifying your settings in Visual Studio, see the [user and workspace settings documentation](https://code.visualstudio.com/docs/getstarted/settings).
 
 * [Docker](https://www.docker.com/get-started)
   * Docker Desktop for Mac and Windows
@@ -458,7 +458,7 @@ Local web service deployments require a working Docker installation on your loca
 
     myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
     myenv.docker.base_image = None
-    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04"
+    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1"
     inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
     package = Model.package(ws, [model], inference_config)
     package.wait_for_creation(show_output=True)  # Or show_output=False to hide the Docker build logs.

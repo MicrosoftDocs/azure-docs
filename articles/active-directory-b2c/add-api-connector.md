@@ -1,6 +1,6 @@
 ---
-title: Add API connectors to user flows
-description: Configure an API connector to be used in a user flow.
+title: Add API connectors to sign up user flows
+description: Configure an API connector to be used in a sign-up user flow.
 services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
@@ -26,7 +26,7 @@ You can create an API endpoint using one of our [samples](api-connector-samples.
 
 In this scenario, we'll add the ability for users to enter a loyalty number into the Azure AD B2C sign-up page. The REST API validates whether the combination of email and loyalty number is mapped to a promotional code. If the REST API finds a promotional code for this user, it will be returned to Azure AD B2C. Finally, the promotional code will be inserted into the token claims for the application to consume.
 
-You can also design the interaction as an orchestration step. This is suitable when the REST API will not be validating data on screen, and always return claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md).
+You can also design the interaction as an orchestration step. This is suitable when the REST API will not be validating data on screen, and always return claims. For more information, see [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](add-api-connector-token-enrichment.md).
 
 ::: zone-end
 
@@ -44,13 +44,13 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 2. Under **Azure services**, select **Azure AD B2C**.
 4. Select **API connectors**, and then select **New API connector**.
 
-   :::image type="content" source="media/add-api-connector/api-connector-new.png" alt-text="Providing the basic configuration like target URL and display name for an API connector during the creation experience.":::
+   ![Screenshot of basic configuration for an API connector](media/add-api-connector/api-connector-new.png)
 
 5. Provide a display name for the call. For example, **Validate user information**.
 6. Provide the **Endpoint URL** for the API call.
 7. Choose the **Authentication type** and configure the authentication information for calling your API. Learn how to [Secure your API Connector](secure-rest-api.md).
 
-    :::image type="content" source="media/add-api-connector/api-connector-config.png" alt-text="Providing authentication configuration for an API connector during the creation experience.":::
+   ![Screenshot of authentication configuration for an API connector](media/add-api-connector/api-connector-config.png)
 
 8. Select **Save**.
 
@@ -92,11 +92,12 @@ Only user properties and custom attributes listed in the **Azure AD B2C** > **Us
 
 Custom attributes exist in the **extension_\<extensions-app-id>_CustomAttribute**  format in the directory. Your API should expect to receive claims in this same serialized format. For more information on custom attributes, see [Define custom attributes in Azure AD B2C](user-flow-custom-attributes.md).
 
-Additionally, the claims are typically sent in all request:
+Additionally, these claims are typically sent in all requests:
 - **UI Locales ('ui_locales')** -  An end-user's locale(s) as configured on their device. This can be used by your API to return internationalized responses.
 - **Step ('step')** - The step or point on the user flow that the API connector was invoked for. Values include:
-  - `postFederationSignup` - corresponds to "After federating with an identity provider during sign-up"
-  - `postAttributeCollection` - corresponds to "Before creating the user"
+  - `PostFederationSignup` - corresponds to "After federating with an identity provider during sign-up"
+  - `PostAttributeCollection` - corresponds to "Before creating the user"
+  - `PreTokenIssuance` - corresponds to "Before sending the token (preview)". [Learn more about this step](add-api-connector-token-enrichment.md)
 - **Client ID ('client_id')** - The `appId` value of the application that an end-user is authenticating to in a user flow. This is *not* the resource application's `appId` in access tokens.
 - **Email Address ('email')** or [**identities ('identities')**](/graph/api/resources/objectidentity) - these claims can be used by your API to identify the end-user that is authenticating to the application.
   
@@ -114,10 +115,13 @@ Follow these steps to add an API connector to a sign-up user flow.
 
    - **After federating with an identity provider during sign-up**
    - **Before creating the user**
+   - **Before sending the token (preview)**
 
-    :::image type="content" source="media/add-api-connector/api-connectors-user-flow-select.png" alt-text="Selecting which API connector to use for a step in the user flow like 'Before creating the user'.":::
+   ![Selecting an API connector for a step in the user flow](media/add-api-connector/api-connectors-user-flow-select.png)
 
 6. Select **Save**.
+
+These steps only exist for **Sign up and sign in (Recommended)** and **Sign up (Recommended)** but only apply to the sign-up part of the experience.
 
 ## After federating with an identity provider during sign-up
 
@@ -140,7 +144,7 @@ Content-type: application/json
  "displayName": "John Smith",
  "givenName":"John",
  "lastName":"Smith",
- "step": "postFederationSignup",
+ "step": "PostFederationSignup",
  "client_id":"<guid>",
  "ui_locales":"en-US"
 }
@@ -201,7 +205,7 @@ Content-type: application/json
  "country":"United States",
  "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
  "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
- "step": "postAttributeCollection",
+ "step": "PostAttributeCollection",
  "client_id":"93fd07aa-333c-409d-955d-96008fd08dd9",
  "ui_locales":"en-US"
 }
@@ -239,6 +243,58 @@ See an example of a [blocking response](#example-of-a-blocking-response).
 
 See an example of a [validation-error response](#example-of-a-validation-error-response).
 
+## Before sending the token (preview)
+
+> [!IMPORTANT]
+> API connectors used in this step are in preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+An API connector at this step is invoked when a token is about to be issued during sign-ins and sign-ups. An API connector for this step can be used to enrich the token with claim values from external sources.
+
+### Example request sent to the API at this step
+
+```http
+POST <API-endpoint>
+Content-type: application/json
+
+{
+ "clientId": "231c70e8-8424-48ac-9b5d-5623b9e4ccf3",
+ "step": "PreTokenApplicationClaims",
+ "ui_locales":"en-US"
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [
+     {
+     "signInType":"federated",
+     "issuer":"facebook.com",
+     "issuerAssignedId":"0123456789"
+     }
+ ],
+ "displayName": "John Smith",
+ "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
+}
+```
+
+The claims that are sent to the API depend on the information defined for the user.
+
+### Expected response types from the web API at this step
+
+When the web API receives an HTTP request from Azure AD during a user flow, it can return these responses:
+
+- Continuation response
+
+#### Continuation response
+
+A continuation response indicates that the user flow should continue to the next step: issue the token.
+
+In a continuation response, the API can return additional claims. A claim returned by the API that you want to return in the token must be a built-in claim or [defined as a custom attribute](user-flow-custom-attributes.md) and must be selected in the **Application claims** configuration of the user flow. 
+
+The claim value in the token will be the value returned by the API, not the value in the directory. Some claim values cannot be overwritten by the API response. Claims that can be returned by the API correspond to the set found under **User attributes** with the exception of `email`.
+
+See an example of a [continuation response](#example-of-a-continuation-response).
+
+> [!NOTE]
+> The API is only invoked during an initial authentication. When using refresh tokens to silently get new access or ID tokens, the token will include the values evaluated during the initial authentication. 
+
 ## Example responses
 
 ### Example of a continuation response
@@ -259,8 +315,8 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version     | String | Yes      | The version of your API.                                                    |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | Returned values can overwrite values collected from a user.                                               |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. Returned values can overwrite values collected from a user.  |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Returned values can overwrite values collected from a user.                    |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The claim does not need to contain `_<extensions-app-id>_`, it is *optional*. Returned values can overwrite values collected from a user. |
 
 ### Example of a blocking response
 
@@ -284,7 +340,7 @@ Content-type: application/json
 
 **End-user experience with a blocking response**
 
-:::image type="content" source="media/add-api-connector/blocking-page-response.png" alt-text="An example image of what the end-user experience looks like after an API returns a blocking response.":::
+![Example of a blocking response](media/add-api-connector/blocking-page-response.png)
 
 ### Example of a validation-error response
 
@@ -312,7 +368,7 @@ Content-type: application/json
 
 **End-user experience with a validation-error response**
 
-  :::image type="content" source="media/add-api-connector/validation-error-postal-code.png" alt-text="An example image of what the end-user experience looks like after an API returns a validation-error response.":::
+![Example of a validation-error response](media/add-api-connector/validation-error-postal-code.png)
 
 ::: zone-end
 
@@ -568,6 +624,7 @@ Ensure that:
 * Your API explicitly checks for null values of received claims that it depends on.
 * Your API implements an authentication method outlined in [secure your API Connector](secure-rest-api.md).
 * Your API responds as quickly as possible to ensure a fluid user experience.
+    * Azure AD B2C will wait for a maximum of *20 seconds* to receive a response. If none is received, it will make *one more attempt (retry)* at calling your API.
     * If using a serverless function or scalable web service, use a hosting plan that keeps the API "awake" or "warm" in production. For Azure Functions, it's recommended to use at minimum the [Premium plan](../azure-functions/functions-scale.md) in production.
 * Ensure high availability of your API.
 * Monitor and optimize performance of downstream APIs, databases, or other dependencies of your API.
@@ -581,6 +638,14 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 * A 401 or 403 HTTP status code typically indicates there's an issue with your authentication. Double-check your API's authentication layer and the corresponding configuration in the API connector.
 * Use more aggressive levels of logging (for example "trace" or "debug") in development if needed.
 * Monitor your API for long response times. 
+
+Additionally, Azure AD B2C logs metadata about the API transactions that happen during user authentications via a user flow. To find these:
+1. Go to **Azure AD B2C**.
+2. Under **Activities**, select **Audit logs**.
+3. Filter the list view: For **Date**, select the time interval you want, and for **Activity**, select **An API was called as part of a user flow**.
+4. Inspect individual logs. Each row represents an API connector attempting to be called during a user flow. If an API call fails and a retry occurs, it's still represented as a single row. The `numberOfAttempts` indicates the number of times your API was called. This value can be `1`or `2`. Other information about the API call is detailed in the logs.
+
+![Example of an API connector transaction during user authentication](media/add-api-connector/example-anonymized-audit-log.png)
 
 ::: zone-end
 
@@ -622,7 +687,7 @@ In general, it's helpful to use the logging tools enabled by your web API servic
 
 ::: zone pivot="b2c-custom-policy"
 
-- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](custom-policy-rest-api-claims-exchange.md)
+- [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](add-api-connector-token-enrichment.md)
 - [Secure your API Connector](secure-rest-api.md)
 - [Reference: RESTful technical profile](restful-technical-profile.md)
 

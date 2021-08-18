@@ -74,7 +74,7 @@ Here is a code sample to add a `DefaultAzureCredential` to your project:
 
 ### ManagedIdentityCredential method
 
-The [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) method works great in cases where you need [managed identities (MSI)](../active-directory/managed-identities-azure-resources/overview.md)—for example, when working with Azure Functions.
+The [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) method works great in cases where you need [managed identities (MSI)](../active-directory/managed-identities-azure-resources/overview.md)—for example, when [authenticating with Azure Functions](#authenticate-azure-functions).
 
 This means that you may use `ManagedIdentityCredential` in the same project as `DefaultAzureCredential` or `InteractiveBrowserCredential`, to authenticate a different part of the project.
 
@@ -102,16 +102,47 @@ Here is an example of the code to create an authenticated SDK client using `Inte
 
 ## Authenticate Azure Functions
 
-See [Set up an Azure function for processing data](how-to-create-azure-function.md) for a more complete example that explains some of the important configuration choices in the context of functions.
+This section contains some of the important configuration choices in the context of authenticating with Azure Functions. First, you'll read about recommended class-level variables and authentication code that will allow the function to access Azure Digital Twins. Then, you'll read about some final configuration steps to complete for your function after its code is published to Azure. 
 
-Also, to use authentication in a function, remember to:
-* [Enable managed identity](../app-service/overview-managed-identity.md?tabs=dotnet)
-* Use [environment variables](/sandbox/functions-recipes/environment-variables?tabs=csharp) as appropriate
-* Assign permissions to the functions app that enable it to access the Digital Twins APIs. For more information on Azure Functions processes, see [Set up an Azure function for processing data](how-to-create-azure-function.md).
+### Write application code
+
+When writing the Azure function, consider adding these variables and code to your function:
+
+* **Code to read the Azure Digital Twins service URL as an environment variable or configuration setting.** It's a good practice to read the service URL from an [application setting/environment variable](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal), rather than hard-coding it in the function. In an Azure function, that code to read the environment variable might look like this: 
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
+
+    Later, after publishing the function, you'll create and set the value of the environment variable for this code to read. For instructions on how to do this, skip ahead to [Configure application settings](#configure-application-settings).
+
+* **A static variable to hold an HttpClient instance.** HttpClient is relatively expensive to create, so you'll probably want to create it once with the authentication code to avoid creating it for every function invocation.
+
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="HTTP_client":::
+
+* **Managed identity credentials.** Create a managed identity credential that your function will use to access Azure Digital Twins.
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ManagedIdentityCredential":::
+
+    Later, after publishing the function, you'll make sure the function's identity has permission to access the Azure Digital Twins APIs. For instructions on how to do this, skip ahead to [Assign an access role](#assign-an-access-role).    
+
+* **A local variable _DigitalTwinsClient_.** Add the variable inside your function to hold your Azure Digital Twins client instance. Do *not* make this variable static inside your class.
+    :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="DigitalTwinsClient":::
+
+* **A null check for _adtInstanceUrl_.** Add the null check and then wrap your function logic in a try/catch block to catch any exceptions.
+
+After these are added to a function, your function code might look like the following example.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs":::
+
+When you're finished with your function code, including adding authentication and the function's logic, [publish the app to Azure](../azure-functions/functions-develop-vs.md#publish-to-azure)
+
+### Configure published app
+
+Finally, complete the following configuration steps for a published Azure function to make sure it can access your Azure Digital Twins instance.
+
+[!INCLUDE [digital-twins-configure-function-app-cli.md](../../includes/digital-twins-configure-function-app-cli.md)]
 
 ## Authenticate across tenants
 
-Azure Digital Twins is a service that only supports one  [Azure Active Directory (Azure AD) tenant](../active-directory/develop/quickstart-create-new-tenant.md): the main tenant from the subscription where the Azure Digital Twins instance is located.
+Azure Digital Twins is a service that only supports one [Azure Active Directory (Azure AD) tenant](../active-directory/develop/quickstart-create-new-tenant.md): the main tenant from the subscription where the Azure Digital Twins instance is located.
 
 [!INCLUDE [digital-twins-tenant-limitation](../../includes/digital-twins-tenant-limitation.md)]
 

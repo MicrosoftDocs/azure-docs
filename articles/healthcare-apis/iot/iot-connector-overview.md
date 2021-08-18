@@ -20,7 +20,7 @@ Below are the different stages that data goes through once it is received by Azu
 
 ## Ingest
 
-Ingest is the first stage where device data is received into the IoT Connector service. The ingestion endpoint for device data is hosted on an Azure Event Hub. [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/) platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables the IoT Connector service to consume messages asynchronously; thus, removing the need for devices to wait while device data gets processed.
+Ingest is the first stage where device data is received into the IoT Connector service. The ingestion endpoint for device data is hosted on an Azure Event Hub. [Azure Event Hub](../../event-hubs/index.yml) platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables the IoT Connector service to consume messages asynchronously; thus, removing the need for devices to wait while device data gets processed.
 
 > [!NOTE]
 > JSON is the only supported format at this time for device data.
@@ -69,6 +69,3 @@ For more information about the IoT Connector mapping templates, see
 
 >[!div class="nextstepaction"]
 >[How to use the FHIR mapping template](how-to-use-fhir-mapping-iot.md)
-
-
-

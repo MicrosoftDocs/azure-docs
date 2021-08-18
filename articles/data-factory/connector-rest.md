@@ -1,7 +1,7 @@
 ---
-title: Copy data from and to a REST endpoint by using Azure Data Factory 
+title: Copy data from and to a REST endpoint
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using a copy activity in an Azure Data Factory pipeline.
+description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using the copy activity in Azure Data Factory or Azure Synapse Analytics pipelines.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 07/27/2021
 ms.author: makromer
 ---
+# Copy data from and to a REST endpoint using Azure Data Factory or Azure Synapse Analytics
 
-# Copy data from and to a REST endpoint by using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use the Copy Activity in Azure Data Factory and Azure Synapse Analytics pipelines to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory and Azure Synapse pipelines](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
-The difference among this REST connector, [HTTP connector](connector-http.md), and the [Web table connector](connector-web-table.md) are:
+The differences between this REST connector, [HTTP connector](connector-http.md), and the [Web table connector](connector-web-table.md) are:
 
 - **REST connector** specifically supports copying data from RESTful APIs; 
 - **HTTP connector** is generic to retrieve data from any HTTP endpoint, for example, to download file. Before this REST connector you may happen to use HTTP connector to copy data from RESTful API, which is supported but less functional comparing to REST connector.
@@ -34,7 +34,7 @@ Specifically, this generic REST connector supports:
 - For REST as source, copying the REST JSON response [as-is](#export-json-response-as-is) or parse it by using [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping). Only response payload in **JSON** is supported.
 
 > [!TIP]
-> To test a request for data retrieval before you configure the REST connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
+> To test a request for data retrieval before you configure the REST connector, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ Specifically, this generic REST connector supports:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties you can use to define Data Factory entities that are specific to the REST connector.
+The following sections provide details about properties you can use to define entities that are specific to the REST connector.
 
 ## Linked service properties
 
@@ -66,7 +66,7 @@ Set the **authenticationType** property to **Basic**. In addition to the generic
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | The user name to use to access the REST endpoint. | Yes |
-| password | The password for the user (the **userName** value). Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| password | The password for the user (the **userName** value). Mark this field as a **SecureString** type to store it securely. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Example**
 
@@ -99,10 +99,10 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | servicePrincipalId | Specify the Azure Active Directory application's client ID. | Yes |
-| servicePrincipalKey | Specify the Azure Active Directory application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalKey | Specify the Azure Active Directory application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
 | aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
 
 **Example**
 
@@ -622,4 +622,4 @@ To copy data from REST endpoint to tabular sink, refer to [schema mapping](copy-
 
 ## Next steps
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory and Synapse pipelines, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

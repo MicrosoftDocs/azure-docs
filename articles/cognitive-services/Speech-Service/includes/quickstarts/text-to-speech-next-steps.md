@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/02/2020
-ms.author: trbye
+ms.author: lajanuar
 ---
 
 With this base knowledge of speech synthesis, continue exploring the basics to learn about common functionality and tasks within the Speech SDK.
