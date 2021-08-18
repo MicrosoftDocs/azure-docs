@@ -21,7 +21,7 @@ ms.custom: ep-msia
 # How to use managed identities to connect to Cosmos DB from an Azure virtual machine
 
 
-In this article we set up a virtual machine to use managed identities to connect to Cosmos. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities](overview.md) for Azure resources allow your applications to authenticate when accessing resources while using an automatically managed identity. 
+In this article we set up a virtual machine to use managed identities to connect to Cosmos. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities](overview.md) for Azure resources allow your applications to authenticate when accessing resources while using an identity Azure manages for you. 
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ In this article we set up a virtual machine to use managed identities to connect
 - A resource group that we can use to create all resources.
 
 
-## Create a virtual machine with a managed identity
+## Get a virtual machine with a managed identity
 
 Before we proceed, we need a virtual machine with a managed identity. You have a few options: 
 - You may choose to create a virtual machine with a system assigned managed identity enabled.
@@ -186,55 +186,6 @@ az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLT
 
 # [Resource Manager Template](#tab/azure-resource-manager)
 
-
----
-
-#### Assign a user-assigned managed identity to a Virtual machine
-
-
-
-# [Portal](#tab/azure-portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM.
-2. Navigate to the desired VM and click **Identity**, **User assigned** and then **\+Add**.
-3. Click the user-assigned identity you want to add to the VM and then click **Add**.
-
-
-# [PowerShell](#tab/azure-powershell)
-
-To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
-
-Create a user-assigned managed identity using the [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/new-azuserassignedidentity) cmdlet.  Write down the `Id` in the output because you will need this information in the next step.
-
-> [!IMPORTANT]
-> Creating user-assigned managed identities only supports alphanumeric, underscore and hyphen (0-9 or a-z or A-Z, \_ or -) characters. Additionally, name should be limited from 3 to 128 character length for the assignment to VM/VMSS to work properly. For more information, see [FAQs](managed-identities-faq.md) and [known issues](known-issues.md)
-
-```azurepowershell-interactive
-New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
-```
-
-Retrieve the VM properties using the `Get-AzVM` cmdlet. Then to assign a user-assigned managed identity to the Azure VM, use the `-IdentityType` and `-IdentityID` switch on the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet.  The value for the`-IdentityId` parameter is the `Id` you noted in the previous step.  Replace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, and `<USER ASSIGNED IDENTITY NAME>` with your own values.
-
-> [!WARNING]
-> To retain any previously user-assigned managed identities assigned to the VM, query the `Identity` property of the VM object (for example, `$vm.Identity`).  If any user assigned managed identities are returned, include them in the following command along with the new user assigned managed identity you would like to assign to the VM. 
-
-
-```azurepowershell-interactive
-$vm = Get-AzVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
-Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following example creates a VM associated with a user-assigned managed identity, as specified by the `--assign-identity` parameter. Replace the `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values. 
-
-```azurecli-interactive 
-az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
-```
-
-
-# [Resource Manager Template](#tab/azure-resource-manager)
-
 Depending on your API version you have to take [different steps](qs-configure-template-windows-vm.md#user-assigned-managed-identity). If your apiVersion is 2018-06-01, your user-assigned managed identities are stored in the userAssignedIdentities dictionary format and the <identityName> value is the name of a variable that you define in the variables section of your template. In the variable you point to the user assigned managed identity that you want to assign to the managed identity.
 
 ```json
@@ -264,6 +215,51 @@ Under the resources element, add the following entry to assign a user-assigned m
      }
  ]
 
+---
+
+#### Assign a user-assigned managed identity to an existing Virtual machine
+
+
+
+# [Portal](#tab/azure-portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com) using an account associated with the Azure subscription that contains the VM.
+2. Navigate to the desired VM and click **Identity**, **User assigned** and then **\+Add**.
+3. Click the user-assigned identity you want to add to the VM and then click **Add**.
+
+
+# [PowerShell](#tab/azure-powershell)
+
+To assign a user-assigned identity to a VM, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) and [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role assignments. No additional Azure AD directory role assignments are required.
+
+
+```azurepowershell-interactive
+New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
+```
+
+Retrieve the VM properties using the `Get-AzVM` cmdlet. Then to assign a user-assigned managed identity to the Azure VM, use the `-IdentityType` and `-IdentityID` switch on the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet.  The value for the`-IdentityId` parameter is the `Id` you noted in the previous step.  Replace `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, and `<USER ASSIGNED IDENTITY NAME>` with your own values.
+
+> [!WARNING]
+> To retain any previously user-assigned managed identities assigned to the VM, query the `Identity` property of the VM object (for example, `$vm.Identity`).  If any user assigned managed identities are returned, include them in the following command along with the new user assigned managed identity you would like to assign to the VM. 
+
+
+```azurepowershell-interactive
+$vm = Get-AzVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
+Update-AzVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Create a VM using [az vm create](/cli/azure/vm/#az_vm_create). The following example creates a VM associated with a user-assigned managed identity, as specified by the `--assign-identity` parameter. Replace the `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>`, and `<USER ASSIGNED IDENTITY NAME>` parameter values with your own values. 
+
+```azurecli-interactive 
+az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
+```
+
+
+# [Resource Manager Template](#tab/azure-resource-manager)
+
+Assign a user assigned managed identity to an existing VM
 
 ```
 
@@ -273,14 +269,9 @@ Under the resources element, add the following entry to assign a user-assigned m
 
 Now that you have a virtual machine configured with a managed identity we need to [grant the managed identity access](../../cosmos-db/how-to-setup-rbac.md) to Cosmos.
 
-
-
-
-### Grant access to a managed identity
-
 Cosmos DB uses RBAC roles to grant access to either data plane or management plane operations. Access to management plane operations is controlled using [Azure RBAC roles](../../cosmos-db/role-based-access-control.md). Data plane access control is managed using Azure Cosmos DB [data plane RBAC](../../cosmos-db/how-to-setup-rbac.md) helps you manage access to data plane operations. In this example we will grant reader access to the vm's managed identity.
 
-- Azure Cosmos DB exposes two built-in role definitions. We will use the **Cosmos DB Built-in Data Reader** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
+>[!NOTE] Azure Cosmos DB exposes two built-in role definitions. We will use the **Cosmos DB Built-in Data Reader** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
 
 
 
@@ -384,6 +375,8 @@ To complete these steps, you need an SSH client. If you need assistance configur
      "token_type":"Bearer",
      "client_id":"1ef89848-e14b-465f-8780-bf541d325cd5"}
      ```
+## Access data
+
 
 ## Clean up steps
 
