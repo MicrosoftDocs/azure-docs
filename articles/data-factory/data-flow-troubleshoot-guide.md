@@ -693,6 +693,27 @@ You may encounter the following issues before the improvement, but after the imp
  After the improvement, the parsed column result should be:<br/>
   `A "" (empty string) B "" (empty string)`<br/>
 
+###  Internal server errors
+
+Specific scenarios that can cause internal server errors are shown as follows.
+
+#### Scenario 1: Not choosing the appropriate compute size/type and other factors
+
+  Successful execution of data flows depends on many factors, including the compute size/type, numbers of source/sinks to process, partition specifications, transformations involved, sizes of datasets, the data skewness and so on.<br/>
+  
+  For more guidance, see [Optimizing the Azure Integration Runtime](./concepts-data-flow-performance?WT.mc_id=Portal-Microsoft_Azure_Support#ir).
+
+#### Scenario 2: Using debug sessions with parallel activities
+
+  When triggering a run using the data flow debug session with constructs like ForEach in the pipeline, multiple parallel runs can be submitted to the same cluster. This can lead to cluster failure issues while running because of resource issues, such as being out of memory.<br/>
+  
+  To submit a run with the appropriate integration runtime configuration defined in the pipeline activity after publishing the changes, select **Trigger Now** or **Debug** > **Use Activity Runtime**.
+
+#### Scenario 3: Transient issues
+
+  Transient issues with microservices involved in the execution can cause the run to fail.<br/>
+  
+  Configuring retries in the pipeline activity can resolve the problems caused by transient issues. For more guidance, see [Activity Policy](./concepts-pipelines-activities?WT.mc_id=Portal-Microsoft_Azure_Support#activity-policy).
 
 ## Next steps
 
