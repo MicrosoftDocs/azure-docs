@@ -16,16 +16,16 @@ ms.author: mimart
 1. Under **Scopes defined by this API**, select **Add a scope**.
 1. To create a scope that defines read access to the API:
 
-    a. For **Scope name**, enter **tasks.read**.  
-    b. For **Admin consent display name**, enter **Read access to tasks API**.  
-    c. For **Admin consent description**, enter **Allows read access to the tasks API**.
+    1. For **Scope name**, enter **tasks.read**.  
+    1. For **Admin consent display name**, enter **Read access to tasks API**.  
+    1. For **Admin consent description**, enter **Allows read access to the tasks API**.
 
 1. Select **Add scope**.
 
 1. Select **Add a scope**, and then add a scope that defines write access to the API: 
 
-    a. For **Scope name**, enter **tasks.write**.  
-    b. For **Admin consent display name**, enter **Write access to tasks API**.
-    c. For **Admin consent description**, enter **Allows write access to the tasks API**.
+    1. For **Scope name**, enter **tasks.write**.  
+    1. For **Admin consent display name**, enter **Write access to tasks API**.
+    1. For **Admin consent description**, enter **Allows write access to the tasks API**.
     
 1. Select **Add scope**.
