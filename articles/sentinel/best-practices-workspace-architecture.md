@@ -170,4 +170,4 @@ For more information, see [Extend Azure Sentinel across workspaces and tenants](
 >[On-board Azure Sentinel](quickstart-onboard.md)
 
 > [!div class="nextstepaction"]
->[Get visibility into alerts](/azure/sentinel/articles/sentinel/get-visibility.md)
+>[Get visibility into alerts](get-visibility.md)
