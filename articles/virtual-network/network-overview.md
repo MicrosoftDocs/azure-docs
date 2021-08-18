@@ -145,13 +145,13 @@ This table lists the methods that you can use to create an internal load balance
 | [Azure CLI](../load-balancer/quickstart-load-balancer-standard-internal-cli.md) | Use the [az network lb create](/cli/azure/network/lb) command to create the initial load balancer configuration. To define the private IP address, use [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) with the **--private-ip-address** parameter. Use [az network lb address-pool create](/cli/azure/network/lb/address-pool) to add the configuration of the back-end address pool. Use [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) to add NAT rules. Use [az network lb rule create](/cli/azure/network/lb/rule) to add the load balancer rules. Use [az network lb probe create](/cli/azure/network/lb/probe) to add the probes.|
 | [Template](../load-balancer/quickstart-load-balancer-standard-internal-template.md) | Use [2 VMs in a Load Balancer](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer) as a guide for deploying a load balancer using a template. |
 
-### Virtual machine scale sets
+## Virtual machine scale sets
 
 For more information on load balancer and virtual machine scale sets, see [Networking for Azure virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md).
 
-## VMs
+## Virtual macines
 
-VMs can be created in the same virtual network and they can connect to each other using private IP addresses. They can connect even if they are in different subnets without the need to configure a gateway or use public IP addresses. To put VMs into a virtual network, you create the virtual network and then as you create each VM, you assign it to the virtual network and subnet. VMs acquire their network settings during deployment or startup.
+Virtual machines can be created in the same virtual network and they can connect to each other using private IP addresses. They can connect even if they are in different subnets without the need to configure a gateway or use public IP addresses. To put VMs into a virtual network, you create the virtual network and then as you create each VM, you assign it to the virtual network and subnet. VMs acquire their network settings during deployment or startup.
 
 VMs are assigned an IP address when they are deployed. If you deploy multiple VMs into a virtual network or subnet, they are assigned IP addresses as they boot up. You can also allocate a static IP to a VM. If you allocate a static IP, you should consider using a specific subnet to avoid accidentally reusing a static IP for another VM.
 
