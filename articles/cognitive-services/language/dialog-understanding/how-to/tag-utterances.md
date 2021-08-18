@@ -18,7 +18,7 @@ Once you have [built a schema](build-schema.md) for your project, you should add
 
 Tagging is the process of assigning your utterances to intents, and labeling them with entities. You will want to spend time tagging your utterances - introducing and refining the data that will train the underlying machine learning models for your project. The machine learning models generalize based on the examples you provide it. The more examples you provide, the more data points the model has to make good generalizations.
 
-There's also a close relationship between intents and entities. The entities that are labelled within utterances assigned to specific intents create a connection between the intent and the entity. The intent is better predicted when the entity is predicted, and the entity is better predicted when the intent is predicted - similar to a feedback loop. You will want to make sure you label entities in every intent where you expect the entity to be present. 
+There's also a close relationship between intents and entities. The entities that are labeled within utterances assigned to specific intents create a connection between the intent and the entity. The intent is better predicted when the entity is predicted, and the entity is better predicted when the intent is predicted - similar to a feedback loop. You will want to make sure you label entities in every intent where you expect the entity to be present. 
 
 When you enable multiple languages in your project, you must also specify the language of the utterance you are adding. As part of the multilingual capabilities of Dialog Understanding, you can train your project in a dominant language, and then predict in the other available languages. Adding examples to other languages increases the model's performance in these language if you determine it isn't doing well, but avoid duplicating your data across all the languages you would like to support. 
 
@@ -45,7 +45,7 @@ For example, a developer might create an intent for each of their skills, and co
 :::image type="content" source="../media/label-utterance-menu.png" alt-text="An example of selecting text to add a label." lightbox="../media/label-utterance-menu.png":::
 
 > [!NOTE]
-> Unlike LUIS, you cannot label overlapping entities. The same characters cannot be labelled by more than one entity.
+> Unlike LUIS, you cannot label overlapping entities. The same characters cannot be labeled by more than one entity.
 
 ## Filter Utterances
 
