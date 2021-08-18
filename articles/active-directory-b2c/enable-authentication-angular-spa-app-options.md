@@ -32,7 +32,7 @@ You can configure your single-page application to sign in users with MSAL.js in 
   - In the `src/app/app.module.ts` class, set the `interactionType` attribute to `InteractionType.Redirect`.
   - To sign out with redirection, in the `src/app/app.component.ts` class, use the `logoutRedirect` method. Configure the URI to which it should redirect after sign-out by setting `postLogoutRedirectUri`. This URI should be registered as a redirect URI in your application registration.
   
-The following sample demonstrates how to sign in and sign out.
+The following sample demonstrates how to sign in and sign out:
 
 #### [Pop-up](#tab/popup)
 
@@ -77,7 +77,7 @@ logout() {
 
 The MSAL Angular library has three sign-in flows: interactive sign-in (where a user selects the sign-in button), MSAL Guard, and MSAL Interceptor. The MSAL Guard and MSAL Interceptor configurations take effect when a user tries to access a protected resource without a valid access token. In such cases, the MSAL library forces the user to sign in. 
 
-The following samples demonstrate how to configure MSAL Guard and MSAL Interceptor for sign-in with a pop-up window or redirection. 
+The following samples demonstrate how to configure MSAL Guard and MSAL Interceptor for sign-in with a pop-up window or redirection: 
 
 #### [Pop-up](#tab/popup)
 
@@ -367,7 +367,7 @@ MsalModule.forRoot(new PublicClientApplication(msalConfig),
 1. Create or use an existing `PopupRequest` or `RedirectRequest` MSAL configuration object with `extraQueryParameters` attributes.
 1. Add the `id_token_hint` parameter with the corresponding variable that stores the ID token.
 
-The following code snippets demonstrate how to define an ID token hint.
+The following code snippets demonstrate how to define an ID token hint:
 
 #### [Pop-up](#tab/popup)
 

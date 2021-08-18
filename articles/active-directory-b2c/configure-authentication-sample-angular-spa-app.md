@@ -57,9 +57,9 @@ The following diagram describes the app registrations and the app architecture.
 
 Before you follow the procedures in this article, make sure that your computer is running:
 
-* [Visual Studio Code](https://code.visualstudio.com/) or another code editor
-* [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-* [Angular LCI](https://angular.io/cli)
+* [Visual Studio Code](https://code.visualstudio.com/) or another code editor.
+* [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+* [Angular LCI](https://angular.io/cli).
 
 ## Step 1: Configure your user flow
 

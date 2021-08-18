@@ -18,7 +18,7 @@ ms.author: mimart
 
     a. For **Scope name**, enter **tasks.read**.  
     b. For **Admin consent display name**, enter **Read access to tasks API**.  
-    c. For **Admin consent description**. enter **Allows read access to the tasks API**.
+    c. For **Admin consent description**, enter **Allows read access to the tasks API**.
 
 1. Select **Add scope**.
 
@@ -27,4 +27,5 @@ ms.author: mimart
     a. For **Scope name**, enter **tasks.write**.  
     b. For **Admin consent display name**, enter **Write access to tasks API**.
     c. For **Admin consent description**, enter **Allows write access to the tasks API**.
+    
 1. Select **Add scope**.
