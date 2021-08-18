@@ -49,11 +49,13 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
 
     ```json
     {
-   "location":"eastus",
-   "properties":{
-        "virtualMachineProfile":{
-            "capacityReservation":{
-                "capacityReservationGroup":""
+    "location": "eastus",
+    "properties": {
+        "virtualMachineProfile": {
+            "capacityReservation": {
+                "capacityReservationGroup":{
+                    "id":""    
+                }
             }
         }
     }
@@ -128,11 +130,13 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     
     ```json
     {
-   "location":"eastus",
-   "properties":{
-        "virtualMachineProfile":{
-            "capacityReservation":{
-                "capacityReservationGroup":""
+    "location": "eastus",
+    "properties": {
+        "virtualMachineProfile": {
+            "capacityReservation": {
+                "capacityReservationGroup":{
+                    "id":""
+                }
             }
         }
     }
@@ -140,6 +144,9 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     ```
 
 ### [PowerShell](#tab/powershell2)
+
+>[!NOTE]
+> The `Update-AzCapacityReservation` command is not available during the Preview. Use `New-AzCapacityReservation` to modify an existing capacity reservation.
 
 1. Update reserved quantity to zero:
 
@@ -169,7 +176,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     -CapacityReservationGroupId ""
     ```
 
-To learn more, go to [Azure PowerShell commands for Capacity Reservation]().
+To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
@@ -177,10 +184,9 @@ To learn more, go to [Azure PowerShell commands for Capacity Reservation]().
 
 ## Upgrade policies
 
-- **Automatic Upgrade** – In this mode, VMs are automatically dissociated from the Capacity Reservation Group without any further action from you. With Automatic Upgrade, all the VMs can be brought down and updated at the same time.   
-- **Rolling Upgrade** – In this mode, VMs are dissociated from the Capacity Reservation Group without any further action from you. They're updated in batches with an optional pause time between batches. 
-- **Manual Upgrade** – In this mode, nothing happens to the VM when the virtual machine scale set is updated. You'll need to do individually remove each VM by [upgrading them with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md).
-
+- **Automatic Upgrade** – In this mode, the scale set VM instances are automatically dissociated from the Capacity Reservation Group without any further action from you.
+- **Rolling Upgrade** – In this mode, the scale set VM instances are dissociated from the Capacity Reservation Group without any further action from you. However, they're updated in batches with an optional pause time between them.
+- **Manual Upgrade** – In this mode, nothing happens to the scale set VM instances when the virtual machine scale set is updated. You'll need to individually remove each scale set VM by [upgrading it with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ## Next steps
 

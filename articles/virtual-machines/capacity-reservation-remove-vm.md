@@ -50,7 +50,9 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
     "location": "eastus",
     "properties": {
         "capacityReservation": {
-            "capacityReservationGroup":""
+            "capacityReservationGroup": {
+                "id":""
+            }
         }
     }
     }
@@ -129,7 +131,7 @@ This option works well when the virtual machine can’t be deallocated and when 
 1. Update the VM to remove the association with the Capacity Reservation Group
 
     ```rest
-    PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{VirtualMachineName}/update?api-version=2021-04-01
+    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{VirtualMachineName}/update?api-version=2021-04-01
     ```
 
     In the request body, set the `capacityReservationGroup` property to empty to remove the association:
@@ -139,7 +141,9 @@ This option works well when the virtual machine can’t be deallocated and when 
     "location": "eastus",
     "properties": {
         "capacityReservation": {
-            "capacityReservationGroup":""
+            "capacityReservationGroup": {
+                "id":""
+            }
         }
     }
     } 
@@ -161,6 +165,9 @@ This option works well when the virtual machine can’t be deallocated and when 
     1. Note that the VM is no longer associated with the Capacity Reservation Group
 
 ### [PowerShell](#tab/powershell2)
+
+>[!NOTE]
+> The `Update-AzCapacityReservation` command is not available during the Preview. Use `New-AzCapacityReservation` to modify an existing capacity reservation.
 
 1. Update reserved quantity to zero
 
@@ -189,6 +196,8 @@ This option works well when the virtual machine can’t be deallocated and when 
     -CapacityReservationGroupId " "
     ```
 
+To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
+
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
@@ -196,4 +205,4 @@ This option works well when the virtual machine can’t be deallocated and when 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about overallicating a Capacity Reservation](capacity-reservation-overallocate.md)
+> [Learn how to associate a scale set to a capacity reservation group](capacity-reservation-associate-vm-scale-set.md)

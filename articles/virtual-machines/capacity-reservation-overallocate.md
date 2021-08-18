@@ -30,7 +30,7 @@ The Instance View for a Capacity Reservation Group will look like this:
 
 ```rest
 GET 
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/myCapacityReservationGroup? $expand=instanceview&api-version=2021-07-01
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/myCapacityReservationGroup?$expand=instanceview&api-version=2021-07-01
 ```
 
 ```json
@@ -145,60 +145,6 @@ There are three valid states for a given Capacity Reservations:
 | Reservation consumed  | Length of `virtualMachinesAllocated` == `capacity`  | Additional VMs won't receive the capacity SLA unless some existing VMs are deallocated. Optionally try to increase the capacity so extra planned VMs will receive an SLA.  |
 | Reservation overallocated  | Length of `virtualMachinesAllocated` > `capacity`  | Additional VMs won't receive the capacity SLA. Also, the quantity of VMs (Length of `virtualMachinesAllocated` – `capacity`) won't receive a capacity SLA if deallocated. Optionally increase the capacity to add capacity SLA to more of the existing VMs.  |
 
-
-## Deleting VMs
-
-Another important property of Capacity Reservation is that all VMs are treated equally. Resuming our example, *myVM1* was created first and *myVM2* was added second. At some point later, we decide *myVM1* is no longer needed and we delete *myVM1*: 
-
-```rest
-DELETE 
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/myVM1?api-version=2021-07-01
-```
-
-The `myCapacityReservation` object state will automatically change to reflect the new state of consumption. The `myCapacityReservationGroup` Instance View will now return this state: 
-
-```json
-{ 
-    "name": "myCapacityReservationGroup", 
-    "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/myCapacityReservationGroup", 
-    "type": "Microsoft.Compute/capacityReservationGroups", 
-    "location": "eastus", 
-    "properties": { 
-        "capacityReservations": [ 
-            { 
-                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/MYCAPACITYRESERVATIONGROUP/capacityReservations/MYCAPACITYRESERVATION" 
-            } 
-        ], 
-        "virtualMachinesAssociated": [ 
-            { 
-                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/myVM2" 
-            } 
-        ], 
-        "instanceView": { 
-            "capacityReservations": [ 
-                { 
-                    "name": "myCapacityReservation", 
-"utilizationInfo": { 
-                        "virtualMachinesAllocated": [ 
-                            { 
-                                "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/myVM2" 
-                            } 
-                        ] 
-                    }, 
-                    "statuses": [ 
-                        { 
-                            "code": "ProvisioningState/succeeded", 
-                            "level": "Info", 
-                            "displayStatus": "Provisioning succeeded", 
-                            "time": "<time>" 
-                        } 
-                    ] 
-                } 
-            ] 
-        } 
-    } 
-}
-```
 
 ## Next steps
 

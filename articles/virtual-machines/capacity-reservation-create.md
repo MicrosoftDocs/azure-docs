@@ -30,8 +30,8 @@ The Capacity Reservation must meet the following rules:
 - The location parameter must match the location property for the parent Capacity Reservation Group. A mismatch will result in an error. 
 - The VM size must be available in the target region. Otherwise, the reservation creation will fail. 
 - The subscription must have sufficient approved quota equal to or more than the quantity of VMs being reserved for the VM series and for the region overall. If needed, [request more quota](../azure-portal/supportability/per-vm-quota-requests.md).
-- Each Capacity Reservation Group can have exactly one reservation for a given VM size. For example, only one Capacity Reservation can be created for the VM size `Standard_D2s_v3`. Attempt to create a second reservation for `Standard_D2s_v3` in the same Capacity Reservation Group will result in an error. However, another reservation can be created in the same group for other VM sizes, such `Standard_D4s_v3`, `Standard_D8s_v3` and so on. 
-- For a group that supports zones, each reservation type is defined by the combination of **VM size** and **zone**. For example, one Capacity Reservation for `Standard_D2s_v3` in `Zone 1`, another Capacity Reservation for `Standard_D2s_v3` in `Zone 2`, and `Standard_D2s_v3` in `Zone 3` is supported. 
+- Each Capacity Reservation Group can have exactly one reservation for a given VM size. For example, only one Capacity Reservation can be created for the VM size `Standard_D2s_v3`. Attempt to create a second reservation for `Standard_D2s_v3` in the same Capacity Reservation Group will result in an error. However, another reservation can be created in the same group for other VM sizes, such as `Standard_D4s_v3`, `Standard_D8s_v3` and so on.  
+- For a Capacity Reservation Group that supports zones, each reservation type is defined by the combination of **VM size** and **zone**. For example, one Capacity Reservation for `Standard_D2s_v3` in `Zone 1`, another Capacity Reservation for `Standard_D2s_v3` in `Zone 2`, and a third Capacity Reservation for `Standard_D2s_v3` in `Zone 3` is supported.
 
 
 ## Create a capacity reservation group 
@@ -43,14 +43,14 @@ The Capacity Reservation must meet the following rules:
     To create a capacity reservation group, construct the following PUT request on *Microsoft.Compute* provider: 
     
     ```rest
-    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{apacityReservationGroupName}&api-version=2021-04-01
+    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}&api-version=2021-04-01
     ``` 
     
     In the request body, include the following: 
     
     ```json
     { 
-      "location":"eastus",
+      "location":"eastus"
     } 
     ```
     
@@ -79,8 +79,8 @@ The Capacity Reservation must meet the following rules:
     { 
       "location": "eastus", 
       "sku": { 
-        "name": "Standard_D2s_v3” 
-        "capacity": 5, 
+        "name": "Standard_D2s_v3", 
+        "capacity": 5 
       }, 
      "tags": { 
             "environment": "testing" 
@@ -122,7 +122,7 @@ The Capacity Reservation must meet the following rules:
     ```powershell-interactive
     New-AzResourceGroup
     -ResourceGroupName "myResourceGroup"
-    -Location “eastus”
+    -Location "eastus"
     ```
 
 1. Now create a Capacity Reservation Group with `New-AzCapacityReservationGroup`. The following example creates a group *myCapacityReservationGroup* in the East US location for all 3 availability zones.
@@ -139,19 +139,21 @@ The Capacity Reservation must meet the following rules:
 
     ```powershell-interactive
     New-AzCapacityReservation
-    -ResourceGroupName “myResourceGroup”
-    -Location “eastus”
-    -Zone “1”
-    -ReservationGroupName “myCapacityReservationGroup”
-    -Name “myCapacityReservation”
-    -Sku “Standard_D2s_v3”
+    -ResourceGroupName "myResourceGroup"
+    -Location "eastus"
+    -Zone "1"
+    -ReservationGroupName "myCapacityReservationGroup"
+    -Name "myCapacityReservation"
+    -Sku "Standard_D2s_v3"
     -CapacityToReserve 5
     ```
+
+To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
 
 
 ### [ARM template](#tab/arm1)
 
-An [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
+An [ARM template](/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
 
 ARM templates let you deploy groups of related resources. In a single template, you can create capacity reservation group and capacity reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines. 
 
@@ -203,22 +205,34 @@ Check on your Capacity Reservation:
 
 ```powershell-interactive
 Get-AzCapacityReservation
--ResourceGroupName ""
--ReservationGroupName] <"CapacityReservationGroupName">
+-ResourceGroupName <"ResourceGroupName">
+-ReservationGroupName <"CapacityReservationGroupName">
 -Name <"CapacityReservationName">
 ```
 
-To find VM size and the quantity reserved, use the following: 
+To find the VM size and the quantity reserved, use the following: 
 
 ```powershell-interactive
 $CapRes =
 Get-AzCapacityReservation
--ResourceGroupName ""
--ReservationGroupName] <"CapacityReservationGroupName">
+-ResourceGroupName <"ResourceGroupName">
+-ReservationGroupName <"CapacityReservationGroupName">
 -Name <"CapacityReservationName">
 
 $CapRes.sku
 ```
+
+To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
+
+### [Portal](#tab/portal3)
+
+1. Open [Azure portal](https://portal.azure.com)
+1. In the search bar, type **Capacity Reservation Groups**
+1. Select **Capacity Reservation Groups** from the options
+1. From the list, select the capacity reservation group name you just created
+1. Select **Overview** on the left
+1. Select **Reservations**
+1. In this view, you will be able to see all the reservations in the group along with the VM size and quantity reserved
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->

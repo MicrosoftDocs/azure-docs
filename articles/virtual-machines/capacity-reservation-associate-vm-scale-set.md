@@ -95,11 +95,11 @@ New-AzVmss
 -PlatformFaultDomainCount 2
 ```
 
-To learn more, go to [Azure PowerShell commands for Capacity Reservation]().
+To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
 
 ### [ARM template](#tab/arm1)
 
-An [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
+An [ARM template](/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
 
 ARM templates let you deploy groups of related resources. In a single template, you can create capacity reservation group and capacity reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines. 
 
@@ -154,8 +154,8 @@ For Public Preview, in order to associate an existing Uniform virtual machine sc
 
     ```powershell-interactive
     Stop-AzVmss
-    -ResourceGroupName “myResourceGroup”
-    -VMScaleSetName “myVmss”
+    -ResourceGroupName "myResourceGroup”
+    -VMScaleSetName "myVmss”
     ```
 
 1. Associate the scale set to the capacity reservation group. 
@@ -172,6 +172,8 @@ For Public Preview, in order to associate an existing Uniform virtual machine sc
     -VirtualMachineScaleSet $vmss
     -CapacityReservationGroupId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}"
     ```
+
+To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
@@ -246,6 +248,14 @@ Get-AzCapacityReservationGroup
 $CapRes. InstanceView.Utilizationinfo.VirtualMachinesAllocated
 ``` 
 
+To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
+
+### [Portal](#tab/portal3)
+
+1. Open [Azure portal](https://portal.azure.com)
+1. Go to your capacity reservation group
+1. Select **Resources** under **Setting** on the left
+1. In the table, you will be able to see all the scale set VMs that are associated with the capacity reservation group
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
@@ -270,7 +280,7 @@ In this example, each zone has a different quantity reserved. Let’s say that t
 
 In this case, the scale set is incurring extra cost for 15 unused instances in Zone 1. The scale-out is also relying on 5 VMs in Zone 2 and 10 VMs in Zone 3 that aren't protected by Capacity Reservation. If each zone had 25 capacity instances reserved, then all 75 VMs would be protected by Capacity Reservation and the deployment wouldn't incur any extra cost for unused instances.  
 
-Since the reservations can be [overallocated](capacity-reservation-overallocate.md), the scale set can continue to scale normally beyond the limits of the reservation. The only difference is that the VMs allocated above the quantity reserved aren't covered by Capacity Reservation SLA. To learn more, go to [Overallocating Capacity Reservation](capacity-reservation-overallocate.md).
+Since the reservations can be overallocated, the scale set can continue to scale normally beyond the limits of the reservation. The only difference is that the VMs allocated above the quantity reserved aren't covered by Capacity Reservation SLA. To learn more, go to [Overallocating Capacity Reservation](capacity-reservation-overallocate.md).
 
 
 ## Next steps

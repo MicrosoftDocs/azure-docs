@@ -22,7 +22,7 @@ This article walks you through the steps of associating a new or existing virtua
 
 ## Associate a new VM
 
-To associate a new VM to the Capacity Reservation Group, the group must be explicitly referenced as a property of the virtual machine you're trying to associate. This reference protects the matching reservation in the group from accidental consumption by less critical applications and workloads that aren't intended to use it.  
+To associate a new VM to the Capacity Reservation Group, the group must be explicitly referenced as a property of the virtual machine. This reference protects the matching reservation in the group from accidental consumption by less critical applications and workloads that aren't intended to use it.  
 
 ### [API](#tab/api1)
 
@@ -42,9 +42,9 @@ In the request body, include the `capacityReservationGroup` property as shown be
       "vmSize": "Standard_D2s_v3" 
     }, 
     … 
-   “CapacityReservation”:{ 
-    “capacityReservationGroup”:{ 
-        “id”:”subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}” 
+   "CapacityReservation":{ 
+    "capacityReservationGroup":{ 
+        "id":"subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}" 
     } 
     "storageProfile": { 
     … 
@@ -98,11 +98,11 @@ New-AzVm
 -CapacityReservationGroupId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}"
 ```
 
-To learn more, go to [Azure PowerShell commands for Capacity Reservation]().
+To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
 
 ### [ARM template](#tab/arm1)
 
-An [ARM template](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
+An [ARM template](/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
 
 ARM templates let you deploy groups of related resources. In a single template, you can create capacity reservation group and capacity reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines. 
 
@@ -192,7 +192,7 @@ Once the `capacityReservationGroup` property is set, an association now exists b
 ### [API](#tab/api3)
 
 ```rest
-GET Instance View https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{capacityReservationGroupName}?$expand=instanceView&api-version=2021-04-01 
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{capacityReservationGroupName}?$expand=instanceView&api-version=2021-04-01 
 ```
 
 ```json
@@ -242,13 +242,24 @@ GET Instance View https://management.azure.com/subscriptions/{subscriptionId}/re
 ```powershell-interactive
 $CapRes=
 Get-AzCapacityReservation
--ResourceGroupName <”ResourceGroupName”>
+-ResourceGroupName <"ResourceGroupName">
 -ReservationGroupName] <"CapacityReservationGroupName">
 -Name <"CapacityReservationName">
 -InstanceView
 
-$CapRes. InstanceView.Utilizationinfo.VirtualMachinesAllocated
+$CapRes.InstanceView.Utilizationinfo.VirtualMachinesAllocated
 ```
+
+To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
+
+
+### [Portal](#tab/portal3)
+
+1. Open [Azure portal](https://portal.azure.com)
+1. Go to your capacity reservation group
+1. Select **Resources** under **Settings** on the left
+1. Look at the table to see all the VMs that are associated with the capacity reservation group  
+
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
