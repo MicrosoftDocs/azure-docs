@@ -46,8 +46,6 @@ This quickstart describes the steps to create an Azure Purview account in the Az
       > [!Note]
       > Azure Purview does not support moving accounts across regions, so be sure to deploy to the correction region. You can find out more information about this in [move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
 
-1. Enter a **managed resource group name** for a resource group that Purview will create to hold a managed Storage account and an Event Hub. Purview will use these resources for [catalog ingestion](concept-scans-and-ingestion.md#ingestion).
-
 1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the creation. The newly created Azure Purview account instance will appear in the list on your **Purview accounts** page.
 
     :::image type="content" source="media/create-catalog-portal/create-resource.png" alt-text="Screenshot showing the Create Purview account screen with the Review + Create button highlighted":::
