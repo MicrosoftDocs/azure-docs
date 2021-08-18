@@ -9,7 +9,8 @@ ms.topic: tutorial
 ms.date: 08/18/2021
 ---
 # How to convert the number of vcores-per-server in your existing nonrelational database to Azure Cosmos DB RU/s as an aid in planning migration
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-mongo-api](includes/appliesto-mongo-api.md)]
 
 In this article, we show you how to estimate Azure Cosmos DB RU/s in the scenario where you need to compare total cost of ownership (TCO) between your status-quo nonrelational database solution and Azure Cosmos DB, i.e. if you are considering planning an app migration or data migration to Azure Cosmos DB. This tutorial helps you to generate a ballpark TCO comparison regardless of what nonrelational database solution you currently employ, and regardless of whether your status-quo database solution is self-managed on-premise, self-managed in the cloud, or managed by a PaaS database service.
 
@@ -31,35 +32,39 @@ Before continuing, please identify
 * vCores or vCPU per server for your cluster
 * The replication factor of your cluster
 * Whether or not sharding is employed in your cluster, and
-* If sharding is employed, how many shards exist?\
+* If sharding is employed, how many shards exist?
 * If sharding is not employed, you can treat "Number of shards" as being 1 (one) for the purposes of the below calculations
 
 ## 2. Convert vcores-per-server or vCPU-per-server to RU/s
 
 
-In general, a good rule of thumb is that throughput scales as the product of vcores-per-server and shards:
+Roughly speaking, throughput scales as the product of vcores-per-server and shards:
 
 ```
 
-f(N, M) [provisioned RU/s] = (~1000 [provisioned RU/s per vcore]) 
+f(N, M) [provisioned RU/s] = (R [provisioned RU/s per vcore]) 
                                 * N [# of vcores-per-server]
                                 * M [# of replica sets]
 
 ```
 
+For the Azure Cosmos DB SQL API, a general rule of thumb is that the provisioned RU/s per vcore *R* is about 580.
+
+For the Azure Cosmos DB API for MongoDB v4.0, a general rule of thumb is that the provisioned RU/s per vcore *R* is about 1000.
+
 For greater clarity, you can use the table below to help you estimate throughput:
 
 
-| vCores/vCPU | RU/s (SQL API) | RU/s (Mongo API) | RU/s (Cassandra API) | RU/s (Gremlin API) |
-|-------------|----------------|------------------|----------------------|--------------------|
-| 1           | 615            |            1000  | -                    | -                  |
-| 2           | 1230            |            2000  | -                    | -                  |
-| 4           | 2460            |            4000  | -                    | -                  |
-| 8           | 4920            |            8000  | -                    | -                  |
-| 16           | 9840            |            16000  | -                    | -                  |
-| 32           | 19680            |            32000  | -                    | -                  |
-| 64           | 39360            |            64000  | -                    | -                  |
-| 128           | 78720            |            128000  | -                    | -                  |
+| vCores/vCPU | RU/s (SQL API) | RU/s (API for MongoDB v4.0) |
+|-------------|----------------|------------------|
+| 1           | 600            |            1000  |
+| 2           | 1200            |            2000  |
+| 4           | 2400            |            4000  |
+| 8           | 4800            |            8000  |
+| 16           | 9600            |            16000  |
+| 32           | 19200            |            32000  |
+| 64           | 38400            |            64000  |
+| 128           | 76800            |            128000  |
 
 Following the above process, you should end up with an estimate of your equivalent Cosmos DB RU/s
 
