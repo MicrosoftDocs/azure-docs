@@ -1,5 +1,5 @@
 ---
-title: 'Train models (create jobs) with the 2.0 CLI'
+title: 'Train models (create jobs) with the CLI (v2)'
 titleSuffix: Azure Machine Learning
 description: Learn how to train models (create jobs) using Azure CLI extension for Machine Learning.
 services: machine-learning
@@ -13,9 +13,9 @@ ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
 ---
 
-# Train models (create jobs) with the 2.0 CLI (preview)
+# Train models (create jobs) with the CLI (v2) (preview)
 
-The Azure 2.0 CLI extension for Machine Learning (preview) enables you to accelerate the model training process while scaling up and out on Azure compute, with the model lifecycle tracked and auditable.
+The Azure CLI (v2) extension for Machine Learning (preview) enables you to accelerate the model training process while scaling up and out on Azure compute, with the model lifecycle tracked and auditable.
 
 Training a machine learning model is typically an iterative process. Modern tooling makes it easier than ever to train larger models on more data faster. Previously tedious manual processes like hyperparameter tuning and even algorithm selection are often automated. With the Azure Machine Learning CLI you can track your jobs (and models) in a [workspace](concept-workspace.md) with hyperparameter sweeps, scale-up on high-performance Azure compute, and scale-out utilizing distributed training.
 
