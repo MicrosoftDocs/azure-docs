@@ -178,7 +178,19 @@ In summary, to create a layered deployment:
 
 - Must add the `--layered` flag to the Azure CLI create command
 - It may not contain system modules
-- Must use the 'dot notation' under `$edgeAgent` and `$edgeHub`
+- Must use full 'dot notation' under `$edgeAgent` and `$edgeHub`
+  - Example of dot notation pattern in layered deployment: 
+    ```
+    "$edgeAgent": {
+      "properties.desired.modules.SimulatedTemperatureSensor": {
+    ```
+  - Example of partial dot notation pattern in base/regular deployments:
+    ```json
+    "$edgeAgent": {
+      "properties.desired": {
+        "modules": {
+          "SimulatedTemperatureSensor": {
+    ```
 
 For more information about configuring module twins in layered deployments, see [Layered deployment](module-deployment-monitoring.md#layered-deployment)
 
