@@ -11,7 +11,7 @@ ms.date: 08/18/2021
 ---
 
 # Connect privately and securely to your Purview account
-In this guide, you will learn how to deploy private endpoints for your Purview account to allow you connecting to your Azure Purview account and scan data sources only from restricted network. To achieve this goal, you need to deploy an _account_, a _portal_ and _ingestion_ private endpoints for your Azure Purview account.
+In this guide, you will learn how to deploy private endpoints for your Purview account to allow you to connect to your Azure Purview account and scan data sources only from restricted network. To achieve this goal, you need to deploy an _account_, a _portal_ and _ingestion_ private endpoints for your Azure Purview account.
 
 The Azure Purview _account_ private endpoint is used to add another layer of security by enabling scenarios where only client calls that originate from within the virtual network are allowed to access the Azure Purview account. This private endpoint is also a prerequisite for the portal private endpoint.
 
