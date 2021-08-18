@@ -40,7 +40,7 @@ You can use triggers that get responses from Service Bus and make the output ava
 
 ### Large messages
 
-Large message support is available only when you use the built-in Service Bus operations with [single-tenant Azure Logic Apps (Standard)](single-tenant-overview-compare.md) workflows. You can send and receive large messages using the triggers or actions in the built-in version.
+Large message support is available only when you use the built-in Service Bus operations with [single-tenant Azure Logic Apps (Standard)](../logic-apps/single-tenant-overview-compare.md) workflows. You can send and receive large messages using the triggers or actions in the built-in version.
 
   For receiving a message, you can increase the timeout by [changing the following setting in the Azure Functions extension](../azure-functions/functions-bindings-service-bus.md#hostjson-settings):
 
