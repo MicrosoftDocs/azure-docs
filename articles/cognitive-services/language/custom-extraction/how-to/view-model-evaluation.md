@@ -50,11 +50,11 @@ Model evaluation in custom entity extraction uses the following metrics:
 |Recall     | The ratio of successful attempted recognitions to the actual number of entities present.        | `Recall = #True_Positive / (#True_Positive + #False_Negatives)`        |
 |F1 score    |  The combination of precision and recall.       |  `F1 Score = 2 * Precision * Recall / (Precision + Recall)`       |
 
-## Model-level and Entity-level evaluation metrics
+## Model-level and entity-level evaluation metrics
 
 Precision, recall, and F1 score are calculated for each entity separately (entity-level evaluation) and for the model collectively (model-level evaluation).
 
-The definitions of precision, recall, and evaluation are the same for both entity-level and model-level evaluations. However, the counts for *True Positives*, *False Positives, and *False Negatives* differ can differ. For example, consider the following text.
+The definitions of precision, recall, and evaluation are the same for both entity-level and model-level evaluations. However, the counts for *True Positives*, *False Positives*, and *False Negatives* differ can differ. For example, consider the following text.
 
 ### Example
 
@@ -78,7 +78,7 @@ The model would have the following entity-level evaluation, for the *person* ent
 |--|--|--|
 | True Positive | 2 | *John Smith* and *Fannie Thomas* were correctly predicted as *person*. |
 | False Positive | 1 | *Frederick* was incorrectly predicted as *person* while it should have been *city*. |
-| False Negative | 1 | *Forrest was incorrectly predicted as *city* while it should have been *person*. |
+| False Negative | 1 | *Forrest* was incorrectly predicted as *city* while it should have been *person*. |
 
 * **Precision**: `#True_Positive / (#True_Positive + #False_Positive)` = `2 / (2 + 1) = 0.67`
 * **Recall**: `#True_Positive / (#True_Positive + #False_Negatives)` = `2 / (2 + 1) = 0.67`
@@ -90,9 +90,9 @@ The model would have the following entity-level evaluation, for the *city* entit
 
 | Key | Count | Explanation |
 |--|--|--|
-| True Positive | 1 | *Colorado Springs* was correctly predicted as *city* |
-| False Positive | 1 | *Forrest* was incorrectly predicted as *city* while it should have been *person* |
-| False Negative | 1 | *Frederick* was incorrectly predicted as *person* while it should have been *city* |
+| True Positive | 1 | *Colorado Springs* was correctly predicted as *city*. |
+| False Positive | 1 | *Forrest* was incorrectly predicted as *city* while it should have been *person*. |
+| False Negative | 1 | *Frederick* was incorrectly predicted as *person* while it should have been *city*. |
 
 * **Precision** = `#True_Positive / (#True_Positive + #False_Positive)` = `2 / (2 + 1) = 0.67`
 * **Recall** = `#True_Positive / (#True_Positive + #False_Negatives)` = `2 / (2 + 1) = 0.67`

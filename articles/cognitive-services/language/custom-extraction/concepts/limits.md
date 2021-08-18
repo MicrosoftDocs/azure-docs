@@ -69,7 +69,7 @@ Use this article to learn about the data and service limits when using custom te
 |--|--|
 | Project name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` with no spaces. |
 | Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` with no spaces. |
-| entity names| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]` |
+| Entity names| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]` |
 | File names | You can only use letters `(a-z, A-Z)`, numbers `(0-9)` with no spaces. |
 
 ## Next steps

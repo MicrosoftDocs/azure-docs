@@ -14,7 +14,7 @@ ms.author: aahi
 
 # Custom entity recognition
 
-Use this article to learn about some of the definitions and terms you may encounter when using custom extraction
+Use this article to learn about some of the definitions and terms you may encounter when using custom extraction.
 
 ## Project
 
@@ -27,7 +27,7 @@ Within your project you can do the following:
 * **Build and train your model**: The core step of your project, where your model starts learning from your tagged data. 
 * **View model evaluation details**: Review your model performance to decide if there is room for improvement, or you are satisfied with the results.
 * **Improve model**: When you know what went wrong with your model, and how to improve performance. 
-* **Deploy model**: tMke your model available for use. 
+* **Deploy model**: Make your model available for use. 
 * **Test model**: Test your model on a dataset.
 
 ## Model
@@ -50,7 +50,7 @@ For example, in the sentence "*John borrowed 25,000 USD from Fred.*" the entitie
 | Lender Name | *Fred* |
 | Loan Amount | *25,000 USD* |
 
-## next steps
+## Next steps
 
 * [Data and service limits](limits.md).
 * [Recommended practices](recommended-practices.md)
