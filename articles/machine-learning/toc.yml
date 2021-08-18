@@ -28,9 +28,9 @@
           href: tutorial-1st-experiment-sdk-train.md
         - name: 3. Use your own data
           href: tutorial-1st-experiment-bring-data.md
-    - name: 2.0 CLI 
+    - name: CLI (v2) 
       items: 
-        - name: Train models with 2.0 CLI
+        - name: Train models with CLI (v2)
           href: how-to-train-cli.md
         - name: Access resources with managed endpoints
           href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
@@ -306,7 +306,7 @@
                 href: how-to-create-attach-compute-studio.md
     - name: Set up an environment
       items: 
-        - name: Install and set up the 2.0 CLI
+        - name: Install and set up the CLI (v2)
           displayName: azurecli, mlops
           href: how-to-configure-cli.md
         - name: Set up dev environments
@@ -408,7 +408,7 @@
               href: how-to-export-delete-data.md
     - name: Train models
       items: 
-        - name: Train with the 2.0 CLI
+        - name: Train with the CLI (v2)
           href: how-to-train-cli.md
         - name: Train with the REST API
           href: how-to-train-with-rest.md

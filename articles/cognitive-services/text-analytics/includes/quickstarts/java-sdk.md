@@ -160,6 +160,8 @@ public static void main(String[] args) {
 
 The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
 
+[!INCLUDE [text-analytics-character-limits](../character-limits.md)]
+
 ## Code examples
 
 * [Authenticate the client](#authenticate-the-client)
