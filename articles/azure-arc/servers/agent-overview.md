@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 08/17/2021
+ms.date: 08/18/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -39,6 +39,7 @@ Metadata information about the connected machine is collected after the Connecte
 * Computer name
 * Computer manufacturer and model
 * Computer fully qualified domain name (FQDN)
+* Domain name (if joined to an Active Directory domain)
 * Connected Machine agent version
 * Active Directory and DNS fully qualified domain name (FQDN)
 * UUID (BIOS ID)
@@ -46,7 +47,7 @@ Metadata information about the connected machine is collected after the Connecte
 * Connected Machine agent version
 * Public key for managed identity
 * Policy compliance status and details (if using Azure Policy Guest Configuration policies)
-* SQL Server installed (Boolean value)
+* Microsoft SQL Server installed (Boolean value)
 * Cluster resource ID (for Azure Stack HCI nodes) 
 
 The following metadata information is requested by the agent from Azure:
