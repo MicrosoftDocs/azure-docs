@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/15/2021
+ms.date: 08/18/2021
 ms.author: b-juche
 ---
 # Enable Continuous Availability on existing SMB volumes
 
-You can enable the SMB Continuous Availability (CA) feature when you [create a new SMB volume](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume). You can also enable SMB CA on an existing SMB volume; this article shows you how to do so.
+You can enable the SMB Continuous Availability (CA) feature when you [create a new SMB volume](azure-netapp-files-create-volumes-smb.md#continuous-availability). You can also enable SMB CA on an existing SMB volume; this article shows you how to do so.
 
 ## Considerations
 
