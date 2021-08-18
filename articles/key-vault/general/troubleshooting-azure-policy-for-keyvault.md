@@ -1,3 +1,16 @@
+---
+title: Troubleshooting issues with implementing Azure policy on Key Vault
+description: Troubleshooting issues with implementing Azure policy on Key Vault
+author: sebansal
+ms.author: sebansal
+ms.date: 08/17/2020
+ms.service: key-vault
+ms.subservice: general
+ms.topic: how-to
+
+---
+# Troubleshooting issues with implementing Azure policy on Key Vault
+
 ## Troubleshoot
 
 This article guides you how to troubleshoot general errors that might occur when you set up the [Azure Policy for Key Vault](./azure-policy.md), and suggests ways to resolve them.
