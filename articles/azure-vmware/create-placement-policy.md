@@ -15,7 +15,7 @@ ms.date: 8/18/2021
 
 In Azure VMware Solution, clusters in a private cloud are a managed resource. As a result, the cloudadmin role can't make certain changes to the cluster from the vSphere Client, including the management of Distributed Resource Scheduler (DRS) rules.
 
-Placement policies in Azure VMware Solution let you control the placement of virtual machines (VMs) on hosts within a cluster through the Azure portal. When you create a placement policy, it includes a DRS rule in the specified vSphere cluster. It also includes additional logic for interoperability with Azure VMware Solution operations.
+The placement policy feature is available in all Azure VMware Solution regions.  Placement policies let you control the placement of virtual machines (VMs) on hosts within a cluster through the Azure portal. When you create a placement policy, it includes a DRS rule in the specified vSphere cluster. It also includes additional logic for interoperability with Azure VMware Solution operations.
 
 A placement policy has at least five required components: 
 
@@ -67,9 +67,9 @@ In addition to choosing a name and cluster for the policy, a **VM-Host** policy 
 
 Azure VMware Solution attempts to prevent certain DRS rule violations from occurring when performing cluster scale-in operations.
 
-You can't remove the last host from a VM-Host policy. However, if you need to remove the last host from the policy, you can remediate this by adding another host to the policy before removing the host from the cluster. Alternatively, you can delete the placement policy before removing the host.
+You can't remove the last host from a VM-Host policy. However, if you need to remove the last host from the policy, you can remediate it by adding another host to the policy before removing the host from the cluster. Alternatively, you can delete the placement policy before removing the host.
 
-You can't have a VM-VM Anti Affinity policy with more VMs than the number of hosts in a cluster. If removing a host would result in fewer hosts in the cluster than VMs, you'll receive an error preventing the operation. You can remediate this by first removing VMs from the rule and then removing the host from the cluster.
+You can't have a VM-VM Anti Affinity policy with more VMs than the number of hosts in a cluster. If removing a host would result in fewer hosts in the cluster than VMs, you'll receive an error preventing the operation. You can remediate it by first removing VMs from the rule and then removing the host from the cluster.
 
 
 ### Rule conflicts
@@ -79,6 +79,8 @@ If DRS rule conflicts are detected when you create a VM-VM policy, it results in
 
 
 ## Create a placement policy
+
+There is no defined limit to the number of policies that you create. However, the more placement constraints you create, the more challenging it is for vSphere DRS to effectively move virtual machines within the cluster and provide the resources needed by the workloads.      
 
 Make sure to review the requirements for the [policy type](#placement-policy-types).
 
@@ -194,3 +196,34 @@ Use the vSphere Client to monitor the operation of a placement policy's correspo
 As a holder of the cloudadmin role, you can view, but not edit, the DRS rules created by a placement policy on the cluster's Configure tab under VM/Host Rules. It lets you view additional information, such as if the DRS rules are in a conflict state.
 
 Additionally, you can monitor various DRS rule operations, such as recommendations and faults, from the cluster's Monitor tab.
+
+
+## FAQs
+
+### Are these the same as DRS affinity rules?
+Yes, and no. While vSphere DRS implements the current set of policies, we have simplified the experience. Tweaking VM groups and Host groups are a cumbersome operation, especially as hosts are ephemeral in nature and could be replaced in a cloud environment. As hosts are replaced in the vSphere inventory in an on-premises environment, the vSphere admin must modify the host group to ensure that the desired VM-Host placement constraints continue to stay in effect. Placement policies in Azure VMware Solution update the Host groups when a host is rotated or changed. Similarly, if you scale in a cluster, the Host Group is automatically updated, as applicable. This eliminates the overhead of managing the Host Groups for the customer.
+
+
+### As this is an existing functionality available in vCenter, why can't I use it directly? 
+
+Azure VMware Solution provides a VMware private cloud in Azure. In this managed VMware infrastructure, Microsoft manages the clusters, hosts, datastores, and distributed virtual switches in the private cloud. At the same time, the tenant is responsible for managing the workloads deployed on the private cloud. As a result, the tenant administering the private cloud [does not have the same set of privileges](concepts-identity.md) as available to the VMware administrator in an on-premises deployment. 
+
+Further, the lack of the desired granularity in the vSphere privileges presents some challenges when managing the placement of the workloads on the private cloud. For example, vSphere DRS rules commonly used on-premises to define affinity and anti-affinity rules cannot be used as-is in a VMware Cloud environment, as some of those rules can block day-to-day operation the private cloud. Placement Policies offers you a way to define those rules via the AVS portal, thereby circumventing the need to use DRS rules. Coupled with a simplified experience, they also ensure that the rules do not impact the day-to-day infrastructure maintenance and operation activities. 
+
+### I can open an SR to elevate my privilege to add VM-Host affinity rules. Can I not continue with that approach? 
+
+This feature aims to alleviate the need to open SRs for creating affinity rules. Once you sign up for the preview, you'll use the script provided to create the rules/policies.
+
+Once the feature is made Generally Available, you'll no longer need to open an SR. Instead, you'll use the full Azure VMware Solution private cloud portal experience to create the policies. 
+
+### Who do we reach out to for support?  
+
+As a participant in the preview, you're added to a private Teams channel, where you can directly interact with the feature team during the preview to receive support for the feature and share feedback.
+
+###  What caveats should I be aware of?
+
+The VM-Host MUST rules block maintenance operations and not supported by Placement Policies. 
+
+VM-Host SHOULD rules are preferential rules, where vSphere DRS tries to accommodate the rules to the extent possible. vSphere DRS may vMotion virtual machines subjected to the VM-Host SHOULD rules occasionally to ensure that the workloads get the resources they need. This is a standard vSphere DRS behavior, and the Placement Policies feature does not change the underlying vSphere DRS behavior.
+
+If you create conflicting rules, those conflicts may show up on the vCenter, and the newly defined rules may not take effect. This is a standard vSphere DRS behavior, the logs for which can be observed in the vCenter.
