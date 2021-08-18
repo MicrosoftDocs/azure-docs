@@ -89,4 +89,4 @@ All assigned roles apply to sources, assets, and other objects within the collec
 Now that you have a collection, you can follow these guides below to add resources, scan, and manage your collections.
 
 * [Register source to collection](how-to-create-and-manage-collections.md#register-source-to-a-collection)
-* [Access management through collections](how-to-create-and-manage-collections.md#adding-roles-and-restricting-access-through-collections)
+* [Access management through collections](how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections)
