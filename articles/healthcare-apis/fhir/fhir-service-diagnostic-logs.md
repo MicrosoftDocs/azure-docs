@@ -41,7 +41,7 @@ You will need to create your Logs Analytics Workspace before you can select this
 
 6. Select **AuditLogs**.
 
-   [ ![Azure FHIR diagnostic settings audit logs.](media/diagnostic-logs/fhir-diagnostic-settings-add.png) ](diagnostic-logs/media/fhir-diagnostic-settings-add.png#lightbox)
+   [ ![Azure FHIR diagnostic settings audit logs.](media/diagnostic-logs/fhir-diagnostic-settings-add.png) ](media/diagnostic-logs/fhir-diagnostic-settings-add.png#lightbox)
 
 7. Select **Save**.
 
