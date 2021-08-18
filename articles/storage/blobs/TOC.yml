@@ -210,7 +210,7 @@ items:
         href: archive-rehydrate-overview.md
       - name: Performance tiers
         href: storage-blob-performance-tiers.md
-      - name: Automate access tiers lifecycle
+      - name: Lifecycle management policies
         href: storage-lifecycle-management-concepts.md
     - name: Object replication
       href: object-replication-overview.md

@@ -4,7 +4,7 @@ description: Create automated rules for moving data between hot, cool, and archi
 author: tamram
 
 ms.author: tamram
-ms.date: 06/14/2021
+ms.date: 08/17/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -14,201 +14,22 @@ ms.custom: "devx-track-azurepowershell, references_regions"
 
 # Optimize costs by automating Azure Blob Storage access tiers
 
-Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access drops drastically as the data ages. Some data stays idle in the cloud and is rarely accessed once stored. Some data expires days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob Storage lifecycle management offers a rich, rule-based policy for GPv2 and blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle.
+Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access often drops drastically as the data ages. Some data remains idle in the cloud and is rarely accessed once stored. Some data sets expire days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob Storage lifecycle management offers a rich, rule-based policy for general-purpose v2 and Blob Storage accounts. You can use the policy to transition your data to the appropriate access tiers or to expire at the end of the data lifecycle.
 
-The lifecycle management policy lets you:
+With the lifecycle management policy, you can:
 
-- Transition blobs from cool to hot immediately if accessed to optimize for performance
-- Transition blobs, blob versions, and blob snapshots to a cooler storage tier (hot to cool, hot to archive, or cool to archive) if not accessed or modified for a period of time to optimize for cost
-- Delete blobs, blob versions, and blob snapshots at the end of their lifecycles
-- Define rules to be run once per day at the storage account level
-- Apply rules to containers or a subset of blobs (using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters)
+- Transition blobs from cool to hot immediately when they are accessed, to optimize for performance.
+- Transition blobs, blob versions, and blob snapshots to a cooler storage tier if these objects have not been accessed or modified for a period of time, to optimize for cost. In this scenario, the lifecycle management policy can move objects from hot to cool, from hot to archive, or from cool to archive.
+- Delete blobs, blob versions, and blob snapshots at the end of their lifecycles.
+- Define rules to be run once per day at the storage account level.
+- Apply rules to containers or to a subset of blobs, using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters.
 
-Consider a scenario where data gets frequent access during the early stages of the lifecycle, but only occasionally after two weeks. Beyond the first month, the data set is rarely accessed. In this scenario, hot storage is best during the early stages. Cool storage is most appropriate for occasional access. Archive storage is the best tier option after the data ages over a month. By adjusting storage tiers in respect to the age of data, you can design the least expensive storage options for your needs. To achieve this transition, lifecycle management policy rules are available to move aging data to cooler tiers.
+Consider a scenario where data is frequently accessed during the early stages of the lifecycle, but only occasionally after two weeks. Beyond the first month, the data set is rarely accessed. In this scenario, hot storage is best during the early stages. Cool storage is most appropriate for occasional access. Archive storage is the best tier option after the data ages over a month. By moving data to the appropriate storage tier based on its age with lifecycle management policy rules, you can design the least expensive solution for your needs.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
->[!NOTE]
->If you need data to stay readable, for example, when used by StorSimple, do not set a policy to move blobs to the Archive tier.
-
-## Availability and pricing
-
-The lifecycle management feature is available in all Azure regions for general purpose v2 (GPv2) accounts, blob storage accounts, premium block blobs storage accounts, and Azure Data Lake Storage Gen2 accounts. In the Azure portal, you can upgrade an existing general purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
-
-The lifecycle management feature is free of charge. Customers are charged the regular operation cost for the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) API calls. Delete operation is free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
-
-## Add or remove a policy
-
-You can add, edit, or remove a policy by using any of the following methods:
-
-- The Azure portal
-- Azure PowerShell
-   - [Add-AzStorageAccountManagementPolicyAction](/powershell/module/az.storage/add-azstorageaccountmanagementpolicyaction)
-   - [New-AzStorageAccountManagementPolicyFilter](/powershell/module/az.storage/new-azstorageaccountmanagementpolicyfilter)
-   - [New-AzStorageAccountManagementPolicyRule](/powershell/module/az.storage/new-azstorageaccountmanagementpolicyrule)
-   - [Set-AzStorageAccountManagementPolicy](/powershell/module/az.storage/set-azstorageaccountmanagementpolicy)
-   - [Remove-AzStorageAccountManagementPolicy](/powershell/module/az.storage/remove-azstorageaccountmanagementpolicy)
-- [Azure CLI](/cli/azure/storage/account/management-policy)
-- [REST APIs](/rest/api/storagerp/managementpolicies)
-
-A policy can be read or written in full. Partial updates are not supported.
-
-> [!NOTE]
-> If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
-
-This article shows how to manage policy by using the portal and PowerShell methods.
-
-# [Portal](#tab/azure-portal)
-
-There are two ways to add a policy through the Azure portal.
-
-- [Azure portal List view](#azure-portal-list-view)
-- [Azure portal Code view](#azure-portal-code-view)
-
-#### Azure portal List view
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the Azure portal, search for and select your storage account.
-
-1. Under **Data management**, select **Lifecycle Management** to view or change your rules.
-
-1. Select the **List View** tab.
-
-1. Select **Add a rule** and name your rule on the **Details** form. You can also set the **Rule scope**, **Blob type**, and **Blob subtype** values. The following example sets the scope to filter blobs. This causes the **Filter set** tab to be added.
-
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Lifecycle management add a rule details page in Azure portal":::
-
-1. Select **Base blobs** to set the conditions for your rule. In the following example, blobs are moved to cool storage if they haven't been modified for 30 days.
-
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-base-blobs.png" alt-text="Lifecycle management base blobs page in Azure portal":::
-
-   > [!IMPORTANT]
-   > The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
-   
-   To use the **Last accessed** option, select **Access tracking enabled** on the **Lifecycle Management** page in the Azure portal. For more information about the **Last accessed** option, see [Move data based on last accessed date (preview)](#move-data-based-on-last-accessed-date-preview).
-
-1. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs in the *mylifecyclecontainer* container that begin with "log".
-
-   :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Lifecycle management filter set page in Azure portal":::
-
-1. Select **Add** to add the new policy.
-
-#### Azure portal Code view
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the Azure portal, search for and select your storage account.
-
-1. Under **Blob service**, select **Lifecycle Management** to view or change your policy.
-
-1. The following JSON is an example of a policy that can be pasted into the **Code View** tab.
-
-   ```json
-   {
-     "rules": [
-       {
-         "enabled": true,
-         "name": "move-to-cool",
-         "type": "Lifecycle",
-         "definition": {
-           "actions": {
-             "baseBlob": {
-               "tierToCool": {
-                 "daysAfterModificationGreaterThan": 30
-               }
-             }
-           },
-           "filters": {
-             "blobTypes": [
-               "blockBlob"
-             ],
-             "prefixMatch": [
-               "mylifecyclecontainer/log"
-             ]
-           }
-         }
-       }
-     ]
-   }
-   ```
-
-1. Select **Save**.
-
-1. For more information about this JSON example, see the [Policy](#policy) and [Rules](#rules) sections.
-
-# [PowerShell](#tab/azure-powershell)
-
-The following PowerShell script can be used to add a policy to your storage account. The `$rgname` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name.
-
-```powershell
-#Install the latest module
-Install-Module -Name Az -Repository PSGallery
-
-#Initialize the following with your resource group and storage account names
-$rgname = ""
-$accountName = ""
-
-#Create a new action object
-$action = Add-AzStorageAccountManagementPolicyAction -BaseBlobAction Delete -daysAfterModificationGreaterThan 2555
-$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -BaseBlobAction TierToArchive -daysAfterModificationGreaterThan 90
-$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -BaseBlobAction TierToCool -daysAfterModificationGreaterThan 30
-$action = Add-AzStorageAccountManagementPolicyAction -InputObject $action -SnapshotAction Delete -daysAfterCreationGreaterThan 90
-
-# Create a new filter object
-# PowerShell automatically sets BlobType as “blockblob” because it is the only available option currently
-$filter = New-AzStorageAccountManagementPolicyFilter -PrefixMatch ab,cd
-
-#Create a new rule object
-#PowerShell automatically sets Type as “Lifecycle” because it is the only available option currently
-$rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Filter $filter
-
-#Set the policy
-Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
-```
-
-# [Template](#tab/template)
-
-You can define lifecycle management by using Azure Resource Manager templates. Here is a sample template to deploy a RA-GRS GPv2 storage account with a lifecycle management policy.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "variables": {
-    "storageAccountName": "[uniqueString(resourceGroup().id)]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "location": "[resourceGroup().location]",
-      "apiVersion": "2019-04-01",
-      "sku": {
-        "name": "Standard_RAGRS"
-      },
-      "kind": "StorageV2",
-      "properties": {
-        "networkAcls": {}
-      }
-    },
-    {
-      "name": "[concat(variables('storageAccountName'), '/default')]",
-      "type": "Microsoft.Storage/storageAccounts/managementPolicies",
-      "apiVersion": "2019-04-01",
-      "dependsOn": [
-        "[variables('storageAccountName')]"
-      ],
-      "properties": {
-        "policy": {...}
-      }
-    }
-  ],
-  "outputs": {}
-}
-```
-
----
+> [!IMPORTANT]
+> If a data set needs to be readable, do not set a policy to move blobs to the archive tier. Blobs in the archive tier cannot be read unless they are first rehydrated, a process which may be time-consuming and expensive. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 ## Policy
 
@@ -341,7 +162,7 @@ The run conditions are based on age. Base blobs use the last modified time, blob
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | Integer value indicating the age in days | The condition for base blob actions                                              |
 | daysAfterCreationGreaterThan       | Integer value indicating the age in days | The condition for blob version and blob snapshot actions                         |
-| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | (preview) The condition for base blob actions when last accessed time is enabled |
+| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for base blob actions when last accessed time is enabled |
 
 ## Examples
 
@@ -375,14 +196,9 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
 }
 ```
 
-### Move data based on last accessed date (preview)
+### Move data based on last accessed date
 
 You can enable last access time tracking to keep a record of when your blob is last read or written. You can use last access time as a filter to manage tiering and retention of your blob data.
-
-The **Last accessed** option is available in preview in all public regions.
-
-> [!IMPORTANT]
-> The last access time tracking preview is for non-production use only. Production service-level agreements (SLAs) are not currently available.
 
 In order to use the **Last accessed** option, select **Access tracking enabled** on the **Lifecycle Management** page in the Azure portal.
 
@@ -424,9 +240,9 @@ In the following example, blobs are moved to cool storage if they haven't been a
 
 Last access time tracking is available for the following types of storage accounts:
 
- - General-purpose v2 storage accounts
- - Block blob storage accounts
- - Blob storage accounts
+- General-purpose v2 storage accounts
+- Block blob storage accounts
+- Blob storage accounts
 
 If your storage account is a general-purpose v1 account, use the Azure portal to upgrade to a general-purpose v2 account.
 
@@ -440,8 +256,8 @@ Each last access time update is considered an [other operation](https://azure.mi
 
 Some data stays idle in the cloud and is rarely, if ever, accessed once stored. The following lifecycle policy is configured to archive data shortly after it is ingested. This example transitions block blobs in the storage account within container `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time:
 
-> [!NOTE] 
-> It is recommended to upload your blobs directly the archive tier to be more efficient. You can use the x-ms-access-tier header for [PutBlob](/rest/api/storageservices/put-blob) or [PutBlockList](/rest/api/storageservices/put-block-list) with REST version 2018-11-09 and newer or our latest blob storage client libraries. 
+> [!NOTE]
+> It is recommended to upload your blobs directly the archive tier to be more efficient. You can use the x-ms-access-tier header for [PutBlob](/rest/api/storageservices/put-blob) or [PutBlockList](/rest/api/storageservices/put-block-list) with REST version 2018-11-09 and newer or our latest blob storage client libraries.
 
 ```json
 {
@@ -494,6 +310,7 @@ Some data is expected to expire days or months after creation. You can configure
 ```
 
 ### Delete data with Blob Index tags
+
 Some data should only be expired if explicitly marked for deletion. You can configure a lifecycle management policy to expire data that are tagged with blob index key/value attributes. The following example shows a policy that deletes all block blobs tagged with `Project = Contoso`. To learn more about the Blob Index, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
 
 ```json
@@ -565,6 +382,12 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
 }
 ```
 
+## Availability and pricing
+
+The lifecycle management feature is available in all Azure regions for general purpose v2 (GPv2) accounts, blob storage accounts, premium block blobs storage accounts, and Azure Data Lake Storage Gen2 accounts. In the Azure portal, you can upgrade an existing general-purpose v1 account to a general-purpose v2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
+
+The lifecycle management feature is free of charge. Customers are billed for standard operation costs for the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) API calls. Delete operations are free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
 ## FAQ
 
 **I created a new policy, why do the actions not run immediately?**
@@ -573,7 +396,7 @@ The platform runs the lifecycle policy once a day. Once you configure a policy, 
 
 **If I update an existing policy, how long does it take for the actions to run?**
 
-The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob will not then move from Hot to Cool given the lifecycle management rule is disabled/deleted.  The only way to prevent autoTierToHotFromCool is to turn off last access time tracking. 
+The updated policy takes up to 24 hours to go into effect. Once the policy is in effect, it could take up to 24 hours for the actions to run. Therefore, the policy actions may take up to 48 hours to complete. If the update is to disable or delete a rule, and enableAutoTierToHotFromCool was used, auto-tiering to Hot tier will still happen. For example, set a rule including enableAutoTierToHotFromCool based on last access. If the rule is disabled/deleted, and a blob is currently in cool and then accessed, it will move back to Hot as that is applied on access outside of lifecycle management. The blob will not then move from Hot to Cool given the lifecycle management rule is disabled/deleted.  The only way to prevent autoTierToHotFromCool is to turn off last access time tracking.
 
 **I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**
 
