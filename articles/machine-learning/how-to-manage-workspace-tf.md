@@ -15,7 +15,7 @@ ms.custom:
 
 # Manage Azure Machine Learning workspaces using Terraform (preview)
 
-In this article, you learn how to create and manage an Azure Machine Learning workspace using Terraform infrastructure-as-code templates. [Terraform templates](/azure/developer/terraform/) make it easy to create resources as a single, coordinated operation. A template is a document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the template.
+In this article, you learn how to create and manage an Azure Machine Learning workspace using Terraform infrastructure-as-code templates. [Terraform](/azure/developer/terraform/) makes it easy to create resources as a single, coordinated operation. A Terraform configuration is a document that defines the resources that are needed for a deployment. It may also specify deployment parameters. Parameters are used to provide input values when using the configuration.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ In this article, you learn how to create and manage an Azure Machine Learning wo
 
 Create the Terraform configuration file that declares the Azure provider.
 
-1. In local terminal or Cloud Shell, create a file named `main.tf`.
+1. Create a new file named `main.tf`. If you are working with Azure Cloud Shell, use bash:
 
     ```bash
     code main.tf
@@ -42,11 +42,11 @@ Create the Terraform configuration file that declares the Azure provider.
 
 ## Deploy a workspace
 
-Below Terraform template files can be used to create an Azure Machine Learning workspace. When you deploy an Azure Machine Learning workspace, various other services are required as dependencies. The templates also create these [associated resources](/azure/machine-learning/concept-workspace#resources). Dependent on your use case and organizational requirements, you can choose to use the template that creates resources with either public or private network connectivity.
+Below Terraform configurations can be used to create an Azure Machine Learning workspace. When you deploy an Azure Machine Learning workspace, various other services are required as dependencies. The template also specifies [associated resources to the workspace](/azure/machine-learning/concept-workspace#resources). Dependent on your use case and organizational requirements, you can choose to use the template that creates resources with either public or private network connectivity.
 
 # [Public network connectivity](#tab/publicworkspace)
 
-Some resources in Azure require globally unique names. Before deploying your resources using the below template, set the `name` variable to a value that is unique.
+Some resources in Azure require globally unique names. Before deploying your resources using the below configuration, set the `name` variable to a value that is unique.
 
 **variables.tf**:
 :::code language="terraform" source="~/terraform/quickstart/101-machine-learning/variables.tf":::
@@ -56,9 +56,9 @@ Some resources in Azure require globally unique names. Before deploying your res
 
 # [Private network connectivity](#tab/privateworkspace)
 
-The template below creates a workspace in an isolated network environment using Azure private link endpoints. In addition, [private DNS zones](/azure/dns/private-dns-privatednszone) and [Private Link endpoints](/azure/private-link/private-endpoint-overview) are created. 
+The configuration below creates a workspace in an isolated network environment using Azure private link endpoints. In addition, [private DNS zones](/azure/dns/private-dns-privatednszone) and [Private Link endpoints](/azure/private-link/private-endpoint-overview) are created. 
 
-Some resources in Azure require globally unique names. Before deploying your resources using the below template, set the `resourceprefix` variable to a value that is unique.
+Some resources in Azure require globally unique names. Before deploying your resources using the below templates, set the `resourceprefix` variable to a value that is unique.
 
 There are several options to connect to your private link endpoint workspace. To learn more about these options, refer to [Securely connect to your workspace](/azure/machine-learning/how-to-secure-workspace-vnet#securely-connect-to-your-workspace).
 
