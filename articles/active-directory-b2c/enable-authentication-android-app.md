@@ -207,7 +207,7 @@ This section describes the code building blocks that enable authentication for y
 
 ### Step 5.1: Instantiate a public client application
 
-Public client applications aren't trusted to safely keep application secrets, and they don't have client secrets. In the [onCreate](https://developer.android.com/reference/android/app/Fragment#onCreate(android.os.Bundle)) or [onCreateView](https://developer.android.com/reference/android/app/Fragment#onCreateView(android.view.LayoutInflater,%20android.view.ViewGroup,%20android.os.Bundle)), instantiate the MSAL by using the multiple account public client application object.
+Public client applications aren't trusted to safely keep application secrets, and they don't have client secrets. In [onCreate](https://developer.android.com/reference/android/app/Fragment#onCreate(android.os.Bundle)) or [onCreateView](https://developer.android.com/reference/android/app/Fragment#onCreateView(android.view.LayoutInflater,%20android.view.ViewGroup,%20android.os.Bundle)), instantiate the MSAL by using the multiple-account public client application object.
 
 The `MultipleAccountPublicClientApplication` class is used to create MSAL-based apps that allow multiple accounts to be signed in at the same time. The class allows sign-in with multiple Azure AD B2C user flows or custom policies. For example, users sign in with a [sign-up or sign-in](add-sign-up-and-sign-in-policy.md) user flow and later, they run an [edit profile](add-profile-editing-policy.md) user flow. 
 
@@ -317,7 +317,7 @@ An interactive authorization request is a flow where users are prompted to sign 
 
 The `runUserFlowButton.setOnClickListener` method prepares the `AcquireTokenParameters` object with relevant data about the authorization request. The `acquireToken` method then prompts users to complete the sign-up or sign-in flow. 
 
-The following code snippet demonstrates how to start the interactive authorization request. 
+The following code snippet demonstrates how to start the interactive authorization request: 
 
 #### [Kotlin](#tab/kotlin)
 
@@ -353,7 +353,7 @@ b2cApp.acquireToken(parameters);
  
 ### Step 5.4: Make an interactive authorization request callback
 
-After users finish the authorization flow (successfully or unsuccessfully), the result is returned to the `getAuthInteractiveCallback()` callback method. 
+After users finish the authorization flow, whether successfully or unsuccessfully, the result is returned to the `getAuthInteractiveCallback()` callback method. 
 
 The callback method passes the `AuthenticationResult` object, or an error message in the `MsalException` object. Use this method to:
 
