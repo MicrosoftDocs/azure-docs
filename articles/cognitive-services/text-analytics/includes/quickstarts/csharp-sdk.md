@@ -138,6 +138,8 @@ The Text Analytics client is a `TextAnalyticsClient` object that authenticates t
 
 If you're using version `3.x` of the service, you can use an optional `TextAnalyticsClientOptions` instance to initialize the client with various default settings (for example default language or country/region hint). You can also authenticate using an Azure Active Directory token. 
 
+[!INCLUDE [text-analytics-character-limits](../character-limits.md)]
+
 ## Code examples
 
 * [Sentiment analysis](#sentiment-analysis)

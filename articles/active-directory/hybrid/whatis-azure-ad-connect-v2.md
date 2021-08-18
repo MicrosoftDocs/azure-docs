@@ -10,7 +10,7 @@ ms.topic: overview
 ms.date: 06/24/2021
 ms.subservice: hybrid
 ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management, has-adal-ref
 ---
 
 # Introduction to Azure AD Connect V2.0 

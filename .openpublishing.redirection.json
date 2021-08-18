@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/storage/blobs/storage-c-plus-plus-how-to-use-blobs.md",
-      "redirect_url": "/previous-versions/azure/storage/blobs/storage-c-plus-plus-how-to-use-blobs",
+      "redirect_url": "/azure/storage/blobs/quickstart-blobs-c-plus-plus",
       "redirect_document_id": false
     },
     {
@@ -9576,8 +9576,13 @@
     },
     {
       "source_path_from_root": "/articles/azure-supportability/resource-manager-core-quotas-request.md",
-      "redirect_url": "/azure/azure-portal/supportability/resource-manager-core-quotas-request",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-portal/supportability/regional-quota-requests",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/resource-manager-core-quotas-request.md",
+      "redirect_url": "/azure/azure-portal/supportability/regional-quota-requests",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/sku-series-unavailable.md",
