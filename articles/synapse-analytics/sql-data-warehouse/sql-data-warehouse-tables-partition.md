@@ -1,5 +1,5 @@
 ---
-title: Partitioning tables
+title: Partitioning tables in dedicated SQL pool 
 description: Recommendations and examples for using table partitions in dedicated SQL pool 
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -278,7 +278,7 @@ ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInterne
 ### Table partitioning source control
 
 > [!NOTE]
-> If your source control tool is not configured to ignore partition schemas, altering a table's schema to update partitions may cause a table to be dropped and recreated as part of the deployment. Check that your continuous integration/continuous deployment (CICD) tool allows for this. In SQL Server Data Tools (SSDT), look for the Advanced Publish Settings "Ignore partition schemes" and "Ignore table options". 
+> If your source control tool is not configured to ignore partition schemas, altering a table's schema to update partitions may cause a table to be dropped and recreated as part of the deployment, which may be unfeasible. A custom solution to implement such a change, as describe below, may be necessary. Check that your continuous integration/continuous deployment (CICD) tool allows for this. In SQL Server Data Tools (SSDT), look for the Advanced Publish Settings "Ignore partition schemes" to avoid a generated script that cause a table to be dropped and recreated.
 
 
 To avoid your table definition from **rusting** in your source control system, you may want to consider the following approach:
