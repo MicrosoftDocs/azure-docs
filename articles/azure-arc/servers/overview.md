@@ -1,7 +1,7 @@
 ---
 title: Azure Arc-enabled servers Overview
 description: Learn how to use Azure Arc-enabled servers to manage servers hosted outside of Azure like an Azure resource.
-ms.date: 08/12/2021
+ms.date: 08/18/2021
 ms.topic: overview
 ---
 
@@ -14,9 +14,6 @@ To deliver this experience with your hybrid machines, you need to install the Az
 * You want to proactively monitor the OS and workloads running on the machine,
 * Manage it using Automation runbooks or solutions like Update Management, or
 * Use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).
-
->[!NOTE]
-> The [Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA), which is currently in preview, does not replace the Connected Machine agent. The Azure Monitor agent will replace the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines. Review the Azure Monitor documentation about the new agent for more details.
 
 ## Supported cloud operations 
 
@@ -37,7 +34,7 @@ When you connect your machine to Azure Arc-enabled servers, it enables the abili
 | Azure Monitor | Monitor the connected machine guest operating system performance, and discover application components to monitor their processes and dependencies with other resources using [VM insights](../../azure-monitor/vm/vminsights-overview.md). Collect other log data, such as performance data and events, from the operating system or workload(s) running on the machine with the [Log Analytics agent](../../azure-monitor/agents/agents-overview.md#log-analytics-agent). This data is stored in a [Log Analytics workspace](../../azure-monitor/logs/design-logs-deployment.md). |
 
 > [!NOTE]
-> At this time, enabling Update Management directly from an Arc-enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and how to enable for your server.
+> At this time, enabling Azure Automation Update Management directly from an Arc-enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and how to enable for your server.
 
 Log data collected and stored in a Log Analytics workspace from the hybrid machine now contains properties specific to the machine, such as a Resource ID, to support [resource-context](../../azure-monitor/logs/design-logs-deployment.md#access-mode) log access.
 

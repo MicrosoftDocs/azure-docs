@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/16/2021
+ms.date: 08/18/2021
 ms.author: b-juche
 ---
 
@@ -26,6 +26,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Azure NetApp Files backup](backup-introduction.md) (Preview)
 
     Azure NetApp Files online snapshots are now enhanced with backup of snapshots. With this new backup capability, you can vault your Azure NetApp Files snapshots to cost efficient and ZRS-enabled Azure storage in a fast and cost-effective way, further protecting your data from accidental deletion. Azure NetApp Files backup extends ONTAP's built-in snapshot technology. When snapshots are vaulted to Azure storage, only changed blocks relative to previously vaulted snapshots are copied and stored, in an efficient format. Vaulted snapshots, however, are still represented in full and can be restored to a new volume individually and directly, eliminating the need for an iterative, full-incremental recovery process. This advanced technology minimizes the amount of data required to store to and retrieve from Azure storage, therefore saving data transfer and storage costs. It also shortens the backup vaulting time, so you can achieve a smaller Restore Point Objective (RPO). You can now choose to keep a minimum number of snapshots online on the Azure NetApp Files service for the most immediate, near-instantaneous data recovery needs, and build up a longer history of snapshots at a lower cost for long-term retention purposes in the Azure NetApp Files backup vault. See [How Azure NetApp Files snapshots work](snapshots-introduction.md) for details.
+
+* Support for [enabling Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)
+
+    You can already enable the SMB Continuous Availability (CA) feature when you [create a new SMB volume](azure-netapp-files-create-volumes-smb.md#continuous-availability). You can now also enable SMB CA on an existing SMB volume. See [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md).
 
 * [Snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) now generally available (GA)  
 
