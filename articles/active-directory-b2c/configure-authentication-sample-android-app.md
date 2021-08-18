@@ -30,20 +30,20 @@ The sign-in flow involves the following steps:
 1. The app takes the following actions:
     1. It exchanges the authorization code to an ID token, access token, and refresh token.
     1. It reads the ID token claims.
-    1. It stores the tokens to an in-memory cache for later use.
+    1. It stores the tokens in an in-memory cache for later use.
 
 ### App registration overview
 
 To enable your app to sign in with Azure AD B2C and call a web API, register two applications in the Azure AD B2C directory.  
 
-- The **mobile application** registration enables your app to sign in with Azure AD B2C. During app registration, specify the *redirect URI*. The redirect URI is the endpoint to which users are redirected by Azure AD B2C after they authenticate with Azure AD B2C is completed. The app registration process generates an *Application ID*, also known as the *client ID*, which uniquely identifies your mobile app (for example, *App ID: 1*).
+- The **mobile application** registration enables your app to sign in with Azure AD B2C. During app registration, specify the *redirect URI*. The redirect URI is the endpoint to which users are redirected by Azure AD B2C after they've authenticated with Azure AD B2C. The app registration process generates an *Application ID*, also known as the *client ID*, which uniquely identifies your mobile app (for example, *App ID: 1*).
 
 - The **web API** registration enables your app to call a protected web API. The registration exposes the web API permissions (scopes). The app registration process generates an *Application ID*, which uniquely identifies your web API (for example, *App ID: 2*). Grant your mobile app (App ID: 1) permissions to the web API scopes (App ID: 2). 
 
 
 The apps registration and application architecture are illustrated in the following diagrams:
 
-![Mobile app with web API call registrations and tokens](./media/configure-authentication-sample-android-app/mobile-app-with-api-architecture.png) 
+![Diagram of the mobile app with web API call registrations and tokens.](./media/configure-authentication-sample-android-app/mobile-app-with-api-architecture.png) 
 
 ### Call to a web API
 
