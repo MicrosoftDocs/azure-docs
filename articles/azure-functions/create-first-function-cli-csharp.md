@@ -62,17 +62,21 @@ Before you begin, you must have the following:
 
 Verify your prerequisites, which depend on whether you are using Azure CLI or Azure PowerShell for creating Azure resources:
 
+# [Azure CLI](#tab/azure-cli)
+
 + In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
 
 + Run `dotnet --list-sdks` to check that the required versions are installed.
-
-For Azure CLI:
 
 + Run `az --version` to check that the Azure CLI version is 2.4 or later.
 
 + Run `az login` to sign in to Azure and verify an active subscription.
 
-For Azure PowerShell:
+# [Azure PowerShell](#tab/azure-powershell)
+
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
+
++ Run `dotnet --list-sdks` to check that the required versions are installed.
 
 + Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later. 
 
@@ -187,35 +191,31 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
 
 4. Create the function app in Azure:
 
-    **Azure CLI:**
-
-    # [In-process](#tab/in-process) 
+    # [Azure CLI](#tab/azure-cli/in-process)
 
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
 
-    # [Isolated process](#tab/isolated-process)
+    # [Azure CLI](#tab/azure-cli/isolated-process)
 
     ```azurecli
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location westeurope --runtime dotnet-isolated --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 3 --name <APP_NAME> --storage-account <STORAGE_NAME>
     ```
     ---
     
     The [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command creates the function app in Azure. 
     
-    **Azure PowerShell:**
+    # [Azure PowerShell](#tab/azure-powershell/in-process)
     
-    # [In-process](#tab/in-process) 
-
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 3 -Location 'West Europe'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet -FunctionsVersion 3 -Location '<REGION>'
     ```
 
-    # [Isolated process](#tab/isolated-process)
+    # [Azure PowerShell](#tab/azure-powershell/isolated-process)
 
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet-isolated -FunctionsVersion 3 -Location 'West Europe'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime dotnet-isolated -FunctionsVersion 3 -Location '<REGION>'
     ```
     ---
     
