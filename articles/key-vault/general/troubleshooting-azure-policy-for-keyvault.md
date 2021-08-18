@@ -1,6 +1,6 @@
 ## Troubleshoot
 
-When you set up the [Azure Policy for Key Vault](./azure-policy.md), you might run into errors. This article guides you how to troubleshoot general errors that might occur, and suggests ways to resolve them.
+This article guides you how to troubleshoot general errors that might occur When you set up the [Azure Policy for Key Vault](./azure-policy.md), and suggests ways to resolve them.
 
 ### Logging
 
