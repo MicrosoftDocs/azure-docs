@@ -4,7 +4,7 @@ description: This how-to guide describes details of how to scan Amazon RDS datab
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-multi-cloud
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 08/11/2021
 ms.custom: references_regions
@@ -20,6 +20,10 @@ This how-to guide also describes how to identify the Amazon RDS databases where 
 For this service, use Purview to provide a Microsoft account with secure access to AWS, where the Multi-Cloud Scanning Connectors for Azure Purview will run. The Multi-Cloud Scanning Connectors for Azure Purview uses this access to your Amazon RDS databases to read your data, and then reports the scanning results, including only the metadata and classification, back to Azure. Use the Purview classification and labeling reports to analyze and review your data scan results.
 
 In this how-to guide, you'll learn about how to add Amazon RDS databases as Purview resources and create a scan for your Amazon RDS data.
+
+> [!IMPORTANT]
+> The Multi-Cloud Scanning Connectors for Azure Purview are separate add-ons to Azure Purview. The terms and conditions for the Multi-Cloud Scanning Connectors for Azure Purview are contained in the agreement under which you obtained Microsoft Azure Services. For more information, see Microsoft Azure Legal Information at https://azure.microsoft.com/support/legal/.
+>
 
 > [!IMPORTANT]
 > Purview support for Amazon RDS is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
