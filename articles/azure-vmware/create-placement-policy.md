@@ -113,7 +113,10 @@ Make sure to review the requirements for the [policy type](#placement-policy-typ
 
    :::image type="content" source="media/placement-policies/create-placement-policy-vm-vm-affinity-2.png" alt-text="Screenshot showing the list of VMs to select.":::
 
-1. Once you've finished adding the VMs you want, select **Add virtual machine**. 
+   >[!NOTE]
+   >The select hosts pane shows how many VM-Host policies are associated with the host and the total number of VMs contained in those associated policies.
+
+1. Once you've finished adding the VMs you want, select **Add virtual machines**. 
 
 1. Select **Next: Review and create** to review your policy. 
 

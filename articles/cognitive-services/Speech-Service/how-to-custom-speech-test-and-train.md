@@ -150,7 +150,7 @@ Audio files can have silence at the beginning and end of the recording. If possi
 > [!TIP]
 > Don’t even have any real audio? You can also upload a text (.txt) file by selecting type **Transcript (automatic audio synthesis)** as **Testing** data to get a basic sense of current accuracy levels, and audio pair for each spoken utterance will be automatically synthesized using [Text-to-speech](text-to-speech.md). 
 > 
-> Note that the synthesized audios are typically **NOT** recommended to use as **Training** data, as the text-to-speech voices are too good to reflect the real acoustic aspects.
+> Note that the synthesized audios are typically **NOT** recommended to use as **Training** data.
 > 
 > The maximum file size is 500KB. We will synthesize one audio for each line, and the maximum size of each line is 65535 bytes.
 
@@ -185,7 +185,7 @@ Not all base models support training with audio data. If the base model does not
 
 ## Audio data for testing
 
-Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind, audio data is used to inspect the accuracy of speech with regards to a specific model's performance. If you're looking to quantify the accuracy of a model, use [audio + human-labeled transcription data](#audio-and-human-labeled-transcript-data).
+Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind, audio data is used to inspect the accuracy of speech with regard to a specific model's performance. If you're looking to quantify the accuracy of a model, use [audio + human-labeled transcription data](#audio-and-human-labeled-transcript-data).
 
 Use this table to ensure that your audio files are formatted correctly for use with Custom Speech:
 
