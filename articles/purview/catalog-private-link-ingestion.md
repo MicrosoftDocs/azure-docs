@@ -1,5 +1,5 @@
 ---
-title: Scan data sources from restricted network
+title: Scan your data sources privately and securely
 description: This article describes how you can set up a private endpoint to scan data sources from restricted network
 author: viseshag
 ms.author: viseshag
@@ -10,7 +10,7 @@ ms.date: 08/18/2021
 # Customer intent: As an Azure Purview admin, I want to set up private endpoints for my Azure Purview to scan data sources from restricted network.
 ---
 
-# Scan data sources from restricted network using Ingestion private endpoint
+# Scan your data sources privately and securely
 
 If you plan to scan your data sources in private networks, virtual networks, and behind private endpoints, Azure Purview ingestion private endpoints must be deployed to ensure network isolation for your metadata flowing from the data sources that are being scanned to the Azure Purview Data Map.
 
