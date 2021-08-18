@@ -20,7 +20,7 @@ Tagging is the process of assigning your utterances to intents, and labeling the
 
 There's also a close relationship between intents and entities. The entities that are labeled within utterances assigned to specific intents create a connection between the intent and the entity. The intent is better predicted when the entity is predicted, and the entity is better predicted when the intent is predicted - similar to a feedback loop. You will want to make sure you label entities in every intent where you expect the entity to be present. 
 
-When you enable multiple languages in your project, you must also specify the language of the utterance you are adding. As part of the multilingual capabilities of Dialog Understanding, you can train your project in a dominant language, and then predict in the other available languages. Adding examples to other languages increases the model's performance in these language if you determine it isn't doing well, but avoid duplicating your data across all the languages you would like to support. 
+When you enable multiple languages in your project, you must also specify the language of the utterance you are adding. As part of the multilingual capabilities of Dialog Understanding, you can train your project in a dominant language, and then predict in the other available languages. Adding examples to other languages increases the model's performance in these languages if you determine it isn't doing well, but avoid duplicating your data across all the languages you would like to support. 
 
 For example, to improve a calender bot's performance with users, a developer might add examples mostly in English, and a few in Spanish or French as well. They might add utterances such as:
 
