@@ -52,7 +52,7 @@ Following are the categories and industries applicable to each online stores, by
 |
 
 <sup>1</sup> Depending on category/subcategory and industry selection.<br>
-<sup>2</sup> Offers with private plans will be published to the Azure portal.
+<sup>2</sup> Offers with private plans will be published to the Azure portal.<br>
 
 > [!NOTE]
 > A listing plan and transactable plan cannot exist in the same offer.
