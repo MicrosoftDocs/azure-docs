@@ -6,11 +6,11 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 08/18/2021
 ms.custom: template-how-to
 ---
 
-# Creating and managing collections in Azure Purview
+# Create and manage collections in Azure Purview
 
 Collections in Purview can be used to organize assets and sources by your business' flow, but they are also the tool used to manage access across Purview. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
 
@@ -31,7 +31,7 @@ In order to create and manage collections in Purview, you will need to be a **Co
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
-1. Select your root collection. This is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it is called Contoso Purview. Alternatively-- if collections already exist you can select any collection you would like to create a collection under.
+1. Select your root collection. This is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it is called Contoso Purview. Alternatively, if collections already exist you can select any collection where you want to create a subcollection.
 :::image type="content" source="./media/quickstart-create-collection/select-root-collection.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the root collection highlighted." border="true":::
 1. Select role assignments in the collection window.
 :::image type="content" source="./media/quickstart-create-collection/role-assignments.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
@@ -68,9 +68,11 @@ You will need to be a collection admin in order to create a collection. If you a
 1. Select “Refresh” in collection detail page to reload the single collection.
 :::image type="content" source="./media/how-to-create-and-manage-collections/refresh-single-collection.png" alt-text="Screenshot of Purview studio collection window, with the refresh button under the collection window highlighted." border="true":::
 
-## Adding roles and restricting access through collections
+## Add roles and restrict access through collections
 
-In Purview since permissions are managed through collections it is important to understand the roles and what permissions they will give your users. Users will have access on the collection levels they are assigned to, and can be assigned different permissions on different collections. Below the guide will discuss the roles, how to manage them, and permissions inheritance.
+Since permissions are managed through collections in Purview, it is important to understand the roles and what permissions they will give your users. A user granted permissions on a collection will have access to sources and assets associated with that collection, as well as inherit permissions to subcollections. Inheritance [can be restricted](#restrict-inheritance), but is allowed by default.
+
+The guide below will discuss the roles, how to manage them, and permissions inheritance.
 
 ### Roles
 
@@ -83,12 +85,11 @@ All assigned roles apply to sources, assets, and other objects within the collec
 
 ### Add role assignments
 
-1. Select “Role assignments” tab to see all the roles in a collection. Only a collection admin can manage role assignments.
+1. Select the “Role assignments” tab to see all the roles in a collection. Only a collection admin can manage role assignments.
 :::image type="content" source="./media/how-to-create-and-manage-collections/select-role-assignments.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab highlighted." border="true":::
 1. Select “Edit role assignments” or the person icon to edit each role member.
 :::image type="content" source="./media/how-to-create-and-manage-collections/edit-role-assignments.png" alt-text="Screenshot of Purview studio collection window, with the edit role assignments dropdown list selected." border="true":::
 1. Type in the textbox to search for users you want to add to the role member. Select “X” to remove members you don't want to add.
-:::image type="content" source="./media/how-to-create-and-manage-collections/remove-collection-admin.png" alt-text="Screenshot of Purview studio collection admins window, with the x button beside one of the names highlighted." border="true":::
 1. Click “OK” to save your changes, and you will see the new users reflected in the role assignments list.
 
 ### Remove role assignments
@@ -100,20 +101,25 @@ All assigned roles apply to sources, assets, and other objects within the collec
 
 ### Restrict inheritance
 
-Collections permissions are inherited automatically from the parent collection. For example, any permissions on the root collection (the collection at the top of the list that has the same name as your Purview resource), will be inherited by all collections below it. You can restrict inheritance from a parent collection at any time, using the restrict inherited permissions option.
+Collection permissions are inherited automatically from the parent collection. For example, any permissions on the root collection (the collection at the top of the list that has the same name as your Purview resource), will be inherited by all collections below it. You can restrict inheritance from a parent collection at any time, using the restrict inherited permissions option.
 
+Once you restrict inheritance, you will need to add users directly to the restricted collection to grant them access.
+
+1. Navigate to the collection where you want to restrict inheritance and select the 'Role assignments' tab.
 1. Select “Restrict inherited permissions” and click “Restrict access” in the popup dialog to remove inherited permissions from this collection and any subcollections. Note that collection admin permissions won’t be affected.
 :::image type="content" source="./media/how-to-create-and-manage-collections/restrict-access-inheritance.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab selected, and the restrict inherited permissions slide button highlighted." border="true":::
 1. After restriction, inherited members are removed from the roles expect for collection admin.
-1. Click the “Restrict inherited permissions” toggle button to revert.
+1. Click the “Restrict inherited permissions” toggle button again to revert.
 :::image type="content" source="./media/how-to-create-and-manage-collections/remove-restriction.png" alt-text="Screenshot of Purview studio collection window, with the role assignments tab selected, and the unrestrict inherited permissions slide button highlighted." border="true":::
 
-## Adding assets to collections
+## Add assets to collections
+
+Assets and sources are also associated with collections. During a scan, if the scan was associated with a collection the assets will be automatically added to that collection, but can also be manually added.
 
 1. Check the collection information in asset details. You can find collection information in the “Collection path” section on right-top corner of the asset details page.
 :::image type="content" source="./media/how-to-create-and-manage-collections/collection-path.png" alt-text="Screenshot of Purview studio asset window, with the collection path highlighted." border="true":::
 1. Permissions in asset details page:
-    1. Please check the collection based permission model by following the [adding roles and restricting access on collections guide above](#adding-roles-and-restricting-access-through-collections).
+    1. Please check the collection based permission model by following the [adding roles and restricting access on collections guide above](#add-roles-and-restrict-access-through-collections).
     1. If you don’t have read permission on a collection, the assets under that collection will not be listed in search results. If you get the direct URL of one asset and open it, you will see the no access page. In this case please contact your Purview admin to grant you the access. You can click the “Refresh” button to check the permission again.
     :::image type="content" source="./media/how-to-create-and-manage-collections/no-access.png" alt-text="Screenshot of Purview studio asset window where the user has no permissions, and has no access to information or options." border="true":::
     1. If you have the read permission to one collection but don’t have the write permission, you can browse the asset details page, but the following operations are disabled:
@@ -132,14 +138,6 @@ Collections permissions are inherited automatically from the parent collection. 
 1. In the right side panel, choose the target collection you want move to. Note that you can only see the collections where you have write permissions.
 :::image type="content" source="./media/how-to-create-and-manage-collections/move-select-collection.png" alt-text="Screenshot of Purview studio pop-up window with the select a collection dropdown menu highlighted." border="true":::
 1. Click “Move” button on the bottom of the window to move the asset.
-
-### Move asset to another collection in batches
-
-1. You can list all the assets in the same collection in the collection management page.
-:::image type="content" source="./media/how-to-create-and-manage-collections/list-assets.png" alt-text="Screenshot of Purview studio collection window with the overview tab selected and the assets count box highlighted." border="true":::
-1. Click the “Assets” card to see all the assets that belong to this collection.
-:::image type="content" source="./media/how-to-create-and-manage-collections/assets-card.png" alt-text="Screenshot of Purview studio collection window with the overview tab selected and the assets card highlighted." border="true":::
-1. Choose the assets that you want to move by check the check box in the first column of the table. The “Move” button in the command bar will be enabled if you selected at least one collection. Click the “Move” button to move the assets you selected to another collection.
 
 ## Search and browse by collections
 
@@ -171,7 +169,7 @@ The search results page shows a list of assets that match the keywords provided 
 :::image type="content" source="./media/how-to-create-and-manage-collections/browse-by-collection.png" alt-text="Screenshot of the catalog Purview studio window with the browse assets button highlighted." border="true":::
 1. On the Browse asset page, select `By collection` pivot. Collections are listed with hierarchical table view. To further explore assets in each collection, click on the corresponding collection name.
 :::image type="content" source="./media/how-to-create-and-manage-collections/by-collection-view.png" alt-text="Screenshot of the asset Purview studio window with the by collection tab selected."border="true":::
-1. On the next page, the search results of the assets under selected collection will be show up. You can narrow the results by selecting the facet filters. Or you can see the assets under other collections by clicking on the sub/related collection names  
+1. On the next page, the search results of the assets under selected collection will be show up. You can narrow the results by selecting the facet filters. Or you can see the assets under other collections by clicking on the sub/related collection names
 :::image type="content" source="./media/how-to-create-and-manage-collections/search-results-by-collection.png" alt-text="Screenshot of the catalog Purview studio window with the by collection tab selected."border="true":::
 1. To view the details of an asset, click the asset name in the search result. Or you can check the assets and bulk edit them.
 :::image type="content" source="./media/how-to-create-and-manage-collections/view-asset-details.png" alt-text="Screenshot of the catalog Purview studio window with the by collection tab selected and asset check boxes highlighted."border="true":::

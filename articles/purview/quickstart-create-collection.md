@@ -1,11 +1,11 @@
 ---
-title: Create a collection
+title: 'Quickstart: Create a collection'
 description: This article describes how to create a collection and add permissions and sources in Azure Purview
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.topic: quickstart
-ms.date: 08/16/2021
+ms.date: 08/18/2021
 ms.custom: template-quickstart 
 ---
 
@@ -30,7 +30,7 @@ In order to create and manage collections in Purview, you will need to be a **Co
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
-1. Select your root collection. This is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it is called Contoso Purview. Alternatively-- if collections already exist you can select any collection you would like to create a collection under.
+1. Select your root collection. This is the top collection in your collection list and will have the same name as your Purview resource. In our example below, it is called Contoso Purview.
 :::image type="content" source="./media/quickstart-create-collection/select-root-collection.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the root collection highlighted." border="true":::
 1. Select role assignments in the collection window.
 :::image type="content" source="./media/quickstart-create-collection/role-assignments.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the role assignments tab highlighted." border="true":::
@@ -43,7 +43,7 @@ To create your collection, we will start in the [Purview Studio](use-purview-stu
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 :::image type="content" source="./media/quickstart-create-collection/find-collections.png" alt-text="Screenshot of Purview studio window, opened to the Data Map, with the Collections tab selected." border="true":::
-1. Select “+ Add a collection”. Note that only collection admin can manage collections.
+1. Select “+ Add a collection”.
 1. In the right panel, enter the collection name, description, and search for users to add them as collection admins.
 :::image type="content" source="./media/quickstart-create-collection/create-collection.png" alt-text="Screenshot of Purview studio window, showing the new collection window, with a display name and collection admins selected, and the create button highlighted." border="true":::
 1. Select “Create”. The collection information will reflect on the page.
@@ -57,10 +57,10 @@ Now that you have a collection, you can assign permissions to this collection to
 
 All assigned roles apply to sources, assets, and other objects within the collection where the role is applied.
 
-- **Collection admins** - can edit a collection, its details, manage access in the collection, and add subcollections.
-- **Data source admins** - can manage data sources and data scans.
-- **Data curators** - can create, read, modify, and delete actions on catalog data objects.
-- **Data readers** - can access but not modify catalog data objects.
+* **Collection admins** - can edit a collection, its details, manage access in the collection, and add subcollections.
+* **Data source admins** - can manage data sources and data scans.
+* **Data curators** - can create, read, modify, and delete actions on catalog data objects.
+* **Data readers** - can access but not modify catalog data objects.
 
 ### Assign permissions
 
@@ -88,5 +88,5 @@ All assigned roles apply to sources, assets, and other objects within the collec
 
 Now that you have a collection, you can follow these guides below to add resources, scan, and manage your collections.
 
-[Register source to collection](how-to-create-and-manage-collections.md#register-source-to-a-collection)
-[Access management through collections](how-to-create-and-manage-collections.md#adding-roles-and-restricting-access-through-collections)
+* [Register source to collection](how-to-create-and-manage-collections.md#register-source-to-a-collection)
+* [Access management through collections](how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections)
