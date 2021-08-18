@@ -24,9 +24,21 @@
       href: quickstart-live-demo.md
     - name: Pub/sub from CLI
       href: quickstart-cli-try.md
-  - name: Build a serverless chat with Azure Function
-    href: quickstart-serverless.md
-
+    - name: Pub/sub using Service SDK
+      href: quickstart-use-sdk.md
+- name: Tutorials
+  items:
+    - name: Serverless Development
+      expanded: true
+      items:
+      - name: Build a serverless chat with Azure Function
+        href: quickstart-serverless.md
+    - name: Publish and subscribe messages
+      href: https://azure.github.io/azure-webpubsub/getting-started/publish-messages/js-publish-message
+    - name: Client streaming using service-supported subprotocol
+      href: https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols
+    - name: Authentication and permissions
+      href: https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions
 - name: How-to guides
   expanded: true
   items:
@@ -69,9 +81,9 @@
   items:
   - name: REST API
     href: /rest/api/webpubsub
-  - name: PubSub WebSocket Subprotocol
+  - name: WebSocket Subprotocols supported by Web PubSub
     href: https://azure.github.io/azure-webpubsub/references/pubsub-websocket-subprotocol
-  - name: Web PubSub CloudEvents 
+  - name: CloudEvents protocol for Web PubSub
     href: https://azure.github.io/azure-webpubsub/references/protocol-cloudevents
   - name: Server SDKs
     href: choose-server-sdks.md

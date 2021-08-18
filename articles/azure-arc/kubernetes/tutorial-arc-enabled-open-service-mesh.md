@@ -278,7 +278,7 @@ Certificate:
       Timeout:             1s
     Use HTTPS Ingress:     false
 ```
-Refer to the [Config API reference](https://docs.openservicemesh.io/docs/apidocs/config/v1alpha1) for more information. Notice that **spec.traffic.enablePermissiveTrafficPolicyMode** is set to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
+Refer to the [Config API reference](https://docs.openservicemesh.io/docs/api_reference/config/v1alpha1/) for more information. Notice that **spec.traffic.enablePermissiveTrafficPolicyMode** is set to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
 
 ### Making changes to OSM controller configuration
 
@@ -361,11 +361,11 @@ Add namespaces to the mesh by running the following command:
 osm namespace add <namespace_name>
 ```
 
-More information about onboarding services can be found [here](https://docs.openservicemesh.io/docs/tasks/onboard_services/).
+More information about onboarding services can be found [here](https://docs.openservicemesh.io/docs/guides/app_onboarding/#onboard-services).
 
 ### Configure OSM with Service Mesh Interface (SMI) policies
 
-You can start with a [demo application](https://docs.openservicemesh.io/docs/getting_started/manual_demo/#deploy-applications) or use your test environment to try out SMI policies.
+You can start with a [demo application](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications) or use your test environment to try out SMI policies.
 
 > [!NOTE] 
 > Ensure that the version of the bookstore application you run matches the version of the OSM extension installed on your cluster. Ex: if you are using v0.8.4 of the OSM extension, use the bookstore demo from release-v0.8 branch of OSM upstream repository.
@@ -377,9 +377,9 @@ The OSM extension does not install add-ons like [Jaeger](https://www.jaegertraci
 > [!NOTE]
 > Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name 'arc-osm-system' when making changes to `osm-mesh-config`.
 
-- [BYO-Jaeger instance](https://docs.openservicemesh.io/docs/tasks/observability/tracing/#byo-bring-your-own)
-- [BYO-Prometheus instance](https://docs.openservicemesh.io/docs/tasks/observability/metrics/#byo-prometheus)
-- [BYO-Grafana dashboard](https://docs.openservicemesh.io/docs/tasks/observability/metrics/#importing-dashboards-on-a-byo-grafana-instance)
+- [BYO-Jaeger instance](https://docs.openservicemesh.io/docs/guides/observability/tracing/#byo-bring-your-own)
+- [BYO-Prometheus instance](https://docs.openservicemesh.io/docs/guides/observability/metrics/#byo-prometheus)
+- [BYO-Grafana dashboard](https://docs.openservicemesh.io/docs/guides/observability/metrics/#importing-dashboards-on-a-byo-grafana-instance)
 
 
 ## Monitoring application using Azure Monitor and Applications Insights

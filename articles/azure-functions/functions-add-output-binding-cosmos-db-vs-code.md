@@ -124,7 +124,7 @@ Open the *HttpExample.cs* project file and add the following parameter to the `R
     ConnectionStringSetting = "CosmosDbConnectionString")]IAsyncCollector<dynamic> documentsOut,
 ```
 
-The `documentsOut` parameter is an IAsyncCollector<T> type, which represents a collection of JSON documents that will be written to your Azure Cosmos DB container when the function completes. Specific attributes specifies the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `ConnectionStringSettingAttribute`.
+The `documentsOut` parameter is an `IAsyncCollector<T>` type, which represents a collection of JSON documents that will be written to your Azure Cosmos DB container when the function completes. Specific attributes specifies the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `ConnectionStringSettingAttribute`.
 
 The Run method definition should now look like the following:  
 
