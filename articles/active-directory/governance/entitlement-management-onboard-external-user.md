@@ -70,7 +70,7 @@ On this tab, you create a request policy. A *policy* defines the rules or guardr
     * **Require requestor justification** – sets the Justification field on the requestor form to be required
     * **How many stages** – Allows you to configure multiple stages of approval for your external users
     * **Approver** – this field has three options:
-      * **Internal sponsor** -  This option comes from a configured [Connected Org](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-organization) where you can sponsors for specific organizations you're working with. This allows you to set someone specified in the Connected Org from within your organization to be the approver. 
+      * **Internal sponsor** -  This option comes from a configured [Connected Org](entitlement-management-organization.md) where you can sponsors for specific organizations you're working with. This allows you to set someone specified in the Connected Org from within your organization to be the approver. 
       * **External sponsor** - This option allows you to set someone specified in the Connected Org from outside your organization to be the approver.
       * **Choose specific approver** – This option allows you to set specific people to be the approver.
     * **Decision must be made in how many days?** – Time limit for approvers.
