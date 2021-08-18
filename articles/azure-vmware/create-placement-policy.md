@@ -163,7 +163,7 @@ You can add new resources, such as a VM or a host, to a policy or remove existin
 
    :::image type="content" source="media/placement-policies/edit-placement-policy.png" alt-text="Screenshot showing how to edit the resources in a placement policy." lightbox="media/placement-policies/edit-placement-policy.png":::
 
-   - To remove an existing resource, select the resource or resources you want to remove. Select **Unassign**, which removes the resource or resources from the list.
+   - To remove an existing resource, select one or more resources you want to remove and select **Unassign**. It removes the resource from the list.
 
       :::image type="content" source="media/placement-policies/edit-placement-policy-unassign.png" alt-text="Screenshot showing how to remove an existing resource from a placement policy.":::
 
