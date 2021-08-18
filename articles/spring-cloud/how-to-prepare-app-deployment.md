@@ -139,7 +139,7 @@ Azure Spring Cloud supports both Java 8 and Java 11. The hosting environment con
 
 To prepare an existing Spring Boot application for deployment to Azure Spring Cloud include the Spring Boot and Spring Cloud dependencies in the application POM file as shown in the following sections.
 
-Azure Spring Cloud would support the latest Spring Boot or Spring Cloud release within **ONE month** after it’s been released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases). 
+Azure Spring Cloud will support the latest Spring Boot or Spring Cloud release within one month after it’s been released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases). 
 
 The following table lists the supported Spring Boot and Spring Cloud combinations:
 
