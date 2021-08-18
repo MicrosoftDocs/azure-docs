@@ -4,7 +4,7 @@ description: This how-to guide describes details of how to scan Amazon S3 bucket
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-multi-cloud
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 06/17/2021
 ms.custom: references_regions
@@ -20,7 +20,7 @@ For this service, use Purview to provide a Microsoft account with secure access 
 In this how-to guide, you'll learn about how to add Amazon S3 buckets as Purview resources and create a scan for your Amazon S3 data.
 
 > [!IMPORTANT]
-> The Multi-Cloud Scanning Connectors for Azure Purview are separate add-ons to Azure Purview. The terms and conditions for the Multi-Cloud Scanning Connectors for Azure Purview are contained in the agreement under which you obtained Microsoft Azure Services. For more information, see Microsoft Azure Legal Information at https://azure.microsoft.com/en-us/support/legal/.
+> The Multi-Cloud Scanning Connectors for Azure Purview are separate add-ons to Azure Purview. The terms and conditions for the Multi-Cloud Scanning Connectors for Azure Purview are contained in the agreement under which you obtained Microsoft Azure Services. For more information, see Microsoft Azure Legal Information at https://azure.microsoft.com/support/legal/.
 >
 
 ## Purview scope for Amazon S3
