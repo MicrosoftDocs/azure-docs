@@ -26,7 +26,7 @@ The most common reasons for being unable to connect to a share on your device ar
 
 To find out whether a domain issue is preventing a share connection:
 
-- Try to connect to the device, and enter your user name in one these formats:
+- Try to connect to the device, and enter your user name in these formats:
 
     - `<device IP address>\<user name>`
     - `\<user name>`
