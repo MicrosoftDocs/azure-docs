@@ -23,6 +23,8 @@ Only users can be owners of enterprise applications. Groups cannot be assigned a
 
 An application owner could potentially create or update users or other objects while impersonating the application, depending on the application's permissions. Owners of applications have the same permissions as application administrators scoped to an individual application. For more information, see [Azure AD built-in roles](../roles/permissions-reference.md#application-administrator). 
 
+## Assign an owner
+
 To assign an owner to an enterprise application:
 
 1. Sign in to [your Azure AD organization](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is eligible for the **Application Administrator** role or the **Cloud Application Administrator** role for the organization.
