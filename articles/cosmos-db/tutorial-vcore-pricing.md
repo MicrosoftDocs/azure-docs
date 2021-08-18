@@ -1,6 +1,6 @@
 ---
-title: 'How to convert the number of vcores-per-server or vCPU-per-server in your existing nonrelational database to Azure Cosmos DB RU/s as an aid in planning migration'
-description: 'How to convert the number of vcores-per-server or vCPU-per-server in your existing nonrelational database to Azure Cosmos DB RU/s as an aid in planning migration'
+title: 'Convert the number of vCores or vCPUs in your nonrelational database to Azure Cosmos DB RU/s'
+description: 'Convert the number of vCores or vCPUs in your nonrelational database to Azure Cosmos DB RU/s'
 author: anfeldma-ms
 ms.author: anfeldma
 ms.service: cosmos-db
@@ -12,11 +12,13 @@ ms.date: 08/18/2021
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-In this article, we show you how to estimate Azure Cosmos DB RU/s in the scenario where you need to compare total cost of ownership (TCO) between your status-quo nonrelational database solution and Azure Cosmos DB, i.e. if you are considering planning an app migration or data migration to Azure Cosmos DB. This tutorial helps you to generate a ballpark TCO comparison regardless of what nonrelational database solution you currently employ, and regardless of whether your status-quo database solution is self-managed on-premise, self-managed in the cloud, or managed by a PaaS database service.
+This article, explains how to estimate the Azure Cosmos DB RU/s in scenarios where you need to compare total cost of ownership (TCO) between your nonrelational database solution and Azure Cosmos DB.  This analysis is helpful if you are considering to migrate an app or data to Azure Cosmos DB. This guide helps you to generate a ballpark TCO comparison regardless of which non-relational database solution you currently use and whether your status-quo database solution is self-managed on-premise, self-managed in the cloud, or managed by a PaaS database service.
 
 Currently, only the Azure Cosmos DB SQL API and the Azure Cosmos DB API for MongoDB v4.0 are in-scope for this discussiion. We are working on a similar mapping for Cassandra and Gremlin.
 
-## 1. Identify the number of vcores-per-server or vCPU-per-server in your status quo solution
+## 1. Identify the number of vCores or vCPUs
+
+There are differing definitions of what exactly qualifies as a 'vcore' versus a 'vCPU'. Regardless of the respective definitions, many virtualization or cloud services use one or the other term to describe their unit of discrete CPU allocation. Here, we assume that performance and TCO generally scale linearly with respect to both of these, and that insofar as the precise definitions impact the outcome, the impact is only to within a factor of two (owing to hyperthreading which may enable two "vcores" per "vCPU" under some interpretations of those words.) So all of the formulas here assume that vcore and vCPU are equivalent, and vcore is used to refer to both. If you know that vCPU and vcore have different meanings in your application, we recommend that you please adjust the formulae below accordingly.
 
 Start by understanding your status quo cluster configuration
 * In the most general case, we asssume that your status-quo solution is a sharded and replicated nonrelational database
@@ -42,13 +44,13 @@ Before continuing, please identify
 
 Roughly speaking, throughput scales as the product of vcores-per-server and shards:
 
-```
+`
 
 f(N, M) [provisioned RU/s] = (R [provisioned RU/s per vcore]) 
                                 * N [# of vcores-per-server]
                                 * M [# of replica sets]
 
-```
+`
 
 For the Azure Cosmos DB SQL API, a rule of thumb is that the provisioned RU/s per vcore *R* is about 580.
 
@@ -78,7 +80,7 @@ Following the above process, you should end up with an estimate of your equivale
 * Usually you can estimate the cost of your status quo solution from the cost of an individual server
 * Generally, a good rule of thumb is that the *cost* of your status-quo database solution scales as the product of shards and replication factor, or else as the product of vcores-per-server, shards, and replication factor:
 
-```
+`
 
 Number of servers = Number of shards * Number of replicas
 
@@ -88,7 +90,7 @@ Cost = Cost per server * Number of servers
 
 Cost = Cost per vcore * vcores per server * Number of servers
 
-```
+`
 
 ## Next steps
 
