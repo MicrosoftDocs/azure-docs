@@ -189,7 +189,7 @@ Learn more about the [recommended subnet size](virtual-network-concepts.md#subne
 
 if you deploy 1 [capacity unit](api-management-capacity.md) of API Management in the Premium tier in an internal VNET, 3 IP addresses will be used: 1 for the private VIP and one each for the DIPs for two VMs. If you scale out to 4 units, more IPs will be consumed for additional DIPs from the subnet.  
 
-If the destination endpoint has allow-listed only a fixed set of DIPs, connection failures will result if you add new units in the future. For this reason and since the subnet is entirely in yout control, we recommend allow-listing the entire subnet in the backend.
+If the destination endpoint has allow-listed only a fixed set of DIPs, connection failures will result if you add new units in the future. For this reason and since the subnet is entirely in your control, we recommend allow-listing the entire subnet in the backend.
 
 ## Next steps
 

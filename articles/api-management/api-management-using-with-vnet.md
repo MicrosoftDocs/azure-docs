@@ -75,7 +75,7 @@ Some prerequisites differ depending on the version (Stv2 or Stv1) of the [comput
 
 ### Enable connectivity using a Resource Manager template
 
-Use the following templates to deploy an  API Management instance and connect to a VNET. The templatesd differ depending on the version (Stv2 or Stv1) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance
+Use the following templates to deploy an  API Management instance and connect to a VNET. The templates differ depending on the version (Stv2 or Stv1) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance
 
 ### [Stv2](#tab/Stv2)
 
