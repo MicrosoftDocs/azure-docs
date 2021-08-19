@@ -127,9 +127,9 @@ foreach ($reservation in $reservationObjects)
 
 [User Access Administrators](../../role-based-access-control/built-in-roles.md#user-access-administrator) can add the users to Reservation Administrator and Reservation Reader roles.
 
-## Add a Reservation Administrator or Reservation Reader in Azure AD
+## Add a Reservation Administrator role at the tenant level
 
-Use the following Azure PowerShell script to add a Reservation Administrator role at the tenant level.
+Use the following Azure PowerShell script to add a Reservation Administrator role at the tenant level with PowerShell.
 
 ```azurepowershell
 Import-Module Az.Accounts
@@ -155,9 +155,9 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.Capacity" -PrincipalId <Object
 - Accept pipeline input: False
 - Accept wildcard characters: False
 
-## Assign the Reservation Reader role at the tenant level
+## Assign a Reservation Reader role at the tenant level
 
-Use the following Azure PowerShell script to Assign the Reservation Reader role at the tenant level with PowerShell.
+Use the following Azure PowerShell script to assign the Reservation Reader role at the tenant level with PowerShell.
 
 ```azurepowershell
 
