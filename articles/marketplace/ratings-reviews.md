@@ -4,9 +4,10 @@ description: Learn how to access a consolidated view of customer feedback for yo
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/06/2021
 author: smannepalle
 ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 07/06/2021
 ---
 
 # Ratings & Reviews analytics dashboard in Partner Center

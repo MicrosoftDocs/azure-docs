@@ -2,7 +2,7 @@
 title: Supported operating systems, container engines - Azure IoT Edge
 description: Learn which operating systems can run the Azure IoT Edge daemon and runtime, and supported container engines for your production devices
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 06/09/2021
 ms.topic: conceptual

@@ -15,7 +15,7 @@ ms.author: mjbrown
 
 In this article, you learn how to use Azure Resource Manager templates to help deploy and manage your Azure Cosmos DB accounts, databases, and containers.
 
-This article only shows Azure Resource Manager template examples for Core (SQL) API accounts. You can also find template examples for [Cassandra](cassandra/templates-samples.md), [Gremlin](templates-samples-gremlin.md), [MongoDB](templates-samples-mongodb.md), and [Table](table/resource-manager-templates.md) APIs.
+This article only shows Azure Resource Manager template examples for Core (SQL) API accounts. You can also find template examples for [Cassandra](cassandra/templates-samples.md), [Gremlin](templates-samples-gremlin.md), [MongoDB](mongodb/resource-manager-template-samples.md), and [Table](table/resource-manager-templates.md) APIs.
 
 > [!IMPORTANT]
 >

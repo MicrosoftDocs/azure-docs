@@ -1,7 +1,7 @@
 ---
 title: Copy data from and to Salesforce
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Salesforce to supported sink data stores or from supported source data stores to Salesforce by using a copy activity in a data factory pipeline.
+description: Learn how to copy data from Salesforce to supported sink data stores or from supported source data stores to Salesforce by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
@@ -11,7 +11,7 @@ ms.custom: synapse
 ms.date: 03/17/2021
 ---
 
-# Copy data from and to Salesforce by using Azure Data Factory
+# Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-salesforce-connector.md)
@@ -19,7 +19,7 @@ ms.date: 03/17/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 ## Supported capabilities
 
@@ -54,7 +54,7 @@ You might also receive the "REQUEST_LIMIT_EXCEEDED" error message in both scenar
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define Data Factory entities specific to the Salesforce connector.
+The following sections provide details about properties that are used to define entities specific to the Salesforce connector.
 
 ## Linked service properties
 
@@ -65,12 +65,12 @@ The following properties are supported for the Salesforce linked service.
 | type |The type property must be set to **Salesforce**. |Yes |
 | environmentUrl | Specify the URL of the Salesforce instance. <br> - Default is `"https://login.salesforce.com"`. <br> - To copy data from sandbox, specify `"https://test.salesforce.com"`. <br> - To copy data from custom domain, specify, for example, `"https://[domain].my.salesforce.com"`. |No |
 | username |Specify a user name for the user account. |Yes |
-| password |Specify a password for the user account.<br/><br/>Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| securityToken |Specify a security token for the user account. <br/><br/>To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). The security token can be skipped only if you add the Integration Runtime's IP to the [trusted IP address list](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) on Salesforce. When using Azure IR, refer to [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md).<br/><br/>For instructions on how to get and reset a security token, see [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
+| password |Specify a password for the user account.<br/><br/>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| securityToken |Specify a security token for the user account. <br/><br/>To learn about security tokens in general, see [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). The security token can be skipped only if you add the Integration Runtime's IP to the [trusted IP address list](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) on Salesforce. When using Azure IR, refer to [Azure Integration Runtime IP addresses](azure-integration-runtime-ip-addresses.md).<br/><br/>For instructions on how to get and reset a security token, see [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | apiVersion | Specify the Salesforce REST/Bulk API version to use, e.g. `48.0`. By default, the connector uses [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) to copy data from Salesforce, and uses [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) to copy data to Salesforce. | No |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No |
 
-**Example: Store credentials in Data Factory**
+**Example: Store credentials**
 
 ```json
 {
@@ -144,7 +144,7 @@ To copy data from and to Salesforce, set the type property of the dataset to **S
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-![Data Factory Salesforce connection API Name](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
+![Salesforce connection API Name](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
 **Example:**
 
@@ -190,7 +190,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
 
-![Data Factory Salesforce connection API Name list](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
+![Salesforce connection API Name list](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
 **Example:**
 
@@ -311,9 +311,9 @@ If you hit error of "MALFORMED_QUERY: Truncated", normally it's due to you have 
 
 ## Data type mapping for Salesforce
 
-When you copy data from Salesforce, the following mappings are used from Salesforce data types to Data Factory interim data types. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you copy data from Salesforce, the following mappings are used from Salesforce data types to interim data types within the service internally. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| Salesforce data type | Data Factory interim data type |
+| Salesforce data type | Service interim data type |
 |:--- |:--- |
 | Auto Number |String |
 | Checkbox |Boolean |
@@ -341,4 +341,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

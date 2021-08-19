@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
+ms.custom: has-adal-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -51,6 +52,66 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 >Please refer to [this article](./how-to-upgrade-previous-version.md) to learn more about how to upgrade Azure AD Connect to the latest version.
 >
 >For version history information on retired versions, see [Azure AD Connect version release history archive](reference-connect-version-history-archive.md)
+
+## 2.0.10.0
+
+>[!NOTE] 
+>This is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer. This hotfix addresses an issue that is present in version 2.0 as well as in Azure AD Connect version 1.6. If you are running Azure AD Connect on an older Windows Server you should install the [1.6.13.0](#16130) build instead.
+
+### Release status
+8/19/2021: Released for download only, not available for auto upgrade.
+
+### Bug fixes
+
+ - We fixed a bug where, when a domain is renamed, Password Hash Sync would fail with an error indicating "a specified cast is not valid" in the Event log. This is a regression from earlier builds.
+
+## 1.6.13.0
+>[!NOTE] 
+>This is a hotfix update release of Azure AD Connect. This release is intended for customers who are running Azure AD Connect on a server with Windows Server 2012 or 2012 R2.
+
+8/19/2021: Released for download only, not available for auto upgrade.
+
+### Bug fixes
+
+ - We fixed a bug where, when a domain is renamed, Password Hash Sync would fail with an error indicating "a specified cast is not valid" in the Event log. This is a regression from earlier builds.
+
+### Functional changes
+There are no functional changes in this release
+
+## 2.0.9.0
+
+### Release status
+8/17/2021: Released for download only, not available for auto upgrade.
+
+### Bug fixes
+>[!NOTE] 
+>This is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer. This release addresses an issue that is present in version 2.0.8.0, this issue is not present in Azure AD Connect version 1.6
+
+ - We fixed a bug where, when syncing a large number of Password Hash Sync transactions, the Event log entry length would exceed the maximum allowed length for a Password Hash Sync event entry. We now split the lengthy log entry into multiple entries.
+
+## 2.0.8.0
+>[!NOTE] 
+>This is a security update release of Azure AD Connect. This release requires Windows Server 2016 or newer. If you are using an older version of Windows Server, please use [version 1.6.11.3](#16113).
+>This release addresses a vulnerability as documented in [this CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). For more information about this vulnerability please refer to the CVE.
+>You can download this release using [this link](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+
+### Release status
+8/10/2021: Released for download only, not available for auto upgrade. 
+
+### Functional changes
+There are no functional changes in this release
+
+## 1.6.11.3 
+>[!NOTE] 
+>This is security update release of Azure AD Connect. This version is intended to be used by customers are running an older version of Windows Server and cannot upgrade their server to Windows Server 2016 or newer as this time. You cannot use this version to update an Azure AD Connect V2.0 server.
+>This release addresses a vulnerability as documented in [this CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). For more information about this vulnerability please refer to the CVE.
+>You can download this release using [this link](https://www.microsoft.com/download/details.aspx?id=103336)
+
+### Release status
+8/10/2021: Released for download only, not available for auto upgrade.
+
+### Functional changes
+There are no functional changes in this release
 
 ## 2.0.3.0
 >[!NOTE] 
@@ -101,8 +162,8 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status, or set it a
 -	This release requires PowerShell version 5.0 or newer to be installed on the Windows Server. Note that this version is part of Windows Server 2016 and newer.	
 -	We increased the Group sync membership limits to 250k with the new V2 endpoint.
 -	We have updated the Generic LDAP connector and the Generic SQL Connector to the latest versions. Read more about these connectors here:
-    - [Generic LDAP Connector reference documentation](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap)
-    - [Generic SQL Connector reference documentation](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)
+    - [Generic LDAP Connector reference documentation](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap)
+    - [Generic SQL Connector reference documentation](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)
 -	In the M365 Admin Center, we now report the AADConnect client version whenever there is export activity to Azure AD. This ensures that the M365 Admin Center always has the most up to date AADConnect client version, and that it can detect when you’re using an outdated version
 
 ### Bug fixes
@@ -383,7 +444,7 @@ We fixed a bug in the sync errors compression utility that was not handling surr
 >We are investigating an incident where some customers are experiencing an issue with existing Hybrid Azure AD joined devices after upgrading to this version of Azure AD Connect. We advise customers who have deployed Hybrid Azure AD join to postpone upgrading to this version until the root cause of these issues are fully understood and mitigated. More information will be provided as soon as possible.
 
 >[!IMPORTANT]
->With this version of Azure AD Connect some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during Conditional Access authorization. For more information see [Understanding Azure AD Connect 1.4.xx.x device disappearnce](reference-connect-device-disappearance.md)
+>With this version of Azure AD Connect some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during Conditional Access authorization. For more information see [Understanding Azure AD Connect 1.4.xx.x device disappearnce](/troubleshoot/azure/active-directory/reference-connect-device-disappearance)
 
 
 ### Release status

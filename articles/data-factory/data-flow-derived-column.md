@@ -1,7 +1,7 @@
 ---
-title: Derived column transformation in mapping data flow
+title: Derived column transformation in mapping data flows
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to transform data at scale in Azure Data Factory with the mapping data flow Derived Column transformation.
+description: Learn how to transform data at scale in Azure Data Factory and Azure Synapse Analytics with the mapping data flow Derived Column transformation.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -82,7 +82,7 @@ To reference a local in a derived column, either click on the local from the **E
 
 The below example is a derived column named `CleanData` that takes an incoming stream `MoviesYear` and creates two derived columns. The first derived column replaces column `Rating` with Rating's value as an integer type. The second derived column is a pattern that matches each column whose name starts with 'movies'. For each matched column, it creates a column `movie` that is equal to the value of the matched column prefixed with 'movie_'. 
 
-In the Data Factory UX, this transformation looks like the below image:
+In the UI, this transformation looks like the below image:
 
 ![Derive example](media/data-flow/derive-script.png "Derive example")
 
