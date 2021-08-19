@@ -65,7 +65,7 @@ Follow these steps to configure Azure AD Connect for Password hash synchronizati
 
 1. On your Azure AD Connect server, launch the **Azure AD Connect** app from the start menu or desktop icon and select **Configure**.
 
-![image shows the Azure AD icon and configure button](media/migrate-okta-federation-to-azure-active-directory/configure-azuread.png)
+![image shows the Azure AD icon and configure button](media/migrate-okta-federation-to-azure-active-directory/configure-azure-ad.png)
 
 2. Select **Change user sign-in** > **Next**.
 
@@ -255,7 +255,7 @@ Applications selection, you cannot add users under the App Registrations menu.
 3. After about 15 minutes, sign in as one of the Managed
 Authentication Pilot users and access [Myapplications](https://myapplications.microsoft.com).
 
-![image shows access myapplications](media/migrate-okta-federation-to-azure-active-directory/myapplications.png)
+![image shows access myapplications](media/migrate-okta-federation-to-azure-active-directory/my-applications.png)
 
 4. Once authenticated, there will be an **Okta Application Access** tile, that will link the user back to the Okta homepage.
 
