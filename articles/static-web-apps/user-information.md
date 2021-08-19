@@ -125,7 +125,7 @@ public static class StaticWebAppsAuth
       {
           var data = header[0];
           var decoded = Convert.FromBase64String(data);
-          var json = Encoding.ASCII.GetString(decoded);
+          var json = Encoding.UTF8.GetString(decoded);
           principal = JsonSerializer.Deserialize<ClientPrincipal>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
       }
 
