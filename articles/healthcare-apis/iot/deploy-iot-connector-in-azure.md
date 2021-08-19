@@ -20,7 +20,7 @@ In this quickstart, you'll learn how to deploy the IoT Connector in the Azure po
 
 It's important that you have the following prerequisites completed before you begin the steps of creating an IoT Connector instance in Azure Healthcare APIs.
 
-* [Azure subscription](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
+* [Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [Resource group deployed in the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal)
 * [Workspace deployed in Azure Healthcare APIs](../workspace-overview.md)  
 * [FHIR service deployed in Azure Healthcare APIs](../fhir/fhir-portal-quickstart.md) 
@@ -43,17 +43,15 @@ It's important that you have the following prerequisites completed before you be
 
    [ ![Add IoT Connector](media/add-iot-connector.png) ](media/add-iot-connector.png#lightbox)
 
-   Proceed to the next section to configure the properties of the IoT Connector.
-
 ## Configure IoT Connector to ingest data
 
-1. Under the **Basics** tab, enter the **Instance Details**.
+Under the **Basics** tab, complete the required fields under **Instance details**.
 
-   [ ![IoT configure instance details.](media/basics-instance-details.png) ](media/basics-instance-details.png#lightbox)
+[ ![IoT configure instance details.](media/basics-instance-details.png) ](media/basics-instance-details.png#lightbox)
 
-2. Enter the **IoT Connector name**.
+1. Enter the **IoT Connector name**.
 
-3. Enter the **Event Hub name**.
+2. Enter the **Event Hub name**.
 
    The Event Hub name is located by selecting the name of the **Event Hubs Instance** in the **Azure Recent resources** page.
 
@@ -61,7 +59,7 @@ It's important that you have the following prerequisites completed before you be
 
    For information about Azure event hubs, see [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace).
 
-4. Enter the **Consumer Group**.
+3. Enter the **Consumer Group**.
 
    The Consumer Group name is located by selecting the name of the Event Hubs instance in the **Azure Recent resources** page and by selecting the **Consumer groups** blade.
 
@@ -69,7 +67,7 @@ It's important that you have the following prerequisites completed before you be
 
    For information about Consumer Groups,  see [Features and terminology in Azure Event Hubs](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#event-consumers).
 
-5. Enter the name of the **Fully Qualified Namespace**.
+4. Enter the name of the **Fully Qualified Namespace**.
 
     The **Fully Qualified Namespace** is the **Host name** located on the **Event Hubs Overview** page as shown in the image below.
 
@@ -77,9 +75,9 @@ It's important that you have the following prerequisites completed before you be
 
     Before you select **Review + Create**, you must configure the **Destination** properties because they’re required fields for creating and deploying an IoT Connector.
 
-    For more information about Event Hub namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
+    For more information about Event Hubs Namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
 
-6. (Optional) Select **Next: Device mapping >**. 
+5. (Optional) Select **Next: Device mapping >**. 
     
     Proceed to the next section to learn about the Device Mapper tool. Otherwise, proceed to the section [Configure destination mapping](#configure-destination)
   
@@ -120,7 +118,7 @@ For more information, see the open source documentation [Device Content Mapping]
 
    **Create**
 
-     The IoT Connector destination attempts to retrieve a device resource from the FHIR Server using the device identifier included in the event hub message. It also attempts to retrieve a patient resource from the FHIR Server using the patient identifier included in the event hub message. If either resource is not found, new resources will be created (device, patient, or both) containing just the identifier contained in the Event Hub message. When you use the **Create** option, both a device identifier and a patient identifier can be configured in the device mapping. In other words, when the IoT Connector destination is in **Create** mode, it can function normally **without** adding device and patient resources to the FHIR Server.
+     The IoT Connector destination attempts to retrieve a device resource from the FHIR Server using the device identifier included in the Event Hub message. It also attempts to retrieve a patient resource from the FHIR Server using the patient identifier included in the Event Hub message. If either resource is not found, new resources will be created (device, patient, or both) containing just the identifier contained in the Event Hub message. When you use the **Create** option, both a device identifier and a patient identifier can be configured in the device mapping. In other words, when the IoT Connector destination is in **Create** mode, it can function normally **without** adding device and patient resources to the FHIR Server.
 
    **Lookup**
 
