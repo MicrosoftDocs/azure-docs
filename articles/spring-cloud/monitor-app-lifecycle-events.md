@@ -25,21 +25,21 @@ Azure Spring Cloud provides built-in tools to monitor the status and health of y
 - Which instance(s) are deleted when you stop your app
 - Which instance(s) are deleted and created when you restart your app
 
-For example, when you restart your app, you can find the impacted instances from the **Activity log** detail page in the Azure portal.
+For example, when you restart your app, you can find the affected instances from the **Activity log** detail page in the Azure portal.
 
 ![Azure portal screenshot of restart details in the activity log](media/monitor-app-lifecycle-events/activity-log-restart-detail.png)
 
 ## Monitor app lifecycle events in Azure Service Health
 
-[Azure Resource Health](../service-health/resource-health-overview.md) helps you diagnose and get support for issues that may affect the availability of your service, such as service incidents, planned maintenance periods, or regional outages. Application restarting events are added into Azure Service Health. They include both unexpected incidents (for example, an unplanned app crash) and scheduled actions (for example, planned maintenance).
+[Azure Resource Health](../service-health/resource-health-overview.md) helps you diagnose and get support for issues that may affect the availability of your service. These issues include service incidents, planned maintenance periods, and regional outages. Application restarting events are added into Azure Service Health. They include both unexpected incidents (for example, an unplanned app crash) and scheduled actions (for example, planned maintenance).
 
 ### Monitor unplanned app lifecycle events
 
-When your app is restarted due to unplanned events such as app crash, health check failure, or system outage, the status of your Azure Spring Cloud instance will become degraded in the **Resource health** section of the Azure portal. Degraded means that your resource detected a loss in performance, although it's still available for use.
+When your app is restarted because of unplanned events such as app crash, health check failure, or system outage, the status of your Azure Spring Cloud instance will become degraded in the **Resource health** section of the Azure portal. Degraded means that your resource detected a loss in performance, although it's still available for use.
 
 ![Screenshot of the resource health pane](media/monitor-app-lifecycle-events/resource-health-detail.png)
 
-You can find the latest status, the root cause, and impacted instances in the health history page.
+You can find the latest status, the root cause, and affected instances in the health history page.
 
 ![Screenshot of example logs for unplanned app lifecycle events](media/monitor-app-lifecycle-events/unplanned-app-lifecycle-event-details.png)
 
@@ -55,11 +55,11 @@ When the platform maintenance happens, the status of your Azure Spring Cloud ins
 
 ## Set up alerts
 
-You can set up alerts for app lifecycle events. Service health notifications are also stored in the Azure activity log. Given the large volume of information stored in the activity log, there's a separate user interface to make it easier to view and set up alerts on service health notifications.
+You can set up alerts for app lifecycle events. Service health notifications are also stored in the Azure activity log. The activity log stores a large volume of information, so there's a separate user interface to make it easier to view and set up alerts on service health notifications.
 
 The following list describes the key steps needed to set up an alert: 
 
-1. Set up an action group with the actions to be taken when an alert is triggered, such as email, SMS, Runbook, or Webhook. Action groups can be re-used among different alerts.
+1. Set up an action group with the actions to take when an alert is triggered. Example actions include email, SMS, Runbook, and Webhook. Action groups can be reused among different alerts.
 2. Set up alert rules. The alerts use action groups to notify users that an alert for some specific app lifecycle event has been triggered.
 
 ### Set up alerts on Activity log
