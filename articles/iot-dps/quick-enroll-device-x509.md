@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create an enrollment group that uses X.509 certificates in Azure Device Provisioning Service
-description: This quickstart shows you how to programmatically create an enrollment group that uses intermediate or root CA X.509 certificates for authentication.
+title: Quickstart - Enroll X.509 devices to the Azure Device Provisioning Service
+description: This quickstart shows you how to programmatically enroll devices that use intermediate or root CA X.509 certificates for authentication.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/17/2021
@@ -12,9 +12,19 @@ ms.custom: mvc
 zone_pivot_groups: iot-dps-set2
 ---
  
-# Quickstart: Create an enrollment group that uses X.509 certificates
+# Quickstart: Enroll X.509 devices to the Device Provisioning Service 
+
+:::zone pivot="programming-language-csharp,programming-language-nodejs, programming-language-python"
 
 This quickstart shows you how to programmatically create an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Microsoft Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
+
+:::zone-end
+
+:::zone pivot="programming-language-java"
+
+This quickstart shows you how to programmatically create an individual enrollment and an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Microsoft Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
+
+:::zone-end
 
 ## Prerequisites
 
@@ -64,11 +74,11 @@ This quickstart shows you how to programmatically create an [enrollment group](c
 >[!NOTE]
 >Although the steps in this article work on both Windows and Linux computers, this article uses a Windows development computer.
 
-:::zone pivot="programming-language-csharp,programming-language-nodejs, programming-language-python"
-
 ## Prepare test certificates
 
 For this quickstart, you must have a *.pem* or a *.cer* file that contains the public portion of an intermediate or root CA X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
+
+:::zone pivot="programming-language-csharp,programming-language-nodejs, programming-language-python"
 
 ### Clone the Azure IoT C SDK
 
@@ -92,33 +102,83 @@ If you've already cloned the latest release of the [Azure IoT C SDK](https://git
 
 4. The test tooling should now be located in the *azure-iot-sdk-c/tools/CACertificates* of the repository that you cloned.
 
-### Create the test certificates
+:::zone-end
 
-To create the test certificates:
+:::zone pivot="programming-language-java"
 
-1. Follow the steps in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
+### Clone the Azure IoT Java SDK
 
-2. After you've created the certificates, sign in to the [Azure portal](https://portal.azure.com).
+The [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java) contains test tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and do proof-of-possession with the service to verify the certificate.
 
-3. On the left-hand menu or on the portal page, select **All resources**.
+1. Open a command prompt.
 
-4. Select your Device Provisioning Service.
+2. Clone the GitHub repo for device enrollment code sample using the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/):
 
-5. In the **Settings** menu, select **Certificates*.
+    ```cmd\sh
+    git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
+    ```
 
-6. On the top menu, select **+ Add:**.
+:::zone-end
 
-7. Type in in a certificate name, and upload the *.pem* file you create in the preceding section.
+### Create the test certificate
 
-8. Select **Set certificate status to verified on upload**.
+To create the test certificate:
 
-9. Select **Save**.
+:::zone pivot="programming-language-csharp,programming-language-nodejs, programming-language-python"
 
-:::image type="content" source="./media/quick-enroll-device-x509/add-certificate.png" alt-text="Add a certificate for verification.":::
+To create the certificate, follow the steps in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
 >[!TIP]
 >In addition to the tooling in the C SDK, the [Group certificate verification sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) in the *Microsoft Azure IoT SDK for .NET* shows how to do proof-of-possession in C# with an existing X.509 intermediate or root CA certificate.
+
 :::zone-end
+
+:::zone pivot="programming-language-java"
+
+1. In a command window, go to the folder *_azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator_*.
+
+2. To build the tool, run the following command:
+
+    ```cmd\sh
+    mvn clean install
+    ```
+
+3. To run the tool, use the following commands:
+
+    ```cmd\sh
+    cd target
+    java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
+    ```
+
+4. When prompted, you may optionally enter a _Common Name_ for your certificates.
+
+5. The tool locally generates a *Client Cert*, the *Client Cert Private Key*, and the *Root Cert*. Copy the *Root Cert*, as you'll need it to modify the sample code.
+
+6. Close the command window, or enter **n** when prompted for *Verification Code*.
+
+:::zone-end
+
+### Add and verify your test certificate
+
+To add and verify your certificate to the Device Provisioning Service.
+
+1. After you've created the certificates, sign in to the [Azure portal](https://portal.azure.com).
+
+2. On the left-hand menu or on the portal page, select **All resources**.
+
+3. Select your Device Provisioning Service.
+
+4. In the **Settings** menu, select **Certificates*.
+
+5. On the top menu, select **+ Add:**.
+
+6. Type in in a certificate name, and upload the *.pem* file you create in the preceding section.
+
+7. Select **Set certificate status to verified on upload**.
+
+8. Select **Save**.
+
+:::image type="content" source="./media/quick-enroll-device-x509/add-certificate.png" alt-text="Add a certificate for verification.":::
 
 ## Get the connection string for your provisioning service
 
@@ -137,8 +197,6 @@ For the sample in this quickstart, you'll need to copy the connection string for
 6. In the **Access Policy** panel, copy and save the primary key connection string.
 
     ![Get provisioning service connection string from the portal](media/quick-enroll-device-x509/get-service-connection-string.png)
-
-:::zone-end
 
 ## Create the enrollment group sample
 
@@ -250,7 +308,7 @@ This section shows you how to create a .NET Core console application that adds a
 
 18. Build the solution.
 
-:: zone-end
+:::zone-end
 
 :::zone pivot="programming-language-nodejs"
 
@@ -308,6 +366,8 @@ This section shows you how to create a node.js script that adds an enrollment gr
 
 :::zone pivot="programming-language-python"
 
+This section shows you how to create a Python script that adds an enrollment group to your provisioning service.
+
 1. Using a text editor, create a new *EnrollmentGroup.py* file.
 
 2. Copy the following Python code into the file(replace `{dpsConnectionString}` with the connection string you copied earlier, the certificate placeholder with the certificate created in 
@@ -360,6 +420,45 @@ This section shows you how to create a node.js script that adds an enrollment gr
 
 :::zone pivot="programming-language-java"
 
+1. In the Azure IoT Java SDK, go to the sample folder *_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_*.
+
+2. Open the file *_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_* in an editor of your choice.
+
+3. Replace `[Provisioning Connection String]` with the connection string that you copied in [Get the connection string for your provisioning service](#get-the-connection-string-for-your-provisioning-service).
+
+4. Replace the `PUBLIC_KEY_CERTIFICATE_STRING` value with the value of the *Root Cert** you generated in the previous section. Make sure to replace the entire sample value, including the lines **_-----BEGIN CERTIFICATE-----_** and **_-----END CERTIFICATE-----_**.
+
+5. To configure your provisioning service from within the sample code, proceed to the next step. If you  do not want to configure it, make sure to comment out or delete the following statements in the _ServiceEnrollmentGroupSample.java_ file:
+
+    ```Java
+    enrollmentGroup.setIotHubHostName(IOTHUB_HOST_NAME);                // Optional parameter.
+    enrollmentGroup.setProvisioningStatus(ProvisioningStatus.ENABLED);  // Optional parameter.
+    ```
+
+6. This step shows you how to configure your provisioning service in the sample code.
+
+    1. Go to the [Azure portal](https://portal.azure.com).
+
+    2. On the left-hand menu or on the portal page, select **All resources**.
+
+    3. Select your Device Provisioning Service.
+
+    4. In the **Overview** panel, copy the hostname of the *Service endpoint*.  In the source code sample, replace `[Host name]` with the copied hostname.
+
+        ```Java
+        private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
+        ```
+
+7. Study the sample code. It creates, updates, queries, and deletes a group enrollment for X.509 devices. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentGroupSample.java_ file:
+
+    ```Java
+    // ************************************** Delete info of enrollmentGroup ***************************************
+    System.out.println("\nDelete the enrollmentGroup...");
+    provisioningServiceClient.deleteEnrollmentGroup(enrollmentGroupId);
+    ```
+
+8. Save the file _ServiceEnrollmentGroupSample.java_.
+
 :::zone-end
 
 ## Run the enrollment group sample
@@ -384,7 +483,7 @@ This section shows you how to create a node.js script that adds an enrollment gr
 
 :::zone-end
 
-826D90BB32FABDAEFD58697C0194A9604D07B2C6
+:::zone pivot="programming-language-python"
 
 1. Open a command prompt in Administrator Mode, and run the following command to install the [azure-iot-provisioning-device-client](https://pypi.org/project/azure-iot-provisioning-device-client).
 
@@ -403,6 +502,25 @@ This section shows you how to create a node.js script that adds an enrollment gr
 :::zone-end
 
 :::zone pivot="programming-language-java"
+
+1. Open a command window in Administrator mode, and go to the folder *_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_*.
+
+2. In the command prompt, use this command:
+
+    ```cmd\sh
+    mvn install -DskipTests
+    ```
+
+    This command downloads the Maven package [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) to your machine. This package includes the binaries for the Java service SDK, that the sample code needs to build. If you ran the _X.509 certificate generator_ tool in the preceding section, this package will be already downloaded on your machine.
+
+3. In the command prompt, run the script:
+
+    ```cmd\sh
+    cd target
+    java -jar ./service-enrollment-group-sample-{version}-with-deps.jar
+    ```
+
+4. Upon successful creation, the command window displays the properties of the new enrollment group.
 
 :::zone-end
 
@@ -429,6 +547,54 @@ To verify that the enrollment group has been created:
 :::zone pivot="programming-language-python"
 
 :::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-python.png" alt-text="Verify enrollment for Python group in the portal.":::
+
+:::zone-end
+
+:::zone pivot="programming-language-java"
+
+:::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-java.png" alt-text="Verify enrollment for Java group in the portal.":::
+
+:::zone-end
+
+:::zone pivot="programming-language-java"
+
+## Modifications to enroll a single X.509 device
+
+To enroll a single X.509 device, modify the *individual enrollment* sample code used in [Enroll TPM device to IoT Hub Device Provisioning Service using Java service SDK](quick-enroll-device-tpm-java.md#javasample) as follows:
+
+1. Copy the *Common Name* of your X.509 client certificate to the clipboard. If you wish to use the _X.509 certificate generator_ tool as shown in the [preceding sample code section](#javasample), either enter a _Common Name_ for your certificate, or use the default **microsoftriotcore**. Use this **Common Name** as the value for the *REGISTRATION_ID* variable.
+
+    ```Java
+    // Use common name of your X.509 client certificate
+    private static final String REGISTRATION_ID = "[RegistrationId]";
+    ```
+
+2. Rename the variable *TPM_ENDORSEMENT_KEY* as *PUBLIC_KEY_CERTIFICATE_STRING*. Copy your client certificate or the **Client Cert** from the output of the _X.509 certificate generator_ tool, as the value for the *PUBLIC_KEY_CERTIFICATE_STRING* variable.
+
+    ```Java
+    // Rename the variable *TPM_ENDORSEMENT_KEY* as *PUBLIC_KEY_CERTIFICATE_STRING*
+    private static final String PUBLIC_KEY_CERTIFICATE_STRING =
+            "-----BEGIN CERTIFICATE-----\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n" +
+            "-----END CERTIFICATE-----\n";
+    ```
+
+3. In the **main** function, replace the line `Attestation attestation = new TpmAttestation(TPM_ENDORSEMENT_KEY);` with the following to use the X.509 client certificate:
+
+    ```Java
+    Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
+    ```
+
+4. Save, build, and run the *individual enrollment* sample file, using the steps in the section [Build and run the sample code for individual enrollment](quick-enroll-device-tpm-java.md#runjavasample).
 
 :::zone-end
 
