@@ -362,45 +362,19 @@ Docker Hub is a container registry that hosts images and provides image and cont
 
 1. Depending on your network speed, pushing the image the first time might take a few minutes (pushing subsequent changes is much faster). While you're waiting, you can proceed to the next section and create Azure resources in another terminal.
 
-## Create supporting Azure resources for your function
+[!INCLUDE [functions-create-azure-resources-cli](../../includes/functions-create-azure-resources-cli.md)]
+    
+4. Use the command to create a Premium plan for Azure Functions named `myPremiumPlan` in the **Elastic Premium 1** pricing tier (`--sku EP1`), in your `<REGION>`, and in a Linux container (`--is-linux`).
 
-To deploy your function code to Azure, you need to create three resources:
-
-- A resource group, which is a logical container for related resources.
-- An Azure Storage account, which maintains state and other information about your projects.
-- A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
-
-You use Azure CLI commands to create these items. Each command provides JSON output upon completion.
-
-1. Sign in to Azure with the [az login](/cli/azure/reference-index#az_login) command:
-
+    # [Azure CLI](#tab/azure-cli)
     ```azurecli
-    az login
+    az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location <REGION> --number-of-workers 1 --sku EP1 --is-linux
     ```
-    
-1. Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group named `AzureFunctionsContainers-rg` in the `westeurope` region. (You generally create your resource group and resources in a region near you, using an available region from the `az account list-locations` command.)
-
-    ```azurecli
-    az group create --name AzureFunctionsContainers-rg --location westeurope
+    # [Azure PowerShell](#tab/azure-powershell)
+    ```powershell
+    New-AzFunctionAppPlan -ResourceGroupName AzureFunctionsContainers-rg -Name MyPremiumPlan -Location <REGION> -MinimumWorkerCount 1 -Sku EP1 -WorkerType Linux
     ```
-    
-    > [!NOTE]
-    > You can't host Linux and Windows apps in the same resource group. If you have an existing resource group named `AzureFunctionsContainers-rg` with a Windows function app or web app, you must use a different resource group.
-    
-1. Create a general-purpose storage account in your resource group and region by using the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command. In the following example, replace `<storage_name>` with a globally unique name appropriate to you. Names must contain three to 24 characters numbers and lowercase letters only. `Standard_LRS` specifies a typical general-purpose account.
-
-    ```azurecli
-    az storage account create --name <storage_name> --location westeurope --resource-group AzureFunctionsContainers-rg --sku Standard_LRS
-    ```
-    
-    The storage account incurs only a few USD cents for this tutorial.
-    
-1. Use the command to create a Premium plan for Azure Functions named `myPremiumPlan` in the **Elastic Premium 1** pricing tier (`--sku EP1`), in the West Europe region (`-location westeurope`, or use a suitable region near you), and in a Linux container (`--is-linux`).
-
-    ```azurecli
-    az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
-    ```   
-
+    ---
     We use the Premium plan here, which can scale as needed. To learn more about hosting, see [Azure Functions hosting plans comparison](functions-scale.md). To calculate costs, see the [Functions pricing page](https://azure.microsoft.com/pricing/details/functions/).
 
     The command also provisions an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
@@ -409,48 +383,101 @@ You use Azure CLI commands to create these items. Each command provides JSON out
 
 A function app on Azure manages the execution of your functions in your hosting plan. In this section, you use the Azure resources from the previous section to create a function app from an image on Docker Hub and configure it with a connection string to Azure Storage.
 
-1. Create the Functions app using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command. In the following example, replace `<storage_name>` with the name you used in the previous section for the storage account. Also replace `<app_name>` with a globally unique name appropriate to you, and `<docker_id>` with your Docker ID.
+1. Create the Functions app using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command. 
 
-    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
+    ::: zone pivot="programming-language-csharp"
+    # [Azure CLI](#tab/azure-cli/in-process)
     ```azurecli
-    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime <functions runtime stack> --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
+    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime dotnet --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
     ```
+    # [Azure PowerShell](#tab/azure-powershell/in-process)
+    ```azurepowershell
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -PlanName myPremiumPlan -StorageAccount <STORAGE_NAME> -Runtime DotNet -DockerImageName <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
+    # [Azure CLI](#tab/azure-cli/isolated-process)
+    ```azurecli
+    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime dotnet-isolated --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
+    # [Azure PowerShell](#tab/azure-powershell/isolated-process)
+    ```azurepowershell
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -PlanName myPremiumPlan -StorageAccount <STORAGE_NAME> -Runtime DotNet-Isolated -DockerImageName <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
+    ---
+    ::: zone-end
+    ::: zone pivot="programming-language-javascript,programming-language-typescript"
+    # [Azure CLI](#tab/azure-cli)
+    ```azurecli
+    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime node --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
+    # [Azure PowerShell](#tab/azure-powershell)
+    ```azurepowershell
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -PlanName myPremiumPlan -StorageAccount <STORAGE_NAME> -Runtime Node -DockerImageName <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
+    ---
+    ::: zone-end
+    ::: zone pivot="programming-language-powershell"
+    # [Azure CLI](#tab/azure-cli)
+    ```azurecli
+    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime powershell --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
+    # [Azure PowerShell](#tab/azure-powershell)
+    ```azurepowershell
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -PlanName myPremiumPlan -StorageAccount <STORAGE_NAME> -Runtime PowerShell -DockerImageName <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
+    ---
+    ::: zone-end
+    ::: zone pivot="programming-language-python"
+    # [Azure CLI](#tab/azure-cli)
+    ```azurecli
+    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime python --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
+    # [Azure PowerShell](#tab/azure-powershell)
+    ```azurepowershell
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -PlanName myPremiumPlan -StorageAccount <STORAGE_NAME> -Runtime Python -DockerImageName <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
+    ---
+    ::: zone-end
+    ::: zone pivot="programming-language-java"
+    # [Azure CLI](#tab/azure-cli)
+    ```azurecli
+    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime java --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
+    # [Azure PowerShell](#tab/azure-powershell)
+    ```azurepowershell
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -PlanName myPremiumPlan -StorageAccount <STORAGE_NAME> -Runtime Java -DockerImageName <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
+    ---
     ::: zone-end
     ::: zone pivot="programming-language-other"
+    # [Azure CLI](#tab/azure-cli)
     ```azurecli
-    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime custom --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
+    az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime custom --deployment-container-image-name <DOCKER_ID>/azurefunctionsimage:v1.0.0
     ```
+    # [Azure PowerShell](#tab/azure-powershell)
+    ```azurepowershell
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -PlanName myPremiumPlan -StorageAccount <STORAGE_NAME> -Runtime Custom -DockerImageName <DOCKER_ID>/azurefunctionsimage:v1.0.0
+    ```
+    ---
     ::: zone-end
-    
+
+    In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also replace `<APP_NAME>` with a globally unique name appropriate to you, and `<DOCKER_ID>` with your DockerHub ID.    
+
     The *deployment-container-image-name* parameter specifies the image to use for the function app. You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) command to view information about the image used for deployment. You can also use the [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) command to deploy from a different image.
     
     > [!TIP]  
     > You can use the [`DisableColor` setting](functions-host-json.md#console) in the host.json file to prevent ANSI control characters from being written to the container logs. 
 
-1. Display the connection string for the storage account you created by using the [az storage account show-connection-string](/cli/azure/storage/account) command. Replace `<storage-name>` with the name of the storage account you created above:
+1. Display the connection string for the storage account you created by using the [az storage account show-connection-string](/cli/azure/storage/account) command. Replace `<STORAGE_NAME>` with the name of the storage account you created above:
 
     ```azurecli
-    az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
+    az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <STORAGE_NAME> --query connectionString --output tsv
     ```
     
-1. Add this setting to the function app by using the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_ppsettings_set) command. In the following command, replace `<app_name>` with the name of your function app, and replace `<connection_string>` with the connection string from the previous step (a long encoded string that begins with "DefaultEndpointProtocol="):
+1. Add this setting to the function app by using the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_ppsettings_set) command. In the following command, replace `<APP_NAME>` with the name of your function app, and replace `<CONNECTION_STRING>` with the connection string from the previous step (a long encoded string that begins with `DefaultEndpointProtocol=`):
  
     ```azurecli
-    az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>
+    az functionapp config appsettings set --name <APP_NAME> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<CONNECTION_STRING>
     ```
-
-    > [!TIP]
-    > In Bash, you can use a shell variable to capture the connection string instead of using the clipboard. First, use the following command to create a variable with the connection string:
-    > 
-    > ```bash
-    > storageConnectionString=$(az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv)
-    > ```
-    > 
-    > Then refer to the variable in the second command:
-    > 
-    > ```azurecli
-    > az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=$storageConnectionString
-    > ```
 
 1. The function can now use this connection string to access the storage account.
 

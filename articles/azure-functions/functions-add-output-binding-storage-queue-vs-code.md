@@ -78,7 +78,7 @@ Extension bundles usage is enabled in the host.json file at the root of the proj
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
+[!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-reg                                                                                                                                                                                                                                                                                                                                                                                                        ister-storage-binding-extension-csharp.md)]
 
 ::: zone-end
 
