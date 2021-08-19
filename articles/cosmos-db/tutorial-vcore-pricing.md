@@ -12,51 +12,34 @@ ms.date: 08/19/2021
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-This article, explains how to estimate the Azure Cosmos DB RU/s in scenarios where you need to compare total cost of ownership (TCO) between your nonrelational database solution and Azure Cosmos DB.  This analysis is helpful if you are considering to migrate an app or data to Azure Cosmos DB. This guide helps you to generate a ballpark TCO comparison regardless of which non-relational database solution you currently use and whether your status-quo database solution is self-managed on-premise, self-managed in the cloud, or managed by a PaaS database service.
+This article explains how to estimate Azure Cosmos DB request units (RU/s) when you are considering data migration but all you know is the total vcore or vCPU count in your existing database replica set(s). When you migrate one or more replica sets to Azure Cosmos DB, each collection held in those replica sets will be stored as an Azure Cosmos DB collection consisting of a sharded cluster with a 4x replication factor. You can read more about our architecture in this [partitioning and scaling guide](partitioning-overview.md). Request units are how throughput capacity is provisioned on a collection; you can [read the request units guide](request-units.md) and the RU/s [provisioning guide]() to learn more. When you migrate a collection, Azure Cosmos DB provisions enough shards to serve your provisioned request units and store your data. Therefore estimating RU/s for collections is an important step in scoping out the scale of your planned Azure Cosmos DB data estate prior to migration. Based on our experience with thousands of customers, we have found this formula helps us arrive at a rough starting-point RU/s estimate from vcores or vCPU: 
 
-Currently, only the Azure Cosmos DB SQL API and the Azure Cosmos DB API for MongoDB v4.0 are in-scope for this discussiion. We are working on a similar mapping for Cassandra and Gremlin.
+$Provisioned\_RU/s = \frac{C*T}{R}$
 
-## 1. Identify the number of vCores or vCPUs
+* $T$: Total vcores and/or vCPUs in your existing database replica set(s). 
+* $R$: Replication factor of your existing replica set(s). 
+* $C$: Recommended provisioned RU/s per vcore or vCPU. This is a property of Azure Cosmos DB:
+    * $C = ~600 RU/s/vcore$ for Azure Cosmos DB SQL API
+    * $C = 1000 RU/s/vcore$ for Azure Cosmos DB API for MongoDB v4.0
+    * $C$ estimates for Cassandra API, Gremlin API or other APIs are not currently available
 
-There are differing definitions of what exactly qualifies as a 'vcore' versus a 'vCPU'. Regardless of the respective definitions, many virtualization or cloud services use one or the other term to describe their unit of discrete CPU allocation. Here, we assume that performance and TCO generally scale linearly with respect to both of these, and that insofar as the precise definitions impact the outcome, the impact is only to within a factor of two (owing to hyperthreading which may enable two "vcores" per "vCPU" under some interpretations of those words.) So all of the formulas here assume that vcore and vCPU are equivalent, and vcore is used to refer to both. If you know that vCPU and vcore have different meanings in your application, we recommend that you please adjust the formulae below accordingly.
+**$T$ must be determined by examining the number of vcores or vCPU in each server of your existing database**; if you cannot estimate $T$ then consider following our [guide to estimating RU/s using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) instead of this guide. For $R$ we recommend plugging in the average replication factor of your database replica sets; if this information is not available then $R=3$ is a good rule of thumb. Values for $C$ are provided above. **If you currently use another cloud managed database, be aware that these services often appear to be provisioned in units of $vcores$ or $vCPU$ (in other words, $T$), but in fact the core-count you provision sets the $vcores/replica$ or $vCPU/replica$ value ($\frac{T}{R}$) for an $R$-node replica set**; the true number of cores is $R$ times more that what you provisioned explicitly. We recommend determining whether this is the case for your current cloud managed database, and if so you must multiply the number of provisioned $vcores$ or $vCPU$ by $R$ in order to get an accurate estimate of $T$.
 
-Start by understanding your status quo cluster configuration
-* In the most general case, we asssume that your status-quo solution is a sharded and replicated nonrelational database
-* Here, *replication* refers to duplicating some or all of your data over multiple servers with independent compute and storage
-* *Replication factor* refers to the number of replicas
-* *Sharding* refers to subdividing your dataset over multiple replica sets with independent compute and storage, for the purpose of scaling *out* your storage or throughput
-* A *shard* is one replica sets containing a subset of your data
-* *Sharding and replication* refers to a sharding arrangement in which each shard is itself replicated according to the replication factor, i.e. each shard consists of multiple servers at the physical level
-* Commonly, all shards exist in the same region and have the same configuration (especially, the same number of replicas per shard replica set.) This is a *homogenous* replica set configuration.
-    * However, some users employ *zoned sharding* strategies where one or more shards may be allocated to specific regions, with a customized replication factor in that geography according to the capacity demand. These are *heterogenous* replica set configurations.
-    * The formulas and guidance in this document assume homogenous configurations.
-    * However, you may apply the provided guidance and formulae to your heterogenous configuration: wherever a formula relies on replication factor, simply plug in the *average* replication factor across your heterogenous configuration, such that the formula makes sense for your use-case.
-    
-Before continuing, please identify
-* vCores or vCPU per server for your cluster
-* The replication factor of your cluster
-* Whether or not sharding is employed in your cluster
-* If sharding is used, how many shards exist?
-* If sharding is not used, you can treat "Number of shards" as being 1 (one) for the purposes of the below calculations
+Azure Cosmos DB interop APIs run on top of the SQL API and implement their own unique architectures; thus Azure Cosmos DB API for MongoDB v4.0 has a different $C$-value than Azure Cosmos DB SQL API.
 
-## 2. Convert vcores-per-server or vCPU-per-server to RU/s
+In this article we treat "vcore" and "vCPU" as synonymous, thus $C$ has units of $RU/s/vcore$ or $RU/s/vCPU$, with no distinction. However in practice this may not be true; these terms may have different meanings i.e. if your physical CPUs support hyperthreading, it is possible that $1 vCPU = 2 vcores$ or something else. In general the $vcore$/$vCPU$ relationship is hardware-dependent and we recommend investigating what is the relationship on your existing cluster hardware, and whether your cluster compute is provisioned in terms of $vcores$ or $vCPU$. If $vCPU$ and $vcore$ have differing meanings on your hardware, then we recommend treating the above estimates of $C$ as having units of $RU/s/vcore$, and if necessary converting $T$ from vCPU to vcore using the conversion factor appropriate to your hardware.
 
+## Worked example: request unit estimation for migration from a single replica set
 
-Roughly speaking, throughput scales as the product of vcores-per-server and shards:
+## Worked example: request unit estimation for migration from a cluster of homogeneous replica sets
 
-`
+## Worked example: request unit estimation for miigration from a cluster of hetergeneous replica sets
 
-f(N, M) [provisioned RU/s] = (R [provisioned RU/s per vcore]) 
-                                * N [# of vcores-per-server]
-                                * M [# of replica sets]
+## Summary
 
-`
+Estimating RU/s from $vcores$ or $vCPU$ requires collecting information about total $vcores$/$vCPU$ and replication factor from your existing database replica set(s). Then you can use known relationships between $vcores$/$vCPU$ and throughput to estimate Azure Cosmos DB request units (RU/s). This will be an important step in anticipating the scale of your Azure Cosmos DB data estate after migration.
 
-For the Azure Cosmos DB SQL API, a rule of thumb is that the provisioned RU/s per vcore *R* is about 580.
-
-For the Azure Cosmos DB API for MongoDB v4.0, a rule of thumb is that the provisioned RU/s per vcore *R* is about 1000. The API for Mongo runs on top of the SQL API and implements a different architecture; thus the provisioned RU/s per vcore is different from that of SQL API.
-
-You can use the table below to help you estimate throughput:
+The table below summarizes the relationship between $vCores$ and $vCPU$ for Azure Cosmos DB SQL API and API for MongoDB v4.0:
 
 
 | vCores/vCPU | RU/s (SQL API) | RU/s (API for MongoDB v4.0) |
@@ -70,9 +53,6 @@ You can use the table below to help you estimate throughput:
 | 64           | 38400            |            64000  |
 | 128           | 76800            |            128000  |
 
-Following the above process, you should end up with an estimate of your equivalent Cosmos DB RU/s
-
-## 3. Compare TCO
 
 *Estimating the cost of Azure Cosmos DB* The cost of Cosmos DB can be estimated based on throughput and storage. To estimate the configuration-dependent cost of using Azure Cosmos DB, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/). Additionally, we recommend [reviewing the guide to planning and managing Azure Cosmos DB costs](https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs) and modeling your costs using [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). Finally, if you are working with an account manager, please speak with them to clarify any additional pricing concerns which you may have.
 
@@ -94,13 +74,8 @@ Cost = Cost per vcore * vcores per server * Number of servers
 
 ## Next steps
 
-In this tutorial, you've done the following:
-
-> [!div class="checklist"]
-> * Configure global distribution using the Azure portal
-> * Configure global distribution using the SQL APIs
-
-You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
+Learn how to estimate costs for Azure Cosmos DB
+Learn how to migrate 
 
 > [!div class="nextstepaction"]
 > [Develop locally with the emulator](local-emulator.md)
