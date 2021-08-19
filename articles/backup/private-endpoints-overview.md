@@ -2,7 +2,7 @@
 title: Private endpoints overview
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 ms.topic: conceptual
-ms.date: 08/13/2021 
+ms.date: 08/19/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -29,9 +29,10 @@ This article will help you understand how private endpoints for Azure Backup wor
 
 While private endpoints are enabled for the vault, they're used for backup and restore of SQL and SAP HANA workloads in an Azure VM and MARS agent backup only. You can use the vault for backup of other workloads as well (they won't require private endpoints though). In addition to backup of SQL and SAP HANA workloads and backup using the MARS agent, private endpoints are also used to perform file recovery for Azure VM backup. For more information, see the following table:
 
-| Backup of workloads in Azure VM (SQL, SAP HANA), Backup using MARS Agent | Use of private endpoints is recommended to allow backup and restore without needing to add to an allowlist any IPs/FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Azure AD IPs or FQDNs. |
+| Scenarios | Recommendations |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Azure  VM backup**                                         | VM backup doesn't require you to allow access to any IPs or FQDNs. So it doesn't require private endpoints for backup and restore  of disks.  <br><br>   However, file recovery from a vault containing private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br>    When using ACL’ed unmanaged disks, ensure the  storage account containing the disks allows access to **trusted Microsoft services** if it's ACL’ed. |
+| Backup of workloads in Azure VM (SQL, SAP HANA), Backup using MARS Agent | Use of private endpoints is recommended to allow backup and restore without needing to add to an allowlist any IPs/FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Azure AD IPs or FQDNs. |
+| **Azure  VM backup**                                         | VM backup doesn't require you to allow access to any IPs or FQDNs. So, it doesn't require private endpoints for backup and restore  of disks.  <br><br>   However, file recovery from a vault containing private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br>    When using ACL’ed unmanaged disks, ensure the  storage account containing the disks allows access to **trusted Microsoft services** if it's ACL’ed. |
 | **Azure  Files backup**                                      | Azure Files backups are stored in the local  storage account. So it doesn't require private endpoints for backup and  restore. |
 
 >[!Note]
@@ -76,7 +77,7 @@ The following example shows Azure firewall used as DNS proxy to redirect the dom
 
 For more information, see [Creating and using private endpoints](private-endpoints.md).
 
-## Network connectivity setup for vaults with private endpoints
+## Network connectivity setup for vault with private endpoints
 
 The private endpoint for recovery services is associated with a network interface (NIC) that has a private IP. For private endpoint connections to work (routing all the traffic to the service via Azure backbone and restricting service access to clients within your VNet), it’s required that all the communication traffic for the service is redirected to that network interface. This can be achieved by using DNS linked to the VNet or host file entries on the machine where extension/agent is running.
 
@@ -99,7 +100,7 @@ For the manual management of DNS records after the VM discovery for communicatio
 
 The following diagram shows how the resolution works when using a private DNS zone to resolve these modified service FQDNs. 
 
-:::image type="content" source="./media/private-endpoints-overview/use-private-dns-zone-to-resolve-modified-service-fqdns.png" alt-text="Diagram showing how the resolution works using a private DNS zone to resolve modified service FQDNs.":::
+:::image type="content" source="./media/private-endpoints-overview/use-private-dns-zone-to-resolve-modified-service-fqdns-inline.png" alt-text="Diagram showing how the resolution works using a private DNS zone to resolve modified service FQDNs." lightbox="./media/private-endpoints-overview/use-private-dns-zone-to-resolve-modified-service-fqdns-expanded.png":::
 
 In addition to the connection to Azure Backup cloud services, the workload extension and agent require connection to Azure storage accounts and Azure Active Directory. The workload extension running on Azure VM requires connection to a minimum of two storage accounts - the first one is used as communication channel (via queue messages) and second one for storing backup data. The MARS agent requires access to one storage account used for storing backup data.
 
@@ -111,7 +112,7 @@ As a pre-requisite, Recovery Services vault requires permissions for creating ad
 
 The following diagram shows how the name resolution works for storage accounts using a private DNS zone.
 
-:::image type="content" source="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone.png" alt-text="Diagram showing how the name resolution works for storage accounts using a private DNS zone.":::
+:::image type="content" source="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-inline.png" alt-text="Diagram showing how the name resolution works for storage accounts using a private DNS zone." lightbox="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-expanded.png":::
 
 ## Next steps
 

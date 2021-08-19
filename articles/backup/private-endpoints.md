@@ -2,7 +2,7 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources. 
 ms.topic: conceptual
-ms.date: 08/13/2021 
+ms.date: 08/19/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -523,7 +523,7 @@ To configure a proxy server for Azure VM or on-premises machine, follow these st
 
 1. Add the following domains in the exception and bypass the proxy server.
    
-   | Service | Domain | Port |
+   | Service | Domain names | Port |
    | ------- | ------ | ---- |
    | Azure Backup | *.backup.windowsazure.com | 443 |
    | Azure Storage | *.blob.core.windows.net <br><br> *.queue.core.windows.net <br><br> *.blob.storage.azure.net | 443 |
