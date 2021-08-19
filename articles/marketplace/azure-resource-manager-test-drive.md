@@ -303,37 +303,37 @@ The final section to complete is to be able to deploy the test drives automatica
 
    If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
-3. **Azure AD App ID** – Create and register a new application. We will use this application to perform operations on your test drive instance.
+3. **Azure AD App ID** – Create and register a new application. We will use this application to perform operations on your test drive instance.<br>**If you don’t have the PowerShell module**:
+    1. **Install the Azure Az PowerShell module**.
 
-   1. Navigate to the newly created directory or already existing directory and select Azure Active Directory in the filter pane.
-   2. Search **App registrations** and select **Add**.
-   3. Provide an application name.
-   4. Select the **Type** of **Web app / API**.
-   5. Provide any value in the Sign-on URL, this field isn't used.
-   6. Select **Create**.
-   7. After the application has been created, select **Properties** > **Set the application as multi-tenant** and then **Save**.
+        1. Open Powershell.
+        1. Run `Get-InstalledModule Az` to check if you already have the module installed. If not, install using **Install the Azure Az PowerShell module**.<font color="red"> Is this a command? Button? Subheading?</font>
+
+     1. **Add the Service Principal for Microsoft Test-Drive application**.
+        1. Run `Connect-AzAccount` and provide credentials to sign in to your Azure account.
+        1. Create a new service principal: `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive'`.
+        1. Ensure the service principal has been created: `Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive'`.
+      ![Shows the code to verify service principal](media/test-drive/commands-to-verify-service-principal.png)
 
 4. Select **Save**.
-
-5. Copy the Application ID for this registered app and paste it in the test drive field.
-
-   ![Azure AD application ID detail](media/test-drive/azure-ad-application-id-detail.png)
-
+5. Copy this Application ID, `d7e39695-0b24-441c-a140-047800a05ede`, and paste it in the test drive field.
 6. Since we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription:
-
    1. Select the type of **Subscription** you are using for the test drive.
-   1. Select **Access control (IAM)**.
-   1. Select the **Role assignments** tab, then **Add role assignment**.
+   1. Select **Access control (IAM)**.<br>
+   If you are using Powershell:
+      1. Run this to get the ServicePrincipal object-id: `(Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive').id`.
+      1. Run this with the ObjectId and Subscription Id: `New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName Contributor -Scope /subscriptions/<subscriptionId>`.
+   1. Select the **Role assignments** tab, then **+ Add role assignment**.
 
       ![Add a new Access Control principal](media/test-drive/access-control-principal.jpg)
 
-   1. Set **Role** and **Assign access to** as shown. In the **Select** field, enter the name of the Azure AD application. Select the application to which you want to assign the **Contributor** role.
+   1. Enter this Azure AD application name: `Microsoft TestDrive`. Select the application to which you want to assign the **Contributor** role.
 
       ![Add the permissions](media/test-drive/access-control-permissions.jpg)
 
    1. Select **Save**.
 
-7. Generate an **Azure AD App** authentication key. Under **Keys**, add a **Key Description**, set the duration to **Never expires** (an expired key will break your test drive in production), then select **Save**. Copy and paste this value into your required test drive field.
+7. <strike>Generate an **Azure AD App** authentication key. Under **Keys**, add a **Key Description**, set the duration to **Never expires** (an expired key will break your test drive in production), then select **Save**. Copy and paste this value into your required test drive field.</strike>
 
 ![Shows the Keys for the Azure AD application](media/test-drive/azure-ad-app-keys.png)
 
