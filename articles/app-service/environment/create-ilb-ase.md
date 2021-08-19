@@ -11,6 +11,9 @@ ms.custom: mvc, seodec18
 ---
 
 # Create and use an Internal Load Balancer App Service Environment 
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
 
 The Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE): 
 

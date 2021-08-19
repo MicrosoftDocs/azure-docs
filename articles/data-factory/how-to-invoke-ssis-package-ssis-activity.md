@@ -2,12 +2,13 @@
 title: Run an SSIS package with the Execute SSIS Package activity
 description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity.
 ms.service: data-factory
+ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 07/20/2020
+ms.date: 06/04/2021
 ---
 
 # Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory
@@ -32,9 +33,9 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
 
    ![Data Factory home page](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 
-   On the **Let's get started** page, select **Create pipeline**. 
+   On the home page, select **Orchestrate**. 
 
-   ![Get started page](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
+   ![Screenshot that shows the ADF home page.](./media/doc-common-process/get-started-page.png)
 
 1. In the **Activities** toolbox, expand **General**. Then drag an **Execute SSIS Package** activity to the pipeline designer surface. 
 

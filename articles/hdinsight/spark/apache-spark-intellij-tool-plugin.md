@@ -25,7 +25,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md). Only HDinsight clusters in public cloud are supported while other secure cloud types (e.g. government clouds) are not.
 
 * [Oracle Java Development kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  This article uses Java version 8.0.202.
 

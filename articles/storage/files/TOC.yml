@@ -65,10 +65,10 @@
     items:
     - name: Create an SMB file share
       href: storage-how-to-create-file-share.md
+    - name: Create an NFS file share
+      href: storage-files-how-to-create-nfs-shares.md
     - name: Use DFS-N with Azure Files
       href: files-manage-namespaces.md
-    - name: Create an NFS share
-      href: storage-files-how-to-create-nfs-shares.md
     - name: SQL Server FCI with premium file shares
       href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Purchase storage reservations
@@ -165,8 +165,10 @@
         href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: REST API
         href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Monitor Azure Files
-    href: storage-files-monitoring.md
+  - name: Monitor
+    items:
+    - name: Monitor Azure Files
+      href: storage-files-monitoring.md
   - name: Migrate
     items:
     - name: Migrate to Azure file shares
@@ -179,8 +181,6 @@
         href: storage-files-migration-nas-cloud-databox.md
     - name: Target a hybrid deployment
       items:
-      - name: Migrate bulk data to Azure File Sync with Azure Data Box
-        href: ../file-sync/file-sync-offline-data-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: Migrate from Linux to a hybrid file server with Azure File Sync
         href: storage-files-migration-linux-hybrid.md
       - name: Migrate from an on-premises NAS to a hybrid file server with Azure File Sync
@@ -261,7 +261,7 @@
       href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Reference
   items:
-  - name: Azure Files reference
+  - name: Azure Files API reference
     href: ../files/reference.md
   - name: Monitoring Azure Files reference
     href: storage-files-monitoring-reference.md

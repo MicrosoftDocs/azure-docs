@@ -41,7 +41,7 @@ As you configure the account, choose these values:
 |Location|All available regions |All available regions    
 |Performance|Premium| Standard
 |Account kind|BlockBlobStorage| General-purpose V2
-|Replication|Locally-redundant storage (LRS)| Locally-redundant storage (LRS), Zone-redundant storage (ZRS)
+|Replication|Locally-redundant storage (LRS), Zone-redundant storage (ZRS)| Locally-redundant storage (LRS), Zone-redundant storage (ZRS)
 |Connectivity method|Public endpoint (selected networks) or Private endpoint |Public endpoint (selected networks) or Private endpoint
 |Hierarchical namespace|Enabled|Enabled
 |NFS V3|Enabled |Enabled 
@@ -96,6 +96,7 @@ Create a directory on your Linux system, and then mount a container in the stora
 |---|---|
 |`Access denied by server while mounting`|Ensure that your client is running within a supported subnet. See the [Supported network locations](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Make sure to type the mount command and it's parameters directly into the terminal. If you copy and paste any part of this command into the terminal from another application, hidden characters in the pasted information might cause this error to appear.|
+|`Permision denied`| The default mode of a newly created NFS v3 container is 0750. Non-root users do not have access to the volume. If access from non-root users is required, root user must change the mode to 0755. Sample command: `sudo chmod 0755 /mnt/<newcontainer>`|
 |`EINVAL ("Invalid argument"`) |This error can appear when a client attempts to:<li>Write to a blob that was created from a blob endpoint.<li>Delete a blob that has a snapshot or is in a container that has an active WORM (Write Once, Read Many) policy.|
 |`EROFS ("Read-only file system"`) |This error can appear when a client attempts to:<li>Write to a blob or delete a blob that has an active lease.<li>Write to a blob or delete a blob in a container that has an active WORM (Write Once, Read Many) policy. |
 |`NFS3ERR_IO/EIO ("Input/output error"`) |This error can appear when a client attempts to read, write, or set attributes on blobs that are stored in the archive access tier. |

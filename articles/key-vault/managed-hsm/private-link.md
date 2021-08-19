@@ -1,8 +1,8 @@
 ---
 title: Configure Azure Key Vault Managed HSM with private endpoints
 description: Learn how to integrate Azure Key Vault Managed HSM with Azure Private Link Service
-author: amitbapat
-ms.author: ambapat
+author: mbaldwin
+ms.author: mbaldwin
 ms.date: 06/21/2021
 ms.service: key-vault
 ms.subservice: managed-hsm
@@ -11,10 +11,7 @@ ms.custom: devx-track-azurecli
 
 ---
 
-# Integrate Managed HSM with Azure Private Link (preview)
-
->[!NOTE]
-> Azure private endpoints feature for Managed HSM is currently available as **a preview** in following regions: **UK South, Europe West, Canada Central, Australia Central**, and **Asia East**. It will be available in all the [other regions](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault&regions=all) in next few days.
+# Integrate Managed HSM with Azure Private Link
 
 Azure Private Link Service enables you to access Azure Services (for example, Managed HSM, Azure Storage, and Azure Cosmos DB etc.) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
 

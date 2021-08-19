@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/27/2021
-ms.custom: project-no-code
+ms.custom: "project-no-code, b2c-support"
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -156,31 +156,31 @@ Classic:
 ```xml
 <ContentDefinitions>
   <ContentDefinition Id="api.error">
-    <LoadUri>~/tenant/templates/default/exception.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/exception.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.idpselections">
-    <LoadUri>~/tenant/templates/default/idpSelector.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/idpSelector.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.idpselections.signup">
-    <LoadUri>~/tenant/templates/default/idpSelector.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/idpSelector.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.signuporsignin">
-    <LoadUri>~/tenant/templates/AzureBlue/unified.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.selfasserted">
-    <LoadUri>~/tenant/templates/default/selfAsserted.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.selfasserted.profileupdate">
-    <LoadUri>~/tenant/templates/default/selfAsserted.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.localaccountsignup">
-    <LoadUri>~/tenant/templates/default/selfAsserted.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.localaccountpasswordreset">
-    <LoadUri>~/tenant/templates/default/selfAsserted.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   </ContentDefinition>
   <ContentDefinition Id="api.phonefactor">
-    <LoadUri>~/tenant/templates/default/multifactor-1.0.0.cshtml</LoadUri>
+    <LoadUri>~/tenant/default/multifactor-1.0.0.cshtml</LoadUri>
   </ContentDefinition>
 </ContentDefinitions>
 ```

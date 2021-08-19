@@ -122,4 +122,3 @@ To delete a formula, follow these steps:
 
 ## Next steps
 Once you have created a formula for use when creating a VM, the next step is to [add a VM to your lab](devtest-lab-add-vm.md).
-

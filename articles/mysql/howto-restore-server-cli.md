@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 ---
 # How to back up and restore a server in Azure Database for MySQL using the Azure CLI
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Database for MySQL servers are backed up periodically to enable Restore features. Using this feature you may restore the server and all its databases to an earlier point-in-time, on a new server.
 

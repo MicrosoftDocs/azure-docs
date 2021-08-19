@@ -52,4 +52,4 @@ The keyword spotter that triggers the application to start has achieved low powe
 
 - **Review the design guidelines:** Our [design guidelines](windows-voice-assistants-best-practices.md) lay out the key work required to provide the best possible experiences for voice activation on Windows 10.
 - **Visit the Getting Started page:** Start [here](how-to-windows-voice-assistants-get-started.md) for the steps to begin implementing voice assistants on Windows, from setting your development environment through an introduction to implementation guide.
-- **Try out the sample app**: To experience these capabilities firsthand, visit the [UWP Voice Assistant Sample](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) page and follow the steps to get the sample client running.
+- **Try out the sample app**: To experience these capabilities firsthand, visit the [UWP Voice Assistant Sample](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample) page and follow the steps to get the sample client running.

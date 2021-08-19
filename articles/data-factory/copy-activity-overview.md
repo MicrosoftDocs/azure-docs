@@ -1,14 +1,17 @@
 ---
-title: Copy activity in Azure Data Factory 
-description: Learn about the Copy activity in Azure Data Factory. You can use it to copy data from a supported source data store to a supported sink data store.
+title: Copy activity
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn about the Copy activity in Azure Data Factory and Azure Synapse Analytics. You can use it to copy data from a supported source data store to a supported sink data store.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 6/1/2021
 ms.author: jianleishen
 ---
 
-# Copy activity in Azure Data Factory
+# Copy activity in Azure Data Factory and Azure Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory that you're using:"]
 > * [Version 1](v1/data-factory-data-movement-activities.md)
@@ -16,7 +19,7 @@ ms.author: jianleishen
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-In Azure Data Factory, you can use the Copy activity to copy data among data stores located on-premises and in the cloud. After you copy the data, you can use other activities to further transform and analyze it. You can also use the Copy activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
+In Azure Data Factory and Synapse pipelines, you can use the Copy activity to copy data among data stores located on-premises and in the cloud. After you copy the data, you can use other activities to further transform and analyze it. You can also use the Copy activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
 
 ![The role of the Copy activity](media/copy-activity-overview/copy-activity.png)
 
@@ -53,13 +56,13 @@ You can use the Copy activity to copy files as-is between two file-based data st
 
 ## Supported regions
 
-The service that enables the Copy activity is available globally in the regions and geographies listed in [Azure integration runtime locations](concepts-integration-runtime.md#integration-runtime-location). The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Products by region](https://azure.microsoft.com/regions/#services) to check the availability of Data Factory and data movement in a specific region.
+The service that enables the Copy activity is available globally in the regions and geographies listed in [Azure integration runtime locations](concepts-integration-runtime.md#integration-runtime-location). The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Products by region](https://azure.microsoft.com/regions/#services) to check the availability of Data Factory, Synapse Workspaces and data movement in a specific region.
 
 ## Configuration
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-In general, to use the Copy activity in Azure Data Factory, you need to:
+In general, to use the Copy activity in Azure Data Factory or Synapse pipelines, you need to:
 
 1. **Create linked services for the source data store and the sink data store.** You can find the list of supported connectors in the [Supported data stores and formats](#supported-data-stores-and-formats) section of this article. Refer to the connector article's "Linked service properties" section for configuration information and supported properties. 
 2. **Create datasets for the source and sink.** Refer to the "Dataset properties" sections of the source and sink connector articles for configuration information and supported properties.
@@ -134,15 +137,15 @@ The following template of a Copy activity contains a complete list of supported 
 
 ## Monitoring
 
-You can monitor the Copy activity run in the Azure Data Factory both visually and programmatically. For details, see [Monitor copy activity](copy-activity-monitoring.md).
+You can monitor the Copy activity run in the Azure Data Factory and Synapse pipelines both visually and programmatically. For details, see [Monitor copy activity](copy-activity-monitoring.md).
 
 ## Incremental copy
 
-Data Factory enables you to incrementally copy delta data from a source data store to a sink data store. For details, see [Tutorial: Incrementally copy data](tutorial-incremental-copy-overview.md).
+Data Factory and Synapse pipelines enable you to incrementally copy delta data from a source data store to a sink data store. For details, see [Tutorial: Incrementally copy data](tutorial-incremental-copy-overview.md).
 
 ## Performance and tuning
 
-The [copy activity monitoring](copy-activity-monitoring.md) experience shows you the copy performance statistics for each of your activity run. The [Copy activity performance and scalability guide](copy-activity-performance.md) describes key factors that affect the performance of data movement via the Copy activity in Azure Data Factory. It also lists the performance values observed during testing and discusses how to optimize the performance of the Copy activity.
+The [copy activity monitoring](copy-activity-monitoring.md) experience shows you the copy performance statistics for each of your activity run. The [Copy activity performance and scalability guide](copy-activity-performance.md) describes key factors that affect the performance of data movement via the Copy activity. It also lists the performance values observed during testing and discusses how to optimize the performance of the Copy activity.
 
 ## Resume from last failed run
 
@@ -255,7 +258,7 @@ By default, the Copy activity stops copying data and returns a failure when sour
 
 ## Data consistency verification
 
-When you move data from source to destination store, Azure Data Factory copy activity provides an option for you to do additional data consistency verification to ensure the data is not only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent files have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. You can get the skipped file names by enabling session log setting in copy activity. See [Data consistency verification in copy activity](copy-activity-data-consistency.md) for details.
+When you move data from source to destination store, copy activity provides an option for you to do additional data consistency verification to ensure the data is not only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent files have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. You can get the skipped file names by enabling session log setting in copy activity. See [Data consistency verification in copy activity](copy-activity-data-consistency.md) for details.
 
 ## Session log
 You can log your copied file names, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copy activity session logs. See [Session log in copy activity](copy-activity-log.md) for details.

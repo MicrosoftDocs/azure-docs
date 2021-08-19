@@ -57,6 +57,8 @@ Cloud Shell uses an Azure File Share in a storage account, inside a specified su
 
 Users should lock down access to their files by setting the permissions at the storage account or the subscription level.
 
+The Cloud Shell storage account will contain files created by the Cloud Shell user in their home directory, which may include sensitive information including access tokens or credentials.
+
 ## Supported storage regions
 To find your current region you may run `env` in Bash and locate the variable `ACC_LOCATION`, or from PowerShell run `$env:ACC_LOCATION`. File shares receive a 5-GB image created for you to persist your `$Home` directory.
 
