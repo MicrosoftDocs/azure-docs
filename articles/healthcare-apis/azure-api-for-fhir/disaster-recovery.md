@@ -66,32 +66,32 @@ Other configuration changes may be required when Private Link, Customer Managed 
 
 You can enable the private link feature before or after the Azure API for FHIR has been provisioned. You can also provision private link before or after the DR feature has been enabled. Refer to the list below when you're ready to configure Private Link for DR.
 
-* Configure Azure Private Link in the primary region. This step isn't required in the secondary region. For more information, see [Configure private link](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-private-link)
+* Configure Azure Private Link in the primary region. This step isn't required in the secondary region. For more information, see [Configure private link](/azure/healthcare-apis/fhir/configure-private-link)
 
-* Create one Azure VNet in the primary region and another VNet in the secondary region. For information, see [Create a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
+* Create one Azure VNet in the primary region and another VNet in the secondary region. For information, see [Create a virtual network using the Azure portal](../../virtual-network/quick-create-portal.md).
 
-* In the primary region, VNet creates a VNet peering to the secondary region VNet. For more information, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+* In the primary region, VNet creates a VNet peering to the secondary region VNet. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
 
 * Use the default settings, or you can tailor the configuration as needed. The importance is that the traffic can flow between the two virtual networks.
 
-* When the private DNS is set up, the VNet in the secondary region needs to be manually set up as a "Virtual network links". The primary VNet should have already been added as part of the Private Link endpoint creation flow. For more information, see [Virtual network links](https://docs.microsoft.com/azure/dns/private-dns-virtual-network-links).
+* When the private DNS is set up, the VNet in the secondary region needs to be manually set up as a "Virtual network links". The primary VNet should have already been added as part of the Private Link endpoint creation flow. For more information, see [Virtual network links](../../dns/private-dns-virtual-network-links.md).
 
 * Optionally, set up one VM in the primary region VNet and one in the secondary region VNet. You can access the Azure API for FHIR from both VMs.
 
-The private link feature should continue to work during a regional outage and after the failback has completed. For more information, see [Configure private link](https://docs.microsoft.com/azure/healthcare-apis/fhir/configure-private-link).
+The private link feature should continue to work during a regional outage and after the failback has completed. For more information, see [Configure private link](/azure/healthcare-apis/fhir/configure-private-link).
 
 > [!NOTE]
 > Configuring virtual networks and VNet peering does not affect data replication.
 
 ### CMK
 
-Your access to the Azure API for FHIR will be maintained if the key vault hosting the managed key in your subscription is accessible. There's a possible temporary downtime as Key Vault can take up to 20 minutes to re-establish its connection. For more information, see [Azure Key Vault availability and redundancy](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).  
+Your access to the Azure API for FHIR will be maintained if the key vault hosting the managed key in your subscription is accessible. There's a possible temporary downtime as Key Vault can take up to 20 minutes to re-establish its connection. For more information, see [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md).  
 
 ### $export
 
-The export job will be picked up from another region after 10 minutes without an update to the job status. Follow the guidance for Azure storage for recovering your storage account in the event of a regional outage. For more information, see [Disaster recovery and storage account failover](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance). 
+The export job will be picked up from another region after 10 minutes without an update to the job status. Follow the guidance for Azure storage for recovering your storage account in the event of a regional outage. For more information, see [Disaster recovery and storage account failover](../../storage/common/storage-disaster-recovery-guidance.md). 
 
-Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](https://docs.microsoft.com/azure/healthcare-apis/fhir/export-data).
+Ensure that you grant the same permissions to the system identity of the Azure API for FHIR. Also, if the storage account is configured with selected networks, see [How to export FHIR data](/azure/healthcare-apis/fhir/export-data).
 
 ### IoMT FHIR Connector
 

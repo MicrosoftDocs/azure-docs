@@ -40,8 +40,8 @@ In Purview terminology,
 
 For all structured file formats, Purview scanner samples files in the following way:
 
-- For structured file types, it samples 128 rows in each column or 1 MB, whichever is lower.
-- For document file formats, it samples 20 MB of each file.
+- For structured file types, it samples the top 128 rows in each column or the first 1 MB, whichever is lower.
+- For document file formats, it samples the first 20 MB of each file.
     - If a document file is larger than 20 MB, then it is not subject to a deep scan (subject to classification). In that case, Purview captures only basic meta data like file name and fully qualified name.
 - For **tabular data sources(SQL, CosmosDB)**, it samples the top 128 rows. 
 

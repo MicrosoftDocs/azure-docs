@@ -17,6 +17,18 @@ A Spark pool is a set of metadata that defines the compute resource requirements
 
 You can read how to create a Spark pool and see all their properties here [Get started with Spark pools in Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
 
+## Isolated Compute
+
+The Isolated Compute option provides additional security to Spark compute resources from untrusted services by dedicating the physical compute resource to a single customer.
+Isolated compute option is best suited for workloads that require a high degree of isolation from other customer's workloads for reasons that include meeting compliance and regulatory requirements.  
+The Isolate Compute option is only available with the XXXLarge (80 vCPU / 504 GB) node size and only available in the following regions.  The isolated compute option can be enabled or disabled after pool creation although the instance may need to be restarted.  If you expect to enable this feature in the future, ensure that your Synapse workspace is created in an isolated compute supported region.
+
+* East US
+* West US 2
+* South Central US
+* US Gov Arizona
+* US Gov Virginia
+
 ## Nodes
 
 Apache Spark pool instance consists of one head node and two or more worker nodes with a minimum of three nodes in a Spark instance.  The head node runs additional management services such as Livy, Yarn Resource Manager, Zookeeper, and the Spark driver.  All nodes run services such as Node Agent and Yarn Node Manager. All worker nodes run the Spark Executor service.
@@ -32,6 +44,7 @@ A Spark pool can be defined with node sizes that range from a Small compute node
 |Large|16|128 GB|
 |XLarge|32|256 GB|
 |XXLarge|64|432 GB|
+|XXX Large (Isolated Compute)|80|504 GB|
 
 ## Autoscale
 
