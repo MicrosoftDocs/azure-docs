@@ -15,11 +15,7 @@ ms.custom: references_regions
 
 The Multi-Cloud Scanning Connector for Azure Purview allows you to explore your organizational data across cloud providers, including Amazon Web Services, in addition to Azure storage services.
 
-This article describes how to:
-
-- Use Azure Purview to scan your structured data currently stored in Amazon RDS, including both Microsoft SQL and PostgreSQL databases, and discover what types of sensitive information exists in your data.
-
-- Identify the Amazon RDS databases where the data is currently stored for easy information protection and data compliance.
+This article describes how to use Azure Purview to scan your structured data currently stored in Amazon RDS, including both Microsoft SQL and PostgreSQL databases, and discover what types of sensitive information exists in your data. You'll also learn how to identify the Amazon RDS databases where the data is currently stored for easy information protection and data compliance.
 
 For this service, use Purview to provide a Microsoft account with secure access to AWS, where the Multi-Cloud Scanning Connectors for Azure Purview will run. The Multi-Cloud Scanning Connectors for Azure Purview uses this access to your Amazon RDS databases to read your data, and then reports the scanning results, including only the metadata and classification, back to Azure. Use the Purview classification and labeling reports to analyze and review your data scan results.
 
@@ -79,9 +75,6 @@ The following diagram shows the components in both your customer account and Mic
 
 :::image type="content" source="media/register-scan-amazon-rds/vpc-architecture.png" alt-text="Diagram of the Multi-Cloud Scanning Connectors for Azure Purview service in a VPC architecture." border="false":::
 
-> [!NOTE]
-> You can perform this procedure automatically or manually. For more information, see [Prepare your RDS database manually (advanced)](#prepare-your-rds-database-manually-advanced).
->
 
 ### Prepare your RDS database using a CloudFormation template
 
@@ -90,13 +83,14 @@ The following procedure describes how to use an AWS CloudFormation template to p
 This CloudFormation template is available for download from the Microsoft Download site, and will help you create a target group, load balancer, and endpoint service.
 
 > [!NOTE]
-> If needed, you can also perform this procedure manually. For more information, see [Prepare your RDS database manually (advanced)](#prepare-your-rds-database-manually-advanced).
+> You can perform this procedure automatically or manually. For more information, see [Prepare your RDS database manually (advanced)](#prepare-your-rds-database-manually-advanced).
 >
 
+**To prepare your RDS database with a CloudFormation template**:
 
 1. Download the CloudFormation .yaml template required for this procedure from the Microsoft Download site: <x>.
 
-1. In the AWS portal, navigate to the **CloudFormation** service, and select **Create stack**.
+1. In the AWS portal, navigate to the **CloudFormation** service and select **Create stack**.
 
 1. In the **Prerequisite - Prepare Template** area, select **Template is ready**.
 
