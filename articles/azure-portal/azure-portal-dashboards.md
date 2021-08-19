@@ -155,7 +155,7 @@ Data on the dashboard shows activity and refreshes based on the global filters. 
 
 1. Select **Apply**.
 
-## Change the title and subtitle of a tile
+### Change the title and subtitle of a tile
 
 Some tiles allow you to edit their title and subtitle. To do so, select **Configure tile settings** from the context menu.
 
