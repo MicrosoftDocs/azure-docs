@@ -2,7 +2,7 @@
 title: 'Tutorial: Perform packet capture on Azure Virtual WAN site-to-site connections'
 description: In this tutorial, learn how to perform packet capture on the Virtual WAN Site-to-site VPN Gateway.
 services: virtual-wan
-author: wellee
+author: wtnlee
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 04/13/2021
