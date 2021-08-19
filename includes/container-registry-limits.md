@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: include
-ms.date: 06/18/2020
+ms.date: 08/12/2021
 ms.author: danlep
 ms.custom: include file
 ---
@@ -16,6 +16,7 @@ ms.custom: include file
 | Included storage<sup>1</sup> (GiB) | 10 | 100 | 500 |
 | Storage limit (TiB) | 20| 20 | 20 |
 | Maximum image layer size (GiB) | 200 | 200 | 200 |
+| Maximum manifest size (MiB) | 4 | 4 | 4 |
 | ReadOps per minute<sup>2, 3</sup> | 1,000 | 3,000 | 10,000 |
 | WriteOps per minute<sup>2, 4</sup> | 100 | 500 | 2,000 |
 | Download bandwidth<sup>2</sup> (Mbps) | 30 | 60 | 100 |

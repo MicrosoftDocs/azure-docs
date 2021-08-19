@@ -173,6 +173,8 @@
       href: how-to-virtual-hub-routing.md
     - name: View virtual hub effective routes
       href: effective-routes-virtual-hub.md
+    - name: How to configure routing intent and policies
+      href: how-to-routing-policies.md
     - name: Route traffic from a virtual hub to an NVA (legacy)
       items:
         - name: Azure portal

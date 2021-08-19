@@ -110,7 +110,7 @@ At this point, Azure AD enforces that only a tenant administrator can sign into 
 If the admin approves the permissions for your application, the successful response looks like this:
 
 ```HTTP
-GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
+GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=12345&admin_consent=True
 ```
 
 | Parameter | Description |

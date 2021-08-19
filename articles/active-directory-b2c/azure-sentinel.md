@@ -73,7 +73,7 @@ Now that you've enabled Sentinel you'll want to be notified when something suspi
 You can create custom analytics rules to help you discover threats and anomalous behaviors that are present in your environment. These rules search for specific events or sets of events, alert you when certain event thresholds or conditions are reached to then generate incidents for further investigation.
 
 > [!NOTE]
-> For a detailed review on Analytic Rules you can see this [Tutorial](../sentinel/tutorial-detect-threats-custom.md).
+> For a detailed review on Analytic Rules you can see this [Tutorial](/azure/active-directory-b2c/articles/sentinel/detect-threats-custom.md).
 
 In our scenario, we want to receive a notification if someone is trying to force access to our environment but they are not successful, this could mean a brute-force attack, we want to get notified for **_2 or more non successful logins within 60 sec_**
 
@@ -134,7 +134,7 @@ In our scenario, we want to receive a notification if someone is trying to force
    An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. You can set properties such as severity and status at the incident level.
 
    > [!NOTE]
-   > For detailed review on Incident investigation please see [this Tutorial](../sentinel/tutorial-investigate-cases.md)
+   > For detailed review on Incident investigation please see [this Tutorial](/azure/active-directory-b2c/articles/sentinel/investigate-cases.md)
 
    To begin the investigation, select a specific incident. On the right, you can see detailed information for the incident including its severity, entities involved, the raw events that triggered the incident, and the incident’s unique ID.
 
