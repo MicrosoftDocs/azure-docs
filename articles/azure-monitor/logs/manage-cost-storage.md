@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 08/18/2021
 ms.author: bwren 
 ms.custom: devx-track-azurepowershell
 ---
@@ -49,7 +49,7 @@ Also, some solutions, such as [Azure Defender (Security Center)](https://azure.m
 
 The cluster commitment tier level is programmatically configured with Azure Resource Manager using the `Capacity` parameter under `Sku`. The `Capacity` is specified in units of GB and can have values of 500, 1000, 2000 or 5000 GB/day. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier.  For more information, see [Azure Monitor customer-managed key](customer-managed-keys.md).
 
-There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [creating a cluster](logs-dedicated-clusters.md#creating-a-cluster) or set after creation. The two modes are: 
+There are two modes of billing for usage on a cluster. These can be specified by the `billingType` parameter when [creating a cluster](logs-dedicated-clusters.md#create-a-dedicated-cluster) or set after creation. The two modes are: 
 
 - **Cluster**: in this case (which is the default), billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. Per-node allocations from [Azure Defender (Security Center)](../../security-center/index.yml) are applied at the workspace level prior to this aggregation of aggregated data across all workspaces in the cluster. 
 
@@ -148,7 +148,7 @@ The Per Node pricing tier charges per monitored VM (node) on an hour granularity
 > [!TIP]
 > If your workspace has access to the **Per Node** pricing tier but you're wondering whether it would cost less in a Pay-As-You-Go tier, you can [use the query below](#evaluating-the-legacy-per-node-pricing-tier) to easily get a recommendation. 
 
-Workspaces created before April 2016 can also access the original **Standard** and **Premium** pricing tiers that have fixed data retention of 30 days and 365 days, respectively. New workspaces can't be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it can't be moved back. Data ingestion meters for these legacy tiers are called "Data analyzed."
+Workspaces created before April 2016 can continue to use the **Standard** and **Premium** pricing tiers that have fixed data retention of 30 days and 365 days, respectively. New workspaces can't be created in the **Standard** or **Premium** pricing tiers, and if a workspace is moved out of these tiers, it can't be moved back. Data ingestion meters on your Azure bill for these legacy tiers are called "Data analyzed."
 
 There are also some behaviors between the use of legacy Log Analytics tiers and how usage is billed for [Azure Defender (Security Center)](../../security-center/index.yml). 
 

@@ -12,12 +12,16 @@ items:
   items:
   - name: Create a Purview account - Azure portal
     href: create-catalog-portal.md
+  - name: Create a collection - Azure portal
+    href: quickstart-create-collection.md
   - name: Create a Purview account - Azure PowerShell
     href: create-catalog-powershell.md
   - name: Create a Purview account - .NET SDK
     href: create-purview-dotnet.md
   - name: Create a Purview account - Python
     href: create-purview-python.md
+  - name: Create a Purview account - Azure portal FAQs
+    href: create-purview-portal-faq.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Create a collection - Azure portal
@@ -58,6 +62,10 @@ items:
     href: how-to-manage-quotas.md
   - name: Collections
     href: concept-collection.md
+  - name: Scans and ingestion
+    href: concept-scans-and-ingestion.md
+  - name: Elastic Data Map
+    href: concept-elastic-data-map.md
   - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
   - name: Understanding resource sets
@@ -88,6 +96,8 @@ items:
     href: concept-pricing.md
 - name: How-to guides
   items:
+  - name: Create and manage collections
+    href: how-to-create-and-manage-collections.md
   - name: Register & scan
     items:
     - name: Manage Credentials
@@ -205,6 +215,8 @@ items:
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
       href: how-to-link-azure-data-share.md
+    - name: Azure Synapse Analytics lineage
+      href: how-to-lineage-azure-synapse-analytics.md
     - name: Cassandra lineage
       href: how-to-lineage-cassandra.md
     - name: Erwin lineage

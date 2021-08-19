@@ -33,6 +33,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Figma supports **SP and IDP** initiated SSO.
+* Figma supports [**Automated** user provisioning and deprovisioning](figma-provisioning-tutorial.md) (recommended).
 * Figma supports **Just In Time** user provisioning.
 
 ## Add Figma from the gallery
