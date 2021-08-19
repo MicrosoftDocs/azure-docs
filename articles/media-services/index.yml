@@ -32,7 +32,7 @@ highlightedContent:
       url: ./latest/concepts-overview.md
     - title: GitHub samples
       itemType: download
-      url: ./latest/GitHub samples
+      url: ./latest/samples-overview.md
     - title: Azure Media Player
       itemType: overview
       url: ./azure-media-player/azure-media-player-overview.md
