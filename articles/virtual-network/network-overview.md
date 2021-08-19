@@ -222,7 +222,7 @@ This table lists the methods you can use to create an Azure Bastion deployment.
 | Method | Description |
 | ------ | ----------- |
 | [Azure portal](../bastion/quickstart-host-portal.md) | Creates a virtual network, subnets, public IP, bastion host, and virtual machines. |
-| [Azure PowerShell](../bastion/bastion-create-host-powershell.md) | Creates a virtual network, subnets , public IP, and bastion host. Includes the use of [New-AzBastion](/powershell/module/az.network/new-azbastion) to create the bastion host. |
+| [Azure PowerShell](../bastion/bastion-create-host-powershell.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [New-AzBastion](/powershell/module/az.network/new-azbastion) to create the bastion host. |
 | [Azure CLI](../bastion/create-host-cli.md) | Creates a virtual network, subnets, public IP, and bastion host. Includes the use of [az network bastion create](/cli/azure/network/bastion#az_network_bastion_create) to create the bastion host. |
 | [Template](../virtual-network/template-samples.md) | For an example of a template deployment that integrates an Azure Bastion host and a NAT gateway, see [Tutorial: Integrate a NAT gateway with a public load balancer using the Azure portal](../load-balancer/tutorial-nat-gateway-load-balancer-public-portal.md). |
 
