@@ -72,7 +72,7 @@ The API consumer flow describes the end-to-end user journey supported by the sol
 1. Find the developer portal for an API Management service at `https://{ApimServiceName}.developer.azure-api.net`.
 1. Select **Sign Up** to be redirected to the billing portal app.
 1. On the billing portal app, register for an account.
-    * This is handled via [user registration delegation](api-management-howto-setup-delegation.md#-delegating-developer-sign-in-and-sign-up).
+    * Handled via [user registration delegation](api-management-howto-setup-delegation.md#-delegating-developer-sign-in-and-sign-up).
 1. Upon successful account creation, the consumer is authenticated and redirected to the developer portal.
 
 Once the consumer creates an account, they'll only need to sign into the existing account to browse APIs and products from the developer portal.
@@ -103,7 +103,7 @@ Once the consumer creates an account, they'll only need to sign into the existin
     | Parameter | Description |
     | --------- | ----------- |
     | **Success url** | The URL consumers are redirected to if the checkout is successful. Hosted within the web application. |
-    | **Cancel url** | The URL consumers are redirected to if the checkout is cancelled. Hosted within the web application. |
+    | **Cancel url** | The URL consumers are redirected to if the checkout is canceled. Hosted within the web application. |
     | **Payment method types** | Set to "card". |
     | **Mode** | Set to "subscription". Consumer will receive recurring charges. |
     | **Metadata** | Pass the API Management user ID, product ID, and subscription name. <ul><li>Retrieve this metadata in the event raised by creating a Stripe subscription.</li><li>Use within event listener to create associated API Management subscription.</li></ul> |
@@ -147,7 +147,7 @@ Stripe will automatically charge the consumer each billing period by their fixed
 
 Along with the `customer.subscription.created` event, the webhook listener also listens for the `customer.subscription.updated` and `customer.subscription.deleted` events. 
 
-If the subscription is cancelled or moves into an unpaid state, update the API Management subscription into a suspended state so that the consumer can no longer access the APIs.
+If the subscription is canceled or moves into an unpaid state, update the API Management subscription into a suspended state so that the consumer can no longer access the APIs.
 
 ## Next steps
 
