@@ -58,6 +58,8 @@ The first Azure VMware Solution deployment you do consists of a private cloud co
 
 [!INCLUDE [hosts-minimum-initial-deployment-statement](includes/hosts-minimum-initial-deployment-statement.md)]
 
+>[!NOTE]
+> To learn about the limits for number of hosts per cluster, number of clusters per private cloud and number of hosts per private cloud, please check  [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-vmware-solution-limits).
 
 ## Request a host quota 
 
