@@ -271,21 +271,23 @@ The export/import/download report request fails with the error *"403: This reque
 This error may occur if the export/import/download request was not initiated from an authorized network. This can happen if the import/export/download request was initiated from a client that is not connected to the Azure Migrate service (Azure virtual network) over a private network. 
 
 #### Remediation
-**Option 1** *(recommended)*:  
+**Option 1** *(recommended)*:
+  
 To resolve this error, retry the import/export/download operation from a client residing in a virtual network that is connected to Azure over a private link. You can open the Azure portal in your on-premises network or your appliance VM and retry the operation. 
 
 **Option 2** 
+
 The import/export/download request makes a connection to a storage account for uploading/downloading reports. You can also change the networking settings of the storage account used for the import/export/download operation and allow access to the storage account via other networks (public networks).  
 To set up the storage account for public endpoint connectivity,
 
 1. **Locate the storage account**: The storage account name is available on the Azure Migrate: Discovery and Assessment properties page. The storage account name will have the suffix of **usa**. 
 
-:::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png" alt-text="Snapshot of download DNS settings."::: 
+   :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png" alt-text="Snapshot of download DNS settings."::: 
 
-1. Navigate to the storage account and edit the storage account networking properties to allow access from all/other networks. 
+2. Navigate to the storage account and edit the storage account networking properties to allow access from all/other networks. 
 
-:::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall-virtual-networks.png" alt-text="Snapshot of storage account networking properties.":::
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall-virtual-networks.png" alt-text="Snapshot of storage account networking properties.":::
 
-1. Alternatively, you can limit the access to selected networks and add the public IP address of the client from where you're trying to access the Azure Portal.  
+3. Alternatively, you can limit the access to selected networks and add the public IP address of the client from where you're trying to access the Azure Portal.  
 
-:::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall.png" alt-text="Snapshot of add the public IP address of the client.":::
+    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall.png" alt-text="Snapshot of add the public IP address of the client.":::
