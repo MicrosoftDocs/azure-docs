@@ -1,5 +1,5 @@
 ---
-title: Amazon S3 Multi-cloud scanning connector for Azure Purview
+title: Amazon S3 Multi-Cloud Scanning Connector for Azure Purview
 description: This how-to guide describes details of how to scan Amazon S3 buckets.
 author: batamig
 ms.author: bagol
@@ -11,7 +11,7 @@ ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
 
-# Amazon S3 Multi-cloud scanning connector for Azure Purview
+# Amazon S3 Multi-Cloud Scanning Connector for Azure Purview
 
 This how-to guide provides an explanation of how to use Azure Purview to scan your unstructured data currently stored in Amazon S3 standard buckets and discover what types of sensitive information exists in your data. This how-to guide also describes how to identify the Amazon S3 Buckets where the data is currently stored for easy information protection and data compliance.
 
