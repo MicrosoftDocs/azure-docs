@@ -36,9 +36,9 @@ The sign-in flow involves the following steps:
 
 To enable your app to sign in with Azure AD B2C and call a web API, register two applications in the Azure AD B2C directory:  
 
-- The **mobile application** registration enables your app to sign in with Azure AD B2C. During app registration, specify the *redirect URI*. The redirect URI is the endpoint to which users are redirected by Azure AD B2C after they've authenticated with Azure AD B2C. The app registration process generates an *Application ID*, also known as the *client ID*, which uniquely identifies your mobile app (for example, *App ID: 1*).
+- The **mobile application** registration enables your app to sign in with Azure AD B2C. During app registration, specify the *redirect URI*. The redirect URI is the endpoint to which users are redirected by Azure AD B2C after they've authenticated with Azure AD B2C. The app registration process generates an *application ID*, also known as the *client ID*, which uniquely identifies your mobile app (for example, *App ID: 1*).
 
-- The **web API** registration enables your app to call a protected web API. The registration exposes the web API permissions (scopes). The app registration process generates an *Application ID*, which uniquely identifies your web API (for example, *App ID: 2*). Grant your mobile app (App ID: 1) permissions to the web API scopes (App ID: 2). 
+- The **web API** registration enables your app to call a protected web API. The registration exposes the web API permissions (scopes). The app registration process generates an *application ID*, which uniquely identifies your web API (for example, *App ID: 2*). Grant your mobile app (App ID: 1) permissions to the web API scopes (App ID: 2). 
 
 
 The application registration and architecture are illustrated in the following diagrams:
@@ -103,15 +103,14 @@ This sample acquires an access token with the relevant scopes that the mobile ap
 
 1. Use an existing web API, or create a new one. For more information, see [Enable authentication in your own web API by using Azure AD B2C](enable-authentication-web-api.md).
 1. Change the sample code to [call a web API](enable-authentication-iOs-app.md#step-63-call-a-web-api).
-
-After you configure the web API, copy the URI of the web API endpoint. You will use the web API endpoint in the next steps.
+1. After you configure the web API, copy the URI of the web API endpoint. You will use the web API endpoint in the next steps.
 
 > [!TIP]
 > If you don't have a web API, you can still run this sample. In this case, the app returns the access token but won't be able to call the web API. 
 
 ## Step 4: Get the iOS mobile app sample
 
-1. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/archive/refs/heads/vNext.zip), or clone the sample web app from [GitHub repo](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal). 
+1. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/archive/refs/heads/vNext.zip), or clone the sample web app from the [GitHub repo](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal). 
 
     ```bash
     git clone https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/tree/vNext.git
@@ -141,7 +140,7 @@ Update the following class members:
 |kRedirectUri|The mobile application redirect URI from [step 2.3](#step-23-register-the-mobile-app), `msauth.com.microsoft.identitysample.MSALiOS://auth`.|
 |kSignupOrSigninPolicy| The sign-up or sign-in user flow or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
 |kEditProfilePolicy|The edit profile user flow or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
-|kGraphURI| (Optional) the web API endpoint that you created in [step 3](#step-3-configure-the-sample-web-api) (for example, `https://contoso.azurewebsites.net/hello`).|
+|kGraphURI| (Optional) The web API endpoint that you created in [step 3](#step-3-configure-the-sample-web-api) (for example, `https://contoso.azurewebsites.net/hello`).|
 | kScopes | The web API scopes that you created in [step 2.4](#step-24-grant-the-mobile-app-permissions-for-the-web-api).|
 | | | 
 
