@@ -136,7 +136,7 @@ The routing cost is significant for sending message to many small groups. Curren
 ### Triggering Cloud Event 
 Service delivers client events to the upstream webhook using the [CloudEvents HTTP protocol](./reference-cloud-events.md).
 
-![upstream](./media/concept-performance/upstream.png)
+![The Upstream Webhook](./media/concept-performance/upstream.png)
 
 For every event, it formulates an HTTP POST request to the registered upstream and expects an HTTP response. 
 
@@ -159,7 +159,7 @@ In this case, the app server writes back the original message back in the http r
 
 Azure Web PubSub provides powerful [APIs](/rest/api/webpubsub/) to manage clients and deliver real-time messages.
 
-![restapi](./media/concept-performance/restapi.png)
+![The Rest API](./media/concept-performance/restapi.png)
 
 #### Send to user through REST API
 The benchmark assigns usernames to all of the clients before they start connecting to Azure Web PubSub Service. 
