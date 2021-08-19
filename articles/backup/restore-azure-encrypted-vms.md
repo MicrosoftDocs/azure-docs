@@ -15,7 +15,6 @@ Review the known limitations before you start restore of an encrypted VM
 
 - You can back up and restore ADE encrypted VMs within the same subscription.
 - Azure Backup supports VMs encrypted using standalone keys. Any key that's a part of a certificate used to encrypt a VM isn't currently supported.
-- Azure Backup supports Cross Region Restore of encrypted Azure VMs to the Azure paired regions. Learn how to [enable Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore) for an encrypted VM.
 - ADE encrypted VMs can’t be recovered at the file/folder level. You need to recover the entire VM to restore files and folders.
 - When restoring a VM, you can't use the [replace existing VM](backup-azure-arm-restore-vms.md#restore-options) option for ADE encrypted VMs. This option is only supported for unencrypted managed disks.
 
@@ -26,7 +25,7 @@ Encrypted VMs can only be restored by restoring the VM disk and creating a virtu
  
 Follow below steps to restore encrypted VMs:
 
-- **Step 1**: Restore the VM disk
+### **Step 1**: Restore the VM disk
 
 1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**.
 1. In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name.
@@ -42,14 +41,33 @@ When your virtual machine uses unmanaged disks, they're restored as blobs to the
    > [!NOTE]
    > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/).
 
-- **Step 2**. Recreate the virtual machine instance by doing one of the following actions:
-    1. Use the template that's generated during the restore operation to customize VM settings and trigger VM deployment. [Learn more](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-       >[!NOTE]
-       >While deploying the template, verify the storage account containers and the public/private settings.
-    1. Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-    1. For Linux VMs, reinstall the ADE extension so the data disks are open and mounted.
+### **Step 2**. Recreate the virtual machine instance by doing one of the following actions:
+
+1. Use the template that's generated during the restore operation to customize VM settings and trigger VM deployment. [Learn more](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
+>[!NOTE]
+>While deploying the template, verify the storage account containers and the public/private settings.
+1. Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+1. For Linux VMs, reinstall the ADE extension so the data disks are open and mounted.
 
 
+## Cross Region Restore for an encrypted Azure VM
+
+Azure Backup supports Cross Region Restore of encrypted Azure VMs to the [Azure paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Learn how to [enable Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore) for an encrypted VM.
+
+## Move an encrypted Azure VM
+
+Moving an encrypted VM across vault or resource group is same as moving a backed up Azure Virtual machine. See,
+
+- [Steps to move an Azure virtual machine to a different recovery service vault](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault#move-an-azure-virtual-machine-to-a-different-recovery-service-vault)
+- [Steps to move an Azure virtual machine to different resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription)
+
+
+## Next steps
+
+If you run into any issues, review these articles:
+
+- [Common errors](backup-azure-vms-troubleshoot.md) when backing up and restoring encrypted Azure VMs.
+- [Azure VM agent/backup extension](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) issues.
 
 
 
