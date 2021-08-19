@@ -31,7 +31,7 @@ highlightedContent:
       itemType: concept
       url: ./latest/concepts-overview.md
     - title: GitHub samples
-      itemType: samples
+      itemType: download
       url: ./latest/GitHub samples
     - title: Azure Media Player
       itemType: overview
@@ -83,6 +83,7 @@ conceptualContent:
           itemType: concept
           text: Supported file formats and codecs
         - url: ./latest/encode-autogen-bitrate-ladder.md
+          itemType: concept
           text: Automatically generate adaptive bitrate encoding
 
     - title: Stream on demand
@@ -165,7 +166,7 @@ additionalContent:
         url: ../event-grid/index.yml
       - title: Azure Monitor
         summary: Learn how to aggregate and analyze metrics, logs, and traces. Fire alerts and send notifications or call automated solutions.   
-        url: ../event-monitor/index.yml
+        url: ../azure-monitor/index.yml
       - title: Azure Event Hubs
         summary: Learn how to use Event Hubs to ingest millions of events per second from connected devices and applications.  
         url: ../event-hubs/index.yml
