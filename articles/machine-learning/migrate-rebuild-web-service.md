@@ -13,6 +13,8 @@ ms.date: 03/08/2021
 
 # Rebuild a Studio (classic) web service in Azure Machine Learning
 
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+
 In this article, you learn how to rebuild an ML Studio (classic) web service as an **endpoint** in Azure Machine Learning.
 
 Use Azure Machine Learning pipeline endpoints to make predictions, retrain models, or run any generic pipeline. The REST endpoint lets you run pipelines from any platform. 

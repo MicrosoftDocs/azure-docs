@@ -13,6 +13,8 @@ ms.date: 08/23/2021
 
 # Migrate to Azure Machine Learning 
 
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+
 Learn how to migrate from Studio (classic) to Azure Machine Learning. Azure Machine Learning provides a modernized data science platform that combines no-code and code-first approaches.
 
 This is a guide for a basic "lift and shift" migration. If you want to optimize an existing machine learning workflow, or modernize an ml platform, see the [Azure Machine Learning adoption framework](https://aka.ms/mlstudio-classic-migration-repo) for additional resources including digital survey tools, worksheets, and planning templates.
@@ -52,7 +54,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 1. Align an actionable Azure Machine Learning adoption plan to business outcomes.
 1. Prepare people, processes, and environments for change.
 
-See the [Azure Machine Learning Adoption Framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for planning resources including the [planning doc template](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.docx). 
+See the [Azure Machine Learning Adoption Framework](https://aka.ms/mlstudio-classic-migration-repo) for planning resources including a planning doc template. 
 
 ## Step 3: Rebuild your first model
 
@@ -167,4 +169,4 @@ In this article, you learned the high-level requirements for migrating to Azure 
 1. [Integrate an Azure Machine Learning web service with client apps](migrate-rebuild-integrate-with-client-app.md).
 1. [Migrate Execute R Script](migrate-execute-r-script.md).
 
-See the [Azure Machine Learning Adoption Framework](https://github.com/solliancenet/microsoft-ml-kinetic/blob/main/aml-adoption-framework.md) for additional migration resources.
+See the [Azure Machine Learning Adoption Framework](https://aka.ms/mlstudio-classic-migration-repo) for additional migration resources.
