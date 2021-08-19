@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/18/2021
+ms.date: 08/19/2021
 ms.author: alkohli
 ---
 
@@ -257,10 +257,7 @@ When you order your device, you can choose to use the default system-generated d
 
 You can find out the device password by viewing your order in the Azure portal.
 
-To get the device password, do these steps:
-
 [!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
-
 
 > [!NOTE]
 > After several attempts to log on to your device using an incorrect password, your device admin account will be locked out of the device. The account lock will clear after a few minutes, and you'll be able to connect to the device. 
