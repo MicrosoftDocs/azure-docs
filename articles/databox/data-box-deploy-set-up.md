@@ -121,7 +121,7 @@ Perform the following steps to set up your device using the local web UI and the
 
 1. You see a **Sign in** page for the local web UI. Ensure that the device serial number matches across both the portal UI and the local web UI. The device is locked at this point.
 
-[!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
+1. [!INCLUDE [data-box-get-device-password](../../includes/data-box-get-device-password.md)]
     
 1. Provide the device password that you got from the Azure portal in the previous step to sign into the local web UI of the device. Click **Sign in**.
 1. On the **Dashboard**, ensure that the network interfaces are configured. 
