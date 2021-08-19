@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/10/2021
+ms.date: 08/19/2021
 ms.author: alkohli
 ---
 
@@ -28,6 +28,9 @@ The following table gives a summary of each step in processing an import order a
 | Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                |
 
 This article describes in detail the various mechanisms or tools available to track and audit Data Box or Data Box Heavy import order. The information in this article applies to both, Data Box and Data Box Heavy import orders. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
+
+> [!NOTE]
+> If the storage account for your Data Box is behind a firewall, you won't be able to view logs on the **Activity logs** pane and link to copy logs from the **Overview** pane in the Azure portal.<!--1) Is "behind a firewall" too broad? 2) I noted only these two places where logs were displayed or linked to. Didn't want to get any more specific about the types of event logged in Activity log view. 3) The issue is being able to access logs from the portal; the firewall would not prevent Azure from the logs?-->
 
 ## Set up access control on the order
 
