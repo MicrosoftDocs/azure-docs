@@ -701,7 +701,7 @@ Specific scenarios that can cause internal server errors are shown as follows.
 
   Successful execution of data flows depends on many factors, including the compute size/type, numbers of source/sinks to process, the partition specification, transformations involved, sizes of datasets, the data skewness and so on.<br/>
   
-  For more guidance, see [Optimizing the Azure Integration Runtime](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance?WT.mc_id=Portal-Microsoft_Azure_Support#ir).
+  For more guidance, see [Optimizing the Azure Integration Runtime](concepts-data-flow-performance.md#ir).
 
 #### Scenario 2: Using debug sessions with parallel activities
 
@@ -713,7 +713,7 @@ Specific scenarios that can cause internal server errors are shown as follows.
 
   Transient issues with microservices involved in the execution can cause the run to fail.<br/>
   
-  Configuring retries in the pipeline activity can resolve the problems caused by transient issues. For more guidance, see [Activity Policy](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities?WT.mc_id=Portal-Microsoft_Azure_Support#activity-policy).
+  Configuring retries in the pipeline activity can resolve the problems caused by transient issues. For more guidance, see [Activity Policy](concepts-pipelines-activities.md#activity-json).
 
 ## Next steps
 
