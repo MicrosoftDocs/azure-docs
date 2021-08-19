@@ -58,7 +58,7 @@ Once you've configured your Azure AD B2C instance to send logs to Azure Monitor,
 
 4. Select the new workspace.
 
- ![image select the sentinel workspace](./media/azure-sentinel/create-new-workspace)
+ ![image select the sentinel workspace](./media/azure-sentinel/create-new-workspace.png)
 
 5. Select **Add Azure Sentinel**.
 
@@ -81,7 +81,7 @@ In the following example, we explain the scenario where you receive a notificati
 2. In the action bar at the top, select **+ Create** and select
    **Scheduled query rule**. It will open the **Analytics rule wizard**.
 
-[!image shows select create scheduled query rule](./media/azure-sentinel/create-scheduled-rule.png)
+![image shows select create scheduled query rule](./media/azure-sentinel/create-scheduled-rule.png)
 
 3. In the Analytics rule wizard, go to the **General** tab.
 
@@ -93,26 +93,26 @@ In the following example, we explain the scenario where you receive a notificati
    | Severity | As appropriate |
    | Status | When you create the rule, its Status is `Enabled` by default, which means it will run immediately after you finish creating it. If you don't want it to run immediately, select `Disabled`, and the rule will be added to your Active rules tab and you can enable it from there when you need it.|
 
-  [!image provide basic rule properties](./media/azure-sentinel/create-new-rule.png)
+  ![image provide basic rule properties](./media/azure-sentinel/create-new-rule.png)
 
 4.  To define the rule query logic and configure settings, in the **Set rule logic** tab, write a query directly in the
 **Rule query** field. This query will alert you when there are two or more non-successful logins within 60 seconds to your Azure AD B2C tenant and will organize by `UserPrincipalName`.
 
-[!image shows enter the rule query in the logic tab](./media/azure-sentinel/rule-query.png)
+![image shows enter the rule query in the logic tab](./media/azure-sentinel/rule-query.png)
 
 In the Query scheduling section, set the following parameters:
-[!image set query scheduling parameters](./media/azure-sentinel/query-scheduling.png)
+![image set query scheduling parameters](./media/azure-sentinel/query-scheduling.png)
 
 5. Select **Next:Incident settings (Preview)**. You'll configure and add the Automated response later.
 
 6. Go to the **Review and create** tab to review all the
    settings for your new alert rule. When the **Validation passed** message appears, select **Create** to initialize your alert rule.
 
-[!image review and create rule](./media/azure-sentinel/review-create.png)
+![image review and create rule](./media/azure-sentinel/review-create.png)
 
 7. View the rule and incidents it generates. Find your newly created custom rule of type **Scheduled** in the table under the **Active rules** tab on the main **Analytics** screen. From this list you can **edit**, **enable**, **disable**, or **delete** rules.
 
-[!image analytics screen showing options to edit, enable, disable or delete rules](./media/azure-sentinel/rule-crud.png)
+![image analytics screen showing options to edit, enable, disable or delete rules](./media/azure-sentinel/rule-crud.png)
 
 8. View the results of your new Azure AD B2C non-successful logins rule. Go to the **Incidents** page, where you can triage, investigate, and remediate the threats. An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. You can set properties such as severity and status at the incident level.
 
@@ -121,15 +121,15 @@ In the Query scheduling section, set the following parameters:
 9. To begin the investigation, select a specific incident. On the
 right, you can see detailed information for the incident including its severity, entities involved, the raw events that triggered the incident, and the incident's unique ID.
 
-[!image alt-text="incident screen](./media/azure-sentinel/select-incident.png)
+![image alt-text="incident screen](./media/azure-sentinel/select-incident.png)
 
 10. Select **View full details** in the incident page and review the relevant tabs that summarize the incident information and provides more details.
 
-[!image rule 73](./media/azure-sentinel/full-details.png)
+![image rule 73](./media/azure-sentinel/full-details.png)
 
 11. Select **Evidence** > **Events** > **Link to Log Analytics**. The result will display the `UserPrincipalName` of the identity trying to log in with the number of attempts.
 
-[!image details of selected incident](./media/azure-sentinel/logs)
+![image details of selected incident](./media/azure-sentinel/logs)
 
 ## Automated response
 
@@ -137,7 +137,7 @@ Azure Sentinel provides a [robust SOAR capability](../sentinel/automation-in-azu
 
 In this example, we add an email notification upon an incident created by the rule. Use an [existing playbook from the Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification) to accomplish this task. Once the playbook is configured, edit the existing rule and select the playbook into the Automation tab.
 
-[! image configuration screen for the automated response associated to a rule](./media/azure-sentinel/automation-tab)
+![image configuration screen for the automated response associated to a rule](./media/azure-sentinel/automation-tab)
 
 ## Next steps
 
