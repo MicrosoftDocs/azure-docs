@@ -79,7 +79,7 @@ Azure Database Migration Service prerequisites that are common across all suppor
 * A machine running self-hosted integration runtime connected to the source SQL Server instance. The machine will also connect to the backup network file share. Outbound port 445 should be enabled to allow access to the network file share.
 * If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](/quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
 
-## Considerations for using self-hosted integration runtime for database migrations
+### Considerations for using self-hosted integration runtime for database migrations
 - You can use a single self-hosted integration runtime for multiple source SQL Server databases.
 - You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with DMS. Initially, the self-hosted integration runtime should be created using the Azure SQL Migration extension in Azure Data Studio and can be reused for further database migrations.
 - You can install only one instance of self-hosted integration runtime on any single machine.
@@ -89,7 +89,7 @@ Azure Database Migration Service prerequisites that are common across all suppor
 - We recommend up to 10 concurrent database migrations per self-hosted integration runtime on a single machine. To increase the number of concurrent database migrations, scale out self-hosted runtime up to four nodes or create separate self-hosted integration runtime on different machines.
 - You can configure self-hosted integration runtime to auto-update to automatically apply any new features, bug fixes, and enhancements that are released. To learn more, see [Self-hosted Integration Runtime Auto-update](../data-factory/self-hosted-integration-runtime-auto-update.md).
 
-### Limitations
+## Limitations
 - Overwriting existing databases using DMS in your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine isn't supported.
 - Configuring high availability and disaster recovery on your target to match source topology is not supported by DMS.
 - The following server objects aren't supported:
@@ -120,7 +120,7 @@ Migrate SQL Server database(s) to your target Azure SQL Managed Instance or SQL 
 - West US
 - West US 2
 
-### Pricing
+## Pricing
 - Azure Database Migration Service is **free** to use with the Azure SQL Migration extension in Azure Data Studio. You can **migrate multiple SQL Server databases using the Azure Database Migration Service at no charge** for using the service or the Azure SQL Migration extension.
 - There's no data movement or data ingress cost for migrating your databases from on-premises to Azure. If the source database is moved from another region or an Azure VM, you may incur [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) based on your bandwidth provider and routing scenario.
 - Provide your own machine or on-premises server to install Azure Data Studio.
