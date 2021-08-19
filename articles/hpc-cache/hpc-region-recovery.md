@@ -19,7 +19,7 @@ The key is using back-end storage that is accessible from multiple regions. This
 As your workflow proceeds in your primary region, data is saved in the long-term storage outside of the region. If the cache region becomes unavailable, you can create a duplicate Azure HPC Cache instance in a secondary region, connect to the same storage, and resume work from the new cache.
 
 > [!NOTE]
-> This failover plan does not cover a complete outage in your storage account region. Also, Azure HPC Cache does not support geographically redundant storage accounts (GRS or GZRS) because their asynchronous copying between regions is not consistent enough for HPC Cache workflows.
+> This failover plan does not cover a complete outage in a *storage account's* region. Also, Azure HPC Cache does not support geographically redundant storage accounts (GRS or GZRS) because their asynchronous copying between regions is not consistent enough for HPC Cache workflows.
 >
 > HPC Cache **does** support locally redundant storage (LRS) and zone-redundant storage (ZRS), which [replicate data within one Azure region](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region).
 >
