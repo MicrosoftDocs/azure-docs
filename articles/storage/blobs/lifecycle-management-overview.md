@@ -67,7 +67,7 @@ Each rule within the policy has several parameters, described in the following t
 | Parameter name | Parameter type | Notes | Required |
 |--|--|--|--|
 | `name` | String | A rule name can include up to 256 alphanumeric characters. Rule name is case-sensitive. It must be unique within a policy. | True |
-| `enabled` | Boolean | An optional boolean to allow a rule to be temporary disabled. Default value is true if it's not set. | False |  |
+| `enabled` | Boolean | An optional boolean to allow a rule to be temporary disabled. Default value is true if it's not set. | False |
 | `type` | An enum value | The current valid type is `Lifecycle`. | True |
 | `definition` | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
 
