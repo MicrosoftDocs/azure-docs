@@ -99,7 +99,7 @@ For more information, see:
 
 Some limitations differ depending on the version (Stv2 or Stv1) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
 
-### [Stv2](#tab/v2)
+### [Stv2](#tab/Stv2)
 
 * A subnet containing API Management instances can't be moved across subscriptions.
 * For multi-region API Management deployments configured in internal VNET mode, users own the routing and are responsible for managing the load balancing across multiple regions.

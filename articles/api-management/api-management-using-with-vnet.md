@@ -49,7 +49,7 @@ Some prerequisites differ depending on the version (Stv2 or Stv1) of the [comput
 
 ## Enable VNET connection
 
-### Enable VNET connectivity using the Azure portal (Stv2 hosting platform)
+### Enable VNET connectivity using the Azure portal (Stv2 compute platform)
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
 1. Choose your API Management instance.
@@ -93,10 +93,11 @@ Use the following templates to deploy an  API Management instance and connect to
 
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet%2Fazuredeploy.json)
 
-### Enable connectivity using Azure PowerShell cmdlets (v1 hosting platform)
+### Enable connectivity using Azure PowerShell cmdlets 
 
 [Create](/powershell/module/az.apimanagement/new-azapimanagement) or [update](/powershell/module/az.apimanagement/update-azapimanagementregion) an API Management instance in a VNET.
 
+---
 
 ## Connect to a web service hosted within a virtual network
 Once you've connected your API Management service to the VNET, you can access backend services within it just as you do public services. When creating or editing an API, type the local IP address or the host name (if a DNS server is configured for the VNET) of your web service into the **Web service URL** field.
