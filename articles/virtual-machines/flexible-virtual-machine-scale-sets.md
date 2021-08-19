@@ -49,7 +49,9 @@ Before you can deploy virtual machine scale sets in Flexible orchestration mode,
 
 ### Azure portal
 
-1. Log into the Azure portal at https://portal.azure.com.
+During the Flexible orchestration mode for scale sets preview, use the *preview* Azure portal linked in the steps below. 
+
+1. Log into the Azure portal at https://preview.portal.azure.com.
 1. Go to your **Subscriptions**.
 1. Navigate to the details page for the subscription you would like to create a scale set in Flexible orchestration mode by selecting the name of the subscription.
 1. In the menu under **Settings**, select **Preview features**.
@@ -98,19 +100,23 @@ az feature show --namespace Microsoft.Compute --name VMOrchestratorMultiFD
 
 ## Get started with Flexible orchestration mode
 
-Get started with Flexible orchestration mode for your scale sets through the [Azure portal](flexible-virtual-machine-scale-sets-portal.md), [Azure CLI](flexible-virtual-machine-scale-sets-cli.md), [Azure PowerShell](flexible-virtual-machine-scale-sets-powershell.md), or [REST API](flexible-virtual-machine-scale-sets-rest-api.md). 
+Get started with Flexible orchestration mode for your scale sets through the [Azure portal](flexible-virtual-machine-scale-sets-portal.md), [Azure CLI](flexible-virtual-machine-scale-sets-cli.md), [Azure PowerShell](flexible-virtual-machine-scale-sets-powershell.md), or [ARM Template](flexible-virtual-machine-scale-sets-rest-api.md). 
 
 
-## Add instances manually or with autoscaling 
-Virtual machine scale sets with Flexible orchestration works as a thin orchestration layer to manage multiple VMs. There are two ways you can add VMs to be managed by the scale set:
+## Add instances with autoscaling or manually
+Virtual machine scale sets with Flexible orchestration works as a thin orchestration layer to manage multiple VMs. There are several ways you can add VMs to be managed by the scale set:
 
-1. **Manual scaling (recommended)**
+1. **Set instance count**
 
     When you create the scale set with Flexible orchestration, define a VM profile or template which describes the template to be used to scale out. You can then set the capacity parameter to increase or decrease the number of VM instances managed by the scale set. 
 
 1. **Autoscaling with Metrics or Schedule** 
 
     Alternatively, you can set up autoscale rules to increase or decrease the capacity based on metrics or a schedule. See [Virtual machine scale sets with Autoscaling](..\virtual-machine-scale-sets\virtual-machine-scale-sets-autoscale-overview.md). 
+
+1. **Specify a scale set when creating a VM**
+
+    When you create a VM, you can optionally specify that it is added to a virtual machine scale set. A VM can only be added to a scale set at time of VM creation.
 
 
 ## Explicit Network Outbound Connectivity required 
@@ -130,10 +136,6 @@ Common scenarios that will require explicit outbound connectivity include:
 - Access to storage accounts or Key Vault. Connectivity to Azure services can also be established via [Private Link](../private-link/private-link-overview.md). 
 
 See [Default outbound access in Azure](https://aka.ms/defaultoutboundaccess) for more details on defining secure outbound connections.
-
-
-## Specify a scale set when creating a VM
-When you create a VM, you can optionally specify that it is added to a virtual machine scale set. A VM can only be added to a scale set at time of VM creation.
 
 
 ## Assign fault domain during VM creation
