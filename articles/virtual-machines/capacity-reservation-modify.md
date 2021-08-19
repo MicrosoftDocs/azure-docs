@@ -41,8 +41,11 @@ Update the number of virtual machine instances reserved in a capacity reservatio
 In the request body, update the `capacity` property to the new count that you want to reserve: 
     
 ```json
-{ 
-    "capacity": 5,
+{
+    "sku":
+    {
+        "capacity": 5
+    }
 } 
 ```
 
@@ -203,7 +206,7 @@ To delete a capacity reservation, first find out all of the virtual machines tha
 First, find all virtual machines associated with the Capacity Reservation Group and dissociate them.
  
 ```rest
-    GET InstanceView https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}?$expand=instanceView&api-version=2021-04-01
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}?$expand=instanceView&api-version=2021-04-01
 ``` 
 
 ```json

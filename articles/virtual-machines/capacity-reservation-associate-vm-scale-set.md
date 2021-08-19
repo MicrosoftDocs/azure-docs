@@ -61,7 +61,7 @@ Add the `capacityReservationGroup` property in the `virtualMachineProfile` as sh
     "virtualMachineProfile": { 
         "capacityReservation": { 
             "capacityReservationGroup":{ 
-                "id":”subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroup/{CapacityReservationGroupName}” 
+                "id":"subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroup/{CapacityReservationGroupName}" 
             } 
          }, 
         "osProfile": { 
@@ -115,22 +115,22 @@ For Public Preview, in order to associate an existing Uniform virtual machine sc
 
 ### Important notes on Upgrade Policies 
 
-- **Automatic Upgrade** – In this mode, VMs are automatically associated with the Capacity Reservation Group without any further action from you. When the VMs are reallocated, they start consuming the reserved capacity. 
-- **Rolling Upgrade** – In this mode, VMs are associated with the Capacity Reservation Group without any further action from you. They're updated in batches with an optional pause time between batches. When the VMs are reallocated, they start consuming the reserved capacity. 
-- **Manual Upgrade** – In this mode, nothing happens to the VM when the virtual machine scale set is updated. You'll need to do individual updates to each VM by [upgrading them with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md). 
+- **Automatic Upgrade** – In this mode, the scale set VM instances are automatically associated with the Capacity Reservation Group without any further action from you. When the scale set VMs are reallocated, they start consuming the reserved capacity.
+- **Rolling Upgrade** – In this mode, scale set VM instances are associated with the Capacity Reservation Group without any further action from you. However, they're updated in batches with an optional pause time between them. When the scale set VMs are reallocated, they start consuming the reserved capacity.
+- **Manual Upgrade** – In this mode, nothing happens to the scale set VM instances when the virtual machine scale set is attached to a capacity reservation group. You'll need to do individual updates to each scale set VM by [upgrading it with the latest Scale Set model](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ### [API](#tab/api2)
 
 1. Deallocate the virtual machine scale set. 
 
     ```rest
-    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroupname}/providers/Microsoft.Compute/virtualMachines/{VirtualMachineName}/deallocate?api-version=2021-04-01
+    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroupname}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/deallocate?api-version=2021-04-01
     ```
 
 1. Add the `capacityReservationGroup` property to the scale set model. Construct the following PUT request to *Microsoft.Compute* provider:
 
     ```rest
-    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{VirtualMachineName}?api-version=2021-04-01
+    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourcegroupname}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}?api-version=2021-04-01
     ```
 
     In the request body, include the `capacityReservationGroup` property:
@@ -187,7 +187,7 @@ Once the Uniform virtual machine scale set is associated with the Capacity Reser
 The Capacity Reservation Group *Instance View* will reflect the new scale set VMs under the `virtualMachinesAssociated` & `virtualMachinesAllocated` properties as shown below: 
 
 ```rest
-GET Instance View https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}?$expand=instanceview&api-version=2021-04-01 
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}?$expand=instanceview&api-version=2021-04-01 
 ```
 
 ```json
@@ -245,7 +245,7 @@ Get-AzCapacityReservationGroup
 -Name <"CapacityReservationGroupName">
 -InstanceView
 
-$CapRes. InstanceView.Utilizationinfo.VirtualMachinesAllocated
+$CapRes.InstanceView.Utilizationinfo.VirtualMachinesAllocated
 ``` 
 
 To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).

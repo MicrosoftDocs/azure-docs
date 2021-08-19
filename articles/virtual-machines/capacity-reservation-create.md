@@ -34,7 +34,7 @@ The Capacity Reservation must meet the following rules:
 - For a Capacity Reservation Group that supports zones, each reservation type is defined by the combination of **VM size** and **zone**. For example, one Capacity Reservation for `Standard_D2s_v3` in `Zone 1`, another Capacity Reservation for `Standard_D2s_v3` in `Zone 2`, and a third Capacity Reservation for `Standard_D2s_v3` in `Zone 3` is supported.
 
 
-## Create a capacity reservation group 
+## Create a capacity reservation 
 
 ### [API](#tab/api1)
 
@@ -175,7 +175,7 @@ Once successfully created, the Capacity Reservation is immediately available for
 
 ```rest
 GET  
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}/capacityReservations/{capacityReservationName}?api-version=2021-07-01 
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/CapacityReservationGroups/{CapacityReservationGroupName}/capacityReservations/{capacityReservationName}?api-version=2021-04-01
 ```
  
 ```json
