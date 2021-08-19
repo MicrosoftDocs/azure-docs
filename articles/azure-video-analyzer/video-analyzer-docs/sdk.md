@@ -34,7 +34,7 @@ The following platforms are supported:
 
 ## Management & Operations APIs
 
-You can refer Azure Video Analyzer [management plane APIs](https://docs.microsoft.com/en-us/rest/api/videoanalyzer/)
+You can also refer Azure Video Analyzer [management plane APIs](https://docs.microsoft.com/rest/api/videoanalyzer/) doc.
 
 <!-- links -->
 [docs-direct-methods]: direct-methods.md
