@@ -13,7 +13,7 @@ ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
 
-# Configure authentication options in an iOS Swift app by using Azure AD B2C 
+# Enable authentication options in an iOS Swift app by using Azure AD B2C 
 
 This article describes ways you can enable, customize, and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your iOS Swift application. 
 
@@ -46,7 +46,7 @@ let kAuthorityHostName = "login.contoso.com"
 [!INCLUDE [active-directory-b2c-app-integration-login-hint](../../includes/active-directory-b2c-app-integration-login-hint.md)]
 
 1. If you're using a custom policy, add the required input claim, as described in [Set up direct sign-in](direct-signin.md#prepopulate-the-sign-in-name). 
-1. Look for your MSAL configuration object, and then add the `withLoginHint()` method with the login hint.
+1. Look for your Microsoft Authentication Library (MSAL) configuration object, and then add the `withLoginHint()` method with the login hint.
 
 ```swift
 let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: self.webViewParameters!)
