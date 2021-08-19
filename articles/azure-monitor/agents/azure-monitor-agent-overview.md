@@ -56,7 +56,8 @@ Azure virtual machines, virtual machine scale sets, and Azure Arc enabled server
 
 
 ## Supported regions
-Azure Monitor agent is available in all public regions that supports Log Analytics. Government regions and clouds are not currently supported.
+Azure Monitor agent is available in all public regions that support Log Analytics, as well as the government (Fairax) and China (Mooncake) clouds. Air-gapped clouds are not yet supported.
+
 ## Supported services and features
 The following table shows the current support for Azure Monitor agent with other Azure services.
 
