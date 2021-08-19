@@ -83,7 +83,44 @@ The following diagram shows the components in both your customer account and Mic
 > You can perform this procedure automatically or manually. For more information, see [Prepare your RDS database manually (advanced)](#prepare-your-rds-database-manually-advanced).
 >
 
-TBD automatic tool
+### Prepare your RDS database using a CloudFormation template
+
+The following procedure describes how to use an AWS CloudFormation template to prepare your RDS database in a VPC to connect to Azure to Azure Purview. 
+
+This CloudFormation template is available for download from the Microsoft Download site, and will help you create a target group, load balancer, and endpoint service.
+
+> [!NOTE]
+> If needed, you can also perform this procedure manually. For more information, see [Prepare your RDS database manually (advanced)](#prepare-your-rds-database-manually-advanced).
+>
+
+
+1. Download the CloudFormation .yaml template required for this procedure from the Microsoft Download site: <x>.
+
+1. In the AWS portal, navigate to the **CloudFormation** service, and select **Create stack**.
+
+1. In the **Prerequisite - Prepare Template** area, select **Template is ready**.
+
+1. In the **Specify template** section, select **Upload a template file**. Select **Choose file**, and then navigate to the .yaml file downloaded from the Microsoft Download site.
+
+1. Select **Next** and then, in the **Stack name** section, enter a name for your stack.
+
+1. In the **Parameters** area, enter the following values, using data available from your RDS database page in AWS:
+
+    |Name  |Description  |
+    |---------|---------|
+    |**Name**     | Enter a meaningful name for your connection, such as the name of your RDS database.        |
+    |**Endpoint & port**    | Enter the resolved IP address of the RDS endpoint URL and port. For example: `192.168.1.1:5432` <br><br>**Note**: If you have multiple endpoints behind the same VPC, enter up to 10, comma-separated endpoints.  In this case, a single load balancer is created to the VPC, allowing a connection from the Amazon RDS Multi-Cloud Scanning Connector for Azure Purview in AWS to all RDS endpoints in the VPC.       |
+    |**Networking**     | Enter your VPC ID        |
+    |**VPC IPv4 CIDR**     | Enter the value your VPC's CIDR. You can find this value by selecting the VPC link on your RDS database page. For example: `192.168.0.0/16`        |
+    |**Subnets**     |Select all the subnets that are associated with your VPC.         |
+    |**Security**     | Select your VPC security group        |
+    |     |         |
+
+1. Select **Next**, and then watch the **Events** tab for all resources to be created. When complete, the new target group, load balancer, and endpoint service are displayed in the **Resources** tab.
+
+1. In the **Outputs** tab, copy the **EndpointService** key value and copy it to a secure location.
+
+    You'll use the value of the **EndpointService** key in the Azure Purview portal, when [registering your RDS database](#register-an-amazon-rds-data-source) as Purview data source.
 
 ## Register an Amazon RDS data source
 
@@ -109,7 +146,9 @@ TBD automatic tool
         - PostgreSQL: `5432`
         - Microsoft SQL: `1433`
 
-    - **Connect to private network via endpoint service**: Enter the value of the service name you located at the end of TBD.
+    - **Connect to private network via endpoint service**: Enter the **EndpointService** key value obtained at the end of the [Prepare your RDS database using a CloudFormation template](#prepare-your-rds-database-using-a-cloudformation-template) procedure above.
+
+        If you've prepared your RDS database manually, use the **Service Name** value obtained at the end of [Step 5: Create an endpoint service](#step-5-create-an-endpoint-service).
 
     - **Collection** (optional): Select a collection to add your data source to. For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md).
 
@@ -406,9 +445,9 @@ After the [Load Balancer is created](#step-4-create-a-load-balancer) and its Sta
 >    For more information, see [modify-vpc-endpoint-service-permissions — AWS CLI 2.2.7 Command Reference (amazonaws.com)](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ec2/modify-vpc-endpoint-service-permissions.html).
 >
 
-**To copy the service name for use in Azure Purview**:
+<a name="service-name"></a>**To copy the service name for use in Azure Purview**:
 
-After you’ve created your endpoint service, you can copy the **Service name** value from AWS for use in Azure Purview.
+After you’ve created your endpoint service, you can copy the **Service name** value in the Azure Purview portal, when [registering your RDS database](#register-an-amazon-rds-data-source) as Purview data source.
 
 Locate the **Service name** on the **Details** tab for your selected endpoint service.
 
