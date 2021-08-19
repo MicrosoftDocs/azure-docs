@@ -88,6 +88,8 @@
       href: reference-json-webpubsub-subprotocol.md
   - name: CloudEvents extension for Azure Web PubSub
     href: reference-cloud-events.md
+  - name: Functions trigger and bindings
+    href: reference-functions-bindings.md
   - name: Server SDKs
     href: choose-server-sdks.md
   - name: REST API
