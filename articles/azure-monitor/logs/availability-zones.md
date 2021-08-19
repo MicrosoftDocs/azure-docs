@@ -6,7 +6,7 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/18/2021
-
+ms.custom: references_regions
 ---
 
 # Availability zones in Azure Monitor
@@ -15,7 +15,7 @@ ms.date: 08/18/2021
 
 
 ## Regions
-See [Regions and Availability Zones in Azure](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for the Azure regions that have availability zones. Azure Monitor currently supports the following regions. Additional regions will gradually support availability zones in coming months.
+See [Regions and Availability Zones in Azure](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for the Azure regions that have availability zones. Azure Monitor currently supports the following regions. 
 
 - East US 2
 - West US 2
@@ -36,6 +36,9 @@ To determine the current workspace link status for your workspace, use [CLI, Pow
 ## Create dedicated cluster with availability zone
 Move your workspace to an availability zone by [creating a new dedicated cluster](logs-dedicated-clusters.md#create-a-dedicated-cluster) in a region that supports availability zones. The cluster will automatically be enabled for availability zones. Then [link your workspace to the new cluster](logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
 
+> [!IMPORTANT]
+> Availability zone is defined on the cluster at creation time and can’t be modified.
+
 Transitioning to a new cluster can be a gradual process. Don't remove the previous cluster until it has been purged of any data. For example, if your workspace retention is set 60 days, you may want to keep your old cluster running for that period before removing it.
 
 Any queries against your workspace will query both clusters as required to provide you with a single, unified result set. That means that all Azure Monitor features relying on the workspace such as workbooks and dashboards will keep getting the full, unified result set based on data from both clusters.
@@ -52,5 +55,3 @@ The new cluster isn’t billed during its first day to avoid double billing duri
 
 - See [Using queries in Azure Monitor Log Analytics](queries.md) to see how users interact with query packs in Log Analytics.
 
-
- and your data is stored protected in ZRS storage type. Availability Zone is defined in the cluster at creation time and this setting can’t be modified. To have a cluster in Availability Zone, you need to create a new cluster in supported regions.

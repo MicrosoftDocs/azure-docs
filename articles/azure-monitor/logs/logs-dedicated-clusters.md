@@ -71,7 +71,7 @@ Authorization: Bearer <token>
 You must specify the following properties when you create a new dedicated cluster:
 
 - **ClusterName**: Used for administrative purposes. Users are not exposed to this name.
-- **ResourceGroupName**: Resource group for th dedicated cluster. You should use a central IT resource group because clusters are usually shared by many teams in the organization. For more design considerations, review [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
+- **ResourceGroupName**: Resource group for the dedicated cluster. You should use a central IT resource group because clusters are usually shared by many teams in the organization. For more design considerations, review [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
 - **Location**: A cluster is located in a specific Azure region. Only workspaces located in this region can be linked to this cluster.
 - **SkuCapacity**: You must specify the Commitment Tier (sku) when creating a cluster resource. The Commitment Tier can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Manage Costs for Log Analytics clusters](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
  
@@ -256,7 +256,7 @@ When a cluster is configured with customer-managed keys, data ingested to the wo
 - Copy the Azure-AsyncOperation URL value from the response and follow the asynchronous operations status check.
 - Perform Get operation on the workspace and observe if *clusterResourceId* property is present in the response under *features*.
 
-**CLI **
+**CLI**
 ```azurecli
 az monitor log-analytics workspace show --resource-group "resource-group-name" --workspace-name "workspace-name"
 ```
@@ -555,7 +555,7 @@ Authorization: Bearer <token>
 
 - A maximum of two workspace link operations on particular workspace is allowed in 30 day period.
 
-- Moving a clsuter to another resource group or subscription isn't currently supported.
+- Moving a cluster to another resource group or subscription isn't currently supported.
 
 - Cluster update should not include both identity and key identifier details in the same operation. In case you need to update both, the update should be in two consecutive operations.
 
