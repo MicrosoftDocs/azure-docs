@@ -746,7 +746,7 @@ the same functionality found in the Azure portal.
 For information about installation, configuration and how to use CLI commands to accomplish Azure tasks see
 
 * [Install the Azure classic CLI][xplat-cli]
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../../../virtual-machine/linux/create-ssh-secured-vm-from-template.md)
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../../../linux/create-ssh-secured-vm-from-template.md)
 * [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 Also read chapter [Azure CLI for Linux VMs][Install the Azure CLI] in the [Deployment Guide][planning-guide] on how to use Azure CLI to deploy the Azure Extension for SAP.
@@ -1717,7 +1717,7 @@ In order to work around such latency and have the systems work fast in reading o
 
 How to:
 
-* [Set up a transport domain](<https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Set%20up%20a%20transport%20domain) in each location (on-premises and Azure) using transaction STMS
+* [Set up a transport domain](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/44b4a0b47acc11d1899e0000e829fbbd.html?q=Set%20up%20a%20transport%20domain) in each location (on-premises and Azure) using transaction STMS
 * [Link the domains with a domain link](https://help.sap.com/viewer/4a368c163b08418890a406d413933ba7/202009.001/en-US/14c795388d62e450e10000009b38f889.html?q=Link%20the%20domains%20with%20a%20domain%20link) and confirm the link between the two domains.
 * Distribute the configuration to the linked system.
 
@@ -2044,4 +2044,4 @@ Read the articles:
 
 - [Azure Virtual Machines deployment for SAP NetWeaver](./deployment-guide.md)
 - [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md)
-- [SAP HANA infrastructure configurations and operations on Azure](/- azure/virtual-machines/workloads/sap/hana-vm-operations)
+- [SAP HANA infrastructure configurations and operations on Azure](../../../workloads/sap/hana-vm-operations)
