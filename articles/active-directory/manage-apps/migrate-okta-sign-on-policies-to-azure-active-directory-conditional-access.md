@@ -55,7 +55,7 @@ To complete a successful transition to CA, the existing Okta sign on policies sh
 
 In this example, our global sign-on policy is enforcing MFA on all sessions outside of our configured network zones.
 
-![image shows global sign on policies enforcing mfa](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies-enforce-mfa.png)
+![image shows global sign on policies enforc mfa](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/global-sign-on-policies-enforce-mfa.png)
 
 2. Next, navigate to **Applications**, and check the application-level sign-on policies. Select **Applications** from the submenu, and then select your Office 365 connected instance from the **Active apps list**.
 
