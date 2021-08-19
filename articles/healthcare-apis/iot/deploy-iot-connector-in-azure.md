@@ -57,7 +57,7 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
    [ ![Event hub name.](media/azure-resources-event-hub-name.png) ](media/azure-resources-event-hub-name.png#lightbox)  
 
-   For information about Azure event hubs, see [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace).
+   For information about Azure Event Hubs, see [Quickstart: Create an Event Hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace).
 
 3. Enter the **Consumer Group**.
 
@@ -79,7 +79,7 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
 5. (Optional) Select **Next: Device mapping >**. 
     
-    Proceed to the next section to learn about the Device Mapper tool. Otherwise, proceed to the section [Configure destination mapping](#configure-destination)
+    Proceed to the next section about entering device mapping properties and for information the Device Mapper tool. Otherwise, proceed to the section [Configure Destination](#configure-destination).
   
 ## Configure Device mapping properties
 
@@ -130,9 +130,7 @@ For more information, see the open source documentation [Device Content Mapping]
 
    For information about the Mapper Tool, see [IoMT Connector Data Mapper Tool.](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper).
 
-6. You may select **Review + create**, or you can select **Next: Device Mapping >**. 
-
-   To enter the device mapping properties associated with the IoT Connector, refer to the instructions in the next section. 
+6. You may select **Review + create**, or you can select **Next: Device Mapping >**.  
 
 ## (Optional) Configure Tags
 
