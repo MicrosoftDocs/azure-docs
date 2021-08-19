@@ -32,7 +32,7 @@ Learn more about how to use distributed GPU training code in Azure Machine Learn
 
 ## Prerequisites
 
-Review these [basic concept of distributed GPU training](concept-distributed-training.md) such as _data parallelism_, _distributed data parallelism_, and _model parallelism_.
+Review these [basic concepts of distributed GPU training](concept-distributed-training.md) such as _data parallelism_, _distributed data parallelism_, and _model parallelism_.
 
 > [!TIP]
 > If you don't know which type of parallelism to use, more than 90% of the time you should use __Distributed Data Parallelism__.
