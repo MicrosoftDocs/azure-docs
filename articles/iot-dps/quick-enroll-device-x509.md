@@ -22,7 +22,7 @@ This quickstart shows you how to programmatically create an [enrollment group](c
 
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 
-::: zone pivot="programming-language-csharp"
+:::zone pivot="programming-language-csharp"
 
 * Install [Visual Studio 2019](https://www.visualstudio.com/vs/).
 
@@ -32,15 +32,15 @@ This quickstart shows you how to programmatically create an [enrollment group](c
     dotnet --info
     ```
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="programming-language-nodejs"
+:::zone pivot="programming-language-nodejs"
 
 * Install [Node.js v4.0 or above](https://nodejs.org) or later on your machine.
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="programming-language-python"
+:::zone pivot="programming-language-python"
 
 * Install the [Python 2.x or 3.x](https://www.python.org/downloads/) and add Python to your platform-specific environment variables.
 
@@ -49,22 +49,22 @@ This quickstart shows you how to programmatically create an [enrollment group](c
 
 * Install [Pip](https://pip.pypa.io/en/stable/installing/), if it is not already included with your Python distribution.
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="programming-language-java"
+:::zone pivot="programming-language-java"
 
 * [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure). This quickstart installs the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/) below. It works on both Windows and Linux. This quickstart uses Windows.
 
 * [Maven 3](https://maven.apache.org/download.cgi).
 
-::: zone-end
+:::zone-end
 
 * Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
 >[!NOTE]
 >Although the steps in this article work on both Windows and Linux computers, this article uses a Windows development computer.
 
-::: zone pivot="programming-language-csharp,programming-language-nodejs, programming-language-python"
+:::zone pivot="programming-language-csharp,programming-language-nodejs, programming-language-python"
 
 ## Prepare test certificates
 
@@ -116,12 +116,12 @@ To create the test certificates:
 
 :::image type="content" source="./media/quick-enroll-device-x509/add-certificate.png" alt-text="Add a certificate for verification.":::
 
-::: zone pivot="programming-language-csharp"
+:::zone pivot="programming-language-csharp"
 
 In addition to the tooling in the C SDK, the [Group certificate verification sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) in the *Microsoft Azure IoT SDK for .NET* shows how to do proof-of-possession in C# with an existing X.509 intermediate or root CA certificate.
-::: zone-end
+:::zone-end
 
-::: zone-end
+:::zone-end
 
 ## Get the connection string for your provisioning service
 
@@ -141,11 +141,11 @@ For the sample in this quickstart, you'll need to copy the connection string for
 
     ![Get provisioning service connection string from the portal](media/quick-enroll-device-x509/get-service-connection-string.png)
 
-::: zone-end
+:::zone-end
 
 ## Create the enrollment group sample
 
-::: zone pivot="programming-language-csharp
+:::zone pivot="programming-language-csharp
 
 This section shows you how to create a .NET Core console application that adds an enrollment group to your provisioning service.
 
@@ -255,7 +255,7 @@ This section shows you how to create a .NET Core console application that adds a
 
 :: zone-end
 
-::: zone pivot="programming-language-nodejs
+:::zone pivot="programming-language-nodejs
 
 This section shows you how to create a node.js script that adds an enrollment group to your provisioning service.
 
@@ -307,9 +307,9 @@ This section shows you how to create a node.js script that adds an enrollment gr
         });
     ```
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="programming-language-python
+:::zone pivot="programming-language-python
 
 1. Using a text editor, create a new *EnrollmentGroup.py* file.
 
@@ -359,23 +359,23 @@ This section shows you how to create a node.js script that adds an enrollment gr
 
 3. Save and close the **EnrollmentGroup.py** file.
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="programming-language-java
+:::zone pivot="programming-language-java
 
-::: zone-end
+:::zone-end
 
 ## Run the enrollment group sample
 
-::: zone pivot="programming-language-csharp
+:::zone pivot="programming-language-csharp
 
 1. Run the sample in Visual Studio to create the enrollment group. A command window will appear, and will show confirmation messages.
 
 2. Upon successful creation, the command window displays the properties of the new enrollment group.
 
-::: zone-end
+:::zone-end
 
-::: zone pivot="programming-language-nodejs
+:::zone pivot="programming-language-nodejs
 
 1. Open a command prompt, and the following command (include the quotes around the command arguments and replace `<connection string>` withe connection string you copied in the previous section, and `<certificate .pem file>` with the path of your `.pem` file):
 
@@ -405,7 +405,7 @@ This section shows you how to create a node.js script that adds an enrollment gr
 
 :::zone-end
 
-::: zone pivot="programming-language-java
+:::zone pivot="programming-language-java
 
 :::zone-end
 
@@ -417,19 +417,19 @@ To verify that the enrollment group has been created:
 
 3. Select **Enrollment Groups**. You should see a new enrollment entry that corresponds to the registration ID that you used in the sample.
 
-::: zone pivot="programming-language-csharp
+:::zone pivot="programming-language-csharp
 
 :::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-csharp.png" alt-text="Verify enrollment for C# group in the portal.":::
 
 :::zone-end
 
-::: zone pivot="programming-language-nodejs
+:::zone pivot="programming-language-nodejs
 
 ![Enrollment properties in the portal](media/quick-enroll-device-x509/verify-enrollment-nodejs.png)
 
 :::zone-end
 
-::: zone pivot="programming-language-python
+:::zone pivot="programming-language-python
 
 :::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-python.png" alt-text="Verify enrollment for Python group in the portal.":::
 
@@ -466,7 +466,7 @@ In this quickstart, you created an enrollment group for an X.509 intermediate or
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)
 
-::: zone pivot="programming-language-nodejs"
+:::zone pivot="programming-language-nodejs"
 
 > [!div class="nextstepaction"]
 >[Node.js device provisioning sample](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples).
