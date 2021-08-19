@@ -79,7 +79,7 @@
     displayName: Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets, active, probing, scanning, switch
     href: how-to-control-what-traffic-is-monitored.md
   - name: Manage sensors from the on-premises management console
-    displayName: disconnect, connect, activation file, sensor backup
+    displayName: update, disconnect, connect, activation file, sensor backup
     href: how-to-manage-sensors-from-the-on-premises-management-console.md
   - name: Manage individual sensors
     href: how-to-manage-individual-sensors.md
