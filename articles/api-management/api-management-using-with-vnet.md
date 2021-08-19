@@ -18,29 +18,18 @@ This article explains how to set up VNET connectivity for your API Management in
 
 :::image type="content" source="media/api-management-using-with-vnet/api-management-vnet-external.png" alt-text="Connect to external VNET":::
 
-> [!NOTE]
-> To import an API to API Management from an [OpenAPI specification](import-and-publish.md), the specification URL must be hosted at a publicly accessible internet address.
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites
 
-Some prerequisites differ depending on the version (v1 or v2) of the [hosting platform](hosting-infrastructure.md) for your API Management instance. 
+Some prerequisites differ depending on the version (Stv2 or Stv1) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
 
 > [!TIP]
-> When you use the portal to create or update your API Management instance, the instance is hosted on the v2 platform.
+> When you use the portal to create or update your API Management instance, the instance is hosted on the Stv2 compute platform.
 
-### [v1](#tab/v1)
-
-+ **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
-
-* **A virtual network and subnet** in the same region and subscription as your API Management instance.
-
-    The subnet must be dedicated to API Management instances. Attempting to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources will cause the deployment to fail.
-
-### [v2](#tab/v2)
+### [Stv2](#tab/Stv2)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
@@ -48,11 +37,19 @@ Some prerequisites differ depending on the version (v1 or v2) of the [hosting pl
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
+### [Stv1](#tab/Stv1)
+
++ **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
+
+* **A virtual network and subnet** in the same region and subscription as your API Management instance.
+
+    The subnet must be dedicated to API Management instances. Attempting to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources will cause the deployment to fail.
+
 ---
 
 ## Enable VNET connection
 
-### Enable VNET connectivity using the Azure portal (v2 hosting platform)
+### Enable VNET connectivity using the Azure portal (Stv2 hosting platform)
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
 1. Choose your API Management instance.
@@ -78,13 +75,19 @@ Some prerequisites differ depending on the version (v1 or v2) of the [hosting pl
 
 ### Enable connectivity using a Resource Manager template
 
-#### API version 2021-01-01-preview (v2 hosting platform)
+Use the following templates to deploy an  API Management instance and connect to a VNET. The templatesd differ depending on the version (Stv2 or Stv1) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance
+
+### [Stv2](#tab/Stv2)
+
+#### API version 2021-01-01-preview 
 
 * Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet-publicip)
 
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet-publicip%2Fazuredeploy.json)
 
-#### API version 2020-12-01 (v1 hosting platform)
+### [Stv1](#tab/Stv1)
+
+#### API version 2020-12-01
 
 * Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet)
 
@@ -117,10 +120,12 @@ In external VNET mode, Azure manages the DNS by default.The API Management servi
 
 You can control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][NetworkSecurityGroups]. If any of the following ports are unavailable, API Management may not operate properly and may become inaccessible. 
 
-When an API Management service instance is hosted in a VNET, the ports in the following table are used.
+When an API Management service instance is hosted in a VNET, the ports in the following table are used. Some requirements differ depending on the version (Stv2 or Stv1) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
 
 >[!IMPORTANT]
 > Bold items in the *Purpose* column are required for API Management service to be deployed successfully. Blocking the other ports, however, will cause **degradation** in the ability to use and **monitor the running service and provide the committed SLA**.
+
+#### [Stv2](#tab/Stv2)
 
 | Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/network-security-groups-overview.md#service-tags) <br> Source / Destination   | Purpose (\*)                                                 | VNET type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
@@ -129,7 +134,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) and Azure Key Vault dependency                  | External & Internal  |
 | * / 1433                     | Outbound           | TCP                | VIRTUAL_NETWORK / SQL                 | **Access to Azure SQL endpoints**                           | External & Internal  |
-| * / 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureKeyVault                | **Access to Azure Key Vault** (v2 platform only)                         | External & Internal  |
+| * / 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureKeyVault                | **Access to Azure Key Vault**                         | External & Internal  |
 | * / 5671, 5672, 443          | Outbound           | TCP                | VIRTUAL_NETWORK / Event Hub            | Dependency for [Log to Event Hub policy](api-management-howto-log-event-hubs.md) and monitoring agent | External & Internal  |
 | * / 445                      | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md)                      | External & Internal  |
 | * / 443, 12000                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Health and Monitoring Extension         | External & Internal  |
@@ -137,8 +142,27 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / 25, 587, 25028                       | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
 | * / 6381 - 6383              | Inbound & Outbound | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Access Redis Service for [Cache](api-management-caching-policies.md) policies between machines         | External & Internal  |
 | * / 4290              | Inbound & Outbound | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Sync Counters for [Rate Limit](api-management-access-restriction-policies.md#LimitCallRateByKey) policies between machines         | External & Internal  |
-| * / * (v1 platform)<br/><br/>*/6390 (v2 platform)                        | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | External & Internal  |
+| * / 6390                       | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | External & Internal  |
 
+#### [Stv1](#tab/Stv1)
+
+| Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/network-security-groups-overview.md#service-tags) <br> Source / Destination   | Purpose (\*)                                                 | VNET type |
+|------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
+| * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                      | External             |
+| * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and PowerShell         | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) dependency                  | External & Internal  |
+| * / 1433                     | Outbound           | TCP                | VIRTUAL_NETWORK / SQL                 | **Access to Azure SQL endpoints**                           | External & Internal  |
+| * / 5671, 5672, 443          | Outbound           | TCP                | VIRTUAL_NETWORK / Event Hub            | Dependency for [Log to Event Hub policy](api-management-howto-log-event-hubs.md) and monitoring agent | External & Internal  |
+| * / 445                      | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | Dependency on Azure File Share for [GIT](api-management-configuration-repository-git.md)                      | External & Internal  |
+| * / 443, 12000                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Health and Monitoring Extension         | External & Internal  |
+| * / 1886, 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publish [Diagnostics Logs and Metrics](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md), and [Application Insights](api-management-howto-app-insights.md)                   | External & Internal  |
+| * / 25, 587, 25028                       | Outbound           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connect to SMTP Relay for sending e-mails                    | External & Internal  |
+| * / 6381 - 6383              | Inbound & Outbound | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Access Redis Service for [Cache](api-management-caching-policies.md) policies between machines         | External & Internal  |
+| * / 4290              | Inbound & Outbound | UDP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Sync Counters for [Rate Limit](api-management-access-restriction-policies.md#LimitCallRateByKey) policies between machines         | External & Internal  |
+| * / *                         | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer                          | External & Internal  |
+
+---
 
 ### TLS functionality  
   To enable TLS/SSL certificate chain building and validation, the API Management service needs outbound network connectivity to `ocsp.msocsp.com`, `mscrl.microsoft.com`, and `crl.microsoft.com`. This dependency is not required if any certificate you upload to API Management contains the full chain to the CA root.
@@ -310,8 +334,8 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
 * **Incremental updates**  
   When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
 
-* **Resource navigation links (v1 hosting platform)**  
-  When deploying into a Resource Manager VNET subnet, API Management reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.
+* **Resource navigation links**  
+  An APIM instance hosted on the [Stv1 compute platform](hosting-infrastructure.md), when deployed into a Resource Manager VNET subnet, reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.
 
 ## Next steps
 

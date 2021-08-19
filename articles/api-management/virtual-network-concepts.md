@@ -5,7 +5,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 08/19/2021
 ms.author: danlep
 ms.custom: 
 ---
@@ -45,21 +45,21 @@ By default, an API Management instance must be accessible from the internet. Usi
 
 ## Network resource requirements
 
-The following are virtual network resource requirements for API Management. Some requirements differ depending on the version (v1 or v2) of the [hosting platform](hosting-infrastructure.md) used for your API Management instance.
+The following are virtual network resource requirements for API Management. Some requirements differ depending on the version (Stv2 or Stv1) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
 
-### [v1](#tab/v1)
-
-* An Azure Resource Manager virtual network is required.
-* The subnet used to connect to the API Management instance must be dedicated to API Management. It cannot contain other Azure resource types.
-* The API Management service, virtual network, and subnet resources must be in the same region and subscription.
-* For multi-region API Management deployments, you configure virtual network resources separately for each location.
-
-### [v2](#tab/v2)
+### [Stv2](#tab/Stv2)
 
 * An Azure Resource Manager virtual network is required.
 * You must provide a Standard SKU [public IPv4 address](../virtual-network/public-ip-addresses.md#standard) in addition to specifying a virtual network and subnet.
 * The subnet used to connect to the API Management instance may contain other Azure resource types.
 * The API Management service, virtual network and subnet, and public IP address resource must be in the same region and subscription.
+* For multi-region API Management deployments, you configure virtual network resources separately for each location.
+
+### [Stv1](#tab/Stv1)
+
+* An Azure Resource Manager virtual network is required.
+* The subnet used to connect to the API Management instance must be dedicated to API Management. It cannot contain other Azure resource types.
+* The API Management service, virtual network, and subnet resources must be in the same region and subscription.
 * For multi-region API Management deployments, you configure virtual network resources separately for each location.
 
 ---
@@ -97,22 +97,25 @@ For more information, see:
 
 ## Limitations
 
-Some limitations differ depending on the version (v1 or v2) of the [hosting platform](hosting-infrastructure.md) used for your API Management instance.
+Some limitations differ depending on the version (Stv2 or Stv1) of the [compute platform](hosting-infrastructure.md) hosting your API Management instance.
 
-### [v1](#tab/v1)
+### [Stv2](#tab/v2)
 
 * A subnet containing API Management instances can't be moved across subscriptions.
 * For multi-region API Management deployments configured in internal VNET mode, users own the routing and are responsible for managing the load balancing across multiple regions.
+* To import an API to API Management from an [OpenAPI specification](import-and-publish.md), the specification URL must be hosted at a publicly accessible internet address.
+
+### [Stv1](#tab/Stv1)
+
+* A subnet containing API Management instances can't be moved across subscriptions.
+* For multi-region API Management deployments configured in internal VNET mode, users own the routing and are responsible for managing the load balancing across multiple regions.
+* To import an API to API Management from an [OpenAPI specification](import-and-publish.md), the specification URL must be hosted at a publicly accessible internet address.
 * Due to platform limitations, connectivity between a resource in a globally peered VNET in another region and an API Management service in internal mode will not work. For more information, see the [virtual network documentation](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
-
-### [v2](#tab/v2)
-
-* A subnet containing API Management instances can't be moved across subscriptions.
-* For multi-region API Management deployments configured in internal VNET mode, users own the routing and are responsible for managing the load balancing across multiple regions.
 
 ---
 
 ## Next steps
+
 Learn more about:
 
 * [Connecting a virtual network to backend using VPN Gateway](../vpn-gateway/design.md#s2smulti)

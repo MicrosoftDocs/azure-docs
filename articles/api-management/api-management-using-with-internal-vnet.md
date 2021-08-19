@@ -39,7 +39,7 @@ Use API Management in internal mode to:
 Some prerequisites differ depending on the version (v1 or v2) of the [hosting platform](hosting-infrastructure.md) for your API Management instance. 
 
 > [!TIP]
-> When you use the portal to create or update your API Management instance, the instance is hosted on the v2 platform.
+> When you use the portal to create or update your API Management instance, the instance is hosted on the Stv2 compute platform.
 
 ### [v1](#tab/v1)
 
@@ -179,13 +179,15 @@ The load-balanced public and private IP addresses can be found on the **Overview
 >
 > You may need to update DNS registrations, routing rules, and IP restriction lists within the VNET.
 
-### VIP and DIB addresses
+### VIP and DIP addresses
 
 DIP addresses will be assigned to each underlying virtual machine in the service and used to access resources *within* the VNET. A VIP address will be used to access resources *outside* the VNET. If IP restriction lists secure resources within the VNET, you must specify the entire subnet range where the API Management service is deployed to grant or restrict access from the service.
 
+Learn more about the [recommended subnet size](virtual-network-concepts.md#subnet-size).
+
 #### Example
 
-if you deploy 1 [capacity unit](api-management-capacity.md) of API Management in an internal VNET, 3 IP addresses will be used: 1 for the private VIP and one each for the DIPs for two VMs. If you scale out to 4 units, more IPs will be consumed for additional DIPs from the subnet.  
+if you deploy 1 [capacity unit](api-management-capacity.md) of API Management in the Premium tier in an internal VNET, 3 IP addresses will be used: 1 for the private VIP and one each for the DIPs for two VMs. If you scale out to 4 units, more IPs will be consumed for additional DIPs from the subnet.  
 
 If the destination endpoint has allow-listed only a fixed set of DIPs, connection failures will result if you add new units in the future. For this reason and since the subnet is entirely in yout control, we recommend allow-listing the entire subnet in the backend.
 
