@@ -67,7 +67,7 @@ General purpose V2 storage accounts (Hot and Cool tier) | Supported | Usage of G
 Premium storage | Not supported | Standard storage accounts are used for cache storage, to help optimize costs.
 Region |  Same region as virtual machine  | Cache storage account should be in the same region as the virtual machine being protected.
 Subscription  | Can be different from source virtual machines | Cache storage account need not be in the same subscription as the source virtual machine(s).
-Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Do not restrict virtual network access to your storage accounts used for ASR. You should allow access from 'All networks'.
+Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Do not restrict virtual network access to your storage accounts used for Site Recovery. You should allow access from 'All networks'.
 
 The table below lists the limits in terms of number of disks that can replicate to a single storage account.
 
@@ -211,7 +211,7 @@ SUSE Linux Enterprise Server 15, SP1, SP2 | [9.38](https://support.microsoft.com
 **Setting** | **Support** | **Details**
 --- | --- | ---
 Size | Any Azure VM size with at least 2 CPU cores and 1-GB RAM | Verify [Azure virtual machine sizes](../virtual-machines/sizes.md).
-RAM | ASR driver consumes 6% of RAM.
+RAM | Azure Site Recovery driver consumes 6% of RAM.
 Availability sets | Supported | If you enable replication for an Azure VM with the default options, an availability set is created automatically, based on the source region settings. You can modify these settings.
 Availability zones | Supported |
 Hybrid Use Benefit (HUB) | Supported | If the source VM has a HUB license enabled, a test failover or failed over VM also uses the HUB license.
@@ -254,13 +254,13 @@ Data disk - standard storage account | Supported |
 Data disk - premium storage account | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk, to ensure you have the same storage configuration in the target region.
 Managed disk - standard | Supported in Azure regions in which Azure Site Recovery is supported. |
 Managed disk - premium | Supported in Azure regions in which Azure Site Recovery is supported. |
-Disk subscription limits | Up to 3000 protected disks per Subscription | Ensure that the Source or Target subscription does not have more than 3000 ASR-protected Disks (Both Data and OS).
+Disk subscription limits | Up to 3000 protected disks per Subscription | Ensure that the Source or Target subscription does not have more than 3000 Azure Site Recovery-protected Disks (Both Data and OS).
 Standard SSD | Supported |
 Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
 NVMe storage interface | Not supported
-Encryption at host | Supported | [Click here](../virtual-machines/disks-enable-host-based-encryption-portal.md) to create a VM with end-to-end encryption using Encryption at host.
+Encryption at host | Supported | [See detailed information](../virtual-machines/disks-enable-host-based-encryption-portal.md) to create a VM with end-to-end encryption using Encryption at host.
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.
 Encryption at rest (CMK) | Supported | Both Software and HSM keys are supported for managed disks
 Double Encryption at rest | Supported | Learn more on supported regions for [Windows](../virtual-machines/disk-encryption.md) and [Linux](../virtual-machines/disk-encryption.md)
