@@ -129,7 +129,7 @@ right, you can see detailed information for the incident including its severity,
 
 11. Select **Evidence** > **Events** > **Link to Log Analytics**. The result will display the `UserPrincipalName` of the identity trying to log in with the number of attempts.
 
-![image details of selected incident](./media/azure-sentinel/logs)
+![image details of selected incident](./media/azure-sentinel/logs.png)
 
 ## Automated response
 
@@ -137,7 +137,7 @@ Azure Sentinel provides a [robust SOAR capability](../sentinel/automation-in-azu
 
 In this example, we add an email notification upon an incident created by the rule. Use an [existing playbook from the Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Incident-Email-Notification) to accomplish this task. Once the playbook is configured, edit the existing rule and select the playbook into the Automation tab.
 
-![image configuration screen for the automated response associated to a rule](./media/azure-sentinel/automation-tab)
+![image configuration screen for the automated response associated to a rule](./media/azure-sentinel/automation-tab.png)
 
 ## Next steps
 
