@@ -116,7 +116,7 @@ conceptualContent:
           text: V2 CLI (preview)
         - url: ./algorithm-module-reference/module-reference.md
           itemType: reference
-          text: Algorithm & module reference  
+          text: Algorithm & module reference 
     # Card
     - title: Resources
       links:
