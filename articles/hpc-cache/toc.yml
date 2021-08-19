@@ -1,12 +1,10 @@
 items:
 - name: Azure HPC Cache documentation
   href: index.yml
-
 - name: Overview
   items:
   - name: What is Azure HPC Cache?
     href: hpc-cache-overview.md
-
 - name: Concepts
   items:
   - name: Decide if HPC Cache is the right solution
@@ -19,7 +17,6 @@ items:
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/hpc-cache-security-baseline?toc=/azure/hpc-cache/toc.json
-
 - name: How-to guides
   items:
   - name: Prerequisites
@@ -78,11 +75,11 @@ items:
   - name: Troubleshoot
     items:
     - name: Troubleshoot NFS storage target creation
-    href: troubleshoot-nas.md
+      href: troubleshoot-nas.md
     - name: Work around Blob storage account firewall settings
-    href: hpc-cache-blob-firewall-fix.md
+      href: hpc-cache-blob-firewall-fix.md
     - name: Recover from a regional outage
-    href: hpc-region-recovery.md
+      href: hpc-region-recovery.md
 
   - name: Storage options
     items:
