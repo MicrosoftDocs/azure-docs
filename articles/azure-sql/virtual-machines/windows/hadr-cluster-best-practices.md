@@ -111,7 +111,7 @@ When modifying the node vote settings, follow these guidelines:
 ## Connectivity
 
 
-It's possible to configure either a virtual network name (VNN), or starting with SQL Server 2019, a distributed network name (DNN) for both failover cluster instances and availability group listeners. 
+It's possible to configure either a virtual network name (VNN), or starting with SQL Server 2019, a distributed network name (DNN) for both failover cluster instances and availability group listeners. SQL Server 2017 CU25 and later supports DNN for availability group listeners.
 
 The distributed network name is the recommended connectivity option, when available: 
 - The end-to-end solution is more robust since you no longer have to maintain the load balancer resource. 
