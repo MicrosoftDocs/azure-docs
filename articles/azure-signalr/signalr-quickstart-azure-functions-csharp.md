@@ -100,7 +100,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
                     new SignalRMessage
                     {
                         Target = "newMessage",
-                        Arguments = new[] { $"Current start count of https://github.com/Azure/azure-signalr is: {result.StartCount}" }
+                        Arguments = new[] { $"Current star count of https://github.com/Azure/azure-signalr is: {result.StarCount}" }
                     });
             }
     
@@ -108,13 +108,13 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
             {
                 [JsonRequired]
                 [JsonProperty("stargazers_count")]
-                public string StartCount { get; set; }
+                public string StarCount { get; set; }
             }
         }
     }
     ```
     These codes have three functions. The `Index` is used to get a website as client. The `Negotiate` is used for client to get access token. The `Broadcast` is periodically
-    get start count from GitHub and broadcast messages to all clients.
+    get star count from GitHub and broadcast messages to all clients.
 
 3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `GetHomePage` function, create a new file `index.html` in `content` directory under project root folder. And copy the following content.
     ```html
@@ -175,7 +175,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     func start
     ```
 
-    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current start count. And if you star or unstar in the GitHub, you will get a start count refreshing every few seconds.
+    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current star count. And if you star or unstar in the GitHub, you will get a star count refreshing every few seconds.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.

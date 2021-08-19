@@ -244,7 +244,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     func start
     ```
 
-    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current start count. And if you star or unstar in the GitHub, you will get a start count refreshing every few seconds.
+    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current star count. And if you star or unstar in the GitHub, you will get a star count refreshing every few seconds.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.
