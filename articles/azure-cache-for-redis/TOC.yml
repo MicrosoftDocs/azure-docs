@@ -71,11 +71,11 @@
       href: cache-failover.md
     - name: Best practices
       items:
-       - name: Connection Resilience
+       - name: Connection resilience
          href: cache-best-practices-connection.md
        - name: Server load management
          href: cache-best-practices-server-load.md
-       - name: Memory Management
+       - name: Memory management
          href: cache-best-practices-memory-management.md
        - name: Development
          href: cache-best-practices-development.md

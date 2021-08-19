@@ -1,5 +1,5 @@
 ---
-title: Best practices for Development
+title: Best practices for development
 description: Learn how to develop code for Azure Cache for Redis.
 author: shpathak-msft
 ms.service: cache

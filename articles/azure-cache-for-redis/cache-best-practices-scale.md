@@ -1,5 +1,5 @@
 ---
-title: Best practices for Scaling your Azure Cache for Redis
+title: Best practices for scaling your Azure Cache for Redis
 description: Learn how to scale your Azure Cache for Redis.
 author: shpathak-msft
 ms.service: cache
@@ -12,7 +12,7 @@ ms.author: shpathak
 
 ## Scaling under load
 
-While scaling a cache under load, configure your maxmemory-reserved setting to improve system responsiveness.
+While scaling a cache under load, configure your maxmemory-reserved setting to improve system responsiveness. For more information, see [Configure your maxmemory-reserved setting](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting).
 
 ## Scaling clusters
 

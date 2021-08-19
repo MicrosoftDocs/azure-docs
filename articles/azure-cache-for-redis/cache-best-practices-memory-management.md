@@ -1,5 +1,5 @@
 ---
-title: Best practices for Memory Management
+title: Best practices for memory management
 description: Learn how to manage your Azure Cache for Redis memory effectively.
 author: shpathak-msft
 ms.service: cache
