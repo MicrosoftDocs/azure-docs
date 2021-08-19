@@ -4,7 +4,7 @@ description: This article explains Azure Sentinel Information Model (ASIM) schem
 services: sentinel
 cloud: na
 documentationcenter: na
-author: ofshezaf
+author: oshezaf
 manager: rkarlin
 
 ms.assetid:
