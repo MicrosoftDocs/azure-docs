@@ -1,5 +1,5 @@
 ---
-title: troubleshooting private endpoint configuration for Purview accounts
+title: Troubleshooting private endpoint configuration for Purview accounts
 description: This article describes how to troubleshoot problems with your Purview account related to private endpoints configurations
 author: zeinam
 ms.author: zeinam
@@ -12,12 +12,15 @@ ms.date: 08/18/2021
 
 # Troubleshooting private endpoint configuration for Purview accounts
 
+This guide summarizes known limitations related to using private endpoints for Azure Purview and provides a list of steps and solutions for troubleshooting some of the most common relevant issues. 
+
+
 ## Known limitations
 
 - We currently do not support ingestion private endpoints that work with your AWS sources.
 - Scanning Azure Multiple Sources using self-hosted integration runtime is not supported.
 - Using Azure integration runtime to scan data sources behind private endpoint is not supported.
-- Using Azure Portal, the ingestion private endpoints can be created via the Azure Purview portal experience described in the preceding steps. They can't be created from the Private Link Center.
+- Using Azure portal, the ingestion private endpoints can be created via the Azure Purview portal experience described in the preceding steps. They can't be created from the Private Link Center.
 - Creating DNS A records for ingestion private endpoints inside existing Azure DNS Zones, while the Azure Private DNS Zones are located in a different subscription than the private endpoints is not supported via the Azure Purview portal experience. A records can be added manually in the destination DNS Zones in the other subscription. 
 - Self-hosted integration runtime machine must be deployed in the same VNet where Azure Purview ingestion private endpoint is deployed.
 - We currently do not support ingestion private endpoints to connect to Azure Data Factory and Azure Synapse pipelines.
@@ -129,13 +132,12 @@ ms.date: 08/18/2021
 8. From the network where data source is located, test network connectivity and name resolution to Purview endpoint and managed resources endpoints.
 
 9.  If data sources are located in on-premises network, review your DNS forwarder configuration. Test name resolution from within the same network where data sources are located to self-hosted integration runtime, Azure Purview endpoints and managed resources. It is expected to obtain a valid private IP address from DNS query for each endpoint.
-   
-   For more information, see [Virtual network workloads without custom DNS server](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server) and [On-premises workloads using a DNS forwarder](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) scenarios in [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
+    
+    For more information, see [Virtual network workloads without custom DNS server](../private-link/private-endpoint-dns.md#virtual-network-workloads-without-custom-dns-server) and [On-premises workloads using a DNS forwarder](../private-link/private-endpoint-dns.md#on-premises-workloads-using-a-dns-forwarder) scenarios in [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
 10. If management machine and self-hosted integration runtime VMs are deployed in on-premises network and you have set up DNS forwarder in your environment, verify DNS and network settings in your environment. 
 
 11. If ingestion private endpoint is used, make sure self-hosted integration runtime is registered successfully inside Purview account and shows as running both inside the self-hosted integration runtime VM and in Azure Purview Studio.
-
 
 ## Common errors and messages
 

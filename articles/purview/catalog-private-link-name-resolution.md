@@ -28,9 +28,10 @@ The following example shows Azure Purview DNS name resolution from inside the vi
 ## Deployment options 
 
 Use any of the following options to sent up internal name resolution when using private endpoints for your Azure Purview account:
-1. [Deploy new Azure Private DNS Zones](#option-1---deploy-new-azure-private-dns-zones) in your Azure environment part of private endpoint deployment. (Default option)
-2. [Use existing Azure Private DNS Zones](#option-2---use-existing-azure-private-dns-zones). Use this option if you using a private endpoint in a hub-and-spoke model from a different subscription or even within the same subscription. 
-3. [Use your own DNS Servers](#option-3---use-your-own-dns-servers) if you do not use DNS forwarders and instead you manage A records directly in your on-premises DNS servers.
+
+-  [Deploy new Azure Private DNS Zones](#option-1---deploy-new-azure-private-dns-zones) in your Azure environment part of private endpoint deployment. (Default option)
+- [Use existing Azure Private DNS Zones](#option-2---use-existing-azure-private-dns-zones). Use this option if you using a private endpoint in a hub-and-spoke model from a different subscription or even within the same subscription. 
+- [Use your own DNS Servers](#option-3---use-your-own-dns-servers) if you do not use DNS forwarders and instead you manage A records directly in your on-premises DNS servers.
 
 ## Option 1 - Deploy new Azure Private DNS Zones  
 
@@ -67,7 +68,6 @@ The DNS resource records for PurviewA, when resolved in the virtual network host
 | `PurviewA.privatelink.purview.azure.com` | A | \<private endpoint IP address\> |
 | `Web.purview.azure.com` | CNAME | \<private endpoint IP address\> |
 
-<br>
 
 ## Option 2 - Use existing Azure Private DNS Zones
 During the deployment of Azure purview account private endpoints, you can choose an existing Azure Private DNS Zones. This is common case for organizations where private endpoint is used for other services in Azure. Your organization may also have a central or hub subscription for all Azure Private DNS Zones. In this case, during the deployment of private endpoints, make sure you select the existing DNS zones instead of creating new ones. 
@@ -101,7 +101,6 @@ If you do not use DNS forwarders and instead you manage A records directly in yo
 | `PurviewA.policy.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
 | `PurviewA.sensitivity.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
 
-<br> 
 If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the Azure Purview endpoint to the private endpoint IP address. Configure your DNS server to delegate your Private Link subdomain to the private DNS zone for the virtual network. Or, configure the A records for `PurviewA.privatelink.purview.azure.com` with the private endpoint IP address.
 
 For more information, see [Azure private endpoint DNS configuration](../private-link/private-endpoint-dns.md).
@@ -142,5 +141,5 @@ You must resolve each endpoint by their private endpoint and obtain TcpTestSucce
 
 ## Next steps
 
-- [Troubleshooting private endpoint configuration for your Azure Purview account](catalog-private-link-troubleshooting.md)
+- [Troubleshooting private endpoint configuration for your Azure Purview account](catalog-private-link-troubleshoot.md)
 - [Manage data sources in Azure Purview](./manage-data-sources.md)

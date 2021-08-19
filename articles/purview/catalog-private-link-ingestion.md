@@ -98,4 +98,4 @@ Follow the steps in [Create and manage a self-hosted integration runtime](manage
 
 -  [Verify resolution for private endpoints](./catalog-private-link-name-resolution.md)
 -  [Manage data sources in Azure Purview](./manage-data-sources.md)
--  [Troubleshooting private endpoint configuration for your Azure Purview account](./catalog-private-link-troubleshooting.md)
+-  [Troubleshooting private endpoint configuration for your Azure Purview account](./catalog-private-link-troubleshoot.md)

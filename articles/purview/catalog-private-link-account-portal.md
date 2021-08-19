@@ -164,4 +164,4 @@ These instructions are provided for accessing Azure Purview securely from an Azu
 
 -  [Verify resolution for private endpoints](./catalog-private-link-name-resolution.md)
 -  [Manage data sources in Azure Purview](./manage-data-sources.md)
--  [Troubleshooting private endpoint configuration for your Azure Purview account](./catalog-private-link-troubleshooting.md)
+-  [Troubleshooting private endpoint configuration for your Azure Purview account](./catalog-private-link-troubleshoot.md)

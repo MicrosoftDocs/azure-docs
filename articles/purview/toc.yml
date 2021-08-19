@@ -226,7 +226,7 @@ items:
     - name: Azure Purview private endpoints DNS configuration
       href: catalog-private-link-name-resolution.md
     - name: Azure Purview private endpoints troubleshooting guide
-      href: catalog-private-link-troubleshooting.md                     
+      href: catalog-private-link-troubleshoot.md                     
     - name: Azure Purview Private endpoints FAQs
       href: catalog-private-link-faqs.md
   - name: Disaster recovery
