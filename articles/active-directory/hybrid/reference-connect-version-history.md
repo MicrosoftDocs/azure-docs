@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
+ms.custom: has-adal-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -51,6 +52,17 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 >Please refer to [this article](./how-to-upgrade-previous-version.md) to learn more about how to upgrade Azure AD Connect to the latest version.
 >
 >For version history information on retired versions, see [Azure AD Connect version release history archive](reference-connect-version-history-archive.md)
+
+## 2.0.9.0
+
+### Release status
+8/17/2021: Released for download only, not available for auto upgrade.
+
+### Bug fixes
+>[!NOTE] 
+>This is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer. This release addresses an issue that is present in version 2.0.8.0, this issue is not present in Azure AD Connect version 1.6
+
+ - We fixed a bug where, when syncing a large number of Password Hash Sync transactions, the Event log entry length would exceed the maximum allowed length for a Password Hash Sync event entry. We now split the lengthy log entry into multiple entries.
 
 ## 2.0.8.0
 >[!NOTE] 
