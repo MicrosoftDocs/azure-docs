@@ -10,139 +10,146 @@ ms.service: api-management
 
 # How to implement monetization with Azure API Management and Stripe
 
-APIM and Stripe are configured to create Products that mirror those defined in the revenue model (Free, Developer, PAYG, Basic, Standard, Pro, Enterprise). This allows API Consumers to browse, select a product and subscribe to it, all via the Development Portal.
+You can configure the API Management and Stripe to implement products defined in the revenue model (Free, Developer, PAYG, Basic, Standard, Pro, Enterprise). Once implemented, API consumers can browse, select, and subscribe to products via the developer portal.
 
-To deliver a consistent end-to-end API Consumer experience, the APIM Product Policies, Billing App and Stripe Product Configuration needs to be synchronized.  This is achieved through use of a shared configuration file [payment/monetizationModels.json](../payment/monetizationModels.json).
+To deliver a consistent end-to-end API consumer experience, you'll synchronize the API Management product policies and the Stripe configuration using a shared configuration file [payment/monetizationModels.json](../payment/monetizationModels.json).
 
-In this demo project we implement the example revenue model that is defined in [How to think about monetization](./how-to-think-about-monetization.md##step-4---design-the-revenue-model) to show how this can be implemented by integrating Azure API Management (APIM) with Stripe.
-
-
-## Azure API Management Products 
-
-APIM is configured to create Products that mirror the revenue model (Free, Developer, PAYG, Basic, Standard, Pro, Enterprise). This allows API Consumers to browse, select a product and subscribe to it, all via the Development Portal.
+In this demo project, we'll implement the example revenue model defined in [the monetization overview](./how-to-think-about-monetization.md#step-4---design-the-revenue-model) to demonstrate integrating Azure API Management with Stripe.
 
 ## Stripe 
 
-[Stripe](https://stripe.com/) is a technology company that builds economic infrastructure for the internet. It provies a fully featured payment platform, which enables you, as an "API Producer", to monetize your APIs hosted in Azure API Management (APIM) to "API Consumers". 
+As a tech company, [Stripe](https://stripe.com/) builds economic infrastructure for the internet. Stripe provides a fully featured payment platform. With Stripe's platform, you can monetize your APIs hosted in Azure API Management to API consumers. 
 
-Both APIM and Stripe define the concept of products and subscriptions, but only Stripe has the notion of pricing.
+Both API Management and Stripe define the concept of products and subscriptions, but only Stripe has the notion of pricing.
 
-In Stripe you can define one or more associated prices against a product. For recurring prices (billed more than once) these prices can be `Licensed` or `Metered`:
+In Stripe, you can define one or more associated prices against a product. Recurring prices (billed more than once) can be `Licensed` or `Metered`.
 
-- A `Licensed` price will be billed automatically at the given interval (in the example it is set to monthly). 
-- A `Metered` price will calculate the cost per month based on usage records and the set price per unit.
+| Recurring prices | Description |
+| ---------------- | ----------- |
+| `Licensed` | Billed automatically at the given interval. In the example, it's set to monthly. |
+| `Metered` | Calculates the monthly cost based on <ul><li>Usage records</li> <li>The set price per unit</li></ul> |
 
-The following table builds on the conceptual revenue model in [How to think about monetization](how-to-think-about-monetization.md) to provide additional detail about how this can be implemented using APIM and Stripe:
+The following table builds on the conceptual revenue model in [the monetization overview](how-to-think-about-monetization.md) and provides more detail about implementing using API Management and Stripe:
 
-| Products - implemented in both APIM and Stripe | Pricing model    | Stripe configuration                                                                                                                                                      | Quality of service (APIM Product Policies)                                                                  |
+| Products implemented in both API Management and Stripe | Pricing model    | Stripe configuration                                                                                                                                                      | Quality of service (API Management product policies)                                                                  |
 |------------------------------------------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| Free                                           | `Free`           | No configuration required.                                                                                                                                                | Quota set to limit the Consumer to 100 calls / month                                                        |
-| Developer                                      | `Freemium `      | Metered - graduated tiers, where the first tier flat amount is $0, next tiers per unit amount charge set to charge $0.20 / 100 calls.                                     | No quota set - Consumer can continue to make & pay for calls, rate limit of 100 calls / minute              |
-| PAYG                                           | `Metered`        | Metered - price set to charge Consumer $0.15 / 100 calls                                                                                                                  | No quota set - Consumer can continue to make & pay for calls, rate limit of 200 calls / minute              |
-| Basic                                          | `Tier`           | Licensed - price set to charge Consumer $14.95 / month                                                                                                                    | Quota set to limit the Consumer to 50,000 calls / month, rate limit of 100 calls / minute                   |
-| Standard                                       | `Tier + Overage` | Metered - graduated tiers, where the first tier flat amount is $89.95 / month for first 100,000 calls, next tiers per unit amount charge set to charge $0.10 / 100 calls  | No quota set - Consumer can continue to make & pay for additional calls, rate limit of 100 calls / minute   |
-| Pro                                            | `Tier + Overage` | Metered - graduated tiers, where the first tier flat amount is $449.95 / month for first 500,000 calls, next tiers per unit amount charge set to charge $0.06 / 100 calls | No quota set - Consumer can continue to make & pay for additional calls, rate limit of 1,200 calls / minute |
-| Enterprise                                     | `Unit`           | Metered - graduated tiers, where every tier flat amount is $749.95 / month for 1,500,000 calls                                                                            | No quota set - Consumer can continue to make & pay for additional calls, rate limit of 3,500 calls / minute |
+| Free                                           | `Free`           | No configuration required.                                                                                                                                                | Quota set to limit the consumer to 100 calls/month.                                                        |
+| Developer                                      | `Freemium `      | Metered, graduated tiers: <ul><li>First tier flat amount is $0.</li><li>Next tiers per unit amount charge set to charge $0.20/100 calls.</li></ul>                                     | No quota set. Consumer can continue to make and pay for calls with a rate limit of 100 calls/minute.              |
+| PAYG                                           | `Metered`        | Metered. Price set to charge consumer $0.15/100 calls.                                                                                                                  | No quota set. Consumer can continue to make and pay for calls with a rate limit of 200 calls/minute.              |
+| Basic                                          | `Tier`           | Licensed. Price set to charge consumer $14.95/month.                                                                                                                    | Quota set to limit the consumer to 50,000 calls/month with a rate limit of 100 calls/minute.                   |
+| Standard                                       | `Tier + Overage` | Metered, graduated tiers: <ul><li>First tier flat amount is $89.95/month for first 100,000 calls.</li><li>Next tiers per unit amount charge set to charge $0.10/100 calls.</li></ul>  | No quota set. Consumer can continue to make and pay for extra calls with a rate limit of 100 calls/minute.   |
+| Pro                                            | `Tier + Overage` | Metered, graduated tiers: <ul><li>First tier flat amount is $449.95/month for first 500,000 calls.</li><li>Next tiers per unit amount charge set to charge $0.06/100 calls.</li></ul> | No quota set. Consumer can continue to make and pay for extra calls with a rate limit of 1,200 calls/minute. |
+| Enterprise                                     | `Unit`           | Metered, graduated tiers. Every tier flat amount is $749.95/month for 1,500,000 calls.                                                                            | No quota set. Consumer can continue to make and pay for extra calls with a rate limit of 3,500 calls/minute. |
 
 ## Architecture
 
-The following diagram illustrates the components of the solution across APIM, the Billing App (both hosted on Azure) and Stripe.  It also shows the major integration flows between components, including the interactions between the API Consumer (both developer and application) and the solution.
+The following diagram illustrates: 
+* The components of the solution across API Management, the billing app, and Stripe. 
+* The major integration flows between components, including the interactions between the API consumer (both developer and application) and the solution.
 
-![](./architecture-stripe.png)
+:::image type="content" source="./media/adyen-details/architecture-stripe.png" alt-text="Stripe architecture overview":::
 
-## API Consumer flow
+## API consumer flow
 
-This section describes the end to end user journey that the solution is seeking to support.  The API Consumer is typically a developer who has been tasked with integrating their organisation's own application with your API.  The API Consumer flow therefore aims to support getting the user from the point of discovering the API, through being to consume the API, to paying for the usage.
+The API consumer flow describes the end-to-end user journey supported by the solution. Typically, the API consumer is a developer tasked with integrating their organization's own application with your API. The API consumer flow aims to support bringing the user from API discovery, through API consumption, to paying for API usage.
 
-The API Consumer flow is as follows:
+### API consumer flow
 
-1. Consumer selects sign up in the APIM developer portal.
-2. Consumer is redirected to the billing portal app to register their account (via [APIM delegation](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-setup-delegation)).
-3. Consumer is redirected back to the APIM developer portal, authenticated.
-4. Consumer selects a product to subscribe to in the APIM developer portal.
-5. Consumer is redirected to the billing portal app (via [APIM delegation](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-setup-delegation)).
-6. Consumer inputs a display name for their subscription and selects checkout.
-7. Stripe checkout session is started, using the product definition to retrieve the prices for that product.
+1. Consumer selects **Sign up** in the API Management developer portal.
+2. Developer portal redirects consumer to the billing portal app to register their account via [API Management delegation](api-management-howto-setup-delegation.md).
+3. Upon successful registration, consumer is authenticated and returned back to the developer portal.
+4. Consumer selects a product to subscribe to in the developer portal.
+5. Developer portal redirects consumer to the billing portal app via delegation.
+6. Consumer enters a display name for their subscription and selects checkout.
+7. Stripe checkout session starts, using the product definition to retrieve the product prices.
 8. Consumer inputs credit card details into Stripe checkout session.
-9. If checkout is successful, the APIM subscription is created and enabled.
-10. Consumer is billed monthly based on product they have signed up for and usage.
+9. On successful checkout, the API Management subscription is created and enabled.
+10. Based on the product and usage amount, consumer is billed monthly.
 11. If payment fails, subscription is suspended.
 
-### Consumer registers an account *(Step 1, 2, 3)*
+### Steps 1 - 3: Register an account
 
-From the APIM developer portal (defined for your APIM account), consumers can browse APIs and products. 
+1. Find the developer portal for an API Management service at `https://{ApimServiceName}.developer.azure-api.net`.
+1. Select **Sign Up** to be redirected to the billing portal app.
+1. On the billing portal app, register for an account.
+    * This is handled via [user registration delegation](api-management-howto-setup-delegation.md#-delegating-developer-sign-in-and-sign-up).
+1. Upon successful account creation, the consumer is authenticated and redirected to the developer portal.
 
-The developer portal for an APIM service is located at:
+Once the consumer creates an account, they'll only need to sign into the existing account to browse APIs and products from the developer portal.
 
-`https://{ApimServiceName}.developer.azure-api.net`
+### Steps 4 - 5: Subscribes to products and retrieve API keys
 
-However, they cannot create a product subscription until they have created a user account.
+1. Log into the developer portal.
+1. Search for a product and select **Subscribe** to begin a new subscription. 
+1. Consumer will be redirected to the billing portal app. 
+   * This is handled via [product subscription delegation](api-management-howto-setup-delegation.md#-delegating-product-subscription).
 
-On selecting 'Sign Up', the user is redirected to the billing portal app where they can enter their details to create an account. This is handled via [user registration delegation](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-setup-delegation#-delegating-developer-sign-in-and-sign-up).
+### Steps 5 - 6: Billing portal
 
-On successful account creation, the consumer is redirected to the APIM developer portal, authenticated.
+1. Once redirected to the billing portal, enter a display name for the subscription.
+1. Select **Checkout** to be redirected to the Stripe checkout page.
 
-Once an account has been created, in future the consumer can just sign in to the account.
+### Steps 7 - 8: Stripe checkout session
 
-### Consumer subscribes to APIM product and retrieves API keys *(Step 4, 5)*
+1. From the Stripe checkout page, [create a new Stripe checkout session](https://stripe.com/docs/api/checkout/sessions) using a [checkout session API](../app/src/routes/stripe.ts) defined within the application.
+1. Pass into this API:
+    * The API Management user ID.
+    * The API Management product ID you wish to activate.
+    * The URL to return to on checkout completion.
+1. With the product name, retrieve the list of prices linked to that product within Stripe using the [Stripe Node SDK](https://stripe.com/docs/api?lang=node).
+    * You can also use the monetization model API to retrieve the registered product type using the product name (`Freemium`, `Metered`, `Tier`, `TierWithOverage`, `Unit`, or `MeteredUnit`).
+1. Create a Stripe checkout session using following parameters:
 
-From the APIM developer portal, consumers can browse products.
+    | Parameter | Description |
+    | --------- | ----------- |
+    | **Success url** | The URL consumers are redirected to if the checkout is successful. Hosted within the web application. |
+    | **Cancel url** | The URL consumers are redirected to if the checkout is cancelled. Hosted within the web application. |
+    | **Payment method types** | Set to "card". |
+    | **Mode** | Set to "subscription". Consumer will receive recurring charges. |
+    | **Metadata** | Pass the API Management user ID, product ID, and subscription name. <ul><li>Retrieve this metadata in the event raised by creating a Stripe subscription.</li><li>Use within event listener to create associated API Management subscription.</li></ul> |
+    | **Line items** | Set up a line item for the price associated with the product. |
 
-From here, a consumer can select a product to create a new subscription. They will be redirected to the billing portal app when they select 'Subscribe'. This is handled via [product subscription delegation](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-setup-delegation#-delegating-product-subscription).
+1. Return the session ID from our API.
+1. Once back in checkout view, use the `stripe.redirectToCheckout` function to:
+    * Redirect the consumer to the checkout session.
+    * Ask the consumer to enter their card details and authorize monthly payment at either set price or based on usage.
 
-### Billing portal *(Step 5, 6)*
+1. Once complete, the Consumer is redirected to the **Success URL** you passed into the Stripe checkout session.
 
-Once redirected to the billing portal, the consumer can enter a display name for their subscription and select 'Checkout', where they will be redirected to the checkout page.
+### Step 9: API Management subscription created
 
-### Stripe checkout session *(Step 7, 8)*
+1. Once you've successfully completed a checkout session and create a Stripe subscription, a `customer.subscription.created` event is raised within Stripe. 
+    * As part of the Stripe initialization, a webhook was defined to listen for this event. 
+1. Within our web application, add a [listener for these events](../app/src/routes/stripe.ts).
+1. The event data attached to these events contains all the data defined on the `StripeCheckoutSession`. When a new event is raised, retrieve the metadata attached to the checkout session. 
+    * Earlier, when setting up the session, you set this as the API Management user ID, product ID, and subscription name.
+1. Within the listener, create the API Management subscription via the API Management service management API. 
+    * The web app authenticates to the API Management management API using a service principal. The service principal credentials are available via the app settings. 
+1. Consumer's paid subscription is created.
+1. Consumer starts using API keys to access the APIs provided by subscription. 
 
-From the checkout page, we use a [checkout sesion API](../app/src/routes/stripe.ts), which is defined within the application, to [create a new Stripe checkout session](https://stripe.com/docs/api/checkout/sessions).
+### Step 10: Billing
 
-Into this API, we pass the ID of the APIM user and the APIM product that the Consumer wants to activate, and the URL to return to on completion of checkout.
+#### Non-metered prices
 
-Using the name of the product, we retrieve the list of prices that are linked to that product within Stripe using the [Stripe Node SDK](https://stripe.com/docs/api?lang=node).
+Stripe will automatically charge the consumer each billing period by their fixed amount.
 
-We also use the monetization model API to retrieve the product type that the Consumer has signed up for using the name of the product (this will be `Freemium`, `Metered`, `Tier`, `TierWithOverage`, `Unit`, or `MeteredUnit`).
+#### Metered prices
 
-We then create a Stripe checkout session using following parameters:
+[Report the consumer's usage to Stripe](https://stripe.com/docs/billing/subscriptions/metered-billing#reporting-usage) using the logic in the [StripeBillingService](../app/src/services/stripeBillingService.ts). Once you've reported usage, Stripe calculates the amount to charge.
 
-- Success url: the URL to redirect to if the checkout is successful (hosted within the web application)
-- Cancel url: the URL to redirect to if the checkout is cancelled (also hosted within the application)
-- Payment method types: Here we are just using "card"
-- Mode: This is set to "subscription" which means that the Consumer will be charged on a recurring basis
-- Metadata: Here we pass the APIM user ID, APIM product ID, and the subscription name. We can retrieve this metadata in the event that is raised when the Stripe subscription is created, so we can then use this within our event listener to create the associated APIM subscription.
-- Line items: Here we need to set up a line item for the price associated with the product.
+1. Register a daily CRON job to:
+    * Run a function for querying usage from API Management using the API Management management API. 
+    * Posts the number of units of usage to Stripe. 
+1. At the end of each billing period, Stripe will automatically calculate the amount to charge based on the reported usage.
 
-We then return the session ID from our API.
+### Step 11: Subscription suspended
 
-Back in the checkout view, we now use the `stripe.redirectToCheckout` function to redirect the Consumer to the checkout session. They will then be asked to enter their card details and authorise monthly payment (either at a set price, based on usage).
+Along with the `customer.subscription.created` event, the webhook listener also listens for the `customer.subscription.updated` and `customer.subscription.deleted` events. 
 
-Once complete, the Consumer is redirected to the success URL passed into the stripe checkout session.
-
-### APIM Subscription created *(Step 9)*
-
-When a checkout session is successfully completed and a Stripe subscription is created, a `customer.subscription.created` event is raised within Stripe. As part of our Stripe initialisation, we defined a webhook which can be used to listen for these events. 
-
-Within our web application, we have then added a [listener for these events](../app/src/routes/stripe.ts).
-
-The event data which is attached to these events contains all the data defined on the `StripeCheckoutSession`. Therefore, when a new event is raised, we can retrieve the metadta which was attached to the checkout session. When we were setting up the session, we set this as the APIM user ID, APIM product ID, and the subscription name.
-
-Therefore, within the listener, we can now create the APIM subscription via the API Management Service Management API. Here the web app authenticates to the APIM management API using a service principal, with the credentials for that principal available via the app settings. 
-
-The subscription that the Consumer has paid for will then be created, and they will be able to start using their API keys to access the APIs which that subscription provides them access to.
-
-### Billing *(Step 10)*
-
-For products using non-metered prices, Stripe will automatically charge the Consumer each billing period by their fixed amount.
-
-For metered prices, we need to [report the Consumer's usage to Stripe](https://stripe.com/docs/billing/subscriptions/metered-billing#reporting-usage) so that Stripe can calculate the amount to charge. The logic for doing this is in the [StripeBillingService](../app/src/services/stripeBillingService.ts).
-
-To do this, we register a daily cron job which runs a function for querying usage from APIM using the APIM Management API, and then posts the number of units of usage to Stripe. At the end of each billing period, Stripe will automatically calculate the amount to charge based on the reported usage.
-
-### Subscription suspended *(Step 11)*
-
-The webhook listener also listens for `customer.subscription.updated` and `customer.subscription.deleted` events. If the subscription is cancelled or moves into an unpaid state, we update the APIM subscription into a suspended state so that the Consumer can no longer access our APIs.
+If the subscription is cancelled or moves into an unpaid state, update the API Management subscription into a suspended state so that the consumer can no longer access the APIs.
 
 ## Next steps
 
-Follow [Deploy demo with Stripe](stripe-deploy.md) to deploy the solution described in this document.
+* [Deploy demo with Stripe](stripe-deploy.md) as described in this document.
+* Learn about how [API Management integrates with the Adyen](adyen-details.md) payment option. 

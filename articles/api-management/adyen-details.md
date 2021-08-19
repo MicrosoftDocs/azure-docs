@@ -10,9 +10,9 @@ ms.service: api-management
 
 # How to implement monetization with Azure API Management and Adyen
 
-You can configure the API Management and the associated billing app to implement products defined in the revenue model (Free, Developer, PAYG, Basic, Standard, Pro, Enterprise). Once implemented, API consumers can browse, select, and subscribe to products via the developer portal.
+You can configure the API Management and Adyen to implement products defined in the revenue model (Free, Developer, PAYG, Basic, Standard, Pro, Enterprise). Once implemented, API consumers can browse, select, and subscribe to products via the developer portal.
 
-To deliver a consistent end-to-end API consumer experience, you'll synchronize the API Management product policies and the billing app configuration using a shared configuration file [payment/monetizationModels.json](../payment/monetizationModels.json).
+To deliver a consistent end-to-end API consumer experience, you'll synchronize the API Management product policies and the Adyen configuration using a shared configuration file [payment/monetizationModels.json](../payment/monetizationModels.json).
 
 In this demo project, we'll implement the example revenue model defined in [the monetization overview](monetization-overview.md#step-4---design-the-revenue-model) to demonstrate integrating Azure API Management with Adyen.
 
