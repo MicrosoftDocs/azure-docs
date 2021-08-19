@@ -25,7 +25,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 * [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure portal for the United States government](https://portal.azure.us)
 
-## Post a question on Microsoft Q&A
+## Post a question or feedback* on Microsoft Q&A
 
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure), Azure’s preferred destination for community support. 
 
@@ -43,6 +43,8 @@ If you can't find an answer to your problem using search, submit a new question 
 - [Azure Time Series Insights](/answers/topics/azure-time-series-insights.html)
 - [Azure Maps](/answers/topics/azure-maps.html)
 - [Azure Percept](/answers/topics/azure-percept.html)
+
+\* Share your ideas for making Azure IoT services work better for the applications you develop. Microsoft Engineers are actively listening for new features requests in Microsoft Q&A and we will prioritize threads with high number of votes and comments. 
 
 ## Post a question on Stack Overflow
 
@@ -64,26 +66,6 @@ If you do submit a new question to Stack Overflow, please use one or more of the
  - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
  - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
  - [Azure Percept](https://stackoverflow.com/questions/tagged/azure-percept)
-
-## Submit feedback on Azure Feedback
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='https://docs.microsoft.com/media/logos/logo-uservoice.svg'>
-</div>
-
-To request new features, post them on Azure Feedback. Share your ideas for making Azure IoT services work better for the applications you develop:
-
-| Service                       | Azure Feedback URL |
-|-------------------------------|---------------|
-| Azure IoT (Hub, DPS, SDKs)                    | https://feedback.azure.com/forums/321918-azure-iot |
-| Azure IoT Central             | https://feedback.azure.com/forums/911455-azure-iot-central |
-| Azure IoT Device Catalog      | https://feedback.azure.com/forums/916948-azure-iot-device-catalog |
-| Azure IoT Edge                | https://feedback.azure.com/forums/907045-azure-iot-edge |
-| Azure IoT Solution Accelerators | https://feedback.azure.com/forums/916438-azure-iot-solution-accelerators |
-| Azure Maps                 | https://feedback.azure.com/forums/909172-azure-maps |
-| Azure Time Series Insights | https://feedback.azure.com/forums/906859-azure-time-series-insights |
-| Azure Digital Twins | https://feedback.azure.com/forums/916621-azure-digital-twins |
-| Azure Sphere | https://feedback.azure.com/forums/915433-azure-sphere |
 
 ## Stay informed of updates and new releases
 
