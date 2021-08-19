@@ -183,6 +183,75 @@ A device could report an error such as:
 }
 ```
 
+### Object type
+
+If a writable property is defined as an object, the service must send a complete object to the device. The device should also acknowledge the update by sending a complete object.
+
+The following example shows a writable property defined as an `Object` with four fields:
+
+DTDL:
+
+```json
+{
+  "@type": "Property",
+  "name": "sampling_range",
+  "schema": {
+    "@type": "Object",
+    "fields": [
+      {
+        "name": "start_time",
+        "schema": "dateTime"
+      },
+      {
+        "name": "last_time",
+        "schema": "dateTime"
+      },
+      {
+        "name": "count",
+        "schema": "integer"
+      },
+      {
+        "name": "error_count",
+        "schema": "integer"
+      }
+    ]
+  },
+  "displayName": "Sampling range"
+  "writable": true
+}
+```
+
+To update this writable property, send a complete object from the service that looks like the following:
+
+```json
+{
+  "sampling_range": {
+    "start_time": "2021-08-17T12:53:00.000Z",
+    "last_time": "2021-08-17T14:54:00.000Z",
+    "count": 100,
+    "error_count": 5
+  }
+}
+```
+
+The device responds with an acknowledgement that looks like the following:
+
+```json
+{
+  "sampling_range": {
+    "ac": 200,
+    "av": 5,
+    "ad": "Weighing status updated",
+    "value": {
+      "start_time": "2021-08-17T12:53:00.000Z",
+      "last_time": "2021-08-17T14:54:00.000Z",
+      "count": 100,
+      "error_count": 5
+    }
+  }
+}
+```
+
 ### Sample no component writable property
 
 When a device receives multiple reported properties in a single payload, it can send the reported property responses across multiple payloads.
