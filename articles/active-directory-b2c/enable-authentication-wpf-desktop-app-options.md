@@ -117,7 +117,7 @@ PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
 
 ## Configure the redirect URI
 
-During the [desktop app registration](configure-authentication-sample-wpf-desktop-app.md#23-register-the-desktop-app) process, when you're choosing a redirect URI, keep in mind the following important considerations:
+During the [desktop app registration](configure-authentication-sample-wpf-desktop-app.md#step-23-register-the-desktop-app) process, when you're choosing a redirect URI, keep in mind the following important considerations:
 
 * **Development**: For development use in desktop apps, you can set the redirect URI to `http://localhost`, and Azure AD B2C will respect any port in the request. If the registered URI contains a port, Azure AD B2C will use that port only. For example, if the registered redirect URI is `http://localhost`, the redirect URI in the request can be `http://localhost:<randomport>`. If the registered redirect URI is `http://localhost:8080`, the redirect URI in the request must be `http://localhost:8080`.
 * **Unique**: The scheme of the redirect URI must be unique for every application. In the example `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`, `com.onmicrosoft.contosob2c.exampleapp` is the scheme. This pattern should be followed. If two applications share the same scheme, users are given a choice of applications. If users choose incorrectly, the sign-in fails.
