@@ -22,7 +22,6 @@ ms.date: 08/18/2021
 - Self-hosted integration runtime machine must be deployed in the same VNet where Azure Purview ingestion private endpoint is deployed.
 - We currently do not support ingestion private endpoints to connect to Azure Data Factory and Azure Synapse pipelines.
 - We currently do not support scanning a Power BI tenant which has a private endpoint configured with public access blocked.
--  
 - For limitation related to Private Link service, see [Azure Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
 
 ## Recommended troubleshooting steps  
