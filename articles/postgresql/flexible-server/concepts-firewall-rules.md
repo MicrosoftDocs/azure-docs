@@ -34,7 +34,7 @@ If a fixed outgoing IP address isn't available for your Azure service, you can c
 > The **Allow public access from any Azure service within Azure to this server** option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 > 
 
-:::image type="content" source="./media/concepts-firewall-rules/allow-public-access1.png" alt-text="Configure Allow access to Azure services in the portal":::
+:::image type="content" source="./media/concepts-firewall-rules/allow-public-access.png" alt-text="Configure Allow access to Azure services in the portal":::
 ## Programmatically managing firewall rules
 In addition to the Azure portal, firewall rules can be managed programmatically using Azure CLI.
 
