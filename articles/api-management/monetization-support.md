@@ -32,7 +32,7 @@ The diagram below introduces these key API Management features:
 
 ## API Discovery
 
-Launch your API and onboard API consumers using API Management's built-in developer portal. Emphasize good quality development content for the developer portal, enabling API consumers to explore and use your APIs seamlessly. Test the content and information provided for accessibility, thoroughness, and intuitiveness.
+Launch your API and onboard API consumers using API Management's built-in developer portal. Emphasize good quality development content for the developer portal, enabling API consumers to explore and use your APIs seamlessly. Test the content and information provided for accessibility, thoroughness, and usability.
 
 For details about how to add content and control the branding of the developer portal, see the [overview of the developer portal](./api-management-howto-developer-portal.md).
 
