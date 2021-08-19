@@ -106,6 +106,8 @@ If you've already cloned the latest release of the [Azure IoT C SDK](https://git
 
 :::zone pivot="programming-language-java"
 
+<a id="javasample"></a>
+
 ### Clone the Azure IoT Java SDK
 
 The [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java) contains test tooling that can help you create an X.509 certificate chain, upload a root or intermediate certificate from that chain, and do proof-of-possession with the service to verify the certificate.
@@ -419,6 +421,8 @@ This section shows you how to create a Python script that adds an enrollment gro
 :::zone-end
 
 :::zone pivot="programming-language-java"
+
+<a id="runjavasample"></a>
 
 1. In the Azure IoT Java SDK, go to the sample folder *_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_*.
 
