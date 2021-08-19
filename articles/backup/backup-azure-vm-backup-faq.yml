@@ -262,8 +262,7 @@ sections:
 
       - question: What's the minimum RPO and RTO for VM backups in Azure Backup?
         answer: |
-          **RPO**: The minimum RPO is 1 day or 24 hours.
-          **RTO**: The snapshots are stored in the storage account. So, the restore from the instant restore tier is instantaneous. This data is then transferred to the Recovery Services vault that is maintained by the Azure Backup service and will take a couple of hours for transfer and restore.
+          **RPO**: The minimum RPO is 1 day or 24 hours.  <br><br>  **RTO**: The snapshots are stored in the storage account. So, the restore from the instant restore tier is instantaneous. This data is then transferred to the Recovery Services vault that is maintained by the Azure Backup service and will take a couple of hours for transfer and restore.
 
 
 
