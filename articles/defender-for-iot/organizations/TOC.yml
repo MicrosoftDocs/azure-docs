@@ -38,13 +38,13 @@
         displayName: virtual, Dell, HPE, SMB, certified, hardware, deployment, DL20, EL300, R340, enterprise, SMB, corporate 
         href: how-to-identify-required-appliances.md
       - name: Set up your network
-        displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning, QOS, QoS, Quality of Service
+        displayName: passive, browsers, setup, deployment, network access, TAP, switch, mirroring, firewall, SPAN, tunnel, monitoring, tuning, QOS, QoS, Quality of Service
         href: how-to-set-up-your-network.md
       - name: Install software
-        displayName: setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports
+        displayName: tunnel, setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports
         href: how-to-install-software.md
       - name: Connect sensors with a proxy
-        displayName: Squid, proxy, connect, direct internet access, access, internet
+        displayName: Squid, proxy, connect, direct internet access, access, internet, tunnel
         href: how-to-connect-sensor-by-proxy.md
   - name: Manage subscriptions
     items:
@@ -54,7 +54,7 @@
   - name: Prepare your on-premises management console
     items:
     - name: Activate and set up your on-premises management console
-      displayName: deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, committed activation file
+      displayName: token, deployment, activate, certificate, sign in, SSL, TLS, login, setup, initial, tunnel, committed activation file
       href: how-to-activate-and-set-up-your-on-premises-management-console.md
     - name: Set up high availability
       displayName: primary, secondary, failover, failback fail, recovery 
