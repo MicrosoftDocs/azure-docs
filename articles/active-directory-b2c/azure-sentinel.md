@@ -54,11 +54,12 @@ Once you've configured your Azure AD B2C instance to send logs to Azure Monitor,
 2. Search for and select **Azure Sentinel**.
 
 3. Select **Add**.
+
 ![image shows search for Azure Sentinel in the Azure portal](./media/azure-sentinel/azure-sentinel-add.png)
 
 4. Select the new workspace.
 
- ![image select the sentinel workspace](./media/azure-sentinel/create-new-workspace.png)
+![image select the sentinel workspace](./media/azure-sentinel/create-new-workspace.png)
 
 5. Select **Add Azure Sentinel**.
 
@@ -67,7 +68,8 @@ Once you've configured your Azure AD B2C instance to send logs to Azure Monitor,
 
 ## Create an Azure Sentinel rule
 
-> \[!NOTE\] Azure Sentinel provides out-of-the-box, built-in templates to help you create threat detection rules designed by Microsoft's team of security experts and analysts. Rules created from these templates automatically search across your data for any suspicious activity. There are no native Azure AD B2C connectors available at this time. For the example in this tutorial, we'll create our own rule.
+>[!NOTE]
+>Azure Sentinel provides out-of-the-box, built-in templates to help you create threat detection rules designed by Microsoft's team of security experts and analysts. Rules created from these templates automatically search across your data for any suspicious activity. There are no native Azure AD B2C connectors available at this time. For the example in this tutorial, we'll create our own rule.
 
 Now that you've enabled Azure Sentinel, get notified when something suspicious occurs in your Azure AD B2C tenant.
 
@@ -93,7 +95,7 @@ In the following example, we explain the scenario where you receive a notificati
    | Severity | As appropriate |
    | Status | When you create the rule, its Status is `Enabled` by default, which means it will run immediately after you finish creating it. If you don't want it to run immediately, select `Disabled`, and the rule will be added to your Active rules tab and you can enable it from there when you need it.|
 
-  ![image provide basic rule properties](./media/azure-sentinel/create-new-rule.png)
+![image provide basic rule properties](./media/azure-sentinel/create-new-rule.png)
 
 4.  To define the rule query logic and configure settings, in the **Set rule logic** tab, write a query directly in the
 **Rule query** field. This query will alert you when there are two or more non-successful logins within 60 seconds to your Azure AD B2C tenant and will organize by `UserPrincipalName`.
@@ -101,6 +103,7 @@ In the following example, we explain the scenario where you receive a notificati
 ![image shows enter the rule query in the logic tab](./media/azure-sentinel/rule-query.png)
 
 In the Query scheduling section, set the following parameters:
+
 ![image set query scheduling parameters](./media/azure-sentinel/query-scheduling.png)
 
 5. Select **Next:Incident settings (Preview)**. You'll configure and add the Automated response later.
@@ -116,7 +119,8 @@ In the Query scheduling section, set the following parameters:
 
 8. View the results of your new Azure AD B2C non-successful logins rule. Go to the **Incidents** page, where you can triage, investigate, and remediate the threats. An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. You can set properties such as severity and status at the incident level.
 
->[!Note] A key feature of Azure Sentinel is [incident investigation](../sentinel/tutorial-investigate-cases.md).
+>[!Note]
+>A key feature of Azure Sentinel is [incident investigation](../sentinel/tutorial-investigate-cases.md).
 
 9. To begin the investigation, select a specific incident. On the
 right, you can see detailed information for the incident including its severity, entities involved, the raw events that triggered the incident, and the incident's unique ID.
