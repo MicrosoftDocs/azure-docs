@@ -106,9 +106,9 @@ For more details, see [SaaS fufillment APIs](/azure/marketplace/partner-center-p
 
 Your app will rely on your service to verify whether the user accessing the app has a license associated with their account. It is up to you to whether you give them a free (but limited) experience or whether you simply direct them to where to purchase licenses.
 Your app should have three states:
-1.	User not signed in
-2.	User signed in, no license associated
-3.	User signed in, license associated
+1. User not signed in
+1. User signed in, no license associated
+1. User signed in, license associated
 
 For information about authenticating with Azure AD from within your add-in, see [Office Dialog API](/office/dev/add-ins/develop/auth-with-office-dialog-api) and [Microsoft identity platform](/azure/active-directory/develop/v2-overview).
 
