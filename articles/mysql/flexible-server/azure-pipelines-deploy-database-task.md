@@ -1,5 +1,5 @@
 ---
-title: Azure pipelines task for Azure Database for MySQL Flexible Server 
+title: Azure Pipelines task for Azure Database for MySQL Flexible Server 
 description: Enable  Azure Database for MySQL Flexible Server CLI  task for using with Azure Pipelines
 ms.topic: how-to
 ms.service: mysql
@@ -9,7 +9,7 @@ author: mksuni
 ms.date: 08/09/2021
 ---
 
-# Azure pipelines for Azure Database for MySQL Flexible Server
+# Azure Pipelines for Azure Database for MySQL Flexible Server
 
 You can automatically deploy your database updates to Azure Database for MySQL Flexible Server after every successful build with **Azure Pipelines**.  You can use Azure CLI task to update the database either with a SQL file or an inline SQL script against the database. This task  can be run on cross-platform agents running on Linux, macOS, or Windows operating systems.
 
@@ -49,7 +49,7 @@ The following example illustrates how to pass database arguments and run ```exec
 
 ## Use inline SQL script
 
-The following example illustrates how execute an inline script using ```execute```  command . 
+The following example illustrates how to run an inline SQL script using ```execute```  command . 
 
 ```yaml
 - task: AzureCLI@2
@@ -73,18 +73,18 @@ The following example illustrates how execute an inline script using ```execute`
 
 ## Task inputs
 
-You can see the full list of all the task inputs when using Azure CLI task with Azure pipelines. 
+You can see the full list of all the task inputs when using Azure CLI task with Azure Pipelines. 
 
 | Parameter            | Description         | 
 | :------------------- | :-------------------|
 | azureSubscription| (Required) Provide the Azure Resource Manager subscription for the deployment. This parameter is shown only when the selected task version is 0.* as Azure CLI task v1.0 supports only Azure Resource Manager subscriptions. |
-|scriptType| (Required) Provide the type of script. Supported scripts are PowerShell, PowerShell Core,Bat,Shell and script. When running on a **Linux agent**, select one of the following: ```bash``` or  ```pscore``` . When running **Windows agent**, select one of the following: ```batch```,```ps``` and ```pscore```. |
+|scriptType| (Required) Provide the type of script. Supported scripts are PowerShell, PowerShell Core, Bat, Shell, and script. When running on a **Linux agent**, select one of the following: ```bash``` or  ```pscore``` . When running **Windows agent**, select one of the following: ```batch```,```ps``` and ```pscore```. |
 |sriptLocation| (Required) Provide the path to script, for example real file path or use ```Inline script``` when providing the scripts inline. The default value is ```scriptPath```. |
 |scriptPath| (Required) Fully qualified path of the script(.ps1 or .bat or .cmd when using Windows-based agent else <code>.ps1 </code> or <code>.sh </code> when using linux-based agent) or a path relative to the default working directory. |
-|inlineScript|(Required) You can write your scripts inline here. When using Windows agent, use PowerShell or PowerShell Core or batch scripting whereas use PowerShell Core or shell scripting when using Linux-based agents. For batch files use the prefix \"call\" before every Azure command. You can also pass predefined and custom variables to this script using arguments. <br/><b>Example for PowerShell/PowerShellCore/shell:</b> az --version az account show <br/><b>Example for batch:</b> call az --version call az account show. |
+|inlineScript|(Required) You can write your scripts inline here. When using Windows agent, use PowerShell or PowerShell Core or batch scripting whereas use PowerShell Core or shell scripting when using Linux-based agents. For batch files use the prefix \"call\" before every Azure command. You can also pass predefined and custom variables to this script using arguments. <br/>Example for PowerShell/PowerShellCore/shell:``` az --version az account show``` <br/>Example for batch: ``` call az --version call az account show```. |
 | arguments| (Optional) Provide all the arguments passed to the script. For examples ```-SERVERNAME mydemoserver```. |
 |powerShellErrorActionPreference| (Optional) Prepends the line <b>$ErrorActionPreference = 'VALUE'</b> at the top of your PowerShell/PowerShell Core script. The default value is stop. Supported values are stop, continue, and silentlyContinue. |
-|addSpnToEnvironment|(Optional) Adds service principal id and key of the Azure endpoint you chose to the script's execution environment. You can use these variables: <b>$env:servicePrincipalId, $env:servicePrincipalKey and $env:tenantId</b> in your script. This is honored only when the Azure endpoint has Service Principal authentication scheme. The default value is false.|
+|addSpnToEnvironment|(Optional) Adds service principal ID and key of the Azure endpoint you chose to the script's execution environment. You can use these variables: <b>$env:servicePrincipalId, $env:servicePrincipalKey and $env:tenantId</b> in your script. This is honored only when the Azure endpoint has Service Principal authentication scheme. The default value is false.|
 |useGlobalConfig|(Optional) If this is false, this task will use its own separate <a href= "/cli/azure/azure-cli-configuration?preserve-view=true&view=azure-cli-latest#cli-configuration-file">Azure CLI configuration directory</a>. This can be used to run Azure CLI tasks in <b>parallel</b> releases" <br/>Default value: false</td>
 |workingDirectory| (Optional) Current working directory where the script is run.  Empty is the root of the repo (build) or artifacts (release), which is $(System.DefaultWorkingDirectory). |
 |failOnStandardError|(Optional) If this is true, this task will fail when any errors are written to the StandardError stream. Unselect the checkbox to ignore standard errors and rely on exit codes to determine the status. The default value is false.|
@@ -94,7 +94,7 @@ You can see the full list of all the task inputs when using Azure CLI task with 
 Having issues with CLI Task, see [how to troubleshoot Build and Release](/azure/devops/pipelines/troubleshooting/troubleshooting?view=azure-devops).
 
 ## Next steps 
-Here are some related tasks if you wish to deploy an azure resource group or an Azure Web App.
+Here are some related tasks to deploy to Azure. 
 
 - [Azure Resource Group Deployment](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops)
 - [Azure Web App Deployment](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment?view=azure-devops)
