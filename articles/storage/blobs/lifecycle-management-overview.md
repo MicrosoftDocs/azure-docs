@@ -1,10 +1,11 @@
 ---
-title: Optimize costs by automating Azure Blob Storage access tiers
-description: Create automated rules for moving data between hot, cool, and archive tiers.
+title: Optimize costs by automatically managing the data lifecycle
+titleSuffix: Azure Storage
+description: Use Azure Storage lifecycle management policies to create automated rules for moving data between hot, cool, and archive tiers.
 author: tamram
 
 ms.author: tamram
-ms.date: 08/17/2021
+ms.date: 08/18/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -12,9 +13,9 @@ ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell, references_regions"
 ---
 
-# Optimize costs by automating Azure Blob Storage access tiers
+# Optimize costs by automatically managing the data lifecycle
 
-Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access often drops drastically as the data ages. Some data remains idle in the cloud and is rarely accessed once stored. Some data sets expire days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Blob Storage lifecycle management offers a rule-based policy that you can use to transition your data to the appropriate access tiers or to expire data at the end of the data lifecycle.
+Data sets have unique lifecycles. Early in the lifecycle, people access some data often. But the need for access often drops drastically as the data ages. Some data remains idle in the cloud and is rarely accessed once stored. Some data sets expire days or months after creation, while other data sets are actively read and modified throughout their lifetimes. Azure Storage lifecycle management offers a rule-based policy that you can use to transition blob data to the appropriate access tiers or to expire data at the end of the data lifecycle.
 
 With the lifecycle management policy, you can:
 
@@ -229,8 +230,6 @@ In the following example, blobs are moved to cool storage if they haven't been a
 }
 ```
 
-Each last access time update is billed under the [other operations](https://azure.microsoft.com/pricing/details/storage/blobs/) category.
-
 ### Archive data after ingest
 
 Some data stays idle in the cloud and is rarely, if ever, accessed. The following lifecycle policy is configured to archive data shortly after it is ingested. This example transitions block blobs in a container named `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time:
@@ -363,9 +362,13 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
 
 ## Availability and pricing
 
-The lifecycle management feature is available in all Azure regions for general purpose v2 (GPv2) accounts, blob storage accounts, premium block blobs storage accounts, and Azure Data Lake Storage Gen2 accounts. In the Azure portal, you can upgrade an existing general-purpose v1 account to a general-purpose v2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
+The lifecycle management feature is available in all Azure regions for general purpose v2 (GPv2) accounts, Blob Storage accounts, and premium block blobs storage accounts. Accounts with a hierarchical namespace are supported. For more information about types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
-The lifecycle management feature is free of charge. Customers are billed for standard operation costs for the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) API calls. Delete operations are free. For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Lifecycle management policies are free of charge. Customers are billed for standard operation costs for the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) API calls. Delete operations are free.
+
+Each update to a blob's last access time is billed under the [other operations](https://azure.microsoft.com/pricing/details/storage/blobs/) category.
+
+For more information about pricing, see [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## FAQ
 
@@ -383,10 +386,6 @@ When a blob is moved from one access tier to another, its last modification time
 
 ## Next steps
 
-Learn how to recover data after accidental deletion:
-
-- [Soft delete for Azure Storage blobs](./soft-delete-blob-overview.md)
-
-Learn how to manage and find data with blob index:
-
+- [Configure a lifecycle management policy](lifecycle-management-policy-configure.md)
+- [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md)
 - [Manage and find data on Azure Blob Storage with blob index](storage-manage-find-blobs.md)
