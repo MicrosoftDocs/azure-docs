@@ -66,10 +66,10 @@ For scenarios where _ingestion_ private endpoint is used in your Azure Purview a
 For FAQs related to private endpoint deployments in Azure Purview, see [FAQ about Azure Purview private endpoints](./catalog-private-link-faqs.md).
  
 ## Troubleshooting guide 
-For troubleshooting private endpoint configuration for Purview accounts, see [Troubleshooting private endpoint configuration for Purview accounts](./catalog-private-link-troubleshooting.md).
+For troubleshooting private endpoint configuration for Purview accounts, see [Troubleshooting private endpoint configuration for Purview accounts](./catalog-private-link-troubleshoot.md).
 
 ## Known limitations
-To view list of current limitations related to Azure Purview private endpoints, see [Azure Purview private endpoints known limitations](./catalog-private-link-troubleshooting.md#known-limitations).
+To view list of current limitations related to Azure Purview private endpoints, see [Azure Purview private endpoints known limitations](./catalog-private-link-troubleshoot.md#known-limitations).
 
 ## Next steps
 
