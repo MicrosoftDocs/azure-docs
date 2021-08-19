@@ -59,6 +59,9 @@ The name of the template you created is **Sensor Controller**. The model include
 
 You can also automatically create a device template from a connected device that's not yet assigned to a device template. IoT Central uses the telemetry and property values the device sends to infer a device model.
 
+> [!NOTE]
+> Currently, this preview feature can't use telemetry and properties from components. It can only generate capabilities from root telemetry and properties.
+
 The following steps show how to use this feature:
 
 1. Connect your device to IoT Central, and start sending the data. When you see the data in the **Raw data** view, select **Auto-create template** in the **Manage template** drop-down:
