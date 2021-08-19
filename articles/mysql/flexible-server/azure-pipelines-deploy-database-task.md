@@ -41,7 +41,10 @@ The following example illustrates how to pass database arguments and run ```exec
       -DBPASSWORD pollsdbpassword
     inlineScript: |
       az login --allow-no-subscription
-      az mysql flexible-server execute --name $(SERVERNAME) --admin-user $(DBUSER) --admin-password '$(DBPASSWORD)'  --database-name $(DBNAME) --file-path /code/sql/db-schema-update.sql
+      az mysql flexible-server execute --name $(SERVERNAME) \
+      --admin-user $(DBUSER) --admin-password '$(DBPASSWORD)' \
+      --database-name $(DBNAME) \
+      --file-path /code/sql/db-schema-update.sql
 ```
 
 ## Use inline SQL script
@@ -62,7 +65,10 @@ The following example illustrates how execute an inline script using ```execute`
       -INLINESCRIPT 
     inlineScript: |
       az login --allow-no-subscription
-      az mysql flexible-server execute --name $(SERVERNAME) --admin-user $(DBUSER) --admin-password '$(DBPASSWORD)'  --database-name $(DBNAME) --query-text "UPDATE items SET items.retail = items.retail * 0.9 WHERE items.id =100;" 
+      az mysql flexible-server execute --name $(SERVERNAME) \
+      --admin-user $(DBUSER) --admin-password '$(DBPASSWORD)' \
+      --database-name $(DBNAME) \
+      --query-text "UPDATE items SET items.retail = items.retail * 0.9 WHERE items.id =100;" 
 ```
 
 ## Task inputs
