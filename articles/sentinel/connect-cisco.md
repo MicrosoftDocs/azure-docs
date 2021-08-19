@@ -40,6 +40,21 @@ Cisco ASA doesn't support CEF, so the logs are sent as Syslog and the Azure Sent
 1. Continue to [STEP 3: Validate connectivity](connect-cef-verify.md).
 
 
+## Supported Cisco ASA Events
+
+Below is a table of the Cisco ASA event IDs that will be fully parsed by the Azure Sentinel agent. If an event is not found on this list it doesn't mean that it won't be sent to the workspace successfully by the Azure Sentinel agent, but it will not be parsed as if it were CEF.
+
+| Event ID   | | |
+| :------------- | :----------: | :----------: |
+| %ASA-2-106001 | %ASA-2-106016|%ASA-6-302014|
+| %ASA-2-106002 |%ASA-2-106017|%ASA-6-302015|
+| %ASA-2-106006| %ASA-2-106018|%ASA-6-302016|
+| %ASA-2-106007| %ASA-2-106020|%ASA-6-302020|
+| %ASA-3-106010|%ASA-1-106021|%ASA-6-302021|
+| %ASA-6-106012|%ASA-1-106022|%ASA-7-710002|
+| %ASA-2-106013|%ASA-4-106023|%ASA-3-710003|
+| %ASA-3-106014|%ASA-6-106100|%ASA-7-710005|
+| %ASA-6-106015|%ASA-6-302013|%ASA-7-710006|
 
 
 ## Next steps
