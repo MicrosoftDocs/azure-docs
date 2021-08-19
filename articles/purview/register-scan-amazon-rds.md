@@ -11,13 +11,15 @@ ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon RDS service to set up, configure, and scan my Amazon RDS databases.
 ---
 
-# Amazon RDS Multi-cloud scanning connector for Azure Purview (Public preview)
+# Amazon RDS Multi-Cloud Scanning Connector for Azure Purview (Public preview)
 
-The Multi-Cloud Scanning Connector for Azure Purview allows you to explore your organizational data across cloud providers, including Amazon Web Services in addition to Azure storage services.
+The Multi-Cloud Scanning Connector for Azure Purview allows you to explore your organizational data across cloud providers, including Amazon Web Services, in addition to Azure storage services.
 
-This article describes how to use Azure Purview to scan your structured data currently stored in Amazon RDS, including both Microsoft SQL and PostgreSQL databases, and discover what types of sensitive information exists in your data.
+This article describes how to:
 
-This how-to guide also describes how to identify the Amazon RDS databases where the data is currently stored for easy information protection and data compliance.
+- Use Azure Purview to scan your structured data currently stored in Amazon RDS, including both Microsoft SQL and PostgreSQL databases, and discover what types of sensitive information exists in your data.
+
+- Identify the Amazon RDS databases where the data is currently stored for easy information protection and data compliance.
 
 For this service, use Purview to provide a Microsoft account with secure access to AWS, where the Multi-Cloud Scanning Connectors for Azure Purview will run. The Multi-Cloud Scanning Connectors for Azure Purview uses this access to your Amazon RDS databases to read your data, and then reports the scanning results, including only the metadata and classification, back to Azure. Use the Purview classification and labeling reports to analyze and review your data scan results.
 
