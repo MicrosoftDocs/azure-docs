@@ -21,7 +21,7 @@ As your workflow proceeds in your primary region, data is saved in the long-term
 > [!NOTE]
 > This failover plan does not cover a complete outage in your storage account region. Also, Azure HPC Cache does not support geographically redundant storage accounts (GRS or GZRS) because their asynchronous copying between regions is not consistent enough for HPC Cache workflows.
 >
-> HPC Cache **does** support locally redundant storage (LRS) and zone-redundant storage (ZRS), which [replicate data within one Azure region](../storage/common/storage-redundancy#redundancy-in-the-primary-region).
+> HPC Cache **does** support locally redundant storage (LRS) and zone-redundant storage (ZRS), which [replicate data within one Azure region](../storage/common/storage-redundancy.md#redundancy-in-the-primary-region).
 >
 > Consider a manual backup strategy if you need to protect against full-region storage outages.
 
