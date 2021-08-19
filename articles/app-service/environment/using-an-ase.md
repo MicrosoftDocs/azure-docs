@@ -5,7 +5,7 @@ author: ccompy
 
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 9/22/2020
+ms.date: 8/5/2021
 ms.author: ccompy
 ms.custom: seodec18
 ---
@@ -205,22 +205,15 @@ To create an alert against your logs, follow the instructions in [Create, view, 
 
 ## Upgrade preference
 
-If you have multiple ASEs, you might want some ASEs to be upgraded before others. Within the ASE **HostingEnvironment Resource Manager** object, you can set a value for **upgradePreference**. The **upgradePreference** setting can be configured by using a template, ARMClient, or https://resources.azure.com. The three possible values are:
+If you have multiple ASEs, you might want some ASEs to be upgraded before others. This behavior can be enabled through your ASE portal.  Under **Configuration** you have the option to set **Upgrade preference**. The three possible values are:
 
 - **None**: Azure will upgrade your ASE in no particular batch. This value is the default.
 - **Early**: Your ASE will be upgraded in the first half of the App Service upgrades.
 - **Late**: Your ASE will be upgraded in the second half of the App Service upgrades.
 
-If you're using https://resources.azure.com, follow these steps to set the **upgradePreferences** value:
+Select the value desired and select **Save**.  The default for any ASE is **None**.
 
-1. Go to resources.azure.com and sign in with your Azure account.
-1. Go through the resources to subscriptions\/\[subscription name\]\/resourceGroups\/\[resource group name\]\/providers\/Microsoft.Web\/hostingEnvironments\/\[ASE name\].
-1. Select **Read/Write** at the top.
-1. Select **Edit**.
-1. Set **upgradePreference** to whichever one of the three values you want.
-1. Select **Patch**.
-
-![resources azure com display][5]
+![ASE configuration portal][5]
 
 The **upgradePreferences** feature makes the most sense when you have multiple ASEs because your "Early" ASEs will be upgraded before your "Late" ASEs. When you have multiple ASEs, you should set your development and test ASEs to be "Early" and your production ASEs to be "Late".
 
