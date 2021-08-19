@@ -56,7 +56,7 @@ Any kind of network drives or remote shares like the following Azure services ar
 
 * [Microsoft Azure File Service](/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
 
-* [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
+* [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) for Db2 running in Windows guest OS. Hosting Linux gueest OS based Db2 data and log files on NFS shares hosted on Azure NetApp Files is supported!
 
 Using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) apply to deployments with the Db2 DBMS as well.
 
