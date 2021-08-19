@@ -286,7 +286,7 @@ run = Experiment(ws, 'experiment_name').submit(run_config)
 
 ### PyTorch Lightning example
 
-* [azureml-examples: Multi-node training with PyTorch Lightning]https://github.com/Azure/azureml-examples/blob/main/python-sdk/experimental/using-pytorch-lightning/4.train-multi-node-ddp.ipynb)
+* [azureml-examples: Multi-node training with PyTorch Lightning](https://github.com/Azure/azureml-examples/blob/main/python-sdk/experimental/using-pytorch-lightning/4.train-multi-node-ddp.ipynb)
 
 ### Hugging Face Transformers
 
@@ -367,3 +367,6 @@ Certain Azure VM series, specifically the NC, ND, and H-series, now have RDMA-ca
 If you create an `AmlCompute` cluster of one of these RDMA-capable, InfiniBand-enabled sizes, such as `Standard_ND40rs_v2`, the OS image will come with the Mellanox OFED driver required to enable InfiniBand preinstalled and preconfigured.
 
 ## Next steps
+
+* [Deploy machine learning models to Azure](how-to-deploy-and-where.md)
+* [Deploy and score a machine learning model by using a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
