@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate CloudPassage with Azure Active D
 * Enable your users to be automatically signed in to CloudPassage with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://portal.cloudpassage.com/saml/consume/accountid`. You can get your value for this attribute by clicking **SSO Setup documentation** in the **Single Sign-on Settings** section of your CloudPassage portal.
 
-	![Configure Single Sign-On](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
+	![Screenshot shows the CloudPassage portal with the S S O Setup Documentation link called out.](./media/cloudpassage-tutorial/tutorial_cloudpassage_05.png)
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Reply URL. Contact [CloudPassage Client support team](https://www.cloudpassage.com/company/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -143,15 +143,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the menu on the top, click **Settings**, and then click **Site Administration**. 
    
-    ![Configure Single Sign-On][12]
+    ![Screenshot shows the CloudPassage site with Site Administration selected.][12]
 
 1. Click the **Authentication Settings** tab. 
    
-    ![Configure Single Sign-On][13]
+    ![Screenshot shows the CloudPassage site with the Authentication Settings tab selected.][13]
 
 1. In the **Single Sign-on Settings** section, perform the following steps: 
    
-    ![Configure Single Sign-On][14]
+    ![Screenshot shows the Single Sign-on Settings section where you can enter the information in this step.][14]
 
 	a. Select **Enable Single sign-on(SSO)(SSO Setup Documentation)** checkbox.
 	
@@ -175,15 +175,15 @@ The objective of this section is to create a user called B.Simon in CloudPassage
 
 1. In the toolbar on the top, click **Settings**, and then click **Site Administration**. 
    
-	![Creating a CloudPassage test user][22] 
+	![Screenshot shows CloudPassage with Site Administration selected.][22] 
 
 1. Click the **Users** tab, and then click **Add New User**. 
    
-	![Creating a CloudPassage test user][23]
+	![Screenshot shows CloudPassage Site Administration with the Users tab selected and the option to Add New User.][23]
 
 1. In the **Add New User** section, perform the following steps: 
    
-	![Creating a CloudPassage test user][24]
+	![Screenshot shows the Add New User section where you can specify user information.][24]
 	
 	a. In the **First Name** textbox, type Britta. 
   
@@ -199,15 +199,15 @@ The objective of this section is to create a user called B.Simon in CloudPassage
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the CloudPassage tile in the Access Panel, you should be automatically signed in to the CloudPassage for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the CloudPassage tile in the Access Panel, you should be automatically signed in to the CloudPassage for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try CloudPassage with Azure AD](https://aad.portal.azure.com/)
 
@@ -220,4 +220,3 @@ When you click the CloudPassage tile in the Access Panel, you should be automati
 [22]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_15.png
 [23]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_16.png
 [24]: ./media/cloudpassage-tutorial/tutorial_cloudpassage_17.png
-

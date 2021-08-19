@@ -2,7 +2,8 @@
 title: Troubleshoot issues with artifacts in Azure DevTest Labs | Microsoft Docs
 description: Learn how to troubleshoot issues that occur when applying artifacts in an Azure DevTest Labs virtual machine. 
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 06/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot issues when applying artifacts in an Azure DevTest Labs virtual machine

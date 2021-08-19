@@ -1,4 +1,4 @@
-﻿---
+---
  title: include file
  description: include file
  services: iot-hub
@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 02/20/2019
  ms.author: dobett
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 
 ### Enable logging with diagnostics settings
@@ -58,4 +58,4 @@ Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-New settings take effect in about 10 minutes. After that, logs appear in the configured archival target on the **Diagnostics settings** blade. For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../articles/azure-monitor/platform/platform-logs-overview.md).
+New settings take effect in about 10 minutes. After that, logs appear in the configured archival target on the **Diagnostics settings** blade. For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../articles/azure-monitor/essentials/platform-logs-overview.md).

@@ -8,14 +8,12 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
 ms.assetid: f6fb85f8-c77a-4af1-bde8-1de7e4425d2e
-ms.service: virtual-machines-windows
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2020
+ms.date: 07/29/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 
@@ -48,6 +46,9 @@ The Azure cloud platform doesn't offer the option to configure virtual IP addres
 The Azure Load Balancer service provides an *internal load balancer* for Azure. With the internal load balancer, clients reach the cluster over the cluster virtual IP address. 
 
 Deploy the internal load balancer in the resource group that contains the cluster nodes. Then, configure all necessary port forwarding rules by using the probe ports of the internal load balancer. Clients can connect via the virtual host name. The DNS server resolves the cluster IP address, and the internal load balancer handles port forwarding to the active node of the cluster.
+
+> [!IMPORTANT]
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
 
 ![Figure 1: Windows failover clustering configuration in Azure without a shared disk][sap-ha-guide-figure-1001]
 
@@ -118,7 +119,7 @@ _SAP ASCS/SCS HA architecture with shared disk_
 
 There are two options for shared disk in a windows failover cluster in Azure:
 
-- [Azure shared disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared) - feature, that allows to attach Azure managed disk to multiple VMs simultaneously. 
+- [Azure shared disks](../../disks-shared.md) - feature, that allows to attach Azure managed disk to multiple VMs simultaneously. 
 - Using 3rd-party software [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster) to create a mirrored storage that simulates cluster shared storage. 
 
 When selecting the technology for for shared disk, keep in mind the following considerations:
@@ -127,7 +128,7 @@ When selecting the technology for for shared disk, keep in mind the following co
 - Allows you to attach Azure managed disk to multiple VMs simultaneously without the need for additional software to maintain and operate 
 - You will be operating with a single Azure shared disk on one storage cluster. That has an impacts on the reliability of your SAP solution.
 - Currently the only supported deployment is with Azure shared Premium disk in Availability set. Azure Shared Disk is not supported in zonal deployment.     
-- Make sure to provision Azure Premium disk with a minimum disk size as specified in [Premium SSD ranges](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared#disk-sizes) to be able to attach to the required number of VMs simultaneously (typically 2 for SAP ASCS Windows Failover cluster ). 
+- Make sure to provision Azure Premium disk with a minimum disk size as specified in [Premium SSD ranges](../../disks-shared.md#disk-sizes) to be able to attach to the required number of VMs simultaneously (typically 2 for SAP ASCS Windows Failover cluster ). 
 - Azure shared Ultra disk is not supported for SAP workloads, as it doesn't support deployment in Availability set or zonal deployment.  
  
 **SIOS**
@@ -138,26 +139,26 @@ When selecting the technology for for shared disk, keep in mind the following co
 
 ### Shared Disk using Azure shared disk
 
-Microsoft is offering [Azure shared disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared), which can be used to implement SAP ASCS/SCS High Availability with a shared disk option.
+Microsoft is offering [Azure shared disks](../../disks-shared.md), which can be used to implement SAP ASCS/SCS High Availability with a shared disk option.
 
 #### Prerequisites and limitations
 
 Currently you can use Azure Premium SSD disks as an Azure shared disk for the SAP ASCS/SCS instance. 
 The following limitations are currently in place:
 
--  [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) is not supported as Azure Shared Disk for SAP workloads. Currently it is not possible to place Azure VMs, using Azure Ultra Disk in Availability Set
--  [Azure Shared disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared) with Premium SSD disks is only supported with VMs in Availability Set. It is not supported in Availability Zones deployment. 
--  Azure shared disk value [maxShares](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. Typically for SAP ASCS/SCS instance you will configure two nodes in Windows Failover Cluster, therefore the value for `maxShares` must be set to two.
--  All SAP ASCS/SCS cluster VMs must be deployed in the same [Azure proximity placement group](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups).   
+-  [Azure Ultra disk](../../disks-types.md#ultra-disk) is not supported as Azure Shared Disk for SAP workloads. Currently it is not possible to place Azure VMs, using Azure Ultra Disk in Availability Set
+-  [Azure Shared disk](../../disks-shared.md) with Premium SSD disks is only supported with VMs in Availability Set. It is not supported in Availability Zones deployment. 
+-  Azure shared disk value [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. Typically for SAP ASCS/SCS instance you will configure two nodes in Windows Failover Cluster, therefore the value for `maxShares` must be set to two.
+-  All SAP ASCS/SCS cluster VMs must be deployed in the same [Azure proximity placement group](../../windows/proximity-placement-groups.md).   
    Although, you can deploy Windows cluster  VMs in Availability Set with Azure shared disk without PPG, PPG will ensure close physical proximity of Azure shared disks and the cluster VMs, therefore achieving lower latency between the VMs and the storage layer.    
 
-For further details on limitations for Azure shared disk, please review very carefully the [Limitations](https://docs.microsoft.com/azure/virtual-machines/linux/disks-shared#limitations) section of Azure Shared Disk documentation.
+For further details on limitations for Azure shared disk, please review very carefully the [Limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
 
 > [!IMPORTANT]
 > When deploying SAP ASCS/SCS Windows Failover cluster with Azure shared disk, be aware that your deployment will be operating with a single shared disk in one storage cluster. Your SAP ASCS/SCS instance would be impacted, in case of issues with the storage cluster, where the Azure shared disk is deployed.    
 
 > [!TIP]
-> Review the [SAP Netweaver on Azure planning guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) and the [Azure Storage guide for SAP workloads](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) for important considerations, when planning your SAP deployment.
+> Review the [SAP Netweaver on Azure planning guide](./planning-guide.md) and the [Azure Storage guide for SAP workloads](./planning-guide-storage.md) for important considerations, when planning your SAP deployment.
 
 ### Supported OS versions
 
@@ -187,6 +188,38 @@ _Windows failover clustering configuration in Azure with SIOS DataKeeper_
 > [!NOTE]
 > You don't need shared disks for high availability with some DBMS products, like SQL Server. SQL Server AlwaysOn replicates DBMS data and log files from the local disk of one cluster node to the local disk of another cluster node. In this case, the Windows cluster configuration doesn't need a shared disk.
 >
+## Optional configurations
+
+The following diagrams show multiple SAP instances on Azure VMs running Microsoft Windows Failover Cluster to reduce the total number of VMs.
+
+This can either be local SAP Application Servers on a SAP ASCS/SCS cluster or a SAP ASCS/SCS Cluster Role on Microsoft SQL Server Always On nodes.
+
+> [!IMPORTANT]
+> Installing a local SAP Application Server on a SQL Server Always On node is not supported.
+>
+
+Both, SAP ASCS/SCS and the Microsoft SQL Server database, are single points of failure (SPOF). To protect these SPOFs in a Windows environment WSFC is used.
+
+While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction of the memory configuration for either SQL Server or the SAP Application Server by 2 GB is recommended.
+
+### SAP Application Servers on WSFC nodes using SIOS DataKeeper
+
+![Figure 6: Windows Server failover clustering configuration in Azure with SIOS DataKeeper and locally installed SAP Application Server][sap-ha-guide-figure-1003]
+
+> [!NOTE]
+> Since the SAP Application Servers are installed locally, there is no need for setting up any synchronization as the picture shows.
+>
+### SAP ASCS/SCS on SQL Server Always On nodes using SIOS DataKeeper
+
+![Figure 7: SAP ASCS/SCS on SQL Server Always On nodes using SIOS DataKeeper][sap-ha-guide-figure-1005]
+
+[Optional configuration for SAP Application Servers on WSFC nodes using Windows SOFS][optional-fileshare]
+
+[Optional configuration for SAP Application Servers on WSFC nodes using NetApp Files SMB][optional-smb]
+
+[Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using Windows SOFS][optional-fileshare-sql]
+
+[Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using NetApp Files SMB][optional-smb-sql]
 
 ## Next steps
 
@@ -250,7 +283,9 @@ _Windows failover clustering configuration in Azure with SIOS DataKeeper_
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
 [sap-ha-guide-figure-1001]:./media/virtual-machines-shared-sap-high-availability-guide/1001-wsfc-on-azure-ilb.png
-[sap-ha-guide-figure-1002]:./media/virtual-machines-shared-sap-high-availability-guide/1002-wsfc-sios-on-azure-ilb.png
+[sap-ha-guide-figure-1003]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sios-as.png
+[sap-ha-guide-figure-1005]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sql-ascs-sios.png
+[sap-ha-guide-figure-1002]:./media/virtual-machines-shared-sap-high-availability-guide/ha-sios.png
 [sap-ha-guide-figure-2000]:./media/virtual-machines-shared-sap-high-availability-guide/2000-wsfc-sap-as-ha-on-azure.png
 [sap-ha-guide-figure-2001]:./media/virtual-machines-shared-sap-high-availability-guide/2001-wsfc-sap-ascs-ha-on-azure.png
 [sap-ha-guide-figure-2003]:./media/virtual-machines-shared-sap-high-availability-guide/2003-wsfc-sap-dbms-ha-on-azure.png
@@ -344,12 +379,16 @@ _Windows failover clustering configuration in Azure with SIOS DataKeeper_
 
 
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-db-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
-[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
+[optional-smb]:high-availability-guide-windows-netapp-files-smb.md#5121771a-7618-4f36-ae14-ccf9ee5f2031 (Optional configuration for SAP Application Servers on WSFC nodes using NetApp Files SMB)
+[optional-fileshare]:sap-high-availability-guide-wsfc-file-share.md#86cb3ee0-2091-4b74-be77-64c2e6424f50 (Optional configuration for SAP Application Servers on WSFC nodes using Windows SOFS)
+[optional-smb-sql]:high-availability-guide-windows-netapp-files-smb.md#01541cf2-0a03-48e3-971e-e03575fa7b4f (Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using NetApp Files SMB)
+[optional-fileshare-sql]:sap-high-availability-guide-wsfc-file-share.md#db335e0d-09b4-416b-b240-afa18505f503 (Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using Windows SOFS)

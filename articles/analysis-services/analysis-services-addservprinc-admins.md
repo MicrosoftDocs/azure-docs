@@ -4,7 +4,7 @@ description: Learn how to add an automation service principal to the Azure Analy
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 05/14/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
@@ -36,7 +36,7 @@ You can configure server administrators using SQL Server Management Studio (SSMS
 
 4. Verify the service principal account ID, and then click **OK**.
     
-    ![Search for service principal account](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![Screenshot that shows the service principal account ID and highlights the OK button.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 ## Using a Resource Manager template
 
@@ -99,7 +99,7 @@ A managed identity can also be added to the Analysis Services Admins list. For e
 
 In most parts of the Azure portal and APIs, managed identities are identified using their service principal object ID. However, Analysis Services requires that they be identified using their client ID. To obtain the client ID for a service principal, you can use the Azure CLI:
 
-```bash
+```azurecli
 az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
 ```
 
@@ -113,5 +113,5 @@ You can then use this client ID in conjunction with the tenant ID to add the man
 
 ## Related information
 
-* [Download SQL Server PowerShell Module](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Download SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [Download SQL Server PowerShell Module](/sql/ssms/download-sql-server-ps-module)   
+* [Download SSMS](/sql/ssms/download-sql-server-management-studio-ssms)

@@ -3,20 +3,18 @@ title: Perform advanced encoding by customizing MES presets | Microsoft Docs
 description: This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 2a4ade25-e600-4bce-a66e-e29cf4a38369
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: juliako
+ms.date: 3/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 
 # Perform advanced encoding by customizing MES presets
@@ -30,7 +28,7 @@ This topic shows how to customize Media Encoder Standard presets. The [Encoding 
 If using an XML preset, make sure to preserve the order of elements, as shown in XML samples below (for example, KeyFrameInterval should precede SceneChangeDetection).
 
 > [!NOTE] 
-> Many of the advanced Media Services v2 features of the Media Encoder Standard are currently not available in v3. For more information, see [feature gaps](../latest/media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+> Many of the advanced Media Services v2 features of the Media Encoder Standard are currently not available in v3. For more information, see [the Migration Guide](../latest/migrate-v-2-v-3-migration-introduction.md).
 
 ## Support for relative sizes
 

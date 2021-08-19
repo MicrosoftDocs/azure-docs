@@ -1,16 +1,19 @@
 ---
 title: Configure server parameters - Azure portal - Azure Database for MariaDB
 description: This article describes how to configure MariaDB server parameters in Azure Database for MariaDB using the Azure portal.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 6/11/2020
+ms.date: 10/1/2020
 ---
 
 # Configure server parameters in Azure Database for MariaDB using the Azure portal
 
 Azure Database for MariaDB supports configuration of some server parameters. This article describes how to configure these parameters by using the Azure portal. Not all server parameters can be adjusted.
+
+>[!Note]
+> Server parameters can be updated globally at the server-level, use the [Azure CLI](./howto-configure-server-parameters-cli.md), [PowerShell](./howto-configure-server-parameters-using-powershell.md), or [Azure portal](./howto-server-parameters.md).
 
 ## Configure server parameters
 

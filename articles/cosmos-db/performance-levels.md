@@ -10,6 +10,7 @@ ms.custom: devx-track-csharp
 
 ---
 # Retiring the S1, S2, and S3 performance levels
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!IMPORTANT] 
 > The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new Azure Cosmos DB accounts.
@@ -77,7 +78,7 @@ Assuming you have 10 S1 collections, 1 GB of storage for each, in the US East re
 
 ## What if I need more than 20 GB of storage?
 
-Whether you have a collection with S1, S2, or S3 performance level, or have a single partition collection, all of which have 20 GB of storage available, you can use the Azure Cosmos DB Data Migration tool to migrate your data to a partitioned collection with virtually unlimited storage. For information about the benefits of a partitioned collection, see [Partitioning and scaling in Azure Cosmos DB](sql-api-partition-data.md). 
+Whether you have a collection with S1, S2, or S3 performance level, or have a single partition collection, all of which have 20 GB of storage available, you can use the Azure Cosmos DB Data Migration tool to migrate your data to a partitioned collection with virtually unlimited storage. For information about the benefits of a partitioned collection, see [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md). 
 
 <a name="change-before"></a>
 
@@ -111,12 +112,12 @@ Here is a code snippet for changing the collection throughput to 5,000 request u
     await client.ReplaceOfferAsync(offer);
 ```
 
-Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) to view additional examples and learn more about our offer methods:
+Visit [MSDN](/dotnet/api/microsoft.azure.documents.client.documentclient) to view additional examples and learn more about our offer methods:
 
-* [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
-* [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
-* [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
-* [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
+* [**ReadOfferAsync**](/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync)
+* [**ReadOffersFeedAsync**](/dotnet/api/microsoft.azure.documents.client.documentclient.readoffersfeedasync)
+* [**ReplaceOfferAsync**](/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync)
+* [**CreateOfferQuery**](/previous-versions/azure/dn975114(v=azure.100))
 
 <a name="ea-customer"></a>
 
@@ -127,6 +128,6 @@ EA customers will be price protected until the end of their current contract.
 ## Next steps
 To learn more about pricing and managing data with Azure Cosmos DB, explore these resources:
 
-1.	[Partitioning data in Cosmos DB](sql-api-partition-data.md). Understand the difference between single partition container and partitioned containers, as well as tips on implementing a partitioning strategy to scale seamlessly.
+1.	[Partitioning data in Cosmos DB](partitioning-overview.md). Understand the difference between single partition container and partitioned containers, as well as tips on implementing a partitioning strategy to scale seamlessly.
 2.	[Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/). Learn about the cost of provisioning throughput and consuming storage.
 3.	[Request units](request-units.md). Understand the consumption of throughput for different operation types, for example Read, Write, Query.

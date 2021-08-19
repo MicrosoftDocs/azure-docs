@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 02/08/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -41,35 +41,55 @@ You can track the progress as the reviewers complete their reviews.
 
 1. In the list, click an access review.
 
-    To view a series of access reviews, navigate to the access review, and you will find upcoming occurrences in Scheduled reviews.
+    To view future instances of an access reviews, navigate to the access review, and select Scheduled reviews.
 
-    On the **Overview** page, you can see the progress. No access rights are changed in the directory until the review is completed.
+    On the **Overview** page, you can see the progress of the current instance. No access rights are changed in the directory until the review is completed.
 
-    ![Access reviews progress](./media/complete-access-review/overview-progress.png)
+     ![Review of All company group](./media/complete-access-review/all-company-group.png)
+
+    All blades under Current are only viewable during the duration of each review instance. 
+
+    The Results page provides more information on each user under review in the instance, including the ability to Stop, Reset and Download results.
+
+    ![Review guest access across Microsoft 365 groups](./media/complete-access-review/all-company-group-results.png)
+
+
+    If you are viewing an access review that reviews guest access across Microsoft 365 groups, the Overview blade lists each group in the review. 
+   
+    ![review guest access across Microsoft 365 groups](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Click on a group to see the progress of the review on that group, as well as to Stop, Reset, Apply and Delete.
+
+   ![review guest access across Microsoft 365 groups in detail](./media/complete-access-review/progress-group-review.png)
 
 1. If you want to stop an access review before it has reached the scheduled end date, click the **Stop** button.
 
-    When stop a review, reviewers will no longer be able to give responses. You can't restart a review after it's stopped.
+    When you stop a review, reviewers will no longer be able to give responses. You can't restart a review after it's stopped.
 
 1. If you're no longer interested in the access review, you can delete it by clicking the **Delete** button.
 
 ## Apply the changes
 
-If **Auto apply results to resource** was enabled and based on your selections in **Upon completion settings**, auto-apply will be executed after the review's end date or when you manually stop the review.
+If **Auto apply results to resource** was enabled based on your selections in **Upon completion settings**, auto-apply will be executed after the review's end date or when you manually stop the review.
 
-If **Auto apply results to resource** wasn't enabled for the review, click **Apply** to manually apply the changes. If a user's access was denied in the review, when you click **Apply**, Azure AD removes their membership or application assignment.
+If **Auto apply results to resource** wasn't enabled for the review, navigate to **Review History** under **Series** after the review duration ends or the review was stopped early, and click on the instance of the review you’d like to Apply.
 
 ![Apply access review changes](./media/complete-access-review/apply-changes.png)
 
+Click **Apply** to manually apply the changes. If a user's access was denied in the review, when you click **Apply**, Azure AD removes their membership or application assignment.
+
+![Apply access review changes button](./media/complete-access-review/apply-changes-button.png)
+
+
 The status of the review will change from **Completed** through intermediate states such as **Applying** and finally to state **Result applied**. You should expect to see denied users, if any, being removed from the group membership or application assignment in a few minutes.
 
-A configured auto applying review, or selecting **Apply** doesn't have an effect on a group that originates in an on-premises directory or a dynamic group. If you want to change a group that originates on-premises, download the results and apply those changes to the representation of the group in that directory.
+Manually or automatically applying results doesn't have an effect on a group that originates in an on-premises directory or a dynamic group. If you want to change a group that originates on-premises, download the results and apply those changes to the representation of the group in that directory.
 
 ## Retrieve the results
 
 To view the results for a one-time access review, click the **Results** page. To view just a user's access, in the Search box, type the display name or user principal name of a user whose access was reviewed.
 
-![Retrieve results for an access review](./media/complete-access-review/retrieve-results.png)
+![Retrieve results for an access review](./media/complete-access-review/retrieve-results.png) 
 
 To view the progress of an active access review that is recurring, click on the **Results** page.
 

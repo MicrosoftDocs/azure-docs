@@ -11,14 +11,16 @@ ms.custom: seodec18
 ---
 
 # Certificates and the App Service Environment 
-
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
 The App Service Environment(ASE) is a deployment of the Azure App Service that runs within your Azure Virtual Network(VNet). It can be deployed with an internet accessible application endpoint or an application endpoint that is in your VNet. If you deploy the ASE with an internet accessible endpoint, that deployment is called an External ASE. If you deploy the ASE with an endpoint in your VNet, that deployment is called an ILB ASE. You can learn more about the ILB ASE from the [Create and use an ILB ASE](./create-ilb-ase.md) document.
 
 The ASE is a single tenant system. Because it is single tenant, there are some features available only with an ASE that are not available in the multi-tenant App Service. 
 
 ## ILB ASE certificates 
 
-If you are using an External ASE, then your apps are reached at [appname].[asename].p.azurewebsites.net. By default all ASEs, even ILB ASEs, are created with certificates that follow that format. When you have an ILB ASE, the apps are reached based on the domain name that you specify when creating the ILB ASE. In order for the apps to support TLS, you need to upload certificates. Obtain a valid TLS/SSL certificate by using internal certificate authorities, purchasing a certificate from an external issuer, or using a self-signed certificate. 
+If you are using an External ASE, then your apps are reached at &lt;appname&gt;.&lt;asename&gt;.p.azurewebsites.net. By default all ASEs, even ILB ASEs, are created with certificates that follow that format. When you have an ILB ASE, the apps are reached based on the domain name that you specify when creating the ILB ASE. In order for the apps to support TLS, you need to upload certificates. Obtain a valid TLS/SSL certificate by using internal certificate authorities, purchasing a certificate from an external issuer, or using a self-signed certificate. 
 
 There are two options for configuring certificates with your ILB ASE.  You can set a wildcard default certificate for the ILB ASE or set certificates on the individual web apps in the ASE.  Regardless of the choice you make, the following certificate attributes must be configured properly:
 
@@ -31,7 +33,7 @@ As a third variant, you can create an ILB ASE certificate that includes all of y
 
 After an ILB ASE is created in the portal, the certificate must be set for the ILB ASE. Until the certificate is set, the ASE will show a banner that the certificate was not set.  
 
-The certificate that you upload must be a .pfx file. After the certificate is uploaded, the ASE will perform a scale operation to set the certificate. 
+The certificate that you upload must be a .pfx file. After the certificate is uploaded, there is a time delay of approximately 20 minutes before the certificate is used. 
 
 You cannot create the ASE and upload the certificate as one action in the portal or even in one template. As a separate action, you can upload the certificate using a template as described in the [Create an ASE from a template](./create-from-template.md) document.  
 

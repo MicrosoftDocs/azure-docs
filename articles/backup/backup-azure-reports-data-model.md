@@ -6,6 +6,10 @@ ms.date: 10/30/2019
 ---
 # Data Model for Azure Backup Diagnostics Events
 
+> [!NOTE]
+>
+> For creating custom reporting views, it is recommended to use [system functions on Azure Monitor logs](backup-reports-system-functions.md) instead of working with the raw tables listed below.
+
 ## CoreAzureBackup
 
 This table provides information about core backup entities, such as vaults and backup items.
@@ -233,7 +237,7 @@ Each record in the above tables has an associated **Operation Name**. An Operati
 | AddonAzureBackupPolicy | Policy |  Represents a record containing all details of a backup and retention policy. For example, ID, name, retention settings, etc. |
 | AddonAzureBackupPolicy | PolicyAssociation | Represents a mapping between a backup item and the backup policy applied to it. |   
 
-Often, you will need to perform joins between different tables as well as different sets of records that are part of the same table (differentiated by Operation Name) to get all the fields required for your analysis. Refer to the [sample queries](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) to get started. 
+Often, you will need to perform joins between different tables as well as different sets of records that are part of the same table (differentiated by Operation Name) to get all the fields required for your analysis. Refer to the [sample queries](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries) to get started. 
 
 ## Next steps
 

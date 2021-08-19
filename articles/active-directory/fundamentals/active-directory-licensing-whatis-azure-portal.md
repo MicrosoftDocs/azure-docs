@@ -26,7 +26,7 @@ Until now, licenses could only be assigned at the individual user level, which c
 To address those challenges, Azure AD now includes group-based licensing. You can assign one or more product licenses to a group. Azure AD ensures that the licenses are assigned to all members of the group. Any new members who join the group are assigned the appropriate licenses. When they leave the group, those licenses are removed. This licensing management eliminates the need for automating license management via PowerShell to reflect changes in the organization and departmental structure on a per-user basis.
 
 ## Licensing requirements
-You must have one of the following licenses to use group-based licensing:
+You must have one of the following licenses **for every user who benefits from** group-based licensing:
 
 - Paid or trial subscription for Azure AD Premium P1 and above
 
@@ -61,9 +61,9 @@ If you have feedback or feature requests, share them with us using [the Azure AD
 
 To learn more about other scenarios for license management through group-based licensing, see:
 
-* [Assigning licenses to a group in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
-* [Identifying and resolving license problems for a group in Azure Active Directory](../users-groups-roles/licensing-groups-resolve-problems.md)
-* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](../users-groups-roles/licensing-groups-migrate-users.md)
-* [How to migrate users between product licenses using group-based licensing in Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Azure Active Directory group-based licensing additional scenarios](../users-groups-roles/licensing-group-advanced.md)
-* [PowerShell examples for group-based licensing in Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)
+* [Assigning licenses to a group in Azure Active Directory](../enterprise-users/licensing-groups-assign.md)
+* [Identifying and resolving license problems for a group in Azure Active Directory](../enterprise-users/licensing-groups-resolve-problems.md)
+* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](../enterprise-users/licensing-groups-migrate-users.md)
+* [How to migrate users between product licenses using group-based licensing in Azure Active Directory](../enterprise-users/licensing-groups-change-licenses.md)
+* [Azure Active Directory group-based licensing additional scenarios](../enterprise-users/licensing-group-advanced.md)
+* [PowerShell examples for group-based licensing in Azure Active Directory](../enterprise-users/licensing-ps-examples.md)

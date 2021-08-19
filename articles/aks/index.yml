@@ -87,15 +87,20 @@ landingContent:
     linkLists:
       - linkListType: architecture
         links:
-            - text: Baseline architecture for an AKS cluster
-              url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
-            - text: AKS solutions
-              url: /azure/architecture/reference-architectures/containers/aks-start-here
+            - text: Baseline architecture
+              url: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks?WT.mc_id=AKSDOCSPAGE
+            - text: Baseline for microservices
+              url: /azure/architecture/reference-architectures/containers/aks-microservices/aks-microservices-advanced?WT.mc_id=AKSDOCSPAGE            
+            - text: Baseline for PCI-DSS 3.2.1
+              url: /azure/architecture/reference-architectures/containers/aks-pci/aks-pci-intro?WT.mc_id=AKSDOCSPAGE
+            - text: Baseline for multiregion
+              url: /azure/architecture/reference-architectures/containers/aks-multi-region/aks-multi-cluster?WT.mc_id=AKSDOCSPAGE                 
+            - text: Day-2 operations guide
+              url: /azure/architecture/operator-guides/aks/day-2-operations-guide?WT.mc_id=AKSDOCSPAGE
             - text: Best practices for cluster operators and developers
               url: best-practices.md
-            - text: Checking for best practices
-              url: kube-advisor-tool.md
-
+            - text: Other AKS solutions
+              url: /azure/architecture/reference-architectures/containers/aks-start-here?WT.mc_id=AKSDOCSPAGE   
     # Card
   - title: Build your skills with Microsoft Learn
     linkLists:

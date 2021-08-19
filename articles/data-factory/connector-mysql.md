@@ -1,16 +1,14 @@
 ---
 title: Copy data from MySQL using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about MySQL connector in Azure Data Factory that lets you copy data from a MySQL database to a data store supported as a sink.
-services: data-factory
-documentationcenter: ''
-author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
+author: jianleishen
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.author: jingwang
+ms.author: jianleishen
 ---
 
 # Copy data from MySQL using Azure Data Factory
@@ -38,13 +36,13 @@ Specifically, this MySQL connector supports MySQL **version 5.6, 5.7 and 8.0**.
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 The Integration Runtime provides a built-in MySQL driver starting from version 3.7, therefore you don't need to manually install any driver.
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to MySQL connector.
 

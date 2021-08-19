@@ -1,6 +1,7 @@
 ---
 author: erhopf
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
@@ -72,7 +73,7 @@ The easiest way to authenticate a request is to pass in your subscription key as
 
 If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request headers.
 
-For more information, see [Authentication](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+For more information, see [Authentication](../reference/v3-0-reference.md#authentication).
 
 ## Make the request and print the response
 
@@ -100,7 +101,7 @@ node detect.js
 After you run the sample, you should see the following printed to terminal:
 
 > [!NOTE]
-> Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+> Find the country/region abbreviation in this [list of languages](../language-support.md).
 
 ```json
 [
@@ -136,4 +137,4 @@ If you've hardcoded your subscription key into your program, make sure to remove
 Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
-> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+> [API reference](../reference/v3-0-reference.md)

@@ -20,7 +20,7 @@ The modern threat landscape for cloud environments is dynamic, increasing the pr
 
 ## Azure Security Center
 
-[Azure Security Center](../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats to your VMs. Security Center provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+[Azure Security Center](../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats to your VMs. Security Center provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
 Security Center's just-in-time access can be applied across your VM deployment to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. When just-in-time is enabled and a user requests access to a VM, Security Center checks what permissions the user has for the VM. If they have the correct permissions, the request is approved and Security Center automatically configures the Network Security Groups (NSGs) to allow inbound traffic to the selected ports for a limited amount of time. After the time has expired, Security Center restores the NSGs to their previous states. 
 
@@ -36,7 +36,7 @@ Encryption does not impact the performance of managed disks. There is no additio
 
 You can rely on platform-managed keys for the encryption of your managed disk, or you can manage encryption using your own keys. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all data in managed disks. 
 
-To learn more about server-side encryption, refer to either the articles for [Windows](windows/disk-encryption.md) or [Linux](linux/disk-encryption.md).
+To learn more about server-side encryption, refer to either the articles for [Windows](./disk-encryption.md) or [Linux](./disk-encryption.md).
 
 ### Azure Disk Encryption
 
@@ -48,7 +48,7 @@ There is no charge for encrypting virtual disks in Azure. Cryptographic keys are
 
 Secrets and certificates can be modeled as resources and provided by [Key Vault](../key-vault/general/basic-concepts.md). You can use Azure PowerShell to create key vaults for [Windows VMs](windows/key-vault-setup.md) and the Azure CLI for [Linux VMs](linux/key-vault-setup.md). You can also create keys for encryption.
 
-Key vault access policies grant permissions to keys, secrets, and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However, permissions to access keys or secrets or certificates are at the vault level. In other words, [key vault access policy](../key-vault/general/secure-your-key-vault.md) does not support object level permissions.
+Key vault access policies grant permissions to keys, secrets, and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However, permissions to access keys or secrets or certificates are at the vault level. In other words, [key vault access policy](../key-vault/general/security-features.md) does not support object level permissions.
 
 When you connect to VMs, you should use public-key cryptography to provide a more secure way to sign in to them. This process involves a public and private key exchange using the secure shell (SSH) command to authenticate yourself rather than a username and password. Passwords are vulnerable to brute-force attacks, especially on Internet-facing VMs such as web servers. With a secure shell (SSH) key pair, you can create a [Linux VM](linux/mac-create-ssh-keys.md) that uses SSH keys for authentication, eliminating the need for passwords to sign-in. You can also use SSH keys to connect from a [Windows VM](linux/ssh-from-windows.md) to a Linux VM.
 
@@ -62,11 +62,10 @@ The managed identities for Azure resources feature in Azure Active Directory (Az
 
 [Azure policies](../governance/policy/overview.md) can be used to define the desired behavior for your organization's [Windows VMs](./windows/policy.md) and [Linux VMs](./linux/policy.md). By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization.
 
-## Role-based access control
+## Azure role-based access control
 
-Using [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../role-based-access-control/role-assignments-portal.md), using the [Azure CLI](https://docs.microsoft.com/cli/azure/role), or[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+Using [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../role-based-access-control/role-assignments-portal.md), using the [Azure CLI](/cli/azure/role), or[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## Next steps
-- Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../security/fundamentals/overview.md) or [Windows](windows/tutorial-azure-security.md).
-
+- Walk through the steps to monitor virtual machine security by using Azure Security Center for [Linux](../security/fundamentals/overview.md) or [Windows](/previous-versions/azure/virtual-machines/tutorial-azure-security).

@@ -62,7 +62,7 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 3. Expand **Product management**, select **WNS/MPNS**, and then select **Live Services site**. Sign in to your Microsoft account. The application registration page opens in a new tab. Alternatively, you can navigate directly to the [My applications](https://apps.dev.microsoft.com) page, and select your application name to get to this page.
 
     ![WNS MPNS page](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
-4. Note the **Application Secrets** password and the **Package security identifier (SID)**.
+4. Note the **Application Secrets** password as well as both **Package security identifier (SID)** and **Application Identity** under the Windows Store section.
 
     >[!WARNING]
     >The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
@@ -145,7 +145,9 @@ Your notification hub is now configured to work with WNS. You have the connectio
 
     This action guarantees that the channel URI is registered in your notification hub each time the application launches.
 
-12. To run the app, press the keyboard's **F5** key. A dialog box containing the registration key will display. To close the dialog, click **OK**.
+12. Right-click on `Package.appxmanifest` and select View Code (**F7**). Locate  `<Identity .../>` and replace the value with the **Application Identity** from the WNS you created [earlier](#create-an-app-in-windows-store).
+
+13. To run the app, press the keyboard's **F5** key. A dialog box containing the registration key will display. To close the dialog, click **OK**.
 
     ![Registration successful](./media/notification-hubs-windows-store-dotnet-get-started/registration-successful.png)
 

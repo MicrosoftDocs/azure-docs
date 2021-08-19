@@ -2,33 +2,49 @@
 title: Similarity and scoring overview
 titleSuffix: Azure Cognitive Search
 description: Explains the concepts of similarity and scoring, and what a developer can do to customize the scoring result.
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+
+author: puneet-hariharan-MSFT
+ms.author: puhariharan
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 03/02/2021
 ---
 # Similarity and scoring in Azure Cognitive Search
 
-Scoring refers to the computation of a search score for every item returned in search results for full text search queries. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search scores calculated for each item. 
+This article describes the two similarity ranking algorithms used by Azure Cognitive Search to determine which matching documents are the most relevant to the query. this article also introduces two related features: *scoring profiles* (criteria for adjusting a search score) and the *featuresMode* parameter (unpacks a search score to show more detail).
+
+> [!NOTE]
+> A third [semantic re-ranking algorithm](semantic-ranking.md) is currently in public preview. For more information, start with [Semantic search overview](semantic-search-overview.md).
+
+## Similarity ranking algorithms
+
+Azure Cognitive Search supports two similarity ranking algorithms.
+
+| Algorithm | Score | Availability |
+|-----------|-------|--------------|
+| ClassicSimilarity | @search.score | Used by all search services up until July 15, 2020. |
+| BM25Similarity | @search.score | Used by all search services created after July 15. Older services that use classic by default can [opt in to BM25](index-ranking-similarity.md). |
+
+Both classic and BM25 are TF-IDF-like retrieval functions that use the term frequency (TF) and the inverse document frequency (IDF) as variables to calculate relevance scores for each document-query pair, which is then used for ranking While conceptually similar to classic, BM25 takes its root in probabilistic information retrieval to improve upon it. BM25 also offers advanced customization options, such as allowing the user to decide how the relevance score scales with the term frequency of matched terms.
+
+The following video segment fast-forwards to an explanation of the generally available ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
+
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+
+## Relevance scoring
+
+Scoring refers to the computation of a search score for every item returned in search results for full text search queries. The score is an indicator of an item's relevance in the context of the current query. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search scores calculated for each item. The score is returned in the response as "@search.score" on every document.
 
 By default, the top 50 are returned in the response, but you can use the **$top** parameter to return a smaller or larger number of items (up to 1000 in a single response), and **$skip** to get the next set of results.
 
-The search score is computed based on statistical properties of the data and the query. Azure Cognitive Search finds documents that match on search terms (some or all, depending on [searchMode](/rest/api/searchservice/search-documents#searchmodeany--all-optional)), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data index, but common within the document. The basis for this approach to computing relevance is known as *TF-IDF or* term frequency-inverse document frequency.
+The search score is computed based on statistical properties of the data and the query. Azure Cognitive Search finds documents that match on search terms (some or all, depending on [searchMode](/rest/api/searchservice/search-documents#query-parameters)), favoring documents that contain many instances of the search term. The search score goes up even higher if the term is rare across the data index, but common within the document. The basis for this approach to computing relevance is known as *TF-IDF or* term frequency-inverse document frequency.
 
 Search score values can be repeated throughout a result set. When multiple hits have the same search score, the ordering of the same scored items is not defined, and is not stable. Run the query again, and you might see items shift position, especially if you are using the free service or a billable service with multiple replicas. Given two items with an identical score, there is no guarantee which one appears first.
 
-If you want to break the tie among repeating scores, you can add an **$orderby** clause to first order by score, then order by another sortable field (for example, `$orderby=search.score() desc,Rating desc`). For more information, see [$orderby](./search-query-odata-orderby.md).
+If you want to break the tie among repeating scores, you can add an **$orderby** clause to first order by score, then order by another sortable field (for example, `$orderby=search.score() desc,Rating desc`). For more information, see [$orderby](search-query-odata-orderby.md).
 
 > [!NOTE]
-> A `@search.score = 1.00` indicates an un-scored or un-ranked result set. The score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or a **$filter** expression. 
-
-## Scoring profiles
-
-You can customize the way different fields are ranked by defining a custom *scoring profile*. Scoring profiles give you greater control over the ranking of items in search results. For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long. 
-
-A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters. For more information about defining one, see [Scoring Profiles](index-add-scoring-profiles.md).
+> A `@search.score = 1.00` indicates an un-scored or un-ranked result set. The score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or a **$filter** expression.
 
 <a name="scoring-statistics"></a>
 
@@ -45,6 +61,7 @@ GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringS
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
+
 Using scoringStatistics will ensure that all shards in the same replica provide the same results. That said, different replicas may be slightly different from one another as they are always getting updated with the latest changes to your index. In some scenarios, you may want your users to get more consistent results during a "query session". In such scenarios, you can provide a `sessionId` as part of your queries. The `sessionId` is a unique string that you create to refer to a unique user session.
 
 ```http
@@ -52,20 +69,17 @@ GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionI
   Content-Type: application/json
   api-key: [admin or query key]  
 ```
+
 As long as the same `sessionId` is used, a best-effort attempt will be made to target the same replica, increasing the consistency of results your users will see. 
 
 > [!NOTE]
 > Reusing the same `sessionId` values repeatedly can interfere with the load balancing of the requests across replicas and adversely affect the performance of the search service. The value used as sessionId cannot start with a '_' character.
 
-## Similarity ranking algorithms
+## Scoring profiles
 
-Azure Cognitive Search supports two different similarity ranking algorithms: A *classic similarity* algorithm and the official implementation of the *Okapi BM25* algorithm (currently in preview). The classical similarity algorithm is the default algorithm, but starting July 15, any new services created after that date use the new BM25 algorithm. It will be the only algorithm available on new services.
+You can customize the way different fields are ranked by defining a *scoring profile*. Scoring profiles give you greater control over the ranking of items in search results. For example, you might want to boost items based on their revenue potential, promote newer items, or perhaps boost items that have been in inventory too long. 
 
-For now, you can specify which similarity ranking algorithm you would like to use. For more information, see [Ranking algorithm](index-ranking-similarity.md).
-
-The following video segment fast-forwards to an explanation of the ranking algorithms used in Azure Cognitive Search. You can watch the full video for more background.
-
-> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
+A scoring profile is part of the index definition, composed of weighted fields, functions, and parameters. For more information about defining one, see [Scoring Profiles](index-add-scoring-profiles.md).
 
 <a name="featuresMode-param"></a>
 
@@ -98,10 +112,9 @@ For a query that targets the "description" and "title" fields, a response that i
 
 You can consume these data points in [custom scoring solutions](https://github.com/Azure-Samples/search-ranking-tutorial) or use the information to debug search relevance problems.
 
-
 ## See also
 
- [Scoring Profiles](index-add-scoring-profiles.md)
- [REST API Reference](/rest/api/searchservice/)
- [Search Documents API](/rest/api/searchservice/search-documents)
- [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search)
++ [Scoring Profiles](index-add-scoring-profiles.md)
++ [REST API Reference](/rest/api/searchservice/)
++ [Search Documents API](/rest/api/searchservice/search-documents)
++ [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search)

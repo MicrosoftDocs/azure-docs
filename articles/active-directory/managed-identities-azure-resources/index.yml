@@ -53,8 +53,6 @@ landingContent:
             url: how-to-use-vm-sign-in.md
           - text: Use with Azure SDK
             url: how-to-use-vm-sdk.md
-          - text: Stop using VM extensions
-            url: howto-migrate-vm-extension.md
   # Card
   - title: Assign a managed identity access to another Azure resource
     linkLists:

@@ -1,10 +1,8 @@
 ---
 title: Manage Azure Data Lake Analytics using Azure Java SDK
 description: This article describes how to use the Azure Java SDK to write apps that manage Data Lake Analytics jobs, data sources, & users.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.custom: devx-track-java
@@ -313,6 +311,6 @@ Provide the values for parameters called out in the code snippet:
 
 ## Next steps
 
-* To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](https://docs.microsoft.com/u-sql/).
+* To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](/u-sql/).
 * For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
 * To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).

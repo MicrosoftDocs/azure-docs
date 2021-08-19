@@ -1,0 +1,105 @@
+### YamlMime:Landing
+
+title: Microsoft Customer Agreement documentation
+summary: Get started with managing your billing and subscriptions under your Microsoft Customer Agreement (MCA). Learn how to understand and optimize your costs while ensuring secure access to your billing environment.
+metadata:
+  title: Microsoft Customer Agreement documentation
+  description: Learn how to get started with your Microsoft Customer Agreement (MCA).
+  ms.service: cost-management-billing
+  ms.subservice: microsoft-customer-agreement
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.date: 06/16/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: Get started
+    linkLists:
+    - linkListType: overview
+      links:
+      - text: What is a Microsoft Customer Agreement?
+        url: ../understand/mca-overview.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - linkListType: get-started
+      links:
+      - text: Key next steps after accepting agreement
+        url: microsoft-customer-agreement-get-started.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - linkListType: how-to-guide
+      links:
+#      - text: Access subscriptions (placeholder)
+#        url: ../manage/create-subscription.md
+      - text: Transfer billing ownership from MOSA to MCA
+        url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Transfer billing ownership from EA to MCA
+        url: ../manage/mca-setup-account.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - linkListType: reference
+      links:
+      - text: APIs overview - Migrating from EA to MCA
+        url: ../costs/migrate-cost-management-api.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: API differences between EA and MCA
+        url: /rest/api/billing/
+      - text: Cost Management Power BI connector
+        url: /power-bi/connect-data/desktop-connect-azure-cost-management?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Export Cost Management data
+        url: ../costs/tutorial-export-acm-data.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Microsoft Customer Agreement FAQ
+        url: microsoft-customer-agreement-faq.yml?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+
+
+  # Card (optional)
+  - title: Manage billing
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: Understand my billing cycle
+        url: ../understand/mca-understand-your-invoice.md#billing-period
+    - linkListType: tutorial
+      links:
+      - text: Receive a bill under my agreement
+        url: ../understand/review-customer-agreement-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - linkListType: how-to-guide
+      links:
+      - text: What is a billing profile and how do I manage it?
+        url: ../manage/mca-section-invoice.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: How to pay my bill
+        url: ../understand/pay-bill.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Set up an administrator to manage billing
+        url: ../manage/understand-mca-roles.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Start billing for my agreement
+        url: ../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+    - linkListType: video
+      links:
+      - text: Organize costs
+        url: https://www.youtube.com/watch?v=7RxTfShGHwU
+      - text: Manage access to billing account
+        url: https://www.youtube.com/watch?v=9sqglBlKkho
+      - text: Understand your invoice
+        url: https://www.youtube.com/watch?v=e2LGZZ7GubA
+      - text: Transition billing for Azure subscriptions from MOSA to MCA
+        url: https://www.youtube.com/watch?v=gfiUI2YLsgc
+
+
+  # Card (optional)
+  - title: Manage subscriptions
+    linkLists:
+    - linkListType: concept
+      links:
+      - text: What is Active Directory?
+        url: ../../active-directory/fundamentals/active-directory-whatis.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Manage tenants
+        url: manage-tenants.md
+      - text: Add, change, or find subscription administrators
+        url: ../manage/add-change-subscription-administrator.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Create new subscriptions
+        url: ../manage/create-subscription.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+      - text: Troubleshoot subscription access
+        url: troubleshoot-subscription-access.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json
+
+#      - text: Manage subscriptions in multiple tenants (placeholder)
+#        url: ../manage/create-subscription.md
+

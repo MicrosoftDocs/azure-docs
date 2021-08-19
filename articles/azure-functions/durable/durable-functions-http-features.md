@@ -3,7 +3,7 @@ title: HTTP features in Durable Functions - Azure Functions
 description: Learn about the integrated HTTP features in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 05/11/2021
 ms.author: azfuncdf
 ---
 
@@ -101,6 +101,48 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 }
 ```
 
+# [PowerShell](#tab/powershell)
+
+**run.ps1**
+
+```powershell
+$FunctionName = $Request.Params.FunctionName
+$InstanceId = Start-NewOrchestration -FunctionName $FunctionName
+Write-Host "Started orchestration with ID = '$InstanceId'"
+
+$Response = New-OrchestrationCheckStatusResponse -Request $Request -InstanceId $InstanceId
+Push-OutputBinding -Name Response -Value $Response
+```
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "Request",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{FunctionName}",
+      "methods": [
+        "post",
+        "get"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    }
+  ]
+}
+```
 ---
 
 Starting an orchestrator function by using the HTTP-trigger functions shown previously can be done using any HTTP client. The following cURL command starts an orchestrator function named `DoWork`:
@@ -211,6 +253,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# [PowerShell](#tab/powershell)
+
+The feature is currently supported in PowerShell.
+
 ---
 
 By using the "call HTTP" action, you can do the following actions in your orchestrator functions:
@@ -299,7 +345,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
     # get a list of the Azure subscriptions that I have access to
     restart_response = yield context.call_http("POST", 
-        f"https://management.azure.com/subscriptions/${subscription_id}/resourceGroups/${resource_group}/providers/Microsoft.Compute/virtualMachines/${vm_name}/restart?api-version=${api_version}",
+        f"https://management.azure.com/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.Compute/virtualMachines/{vm_name}/restart?api-version={api_version}",
         None,
         None,
         token_source)
@@ -307,6 +353,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+
+# [PowerShell](#tab/powershell) 
+
+The feature is currently supported in PowerShell.
 
 ---
 
@@ -326,10 +376,10 @@ Managed identities aren't limited to Azure resource management. You can use mana
 
 The built-in support for calling HTTP APIs is a convenience feature. It's not appropriate for all scenarios.
 
-HTTP requests sent by orchestrator functions and their responses are serialized and persistent as queue messages. This queueing behavior ensures HTTP calls are [reliable and safe for orchestration replay](durable-functions-orchestrations.md#reliability). However, the queuing behavior also has limitations:
+HTTP requests sent by orchestrator functions and their responses are [serialized and persisted](durable-functions-serialization-and-persistence.md) as messages in the Durable Functions storage provider. This persistent queuing behavior ensures HTTP calls are [reliable and safe for orchestration replay](durable-functions-orchestrations.md#reliability). However, the persistent queuing behavior also has limitations:
 
 * Each HTTP request involves additional latency when compared to a native HTTP client.
-* Large request or response messages that can't fit into a queue message can significantly degrade orchestration performance. The overhead of offloading message payloads to blob storage can cause potential performance degradation.
+* Depending on the [configured storage provider](durable-functions-storage-providers.md), large request or response messages can significantly degrade orchestration performance. For example, when using Azure Storage, HTTP payloads that are too large to fit into Azure Queue messages are compressed and stored in Azure Blob storage.
 * Streaming, chunked, and binary payloads aren't supported.
 * The ability to customize the behavior of the HTTP client is limited.
 

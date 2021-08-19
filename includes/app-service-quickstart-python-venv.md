@@ -13,24 +13,33 @@ ms.custom: "include file"
 # [Bash](#tab/bash)
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+# Linux systems only
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+# Git Bash on Windows only
+py -3 -m venv .venv
+source .venv\\scripts\\activate
 pip install -r requirements.txt
 ```
+
+If you're on a Windows system and see the error "'source' is not recognized as an internal or external command," make sure you're either running in the Git Bash shell, or use the commands shown in the **Cmd** tab above.
+
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-py -3 -m venv env
-env\scripts\activate
+py -3 -m venv .venv
+.venv\scripts\activate
 pip install -r requirements.txt
 ```
 
 # [Cmd](#tab/cmd)
 
 ```cmd
-py -3 -m venv env
-env\scripts\activate
+py -3 -m venv .venv
+.venv\scripts\activate
 pip install -r requirements.txt
 ```
 

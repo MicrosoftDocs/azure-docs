@@ -25,7 +25,7 @@ The [GeoJSON spec][1] supports only the following geometries:
 * Point
 * Polygon
 
-Some Azure Maps APIs accept geometries that aren't part of the [GeoJSON spec][1]. For instance, the [Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) API accepts Circle and Polygons.
+Some Azure Maps APIs accept geometries that aren't part of the [GeoJSON spec][1]. For instance, the [Search Inside Geometry](/rest/api/maps/search/postsearchinsidegeometry) API accepts Circle and Polygons.
 
 This article provides a detailed explanation on how Azure Maps extends the [GeoJSON spec][1] to represent certain geometries.
 

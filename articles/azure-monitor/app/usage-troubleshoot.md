@@ -1,12 +1,11 @@
 ---
-title: Troubleshoot user analytics tools - Azure Application Insights
+title: Troubleshoot user analytics tools - Application Insights
 description: Troubleshooting guide - analyzing site and app usage with Application Insights.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
-ms.date: 07/11/2018
+author: lgayhardt
+ms.author: lagayhar
+ms.date: 07/30/2021
 
-ms.reviewer: mbullwin
 ---
 
 # Troubleshoot user behavior analytics tools in Application Insights
@@ -19,7 +18,7 @@ All telemetry events in Application Insights have an [anonymous user ID](./data-
 
 If you're monitoring a web app, the easiest solution is to add the [Application Insights JavaScript SDK](./javascript.md) to your app, and make sure the script snippet is loaded on each page you want to monitor. The JavaScript SDK automatically generates anonymous user and session IDs, then populates telemetry events with these IDs as they're sent from your app.
 
-If you're monitoring a web service (no user interface), [create a telemetry initializer that populates the anonymous user ID and session ID properties](usage-send-user-context.md) according to your service's notions of unique users and sessions.
+If you're monitoring a web service (no user interface), [create a telemetry initializer that populates the anonymous user ID and session ID properties](./usage-overview.md) according to your service's notions of unique users and sessions.
 
 If your app is sending [authenticated user IDs](./api-custom-events-metrics.md#authenticated-users), you can count based on authenticated user IDs in the Users tool. In the "Show" dropdown, choose "Authenticated users."
 
@@ -46,4 +45,3 @@ If your app is sending too many custom event names, change the name in the code 
 
 ## Get help
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-

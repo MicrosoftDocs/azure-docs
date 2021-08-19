@@ -53,7 +53,7 @@ Connected Factory includes the following features:
 
 ## End-to-end security
 
-- Configure security permissions for users using Role-Based Access Control (RBAC).
+- Configure security permissions for users using role-based access control (RBAC).
 - End-to-end encryption is implemented using OPC UA authentication (using X.509 certificates) as well as security tokens.
 
 ## Customizability

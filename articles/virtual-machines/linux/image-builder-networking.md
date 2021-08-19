@@ -1,12 +1,14 @@
 ---
 title: Azure Image Builder Service networking options
 description: Understand the networking options when deploying Azure VM Image Builder Service
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: image-builder
+
 ---
 
 # Azure Image Builder Service networking options
@@ -28,7 +30,7 @@ For more information, see one of the following examples:
 
 ### What is Azure Private Link?
 
-Azure Private Link provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services. It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet. For more information, see the [Private Link documentation](https://docs.microsoft.com/azure/private-link).
+Azure Private Link provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services. It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet. For more information, see the [Private Link documentation](../../private-link/index.yml).
 
 ### Required permissions for an existing VNET
 
@@ -63,7 +65,7 @@ The deployed proxy VM size is Standard A1_v2 in addition to the build VM. The pr
 | subnetName | Name of the subnet within the specified virtual network. Must be specified if and only if *name* is specified. |
 | resourceGroupName | Name of the resource group containing the specified virtual network. Must be specified if and only if *name* is specified. |
 
-Private Link service requires an IP from the given VNET and subnet. Currently, Azure doesn’t support Network Policies on these IPs. Hence, network policies need to be disabled on the subnet. For more information, see the [Private Link documentation](https://docs.microsoft.com/azure/private-link).
+Private Link service requires an IP from the given VNET and subnet. Currently, Azure doesn’t support Network Policies on these IPs. Hence, network policies need to be disabled on the subnet. For more information, see the [Private Link documentation](../../private-link/index.yml).
 
 ### Checklist for using your VNET
 
@@ -84,4 +86,4 @@ Private Link service requires an IP from the given VNET and subnet. Currently, A
 
 ## Next steps
 
-For more information, see [Azure Image Builder overview](image-builder-overview.md).
+For more information, see [Azure Image Builder overview](../image-builder-overview.md).

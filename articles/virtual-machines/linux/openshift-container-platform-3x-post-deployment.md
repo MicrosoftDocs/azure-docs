@@ -3,13 +3,14 @@ title: OpenShift Container Platform 3.11 in Azure post-deployment tasks
 description: Additional tasks for after an OpenShift Container Platform 3.11 cluster has been deployed. 
 author: haroldwongms
 manager: mdotson
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.custom: devx-track-ansible
+ms.custom: devx-track-ansible, devx-track-azurecli
 ---
 
 # Post-deployment tasks
@@ -155,7 +156,7 @@ There are three ways to add the Log Analytics agent to OpenShift.
 - Enable Azure Monitor VM Extension on each OpenShift node
 - Install the Log Analytics agent as an OpenShift daemon-set
 
-Read the full [instructions](../../azure-monitor/insights/containers.md#configure-a-log-analytics-agent-for-red-hat-openshift) for more details.
+Read the full [instructions](../../azure-monitor/containers/containers.md#configure-a-log-analytics-agent-for-red-hat-openshift) for more details.
 
 ## Configure metrics and logging
 

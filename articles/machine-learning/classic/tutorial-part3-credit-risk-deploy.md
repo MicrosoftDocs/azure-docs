@@ -1,25 +1,24 @@
 ---
 title: 'ML Studio (classic) tutorial 3: Deploy credit risk models - Azure'
-description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio (classic). This tutorial is part three of a three-part tutorial series. It shows how to deploy a model as a web service.
+description: This tutorial is part three of a three-part tutorial series for Machine Learning Studio (classic). It shows how to deploy a model as a web service.
 keywords: credit risk, predictive analytics solution,risk assessment, deploy, web service
 author: likebupt
 ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 07/27/2020
 ---
-# Tutorial 3: Deploy credit risk model - Azure Machine Learning Studio (classic)
+# Tutorial 3: Deploy credit risk model - Machine Learning Studio (classic)
 
-**APPLIES TO:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article does not apply to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
-
-In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio (classic).  You then deploy the model as an Azure Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part three of a three-part tutorial series**.
+In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio (classic).  You then deploy the model as a Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part three of a three-part tutorial series**.
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
 
-Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio (classic). You'll use Azure Machine Learning Studio (classic) and a Machine Learning web service for this solution. 
+Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Machine Learning Studio (classic). You'll use Machine Learning Studio (classic) and a Machine Learning web service for this solution. 
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
@@ -85,7 +84,7 @@ To get this model ready for deployment, you need to convert this training experi
 you could do this manually, but fortunately all three steps can be accomplished by clicking **Set Up Web Service** at the bottom of the experiment canvas (and selecting the **Predictive Web Service** option).
 
 > [!TIP]
-> If you want more details on what happens when you convert a training experiment to a predictive experiment, see [How to prepare your model for deployment in Azure Machine Learning Studio (classic)](deploy-a-machine-learning-web-service.md).
+> If you want more details on what happens when you convert a training experiment to a predictive experiment, see [How to prepare your model for deployment in Machine Learning Studio (classic)](deploy-a-machine-learning-web-service.md).
 
 When you click **Set Up Web Service**, several things happen:
 
@@ -137,11 +136,11 @@ You can configure the service by clicking the **CONFIGURATION** tab. Here you ca
 ### Deploy as a New web service
 
 > [!NOTE] 
-> To deploy a New web service you must have sufficient permissions in the subscription to which you are deploying the web service. For more information, see [Manage a web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md). 
+> To deploy a New web service you must have sufficient permissions in the subscription to which you are deploying the web service. For more information, see [Manage a web service using the Machine Learning Web Services portal](manage-new-webservice.md). 
 
 To deploy a New web service derived from our experiment:
 
-1. Click **Deploy Web Service** below the canvas and select **Deploy Web Service [New]**. Machine Learning Studio (classic) transfers you to the Azure Machine Learning web services **Deploy Experiment** page.
+1. Click **Deploy Web Service** below the canvas and select **Deploy Web Service [New]**. Machine Learning Studio (classic) transfers you to the Machine Learning web services **Deploy Experiment** page.
 
 1. Enter a name for the web service. 
 
@@ -174,7 +173,7 @@ You can test a Classic web service either in **Machine Learning Studio (classic)
 You can test a New web service only in the **Machine Learning Web Services** portal.
 
 > [!TIP]
-> When testing in the Azure Machine Learning Web Services portal, you can have the portal create sample data that you can use to test the Request-Response service. On the **Configure** page, select "Yes" for **Sample Data Enabled?**. When you open the Request-Response tab on the **Test** page, the portal fills in sample data taken from the original credit risk dataset.
+> When testing in the Machine Learning Web Services portal, you can have the portal create sample data that you can use to test the Request-Response service. On the **Configure** page, select "Yes" for **Sample Data Enabled?**. When you open the Request-Response tab on the **Test** page, the portal fills in sample data taken from the original credit risk dataset.
 
 ### Test a Classic web service
 
@@ -188,7 +187,7 @@ You can test a Classic web service in Machine Learning Studio (classic) or in th
 
 #### Test in the Machine Learning Web Services portal
 
-1. On the **DASHBOARD** page for the web service, click the **Test preview** link under **Default Endpoint**. The test page in the Azure Machine Learning Web Services portal for the web service endpoint opens and asks you for the input data for the service. These are the same columns that appeared in the original credit risk dataset.
+1. On the **DASHBOARD** page for the web service, click the **Test preview** link under **Default Endpoint**. The test page in the Machine Learning Web Services portal for the web service endpoint opens and asks you for the input data for the service. These are the same columns that appeared in the original credit risk dataset.
 
 2. Click **Test Request-Response**. 
 
@@ -196,7 +195,7 @@ You can test a Classic web service in Machine Learning Studio (classic) or in th
 
 You can test a New web service only in the Machine Learning Web Services portal.
 
-1. In the [Azure Machine Learning Web Services](https://services.azureml.net/quickstart) portal, click **Test** at the top of the page. The **Test** page opens and you can input data for the service. The input fields displayed correspond to the columns that appeared in the original credit risk dataset. 
+1. In the [Machine Learning Web Services](https://services.azureml.net/quickstart) portal, click **Test** at the top of the page. The **Test** page opens and you can input data for the service. The input fields displayed correspond to the columns that appeared in the original credit risk dataset. 
 
 1. Enter a set of data and then click **Test Request-Response**.
 
@@ -205,11 +204,11 @@ The results of the test are displayed on the right-hand side of the page in the 
 
 ## Manage the web service
 
-Once you've deployed your web service, whether Classic or New, you can manage it from the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/quickstart) portal.
+Once you've deployed your web service, whether Classic or New, you can manage it from the [Machine Learning Web Services](https://services.azureml.net/quickstart) portal.
 
 To monitor the performance of your web service:
 
-1. Sign in to the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/quickstart) portal
+1. Sign in to the [Machine Learning Web Services](https://services.azureml.net/quickstart) portal
 1. Click **Web services**
 1. Click your web service
 1. Click the **Dashboard**
@@ -227,7 +226,7 @@ The Web service is an Azure web service that can receive and return data using R
 > [!NOTE]
 > Feature column names in Studio (classic) are **case sensitive**. Make sure your input data for invoking the web service has the same column names as in the training dataset.
 
-For more information on accessing and consuming the web service, see [Consume an Azure Machine Learning Web service with a web app template](/azure/machine-learning/studio/consume-web-services).
+For more information on accessing and consuming the web service, see [Consume a Machine Learning Web service with a web app template](./consume-web-services.md).
 
 
 
@@ -249,16 +248,16 @@ In this tutorial, you completed these steps:
 You can also develop a custom application to access the web service using starter code provided for you in R, C#, and Python programming languages.
 
 > [!div class="nextstepaction"]
-> [Consume an Azure Machine Learning Web service](consume-web-services.md)
+> [Consume a Machine Learning Web service](consume-web-services.md)
 
 <!-- Module References -->
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
-[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[metadata-editor]: /azure/machine-learning/studio-module-reference/edit-metadata
+[normalize-data]: /azure/machine-learning/studio-module-reference/normalize-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-boosted-decision-tree]: /azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree
+[two-class-support-vector-machine]: /azure/machine-learning/studio-module-reference/two-class-support-vector-machine
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset

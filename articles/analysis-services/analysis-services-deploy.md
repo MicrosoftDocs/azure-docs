@@ -4,7 +4,7 @@ description: Learn how to deploy a tabular model to an Azure Analysis Services s
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 12/01/2020
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -18,7 +18,7 @@ Once you've created a server in your Azure subscription, you're ready to deploy 
 To get started, you need:
 
 * **Analysis Services server** in Azure. To learn more, see [Create an Azure Analysis Services server](analysis-services-create-server.md).
-* **Tabular model project** in Visual Studio or an existing tabular model at the 1200 or higher compatibility level. Never created one? Try the [Adventure Works Internet sales tabular modeling tutorial](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial).
+* **Tabular model project** in Visual Studio or an existing tabular model at the 1200 or higher compatibility level. Never created one? Try the [Adventure Works Internet sales tabular modeling tutorial](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial).
 * **On-premises gateway** - If one or more data sources are on-premises in your organization's network, you need to install an [On-premises data gateway](analysis-services-gateway.md). The gateway is necessary for your server in the cloud connect to your on-premises data sources to process and refresh data in the model.
 
 > [!TIP]
@@ -58,7 +58,4 @@ If deployment fails on a table, it's likely because your server couldn't connect
 
 Now that you have your tabular model deployed to your server, you're ready to connect to it. You can [connect to it with SQL Server Management Studio (SSMS)](analysis-services-manage.md) to manage it. And, you can [connect to it using a client tool](analysis-services-connect.md) like Power BI, Power BI Desktop, or Excel, and start creating reports.   
 
-To learn about advanced deployment methods, see [Tabular model solution deployment](https://docs.microsoft.com/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current).
-
-
-
+To learn about advanced deployment methods, see [Tabular model solution deployment](/analysis-services/deployment/tabular-model-solution-deployment?view=azure-analysis-services-current&preserve-view=true).

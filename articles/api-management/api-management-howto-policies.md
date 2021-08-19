@@ -34,7 +34,7 @@ Clicking an enabled statement will add the appropriate XML at the location of th
 > 
 > 
 
-The configuration is divided into `inbound`, `backend`, `outbound`, and `on-error`. The series of specified policy statements is executes in order for a request and a response.
+The configuration is divided into `inbound`, `backend`, `outbound`, and `on-error`. The series of specified policy statements is executed in order for a request and a response.
 
 ```xml
 <policies>
@@ -66,13 +66,13 @@ See the [Policy reference](./api-management-policies.md) for a full list of poli
 
 ## Policy samples
 
-See [Policy samples](policy-samples.md) for more code examples.
+See [Policy samples](./policy-reference.md) for more code examples.
 
 ## Examples
 
 ### Apply policies specified at different scopes
 
-If you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the base element. 
+If you have a policy at the global level and a policy configured for an API, then whenever that particular API is used both policies will be applied. API Management allows for deterministic ordering of combined policy statements via the `base` element. 
 
 ```xml
 <policies>
@@ -115,7 +115,7 @@ For more information working with policies, see:
 
 + [Transform APIs](transform-api.md)
 + [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)	
++ [Policy samples](./policy-reference.md)	
 
 [Policy Reference]: ./api-management-policies.md
 [Product]: api-management-howto-add-products.md

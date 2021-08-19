@@ -21,7 +21,7 @@ In this tutorial, you'll learn how to integrate iWellnessNow with Azure Active D
 * Enable your users to be automatically signed-in to iWellnessNow with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section.
 
-	![image](common/idp-intiated.png)
+	![Screenshot shows the Basic SAML Configuration, where you can enter Reply U R L, and select Save.](common/idp-intiated.png)
 
 	> [!Note]
 	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
@@ -97,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![image](common/metadata-upload-additional-signon.png)
+	![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<CustomerName>.iwellnessnow.com/`
@@ -155,13 +155,12 @@ In this section, you create a user called Britta Simon in iWellnessNow. Work wit
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the iWellnessNow tile in the Access Panel, you should be automatically signed in to the iWellnessNow for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the iWellnessNow tile in the Access Panel, you should be automatically signed in to the iWellnessNow for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

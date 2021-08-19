@@ -8,6 +8,9 @@ ms.topic: how-to
 ms.date: 08/01/2019
 ---
 # How to connect to data sources
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
+
 ## Introduction
 **Microsoft Azure Data Catalog** is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data sources. In other words, **Azure Data Catalog** is all about helping people discover, understand, and use data sources, and helping organizations to get more value from their existing data. A key aspect of this scenario is using the data – once a user discovers a data source and understands its purpose, the next step is to connect to the data source to put its data to use.
 
@@ -34,7 +37,7 @@ When using the “Open in…” menu for data sources in the Azure Data Catalog 
 | Power Query |.xlsx |Excel 2016 or Excel 2010 or Excel 2013 with the Power Query for Excel add-in installed |
 | Power BI Desktop |.pbix |Power BI Desktop July 2016 or later |
 | SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 or later with SQL Server tooling installed |
-| Report Manager |http:// |See [browser requirements for SQL Server Reporting Services](https://technet.microsoft.com/library/ms156511.aspx) |
+| Report Manager |http:// |See [browser requirements for SQL Server Reporting Services](/sql/reporting-services/browser-support-for-reporting-services-and-power-view) |
 
 ## Your data, your tools
 The options available in the menu will depend on the type of data asset currently selected. Of course, not all possible tools will be included in the “Open in…” menu, but it is still easy to connect to the data source using any client tool. When a data asset is selected in the **Azure Data Catalog** portal, the complete location is displayed in the properties pane.

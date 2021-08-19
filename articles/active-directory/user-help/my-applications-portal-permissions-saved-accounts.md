@@ -27,7 +27,7 @@ When you use organizational applications in the **My Apps** portal, you often gr
 
 To view the apps consented to by you or your administrator, select **...** when you hover over an app in the **My Apps** portal, then select **Manage your application**:
 
-![Manage an application in the My Apps portal](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
+![Manage an application in the My Apps portal](media/my-applications-portal-permissions-saved-accounts/my-apps-home-woodgrove.png)
 
 The top part of permissions window shows what you personally consented to. Examples of apps permissions include the ability to access your calendar, contacts, or camera.
 

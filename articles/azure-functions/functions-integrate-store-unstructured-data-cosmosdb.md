@@ -3,7 +3,7 @@ title: Store unstructured data using Azure Cosmos DB and Functions
 description: Store unstructured data using Azure Functions and Cosmos DB
 
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 10/01/2020
 ms.custom: "devx-track-csharp, mvc"
 ---
 # Store unstructured data using Azure Functions and Azure Cosmos DB
@@ -25,7 +25,7 @@ To complete this tutorial:
 
 You must have an Azure Cosmos DB account that uses the SQL API before you create the output binding.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ## Add an output binding
 
@@ -127,7 +127,7 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
 ## Test the function and database
 
-1. Select **Test**. Under **Query**, select **+ Add parameter** and add the following parameters to the query string:
+1. Select **Test/Run**. Under **Query**, select **+ Add parameter** and add the following parameters to the query string:
 
     + `name`
     + `task`

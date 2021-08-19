@@ -25,7 +25,7 @@ landingContent:
           - text: Compare with Azure Storage
             url: data-lake-store-comparison-with-blob-storage.md
           - text: Switch to Data Lake Storage Gen2 documentation
-            url: ../storage/data-lake-storage/introduction.md
+            url: ../storage/blobs/data-lake-storage-introduction.md
 
   # Card
   - title: Get started

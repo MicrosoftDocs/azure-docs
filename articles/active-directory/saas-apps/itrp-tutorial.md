@@ -21,7 +21,7 @@ This integration provides these benefits:
 * You can enable your users to be automatically signed in to ITRP (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -88,7 +88,7 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
 3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
-	![Edit icon](common/edit-urls.png)
+	![Screenshot shows the Set up Single Sign-On with SAML page with the edit icon selected.](common/edit-urls.png)
 
 4. In the **Basic SAML Configuration** dialog box, take the following steps.
 
@@ -107,7 +107,7 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
 5. In the **SAML Signing Certificate** section, select the **Edit** icon to open the **SAML Signing Certificate** dialog box:
 
-	![Edit icon](common/edit-certificate.png)
+	![Screenshot shows the SAML Signing Certificate page with the edit icon selected.](common/edit-certificate.png)
 
 6. In the **SAML Signing Certificate** dialog box, copy the **Thumbprint** value and save it:
 
@@ -137,9 +137,9 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
 1. In the **Single Sign-On** configuration section, take the following steps.
 
-    ![Single Sign-On section](./media/itrp-tutorial/ic775572.png "Single Sign-On section")
+    ![Screenshot shows the Single Sign-On section with Enabled selected.](./media/itrp-tutorial/ic775572.png "Single Sign-On section")
 
-    ![Single Sign-On section](./media/itrp-tutorial/ic775573.png "Single Sign-On section")
+    ![Screenshot shows the Single Sign-On section where you can add the information described in this step.](./media/itrp-tutorial/ic775573.png "Single Sign-On section")
 
 	1. Select **Enabled**.
 
@@ -236,12 +236,12 @@ To create a user account, take these steps:
 
 Now you need to test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you select the ITRP tile in the Access Panel, you should be automatically signed in to the ITRP instance for which you set up SSO. For more information about the Access Panel, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the ITRP tile in the Access Panel, you should be automatically signed in to the ITRP instance for which you set up SSO. For more information about the Access Panel, see [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)

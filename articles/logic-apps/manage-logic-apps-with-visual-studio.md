@@ -4,9 +4,9 @@ description: Edit, update, manage, add to source control, and deploy logic apps 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
-ms.topic: article
+ms.topic: conceptual
 ms.custom: mvc
-ms.date: 04/29/2020
+ms.date: 04/23/2021
 ---
 
 # Manage logic apps with Visual Studio
@@ -34,7 +34,7 @@ You can also [manage your logic apps in the Azure portal](manage-logic-apps-with
     > When you install Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
     > For more information, see [Manage resources associated with your Azure accounts in Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer).
 
-    To install Cloud Explorer for Visual Studio 2015, [download Cloud Explorer from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). For more information, see [Manage resources associated with your Azure Accounts in Visual Studio Cloud Explorer (2015)](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
+    To install Cloud Explorer for Visual Studio 2015, [download Cloud Explorer from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). For more information, see [Manage resources associated with your Azure Accounts in Visual Studio Cloud Explorer (2015)](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015&preserve-view=true).
 
   * [Azure SDK (2.9.1 or later)](https://azure.microsoft.com/downloads/)
 
@@ -157,7 +157,7 @@ To change your logic app's location type or location, you have to open your logi
 > [!IMPORTANT]
 > Changing the location type from **Region** to 
 > [**Integration Service Environment**](connect-virtual-network-vnet-isolated-environment-overview.md) 
-> affects your logic app's [pricing model](logic-apps-pricing.md#fixed-pricing) that's used for billing, 
+> affects your logic app's [pricing model](logic-apps-pricing.md#ise-pricing) that's used for billing, 
 > [limits](logic-apps-limits-and-config.md#integration-account-limits), [integration account support](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus), and so on. 
 > Before you select a different location type, make sure that you understand the resulting impact on your logic app.
 
@@ -242,33 +242,59 @@ To check the status and diagnose problems with logic app runs, you can review th
 
    ![View inputs and outputs for each step](./media/manage-logic-apps-with-visual-studio/view-run-history-inputs-outputs.png)
 
-## Disable or enable logic app
+<a name="disable-enable-logic-apps"></a>
 
-Without deleting your logic app, you can stop the trigger from firing the next time when the trigger condition is met. Disabling your logic app prevents the Logic Apps engine from creating and running future workflow instances for your logic app. In Cloud Explorer, open your logic app's shortcut menu, and select **Disable**.
+## Disable or enable logic apps
+
+To stop the trigger from firing the next time when the trigger condition is met, disable your logic app. Disabling a logic app affects workflow instances in the following ways:
+
+* The Logic Apps service continues all in-progress and pending runs until they finish. Based on the volume or backlog, this process might take time to complete.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* The trigger won't fire the next time that its conditions are met.
+
+* The trigger state remembers the point at which the logic app was stopped. So, if you reactivate the logic app, the trigger fires for all the unprocessed items since the last run.
+
+  To stop the trigger from firing on unprocessed items since the last run, clear the trigger's state before you reactivate the logic app:
+
+  1. In the logic app, edit any part of the workflow's trigger.
+  1. Save your changes. This step resets your trigger's current state.
+  1. [Reactivate your logic app](#enable-logic-apps).
+
+<a name="disable-logic-apps"></a>
+
+### Disable logic apps
+
+In Cloud Explorer, open your logic app's shortcut menu, and select **Disable**.
 
 ![Disable your logic app in Cloud Explorer](./media/manage-logic-apps-with-visual-studio/disable-logic-app-cloud-explorer.png)
 
-> [!NOTE]
-> When you disable a logic app, no new runs are instantiated. All in-progress and pending runs 
-> will continue until they finish, which might take time to complete.
+<a name="enable-logic-apps"></a>
 
-To reactivate your logic app, in Cloud Explorer, open your logic app's shortcut menu, and select **Enable**.
+### Enable logic apps
+
+In Cloud Explorer, open your logic app's shortcut menu, and select **Enable**.
 
 ![Enable logic app in Cloud Explorer](./media/manage-logic-apps-with-visual-studio/enable-logic-app-cloud-explorer.png)
 
-## Delete your logic app
+<a name="delete-logic-apps"></a>
+
+## Delete logic apps
+
+Deleting a logic app affects workflow instances in following ways:
+
+* The Logic Apps service makes a best effort to cancel any in-progress and pending runs.
+
+  Even with a large volume or backlog, most runs are canceled before they finish or start. However, the cancellation process might take time to complete. Meanwhile, some runs might get picked up for execution while the runtime works through the cancellation process.
+
+* The Logic Apps service doesn't create or run new workflow instances.
+
+* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 
 To delete your logic app from the Azure portal, in Cloud Explorer, open your logic app's shortcut menu, and select **Delete**.
 
 ![Delete your logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
-
-> [!NOTE]
-> When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. 
-> If you have thousands of runs, cancellation might take significant time to complete.
-
-> [!NOTE]
-> If you delete and recreate a child logic app, you must resave the parent logic app. The recreated child app will have different metadata.
-> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
 
 ## Troubleshooting
 

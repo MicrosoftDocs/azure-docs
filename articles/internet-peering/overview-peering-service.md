@@ -44,9 +44,9 @@ In the figure above each branch office of a global enterprise connects to the ne
 * Partner can utilize their existing peering to support Peering Service if it meets the requirement.
 
 ## FAQ
-For frequently asked questions, see [Peering Service - FAQ](service-faqs.md).
+For frequently asked questions, see [Peering Service - FAQ](service-faqs.yml).
 
 ## Next steps
 
-* Learn more about customer benefits with [Peering Service](https://docs.microsoft.com/azure/peering-service/).
+* Learn more about customer benefits with [Peering Service](../peering-service/index.yml).
 * Learn about steps to enable a Direct peering for Peering Service in [Peering Service partner walkthrough](walkthrough-peering-service-all.md).

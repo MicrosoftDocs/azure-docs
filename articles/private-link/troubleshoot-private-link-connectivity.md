@@ -34,7 +34,7 @@ Here are the connectivity scenarios that are available with Private Link:
 
 ## Deployment troubleshooting
 
-Review the information on [Disabling network policies on the private link service](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) for troubleshooting cases where you're unable to select the source IP address from the subnet of your choice for your private link service.
+Review the information on [Disabling network policies on the private link service](./disable-private-link-service-network-policy.md) for troubleshooting cases where you're unable to select the source IP address from the subnet of your choice for your private link service.
 
 Make sure that the setting **privateLinkServiceNetworkPolicies** is disabled for the subnet you're selecting the source IP address from.
 
@@ -44,7 +44,7 @@ If you experience connectivity problems with your private link setup, review the
 
 1. Review Private Link configuration by browsing the resource.
 
-    a. Go to **Private Link Center**.
+    a. Go to [Private Link Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
 
       ![Private Link Center](./media/private-link-tsg/private-link-center.png)
 
@@ -96,7 +96,7 @@ If you experience connectivity problems with your private link setup, review the
        - If the connection makes it to the back-end pool as per load-balancing rules, your load balancer is operational.
        - You can also review the load balancer metric through Azure Monitor to see if data is flowing through the load balancer.
 
-1. Use [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) to see if data is flowing.
+1. Use [Azure Monitor](../azure-monitor/overview.md) to see if data is flowing.
 
     a. On the private link service resource, select **Metrics**.
      - Select **Bytes In** or **Bytes Out**.
@@ -108,5 +108,5 @@ If you experience connectivity problems with your private link setup, review the
 
 ## Next steps
 
- * [Create a private link service (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
+ * [Create a private link service (CLI)](./create-private-link-service-cli.md)
  * [Azure Private Endpoint troubleshooting guide](troubleshoot-private-endpoint-connectivity.md)

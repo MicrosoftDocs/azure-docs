@@ -20,12 +20,15 @@ To connect to a Linux VM using a **GUI** (graphical user interface), we recommen
 To use RDP, the instructor must:
   - Enable remote desktop connection; this is specifically needed to open the VM's port for RDP.
   - Install the RDP remote desktop server.
-  - Install a Linux graphical desktop environment (such as MATE, XFCE, and so on).
+  - Install a Linux graphical desktop environment (such as XFCE, MATE, and so on).
+
+> [!WARNING]
+>  We recommend using a different graphical desktop environment than [GNOME](https://www.gnome.org/).  You should avoid installing GNOME on lab VMs because GNOME has a conflict with the Azure Linux Agent which is needed for the VMs to work properly in Azure Lab Services.  As mentioned above, we recommend using a graphical desktop environment, such as XFCE or MATE.
 
 ### X2Go Setup
 To use X2Go, the instructor must:
 - Install the X2Go remote desktop server.
-- Install a Linux graphical desktop environment (such as MATE, XFCE, and so on).
+- Install a Linux graphical desktop environment (such as XFCE, MATE, and so on).
 
 X2Go uses the same port that is already enabled for SSH.  As a result, no extra configuration required to open a port on the VM for X2Go.
 
@@ -33,7 +36,7 @@ X2Go uses the same port that is already enabled for SSH.  As a result, no extra 
 > In some cases, such as with Ubuntu LTS 18.04, X2Go provides better performance.  If you use RDP and notice latency when interacting with the graphical desktop environment, consider trying X2Go since it may improve performance.
 
 > [!IMPORTANT]
->  Some marketplace images already have a graphical desktop environment and remote desktop server installed.  For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) already has [XFCE and X2Go Server installed and configured to accept client connections](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
+>  Some marketplace images already have a graphical desktop environment and remote desktop server installed.  For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) already has [XFCE and X2Go Server installed and configured to accept client connections](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
 
 ## Enable remote desktop connection for RDP
 
@@ -68,7 +71,7 @@ Follow the below steps to set up the template VM:
     ![SSH connection string](./media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
 4. Install either RDP or X2Go along with the graphical desktop environment of your choice.  Refer to the following instructions:
-    - [Install and configure RDP](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop)
+    - [Install and configure RDP](../virtual-machines/linux/use-remote-desktop.md)
     - [Install and configure X2Go](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop)
 
 ## Connect to the template VM via the GUI
@@ -77,7 +80,7 @@ After the template VM is set up, the instructor can connect via the GUI using ei
 
 ### Microsoft Remote Desktop (RDP) client
 
-The Microsoft Remote Desktop (RDP) client is used to connect to a template VM that has RDP configured.  The Remote Desktop client can be used on Windows, Chromebooks, Macs and more.  Refer to the article on [Remote Desktop clients](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) for further details.
+The Microsoft Remote Desktop (RDP) client is used to connect to a template VM that has RDP configured.  The Remote Desktop client can be used on Windows, Chromebooks, Macs and more.  Refer to the article on [Remote Desktop clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) for further details.
 
 Follow the below steps based on the type of computer used to connect to the template VM:
 

@@ -7,9 +7,9 @@ ms.subservice: high-availability
 ms.custom: 
 ms.devlang:
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 12/18/2018
 ---
 # Performing disaster recovery drills

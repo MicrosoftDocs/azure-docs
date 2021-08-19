@@ -1,19 +1,18 @@
 ---
 title: 'Quickstart: RStudio Server & ML Services for R - Azure HDInsight'
 description: In the quickstart, you execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
-ms.author: hrasheed
-ms.custom: mvc
+ROBOTS: NOINDEX
 #Customer intent: I want to learn how to execute an R script using ML Services in Azure HDInsight for RStudio Server.
 ---
 
 # Quickstart: Execute an R script on an ML Services cluster in Azure HDInsight using RStudio Server
 
-ML Services on Azure HDInsight allows R scripts to use Apache Spark and Apache Hadoop MapReduce to run distributed computations. ML Services controls how calls are executed by setting the compute context. The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of RevoScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using RevoScaleR’s Hadoop Map Reduce or Apache Spark compute contexts.
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
+
+ML Services on Azure HDInsight allows R scripts to use Apache Spark and Apache Hadoop MapReduce to run distributed computations. ML Services controls how calls are executed by setting the compute context. The edge node of a cluster provides a convenient place to connect to the cluster and to run your R scripts. With an edge node, you have the option of running the parallelized distributed functions of RevoScaleR across the cores of the edge node server. You can also run them across the nodes of the cluster by using RevoScaleR's Hadoop Map Reduce or Apache Spark compute contexts.
 
 In this quickstart, you learn how to run an R script with RStudio Server that demonstrates using Spark for distributed R computations. You will define a compute context to perform computations locally on an edge node, and again distributed across the nodes in the HDInsight cluster.
 
@@ -23,7 +22,7 @@ An ML Services cluster on HDInsight. See [Create Apache Hadoop clusters using th
 
 ## Connect to RStudio Server
 
-RStudio Server runs on the cluster’s edge node. Go to the following URL where `CLUSTERNAME` is the name of the ML Services cluster you created:
+RStudio Server runs on the cluster's edge node. Go to the following URL where `CLUSTERNAME` is the name of the ML Services cluster you created:
 
 ```
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
@@ -33,7 +32,7 @@ The first time you sign in you need to authenticate twice. For the first authent
 
 Once you are connected, your screen should resemble the following screenshot:
 
-![R studio web console overviews](./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png)
+:::image type="content" source="./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png" alt-text="R studio web console overviews" border="true":::
 
 ## Use a compute context
 
@@ -140,7 +139,7 @@ Once you are connected, your screen should resemble the following screenshot:
     
       ---
     
-      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     
       Condition number of final variance-covariance matrix: 11904202
       Number of iterations: 7

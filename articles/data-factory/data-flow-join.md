@@ -1,12 +1,14 @@
 ---
 title: Join transformation in mapping data flow 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Combine data from two data sources using the join transformation in Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date:  05/15/2020
 ---
 
@@ -103,7 +105,7 @@ The below example is a join transformation named `JoinMatchedData` that takes le
 
 In the Data Factory UX, this transformation looks like the below image:
 
-![Join example](media/data-flow/join-script1.png "Join example")
+![Screenshot shows the transformation with the Join Settings tab selected and a Join type of Inner.](media/data-flow/join-script1.png "Join example")
 
 The data flow script for this transformation is in the snippet below:
 
@@ -125,7 +127,7 @@ The below example is a join transformation named `JoiningColumns` that takes lef
 
 In the Data Factory UX, this transformation looks like the below image:
 
-![Join example](media/data-flow/join-script2.png "Join example")
+![Screenshot shows the transformation with the Join Settings tab selected and a Join type of Custom (cross).](media/data-flow/join-script2.png "Join example")
 
 The data flow script for this transformation is in the snippet below:
 

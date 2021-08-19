@@ -10,7 +10,7 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
-ms.custom: contperfq1
+ms.custom: contperf-fy21q1
 ---
 
 # About transferring billing ownership for an Azure subscription
@@ -25,16 +25,30 @@ If you're an Enterprise Agreement (EA) customer, your enterprise administrators 
 
 Only the billing administrator of an account can transfer ownership of a subscription.
 
-## Determine account billing administrator
+## Determine if you are a billing administrator
 
 <a name="whoisaa"></a>
 
-The billing administrator is the person who has permission to manage billing for an account. They're authorized to access billing on the [Azure portal](https://portal.azure.com) and do various billing tasks like create subscriptions, view and pay invoices, or update payment methods.
+In effort to do the transfer, locate the person who has access to manage billing for an account. They're authorized to access billing on the [Azure portal](https://portal.azure.com) and do various billing tasks like create subscriptions, view and pay invoices, or update payment methods.
 
-To identify accounts for which you're a billing administrator, visit the [Cost Management + Billing page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview). Then select **All billing scopes** from the left-hand pane. The subscriptions page shows all thee subscriptions where you're a billing administrator.
+### Check if you have billing access
 
-If you're not sure who the account administrator is for a subscription, visit the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Then select the subscription you want to check, and then look under **Settings**. Select **Properties** and the account administrator of the subscription is shown in the **Account Admin** box.
+1. To identify accounts for which you have billing access, visit the [Cost Management + Billing page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
 
+2. Select **Billing accounts** from the left-hand menu.
+
+3. The **Billing scope** listing page shows all the subscriptions where you have access to the billing details.
+
+### Check by subscription
+
+1. If you're not sure who the account administrator is for a subscription, visit the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). 
+
+2. Select the subscription you want to check.
+
+3. Under the **Settings** heading, select **Properties**. See the **Account Admin** box to understand who is the account administrator of the subscription.
+
+   > [!NOTE]
+   > Not all subscription types show the Properties.
 
 ## Supported subscription types
 
@@ -58,7 +72,7 @@ Subscription transfer in the Azure portal is available for the subscription type
 
 ## Resources transferred with subscriptions
 
-All your resources like VMs, disks, and websites transfer to the new account. However, if you transfer a subscription to an account in another Azure AD tenant, any [administrator roles](../manage/add-change-subscription-administrator.md) and [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) on the subscription don't transfer. Also, [app registrations](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) and other tenant-specific services don't transfer along with the subscription.
+All your resources like VMs, disks, and websites transfer to the new account. However, if you transfer a subscription to an account in another Azure AD tenant, any [administrator roles](../manage/add-change-subscription-administrator.md) and [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) on the subscription don't transfer. Also, [app registrations](../../active-directory/develop/quickstart-register-app.md) and other tenant-specific services don't transfer along with the subscription.
 
 ## Transfer account ownership to another country/region
 
@@ -94,7 +108,7 @@ You can view the users who have Azure role assignments to access resources in th
 Even if the [Azure role assignments](../../role-based-access-control/role-assignments-portal.md) are removed during transfer, users in the original owner account might continue to have access to the subscription through other security mechanisms, including:
 
 * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](../../cloud-services/cloud-services-certs-create.md).
-* Access keys for services like Storage. For more information, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
+* Access keys for services like Storage. For more information, see [About Azure storage accounts](../../storage/common/storage-account-create.md).
 * Remote Access credentials for services like Azure Virtual Machines.
 
 If the recipient needs to restrict access to resources, they should consider updating any secrets associated with the service. Most resources can be updated. Sign in to the [Azure portal](https://portal.azure.com) and then on the Hub menu, select **All resources**. Next, Select the resource. Then in the resource page, select **Settings**. There you can view and update existing secrets.

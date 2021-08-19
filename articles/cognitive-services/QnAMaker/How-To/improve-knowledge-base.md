@@ -1,6 +1,8 @@
 ---
 title: Active Learning suggested questions - QnA Maker
 description: Improve the quality of your knowledge base with active learning. Review, accept or reject, add without removing or changing existing questions.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: "devx-track-js, devx-track-csharp"
@@ -16,11 +18,11 @@ Active Learning alters the Knowledge Base or Search Service after you approve th
 
 ## Turn on active learning
 
-In order to see suggested questions, you must [turn on active learning](use-active-learning.md) for your QnA Maker resource.
+In order to see suggested questions, you must [turn on active learning](../concepts/active-learning-suggestions.md) for your QnA Maker resource.
 
 ## View suggested questions
 
-1. In order to see the suggested questions, on the **Edit** knowledge base page, select **View Options**, then select **Show active learning suggestions**.
+1. In order to see the suggested questions, on the **Edit** knowledge base page, select **View Options**, then select **Show active learning suggestions**. This option will be disabled if there are no suggestions present for any of the question and answer pairs.  
 
     [![On the Edit section of the portal, select Show Suggestions in order to see the active learning's new question alternatives.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
@@ -43,16 +45,42 @@ In order to see suggested questions, you must [turn on active learning](use-acti
 
 <a name="#score-proximity-between-knowledge-base-questions"></a>
 
+## Active learning suggestions are saved in the exported knowledge base
+
+When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data.
+
+The `SuggestedQuestions` column is a JSON object of information of implicit, `autosuggested`, and explicit, `usersuggested` feedback. An example of this JSON object for a single user-submitted question of `help` is:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base.
+
+
 ### Architectural flow for using GenerateAnswer and Train APIs from a bot
 
 A bot or other client application should use the following architectural flow to use active learning:
 
-* Bot [gets the answer from the knowledge base](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) with the GenerateAnswer API, using the `top` property to get a number of answers.
-* Bot determines explicit feedback:
+1. Bot [gets the answer from the knowledge base](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) with the GenerateAnswer API, using the `top` property to get a number of answers.
+
+2. Bot determines explicit feedback:
     * Using your own [custom business logic](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user), filter out low scores.
     * In the bot or client-application, display list of possible answers to the user and get user's selected answer.
-* Bot [sends selected answer back to QnA Maker](#bot-framework-sample-code) with the [Train API](#train-api).
-
+3. Bot [sends selected answer back to QnA Maker](#bot-framework-sample-code) with the [Train API](#train-api).
 
 ### Use the top property in the GenerateAnswer request to get several matching answers
 
@@ -303,33 +331,6 @@ async callTrain(stepContext){
     return await stepContext.next(stepContext.result);
 }
 ```
-
-## Active learning is saved in the exported knowledge base
-
-When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data.
-
-The `SuggestedQuestions` column is a JSON object of information of implicit, `autosuggested`, and explicit, `usersuggested` feedback. An example of this JSON object for a single user-submitted question of `help` is:
-
-```JSON
-[
-    {
-        "clusterHead": "help",
-        "totalAutoSuggestedCount": 1,
-        "totalUserSuggestedCount": 0,
-        "alternateQuestionList": [
-            {
-                "question": "help",
-                "autoSuggestedCount": 1,
-                "userSuggestedCount": 0
-            }
-        ]
-    }
-]
-```
-
-When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base.
-
-
 
 ## Best practices
 

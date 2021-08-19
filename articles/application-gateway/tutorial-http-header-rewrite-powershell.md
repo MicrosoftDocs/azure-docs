@@ -6,13 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
-ms.author: absha
+ms.author: absha 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an application gateway and rewrite HTTP headers
 
 You can use Azure PowerShell to
-configure [rules to rewrite HTTP request and response headers](rewrite-http-headers.md) when you create the new [autoscaling and zone-redundant application gateway SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+configure [rules to rewrite HTTP request and response headers](./rewrite-http-headers-url.md) when you create the new [autoscaling and zone-redundant application gateway SKU](./application-gateway-autoscaling-zone-redundant.md)
 
 In this article, you learn how to:
 
@@ -28,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-This article requires that you run Azure PowerShell locally. You must have Az module version 1.0.0 or later installed. Run `Import-Module Az` and then`Get-Module Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
+This article requires that you run Azure PowerShell locally. You must have Az module version 1.0.0 or later installed. Run `Import-Module Az` and then`Get-Module Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
 
 ## Sign in to Azure
 

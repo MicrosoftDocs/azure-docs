@@ -11,13 +11,13 @@ ms.author: chuye
 
 # Azure Storage Explorer blob versioning guide
 
-Microsoft Azure Storage Explorer provides easy access and management of blob versions. This guide will help you understand how blob versioning works in Storage Explorer. Before continuing, it's recommended you read more about [blob versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+Microsoft Azure Storage Explorer provides easy access and management of blob versions. This guide will help you understand how blob versioning works in Storage Explorer. Before continuing, it's recommended you read more about [blob versioning](../blobs/versioning-overview.md).
 
 ## Terminology
 
 This section provides some definitions to help understand their usage in this article.
 
-- Soft delete: An alternative automatic data protection feature. You can learn more about soft delete [here](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview).
+- Soft delete: An alternative automatic data protection feature. You can learn more about soft delete [here](../blobs/soft-delete-blob-overview.md).
 - Active blob: A blob or blob version is created in active state. You can only operate on blobs or blob versions in active state.
 - Soft-deleted blob: A blob or blob version marked as soft-deleted. Soft-deleted blobs are only kept for its retention period.
 - Blob version: A blob created with blob versioning enabled. Each blob version is associated with a version ID.
@@ -112,5 +112,5 @@ Each blob version has its own access tier. To change access tier of blob version
 
 ## See Also
 
-* [Blob versioning](https://docs.microsoft.com/azure/storage/blobs/versioning-overview)
-* [Soft delete for blobs](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview)
+* [Blob versioning](../blobs/versioning-overview.md)
+* [Soft delete for blobs](../blobs/soft-delete-blob-overview.md)

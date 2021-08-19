@@ -38,6 +38,7 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 -   Security definitions are ignored.
 -   Inline schema definitions for API operations aren't supported. Schema definitions are defined in the API scope and can be referenced in API operations request or response scopes.
 -   A defined URL parameter needs to be part of the URL template.
+-   `server` object isn't supported on the API operation level.
 -   `Produces` keyword, which describes MIME types returned by an API, isn't supported. 
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2
@@ -53,7 +54,7 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 
 ### <a name="open-import-export-general"> </a>General
 
--   API definitions exported from API Management service are primarily intended for applications external to API Management service that need to call the API hosted in API Management service. Exported API definitions are not intended to be imported again into the same or different API Management service. For configuration management of API defiitions across different serivces/envionments, please refer to documentation regarding using API Management Service with Git. 
+-   API definitions exported from API Management service are primarily intended for applications external to API Management service that need to call the API hosted in API Management service. Exported API definitions are not intended to be imported again into the same or different API Management service. For configuration management of API definitions across different services/environments, please refer to documentation regarding using API Management Service with Git. 
 
 ### Add new API via OpenAPI import
 

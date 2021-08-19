@@ -4,7 +4,7 @@ description: Learn about Intel SGX hardware to enable your confidential computin
 services: virtual-machines
 author: JenCook
 ms.service: virtual-machines
-ms.subservice: workloads
+ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 9/3/2020
@@ -24,7 +24,7 @@ In Azure confidential computing virtual machines, a part of the CPU's hardware i
 
 Azure confidential computing infrastructure is currently comprised of a specialty SKU of virtual machines (VMs). These VMs run on Intel processors with Software Guard Extension (Intel SGX). [Intel SGX](https://intel.com/sgx) is the component that allows the increased protection that we light up with confidential computing. 
 
-Today, Azure offers the [DCsv2-Series](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) built on Intel SGX technology for hardware-based enclave creation. You can build secure enclave-based applications to run in the DCsv2-series of VMs to protect your application data and code in use. 
+Today, Azure offers the [DCsv2-Series](../virtual-machines/dcv2-series.md) built on Intel SGX technology for hardware-based enclave creation. You can build secure enclave-based applications to run in the DCsv2-series of VMs to protect your application data and code in use. 
 
 [Read more](virtual-machine-solutions.md) about deploying Azure confidential computing virtual machines with hardware-based trusted enclaves.
 
@@ -34,7 +34,7 @@ Enclaves are secured portions of the hardware’s processor and memory. There's 
 
 Fundamentally, think of an enclave as a secured box. You put encrypted code and data in the box. From the outside of the box, you can't see anything. You give the enclave a key to decrypt the data, the data is then processed and encrypted again, before being sent out of the enclave.
 
-Each enclave has a set size of encrypted page cache (EPC) that determines the amount of memory each enclave can hold. Larger DCsv2 virtual machines have more EPC memory. Read the [DCsv2 specifications](https://docs.microsoft.com/azure/virtual-machines/dcv2-series) page for the maximum EPC per VM Size.
+Each enclave has a set size of encrypted page cache (EPC) that determines the amount of memory each enclave can hold. Larger DCsv2 virtual machines have more EPC memory. Read the [DCsv2 specifications](../virtual-machines/dcv2-series.md) page for the maximum EPC per VM Size.
 
 
 

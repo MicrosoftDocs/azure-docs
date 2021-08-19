@@ -1,9 +1,6 @@
 ---
 title: Use SCP with Apache Hadoop in Azure HDInsight
 description: This document provides information on connecting to HDInsight using the ssh and scp commands.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
@@ -37,7 +34,7 @@ Use `scp` when you need to upload a resource for use from an SSH session. For ex
 For information on directly loading data into the HDFS-compatible storage, see the following documents:
 
 * [HDInsight using Azure Storage](hdinsight-hadoop-use-blob-storage.md).
-* [HDInsight using Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md).
+* [HDInsight using Azure Data Lake Storage Gen1](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen1.md).
 
 ## Next steps
 

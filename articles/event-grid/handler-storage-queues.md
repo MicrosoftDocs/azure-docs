@@ -66,7 +66,7 @@ See the following tutorial for an example of using Queue storage as an event han
 }
 ```
 
-### Storage queue as a deadletter destination
+### Storage queue as the event handler with a deadletter destination
 
 ```json
 {
@@ -96,7 +96,7 @@ See the following tutorial for an example of using Queue storage as an event han
 }
 ```
 
-### Storage queue as a deadletter destination - managed identity
+### Storage queue as the event handler with a deadletter destination - managed identity
 
 ```json
 {
@@ -131,9 +131,6 @@ See the following tutorial for an example of using Queue storage as an event han
 	}
 }
 ```
-
-> [!NOTE]
-> Delivering events to an Azure Storage queue in **another tenant** isn't supported. 
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

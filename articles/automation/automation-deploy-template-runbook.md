@@ -4,21 +4,22 @@ description: This article describes how to deploy an Azure Resource Manager temp
 services: automation
 ms.subservice: process-automation
 ms.date: 09/22/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 keywords: powershell,  runbook, json, azure automation
 ---
 
 # Deploy an Azure Resource Manager template in a PowerShell runbook
 
 You can write an [Azure Automation PowerShell runbook](./learn/automation-tutorial-runbook-textual-powershell.md)
-that deploys an Azure resource by using an [Azure Resource Management template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). The templates allow you to use Azure Automation to automate deployment of your Azure resources. You can maintain your Resource Manager templates in a central, secure location, such as Azure Storage.
+that deploys an Azure resource by using an [Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). The templates allow you to use Azure Automation to automate deployment of your Azure resources. You can maintain your Resource Manager templates in a central, secure location, such as Azure Storage.
 
 In this article, we create a PowerShell runbook that uses a Resource Manager template stored in [Azure Storage](../storage/common/storage-introduction.md) to deploy a new Azure Storage account.
 
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or [sign up for a free account](https://azure.microsoft.com/free/).
-* [Automation account](./manage-runas-account.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
+* [Automation account](./automation-security-overview.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
 * [Azure Storage account](../storage/common/storage-account-create.md) in which to store the Resource Manager template.
 * Azure PowerShell installed on a local machine. See [Install the Azure PowerShell Module](/powershell/azure/install-az-ps) for information about how to get Azure PowerShell.
 

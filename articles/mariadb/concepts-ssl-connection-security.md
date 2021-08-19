@@ -1,8 +1,8 @@
 ---
 title: SSL/TLS connectivity - Azure Database for MariaDB
 description: Information for configuring Azure Database for MariaDB and associated applications to properly use SSL connections
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
@@ -11,8 +11,11 @@ ms.date: 07/09/2020
 # SSL/TLS connectivity in Azure Database for MariaDB
 Azure Database for MariaDB supports connecting your database server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
 
+>[!NOTE]
+> Based on the feedback from customers we have extended the root certificate deprecation for our existing Baltimore Root CA till February 15, 2021 (02/15/2021).
+
 > [!IMPORTANT] 
-> SSL root certificate is set to expire starting October 26th, 2020 (10/26/2020). Please update your application to use the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). To learn more , see [planned certificate updates](concepts-certificate-rotation.md)
+> SSL root certificate is set to expire starting February 15, 2021 (02/15/2021). Please update your application to use the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). To learn more , see [planned certificate updates](concepts-certificate-rotation.md)
 
 ## Default settings
 By default, the database service should be configured to require SSL connections when connecting to MariaDB.  We recommend to avoid disabling the SSL option whenever possible.
@@ -54,7 +57,7 @@ To learn how to set the TLS setting for your Azure Database for MariaDB, refer t
 
 ## Cipher support by Azure Database for MariaDB
 
-As part of the SSL/TLS communication, the cipher suites are validated and only support cipher suits are allowed to communicate to the database serer. The cipher suite validation is controlled in the [gateway layer](concepts-connectivity-architecture.md#connectivity-architecture) and not explicitly on the node itself. If the cipher suites doesn't match one of suites listed below, incoming client connections will be rejected.
+As part of the SSL/TLS communication, the cipher suites are validated and only support cipher suits are allowed to communicate to the database server. The cipher suite validation is controlled in the [gateway layer](concepts-connectivity-architecture.md#connectivity-architecture) and not explicitly on the node itself. If the cipher suites doesn't match one of suites listed below, incoming client connections will be rejected.
 
 ### Cipher suite supported
 

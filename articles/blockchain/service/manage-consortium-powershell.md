@@ -9,7 +9,11 @@ ms.reviewer: zeyadr
 
 # Manage consortium members in Azure Blockchain Service using PowerShell
 
-You can use PowerShell to manage blockchain consortium members for your Azure Blockchain Service. Members who have administrator privileges can invite, add, remove, and change roles for all participants in the blockchain consortium. Members who have user privileges can view all participants in the blockchain consortium and change their member display name.
+You can use PowerShell to manage blockchain consortium members for your Azure Blockchain Service.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+Members who have administrator privileges can invite, add, remove, and change roles for all participants in the blockchain consortium. Members who have user privileges can view all participants in the blockchain consortium and change their member display name.
 
 ## Prerequisites
 

@@ -16,8 +16,9 @@ ExpressRoute circuits connect your on-premises infrastructure to Microsoft throu
 
 ![Diagram showing how ExpressRoute circuits connect your on-premises infrastructure to Microsoft through a connectivity provider.](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
-> [!IMPORTANT]
-> Azure public peering has been deprecated and is not available for new ExpressRoute circuits. New circuits support Microsoft peering and private peering.  
+> [!NOTE]
+> * In the context of ExpressRoute, the Microsoft Edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
+> * Azure public peering has been deprecated and is not available for new ExpressRoute circuits. New circuits support Microsoft peering and private peering.  
 >
 
 ## <a name="circuits"></a>ExpressRoute circuits
@@ -66,7 +67,7 @@ Each peering requires separate BGP sessions (one pair for each peering type). Th
 
 ## <a name="health"></a>ExpressRoute health
 
-ExpressRoute circuits may be monitored for availability, connectivity to VNets and bandwidth utilization using [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
+ExpressRoute circuits may be monitored for availability, connectivity to VNets and bandwidth utilization using [Network Performance Monitor](../networking/network-monitoring-overview.md) (NPM).
 
 NPM monitors the health of Azure private peering and Microsoft peering. Check out our [post](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) for more information.
 

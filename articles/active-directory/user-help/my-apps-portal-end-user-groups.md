@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/03/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
@@ -16,12 +16,17 @@ ms.custom: "user-help, seo-update-azuread-jan"
 
 # Update your Groups info on the My Apps portal
 
-You can use your work or school account with the web-based **My Apps** portal, to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
+You can use your work or school account with the web-based **My Apps** portal to view and start many of your organization’s cloud-based apps, to update some of your profile and account information, to see your **Groups** information, and to perform **access reviews** for your apps and groups. If you don’t have access to the **My Apps** portal, you must contact your Helpdesk for permission.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your cloud-based apps in the [Application Management Documentation](../manage-apps/index.yml).
+>
+> If you see an error signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## View your Groups information
 
@@ -35,17 +40,19 @@ If your administrator has given you permission to view the **Groups** tile, you 
 
 1. Sign in to your work or school account.
 
-2. Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
+2. Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com. If you are signing in with a personal Microsoft account, you can still sign in by using the domain name for your organization (such as contoso.com) or the **Tenant ID** of your organization from your administrator in one of the following URLs:
+
+   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
+
 
     The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
-    ![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
+    ![Apps page in the My Apps portal](media/my-apps-portal-end-user-groups/my-apps-home-large.png)
 
-3. Select the **Groups** tile to see your group-related information.
+3. Pull down the **My Apps** menu and select **My Groups** to see your group-related information.
 
-    ![Groups page with both owned and member groups](media/my-apps-portal/my-apps-portal-groups-page.png)
-
-4. Based on your permissions, you can use the **Groups** page to:
+4. Based on your permissions, you can use the **My Groups** page to:
 
     - **Review the groups you own.** View information about any groups you own within your organization from the **Groups I own** area. Selecting a specific group name provides you with more details about the group, including the group type, the number of members, the join policy, and the active members list.
 
@@ -163,6 +170,6 @@ You can join or leave an already existing group from the **Groups** page.
 
 - [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
 
-- [Change your profile information](my-apps-portal-end-user-update-profile.md).
+- [Change your profile information](./my-account-portal-settings.md).
 
 - [Perform your own access reviews](my-apps-portal-end-user-access-reviews.md).

@@ -262,5 +262,5 @@ Our paging file settings on the Azure VM are as follows:
 
 - Learn more about guidelines for the temporary storage disk:
     - [Learn about](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) using SSDs in Azure VMs to store SQL Server TempDB and Buffer Pool Extensions
-    - [Review ](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md) performance best practices for SQL Server in Azure VMs.
+    - [Review ](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) performance best practices for SQL Server in Azure VMs.
 - After your deployment is set up and running, [learn more](failover-failback-overview.md) about different types of failover.

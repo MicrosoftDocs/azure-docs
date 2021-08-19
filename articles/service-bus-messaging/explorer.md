@@ -2,7 +2,7 @@
 title: Use Azure Service Bus Explorer to perform data operations on Service Bus (Preview)
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data. 
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 06/16/2021
 ---
 
 # Use Service Bus Explorer to perform data operations on Service Bus (Preview)
@@ -25,13 +25,16 @@ The Azure Service Bus Explorer expands the portal functionality beyond the manag
 
 ## Prerequisites
 
-To use the Service Bus Explorer tool, you will need to provision an Azure Service Bus namespace. 
+To use the Service Bus Explorer tool, you will need to do the following tasks: 
 
-Once the Service Bus namespace is provisioned, you need to create a Queue to send and receive message from or a Topic with a Subscription to test out the functionality.
-
-To know more about how to create Queues, Topics and Subscriptions, refer to the below links
-   * [Quickstart - Create Queues](service-bus-quickstart-portal.md)
-   * [Quickstart - Create Topics](service-bus-quickstart-topics-subscriptions-portal.md)
+- Provision an Azure Service Bus namespace.
+- Create a queue to send and receive message from or a topic with a subscription to test out the functionality. To learn how to create queues, topics and subscriptions, see the following articles: 
+    - [Quickstart - Create Queues](service-bus-quickstart-portal.md)
+    - [Quickstart - Create Topics](service-bus-quickstart-topics-subscriptions-portal.md)
+- Ensure that you are a member of one of these roles on the namespace: 
+    - [Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 
+    - [Contributor](../role-based-access-control/built-in-roles.md#contributor) 
+    - [Owner](../role-based-access-control/built-in-roles.md#owner)
 
 
 ## Using the Service Bus Explorer
@@ -40,13 +43,16 @@ To use the Azure Service Bus explorer, you need to navigate to the Service Bus n
 
 If you are looking to perform operations against a Queue, pick **'Queues'** from the navigation menu. If you are looking to perform operations against a Topic (and it's related subscriptions), pick **Topics**. 
 
-:::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png"alt-text="Entity select":::
+:::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png" alt-text="Entity select":::
 
 After picking the **'Queues'** or **'Topics'**, pick the specific Queue or Topic.
 
 Select the **'Service Bus Explorer (preview)'** from the left navigation menu
 
 :::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="SB Explorer Left nav menu":::
+
+> [!NOTE]
+> Service Bus Explorer supports messages of size up to 1 MB. 
 
 ### Sending a message to a Queue or Topic
 
@@ -83,7 +89,7 @@ The receive function on the Service Bus Explorer permits receiving a single mess
 > To browse messages without removing them from the queue, consider using the ***Peek*** functionality.
 >
 
-To receive a message from a Queue (or its deadletter subqueue) 
+To receive a message from a Queue (or its DeadLetter subqueue) 
 
 1. Click on the ***Receive*** tab on the Service Bus Explorer.
 2. Check the metrics to see if there are **Active Messages** or **Dead-lettered Messages** to receive.
@@ -92,7 +98,7 @@ To receive a message from a Queue (or its deadletter subqueue)
 
 3. Pick between the ***Queue*** or the ***Deadletter*** subqueue.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadLetter":::
 
 4. Click the ***Receive*** button, followed by ***Yes*** to confirm the 'Receive and Delete' operation.
 
@@ -104,7 +110,7 @@ When the receive operation is successful, the message details will display on th
 
 ### Peeking a message from a Queue
 
-With the peek functionality, you can use the Service Bus Explorer to view the top 32 messages on a queue or the deadletter queue.
+With the peek functionality, you can use the Service Bus Explorer to view the top 32 messages on a queue or the DeadLetter queue.
 
 1. To peek the message on a queue, click on the ***Peek*** tab on the Service Bus Explorer.
 
@@ -116,7 +122,7 @@ With the peek functionality, you can use the Service Bus Explorer to view the to
 
 3. Then pick between the ***Queue*** or the ***Deadletter*** subqueue.
 
-    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadLetter":::
 
 4. Click the ***Peek*** button. 
 
@@ -131,7 +137,7 @@ Once the peek operation completes, up to 32 messages will show up on the grid as
 
 ### Receiving a message from a Subscription
 
-Just like with a queue, the ***Receive*** operation can be performed against a subscription (or its deadletter entity). However, since a Subscription lives within the context of the Topic, the receive operation is performed by navigating to the Service Bus Explorer for a given Topic.
+Just like with a queue, the ***Receive*** operation can be performed against a subscription (or its DeadLetter entity). However, since a Subscription lives within the context of the Topic, the receive operation is performed by navigating to the Service Bus Explorer for a given Topic.
 
 > [!IMPORTANT]
 > Please note that the Receive operation performed by the Service Bus explorer is a ***destructive receive***, i.e. the message is removed from the queue when it is displayed on the Service Bus Explorer tool.
@@ -145,7 +151,7 @@ Just like with a queue, the ***Receive*** operation can be performed against a s
 
 2. Pick between the ***Subscription*** or the ***DeadLetter*** sub-entity.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadLetter":::
 
 3. Click the ***Receive*** button, followed by ***Yes*** to confirm the 'Receive and Delete' operation.
 
@@ -155,7 +161,7 @@ When the receive operation is successful, the received message will display on t
 
 ### Peeking a message from a Subscription
 
-To simply browse the messages on a Subscription or its deadletter sub-entity, the ***Peek*** functionality can be utilized on the Subscription as well.
+To simply browse the messages on a Subscription or its DeadLetter sub-entity, the ***Peek*** functionality can be utilized on the Subscription as well.
 
 1. Click on the ***Peek*** tab and select the specific ***Subscription*** from the dropdown selector.
 
@@ -163,7 +169,7 @@ To simply browse the messages on a Subscription or its deadletter sub-entity, th
 
 2. Pick between the ***Subscription*** or the ***DeadLetter*** subentity.
 
-    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadletter":::
+    :::image type="content" source="./media/service-bus-explorer/subscription-or-deadletter.png" alt-text="SubscriptionOrDeadLetter":::
 
 3. Click the ***Peek*** button.
 
@@ -173,8 +179,8 @@ Once the peek operation completes, up to 32 messages will show up on the grid as
 
 > [!NOTE]
 >
-> Since peek is not a destructive operation the message **will not** be removed from the queue.
->
+> - Since peek is not a destructive operation the message **will not** be removed from the queue.
+
 
 ## Next Steps
 

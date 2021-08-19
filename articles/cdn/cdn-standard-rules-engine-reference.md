@@ -6,7 +6,7 @@ author: asudbring
 
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 07/31/2021
 ms.author: allensu
 
 ---
@@ -33,12 +33,12 @@ Each rule can have up to ten match conditions and five actions. Each Azure CDN e
 
 Included in this limit is a default *global rule*. The global rule doesn't have match conditions; actions that are defined in a global rule always triggered.
 
+   > [!IMPORTANT]
+   > The order in which multiple rules are listed affects how rules are handled. The actions that are specified in a rule might be overwritten by a subsequent rule.
+
 ## Limits and pricing 
 
-Each Azure CDN endpoint can have up to 25 rules. Each rule can have up to ten match conditions and five actions. Pricing for Rules Engine follows the below dimensions: 
-- Rules: $1 per rule per month 
-- Requests Processed: $0.60 per million requests
-- The first 5 rules will remain free
+See [CDN Scale limits](../azure-resource-manager/management/azure-subscription-service-limits.md#content-delivery-network-limits) for rules limit. For rule engine pricing, see [Content Delivery Network pricing](https://azure.microsoft.com/pricing/details/cdn/).
 
 ## Syntax
 

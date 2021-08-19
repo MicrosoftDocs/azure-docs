@@ -23,7 +23,7 @@ The following sections explore techniques for indexing large amounts of data usi
 
 ## Use the push API
 
-When pushing data into an index using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [Index method](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index), there are several key considerations that impact indexing speed. Those factors are outlined in the section below, and range from setting service capacity to code optimizations.
+When pushing data into an index using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method](/dotnet/api/azure.search.documents.searchclient.indexdocuments), there are several key considerations that impact indexing speed. Those factors are outlined in the section below, and range from setting service capacity to code optimizations.
 
 For more information and code samples that illustrate push model indexing, see [Tutorial: Optimize indexing speeds](tutorial-optimize-indexing-push-api.md).
 
@@ -48,7 +48,7 @@ The schema of your index plays an important role in indexing data. The more fiel
 
 ### Check the batch size
 
-One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you're using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [Index method](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
+One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you're using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method](/dotnet/api/azure.search.documents.searchclient.indexdocuments) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
 
 Using batches to index documents will significantly improve indexing performance. Determining the optimal batch size for your data is a key component of optimizing indexing speeds. The two primary factors influencing the optimal batch size are:
 
@@ -94,7 +94,7 @@ Network data transfer speeds can be a limiting factor when indexing data. Indexi
 
 + Schedulers allow you to parcel out indexing at regular intervals so that you can spread it out over time.
 + Scheduled indexing can resume at the last known stopping point. If a data source is not fully crawled within a 24-hour window, the indexer will resume indexing on day two at wherever it left off.
-+ Partitioning data into smaller individual data sources enables parallel processing. You can break up source data into smaller components, such as into multiple containers in Azure Blob storage, and then create corresponding, multiple [data source objects](/rest/api/searchservice/create-data-source) in Azure Cognitive Search that can be indexed in parallel.
++ Partitioning data into smaller individual data sources enables parallel processing. You can break up source data into smaller components, such as into multiple containers in Azure Blob Storage, and then create corresponding, multiple [data source objects](/rest/api/searchservice/create-data-source) in Azure Cognitive Search that can be indexed in parallel.
 
 > [!NOTE]
 > Indexers are data-source-specific, so using an indexer approach is only viable for selected data sources on Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob storage](search-howto-indexing-azure-blob-storage.md), [Table storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
@@ -140,7 +140,7 @@ For indexers, processing capacity is loosely based on one indexer subsystem for 
 
 2. You can run as many indexers in parallel as the number of search units in your service. In **Settings** > **Scale**, [increase replicas](search-capacity-planning.md) or partitions for parallel processing: one additional replica or partition for each indexer workload. Leave a sufficient number for existing query volume. Sacrificing query workloads for indexing is not a good tradeoff.
 
-3. Distribute data into multiple containers at a level that Azure Cognitive Search indexers can reach. This could be multiple tables in Azure SQL Database, multiple containers in Azure Blob storage, or multiple collections. Define one data source object for each table or container.
+3. Distribute data into multiple containers at a level that Azure Cognitive Search indexers can reach. This could be multiple tables in Azure SQL Database, multiple containers in Azure Blob Storage, or multiple collections. Define one data source object for each table or container.
 
 4. Create and schedule multiple indexers to run in parallel:
 

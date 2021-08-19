@@ -3,6 +3,7 @@ title: Model and partition data on Azure Cosmos DB with a real-world example
 description: Learn how to model and partition a real-world example using the Azure Cosmos DB Core API
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
@@ -10,10 +11,13 @@ ms.custom: devx-track-js
 ---
 
 # How to model and partition data on Azure Cosmos DB using a real-world example
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article builds on several Azure Cosmos DB concepts like [data modeling](modeling-data.md), [partitioning](partitioning-overview.md), and [provisioned throughput](request-units.md) to demonstrate how to tackle a real-world data design exercise.
 
 If you usually work with relational databases, you have probably built habits and intuitions on how to design a data model. Because of the specific constraints, but also the unique strengths of Azure Cosmos DB, most of these best practices don't translate well and may drag you into suboptimal solutions. The goal of this article is to guide you through the complete process of modeling a real-world use-case on Azure Cosmos DB, from item modeling to entity colocation and container partitioning.
+
+[Download or view a community-generated source code](https://github.com/jwidmer/AzureCosmosDbBlogExample) that illustrates the concepts from this article. This code sample was contributed by a community contributor and Azure Cosmos DB team doesn't support its maintenance.
 
 ## The scenario
 
@@ -49,9 +53,9 @@ Here is the list of requests that our platform will have to expose:
 - **[Q5]** List a post's likes
 - **[Q6]** List the *x* most recent posts created in short form (feed)
 
-As this stage, we haven't thought about the details of what each entity (user, post etc.) will contain. This step is usually among the first ones to be tackled when designing against a relational store, because we have to figure out how those entities will translate in terms of tables, columns, foreign keys etc. It is much less of a concern with a document database that doesn't enforce any schema at write.
+At this stage, we haven't thought about the details of what each entity (user, post etc.) will contain. This step is usually among the first ones to be tackled when designing against a relational store, because we have to figure out how those entities will translate in terms of tables, columns, foreign keys etc. It is much less of a concern with a document database that doesn't enforce any schema at write.
 
-The main reason why it is important to identify our access patterns from the beginning, is because this list of requests is going to be our test suite. Every time we iterate over our data model, we will go through each of the requests and check its performance and scalability.
+The main reason why it is important to identify our access patterns from the beginning, is because this list of requests is going to be our test suite. Every time we iterate over our data model, we will go through each of the requests and check its performance and scalability. We calculate the request units consumed in each model and optimize them. All these models use the default indexing policy and you can override it by indexing specific properties, which can further improve the RU consumption and latency.
 
 ## V1: A first version
 
@@ -322,7 +326,7 @@ This stored procedure takes the ID of the post and the body of the new comment a
 - replaces the post
 - adds the new comment
 
-As stored procedures are executed as atomic transactions, it is guaranteed that the value of `commentCount` and the actual number of comments will always stay in sync.
+As stored procedures are executed as atomic transactions, the value of `commentCount` and the actual number of comments will always stay in sync.
 
 We obviously call a similar stored procedure when adding new likes to increment the `likeCount`.
 
@@ -406,7 +410,7 @@ Looking at our overall performance improvements, there are still two requests th
 
 This request already benefits from the improvements introduced in V2, which spares additional queries.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Retrieving all posts for a user" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Diagram that shows the query to list a user's posts in short form." border="false":::
 
 But the remaining query is still not filtering on the partition key of the `posts` container.
 
@@ -464,7 +468,7 @@ We can now route our query to the `users` container, filtering on the container'
 
 We have to deal with a similar situation here: even after sparing the additional queries left unnecessary by the denormalization introduced in V2, the remaining query does not filter on the container's partition key:
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Retrieving most recent posts" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Diagram that shows the query to list the x most recent posts created in short form." border="false":::
 
 Following the same approach, maximizing this request's performance and scalability requires that it only hits one partition. This is conceivable because we only have to return a limited number of items; in order to populate our blogging platform's home page, we just need to get the 100 most recent posts, without the need to paginate through the entire data set.
 
@@ -581,6 +585,6 @@ The change feed that we use to distribute updates to other containers store all 
 
 After this introduction to practical data modeling and partitioning, you may want to check the following articles to review the concepts we have covered:
 
-- [Work with databases, containers, and items](databases-containers-items.md)
+- [Work with databases, containers, and items](account-databases-containers-items.md)
 - [Partitioning in Azure Cosmos DB](partitioning-overview.md)
 - [Change feed in Azure Cosmos DB](change-feed.md)

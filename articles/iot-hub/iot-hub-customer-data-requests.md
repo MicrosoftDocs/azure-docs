@@ -25,7 +25,7 @@ If you use the routing feature of the Azure IoT Hub service to forward device me
 
 If you use the Azure Event Grid integration feature of the Azure IoT Hub service, then data requests must be performed by the tenant admin for each subscriber of these events. For more information, see [React to IoT Hub events by using Event Grid](iot-hub-event-grid.md).
 
-If you use the Azure Monitor integration feature of the Azure IoT Hub service to create diagnostic logs, then data requests must be performed by the tenant admin against the stored logs. For more information, see [Monitor the health of Azure IoT Hub](iot-hub-monitor-resource-health.md).
+If you use the Azure Monitor integration feature of the Azure IoT Hub service to create resource logs, then data requests must be performed by the tenant admin against the stored logs. For more information, see [Monitor IoT Hub](monitor-iot-hub.md).
 
 ## Deleting customer data
 
@@ -44,4 +44,4 @@ It is also possible to perform export operations for devices using REST APIs. Fo
 
 ## Links to additional documentation
 
-Full documentation for Azure IoT Hub Service APIs is located at [IoT Hub Service APIs](https://docs.microsoft.com/rest/api/iothub/service/configuration).
+Full documentation for Azure IoT Hub Service APIs is located at [IoT Hub Service APIs](/rest/api/iothub/service/configuration).

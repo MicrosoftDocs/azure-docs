@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/02/2020
+ms.date: 09/29/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -54,11 +54,11 @@ If you are using a Linux host computer, perform the following steps to configure
 
 1. Supply the IP addresses of the allowed clients that can access the share. In the local web UI, go to **Connect and copy** page. Under **NFS settings**, click **NFS client access**. 
 
-    ![Configure NFS client access 1](media/data-box-deploy-copy-data/nfs-client-access-1.png)
+    ![Configure NFS client access](media/data-box-deploy-copy-data/nfs-client-access-1.png)
 
 2. Supply the IP address of the NFS client and click **Add**. You can configure access for multiple NFS clients by repeating this step. Click **OK**.
 
-    ![Configure NFS client access 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
+    ![Configure IP address of an NFS client](media/data-box-deploy-copy-data/nfs-client-access2.png)
 
 2. Ensure that the Linux host computer has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
 
@@ -81,7 +81,7 @@ If you are using a Linux host computer, perform the following steps to configure
 Once you are connected to the Data Box shares, the next step is to copy data. Before you begin the data copy, review the following considerations:
 
 * Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. Copy VHDs to page blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
-*  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
+*  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).
 * If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 * We recommend that you do not use both SMB and NFS concurrently or copy same data to same end destination on Azure. In such cases, the final outcome cannot be determined.
 * **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
@@ -94,11 +94,11 @@ Once you are connected to the Data Box shares, the next step is to copy data. Be
 > [!IMPORTANT]
 > Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
-If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
+If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [`rsync`](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
 
 The `cp` command is one of best options to copy a directory. For more information on the usage, go to [cp man pages](http://man7.org/linux/man-pages/man1/cp.1.html).
 
-If using rsync option for a multi-threaded copy, follow these guidelines:
+If using `rsync` option for a multi-threaded copy, follow these guidelines:
 
 * Install the **CIFS Utils** or **NFS Utils** package depending on the filesystem your Linux client is using.
 
@@ -106,7 +106,7 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
 
     `sudo apt-get install nfs-utils`
 
-* Install **Rsync** and **Parallel** (varies depending on the Linux distributed version).
+* Install `rsync` and **Parallel** (varies depending on the Linux distributed version).
 
     `sudo apt-get install rsync`
    
@@ -141,11 +141,11 @@ During the copy process, if there are any errors, you will see a notification.
 
 Select **Download issue list**.
 
-![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-2.png)
+![Download the issues list for a copy error](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Open the list to view the details of the error and select the resolution URL to view the recommended resolution.
 
-![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-3.png)
+![Issues in a copy error issues list](media/data-box-deploy-copy-data/view-errors-3.png)
 
 For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 

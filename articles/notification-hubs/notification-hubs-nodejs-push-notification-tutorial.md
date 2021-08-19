@@ -106,7 +106,7 @@ The `GcmService` object provides a `send` method that can be used to send push n
 - **Payload** - the message's JSON or raw string payload.
 - **Callback** - the callback function.
 
-For more information on the payload format, see the [Payload documentation](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
+For more information on the payload format, see the [Payload documentation](https://payload.readthedocs.io/en/latest/).
 
 The following code uses the `GcmService` instance exposed by the `NotificationHubService` to send a push notification to all registered clients.
 
@@ -220,9 +220,9 @@ The sample snippets above allow you to easily build service infrastructure to de
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
 [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
 [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet#microsoft_servicebus_messaging_sqlfilter_sqlexpression
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter_sqlexpression
 [Azure Service Bus Notification Hubs]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
-[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter?view=azure-dotnet#microsoft_servicebus_messaging_sqlfilter
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter
 [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png

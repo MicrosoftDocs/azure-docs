@@ -53,7 +53,7 @@ Organizations need a process to manage access beyond what was initially provisio
 
 Typically, IT delegates access approval decisions to business decision makers.  Furthermore, IT can involve the users themselves.  For example, users that access confidential customer data in a company's marketing application in Europe need to know the company's policies. Guest users may be unaware of the handling requirements for data in an organization to which they have been invited.
 
-Organizations can automate the access lifecycle process through technologies such as [dynamic groups](../users-groups-roles/groups-dynamic-membership.md), coupled with user provisioning to [SaaS apps](../saas-apps/tutorial-list.md) or [apps integrated with SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Organizations can also control which [guest users have access to on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).  These access rights can then be regularly reviewed using recurring [Azure AD access reviews](access-reviews-overview.md).   [Azure AD entitlement management](entitlement-management-overview.md) also enables you to define how users request access across packages of group and team memberships, application roles, and SharePoint Online roles.
+Organizations can automate the access lifecycle process through technologies such as [dynamic groups](../enterprise-users/groups-dynamic-membership.md), coupled with user provisioning to [SaaS apps](../saas-apps/tutorial-list.md) or [apps integrated with SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Organizations can also control which [guest users have access to on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).  These access rights can then be regularly reviewed using recurring [Azure AD access reviews](access-reviews-overview.md).   [Azure AD entitlement management](entitlement-management-overview.md) also enables you to define how users request access across packages of group and team memberships, application roles, and SharePoint Online roles.
 
 When a user attempts to access applications, Azure AD enforces [Conditional Access](../conditional-access/index.yml) policies. For example, Conditional Access policies can include displaying a [terms of use](../conditional-access/terms-of-use.md) and [ensuring the user has agreed to those terms](../conditional-access/require-tou.md) prior to being able to access an application.
 
@@ -95,7 +95,7 @@ If you have any feedback about Identity Governance features, click **Got feedbac
 While there is no perfect solution or recommendation for every customer, the following configuration guides also provide the baseline policies Microsoft recommends you follow to ensure a more secure and productive workforce.
 
 - [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Securing privileged access](../users-groups-roles/directory-admin-roles-secure.md)
+- [Securing privileged access](../roles/security-planning.md)
 
 ## Appendix - least privileged roles for managing in Identity Governance features
 
@@ -103,10 +103,13 @@ It's a best practice to use the least privileged role to perform administrative 
 
 | Feature | Least privileged role |
 | ------- | --------------------- |
-| Entitlement management | User administrator (with the exception of adding SharePoint Online sites to catalogs, which requires Global administrator) |
+| Entitlement management | Identity Governance Administrator |
 | Access reviews | User administrator (with the exception of access reviews of Azure or Azure AD roles, which requires Privileged role administrator) |
 |Privileged Identity Management | Privileged role administrator |
 | Terms of use | Security administrator or Conditional access administrator |
+
+>[!NOTE]
+>The least privileged role for Entitlement management has changed from the User Administrator role to the Identity Governance Administrator role.
 
 ## Next steps
 

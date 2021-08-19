@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 11/02/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ---
 
 # Add non-Microsoft accounts to the Microsoft Authenticator app
 
-Add your non-Microsoft accounts, such as for Google, Facebook, or GitHub to the Microsoft Authenticator app for two-factor verification. The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
+If you have non-Microsoft accounts, such as for Google, Facebook, or GitHub, you can add them to the Microsoft Authenticator app for two-factor verification. The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the Time-based One-time Password (TOTP) standards.
 
 >[!Important]
 >Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](user-help-auth-app-download-install.md) article.
@@ -32,7 +32,7 @@ Generally, for all your personal accounts, you must:
     >[!Note]
     >If this is the first time you're setting up the Microsoft Authenticator app, you might receive a prompt asking whether to allow the app to access your camera (iOS) or to allow the app to take pictures and record video (Android). You must select **Allow** so the authenticator app can access your camera to take a picture of the QR code in the next step. If you don't allow the camera, you can still set up the authenticator app, but you'll need to add the code information manually. For information about how to add the code manually, see see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
 
-We're providing the process here for your Facebook, Google, GitHub, and Amazon accounts, but this process is the same for any other app, such as Instagram, Netflix, or Adobe.
+We're providing the process here for your Facebook, Google, GitHub, and Amazon accounts, but the process is the same for other apps, such as Instagram and Adobe.
 
 ## Add your Google account
 
@@ -126,7 +126,7 @@ Add your GitHub account by turning on two-factor verification and then adding th
 
 1. On the **Two-factor authentication** page on your computer, select **Set up using an app**.
 
-2. Save your recovery codes so you can get back into your account if you lose access, and then select **Next**. 
+2. Save your recovery codes so you can get back into your account if you lose access, and then select **Next**.
 
     You can save your codes by downloading them to your device, by printing a hard copy, or by copying them into a password manager tool.
 

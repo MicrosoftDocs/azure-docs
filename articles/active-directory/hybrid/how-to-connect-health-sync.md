@@ -3,7 +3,7 @@ title: Using Azure AD Connect Health with sync | Microsoft Docs
 description: This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+author: billmath
 manager: daveba
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
@@ -117,5 +117,5 @@ Read more about [Diagnose and remediate duplicated attribute sync errors](how-to
 * [Azure AD Connect Health Operations](how-to-connect-health-operations.md)
 * [Using Azure AD Connect Health with AD FS](how-to-connect-health-adfs.md)
 * [Using Azure AD Connect Health with AD DS](how-to-connect-health-adds.md)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)
 * [Azure AD Connect Health Version History](reference-connect-health-version-history.md)

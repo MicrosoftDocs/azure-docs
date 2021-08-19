@@ -1,9 +1,6 @@
 ---
 title: Connect Azure HDInsight to your on-premises network
 description: Learn how to create an HDInsight cluster in an Azure Virtual Network, and then connect it to your on-premises network. Learn how to configure name resolution between HDInsight and your on-premises network by using a custom DNS server.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -35,19 +32,19 @@ These configurations enable the following behavior:
 
 In the following diagram, green lines are requests for resources that end in the DNS suffix of the virtual network. Blue lines are requests for resources in the on-premises network or on the public internet.
 
-![Diagram of how DNS requests are resolved in the configuration](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+:::image type="content" source="./media/connect-on-premises-network/on-premises-to-cloud-dns.png" alt-text="Diagram of how DNS requests are resolved in the configuration" border="false":::
 
 ## Prerequisites
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
-* If using PowerShell, you'll need the [AZ Module](https://docs.microsoft.com/powershell/azure/).
-* If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* If using PowerShell, you'll need the [AZ Module](/powershell/azure/).
+* If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create virtual network configuration
 
 Use the following documents to learn how to create an Azure Virtual Network that is connected to your on-premises network:
 
-* [Using Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Using Azure portal](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Using Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Using Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
@@ -62,7 +59,7 @@ These steps use the [Azure portal](https://portal.azure.com) to create an Azure 
   
 1. From the top menu, select **+ Create a resource**.
 
-    ![Create an Ubuntu virtual machine](./media/connect-on-premises-network/azure-portal-create-resource.png)
+    :::image type="content" source="./media/connect-on-premises-network/azure-portal-create-resource.png" alt-text="Create an Ubuntu virtual machine":::
 
 1. Select **Compute** > **Virtual machine** to go to the **Create a virtual machine** page.
 
@@ -81,7 +78,7 @@ These steps use the [Azure portal](https://portal.azure.com) to create an Azure 
     |Password or SSH public key | The available field is determined by your choice for **Authentication type**.  Enter the appropriate value.|
     |Public inbound ports|Select **Allow selected ports**. Then select **SSH (22)** from the **Select inbound ports** drop-down list.|
 
-    ![Virtual machine basic configuration](./media/connect-on-premises-network/virtual-machine-basics.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-machine-basics.png" alt-text="Virtual machine basic configuration":::
 
     Leave other entries at the default values and then select the **Networking** tab.
 
@@ -93,7 +90,7 @@ These steps use the [Azure portal](https://portal.azure.com) to create an Azure 
     |Subnet | Select the default subnet for the virtual network that you created earlier. Do __not__ select the subnet used by the VPN gateway.|
     |Public IP | Use the autopopulated value.  |
 
-    ![HDInsight Virtual network settings](./media/connect-on-premises-network/virtual-network-settings.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-network-settings.png" alt-text="HDInsight Virtual network settings":::
 
     Leave other entries at the default values and then select the **Review + create**.
 
@@ -107,7 +104,7 @@ Once the virtual machine has been created, you'll receive a **Deployment succeed
 
 2. Note the values for **PUBLIC IP ADDRESS/DNS NAME LABEL** and **PRIVATE IP ADDRESS** for later use.
 
-   ![Public and private IP addresses](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
+   :::image type="content" source="./media/connect-on-premises-network/virtual-machine-ip-addresses.png" alt-text="Public and private IP addresses":::
 
 ### Install and configure Bind (DNS software)
 
@@ -243,7 +240,7 @@ To configure the virtual network to use the custom DNS server instead of the Azu
 
 5. Select __Save__.  <br />  
 
-    ![Set the custom DNS server for the network](./media/connect-on-premises-network/configure-custom-dns.png)
+    :::image type="content" source="./media/connect-on-premises-network/configure-custom-dns.png" alt-text="Set the custom DNS server for the network":::
 
 ## Configure on-premises DNS server
 
@@ -262,7 +259,7 @@ zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
 };
 ```
 
-For information on using DNS on **Windows Server 2016**, see the [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) documentation...
+For information on using DNS on **Windows Server 2016**, see the [Add-DnsServerConditionalForwarderZone](/powershell/module/dnsserver/add-dnsserverconditionalforwarderzone) documentation...
 
 Once you've configured the on-premises DNS server, you can use `nslookup` from the on-premises network to verify that you can resolve names in the virtual network. The following example 
 
@@ -342,6 +339,6 @@ To directly connect to HDInsight through the virtual network, use the following 
 
 * For more information on Azure virtual networks, see the [Azure Virtual Network overview](../virtual-network/virtual-networks-overview.md).
 
-* For more information on network security groups, see [Network security groups](../virtual-network/security-overview.md).
+* For more information on network security groups, see [Network security groups](../virtual-network/network-security-groups-overview.md).
 
 * For more information on user-defined routes, see [User-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview.md).

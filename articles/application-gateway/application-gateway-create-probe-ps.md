@@ -7,7 +7,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create a custom probe for Azure Application Gateway by using PowerShell for Azure Resource Manager
@@ -192,5 +193,4 @@ DnsSettings              : {
 
 ## Next steps
 
-Learn to configure TLS offloading by visiting: [Configure TLS Offload](application-gateway-ssl-arm.md)
-
+Learn to configure TLS offloading by visiting: [Configure TLS Offload](./tutorial-ssl-powershell.md)

@@ -6,7 +6,8 @@ manager: jpconnock
 tags: azure-devops-pipelines
 
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
@@ -27,7 +28,7 @@ Azure DevOps is a built-in Azure service that automates each part of the DevOps 
 
 Azure Pipelines provides a fully featured set of CI/CD automation tools for deployments to virtual machines. You can configure a continuous-delivery pipeline for an Azure VM from the Azure portal.
 
-This article shows how to set up a CI/CD pipeline for rolling multimachine deployments from the Azure portal. The Azure portal also supports other strategies like [canary](https://aka.ms/AA7jdrz) and [blue-green](https://aka.ms/AA83fwu).
+This article shows how to set up a CI/CD pipeline for rolling multimachine deployments from the Azure portal. The Azure portal also supports other strategies like [canary](./tutorial-azure-devops-canary-strategy.md) and [blue-green](./tutorial-azure-devops-blue-green-strategy.md).
 
 ### Configure CI/CD on virtual machines
 
@@ -76,8 +77,8 @@ Using the continuous-delivery option, you can configure rolling updates to your 
 
 ## Other deployment strategies
 
-- [Configure the canary deployment strategy](https://aka.ms/AA7jdrz)
-- [Configure the blue-green deployment strategy](https://aka.ms/AA83fwu)
+- [Configure the canary deployment strategy](./tutorial-azure-devops-canary-strategy.md)
+- [Configure the blue-green deployment strategy](./tutorial-azure-devops-blue-green-strategy.md)
 
 ## Azure DevOps Projects
 

@@ -1,12 +1,9 @@
 ---
 title: Migrate Windows Server 2008 servers to Azure with Azure Migrate/Site Recovery
 description: This article describes how to migrate on-premises Windows Server 2008 machines to Azure, and recommends Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.author: raynew
 ms.custom: MVC
 ---
 
@@ -57,7 +54,7 @@ To migrate Hyper-V virtual machines running Windows Server 2008 or Windows Serve
 
 The rest of this tutorial shows you how you can migrate on-premises VMware virtual machines and Physical servers running Windows Server 2008 or 2008 R2.
 > [!TIP]
-> Looking for an agentless way to migrate VMware VMs to Azure? [Click here](https://aka.ms/migrateVMs-signup)
+> Looking for an agentless way to migrate VMware VMs to Azure? [Click here](../migrate/tutorial-migrate-vmware.md)
 
 
 ### Limitations and known issues

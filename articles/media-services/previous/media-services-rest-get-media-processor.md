@@ -1,21 +1,19 @@
 ---
-title:  How to get a Media Processor instance using REST | Microsoft Docs
+title: How to get a Media Processor instance using REST | Microsoft Docs
 description: Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
 ---
 # How to get a Media Processor instance
 
@@ -24,18 +22,18 @@ ms.author: juliako
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
-> 
-> 
+
 
 ## Overview
-Media Processors are a component that handles a specific video or audio processing task, such as encoding, format conversion, encrypting, or decrypting media content. All tasks submitted to Media Services require a media processor to encode, encrypt, or convert the video or audio content. 
 
-## Azure media processors 
+Media Processors are a component that handles a specific video or audio processing task, such as encoding, format conversion, encrypting, or decrypting media content. All tasks submitted to Media Services require a media processor to encode, encrypt, or convert the video or audio content.
+
+## Azure media processors
 
 The following topic provides lists of media processors:
 
-* [Encoding media processors](scenarios-and-availability.md#encoding-media-processors)
-* [Analytics media processors](scenarios-and-availability.md#analytics-media-processors)
+* [Encoding media processors](scenarios-and-availability.md)
+* [Analytics media processors](scenarios-and-availability.md)
 
 >[!NOTE]
 >When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).

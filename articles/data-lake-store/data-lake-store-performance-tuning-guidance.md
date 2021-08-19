@@ -2,11 +2,11 @@
 title: Azure Data Lake Storage Gen1 - performance tuning
 description: Learn how using all available throughput in Azure Data Lake Storage Gen1 is important to get the best performance by performing as many reads and writes in parallel as possible.
 
-author: stewu
+author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: stewu
+ms.author: twooley
 
 ---
 # Tune Azure Data Lake Storage Gen1 for performance
@@ -21,7 +21,7 @@ Data Lake Storage Gen1 can scale to provide the necessary throughput for all ana
 
 When ingesting data from a source system to Data Lake Storage Gen1, it's important to consider that the source hardware, source network hardware, and network connectivity to Data Lake Storage Gen1 can be the bottleneck.
 
-![Data Lake Storage Gen1 performance](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
+![Diagram that shows that the source hardware, source network hardware, and network connectivity to Data Lake Storage Gen1 can be the bottleneck.](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
 It's important to ensure that the data movement is not affected by these factors.
 
@@ -35,15 +35,15 @@ The network connectivity between your source data and Data Lake Storage Gen1 can
 
 ### Configure data ingestion tools for maximum parallelization
 
-After you've addressed the source hardware and network connectivity bottlenecks, you're ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them. To learn more about which tool to use for your scenario, visit this [article](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
+After you've addressed the source hardware and network connectivity bottlenecks, you're ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them. To learn more about which tool to use for your scenario, visit this [article](./data-lake-store-data-scenarios.md).
 
 | Tool          | Settings | More Details                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Powershell       | PerFileThreadCount, ConcurrentFileCount | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
-| AdlCopy    | Azure Data Lake Analytics units | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m (mapper) | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| Powershell       | PerFileThreadCount, ConcurrentFileCount | [Link](./data-lake-store-get-started-powershell.md) |
+| AdlCopy    | Azure Data Lake Analytics units | [Link](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (mapper) | [Link](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies | [Link](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper) | [Link](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m (mapper) | [Link](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## Structure your data set
 
@@ -96,7 +96,7 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 
 **Run cluster with more nodes and/or larger sized VMs.** A larger cluster will enable you to run more YARN containers as shown in the picture below.
 
-![Data Lake Storage Gen1 performance](./media/data-lake-store-performance-tuning-guidance/VM.png)
+![Diagram that shows the use of more YARN containers.](./media/data-lake-store-performance-tuning-guidance/VM.png)
 
 **Use VMs with more network bandwidth.** The amount of network bandwidth can be a bottleneck if there is less network bandwidth than Data Lake Storage Gen1 throughput. Different VMs will have varying network bandwidth sizes. Choose a VM-type that has the largest possible network bandwidth.
 
@@ -104,7 +104,7 @@ There are three layers within an HDInsight cluster that can be tuned to increase
 
 **Use smaller YARN containers.** Reduce the size of each YARN container to create more containers with the same amount of resources.
 
-![Data Lake Storage Gen1 performance](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+![Diagram that shows the use of smaller YARN containers.](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
 Depending on your workload, there will always be a minimum YARN container size that is needed. If you pick too small a container, your jobs will run into out-of-memory issues. Typically YARN containers should be no smaller than 1 GB. It's common to see 3 GB YARN containers. For some workloads, you may need larger YARN containers.
 
@@ -114,7 +114,7 @@ Depending on your workload, there will always be a minimum YARN container size t
 
 **Use all available containers.** Set the number of tasks to be equal or larger than the number of available containers so that all resources are used.
 
-![Data Lake Storage Gen1 performance](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+![Diagram that shows the use of all available containers.](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
 **Failed tasks are costly.** If each task has a large amount of data to process, then failure of a task results in an expensive retry. Therefore, it's better to create more tasks, each of which processes a small amount of data.
 

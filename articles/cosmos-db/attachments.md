@@ -11,6 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Azure Cosmos DB Attachments
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB attachments are special items that contain references to an associated metadata with an external blob or media file.
 
@@ -34,6 +35,11 @@ Azure Cosmos DB’s managed attachments are distinct from its support for standa
 - Attachments aren't supported in all versions of the Azure Cosmos DB’s SDKs.
 - Managed attachments are limited to 2 GB of storage per database account.
 - Managed attachments aren't compatible with Azure Cosmos DB’s global distribution, and they aren't replicated across regions.
+
+> [!NOTE]
+> Azure Cosmos DB API for MongoDB version 3.2 utilizes managed attachments for GridFS and are subject to the same limitations.
+>
+> We recommend developers using the MongoDB GridFS feature set to upgrade to Azure Cosmos DB API for MongoDB version 3.6 or higher, which is decoupled from attachments and provides a better experience. Alternatively, developers using the MongoDB GridFS feature set should also consider using Azure Blob Storage - which is purpose-built for storing blob content and offers expanded functionality at lower cost compared to GridFS.
 
 ## Migrating Attachments to Azure Blob Storage
 
@@ -155,7 +161,7 @@ namespace attachments
 
 ## Next steps
 
-- Get started with [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet)
-- Get references for using attachments via [Azure Cosmos DB’s .NET SDK v2](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.attachment?view=azure-dotnet)
-- Get references for using attachments via [Azure Cosmos DB’s Java SDK v2](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.attachment?view=azure-java-stable)
-- Get references for using attachments via [Azure Cosmos DB’s REST API](https://docs.microsoft.com/rest/api/cosmos-db/attachments)
+- Get started with [Azure Blob storage](../storage/blobs/storage-quickstart-blobs-dotnet.md)
+- Get references for using attachments via [Azure Cosmos DB’s .NET SDK v2](/dotnet/api/microsoft.azure.documents.attachment)
+- Get references for using attachments via [Azure Cosmos DB’s Java SDK v2](/java/api/com.microsoft.azure.documentdb.attachment)
+- Get references for using attachments via [Azure Cosmos DB’s REST API](/rest/api/cosmos-db/attachments)

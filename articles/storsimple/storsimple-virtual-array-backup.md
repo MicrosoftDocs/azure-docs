@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 
 The StorSimple Virtual Array is a hybrid cloud storage on-premises virtual device that can be configured as a file server or an iSCSI server. The virtual array allows the user to create scheduled and manual backups of all the shares or volumes on the device. When configured as a file server, it also allows item-level recovery. This tutorial describes how to create scheduled and manual backups and perform item-level recovery to restore a deleted file on your virtual array.
 
-This tutorial applies to the StorSimple Virtual Arrays only. For information on 8000 series, go to [Create a backup for 8000 series device](storsimple-manage-backup-policies-u2.md)
+This tutorial applies to the StorSimple Virtual Arrays only. For information on 8000 series, go to [Create a backup for 8000 series device](./storsimple-8000-manage-backup-policies-u2.md)
 
 ## Back up shares and volumes
 
@@ -71,7 +71,7 @@ In addition to scheduled backups, you can take a manual (on-demand) backup of de
    
     An on-demand backup starts and you see that a backup job has started.
    
-    ![backup starting](./media/storsimple-virtual-array-backup/takebackup3m.png) 
+    ![backup starting 2](./media/storsimple-virtual-array-backup/takebackup3m.png) 
    
     Once the job has successfully completed, you are notified again. The backup process then starts.
    
@@ -110,4 +110,3 @@ To view the existing backups, perform the following steps in the Azure portal.
 ## Next steps
 
 Learn more about [administering your StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
-

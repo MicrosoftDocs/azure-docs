@@ -1,9 +1,6 @@
 ---
 title: Microsoft Cognitive Toolkit with Apache Spark - Azure HDInsight
 description: Learn how a trained Microsoft Cognitive Toolkit deep learning model can be applied to a dataset using the Spark Python API in an Azure HDInsight Spark cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -14,7 +11,7 @@ ms.date: 01/14/2020
 
 In this article, you do the following steps.
 
-1. Run a custom script to install [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/) on an Azure HDInsight Spark cluster.
+1. Run a custom script to install [Microsoft Cognitive Toolkit](/cognitive-toolkit/) on an Azure HDInsight Spark cluster.
 
 2. Upload a [Jupyter Notebook](https://jupyter.org/) to the [Apache Spark](https://spark.apache.org/) cluster to see how to apply a trained Microsoft Cognitive Toolkit deep learning model to files in an Azure Blob Storage Account using the [Spark Python API (PySpark)](https://spark.apache.org/docs/latest/api/python/index.html)
 
@@ -26,12 +23,12 @@ In this article, you do the following steps.
 
 ## How does this solution flow?
 
-This solution is divided between this article and a Jupyter notebook that you upload as part of this article. In this article, you complete the following steps:
+This solution is divided between this article and a Jupyter Notebook that you upload as part of this article. In this article, you complete the following steps:
 
 * Run a script action on an HDInsight Spark cluster to install Microsoft Cognitive Toolkit and Python packages.
-* Upload the Jupyter notebook that runs the solution to the HDInsight Spark cluster.
+* Upload the Jupyter Notebook that runs the solution to the HDInsight Spark cluster.
 
-The following remaining steps are covered in the Jupyter notebook.
+The following remaining steps are covered in the Jupyter Notebook.
 
 * Load sample images into a Spark Resilient Distributed Dataset or RDD.
   * Load modules and define presets.
@@ -61,17 +58,17 @@ For instructions on how to use the Azure portal to run script action, see [Custo
 |Node type(s):|Head, Worker|
 |Parameters|None|
 
-## Upload the Jupyter notebook to Azure HDInsight Spark cluster
+## Upload the Jupyter Notebook to Azure HDInsight Spark cluster
 
-To use the Microsoft Cognitive Toolkit with the Azure HDInsight Spark cluster, you must load the Jupyter notebook **CNTK_model_scoring_on_Spark_walkthrough.ipynb** to the Azure HDInsight Spark cluster. This notebook is available on GitHub at [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
+To use the Microsoft Cognitive Toolkit with the Azure HDInsight Spark cluster, you must load the Jupyter Notebook **CNTK_model_scoring_on_Spark_walkthrough.ipynb** to the Azure HDInsight Spark cluster. This notebook is available on GitHub at [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
 
 1. Download and unzip [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration).
 
 1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/jupyter`, where `CLUSTERNAME` is the name of your cluster.
 
-1. From the Jupyter notebook, select **Upload** in the top-right corner and then navigate to the download and select file `CNTK_model_scoring_on_Spark_walkthrough.ipynb`.
+1. From the Jupyter Notebook, select **Upload** in the top-right corner and then navigate to the download and select file `CNTK_model_scoring_on_Spark_walkthrough.ipynb`.
 
-    ![Upload Jupyter notebook to Azure HDInsight Spark cluster](./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png "Upload Jupyter notebook to Azure HDInsight Spark cluster")
+    :::image type="content" source="./media/apache-spark-microsoft-cognitive-toolkit/hdinsight-microsoft-cognitive-toolkit-load-jupyter-notebook.png " alt-text="Upload Jupyter Notebook to Azure HDInsight Spark cluster" border="true":::
 
 1. Select **Upload** again.
 
@@ -99,8 +96,8 @@ To use the Microsoft Cognitive Toolkit with the Azure HDInsight Spark cluster, y
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
-* [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Kernels available for Jupyter Notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
+* [Use external packages with Jupyter Notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources

@@ -60,8 +60,5 @@ See [ExpressRoute FAQ][ER-FAQ] for any further questions on ExpressRoute and vir
 See [Set up direct connection between Azure and Oracle Cloud][ER-OCI] for connectivity between Azure and Oracle
 
 <!--Link References-->
-[ER-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
-[ER-OCI]: https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking
-
-
-
+[ER-FAQ]: ./expressroute-faqs.md
+[ER-OCI]: ../virtual-machines/workloads/oracle/configure-azure-oci-networking.md

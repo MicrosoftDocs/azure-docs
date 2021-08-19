@@ -1,11 +1,8 @@
 ---
 title: Service remoting by using C# in Service Fabric 
 description: Service Fabric remoting allows clients and services to communicate with C# services by using a remote procedure call.
-author: vturecek
-
 ms.topic: conceptual
 ms.date: 09/20/2017
-ms.author: vturecek
 ms.custom: devx-track-csharp
 ---
 # Service remoting in C# with Reliable Services
@@ -157,7 +154,7 @@ These steps change the template code to use the V2 stack by using explicit V2 cl
    </Resources>
    ```
 
-2. Use [FabricTransportServiceRemotingListener](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet) from the `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` namespace.
+2. Use [FabricTransportServiceRemotingListener](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener) from the `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` namespace.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -173,7 +170,7 @@ These steps change the template code to use the V2 stack by using explicit V2 cl
     }
    ```
 
-3. Use [FabricTransportServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) from the `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` namespace to create clients.
+3. Use [FabricTransportServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory) from the `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` namespace to create clients.
 
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
@@ -252,7 +249,7 @@ Follow these steps to change to a V2_1 stack.
     }
    ```
 
-3. Add an [assembly attribute](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) on remoting interfaces.
+3. Add an [assembly attribute](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute) on remoting interfaces.
 
    ```csharp
  	[assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
@@ -276,7 +273,7 @@ Follow these steps:
    </Resources>
    ```
 
-2. Use the [remoting V2 listener](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). The default service endpoint resource name used is "ServiceEndpointV2_1." It must be defined in the service manifest.
+2. Use the [remoting V2 listener](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener). The default service endpoint resource name used is "ServiceEndpointV2_1." It must be defined in the service manifest.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -294,7 +291,7 @@ Follow these steps:
     }
    ```
 
-3. Use the V2 [client factory](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
+3. Use the V2 [client factory](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory).
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
           {

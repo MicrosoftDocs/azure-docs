@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect using Go - Azure Database for MySQL'
 description: This quickstart provides several Go code samples you can use to connect and query data from Azure Database for MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
@@ -11,6 +11,8 @@ ms.date: 5/26/2020
 ---
 
 # Quickstart: Use Go language to connect and query data in Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 This quickstart demonstrates how to connect to an Azure Database for MySQL from Windows, Ubuntu Linux, and Apple macOS platforms by using code written in the [Go](https://golang.org/) language. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using Go and that you are new to working with Azure Database for MySQL.
 
@@ -345,6 +347,16 @@ func main() {
 	fmt.Printf("Deleted %d row(s) of data.\n", rowCount)
 	fmt.Println("Done.")
 }
+```
+
+## Clean up resources
+
+To clean up all resources used during this quickstart, delete the resource group using the following command:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## Next steps

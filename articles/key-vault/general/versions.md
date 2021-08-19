@@ -30,7 +30,7 @@ Private endpoints now available in preview. Azure Private Link Service enables y
 ## 2019
 
 - Release of the next-generation Azure Key Vault SDKs. For examples of their use, see the Azure Key Vault secret quickstarts for [Python](../secrets/quick-create-python.md), [.NET](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md), and [Node.js](../secrets/quick-create-node.md)
-- New Azure policies to manage key vault certificates. See the [Azure Policy built-in definitions for Key Vault](../policy-samples.md).
+- New Azure policies to manage key vault certificates. See the [Azure Policy built-in definitions for Key Vault](../policy-reference.md).
 - Azure Key Vault Virtual Machine extension now generally available.  See [Key Vault virtual machine extension for Linux](../../virtual-machines/extensions/key-vault-linux.md) and [Key Vault virtual machine extension for Windows](../../virtual-machines/extensions/key-vault-windows.md).
 - Event-driven secrets management for Azure Key Vault now available in Azure Event Grid. For more information, see [the Event Grid schema for events in Azure Key Vault](../../event-grid/event-schema-key-vault.md], and learn how to [Receive and respond to key vault notifications with Azure Event Grid](event-grid-tutorial.md).
 
@@ -46,8 +46,8 @@ New features and integrations released this year:
 
 New features released this year:
 
-- Managed storage account keys. Storage Account Keys feature added easier integration with Azure Storage. See the overview topic for more information, [Managed Storage Account Keys overview](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
-- Soft delete. Soft-delete feature improves data protection of your key vaults and key vault objects. See the overview topic for more information, [Soft-delete overview](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
+- Managed storage account keys. Storage Account Keys feature added easier integration with Azure Storage. See the overview topic for more information, [Managed Storage Account Keys overview](../secrets/overview-storage-keys.md).
+- Soft delete. Soft-delete feature improves data protection of your key vaults and key vault objects. See the overview topic for more information, [Soft-delete overview](./soft-delete-overview.md).
 
 ## 2015
 
@@ -61,7 +61,7 @@ General Availability (version 2015-06-01) was announced on June 24, 2015. The fo
 - Restore a key - "use" field removed.     
 - Changed "RSA_OAEP" to "RSA-OAEP" for RSA Algorithms. See [About keys, secrets, and certificates](about-keys-secrets-certificates.md).    
  
-Second preview version (version 2015-02-01-preview) was announced April 20, 2015. For more information, see [REST API Update](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) blog post. The following tasks were updated:
+Second preview version (version 2015-02-01-preview) was announced April 20, 2015. For more information, see [REST API Update](/archive/blogs/kv/rest-api-update) blog post. The following tasks were updated:
  
 - List the keys in a vault - added pagination support to operation.
 - List the versions of a key - added operation to list the versions of a key.  

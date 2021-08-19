@@ -1,9 +1,6 @@
 ---
 title: Add additional Azure Storage accounts to HDInsight 
 description: Learn how to add additional Azure Storage accounts to an existing HDInsight cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
@@ -12,7 +9,7 @@ ms.date: 04/27/2020
 
 # Add additional storage accounts to HDInsight
 
-Learn how to use script actions to add additional Azure Storage *accounts* to HDInsight. The steps in this document add a storage *account* to an existing HDInsight cluster. This article applies to storage *accounts* (not the default cluster storage account), and not additional storage such as [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-store.md) and [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Learn how to use script actions to add additional Azure Storage *accounts* to HDInsight. The steps in this document add a storage *account* to an existing HDInsight cluster. This article applies to storage *accounts* (not the default cluster storage account), and not additional storage such as [`Azure Data Lake Storage Gen1`](hdinsight-hadoop-use-data-lake-storage-gen1.md) and [`Azure Data Lake Storage Gen2`](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
 > The information in this document is about adding additional storage account(s) to a cluster after it has been created. For information on adding storage accounts during cluster creation, see [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md).
@@ -21,7 +18,7 @@ Learn how to use script actions to add additional Azure Storage *accounts* to HD
 
 * A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Storage account name and key. See [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
-* If using PowerShell, you'll need the AZ module.  See [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+* If using PowerShell, you'll need the AZ module.  See [Overview of Azure PowerShell](/powershell/azure/).
 
 ## How it works
 
@@ -96,7 +93,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. Observe the keys that begin with `fs.azure.account.key`. The account name will be a part of the key as seen in this sample image:
 
-   ![verification through Apache Ambari](./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png)
+   :::image type="content" source="./media/hdinsight-hadoop-add-storage/apache-ambari-verification.png" alt-text="verification through Apache Ambari":::
 
 ## Remove storage account
 
@@ -122,12 +119,11 @@ If you change the key for a storage account, HDInsight can no longer access the 
 
 Running the script action again **doesn't** update the key, as the script checks to see if an entry for the storage account already exists. If an entry already exists, it doesn't make any changes.
 
-To work around this problem:  
-1. Remove the storage account.
-1. Add the storage account.
+To work around this problem:
 
-> [!IMPORTANT]  
-> Rotating the storage key for the primary storage account attached to a cluster is not supported.
+* See [Update storage account access keys](hdinsight-rotate-storage-keys.md) on how to rotate the access keys.
+
+* You can also remove the storage account and then add back the storage account.
 
 ## Next steps
 

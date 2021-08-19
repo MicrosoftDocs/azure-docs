@@ -70,7 +70,7 @@ After you enable email notification for a device, members of the notification li
 
 5. Once you have completed the configuration, click **Save**. When prompted for confirmation, click **Yes**.
 
-     ![Alerts test notification email sent](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
+     ![Alerts test notification email sent 2](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
 
 ## View and track alerts
 

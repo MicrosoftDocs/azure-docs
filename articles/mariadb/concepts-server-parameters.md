@@ -1,8 +1,8 @@
 ---
 title: Server parameters - Azure Database for MariaDB
 description: This topic provides guidelines for configuring server parameters in Azure Database for MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
@@ -22,6 +22,12 @@ Azure Database for MariaDB exposes the ability to change the value of various Ma
 The list of supported server parameters is constantly growing. Use the server parameters tab in the Azure portal to view the full list and configure server parameters values.
 
 Refer to the following sections below to learn more about the limits of the several commonly updated server parameters. The limits are determined by the pricing tier and vCores of the server.
+
+### log_bin_trust_function_creators
+
+In Azure Database for MariaDB, binary logs are always enabled (i.e. `log_bin` is set to ON). In case you want to use triggers you will get error similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*.
+
+The binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. With row-based binary logging, security issues do not exist and binary logging cannot break, so you can safely set [`log_bin_trust_function_creators`](https://mariadb.com/docs/reference/mdb/system-variables/log_bin_trust_function_creators/) to **TRUE**.
 
 ### innodb_buffer_pool_size
 
@@ -147,7 +153,7 @@ The query cache is enabled by default in MariaDB with the `have_query_cache` par
 
 Review the [MariaDB documentation](https://mariadb.com/kb/en/server-system-variables/#query_cache_size) to learn more about this parameter.
 
-|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value **|
+|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|

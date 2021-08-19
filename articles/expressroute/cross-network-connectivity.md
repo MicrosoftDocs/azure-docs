@@ -116,12 +116,12 @@ See [virtual network FAQ][VNet-FAQ], for any further questions on VNet and VNet-
 Global Reach is rolled out on a country/region by country/region basis. To see if Global Reach is available in the countries/regions that you want, see [ExpressRoute Global Reach][Global Reach].
 
 <!--Link References-->
-[Virtual network peering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
-[connection]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager
-[Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-global-reach
-[Configure VNet peering]: https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions
-[Configure Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach
-[Subscription limits]: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits
-[Connect-ER-VNet]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager
-[ER-FAQ]: https://docs.microsoft.com/azure/expressroute/expressroute-faqs
+[Virtual network peering]: ../virtual-network/virtual-network-peering-overview.md
+[connection]: ./expressroute-howto-linkvnet-portal-resource-manager.md
+[Global Reach]: ./expressroute-global-reach.md
+[Configure VNet peering]: ../virtual-network/create-peering-different-subscriptions.md
+[Configure Global Reach]: ./expressroute-howto-set-global-reach.md
+[Subscription limits]: ../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits
+[Connect-ER-VNet]: ./expressroute-howto-linkvnet-portal-resource-manager.md
+[ER-FAQ]: ./expressroute-faqs.md
 [VNet-FAQ]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq

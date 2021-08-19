@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/04/2021
 ms.author: banders
 ---
 
@@ -86,8 +86,8 @@ PublisherType | All | Type of publisher (Values: **Azure**, **AWS**, **Marketpla
 Quantity | All | The number of units purchased or consumed.
 ReservationId | EA, MCA | Unique identifier for the purchased reservation instance.
 ReservationName | EA, MCA | Name of the purchased reservation instance.
-ResourceGroup | All | Name of the [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) the resource is in. Not all charges come from resources deployed to resource groups. Charges that do not have a resource group will be shown as null/empty, **Others**, or **Not applicable**.
-ResourceId<sup>1</sup> | All | Unique identifier of the [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) resource.
+ResourceGroup | All | Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that do not have a resource group will be shown as null/empty, **Others**, or **Not applicable**.
+ResourceId<sup>1</sup> | All | Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource.
 ResourceLocation | All | Datacenter location where the resource is running. See Location.
 ResourceName | EA, PAYG | Name of the resource. Not all charges come from deployed resources. Charges that do not have a resource type will be shown as null/empty, **Others**, or **Not applicable**.
 ResourceType | MCA | Type of resource instance. Not all charges come from deployed resources. Charges that do not have a resource type will be shown as null/empty, **Others**, or **Not applicable**.
@@ -122,12 +122,24 @@ UsageDate | Date
 UsageEnd | Date
 UsageStart | Date
 
-
 ## Ensure charges are correct
 
-To learn more about detailed usage and charges, read about how to understand your
-[pay-as-you-go](review-individual-bill.md)
-or [Microsoft Customer Agreement](review-customer-agreement-bill.md) invoice.
+To learn more about detailed usage and charges, read about how to understand your [pay-as-you-go](review-individual-bill.md) or [Microsoft Customer Agreement](review-customer-agreement-bill.md) invoice.
+
+## Unexpected usage or charges
+
+If you have usage or charges that you don't recognize, there are several things you can do to help understand why:
+
+- Review the invoice that has charges for the resource
+- Review your invoiced charges in Cost analysis
+- Find people responsible for the resource and engage with them
+- Analyze the audit logs
+- Analyze user permissions to the resource's parent scope
+- Create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) to help identify the charges
+
+For more information, see [Analyze unexpected charges](analyze-unexpected-charges.md).
+
+Note that Azure doesn't log most user actions. Instead, Microsoft logs resource usage for billing. If you notice a usage spike in the past and you didn't have logging enabled, Microsoft can't pinpoint the cause. Enable logging for the service that you want to view the increased usage for so that the appropriate technical team can assist you with the issue.
 
 ## Need help? Contact us.
 

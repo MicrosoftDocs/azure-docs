@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Configure high availability from on-premises to CloudSimple VPN gateway
 description: Describes how to configure a high availability connection from your on-premises environment to a CloudSimple VPN gateway enabled for high availability
-author: sharaths-cs
-ms.author: b-shsury 
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -278,7 +278,7 @@ Configuring NAT on Cisco ASA:
 
 Supported IKEv1 and IKEv2 attributes on Cisco ASA:
 
-<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa90/configuration/guide/asa_90_cli_config/vpn_ike.html#21661" target="_blank">Cisco ASA Series CLI Configuration Guide</a>
+<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa72/configuration/guide/conf_gd/ike.html" target="_blank">Cisco ASA Series CLI Configuration Guide</a>
 
 Configuring IPsec Site-to-Site VPN on Cisco ASA with version 8.4 and later:
 

@@ -108,15 +108,15 @@ Follow these steps to import the `.cer` file into the root store of a Windows or
 1. Right-click the `.cer` file and select **Install certificate**. This action starts the Certificate Import Wizard.
 2. For **Store location**, select **Local Machine**, and then click **Next**.
 
-    ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
+    ![Certificate Import Wizard, Windows Server](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
 
 3. Select **Place all certificates in the following store**, and then click **Browse**. Navigate to the root store of your remote host, and then click **Next**.
 
-    ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
+    ![Certificate Import Wizard, Certificate Store](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
 
 4. Click **Finish**. A message that tells you that the import was successful appears.
 
-    ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
+    ![Certificate Import Wizard, finish import](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
 #### Use a Linux system
 
@@ -170,7 +170,7 @@ The first step is to create a container, because blobs are always uploaded into 
 2. In the left pane, expand the storage account within which you wish to create the blob container.
 3. Right-click **Blob Containers**, and from the context menu, select **Create Blob Container**.
 
-   ![Create blob containers context menu](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
+   ![Blob Containers context menu, Create Blob Container](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
 4. A text box appears below the **Blob Containers** folder. Enter the name for your blob container. See the [Create the container and set permissions](../storage/blobs/storage-quickstart-blobs-dotnet.md) for information on rules and restrictions on naming blob containers.
 5. Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container is successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.

@@ -1,11 +1,8 @@
 ---
 title: Standalone Service Fabric clusters overview 
 description: Service Fabric clusters run on Windows Server and Linux, which means you'll be able to deploy and host Service Fabric applications anywhere you can run Windows Server or Linux.
-author: dkkapur
-
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: dekapur
 ---
 
 # Overview of Service Fabric Standalone clusters
@@ -41,10 +38,10 @@ In addition to client certificates, Azure Active Directory can also be configure
 
 For more information, read [Client-to-node security](service-fabric-cluster-security.md#client-to-node-security)
 
-### Role-Based Access Control (RBAC)
+### Service Fabric role-based access control
 Service Fabric also supports access control to limit access to certain cluster operations for different groups of users. This helps make the cluster more secure. Two access control types are supported for clients that connect to a cluster: Administrator role and User role.  
 
-For more information, read [Role-Based Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
+For more information, read [Service Fabric role-based access control](service-fabric-cluster-security.md#service-fabric-role-based-access-control).
 
 ## Scaling
 

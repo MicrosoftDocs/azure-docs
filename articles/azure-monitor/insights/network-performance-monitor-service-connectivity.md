@@ -1,7 +1,6 @@
 ---
 title: Network Performance Monitor solution Service Connectivity - Azure Log Analytics
 description: Use the Service Connectivity Monitor capability in Network Performance Monitor to monitor network connectivity to any endpoint that has an open TCP port.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
@@ -10,6 +9,9 @@ ms.date: 02/20/2018
 ---
 
 # Service Connectivity Monitor
+
+> [!IMPORTANT]
+> Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You can continue to use the tests created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor to the new Connection Monitor](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) in Azure Network Watcher before 29 February 2024.
 
 You can use the Service Connectivity Monitor capability in [Network Performance Monitor](network-performance-monitor.md) to monitor network connectivity to any endpoint that has an open TCP port. Such endpoints include websites, SaaS applications, PaaS applications, and SQL databases. 
 
@@ -95,7 +97,7 @@ Determine whether poor application performance is because of the network or an i
 
 After you determine that the problem is because of the network, select the **Topology** view link to identify the troublesome hop on the topology map. An example is shown in the following image. Out of the 105-ms total latency between the node and the application endpoint, 96 ms is because of the hop marked in red. After you identify the troublesome hop, you can take corrective action. 
 
-![Service Connectivity Monitor tests](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
+![Service Connectivity Monitor endpoint topology](media/network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## Diagnostics 
 
@@ -129,5 +131,4 @@ For US Government Virginia region, only DOD URLs are built-in NPM. Customers usi
 | MS Teams | gov.teams.microsoft.us | 
 
 ## Next steps
-[Search logs](../log-query/log-query-overview.md) to view detailed network performance data records.
-
+[Search logs](../logs/log-query-overview.md) to view detailed network performance data records.

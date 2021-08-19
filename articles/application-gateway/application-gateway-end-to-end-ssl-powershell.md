@@ -6,7 +6,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure end to end TLS by using Application Gateway with PowerShell
@@ -354,6 +355,6 @@ DnsSettings              : {
 
 ## Next steps
 
-For more information about hardening the security of your web applications with Web Application Firewall through Application Gateway, see the [Web application firewall overview](application-gateway-webapplicationfirewall-overview.md).
+For more information about hardening the security of your web applications with Web Application Firewall through Application Gateway, see the [Web application firewall overview](../web-application-firewall/ag/ag-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

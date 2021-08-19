@@ -13,9 +13,9 @@ ms.author: banders
 
 # Manage costs with Azure Budgets
 
-Cost control is a critical component to maximizing the value of your investment in the cloud. There are several scenarios where cost visibility, reporting, and cost-based orchestration are critical to continued business operations. [Azure Cost Management APIs](https://docs.microsoft.com/rest/api/consumption/) provide a set of APIs to support each of these scenarios. The APIs provide usage details, allowing you to view granular instance level costs.
+Cost control is a critical component to maximizing the value of your investment in the cloud. There are several scenarios where cost visibility, reporting, and cost-based orchestration are critical to continued business operations. [Azure Cost Management APIs](/rest/api/consumption/) provide a set of APIs to support each of these scenarios. The APIs provide usage details, allowing you to view granular instance level costs.
 
-Budgets are commonly used as part of cost control. Budgets can be scoped in Azure. For instance, you could narrow your budget view based on subscription, resource groups, or a collection of resources. In addition to using the budgets API to notify you via email when a budget threshold is reached, you can use [Azure Monitor action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) to trigger an orchestrated set of actions resulting from a budget event.
+Budgets are commonly used as part of cost control. Budgets can be scoped in Azure. For instance, you could narrow your budget view based on subscription, resource groups, or a collection of resources. In addition to using the budgets API to notify you via email when a budget threshold is reached, you can use [Azure Monitor action groups](../../azure-monitor/alerts/action-groups.md) to trigger an orchestrated set of actions resulting from a budget event.
 
 A common budgets scenario for a customer running a non-critical workload could occur when they want to manage against a budget and also get to a predictable cost when looking at the monthly invoice. This scenario requires some cost-based orchestration of resources that are part of the Azure environment. In this scenario, a monthly budget of $1000 for the subscription is set. Also, notification thresholds are set to trigger a few orchestrations. This scenario starts with an 80% cost threshold, which will stop all VMs in the resource group **Optional**. Then, at the 100% cost threshold, all VM instances will be stopped.
 
@@ -30,7 +30,7 @@ These actions included in this tutorial allow you to:
 
 ## Create an Azure Automation Runbook
 
-[Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) is a service that enables you to script most of your resource management tasks and run those tasks as either scheduled or on-demand. As part of this scenario, you'll create an [Azure Automation runbook](https://docs.microsoft.com/azure/automation/automation-runbook-types) that will be used to stop VMs. You'll use the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) graphical runbook from the [gallery](https://docs.microsoft.com/azure/automation/automation-runbook-gallery) to build this scenario. By importing this runbook into your Azure account and publishing it, you can stop VMs when a budget threshold is reached.
+[Azure Automation](../../automation/automation-intro.md) is a service that enables you to script most of your resource management tasks and run those tasks as either scheduled or on-demand. As part of this scenario, you'll create an [Azure Automation runbook](../../automation/automation-runbook-types.md) that will be used to stop VMs. You'll use the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) graphical runbook from the [gallery](../../automation/automation-runbook-gallery.md) to build this scenario. By importing this runbook into your Azure account and publishing it, you can stop VMs when a budget threshold is reached.
 
 ### Create an Azure Automation account
 
@@ -44,7 +44,7 @@ These actions included in this tutorial allow you to:
 
 ### Import the Stop Azure V2 VMs runbook
 
-Using an [Azure Automation runbook](https://docs.microsoft.com/azure/automation/automation-runbook-types), import the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) graphical runbook from the gallery.
+Using an [Azure Automation runbook](../../automation/automation-runbook-types.md), import the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) graphical runbook from the gallery.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account credentials.
 1. Open your Automation account by selecting **All services** > **Automation Accounts**. Then, select your Automation Account.
@@ -55,7 +55,7 @@ Using an [Azure Automation runbook](https://docs.microsoft.com/azure/automation/
 1. Once the runbook has completed the import process, select **Edit** to display the graphical runbook editor and publishing option.  
     ![Azure - Edit graphical runbook](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
 1. Select **Publish** to publish the runbook and then select **Yes** when prompted. When you publish a runbook, you override any existing published version with the draft version. In this case, you've no published version because you've created the runbook.
-    For more information about publishing a runbook, see [Create a graphical runbook](https://docs.microsoft.com/azure/automation/automation-first-runbook-graphical).
+    For more information about publishing a runbook, see [Create a graphical runbook](../../automation/learn/automation-tutorial-runbook-graphical.md).
 
 ## Create webhooks for the runbook
 
@@ -86,7 +86,7 @@ You're now done with the Azure Automation setup. You can test the webhooks with 
 
 ## Create an Azure Logic App for orchestration
 
-Logic Apps helps you build, schedule, and automate processes as workflows so you can integrate apps, data, systems, and services across enterprises or organizations. In this scenario, the [Logic App](https://docs.microsoft.com/azure/logic-apps/) you create will do a little more than just call the automation webhook you created.
+Logic Apps helps you build, schedule, and automate processes as workflows so you can integrate apps, data, systems, and services across enterprises or organizations. In this scenario, the [Logic App](../../logic-apps/index.yml) you create will do a little more than just call the automation webhook you created.
 
 Budgets can be set up to trigger a notification when a specified threshold is met. You can provide multiple thresholds to be notified at and the Logic App will demonstrate the ability for you to perform different actions based on the threshold met. In this example, you'll set up a scenario where you get a couple of notifications, the first notification is for when 80% of the budget has been reached and the second notification is when 100% of the budget has been reached. The logic app will be used to shut down all VMs in the resource group. First, the **Optional** threshold will be reached at 80%, then the second threshold will be reached where all VMs in the subscription will be shut down.
 
@@ -117,11 +117,11 @@ After Azure deploys your logic app, the **Logic Apps Designer** opens and shows 
 Every logic app must start with a trigger, which fires when a specific event happens or when a specific condition is met. Each time the trigger fires, the Logic Apps engine creates a logic app instance that starts and runs your workflow. Actions are all the steps that happen after the trigger.
 
 1. Under **Templates** of the **Logic Apps Designer** area, choose **Blank Logic App**.
-1. Add a [trigger](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) by entering "http request" in the **Logic Apps Designer** search box to find and select the trigger named **Request – When an HTTP request is received**.  
+1. Add a [trigger](../../logic-apps/logic-apps-overview.md#logic-app-concepts) by entering "http request" in the **Logic Apps Designer** search box to find and select the trigger named **Request – When an HTTP request is received**.  
     ![Azure - Logic app - Http trigger](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png)
 1. Select **New step** > **Add an action**.  
     ![Azure - New step - Add an action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
-1. Search for "parse JSON" in the **Logic Apps Designer** search box to find and select the **Data Operations - Parse JSON** [action](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts).  
+1. Search for "parse JSON" in the **Logic Apps Designer** search box to find and select the **Data Operations - Parse JSON** [action](../../logic-apps/logic-apps-overview.md#logic-app-concepts).  
     ![Azure - Logic app - Add parse JSON action](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
 1. Enter "Payload" as the **Content** name for the Parse JSON payload or use the "Body" tag from dynamic content.
 1. Select the **Use sample payload to generate schema** option in the **Parse JSON** box.  
@@ -311,7 +311,7 @@ Next, you'll configure **Postman** to create a budget by calling the Azure Consu
     ```
 1. Press **Send** to send the request.
 
-You now have all the pieces you need to call the [budgets API](https://docs.microsoft.com/rest/api/consumption/budgets). The budgets API reference has additional details on the specific requests, including:
+You now have all the pieces you need to call the [budgets API](/rest/api/consumption/budgets). The budgets API reference has additional details on the specific requests, including:
 
 - **budgetName** - Multiple budgets are supported.  Budget names must be unique.
 - **category** - Must be either **Cost** or **Usage**. The API supports both cost and usage budgets.

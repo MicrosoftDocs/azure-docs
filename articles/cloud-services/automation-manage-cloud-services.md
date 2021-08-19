@@ -1,17 +1,18 @@
 ---
-title: Manage Azure Cloud Services using Azure Automation | Microsoft Docs
+title: Manage Azure Cloud Services (classic) using Azure Automation | Microsoft Docs
 description: Learn about how the Azure Automation service can be used to manage Azure cloud services at scale.
-services: cloud-services, automation
-author: jodoglevy
-manager: timlt
-editor: ''
-ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
-ms.service: cloud-services
 ms.topic: article
-ms.date: 06/20/2016
-ms.author: timlt
+ms.service: cloud-services
+ms.date: 10/14/2020
+author: hirenshah1
+ms.author: hirshah
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Managing Azure Cloud Services using Azure Automation
+# Managing Azure Cloud Services (classic) using Azure Automation
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of your Azure cloud services.
 
 ## What is Azure Automation?
@@ -33,4 +34,4 @@ Some example uses of Azure Automation to manage Azure Cloud Services include:
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure cloud services, follow these links to learn more about Azure Automation.
 
 * [Azure Automation Overview](../automation/automation-intro.md)
-* [My first runbook](../automation/automation-first-runbook-graphical.md)
+* [My first runbook](../automation/learn/automation-tutorial-runbook-graphical.md)

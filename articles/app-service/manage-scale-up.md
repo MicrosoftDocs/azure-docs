@@ -17,7 +17,7 @@ This article shows you how to scale your app in Azure App Service. There are two
 * [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Increase the number of VM instances that run your app.
   You can scale out to as many as 30 instances, depending on your pricing tier. [App Service Environments](environment/intro.md)
   in **Isolated** tier further increases your scale-out count to 100 instances. For more information about scaling out, see
-  [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md). There, you find out how
+  [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md). There, you find out how
   to use autoscaling, which is to scale instance count automatically based on predefined rules and schedules.
 
 The scale settings take only seconds to apply and affect all apps in your [App Service plan](../app-service/overview-hosting-plans.md).
@@ -36,7 +36,7 @@ For information about the pricing and features of individual App Service plans, 
 ## Scale up your pricing tier
 
 > [!NOTE]
-> To scale up to **PremiumV2** tier, see [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md).
+> To scale up to **PremiumV3** tier, see [Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md).
 >
 
 1. In your browser, open the [Azure portal][portal].
@@ -78,8 +78,8 @@ For a table of service limits, quotas, and constraints, and supported features i
 
 ## More resources
 
-[Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md)  
-[Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md)
+[Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md)  
+[Configure PremiumV3 tier for App Service](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/

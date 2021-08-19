@@ -8,7 +8,7 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 08/13/2020
 ms.author: danlep
-ms.custom: include file
+ms.custom: include file, devx-track-azurecli
 ---
 
 ## Create Azure container registry
@@ -72,6 +72,6 @@ Login Succeeded
 ```
 
 <!-- LINKS - Internal -->
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-login]: /cli/azure/acr#az-acr-login
-[az-group-create]: /cli/azure/group#az-group-create
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-group-create]: /cli/azure/group#az_group_create

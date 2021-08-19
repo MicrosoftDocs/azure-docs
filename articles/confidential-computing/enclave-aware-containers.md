@@ -1,11 +1,12 @@
 ---
- title: Enclave aware containers on Azure
- description: enclave ready application containers support on Azure Kubernetes Service (AKS)
- author: agowdamsft
- ms.service: container-service
- ms.topic: overview
- ms.date: 9/22/2020
- ms.author: amgowda
+title: Enclave aware containers on Azure
+description: enclave ready application containers support on Azure Kubernetes Service (AKS)
+author: agowdamsft
+ms.service: container-service
+ms.subservice: confidential-computing
+ms.topic: overview
+ms.date: 9/22/2020
+ms.author: amgowda
 ---
 
 # Enclave Aware Containers
@@ -46,14 +47,18 @@ This solution allows you to bring existing ML trained model and run them confide
 
 Get started with ML model lift and shift to ONNX runtime [here](https://aka.ms/confidentialinference)
 
-## Container Samples Implementations
+### EGo
 
-[Azure samples for enclave aware containers on AKS](https://github.com/Azure-Samples/enclave-aware-container-samples)
+The open source [EGo SDK](https://www.ego.dev) brings support for the Go programming language to enclaves. EGo builds upon the Open Enclave SDK. It aims to make it easy to build confidential microservices. Follow this [step-by-step guide](https://github.com/edgelesssys/ego/tree/master/samples/aks), to deploy an EGo-based service on AKS.
+
+## Container Based Sample Implementations
+
+[Azure samples for enclave aware containers on AKS](https://github.com/Azure-Samples/confidential-computing/tree/main/containersamples)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure Attestation](../attestation/overview.md)
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
-[Confidential Containers]: /confidential-computing/containercompute/confidential-containers
+[DC Virtual Machine](./virtual-machine-solutions.md)
+[Confidential Containers](./confidential-containers.md)

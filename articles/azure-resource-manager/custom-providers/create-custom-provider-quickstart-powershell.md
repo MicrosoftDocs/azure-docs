@@ -3,10 +3,12 @@ title: Create an Azure custom resource provider with Azure PowerShell
 description: Describes how to create an Azure custom resource provider with Azure PowerShell
 author: MSEvanhi
 ms.author: evanhi
+ms.date: 09/22/2020
 ms.topic: quickstart
 ms.devlang: azurepowershell
-ms.date: 09/22/2020
 ms.custom: devx-track-azurepowershell
+  - devx-track-azurepowershell
+  - mode-api
 ---
 
 # Quickstart: Create an Azure custom resource provider with Azure PowerShell
@@ -30,7 +32,7 @@ module and connect to your Azure account using the
 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information
 about installing the Az PowerShell module, see
 [Install Azure PowerShell](/powershell/azure/install-az-ps). If you choose to use Cloud Shell, see
-[Overview of Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) for
+[Overview of Azure Cloud Shell](../../cloud-shell/overview.md) for
 more information.
 
 > [!IMPORTANT]

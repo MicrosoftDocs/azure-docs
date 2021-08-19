@@ -1,9 +1,12 @@
 ---
 title: Edit a knowledge base - QnA Maker
 description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
 ---
+
 # Edit QnA pairs in your knowledge base
 
 QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
@@ -12,7 +15,26 @@ QnA pairs are added from a datasource, such as a file or URL, or added as an edi
 
 <a name="add-an-editorial-qna-set"></a>
 
+## Question and answer pairs
+
+A knowledge base consists of question and answer (QnA) pairs.  Each pair has one answer and a pair contains all the information associated with that _answer_. An answer can loosely resemble a database row or a data structure instance. The **required** settings in a question-and-answer (QnA) pair are:
+
+* a **question** - text of user query, used to QnA Maker's machine-learning, to align with text of user's question with different wording but the same answer
+* the **answer** - the pair's answer is the response that's returned when a user query is matched with the associated question
+
+Each pair is represented by an **ID**.
+
+The **optional** settings for a pair include:
+
+* **Alternate forms of the question** - this helps QnA Maker return the correct answer for a wider variety of question phrasings
+* **Metadata**: Metadata are tags associated with a QnA pair and are represented as key-value pairs. Metadata tags are used to filter QnA pairs and limit the set over which query matching is performed.
+* **Multi-turn prompts**, used to continue a multi-turn conversation
+
+![QnA Maker knowledge bases](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
+
 ## Add an editorial QnA pair
+
+If you do not have pre-existing content to populate the knowledge base, you can add QnA pairs editorially in the QnA Maker portal.
 
 1. Sign in to the [QnA portal](https://www.qnamaker.ai/), then select the knowledge base to add the QnA pair to.
 1. On the **EDIT** page of the knowledge base, select **Add QnA pair** to add a new QnA pair.
@@ -120,11 +142,19 @@ Periodically select **Save and train** after making edits to avoid losing change
 
 [Rich-text editing](#add-an-editorial-qna-set) of answers allows you, as the author, to use a formatting toolbar to quickly select and format text.
 
-[Markdown](../reference-markdown-format.md) is a better tool when you need to autogenerate content to create knowledge bases to be imported as part of a CI/CD pipeline or for [batch testing](../Quickstarts/batch-testing.md).
+[Markdown](../reference-markdown-format.md) is a better tool when you need to autogenerate content to create knowledge bases to be imported as part of a CI/CD pipeline or for [batch testing](../index.yml).
+
+## Editing your knowledge base locally
+
+Once a knowledge base is created, it is recommended that you make edits to the knowledge base text in the [QnA Maker portal](https://qnamaker.ai), rather than exporting and reimporting through local files. However, there may be times that you need to edit a knowledge base locally.
+
+Export the knowledge base from the **Settings** page, then edit the knowledge base with Microsoft Excel. If you choose to use another application to edit your exported file, the application may introduce syntax errors because it is not fully TSV compliant. Microsoft Excel's TSV files generally don't introduce any formatting errors.
+
+Once you are done with your edits, reimport the TSV file from the **Settings** page. This will completely replace the current knowledge base with the imported knowledge base.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Collaborate on a knowledge base](./collaborate-knowledge-base.md)
+> [Collaborate on a knowledge base](../index.yml)
 
 * [Manage Azure resources used by QnA Maker](set-up-qnamaker-service-azure.md)

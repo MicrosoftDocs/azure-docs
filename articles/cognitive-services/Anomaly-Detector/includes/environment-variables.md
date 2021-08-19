@@ -2,18 +2,18 @@
 title: Anomaly Detector environment variables
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 06/30/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 ### Create an environment variable
 
 >[!NOTE]
-> The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../../cognitive-services-custom-subdomains.md). 
 
 Using your key and endpoint from the resource you created, create two environment variables for authentication:
 

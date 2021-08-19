@@ -7,7 +7,7 @@ ms.date: 03/01/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: devx-track-js
 #Customer intent: As an Azure Maps web sdk user, I want to read and write spatial data so that I can use data for map rendering.
 ---
@@ -160,17 +160,17 @@ The `GmlReader` will parse coordinates that has one of the following SRIDs:
 
 Learn more about the classes and methods used in this article:
 
-[atlas.io static functions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io)
+[atlas.io static functions](/javascript/api/azure-maps-spatial-io/atlas.io)
 
-[SpatialDataSet](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
+[SpatialDataSet](/javascript/api/azure-maps-spatial-io/atlas.spatialdataset)
 
-[SpatialDataSetStats](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
+[SpatialDataSetStats](/javascript/api/azure-maps-spatial-io/atlas.spatialdatasetstats)
 
-[GmlReader](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
+[GmlReader](/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlreader)
 
-[GmlWriter](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
+[GmlWriter](/javascript/api/azure-maps-spatial-io/atlas.io.core.gmlwriter)
 
-[atlas.io.ogc.WKT functions](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
+[atlas.io.ogc.WKT functions](/javascript/api/azure-maps-spatial-io/atlas.io.ogc.wkt)
 
 [Connect to a WFS service](spatial-io-connect-wfs-service.md)
 

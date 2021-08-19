@@ -4,15 +4,17 @@ description: 'Tutorial: Learn how to query with SQL queries in Azure Cosmos DB u
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 08/12/2021
 ms.reviewer: sngun
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-The Azure Cosmos DB [SQL API](documentdb-introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
+The Azure Cosmos DB [SQL API](./introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
 
 This article covers the following tasks: 
 
@@ -54,7 +56,7 @@ The SQL queries in this article use the following sample document.
 
 ## Where can I run SQL queries?
 
-You can run queries using the Data Explorer in the Azure portal, via the [REST API and SDKs](sql-api-sdk-dotnet.md), and even the [Query playground](https://www.documentdb.com/sql/demo), which runs queries on an existing set of sample data.
+You can run queries using the Data Explorer in the Azure portal and via the [REST API and SDKs](sql-api-sdk-dotnet.md).
 
 For more information about SQL queries, see:
 * [SQL query and SQL syntax](sql-query-getting-started.md)
@@ -144,4 +146,3 @@ You can now proceed to the next tutorial to learn how to distribute your data gl
 
 > [!div class="nextstepaction"]
 > [Distribute your data globally](tutorial-global-distribution-sql-api.md)
-
