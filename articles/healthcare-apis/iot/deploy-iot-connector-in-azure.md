@@ -87,11 +87,11 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
 For more information, see the open source documentation [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#device-content-mapping).
 
-1. Under the **Device Mapping** tab, enter the device mapping JSON code associated with the IoT Connector.
+1. Under the **Device Mapping** tab, enter the device mapping JSON code associated with your IoT Connector.
 
    [ ![Configure device mapping.](media/configure-device-mapping.png) ](media/configure-device-mapping.png#lightbox)
 
-2. Select **Review + create**, or select **Next: Tags >** to configure the tagging properties associated with the IoT Connector.
+2. Select **Review + create**, or select **Next: Destination >** to configure the destination properties associated with your IoT Connector.
 
 ## Configure Destination
 
@@ -130,7 +130,7 @@ For more information, see the open source documentation [Device Content Mapping]
 
    For information about the Mapper Tool, see [IoMT Connector Data Mapper Tool.](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper).
 
-6. You may select **Review + create**, or you can select **Next: Device Mapping >**.  
+6. You may select **Review + create**, or you can select **Next: Tags >**.  
 
 ## (Optional) Configure Tags
 
