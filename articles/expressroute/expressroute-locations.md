@@ -72,8 +72,8 @@ The following table shows locations by service provider. If you want to view ava
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Supported |Supported |Chicago, Denver, Los Angeles, New York, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
 | **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange/find-a-cloud-service/detail/microsoft-azure)** | Supported |Supported |Amsterdam2, Dubai2, Frankfurt, Marseille, Mumbai, Munich, New York |
 | **[Devoli](https://devoli.com/expressroute)** | Supported |Supported | Auckland, Melbourne, Sydney |
-| **[Deutsche Telekom AG IntraSelect]()** | Supported |Supported |Frankfurt |
-| **[Deutsche Telekom AG]()** | Supported |Supported |Frankfurt2 |
+| **[Deutsche Telekom AG IntraSelect](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | Supported |Supported |Frankfurt |
+| **[Deutsche Telekom AG](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** | Supported |Supported |Frankfurt2 |
 | **du datamena** |Supported |Supported | Dubai2 |
 | **eir** |Supported |Supported |Dublin|
 | **[Epsilon Global Communications](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Supported |Supported |Singapore, Singapore2 |
@@ -84,7 +84,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Fastweb](https://www.fastweb.it/grandi-aziende/cloud/scheda-prodotto/fastcloud-interconnect/)** | Supported |Supported |Milan|
 | **[Fibrenoire](https://fibrenoire.ca/en/services/cloudextn-2/)** |Supported |Supported |Montreal|
 | **[GÉANT](https://www.geant.org/Networks)** |Supported |Supported |Amsterdam, Amsterdam2, Dublin, Frankfurt, Marseille |
-| **[GlobalConnect]()** | Supported |Supported | Oslo, Stavanger | 
+| **[GlobalConnect](https://www.globalconnect.no/tjenester/nettverk/cloud-access)** | Supported |Supported | Oslo, Stavanger | 
 | **GTT** |Supported |Supported |London2 |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Supported| Supported | Chennai, Mumbai |
 | **[iAdvantage](https://www.scx.sunevision.com/)** | Supported | Supported | Hong Kong2 |
