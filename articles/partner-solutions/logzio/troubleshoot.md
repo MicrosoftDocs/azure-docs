@@ -4,7 +4,7 @@ description: Learn about how to troubleshoot the Azure integration with Logz.io.
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 07/28/2021
+ms.date: 08/17/2021
 ms.author: tomfitz
 ---
 
