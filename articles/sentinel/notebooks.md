@@ -16,7 +16,9 @@ ms.date: 06/24/2021
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-The foundation of Azure Sentinel is the data store; it combines high-performance querying, dynamic schema, and scales to massive data volumes. The Azure portal and all Azure Sentinel tools use a common API to access this data store. The same API is also available for external tools such as [Jupyter](https://jupyter.org/) notebooks and Python. While many common tasks can be carried out in the portal, Jupyter extends the scope of what you can do with this data. It combines full programmability with a huge collection of libraries for machine learning, visualization, and data analysis. These attributes make Jupyter a compelling tool for security investigation and hunting.
+The foundation of Azure Sentinel is the data store; it combines high-performance querying, dynamic schema, and scales to massive data volumes. The Azure portal and all Azure Sentinel tools use a common API to access this data store. 
+
+The same API is also available for external tools such as [Jupyter](https://jupyter.org/) notebooks and Python. While many common tasks can be carried out in the portal, Jupyter extends the scope of what you can do with this data. It combines full programmability with a huge collection of libraries for machine learning, visualization, and data analysis. These attributes make Jupyter a compelling tool for security investigation and hunting.
 
 For example, use notebooks to:
 
@@ -32,6 +34,7 @@ The integrated Jupyter experience uses [Azure Notebooks](https://notebooks.azure
 ## Notebook components
 
 Notebooks have two components:
+
 - **The browser-based interface**, where you enter and run queries and code, and where the results of the execution are displayed.
 - **A *kernel*** that is responsible for parsing and executing the code itself.
 
@@ -53,14 +56,13 @@ The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-
 
 To use the notebooks, you must first have the right permissions, depending on your user role.
 
-As Azure Sentinel notebooks run on [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) (Azure ML) platform, you must have appropriate access to both Azure Sentinel workspace and an [Azure ML workspace](../machine-learning/concept-workspace.md).
+While you can run Azure Sentinel notebooks in JupyterLab or Jupyter classic, in Azure Sentinel, notebooks are run on an [Azure Machine Learning](../machine-learning/overview-what-is-azure-machine-learning.md) (Azure ML) platform. To run notebooks in Azure Sentinel, you must have appropriate access to both Azure Sentinel workspace and an [Azure ML workspace](../machine-learning/concept-workspace.md).
 
 |Permission  |Description  |
 |---------|---------|
 |**Azure Sentinel permissions**     |   Like other Azure Sentinel resources, to access notebooks on Azure Sentinel Notebooks blade, an Azure Sentinel Reader, Azure Sentinel Responder, or Azure Sentinel Contributor role is required. <br><br>For more information, see [Permissions in Azure Sentinel](roles.md).|
 |**Azure Machine Learning permissions**     | An Azure Machine Learning workspace is an Azure resource. Like other Azure resources, when a new Azure Machine Learning workspace is created, it comes with default roles. You can add users to the workspace and assign them to one of these built-in roles. For more information, see [Azure Machine Learning default roles](../machine-learning/how-to-assign-roles.md) and [Azure built-in roles](../role-based-access-control/built-in-roles.md). <br><br>   **Important**: Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How Azure RBAC works](../role-based-access-control/overview.md). <br><br>If you're an owner of an Azure ML workspace, you can add and remove roles for the workspace and assign roles to users. For more information, see:<br>    - [Azure portal](../role-based-access-control/role-assignments-portal.md)<br>    - [PowerShell](../role-based-access-control/role-assignments-powershell.md)<br>    - [Azure CLI](../role-based-access-control/role-assignments-cli.md)<br>   - [REST API](../role-based-access-control/role-assignments-rest.md)<br>    - [Azure Resource Manager templates](../role-based-access-control/role-assignments-template.md)<br> - [Azure Machine Learning CLI ](../machine-learning/how-to-assign-roles.md#manage-workspace-access)<br><br>If the built-in roles are insufficient, you can also create custom roles. Custom roles might have read, write, delete, and compute resource permissions in that workspace. You can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. For more information, see [Create custom role](../machine-learning/how-to-assign-roles.md#create-custom-role). |
 |     |         |
-
 
 ## Create an Azure ML workspace from Azure Sentinel
 
@@ -103,7 +105,13 @@ This procedure describes how to create an Azure ML workspace from Azure Sentinel
 
 After you've created an AML workspace, start launching your notebooks in your Azure ML workspace, from Azure Sentinel.
 
-**To launch your notebook**:
+> [!NOTE]
+> You can view a notebook as a static document, such as in the GitHub built-in static notebook renderer. However, to run code in a notebook, you must attach the notebook to a backend process called a Jupyter kernel. The kernel runs the code and holds all the variables and objects the code creates. The browser is the viewer for this data.
+>
+> In Azure ML, the kernel runs on a virtual machine called an Azure ML Compute. The Compute instance can support running many notebooks at once.
+>
+
+**To launch your notebook from Azure Sentinel**:
 
 1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks**, where you can see notebooks that Azure Sentinel provides.
 
@@ -132,18 +140,182 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
     > [!TIP]
     > If you are creating a new compute instance in order to test your notebooks, create your compute instance with the **General Purpose** category.
+    >
+    > The kernel is also shown at the top right of your Azure ML window. If the kernel you need isn't selected, select a different version from the dropdown list.
+    >
 
 1. Once your notebook server is created and started, you can starting running your notebook cells. In each cell, select the **Run** icon to run your notebook code.
 
     For more information, see [Command mode shortcuts.](../machine-learning/how-to-run-jupyter-notebooks.md)
 
-1. If you need to restart the notebook kernel and rerun the notebook cells from the beginning, select **Kernel operations** > **Restart kernel**. For example:
+1. If your notebook hangs or you want to start over, you can restart the kernel and re-run the notebook cells from the beginning. Select **Kernel operations** > **Restart kernel**. For example:
 
     :::image type="content" source="media/notebooks/sentinel-notebooks-restart-kernel.png" alt-text="Restart a notebook kernel.":::
 
+    > [!IMPORTANT]
+    > Restarting the kernel wipes all variables and other state. You need to rerun any initialization and authentication cells after restarting.
+    >
+
+## Run code in your notebook
+
+In a notebook:
+
+- **Markdown** cells have text, including HTML, and static images.
+- **Code** cells contain code. After you select a code cell, run the code in the cell by selecting the **Play** icon to the left of the cell, or by pressing **SHIFT+ENTER**.
+
+> [!IMPORTANT]
+> Always run notebook code cells in sequence. Skipping cells can result in errors.
+>
+
+For example, run the following code cell in your notebook:
+
+```python
+# This is your first code cell. This cell contains basic Python code.
+
+# You can run a code cell by selecting it and then selecting
+# the Play button to the left of the cell, or by pressing SHIFT+ENTER.
+# Code output displays below the code.
+
+print("Congratulations, you just ran this code cell")
+
+y = 2 + 2
+
+print("2 + 2 =", y)
+
+```
+
+The sample code shown above produces this output:
+
+```python
+Congratulations, you just ran this code cell
+
+2 + 2 = 4
+```
+
+Variables set within a notebook code cell persist between cells, so you can chain cells together. For example, the following code cell uses the value of `y` from the previous cell:
+
+```python
+# Note that output from the last line of a cell is automatically
+# sent to the output cell, without needing the print() function.
+
+y + 2
+```
+
+The output is:
+
+```output
+6
+```
+
+## Download all Azure Sentinel notebooks
+
+This section describes how to use Git to download all the notebooks available in the Azure Sentinel GitHub repository, from inside an Azure Sentinel notebook, directly to your Azure ML workspace.
+
+Having Azure Sentinel notebooks stored in your Azure ML workspace allows you to keep them updated easily.
+
+1. From an Azure Sentinel notebook, enter the following code into an empty cell, and then run the cell:
+
+    ```python
+    !git clone https://github.com/Azure/Azure-Sentinel-Notebooks.git azure-sentinel-nb
+    ```
+
+    A copy of the GitHub repository cotents is created in the **azure-sentinel-nb** directory on your user folder in your Azure ML workspace.
+
+1. Copy the notebooks you want from this folder to your working directory.
+
+1. To update your notebooks with any recent changes from Github, run:
+
+    ```python
+    !cd azure-sentinel-nb && git pull
+    ```
+
+
 ## Troubleshooting
 
+Usually, a notebook creates or attaches to a kernel seamlessly, and you don't need to make any manual changes. If you get errors, or the notebook doesn't seem to be running, you might need to check the version and state of the kernel.
+
 If you run into issues with your notebooks, see the [Azure Machine Learning notebook troubleshooting](../machine-learning/how-to-run-jupyter-notebooks.md#troubleshooting).
+
+### Force caching for user accounts and credentials between notebook runs
+
+By default, user accounts and credentials are not cached between notebook runs, even for the same session.
+
+**To force caching for the duration of your session**:
+
+1. Authenticate using Azure CLI.
+
+1. In an empty notebook cell, enter and run the following code:
+
+    ```python
+    !az login
+    ```
+
+    The following output appears:
+
+    ```python
+    To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the 9-digit device code to authenticate.
+    ```
+
+1. Select and copy the nine-character token from the output, and select the `devicelogin` URL to go to the indicated page page. 
+
+1. Paste the token into the dialog and continue with signing in as prompted.
+
+    When sign-in successfully completes, you see the following output:
+
+    ```python
+    Subscription <subscription ID> 'Sample subscription' can be accessed from tenants <tenant ID>(default) and <tenant ID>. To select a specific tenant when accessing this subscription, use 'az login --tenant TENANT_ID'.
+
+> [!NOTE]
+> The following tenants don't contain accessible subscriptions. Use 'az login --allow-no-subscriptions' to have tenant level access.
+>
+> ```
+> <tenant ID> 'foo'
+><tenant ID> 'bar'
+>[
+> {
+>    "cloudName": "AzureApp",
+>    "homeTenantId": "<tenant ID>",
+>    "id": "<ID>",
+>    "isDefault": true,
+>    "managedByTenants": [
+>    ....
+>```
+>
+### Error: *Runtime dependency of PyGObject is missing*
+
+If the *Runtime dependency of PyGObject is missing* error appears when you load a query provider, try troubleshooting using the following steps:
+
+1. Enter the following code in an empty cell and run it:
+
+    ```python
+    qry_prov = QueryProvider("AzureSentinel")
+    ```
+
+    A warning similar to the following is displayed, indicating a missing Python dependency (`pygobject`):
+
+    ```output
+    Runtime dependency of PyGObject is missing.
+
+    Depends on your Linux distribution, you can install it by running code similar to the following:
+    sudo apt install python3-gi python3-gi-cairo gir1.2-secret-1
+
+    If necessary, see PyGObject's documentation: https://pygobject.readthedocs.io/en/latest/getting_started.html
+
+    Traceback (most recent call last):
+      File "/anaconda/envs/azureml_py36/lib/python3.6/site-packages/msal_extensions/libsecret.py", line 21, in <module>
+    import gi  # https://github.com/AzureAD/microsoft-authentication-extensions-for-python/wiki/Encryption-on-Linux
+    ModuleNotFoundError: No module named 'gi'
+    ```
+
+1. Use the [aml-compute-setup.sh](https://github.com/Azure/Azure-Sentinel-Notebooks/master/HowTos/aml-compute-setup.sh) script, located in the Azure Sentinel Notebooks GitHub repository, to automatically install the `pygobject` in all notebooks and Anaconda environments on the Compute instance.
+
+> [!TIP]
+> You can also fix this Warning by running the following code from a notebook:
+>
+> ```python
+> !conda install --yes -c conda-forge pygobject
+> ```
+>
 
 
 ## Next steps

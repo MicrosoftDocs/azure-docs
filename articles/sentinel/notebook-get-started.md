@@ -11,9 +11,9 @@ ms.date: 07/22/2021
 
 # Run the Getting Started ML notebook in Azure Sentinel
 
-This article describes how to run the **Getting Started Guide For Azure Sentinel ML Notebooks** notebook, which focuses on setup activities and basic queries. 
+This article describes how to run the **Getting Started Guide For Azure Sentinel ML Notebooks** notebook, which focuses on setup activities and basic queries.
 
-The **Getting Started Guide for Azure Sentinel ML Notebooks** notebook also uses MSTICPy, a Python package that provides threat hunting and investigation functionality, including:
+The **Getting Started Guide for Azure Sentinel ML Notebooks** notebook uses MSTICPy, a Python package that provides threat hunting and investigation functionality. MSTICPy provides:
 
 - Data querying against Azure Sentinel tables, Microsoft Defender for Endpoint, Splunk, and other data sources.
 - Threat intelligence lookups with TI providers, such as VirusTotal and AlienVault OTX.
@@ -21,96 +21,24 @@ The **Getting Started Guide for Azure Sentinel ML Notebooks** notebook also uses
 - Visualization using event timelines, process trees, and geo mapping.
 - Advanced analyses like time series decomposition, anomaly detection, and clustering.
 
-The steps in this article describe how to run the notebook in your Azure ML workspace via Azure Sentinel, but you can use similar steps to run notebooks in other environments, including locally.
+The steps in this article describe how to run the notebook in your Azure ML workspace via Azure Sentinel. You can also use this article as guidance for performing similar steps to run notebooks in other environments, including locally.
 
-To use MSTICPy notebooks outside of Azure Sentinel and Azure Machine Learning (ML), you'll also need to configure your Python environment. Install Python 3.6 or later with the Anaconda distribution, which includes many of the required packages.
-
-For more information, see [Use notebooks to power investigations](hunting.md#use-notebooks-to-power-investigations).
+For more information, see [Use notebooks to power investigations](hunting.md#use-notebooks-to-power-investigations) and [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
 ## Prerequisites
 
+To perform the steps in this article, you'll need the either the Python 3.8 kernel (recommended) or the Python 3.6 kernel.
+
+If you use the notebook described in this article in another Jupyter environment, you can choose any kernel that supports Python 3.6 or later
+
+To use MSTICPy notebooks outside of Azure Sentinel and Azure Machine Learning (ML), you'll also need to configure your Python environment. Install Python 3.6 or later with the Anaconda distribution, which includes many of the required packages.
+
 ## Run the Getting Started Guide notebook
 
-1. In Azure Sentinel, select **Notebooks**. From the **Templates** tab, select **A Getting Started Guide For Azure Sentinel ML Notebooks** > **Save notebook** to save it to your Azure ML workspace. Then select **Launch notebook** to run the notebook.
+1. In Azure Sentinel, select **Notebooks**. From the **Templates** tab, select **A Getting Started Guide For Azure Sentinel ML Notebooks** > **Save notebook** to save it to your Azure ML workspace. 
 
+    Select **Launch notebook** to run the notebook.
 
-
-### Run Azure Machine Learning (ML) notebooks
-
-Azure Sentinel notebooks run in an Azure ML workspace. You can also open and run these notebooks in JupyterLab or Jupyter classic.
-
-You can view a notebook as a static document, for example in the GitHub built-in static notebook renderer. However, to run code in a notebook, you must attach the notebook to a backend process called a Jupyter kernel. The kernel runs the code and holds all the variables and objects the code creates. The browser is the viewer for this data.
-
-In Azure ML, the kernel runs on a virtual machine called an Azure ML Compute. The Compute instance can support running many notebooks at once.
-
-Usually, a notebook creates or attaches to a kernel seamlessly. You don't need to do anything manually. If you get errors, or the notebook doesn't seem to be running, you might need to check the version and state of the kernel.
-
-The Compute instance and the kernel version appear at the upper right in the Azure ML Workspace window.
-
-:::image type="content" source="media/notebook-get-started/compute-kernel.png" alt-text="Screenshot showing the Compute and kernel in an Azure ML workspace.":::
-
-This article and notebook use the Python 3.8 kernel. You can also use the Python 3.6 kernel. If the correct kernel doesn't show, select the dropdown caret next to the kernel field and select the correct version from the dropdown list.
-
-:::image type="content" source="media/notebook-get-started/select-kernel.png" alt-text="Screenshot that shows selecting the kernel in an Azure ML workspace.":::
-
-> [!NOTE]
-> The code in this article and notebook works with Python 3.6 or later. If you use the notebook in another Jupyter environment, you can choose any kernel that supports Python 3.6 or later
-
-If your notebook hangs or you want to start over, you can restart the kernel. Select the recycle symbol at upper left in the toolbar above the notebook. Restarting the kernel wipes all variables and other state. You need to rerun any initialization and authentication cells after restarting.
-
-:::image type="content" source="media/notebook-get-started/restart-kernel.png" alt-text="Screenshot that shows restarting the kernel in an Azure ML workspace.":::
-
-If you have trouble getting a notebook to run, review [How to run Jupyter notebooks](/azure/machine-learning/how-to-run-jupyter-notebooks).
-
-### Run code
-
-In a notebook, *Markdown* cells have text, including HTML, and static images. *Code* cells contain code. After you select a code cell, you can run the code in the cell by selecting the **Play** icon to the left of the cell, or by pressing Shift+Enter.
-
-You can identify code cells by selecting them. Code and Markdown cells have different styles in different notebook environments, but it's usually easy to distinguish them.
-
-Always run notebook code cells in sequence. Skipping cells can result in errors.
-
-Run the following code cell:
-
-```python
-# This is your first code cell. This cell contains basic Python code.
-
-# You can run a code cell by selecting it and clicking
-# the Run button to the left of the cell, or by pressing Shift+Enter.
-# Code output displays below the code.
-
-print("Congratulations, you just ran this code cell")
-
-y = 2 + 2
-
-print("2 + 2 =", y)
-
-```
-
-The code produces this output:
-
-```output
-Congratulations, you just ran this code cell
-
-2 + 2 = 4
-```
-
-Variables set within a notebook code cell persist between cells, so you can chain cells together.
-
-The next code cell uses the value of `y` from the previous cell:
-
-```python
-# Note that output from the last line of a cell is automatically
-# sent to the output cell, without needing the print() function.
-
-y + 2
-```
-
-The output is:
-
-```output
-6
-```
 
 ## Set up the notebook environment
 
@@ -579,29 +507,11 @@ The output shows geolocation information for the IP address.
 
 For more information about MSTICPy GeoIP providers, see [MSTICPy GeoIP Providers](https://msticpy.readthedocs.io/en/latest/data_acquisition/GeoIPLookups.html).
 
-## FAQs
 
-Here are some frequently asked questions about Azure Sentinel notebooks and MSTICPy.
+## Install MSTICpy by default on a new Azure ML compute instance
 
-### How can I download all Azure Sentinel-notebooks to my Azure ML workspace?
 
-You can use `git` to download the notebooks. From a notebook, enter the following code into an empty cell and run it.
-
-```python
-!git clone https://github.com/Azure/Azure-Sentinel-Notebooks.git azure-sentinel-nb
-```
-
-This code creates a copy of the GitHub repo contents in the *azure-sentinel-nb* folder of your user folder. Copy the notebooks you want from this folder to your working directory. This process allows you to easily get updated notebooks.
-
-The command to get updated notebooks from GitHub is:
-
-```python
-!cd azure-sentinel-nb && git pull
-```
-
-### Can I install MSTICPy by default on a new Azure ML compute?
-
-An Azure ML Compute install script is in the HowTos folder in the Azure-Sentinel-Notebooks repo at [aml-compute-setup.sh](https://github.com/Azure/Azure-Sentinel-Notebooks/master/HowTos/aml-compute-setup.sh).
+The Azure Sentinel GitHub repository includes an Azure ML Compute installation script, is in the HowTos folder in the Azure-Sentinel-Notebooks repo at [aml-compute-setup.sh](https://github.com/Azure/Azure-Sentinel-Notebooks/master/HowTos/aml-compute-setup.sh).
 
 1. Download the script to your local computer.
    
@@ -618,38 +528,6 @@ An Azure ML Compute install script is in the HowTos folder in the Azure-Sentinel
 1. Select **Create** to create the instance.
 
 You can view a log of the custom installation in the */tmp/aml-setup-msticpy.log* log.
-
-### How do I fix error "Runtime dependency of PyGObject is missing" when I load a query provider?
-
-Running the code:
-
-```python
-
-qry_prov = QueryProvider("AzureSentinel")
-
-```
-
-Can output the following Warning:
-
-```output
-Runtime dependency of PyGObject is missing.
-Depends on your Linux distro, you could install it system-wide by something like:
-    sudo apt install python3-gi python3-gi-cairo gir1.2-secret-1
-If necessary, please refer to PyGObject's doc:
-https://pygobject.readthedocs.io/en/latest/getting_started.html
-Traceback (most recent call last):
-  File "/anaconda/envs/azureml_py36/lib/python3.6/site-packages/msal_extensions/libsecret.py", line 21, in <module>
-    import gi  # https://github.com/AzureAD/microsoft-authentication-extensions-for-python/wiki/Encryption-on-Linux
-ModuleNotFoundError: No module named 'gi'
-```
-
-This Warning is due to a missing Python dependency, `pygobject`. Creating your compute instance by using the [aml-compute-setup.sh](https://github.com/Azure/Azure-Sentinel-Notebooks/master/HowTos/aml-compute-setup.sh) script in the Azure-Sentinel-Notebooks repo automatically installs `pygobject` in all notebook and Anaconda environments on the Compute.
-
-You can also fix this Warning by running the following code from a notebook:
-
-```python
-!conda install --yes -c conda-forge pygobject
-```
 
 ### Why don't MSTICPy and other packages install properly when switching between the Python 3.6 and 3.8 kernels?
 
@@ -674,42 +552,6 @@ Avoid using `!pip install...` to install packages in Azure ML notebooks. Instead
      ```
      
   2. Close the terminal and restart the kernel.
-
-### Why aren't my user accounts or credentials cached between notebook runs?
-
-To force caching of credentials for a session, authenticate using Azure CLI.
-
-In an empty notebook cell, enter and run the following code:
-
-```python
-!az login
-```
-
-The following output appears. In the notebook, the yellow text is hard to see in the default light theme.
-
-```output
-To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code <9-digit device code> to authenticate.
-```
-Select and copy the nine-character token from the output, and select the `devicelogin` URL to go to that page. Paste the token into the dialog and continue with signing in as prompted.
-
-When sign-in successfully completes, you see the following output:
-
-```output
-Subscription <subscription ID> 'Sample subscription' can be accessed from tenants <tenant ID>(default) and <tenant ID>. To select a specific tenant when accessing this subscription, use 'az login --tenant TENANT_ID'.
-
-The following tenants don't contain accessible subscriptions. Use 'az login --allow-no-subscriptions' to have tenant level access.
-
-<tenant ID> 'foo'
-<tenant ID> 'bar'  
-[
-  {
-    "cloudName": "AzureApp",
-    "homeTenantId": "<tenant ID>",
-    "id": "<ID>",
-    "isDefault": true,
-    "managedByTenants": [
-    ....
-```
 
 ## Next steps
 
