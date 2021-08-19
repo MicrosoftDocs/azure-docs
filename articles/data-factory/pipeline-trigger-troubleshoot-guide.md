@@ -154,9 +154,10 @@ Known Facts about *ForEach*
  
 * **Concurrency Limit:**  If your pipeline has a concurrency policy, verify that there are no old pipeline runs in progress. 
 * **Monitoring limits**: Go to the ADF authoring canvas, select your pipeline, and determine if it has a concurrency property  assigned to it. If it does, go to the Monitoring view, and make sure there's nothing in the past 45 days that's in progress. If there is something in progress, you can cancel it and the new pipeline run should  start.
-* **Transient  Issues:** It is possible that your run was impacted by a transient network issue, credential failures, services outages etc.  If this happens, Azure Data Factory has an internal recovery process that monitors all the runs and starts them when it notices something went wrong. You can rerun pipelines and activities as described [here.](monitor-visually.md#rerun-pipelines-and-activities). You can rerun activities if you had canceled activity or had a failure as per [Rerun from activity failures.](monitor-visually.md#rerun-from-failed-activity)
-* 
-* This process happens every one  hour, so if your run is stuck for more than an hour, create a support case.
+
+* **Transient  Issues:** It is possible that your run was impacted by a transient network issue, credential failures, services outages etc.  If this happens, Azure Data Factory has an internal recovery process that monitors all the runs and starts them when it notices something went wrong. You can rerun pipelines and activities as described [here.](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-pipelines-and-activities). You can rerun activities if you had canceled activity or had a failure as per [Rerun from activity failures.](https://docs.microsoft.com/azure/data-factory/monitor-visually#rerun-from-failed-activity) This process happens every one  hour, so if your run is stuck for more than an hour, create a support case.
+
+
  
 ### Longer start up times for activities in ADF Copy and Data Flow
 
