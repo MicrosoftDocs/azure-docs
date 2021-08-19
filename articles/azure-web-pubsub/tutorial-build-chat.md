@@ -543,7 +543,7 @@ The complete code sample of this tutorial can be found [here][code].
 
     You can see in the above code we use `WebSocket.send()` to send message and `WebSocket.onmessage` to listen to message from service.
 
-3. `sendToAll` accepts object as an input and send JSON text to the clients. In real scenarios, we probably need complex object to carry more information about the message. Finally let's also update the handlers to broadcast JSON objects to all clients: .
+3. `sendToAll` accepts object as an input and send JSON text to the clients. In real scenarios, we probably need complex object to carry more information about the message. Finally let's also update the handlers to broadcast JSON objects to all clients:
 
     ```javascript
     let handler = new WebPubSubEventHandler(hubName, ['*'], {
