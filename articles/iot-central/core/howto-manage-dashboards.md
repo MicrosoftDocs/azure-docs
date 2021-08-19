@@ -19,7 +19,7 @@ All users can create their own *personal dashboards*. Users can switch between a
 
 The following screenshot shows the dashboard in an application created from the Custom Application template. You can replace the default application dashboard with a personal dashboard. If you're an administrator, you can also replace it with another application-level dashboard. To do so, select **New dashboard** in the upper-left corner of the page:
 
-:::image type="content" source="media/howto-manage-dashboards/dashboard-custom-app.png" alt-text="Screenshot that shows a dashboard for applications that are based on the Custom Application template.":::
+:::image type="content" source="media/howto-manage-dashboards/dashboard-custom-app.png" alt-text="Screenshot that shows the New dashboard button.":::
 
 Select **New dashboard** to open the dashboard editor. In the editor, give your dashboard a name and choose items from the library. The library contains the tiles and dashboard primitives you can use to customize the dashboard:
 
@@ -30,7 +30,7 @@ If you're an administrator, you can create a personal dashboard or an applicatio
 Enter a title and select the type of dashboard you want to create. [Add tiles](#add-tiles) to customize your dashboard.
 
 > [!TIP]
-> You need at least one device template in your application to be able to add tiles that show device information.
+> You need to have at least one device template in your application to be able to add tiles that show device information.
 
 ## Manage dashboards
 
@@ -89,8 +89,8 @@ This table describes the types of tiles you can add to a dashboard:
 | Heat map         | Heat map tiles display information, represented in colors, about one or more devices.|
 | Last known value | Last known value tiles display the latest telemetry values for one or more devices. For example, you can use this tile to display the most recent temperature, pressure, and humidity values for one or more devices. |
 | Event history    | Event history tiles display the events for a device over a time period. For example, you can use them to show all the valve open and valve close events for one or more devices during the past hour.|
-| Property         |  Property tiles display the current values for properties and cloud properties for one or more devices. For example, you can use this tile to display device properties like the manufacturer or firmware version for the device. |
-| State chart         |  State chart tiles plot changes for one or more devices over a time period. For example, you can use this tile to display device properties like the temperature changes for a device. |
+| Property         |  Property tiles display the current values for properties and cloud properties for one or more devices. For example, you can use this tile to display device properties like the manufacturer or firmware version. |
+| State chart         |  State chart tiles plot changes for one or more devices over a time period. For example, you can use this tile to display properties like the temperature changes for a device. |
 | Event chart         |  Event chart tiles display telemetry events for one or more devices over a time period. For example, you can use this tile to display properties like the temperature changes for a device. |
 | State history         |  State history tiles list and display status changes for state telemetry.|
 | External content         |  External content tiles allow you to load content from an external source. |
@@ -99,7 +99,7 @@ Currently, you can add up to 10 devices to tiles that support multiple devices.
 
 ### Customize visualizations
 
-By default, line charts show data over a range of time. The selected time range is split into 50 equally sized partitions. The device data is then aggregated per partition to give 50 data points over the selected time range. If you want to view raw data, you can change your selection to view the last 100 values. To change the time range or to select raw data visualization, use the **Display Range** dropdown list in the **Configure chart** panel:
+By default, line charts show data over a range of time. The selected time range is split into 50 equally sized partitions. The device data is then aggregated per partition to give 50 data points over the selected time range. If you want to view raw data, you can change your selection to view the last 100 values. To change the time range or to select raw data visualization, use the **Display range** dropdown list in the **Configure chart** panel:
 
 :::image type="content" source="media/howto-manage-dashboards/display-range.png" alt-text="Screenshot that shows the Display Range dropdown list.":::
 
