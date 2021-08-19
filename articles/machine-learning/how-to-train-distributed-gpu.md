@@ -195,7 +195,7 @@ run = Experiment(ws, 'experiment_name').submit(run_config)
 
 ### <a name="per-node-launch"></a> Using `torch.distributed.launch` (per-node-launch)
 
-PyTorch provides a launch utility in [torch.distributed.launch](https://pytorch.org/docs/stable/distributed.html#launch-utility) that you can use to launch multiple processes per node. The `torch.distributed.launch` module will spawn multiple training processes on each of the nodes.
+PyTorch provides a launch utility in [torch.distributed.launch](https://pytorch.org/docs/stable/distributed.html#launch-utility) that you can use to launch multiple processes per node. The `torch.distributed.launch` module spawns multiple training processes on each of the nodes.
 
 The following steps demonstrate how to configure a PyTorch job with a per-node-launcher on Azure ML.  The job achieves the equivalent of running the following command:
 
