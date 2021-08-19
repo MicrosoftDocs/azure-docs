@@ -22,6 +22,11 @@ With the Dynatrace OneAgent you can:
 * Configure the Dynatrace OneAgent by using environment variables.
 * Check all monitoring data from Dynatrace dashboard.
 
+
+## Introductory Video
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cLXy2eV6amo" title="Monitor Spring Boot applications end-to-end using Dynatrace" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Prerequisites
 
 * A Dynatrace account
