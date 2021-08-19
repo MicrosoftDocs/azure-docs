@@ -26,7 +26,7 @@ Collections are Purview's tool to manage ownership and access control across ass
 
 ## Check permissions
 
-In order to create and manage collections in Purview, you will need to be a **Collection Admin** within Purview. We can check these permissions in the [Purview Studio](use-purview-studio.md). You can find the studio by going to your Purview resource in the Azure portal, and selecting the **Open Purview Studio** tile on the overview page.
+In order to create and manage collections in Purview, you will need to be a **Collection Admin** within Purview. We can check these permissions in the [Purview Studio](use-purview-studio.md). You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com), and selecting the **Open Purview Studio** tile on the overview page.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
