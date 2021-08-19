@@ -34,6 +34,10 @@ See [ACI Service Update Method.](/python/api/azureml-core/azureml.core.webservic
 >
 > You can not use the SDK to update a web service published from the Azure Machine Learning designer.
 
+> [!IMPORTANT]
+> Azure Kubernetes Service uses [Blobfuse FlexVolume driver](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) for the versions <=1.16 and [Blob CSI driver](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md) for the versions >=1.17. 
+> Therefore, it is important to re-deploy or update the web service after cluster upgrade in order to deploy to correct blobfuse method for the cluster version.
+
 **Using the SDK**
 
 The following code shows how to use the SDK to update the model, environment, and entry script for a web service:
