@@ -75,7 +75,7 @@ The preferred method for setting a web server's `Cache-Control` header is to use
 
     ![CDN custom caching rules example](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
-    The first custom caching rule sets a cache duration of four hours for any files in the `/webfolder1` folder on the origin server specified by your endpoint. The second rule overrides the first rule for the `file1.txt` file only and sets a cache duration of two hours for it.
+    The first custom caching rule sets a cache duration of four days for any files in the `/webfolder1` folder on the origin server specified by your endpoint. The second rule overrides the first rule for the `file1.txt` file only and sets a cache duration of two days for it.
 
 1. Select **Save**.
 
