@@ -30,9 +30,10 @@ Authentication events include both events from systems that focus on authenticat
 For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
-> The Authentication normalization schema is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The Authentication normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
+>
+> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 ## Parsers
 
@@ -44,7 +45,7 @@ Azure Sentinel provides the following built-in, product-specific authentication 
 - **AWS sign-ins**, collected using the AWS CloudTrail connector.
 - **Okta authentication**, collected using the Okta connector.
 
-To use the source-agnostic parser that unify all of listed parsers and ensure that you analyze across all the configured sources, use **imAuthentication** as the table name in your query.
+To use the source-agnostic parser, which unifies all of listed parsers, ensuring that you analyze data across all the configured sources, use **imAuthentication** as the table name in your query.
 
 Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelAuth).
 
@@ -52,7 +53,7 @@ Deploy the [source-agnostic and source-specific parsers](normalization-about-par
 
 ## Normalized content
 
-Support for the Authentication ASIM schema also includes support for the following built-in analytics rules with normalized authentication parsers. The linked below point to the Azure Sentinel GitHub as a reference. However, analytic rules are available in the Analytics rule gallery, while hunting queries need to be copied from the linked GitHub page.
+Support for the Authentication ASIM schema also includes support for the following built-in analytics rules with normalized authentication parsers. While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
 
 - [Potential Password Spray Attack (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthPasswordSpray.yaml)
  - [Brute force attack against user credentials (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthBruteForce.yaml)
@@ -89,8 +90,8 @@ Event fields are common to all schemas and describe the activity itself and the 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | Optional    | String     |     A general message or description, either included in or generated from the record.   |
-| **EventCount**          | Mandatory   | Integer    |     The number of events described by the record. <br><br>This value is used when the source supports aggregation, and a single record may represent multiple events. <br><br>For other sources, set to `1`. <br><br>**Note**: This field is included for the sake of consistency, but it's not usually used for authentication events.  |
-| **EventStartTime**      | Mandatory   | Date/time  |      If the source supports aggregation and the record represents multiple events, this field specifies the time that the first event was generated. Otherwise, this field aliases the [TimeGenerated](#timegenerated) field.<br><br>**Note**: This field is included for the sake of consistency, but it's not usually used for authentication events.  |
+| **EventCount**          | Mandatory   | Integer    |     The number of events described by the record. <br><br>This value is used when the source supports aggregation, and a single record may represent multiple events. <br><br>For other sources, set to `1`. <br><br>**Note**: This field is included for the sake of consistency, but it's not typically used for authentication events.  |
+| **EventStartTime**      | Mandatory   | Date/time  |      If the source supports aggregation and the record represents multiple events, this field specifies the time that the first event was generated. Otherwise, this field aliases the [TimeGenerated](#timegenerated) field.<br><br>**Note**: This field is included for the sake of consistency, but it's not typically used for authentication events.  |
 | **EventEndTime**        | Mandatory   | Alias      |      Alias to the [TimeGenerated](#timegenerated) field.    |
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Authentication records, supported values include: <br>- `Logon` <br>- `Logoff`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the [EventOriginalType](#eventoriginaltype) field.|
 | <a name ="eventoriginaltype"></a>**EventOriginalType**           | Optional   | String |    The event type, or ID, as provided in the source record. <br><br>Example: `4625`|

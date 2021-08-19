@@ -1,6 +1,6 @@
 ---
 title: Azure Sentinel Information Model (ASIM) content | Microsoft Docs
-description: This article outlines the Azure Sentinel content that utilized Azure Sentinel Infomration Model (ASIM)
+description: This article outlines the Azure Sentinel content that utilized Azure Sentinel Information Model (ASIM)
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -17,23 +17,25 @@ ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
 
---- 
+---
 
-# Azure Sentinel Information Model (ASIM) Content
+# Azure Sentinel Information Model (ASIM) security content  (Public preview)
 
-Azure Sentinel content includes analytic rules, hunting queries, and workbooks that work with source-agnostic normalization parsers.
+Normalized security content in Azure Sentinel includes analytics rules, hunting queries, and workbooks that work with source-agnostic normalization parsers.
 
-- Find normalized, built-in content in Azure Sentinel galleries and [solutions](sentinel-solutions-catalog.md). The content items that support ASIM are listed below. 
+<a name="builtin"></a>You can find normalized, built-in content in Azure Sentinel galleries and [solutions](sentinel-solutions-catalog.md), create your own normalized content, or modify existing content to use normalized data.
 
-- Create normalized content yourself, or modify existing content to use normalized data.
+This article lists built-in Azure Sentinel content that has been configured to support ASIM.  While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries.
 
-##  <a name="builtin"></a>Built-in normalized content
+> [!IMPORTANT]
+> ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
-The following is a list of Azure Sentinel content items that were updated to support ASIM. The linked below point to the Azure Sentinel GitHub as a reference. However, analytic rules are available in the Analytics rule gallery, while hunting queries need to be copied from the linked GitHub page.
+## Authentication security content
 
-### Authentication 
+The following built-in authentication content is supported for ASIM normalization.
 
-#### Analytic Rules
+### Analytics rules
 
  - [Potential Password Spray Attack (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthPasswordSpray.yaml)
  - [Brute force attack against user credentials (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthBruteForce.yaml)
@@ -41,9 +43,11 @@ The following is a list of Azure Sentinel content items that were updated to sup
  - [Sign-ins from IPs that attempt sign-ins to disabled accounts (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imSigninAttemptsByIPviaDisabledAccounts.yaml)
 
 
-### DNS query
+## DNS query security content
 
-#### Analytic Rules
+The following built-in DNS query content is supported for ASIM normalization.
+
+### Analytics rules
 
  - [Excessive NXDOMAIN DNS Queries (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDns_ExcessiveNXDOMAINDNSQueries.yaml)
  - [DNS events related to mining pools (Normalized DNS)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimDNS/imDNS_Miners.yaml)
@@ -60,20 +64,24 @@ The following is a list of Azure Sentinel content items that were updated to sup
  - [THALLIUM domains included in DCU takedown](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ThalliumIOCs.yaml)
  - [Known ZINC Comebacker and Klackring malware hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
 
-### File Activity
+## File Activity security content
 
-#### Analytic Rules
+The following built-in file activity content is supported for ASIM normalization.
+
+### Analytic Rules
 
 - [SUNBURST and SUPERNOVA backdoor hashes (Normalized File Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimFileEvent/imFileESolarWindsSunburstSupernova.yaml)
 - [Exchange Server Vulnerabilities Disclosed March 2021 IoC Match](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ExchangeServerVulnerabilitiesMarch2021IoCs.yaml)
 - [HAFNIUM UM Service writing suspicious file](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/HAFNIUMUmServiceSuspiciousFile.yaml)
-- [NOBELIUM - Domain, Hash and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_IOCsMay2021.yaml)
+- [NOBELIUM - Domain, Hash, and IP IOCs - May 2021](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/NOBELIUM_IOCsMay2021.yaml)
 - [SUNSPOT log file creation ](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/SUNSPOTLogFile.yaml)
 - [Known ZINC Comebacker and Klackring malware hashes](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/MultipleDataSources/ZincJan272021IOCs.yaml)
 
-### Process Activity
+## Process Activity security content
 
-#### Analytics rules
+The following built-in process activity content is supported for ASIM normalization.
+
+### Analytics rules
 
  - [Probable AdFind Recon Tool Usage (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_AdFind_Usage.yaml)
  - [Base64 encoded Windows process command-lines (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_base64_encoded_pefile.yaml)
@@ -81,7 +89,7 @@ The following is a list of Azure Sentinel content items that were updated to sup
  - [NOBELIUM - suspicious rundll32.exe execution of vbscript (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_NOBELIUM_SuspiciousRundll32Exec.yaml)
  - [SUNBURST suspicious SolarWinds child processes (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimProcess/imProcess_SolarWinds_SUNBURST_Process-IOCs.yaml)
 
-#### Hunting queries
+### Hunting queries
 
  - [Cscript script daily summary breakdown (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_cscript_summary.yaml)
  - [Enumeration of users and groups (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_enumeration_user_and_group.yaml)
@@ -101,13 +109,15 @@ The following is a list of Azure Sentinel content items that were updated to sup
  - [Uncommon processes - bottom 5% (Normalized Process Events)](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/ASimProcess/imProcess_uncommon_processes.yaml)
  - [Unicode Obfuscation in Command Line](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/UnicodeObfuscationInCommandLine.yaml)
 
-### Registry Activity
+## Registry Activity security content
 
-#### Hunting Queries
+The following built-in registry activity content is supported for ASIM normalization.
+
+### Hunting queries
 
 - [Persisting Via IFEO Registry Key](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml)
 
-## <a name="modify"></a>Modifying your content to use normalized data
+## <a name="modify"></a>Modify your content to use normalized data
 
 To enable your custom content to use normalization:
 
@@ -133,7 +143,7 @@ InfobloxNIOS
 | extend timestamp = TimeGenerated, IPCustomEntity = Client_IP
 ```
 
-The following version is the source-agnostic version, which uses normalization to provide the same detection for any source providing DNS query events:
+The following code is the source-agnostic version, which uses normalization to provide the same detection for any source providing DNS query events:
 
 ```kusto
 let threshold = 200;

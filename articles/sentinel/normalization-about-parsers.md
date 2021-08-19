@@ -1,6 +1,6 @@
 ---
 title: Azure Sentinel Information Model (ASIM) Parsers | Microsoft Docs
-description: This article explains how to use KQL functions as query timem parsers to implement the Azure Sentinel Infomration Model (ASIM)
+description: This article explains how to use KQL functions as query-time parsers to implement the Azure Sentinel Information Model (ASIM)
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -19,40 +19,48 @@ ms.author: ofshezaf
 
 --- 
 
-# Azure Sentinel Information Model (ASIM) Parsers
+# Azure Sentinel Information Model (ASIM) parsers (Public preview)
 
 In Azure Sentinel, parsing and [normalizing](normalization.md) happens at query time. Parsers are built as [KQL user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) that transform data in existing tables, such as **CommonSecurityLog**, custom logs tables, or Syslog, into the normalized schema. Once the parser is saved as a workspace function, it can be used like any other Azure Sentinel table.
+
+> [!IMPORTANT]
+> ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 ## Source agnostic and source specific parsers
 
 ASIM includes  two levels of parsers: **source-agnostic** and **source-specific** parsers:
 
-- A **source-agnostic parser** combines all the sources normalized to the same schema and can be used to query all of them using normalized fields. The source agnostic parser name is `im<schema>`, where `<schema>` stands for the specific schema it serves.
+### Source-agnostic parsers
 
-    For example, the following query uses the source-agnostic DNS parser to query DNS events using the `ResponseCodeName`, `SrcIpAddr`, and `TimeGenerated` normalized fields:
+A **source-agnostic parser** combines all the sources normalized to the same schema and can be used to query all of them using normalized fields. The source agnostic parser name is `im<schema>`, where `<schema>` stands for the specific schema it serves.
 
-    ```kusto
-    imDns
-      | where isnotempty(ResponseCodeName)
-      | where ResponseCodeName =~ "NXDOMAIN"
-      | summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
-    ```
+For example, the following query uses the source-agnostic DNS parser to query DNS events using the `ResponseCodeName`, `SrcIpAddr`, and `TimeGenerated` normalized fields:
 
-    A source-agnostic parser can combine several source-specific normalized parsers using the `union` KQL operator. The name of a source-specific normalized parser is `vim<schema><vendor><product>`. Therefore, the `imDns` parser looks as follows:
+```kusto
+imDns
+  | where isnotempty(ResponseCodeName)
+  | where ResponseCodeName =~ "NXDOMAIN"
+  | summarize count() by SrcIpAddr, bin(TimeGenerated,15m)
+```
 
-    ```kusto
-    union isfuzzy=true
-    vimDnsEmpty,
-    vimDnsCiscoUmbrella,
-    vimDnsInfobloxNIOS,
-    vimDnsMicrosoftOMS
-    ```
+A source-agnostic parser can combine several source-specific normalized parsers using the `union` KQL operator. The name of a source-specific normalized parser is `vim<schema><vendor><product>`. Therefore, the `imDns` parser looks as follows:
 
-- Adding **source-specific** normalized parsers to the source-agnostic parser enables you to include custom sources in built-in queries that use the source agnostic parsers.
+```kusto
+union isfuzzy=true
+vimDnsEmpty,
+vimDnsCiscoUmbrella,
+vimDnsInfobloxNIOS,
+vimDnsMicrosoftOMS
+```
 
-    Source-specific parsers enable you to get immediate value from built-in content, such as analytics, workbooks, insights for your custom data.
+### Source-specific parsers
 
-    The source-specific parsers can also be used independently. For example, in an Infoblox-specific workbook, use the `vimDnsInfobloxNIOS` parser.
+Adding **source-specific** normalized parsers to the source-agnostic parser enables you to include custom sources in built-in queries that use the source agnostic parsers.
+
+Source-specific parsers enable you to get immediate value from built-in content, such as analytics, workbooks, insights for your custom data.
+
+The source-specific parsers can also be used independently. For example, in an Infoblox-specific workbook, use the `vimDnsInfobloxNIOS` parser.
 
 ## Writing source-specific parsers
 
@@ -91,10 +99,10 @@ Syslog | where ProcessName == "named" and SyslogMessage has "client"
 ```
 
 > [!NOTE]
-> Parsers should not filter by time, as the query that's using the parser filters for time.
-> 
+> Parsers should not filter by time, as the query that's using the parser already filters for time.
+>
 
-<a name=parsing></a>### Parsing
+### Parsing
 
 Once the query selects the relevant records, it may need to parse them. Typically, parsing is needed if much of the event information is conveyed in a single text field.
 
@@ -106,11 +114,10 @@ The KQL operators that perform parsing are listed below, ordered by their perfor
 |[parse_csv](/azure/data-explorer/kusto/query/parsecsvfunction)     |     Parse a string of values formatted as a CSV (comma-separated values) line.    |
 |[parse](/azure/data-explorer/kusto/query/parseoperator)     |    Parse multiple values from an arbitrary string using a pattern, which can be a simplified pattern with better performance, or a regular expression.     |
 |[extract_all](/azure/data-explorer/kusto/query/extractallfunction)     | Parse single values from an arbitrary string using a regular expression. `extract_all` has a similar performance to `parse` if the latter uses a regular expression.        |
-|[extract](/azure/data-explorer/kusto/query/extractfunction)     |    Extract a single value from an arbitrary string using a regular expression. <br><br>Using `extract` provides better performance than `parse` or `extract_all` if a single value is needed. However, using multiple activations of `extract` over the same source string is significantly less efficient than a single `parse` or `extract_all` and should be avoided.      |
+|[extract](/azure/data-explorer/kusto/query/extractfunction)     |    Extract a single value from an arbitrary string using a regular expression. <br><br>Using `extract` provides better performance than `parse` or `extract_all` if a single value is needed. However, using multiple activations of `extract` over the same source string is less efficient than a single `parse` or `extract_all` and should be avoided.      |
 |[parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)  | Parse the values in a string formatted as JSON. If only a few values are needed from the JSON, using `parse`, `extract`, or `extract_all` provides better performance.        |
 |[parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction)     |    Parse the values in a string formatted as XML. If only a few values are needed from the XML, using `parse`, `extract`, or `extract_all` provides better performance.     |
-
-<br>
+| | |
 
 In addition to parsing string, the parsing phase may require more processing of the original values, including:
 
@@ -131,13 +138,13 @@ In addition to parsing string, the parsing phase may require more processing of 
     ...
      | lookup RCodeTable on ResponseCode
      | extend EventResultDetails = case (
-         isnotempty(ResponseCodeName), ResponseCodeName, 
-         ResponseCode between (3841 .. 4095), 'Reserved for Private Use', 
+         isnotempty(ResponseCodeName), ResponseCodeName,
+         ResponseCode between (3841 .. 4095), 'Reserved for Private Use',
          'Unassigned')
     ```
 
 > [!NOTE]
-> The transformation does not allow using only `lookup`, as multiple values are mapped to `Reserved for Private Use`, `Unassigned` and therefore the query uses both lookup and case. 
+> The transformation does not allow using only `lookup`, as multiple values are mapped to `Reserved for Private Use` or  `Unassigned`, and therefore the query uses both lookup and case.
 > Even so, the query is still much more efficient than using `case` for all values.
 >
 
@@ -153,12 +160,11 @@ The following KQL operators are used to prepare fields:
 |**project-rename**     | Renames fields        |     If a field exists in the original event and only needs to be renamed, use `project-rename`. <br><br>The renamed field still behaves like a built-in field, and operations on the field have much better performance.   |
 |**project-away**     |      Removes fields.   |Use `project-away` for specific fields that you want to remove from the result set.         |
 |**project**     |  Selects fields that were either existing before, or were created as part of the statement. Removes all other fields.       | Not recommended for use in a parser, as the parser should not remove any other fields that are not normalized. <br><br>If you need to remove specific fields, such as temporary values used during parsing, use `project-away` to remove them from the results.      |
-
-<br>
+| | | |
 
 ### Handle parsing variants
 
-In many cases, events in an event stream include variants that require different parsing logic. 
+In many cases, events in an event stream include variants that require different parsing logic.
 
 It's often tempting to build a parser from different subparsers, each handling another variant of the events that needs different parsing logic. Those subparsers, each a query by itself, are then unified using the `union` operator. This approach, while convenient, is *not* recommended as it significantly impacts the performance of the parser.
 
@@ -169,10 +175,9 @@ When handling variants, use the following guidelines:
 |The different variants represent *different* event types, commonly mapped to different schemas     |  Use separate parsers       |
 |The different variants represent the *same* event type, but are structured differently.     |   If the variants are known, such as when there is a method to differentiate between the events before parsing, use the `case` operator to select the correct `extract_all` to run and field mapping, as demonstrated in the [Infoblox DNS parser](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASimDns/ARM/Infoblox).      |
 |If `union` is unavoidable     |  When using `union` is unavoidable, make sure to use the following guidelines:<br><br>-	Pre-filter using built-in fields in each one of the subqueries. <br>-	Ensure that the filters are mutually exclusive. <br>-	Consider not parsing less critical information, reducing the number of subqueries.       |
+| | |
 
-<br>
-
-<a name="include"></a>## Add your parser to the schema source-agnostic parser
+## <a name="include"></a>Add your parser to the schema source-agnostic parser
 
 Normalization allows you to use your own content and built-in content with your custom data.
 
@@ -180,14 +185,14 @@ For example, if you have a custom connector that receives DNS query activity log
 
 To do that, modify the relevant source agnostic parser to include the source-specific parser you crated. For example, modify the `imDns` source-agnostic parser to also include your parser by adding your parser to the list of parsers in the `union` statement:
 
-    ```kusto
-    union isfuzzy=true 
-        vimDnsEmpty, 
-        vimDnsCiscoUmbrella, 
-        vimDnsInfobloxNIOS, 
-        vimDnsMicrosoftOMS,
-        vimDnsYyyXxx
-    ```
+```kusto
+union isfuzzy=true 
+    vimDnsEmpty, 
+    vimDnsCiscoUmbrella, 
+    vimDnsInfobloxNIOS, 
+    vimDnsMicrosoftOMS,
+    vimDnsYyyXxx
+```
 
 ## Deploy parsers
 

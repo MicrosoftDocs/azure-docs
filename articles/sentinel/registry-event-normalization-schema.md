@@ -21,16 +21,17 @@ ms.author: bagol
 
 # Azure Sentinel Registry Event normalization schema reference (Public preview)
 
-The Registry Event schema is used to describe the Windows activity of creating, modifying, or deleting Windows Registry entities. 
+The Registry Event schema is used to describe the Windows activity of creating, modifying, or deleting Windows Registry entities.
 
 Registry events are specific to Windows systems, but are reported by different systems that monitor Windows, such as EDR (End Point Detection and Response) systems, Sysmon, or Windows itself.
 
 For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
-> The Registry Event normalization schema is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The Registry Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
+>
+> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 ## Parsers
 
@@ -101,7 +102,7 @@ Event fields are common to all schemas and describe the activity itself and the 
 | **DvcMacAddr**          | Optional    | MAC        |   The MAC  of device on which the registry event occurred.  <br><br>Example: `00:1B:44:11:3A:B7`       |
 | **DvcOs**               | Optional    | String     |         The operating system running on the device on which the registry event occurred.    <br><br>Example: `Windows`    |
 | **DvcOsVersion**        | Optional    | String     |   The version of the operating system on the device on which the registry event occurred. <br><br>Example: `10` |
-| **AdditionalFields**    | Optional    | Dynamic    | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic **AdditionalFields** field, and add to it the extra information as key/value pairs.    |
+| **AdditionalFields**    | Optional    | Dynamic    | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic **AdditionalFields** field, and add it to the extra information as key/value pairs.    |
 
 
 ### Registry Event specific fields
@@ -127,10 +128,10 @@ For more information, see [Structure of the Registry](/windows/win32/sysinfo/str
 | <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the Actor. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
 | **ActorUserIdType**| Recommended  | String     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `SID`         |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the login session of the Actor.  <br><br>Example: `999`<br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows this value must be numeric. If you are using a Windows machine and the source sends a different type, make sure to convert the value. For example, if source sends a hexadecimal value, convert it to a decimal value.   |
-| <a name="actingprocessname"></a>**ActingProcessName**              | Optional     | String     |   The file name of the acting process image file. This is usually considered the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
+| <a name="actingprocessname"></a>**ActingProcessName**              | Optional     | String     |   The file name of the acting process image file. This name is typically considered to be the process name.  <br><br>Example: `C:\Windows\explorer.exe`  |
 | **ActingProcessId**| Mandatory    | Integer        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
 | **ActingProcessGuid**              | Optional     | String     |  A generated unique identifier (GUID) of the acting process.   <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
-| **ParentProcessName**              | Optional     | String     |  The file name of the parent process image file. This is considered the process name.    <br><br>Example: `C:\Windows\explorer.exe` |
+| **ParentProcessName**              | Optional     | String     |  The file name of the parent process image file. This value is typically considered to be the process name.    <br><br>Example: `C:\Windows\explorer.exe` |
 | **ParentProcessId**| Mandatory    | Integer    | The process ID (PID) of the parent process.   <br><br>     Example:  `48610176`    |
 | **ParentProcessGuid**              | Optional     | String     |  A generated unique identifier (GUID) of the parent process.     <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00` |
 

@@ -19,35 +19,52 @@ ms.author: bagol
 
 ---
 
-# Normalization and the Azure Sentinel Information Model (ASIM)
+# Normalization and the Azure Sentinel Information Model (ASIM) (Public preview)
 
-Azure Sentinel ingests data from many sources. Working with various data types and tables together requires you to understand each of them, and write / use unique sets for analytics rules, workbooks, and hunting queries for each type or schema. Sometimes, you'll need separate rules, workbooks, and queries, even when data types share common elements, such as firewall devices. Correlating between different types of data during an investigation and hunting can also be challenging.
+Azure Sentinel ingests data from many sources. Working with various data types and tables together requires you to understand each of them, and write and use unique sets of data for analytics rules, workbooks, and hunting queries for each type or schema.
 
-This article provides an overview of the Azure Sentinel Information model (ASIM), which provides a solution for these challenges. You can also Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG). Refer to the next steps listed below to understand ASIM in detail.
+Sometimes, you'll need separate rules, workbooks, and queries, even when data types share common elements, such as firewall devices. Correlating between different types of data during an investigation and hunting can also be challenging.
 
-## Common ASIM use cases and scenarios
+This article provides an overview of the Azure Sentinel Information model (ASIM), which provides a solution for the challenges of handling multiple types of data.
 
-The Azure Sentinel Information Model (ASIM) provides a seamless experience for handling various sources in uniform, normalized views, by providing:
-
-- Cross source detection - Normalized analytic rules work across sources, on-prem and cloud, now detecting attacks such as brute force or impossible travel across systems including Okta, AWS, and Azure.
-- Source agnostic content - the coverage of built-in as well as custom content using ASIM automatically expands to any source that supports ASIM, even if the source was added after the content was created. For example, process event analytics support any source that a customer may use to bring in the data, including Defender for Endpoint, Windows Events, and Sysmon. We are ready to add Sysmon for Linux and WEF once released!
-- Support for your custom sources in built-in analytics
-- Ease of use - once an analyst learns ASIM, writing queries is much simpler as the field names are always the same.
-
-> [!NOTE]
-> The Azure Sentinel Information model aligns with the [Open Source Security Events Metadata (OSSEM)](https://ossemproject.com/intro.html) common information model, allowing for predictable entities correlation across normalized tables. OSSEM is a community-led project that focuses primarily on the documentation and standardization of security event logs from diverse data sources and operating systems. The project also provides a Common Information Model (CIM) that can be used for data engineers during data normalization procedures to allow security analysts to query and analyze data across diverse data sources.
+> [!TIP]
+> Also watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [webinar slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG). For more information, see [Next steps](#next-steps).
 >
-> For more information, see the [OSSEM reference documentation](https://ossemproject.com/cdm/guidelines/entity_structure.html).
+
+> [!IMPORTANT]
+> ASIM is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
+
+## Common ASIM usage
+
+The Azure Sentinel Information Model (ASIM) provides a seamless experience for handling various sources in uniform, normalized views, by providing the following functionality:
+
+- **Cross source detection**. Normalized analytics rules work across sources, on-premises and cloud, and detect attacks such as brute force or impossible travel across systems, including Okta, AWS, and Azure.
+
+- **Source agnostic content**. The coverage of both built-in and custom content using ASIM automatically expands to any source that supports ASIM, even if the source was added after the content was created. For example, process event analytics support any source that a customer may use to bring in the data, such as Microsoft Defender for Endpoint, Windows Events, and Sysmon.
+
+- **Support for your custom sources**, in built-in analytics
+
+- **Ease of use**. After an analyst learns ASIM, writing queries is much simpler as the field names are always the same.
+
+### ASIM and the Open Source Security Events Metadata
+
+The Azure Sentinel Information Model aligns with the [Open Source Security Events Metadata (OSSEM)](https://ossemproject.com/intro.html) common information model, allowing for predictable entities correlation across normalized tables.
+
+OSSEM is a community-led project that focuses primarily on the documentation and standardization of security event logs from diverse data sources and operating systems. The project also provides a Common Information Model (CIM) that can be used for data engineers during data normalization procedures to allow security analysts to query and analyze data across diverse data sources.
+
+For more information, see the [OSSEM reference documentation](https://ossemproject.com/cdm/guidelines/entity_structure.html).
+
 ## ASIM components
 
 The Azure Sentinel Information Model includes the following components:
 
 |Component  |Description  |
 |---------|---------|
-|**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Network Session](normalization-schema.md)<br> - [DNS Activity](dns-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md)<br> - [File Activity](file-event-normalization-schema.md)  <br><br>For more information about ASIM schemas refer to "[Azure Sentinel Information Model schemas](normalization-about-schemas.md)"  |
-|**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Deploy the Microsoft-developed normalizing parsers from the [Azure Sentinel GitHub Parsers folder](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers). Normalized parsers are located in subfolders starting with **ASim**.  <br><br>For more information about ASIM parsers refer to "[Azure Sentinel Information Model parsers](normalization-about-parsers.md)"     |
-|**Content for each normalized schema**     |    Includes analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content. <br><br>For more information about ASIM content refer to "[Azure Sentinel Information Model content](normalization-content.md)"   |
+|**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Network Session](normalization-schema.md)<br> - [DNS Activity](dns-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md)<br> - [File Activity](file-event-normalization-schema.md)  <br><br>For more information, see [Azure Sentinel Information Model schemas](normalization-about-schemas.md).  |
+|**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Deploy the Microsoft-developed normalizing parsers from the [Azure Sentinel GitHub Parsers folder](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers). Normalized parsers are located in subfolders starting with **ASim***.  <br><br>For more information, see [Azure Sentinel Information Model parsers](normalization-about-parsers.md).     |
+|**Content for each normalized schema**     |    Includes analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content. <br><br>For more information, see [Azure Sentinel Information Model content](normalization-content.md).   |
+| | |
 
 <br>
 
@@ -64,22 +81,25 @@ The Azure Sentinel Information Model uses the following terms:
 |**Reporting device**     |   The system that sends the records to Azure Sentinel. This system may not be the subject system for the record that's being sent.      |
 |**Record**     |A unit of data sent from the reporting device. A record is often referred to as `log`, `event`, or `alert`, but can also be other types of data.         |
 |**Content**, or **Content Item**     |The different, customizable, or user-created artifacts than can be used with Azure Sentinel. Those artifacts include, for example, Analytics rules, Hunting queries and workbooks. A content item is one such artifact.|
+| | |
 
 <br>
 
 ## Getting started with ASIM
 
-### Deploying ASIM
+To start using ASIM:
 
- - To start using ASIM, deploy the ASIM parsers from the folders starting with `ASim` in the [Azure Sentinel HitHub parsers folder] on GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers).
- - Next activate analytic rules templates that use ASIM. Refer to the [Azure Sentinel Information Model (ASIM) content list](normalization-content.md#builtin) for a list of analytic rules that support ASIM.
+1. Deploy the ASIM parsers from the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers), from the folders starting with `ASim*`.
 
-### Using ASIM
- - Use the ASIM hunting queries from GitHub. Refer to the [Azure Sentinel Information Model (ASIM) content list](normalization-content.md#builtin) for a list of analytic rules that support ASIM.
- - Use ASIM queries when using KQL in the log screen. 
- - Write your own analytic rules using ASIM or [convert existing ones](normalization-content.md#builtin).
- - [Write parsers](normalization-about-parsers.md) for your custom sources and [add](normalization-about-parsers.md#include) them to the relevant source agnostic parser to enable your customer data to take part of built-in analytics
+1. Activate analytics rule templates that use ASIM. For more information, see the [Azure Sentinel Information Model (ASIM) content list](normalization-content.md#builtin).
 
+1. Use ASIM in your workspace, using the folowing methods:
+
+    - Use the ASIM hunting queries from the Azure Sentinel GitHub repository, when querying logs in KQL in the Azure Sentinel **Logs** page. For more information, see the [Azure Sentinel Information Model (ASIM) content list](normalization-content.md#builtin).
+
+    - Write your own analytics rules using ASIM or [convert existing ones](normalization-content.md#builtin).
+
+    - Enable your custom data to use built-in analytics by [writing parsers](normalization-about-parsers.md) for your custom sources and [adding](normalization-about-parsers.md#include) them to the relevant source agnostic parser.
 
 ## Next steps
 
