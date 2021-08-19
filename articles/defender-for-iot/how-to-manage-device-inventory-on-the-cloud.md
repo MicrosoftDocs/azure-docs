@@ -1,7 +1,7 @@
 ---
 title: Manage the agent based device inventory on the cloud
 description: Learn how to manage your device inventory on the cloud.
-ms.date: 08/18/2021
+ms.date: 08/19/2021
 ms.topic: how-to
 ---
 
@@ -17,7 +17,7 @@ Some of the benefits of the device inventory include:
 
 - Gain visibility into each device and their details.
 
-- Export the entire device inventory to CSV for your management and reports.
+- Export the entire device inventory to CSV for your reports.
 
 ## Device inventory overview
 
