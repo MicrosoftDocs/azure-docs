@@ -35,7 +35,7 @@ To run the training examples, first clone the examples repository and change int
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
 
-Note that `--depth 1` clones only the latest commit to the repository which can decrease download size and time.
+Note that `--depth 1` clones only the latest commit to the repository which reduces time to complete the operation.
 
 ### Create compute
 
