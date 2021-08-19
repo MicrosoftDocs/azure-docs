@@ -45,7 +45,7 @@ The private endpoint details and private link resource FQDNs' information is ava
 
 An illustrative example for DNS resolution of the storage account private link FQDN.  
 
-- Enter _nslookup<storage-account-name>_.blob.core.windows.net.  Replace <storage-account-name> with the name of the storage account used for Azure Migrate.  
+- Enter _nslookup ```<storage-account-name>_.blob.core.windows.net.```  Replace ```<storage-account-name>``` with the name of the storage account used for Azure Migrate.  
 
     You'll receive a message like this:  
 
@@ -288,4 +288,4 @@ To set up the storage account for public endpoint connectivity,
 
 1. Alternatively, you can limit the access to selected networks and add the public IP address of the client from where you're trying to access the Azure Portal.  
 
-:::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall.png":::
+:::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall.png" alt-text="Snapshot of add the public IP address of the client.":::
