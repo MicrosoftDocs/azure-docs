@@ -128,12 +128,6 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **Disable encryption:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable) command. Disabling encryption is only allowed on data volumes for Linux VMs.
-
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "data"
-     ```
-
 ### Enable encryption on an existing or running Linux VM using PowerShell
 Use the [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) cmdlet to enable encryption on a running virtual machine in Azure. Take a [snapshot](snapshot-copy-managed-disk.md) and/or back up the VM with [Azure Backup](../../backup/backup-azure-vms-encryption.md) before disks are encrypted. The -skipVmBackup parameter is already specified in the PowerShell scripts to encrypt a running Linux VM.
 
@@ -178,12 +172,6 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
     
      ```azurepowershell-interactive 
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
-     ```
-    
-- **Disable disk encryption:** To disable the encryption, use the [Disable-AzVMDisk​Encryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. Disabling encryption is only allowed on data volumes for Linux VMs.
-     
-     ```azurepowershell-interactive 
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
 
 ### Enable encryption on an existing or running Linux VM with a template
@@ -391,8 +379,53 @@ In contrast to PowerShell syntax, the CLI does not require the user to provide a
 https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 
-## Disable encryption for Linux VMs
-[!INCLUDE [disk-encryption-disable-encryption-cli](../../../includes/disk-encryption-disable-cli.md)]
+### Disabling and removing the encryption extension
+
+You can disable the Azure disk encryption extension, and you can remove the Azure disk encryption extension. These are two distinct operations. You can disable the ADE extension without removing it, and remove the extension without first disabling it.
+
+### Disable encryption
+
+You can disable encryption using Azure PowerShell, the Azure CLI, or with a Resource Manager template. Disabling encryption does **not** remove the extension (see [Remove the encryption extension](#remove-the-excryption-extension)).
+
+> [!WARNING]
+> Disabling data disk encryption when both the OS and data disks have been encrypted can have unexpected results. Disable encryption on all disks instead.
+
+- **Disable disk encryption with Azure PowerShell:** To disable the encryption, use the [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet.
+
+     ```azurepowershell-interactive
+     Disable-AzVMDiskEncryption -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM" -VolumeType "all"
+     ```
+
+- **Disable encryption with the Azure CLI:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable) command. 
+
+     ```azurecli-interactive
+     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
+     ```
+
+- **Disable encryption with a Resource Manager template:** 
+
+    1. Click **Deploy to Azure** from the [Disable disk encryption on running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-linux-vm-without-aad) template.
+    2. Select the subscription, resource group, location, VM, volume type, legal terms, and agreement.
+    3.  Click **Purchase** to disable disk encryption on a running Linux VM.
+
+### Remove the encryption extension
+
+You can remove the encryption extension using Azure PowerShell or the Azure CLI.
+
+If you wish to disable encryption but leave the extension on the VM, see [disable encryption](#disable-encryption) instead. You do **not** have to disable encryption before removing the encryption extension.
+
+- **Disable disk encryption with Azure PowerShell:** To disable the encryption, use the [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) cmdlet.
+
+     ```azurepowershell-interactive
+     Remove-AzVMDiskEncryptionExtension -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM"
+     ```
+
+- **Disable encryption with the Azure CLI:** To disable encryption, use the [az vm extension delete](/cli/azure/vm/extension?view=azure-cli-latest#az_vm_extension_delete) command.
+
+     ```azurecli-interactive
+     az vm extension delete -g "MyVirtualMachineResourceGroup" --vm-name "MySecureVM" -n "AzureDiskEncryptionForLinux"
+     ```
+
 
 ## Unsupported scenarios
 
