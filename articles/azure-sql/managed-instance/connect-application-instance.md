@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova, vanto
-ms.date: 07/08/2021
+ms.date: 08/19/2021
 ---
 
 # Connect your application to Azure SQL Managed Instance
@@ -23,9 +23,13 @@ You may choose to host application in the cloud by using Azure App Service or so
 
 Whatever choice you make, you can connect it to Azure SQL Managed Instance. 
 
+This article describes how to connect an application to Azure SQL Managed Instance in a number of different application scenarios from inside the virtual network. 
+
+> [!IMPORTANT]
+> You can also enable data access to your managed instance from outside a virtual network. You are able to access your managed instance from multi-tenant Azure services like Power BI, Azure App Service, or an on-premises network that are not connected to a VPN by using the public endpoint on a managed instance. See more on [Configure public endpoint in Azure SQL Managed Instance](./public-endpoint-configure.md). 
+
 ![High availability](./media/connect-application-instance/application-deployment-topologies.png)
 
-This article describes how to connect an application to Azure SQL Managed Instance in a number of different application scenarios. 
 
 ## Connect inside the same VNet
 
