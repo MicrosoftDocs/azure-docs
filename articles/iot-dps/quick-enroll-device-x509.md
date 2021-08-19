@@ -116,11 +116,8 @@ To create the test certificates:
 
 :::image type="content" source="./media/quick-enroll-device-x509/add-certificate.png" alt-text="Add a certificate for verification.":::
 
-:::zone pivot="programming-language-csharp"
-
-In addition to the tooling in the C SDK, the [Group certificate verification sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) in the *Microsoft Azure IoT SDK for .NET* shows how to do proof-of-possession in C# with an existing X.509 intermediate or root CA certificate.
-:::zone-end
-
+>[!TIP]
+>In addition to the tooling in the C SDK, the [Group certificate verification sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) in the *Microsoft Azure IoT SDK for .NET* shows how to do proof-of-possession in C# with an existing X.509 intermediate or root CA certificate.
 :::zone-end
 
 ## Get the connection string for your provisioning service
@@ -145,7 +142,7 @@ For the sample in this quickstart, you'll need to copy the connection string for
 
 ## Create the enrollment group sample
 
-:::zone pivot="programming-language-csharp
+:::zone pivot="programming-language-csharp"
 
 This section shows you how to create a .NET Core console application that adds an enrollment group to your provisioning service.
 
@@ -255,7 +252,7 @@ This section shows you how to create a .NET Core console application that adds a
 
 :: zone-end
 
-:::zone pivot="programming-language-nodejs
+:::zone pivot="programming-language-nodejs"
 
 This section shows you how to create a node.js script that adds an enrollment group to your provisioning service.
 
@@ -309,7 +306,7 @@ This section shows you how to create a node.js script that adds an enrollment gr
 
 :::zone-end
 
-:::zone pivot="programming-language-python
+:::zone pivot="programming-language-python"
 
 1. Using a text editor, create a new *EnrollmentGroup.py* file.
 
@@ -361,13 +358,13 @@ This section shows you how to create a node.js script that adds an enrollment gr
 
 :::zone-end
 
-:::zone pivot="programming-language-java
+:::zone pivot="programming-language-java"
 
 :::zone-end
 
 ## Run the enrollment group sample
 
-:::zone pivot="programming-language-csharp
+:::zone pivot="programming-language-csharp"
 
 1. Run the sample in Visual Studio to create the enrollment group. A command window will appear, and will show confirmation messages.
 
@@ -375,7 +372,7 @@ This section shows you how to create a node.js script that adds an enrollment gr
 
 :::zone-end
 
-:::zone pivot="programming-language-nodejs
+:::zone pivot="programming-language-nodejs"
 
 1. Open a command prompt, and the following command (include the quotes around the command arguments and replace `<connection string>` withe connection string you copied in the previous section, and `<certificate .pem file>` with the path of your `.pem` file):
 
@@ -405,7 +402,7 @@ This section shows you how to create a node.js script that adds an enrollment gr
 
 :::zone-end
 
-:::zone pivot="programming-language-java
+:::zone pivot="programming-language-java"
 
 :::zone-end
 
@@ -417,19 +414,19 @@ To verify that the enrollment group has been created:
 
 3. Select **Enrollment Groups**. You should see a new enrollment entry that corresponds to the registration ID that you used in the sample.
 
-:::zone pivot="programming-language-csharp
+:::zone pivot="programming-language-csharp"
 
 :::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-csharp.png" alt-text="Verify enrollment for C# group in the portal.":::
 
 :::zone-end
 
-:::zone pivot="programming-language-nodejs
+:::zone pivot="programming-language-nodejs"
 
 ![Enrollment properties in the portal](media/quick-enroll-device-x509/verify-enrollment-nodejs.png)
 
 :::zone-end
 
-:::zone pivot="programming-language-python
+:::zone pivot="programming-language-python"
 
 :::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-python.png" alt-text="Verify enrollment for Python group in the portal.":::
 
