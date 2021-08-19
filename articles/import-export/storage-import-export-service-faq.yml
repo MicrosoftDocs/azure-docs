@@ -102,7 +102,7 @@ sections:
           
           > [!NOTE]
           > The datacenters in India require a declaration letter on your letterhead (delivery challan) to return the drives. To arrange the required entry pass, you must also book the pick up with your selected carrier and share the details with the datacenter.
-          
+          > Please avoid shipping packages via the US Postal Service. The datacenter cannot accept the packages, which are too large for the mailbox. The packages eventually are re-routed to the nearest US Post Office.      
       - question: |
           Are there any restrictions with shipping and returning my drive internationally?
         answer: |
