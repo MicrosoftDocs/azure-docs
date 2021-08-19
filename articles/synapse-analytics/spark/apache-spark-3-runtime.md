@@ -8,6 +8,7 @@ ms.topic: reference
 ms.subservice: spark
 ms.date: 05/26/2021 
 ms.author: midesa 
+ms.custom: has-adal-ref
 ---
 
 # Azure Synapse Runtime for Apache Spark 3.0 (preview)

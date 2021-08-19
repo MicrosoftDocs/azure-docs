@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 07/26/2021
+ms.date: 08/04/2021
 ms.custom: generated
 ---
 
@@ -1854,6 +1854,7 @@ Azure service: [Azure NetApp Files](../azure-netapp-files/index.yml)
 > | Microsoft.NetApp/locations/read | Reads an availability check resource. |
 > | Microsoft.NetApp/locations/checknameavailability/action | Check if resource name is available |
 > | Microsoft.NetApp/locations/checkfilepathavailability/action | Check if file path is available |
+> | Microsoft.NetApp/locations/checkinventory/action | Checks ReservedCapacity inventory. |
 > | Microsoft.NetApp/locations/operationresults/read | Reads an operation result resource. |
 > | Microsoft.NetApp/netAppAccounts/read | Reads an account resource. |
 > | Microsoft.NetApp/netAppAccounts/write | Writes an account resource. |
@@ -1882,6 +1883,7 @@ Azure service: [Azure NetApp Files](../azure-netapp-files/index.yml)
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/AuthorizeReplication/action | Authorize the source volume replication |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ResyncReplication/action | Resync the replication on the destination volume |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/DeleteReplication/action | Delete the replication on the destination volume |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/PoolChange/action | Moves volume to another pool. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/read | Reads a backup resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/write | Writes a backup resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/delete | Deletes a backup resource. |
@@ -1895,6 +1897,7 @@ Azure service: [Azure NetApp Files](../azure-netapp-files/index.yml)
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/read | Reads a snapshot resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/write | Writes a snapshot resource. |
 > | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/delete | Deletes a snapshot resource. |
+> | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/subvolumes/write | Write a subvolume resource. |
 > | Microsoft.NetApp/netAppAccounts/ipsecPolicies/read | Reads a IPSec policy resource. |
 > | Microsoft.NetApp/netAppAccounts/ipsecPolicies/write | Writes an IPSec policy resource. |
 > | Microsoft.NetApp/netAppAccounts/ipsecPolicies/delete | Deletes a IPSec policy resource. |
@@ -2953,6 +2956,7 @@ Azure service: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | microsoft.web/sites/backups/delete | Delete Web Apps Backups. |
 > | microsoft.web/sites/backups/write | Update Web Apps Backups. |
 > | Microsoft.Web/sites/basicPublishingCredentialsPolicies/Read | List which publishing methods are allowed for a Web App |
+> | Microsoft.Web/sites/basicPublishingCredentialsPolicies/Write | List which publishing methods are allowed for a Web App |
 > | Microsoft.Web/sites/basicPublishingCredentialsPolicies/ftp/Read | Get whether FTP publishing credentials are allowed for a Web App |
 > | Microsoft.Web/sites/basicPublishingCredentialsPolicies/ftp/Write | Update whether FTP publishing credentials are allowed for a Web App |
 > | Microsoft.Web/sites/basicPublishingCredentialsPolicies/scm/Read | Get whether SCM publishing credentials are allowed for a Web App |
@@ -3120,6 +3124,7 @@ Azure service: [App Service](../app-service/index.yml), [Azure Functions](../azu
 > | microsoft.web/sites/slots/backups/restore/action | Restore Web Apps Slots Backups. |
 > | microsoft.web/sites/slots/backups/delete | Delete Web Apps Slots Backups. |
 > | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/Read | List which publishing credentials are allowed for a Web App Slot |
+> | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/Write | List which publishing credentials are allowed for a Web App Slot |
 > | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/ftp/Read | Get whether FTP publishing credentials are allowed for a Web App Slot |
 > | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/ftp/Write | Update whether FTP publishing credentials are allowed for a Web App Slot |
 > | Microsoft.Web/sites/slots/basicPublishingCredentialsPolicies/scm/Read | Get whether SCM publishing credentials are allowed for a Web App Slot |
@@ -5351,17 +5356,27 @@ Azure service: [HDInsight](../hdinsight/index.yml)
 > | Microsoft.HDInsight/clusters/getGatewaySettings/action | Get gateway settings for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/updateGatewaySettings/action | Update gateway settings for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/configurations/action | Get HDInsight Cluster Configurations |
+> | Microsoft.HDInsight/clusters/executeScriptActions/action | Execute Script Actions for HDInsight Cluster |
+> | Microsoft.HDInsight/clusters/resolvePrivateLinkServiceId/action | Resolve Private Link Service ID for HDInsight Cluster |
+> | Microsoft.HDInsight/clusters/privateEndpointConnectionsApproval/action | Auto Approve Private Endpoint Connections for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/applications/read | Get Application for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/applications/write | Create or Update Application for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/applications/delete | Delete Application for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/configurations/read | Get HDInsight Cluster Configurations |
+> | Microsoft.HDInsight/clusters/executeScriptActions/azureasyncoperations/read | Get Script Action status for HDInsight Cluster |
+> | Microsoft.HDInsight/clusters/executeScriptActions/operationresults/read | Get Script Action status for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/extensions/write | Create Cluster Extension for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/extensions/read | Get Cluster Extension for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/extensions/delete | Delete Cluster Extension for HDInsight Cluster |
+> | Microsoft.HDInsight/clusters/privateLinkResources/read | Get Private Link Resources for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for HDInsight Cluster |
 > | Microsoft.HDInsight/clusters/roles/resize/action | Resize a HDInsight Cluster |
+> | Microsoft.HDInsight/clusters/scriptActions/read | Get persisted Script Actions for HDInsight Cluster |
+> | Microsoft.HDInsight/clusters/scriptActions/delete | Delete persisted Script Actions for HDInsight Cluster |
+> | Microsoft.HDInsight/clusters/scriptExecutionHistory/read | Get Script Actions history for HDInsight Cluster |
+> | Microsoft.HDInsight/clusters/scriptExecutionHistory/promote/action | Promote Script Action for HDInsight Cluster |
 > | Microsoft.HDInsight/locations/capabilities/read | Get Subscription Capabilities |
 > | Microsoft.HDInsight/locations/checkNameAvailability/read | Check Name Availability |
 
@@ -7527,6 +7542,7 @@ Azure service: [API Management](../api-management/index.yml)
 > | Microsoft.ApiManagement/service/openidConnectProviders/delete | Deletes specific OpenID Connect Provider of the API Management service instance. |
 > | Microsoft.ApiManagement/service/openidConnectProviders/listSecrets/action | Gets specific OpenID Connect Provider secrets. |
 > | Microsoft.ApiManagement/service/operationresults/read | Gets current status of long running operation |
+> | Microsoft.ApiManagement/service/outboundNetworkDependenciesEndpoints/read | Gets the outbound network dependency status of resources on which the service depends on. |
 > | Microsoft.ApiManagement/service/policies/read | Lists all the Global Policy definitions of the Api Management service. or Get the Global policy definition of the Api Management service. |
 > | Microsoft.ApiManagement/service/policies/write | Creates or updates the global policy configuration of the Api Management service. |
 > | Microsoft.ApiManagement/service/policies/delete | Deletes the global policy configuration of the Api Management Service. |
@@ -8541,21 +8557,42 @@ Azure service: [Security Center](../security-center/index.yml)
 > | Microsoft.Security/deviceSecurityGroups/read | Gets IoT device security groups |
 > | Microsoft.Security/informationProtectionPolicies/read | Gets the information protection policies for the resource |
 > | Microsoft.Security/informationProtectionPolicies/write | Updates the information protection policies for the resource |
+> | Microsoft.Security/iotDefenderSettings/read | Gets IoT Defender Settings |
+> | Microsoft.Security/iotDefenderSettings/write | Create or updates IoT Defender Settings |
+> | Microsoft.Security/iotDefenderSettings/delete | Deletes IoT Defender Settings |
+> | Microsoft.Security/iotDefenderSettings/PackageDownloads/action | Gets downloadable IoT Defender packages information |
+> | Microsoft.Security/iotDefenderSettings/DownloadManagerActivation/action | Download manager activation file with subscription quota data |
 > | Microsoft.Security/iotSecuritySolutions/write | Creates or updates IoT security solutions |
 > | Microsoft.Security/iotSecuritySolutions/delete | Deletes IoT security solutions |
 > | Microsoft.Security/iotSecuritySolutions/read | Gets IoT security solutions |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Gets IoT security analytics model |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Gets IoT alert types |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Gets IoT alert types |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Gets IoT alerts |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Gets IoT alerts |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Gets IoT recommendation types |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Gets IoT recommendation types |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Gets IoT recommendations |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Gets IoT recommendations |
+> | Microsoft.Security/iotSecuritySolutions/analyticsModels/read | Gets devices |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/aggregatedAlerts/read | Gets IoT aggregated alerts |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/aggregatedAlerts/dismiss/action | Dismisses IoT aggregated alerts |
 > | Microsoft.Security/iotSecuritySolutions/analyticsModels/aggregatedRecommendations/read | Gets IoT aggregated recommendations |
+> | Microsoft.Security/iotSensors/read | Gets IoT Sensors |
+> | Microsoft.Security/iotSensors/write | Create or updates IoT Sensors |
+> | Microsoft.Security/iotSensors/delete | Deletes IoT Sensors |
+> | Microsoft.Security/iotSensors/DownloadActivation/action | Downloads activation file for IoT Sensors |
+> | Microsoft.Security/iotSensors/TriggerTiPackageUpdate/action | Triggers threat intelligence package update |
+> | Microsoft.Security/iotSensors/DownloadResetPassword/action | Downloads reset password file for IoT Sensors |
+> | Microsoft.Security/iotSite/read | Gets IoT site |
+> | Microsoft.Security/iotSite/write | Creates or updates IoT site |
+> | Microsoft.Security/iotSite/delete | Deletes IoT site |
 > | Microsoft.Security/locations/read | Gets the security data location |
 > | Microsoft.Security/locations/alerts/read | Gets all available security alerts |
 > | Microsoft.Security/locations/alerts/dismiss/action | Dismiss a security alert |
 > | Microsoft.Security/locations/alerts/activate/action | Activate a security alert |
+> | Microsoft.Security/locations/alerts/resolve/action | Resolve a security alert |
+> | Microsoft.Security/locations/alerts/simulate/action | Simulate a security alert |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/read | Gets the just-in-time network access policies |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/write | Creates a new just-in-time network access policy or updates an existing one |
 > | Microsoft.Security/locations/jitNetworkAccessPolicies/delete | Deletes the just-in-time network access policy |
@@ -8570,6 +8607,10 @@ Azure service: [Security Center](../security-center/index.yml)
 > | Microsoft.Security/pricings/read | Gets the pricing settings for the scope |
 > | Microsoft.Security/pricings/write | Updates the pricing settings for the scope |
 > | Microsoft.Security/pricings/delete | Deletes the pricing settings for the scope |
+> | Microsoft.Security/secureScoreControlDefinitions/read | Get secure score control definition |
+> | Microsoft.Security/secureScoreControls/read | Get calculated secure score control for your subscription |
+> | Microsoft.Security/secureScores/read | Get calculated secure score for your subscription |
+> | Microsoft.Security/secureScores/secureScoreControls/read | Get calculated secure score control for your secure score calculation |
 > | Microsoft.Security/securityContacts/read | Gets the security contact |
 > | Microsoft.Security/securityContacts/write | Updates the security contact |
 > | Microsoft.Security/securityContacts/delete | Deletes the security contact |
@@ -9212,6 +9253,11 @@ Azure service: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/validate/action | Validate a Private Endpoint Connection Proxy |
 > | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/write | Create or Update a Private Endpoint Connection Proxy |
 > | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/delete | Delete a Private Endpoint Connection Proxy |
+> | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/operationsstatus/read | Get status of a long running operation on a Private Endpoint Connection Proxy |
+> | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/operationsstatus/read | Get status of a long running operation on a Private Endpoint Connection Proxy |
+> | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/operationsstatus/read | Get status of a long running operation on a Private Endpoint Connection Proxy |
+> | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/operationsstatus/read | Get status of a long running operation on a Private Endpoint Connection Proxy |
+> | Microsoft.OffAzure/MasterSites/privateEndpointConnectionProxies/operationsstatus/read | Get status of a long running operation on a Private Endpoint Connection Proxy |
 > | Microsoft.OffAzure/MasterSites/privateEndpointConnections/read | Get Private Endpoint Connection |
 > | Microsoft.OffAzure/MasterSites/privateEndpointConnections/write | Update a Private Endpoint Connection |
 > | Microsoft.OffAzure/MasterSites/privateEndpointConnections/delete | Delete a Private Endpoint Connection |
@@ -9263,26 +9309,31 @@ Azure service: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/ServerSites/delete | Deletes the Server site |
 > | Microsoft.OffAzure/ServerSites/refresh/action | Refreshes the objects within a Server site |
 > | Microsoft.OffAzure/ServerSites/updateProperties/action | Updates the properties for machines in a site |
+> | Microsoft.OffAzure/ServerSites/updateTags/action | Updates the tags for machines in a site |
 > | Microsoft.OffAzure/ServerSites/read | Gets the properties of a Server site |
 > | Microsoft.OffAzure/ServerSites/write | Creates or updates the Server site |
 > | Microsoft.OffAzure/ServerSites/delete | Deletes the Server site |
 > | Microsoft.OffAzure/ServerSites/refresh/action | Refreshes the objects within a Server site |
 > | Microsoft.OffAzure/ServerSites/updateProperties/action | Updates the properties for machines in a site |
+> | Microsoft.OffAzure/ServerSites/updateTags/action | Updates the tags for machines in a site |
 > | Microsoft.OffAzure/ServerSites/read | Gets the properties of a Server site |
 > | Microsoft.OffAzure/ServerSites/write | Creates or updates the Server site |
 > | Microsoft.OffAzure/ServerSites/delete | Deletes the Server site |
 > | Microsoft.OffAzure/ServerSites/refresh/action | Refreshes the objects within a Server site |
 > | Microsoft.OffAzure/ServerSites/updateProperties/action | Updates the properties for machines in a site |
+> | Microsoft.OffAzure/ServerSites/updateTags/action | Updates the tags for machines in a site |
 > | Microsoft.OffAzure/ServerSites/read | Gets the properties of a Server site |
 > | Microsoft.OffAzure/ServerSites/write | Creates or updates the Server site |
 > | Microsoft.OffAzure/ServerSites/delete | Deletes the Server site |
 > | Microsoft.OffAzure/ServerSites/refresh/action | Refreshes the objects within a Server site |
 > | Microsoft.OffAzure/ServerSites/updateProperties/action | Updates the properties for machines in a site |
+> | Microsoft.OffAzure/ServerSites/updateTags/action | Updates the tags for machines in a site |
 > | Microsoft.OffAzure/ServerSites/read | Gets the properties of a Server site |
 > | Microsoft.OffAzure/ServerSites/write | Creates or updates the Server site |
 > | Microsoft.OffAzure/ServerSites/delete | Deletes the Server site |
 > | Microsoft.OffAzure/ServerSites/refresh/action | Refreshes the objects within a Server site |
 > | Microsoft.OffAzure/ServerSites/updateProperties/action | Updates the properties for machines in a site |
+> | Microsoft.OffAzure/ServerSites/updateTags/action | Updates the tags for machines in a site |
 > | Microsoft.OffAzure/ServerSites/jobs/read | Gets the properties of a Server jobs |
 > | Microsoft.OffAzure/ServerSites/jobs/read | Gets the properties of a Server jobs |
 > | Microsoft.OffAzure/ServerSites/jobs/read | Gets the properties of a Server jobs |
@@ -9290,14 +9341,19 @@ Azure service: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/ServerSites/jobs/read | Gets the properties of a Server jobs |
 > | Microsoft.OffAzure/ServerSites/machines/read | Gets the properties of a Server machines |
 > | Microsoft.OffAzure/ServerSites/machines/write | Write the properties of a Server machines |
+> | Microsoft.OffAzure/ServerSites/machines/delete | Delete the properties of a Server machines |
 > | Microsoft.OffAzure/ServerSites/machines/read | Gets the properties of a Server machines |
 > | Microsoft.OffAzure/ServerSites/machines/write | Write the properties of a Server machines |
+> | Microsoft.OffAzure/ServerSites/machines/delete | Delete the properties of a Server machines |
 > | Microsoft.OffAzure/ServerSites/machines/read | Gets the properties of a Server machines |
 > | Microsoft.OffAzure/ServerSites/machines/write | Write the properties of a Server machines |
+> | Microsoft.OffAzure/ServerSites/machines/delete | Delete the properties of a Server machines |
 > | Microsoft.OffAzure/ServerSites/machines/read | Gets the properties of a Server machines |
 > | Microsoft.OffAzure/ServerSites/machines/write | Write the properties of a Server machines |
+> | Microsoft.OffAzure/ServerSites/machines/delete | Delete the properties of a Server machines |
 > | Microsoft.OffAzure/ServerSites/machines/read | Gets the properties of a Server machines |
 > | Microsoft.OffAzure/ServerSites/machines/write | Write the properties of a Server machines |
+> | Microsoft.OffAzure/ServerSites/machines/delete | Delete the properties of a Server machines |
 > | Microsoft.OffAzure/ServerSites/operationsstatus/read | Gets the properties of a Server operation status |
 > | Microsoft.OffAzure/ServerSites/operationsstatus/read | Gets the properties of a Server operation status |
 > | Microsoft.OffAzure/ServerSites/operationsstatus/read | Gets the properties of a Server operation status |
@@ -9324,6 +9380,7 @@ Azure service: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/refresh/action | Refreshes the objects within a VMware site |
 > | Microsoft.OffAzure/VMwareSites/exportapplications/action | Exports the VMware applications and roles data into xls |
 > | Microsoft.OffAzure/VMwareSites/updateProperties/action | Updates the properties for machines in a site |
+> | Microsoft.OffAzure/VMwareSites/updateTags/action | Updates the tags for machines in a site |
 > | Microsoft.OffAzure/VMwareSites/generateCoarseMap/action | Generates the coarse map for the list of machines |
 > | Microsoft.OffAzure/VMwareSites/generateDetailedMap/action | Generates the Detailed VMware Coarse Map |
 > | Microsoft.OffAzure/VMwareSites/clientGroupMembers/action | Lists the client group members for the selected client group. |
@@ -9336,6 +9393,7 @@ Azure service: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/refresh/action | Refreshes the objects within a VMware site |
 > | Microsoft.OffAzure/VMwareSites/exportapplications/action | Exports the VMware applications and roles data into xls |
 > | Microsoft.OffAzure/VMwareSites/updateProperties/action | Updates the properties for machines in a site |
+> | Microsoft.OffAzure/VMwareSites/updateTags/action | Updates the tags for machines in a site |
 > | Microsoft.OffAzure/VMwareSites/generateCoarseMap/action | Generates the coarse map for the list of machines |
 > | Microsoft.OffAzure/VMwareSites/generateDetailedMap/action | Generates the Detailed VMware Coarse Map |
 > | Microsoft.OffAzure/VMwareSites/clientGroupMembers/action | Lists the client group members for the selected client group. |
@@ -9348,6 +9406,7 @@ Azure service: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/refresh/action | Refreshes the objects within a VMware site |
 > | Microsoft.OffAzure/VMwareSites/exportapplications/action | Exports the VMware applications and roles data into xls |
 > | Microsoft.OffAzure/VMwareSites/updateProperties/action | Updates the properties for machines in a site |
+> | Microsoft.OffAzure/VMwareSites/updateTags/action | Updates the tags for machines in a site |
 > | Microsoft.OffAzure/VMwareSites/generateCoarseMap/action | Generates the coarse map for the list of machines |
 > | Microsoft.OffAzure/VMwareSites/generateDetailedMap/action | Generates the Detailed VMware Coarse Map |
 > | Microsoft.OffAzure/VMwareSites/clientGroupMembers/action | Lists the client group members for the selected client group. |
@@ -9360,6 +9419,7 @@ Azure service: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/refresh/action | Refreshes the objects within a VMware site |
 > | Microsoft.OffAzure/VMwareSites/exportapplications/action | Exports the VMware applications and roles data into xls |
 > | Microsoft.OffAzure/VMwareSites/updateProperties/action | Updates the properties for machines in a site |
+> | Microsoft.OffAzure/VMwareSites/updateTags/action | Updates the tags for machines in a site |
 > | Microsoft.OffAzure/VMwareSites/generateCoarseMap/action | Generates the coarse map for the list of machines |
 > | Microsoft.OffAzure/VMwareSites/generateDetailedMap/action | Generates the Detailed VMware Coarse Map |
 > | Microsoft.OffAzure/VMwareSites/clientGroupMembers/action | Lists the client group members for the selected client group. |
@@ -9372,6 +9432,7 @@ Azure service: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/refresh/action | Refreshes the objects within a VMware site |
 > | Microsoft.OffAzure/VMwareSites/exportapplications/action | Exports the VMware applications and roles data into xls |
 > | Microsoft.OffAzure/VMwareSites/updateProperties/action | Updates the properties for machines in a site |
+> | Microsoft.OffAzure/VMwareSites/updateTags/action | Updates the tags for machines in a site |
 > | Microsoft.OffAzure/VMwareSites/generateCoarseMap/action | Generates the coarse map for the list of machines |
 > | Microsoft.OffAzure/VMwareSites/generateDetailedMap/action | Generates the Detailed VMware Coarse Map |
 > | Microsoft.OffAzure/VMwareSites/clientGroupMembers/action | Lists the client group members for the selected client group. |
@@ -10092,6 +10153,7 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/AmlDataSetEvent/read | Read data from the AmlDataSetEvent table |
 > | Microsoft.OperationalInsights/workspaces/query/AmlDataStoreEvent/read | Read data from the AmlDataStoreEvent table |
 > | Microsoft.OperationalInsights/workspaces/query/AmlDeploymentEvent/read | Read data from the AmlDeploymentEvent table |
+> | Microsoft.OperationalInsights/workspaces/query/AmlEnvironmentEvent/read | Read data from the AmlEnvironmentEvent table |
 > | Microsoft.OperationalInsights/workspaces/query/AmlInferencingEvent/read | Read data from the AmlInferencingEvent table |
 > | Microsoft.OperationalInsights/workspaces/query/AmlModelsEvent/read | Read data from the AmlModelsEvent table |
 > | Microsoft.OperationalInsights/workspaces/query/AmlOnlineEndpointConsoleLog/read | Read data from the AmlOnlineEndpointConsoleLog table |
@@ -10349,6 +10411,13 @@ Azure service: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/SucceededIngestion/read | Read data from the SucceededIngestion table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseBigDataPoolApplicationsEnded/read | Read data from the SynapseBigDataPoolApplicationsEnded table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseBuiltinSqlPoolRequestsEnded/read | Read data from the SynapseBuiltinSqlPoolRequestsEnded table |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXCommand/read | Read data from the SynapseDXCommand table |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXFailedIngestion/read | Read data from the SynapseDXFailedIngestion table |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXIngestionBatching/read | Read data from the SynapseDXIngestionBatching table |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXQuery/read | Read data from the SynapseDXQuery table |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXSucceededIngestion/read | Read data from the SynapseDXSucceededIngestion table |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXTableDetails/read | Read data from the SynapseDXTableDetails table |
+> | Microsoft.OperationalInsights/workspaces/query/SynapseDXTableUsageStatistics/read | Read data from the SynapseDXTableUsageStatistics table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseGatewayApiRequests/read | Read data from the SynapseGatewayApiRequests table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseGatewayEvents/read | Read data from the SynapseGatewayEvents table |
 > | Microsoft.OperationalInsights/workspaces/query/SynapseIntegrationActivityRuns/read | Read data from the SynapseIntegrationActivityRuns table |
@@ -10606,6 +10675,8 @@ Azure service: [Automation](../automation/index.yml)
 > | Microsoft.Automation/automationAccounts/credentials/delete | Deletes an Azure Automation credential asset |
 > | Microsoft.Automation/automationAccounts/diagnosticSettings/read | Gets the diagnostic setting for the resource |
 > | Microsoft.Automation/automationAccounts/diagnosticSettings/write | Sets the diagnostic setting for the resource |
+> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads Hybrid Runbook Worker Resources |
+> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Deletes Hybrid Runbook Worker Resources |
 > | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads Hybrid Runbook Worker Resources |
 > | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Deletes Hybrid Runbook Worker Resources |
 > | Microsoft.Automation/automationAccounts/jobs/runbookContent/action | Gets the content of the Azure Automation runbook at the time of the job execution |
@@ -11555,8 +11626,8 @@ Azure service: [Site Recovery](../site-recovery/index.yml)
 > | microsoft.recoveryservices/Vaults/backupProtectionContainers/read | Returns all containers belonging to the subscription |
 > | microsoft.recoveryservices/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
 > | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
-> | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/read | Get the list of ResourceGuard proxies for a resource |
 > | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/read | Get ResourceGuard proxy operation gets an object representing the Azure resource of type 'ResourceGuard proxy' |
+> | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/read | Get the list of ResourceGuard proxies for a resource |
 > | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
 > | microsoft.recoveryservices/Vaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
 > | microsoft.recoveryservices/Vaults/backupstorageconfig/read | Returns Storage Configuration for Recovery Services Vault. |

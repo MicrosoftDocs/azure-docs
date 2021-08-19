@@ -1,11 +1,11 @@
 ---
-title: Overview - Single-tenant Azure Logic Apps
+title: Single-tenant Azure Logic Apps overview and comparison
 description: Learn the differences between single-tenant, multi-tenant, and integration service environment (ISE) for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, ladolan, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 08/18/2021
 ---
 
 # Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps
@@ -33,7 +33,7 @@ The following table briefly summarizes differences between the **Logic App (Stan
 
 ## Logic App (Standard) resource
 
-The **Logic App (Standard)** resource type is powered by the redesigned single-tenant Azure Logic Apps runtime. This containerized runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This design provides portability, flexibility, and more performance for your logic app workflows plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem.
+The **Logic App (Standard)** resource type is powered by the redesigned single-tenant Azure Logic Apps runtime. This runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This design provides portability, flexibility, and more performance for your logic app workflows plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem.
 
 For example, you can run single-tenant based logic apps and their workflows anywhere that Azure function apps and their functions can run. The Standard resource type introduces a resource structure that can host multiple workflows, similar to how an Azure function app can host multiple functions. With a 1-to-many mapping, workflows in the same logic app and tenant share compute and processing resources, providing better performance due to their proximity. This structure differs from the **Logic App (Consumption)** resource where you have a 1-to-1 mapping between a logic app resource and a workflow.
 
@@ -50,7 +50,7 @@ To learn more about portability, flexibility, and performance improvements, cont
 
 When you create logic apps using the **Logic App (Standard)** resource type, you can run your workflows anywhere that you can run Azure function apps and their functions, not just in the single-tenant service environment.
 
-For example, when you use Visual Studio Code with the **Azure Logic Apps (Standard)** extension, you can *locally* develop, build, and run your workflows in your development environment without having to deploy to Azure. If your scenario requires containers, you can containerize and deploy logic apps as containers.
+For example, when you use Visual Studio Code with the **Azure Logic Apps (Standard)** extension, you can *locally* develop, build, and run your workflows in your development environment without having to deploy to Azure. If your scenario requires containers, [create single-tenant based logic apps using Azure Arc-enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md). For more information, review [What is Azure Arc enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md)
 
 These capabilities provide major improvements and substantial benefits compared to the multi-tenant model, which requires you to develop against an existing running resource in Azure. Also, the multi-tenant model for automating **Logic App (Consumption)** resource deployment is completely based on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both apps and infrastructure.
 
@@ -201,7 +201,7 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
   Before you run and test your logic app, you can make debugging easier by adding and using breakpoints inside the **workflow.json** file for a workflow. However, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
-* Directly publish or deploy logic apps and their workflows from Visual Studio Code to various hosting environments such as Azure and containers.
+* Directly publish or deploy logic apps and their workflows from Visual Studio Code to various hosting environments such as Azure and Azure Arc enabled Logic Apps.
 
 * Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](../azure-monitor/app/app-insights-overview.md) when supported by your Azure subscription and logic app settings.
 
