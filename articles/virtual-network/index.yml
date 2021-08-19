@@ -58,7 +58,7 @@ landingContent:
             url: virtual-network-service-endpoints-overview.md
           - text: Virtual network security FAQ
             url: virtual-networks-faq.md#security
-          - text: Default Outbound Access
+          - text: Default outbound access
             url: default-outbound-access.md            
       - linkListType: tutorial
         links:
