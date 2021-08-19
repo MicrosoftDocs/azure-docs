@@ -59,7 +59,7 @@ func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub -
 
 ## Trigger binding
 
-Use the function trigger to handle requests from Azure Web PubSub service. For information on setup and configuration details, see the [Get started](#getting-started). 
+Use the function trigger to handle requests from Azure Web PubSub service. 
 
 `WebPubSubTrigger` is used when you need to handle requests from service side. The trigger endpoint pattern would be like below which should be set in Web PubSub service side (Portal: settings -> event handler -> URL Template). In the endpoint pattern, the query part `code=<API_KEY>` is **REQUIRED** when you're using Azure Function App for [security](/azure/azure-functions/security-concepts#system-key) reasons. The key can be found in **Azure Portal**. Find your function app resource and navigate to **Functions** -> **App Keys** -> **System Keys** -> **webpubsub_extension** after you deploy the function app to Azure. Though, this key isn't needed when you're working with local functions.
 
