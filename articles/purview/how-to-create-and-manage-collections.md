@@ -12,10 +12,10 @@ ms.custom: template-how-to
 
 # Create and manage collections in Azure Purview
 
-Collections in Purview can be used to organize assets and sources by your business' flow, but they are also the tool used to manage access across Purview. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
-
 > [!NOTE]
-> At this time, this quickstart only applies for Purview instances created **on or after August 18, 2021**. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on creating a collection for a Purview instances created before August 18, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
+> At this time, this guide only applies to Purview instances created **on or after August 18, 2021**. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on creating a collection for a Purview instances created before August 18, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
+
+Collections in Purview can be used to organize assets and sources by your business's flow, but they are also the tool used to manage access across Purview. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Collections in Purview can be used to organize assets and sources by your busine
 
 ### Check permissions
 
-In order to create and manage collections in Purview, you will need to be a **Collection Admin** within Purview. We can check these permissions in the [Purview Studio](use-purview-studio.md). You can find the studio by going to your Purview resource in the Azure portal, and selecting the Open Purview Studio tile on the overview page.
+In order to create and manage collections in Purview, you will need to be a **Collection Admin** within Purview. We can check these permissions in the [Purview Studio](use-purview-studio.md). You can find the studio by going to your Purview resource in the [Azure portal](https://portal.azure.com), and selecting the Open Purview Studio tile on the overview page.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
@@ -280,8 +280,10 @@ Legacy collections only organize sources in the data map, and do not manage perm
 
 ## Next steps
 
-Now that you have a collection, you can follow these guides below to add resources, scan, and manage your collections.
+Now that you have a collection, you can follow these guides below to add resources and scan.
 
 * [Manage data sources](manage-data-sources.md)
 
 * [Supported data sources](purview-connector-overview.md)
+
+* [Scan and ingestion](concept-scans-and-ingestion.md)
