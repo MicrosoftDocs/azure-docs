@@ -195,7 +195,8 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
     > To use these actions in single-tenant Azure Logic Apps (Standard), you need to have Liquid maps, XML maps, or XML schemas. 
     > You can upload these artifacts in the Azure portal from your logic app's resource menu, under **Artifacts**, which includes 
     > the **Schemas** and **Maps** sections. Or, you can add these artifacts to your Visual Studio Code project's **Artifacts** 
-    > folder using the respective **Maps** and **Schemas** folders.
+    > folder using the respective **Maps** and **Schemas** folders. You can then use these artifacts across multiple workflows 
+    > within the *same logic app resource*.
 
   * **Logic app (Standard)** resources can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
