@@ -21,15 +21,13 @@ For step-by-step guidance on using Bicep to deploy your infrastructure to Azure,
 :::column-end:::
 :::row-end:::
 
-## Deploy your Bicep code by using Azure Pipelines and GitHub Actions
-
-In addition to the preceding path, the following modules contain Bicep content related to Azure Pipelines and GitHub Actions.
+In addition to the preceding learning paths, the following modules contain Bicep content related to Azure Pipelines and GitHub Actions.
 
 | Learn module | Description |
 | ------------ | ----------- |
-| [Authenticate your Azure deployment pipeline by using service principals](/learn/modules/authenticate-azure-deployment-pipeline-service-principals/) | Service principals enable your deployment pipelines to authenticate securely with Azure. In this module, you'll learn what service principals are, how they work, and how to create them. You'll also learn how to grant them permission to your Azure resources so that your pipelines can deploy your Bicep files. |
 | [Build your first Bicep deployment pipeline by using Azure Pipelines](/learn/modules/build-first-bicep-deployment-pipeline-using-azure-pipelines/) | Build a basic deployment pipeline for Bicep code. Use a service connection to securely identify your pipeline to Azure. Configure when the pipeline runs by using triggers. |
 | [Build your first Bicep deployment workflow by using GitHub Actions](/learn/modules/build-first-bicep-deployment-workflow-using-github-actions/) | Build a basic deployment workflow for Bicep code. Use a secret to securely identify your GitHub Actions workflow to Azure, and then set when the workflow runs by using triggers and schedules. |
+| [Authenticate your Azure deployment pipeline by using service principals](/learn/modules/authenticate-azure-deployment-pipeline-service-principals/) | Service principals enable your deployment pipelines to authenticate securely with Azure. In this module, you'll learn what service principals are, how they work, and how to create them. You'll also learn how to grant them permission to your Azure resources so that your pipelines can deploy your Bicep files. |
 
 ## Next steps
 
