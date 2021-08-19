@@ -124,7 +124,7 @@ sections:
 
       - question: Does Azure Backup interfere with application performance?
         answer: |
-          As creating a VM Snapshot takes a few minutes, there will be a very minimal interference on application performance at this stage. But data transfer to a vault takes a couple of hours, and so hence we recommend to schedule backups during off business hours. Learn more about [best practices](/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations).
+          Creating a VM Snapshot takes few minutes, and there will be a very minimal interference on application performance at this stage. But, data transfer to a vault takes a couple of hours; so we recommend to schedule backups during off business hours. Learn more about [best practices for backup and restore](/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations).
 
       - question: Will the new disk added to VM be backed up automatically?
         answer: |
