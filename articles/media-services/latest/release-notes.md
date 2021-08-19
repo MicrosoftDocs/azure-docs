@@ -29,13 +29,13 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ## July 2021
 
-### .NET SDK (Microsoft.Azure.Management.Media ) 5.0.0 release available in NuGet
+### .NET SDK (Microsoft.Azure.Management.Media ) 5.0.0 release available in NuGet (Coming soon - early September 2021!)
 
 The [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/5.0.0) .NET SDK version 5.0.0 is now released on Nuget. This version is generated to work with the [2021-06-01 stable](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01) version of the Open API (Swagger) ARM Rest API.
 
 For details on changes from the 4.0.0 release see the [change log](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/mediaservices/Microsoft.Azure.Management.Media/CHANGELOG.md).
 
-#### Changes in the 5.0.0 .NET SDK release
+#### Changes in the 5.0.0 .NET SDK release (Coming soon - early September 2021!)
 
 * The Media Services account now supports system and user assigned managed identities.
 * Added **PublicNetworkAccess** option to Media Services accounts. This option can be used with the Private Link feature to only allow access from private networks, blocking all public network access
