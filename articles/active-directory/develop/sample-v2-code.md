@@ -146,4 +146,8 @@ The following samples show how to configure your application to accept sign-ins 
 
 ## Next steps
 
-[Microsoft Graph API conceptual and reference](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta&preserve-view=true)
+If you'd like to delve deeper into more sample code, see:
+
+- [Sign in users and call the Microsoft Graph API from an Angular](tutorial-v2-angular-auth-code.md)
+- [Sign in users in a Node.js and Express web app](tutorial-v2-nodejs-webapp-msal.md)
+- [Call the Microsoft Graph API from a Universal Windows Platform](tutorial-v2-windows-uwp.md)
