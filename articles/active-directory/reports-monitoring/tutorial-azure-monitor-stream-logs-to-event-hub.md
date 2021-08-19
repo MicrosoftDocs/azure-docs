@@ -94,7 +94,7 @@ After data is displayed in the event hub, you can access and read the data in tw
 
 ## Next steps
 
-* [Create diagnostic settings to send platform logs and metrics to different destinations](../essentials/diagnostic-settings.md)
+* [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md)
 * [Integrate Azure Active Directory logs with ArcSight using Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](./howto-integrate-activity-logs-with-splunk.md)
 * [Integrate Azure AD logs with SumoLogic by using Azure Monitor](howto-integrate-activity-logs-with-sumologic.md)
