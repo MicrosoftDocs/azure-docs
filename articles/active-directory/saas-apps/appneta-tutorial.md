@@ -78,8 +78,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    a. In the **Sign on URL** text box, type a URL using the following pattern:
    `https://<subdomain>.pm.appneta.com`
 
+   b. In the Reply URL (Assertion Consumer Service URL) field, enter:
+   `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
+
    > [!NOTE]
-   > The Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [AppNeta Performance Manager Client support team](mailto:support@appneta.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   > The Sign-on URL value above is an example. Update this value with the actual Sign-On URL. Contact [AppNeta Performance Manager customer support team](mailto:support@appneta.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. AppNeta Performance Manager application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -99,29 +102,31 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    |           |                        |
 
    > [!NOTE]
-   > **groups** refers to the security group in Appneta which is mapped to a **Role** in Azure AD. Please refer to [this](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) doc which explains how to create custom roles in Azure AD.
+   > **groups** refers to the security group in Appneta which is mapped to a **Role** in Azure AD. Please refer to [this](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui) doc which explains how to create custom roles in Azure AD.  Rather than creating custom roles, most customers add a Group claim in the AppNeta enterprise application for Security groups with source attribute Group ID. To add a Group Claim:
 
-   1. Click **Add new claim** to open the **Manage user claims** dialog.
+   1. Click **Edit** on **User Attributes & Claims**.
 
-   1. In the **Name** textbox, type the attribute name shown for that row.
+   1. Click **Add a group claim** at the top of the page.
 
-   1. Leave the **Namespace** blank.
+      ![image](common/add-a-group-claim.png)
 
-   1. Select Source as **Attribute**.
+   1. Select **Security groups**.
 
-   1. From the **Source attribute** list, type the attribute value shown for that row.
+   1. Set **Source attribute** as "Group ID".
 
-   1. Click **Ok**
+   1. Under **Advanced options**, select **Customize the name of the group claim** and enter “groups” in the **Name** field:
 
-   1. Click **Save**.
+      ![image](common/specify-security-groups.png)
+
+   1. Click **Save**. This will send Group Object IDs of users when they sign into AppNeta Performance Manager via SSO. Role Mappings should be configured utilizing these Object IDs and the desired User Role in AppNeta Performance Manager.
+
+      ![image](common/object-id.png)
+
+      ![image](common/edit-identity-provider.png)
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
    ![The Certificate download link](common/metadataxml.png)
-
-1. On the **Set up AppNeta Performance Manager** section, copy the appropriate URL(s) based on your requirement.
-
-   ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -144,12 +149,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you have setup the roles as explained in the above, you can select it from the **Select a role** dropdown.
+1. If you have set up the roles as explained in the above, you can select it from the **Select a role** dropdown.
 1. In the **Add Assignment** dialog, click the **Assign** button.
+
+   > [!NOTE]
+   > In practice, you’ll add groups to the application rather than individual users.
 
 ## Configure AppNeta Performance Manager SSO
 
-To configure single sign-on on **AppNeta Performance Manager** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [AppNeta Performance Manager support team](mailto:support@appneta.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **AppNeta Performance Manager** side, you need to send the downloaded **Federation Metadata XML** to [AppNeta Performance Manager support team](mailto:support@appneta.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create AppNeta Performance Manager test user
 
