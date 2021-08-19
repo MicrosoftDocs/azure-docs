@@ -48,7 +48,7 @@ In the following steps, when selecting the authentication method, you have three
 
 * **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
-* **Azure Active Directory authentication:** Use the [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md), which contains the specific steps necessary for this configuration.
+* **Azure Active Directory authentication:** Use the [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md) article, which contains the specific steps necessary for this configuration.
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
