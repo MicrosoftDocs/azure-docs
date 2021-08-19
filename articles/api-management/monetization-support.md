@@ -146,7 +146,7 @@ In example projects, the Azure Resource Manager scripts are augmented by a JSON 
 
 API Management can be deployed either through:
 * The Azure portal UI, or
-* An "infrastructure as code" approach using [Azure Resource Manager templates](https://azure.microsoft.com/en-gb/services/arm-templates/). 
+* An "infrastructure as code" approach using [Azure Resource Manager templates](https://azure.microsoft.com/services/arm-templates). 
 
 ## Next Steps
 
