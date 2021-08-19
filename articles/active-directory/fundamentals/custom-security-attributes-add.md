@@ -168,6 +168,16 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 }
 ```
 
+## Frequently asked questions
+
+**Can you delete custom security attribute definitions?**
+
+No, you can't delete custom security attribute definitions. You can only [deactivate custom security attribute definitions](#deactivate-a-custom-security-attribute). Once you deactivate a custom security attribute, it can no longer be applied to the Azure AD objects. Custom security attribute assignments for the deactivated custom security attribute definition are not automatically removed. There is no limit to the number of deactivated custom security attributes. You can have 500 active custom security attribute definitions per tenant with 100 allowed predefined values per custom security attribute definition.
+
+**Can you add predefined values when you add a new custom security attribute?**
+
+Currently, you can only add predefined values after you defined the custom security attribute by using the [Edit attribute page](#edit-a-custom-security-attribute).
+
 ## Next steps
 
 - [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md)

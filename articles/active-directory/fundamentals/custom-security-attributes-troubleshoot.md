@@ -37,6 +37,18 @@ Assign one of the following Azure AD built-in roles:
 - Attribute Assignment Administrator
 - Attribute Assignment Reader
 
+## Symptom - You get an error when you try to save a custom security attribute assignment
+
+**Cause**
+
+You don't have permissions to assign custom security attributes. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) roles cannot read, filter, or assign custom security attributes.
+
+**Solution**
+
+Make sure that you are assigned the following Azure AD built-in role:
+
+- Attribute Assignment Administrator
+
 ## Symptom - You cannot filter custom security attributes for users or enterprise applications
 
 **Cause**
@@ -45,7 +57,7 @@ To read and filter custom security attributes for users or enterprise applicatio
 
 **Solution**
 
-Assign one of the following Azure AD built-in roles:
+Make sure that you are assigned one of the following Azure AD built-in roles:
 
 - Attribute Assignment Administrator
 - Attribute Assignment Reader
