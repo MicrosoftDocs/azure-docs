@@ -101,15 +101,10 @@ For all scenarios, you must read and acknowledge the updated [Azure VMware Solut
 
 Currently, Zerto Disaster Recovery on Azure VMware Solution is in Initial Availability (IA) phase. In the IA phase, you must contact to Microsoft or Zerto to request and qualify for IA support.
 
-To request IA support for Zerto on Azure VMware Solution, send an email request to both email aliases: Microsoft and Zerto.
+To request IA support for Zerto on Azure VMware Solution, send an email request to both email aliases: Microsoft and Zerto. In the IA phase, Azure VMware Solution only supports manual installation and onboarding of Zerto on Azure VMware Solution. Once you're qualified for Zerto on Azure VMware Solution IA, you can use the Azure portal to open a Support Ticket to have Zerto installed on your private cloud. Microsoft will work with you to ensure that you can manually install Zerto on your private cloud.
 
-In the IA phase, Azure VMware Solution only supports manual installation and onboarding of Zerto on Azure VMware Solution.
-
-Once you're qualified for Zerto on Azure VMware Solution IA, you can use the Azure portal to open a Support Ticket to have Zerto installed on your private cloud.
-
-Microsoft will work with you to ensure that you can manually install Zerto on your private cloud.
-
-General Availability of Zerto on Azure VMware Solution, self-services for installing Zerto on your private cloud.
+>[!NOTE]
+>General Availability of Zerto on Azure VMware Solution, self-services for installing Zerto on your private cloud.
 
 
 
