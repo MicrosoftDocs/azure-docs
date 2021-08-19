@@ -52,29 +52,37 @@ Often in B2B scenarios, the trading partners in an agreement need to make sure t
 
 1. Under the step in your workflow where you want to add the XML validation action, choose one of the following steps:
 
+   For a Consumption or ISE plan-based logic app, choose a step:
+
    * To add the XML validation action at the end of your workflow, select **New step**.
 
    * To add the XML validation action between existing steps, move your pointer over the arrow that connects those steps so that the plus sign (**+**) appears. Select that plus sign, and then select **Add an action**.
 
-1. Under **Choose an operation**, select **Built-in**. In the search box, enter `xml validation`. From the actions list, select **XML Validation**.
+   For a Standard plan-based logic app, choose a step:
 
-   ![Screenshot showing opened workflow designer, opened "Choose an operation" window, "XML validation" in designer search box, and "XML Validation" action selected.](./media/logic-apps-enterprise-integration-xml-validation/select-xml-validation-action.png)
+   * To add the XML validation action at the end of your workflow, select the plus sign (**+**), and then select **Add an action**.
+
+   * To add the XML validation action between existing steps, select the plus sign (**+**) that appears between those steps, and then select **Add an action**.
+
+1. Under **Choose an operation**, select **Built-in**. In the search box, enter `xml validation`. From the actions list, select **XML Validation**.
 
 1. To specify the XML content for validation, click inside the **Content** box so that the dynamic content list appears.
 
    The dynamic content list shows property tokens that represent the outputs from the previous steps in the workflow. If the list doesn't show an expected property, check the trigger or action heading in the list and whether you can select **See more**.
 
-   ![Screenshot showing opened dynamic content list with cursor inside the "Content" box and opened dynamic content list.](./media/logic-apps-enterprise-integration-xml-validation/open-dynamic-content-list.png)
+   For a Consumption or ISE plan-based logic app, the designer looks like this example:
+
+   ![Screenshot showing multi-tenant designer with opened dynamic content list, cursor in "Content" box, and opened dynamic content list.](./media/logic-apps-enterprise-integration-xml-validation/open-dynamic-content-list-multi-tenant.png)
+
+   For a Standard plan-based logic app, the designer looks like this example:
+
+   ![Screenshot showing single-tenant designer with opened dynamic content list, cursor in "Content" box, and opened dynamic content list](./media/logic-apps-enterprise-integration-xml-validation/open-dynamic-content-list-single-tenant.png)
 
 1. From the dynamic content list, select the property token for the content you want to validate.
 
-   This example selects the **Body** output from the trigger.
-
-   ![Screenshot showing opened dynamic content list with "Body" token selected.](./media/logic-apps-enterprise-integration-xml-validation/select-content-to-validate.png)
+   This example selects the **Body** token from the trigger.
 
 1. To specify the schema to use for validation, open the **Schema Name** list, and select the schema that you previously added to your linked integration account.
-
-   ![Screenshot showing opened "Schema Name" list with previously uploaded schema selected.](./media/logic-apps-enterprise-integration-xml-validation/select-validation-schema.png)
 
 1. When you're done, make sure to save your logic app workflow.
 
