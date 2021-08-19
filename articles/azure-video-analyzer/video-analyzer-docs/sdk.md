@@ -32,9 +32,9 @@ The following platforms are supported:
 - [Python](https://aka.ms/ava/sdk/client/python)
 - [Java](https://aka.ms/ava/sdk/client/java)
 
-## Management & Operations APIs
+## See Also
 
-You can also refer Azure Video Analyzer [management plane APIs](https://docs.microsoft.com/rest/api/videoanalyzer/) doc.
+- You can also refer [Azure Video Analyzer APIs](https://docs.microsoft.com/rest/api/videoanalyzer/)
 
 <!-- links -->
 [docs-direct-methods]: direct-methods.md
