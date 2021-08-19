@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 08/19/2021
 ms.author: cherylmc
 
 ---
@@ -25,6 +25,10 @@ For every computer that you want to connect to a VNet using a Point-to-Site VPN 
 * Configure a client profile that contains the VPN settings. 
 
 If you want to configure multiple computers, you can create a client profile on one computer, export it, and then import it to other computers.
+
+> [!NOTE]
+> The Azure VPN Client may not be available in all regions due to local regulations.
+>
 
 ## Prerequisites
 
