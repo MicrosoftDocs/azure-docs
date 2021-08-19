@@ -72,7 +72,7 @@ To edit a tile, you need to be in edit mode. The different [tile types](#tile-ty
 
 ## Tile types
 
-This table describes the different types of tiles you can add to a dashboard:
+This table describes the types of tiles you can add to a dashboard:
 
 | Tile             | Description |
 | ---------------- | ----------- |
@@ -99,37 +99,37 @@ Currently, you can add up to 10 devices to tiles that support multiple devices.
 
 ### Customize visualizations
 
-By default, line charts show data over a range of time. The selected time range is split into 50 equal-sized buckets and the device data is then aggregated per bucket to give 50 data points over the selected time range. If you wish to view raw data, you can change your selection to view the last 100 values. To change the time range or to select raw data visualization, use the Display Range dropdown in the **Configure chart** panel.
+By default, line charts show data over a range of time. The selected time range is split into 50 equally sized partitions. The device data is then aggregated per partition to give 50 data points over the selected time range. If you want to view raw data, you can change your selection to view the last 100 values. To change the time range or to select raw data visualization, use the **Display Range** dropdown list in the **Configure chart** panel:
 
-:::image type="content" source="media/howto-manage-dashboards/display-range.png" alt-text="Change the display range of a line chart":::
+:::image type="content" source="media/howto-manage-dashboards/display-range.png" alt-text="Screenshot that shows the Display Range dropdown list.":::
 
-For tiles that display aggregate values, select the gear icon next to the telemetry type in the **Configure chart** panel to choose the aggregation. You can choose from average, sum, maximum, minimum, and count.
+For tiles that display aggregate values, select the **gear** button next to the telemetry type in the **Configure chart** panel to choose the aggregation. You can choose average, sum, maximum, minimum, or count.
 
-For line charts, bar charts, and pie charts, you can customize the color of the different telemetry values. Select the palette icon next to the telemetry you want to customize:
+For line charts, bar charts, and pie charts, you can customize the colors of the various telemetry values. Select the **palette** button next to the telemetry you want to customize:
 
-:::image type="content" source="media/howto-manage-dashboards/color-customization.png" alt-text="Change the color of a telemetry value":::
+:::image type="content" source="media/howto-manage-dashboards/color-customization.png" alt-text="Screenshot that shows the palette button.":::
 
-For tiles that show string properties or telemetry values, you can choose how to display the text. For example, if the device stores a URL in a string property, you can display it as a clickable link. If the URL references an image, you can render the image in a last known value or property tile. To change how a string displays, in the tile configuration select the gear icon next to the telemetry type or property:
+For tiles that show string properties or telemetry values, you can choose how to display the text. For example, if the device stores a URL in a string property, you can display it as a clickable link. If the URL references an image, you can render the image in a last known value or property tile. To change how a string displays, select the **gear** button next to the telemetry type or property in the tile configuration.
 
-:::image type="content" source="media/howto-manage-dashboards/string-customization.png" alt-text="Change how a string displays on a tile":::
+:::image type="content" source="media/howto-manage-dashboards/string-customization.png" alt-text="Screenshot that shows how to change how a string displays on a tile.":::
 
-For numeric KPI, LKV, and property tiles, you can use conditional formatting to customize the color of the tile based on its current value. To add conditional formatting, select **Configure** on the tile and then select the **Conditional formatting** icon next to the value to customize:
+For numeric KPI, LKV, and property tiles, you can use conditional formatting to customize the color of the tile based on its value. To add conditional formatting, select **Configure** on the tile and then select the **Conditional formatting** button next to the value you want to customize:
 
-:::image type="content" source="media/howto-manage-dashboards/conditional-formatting-1.png" alt-text="Screenshot showing how to find the configure option for a tile and then the conditional formatting icon":::
+:::image type="content" source="media/howto-manage-dashboards/conditional-formatting-1.png" alt-text="Screenshot that shows the Conditional formatting button.":::
 
-Add your conditional formatting rules:
+Next, add your conditional formatting rules:
 
-:::image type="content" source="media/howto-manage-dashboards/conditional-formatting-2.png" alt-text="Screenshot showing conditional formatting rules for average flow. There are three rules - less than 20 is green, less than 50 is yellow, and anything over 50 is red":::
+:::image type="content" source="media/howto-manage-dashboards/conditional-formatting-2.png" alt-text="Screenshot that shows conditional formatting rules for available memory. There are rules for less than, greater than, and greater than or equal to.":::
 
-The following screenshot shows the effect of the conditional formatting rule:
+The following screenshot shows the effect of those conditional formatting rules:
 
-:::image type="content" source="media/howto-manage-dashboards/conditional-formatting-3.png" alt-text="Screenshot showing the red background color on the Average water flow tile. The number on the tile is 50.54":::
+:::image type="content" source="media/howto-manage-dashboards/conditional-formatting-3.png" alt-text="Screenshot that shows a purple background color on the available memory tile.":::
 
 ### Tile formatting
 
-This feature, available in KPI, LKV, and Property tiles, lets users adjust font size, choose decimal precision, abbreviate numeric values (for example format 1,700 as 1.7K), or wrap string values in their tiles.
+This feature is available on the KPI, LKV, and property tiles. It lets you adjust font size, choose decimal precision, abbreviate numeric values (for example, format 1,700 as 1.7K), or wrap string values on their tiles.
 
-:::image type="content" source="media/howto-manage-dashboards/tile-format.png" alt-text="Tile Format":::
+:::image type="content" source="media/howto-manage-dashboards/tile-format.png" alt-text="Screenshot that shows the dialog box for tile formatting.":::
 
 ## Next steps
 
