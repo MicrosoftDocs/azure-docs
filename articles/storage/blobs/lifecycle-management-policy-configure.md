@@ -80,10 +80,10 @@ You can add, edit, or remove a lifecycle management policy with the Azure portal
 
 There are two ways to add a policy through the Azure portal.
 
-- [Azure portal List view](#azure-portal-list-view)
-- [Azure portal Code view](#azure-portal-code-view)
+- [List view](#list-view)
+- [Code view](#code-view)
 
-#### Azure portal List view
+#### List view
 
 1. In the Azure portal, navigate to your storage account.
 1. Under **Data management**, select **Lifecycle Management** to view or change lifecycle management policies.
@@ -105,7 +105,7 @@ There are two ways to add a policy through the Azure portal.
 
 1. Select **Add** to add the new policy.
 
-#### Azure portal Code view
+#### Code view
 
 1. In the Azure portal, navigate to your storage account.
 1. Under **Data management**, select **Lifecycle Management** to view or change lifecycle management policies.
@@ -144,7 +144,7 @@ The following sample JSON defines a lifecycle policy that moves a block blob who
 
 # [PowerShell](#tab/azure-powershell)
 
-To add a lifecycle management policy with PowerShell, call these commands:
+To add a lifecycle management policy with PowerShell, use these commands:
 
 - Call the [Add-AzStorageAccountManagementPolicyAction](/powershell/module/az.storage/add-azstorageaccountmanagementpolicyaction) command to define the actions that comprise a rule.
 - Call the [New-AzStorageAccountManagementPolicyFilter](/powershell/module/az.storage/new-azstorageaccountmanagementpolicyfilter) command to specify one or more filters for a rule.
@@ -191,7 +191,16 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgName `
 
 #### [Azure CLI](#tab/azure-cli)
 
-TBD
+To add a lifecycle management policy with Azure CLI, write the policy to a JSON file, then call the [az storage account management-policy create](/cli/azure/storage/account/management-policy#az_storage_account_management_policy_create) command to create the policy.
+
+The following example shows how to use each of these commands to create a lifecycle policy. Remember to replace placeholder values in angle brackets with your own values:
+
+```azurecli
+az storage account management-policy create \
+    --account-name <storage-account> \
+    --policy @policy.json \
+    --resource-group <resource-group>
+```
 
 # [Template](#tab/template)
 
@@ -206,4 +215,5 @@ A lifecycle management policy must be read or written in full. Partial updates a
 
 ## See also
 
-[Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
+- [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
+- [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md)
