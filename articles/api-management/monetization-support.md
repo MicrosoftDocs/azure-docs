@@ -3,7 +3,7 @@ title: Azure API Management support for monetization
 description: Learn how Azure API Management supports monetization strategies for your API products.
 author: v-hhunter
 ms.author: v-hhunter
-ms.date: 08/13/2021
+ms.date: 08/20/2021
 ms.topic: article
 ms.service: api-management
 ---
@@ -103,14 +103,14 @@ Create a seamless monetization experience through both front-end and back-end in
 
 In the example projects, you can use [API Management delegation](./api-management-howto-setup-delegation.md) to make custom integrations with the third-party payment providers. The demo uses delegation for both the sign-up/sign-in and product subscription experiences.
 
-**Sign-up/Sign-in workflow:**
+#### Sign-up/Sign-in workflow
 
 1. Developer clicks on the sign-in or sign-up link at the API Management developer portal.
 1. Browser redirects to the delegation endpoint (configured to a page in the custom billing portal app).
 1. Custom billing portal app presents a sign-in/sign-up UI.
 1. Upon successful sign-in/sign-up, user is authenticated and redirected back to the starting API Management developer portal page.
 
-**Product subscription workflow:**
+#### Product subscription workflow
 
 1. Developer selects a product in the API Management developer portal and clicks on the **Subscribe** button
 1. Browser redirects to the delegation endpoint (configured to a page in the custom billing portal app).
@@ -150,5 +150,5 @@ API Management can be deployed either through:
 
 ## Next Steps
 
-* Run the initialization and deployment processes using our [Deploy demo with Stripe] or [Deploy demo with Adyen] tutorials.
 * [Learn more about API Management monetization strategies](monetization-overview.md).
+* Deploy a demo Adyen or Stripe integration via the associated [Git repo](https://github.com/microsoft/azure-api-management-monetization).
