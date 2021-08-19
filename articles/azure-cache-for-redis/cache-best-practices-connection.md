@@ -20,14 +20,17 @@ Test your system's resiliency to connection breaks using a [Reboot](cache-admini
 
 ## Configure appropriate timeouts
 
-Configure your client library to use a *connect timeout* of at least 15 seconds, giving the system sufficient time to connect even under higher CPU conditions. A small connection timeout value doesn't guarantee a connection is established in that time frame.
+Configure your client library to use *connect timeout* of 10 to 15 seconds and a *command timeout* of 5 seconds. The *connect timeout* is the time your client waits to establish a connection with Redis server. Most client libraries have another timeout configuration for *command timeouts*, which is the time the client waits for a response from Redis server.
+
+Some libraries have the *command timeout* set to 5 seconds by default. Consider setting it to a lower value or higher value depending on your scenario and key sizes.
+
+If the *command timeout* is too small, the connection can look unstable. However, if the *command timeout* is too large, your application might have to wait for a long time to find out whether if the command is going to timeout or not.
+
+Configure your client library to use a *connect timeout* of at least 15 seconds, giving the system sufficient time to connect even under higher CPU conditions. A small *connection timeout* value doesn't guarantee a connection is established in that time frame.
 
 If something goes wrong (high client CPU, high server CPU, and so on), then a short connection timeout value causes the connection attempt to fail. This behavior often makes a bad situation worse. Instead of helping, shorter timeouts aggravate the problem by forcing the system to restart the process of trying to reconnect, which can lead to a *connect -> fail -> retry* loop.
 
-We generally recommend that you leave your connection timeout at 15 seconds or higher. It's better to let your connection attempt to succeed after 15 or 20 seconds than to have it fail quickly only to retry. Such a retry loop can cause your outage to last longer than if you let the system just take longer initially.
-
-   > [!NOTE]
-   > This guidance is specific to the *connection attempt* and not related to the time you're willing to wait for an *operation* like GET or SET to complete.
+We generally recommend that you leave your *connection timeout* at 15 seconds or higher. It's better to let your connection attempt to succeed after 15 or 20 seconds than to have it fail quickly only to retry. Such a retry loop can cause your outage to last longer than if you let the system just take longer initially.
 
 ## Conscious connection recreation
 
@@ -42,15 +45,15 @@ Apart from reaching the client connections limit, too many connections can cause
 
 ## Advance maintenance notification
 
-Use notifications to learn of upcoming maintenance. For more information, see [notified](/cache-failover#can-i-be-notified-in-advance-of-a-planned-maintenance).
+Use notifications to learn of upcoming maintenance. For more information, see [can-i-be-notified-in-advance-of-a-planned-maintenance](/cache-failover.md#can-i-be-notified-in-advance-of-a-planned-maintenance).
 
 ## Schedule maintenance window
 
-Carefully, adjust your cache settings to accommodate maintenance. For more information about creating a maintenance window to reduce any negative effects to your cache, see [Schedule updates](/azure-cache-for-redis/cache-administration#schedule-updates).
+Carefully, adjust your cache settings to accommodate maintenance. For more information about creating a maintenance window to reduce any negative effects to your cache, see [Schedule updates](/azure-cache-for-redis/cache-administration.md#schedule-updates).
 
 ## More design patterns for resilience
 
-Apply design patterns for resiliency. For more information, see [recommended design patterns](/cache-failover#how-do-i-make-my-application-resilient)
+Apply design patterns for resiliency. For more information, see [recommended design patterns](/cache-failover.md#how-do-i-make-my-application-resilient)
 
 ## Idle timeout
 

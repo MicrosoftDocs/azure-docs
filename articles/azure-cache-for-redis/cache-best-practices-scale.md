@@ -16,7 +16,7 @@ While scaling a cache under load, configure your maxmemory-reserved setting to i
 
 ## Scaling clusters
 
-Try reducing data as much as you can in the cache before scaling your clustered cache in or out. Reducing data ensures smaller amounts of data have to be moved, which improves the reliability of the scale operation.
+Try reducing data as much as you can in the cache before scaling your clustered cache in or out. Reducing data ensures smaller amounts of data have to be moved, which reduces the time required for the scale operation.
 
 ## Scale before load is too high
 

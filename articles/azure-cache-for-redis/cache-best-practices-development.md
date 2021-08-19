@@ -14,6 +14,13 @@ ms.author: shpathak
 
 Remember that Redis is an in-memory data store. For scenarios where data loss can occur and how you can avoid them, see [Troubleshoot data loss in Azure Cache for Redis](cache-troubleshoot-data-loss.md).
 
+## Avoid using Basic tier in production
+Use Standard or Premium tier for production systems. The Basic tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are only meant for simple dev/test scenarios because:
+
+- they share a CPU core
+- use little memory
+- are prone to *noisy neighbor* issues
+
 ## Consider smaller keys
 
 Redis works best with smaller value. Consider dividing bigger chunks of data in to smaller chunks to spread over multiple keys. For more information on ideal key size, see this [article] (<https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/>).
