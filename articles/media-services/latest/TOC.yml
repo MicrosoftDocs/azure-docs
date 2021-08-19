@@ -15,9 +15,6 @@
       - name: Frequently asked questions
         href: frequently-asked-questions.yml
         displayName: faq, questions, frequently asked questions
-      - name: Troubleshooting tips
-        href: questions-collection.md 
-        displayName: faq, troubleshooting, tips, common issues, errors.
 - name: Quickstarts
   items:
   - name: Set up your environment
