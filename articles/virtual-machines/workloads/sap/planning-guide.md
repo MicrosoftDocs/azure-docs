@@ -746,7 +746,7 @@ the same functionality found in the Azure portal.
 For information about installation, configuration and how to use CLI commands to accomplish Azure tasks see
 
 * [Install the Azure classic CLI][xplat-cli]
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][../../../linux/create-ssh-secured-vm-from-template.md]
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][virtual-machine/linux/create-ssh-secured-vm-from-template.md]
 * [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 Also read chapter [Azure CLI for Linux VMs][Install the Azure CLI] in the [Deployment Guide][planning-guide] on how to use Azure CLI to deploy the Azure Extension for SAP.
