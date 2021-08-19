@@ -152,6 +152,17 @@ To install the Azure VM Extension for SAP by using Azure CLI:
    ...
    ```
 
+## Update the configuration of Azure Extension for SAP
+
+Update the configuration of Azure Extension for SAP in any of the following scenarios:
+* The joint Microsoft/SAP team extends the capabilities of the VM extension and requests more or fewer counters.
+* Microsoft introduces a new version of the underlying Azure infrastructure that delivers the  data, and the Azure Extension for SAP needs to be adapted to those changes.
+* You mount additional data disks to your Azure VM or you remove a data disk. In this scenario, update the collection of storage-related data. Changing your configuration by adding or deleting endpoints or by assigning IP addresses to a VM does not affect the extension configuration.
+* You change the size of your Azure VM, for example, from size A5 to any other VM size.
+* You add new network interfaces to your Azure VM.
+
+To update settings, update configuration of Azure Extension for SAP by following the steps in [Configure the Azure VM extension for SAP solutions with Azure CLI][configure-linux] or [Configure the Azure VM extension for SAP solutions with PowerShell][configure-windows].
+
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Checks and Troubleshooting
 
 After you have deployed your Azure VM and set up the relevant Azure Extension for SAP, check whether all the components of the extension are working as expected.

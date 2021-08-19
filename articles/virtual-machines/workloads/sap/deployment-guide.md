@@ -552,7 +552,7 @@ The following flowchart shows the SAP-specific sequence of steps for deploying a
 
 The easiest way to create a new virtual machine from a Managed Disk image is by using the Azure portal. For more information on how to create a Manage Disk Image, read [Capture a managed image of a generalized VM in Azure](../../windows/capture-image-resource.md)
 
-1.  Go to <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Or, in the Azure portal menu, select **Images**.
+1.  Go to <https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages>. Or, in the Azure portal menu, select **Images**.
 1.  Select the Managed Disk image you want to deploy and click on **Create VM**
 
 The wizard guides you through setting the required parameters to create the virtual machine, in addition to all required resources, like network interfaces and storage accounts. Some of these parameters are:
@@ -743,17 +743,6 @@ Depending on how your on-premises network is configured, you might need to set u
 #### Configure Azure VM Extension for SAP
 
 To be sure SAP supports your environment, set up the Azure Extension for SAP as described in [Configure the Azure Extension for SAP][deployment-guide-4.5]. 
-
-## Update the configuration of Azure Extension for SAP
-
-Update the configuration of Azure Extension for SAP in any of the following scenarios:
-* The joint Microsoft/SAP team extends the capabilities of the VM extension and requests more or fewer counters.
-* Microsoft introduces a new version of the underlying Azure infrastructure that delivers the  data, and the Azure Extension for SAP needs to be adapted to those changes.
-* You mount additional data disks to your Azure VM or you remove a data disk. In this scenario, update the collection of storage-related data. Changing your configuration by adding or deleting endpoints or by assigning IP addresses to a VM does not affect the extension configuration.
-* You change the size of your Azure VM, for example, from size A5 to any other VM size.
-* You add new network interfaces to your Azure VM.
-
-To update settings, update configuration of Azure Extension for SAP by following the steps in [Configure the Azure Extension for SAP][deployment-guide-4.5].
 
 ## Detailed tasks for SAP software deployment
 

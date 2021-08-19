@@ -60,6 +60,7 @@ ms.custom: H1Hack27Feb2017, devx-track-azurecli, devx-track-azurepowershell
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
+[azure-cli-inst]:../../../cli/azure/install-classic-cli
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azure/
@@ -722,6 +723,7 @@ Windows PowerShell is a powerful and extensible framework that has been widely a
 The process to enable a local desktop/laptop for the usage of Azure PowerShell cmdlets and how to configure those for the usage with the Azure subscription(s) is described in [this article][powershell-install-configure].
 
 More detailed steps on how to install, update, and configure the Azure PowerShell cmdlets can also be found in [this chapter of the Deployment Guide][Install the Azure PowerShell module].
+[Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
 Customer experience so far has been that PowerShell (PS) is certainly the more powerful tool to deploy VMs and to create custom steps in the deployment of VMs. All of the customers running SAP instances in Azure are using PS cmdlets to supplement management tasks they do in the Azure portal or are even using PS cmdlets exclusively to manage their deployments in Azure. Since the Azure-specific cmdlets share the same naming convention as the more than 2000 Windows-related cmdlets, it is an easy task for Windows administrators to leverage those cmdlets.
 
@@ -744,10 +746,10 @@ the same functionality found in the Azure portal.
 For information about installation, configuration and how to use CLI commands to accomplish Azure tasks see
 
 * [Install the Azure classic CLI][xplat-cli]
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][../../linux/create-ssh-secured-vm-from-template.md]
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI][../../../linux/create-ssh-secured-vm-from-template.md]
 * [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
-Also read chapter [Azure CLI for Linux VMs][Install the Azure CLI] in the [Deployment Guide][planning-guide] on how to use Azure CLI to deploy the Azure  Extension for SAP.
+Also read chapter [Azure CLI for Linux VMs][Install the Azure CLI] in the [Deployment Guide][planning-guide] on how to use Azure CLI to deploy the Azure Extension for SAP.
 
 
 ## First steps planning a deployment
