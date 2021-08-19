@@ -44,7 +44,7 @@ Using one of the deployment options from this guide, enable ingestion private en
 
 2. Fill in the basic information, and on the **Networking** tab, set the connectivity method to **Private endpoint**. Set enable private endpoint to **Ingestion only**.
 
-      :::image type="content" source="media/catalog-private-link/purview-pe-scenario2-1.png" alt-text="Screenshot that shows Create private endpoint page selections.":::
+      :::image type="content" source="media/catalog-private-link/purview-pe-scenario-2-1.png" alt-text="Screenshot that shows Create private endpoint page selections.":::
 
 3. Set up your ingestion private endpoints by providing details for **Subscription**, **Virtual network**, and **Subnet** that you want to pair with your private endpoint.
 
