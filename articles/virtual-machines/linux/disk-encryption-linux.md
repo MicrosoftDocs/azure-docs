@@ -396,7 +396,9 @@ You can disable the Azure disk encryption extension, and you can remove the Azur
 To remove ADE, it is recommended that you first disable encryption and then remove the extension. If you remove the encryption extension without disabling it, the disks will still be encrypted. If you disable encryption **after** removing the extension, the extension will be reinstalled (to perform the decrypt operation) and will need to be removed a second time.
 
 > [!WARNING]
-> You can **not** disable encryption if the OS disk is encrypted (by specifying volumeType=ALL or volumeType=OS in the encryption operation). Disabling encryption works only when data disks are encrypted but the OS disk is not.
+> You can **not** disable encryption if the OS disk is encrypted. (OS disks are encrypted when the original encryption operation specifies volumeType=ALL or volumeType=OS.) 
+>
+> Disabling encryption works only when data disks are encrypted but the OS disk is not.
 
 ### Disable encryption
 
