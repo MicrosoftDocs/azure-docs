@@ -270,7 +270,6 @@ For example, if you use Microsoft BizTalk Server, you can create a connection fr
         [**X12 encoding**][x12-encode-doc]
     :::column-end:::
 :::row-end:::
-:::row-end:::
 
 ## Enterprise connectors
 
