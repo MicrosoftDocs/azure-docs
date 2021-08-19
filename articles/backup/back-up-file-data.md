@@ -1,6 +1,7 @@
 ---
 title: Back up file data with MABS
 description: You can back up file data on server and client computers with MABS.
+ms.topic: conceptual
 ms.date: 08/19/2021
 ---
 
@@ -20,9 +21,9 @@ You can use Microsoft Azure Backup Server (MABS) to back up file data on server 
 
    - [MABS release notes](backup-mabs-release-notes-v3.md)
 
-2. **Set up storage** - You can store backed up data on disk, on tape, and in the cloud with Azure. Read more in [Prepare data storage](plan-long-and-short-term-data-storage.md).
+2. **Set up storage** - You can store backed up data on disk, on tape, and in the cloud with Azure. Read more in [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019&preserve-view=trus).
 
-3. **Set up the MABS protection agent** - You'll need to install the MABS protection agent on every machine you want to back up. Read [(Deploy the MABS protection agent](backup-azure-microsoft-azure-backup.md).
+3. **Set up the MABS protection agent** - You'll need to install the MABS protection agent on every machine you want to back up. Read [Deploy the MABS protection agent](backup-azure-microsoft-azure-backup.md).
 
 ## Back up file data
 
