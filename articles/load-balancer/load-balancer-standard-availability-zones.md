@@ -61,7 +61,15 @@ Now that you understand the zone related properties for Standard Load Balancer, 
 - A **zone redundant** Load Balancer can serve a zonal resource in any zone with one IP address.  The IP can survive one or more zone failures as long as at least one zone remains healthy within the region.
 - A **zonal** frontend is a reduction of the service to a single zone and shares fate with the respective zone. If the zone your deployment is in goes down, your deployment will not survive this failure.
 
-It is recommended you use zone redundant Load Balancer for your production workloads.
+It is recommended you use zone-redundant Load Balancer for your production workloads.
+
+### Multiple frontends
+
+Using multiple frontends allow you to load balance traffic on more than one port and/or IP address.  When designing your architecture, it is important to account for the way zone redundancy and multiple frontends can interact.  Note that if the goal is to always have every frontend be resilient to failure, then all IP addresses used assigned as frontends must be zone-redundant.   If a set of frontends are intended to be associated with a single zone, then every IP address for that set must be associated with that specific zone.  It is not required to have a load balancer for each zone; rather, each zonal frontend (or set of zonal frontends) could be associated with virtual machines in the backend pool that are part of that specific availability zone.
+
+### Transition between regional zonal models
+
+In the case where a region is augmented to have [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview), any existing frontend IPs would remain non-zonal. In order to ensure your architecture can take advantage of the new zones, it is recommended that new frontend IPs be created, and the appropriate rules and configurations be replicated to utilizes these new public IPs.
 
 ### Control vs data plane implications
 
@@ -74,8 +82,7 @@ Review [Azure cloud design patterns](/azure/architecture/patterns/) to improve t
 ## Limitations
 
 * Zones can't be changed, updated, or created for the resource after creation.
-
-* Resources can't be updated from zonal to zone redundant or vice versa after creation.
+* Resources can't be updated from zonal to zone-redundant or vice versa after creation.
 
 ## Next steps
 - Learn more about [Availability Zones](../availability-zones/az-overview.md)
