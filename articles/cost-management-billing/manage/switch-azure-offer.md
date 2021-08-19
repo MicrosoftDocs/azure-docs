@@ -35,7 +35,7 @@ You can also switch from an expired [Visual Studio Enterprise](https://azure.mic
 > [!NOTE]
 > For other offer changes, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## Switch from a pay-as-you-subscription
+## Switch from a pay-as-you-go subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Subscriptions** and then select your pay-as-you-go subscription.
