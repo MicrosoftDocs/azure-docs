@@ -12,11 +12,12 @@ ms.custom: devx-track-azurecli
 
 Use the Azure CLI commands described here to manage your log analytics workspace in Azure Monitor.
 
+> [!NOTE]
+> On August 31, 2024, Microsoft will retire the Log Analytics agent. You can use the Azure Monitor agent after that time. For more information, see [Overview of Azure Monitor agents](../agents/agents-overview.md).
+
 [!INCLUDE [Prepare your Azure CLI environment](../../../includes/azure-cli-prepare-your-environment.md)]
 
-## Sample commands
-
-### Create a workspace
+## Create a workspace for Monitor Logs
 
 Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group. To create a workspace, use the [az monitor log-analytics workspace create](/cli/azure/monitor/log-analytics/workspace#az_monitor_log_analytics_workspace_create) command.
 
@@ -28,7 +29,7 @@ az monitor log-analytics workspace create --resource-group ContosoRG \
 
 For more information about workspaces, see [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs).
 
-### See the tables
+## List tables in your workspace
 
 Each workspace contains tables with columns that have multiple rows of data. Each table is defined by a unique set of columns of data provided by the data source.
 
@@ -52,7 +53,7 @@ The retention time is between 30 and 730 days.
 
 For more information about tables, see [Data structure](/azure/azure-monitor/logs/data-platform-logs#data-structure).
 
-### Export data
+## Export data from selected tables
 
 You can continuously export data from selected tables to an Azure storage account or Azure Event Hubs. Use the [az monitor log-analytics workspace data-export create](/cli/azure/monitor/log-analytics/workspace/data-export#az_monitor_log_analytics_workspace_data_export_create) command:
 
@@ -79,7 +80,7 @@ az monitor log-analytics workspace data-export delete --resource-group ContosoRG
 
 For more information about data export, see [Log Analytics workspace data export in Azure Monitor](/azure/azure-monitor/logs/logs-data-export).
 
-### Manage a linked service
+## Manage a linked service
 
 Linked services define a relation from the workspace to another Azure resource. Azure Monitor Logs and Azure resources use this connection in their operations. Example uses of linked services, including an automation account and a workspace association to customer-managed keys.
 
@@ -103,7 +104,7 @@ az monitor log-analytics workspace linked-service delete --resource-group Contos
 
 For more information, see [az monitor log-analytics workspace linked-service](/cli/azure/monitor/log-analytics/workspace/linked-service).
 
-### Manage linked storage
+## Manage linked storage
 
 If you provide and manage your own storage account for log analytics, you can manage it with these Azure CLI commands.
 
@@ -128,7 +129,7 @@ az monitor log-analytics workspace linked-storage delete --resource-group Contos
 
 For more information, see, [Using customer-managed storage accounts in Azure Monitor Log Analytics](/azure/azure-monitor/logs/private-storage).
 
-### Manage intelligence packs
+## Manage intelligence packs
 
 To see the available intelligence packs, run the [az monitor log-analytics workspace pack list](/cli/azure/monitor/log-analytics/workspace/pack#az_monitor_log_analytics_workspace_pack_list) command. The command also tells you whether the pack is enabled.
 
@@ -147,7 +148,7 @@ az monitor log-analytics workspace pack disable --resource-group ContosoRG \
    --workspace-name ContosoWorkspace --name NetFlow
 ```
 
-### Manage saved searches
+## Manage saved searches
 
 To create a saved search, run the [az monitor log-analytics workspace saved-search](/cli/azure/monitor/log-analytics/workspace/saved-search#az_monitor_log_analytics_workspace_saved_search_create) command:
 
