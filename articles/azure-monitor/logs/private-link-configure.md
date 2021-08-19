@@ -115,81 +115,16 @@ If you set **Allow public network access for queries** to **No**, then clients (
 
 You can automate the process described earlier using Azure Resource Manager templates, REST, and command-line interfaces.
 
+### Create and manage Azure Monitor Private Link Scopes (AMPLS)
 To create and manage private link scopes, use the [REST API](/rest/api/monitor/privatelinkscopes(preview)/private%20link%20scoped%20resources%20(preview)) or [Azure CLI (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
 
-To manage the network access flag on your workspace or component, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [Log Analytics workspaces](/cli/azure/monitor/log-analytics/workspace) or [Application Insights components](/cli/azure/ext/application-insights/monitor/app-insights/component).
-
-### Example Azure Resource Manager template (ARM template)
-The below Azure Resource Manager template creates:
-* A private link scope (AMPLS) named "my-scope", with an Open access mode for both ingestion and query, meaning it allows traffic to non-Private-Link resources (resources out of the AMPLS)
-* A Log Analytics workspace named "my-workspace"
-* Add a scoped resource linked to the "my-scope" AMPLS, named "my-workspace-connection"
-
-```
-{
-    "$schema": https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#,
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "private_link_scope_name": {
-            "defaultValue": "my-scope",
-            "type": "String"
-        },
-        "workspace_name": {
-            "defaultValue": "my-workspace",
-            "type": "String"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "microsoft.insights/privatelinkscopes",
-            "apiVersion": "2021-07-01-preview",
-            "name": "[parameters('private_link_scope_name')]",
-            "location": "global",
-            "properties": {
-                "accessModeSettings":{
-                    "queryAccessMode":"Open",
-                    "ingestionAccessMode":"Open"
-                }
-            }
-        },
-        {
-            "type": "microsoft.operationalinsights/workspaces",
-            "apiVersion": "2020-10-01",
-            "name": "[parameters('workspace_name')]",
-            "location": "westeurope",
-            "properties": {
-                "sku": {
-                    "name": "pergb2018"
-                },
-                "publicNetworkAccessForIngestion": "Enabled",
-                "publicNetworkAccessForQuery": "Enabled"
-            }
-        },
-        {
-            "type": "microsoft.insights/privatelinkscopes/scopedresources",
-            "apiVersion": "2019-10-17-preview",
-            "name": "[concat(parameters('private_link_scope_name'), '/', concat(parameters('workspace_name'), '-connection'))]",
-            "dependsOn": [
-                "[resourceId('microsoft.insights/privatelinkscopes', parameters('private_link_scope_name'))]",
-                "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspace_name'))]"
-            ],
-            "properties": {
-                "linkedResourceId": "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspace_name'))]"
-            }
-        }
-    ]
-}
-```
-
-### Set the access mode values for existing AMPLS using PowerShell
-The below PowerShell script updates an existing AMPLS and sets its access modes to Open, for both ingestion and query.
-If you'd like to set the AMPLS to allow only traffic to Private Links resources (resources in the AMPLS), set the access mode values to "PrivateOnly" instead of "Open".
+### Set AMPLS access flags
+To set the access mode flags on your AMPLS, you can use the following PowerShell script. This below script sets the flags to Open. To use the Private Only mode, use the value "PrivateOnly".
 
 ```
 # scope details
 $scopeSubscriptionId = "ab1800bd-ceac-48cd-...-..."
-$scopeResourceGroup = "my-resource-group"
+$scopeResourceGroup = "my-resource-group-name"
 $scopeName = "my-scope"
 
 # login
@@ -206,6 +141,9 @@ $scope.Properties.AccessModeSettings.QueryAccessMode = "Open";
 $scope.Properties.AccessModeSettings.IngestionAccessMode = "Open";
 $scope | Set-AzResource -Force
 ```
+
+### Set resource access flags
+To manage the workspace or component access flags, use the flags `[--ingestion-access {Disabled, Enabled}]` and `[--query-access {Disabled, Enabled}]`on [Log Analytics workspaces](/cli/azure/monitor/log-analytics/workspace) or [Application Insights components](/cli/azure/ext/application-insights/monitor/app-insights/component).
 
 
 ## Review and validate your Private Link setup
