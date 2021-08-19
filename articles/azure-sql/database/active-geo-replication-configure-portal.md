@@ -35,6 +35,8 @@ To configure active geo-replication by using the Azure portal, you need the foll
 
 # [Azure CLI](#tab/azure-cli)
 
+To configure active geo-replication, you need a database in Azure SQL Database. This is the primary database that you want to replicate to a different geographical region.
+
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ---
@@ -75,17 +77,16 @@ After the secondary is created and seeded, data begins replicating from the prim
     - Your original Azure SQL database name.
     - The Azure SQL server name.
     - Your resource group name.
-    - The region for the secondary database.
     - The name of the server to create the new replica in.
 
 > [!NOTE]
 > The secondary database must have the same edition as the primary.
 
-2. For the server region, you can select any region other than the region hosting the primary database, but we recommend the [paired region](../../best-practices-availability-paired-regions.md).
+2. For the server region, you can select any region other than the region hosting the primary database, but we recommend the [paired region](../../best-practices-availability-paired-regions.md). (Does the secondary server need to already be created and the region selected?)
 3. Create your secondary database. Optionally, you can add a secondary database to an elastic pool. To create the secondary database in a pool, use the `--elastic-pool` command. A pool must already exist on the target server. This workflow does not create a pool.
 
     ```azurecli
-    az sql db replica create -g mygroup -s myserver -n originalDb --partner-server newDbname --service-objective S2 --secondary-type Geo
+    az sql db replica create -g mygroup -s myserver -n originalDb --partner-server newDb --service-objective S2 --secondary-type Geo
     ```
 
 4. The secondary database is created and the seeding process begins.
