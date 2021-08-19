@@ -19,7 +19,7 @@ The Azure SQL Migration extension for [Azure Data Studio](/sql/azure-data-studio
 
 [!INCLUDE [database-migration-services-sql-mi-sql-vm](../../includes/database-migration-services-sql-mi-sql-vm.md)]
 
-## What is the role of Database Migration Service in the Azure SQL Migration extension for Azure Data Studio?
+## Azure SQL Migration extension for Azure Data Studio
 
 Azure Database Migration Service (DMS) is the core component in the overall architecture. DMS provides a reliable migration orchestrator to enable database migrations to Azure SQL. 
 Create or reuse an existing DMS using the Azure SQL Migration extension in Azure Data Studio(ADS).
@@ -79,7 +79,7 @@ Azure Database Migration Service prerequisites that are common across all suppor
 * A machine running self-hosted integration runtime connected to the source SQL Server instance. The machine will also connect to the backup network file share. Outbound port 445 should be enabled to allow access to the network file share.
 * If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](/quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
 
-### Considerations for using self-hosted integration runtime for database migrations
+### Recommendations for using self-hosted integration runtime for database migrations
 - You can use a single self-hosted integration runtime for multiple source SQL Server databases.
 - You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with DMS. Initially, the self-hosted integration runtime should be created using the Azure SQL Migration extension in Azure Data Studio and can be reused for further database migrations.
 - You can install only one instance of self-hosted integration runtime on any single machine.
