@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 08/19/2021
 ---
 
 # Migrate your application to use the Azure Cosmos DB .NET SDK v3
