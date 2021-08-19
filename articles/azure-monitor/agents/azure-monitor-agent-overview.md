@@ -61,7 +61,10 @@ The Azure Monitor agent replaces the [legacy agents for Azure Monitor](agents-ov
 Azure virtual machines, virtual machine scale sets, and Azure Arc–enabled servers are currently supported. Azure Kubernetes Service and other compute resource types aren't currently supported.
 
 ## Supported regions
-Azure Monitor agent is available in all public regions that support Log Analytics, as well as the government (Fairax) and China (Mooncake) clouds. Air-gapped clouds are not yet supported.
+Azure Monitor agent is available in all public regions that support Log Analytics, as well as the government (Fairfax) and China (Mooncake) clouds. Air-gapped clouds are not yet supported.
+
+## Supported operating systems
+For a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent, see [Supported operating systems](agents-overview.md#supported-operating-systems).
 
 ## Supported services and features
 The following table shows the current support for the Azure Monitor agent with other Azure services.
@@ -108,9 +111,6 @@ The Azure Monitor agent sends data to Azure Monitor Metrics or a Log Analytics w
 | Syslog             | Log Analytics workspace | Information sent to the Linux event logging system |
 
 <sup>1</sup> There's a limitation today on the Azure Monitor agent for Linux. Using Azure Monitor Metrics as the *only* destination isn't supported. Using it along with Azure Monitor Logs works. This limitation will be addressed in the next extension update.
-
-## Supported operating systems
-For a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent, see [Supported operating systems](agents-overview.md#supported-operating-systems).
 
 ## Security
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before you deploy the agent.
