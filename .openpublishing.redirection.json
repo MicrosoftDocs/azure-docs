@@ -28146,6 +28146,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/storage-lifecycle-management-concepts.md",
+      "redirect_url": "/azure/storage/blobs/lifecycle-management-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/storage-manage-access-to-resources.md",
       "redirect_url": "/azure/storage/blobs/storage-manage-access-to-resources",
       "redirect_document_id": true
