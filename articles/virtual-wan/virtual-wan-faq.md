@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: troubleshooting
-ms.date: 08/17/2021
+ms.date: 08/18/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
 ---
@@ -39,7 +39,7 @@ While the concept of Virtual WAN is global, the actual Virtual WAN resource is R
 
 Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN Client, or any IKEv2 client. Azure AD authentication is supported with Azure VPN Client.A minimum of Windows 10 client OS version 17763.0 or higher is required.  OpenVPN client(s) can support certificate-based authentication. Once cert-based auth is selected on the gateway, you will see the.ovpn* file to download to your device. IKEv2 supports both certificate and RADIUS authentication. 
 
-### For User VPN (Point-to-site)- Why is the P2S client pool split into two routes?
+### For User VPN (Point-to-site)- why is the P2S client pool split into two routes?
 
 Each gateway has two instances, the split happens so that each gateway instance can independently allocate client IPs for connected clients and traffic from the virtual network is routed back to the correct gateway instance to avoid inter-gateway instance hop.
 
@@ -107,7 +107,7 @@ A virtual network gateway VPN is limited to 30 tunnels. For connections, you sho
 
 ### What is the recommended Packets per Second limit per IPSEC tunnel?
 
-It is recommended to send around 95,000 PPS with GCMAES256 algorithm for both IPSEC Encryption and Integrity for optimal performance. Though traffic is not blocked if greater than 95,000 PPS are sent, performance degradation such as latency and packet drops can be expected. Please create additional tunnels if greater PPS is required.
+We recommend sending around 95,000 PPS with GCMAES256 algorithm for both IPSEC Encryption and Integrity for optimal performance. Though traffic is not blocked if greater than 95,000 PPS are sent, performance degradation such as latency and packet drops can be expected. Create additional tunnels if greater PPS is required.
 
 
 ### What is a Virtual WAN gateway scale unit?
@@ -274,7 +274,11 @@ For any reason, if the VPN connection becomes the primary medium for the virtual
 
 ### When two hubs (hub 1 and 2) are connected and there is an ExpressRoute circuit connected as a bow-tie to both the hubs, what is the path for a VNet connected to hub 1 to reach a VNet connected in hub 2?
 
-The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub for VNet-to-VNet connectivity. However, this is not encouraged in a virtual WAN setup. The Virtual WAN team is working on a fix to enable the preference for hub-to-hub over the ExpressRoute path. The recommendation is for multiple ExpressRoute circuits (different providers) to connect to one hub and use the hub-to-hub connectivity provided by Virtual WAN for inter-region traffic flows.
+The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub for VNet-to-VNet connectivity. However, this is not encouraged in a Virtual WAN setup. To resolve this, you can do one of two things:
+
+ * Configure multiple ExpressRoute circuits (different providers) to connect to one hub and use the hub-to-hub connectivity provided by Virtual WAN for inter-region traffic flows.
+
+ * Contact the product team to take part in the gated public preview. In this preview, traffic between the 2 hubs traverses through the Azure Virtual WAN router in each hub and uses a hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft edge routers/MSEE). To use this feature during preview, email **previewpreferh2h@microsoft.com** with the Virtual WAN IDs, Subscription ID, and the Azure region. Expect a response within 48 business hours (Monday-Friday) with confirmation that the feature is enabled.
 
 ### Can hubs be created in different resource group in Virtual WAN?
 
@@ -314,11 +318,11 @@ Yes. For a list of Managed Service Provider (MSP) solutions enabled via Azure Ma
 
 Azure Route Server provides a Border Gateway Protocol (BGP) peering service that can be used by NVAs (Network Virtual Appliance) to learn routes from the route server in a DIY hub VNet. Virtual WAN routing provides multiple capabilities including VNet-to-VNet transit routing, custom routing, custom route association and propagation, and a zero-touch fully meshed hub service along with connectivity services of ExpressRoute, Site VPN, Remote User/Large Scale P2S VPN, and Secure hub (Azure Firewall) capabilities. When you establish a BGP peering between your NVA and Azure Route Server, you can advertise IP addresses from your NVA to your virtual network. For all advanced routing capabilities such as transit routing, custom routing, etc., you can use Virtual WAN routing.
 
-### If I am using a third-party security provider (ZScalar, iBoss or Checkpoint) to secure my internet traffic why don't I see the VPN site associated to the third-party security provider in Azure Portal?
+### If I am using a third-party security provider (ZScalar, iBoss or Checkpoint) to secure my internet traffic, why don't I see the VPN site associated to the third-party security provider in the Azure portal?
 
-When you choose to deploy a security partner provider to protect Internet access for your users, the third-party security provider creates a VPN site on your behalf. Because the third-party security provider is created automatically by the provider and is not a user-created VPN site, this VPN site will not show up in Azure Portal.
+When you choose to deploy a security partner provider to protect Internet access for your users, the third-party security provider creates a VPN site on your behalf. Because the third-party security provider is created automatically by the provider and is not a user-created VPN site, this VPN site will not show up in the Azure portal.
 
-For more information regarding the available options third-party security providers and how to set this up, please review this [document](../firewall-manager/deploy-trusted-security-partner.md)
+For more information regarding the available options third-party security providers and how to set this up, see [Deploy a security partner provider](../firewall-manager/deploy-trusted-security-partner.md).
 
 ## Next steps
 
