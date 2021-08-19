@@ -87,7 +87,7 @@ items:
       - name: View model evaluation and scoring
         href: custom-extraction/how-to/view-model-evaluation.md
       - name: Query the runtime
-        href: custom-extraction/how-to/query-runtime.md
+        href: dialog-understanding/how-to/deploy-query-model.md
   - name: Concepts
     items:
       - name: Backwards compatibility

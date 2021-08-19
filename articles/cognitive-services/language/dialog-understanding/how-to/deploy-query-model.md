@@ -20,7 +20,7 @@ After you have [trained a model](../quickstart.md#deploy-your-model) on your dat
 
 Deploying a model is to make it host it and make it available for predictions through an endpoint. You can only have 1 deployed model per project, deploying another one will overwrite the previously deployed model.
 
-:::image type="content" source="../media/deploy-model.png" alt-text="Screenshot showing the prediction request and URL" lightbox="../media/deploy-model.png":::
+:::image type="content" source="../media/deploy-model.png" alt-text="A screenshot showing the model deployment page in Language Studio" lightbox="../media/deploy-model.png":::
 
 When a model is deployed, you will be able to test the model directly in the portal or by calling the API associated to it.
 

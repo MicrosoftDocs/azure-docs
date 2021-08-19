@@ -85,4 +85,5 @@ You can see the top intent in the first card under **Intents**, along with the e
 
 ## Next steps
 
-After you have trained, deployed, and tested your model, you can view its [evaluation details and scoring](how-to/view-evaluation.md) 
+Read about [creating a schema](how-to/build-schema.md) for your Dialog Understanding projects.  
+<!--After you have trained, deployed, and tested your model, you can view its [evaluation details and scoring](how-to/view-evaluation.md)--> 
