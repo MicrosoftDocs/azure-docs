@@ -242,10 +242,14 @@
         href: logs/manage-access.md
       - name: Move a workspace
         href: logs/move-workspace.md
+      - name: Move a workspace across regions 
+        href: logs/move-workspace-region.md
       - name: Design for service providers
         href: logs/service-providers.md
       - name: Dedicated clusters
         href: logs/logs-dedicated-clusters.md
+      - name: Availability zones
+        href: logs/availability-zones.md
     - name: Log Analytics
       items:
       - name: Overview

@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Implement Azure Policy as Code with GitHub"
 description: In this tutorial, you implement an Azure Policy as Code workflow with export, GitHub actions, and GitHub workflows
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: tutorial
 ---
 # Tutorial: Implement Azure Policy as Code with GitHub
