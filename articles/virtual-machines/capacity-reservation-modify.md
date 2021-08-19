@@ -10,7 +10,7 @@ ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
 ---
 
-# Modifying a Capacity Reservation 
+# Modifying a Capacity Reservation (preview)
 
 After creating a Capacity Reservation Group and Capacity Reservation, you may want to modify your reservations. This article explains how to do the following using API, Azure portal, and PowerShell. 
 
