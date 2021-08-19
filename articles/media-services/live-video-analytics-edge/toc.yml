@@ -111,6 +111,8 @@
     href: troubleshoot-how-to.md
   - name: Upgrading
     href: upgrading-lva-module.md
+  - name: Migrate to Azure Video Analyzer
+    href: migrate-to-azure-video-analyzer.md
   - name: Develop and deploy a gRPC inference server
     href: develop-deploy-grpc-inference-srv-how-to.md
 - name: Reference
