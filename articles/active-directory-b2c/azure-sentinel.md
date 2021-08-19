@@ -42,10 +42,8 @@ Then after, [configure Azure AD B2C to send logs to Azure Monitor](https://docs.
 
 ## Deploy an Azure Sentinel instance
 
-> \[!IMPORTANT\] To enable Azure Sentinel, you need **contributor
-> permissions** to the subscription in which the Azure Sentinel
-> workspace resides. To use Azure Sentinel, you need either contributor
-> or reader permissions on the resource group that the workspace belongs to.
+>[!IMPORTANT]
+>To enable Azure Sentinel, you need **contributor permissions** to the subscription in which the Azure Sentinel workspace resides. To use Azure Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
 
 Once you've configured your Azure AD B2C instance to send logs to Azure Monitor, you need to enable an Azure Sentinel instance.
 
