@@ -134,7 +134,15 @@ Azure AD provides built-in roles to work with custom security attributes. The At
 
 **Can directory synced users be assigned custom security attributes?**
 
-No, directory synced users from an on-premises Active Directory cannot be assigned custom security attributes.
+No, directory synced users from an on-premises Active Directory can't be assigned custom security attributes.
+
+**Can you delete custom security attribute definitions?**
+
+No, you can't delete custom security attribute definitions. You can only [deactivate custom security attribute definitions](../fundamentals/custom-security-attributes-add.md#deactivate-a-custom-security-attribute). Once you deactivate a custom security attribute, it can no longer be applied to the Azure AD objects. Custom security attribute assignments for the deactivated custom security attribute definition are not automatically removed. There is no limit to the number of deactivated custom security attributes. You can have 500 active custom security attribute definitions per tenant with 100 allowed pre-defined values per custom security attribute definition.
+
+**Can you add pre-defined values when you add a new custom security attribute?**
+
+Currently, you can only add pre-defined values after you defined the custom security attribute by using the [Edit attribute page](../fundamentals/custom-security-attributes-add.md#edit-a-custom-security-attribute).
 
 ## License requirements
 
