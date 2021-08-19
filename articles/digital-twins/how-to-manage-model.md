@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to create, edit, and delete a model within Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 7/13/2021
+ms.date: 8/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 
