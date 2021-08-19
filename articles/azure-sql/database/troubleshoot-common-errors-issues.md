@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: mathoma,vanto
-ms.date: 01/14/2021
+ms.date: 08/18/2021
 ---
 
 # Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance
@@ -38,7 +38,7 @@ The Azure infrastructure has the ability to dynamically reconfigure servers when
 
 1. Check the [Microsoft Azure Service Dashboard](https://azure.microsoft.com/status) for any known outages that occurred during the time during which the errors were reported by the application.
 2. Applications that connect to a cloud service such as Azure SQL Database should expect periodic reconfiguration events and implement retry logic to handle these errors instead of surfacing application errors to users.
-3. As a database approaches its resource limits, it can seem to be a transient connectivity issue. See [Resource limits](resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached).
+3. As a database approaches its resource limits, it can seem to be a transient connectivity issue. See [Resource limits](resource-limits-logical-server.md#what-happens-when-resource-limits-are-reached).
 4. If connectivity problems continue, or if the duration for which your application encounters the error exceeds 60 seconds or if you see multiple occurrences of the error in a given day, file an Azure support request by selecting **Get Support** on the [Azure Support](https://azure.microsoft.com/support/options) site.
 
 #### Implementing Retry Logic
