@@ -41,7 +41,7 @@ When you create portal and account private endpoints, the DNS CNAME resource rec
 
 The following table shows an example of Azure Private DNS zones A Records that can be deployed as part of configuration of private endpoint for an Azure Purview account: 
 
-Private endpoint  |Private endpoint associated to  |DNS Zone  |A Record )(example) |
+Private endpoint  |Private endpoint associated to  |DNS Zone  |A Record (example) |
 |---------|---------|---------|---------|
 |Account     |Azure Purview         |`privatelink.purview.azure.com`         |PurviewA         |
 |Portal     |Azure Purview account          |`privatelink.purview.azure.com`        |Web         |
