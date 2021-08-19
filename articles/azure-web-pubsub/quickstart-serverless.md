@@ -1,16 +1,23 @@
 ---
-title: Azure Web PubSub service serverless quickstart
-description: A quickstart for using Azure Web PubSub service and Azure Functions to a serverless application.
+title: Tutorial - Create a serverless chat using Azure Web PubSub service and Azure Functions
+description: A tutorial to walk through how to using Azure Web PubSub service and Azure Functions to build a serverless application.
 author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
-ms.topic: quickstart 
+ms.topic: tutorial 
 ms.date: 03/11/2021
 ---
 
-# Quickstart: Create a serverless chat with Azure Functions and Azure Web PubSub service 
+# Tutorial: Create a serverless chat with Azure Functions and Azure Web PubSub service
 
-The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets and the publish-subscribe pattern easily. Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use Azure Web PubSub service and Azure Functions to build a serverless application with real-time messaging and the publish-subscribe pattern.
+The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets and the publish-subscribe pattern easily. Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this tutorial, you learn how to use Azure Web PubSub service and Azure Functions to build a serverless application with real-time messaging and the publish-subscribe pattern.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a Web PubSub service instance
+> * Run the sample functions locally
+> * Configure Web PubSub Event Handler to route events and messages to the application
 
 ## Prerequisites
 
