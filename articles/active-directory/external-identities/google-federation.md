@@ -13,7 +13,7 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
-ms.custom: "it-pro, seo-update-azuread-jan"
+ms.custom: "it-pro, seo-update-azuread-jan, has-adal-ref"
 ms.collection: M365-identity-device-management
 ---
 
