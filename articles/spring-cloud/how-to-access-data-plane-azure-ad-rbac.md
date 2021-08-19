@@ -38,8 +38,8 @@ After the role is assigned, customers can access the Spring Cloud Config Server 
     ```
 1. Compose the endpoint. We support default endpoints of the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Cloud. For more information, see [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints).
 
-    * *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/{path}/'*
-    * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/{path}/'* 
+    * *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/{path}'*
+    * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/{path}'* 
 
     >[!NOTE]
     > If you are using Azure China, please replace `*.azuremicroservices.io` with `*.microservices.azure.cn`, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
@@ -50,12 +50,72 @@ After the role is assigned, customers can access the Spring Cloud Config Server 
 
     a. access an endpoint like *'https://SERVICE_NAME.svc.azuremicroservices.io/config/actuator/health'* to see the health status of Config Server.
 
-    b. access an endpoint like *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/eureka/apps'* to see the registered apps in eureka.
+    b. access an endpoint like *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/eureka/apps'* to see the registered apps in Spring Cloud Service Registry (Eureka here).
 
     If the response is *401 Unauthorized*, check to see if the role is successfully assigned.  It will take several minutes for the role take effect or verify that the access token has not expired.
 
-## Access Config Server and Service Registry in Java application
-Both Config Server and Service Registry support [custom rest template](https://cloud.spring.io/spring-cloud-config/reference/html/#custom-rest-template) to inject the bearer token for authentication. Please check the [code example (branch `dataplane`)](https://github.com/leonard520/spring-petclinic-microservices.git) about how to implement your own Config Server / Service Registry rest template integrated with Azure AD.
+## Register Spring Boot apps to Spring Cloud Config Server and Service Registry managed by Azure Spring Cloud
+
+After the role is assigned, customers can register Spring Boot apps to Spring Cloud Config Server and Service Registry managed by Azure Spring Cloud with Azure AD token authentication. Both Config Server and Service Registry support [custom rest template](https://cloud.spring.io/spring-cloud-config/reference/html/#custom-rest-template) to inject the bearer token for authentication. 
+
+You can refer to [code example](https://github.com/leonard520/spring-petclinic-microservices/tree/dataplane) about how to implement your own Config Server / Service Registry rest template integrated with Azure AD. Please pay attention to the below key code piece.
+
+1. [AccessTokenManager](https://github.com/leonard520/spring-petclinic-microservices/blob/dataplane/spring-petclinic-api-gateway/src/main/java/org/springframework/samples/petclinic/api/AccessTokenManager.java)
+
+    It is responsible to get access token from Azure AD. Please configure the service principal's login information in the `application.properties` and initialize `ApplicationTokenCredentials` to get token. 
+    ```
+    prop.load(in);
+            tokenClientId = prop.getProperty("access.token.clientId");
+            String tenantId = prop.getProperty("access.token.tenantId");
+            String secret = prop.getProperty("access.token.secret");
+            String clientId = prop.getProperty("access.token.clientId");
+            credentials = new ApplicationTokenCredentials(
+                clientId, tenantId, secret, AzureEnvironment.AZURE);
+    ```
+
+1. [CustomConfigServiceBootstrapConfiguration](https://github.com/leonard520/spring-petclinic-microservices/blob/dataplane/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomConfigServiceBootstrapConfiguration.java)
+
+    `CustomConfigServiceBootstrapConfiguration` implments the custom rest template for Config Server and inject the token from Azure AD as `Authorization` headers.
+
+    ```
+    public class RequestResponseHandlerInterceptor implements ClientHttpRequestInterceptor {
+
+        @Override
+        public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
+            String accessToken = AccessTokenManager.getToken();
+            request.getHeaders().remove(AUTHORIZATION);
+            request.getHeaders().add(AUTHORIZATION, "Bearer " + accessToken);
+
+            ClientHttpResponse response = execution.execute(request, body);
+            return response;
+        }
+
+    }
+    ```
+
+1. [CustomRestTemplateTransportClientFactories](https://github.com/leonard520/spring-petclinic-microservices/blob/dataplane/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomRestTemplateTransportClientFactories.java) and [CustomRestTemplateTransportClientFactory](https://github.com/leonard520/spring-petclinic-microservices/blob/dataplane/spring-petclinic-customers-service/src/main/java/org/springframework/samples/petclinic/customers/CustomRestTemplateTransportClientFactory.java)
+    
+    The two classes are for the implmentation of the custom rest template for Spring Cloud Service Registry. The `intercept` part is same as Config Server above. One thing to note is to make sure to add `factory.mappingJacksonHttpMessageConverter()` to the message converters.
+    ```
+    private RestTemplate customRestTemplate() {
+        /*
+         * Inject your custom rest template
+         */
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getInterceptors()
+            .add(new RequestResponseHandlerInterceptor());
+        RestTemplateTransportClientFactory factory = new RestTemplateTransportClientFactory();
+
+        restTemplate.getMessageConverters().add(0, factory.mappingJacksonHttpMessageConverter());
+
+        return restTemplate;
+    }
+    ```
+
+1. If you are running on applications on kubernetes cluster, it is recommand to use IP address to register to Spring Cloud Service Registry for access.
+```
+eureka.instance.prefer-ip-address=true
+```
 
 ## Next steps
 
