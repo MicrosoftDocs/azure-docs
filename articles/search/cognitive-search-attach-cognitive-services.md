@@ -14,19 +14,19 @@ ms.date: 08/12/2021
 
 When configuring an [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md). A multi-service resource references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key.
 
-A multi-service resource key is specified in a skillset definition and allows Microsoft to charge you for using these APIs:
+A resource key is specified in a skillset and allows Microsoft to charge you for using these APIs:
 
 + [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for image analysis and optical character recognition (OCR)
 + [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for language detection, entity recognition, sentiment analysis, and key phrase extraction
 + [Text Translation](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 
-The key is used for billing, but not connections. Internally, a search service connects to a Cognitive Services resource that's co-located in the same physical region. [Product availability](https://azure.microsoft.com/global-infrastructure/services/?products=search) shows regional availability side by side.
+The key is used for billing, but not connections. Internally, a search service connects to a Cognitive Services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search).
 
 ## Key requirements
 
-A key is required for billable [built-in skills](cognitive-search-predefined-skills.md) that are used more than 20 times a day on the same indexer: Entity Linking, Entity Recognition, Image Analysis, Key Phrase Extraction, Language Detection, OCR, PII Detection, Sentiment, or Text Translation.
+A resource key is required for billable [built-in skills](cognitive-search-predefined-skills.md) that are used more than 20 times a day on the same indexer. Skills that make backend calls to Cognitive Services include Entity Linking, Entity Recognition, Image Analysis, Key Phrase Extraction, Language Detection, OCR, PII Detection, Sentiment, or Text Translation.
 
-[Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) requires a key to unlock transactions beyond 20 per indexer, per day. Note that adding the key unblocks the number of transactions, but is not used for billing.  
+[Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) is metered by Azure Cognitive Search, not Cognitive Services, but it requires a Cognitive Services resource key to unlock transactions beyond 20 per indexer, per day. For this skill only, the resource key unblocks the number of transactions, but is unrelated to billing.
 
 You can omit the key and the Cognitive Services section for skillsets that consist solely of custom skills or utility skills (Conditional, Document Extraction, Shaper, Text Merge, Text Split). You can also omit the section if your usage of billable skills is under 20 transactions per indexer per day.
 

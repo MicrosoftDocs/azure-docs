@@ -70,12 +70,16 @@
         href: create-host-pools-user-profile.md
       - name: Use Azure NetApp Files
         href: create-fslogix-profile-container.md
+      - name: Use Azure NetApp Files and MSIX app attach
+        href: create-netapp-files.md
       - name: Use Azure Files and Azure AD DS
         href: create-profile-container-adds.md
       - name: Use Azure Files and AD DS
         href: create-file-share.md
       - name: Install Office with FSLogix app containers
         href: fslogix-office-app-rule-editor.md
+      - name: Authorize an account to use Azure Files
+        href: azure-files-authorization.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
@@ -124,6 +128,8 @@
     href: configure-adfs-sso.md
   - name: Configure automatic updates
     href: configure-automatic-updates.md
+  - name: Set up multimedia redirection (preview)
+    href: multimedia-redirection.md
   - name: Install language packs
     href: language-packs.md
   - name: Use Azure Advisor
@@ -228,6 +234,8 @@
     href: troubleshoot-azure-ad-connections.md
   - name: Azure Monitor
     href: troubleshoot-azure-monitor.md
+  - name: Azure Files authorization
+    href: troubleshoot-authorization.md
 - name: Reference
   items:
   - name: Security best practices
