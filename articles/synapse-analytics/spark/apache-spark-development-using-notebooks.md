@@ -223,10 +223,6 @@ We support comment on code cell in Preview Notebook for now.
 
    ![Synapse edit comment](./media/apache-spark-development-using-notebooks/synapse-edit-comments.png)
 
-> [!NOTE]
->  If a cell is deleted, its comments will be deleted and could not be revoked by **Redo** operation. 
-
-
 ---
 
 
