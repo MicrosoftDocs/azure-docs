@@ -70,8 +70,8 @@ The following example illustrates how to run an inline SQL script using ```execu
 
 You can see the full list of all the task inputs when using Azure CLI task with Azure Pipelines. 
 
-| Parameter            | Description         | 
-| :------------------- | :-------------------|
+| Parameter           | Description        | 
+| ------------------- | -------------------|
 | azureSubscription| (Required) Provide the Azure Resource Manager subscription for the deployment. This parameter is shown only when the selected task version is 0.* as Azure CLI task v1.0 supports only Azure Resource Manager subscriptions. |
 |scriptType| (Required) Provide the type of script. Supported scripts are PowerShell, PowerShell Core, Bat, Shell, and script. When running on a **Linux agent**, select one of the following: ```bash``` or  ```pscore``` . When running **Windows agent**, select one of the following: ```batch```,```ps``` and ```pscore```. |
 |sriptLocation| (Required) Provide the path to script, for example real file path or use ```Inline script``` when providing the scripts inline. The default value is ```scriptPath```. |
