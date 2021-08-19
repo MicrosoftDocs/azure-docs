@@ -109,7 +109,7 @@ ADU accepts tokens acquiring tokens using any of the Azure AD supported flows fo
 
 **Example using Azure CLI:**
 
-```cli
+```azurecli
 az login
 
 az account get-access-token --resource 'https://api.adu.microsoft.com/'
