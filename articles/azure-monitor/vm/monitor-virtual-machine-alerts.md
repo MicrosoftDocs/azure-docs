@@ -209,12 +209,16 @@ InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "TransfersPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) ), Computer, _ResourceId, Disk |
-| Logical disk data rate | InsightsMetrics
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) ), Computer, _ResourceId, Disk 
+```
+**Logical disk data rate**
+
+```kusto
+InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "BytesPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) , Computer, _ResourceId, Disk |
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) , Computer, _ResourceId, Disk 
 ```
 
 ## Network alerts
@@ -234,7 +238,7 @@ InsightsMetrics
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Network" and Name == "ReadBytesPerSecond"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId  |
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId  
 ```
 
 **Network interfaces bytes received - individual interfaces**
@@ -244,7 +248,7 @@ InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Network" and Name == "ReadBytesPerSecond"
 | extend NetworkInterface=tostring(todynamic(Tags)["vm.azm.ms/networkDeviceId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface |
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface 
 ```
 
 **Network interfaces bytes sent - all interfaces**
@@ -253,7 +257,7 @@ InsightsMetrics
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Network" and Name == "WriteBytesPerSecond"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId |
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId 
 ```
 
 **Network interfaces bytes sent - individual interfaces**
@@ -263,7 +267,7 @@ InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Network" and Name == "WriteBytesPerSecond"
 | extend NetworkInterface=tostring(todynamic(Tags)["vm.azm.ms/networkDeviceId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface |
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface 
 ```
 
 ## Comparison of log query alert measures

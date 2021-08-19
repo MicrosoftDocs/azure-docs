@@ -22,7 +22,7 @@ Azure Arc enabled machine learning lets you to configure and use an Azure Arc en
 
 Azure Arc enabled machine learning supports the following training scenarios:
 
-* Train models with 2.0 CLI
+* Train models with CLI (v2)
   * Distributed training
   * Hyperparameter sweeping
 * Train models with Azure Machine Learning Python SDK
@@ -304,7 +304,7 @@ else:
 
 ## Next steps
 
-- [Train models with 2.0 CLI](how-to-train-cli.md)
+- [Train models with CLI (v2)](how-to-train-cli.md)
 - [Configure and submit training runs](how-to-set-up-training-targets.md)
 - [Tune hyperparameters](how-to-tune-hyperparameters.md)
 - [Train a model using Scikit-learn](how-to-train-scikit-learn.md)
