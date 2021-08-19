@@ -3,7 +3,7 @@ title: Using a system-assigned managed identity for an Azure Automation account 
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/09/2021
+ms.date: 07/24/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -43,7 +43,7 @@ You can enable a system-assigned managed identity for an Azure Automation accoun
 $sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzAccount -Subscription
+    Connect-AzAccount -Identity
 }
 
 # If you have multiple subscriptions, set the one to use
@@ -104,9 +104,7 @@ Syntax and example steps are provided below.
 
 #### Syntax
 
-The body syntax below enables a system-assigned managed identity to an existing Automation account. However, this syntax will remove any existing user-assigned managed identities associated with the Automation account.
-
-PATCH
+The body syntax below enables a system-assigned managed identity to an existing Automation account using the HTTP **PATCH** method. However, this syntax will remove any existing user-assigned managed identities associated with the Automation account.
 
 ```json
 { 
@@ -116,9 +114,7 @@ PATCH
 }
 ```
 
-If there are multiple user-assigned identities defined, to retain them and only remove the system-assigned identity you need to specify each user-assigned identity using comma-delimited list as in the following example:
-
-PATCH
+If there are multiple user-assigned identities defined, to retain them and only remove the system-assigned identity, you need to specify each user-assigned identity using comma-delimited list. The example below uses the HTTP **PATCH** method.
 
 ```json
 { 
@@ -145,7 +141,7 @@ Perform the following steps.
 
 1. Copy and paste the body syntax into a file named `body_sa.json`. Save the file on your local machine or in an Azure storage account.
 
-1. Revise the variable value below and then execute.
+1. Update the variable value below and then execute.
 
     ```powershell
     $file = "path\body_sa.json"
@@ -225,7 +221,7 @@ Perform the following steps.
 
 1. Revise the syntax of the template above to use your Automation account and save it to a file named `template_sa.json`.
 
-1. Revise the variable value below and then execute.
+1. Update the variable value below and then execute.
 
     ```powershell
     $templateFile = "path\template_sa.json"
@@ -280,12 +276,13 @@ $AzureContext = Set-AzContext -SubscriptionId "SubscriptionID"
 ## Generate an access token without using Azure cmdlets
 
 For HTTP Endpoints make sure of the following.
+
 - The metadata header must be present and should be set to "true".
 - A resource must be passed along with the request, as a query parameter for a GET request and as form data for a POST request.
 - The X-IDENTITY-HEADER should be set to the value of the environment variable IDENTITY_HEADER for Hybrid Runbook Workers.
 - Content Type for the Post request must be 'application/x-www-form-urlencoded'.
 
-### Get Access token for System Assigned Identity using Http Get
+### Get Access token for System Assigned Identity using HTTP Get
 
 ```powershell
 $resource= "?resource=https://management.azure.com/" 
@@ -297,7 +294,7 @@ $accessToken = Invoke-RestMethod -Uri $url -Method 'GET' -Headers $Headers
 Write-Output $accessToken.access_token
 ```
 
-### Get Access token for System Assigned Identity using Http Post
+### Get Access token for System Assigned Identity using HTTP Post
 
 ```powershell
 $url = $env:IDENTITY_ENDPOINT  

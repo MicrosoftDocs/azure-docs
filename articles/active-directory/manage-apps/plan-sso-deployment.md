@@ -11,7 +11,10 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/19/2021
 ms.author: davidmu
-# Customer intent: As an IT admin, I need to know what to plan for in a single sign-on deployment in Azure Active Directory.
+ms.reviewer: ergreenl
+ms.collection: M365-identity-device-management
+ms.custom: has-adal-ref
+# Customer intent: As an IT admin, I need to learn about single-sign on (SSO) so I can understand the feature and help others in my organization to understand its value.
 ---
 
 # Plan a single sign-on deployment

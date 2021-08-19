@@ -2,7 +2,7 @@
 title: Azure AD authentication for Application Insights (Preview)
 description: Learn how to enable Azure Active Directory (Azure AD) authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 08/02/2021
 
 ---
 # Azure AD authentication for Application Insights (Preview)
@@ -403,7 +403,7 @@ This section provides distinct troubleshooting scenarios and steps that users ca
 
 The ingestion service will return specific errors, regardless of the SDK language. Network traffic can be collected using a tool such as Fiddler. You should filter traffic to the IngestionEndpoint set in the Connection String.
 
-#### HTTP/1.1 400 Incorrect API was used - v2 API does not support authentication
+#### HTTP/1.1 400 Authentication not support 
 
 This indicates that the Application Insights resource has been configured for Azure AD only, but the SDK hasn't been correctly configured and is sending to the incorrect API.
 
@@ -412,13 +412,13 @@ This indicates that the Application Insights resource has been configured for Az
 
 Next steps should be to review the SDK configuration.
 
-#### HTTP/1.1 401 Unauthorized - please provide the valid authorization token
+#### HTTP/1.1 401 Authorization required
 
 This indicates that the SDK has been correctly configured, but was unable to acquire a valid token. This may indicate an issue with Azure Active Directory.
 
 Next steps should be to identify exceptions in the SDK logs or network errors from Azure Identity.
 
-#### HTTP/1.1 403 Forbidden - provided credentials do not grant the access to ingest the telemetry into the component
+#### HTTP/1.1 403 Unauthorized 
 
 This indicates that the SDK has been configured with credentials that haven't been given permission to the Application Insights resource or subscription.
 

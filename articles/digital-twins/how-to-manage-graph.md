@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage the twin graph with relationships
+title: Manage the twin graph and relationships
 titleSuffix: Azure Digital Twins
 description: See how to manage a graph of digital twins by connecting them with relationships.
 author: baanders

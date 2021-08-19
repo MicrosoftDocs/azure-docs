@@ -41,7 +41,12 @@ The following diagram illustrates the implementation of Kubernetes on a 1-node A
 
 For more information on the Kubernetes cluster architecture, go to [Kubernetes core concepts](https://kubernetes.io/docs/concepts/architecture/).
 
+The master and the worker nodes are virtual machines that consume CPU and memory. When deploying Kubernetes workloads, it is important to understand the compute requirements for the master and worker VMs.
 
+|Kubernetes VM type|CPU and memory requirement|
+|---------|---------|
+|Master VM|4 cores, 4-GB RAM|
+|Worker VM|12 cores, 32-GB RAM|
 <!--The Kubernetes cluster control plane components make global decisions about the cluster. The control plane has:
 
 - *kubeapiserver* that is the front end of the Kubernetes API and exposes the API.

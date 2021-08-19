@@ -26,7 +26,6 @@ Currently, Azure event grid supports custom topics or domains configured with a 
 | Azure Blob storage | [Storage Blob Data Contributor](../storage/blobs/assign-azure-role-data-access.md) |
 | Azure Queue storage |[Storage Queue Data Message Sender](../storage/blobs/assign-azure-role-data-access.md) | 
 
-
 ## Use the Azure portal
 You can use the Azure portal to assign the custom topic or domain identity to an appropriate role so that the custom topic or domain can forward events to the destination. 
 
@@ -34,11 +33,24 @@ The following example adds a managed identity for an event grid custom topic nam
 
 1. Go to your **Service Bus namespace** in the [Azure portal](https://portal.azure.com). 
 1. Select **Access Control** in the left pane. 
-1. Select **Add** in the **Add a role assignment** section. 
-1. On the **Add a role assignment** page, do the following steps:
-    1. Select the role. In this case, it's **Azure Service Bus Data Sender**. 
-    1. Select the **identity** for your event grid custom topic or domain. 
-    1. Select **Save** to save the configuration.
+1. Select **Add** in the **Add role assignment (Preview)** section. 
+
+    :::image type="content" source="./media/add-identity-roles/add-role-assignment-menu.png" alt-text="Image showing the selection of Add role assignment (Preview) menu":::
+1. On the **Add role assignment** page, select **Azure Service Bus Data Sender**, and select **Next**.  
+    
+    :::image type="content" source="./media/add-identity-roles/select-role.png" alt-text="Image showing the selection of the Azure Service Bus Data Sender role":::
+1. In the **Members** tab, follow these steps: 
+    1. Select **Use, group, or service principal**, and click **+ Select members**. The **Managed identity** option doesn't support Event Grid identities yet. 
+    1. In the **Select members** window, search for and select the service principal with the same name as your custom topic. In the following example, it's **spcustomtopic0728**.
+    
+        :::image type="content" source="./media/add-identity-roles/select-managed-identity-option.png" alt-text="Image showing the selection of the User, group, or service principal option":::    
+    1. In the **Select members** window, click **Select**. 
+
+        :::image type="content" source="./media/add-identity-roles/managed-identity-selected.png" alt-text="Image showing the selection of the Managed identity option":::            
+1. Now, back on the **Members** tab, select **Next**. 
+
+    :::image type="content" source="./media/add-identity-roles/members-select-next.png" alt-text="Image showing the selection of the Next button on the Members page":::                
+1. On the **Review + assign** page, select **Review + assign** after reviewing the settings. 
 
 The steps are similar for adding an identity to other roles mentioned in the table. 
 

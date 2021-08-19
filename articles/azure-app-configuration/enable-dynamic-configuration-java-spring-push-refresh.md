@@ -24,7 +24,7 @@ The App Configuration Java Spring client library supports updating configuration
 
 - Poll Model: This is the default behavior that uses polling to detect changes in configuration. Once the cached value of a setting expires, the next call to `AppConfigurationRefresh`'s `refreshConfigurations` sends a request to the server to check if the configuration has changed, and pulls the updated configuration if needed.
 
-- Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events with Event Grid, with a [Web Hook](/azure/event-grid/handler-event-hubs), the application can use these events to optimize the total number of requests needed to keep the configuration updated.
+- Push Model: This uses [App Configuration events](./concept-app-configuration-event.md) to detect changes in configuration. Once App Configuration is set up to send key value change events with Event Grid, with a [Web Hook](../event-grid/handler-event-hubs.md), the application can use these events to optimize the total number of requests needed to keep the configuration updated.
 
 This tutorial shows how you can implement dynamic configuration updates in your code using push refresh. It builds on the app introduced in the quickstarts. Before you continue, finish [Create a Java Spring app with App Configuration](./quickstart-java-spring-app.md) first.
 
@@ -65,7 +65,7 @@ In this tutorial, you learn how to:
            </dependency>
    ```
 
-1. Setup [Maven App Service Deployment](/azure/app-service/quickstart-java?tabs=javase) so the application can be deployed to Azure App Service via Maven.
+1. Setup [Maven App Service Deployment](../app-service/quickstart-java.md?tabs=javase) so the application can be deployed to Azure App Service via Maven.
 
    ```console
    mvn com.microsoft.azure:azure-webapp-maven-plugin:1.12.0:config
@@ -92,7 +92,7 @@ A random delay is added before the cached value is marked as dirty to reduce pot
 
 ## Build and run the app locally
 
-Event Grid Web Hooks require validation on creation. You can validate by following this [guide](/azure/event-grid/webhook-event-delivery) or by starting your application with Azure App Configuration Spring Web Library already configured, which will register your application for you. To use an event subscription, follow the steps in the next two sections.
+Event Grid Web Hooks require validation on creation. You can validate by following this [guide](../event-grid/webhook-event-delivery.md) or by starting your application with Azure App Configuration Spring Web Library already configured, which will register your application for you. To use an event subscription, follow the steps in the next two sections.
 
 1. Set the environment variable to your App Configuration instance's connection string:
 
@@ -126,19 +126,19 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
     mvn spring-boot:deploy
     ```
 
-## Set up an Event subscription
+## Set up an event subscription
 
 1. Open the App Configuration resource in the Azure portal, then click on `+ Event Subscription` in the `Events` pane.
 
-    ![App Configuration Events](./media/events-pane.png)
+    :::image type="content" source="./media/events-pane.png" alt-text="The events pane has an option to create new Subscriptions." :::
 
 1. Enter a name for the `Event Subscription` and the `System Topic`. By default the Event Types Key-Value modified and Key-Value deleted are set, this can be changed along with using the Filters tab to choose the exact reasons a Push Event will be sent.
 
-    ![Create event subscription](./media/create-event-subscription.png)
+    :::image type="content" source="./media/create-event-subscription.png" alt-text="Events require a name, topic, and filters." :::
 
 1. Select the `Endpoint Type` as `Web Hook`, select `Select an endpoint`.
 
-    ![Event subscription service bus endpoint](./media/event-subscription-webhook-endpoint.png)
+    :::image type="content" source="./media/event-subscription-webhook-endpoint.png" alt-text="Selecting Endpoint creates a new blade to enter the endpoint URI." :::
 
 1. The endpoint is the URI of the application + "/actuator/appconfiguration-refresh?{your-token-name}={your-token-secret}". For example `https://my-azure-webapp.azurewebsites.net/actuator/appconfiguration-refresh?myToken=myTokenSecret`
 
@@ -146,12 +146,12 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
 
 1. Click on `Event Subscriptions` in the `Events` pane to validated that the subscription was created successfully.
 
-    ![App Configuration event subscriptions](./media/event-subscription-view-webhook.png)
+    :::image type="content" source="./media/event-subscription-view-webhook.png" alt-text="Web Hook shows up in a table on the bottom of the page." :::
 
 > [!NOTE]
-> When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](/azure/event-grid/event-filtering.md) or [Service Bus subscription filters](/azure/service-bus-messaging/topic-filters.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
+> When subscribing for configuration changes, one or more filters can be used to reduce the number of events sent to your application. These can be configured either as [Event Grid subscription filters](../event-grid/event-filtering.md) or [Service Bus subscription filters](../service-bus-messaging/topic-filters.md). For example, a subscription filter can be used to only subscribe to events for changes in a key that starts with a specific string.
 
-## Verify and Test Application
+## Verify and test application
 
 1. After your application is running, use *curl* to test your application, for example:
 

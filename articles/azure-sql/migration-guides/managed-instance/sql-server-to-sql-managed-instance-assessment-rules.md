@@ -78,7 +78,7 @@ More information: [Bulk Insert and OPENROWSET differences in Azure SQL Managed I
 ## CLR Security<a id="ClrStrictSecurity"></a>
 
 **Title: CLR assemblies marked as SAFE or EXTERNAL_ACCESS are considered UNSAFE**   
-**Category**: Issue   
+**Category**: Warning   
 
 **Description**   
 CLR Strict Security mode is enforced in Azure SQL Managed Instance. This mode is enabled by default and introduces breaking changes for databases containing user-defined CLR assemblies marked either SAFE or EXTERNAL_ACCESS.
@@ -197,7 +197,7 @@ The Filestream feature, which allows you to store unstructured data such as text
 **Recommendation**   
 Upload the unstructured files to Azure Blob storage and store metadata related to these files (name, type, URL location, storage key etc.) in Azure SQL Managed Instance. You may have to re-engineer your application to enable streaming blobs to and from Azure SQL Managed Instance. Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
-More information: [Streaming Blobs To and From SQL Azure blog](https://azure.microsoft.com/en-in/blog/streaming-blobs-to-and-from-sql-azure/)
+More information: [Streaming Blobs To and From SQL Azure blog](https://azure.microsoft.com/blog/streaming-blobs-to-and-from-sql-azure/)
 
 ## Heterogeneous MS DTC<a id="MIHeterogeneousMSDTCTransactSQL"></a>
 
@@ -446,19 +446,6 @@ Rewrite the statement using the current RAISERROR syntax, or evaluate if the mod
 
 More information: [Discontinued Database Engine Functionality in SQL Server](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Service broker<a id="ServiceBrokerWithNonLocalAddress"></a>
-
-**Title: Service Broker feature is partially supported in Azure SQL Managed Instance.**   
-**Category**: Issue   
-
-**Description**   
-SQL Server Service Broker provides native support for messaging and queuing applications in the SQL Server Database Engine. This database has cross-instance Service Broker enabled which is not supported in Azure SQL Managed Instance. 
-
-
-**Recommendation**   
-Azure SQL Managed Instance does not support cross-instance service broker, i.e. where the address is not local. You need to disable Service Broker using the following command before migrating this database to Azure: `ALTER DATABASE [database_name] SET DISABLE_BROKER`; In addition, you may also need to remove or stop the Service Broker endpoint in order to prevent messages from arriving in the SQL instance. Once the database has been migrated to Azure, you can look into Azure Service Bus functionality to implement a generic, cloud-based messaging system instead of Service Broker. Alternatively, migrate to SQL Server on Azure Virtual Machine. 
-
-More information: [Service Broker differences in Azure SQL Managed Instance ](../../managed-instance/transact-sql-tsql-differences-sql-server.md#service-broker)
 
 ## SQL Mail<a id="SqlMail"></a>
 

@@ -99,7 +99,7 @@ Start by opening the function app project in Visual Studio on your machine and f
 4. Publish the project with the *DpsAdtAllocationFunc.cs* function to a function app in Azure. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
-> When creating the function app for the first time in the [Prerequisites section](#prerequisites), you may have already assigned an access role for the function and configured the application settings for it to access your Azure Digital Twins instance. These need to be done once for the entire function app, so verify they've been completed in your app before continuing. You can find instructions in the [Set up security access for the function app](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) section of the *How-to: Set up a function in Azure to process data* article.
+> When creating the function app for the first time in the [Prerequisites section](#prerequisites), you may have already assigned an access role for the function and configured the application settings for it to access your Azure Digital Twins instance. These need to be done once for the entire function app, so verify they've been completed in your app before continuing. You can find instructions in the [Configure published app](how-to-authenticate-client.md#configure-published-app) section of the *Write app authentication code* article.
 
 ### Create Device Provisioning enrollment
 
@@ -231,7 +231,7 @@ Next, configure the Azure function app that you set up in the [Prerequisites sec
 2. Add the connection string as a variable in the function app settings with the following Azure CLI command. The command can be run in [Cloud Shell](https://shell.azure.com), or locally if you have the [Azure CLI installed on your machine](/cli/azure/install-azure-cli).
 
     ```azurecli-interactive
-    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event-Hubs-SAS-connection-string-Listen>" --resource-group <resource-group> --name <your-App-Service-function-app-name>
+    az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event-Hubs-SAS-connection-string-Listen>" --resource-group <resource-group> --name <your-function-app-name>
     ```
 
 ### Add a function to retire with IoT Hub lifecycle events
@@ -253,7 +253,7 @@ Start by opening the function app project in Visual Studio on your machine and f
 4. Publish the project with the *DeleteDeviceInTwinFunc.cs* function to a function app in Azure. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 > [!IMPORTANT]
-> When creating the function app for the first time in the [Prerequisites section](#prerequisites), you may have already assigned an access role for the function and configured the application settings for it to access your Azure Digital Twins instance. These need to be done once for the entire function app, so verify they've been completed in your app before continuing. You can find instructions in the [Set up security access for the function app](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) section of the *How-to: Set up a function in Azure to process data* article.
+> When creating the function app for the first time in the [Prerequisites section](#prerequisites), you may have already assigned an access role for the function and configured the application settings for it to access your Azure Digital Twins instance. These need to be done once for the entire function app, so verify they've been completed in your app before continuing. You can find instructions in the [Configure published app](how-to-authenticate-client.md#configure-published-app) section of the *Write app authentication code* article.
 
 ### Create an IoT Hub route for lifecycle events
 

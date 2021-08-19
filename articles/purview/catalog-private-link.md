@@ -211,7 +211,7 @@ There are two ways you can add Azure Purview private endpoints after you create 
 
 1. For **Resource**, select the Azure Purview account, and for **Target sub-resource**, select **account**.
 
-1. On the **Configuration** tab, select the virtual network and private DNS zone. Go to the summary page, and select **Create** to create the portal private endpoint.
+1. On the **Configuration** tab, select the virtual network and private DNS zone. Go to the summary page, and select **Create** to create the account private endpoint.
 
 > [!NOTE]
 > Follow the same steps when you select **portal** for **Target sub-resource**.

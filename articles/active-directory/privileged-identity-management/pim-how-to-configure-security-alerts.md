@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/03/2021
+ms.date: 06/30/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -82,7 +82,7 @@ Severity: **High**
 | | Description |
 | --- | --- |
 | **Why do I get this alert?** | Privileged role assignments made outside of Privileged Identity Management are not properly monitored and may indicate an active attack. |
-| **How to fix?** | Review the users in the list and remove them from privileged roles assigned outside of Privileged Identity Management. |
+| **How to fix?** | Review the users in the list and remove them from privileged roles assigned outside of Privileged Identity Management. You can also enable or disable both the alert and its accompanying email notification in the alert settings. |
 | **Prevention** | Investigate where users are being assigned privileged roles outside of Privileged Identity Management and prohibit future assignments from there. |
 | **In-portal mitigation action** | Removes the user from their privileged role. |
 
@@ -116,7 +116,7 @@ Severity: **Low**
 
 ## Customize security alert settings
 
-On the **Alerts** page, select **Settings**.
+On the **Alerts** page, select **Setting**.
 
 ![Alerts page with Settings highlighted](media/pim-how-to-configure-security-alerts/alert-settings.png)
 

@@ -55,7 +55,7 @@ Selecting this checkbox will require users to perform Azure AD Multi-Factor Auth
 
 Organizations who have deployed Microsoft Intune can use the information returned from their devices to identify devices that meet specific compliance requirements. This policy compliance information is forwarded from Intune to Azure AD where Conditional Access can make decisions to grant or block access to resources. For more information about compliance policies, see the article [Set rules on devices to allow access to resources in your organization using Intune](/intune/protect/device-compliance-get-started).
 
-A device can be marked as compliant by Intune (for any device OS) or by third-party MDM system for Windows 10 devices. Jamf pro is the only supported third-party MDM system. More information about integration can be found in the article, [Integrate Jamf Pro with Intune for compliance](/intune/protect/conditional-access-integrate-jamf).
+A device can be marked as compliant by Intune (for any device OS) or by third-party MDM system for Windows 10 devices. A list of supported third-party MDM systems can be found in the article [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
 
 Devices must be registered in Azure AD before they can be marked as compliant. More information about device registration can be found in the article, [What is a device identity](../devices/overview.md).
 

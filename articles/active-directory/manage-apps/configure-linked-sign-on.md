@@ -12,6 +12,7 @@ ms.workload: identity
 ms.date: 07/19/2021
 ms.author: davidmu
 # Customer intent: As an IT admin, I need to know how to implement password-based single sign-on in Azure Active Directory.
+ms.reviewer: ergreenl
 ---
 
 # Add linked single sign-on to an application in Azure Active Directory

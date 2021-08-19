@@ -5,8 +5,9 @@ author: minhe-msft
 ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/30/2021
 ---
 
 # Visually monitor Azure Data Factory
@@ -90,7 +91,19 @@ After you create the user properties, you can monitor them in the monitoring lis
 
 ![Activity runs list with columns for user properties](media/monitor-visually/view-user-properties.png)
 
+
 ## Rerun pipelines and activities
+ 
+ Rerun behavior of the container activities is as follows:
+ 
+- `Wait`- Activity will behave as before.
+- `Set Variable` - Activity will behave as before.
+- `Filter` - Activity will behave as before.
+- `Until` Activity will evaluate the expression and will loop until the condition is satisfied. Inner activities may still be skipped based on the rerun rules.
+- `Foreach` Activity will always loop on the items it receives. Inner activities may still be skipped based on the rerun rules.
+- `If and switch` - Conditions will always be evaluated. Inner activities may still be skipped based on the rerun rules.
+- `Execute pipeline activity` - The child pipeline will be triggered, but all activities in the child pipeline may still be skipped based on the rerun rules.
+
 
 To rerun a pipeline that has previously ran from the start, hover over the specific pipeline run and select **Rerun**. If you select multiple pipelines, you can use the **Rerun** button to run them all.
 

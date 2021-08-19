@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-develop
 services: iot-develop
-manager: philmea
+
 ---
 
 # IoT Plug and Play architecture

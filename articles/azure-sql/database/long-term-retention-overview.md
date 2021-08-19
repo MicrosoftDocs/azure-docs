@@ -8,8 +8,8 @@ ms.subservice: backup-restore
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
+author: SQLSourabh
+ms.author: sourabha
 ms.reviewer: mathoma
 ms.date: 07/13/2021
 ---
@@ -69,7 +69,7 @@ If you modify the above policy and set W=0 (no weekly backups), the cadence of b
 
 ## Geo-replication and long-term backup retention
 
-If you're using active geo-replication or failover groups as your business continuity solution, you should prepare for eventual failovers and configure the same LTR policy on the secondary database or instance. Your LTR storage cost won't increase as backups aren't generated from the secondaries. The backups are only created when the secondary becomes primary the backups will be created. It ensures non-interrupted generation of the LTR backups when the failover is triggered and the primary moves to the secondary region. 
+If you're using active geo-replication or failover groups as your business continuity solution, you should prepare for eventual failovers and configure the same LTR policy on the secondary database or instance. Your LTR storage cost won't increase as backups aren't generated from the secondaries. The backups are only created when the secondary becomes primary. It ensures non-interrupted generation of the LTR backups when the failover is triggered and the primary moves to the secondary region. 
 
 > [!NOTE]
 > When the original primary database recovers from an outage that caused the failover, it will become a new secondary. Therefore, the backup creation will not resume and the existing LTR policy will not take effect until it becomes the primary again. 
