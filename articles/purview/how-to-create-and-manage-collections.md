@@ -280,8 +280,10 @@ Legacy collections only organize sources in the data map, and do not manage perm
 
 ## Next steps
 
-Now that you have a collection, you can follow these guides below to add resources, scan, and manage your collections.
+Now that you have a collection, you can follow these guides below to add resources and scan.
 
 * [Manage data sources](manage-data-sources.md)
 
 * [Supported data sources](purview-connector-overview.md)
+
+* [Scan and ingestion](concept-scans-and-ingestion.md)
