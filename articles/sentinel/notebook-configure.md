@@ -102,7 +102,7 @@ By default, your workspace information is already defined in your **msticpyconfi
    - When adding more workspaces, the **Name**, **WorkspaceId**, and **TenantId** fields are mandatory.
    - If you work with multiple workspaces and have one that you use frequently, you may want to set it as the default workspace, which creates a duplicate entry named **Default**. Override the default as needed by specifying a specific workspace name when connecting.
 
-1. After you've updated your workspace settings, in the **Conf File** field, enter your file name (**msticpyconfig.yaml**). Select **Safe File** to save your changes.
+1. After you've updated your workspace settings, in the **Conf File** field, enter your file name (**msticpyconfig.yaml**). Select **Save File** to save your changes.
 
 1. Select **Validate Settings**. If you've only edited the workspace settings, you'll be missing other sections, but should have nothing missing under the **Type Validation Results**. For more information, see [Validate msticpyconfig.yaml settings](#validate-msticpyconfigyaml-settings).
 
