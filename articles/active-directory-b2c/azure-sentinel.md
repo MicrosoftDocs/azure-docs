@@ -54,13 +54,11 @@ Once you've configured your Azure AD B2C instance to send logs to Azure Monitor,
 2. Search for and select **Azure Sentinel**.
 
 3. Select **Add**.
-[!image shows search for Azure Sentinel in the Azure portal](./media/azure-sentinel/azure-sentinel-add.png)
+![image shows search for Azure Sentinel in the Azure portal](./media/azure-sentinel/azure-sentinel-add.png)
 
 4. Select the new workspace.
 
-   :::image type="content"
-    source="./media/azure-sentinel/create-new-workspace.png"
-    alt-text="select the sentinel workspace":::
+ ![image select the sentinel workspace](./media/azure-sentinel/create-new-workspace)
 
 5. Select **Add Azure Sentinel**.
 
