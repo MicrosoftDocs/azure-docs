@@ -27,7 +27,7 @@ The **Overview** page in the Azure portal for each key vault includes the follow
 - Average Latency
 - Success ratio
 
-You can select "additional metrics" to view these metrics as well:
+You can select "additional metrics" (or the "Metrics" tab in the left-hand sidebar, under "Monitoring") to view these metrics as well:
 
 - Overall service API latency
 - Overall vault availability
@@ -47,67 +47,43 @@ Key Vault collects the same kinds of monitoring data as other Azure resources th
 
 See [Monitoring *Key Vault* data reference](monitor-key-vault-reference.md) for detailed information on the metrics and logs metrics created by Key Vault.
 
-<!-- If your service has additional non-Azure Monitor monitoring data then outline and refer to that here. Also include that information in the data reference as appropriate. -->
-
 ## Collection and routing
 
 Platform metrics and the Activity log are collected and stored automatically, but can be routed to other locations by using a diagnostic setting.  
 
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-<!-- Include any additional information on collecting logs.  The number of things that diagnostics settings control is expanding -->
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Key Vault* are listed in [Key Vault monitoring data reference](monitor-key-vault-reference.md#resource-logs).
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Key Vault* are listed in [Key Vault monitoring data reference](monitor-key-vault-reference.md#resource-logs).
-
-<!-- OPTIONAL: Add specific examples of configuration for this service. For example, CLI and PowerShell commands for creating diagnostic setting. Ideally, customers should set up a policy to automatically turn on collection for services. Azure monitor has Resource Manager template examples you can point to. See https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings.  Contact azmondocs@microsoft.com if you have questions.   -->
-
-The metrics and logs you can collect are discussed in the following sections.
+To create a diagnostic setting for you key vault, see [Enable Key Vault logging](howto-logging.md).  The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics
 
-<!-- REQUIRED. Please keep headings in this order 
-If you don't support metrics, say so. Some services may be only onboarded to logs -->
-
-You can analyze metrics for *Key Vault* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool. 
+You can analyze metrics for Key Vault with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
 
 <!-- Point to the list of metrics available in your monitor-key-vault-reference article. -->
-For a list of the platform metrics collected for Key Vault, see [Monitoring *[service-name]* data reference metrics](monitor-key-vault-reference.md#metrics)  
-
-<!-- REQUIRED for services that use a Guest OS. That includes agent based services like Virtual Machines, Service Fabric, Cloud Services, and perhaps others. Delete the section otherwise -->
-Guest OS metrics must be collected by agents running on the virtual machines hosting your service. <!-- Add additional information as appropriate -->. For more information, see [Overview of Azure Monitor agents](/azure/azure-monitor/platform/agents-overview)  
-
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
-
-<!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about how to use metrics explorer specifically for your service. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
+For a list of the platform metrics collected for Key Vault, see [Monitoring Key Vault data reference metrics](monitor-key-vault-reference.md#metrics)  
 
 ## Analyzing logs
 
-<!-- REQUIRED. Please keep headings in this order
-If you don't support resource logs, say so. Some services may be only onboarded to metrics and the activity log. -->
-
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema) The schema for [service name] resource logs is found in the [Key Vault Data Reference](monitor-key-vault-reference.md#schemas) 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../azure-monitor/platform/diagnostic-logs-schema.md#top-level-resource-logs-schema) The schema for Key Vault resource logs is found in the [Key Vault Data Reference](monitor-key-vault-reference.md#schemas) 
 
-The [Activity log](/azure/azure-monitor/platform/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](../../azure-monitor/platform/activity-log.md) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 For a list of the types of resource logs collected for Key Vault, see [Monitoring Key Vault data reference](monitor-key-vault-reference.md#resource-logs)  
 
 For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Key Vault data reference](monitor-key-vault-reference.md##azure-monitor-logs-tables)  
 
-<!--  Optional: Call out additional information to help your customers. For example, you can include additional information here about log usage or what logs are most important. Remember that the UI is subject to change quite often so you will need to maintain these screenshots yourself if you add them in. -->
-
 ### Sample Kusto queries
 
-<!-- REQUIRED if you support logs. Please keep headings in this order -->
-<!-- Add sample Log Analytics Kusto queries for your service. -->
-
 > [!IMPORTANT]
-> When you select **Logs** from the [service-name] menu, Log Analytics is opened with the query scope set to the current [Service resource]. This means that log queries will only include data from that resource. If you want to run a query that includes data from other [resource] or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
+> When you select **Logs** from the Key Vault menu, Log Analytics is opened with the query scope set to the current key vault. This means that log queries will only include data from that resource. If you want to run a query that includes data from other key vaults, or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
 <!-- REQUIRED: Include queries that are helpful for figuring out the health and state of your service. Ideally, use some of these queries in the alerts section. It's possible that some of your queries may be in the Log Analytics UI (sample or example queries). Check if so.  -->
 
-Following are queries that you can use to help you monitor your [Service] resource. 
+Following are queries that you can use to help you monitor your Key Vault resource.
 
 <!-- Put in a code section here. -->  
 ```Kusto
@@ -207,4 +183,3 @@ Congratulations, you are now monitoring Azure Key Vault. If you wish to set up a
 
 - See [Monitoring [service-name] data reference](monitor-key-vault-reference.md) for a reference of the metrics, logs, and other important values created by Key Vault.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
-

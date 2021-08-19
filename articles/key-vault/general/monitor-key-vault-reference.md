@@ -1,12 +1,12 @@
 ---
-title: Monitoring Key Vault data reference #Required; *your official service name*  
+title: Monitoring Key Vault data reference 
 description: Important reference material needed when you monitor Key Vault 
-author: #Required; your GitHub user alias, with correct capitalization.
+author: msmbaldwin  
 ms.topic: reference
-ms.author: #Required; Microsoft alias of author; optional team alias.
-ms.service: #Required; service you are monitoring
+ms.author: mbaldwin
+ms.service: key-vault
 ms.custom: subject-monitoring
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 07/07/2021
 ---
 
 # Monitoring Key Vault data reference
@@ -31,47 +31,22 @@ This section lists all the automatically collected platform metrics collected fo
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| Vault Availability | [Microsoft.KeyVault/vaults](../../azure-monitor/essentials/metrics-supported.md#microsoftkeyvaultvaults) |
-| Virtual machine scale set | [Microsoft.Compute/virtualMachinescaleset](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachinescaleset) 
+| General | [Microsoft.KeyVault/vaults](../../azure-monitor/essentials/metrics-supported.md#microsoftkeyvaultvaults) |
 
-  
-+ Vault Saturation
-+ Service API Latency
-+ Total Service API Hits (Filter by Activity Type)
-+ Error Codes (Filter by Status Code)
-
---------------**OPTION 2 EXAMPLE** -------------
-
-<!--  OPTION 2 -  Link to the metrics as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the metrics-supported link. For highly customized example, see [CosmosDB](https://docs.microsoft.com/azure/cosmos-db/monitor-cosmos-db-reference#metrics). They even regroup the metrics into usage type vs. resource provider and type.
--->
-
-<!-- Example format. Mimic the setup of metrics supported, but add extra information -->
 
 ### Key Vault metrics
 
-Resource Provider and Type: [Microsoft.Compute/virtualMachines](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachines)
+Resource Provider and Type: [Microsoft.KeyVault/vaults](../../azure-monitor/essentials/metrics-supported.md#microsoftkeyvaultvaults)
 
 | Metric | Unit | Description | *TODO replace this label with other information*  |
 |:-------|:-----|:------------|:------------------|
-|        |      |             | Use this metric for <!-- put your specific information in here -->  |
-|        |      |             |  |
+|  Availability      | Percent    | Vault requests availability            | Use this metric for <!-- put your specific information in here -->  |
+| SaturationShoebox | Percent | Average	Vault capacity used | XXX |
+| ServiceApiHit | Count | Number of total service api hits | XXX |
+| ServiceApiLatency | MilliSeconds | Overall latency of service api requests | XXX |
+| ServiceApiResult | Count | Number of total service api results | XXX |
 
-### Virtual machine scale set metrics
-
-Namespace- [Microsoft.Compute/virtualMachinesscaleset](/azure/azure-monitor/platform/metrics-supported#microsoftcomputevirtualmachinescalesets) 
-
-| Metric | Unit | Description | *TODO replace this label with other information*  |
-|:-------|:-----|:------------|:------------------|
-|        |      |             | Use this metric for <!-- put your specific information in here -->  |
-|        |      |             |  |
-
-
-<!-- Add additional explanation of reference information as needed here. Link to other articles such as your Monitor [servicename] article as appropriate. -->
-
-<!-- Keep this text as-is -->
 For more information, see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
-
-
 
 ## Metric Dimensions
 
@@ -80,14 +55,9 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-
-Key Vault does not have any metrics that contain dimensions.
-
-*OR*
-
 Key Vault has the following dimensions associated with its metrics.
 
-<!-- See https://docs.microsoft.com/azure/storage/common/monitor-storage-reference#metrics-dimensions for an example. Part is copied below. -->
+, , , 
 
 **--------------EXAMPLE format when you have dimensions------------------**
 
@@ -95,18 +65,17 @@ Azure Storage supports following dimensions for metrics in Azure Monitor.
 
 | Dimension Name | Description |
 | ------------------- | ----------------- |
-| **BlobType** | The type of blob for Blob metrics only. The supported values are **BlockBlob**, **PageBlob**, and **Azure Data Lake Storage**. Append blobs are included in **BlockBlob**. |
-| **BlobTier** | Azure storage offers different access tiers, which allow you to store blob object data in the most cost-effective manner. See more in [Azure Storage blob tier](/azure/storage/blobs/storage-blob-storage-tiers). The supported values include: <br/> <li>**Hot**: Hot tier</li> <li>**Cool**: Cool tier</li> <li>**Archive**: Archive tier</li> <li>**Premium**: Premium tier for block blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tier types for premium page blob</li> <li>**Standard**: Tier type for standard page Blob</li> <li>**Untiered**: Tier type for general purpose v1 storage account</li> |
-| **GeoType** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
+| **ActivityType** | The type of blob for Blob metrics only. The supported values are **BlockBlob**, **PageBlob**, and **Azure Data Lake Storage**. Append blobs are included in **BlockBlob**. |
+| **ActivityName** | Azure storage offers different access tiers, which allow you to store blob object data in the most cost-effective manner. See more in [Azure Storage blob tier](/azure/storage/blobs/storage-blob-storage-tiers). The supported values include: <br/> <li>**Hot**: Hot tier</li> <li>**Cool**: Cool tier</li> <li>**Archive**: Archive tier</li> <li>**Premium**: Premium tier for block blob</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tier types for premium page blob</li> <li>**Standard**: Tier type for standard page Blob</li> <li>**Untiered**: Tier type for general purpose v1 storage account</li> |
+| **TransactionType** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
+| **StatusCode** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
+| **StatusCodeClass** | Transaction from Primary or Secondary cluster. The available values include **Primary** and **Secondary**. It applies to Read Access Geo Redundant Storage(RA-GRS) when reading objects from secondary tenant. |
 
 ## Resource logs
-<!-- REQUIRED. Please  keep headings in this order -->
 
-This section lists the types of resource logs you can collect for Key Vault. 
+This section lists the types of resource logs you can collect for Key Vault.
 
-<!-- List all the resource log types you can have and what they are for -->  
-
-For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
+For reference, see a list of [Microsoft.KeyVault/vaults](../../azure-monitor/essentials/resource-logs-categories.md#microsoftkeyvaultvaults).  For full details, see [Azure Key Vault logging](logging.md).
 
 ------------**OPTION 1 EXAMPLE** ---------------------
 
