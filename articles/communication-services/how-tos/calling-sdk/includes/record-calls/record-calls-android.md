@@ -42,10 +42,12 @@ Once you have the call recording setup on your server, from your Android applica
 
 ```java
 try {
-	String serverCallId = call.getInfo().getServerCallId().get();
-	// Send serverCallId to your recording server to start the call recording.
+    String serverCallId = call.getInfo().getServerCallId().get();
+    // Send serverCallId to your recording server to start the call recording.
 } catch (ExecutionException | InterruptedException e) {
+
 } catch (UnsupportedOperationException unsupportedOperationException) {
+
 }
 ```
 

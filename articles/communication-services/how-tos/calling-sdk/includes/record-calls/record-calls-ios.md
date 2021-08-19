@@ -32,7 +32,7 @@ callRecordingFeature.delegate = self
 
 // didChangeRecordingState is a member of RecordingFeatureDelegate
 public func recordingFeature(_ recordingFeature: RecordingFeature, didChangeRecordingState args: PropertyChangedEventArgs) {
-	let isRecordingActive = recordingFeature.isRecordingActive
+    let isRecordingActive = recordingFeature.isRecordingActive
 }
 ```
 
@@ -41,8 +41,8 @@ If you want to start recording from your application, please first follow [Calli
 Once you have the call recording setup on your server, from your iOS application you need to obtain the `ServerCallId` value from the call and then send it to your server to start the recording process. The `ServerCallId` value can be found using `getServerCallId()` from the `CallInfo` class, which can be found in the class object using `getInfo()`.
 
 ```swift
-let serverCallId = call.info.getServerCallId(){ (serverId, error) in }
 // Send serverCallId to your recording server to start the call recording.
+let serverCallId = call.info.getServerCallId(){ (serverId, error) in }
 ```
 
 When recording is started from the server, the event `didChangeRecordingState` will trigger and the value of `recordingFeature.isRecordingActive` will be `true`.
@@ -50,8 +50,8 @@ When recording is started from the server, the event `didChangeRecordingState` w
 Just like starting the call recording, if you want to stop the call recording you need to get the `ServerCallId` and send it to your recording server so that it can stop the call recording.
 
 ```swift
-let serverCallId = call.info.getServerCallId(){ (serverId, error) in }
 // Send serverCallId to your recording server to stop the call recording.
+let serverCallId = call.info.getServerCallId(){ (serverId, error) in }
 ```
 
 When recording is stopped from the server, the event `didChangeRecordingState` will trigger and the value of `recordingFeature.isRecordingActive` will be `false`.
