@@ -55,15 +55,15 @@ Industry selection applies only for offers published to AppSource and Consulting
 
 | Industries |  Verticals |
 | :------------------- | :----------------|
-| Automotive | |
+| Automotive | n/a |
 | Financial Services | Banking<br>Insurance<br>Capital Markets | 
 | Government |  Civilian Government<br>Public Safety and Justice |
-| Defense and Intelligence | |
+| Defense and Intelligence | n/a |
 | Healthcare | Health Payor<br>Health Provider<br>Life Sciences | 
 | Education | Higher Education<br>Primary and Secondary Edu/K-12<br>Libraries and Museums |
-| Nonprofit and IGO | |
+| Nonprofit and IGO | n/a |
 | Manufacturing | Process Manufacturing<br>Discrete Manufacturing<br>Agriculture |
-| Energy | |
+| Energy | n/a |
 | Retail | Retail<br>Customer Goods |
 | Media and Communications | Media and Entertainment<br>Telecommunications | 
 | Professional Services | Partner Professional Services<br>Legal<br>Architecture and Construction<br>Real Estate | 
@@ -77,5 +77,6 @@ Select the applicable products your app works with for the offer to show up unde
 
 ## Next steps
 
-- Learn more about your [commercial marketplace benefits](./gtm-your-marketplace-benefits.md).
-- Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) to create and configure your offer. If you haven't yet enrolled in Partner Center, [create an account](create-account.md).
+- To create an offer, sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) to create and configure your offer. If you haven't yet enrolled in Partner Center, [create an account](/azure/marketplace/create-account).
+- For step-by-step instructions on publishing an offer, see the commercial marketplace [publishing guide by offer type](/azure/marketplace/publisher-guide-by-offer-type).
+
