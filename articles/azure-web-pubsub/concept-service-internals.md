@@ -36,7 +36,7 @@ Azure Web PubSub Service provides an easy way to publish/subscribe messages usin
 
 ## Workflow
 
-![Workflow](./media/concept-service-internals/workflow.png)
+![The service workflow](./media/concept-service-internals/workflow.png)
 
 As illustrated by the above workflow graph:
 1. A *client* connects to the service `/client` endpoint using WebSocket transport. Service forward every WebSocket frame to the configured upstream(server). The WebSocket connection can connect with any custom subprotocol for the server to handle, or it can connect with the service-supported subprotocol `json.webpubsub.azure.v1`, which empowers the clients to do pub/sub directly. Details are described in [client protocol](#client_protocol).
@@ -248,7 +248,7 @@ For now, we do not support [WebHook-Request-Rate](https://github.com/cloudevents
 1. Simple Auth that `code` is provided through the configured Webhook URL.
 1. AAD Auth. 
    1. Add a client secret in AAD's [App Registrations] and provide the [client secret] to Azure Web PubSub through portal/cli.
-   2. Provide the [Identity](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?tabs=dotnet) to Azure Web PubSub through portal/cli
+   2. Provide the [Identity](/azure/app-service/overview-managed-identity?tabs=dotnet) to Azure Web PubSub through portal/cli
 
 <a name="connection_manager"></a>
 
