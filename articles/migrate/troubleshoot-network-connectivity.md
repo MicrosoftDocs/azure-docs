@@ -228,7 +228,7 @@ In addition to the URLs above, the appliance needs access to the following URLs 
 |*.portal.azure.com | Navigate to the Azure portal
 |*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *.office.com <br/> *.microsoftonline.com <br/> *.microsoftonline-p.com <br/> | Used for access control and identity management by Azure Active Directory
 |management.azure.com | For triggering Azure Resource Manager deployments
-|*.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring
+|*.services.visualstudio.com (optional) | Upload appliance logs used for internal monitoring.
 |aka.ms/* (optional) | Allow access to aka links; used to download and install the latest updates for appliance services
 |download.microsoft.com/download | Allow downloads from Microsoft download center    
 
@@ -277,6 +277,7 @@ To resolve this error, retry the import/export/download operation from a client 
 **Option 2** 
 The import/export/download request makes a connection to a storage account for uploading/downloading reports. You can also change the networking settings of the storage account used for the import/export/download operation and allow access to the storage account via other networks (public networks).  
 To set up the storage account for public endpoint connectivity,
+
 1. **Locate the storage account**: The storage account name is available on the Azure Migrate: Discovery and Assessment properties page. The storage account name will have the suffix of **usa**. 
 
 :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png" alt-text="Snapshot of download DNS settings."::: 
