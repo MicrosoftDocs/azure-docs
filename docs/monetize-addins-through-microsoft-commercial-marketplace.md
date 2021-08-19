@@ -1,8 +1,9 @@
 ---
 title: Monetize your Microsoft 365 add-in or app through Microsoft Commercial Marketplace
 description: This article describes how to sell your app through Microsoft by using Partner Center to submit your service for purchase as a SaaS offer.
-ms.author: mingshen
 localization_priority: Priority
+ms.author: mingshen
+ms.date: 08/19/2021
 ---
 
 # Monetize your app through Microsoft Commercial Marketplace
@@ -106,9 +107,9 @@ For more details, see [SaaS fufillment APIs](/azure/marketplace/partner-center-p
 
 Your app will rely on your service to verify whether the user accessing the app has a license associated with their account. It is up to you to whether you give them a free (but limited) experience or whether you simply direct them to where to purchase licenses.
 Your app should have three states:
-1. User not signed in
-1. User signed in, no license associated
-1. User signed in, license associated
+- User not signed in
+- User signed in, no license associated
+- User signed in, license associated
 
 For information about authenticating with Azure AD from within your add-in, see [Office Dialog API](/office/dev/add-ins/develop/auth-with-office-dialog-api) and [Microsoft identity platform](/azure/active-directory/develop/v2-overview).
 
