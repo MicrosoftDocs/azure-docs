@@ -153,7 +153,7 @@ The following sections go into more detail on how to configure Azure ML PyTorch 
 
 ### <a name="per-process-launch"></a> DistributedDataParallel (per-process-launch)
 
-You don't need to use a launcher utility like `torch.distributed.launch`.  To run a distributed PyTorch job:
+You don't need to use a launcher utility like `torch.distributed.launch`. To run a distributed PyTorch job:
 
 1. Specify the training script and arguments
 1. Create a `PyTorchConfiguration` and specify the `process_count` and `node_count`. The `process_count` corresponds to the total number of processes you want to run for your job. `process_count` should typically equal `# GPUs per node x # nodes`. If `process_count` isn't specified, Azure ML will by default launch one process per node.
