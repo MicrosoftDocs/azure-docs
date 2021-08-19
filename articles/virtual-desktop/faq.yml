@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Windows Virtual Desktop FAQ - Azure
-  description: Frequently asked questions and best practices for Windows Virtual Desktop.
+  title: Azure Virtual Desktop FAQ - Azure
+  description: Frequently asked questions and best practices for Azure Virtual Desktop.
   author: Heidilohr
   ms.topic: conceptual
   ms.date: 03/09/2021
@@ -9,8 +9,8 @@ metadata:
   ms.custom: devx-track-azurepowershell
   manager: femila
     
-title: Windows Virtual Desktop FAQ
-summary: This article answers frequently asked questions and explains best practices for Windows Virtual Desktop.
+title: Azure Virtual Desktop FAQ
+summary: This article answers frequently asked questions and explains best practices for Azure Virtual Desktop.
 
 
 sections:
@@ -41,7 +41,7 @@ sections:
           ```
           
       - question: |
-         Does Windows Virtual Desktop support split Azure Active Directory models?
+         Does Azure Virtual Desktop support split Azure Active Directory models?
         answer: |
           When a user is assigned to an app group, the service does a simple Azure role assignment. As a result, the user’s Azure Active Directory (AD) and the app group’s Azure AD must be in the same location. All service objects, such as host pools, app groups, and workspaces, also must be in the same Azure AD as the user.
           
@@ -88,23 +88,23 @@ sections:
           ```
           
       - question: |
-         Does Windows Virtual Desktop support guest users?
+         Does Azure Virtual Desktop support guest users?
         answer: |
-          Windows Virtual Desktop doesn't support Azure AD guest user accounts. For example, let's say a group of guest users have Microsoft 365 E3 Per-user, Windows E3 Per-user, or WIN VDA licenses in their own company, but are guest users in a different company's Azure AD. The other company would manage the guest users' user objects in both Azure AD and Active Directory like local accounts.
+          Azure Virtual Desktop doesn't support Azure AD guest user accounts. For example, let's say a group of guest users have Microsoft 365 E3 Per-user, Windows E3 Per-user, or WIN VDA licenses in their own company, but are guest users in a different company's Azure AD. The other company would manage the guest users' user objects in both Azure AD and Active Directory like local accounts.
           
-          You can't use your own licenses for the benefit of a third party. Also, Windows Virtual Desktop doesn't currently support Microsoft Account (MSA).
+          You can't use your own licenses for the benefit of a third party. Also, Azure Virtual Desktop doesn't currently support Microsoft Account (MSA).
           
       - question: |
          Why don't I see the client IP address in the WVDConnections table?
         answer: We don't currently have a reliable way to collect the web client's IP addresses, so we don't include that value in the table.
 
       - question: |
-         How does Windows Virtual Desktop handle backups?
+         How does Azure Virtual Desktop handle backups?
         answer: There are multiple options in Azure for handling backup. You can use Azure backup, Site Recovery, and snapshots.
 
       - question: |
-         Does Windows Virtual Desktop support third-party collaboration apps?
-        answer: Windows Virtual Desktop is currently optimized for Teams. Microsoft currently doesn't support third-party collaboration apps like Zoom. Third-party organizations are responsible for giving compatibility guidelines to their customers. Windows Virtual Desktop also doesn't support Skype for Business.
+         Does Azure Virtual Desktop support third-party collaboration apps?
+        answer: Azure Virtual Desktop is currently optimized for Teams. Microsoft currently doesn't support third-party collaboration apps like Zoom. Third-party organizations are responsible for giving compatibility guidelines to their customers. Azure Virtual Desktop also doesn't support Skype for Business.
 
       - question: |
          Can I change from pooled to personal host pools?
@@ -136,23 +136,23 @@ sections:
           - The VM prefix name and the number of VMs is fewer than 15 characters. To learn more, see [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
           
       - question: |
-         Can I manage Windows Virtual Desktop environments with Azure Lighthouse?
+         Can I manage Azure Virtual Desktop environments with Azure Lighthouse?
         answer: |
-          Azure Lighthouse doesn't fully support managing Windows Virtual Desktop environments. Since Lighthouse doesn't currently support cross-Azure AD tenant user management, Lighthouse customers still need to sign in to the Azure AD that customers use to manage users.
+          Azure Lighthouse doesn't fully support managing Azure Virtual Desktop environments. Since Lighthouse doesn't currently support cross-Azure AD tenant user management, Lighthouse customers still need to sign in to the Azure AD that customers use to manage users.
           
-          You also can't use CSP sandbox subscriptions with the Windows Virtual Desktop service. To learn more, see [Integration sandbox account](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
+          You also can't use CSP sandbox subscriptions with the Azure Virtual Desktop service. To learn more, see [Integration sandbox account](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
           
           Finally, if you enabled the resource provider from the CSP owner account, the CSP customer accounts won't be able to modify the resource provider.
           
       - question: |
          How often should I turn my VMs on to prevent registration issues?
         answer: |
-          After you register a VM to a host pool within the Windows Virtual Desktop service, the agent regularly refreshes the VM's token whenever the VM is active. The certificate for the registration token is valid for 90 days. Because of this 90-day limit, we recommend VMs to be online for 20 minutes every 90 days so that the machine can refresh its tokens and update the agent and side-by-side stack components. Turning your VM on within this time limit will prevent its registration token from expiring or becoming invalid. If you've started your VM after 90 days and are experiencing registration issues, follow the instructions in the [Windows Virtual Desktop agent troubleshooting guide](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) to remove the VM from the host pool, reinstall the agent, and reregister it to the pool.
+          After you register a VM to a host pool within the Azure Virtual Desktop service, the agent regularly refreshes the VM's token whenever the VM is active. The certificate for the registration token is valid for 90 days. Because of this 90-day limit, we recommend VMs to be online for 20 minutes every 90 days so that the machine can refresh its tokens and update the agent and side-by-side stack components. Turning your VM on within this time limit will prevent its registration token from expiring or becoming invalid. If you've started your VM after 90 days and are experiencing registration issues, follow the instructions in the [Azure Virtual Desktop agent troubleshooting guide](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) to remove the VM from the host pool, reinstall the agent, and reregister it to the pool.
           
       - question: |
          Can I set availability options when creating host pools?
         answer: |
-          Yes. Windows Virtual Desktop host pools have an option for selecting either availability set or availability zones when you create a VM. These availability options are the same as the ones Azure Compute uses. If you select a zone for the VM you create in a host pool, the setting automatically applies to all VMs you create in that zone. If you'd prefer to spread your host pool VMs across multiple zones, you'll need to follow the directions in [Add virtual machines with the Azure portal](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) to manually select a new zone for each new VM you create.
+          Yes. Azure Virtual Desktop host pools have an option for selecting either availability set or availability zones when you create a VM. These availability options are the same as the ones Azure Compute uses. If you select a zone for the VM you create in a host pool, the setting automatically applies to all VMs you create in that zone. If you'd prefer to spread your host pool VMs across multiple zones, you'll need to follow the directions in [Add virtual machines with the Azure portal](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) to manually select a new zone for each new VM you create.
           
       - question: |
          Which availability option is best for me?

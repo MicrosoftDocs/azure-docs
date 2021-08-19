@@ -188,7 +188,7 @@ The following functionality isn't supported in Gen2, and therefore the compatibi
 
 During the data migration, you will be billed for the data storage and transactions of the Gen1 account. If you choose the option that copies only data, then you will be billed for the data storage and transactions for both accounts after the migration is completed. To avoid being billed for the Gen1 account, you'll have to delete the Gen1 account. Delete the Gen1 account after you have completed updating your applications. If you choose to perform a complete migration, you will be billed only for the data storage and transactions of the Gen2 enabled account after the migration. 
 
-#### After the migration completes, can I choose to go back to using the Gen2 account?
+#### After the migration completes, can I choose to go back to using the Gen1 account?
 
 This is not supported, after the migration completes, the data in your Gen1 account will not be accessible. You can continue to view the Gen1 account in the Azure portal, and when you are ready, you can delete the account. 
 

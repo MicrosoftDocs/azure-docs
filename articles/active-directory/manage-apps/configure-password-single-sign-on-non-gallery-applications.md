@@ -10,6 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: davidmu
+ms.reviewer: ergreenl
 ---
 
 # Understand password-based single sign-on

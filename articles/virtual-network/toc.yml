@@ -126,6 +126,8 @@
       href: subnet-extension.md
     - name: Subnet delegation
       href: subnet-delegation-overview.md
+  - name: Virtual machine networking
+    href: network-overview.md
   - name: Classic deployment
     href: /previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
 - name: How-to guides

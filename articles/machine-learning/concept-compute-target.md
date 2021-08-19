@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 06/18/2021
+ms.date: 07/27/2021
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
 ---
 
@@ -20,7 +20,7 @@ In a typical model development lifecycle, you might:
 
 1. Start by developing and experimenting on a small amount of data. At this stage, use your local environment, such as a local computer or cloud-based virtual machine (VM), as your compute target.
 1. Scale up to larger data, or do distributed training by using one of these [training compute targets](#train).
-1. After your model is ready, deploy it to a web hosting environment or IoT device with one of these [deployment compute targets](#deploy).
+1. After your model is ready, deploy it to a web hosting environment with one of these [deployment compute targets](#deploy).
 
 The compute resources you use for your compute targets are attached to a [workspace](concept-workspace.md). Compute resources other than the local machine are shared by users of the workspace.
 
@@ -59,7 +59,7 @@ When created, these compute resources are automatically part of your workspace, 
 
 |Capability  |Compute cluster  |Compute instance  |
 |---------|---------|---------|
-|Single- or multi-node cluster     |    **&check;**       |         |
+|Single- or multi-node cluster     |    **&check;**       |    Single node cluster     |
 |Autoscales each time you submit a run     |     **&check;**      |         |
 |Automatic cluster management and job scheduling     |   **&check;**        |     **&check;**      |
 |Support for both CPU and GPU resources     |  **&check;**         |    **&check;**       |

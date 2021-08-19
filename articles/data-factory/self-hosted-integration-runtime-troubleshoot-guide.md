@@ -1,8 +1,11 @@
 ---
-title: Troubleshoot self-hosted integration runtime in Azure Data Factory
-description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory. 
+title: Troubleshoot self-hosted integration runtime
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to troubleshoot self-hosted integration runtime issues in Azure Data Factory and Azure Synapse Analytics pipelines. 
 author: lrtoyou1223
 ms.service: data-factory
+ms.subservice: integration-runtime
+ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 05/31/2021
 ms.author: lle
@@ -12,23 +15,31 @@ ms.author: lle
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article explores common troubleshooting methods for self-hosted integration runtime (IR) in Azure Data Factory.
+This article explores common troubleshooting methods for self-hosted integration runtime (IR) in Azure Data Factory and Synapse workspaces.
 
-## Gather self-hosted IR logs from Azure Data Factory
+## Gather self-hosted IR logs
 
-For failed activities that are running on a self-hosted IR or a shared IR, Azure Data Factory supports viewing and uploading error logs. To get the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
+For failed activities that are running on a self-hosted IR or a shared IR, the service supports viewing and uploading error logs. To get the error report ID, follow the instructions here, and then enter the report ID to search for related known issues.
 
-1. In Data Factory, select **Pipeline runs**.
+1. On the Monitor page for the service UI, select **Pipeline runs**.
 
 1. Under **Activity runs**, in the **Error** column, select the highlighted button to display the activity logs, as shown in the following screenshot:
 
-    ![Screenshot of the "Activity runs" section on the "All pipeline runs" pane.](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
-
-    The activity logs are displayed for the failed activity run.
-
-    ![Screenshot of the activity logs for the failed activity.](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png) 
+    # [Azure Data Factory](#tab/data-factory)
     
-1. For further assistance, select **Send logs**.
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png" alt-text="Screenshot of the 'Activity runs' section on the 'All pipeline runs' pane.":::
+    
+    # [Azure Synapse](#tab/synapse-analytics)
+    
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page-synapse.png" alt-text="Screenshot of the 'Activity runs' section on the 'All pipeline runs' pane.":::
+    
+    ---
+    
+    The activity logs are displayed for the failed activity run.
+    
+    :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png" alt-text="Screenshot of the activity logs for the failed activity."::: 
+    
+3. For further assistance, select **Send logs**.
  
    The **Share the self-hosted integration runtime (IR) logs with Microsoft** window opens.
 
@@ -66,7 +77,7 @@ Check the resource usage and concurrent activity execution on the IR node. Adjus
 
 #### Symptoms
 
-When you try to increase the concurrent jobs limit from the Azure Data Factory interface, the process hangs in *Updating* status.
+When you try to increase the concurrent jobs limit from UI, the process hangs in *Updating* status.
 
 Example scenario: The maximum concurrent jobs value is currently set to 24, and you want to increase the count so that your jobs can run faster. The minimum value that you can enter is 3, and the maximum value is 32. You increase the value from 24 to 32 and then select the **Update** button. The process gets stuck in *Updating* status, as shown in the following screenshot. You refresh the page, and the value is still displayed as 24. It hasn't been updated to 32 as you had expected.
 
@@ -302,7 +313,7 @@ The reason is that the worker nodes do not have access to the private keys. This
 
 `[14]0460.3404::05/07/21-00:23:32.2107988 [System] A fatal error occurred when attempting to access the TLS server credential private key. The error code returned from the cryptographic module is 0x8009030D. The internal error state is 10001.`
 
-You have no issue with the sync process when you use the service principal authentication in the ADF linked service. However, when you switch the authentication type to account key, the syncing issue started. This is because the self-hosted integration runtime service runs under a service account (NT SERVICE\DIAHostService) and it need to be added to the private key permissions.
+You have no issue with the sync process when you use the service principal authentication in the linked service. However, when you switch the authentication type to account key, the syncing issue started. This is because the self-hosted integration runtime service runs under a service account (NT SERVICE\DIAHostService) and it need to be added to the private key permissions.
  
 
 #### Resolution
@@ -513,9 +524,9 @@ Before and after conversion:
 ![Screenshot of the result after the certificate conversion.](media/self-hosted-integration-runtime-troubleshoot-guide/after-certificate-change.png)
 
 ### Self-hosted integration runtime version 5.x
-For the upgrade to version 5.x of the Azure Data Factory self-hosted integration runtime, we require **.NET Framework Runtime 4.7.2** or later. On the download page, you'll find download links for the latest 4.x version and the latest two 5.x versions. 
+For the upgrade to version 5.x of the self-hosted integration runtime, we require **.NET Framework Runtime 4.7.2** or later. On the download page, you'll find download links for the latest 4.x version and the latest two 5.x versions. 
 
-For Azure Data Factory v2 customers:
+For Azure Data Factory v2 and Azure Synapse customers:
 - If automatic update is on and you've already upgraded your .NET Framework Runtime to 4.7.2 or later, the self-hosted integration runtime will be automatically upgraded to the latest 5.x version.
 - If automatic update is on and you haven't upgraded your .NET Framework Runtime to 4.7.2 or later, the self-hosted integration runtime won't be automatically upgraded to the latest 5.x version. The self-hosted integration runtime will stay in the current 4.x version. You can see a warning for a .NET Framework Runtime upgrade in the portal and the self-hosted integration runtime client.
 - If automatic update is off and you've already upgraded your .NET Framework Runtime to 4.7.2 or later, you can manually download the latest 5.x and install it on your machine.
@@ -542,7 +553,7 @@ When you attempt to register the self-hosted integration runtime, Configuration 
 
 #### Cause 
 
-The self-hosted IR can't connect to the Azure Data Factory service back end. This issue is usually caused by network settings in the firewall.
+The self-hosted IR can't connect to the service back end. This issue is usually caused by network settings in the firewall.
 
 #### Resolution
 
@@ -554,10 +565,10 @@ The self-hosted IR can't connect to the Azure Data Factory service back end. Thi
 
     ```powershell
     (New-Object System.Net.WebClient).DownloadString("https://wu2.frontend.clouddatahub.net/")
-    ```
-        
+    ```      
+
    > [!NOTE]     
-   > The service URL might vary, depending on the location of your data factory instance. To find the service URL, select **ADF UI** > **Connections** > **Integration runtimes** > **Edit Self-hosted IR** > **Nodes** > **View Service URLs**.
+   > The service URL might vary, depending on the location of your data factory or Synapse workspace instance. To find the service URL, use the Manage page of the UI in your data factory or Azure Synapse instance to find **Integration runtimes** and click your self-hosted IR to edit it.  There select the **Nodes** tab and click **View Service URLs**.
             
     The following is the expected response:
             
@@ -643,14 +654,14 @@ This behavior occurs when nodes can't communicate with each other.
     - Put all the nodes in the same domain.
     - Add the IP to host mapping in all the hosted VM's host files.
 
-### Connectivity issue between the self-hosted IR and your data factory instance or the self-hosted IR and the data source or sink
+### Connectivity issue between the self-hosted IR and your data factory or Azure Synapse instance or the self-hosted IR and the data source or sink
 
 To troubleshoot the network connectivity issue, you should know 
 how to collect the network trace, understand how to use it, and [analyze the Microsoft Network Monitor (Netmon) trace](#analyze-the-netmon-trace) before applying the Netmon Tools in real cases from the self-hosted IR.
 
 #### Symptoms
 
-You might occasionally need to troubleshoot certain connectivity issues between the self-hosted IR and your data factory instance, as shown in the following screenshot, or between the self-hosted IR and the data source or sink. 
+You might occasionally need to troubleshoot certain connectivity issues between the self-hosted IR and your data factory or Azure Synapse instance, as shown in the following screenshot, or between the self-hosted IR and the data source or sink. 
 
 ![Screenshot of a "Processed HTTP request failed" message](media/self-hosted-integration-runtime-troubleshoot-guide/http-request-error.png)
 
@@ -762,9 +773,9 @@ This notification applies to the following scenarios:
 
 How to determine whether you're affected:
 
-- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allow list for IP addresses](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
+- You *are not* affected if you're defining firewall rules based on fully qualified domain names (FQDNs) that use the approach described in [Set up a firewall configuration and allowlist for IP addresses](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-addresses).
 
-- You *are* affected if you're explicitly enabling the allow list for outbound IPs on your corporate firewall.
+- You *are* affected if you're explicitly enabling the allowlist for outbound IPs on your corporate firewall.
 
    If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update your network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
@@ -778,7 +789,7 @@ How to determine whether you're affected:
 
   ![Screenshot of a destination check showing DataFactory as the destination.](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
 
-- You *are* affected if you're explicitly enabling the allow list for outbound IP addresses on your NSG rules setting on the Azure virtual network.
+- You *are* affected if you're explicitly enabling the allowlist for outbound IP addresses on your NSG rules setting on the Azure virtual network.
 
    If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update the NSG rules on your Azure virtual network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
@@ -790,7 +801,7 @@ How to determine whether you're affected:
 
 - If you have outbound rule restrictions, check to see whether you're using service tags. If you're using service tags, you're not affected. There's no need to change or add anything because the new IP range is under your existing service tags.
 
-- You *are* affected if you're explicitly enabling the allow list for outbound IP addresses on your NSG rules setting on the Azure virtual network.
+- You *are* affected if you're explicitly enabling the allowlist for outbound IP addresses on your NSG rules setting on the Azure virtual network.
 
   If you're affected, take the following action: by November 8, 2020, notify your network infrastructure team to update the NSG rules on your Azure virtual network configuration to use the latest data factory IP addresses. To download the latest IP addresses, go to [Discover service tags by using downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
@@ -798,13 +809,13 @@ How to determine whether you're affected:
 
 #### Symptoms
 
-The self-hosted IR couldn't connect to the Azure Data Factory service.
+The self-hosted IR couldn't connect to the Azure Data Factory or Azure Synapse service.
 
 When you check the self-hosted IR event log or the client notification logs in the CustomLogEvent table, you'll find the following error message:
 
 "The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. The remote certificate is invalid according to the validation procedure."
 
-The simplest way to check the server certificate of the Data Factory service is to open the Data Factory service URL in your browser. For example, open the [check server certificate link](https://eu.frontend.clouddatahub.net/) on the machine where the self-hosted IR is installed, and then view the server certificate information.
+The simplest way to check the server certificate of the service is to open the service URL in your browser. For example, open the [check server certificate link](https://eu.frontend.clouddatahub.net/) on the machine where the self-hosted IR is installed, and then view the server certificate information.
 
   ![Screenshot of the check server certificate pane of the Azure Data Factory service.](media/self-hosted-integration-runtime-troubleshoot-guide/server-certificate.png)
 
@@ -814,13 +825,13 @@ The simplest way to check the server certificate of the Data Factory service is 
 
 There are two possible reasons for this issue:
 
-- Reason 1: The root CA of the Data Factory service server certificate isn't trusted on the machine where the self-hosted IR is installed. 
-- Reason 2: You're using a proxy in your environment, the server certificate of the Data Factory service is replaced by the proxy, and the replaced server certificate isn't trusted by the machine where the self-hosted IR is installed.
+- Reason 1: The root CA of the service's server certificate isn't trusted on the machine where the self-hosted IR is installed. 
+- Reason 2: You're using a proxy in your environment, the server certificate of the service is replaced by the proxy, and the replaced server certificate isn't trusted by the machine where the self-hosted IR is installed.
 
 #### Resolution
 
-- For reason 1: Make sure that the Data Factory server certificate and its certificate chain are trusted by the machine where the self-hosted IR is installed.
-- For reason 2: Either trust the replaced root CA on the self-hosted IR machine, or configure the proxy not to replace the Data Factory server certificate.
+- For reason 1: Make sure that the service's server certificate and its certificate chain are trusted by the machine where the self-hosted IR is installed.
+- For reason 2: Either trust the replaced root CA on the self-hosted IR machine, or configure the proxy not to replace the service's server certificate.
 
 For more information about trusting certificates on Windows, see [Installing the trusted root certificate](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
 

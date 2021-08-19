@@ -1,7 +1,7 @@
 ---
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
-ms.date: 07/20/2021
+ms.date: 08/11/2021
 ms.topic: conceptual
 ---
 # Understanding the Azure Resource Graph query language
@@ -28,11 +28,12 @@ properties from related resource types. Here is the list of tables available in 
 |Resource Graph table |Can `join` other tables? |Description |
 |---|---|---|
 |Resources |Yes |The default table if none defined in the query. Most Resource Manager resource types and properties are here. |
-|ResourceContainers |Yes |Includes subscription (`Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
+|ResourceContainers |Yes |Includes management group (`Microsoft.Management/managementGroups`), subscription (`Microsoft.Resources/subscriptions`) and resource group (`Microsoft.Resources/subscriptions/resourcegroups`) resource types and data. |
 |AdvisorResources |Yes (preview) |Includes resources _related_ to `Microsoft.Advisor`. |
 |AlertsManagementResources |Yes (preview) |Includes resources _related_ to `Microsoft.AlertsManagement`. |
 |ExtendedLocationResources |No |Includes resources _related_ to `Microsoft.ExtendedLocation`. |
 |GuestConfigurationResources |No |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
+|HealthResources|Yes |Includes resources _related_ to `Microsoft.ResourceHealth/availabilitystatuses`. |
 |KubernetesConfigurationResources |No |Includes resources _related_ to `Microsoft.KubernetesConfiguration`. |
 |MaintenanceResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.Maintenance`. |
 |PatchAssessmentResources|No |Includes resources _related_ to Azure Virtual Machines patch assessment. |
@@ -40,7 +41,7 @@ properties from related resource types. Here is the list of tables available in 
 |PolicyResources |Yes |Includes resources _related_ to `Microsoft.PolicyInsights`. |
 |RecoveryServicesResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.DataProtection` and `Microsoft.RecoveryServices`. |
 |SecurityResources |Yes (preview) |Includes resources _related_ to `Microsoft.Security`. |
-|ServiceHealthResources |No (preview) |Includes resources _related_ to `Microsoft.ResourceHealth`. |
+|ServiceHealthResources |No (preview) |Includes resources _related_ to `Microsoft.ResourceHealth/events`. |
 |WorkloadMonitorResources |No |Includes resources _related_ to `Microsoft.WorkloadMonitor`. |
 
 For a complete list, including resource types, see [Reference: Supported tables and resource types](../reference/supported-tables-resources.md).
@@ -182,23 +183,17 @@ To support the "Open Query" portal experience, Azure Resource Graph Explorer has
 
 ## Query scope
 
-The scope of the subscriptions from which resources are returned by a query depend on the method of
-accessing Resource Graph. Azure CLI and Azure PowerShell populate the list of subscriptions to
-include in the request based on the context of the authorized user. The list of subscriptions can be
-manually defined for each with the **subscriptions** and **Subscription** parameters, respectively.
-In REST API and all other SDKs, the list of subscriptions to include resources from must be
-explicitly defined as part of the request.
+The scope of the subscriptions or [management groups](../../management-groups/overview.md) from
+which resources are returned by a query defaults to a list of subscriptions based on the context of
+the authorized user. If a management group or a subscription list isn't defined, the query scope is
+all resources, which includes [Azure Lighthouse](../../../lighthouse/overview.md) delegated
+resources.
 
-As a **preview**, REST API version `2020-04-01-preview` adds a property to scope the query to a
-[management group](../../management-groups/overview.md). This preview API also makes the
-subscription property optional. If a management group or a subscription list isn't defined, the
-query scope is all resources, which includes
-[Azure Lighthouse](../../../lighthouse/overview.md) delegated
-resources, that the authenticated user can access. The new `managementGroupId` property takes the
-management group ID, which is different from the name of the management group. When
-`managementGroupId` is specified, resources from the first 5,000 subscriptions in or under the
-specified management group hierarchy are included. `managementGroupId` can't be used at the same
-time as `subscriptions`.
+The list of subscriptions or management groups to query can be manually defined to change the scope
+of the results. For example, the REST API `managementGroups` property takes the management group ID,
+which is different from the name of the management group. When `managementGroups` is specified,
+resources from the first 5,000 subscriptions in or under the specified management group hierarchy
+are included. `managementGroups` can't be used at the same time as `subscriptions`.
 
 Example: Query all resources within the hierarchy of the management group named 'My Management
 Group' with ID 'myMG'.
@@ -206,7 +201,7 @@ Group' with ID 'myMG'.
 - REST API URI
 
   ```http
-  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview
+  POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
   ```
 
 - Request Body
@@ -214,7 +209,7 @@ Group' with ID 'myMG'.
   ```json
   {
       "query": "Resources | summarize count()",
-      "managementGroupId": "myMG"
+      "managementGroups": ["myMG"]
   }
   ```
 

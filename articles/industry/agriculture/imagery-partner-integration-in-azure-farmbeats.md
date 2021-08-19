@@ -5,7 +5,7 @@ author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: riyazp
-ms.custom: has-adal-ref
+ms.custom: 
 ---
 
 # Imagery partner integration
