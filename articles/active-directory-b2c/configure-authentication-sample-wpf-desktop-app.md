@@ -73,7 +73,7 @@ Create the desktop app and the web API application registration, and specify the
 [!INCLUDE [active-directory-b2c-app-integration-api-scopes](../../includes/active-directory-b2c-app-integration-api-scopes.md)]
 
 
-### 2.3 Register the desktop app
+### Step 2.3: Register the desktop app
 
 To create the desktop app registration, do the following:
 
@@ -81,7 +81,7 @@ To create the desktop app registration, do the following:
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *desktop-app1*).
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. 
-1. Under **Redirect URI**, select **Public client/native (desktop & desktop)** and then, in the URL box, enter `https://your-tenant-name.b2clogin.com/oauth2/nativeclient`. Replace `your-tenant-name` with your [tenant name](tenant-management.md#get-your-tenant-name). For more options, see [Configure redirect URI](enable-authentication-wpf-desktop-app-options.md#configure-redirect-uri).
+1. Under **Redirect URI**, select **Public client/native (desktop & desktop)** and then, in the URL box, enter `https://your-tenant-name.b2clogin.com/oauth2/nativeclient`. Replace `your-tenant-name` with your [tenant name](tenant-management.md#get-your-tenant-name). For more options, see [Configure redirect URI](enable-authentication-wpf-desktop-app-options.md#configure-the-redirect-uri).
 1. Select **Register**.
 1. After the app registration is completed, select **Overview**.
 1. Record the **Application (client) ID** for later use, when you configure the desktop application.
