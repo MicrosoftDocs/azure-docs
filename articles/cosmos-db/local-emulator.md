@@ -227,7 +227,7 @@ CosmosClient client = new CosmosClient(
 
 ### Azure Cosmos DB's API for MongoDB
 
-Once you have the Azure Cosmos DB Emulator running on your desktop, you can use the [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md) to interact with the emulator. Start the emulator from [command prompt](emulator-command-line-parameters.md) as an administrator with "/EnableMongoDbEndpoint". Then use the following connection string to connect to the MongoDB API account:
+Once you have the Azure Cosmos DB Emulator running on your desktop, you can use the [Azure Cosmos DB's API for MongoDB](mongodb/mongodb-introduction.md) to interact with the emulator. Start the emulator from [command prompt](emulator-command-line-parameters.md) as an administrator with "/EnableMongoDbEndpoint". Then use the following connection string to connect to the MongoDB API account:
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true

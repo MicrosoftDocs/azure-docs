@@ -1,5 +1,5 @@
 ---
-title: Memory optimized Dv2 and DSv2-series VMs - Azure Virtual Machines
+title: Memory optimized Dv2 and Dsv2-series VMs - Azure Virtual Machines
 description: Specifications for the Dv2 and DSv2-series VMs.
 author: joelpelley
 ms.service: virtual-machines
@@ -23,7 +23,7 @@ Dv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® X
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br> 
 
@@ -35,7 +35,7 @@ Dv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® X
 | Standard_D14_v2 | 16 | 112 | 800 | 48000/750/375 | 64/64x500 | 8|12000 |
 | Standard_D15_v2 <sup>1</sup> | 20 | 140 | 1000 | 60000/937/468 | 64/64x500 | 8|25000 <sup>2</sup> |
 
-<sup>1</sup> Instance is isolated to hardware dedicated to a single customer.
+<sup>1</sup> Instance is isolated to hardware dedicated to a single customer.<br>
 <sup>2</sup> 25000 Mbps with Accelerated Networking.
 
 ## DSv2-series 11-15
@@ -48,7 +48,7 @@ DSv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® 
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (*Requires a minimum of 4 vCPU*)<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br> 
 
@@ -63,7 +63,7 @@ DSv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® 
 <sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Designing for high performance](./premium-storage-performance.md).
 <sup>2</sup>  Instance is isolated to the Intel Haswell based hardware and dedicated to a single customer.  
 <sup>3</sup> Constrained core sizes available.  
-<sup>4</sup> 25000 Mbps with Accelerated Networking.
+<sup>4</sup> 25000 Mbps with Accelerated Networking.<br>
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/19/2021
+ms.date: 08/03/2021
 ms.author: phjensen
 ---
 
@@ -74,9 +74,13 @@ tools.
 
 ## Enable communication with storage
 
-This section explains how to enable communication with storage.
+This section explains how to enable communication with storage.  
 
-### Azure NetApp Files
+Follow the instructions to configure storage for your configuration, either:
+1. [Azure NetApp Files (with Virtual Machine)](#azure-netapp-files-with-virtual-machine) 
+1. [Azure Large Instance (Bare Metal)](#azure-large-instance-bare-metal)
+
+### Azure NetApp Files (with Virtual Machine)
 
 Create RBAC Service Principal
 
@@ -123,7 +127,7 @@ Create RBAC Service Principal
 1. Cut and Paste the output content into a file called `azureauth.json` stored on the same system as the `azacsnap`
    command and secure the file with appropriate system permissions.
 
-### Azure Large Instance
+### Azure Large Instance (Bare Metal)
 
 Communication with the storage back-end executes over an encrypted SSH channel. The following
 example steps are to provide guidance on setup of SSH for this communication.

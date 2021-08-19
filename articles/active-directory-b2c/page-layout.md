@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/26/2021
+ms.date: 08/03/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -51,6 +51,10 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 |            |< 1.2.0 | 1.12.4 |
 
 ## Self-asserted page (selfasserted)
+
+**2.1.7**
+- Fixed a language encoding issue that is causing the request to fail.
+- Fixed an accessibility bug to show inline error messages only on form submission.
 
 **2.1.6**
 - Fixed password error get cleared when typing too quickly on a different field.
@@ -168,6 +172,9 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 - Initial release
 
 ## MFA page (multifactor)
+
+**1.2.5**
+- Fixed a language encoding issue that is causing the request to fail.
 
 **1.2.4**
 - Updated jQuery version to 3.5.1.

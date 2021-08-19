@@ -54,7 +54,7 @@ Along the left, you will now see your connected device with the underlying modul
 
 Pipeline topologies are the basic building block which Video Analyzer uses to define how work happens.  You can learn more about [pipeline topologies here](./pipeline.md).  In this section you will deploy a pipeline topology which is a template and then create an instance of the topology, or live pipeline. The live pipeline is connected to the actual video stream.
 
-1.	On the left under `Modules`, right click on `Pipeline topologies` and select `Create pipeline topology``.
+1.	On the left under `Modules`, right click on `Pipeline topologies` and select `Create pipeline topology`.
 1.	Along the top, under `Try sample topologies`, under `Motion Detection`, select `Publish motion events to IoT Hub`.  When prompted, click `Proceed`.
 1.	Click `Save` in the top right.
 

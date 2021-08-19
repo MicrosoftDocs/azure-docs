@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 05/31/2021
+ms.date: 08/10/2021
 ---
 # How to connect Azure Data Factory and Azure Purview
 
@@ -14,7 +14,7 @@ This document explains the steps required for connecting an Azure Data Factory a
 
 ## View existing Data Factory connections
 
-Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog to push lineage information. The current limit allows you to connect up ten Data Factory accounts at a time from the Purview management center. To show the list of Data Factory accounts connected to your Purview Data Catalog, do the following:
+Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog to push lineage information. The current limit allows you to connect up 10 Data Factory accounts at a time from the Purview management center. To show the list of Data Factory accounts connected to your Purview Data Catalog, do the following:
 
 1. Select **Management** on the left navigation pane.
 2. Under **Lineage connections**, select **Data Factory**.
@@ -43,7 +43,7 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
 >
 > Besides, it requires the users to be the data factory’s “Owner”, or “Contributor”. 
 
-Follow the steps below to connect an existing Data Factory accounts to your Purview Data Catalog.
+Follow the steps below to connect an existing data factory to your Purview Data Catalog.
 
 1. Select **Management** on the left navigation pane.
 2. Under **Lineage connections**, select **Data Factory**.
@@ -57,7 +57,6 @@ Follow the steps below to connect an existing Data Factory accounts to your Purv
 
     A warning message will be displayed if any of the selected Data Factories are already connected to other Purview account. By selecting OK, the Data Factory connection with the other Purview account will be disconnected. No additional confirmations are required.
 
-
     :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory." lightbox="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png":::
 
 >[!Note]
@@ -65,7 +64,7 @@ Follow the steps below to connect an existing Data Factory accounts to your Purv
 
 ### How does the authentication work?
 
-When a Purview user registers an Data Factory to which they have access to, the following happens in the backend:
+When a Purview user registers a data factory to which they have access, the following happens in the backend:
 
 1. The **Data Factory managed identity** gets added to Purview RBAC role: **Purview Data Curator**.
 
@@ -82,10 +81,6 @@ To remove a data factory connection, do the following:
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot showing how to select data factories to remove connection." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 
-## Configure a Self-hosted Integration Runtime to collect lineage
-
-Lineage for the Data Factory Copy activity is available for on-premises data stores like SQL databases. If you're running self-hosted integration runtime for the data movement with Azure Data Factory and want to capture lineage in Azure Purview, ensure the version is 5.0 or later. For more information about self-hosted integration runtime, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
-
 ## Supported Azure Data Factory activities
 
 Azure Purview captures runtime lineage from the following Azure Data Factory activities:
@@ -99,55 +94,9 @@ Azure Purview captures runtime lineage from the following Azure Data Factory act
 
 The integration between Data Factory and Purview supports only a subset of the data systems that Data Factory supports, as described in the following sections.
 
-### Data Factory Copy activity support
+[!INCLUDE[data-factory-supported-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
-| Data store | Supported | 
-| ------------------- | ------------------- | 
-| Azure Blob Storage | Yes |
-| Azure Cognitive Search | Yes | 
-| Azure Cosmos DB (SQL API) \* | Yes | 
-| Azure Cosmos DB's API for MongoDB \* | Yes |
-| Azure Data Explorer \* | Yes | 
-| Azure Data Lake Storage Gen1 | Yes | 
-| Azure Data Lake Storage Gen2 | Yes | 
-| Azure Database for Maria DB \* | Yes | 
-| Azure Database for MySQL \* | Yes | 
-| Azure Database for PostgreSQL \* | Yes |
-| Azure File Storage | Yes | 
-| Azure SQL Database \* | Yes | 
-| Azure SQL Managed Instance \* | Yes | 
-| Azure Synapse Analytics \* | Yes | 
-| Azure Table Storage | Yes |
-| Amazon S3 | Yes | 
-| Hive \* | Yes | 
-| SAP ECC \* | Yes |
-| SAP Table | Yes |
-| SQL Server \* | Yes | 
-| Teradata \* | Yes |
-
-*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
-
-> [!Note]
-> The lineage feature has certain performance overhead in Data Factory copy activity. For those who setup data factory connections in Purview, you may observe certain copy jobs taking longer to complete. Mostly the impact is none to negligible. Please contact support with time comparison if the copy jobs take significantly longer to finish than usual.
-
-#### Known limitations on copy activity lineage
-
-Currently, if you use the following copy activity features, the lineage is not yet supported:
-
-- Copy data into Azure Data Lake Storage Gen1 using Binary format.
-- Copy data into Azure Synapse Analytics using PolyBase or COPY statement.
-- Compression setting for Binary, delimited text, Excel, JSON, and XML files.
-- Source partition options for Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, and SAP Table.
-- Source partition discovery option for file-based stores.
-- Copy data to file-based sink with setting of max rows per file.
-- Add additional columns during copy.
-
-In additional to lineage, the data asset schema (shown in Asset -> Schema tab) is reported for the following connectors:
-
-- CSV and Parquet files on Azure Blob, Azure File Storage, ADLS Gen1, ADLS Gen2, and Amazon S3
-- Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
-
-### Data Factory Data Flow support
+### Data Flow support
 
 | Data store | Supported |
 | ------------------- | ------------------- | 
@@ -163,12 +112,13 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 
 *\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
-### Data Factory Execute SSIS Package support
+### Execute SSIS Package support
 
 Refer to [supported data stores](how-to-lineage-sql-server-integration-services.md#supported-data-stores).
 
-> [!Note]
-> Azure Data Lake Storage Gen2 is now generally available. We recommend that you start using it today. For more information, see the [product page](https://azure.microsoft.com/en-us/services/storage/data-lake-storage/).
+## Bring Data Factory lineage into Purview
+
+For an end to end walkthrough, follow the [Tutorial: Push Data Factory lineage data to Azure Purview](../data-factory/turorial-push-lineage-to-purview.md).
 
 ## Supported lineage patterns
 
@@ -176,9 +126,9 @@ There are several patterns of lineage that Azure Purview supports. The generated
 
 To configure Data Factory to send lineage information, see [Get started with lineage](catalog-lineage-user-guide.md#get-started-with-lineage).
 
-Some additional ways of finding information in the lineage view, include the following:
+Some other ways of finding information in the lineage view, include the following:
 
-- In the **Lineage** tab, hover on shapes to preview additional information about the asset in the tooltip .
+- In the **Lineage** tab, hover on shapes to preview additional information about the asset in the tooltip.
 - Select the node or edge to see the asset type it belongs or to switch assets.
 - Columns of a dataset are displayed in the left side of the **Lineage** tab. For more information about column-level lineage, see [Dataset column lineage](catalog-lineage-user-guide.md#dataset-column-lineage).
 
@@ -232,5 +182,8 @@ In the following example, an Azure Data Lake Gen2 resource set is produced from 
 
 ## Next steps
 
-- [Catalog lineage user guide](catalog-lineage-user-guide.md)
-- [Link to Azure Data Share for lineage](how-to-link-azure-data-share.md)
+[Tutorial: Push Data Factory lineage data to Azure Purview](../data-factory/turorial-push-lineage-to-purview.md)
+
+[Catalog lineage user guide](catalog-lineage-user-guide.md)
+
+[Link to Azure Data Share for lineage](how-to-link-azure-data-share.md)

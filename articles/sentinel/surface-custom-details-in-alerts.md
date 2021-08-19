@@ -25,7 +25,7 @@ ms.author: yelevin
 
 ## Introduction
 
-[Scheduled query analytics rules](tutorial-detect-threats-custom.md) analyze **events** from data sources connected to Azure Sentinel, and produce **alerts** when the contents of these events are significant from a security perspective. These alerts are further analyzed, grouped, and filtered by Azure Sentinel's various engines and distilled into **incidents** that warrant a SOC analyst's attention. However, when the analyst views the incident, only the properties of the component alerts themselves are immediately visible. Getting to the actual content - the information contained in the events - requires doing some digging.
+[Scheduled query analytics rules](detect-threats-custom.md) analyze **events** from data sources connected to Azure Sentinel, and produce **alerts** when the contents of these events are significant from a security perspective. These alerts are further analyzed, grouped, and filtered by Azure Sentinel's various engines and distilled into **incidents** that warrant a SOC analyst's attention. However, when the analyst views the incident, only the properties of the component alerts themselves are immediately visible. Getting to the actual content - the information contained in the events - requires doing some digging.
 
 Using the **custom details** feature in the **analytics rule wizard**, you can surface event data in the alerts that are constructed from those events, making the event data part of the alert properties. In effect, this gives you immediate event content visibility in your incidents, enabling you to triage, investigate, draw conclusions, and respond with much greater speed and efficiency.
 
@@ -66,5 +66,5 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 ## Next steps
 In this document, you learned how to surface custom details in alerts using Azure Sentinel analytics rules. To learn more about Azure Sentinel, see the following articles:
-- Get the complete picture on [scheduled query analytics rules](tutorial-detect-threats-custom.md).
+- Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
 - Learn more about [entities in Azure Sentinel](entities-in-azure-sentinel.md).
