@@ -2044,4 +2044,4 @@ Read the articles:
 
 - [Azure Virtual Machines deployment for SAP NetWeaver](./deployment-guide.md)
 - [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_general.md)
-- [SAP HANA infrastructure configurations and operations on Azure](../../../workloads/sap/hana-vm-operations)
+- [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md)
