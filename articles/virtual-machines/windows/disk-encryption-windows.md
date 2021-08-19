@@ -244,7 +244,9 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ## Disable encryption and remove the encryption extension
 
-You can disable the Azure disk encryption extension, and you can remove the Azure disk encryption extension. These are two distinct operations. You can disable the ADE extension without removing it, and remove the extension without first disabling it.
+You can disable the Azure disk encryption extension, and you can remove the Azure disk encryption extension. These are two distinct operations. 
+
+To remove ADE, it is recommended that you first disable encryption and then remove the extension. If you remove the encryption extension without disabling it, the disks will still be encrypted. If you disable encryption **after** removing the extension, the extension will be reinstalled (to perform the decrypt operation) and will need to be removed a second time.
 
 ### Disable encryption
 
@@ -252,6 +254,8 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
 
 > [!WARNING]
 > Disabling data disk encryption when both the OS and data disks have been encrypted can have unexpected results. Disable encryption on all disks instead.
+>
+> Disabling encryption will start a background process of Bitlocker to decrypt the disks. This process should be given sufficient time to complete before attempting to any re-enable encryption.  
 
 - **Disable disk encryption with Azure PowerShell:** To disable the encryption, use the [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet.
 
@@ -273,9 +277,9 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
 
 ### Remove the encryption extension
 
-You can remove the encryption extension using Azure PowerShell or the Azure CLI.
+If you want to decrypt your disks and remove the encryption extension, you must disable encryption **before** removing the extension; see [disable encryption](#disable-encryption).
 
-If you wish to disable encryption but leave the extension on the VM, see [disable encryption](#disable-encryption) instead. You do **not** have to disable encryption before removing the encryption extension.
+You can remove the encryption extension using Azure PowerShell or the Azure CLI. 
 
 - **Disable disk encryption with Azure PowerShell:** To disable the encryption, use the [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) cmdlet.
 
