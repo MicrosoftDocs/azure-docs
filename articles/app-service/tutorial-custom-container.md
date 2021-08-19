@@ -2,7 +2,7 @@
 title: 'Tutorial: Build and run a custom image in Azure App Service'
 description: A step-by-step guide to build a custom Linux or Windows image, push the image to Azure Container Registry, and then deploy that image to Azure App Service. Learn how to migrate custom software to App Service in a custom container.
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 08/04/2021
 ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
 ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli"
@@ -453,19 +453,19 @@ To deploy a container to Azure App Service, you first create a web app on App Se
 1. Configure your app to use the managed identity to pull from Azure Container Registry.
 
     ```azurecli-interactive
-    az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<registry-name>/config/web --set properties.acrUseManagedIdentityCreds=True
+    az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app-name>/config/web --set properties.acrUseManagedIdentityCreds=True
     ```
     
     Replace the following values:
     - `<subscription-id>` with the subscription ID retrieved from the `az account show` command.
-    - `<registry-name>` with the name of your container registry.
+    - `<app-name>` with the name of your web app.
 
     > [!TIP]
     > If your app uses a [user-assigned managed identity](overview-managed-identity.md#add-a-user-assigned-identity), set an additional `AcrUserManagedIdentityID` property to specify its client ID:
     >
     > ```azurecli-interactive
     > clientId=$(az identity show --resource-group <group-name> --name <identity-name> --query clientId --output tsv)
-    > az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<registry-name>/config/web --set properties.AcrUserManagedIdentityID=$clientId
+    > az resource update --ids /subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/<app-name>/config/web --set properties.AcrUserManagedIdentityID=$clientId
     > ```
 
 ## Deploy the image and test the app
@@ -574,7 +574,7 @@ In this section, you make a change to the web app code, rebuild the image, and t
 1. Update the version number in the image's tag to v1.0.1:
 
     ```bash
-    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
+    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:v1.0.1
     ```
 
     Replace `<registry-name>` with the name of your registry.
@@ -582,7 +582,7 @@ In this section, you make a change to the web app code, rebuild the image, and t
 1. Push the image to the registry:
 
     ```bash
-    docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
+    docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:v1.0.1
     ```
 
 1. Once the image push is complete, the webhook notifies App Service about the push, and App Service tries to pull in the updated image. Wait a few minutes, and then verify that the update has been deployed by browsing to `https://<app-name>.azurewebsites.net`.

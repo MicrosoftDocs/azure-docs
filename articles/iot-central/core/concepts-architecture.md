@@ -7,7 +7,7 @@ ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
+
 ---
 
 # Azure IoT Central architecture

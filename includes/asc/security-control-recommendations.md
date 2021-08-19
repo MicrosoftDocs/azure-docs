@@ -2,7 +2,7 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 07/06/2021
+ms.date: 07/25/2021
 ms.author: memildin
 ms.custom: generated
 ---
@@ -49,7 +49,7 @@ ms.custom: generated
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">4</p></strong></td>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Enable encryption at rest</p></strong><a href="/azure/security/fundamentals/encryption-atrest">Encryption at rest</a> provides data protection for stored data. Attacks against data at rest include attempts to gain physical access to the hardware on which the data is stored. Azures use symmetric encryption to encrypt and decrypt large amounts of data at rest. A symmetric encryption key is used to encrypt data as it is written to storage. That encryption key is also used to decrypt that data as it is readied for use in memory. Keys must be stored in a secure location with identity-based access control and audit policies. One such secure location is Azure Key Vault. If an attacker obtains the encrypted data but not the encryption keys, the attacker can't access the data without breaking the encryption.</td>
-    <td class="tg-lboi"; width=55%>- Disk encryption should be applied on virtual machines<br />- Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign<br />- Transparent Data Encryption on SQL databases should be enabled</td>
+    <td class="tg-lboi"; width=55%>- Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign<br />- Transparent Data Encryption on SQL databases should be enabled<br />- Virtual machines should encrypt temp disks, caches, and data flows between Compute and Storage resources</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">4</p></strong></td>

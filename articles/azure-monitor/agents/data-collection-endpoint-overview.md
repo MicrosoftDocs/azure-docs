@@ -17,8 +17,8 @@ A data collection endpoint includes the following components.
 
 | Component | Description |
 |:---|:---|
-| Configuration access endpoint | The endpoint used to access the configuration service to fetch associated data collection rules (DCR) |
-| Logs ingestion endpoint | The endpoint used to ingest logs to Log Analytics workspace(s)
+| Configuration access endpoint | The endpoint used to access the configuration service to fetch associated data collection rules (DCR). Example: `<unique-dce-identifier>.<regionname>.handler.control` |
+| Logs ingestion endpoint | The endpoint used to ingest logs to Log Analytics workspace(s). Example: `<unique-dce-identifier>.<regionname>.ingest` |
 | Network Access Control Lists (ACLs) | Network access control rules for the endpoints
 
 
@@ -49,12 +49,14 @@ Create a new rule or open an existing rule. In the **Resources** tab, click on t
 
 [![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-dce.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-dce.png#lightbox) in can create a new DCR or open an existing
 
-## Create rule and association using REST API
+## Create endpoint and association using REST API
 
 > [!NOTE]
 > The data collection endpoint should be created in the **same region** where your virtual machines exist.  
 
-Create and manage data collection endpoints using these [REST APIs](/rest/api/monitor/datacollectionendpoints).
+1. Create data collection endpoint(s) using these [DCE REST APIs](/rest/api/monitor/datacollectionendpoints).
+2. Create association(s) to link the endpoint(s) to your target machines or resources, using these [DCRA REST APIs](/rest/api/monitor/datacollectionruleassociations/create#examples).
+
 
 ## Sample data collection endpoint
 The sample data collection endpoint below is for virtual machines with Azure Monitor agent, with public network access disabled so that agent only uses private links to communicate and send data to Azure Monitor/Log Analytics.
@@ -95,9 +97,9 @@ The sample data collection endpoint below is for virtual machines with Azure Mon
 ## Enable network isolation for the Azure Monitor Agent
 You can use data collection endpoints to enable the Azure Monitor agent to communicate to the internet via private links. To do so, you must:
 - Create data collection endpoint(s), at least one per region, as shown above
-- Add the data collection endpoints to an [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-security.md#connect-azure-monitor-resources) resource. This adds the DCE endpoints to your private DNS and allows communication via private links.
+- Add the data collection endpoints to an [Azure Monitor Private Link Scopes (AMPLS)](../logs/private-link-security.md#connect-azure-monitor-resources) resource. This adds the DCE endpoints to your private DNS zone (see [how to validate](../logs/private-link-security.md#privatelink-monitor-azure-com) and allows communication via private links
 	> [!NOTE]
-	> Other Azure Monitor resources like the Log Analytics workspace(s) you wish to send data to, must be part of this same AMPLS resource.
+	> Other Azure Monitor resources like the Log Analytics workspace(s) configured in your data collection rules that you wish to send data to, must be part of this same AMPLS resource.
 - Ensure **Allow public network access for ingestion** option is set to **No** under the 'Network Isolation' tab of your data collection endpoint resource. This ensures that public internet access is disabled and network communication only happen via private links.
 - Configure the data collection endpoints for the target resources, as part of the data collection rules. This results in the agent using the configured the data collection endpoint(s) for network communications. See [Configure data collection for the Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md).
 

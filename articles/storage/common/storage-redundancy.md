@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 08/13/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -206,7 +206,7 @@ The following table shows which redundancy options are supported by each Azure S
 |---|---|---|---|---|---|
 | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1,</sup><sup>2</sup> <br />Azure managed disks | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1,</sup><sup>2</sup> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup> | Blob storage <br />Queue storage <br />Table storage <br /> | Blob storage <br />Queue storage <br />Table storage <br />Azure Files<sup>1</sup> | Blob storage <br />Queue storage <br />Table storage <br /> |
 
-<sup>1</sup> Standard file shares are supported on LRS, ZRS, GRS, and GZRS.<br />
+<sup>1</sup> Standard file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they are less than or equal to five TiB in size.<br />
 <sup>2</sup> Premium file shares are supported on LRS and ZRS.<br />
 
 ### Supported storage account types

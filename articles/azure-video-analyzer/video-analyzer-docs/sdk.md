@@ -4,7 +4,7 @@ description: Learn about the Azure Video Analyzer SDKs
 author: bennage
 ms.author: christb
 ms.topic: reference
-ms.date: 05/14/2021
+ms.date: 06/01/2021
 
 ---
 

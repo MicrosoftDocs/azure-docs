@@ -24,7 +24,7 @@ You should be aware of the content you are processing, and customize/tune the en
 
 Microsoft's [Adaptive Streaming](encode-autogen-bitrate-ladder.md) preset partially addresses the problem of the variability in the quality and resolution of the source videos. Our customers have a varying mix of content, some at 1080p, others at 720p, and a few at SD and lower resolutions. Furthermore, not all source content is high-quality mezzanines from film or TV studios. The Adaptive Streaming preset addresses these problems by ensuring that the bitrate ladder never exceeds the resolution or the average bitrate of the input mezzanine. However, this preset does not examine source properties other than resolution and bitrate.
 
-## The content-aware encoding
+## The content-aware encoding preset
 
 The content-aware encoding preset extends the "adaptive bitrate streaming" mechanism, by incorporating custom logic that lets the encoder seek the optimal bitrate value for a given resolution, but without requiring extensive computational analysis. This preset produces a set of GOP-aligned MP4s. Given any input content, the service performs an initial lightweight analysis of the input content, and uses the results to determine the optimal number of layers, appropriate bitrate and resolution settings for delivery by adaptive streaming. This preset is particularly effective for low and medium complexity videos, where the output files will be at lower bitrates than the Adaptive Streaming preset but at a quality that still delivers a good experience to viewers. The output will contain MP4 files with video and audio interleaved
 
@@ -48,6 +48,12 @@ Below are the results for another category of source content, where the encoder 
 
 **Figure 4: RD curve using VMAF for low-quality input (at 1080p)**
 
+## 8-bit HEVC (H.265) Support
+
+Azure Media Services' Standard Encoder now supports 8-bit HEVC (H.265) encoding support. HEVC content can be delivered and packaged through the Dynamic Packager using the 'hev1' format.
+
+A new .NET custom encoding with HEVC sample is available in the [media-services-v3-dotnet Git Hub repository](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC). In addition to custom encoding, AMS also supports other new built-in HEVC encoding presets that you can view in our [February 2021 release notes](https://docs.microsoft.com/azure/media-services/latest/release-notes#february-2021).
+
 ## How to use the content-aware encoding preset 
 
 You can create transforms that use this preset as follows. 
@@ -55,7 +61,7 @@ You can create transforms that use this preset as follows.
 See the [Next steps](#next-steps) section for tutorials that use transform outputs. The output asset can be delivered from Media Services streaming endpoints in protocols such as MPEG-DASH and HLS (as shown in the tutorials).
 
 > [!NOTE]
-> Make sure to use the **ContentAwareEncoding** preset not  ContentAwareEncodingExperimental.
+> Make sure to use the **ContentAwareEncoding** preset not  ContentAwareEncodingExperimental. Or, if you would like to encode with HEVC, you can use **H265ContentAwareEncoding**.
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -74,7 +80,7 @@ TransformOutput[] output = new TransformOutput[]
 ```
 
 > [!NOTE]
-> Encoding jobs using the `ContentAwareEncoding` preset are being billed based on the output minutes. 
+> Encoding jobs using the `ContentAwareEncoding` preset are being billed based on solely the output minutes. AMS uses two-pass encoding and there are not any additional charges associated with using any of the presets beyond what is listed on our [pricing page](https://azure.microsoft.com/pricing/details/media-services/#overview).
   
 ## Next steps
 

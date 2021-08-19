@@ -40,8 +40,8 @@ Set up an account that the appliance can use to access the physical servers.
 - For Windows servers, use a domain account for domain-joined servers, and a local account for servers that are not domain-joined. 
 - The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users. 
 - If Remote management Users group isn't present, then add user account to the group: **WinRMRemoteWMIUsers_**.
-- The account needs these permissions for appliance to create a CIM connection with the server and pull the required configuration and performance metadata from the WMI classes listed here.
-- In some cases, adding the account to these groups may not return the required data from WMI classes as the account might be filtered by [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, user account needs to have necessary permissions on CIMV2 Namespace and sub-namespaces on the target server. You can follow the steps [here](troubleshoot-appliance.md) to enable the required permissions.
+- The account needs these permissions for appliance to create a CIM connection with the server and pull the required configuration and performance metadata from the WMI classes listed [here.](migrate-appliance.md#collected-data---physical)
+- In some cases, adding the account to these groups may not return the required data from WMI classes as the account might be filtered by [UAC](/windows/win32/wmisdk/user-account-control-and-wmi). To overcome the UAC filtering, user account needs to have necessary permissions on CIMV2 Namespace and sub-namespaces on the target server. You can follow the steps [here](troubleshoot-appliance.md#access-is-denied-when-connecting-to-physical-servers-during-validation) to enable the required permissions.
 
     > [!Note]
     > For Windows Server 2008 and 2008 R2, ensure that WMF 3.0 is installed on the servers.

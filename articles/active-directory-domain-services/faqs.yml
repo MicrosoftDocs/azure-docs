@@ -11,7 +11,7 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: how-to
-  ms.date: 02/09/2021
+  ms.date: 06/18/2021
   ms.author: justinha
     
 title: Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services
@@ -80,6 +80,11 @@ sections:
         answer: |
           No. Guest users invited to your Azure AD directory using the [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) invite process are synchronized into your Azure AD Domain Services managed domain. However, passwords for these users aren't stored in your Azure AD directory. Therefore, Azure AD Domain Services has no way to synchronize NTLM and Kerberos hashes for these users into your managed domain. Such users can't sign in or join computers to the managed domain.
           
+      - question: |
+          Can a two-way forest trust be created between a resource forest and an on-premises forest?
+        answer: |
+          No. A managed domain resource forest supports up to five one-way outbound forest trusts to on-premises forests. 
+
       - question: |
           Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?
         answer: |

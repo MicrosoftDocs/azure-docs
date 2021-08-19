@@ -16,11 +16,13 @@ keywords: on-premises, Docker, container, identify
 
 > [!IMPORTANT]
 >
-> Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
+> * Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUNlpBU1lFSjJUMFhKNzVHUUVLN1NIOEZETiQlQCN0PWcu), and receive approval. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
+>
+> * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
 
 Azure Form Recognizer is an Azure Applied AI Service that lets you build automated data processing software using machine learning technology. Form Recognizer enables you to identify and extract text, key/value pairs, selection marks, table data, and more from your form documents and output structured data that includes the relationships in the original file.
 
-In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you will also need the **Read** OCR container). 
+In this article you'll learn how to download, install, and run Form Recognizer containers. Containers enable you to run the Form Recognizer service in your own environment. Containers are great for specific security and data governance requirements. Form Recognizer features are supported by six Form Recognizer feature containers—**Layout**, **Business Card**,**ID Document**,  **Receipt**, **Invoice**, and **Custom** (for Receipt, Business Card and ID Document containers you will also need the **Read** OCR container).
 
 ## Prerequisites
 
@@ -81,7 +83,7 @@ The following table lists the additional supporting container(s) for each Form R
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
 | Read 3.2 | 8 cores, 16-GB memory | 8 cores, 24-GB memory|
-| Layout 2.1-preview | 8 cores, 16-GB memory | 4 core, 8-GB memory |
+| Layout 2.1-preview | 8 cores, 16-GB memory | 8 core, 24-GB memory |
 | Business Card 2.1-preview | 2 cores, 4-GB memory | 4 cores, 4-GB memory |
 | ID Document 2.1-preview | 1 core, 2-GB memory |2 cores, 2-GB memory |
 | Invoice 2.1-preview | 4 cores, 8-GB memory | 8 cores, 8-GB memory |
@@ -287,7 +289,7 @@ version: "3.9"
 services:
   azure-cognitive-service-receipt:
     container_name: azure-cognitive-service-receipt
-    image: cognitiveservicespreview.azurecr.io/microsoft/cognitive-services-form-recognizer-receipt:2.1
+    image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/receipt
     environment:
       - EULA=accept
       - billing={FORM_RECOGNIZER_ENDPOINT_URI}
@@ -365,46 +367,63 @@ In addition to the [prerequisites](#prerequisites) mentioned above, you will nee
 ```text
 worker_processes 1;
 
-events {
-  worker_connections 1024;
-}
+events { worker_connections 1024; }
 
 http {
 
-  sendfile on;
+    sendfile on;
 
-  upstream docker - api {
-      server azure - cognitive - service - custom - api: 5000;
-  }
+    upstream docker-api {
+        server azure-cognitive-service-custom-api:5000;
+    }
 
-  upstream docker - layout {
-      server azure - cognitive - service - layout: 5000;
-  }
+    upstream docker-layout {
+        server  azure-cognitive-service-layout:5000;
+    }
 
-  server {
-      listen 5000;
+    server {
+        listen 5000;
 
-      location / formrecognizer / v2 .1 / custom / {
-          proxy_pass http: //docker-api/formrecognizer/v2.1/custom/;
+        location = / {
+            proxy_pass         http://docker-api/;
 
-      }
+        }
 
-      location / formrecognizer / v2 .1 / layout / {
-          proxy_pass http: //docker-layout/formrecognizer/v2.1/layout/;
+        location /status {
+            proxy_pass         http://docker-api/status;
 
-      }
+        }
 
-  }
+        location /ready {
+            proxy_pass         http://docker-api/ready;
+
+        }
+
+        location /swagger {
+            proxy_pass         http://docker-api/swagger;
+
+        }
+
+        location /formrecognizer/v2.1/custom/ {
+            proxy_pass         http://docker-api/formrecognizer/v2.1/custom/;
+
+        }
+
+        location /formrecognizer/v2.1/layout/ {
+            proxy_pass         http://docker-layout/formrecognizer/v2.1/layout/;
+
+        }
+    }
 }
 ```
 
 * Gather a set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*). Download the training files to the **shared** folder you created above.
 
-* If you want to label your data, download the [Form OCR Test Tool (FOTT) for Windows](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga). The download will import the labeling tool .exe file that you'll use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
+* If you want to label your data, download the [Form Recognizer sample labeling tool for Windows](https://github.com/microsoft/OCR-Form-Tools/releases/tag/v2.1-ga). The download will import the labeling tool .exe file that you'll use to label the data present on your local file system. You can ignore any warnings that occur during the download process.
 
-#### Create a new FOTT project
+#### Create a new sample labeling tool project
 
-* Open the labeling tool but double-clicking on the FOTT .exe file.
+* Open the labeling tool by double-clicking on the sample labeling tool .exe file.
 * On the left pane of the tool, select the connections tab.
 * Select to create a new project and give it a name and description.
 * For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.
@@ -600,6 +619,6 @@ That's it! In this article, you learned concepts and workflows for downloading, 
 
 ## Next steps
 
-* [Form Recognizer container configuration settings](form-recognizer-container-configuration.md) 
+* [Form Recognizer container configuration settings](form-recognizer-container-configuration.md)
 * [Form Recognizer container image tags](../../containers/container-image-tags.md?tabs=current#form-recognizer)
 * [Cognitive Services container support page and release notes](../../containers/container-image-tags.md?tabs=current#form-recognizer)

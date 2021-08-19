@@ -23,7 +23,7 @@ To get started with Security Center, you must have a subscription to Microsoft A
 | Release state:          | **Feature**: Auto provisioning is generally available (GA)<br>**Agent and extensions**: Log Analytics agent for Azure VMs is GA, Microsoft Dependency agent is in preview, Policy Add-on for Kubernetes is GA                |
 | Pricing:                | Free                                                                                                                                                                                                                         |
 | Supported destinations: | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure Arc machines<br>:::image type="icon" source="./media/icons/no-icon.png"::: Kubernetes nodes<br>:::image type="icon" source="./media/icons/no-icon.png"::: Virtual Machine Scale Sets |
-| Clouds:                 | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: US Gov, Azure China                                                                                                      |
+| Clouds:                 | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government, Azure China 21Vianet                                                                                                      |
 |                         |                                                                                                                                                                                                                              |
 
 ## How does Security Center collect data?
@@ -217,7 +217,7 @@ To manually install the Log Analytics agent:
    - [Install the Log Analytics agent for Windows](../virtual-machines/extensions/oms-windows.md)
    - [Install the Log Analytics agent for Linux](../virtual-machines/extensions/oms-linux.md)
 
-1. To deploy agents on your existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/vm/quick-collect-azurevm.md) (the section **Collect event and performance data** is optional).
+1. To deploy agents on your existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/vm/monitor-virtual-machine.md) (the section **Collect event and performance data** is optional).
 
 1. To use PowerShell to deploy the agents, use the instructions from the virtual machines documentation:
 

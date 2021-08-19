@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 08/09/2021
 ms.author: memildin
 
 ---
@@ -13,7 +13,7 @@ ms.author: memildin
 
 Azure Security Center helps streamline the process for meeting regulatory compliance requirements, using the **regulatory compliance dashboard**. 
 
-Security Center continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards applied to your subscriptions. The dashboard reflects the status of your compliance with these standards. 
+Security Center continuously assesses your hybrid cloud environment to analyze the risk factors according to the controls and best practices in the standards that you've applied to your subscriptions. The dashboard reflects the status of your compliance with these standards. 
 
 When you enable Security Center on an Azure subscription, the [Azure Security Benchmark](/security/benchmark/azure/introduction) is automatically assigned to that subscription. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud-centric security.
 
@@ -24,7 +24,8 @@ In this tutorial you'll learn how to:
 > [!div class="checklist"]
 > * Evaluate your regulatory compliance using the regulatory compliance dashboard
 > * Improve your compliance posture by taking action on recommendations
-> * Setup alerts on changes to your compliance posture
+> * Download PDF/CSV reports as well as certification reports of your compliance status
+> * Setup alerts on changes to your compliance status
 > * Export your compliance data as a continuous stream and as weekly snapshots
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
@@ -36,7 +37,7 @@ To step through the features covered in this tutorial:
 - [Azure Defender](azure-defender.md) must be enabled. You can try Azure Defender for free for 30 days.
 - You must be signed in with an account that has reader access to the policy compliance data (**Security Reader** is insufficient). The role of **Global reader** for the subscription will work. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
-##  Assess your regulatory compliance
+## Assess your regulatory compliance
 
 The regulatory compliance dashboard shows your selected compliance standards with all their requirements, where supported requirements are mapped to applicable security assessments. The status of these assessments reflects your compliance with the standard.
 
@@ -44,19 +45,13 @@ Use the regulatory compliance dashboard to help focus your attention on the gaps
 
 1. From Security Center's menu, select **Regulatory compliance**.
 
-    At the top of the screen is a dashboard with an overview of your compliance status with the set of supported compliance regulations. You'll see your overall compliance score, and the number of passing vs. failing assessments associated with each standard.
+    At the top of the screen, is a dashboard with an overview of your compliance status and the set of supported compliance regulations. You'll see your overall compliance score, and the number of passing vs. failing assessments associated with each standard.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Regulatory compliance dashboard." lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
 1. Select a tab for a compliance standard that is relevant to you (1). You'll see which subscriptions the standard is applied on (2), and the list of all controls for that standard (3). For the applicable controls, you can view the details of passing and failing assessments associated with that control (4), and the number of affected resources (5). Some controls are grayed out. These controls don't have any Security Center assessments associated with them. Check their requirements and assess them in your environment. Some of these might be process-related and not technical.
 
     :::image type="content" source="./media/security-center-compliance-dashboard/compliance-drilldown.png" alt-text="Exploring the details of compliance with a specific standard.":::
-
-1. To generate a PDF report with a summary of your current compliance status for a particular standard, select **Download report**.
-
-    The report provides a high-level summary of your compliance status for the selected standard based on Security Center assessments data. The report's organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and might provide evidence to internal and external auditors.
-
-    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Download compliance report.":::
 
 ## Improve your compliance posture
 
@@ -79,10 +74,32 @@ Using the information in the regulatory compliance dashboard, improve your compl
     > [!NOTE]
     > Assessments run approximately every 12 hours, so you will see the impact on your compliance data only after the next run of the relevant assessment.
 
+## Generate compliance status reports and certificates
 
-## Export your compliance status data
+- To generate a PDF report with a summary of your current compliance status for a particular standard, select **Download report**.
 
-If you want to track your compliance status with other monitoring tools in your environment, Security Center includes an export mechanism to make this straightforward. Configure **continuous export** to send select data to an Azure Event Hub or a Log Analytics workspace.
+    The report provides a high-level summary of your compliance status for the selected standard based on Security Center assessments data. The report's organized according to the controls of that particular standard. The report can be shared with relevant stakeholders, and might provide evidence to internal and external auditors.
+
+    :::image type="content" source="./media/security-center-compliance-dashboard/download-report.png" alt-text="Using the toolbar in Security Center's regulatory compliance dashboard to download compliance reports.":::
+
+- To download Azure and Dynamics **certification reports** for the standards applied to your subscriptions, use the **Audit reports** option. 
+
+    :::image type="content" source="media/release-notes/audit-reports-regulatory-compliance-dashboard.png" alt-text="Using the toolbar in Security Center's regulatory compliance dashboard to download Azure and Dynamics certification reports.":::
+
+    Select the tab for the relevant reports types (PCI, SOC, ISO, and others) and use filters to find the specific reports you need:
+
+    :::image type="content" source="media/release-notes/audit-reports-list-regulatory-compliance-dashboard-ga.png" alt-text="Filtering the list of available Azure Audit reports using tabs and filters.":::
+
+    For example, from the PCI tab you can download a ZIP file containing a digitally signed certificate demonstrating Microsoft Azure, Dynamics 365, and Other Online Services' compliance with ISO22301 framework, together with the necessary collateral to interpret and present the certificate. 
+
+    > [!NOTE]
+    > When you download one of these certification reports, you'll be shown the following privacy notice:
+    > 
+    > _By downloading this file, you are giving consent to Microsoft to store the current user and the selected subscriptions at the time of download. This data is used in order to notify you in case of changes or updates to the downloaded audit report. This data is used by Microsoft and the audit firms that produce the certification/reports only when notification is required._
+
+## Configure frequent exports of your compliance status data
+
+If you want to track your compliance status with other monitoring tools in your environment, Security Center includes an export mechanism to make this straightforward. Configure **continuous export** to send select data to an Azure Event Hub or a Log Analytics workspace. Learn more in [continuously export Security Center data](continuous-export.md).
 
 Use continuous export data to an Azure Event Hub or a Log Analytics workspace:
 
@@ -94,11 +111,8 @@ Use continuous export data to an Azure Event Hub or a Log Analytics workspace:
 
     :::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png" alt-text="Continuously export a weekly snapshot of regulatory compliance data." lightbox="media/security-center-compliance-dashboard/export-compliance-data-snapshot.png":::
 
-You can also export a **PDF/CSV report** of your compliance data directly from the regulatory compliance dashboard:
-
-:::image type="content" source="media/security-center-compliance-dashboard/export-compliance-data-report.png" alt-text="Export your regulatory compliance data as a PDF or CSV report." lightbox="media/security-center-compliance-dashboard/export-compliance-data-report.png":::
-
-Learn more in [continuously export Security Center data](continuous-export.md).
+> [!TIP]
+> You can also manually export reports about a single point in time directly from the regulatory compliance dashboard. Generate these **PDF/CSV reports** or **Azure and Dynamics certification reports** using the **Download report** or **Audit reports** toolbar options. See [Assess your regulatory compliance](#assess-your-regulatory-compliance) 
 
 
 ## Run workflow automations when there are changes to your compliance
@@ -138,13 +152,13 @@ More standards will be added to the dashboard and included in the information on
 ### Why do some controls appear grayed out?
 For each compliance standard in the dashboard, there's a list of the standard's controls. For the applicable controls, you can view the details of passing and failing assessments.
 
-Some controls are grayed out. These controls don't have any Security Center assessments associated with them. Some may be procedure or process-related, and therefore can't be verified by Security Center. Some don't have any automated policies or assessments implemented yet, but will have in the future. And some controls may be the platform responsibility as explained in [Shared responsibility in the cloud](../security/fundamentals/shared-responsibility.md). 
+Some controls are grayed out. These controls don't have any Security Center assessments associated with them. Some may be procedure or process-related, and so can't be verified by Security Center. Some don't have any automated policies or assessments implemented yet, but will have in the future. And some controls may be the platform's responsibility as explained in [Shared responsibility in the cloud](../security/fundamentals/shared-responsibility.md). 
 
 ### How can I remove a built-in standard, like PCI-DSS, ISO 27001, or SOC2 TSP from the dashboard? 
 To customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you, you can remove any of the displayed regulatory standards that aren't relevant to your organization. To remove a standard, follow the instructions in [Remove a standard from your dashboard](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
 
 ### I made the suggested changed based on the recommendation, yet it isn't being reflected in the dashboard
-After you take action to resolve recommendations, wait 12 hours to see the changes to your compliance data. Assessments are run approximately every 12 hours, so you will see the effect on your compliance data only after the assessments run.
+After you take action to resolve recommendations, wait 12 hours to see the changes to your compliance data. Assessments are run approximately every 12 hours, so you'll see the effect on your compliance data only after the assessments run.
  
 ### What permissions do I need to access the compliance dashboard?
 To view compliance data, you need to have at least **Reader** access to the policy compliance data as well; so Security Reader alone won’t suffice. If you're a global reader on the subscription, that will be enough too.
@@ -182,13 +196,13 @@ For other policies, you can create an exemption directly in the policy itself, b
 
 
 ### What Azure Defender plans or licenses do I need to use the regulatory compliance dashboard?
-If you have any of the Azure Defender packages enabled on any of your Azure resource types, you have access to the Regulatory Compliance Dashboard, with all of its data, in Security Center.
+If you've got *any* of the Azure Defender plan enabled on *any* of your Azure resources, you can access Security Center's regulatory compliance dashboard and all of its data.
 
 
 ### How do I know which benchmark or standard to use?
-[Azure Security Benchmark](/security/benchmark/azure/introduction) (ASB) is the canonical set of security recommendations and best practices defined by Microsoft, aligned with common compliance control frameworks including [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/) and [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). ASB is a very comprehensive benchmark, and is designed to recommend the most up-to-date security capabilities of a wide range of Azure services. We recommend ASB to customers who want to maximize their security posture, and have the ability to align their compliance status with industry standards.
+[Azure Security Benchmark](/security/benchmark/azure/introduction) (ASB) is the canonical set of security recommendations and best practices defined by Microsoft, aligned with common compliance control frameworks including [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/) and [NIST SP 800-53](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final). ASB is a comprehensive benchmark, and is designed to recommend the most up-to-date security capabilities of a wide range of Azure services. We recommend ASB to customers who want to maximize their security posture and align their compliance status with industry standards.
 
-The [CIS Benchmark](https://www.cisecurity.org/benchmark/azure/) is authored by an independent entity – Center for Internet Security (CIS) – and contains recommendations on a subset of core Azure services. We work with CIS to try to ensure that that their recommendations are up to date with the latest enhancements in Azure, but they do sometimes fall behind and become outdated. Nonetheless, some customers like to use this objective, third-party assessment from CIS as their initial and primary security baseline.
+The [CIS Benchmark](https://www.cisecurity.org/benchmark/azure/) is authored by an independent entity – Center for Internet Security (CIS) – and contains recommendations on a subset of core Azure services. We work with CIS to try to ensure that their recommendations are up to date with the latest enhancements in Azure, but they do sometimes fall behind and become outdated. Nonetheless, some customers like to use this objective, third-party assessment from CIS as their initial and primary security baseline.
 
 Since we’ve released the Azure Security Benchmark, many customers have chosen to migrate to it as a replacement for CIS benchmarks.
 

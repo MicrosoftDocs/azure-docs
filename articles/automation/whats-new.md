@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice: 
 ms.topic: overview
-ms.date: 06/09/2021
+ms.date: 07/27/2021
 ms.custom: references_regions
 ---
 
@@ -17,6 +17,22 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 - Bug fixes
 
 This page is updated monthly, so revisit it regularly.
+
+## July 2021
+
+### Preview Support for User Assigned Managed Identities
+
+**Type:** New feature
+
+Azure Automation now supports [User Assigned Managed Identities](automation-secure-asset-encryption.md) for cloud jobs in Azure public , Gov & China regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-user-assigned-identities/) for more information.
+
+### General Availability of customer-managed keys for Azure Automation
+
+**Type:** New feature
+
+Customers can manage and secure encryption of Azure Automation assets using their own managed keys. With the introduction of customer-managed keys you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This additional encryption should help you meet your organization’s regulatory or compliance needs.
+
+For more information, see [Use of customer-managed keys](automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account).
 
 ## June 2021
 

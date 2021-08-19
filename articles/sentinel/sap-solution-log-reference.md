@@ -192,13 +192,13 @@ This article is intended for advanced SAP users.
 
 ## ABAP Gateway log
 
-- **Name in Azure Sentinel**: `GW_CL`
+- **Name in Azure Sentinel**: `ABAPOS_GW_CL`
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/62b4de4187cb43668d15dac48fc00732/7.5.7/en-US/48b2a710ca1c3079e10000000a42189b.html)
 
 - **Log purpose**: Monitors Gateway activities. Available by the SAP Control Web Service. This log is generated with data across all clients.
 
-### GW_CL log schema
+### ABAPOS_GW_CL log schema
 
 | Field        | Description      |
 | ------------ | ---------------- |
@@ -212,7 +212,7 @@ This article is intended for advanced SAP users.
 
 ## ABAP ICM log
 
-- **Name in Azure Sentinel**: `ICM_CL`
+- **Name in Azure Sentinel**: `ABAPOS_ICM_CL`
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/683d6a1797a34730a6e005d1e8de6f22/7.52.4/en-US/a10ec40d01e740b58d0a5231736c434e.html)
 
@@ -220,7 +220,7 @@ This article is intended for advanced SAP users.
 
     Available by the SAP Control Web Service. This log is generated with data across all clients.
 
-### ICM_CL log schema
+### ABAPOS_ICM_CL log schema
 
 | Field        | Description      |
 | ------------ | ---------------- |
@@ -438,7 +438,7 @@ This article is intended for advanced SAP users.
 
 ## ABAP SysLog
 
-- **Name in Azure Sentinel**: `SysLog_CL`
+- **Name in Azure Sentinel**: `ABAPOS_Syslog_CL`
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/56bf1265a92e4b4d9a72448c579887af/7.5.7/en-US/c769bcbaf36611d3a6510000e835363f.html)
 
@@ -446,7 +446,7 @@ This article is intended for advanced SAP users.
 
     Available by the SAP Control Web Service. This log is generated with data across all clients.
 
-### SysLog_CL log schema
+### ABAPOS_Syslog_CL log schema
 
 
 | Field            | Description            |
@@ -522,7 +522,7 @@ This article is intended for advanced SAP users.
 
 ## ABAP WorkProcess log
 
-- **Name in Azure Sentinel**: `WP_CL`
+- **Name in Azure Sentinel**: `ABAPOS_WP_CL`
 
 - **Related SAP documentation**: [SAP Help Portal](https://help.sap.com/viewer/d0739d980ecf42ae9f3b4c19e21a4b6e/7.3.15/en-US/46fb763b6d4c5515e10000000a1553f6.html)
 
@@ -530,7 +530,7 @@ This article is intended for advanced SAP users.
 
     Available by the SAP Control Web Service. This log is generated with data across all clients.
 
-### WP_CL log schema
+### ABAPOS_WP_CL log schema
 
 
 | Field        | Description         |
@@ -614,7 +614,8 @@ This article is intended for advanced SAP users.
 
 For more information, see:
 
-- [Tutorial: Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
+- [Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
 - [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
-- [Deploy the Azure Sentinel SAP data connector on-premises](sap-solution-deploy-alternate.md)
+- [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution: built-in security content](sap-solution-security-content.md)
+- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
