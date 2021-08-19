@@ -151,7 +151,7 @@ The following snippets are from the *Services/ProductService.cs* file.
 
 From the Azure portal, copy the connection string information:
 
-1. In the [Azure portal](https://portal.azure.com/), select your Cosmos DB account, in the left navigation select **Connection String**, and then select **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the primary connection string into the appsettings.json file in the next step.
+1. In the [Azure portal](https://portal.azure.com/), select your Cosmos DB account, in the left navigation select **Connection String**, and then select **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the primary connection string into the *appsettings.json* file in the next step.
 
 2. Open the *appsettings.json* file.
 
@@ -178,13 +178,13 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --db cosmicworks --
 
 1. In the [Azure portal](https://portal.azure.com/), select your Azure Cosmos DB API for MongoDB account, in the left navigation select **Connection String**, and then select **Read-write Keys**. 
 
-1. Copy the **HOST** value from the portal (using the copy button) and enter it in place of **<HOST>**.
+1. Copy the **HOST** value from the portal (using the copy button) and enter it in place of **\<HOST\>**.
 
-1. Copy the **PORT** value from the portal (using the copy button) and enter it in place of **<PORT>**.
+1. Copy the **PORT** value from the portal (using the copy button) and enter it in place of **\<PORT\>**.
 
-1. Copy the **USERNAME** value from the portal (using the copy button) and enter it in place of **<USERNAME>**.
+1. Copy the **USERNAME** value from the portal (using the copy button) and enter it in place of **\<USERNAME\>**.
 
-1. Copy the **PASSWORD** value from the portal (using the copy button) and enter it in place of **<PASSWORD>**.
+1. Copy the **PASSWORD** value from the portal (using the copy button) and enter it in place of **\<PASSWORD\>**.
 
 1. Review the **database name** value and update it if you created something other than `cosmicworks`.
 
@@ -207,7 +207,7 @@ After the application is running, navigate to [https://localhost:5001/swagger/in
 
 Select the API you would like to test and select "Try it out".
 
-:::image type="content" source="./media/create-mongodb-dotnet/try-swagger.png" alt-text="Try API endpoints with Swagger":::
+:::image type="content" source="./media/create-mongodb-dotnet/try-swagger.png" alt-text="Screenshot of the web API Swagger UI Try API endpoints page.":::
 
 Enter any necessary parameters and select "Execute."
 
