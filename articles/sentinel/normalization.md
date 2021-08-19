@@ -92,7 +92,7 @@ To start using ASIM:
 
 1. Activate analytics rule templates that use ASIM. For more information, see the [Azure Sentinel Information Model (ASIM) content list](normalization-content.md#builtin).
 
-1. Use ASIM in your workspace, using the folowing methods:
+1. Use ASIM in your workspace, using the following methods:
 
     - Use the ASIM hunting queries from the Azure Sentinel GitHub repository, when querying logs in KQL in the Azure Sentinel **Logs** page. For more information, see the [Azure Sentinel Information Model (ASIM) content list](normalization-content.md#builtin).
 
