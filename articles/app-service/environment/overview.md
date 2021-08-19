@@ -108,7 +108,6 @@ The ASEv3 is available in the following regions.
 |Korea Central	| UK South|
 |North Europe	| West Europe|
 |Norway East	| West US 2	|
-|South Africa North| |	
 |South Central US	| |
 |Southeast Asia| |
 |Switzerland North	| |	
