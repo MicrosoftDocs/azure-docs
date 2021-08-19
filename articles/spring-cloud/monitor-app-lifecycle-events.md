@@ -120,6 +120,6 @@ The following steps show you how to create an alert rule for planned maintenance
 
 3. Select **Create alert rule**.
 
-# Next steps
+## Next steps
 
 [Self-diagnose and solve problems in Azure Spring Cloud](how-to-self-diagnose-solve.md)
