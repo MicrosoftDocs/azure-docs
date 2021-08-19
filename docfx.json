@@ -461,7 +461,7 @@
         "articles/migrate/**/*.md": "https://feedback.azure.com/forums/907195-azure-migrate",
         "articles/mobile-engagement/**/*.md": "https://feedback.azure.com/forums/285737-mobile-engagement",
         "articles/monitoring-and-diagnostics/**/*.md": "https://feedback.azure.com/forums/231545-diagnostics-and-monitoring",
-        "articles/multi-factor-authentication/**/*.md": "https://feedback.azure.com/forums/169401-azure-active-directory",
+        "articles/multi-factor-authentication/**/*.md": "https://docs.microsoft.com/answers/topics/azure-active-directory.html",
         "articles/mysql/**/*.md": "https://feedback.azure.com/forums/597982-azure-database-for-mysql",
         "articles/networking/**/*.md": "https://feedback.azure.com/forums/217313-networking",
         "articles/network-watcher/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=195844",
