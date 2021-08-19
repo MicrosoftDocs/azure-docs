@@ -6,7 +6,7 @@ ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 08/18/2021
+ms.date: 08/19/2021
 ---
 # How to convert the number of vcores-per-server in your existing nonrelational database to Azure Cosmos DB RU/s as an aid in planning migration
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

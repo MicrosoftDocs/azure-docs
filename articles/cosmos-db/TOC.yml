@@ -34,6 +34,8 @@
       items:
         - name: Request units
           displayName: RUs, RU
+        - name: Convert vcores to request units
+          href: tutorial-vcore-pricing.md            
           href: request-units.md
         - name: Provisioned throughput
           displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
@@ -1528,8 +1530,6 @@
           href: cosmosdb-migrationchoices.md
         - name: Migrate hundreds of terabytes of data into Azure Cosmos DB
           href: migrate-cosmosdb-data.md
-        - name: Convert vcores to RU/s
-          href: tutorial-vcore-pricing.md  
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn
