@@ -26,6 +26,6 @@ To get started with PyTorch Enterprise, join the Microsoft Premier or Unified su
 If you would like to try out the PyTorch LTS version, you can do so at PyTorch.org.
 
 ## Next steps
-* [PyTorch on Azure](https://azure.microsoft.com/en-us/develop/pytorch/)
+* [PyTorch on Azure](https://azure.microsoft.com/develop/pytorch/)
 * [PyTorch Enterprise Support Program](https://aka.ms/PTELandingPage)
-* [Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)

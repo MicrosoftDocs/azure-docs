@@ -213,6 +213,9 @@
     - name: AD FS
       href: identity-provider-adfs.md
       displayName: AD-FS, ADFS
+    - name: AD FS (SAML)
+      href: identity-provider-adfs-saml.md
+      displayName: AD-FS, ADFS
     - name: Amazon
       href: identity-provider-amazon.md
     - name: Apple (Preview)
@@ -411,6 +414,8 @@
       items:
       - name: Akamai
         href: partner-akamai.md
+      - name: Azure WAF
+        href: partner-azure-web-application-firewall.md
       - name: Cloudflare
         href: partner-cloudflare.md
     - name: Configure web API domains 

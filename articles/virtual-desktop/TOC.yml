@@ -70,6 +70,8 @@
         href: create-host-pools-user-profile.md
       - name: Use Azure NetApp Files
         href: create-fslogix-profile-container.md
+      - name: Use Azure NetApp Files and MSIX app attach
+        href: create-netapp-files.md
       - name: Use Azure Files and Azure AD DS
         href: create-profile-container-adds.md
       - name: Use Azure Files and AD DS
@@ -124,6 +126,8 @@
     href: configure-adfs-sso.md
   - name: Configure automatic updates
     href: configure-automatic-updates.md
+  - name: Set up multimedia redirection (preview)
+    href: multimedia-redirection.md
   - name: Install language packs
     href: language-packs.md
   - name: Use Azure Advisor

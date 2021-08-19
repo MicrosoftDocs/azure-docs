@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 07/26/2021
+ms.date: 08/11/2021
 
 ms.author: justinha
 author: justinha
@@ -46,6 +46,18 @@ Azure [GOV endpoints](../../azure-government/compare-azure-government-global-azu
 * *\*.servicebus.usgovcloudapi.net*
 
 If you need more granularity, see the [list of Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated every Wednesday and goes into effect the next Monday.
+
+To determine if access to a url and port are restricted in an environment, run the following cmdlet:
+
+```powershell
+Test-NetConnection -ComputerName https://ssprdedicatedsbprodncu.servicebus.windows.net -Port 443
+```
+
+Or run the following:
+
+```powershell
+Invoke-WebRequest -Uri https://ssprdedicatedbprodscu.windows.net -Verbose
+```
 
 For more information, see the [connectivity prerequisites for Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
 

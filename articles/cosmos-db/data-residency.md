@@ -12,7 +12,7 @@ ms.reviewer: sngun
 
 # How to meet data residency requirements in Azure Cosmos DB
 
-In Azure Cosmos DB, you can configure your data and backups to remain in a single region to meet the[ residency requirements.](https://azure.microsoft.com/en-us/global-infrastructure/data-residency/)
+In Azure Cosmos DB, you can configure your data and backups to remain in a single region to meet the[ residency requirements.](https://azure.microsoft.com/global-infrastructure/data-residency/)
 
 ## Residency requirements for data
 
