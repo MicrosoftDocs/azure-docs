@@ -24,8 +24,10 @@ With the Dynatrace OneAgent you can:
 
 
 ## Introductory Video
+:::row:::
+<iframe width="930" height="525" src="https://www.youtube.com/embed/cLXy2eV6amo?autoplay=1" title="Monitor Spring Boot applications end-to-end using Dynatrace" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+:::row-end:::
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cLXy2eV6amo" title="Monitor Spring Boot applications end-to-end using Dynatrace" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Prerequisites
 
