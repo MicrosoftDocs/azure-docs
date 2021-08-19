@@ -26,9 +26,7 @@ Web PubSub is an Azure-managed service that helps developers easily build web ap
 [Product documentation](https://aka.ms/awps/doc) |
 [Samples][samples_ref]
 
-## Getting started
-
-### Install the package
+## Add to your Functions app
 
 Working with the trigger and bindings requires you reference the appropriate package. The NuGet package is used for .NET class libraries while the extension bundle is used for all other application types.
 
@@ -49,12 +47,6 @@ func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub -
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 [Update your extensions]: /azure/azure-functions/functions-bindings-register
 
-### Prerequisites
-
-- An [Azure subscription][azure_sub].
-- An existing Azure Web PubSub service instance.
-- [Azure Function Core Tools](https://www.npmjs.com/package/azure-functions-core-tools)
-
 ## Key concepts
 
 ![function-workflow](./media/reference-functions-bindings/functions_workflow.png)
@@ -65,7 +57,7 @@ func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub -
 
 (5)-(6) `WebPubSub` output binding to request service do something.
 
-### Trigger binding
+## Trigger binding
 
 Use the function trigger to handle requests from Azure Web PubSub service. For information on setup and configuration details, see the [Get started](#getting-started). 
 
@@ -75,7 +67,7 @@ Use the function trigger to handle requests from Azure Web PubSub service. For i
 <Function_App_Url>/runtime/webhooks/webpubsub?code=<API_KEY>
 ```
 
-#### Example
+### Example
 
 
 # [C#](#tab/csharp)
@@ -156,7 +148,7 @@ module.exports = async function (context) {
 ---
 
 
-#### Attributes and annotations
+### Attributes and annotations
 
 In [C# class libraries](/azure/azure-functions/functions-dotnet-class-library), use the `WebPubSubTrigger` attribute.
 
@@ -173,7 +165,7 @@ ConnectionContext context, ILogger log)
 
 For a complete example, see C# example.
 
-#### Configuration
+### Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
@@ -186,7 +178,7 @@ The following table explains the binding configuration properties that you set i
 | **eventType** | EventType | Required - the value must be set as the event type of messages for the function to be triggered. The value should be either `user` or `system`. |
 | **eventName** | EventName | Required - the value must be set as the event of messages for the function to be triggered. </br> For `system` event type, the event name should be in `connect`, `connected`, `disconnect`. </br> For system supported subprotocol `json.webpubsub.azure.v1.`, the event name is user-defined event name. </br> For user-defined subprotocols, the event name is `message`. |
 
-#### Usages
+### Usages
 
 In C#, `ConnectionContext` is type recognized binding parameter, rest parameters are bound by parameter name. Check table below of available parameters and types.
 
@@ -203,7 +195,7 @@ In type-less language like JavaScript, `name` in `function.json` will be used to
 |clientCertificates|`ClientCertificate[]`|A list of certificate thumbprint from clients in `connect` request|-|
 |reason|`string`|Reason in disconnect request|-|
 
-#### Return response
+### Return response
 
 `WebPubSubTrigger` will respect customer returned response for synchronous events of `connect` and user event `message`. Only matched response will be sent back to service, otherwise, it will be ignored. 
 
@@ -214,7 +206,7 @@ In type-less language like JavaScript, `name` in `function.json` will be used to
 |`ErrorResponse`| Error response for the sync event | Code, ErrorMessage |
 |`ServiceResponse`| Base response type of the supported ones used for uncertain return cases | - |
 
-### Input binding
+## Input binding
 
 Our extension provides two input binding targeting different needs.
 
@@ -227,7 +219,7 @@ Our extension provides two input binding targeting different needs.
   When using is Static Web Apps, `HttpTrigger` is the only supported trigger and under Web PubSub scenario, we provide the `WebPubSubRequest` input binding helps users deserialize upstream http request from service side under Web PubSub protocols. So customers can get similar results comparing to `WebPubSubTrigger` to easy handle in functions. See [examples](#example---webpubsubrequest) in below.
   When used with `HttpTrigger`, customer requires to configure the HttpTrigger exposed url in upstream accordingly.
 
-#### Example - `WebPubSubConnection`
+### Example - `WebPubSubConnection`
 
 The following example shows a C# function that acquires Web PubSub connection information using the input binding and returns it over HTTP.
 
@@ -285,7 +277,7 @@ module.exports = function (context, req, connection) {
 
 ---
 
-#### Authenticated **tokens**
+### Authenticated **tokens**
 
 If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using App Service Authentication.
 
@@ -304,7 +296,7 @@ public static WebPubSubConnection Run(
 }
 ```
 
-#### Example - `WebPubSubRequest`
+### Example - `WebPubSubRequest`
 
 The following example shows a C# function that acquires Web PubSub Request information using the input binding under connect event type and returns it over HTTP.
 
@@ -374,9 +366,9 @@ module.exports = async function (context, req, wpsReq) {
 
 ---
 
-#### Configuration
+### Configuration
 
-##### WebPubSubConnection
+#### WebPubSubConnection
 
 The following table explains the binding configuration properties that you set in the function.json file and the `WebPubSubConnection` attribute.
 
@@ -389,7 +381,7 @@ The following table explains the binding configuration properties that you set i
 | **userId** | UserId | Optional - the value of the user identifier claim to be set in the access key token. |
 | **connectionStringSetting** | ConnectionStringSetting | The name of the app setting that contains the Web PubSub Service connection string (defaults to "WebPubSubConnectionString") |
 
-##### WebPubSubRequest
+#### WebPubSubRequest
 
 The following table explains the binding configuration properties that you set in the functions.json file and the `WebPubSubRequest` attribute.
 
@@ -399,9 +391,9 @@ The following table explains the binding configuration properties that you set i
 | **direction** | n/a | Must be set to `in` |
 | **name** | n/a | Variable name used in function code for input Web PubSub request. |
 
-#### Usage
+### Usage
 
-##### WebPubSubConnection
+#### WebPubSubConnection
 
 `WebPubSubConnection` provides below properties.
 
@@ -411,7 +403,7 @@ BaseUrl | string | Web PubSub client connection url
 Url | string | Absolute Uri of the Web PubSub connection, contains `AccessToken` generated base on the request
 AccessToken | string | Generated `AccessToken` based on request UserId and service information
 
-##### WebPubSubRequest
+#### WebPubSubRequest
 
 `WebPubSubRequest` provides below properties.
 
@@ -432,7 +424,7 @@ Derived Class | Description | Properties
 `DisconnectedEventRequest` | Use in `Disconnected` event type | Reason
 `InvalidRequest` | Use when the request is invalid | -
 
-### Output binding
+## Output binding
 
 Use the Web PubSub output binding to send one or more messages using Azure Web PubSub Service. You can broadcast a message to:
 
@@ -444,7 +436,7 @@ The output binding also allows you to manage groups and grant/revoke permissions
 
 For information on setup and configuration details, see the overview.
 
-#### Example
+### Example
 
 # [C#](#tab/csharp)
 
@@ -495,7 +487,7 @@ module.exports = async function (context) {
 
 ---
 
-#### WebPubSubOperation 
+### WebPubSubOperation 
 
 `WebPubSubOperation` is the base abstract type of output bindings. The derived types represent the operation server want services to invoke. In type-less language like `javascript`, `OperationKind` is the key parameter to resolve the type. And under strong type language like `csharp`, user could create the target operation type directly and customer assigned `OperationKind` value would be ignored.
 
@@ -514,9 +506,9 @@ Derived Class|Properties
 `GrantGroupPermission`|ConnectionId, Group, Permission, TargetName
 `RevokeGroupPermission`|ConnectionId, Group, Permission, TargetName
 
-#### Configuration
+### Configuration
 
-##### WebPubSub
+#### WebPubSub
 
 The following table explains the binding configuration properties that you set in the function.json file and the `WebPubSub` attribute.
 
