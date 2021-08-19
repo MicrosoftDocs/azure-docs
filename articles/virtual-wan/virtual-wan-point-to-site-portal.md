@@ -13,7 +13,10 @@ ms.author: cherylmc
 ---
 # Tutorial: Create a User VPN connection using Azure Virtual WAN
 
-This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an OpenVPN or IPsec/IKE (IKEv2) VPN connection using a User VPN (P2S) configuration. This type of connection requires the native VPN client to be configured on each connecting client computer. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
+This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an OpenVPN or IPsec/IKE (IKEv2) VPN connection using a User VPN (P2S) configuration. This type of connection requires the native VPN client to be configured on each connecting client computer.
+ 
+* If you want to create a User VPN connection using Azure AD authentication, see [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad).
+* For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
 In this tutorial, you learn how to:
 
