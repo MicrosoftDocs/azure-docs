@@ -4,6 +4,7 @@ description: This article describes how to create a collection and add permissio
 author: viseshag
 ms.author: viseshag
 ms.service: purview
+ms.subservice: purview-data-map
 ms.topic: quickstart
 ms.date: 08/18/2021
 ms.custom: template-quickstart 
