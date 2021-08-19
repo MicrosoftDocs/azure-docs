@@ -98,7 +98,7 @@ New-AzVm
 -CapacityReservationGroupId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}"
 ```
 
-To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
+To learn more, go to Azure PowerShell command [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ### [ARM template](#tab/arm1)
 
@@ -181,6 +181,8 @@ While Capacity Reservation is in preview, to associate an existing VM to a Capac
     -CapacityReservationGroupId "subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{CapacityReservationGroupName}"
     ```
 
+To learn more, go to Azure PowerShell commands [Stop-AzVM](/powershell/module/az.compute/stop-azvm), [Get-AzVM](/powershell/module/az.compute/get-azvm), and [Update-AzVM](/powershell/module/az.compute/update-azvm).
+
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
@@ -250,7 +252,7 @@ Get-AzCapacityReservation
 $CapRes.InstanceView.Utilizationinfo.VirtualMachinesAllocated
 ```
 
-To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
+To learn more, go to Azure PowerShell command [Get-AzCapacityReservation](/powershell/module/az.compute/get-azcapacityreservation).
 
 
 ### [Portal](#tab/portal3)

@@ -95,7 +95,7 @@ New-AzVmss
 -PlatformFaultDomainCount 2
 ```
 
-To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
+To learn more, go to Azure PowerShell command [New-AzVmss](/powershell/module/az.compute/new-azvmss).
 
 ### [ARM template](#tab/arm1)
 
@@ -173,7 +173,7 @@ For Public Preview, in order to associate an existing Uniform virtual machine sc
     -CapacityReservationGroupId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}"
     ```
 
-To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
+To learn more, go to Azure PowerShell commands [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss), [Get-AzVmss](/powershell/module/az.compute/get-azvmss), and [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
@@ -248,7 +248,7 @@ Get-AzCapacityReservationGroup
 $CapRes.InstanceView.Utilizationinfo.VirtualMachinesAllocated
 ``` 
 
-To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
+To learn more, go to Azure PowerShell command [Get-AzCapacityReservationGroup](/powershell/module/az.compute/get-azcapacityreservationGroup).
 
 ### [Portal](#tab/portal3)
 

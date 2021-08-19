@@ -148,7 +148,7 @@ The Capacity Reservation must meet the following rules:
     -CapacityToReserve 5
     ```
 
-To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
+To learn more, go to Azure PowerShell commands [New-AzResourceGroup](/powershell/module/az.compute/new-azresourcegroup), [New-AzCapacityReservationGroup](/powershell/module/az.compute/new-azcapacityreservationgroup), and [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation).
 
 
 ### [ARM template](#tab/arm1)
@@ -222,7 +222,7 @@ Get-AzCapacityReservation
 $CapRes.sku
 ```
 
-To learn more, go to [Azure PowerShell commands for Capacity Reservation](/powershell/module/az.compute/new-azcapacityreservationgroup?view=azps-6.3.0).
+To learn more, go to Azure PowerShell command [Get-AzCapacityReservation](/powershell/module/az.compute/get-azcapacityreservation).
 
 ### [Portal](#tab/portal3)
 
