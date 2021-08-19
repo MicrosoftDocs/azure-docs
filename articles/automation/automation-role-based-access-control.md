@@ -268,9 +268,11 @@ Perform the following steps to create the Azure Automation custom role in the Az
    ```json
    {
     "properties": {
-        "roleName": "Automation account Contributor (custom)",
+        "roleName": "Automation Account Contributor (Custom)",
         "description": "Allows access to manage Azure Automation and its resources",
-        "type": "CustomRole",
+        "assignableScopes": [
+            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
+        ],
         "permissions": [
             {
                 "actions": [
@@ -287,9 +289,6 @@ Perform the following steps to create the Azure Automation custom role in the Az
                 "dataActions": [],
                 "notDataActions": []
             }
-        ],
-        "assignableScopes": [
-            "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX"
         ]
       }
    }
