@@ -29,12 +29,11 @@ Using the [Microsoft admin center](/microsoft-365/admin/admin-overview/about-the
 
 **Eligible subscription licenses:**
 
--	Microsoft 365 E3/E5 
--	Microsoft 365 F3 
--	Microsoft 365 A3/A5 
--	Windows 10 Enterprise E3/E5
--	Windows 10 Education A3/A5 
--	Windows VDA E3/E5
+-	[Microsoft 365 E3](https://www.microsoft.com/microsoft-365/enterprise/e3?activetab=pivot%3aoverviewtab)
+-	[Microsoft 365 E5](https://www.microsoft.com/microsoft-365/enterprise/e5?activetab=pivot%3aoverviewtab)
+-	[Microsoft 365 A3/A5](https://www.microsoft.com/microsoft-365/academic/compare-office-365-education-plans?activetab=tab%3aprimaryr1)
+-	[Windows 10 Enterprise E3/E5](https://docs.microsoft.com/windows/deployment/windows-10-enterprise-e3-overview)
+-	[Windows 10 Education A3/A5](https://docs.microsoft.com/partner-center/upgrade-windows-to-education)
 
 
 ## Deploying Windows 10 Image from Azure Marketplace 
