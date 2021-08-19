@@ -120,7 +120,7 @@ landingContent:
         - text: Scan SQL server on-premises
           url: register-scan-on-premises-sql-server.md
         - text: Scan Google BigQuery
-          url: register-scan-google-bigquery-source
+          url: register-scan-google-bigquery-source.md
         - text: Scan Amazon S3
           url: register-scan-amazon-s3.md
         - text: Scan Oracle
