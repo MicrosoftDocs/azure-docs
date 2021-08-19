@@ -76,7 +76,7 @@ Use the MPI job configuration when you use [Horovod](https://horovod.readthedocs
 
 Make sure your code follows these tips:
 
-* The training code is instrumented correctly with Horovod.
+* The training code is instrumented correctly with Horovod before adding the Azure ML parts
 * Your Azure ML environment contains Horovod and MPI. The PyTorch and TensorFlow curated GPU environments come pre-configured with Horovod and its dependencies.
 * Create an `MpiConfiguration` with your desired distribution.
 
