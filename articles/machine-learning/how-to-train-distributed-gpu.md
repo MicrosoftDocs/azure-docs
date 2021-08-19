@@ -358,6 +358,7 @@ TF_CONFIG='{
 ```
 
 ### TensorFlow example
+
 - [azureml-examples: Distributed TensorFlow training with MultiWorkerMirroredStrategy](https://github.com/Azure/azureml-examples/tree/main/python-sdk/workflows/train/tensorflow/mnist-distributed)
 
 ## <a name="infiniband"></a> Accelerating GPU training with InfiniBand
@@ -370,3 +371,4 @@ If you create an `AmlCompute` cluster of one of these RDMA-capable, InfiniBand-e
 
 * [Deploy machine learning models to Azure](how-to-deploy-and-where.md)
 * [Deploy and score a machine learning model by using a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
+* [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
