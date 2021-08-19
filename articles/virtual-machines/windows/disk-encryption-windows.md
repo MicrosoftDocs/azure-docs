@@ -82,7 +82,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
 
-To disable the encryption, see [Disable and remove encryption](#disable-and-remove-encryption).
+To disable the encryption, see [Disable encryption and remove the encryption extension](#disable-encryption-and-remove-the-encryption-extension).
 
 ### Enable encryption on existing or running VMs with the Azure CLI
 Use the [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enable) command to enable encryption on a running IaaS virtual machine in Azure.
@@ -111,7 +111,7 @@ Use the [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enab
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-To disable the encryption, see [Disable and remove encryption](#disable-and-remove-encryption).
+To disable the encryption, see [Disable encryption and remove the encryption extension](#disable-encryption-and-remove-the-encryption-extension).
 
 ### Using the Resource Manager template
 
@@ -241,7 +241,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "All"
      ```
 
-### Disabling and removing the encryption extension
+## Disable encryption and remove the encryption extension
 
 You can disable the Azure disk encryption extension, and you can remove the Azure disk encryption extension. These are two distinct operations. You can disable the ADE extension without removing it, and remove the extension without first disabling it.
 
@@ -255,7 +255,7 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
 - **Disable disk encryption with Azure PowerShell:** To disable the encryption, use the [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet.
 
      ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' -VolumeType "all"
+     Disable-AzVMDiskEncryption -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM" -VolumeType "all"
      ```
 
 - **Disable encryption with the Azure CLI:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable) command. 
@@ -272,22 +272,21 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
 
 ### Remove the encryption extension
 
-You can remove the encryption extension using Azure PowerShell or the Azure CLI. 
+You can remove the encryption extension using Azure PowerShell or the Azure CLI.
 
 If you wish to disable encryption but leave the extension on the VM, see [disable encryption](#disable-encryption) instead. You do **not** have to disable encryption before removing the encryption extension.
 
 - **Disable disk encryption with Azure PowerShell:** To disable the encryption, use the [Remove-AzVMDiskEncryptionExtension](/powershell/module/az.compute/remove-azvmdiskencryptionextension) cmdlet.
 
      ```azurepowershell-interactive
-     Remove-AzVMDiskEncryptionExtension -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
+     Remove-AzVMDiskEncryptionExtension -ResourceGroupName "MyVirtualMachineResourceGroup" -VMName "MySecureVM"
      ```
 
 - **Disable encryption with the Azure CLI:** To disable encryption, use the [az vm extension delete](/cli/azure/vm/extension?view=azure-cli-latest#az_vm_extension_delete) command.
 
      ```azurecli-interactive
-     az vm extension delete --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
+     az vm extension delete -g "MyVirtualMachineResourceGroup" --vm-name "MySecureVM" -n "AzureDiskEncryptionForWindows"
      ```
-
 
 ## Unsupported scenarios
 
