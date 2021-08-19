@@ -51,6 +51,9 @@
     href: concept-security-agent-authentication.md
   - name: Security posture - CIS benchmark
     href: concept-security-posture.md
+  - name: Micro agent configurations (Preview)
+    displayNAme: collectors, configuration, configurations, event-based, trigger, general
+    href: concept-micro-agent-configuration.md
   - name: Micro agent event collection (Preview)
     displayName: process events, network connection
     href: concept-event-aggregation.md

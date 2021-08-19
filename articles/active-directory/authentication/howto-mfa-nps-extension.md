@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 08/17/2021
 
 ms.author: justinha
 author: justinha
@@ -114,6 +114,7 @@ Additionally, connectivity to the following URLs is required to complete the [se
 * *https:\//provisioningapi.microsoftonline.com*
 * *https:\//aadcdn.msauth.net*
 * *https:\//www.powershellgallery.com*
+* *https:\//go.microsoft.com*
 * *https:\//aadcdn.msftauthimages.net*
 
 ## Prepare your environment
@@ -156,7 +157,7 @@ There are two factors that affect which authentication methods are available wit
     > [!NOTE]
     > When you deploy the NPS extension, use these factors to evaluate which methods are available for your users. If your RADIUS client supports PAP, but the client UX doesn't have input fields for a verification code, then phone call and mobile app notification are the two supported options.
     >
-    > Also, regardless of the authentication protocol that's used (PAP, CHAP, or EAP), if your MFA method is text-based (SMS, mobile app verification code, or OATH hardware token) and requires the user to enter a code or text in the VPN client UI input field, the authentication might succeed. *But* any RADIUS attributes that are configured in the Network Access Policy are *not* forwarded to the RADIUS cient (the Network Access Device, like the VPN gateway). As a result, the VPN client might have more access than you want it to have, or less access or no access.
+    > Also, regardless of the authentication protocol that's used (PAP, CHAP, or EAP), if your MFA method is text-based (SMS, mobile app verification code, or OATH hardware token) and requires the user to enter a code or text in the VPN client UI input field, the authentication might succeed. *But* any RADIUS attributes that are configured in the Network Access Policy are *not* forwarded to the RADIUS client (the Network Access Device, like the VPN gateway). As a result, the VPN client might have more access than you want it to have, or less access or no access.
 
 * The input methods that the client application (VPN, Netscaler server, or other) can handle. For example, does the VPN client have some means to allow the user to type in a verification code from a text or mobile app?
 
