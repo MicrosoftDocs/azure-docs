@@ -34,4 +34,6 @@ This quickstart shows you how to connect to the Azure Web PubSub instance and pu
 
 This quickstart provides you a basic idea of how to connect to the Web PubSub service and how to publish messages to the connected clients.
 
+In real-world applications, you can use SDKs in various languages build your own application. We also provide Function extensions for you to build serverless applications easily.
+
 [!INCLUDE [next step](includes/include-next-step.md)]
