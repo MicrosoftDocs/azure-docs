@@ -45,7 +45,7 @@ When you're using customer-managed keys for encrypting images in a shared image 
 
 ## PowerShell
 
-To specify a disk encryption set for an image version, use  [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) with the `-TargetRegion` parameter: 
+To specify a disk encryption set for an image version, use  [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion) with the `-TargetRegion` parameter: 
 
 ```azurepowershell-interactive
 

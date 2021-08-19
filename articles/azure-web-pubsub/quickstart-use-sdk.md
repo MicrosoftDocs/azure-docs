@@ -232,7 +232,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     </dependency>
     ```
 
-2. Now let's use Azure Web PubSub SDK to publish a message to the service. Let's navigate to the */src/main/java/com/webpubsub/quickstart* directory, open the *App.java* file in your editor and replace code with the below:
+3. Now let's use Azure Web PubSub SDK to publish a message to the service. Let's navigate to the */src/main/java/com/webpubsub/quickstart* directory, open the *App.java* file in your editor and replace code with the below:
 
     ```java
     package com.webpubsub.quickstart;
@@ -265,23 +265,23 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 
     The `sendToAll()` call simply sends a message to all connected clients in a hub.
 
-3. Navigate to the directory containing the *pom.xml* file and compile the project by using the following `mvn` command.
+4. Navigate to the directory containing the *pom.xml* file and compile the project by using the following `mvn` command.
 
     ```console
     mvn compile
     ```
-4. Then build the package
+5. Then build the package
 
     ```console
     mvn package
     ```
-5. Run the following `mvn` command to execute the app, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
+6. Run the following `mvn` command to execute the app, replacing `<connection_string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use):
 
     ```console
     mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="'<connection_string>' 'myHub1' 'Hello World'"
     ```
 
-4. You can see that the previous CLI client received the message.
+7. You can see that the previous CLI client received the message.
    
     ```json
     {"type":"message","from":"server","dataType":"text","data":"Hello World"}
@@ -292,5 +292,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 ## Next steps
 
 This quickstart provides you a basic idea of how to connect to the Web PubSub service and how to publish messages to the connected clients.
+
+In real-world applications, you can use SDKs in various languages build your own application. We also provide Function extensions for you to build serverless applications easily.
 
 [!INCLUDE [next step](includes/include-next-step.md)]
