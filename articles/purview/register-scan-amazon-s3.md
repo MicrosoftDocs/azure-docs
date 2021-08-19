@@ -17,12 +17,10 @@ The Multi-Cloud Scanning Connector for Azure Purview allows you to explore your 
 
 This article describes how to use Azure Purview to scan your unstructured data currently stored in Amazon S3 standard buckets, and discover what types of sensitive information exists in your data. This how-to guide also describes how to identify the Amazon S3 Buckets where the data is currently stored for easy information protection and data compliance.
 
-For this service, use Purview to provide a Microsoft account with secure access to AWS, where the Multi-Cloud Scanning Connectors for Azure Purview will run. The Multi-Cloud Scanning Connectors for Azure Purview use this access to your Amazon S3 buckets to read your data, and then reports the scanning results, including only the metadata and classification, back to Azure. Use the Purview classification and labeling reports to analyze and review your data scan results.
-
-In this how-to guide, you'll learn about how to add Amazon S3 buckets as Purview resources and create a scan for your Amazon S3 data.
+For this service, use Purview to provide a Microsoft account with secure access to AWS, where the Multi-Cloud Scanning Connector for Azure Purview will run. The Multi-Cloud Scanning Connector for Azure Purview uses this access to your Amazon S3 buckets to read your data, and then reports the scanning results, including only the metadata and classification, back to Azure. Use the Purview classification and labeling reports to analyze and review your data scan results.
 
 > [!IMPORTANT]
-> The Multi-Cloud Scanning Connectors for Azure Purview are separate add-ons to Azure Purview. The terms and conditions for the Multi-Cloud Scanning Connectors for Azure Purview are contained in the agreement under which you obtained Microsoft Azure Services. For more information, see Microsoft Azure Legal Information at https://azure.microsoft.com/support/legal/.
+> The Multi-Cloud Scanning Connector for Azure Purview is a separate add-on to Azure Purview. The terms and conditions for the Multi-Cloud Scanning Connector for Azure Purview are contained in the agreement under which you obtained Microsoft Azure Services. For more information, see Microsoft Azure Legal Information at https://azure.microsoft.com/support/legal/.
 >
 
 ## Purview scope for Amazon S3
