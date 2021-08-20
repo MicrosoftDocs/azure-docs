@@ -353,7 +353,7 @@ Do the following steps using Azure PowerShell to order a device:
     |CountryCode [Required]| The country that the device will be shipped. | "United States" |
     |PostalCode [Required]| The zip code or postal code associated with the shipping address.| "98052"|
     |CompanyName| The name of your company you work for.| "Contoso, LTD" |
-    |StorageAccountResourceId [Required]| The Azure Storage account ID from where you want to import data.| <AzStorageAccount>.id |
+    |StorageAccountResourceId [Required]| The Azure Storage account ID from where you want to import data.| <AzCopy storage account>.id |
 
 3. In your command-prompt of choice or terminal, use the [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob) to create your Azure Data Box order.
 
