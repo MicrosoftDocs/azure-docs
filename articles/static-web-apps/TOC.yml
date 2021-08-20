@@ -33,10 +33,11 @@
         - name: Application configuration
           href: configuration.md
           displayName: routing, routes
-        - name: Build and workflow configuration
+        - name: Build configuration
           href: github-actions-workflow.md
-        - name: Configure app settings
+        - name: App settings
           href: application-settings.md
+          displayName: environment variables
     - name: Security
       items:
         - name: Authentication and authorization
