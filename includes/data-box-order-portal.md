@@ -26,13 +26,13 @@ Do the following steps in the Azure portal to order a device.
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource Group | Select an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. |
     |Source country/region    |    Select the country/region where your data currently resides.         |
-    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, go to [region availability](data-box-overview.md#region-availability).            |
+    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, go to [region availability](../articles/databox/data-box-overview.md#region-availability).            |
 
     [ ![Starting an Azure Data Box import order](media/data-box-order-portal/select-data-box-import-04-b.png) ](media/data-box-order-portal/select-data-box-import-04-b.png#lightbox)
 
-5. Select **Data Box**. The maximum usable capacity for a single order is 80 TB. You can create multiple orders for larger data sizes.
+5. Select the **Data Box** product to order. For Data Box, the maximum usable capacity for a single order is 80 TB. For Data Box heavy, the maximum usable capacity for a single order is 770 TB. You can create multiple orders for larger data sizes.<!--Combined descriptions for both Data Box and Data Box Heavy. Final sentence approaches universal truth, but is it a concern for Heavy users?-->
 
-    ![Available data sizes: Data Box Disk, 40 terabytes; Data Box, 100 terabytes; Data Box Heavy, 1000 terabytes; Send your own disks, 1 terabyte](mediadata-box-deploy-ordered/data-box-order-portal/select-data-box-import-05.png)
+    ![Available data sizes: Data Box Disk, 40 terabytes; Data Box, 100 terabytes; Data Box Heavy, 1000 terabytes; Send your own disks, 1 terabyte](media/data-box-order-portal/select-data-box-import-05.png)
 
 6. In **Order**, go to the **Basics** tab. Enter or select the following information and select **Next: Data destination>**.
 
@@ -54,9 +54,9 @@ Do the following steps in the Azure portal to order a device.
 
    > [!NOTE]
    > - If you select Azure Premium FileStorage accounts, the provisioned quota on the storage account share will increase to the size of data being copied to the file shares. After the quota is increased, it isn't adjusted again, for example, if for some reason the Data Box can't copy your data.
-   > - This quota is used for billing. After your data is uploaded to the datacenter, you should adjust the quota to meet your needs. For more information, see [Understanding billing](../../articles/storage/files/understanding-billing.md).
+   > - This quota is used for billing. After your data is uploaded to the datacenter, you should adjust the quota to meet your needs. For more information, see [Understanding billing](../articles/storage/files/understanding-billing.md).
 
-    Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../storage/common/storage-network-security.md#exceptions).
+    Storage accounts with virtual networks are supported. To allow Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../articles/storage/common/storage-network-security.md#exceptions).
 
     If using Data Box to create **Managed disk(s)** from the on-premises virtual hard disks (VHDs), you will also need to provide the following information:
 
@@ -66,7 +66,7 @@ Do the following steps in the Azure portal to order a device.
 
     ![Data Box import Order wizard, Data destination screen, with Managed Disks selected](media/data-box-order-portal/select-data-box-import-07-b.png)
 
-    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
    > [!NOTE]
    > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
@@ -135,9 +135,9 @@ Do the following steps in the Azure portal to order a device.
 
 14. Select a user identity that you'll use to manage access to this resource. Choose **Select a user identity**. In the panel on the right, select the subscription and the managed identity to use. Then choose **Select**.
 
-    A user-assigned managed identity is a stand-alone Azure resource that can be used to manage multiple resources. For more information, see [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md).  
+    A user-assigned managed identity is a stand-alone Azure resource that can be used to manage multiple resources. For more information, see [Managed identity types](../articles/active-directory/managed-identities-azure-resources/overview.md).  
 
-    If you need to create a new managed identity, follow the guidance in [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    If you need to create a new managed identity, follow the guidance in [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
     ![Select a user identity](./media/data-box-order-portal/customer-managed-key-10.png)
 
@@ -200,7 +200,7 @@ Do the following steps in the Azure portal to order a device.
 
     ![Screenshot of the Add Shipping Address dialog box with the Ship using options and the Add shipping address option called out.](media/data-box-order-portal/select-data-box-import-10.png)
 
-    If you selected self-managed shipping, you will receive an email notification after the order is placed successfully. For more information about self-managed shipping, see [Use self-managed shipping](data-box-portal-customer-managed-shipping.md).
+    If you selected self-managed shipping, you will receive an email notification after the order is placed successfully. For more information about self-managed shipping, see [Use self-managed shipping](../articles/databox/data-box-portal-customer-managed-shipping.md).
 
 19. Select **Add Shipping Address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
 
