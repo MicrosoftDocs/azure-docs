@@ -169,7 +169,7 @@ The method of providing the token, and the method to construct the corresponding
 
 ### SpeechRecognizer, IntentRecognizer, ConversationTranscriber & SpeechSynthizer
 
-For these objects the authorization token is built from the Resource ID and the AAD Token and then used to create a SpeechConfig object.
+For these objects, build the authorization token from the Resource ID and the AAD Token and then use it to create a SpeechConfig object.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
