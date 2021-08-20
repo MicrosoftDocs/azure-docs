@@ -27,25 +27,7 @@ When switching from Okta sign on to Azure AD CA, it's important to understand li
 
 Before you do any of the steps for hybrid Azure AD join, you'll need an enterprise administrator credential in the on-premises forest to configure the Service Connection Point (SCP) record.
 
-## High-level migration tasks
-
-The following are the high-level migration tasks:
-
-1. [Create a catalog of current Okta sign on policies](#step-1---catalog-current-okta-sign-on-policies)
-
-2. [Configure condition pre-requisites](#step-2---configure-condition-pre-requisites)
-
-3. [Configure Azure AD Multi-Factor Authentication tenant settings](#step-3---configure-azure-ad-mfa-tenant-settings)
-
-4. [Configure CA policies](#step-4---configure-ca-policies)
-
-5. [Enroll pilot members in Azure AD Multi-Factor Authentication](#step-5---enroll-pilot-members-in-azure-ad-mfa)
-
-6. [Enable CA policies](#step-6---enable-ca-policies)
-
-7. [Cutover from sign on to CA policies](#step-7---cutover-from-sign-on-to-ca-policies)
-
-### Step 1 - Catalog current Okta sign on policies
+## Step 1 - Catalog current Okta sign on policies
 
 To complete a successful transition to CA, the existing Okta sign on policies should be evaluated to determine use cases and requirements that will be transitioned to Azure AD.
 
@@ -73,7 +55,7 @@ In the following example, our Office 365 application sign-on policy has four sep
 
 ![image shows o365 sign on rules](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-on-rules.png)
 
-### Step 2 - Configure condition pre-requisites
+## Step 2 - Configure condition pre-requisites
 
 Azure AD CA policies can be configured to match Okta's conditions for most scenarios without additional configuration.
 
@@ -87,7 +69,7 @@ In some scenarios, you may need additional setup before you configure the CA pol
 
   - [Enroll the device into Microsoft Endpoint Manager](#configure-device-compliance) and assign a compliance policy.
 
-#### Hybrid Azure AD join configuration
+### Hybrid Azure AD join configuration
 
 Enabling hybrid Azure AD join can be done on your Azure AD Connect server by running the configuration wizard. Post configuration, steps will need to be taken to automatically enroll devices.
 
@@ -104,7 +86,7 @@ Enabling hybrid Azure AD join can be done on your Azure AD Connect server by run
 
 4. You can either allow the entire legacy authentication stack through for all Windows clients or contact Okta support to enable their custom client string on your existing app policies.
 
-#### Configure device compliance
+### Configure device compliance
 
 While hybrid Azure AD join is direct replacement for Okta device trust on Windows, CA policies can also look at device compliance for devices that have fully enrolled into Microsoft Endpoint Manager.
 
@@ -118,7 +100,7 @@ While hybrid Azure AD join is direct replacement for Okta device trust on Window
 
 - **Android enrollment** - Before enrolling an Android device, [additional configurations](https://docs.microsoft.com/mem/intune/enrollment/android-enroll) must be made in the Endpoint Management Console.
 
-### Step 3 - Configure Azure AD Multi-Factor Authentication tenant settings
+## Step 3 - Configure Azure AD Multi-Factor Authentication tenant settings
 
 Before converting to CA, confirm the base Azure AD Multi-Factor Authentication
 tenant settings for your organization.
@@ -148,7 +130,7 @@ Instead, you can use **<https://aka.ms/mfaportal>**.
 
 ![image shows uncheck fields in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
 
-### Step 4 - Configure CA policies
+## Step 4 - Configure CA policies
 
 After you configured the pre-requisites, and established the base settings its time to build the first CA policy.
 
@@ -172,7 +154,7 @@ trust policy, its time to configure the equivalent [**Block legacy authenticatio
 
 With these three CA policies, the original Okta sign on policies experience has been replicated in Azure AD. Next steps involve enrolling the user to Azure MFA and testing the policies.
 
-### Step 5 - Enroll pilot members in Azure AD Multi-Factor Authentication
+## Step 5 - Enroll pilot members in Azure AD Multi-Factor Authentication
 
 Once the CA policies have been configured, users will
 need to register for Azure MFA methods. Users can be required to register through several different methods.
@@ -193,7 +175,7 @@ they'll be taken to **My Security** information page after  satisfying the MFA p
 
 See the [end-user documentation for MFA enrollment](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-signin).
 
-### Step 6 - Enable CA policies
+## Step 6 - Enable CA policies
 
 1. To roll out testing, change the policies created in the earlier examples to **Enabled test user login**. 
 
@@ -211,7 +193,7 @@ See the [end-user documentation for MFA enrollment](https://docs.microsoft.com/a
 
 ![image shows mfa verification through okta prompted for CA](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/mfa-verification-through-okta-prompted-ca.png)
 
-### Step 7 - Cutover from sign on to CA policies
+## Step 7 - Cutover from sign on to CA policies
 
 After conducting thorough testing on the pilot members to ensure that CA is in effect as expected, the remaining organization members can be added into CA policies after registration has been completed.
 
