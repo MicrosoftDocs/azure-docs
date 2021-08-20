@@ -78,7 +78,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
 ```
 
 Any user with the Synapse Administrator role can use these credentials to access Azure Data Lake storage or Cosmos DB analytical storage. 
-If you have low priviledged users that do not have Synapse Administrator role, you would need to give them an explicit permission to reference these database scoped credentials:
+If you have low privileged users that do not have Synapse Administrator role, you would need to give them an explicit permission to reference these database scoped credentials:
 
 ```sql
 GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::WorkspaceIdentity TO <user>
