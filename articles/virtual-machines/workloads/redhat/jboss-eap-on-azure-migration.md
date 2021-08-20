@@ -54,7 +54,7 @@ To quickly get started, select one of the Quickstart template that closely match
 
 - **[Azure Command-Line Interface (CLI)](/cli/azure/overview)**.
 
-- **Java source code and [Java Development Kit (JDK) version](https://www.oracle.com/java/technologies/javase-downloads.html)**
+- **Java source code and [Java Development Kit (JDK) version](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/development_guide/index)**
 
 - **[Java application based on JBoss EAP 7.2](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2html-single/development_guide/index#become_familiar_with_java_enterprise_edition_8)** or **[Java application based on JBoss EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html-single/development_guide/index#get_started_developing_applications)**.
 
@@ -261,7 +261,7 @@ For any support related questions, issues or customization requirements, please 
 * Learn more about [Azure Virtual Machines](https://azure.microsoft.com/overview/what-is-a-virtual-machine/)
 * Learn more about [Azure Virtual Machine Scale Set](../../../virtual-machine-scale-sets/overview.md)
 * Learn more about [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
-* Learn more about [Azure App Service on Linux](../../../app-service/overview.md#app-service-on-linux)
+* Learn more about Azure App Service on Linux](../../../app-service/overview.md#app-service-on-linux)
 * Learn more about [Azure Storage](../../../storage/common/storage-introduction.md)
 * Learn more about [Azure Networking](../../../networking/fundamentals/networking-overview.md)
 
