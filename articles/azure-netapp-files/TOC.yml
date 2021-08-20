@@ -229,7 +229,6 @@
         href: azacsnap-cmd-ref-delete.md
       - name: Restore using AzAcSnap
         href: azacsnap-cmd-ref-restore.md
-<!-- --> 
 - name: Resources
   items:
   - name: Pricing
