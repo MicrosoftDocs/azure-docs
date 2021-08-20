@@ -95,7 +95,7 @@ sections:
           Classification is a tag applied to a data asset at the table, column, or file level, that identifies what data exists in the asset. Classification can be applied automatically or manually, based on the type of data found. Typically, you use classification tags to identify whether an asset contains sensitive data, and what type of sensitive data that might be.
           
       - question: |
-          Does Azure Purview scan and classify emails, PDFs etc. in my Sharepoint and OneDrive?
+          Does Azure Purview scan and classify emails, PDFs etc. in my SharePoint and OneDrive?
         answer: |
           Scanning for on-premises SharePoint sites and libraries is provided through the Azure Information Protection scanner. The scanner is available for use  through a customer's Microsoft 365 subscription with the following SKUs: AIP P1, EMS E3, and M365 E3. If you have any one of these SKUs, you should have the right entitlements to start using the Azure Information Protection scanner.
           

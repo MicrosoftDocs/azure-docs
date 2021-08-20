@@ -165,6 +165,11 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | West US | :heavy_check_mark: | :x: |
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: |
+| Australia Southeast | :heavy_check_mark: | :x: |
+| South Africa North | :heavy_check_mark: | :x: |
+| East Asia (Hong Kong) | :heavy_check_mark: | :x: |
+| Central India | :heavy_check_mark: | :x: |
+
 ## Contacts
 
 For any questions or suggestions you might have on Azure Database for MySQL flexible server, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address isn't a technical support alias.
