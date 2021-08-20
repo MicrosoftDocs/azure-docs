@@ -27,8 +27,8 @@ platform. Device Update for IoT Hub also provides open-source code if you are no
 running one of the above platforms. You can port the agent to the distribution you
 are running.
 
-Device Update works with IoT Plug and Play (PnP) and can manage any device that supports
-the required PnP interfaces. For more information, see [Device Update for IoT Hub and
+Device Update works with IoT Plug and Play and can manage any device that supports
+the required IoT Plug and Play interfaces. For more information, see [Device Update for IoT Hub and
 IoT Plug and Play](device-update-plug-and-play.md).
 
 ## Support for a wide range of update artifacts
