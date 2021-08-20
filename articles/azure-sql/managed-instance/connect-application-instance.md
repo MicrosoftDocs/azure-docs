@@ -26,7 +26,7 @@ Whatever choice you make, you can connect it to Azure SQL Managed Instance.
 This article describes how to connect an application to Azure SQL Managed Instance in a number of different application scenarios from inside the virtual network. 
 
 > [!IMPORTANT]
-> You can also enable data access to your managed instance from outside a virtual network. You are able to access your managed instance from multi-tenant Azure services like Power BI, Azure App Service, or an on-premises network that are not connected to a VPN by using the public endpoint on a managed instance. See more on [Configure public endpoint in Azure SQL Managed Instance](./public-endpoint-configure.md). 
+> You can also enable data access to your managed instance from outside a virtual network. You are able to access your managed instance from multi-tenant Azure services like Power BI, Azure App Service, or an on-premises network that are not connected to a VPN by using the public endpoint on a managed instance. You will need to enable public endpoint on the managed instance and allow public endpoint traffic on the network security group associated with the managed instance subnet. See more important details on [Configure public endpoint in Azure SQL Managed Instance](./public-endpoint-configure.md). 
 
 ![High availability](./media/connect-application-instance/application-deployment-topologies.png)
 
