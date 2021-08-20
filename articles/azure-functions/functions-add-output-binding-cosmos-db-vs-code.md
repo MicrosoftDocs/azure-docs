@@ -2,7 +2,7 @@
 title: Connect Azure Functions to Azure Cosmos DB using Visual Studio Code 
 description: Learn how to connect Azure Functions to an Azure Cosmos DB account by adding an output binding to your Visual Studio Code project. 
 author: ThomasWeiss
-ms.date: 03/23/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.author: thweiss
 zone_pivot_groups: programming-languages-set-functions-temp
@@ -28,34 +28,27 @@ Before you get started, make sure to install the [Azure Databases extension](htt
 ## Create your Azure Cosmos DB account
 
 > [!IMPORTANT]
-> [Azure Cosmos DB serverless](../cosmos-db/serverless.md) is now available in preview. This consumption-based mode makes Azure Cosmos DB a strong option for serverless workloads. To use Azure Cosmos DB in serverless mode, choose **Serverless** as the **Capacity mode** when creating your account.
+> [Azure Cosmos DB serverless](../cosmos-db/serverless.md) is now generally available. This consumption-based mode makes Azure Cosmos DB a strong option for serverless workloads. To use Azure Cosmos DB in serverless mode, choose **Serverless** as the **Capacity mode** when creating your account.
 
-1. In a new browser window, sign in to the [Azure portal](https://portal.azure.com/).
+1. In Visual Studio Code, choose the Azure icon in the Activity bar.
 
-1. Click **Create a resource** > **Databases** > **Azure Cosmos DB**.
-   
-    :::image type="content" source="../cosmos-db/includes/media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png" alt-text="The Azure portal Databases pane" border="true":::
+1. In the **Azure: Databases** area, right-click (Ctrl+click on macOS) on the Azure subscription where you created your function app in the [previous article](./create-first-function-vs-code-csharp.md), and select **Create Server...**
 
-1. In the **Create Azure Cosmos DB Account** page, enter the settings for your new Azure Cosmos DB account. 
- 
-    |Setting|Value|Description|
-    |---|---|---|
-    |Subscription|*Your subscription*|Choose the Azure subscription where you created your Function App in the [previous article](./create-first-function-vs-code-csharp.md).|
-    |Resource Group|*Your resource group*|Choose the resource group where you created your Function App in the [previous article](./create-first-function-vs-code-csharp.md).|
-    |Account Name|*Enter a unique name*|Enter a unique name to identify your Azure Cosmos DB account.<br><br>The account name can use only lowercase letters, numbers, and hyphens (-), and must be between 3 and 31 characters long.|
-    |API|Core (SQL)|Select **Core (SQL)** to create a document database that you can query by using a SQL syntax. [Learn more about the Azure Cosmos DB SQL API](../cosmos-db/introduction.md).|
-    |Location|*Select the region closest to your location*|Select a geographic location to host your Azure Cosmos DB account. Use the location that's closest to you or your users to get the fastest access to your data.|
-    |Capacity mode|Serverless or Provisioned throughput|Select **Serverless** to create an account in [serverless](../cosmos-db/serverless.md) mode. Select **Provisioned throughput** to create an account in [provisioned throughput](../cosmos-db/set-throughput.md) mode.<br><br>Choose **Serverless** if you're getting started with Azure Cosmos DB.|
+    :::image type="content" source="./media/functions-add-output-binding-cosmos-db-vs-code/create-account.png" alt-text="Creating a new Azure Cosmos DB account from Visual Studio code" border="true":::
 
-1. Click **Review + create**. You can skip the **Network** and **Tags** section. 
+1. Provide the following information at the prompts:
 
-1. Review the summary information and click **Create**. 
+    |Prompt| Selection|
+    |--|--|
+    |**Select an Azure Database Server**| Choose `Core (SQL)` to create a document database that you can query by using a SQL syntax. [Learn more about the Azure Cosmos DB SQL API](../cosmos-db/introduction.md). |
+    |**Account name**| Enter a unique name to identify your Azure Cosmos DB account. The account name can use only lowercase letters, numbers, and hyphens (-), and must be between 3 and 31 characters long.|
+    |**Select a capacity model**| Select **Serverless** to create an account in [serverless](../cosmos-db/serverless.md) mode. 
+    |**Select a resource group for new resources**| Choose the resource group where you created your function app in the [previous article](./create-first-function-vs-code-csharp.md). |
+    |**Select a location for new resources**| Select a geographic location to host your Azure Cosmos DB account. Use the location that's closest to you or your users to get the fastest access to your data. |
 
-After your account is created, you can use Visual Studio Code to work with the new account.
+    After your new account is provisioned, a message is displayed in notification area. 
 
 ## Create an Azure Cosmos DB database and container
-
-1. In Visual Studio Code, choose the Azure icon in the Activity bar, then in the **Azure: Databases** area, expand your subscription.
 
 1. Right-click your account and select **Create database...**.
 
@@ -73,7 +66,7 @@ After your account is created, you can use Visual Studio Code to work with the n
 
 In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure. In this article, you update your app to write JSON documents to the Azure Cosmos DB container you've just created. To connect to your Azure Cosmos DB account, you must add its connection string to your app settings. You then download the new setting to your local.settings.json file so you can connect to your Azure Cosmos DB account when running locally.
 
-1. In Visual Studio Code, locate the Azure Cosmos DB account you just created. Right-click (Ctrl+click on macOS) on its name, and select **Copy Connection String**.
+1. In Visual Studio Code, right-click (Ctrl+click on macOS) on your new Azure Cosmos DB account, and select **Copy Connection String**.
 
     :::image type="content" source="./media/functions-add-output-binding-cosmos-db-vs-code/copy-connection-string.png" alt-text="Copying the Azure Cosmos DB connection string" border="true":::
 
