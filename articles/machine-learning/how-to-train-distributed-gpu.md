@@ -144,8 +144,8 @@ Beyond these, many applications will also need the following environment variabl
 
 The Azure ML PyTorch job supports two types of options for launching distributed training:
 
-1. __Per-process-launcher__: The system will launch all distributed processes for you, with all the relevant information (such as environment variables) to set up the process group.
-1. __Per-node-launcher__: You provide Azure ML with the utility launcher that will get run on each node. The utility launcher will handle launching each of the processes on a given node. Locally within each node, `RANK` and `LOCAL_RANK` are set up by the launcher. The **torch.distributed.launch** utility and PyTorch Lightning both belong in this category.
+- __Per-process-launcher__: The system will launch all distributed processes for you, with all the relevant information (such as environment variables) to set up the process group.
+- __Per-node-launcher__: You provide Azure ML with the utility launcher that will get run on each node. The utility launcher will handle launching each of the processes on a given node. Locally within each node, `RANK` and `LOCAL_RANK` are set up by the launcher. The **torch.distributed.launch** utility and PyTorch Lightning both belong in this category.
 
 There are no fundamental differences between these launch options. The choice is largely up to your preference or the conventions of the frameworks/libraries built on top of vanilla PyTorch (such as Lightning or Hugging Face).
 
