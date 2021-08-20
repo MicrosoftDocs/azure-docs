@@ -37,7 +37,7 @@ The process of key rotation and regeneration is simple. First, make sure that yo
 
 1. Select **Keys** from the left menu, then select **Regenerate Secondary Key** from the ellipsis on the right of your secondary key.
 
-    :::image type="content" source="./media/secure-access-to-data/regenerate-secondary-key.png" alt-text="Regenerating the secondary key" border="true":::
+    :::image type="content" source="./media/secure-access-to-data/regenerate-secondary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
 
 1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Cosmos DB account.
 
@@ -45,7 +45,7 @@ The process of key rotation and regeneration is simple. First, make sure that yo
 
 1. Go back to the Azure portal and trigger the regeneration of the primary key.
 
-    :::image type="content" source="./media/secure-access-to-data/regenerate-primary-key.png" alt-text="Regenerating the primary key" border="true":::
+    :::image type="content" source="./media/secure-access-to-data/regenerate-primary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
 
 # [If your application is currently using the secondary key](#tab/using-secondary-key)
 
@@ -53,7 +53,7 @@ The process of key rotation and regeneration is simple. First, make sure that yo
 
 1. Select **Keys** from the left menu, then select **Regenerate Primary Key** from the ellipsis on the right of your primary key.
 
-    :::image type="content" source="./media/secure-access-to-data/regenerate-primary-key.png" alt-text="Regenerating the primary key" border="true":::
+    :::image type="content" source="./media/secure-access-to-data/regenerate-primary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
 
 1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Cosmos DB account.
 
@@ -61,7 +61,7 @@ The process of key rotation and regeneration is simple. First, make sure that yo
 
 1. Go back to the Azure portal and trigger the regeneration of the secondary key.
 
-    :::image type="content" source="./media/secure-access-to-data/regenerate-secondary-key.png" alt-text="Regenerating the secondary key" border="true":::
+    :::image type="content" source="./media/secure-access-to-data/regenerate-secondary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
 
 ---
 
