@@ -43,7 +43,7 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 * The compute instance is also a secure training compute target similar to compute clusters, but it is single node.
 * You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can **[create a compute instance on your behalf](how-to-create-manage-compute-instance.md?tabs=python#on-behalf)**.
 * You can also **[use a setup script (preview)](how-to-create-manage-compute-instance.md#setup-script)**  for an automated way to customize and configure the compute instance as per your needs.
-* To save on costs, **[create  a schedule (preview)](how-to-create-manage-compute-instance.md#schedule)** to automatically start and stop the compute instance (preview).
+* To save on costs, **[create  a schedule (preview)](how-to-create-manage-compute-instance.md#schedule)** to automatically start and stop the compute instance.
 
 ## <a name="contents"></a>Tools and environments
 
@@ -127,7 +127,7 @@ A compute instance:
 * Has a job queue.
 * Runs jobs securely in a virtual network environment, without requiring enterprises to open up SSH port. The job executes in a containerized environment and packages your model dependencies in a Docker container.
 * Can run multiple small jobs in parallel (preview).  Two jobs per core can run in parallel while the rest of the jobs are queued.
-* Supports single-node multi-GPU distributed training jobs
+* Supports single-node multi-GPU [distributed training](how-to-train-distributed-gpu.md) jobs
 
 You can use compute instance as a local inferencing deployment target for test/debug scenarios.
 
