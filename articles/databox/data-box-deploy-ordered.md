@@ -6,7 +6,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/22/2021
+ms.date: 08/19/2021
 ms.author: alkohli 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
@@ -218,7 +218,7 @@ Do the following steps in the Azure portal to order a device.
 
 3. Select **Create**.
 
-   ![Screenshot of Azure Data Box section with Create option called out](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![Screenshot of Azure Data Box section with Create option called out](media/data-box-deploy-ordered/select-data-box-import-03.png)<!--Check: "Useful links" list no longer included?-->
 
 4. Check if Data Box service is available in your region. Enter or select the following information and select **Apply**.
 
@@ -394,9 +394,9 @@ Do the following steps in the Azure portal to order a device.
 
     Select **Next: Contact details** to continue.
 
-17. In **Contact details**, select **+ Add Shipping Address**.
+17. In **Contact details**, select **+ Add Shipping Address**.<!--Has this been simplified to "Add Address"?-->
 
-    ![From the Contact details screen, add shipping addresses to your Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-08-a.png)
+    ![From the Contact details screen, add shipping addresses to your Azure Data Box import order](media/data-box-deploy-ordered/select-data-box-import-08-a.png)<!--Edit screen to remove "Shipping" from "Add Shipping Address"?-->
 
 18. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
 
