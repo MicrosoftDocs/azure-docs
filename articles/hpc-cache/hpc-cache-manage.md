@@ -4,7 +4,7 @@ description: How to manage and update Azure HPC Cache using the Azure portal or 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 07/08/2021
 ms.author: v-erkel
 ---
 
@@ -28,6 +28,9 @@ The buttons at the top of the page can help you manage the cache:
 * [**Delete**](#delete-the-cache) - Permanently destroys the cache
 
 Read more about these options below.
+
+> [!TIP]
+> You can also manage individual storage targets - read [Manage storage targets](manage-storage-targets.md) for details.
 
 Click the image below to watch a [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) that demonstrates cache management tasks.
 
@@ -242,14 +245,6 @@ $
 
 ---
 
-## Cache metrics and monitoring
-
-The overview page shows graphs for some basic cache statistics - cache throughput, operations per second, and latency.
-
-![screenshot of three line graphs showing the statistics mentioned above for a sample cache](media/hpc-cache-overview-stats.png)
-
-These charts are part of Azure's built-in monitoring and analytics tools. Additional tools and alerts are available from the pages under the **Monitoring** heading in the portal sidebar. Learn more in the portal section of the [Azure Monitoring documentation](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
-
 ## View warnings
 
 If the cache goes into an unhealthy state, check the **Warnings** page. This page shows notifications from the cache software that might help you understand its state.
@@ -266,5 +261,5 @@ Kinds of warnings you might see here include:
 
 ## Next steps
 
-* Learn more about [Azure metrics and statistics tools](../azure-monitor/index.yml)
+* [Monitor the cache with statistics](metrics.md)
 * Get [help with your Azure HPC Cache](hpc-cache-support-ticket.md)

@@ -6,9 +6,9 @@ ms.subservice: migration-guide
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
-author: mokabiru
-ms.author: mokabiru
-ms.reviewer: cawrites
+author: rajeshsetlem
+ms.author: rsetlem
+ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
 ---
 # Assessment rules for SQL Server to Azure SQL Database migration
@@ -59,21 +59,6 @@ GROUP BY SalesOrderID, UnitPrice, UnitPriceDiscount WITH ROLLUP;
 
 More information: [Discontinued Database Engine functionality in SQL Server ](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
 
-## Change data capture (CDC)<a id="CDC"></a>
-
-**Title: Change Data Capture (CDC) is not supported in Azure SQL Database**   
-**Category**: Issue   
-
-
-**Description**   
-Change Data Capture (CDC) is not supported in Azure SQL Database. Evaluate if Change Tracking can be used instead.  Alternatively, migrate to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines. 
-
-
-**Recommendation**   
-Change Data Capture (CDC) is not supported in Azure SQL Database. Evaluate if Change Tracking can be used instead or consider migrating to Azure SQL Managed Instance.
-
-More information: [Enable Azure SQL change tracking](https://social.technet.microsoft.com/wiki/contents/articles/2976.azure-sql-how-to-enable-change-tracking.aspx)
-
 ## CLR assemblies<a id="ClrAssemblies"></a>
 
 **Title: SQL CLR assemblies are not supported in Azure SQL Database**   
@@ -87,7 +72,7 @@ Azure SQL Database does not support SQL CLR assemblies.
 **Recommendation**   
 Currently, there is no way to achieve this in Azure SQL Database. The recommended alternative solutions will require application code and database changes to use only assemblies supported by Azure SQL Database. Alternatively migrate to Azure SQL Managed Instance or SQL Server on Azure Virtual Machine
 
-More information: [Unsupported Transact-SQL differences in SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+More information: [Unsupported Transact-SQL differences in SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 ## Cryptographic provider<a id="CryptographicProvider"></a>
 
@@ -244,7 +229,7 @@ OPENROWSET supports bulk operations through a built-in BULK provider that enable
 **Recommendation**   
 Azure SQL Database cannot access file shares and Windows folders, so the files must be imported from Azure blob storage. Therefore, only blob type DATASOURCE is supported in OPENROWSET function. Alternatively, migrate to SQL Server on Azure Virtual Machine
 
-More information: [Resolving Transact-SQL differences during migration to SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+More information: [Resolving Transact-SQL differences during migration to SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 
 ## OPENROWSET (provider)<a id="OpenRowsetWithSQLAndNonSQLProvider"></a>
@@ -259,7 +244,7 @@ OpenRowSet with SQL or non-SQL provider is an alternative to accessing tables in
 **Recommendation**   
 Azure SQL Database supports OPENROWSET only to import from Azure blob storage. Alternatively, migrate to SQL Server on Azure Virtual Machine
 
-More information: [Resolving Transact-SQL differences during migration to SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+More information: [Resolving Transact-SQL differences during migration to SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 
 ## Non-ANSI left outer join<a id="NonANSILeftOuterJoinSyntax"></a>
@@ -369,7 +354,7 @@ A trigger is a special kind of stored procedure that executes in response to cer
 **Recommendation**   
 Use database level trigger instead. Alternatively migrate to Azure SQL Managed Instance or SQL Server on Azure Virtual Machine
 
-More information: [Resolving Transact-SQL differences during migration to SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+More information: [Resolving Transact-SQL differences during migration to SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 
 ## SQL Agent jobs<a id="AgentJobs"></a>
@@ -440,7 +425,7 @@ Trace flags are used to temporarily set specific server characteristics or to sw
 **Recommendation**   
 Review impacted objects section in Azure Migrate to see all trace flags that are not supported in Azure SQL Database and evaluate if they can be removed. Alternatively, migrate to Azure SQL Managed Instance which supports limited number of global trace flags or SQL Server on Azure Virtual Machine.
 
-More information: [Resolving Transact-SQL differences during migration to SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#transact-sql-syntax-not-supported-in-azure-sql-database)
+More information: [Resolving Transact-SQL differences during migration to SQL Database](../../database/transact-sql-tsql-differences-sql-server.md#t-sql-syntax-not-supported-in-azure-sql-database)
 
 
 ## Windows authentication<a id="WindowsAuthentication"></a>

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 01/14/2021
+ms.date: 07/30/2021
 ---
 
 # Introduction to listing options
@@ -107,7 +107,7 @@ You can charge a flat fee for these offer types:
 
 The following offer types support usage-based pricing:
 
-- Azure Application (Managed app) offer support for metered billing. For more information, see [Managed application metered billing](partner-center-portal/azure-app-metered-billing.md).
+- Azure Application (Managed app) offer support for metered billing. For more information, see [Managed application metered billing](marketplace-metering-service-apis.md).
 - SaaS offers support for Metered billing and per user (per seat) pricing. For more information about metered billing, see [Metered billing for SaaS using the commercial marketplace metering service](partner-center-portal/saas-metered-billing.md).
 - Azure virtual machine offers support for **Per core**, **Per core size**, and **Per market and core size** pricing. These options are priced per hour and billed monthly.
 

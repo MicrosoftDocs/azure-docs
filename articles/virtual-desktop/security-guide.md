@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop security best practices - Azure
-description: Best practices for keeping your Windows Virtual Desktop environment secure.
+title: Azure Virtual Desktop security best practices - Azure
+description: Best practices for keeping your Azure Virtual Desktop environment secure.
 author: heidilohr
 
 ms.topic: conceptual
@@ -10,17 +10,17 @@ manager: femila
 ---
 # Security best practices
 
-Windows Virtual Desktop is a managed virtual desktop service that includes many security capabilities for keeping your organization safe. In a Windows Virtual Desktop deployment, Microsoft manages portions of the services on the customer’s behalf. The service has many built-in advanced security features, such as Reverse Connect, which reduce the risk involved with having remote desktops accessible from anywhere.
+Azure Virtual Desktop is a managed virtual desktop service that includes many security capabilities for keeping your organization safe. In a Azure Virtual Desktop deployment, Microsoft manages portions of the services on the customer’s behalf. The service has many built-in advanced security features, such as Reverse Connect, which reduce the risk involved with having remote desktops accessible from anywhere.
 
-This article describes additional steps you can take as an admin to keep your customers' Windows Virtual Desktop deployments secure.
+This article describes additional steps you can take as an admin to keep your customers' Azure Virtual Desktop deployments secure.
 
 ## Security responsibilities
 
 What makes cloud services different from traditional on-premises virtual desktop infrastructures (VDIs) is how they handle security responsibilities. For example, in a traditional on-premises VDI, the customer would be responsible for all aspects of security. However, in most cloud services, these responsibilities are shared between the customer and the company.
 
-When you use Windows Virtual Desktop, it’s important to understand that while some components come already secured for your environment, you'll need to configure other areas yourself to fit your organization’s security needs.
+When you use Azure Virtual Desktop, it’s important to understand that while some components come already secured for your environment, you'll need to configure other areas yourself to fit your organization’s security needs.
 
-Here are the security needs you're responsible for in your Windows Virtual Desktop deployment:
+Here are the security needs you're responsible for in your Azure Virtual Desktop deployment:
 
 | Security need | Is the customer responsible for this? |
 |---------------|:-------------------------:|
@@ -39,7 +39,7 @@ The security needs the customer isn't responsible for are handled by Microsoft.
 
 ## Azure security best practices
 
-Windows Virtual Desktop is a service under Azure. To maximize the safety of your Windows Virtual Desktop deployment, you should make sure to secure the surrounding Azure infrastructure and management plane as well. To secure your infrastructure, consider how Windows Virtual Desktop fits into your larger Azure ecosystem. To learn more about the Azure ecosystem, see [Azure security best practices and patterns](../security/fundamentals/best-practices-and-patterns.md).
+Azure Virtual Desktop is a service under Azure. To maximize the safety of your Azure Virtual Desktop deployment, you should make sure to secure the surrounding Azure infrastructure and management plane as well. To secure your infrastructure, consider how Azure Virtual Desktop fits into your larger Azure ecosystem. To learn more about the Azure ecosystem, see [Azure security best practices and patterns](../security/fundamentals/best-practices-and-patterns.md).
 
 This section describes best practices for securing your Azure ecosystem.
 
@@ -59,27 +59,27 @@ To learn more, see [Onboard your Azure subscription to Security Center Standard]
 
 Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Azure Security Center](../security-center/secure-score-security-controls.md).
 
-## Windows Virtual Desktop security best practices
+## Azure Virtual Desktop security best practices
 
-Windows Virtual Desktop has many built-in security controls. In this section, you'll learn about security controls you can use to keep your users and data safe.
+Azure Virtual Desktop has many built-in security controls. In this section, you'll learn about security controls you can use to keep your users and data safe.
 
 ### Require multi-factor authentication
 
-Requiring multi-factor authentication for all users and admins in Windows Virtual Desktop improves the security of your entire deployment. To learn more, see [Enable Azure AD Multi-Factor Authentication for Windows Virtual Desktop](set-up-mfa.md).
+Requiring multi-factor authentication for all users and admins in Azure Virtual Desktop improves the security of your entire deployment. To learn more, see [Enable Azure AD Multi-Factor Authentication for Azure Virtual Desktop](set-up-mfa.md).
 
 ### Enable Conditional Access
 
-Enabling [Conditional Access](../active-directory/conditional-access/overview.md) lets you manage risks before you grant users access to your Windows Virtual Desktop environment. When deciding which users to grant access to, we recommend you also consider who the user is, how they sign in, and which device they're using.
+Enabling [Conditional Access](../active-directory/conditional-access/overview.md) lets you manage risks before you grant users access to your Azure Virtual Desktop environment. When deciding which users to grant access to, we recommend you also consider who the user is, how they sign in, and which device they're using.
 
 ### Collect audit logs
 
-Enabling audit log collection lets you view user and admin activity related to Windows Virtual Desktop. Some examples of key audit logs are:
+Enabling audit log collection lets you view user and admin activity related to Azure Virtual Desktop. Some examples of key audit logs are:
 
 -   [Azure Activity Log](../azure-monitor/essentials/activity-log.md)
 -   [Azure Active Directory Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 -   [Session hosts](../azure-monitor/agents/agent-windows.md)
--   [Windows Virtual Desktop Diagnostic Log](../virtual-desktop/diagnostics-log-analytics.md)
+-   [Azure Virtual Desktop Diagnostic Log](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Key Vault logs](../key-vault/general/logging.md)
 
 ### Use RemoteApps
@@ -88,11 +88,11 @@ When choosing a deployment model, you can either provide remote users access to 
 
 ### Monitor usage with Azure Monitor
 
-Monitor your Windows Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) for the Windows Virtual Desktop service to receive notifications whenever there's a service impacting event.
+Monitor your Azure Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) for the Azure Virtual Desktop service to receive notifications whenever there's a service impacting event.
 
 ## Session host security best practices
 
-Session hosts are virtual machines that run inside an Azure subscription and virtual network. Your Windows Virtual Desktop deployment's overall security depends on the security controls you put on your session hosts. This section describes best practices for keeping your session hosts secure.
+Session hosts are virtual machines that run inside an Azure subscription and virtual network. Your Azure Virtual Desktop deployment's overall security depends on the security controls you put on your session hosts. This section describes best practices for keeping your session hosts secure.
 
 ### Enable endpoint protection
 
@@ -118,7 +118,7 @@ Signing users out when they're inactive preserves resources and prevents access 
 
 ### Set up screen locks for idle sessions
 
-You can prevent unwanted system access by configuring Windows Virtual Desktop to lock a machine's screen during idle time and requiring authentication to unlock it.
+You can prevent unwanted system access by configuring Azure Virtual Desktop to lock a machine's screen during idle time and requiring authentication to unlock it.
 
 ### Establish tiered admin access
 
@@ -126,7 +126,7 @@ We recommend you don't grant your users admin access to virtual desktops. If you
 
 ### Consider which users should access which resources
 
-Consider session hosts as an extension of your existing desktop deployment. We recommend you control access to network resources the same way you would for other desktops in your environment, such as using network segmentation and filtering. By default, session hosts can connect to any resource on the internet. There are several ways you can limit traffic, including using Azure Firewall, Network Virtual Appliances, or proxies. If you need to limit traffic, make sure you add the proper rules so that Windows Virtual Desktop can work properly.
+Consider session hosts as an extension of your existing desktop deployment. We recommend you control access to network resources the same way you would for other desktops in your environment, such as using network segmentation and filtering. By default, session hosts can connect to any resource on the internet. There are several ways you can limit traffic, including using Azure Firewall, Network Virtual Appliances, or proxies. If you need to limit traffic, make sure you add the proper rules so that Azure Virtual Desktop can work properly.
 
 ### Manage Office Pro Plus security
 
@@ -146,9 +146,9 @@ By restricting operating system capabilities, you can strengthen the security of
 
 - Prevent unwanted software from running on session hosts. You can enable App Locker for additional security on session hosts, ensuring that only the apps you allow can run on the host.
 
-## Windows Virtual Desktop support for Trusted Launch
+## Azure Virtual Desktop support for Trusted Launch
 
-Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Windows Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines (preview)](../virtual-machines/trusted-launch.md).
+Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines (preview)](../virtual-machines/trusted-launch.md).
 
 ### Secure Boot
 
@@ -162,7 +162,7 @@ Remote attestation is a great way to check the health of your VMs. Remote attest
 
 A vTPM is a virtualized version of a hardware Trusted Platform Module (TPM), with a virtual instance of a TPM per VM. vTPM enables remote attestation by performing integrity measurement of the entire boot chain of the VM (UEFI, OS, system, and drivers). 
 
-We recommend enabling vTPM to use remote attestation on your VMs. With vTPM enabled, you can also enable BitLocker functionality, which provides full-volume encryption to protect data at rest. Any features using vTPM will result in secrets bound to the specific VM. When users connect to the Windows Virtual Desktop service in a pooled scenario, users can be redirected to any VM in the host pool. Depending on how the feature is designed this may have an impact.
+We recommend enabling vTPM to use remote attestation on your VMs. With vTPM enabled, you can also enable BitLocker functionality, which provides full-volume encryption to protect data at rest. Any features using vTPM will result in secrets bound to the specific VM. When users connect to the Azure Virtual Desktop service in a pooled scenario, users can be redirected to any VM in the host pool. Depending on how the feature is designed this may have an impact.
 
 >[!NOTE]
 >BitLocker should not be used to encrypt the specific disk where you're storing your FSLogix profile data.
@@ -179,18 +179,51 @@ HVCI is a powerful system mitigation that uses VBS to protect Windows kernel-mod
 
 Windows Defender Credential Guard uses VBS to isolate and protect secrets so that only privileged system software can access them. This prevents unauthorized access to these secrets and credential theft attacks, such as Pass-the-Hash attacks.
 
-### Deploy Trusted Launch in your Windows Virtual Desktop environment
+### Deploy Trusted Launch in your Azure Virtual Desktop environment
 
-Windows Virtual Desktop doesn't currently support automatically configuring Trusted Launch during the host pool setup process. To use trusted launch in your Windows Virtual Desktop environment, you'll need to deploy Trusted Launch normally and then manually add the virtual machine to your desired host pool.
+Azure Virtual Desktop doesn't currently support automatically configuring Trusted Launch during the host pool setup process. To use trusted launch in your Azure Virtual Desktop environment, you'll need to deploy Trusted Launch normally and then manually add the virtual machine to your desired host pool.
 
 ## Nested virtualization
 
-The following operating systems support running nested virtualization on Windows Virtual Desktop:
+The following operating systems support running nested virtualization on Azure Virtual Desktop:
 
 - Windows Server 2016
 - Windows Server 2019
 - Windows 10 Enterprise
-- Windows 10 Enterprise multi-session.
+- Windows 10 Enterprise multi-session
+
+## Windows Defender Application Control
+
+The following operating systems support using Windows Defender Application Control with Azure Virtual Desktop:
+
+- Windows Server 2016
+- Windows Server 2019
+- Windows 10 Enterprise
+- Windows 10 Enterprise multi-session
+
+>[!NOTE]
+>When using Windows Defender Access Control, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied, it affects all users on the device equally.
+
+## IP virtualization
+
+If you want to use IP virtualization on Windows Server 2019, please follow these steps:
+
+1. From an admin Windows PowerShell window, rename the following key: 
+```powershell
+Rename-Item HKLM:\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catalog\2C69D9F1 Backup_2C69D9F1
+```
+>[!NOTE]
+>Deleting the key would achieve the same thing, but the rename provides a way to revert back more easily if desired. This is the data that is there by default:
+>       
+>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catalog\2C69D9F1\
+>AppFullPath: C:\Windows\System32\svchost.exe\
+>PermittedLspCategories: 0x40000000
+
+2. Restart the VM.
+
+3. Enable the IP Virtualization feature by opening **gpedit.msc**, then going to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Application Compatibility**. Enable the **Turn on Remote Desktop IP Virtualization** policy, then specify the IP address you want the policy to use.
+
+4. Restart the VM.
 
 ## Next steps
 

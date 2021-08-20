@@ -17,7 +17,7 @@ You can find pre-made [Azure Resource Manager templates](https://github.com/Azur
 ## Step 2: Modify your Azure Resource Manager template
 You can follow the steps at [Create your first Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) if you have never created a template before.
 
-In addition, [Best practices for creating Azure Resource Manager templates](../azure-resource-manager/templates/template-best-practices.md) offers many guidelines and suggestions to help you create Azure Resource Manager templates that are reliable and easy to use. Typically, you will use a variation of one of the approaches or examples provided and modify your template for your needs.
+In addition, [Best practices for creating Azure Resource Manager templates](../azure-resource-manager/templates/best-practices.md) offers many guidelines and suggestions to help you create Azure Resource Manager templates that are reliable and easy to use. Typically, you will use a variation of one of the approaches or examples provided and modify your template for your needs.
 
 ## Step 3: Deploy resources with PowerShell
 After you have customized your templates and scripts, follow the steps necessary to [deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). The article provides general information about using Azure PowerShell with Azure Resource Manager templates to deploy your resources to Azure.

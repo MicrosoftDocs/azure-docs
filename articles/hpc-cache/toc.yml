@@ -1,3 +1,4 @@
+items:
 - name: Azure HPC Cache documentation
   href: index.yml
 
@@ -8,12 +9,12 @@
 
 - name: Concepts
   items:
+  - name: Decide if HPC Cache is the right solution
+    href: usage-scenarios.md
   - name: Plan the aggregated namespace
     href: hpc-cache-namespace.md
   - name: Understand cache usage models
     href: cache-usage-models.md
-  - name: Decide if HPC Cache is the right solution
-    href: usage-scenarios.md
   - name: Security
     items:
     - name: Security baseline
@@ -44,10 +45,14 @@
           href: hpc-cache-ingest-manual.md
     - name: Edit storage targets
       href: hpc-cache-edit-storage.md
+    - name: Manage storage targets
+      href: manage-storage-targets.md
   - name: Connect to the cache
     href: hpc-cache-mount.md
   - name: Manage the cache
     href: hpc-cache-manage.md
+  - name: Metrics and monitoring
+    href: metrics.md
   - name: Use optional settings
     items:
     - name: Configure optional settings

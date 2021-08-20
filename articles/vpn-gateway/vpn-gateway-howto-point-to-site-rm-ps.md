@@ -1,5 +1,5 @@
 ---
-title: 'Connect to a VNet from a computer - P2S VPN and native Azure certificate authentication: PowerShell'
+title: 'Connect to a VNet from a computer - P2S VPN and Azure certificate authentication: PowerShell'
 description: Learn how to connect Windows and macOS clients securely to Azure virtual network using P2S and self-signed or CA issued certificates.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
@@ -12,7 +12,7 @@ ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
 
 ---
-# Configure a Point-to-Site VPN connection to a VNet using native Azure certificate authentication: PowerShell
+# Configure a Point-to-Site VPN connection to a VNet using Azure certificate authentication: PowerShell
 
 This article helps you securely connect individual clients running Windows, Linux, or macOS to an Azure VNet. Point-to-site VPN connections are useful when you want to connect to your VNet from a remote location, such when you are telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. Point-to-site connections do not require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2.
 
@@ -108,9 +108,9 @@ $DNS = "10.2.1.4"
 In this step, you configure and create the virtual network gateway for your VNet.
 
 * The -GatewayType must be **Vpn** and the -VpnType must be **RouteBased**.
-* The -VpnClientProtocol is used to specify the types of tunnels that you would like to enable. The  tunnel options are **OpenVPN, SSTP**, and **IKEv2**. You can choose to enable one of them or any supported combination. If you want to enable multiple types, then specify the names separated by a comma. OpenVPN and SSTP cannot be enabled together. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and OSX will use only the IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. You can use the OpenVPN client to connect to OpenVPN tunnel type.
+* The -VpnClientProtocol is used to specify the types of tunnels that you would like to enable. The  tunnel options are **OpenVPN, SSTP**, and **IKEv2**. You can choose to enable one of them or any supported combination. If you want to enable multiple types, then specify the names separated by a comma. OpenVPN and SSTP cannot be enabled together. The strongSwan client on Android and Linux and the native IKEv2 VPN client on iOS and macOS will use only the IKEv2 tunnel to connect. Windows clients try IKEv2 first and if that doesn’t connect, they fall back to SSTP. You can use the OpenVPN client to connect to OpenVPN tunnel type.
 * The virtual network gateway 'Basic' SKU does not support IKEv2, OpenVPN, or RADIUS authentication. If you are planning on having Mac clients connect to your virtual network, do not use the Basic SKU.
-* A VPN gateway can take up to 45 minutes to complete, depending on the [gateway sku](vpn-gateway-about-vpn-gateway-settings.md) you select. This example uses IKEv2.
+* A VPN gateway can take 45 minutes or more to complete, depending on the [gateway sku](vpn-gateway-about-vpn-gateway-settings.md) you select. 
 
 1. Configure and create the virtual network gateway for your VNet. It takes approximately 45 minutes for the gateway to create.
 
@@ -197,8 +197,7 @@ Make sure the client certificate was exported as a .pfx along with the entire ce
 
 ## <a name="clientconfig"></a>Configure the VPN client
 
-To connect to the virtual network gateway using P2S, each computer uses the VPN client that natively installed as a part of their operating system. For example, when you go to VPN settings on your Windows computer, you can add VPN connections. Each VPN client must be configured using a VPN client configuration package. The client configuration package contains settings that are specific to the VPN gateway that you created. These steps help you create a package with the specific settings your native VPN client needs to be able connect to the virtual network over a point-to-site connection.
-
+To connect to the virtual network gateway using P2S, each computer uses the VPN client that is natively installed as a part of the operating system. For example, when you go to VPN settings on your Windows computer, you can add VPN connections without installing a separate VPN client. You configure each VPN client by using a client configuration package. The client configuration package contains settings that are specific to the VPN gateway that you created. 
 
 You can use the following quick examples to generate and install the client configuration package. For more information about package contents and additional instructions about to generate and install VPN client configuration files, see [Create and install VPN client configuration files](point-to-site-vpn-client-configuration-azure-cert.md).
 
@@ -227,7 +226,7 @@ $profile.VPNProfileSASUrl
 ### Mac VPN client
 
 From the Network dialog box, locate the client profile that you want to use, then click **Connect**.
-Check [Install - Mac (OS X)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac) for detailed instructions. If you are having trouble connecting, verify that the virtual network gateway is not using a Basic SKU. Basic SKU is not supported for Mac clients.
+Check [Install - Mac (macOS)](./point-to-site-vpn-client-configuration-azure-cert.md#installmac) for detailed instructions. If you are having trouble connecting, verify that the virtual network gateway is not using a Basic SKU. Basic SKU is not supported for Mac clients.
 
   ![Mac connection](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

@@ -5,7 +5,7 @@ author: Juliako
 ms.author: juliako
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 04/01/2021
+ms.date: 06/01/2021
 ---
 
 # Tutorial: Live Video with Computer Vision for Spatial Analysis (preview)
@@ -44,7 +44,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 
 ## Set up Azure resources
 
-1. To run the Spatial Analysis container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that has [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) installed on the host computer.
+1. To run the Spatial Analysis container, you need a compute device with a [NVIDIA Tesla T4 GPU](https://www.nvidia.com/en-us/data-center/tesla-t4/). We recommend that you use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) with GPU acceleration, however the container runs on any other desktop machine that has [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) installed on the host computer.
 
    #### [Azure Stack Edge device](#tab/azure-stack-edge)
 
@@ -120,7 +120,7 @@ The `CognitiveServicesVisionProcessor` node plays the role of a proxy. It conver
 
 ## Create the Computer Vision resource
 
-You need to create an Azure resource of type Computer Vision either on [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. You will be able to create the resource once your request for access to the container has been approved and your Azure Subscription ID has been registered. Go to https://aka.ms/csgate to submit your use case and your Azure Subscription ID. You need to create the Azure resource using the same Azure subscription that has been provided on the Request for Access form.
+You need to create an Azure resource of type Computer Vision either on [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. 
 
 ### Gathering required parameters
 
@@ -140,16 +140,7 @@ You will need this key and endpoint URI in your deployment manifest files to dep
 1. Clone the repo from this location: [https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp).
 1. In Visual Studio Code, open the folder where the repo has been downloaded.
 1. In Visual Studio Code, go to the src/cloud-to-device-console-app folder. There, create a file and name it *appsettings.json*. This file will contain the settings needed to run the program.
-1. Get the `IotHubConnectionString` from the edge device by following these steps:
-
-   - go to your IoT Hub in Azure portal and click on `Shared access policies` in the left navigation pane.
-   - Click on `iothubowner` get the shared access keys.
-   - Copy the `Connection String – primary key` and paste it in the input box on the VSCode.
-
-     The connection string will look like: <br/>`HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx`
-
-1. Copy the below contents into the file. Make sure you replace the variables.
-
+1. Copy the contents of the appsettings.json file from Azure portal. The text should look like the following code.
    ```json
    {
      "IoThubConnectionString": "HostName=<IoTHubName>.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>",
@@ -159,7 +150,7 @@ You will need this key and endpoint URI in your deployment manifest files to dep
    ```
 
 1. Go to the src/edge folder and create a file named .env.
-1. Copy the contents of the env file from Azure portal. The text should look like the following code.
+1. Copy the contents of the env.txt file from Azure portal. The text should look like the following code.
 
    ```env
    SUBSCRIPTION_ID="<Subscription ID>"
@@ -193,7 +184,7 @@ There are a few things you need to pay attention to in the deployment template f
 1. `IpcMode` in `avaedge` and `spatialanalysis` module createOptions should be same and set to **host**.
 1. For the RTSP simulator to work, ensure that you have set up the Volume Bounds when using an Azure Stack Edge device.
 
-   1. [Connect to the SMB share](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample stairwell video file](https://lvamedia.blob.core.windows.net/public/2018-03-05.10-27-03.10-30-01.admin.G329.mp4) to the Local share.
+   1. [Connect to the SMB share](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample stairwell video file](https://lvamedia.blob.core.windows.net/public/2018-03-05.10-27-03.10-30-01.admin.G329.mkv) to the Local share.
 
       > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWDRJd]
 
@@ -290,7 +281,7 @@ In operations.json:
   {
       "opName": "pipelineTopologySet",
       "opParams": {
-          "topologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
+          "pipelineTopologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
       }
   },
   ```
@@ -308,7 +299,7 @@ In operations.json:
               "parameters": [
                   {
                       "name": "rtspUrl",
-                      "value": " rtsp://rtspsim:554/media/stairwell.mkv"
+                      "value": " rtsp://rtspsim:554/media/2018-03-05.10-27-03.10-30-01.admin.G329.mkv"
                   },
                   {
                       "name": "rtspUserName",
@@ -376,7 +367,7 @@ In operations.json:
       ],
   ```
 
-Run a debug session and follow **TERMINAL** instructions, it will set pipelineTopology, set livePipeline, activate livePipeline, and finally delete the resources.
+Run a debug session by selecting F5 and follow **TERMINAL** instructions, it will set pipelineTopology, set livePipeline, activate livePipeline, and finally delete the resources.
 
 ## Interpret results
 
@@ -496,9 +487,16 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 ```
 
 ### More operations:
+There are different operations that the `spatialAnalysis` module offers:
 
+- **personCount**
+- **personDistance**
+- **personCrossingLine**
+- **personZoneCrossing**
+- **customOperation**
+<br></br>
 <details>
-  <summary>Click to expand</summary>
+  <summary>Click to expand and see the different configuration options for each of the operations.</summary>
 
 ### Person Line Crossing
 
@@ -720,12 +718,25 @@ Sample output for personZoneEvent (from `SpatialAnalysisPersonZoneCrossingOperat
 
 </details>
 
-## Video Player
+## Playing back the recording
 
-You can use a video player to view the generated video including the inferences (bounding boxes) as shown below:
+You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis/inference.png" alt-text="Bounding boxes":::
+1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+1. Locate your Video Analyzers account among the resources you have in your subscription, and open the account pane.
+1. Select **Videos** in the **Video Analyzers** list.
+1. You'll find a video listed with the name `personcount`. This is the name chosen in your pipeline topology file.
+1. Select the video.
+1. On the video details page, click the **Play** icon
+
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/spatial-analysis/sa-video-playback.png" alt-text="Screenshot of video playback":::
+   
+1. To view the inference metadata as bounding boxes on the video, click the **bounding box** icon
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="Bounding box icon":::
+
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]
 
 ## Troubleshooting
 
@@ -809,7 +820,7 @@ The spatialanalysis is a large container and its startup time can take up to 30 
 Try different operations that the `spatialAnalysis` module offers, please refer to the following pipelineTopologies:
 
 - [personCount](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json)
-- [personDistance](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-pperation-topology.json)
+- [personDistance](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-distance-operation-topology.json)
 - [personCrossingLine](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-line-crossing-operation-topology.json)
 - [personZoneCrossing](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-zone-crossing-operation-topology.json)
 - [customOperation](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/custom-operation-topology.json)

@@ -16,6 +16,8 @@ ms.author: pafarley
 
 # Content Moderator Review tool
 
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
+
 Azure Content Moderator provides services to combine machine learning content moderation with human reviews. The [Review tool](https://contentmoderator.cognitive.microsoft.com) website is a user-friendly front end that gives detailed access to these services.
 
 ## What it does

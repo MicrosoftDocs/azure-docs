@@ -28,7 +28,7 @@ Enable the settings described in the table below for the lab account. For more i
 
 ### Lab settings
 
-The size of VM that you need to use for your lab depends on the types of projects that your students will create.  Most [Creative Cloud apps](https://helpx.adobe.com/creative-cloud/system-requirements.html) support GPU-based acceleration and require a GPU for features to work properly.  To ensure that you select the appropriate VM size, we recommend that you test the projects that your students will create to ensure adequate performance.  The below table shows the recommended [VM size](https://docs.microsoft.com/azure/lab-services/administrator-guide#vm-sizing) to use with Creative Cloud.  
+The size of VM that you need to use for your lab depends on the types of projects that your students will create.  Most [Creative Cloud apps](https://helpx.adobe.com/creative-cloud/system-requirements.html) support GPU-based acceleration and require a GPU for features to work properly.  To ensure that you select the appropriate VM size, we recommend that you test the projects that your students will create to ensure adequate performance.  The below table shows the recommended [VM size](./administrator-guide.md#vm-sizing) to use with Creative Cloud.  
 
 | Lab settings | Value/instructions |
 | ------------ | ------------------ |

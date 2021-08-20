@@ -1,13 +1,13 @@
 ---
 title: "Preview: Azure Image Builder Service DevOps Task"
 description: Azure DevOps task to inject build artifacts into a VM image so you can install and configure your application and OS.
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -74,7 +74,7 @@ Use the resource group where the temporary image template artifact will be store
 The location is the region where the Image Builder will run. Only a set number of [regions](../image-builder-overview.md#regions) are supported. The source images must be present in this location. For example, if you are using Shared Image Gallery, a replica must exist in that region.
 
 ### Managed Identity (Required)
-Image Builder requires a Managed Identity, which it uses to read source custom images, connect to Azure Storage, and create custom images. See [here](../image-builder-overview.md#permissions) for more details.
+Image Builder requires a Managed Identity, which it uses to read source custom images, connect to Azure Storage, and create custom images. See [Learn about Azure Image Builder](../image-builder-overview.md#permissions) for more details.
 
 ### VNET Support
 
@@ -343,3 +343,4 @@ The Image Template resource artifact is in the resource group specified initiall
 ## Next steps
 
 For more information, see [Azure Image Builder overview](../image-builder-overview.md).
+

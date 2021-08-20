@@ -1,18 +1,21 @@
 ---
-title: Manage app groups for Windows Virtual Desktop portal - Azure
-description: How to manage Windows Virtual Desktop app groups with the Azure portal.
+title: Manage app groups for Azure Virtual Desktop portal - Azure
+description: How to manage Azure Virtual Desktop app groups with the Azure portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 07/20/2021
 ms.author: helohr
 manager: femila
 ---
 # Tutorial: Manage app groups with the Azure portal
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
+>This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/manage-app-groups-2019.md).
 
-The default app group created for a new Windows Virtual Desktop host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
+The default app group created for a new Azure Virtual Desktop host pool also publishes the full desktop. In addition, you can create one or more RemoteApp application groups for the host pool. Follow this tutorial to create a RemoteApp app group and publish individual Start menu apps.
+
+>[!NOTE]
+>You can dynamically attach MSIX apps to user sessions or add your app packages to a custom virtual machine (VM) image to publish your organization's apps. Learn more at [How to host custom apps with Azure Virtual Desktop](./remote-app-streaming/custom-apps.md).
 
 In this tutorial, learn how to:
 
@@ -28,8 +31,10 @@ If you've already created a host pool and session host VMs using the Azure porta
    
     >[!NOTE]
     > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
+    >
+    >If you're accessing the Azure China portal, go to [https://portal.azure.cn/](https://portal.azure.cn/).
 
-2.  Search for and select **Windows Virtual Desktop**.
+2.  Search for and select **Azure Virtual Desktop**.
 
 3. You can add an application group directly or you can add it from an existing host pool. Choose an option below:
 
@@ -118,7 +123,7 @@ The deployment process will do the following things for you:
 - Create a link to an Azure Resource Manager template based on your configuration that you can download and save for later.
 
 >[!IMPORTANT]
->You can only create 200 application groups for each Azure Active Directory tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to app groups created in Windows Virtual Desktop (classic).
+>You can only create 200 application groups for each Azure Active Directory tenant. We added this limit because of service limitations for retrieving feeds for our users. This limit doesn't apply to app groups created in Azure Virtual Desktop (classic).
 
 ## Edit or remove an app
 
@@ -129,7 +134,7 @@ To edit or remove an app from an app group:
    >[!NOTE]
    >If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us) instead.
 
-2. Search for and select **Windows Virtual Desktop**.
+2. Search for and select **Azure Virtual Desktop**.
 
 3. You can either add an application group directly or from an existing host pool by choosing one of the following options:
 

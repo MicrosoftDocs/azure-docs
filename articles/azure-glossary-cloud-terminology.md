@@ -100,7 +100,7 @@ See [Azure Resource Manager overview](azure-resource-manager/management/overview
 
 ## <a name="arm-template"></a>Resource Manager template
 A JSON file that declaratively defines one or more Azure resources and that defines dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly.  
-See [Authoring Azure Resource Manager templates](./azure-resource-manager/templates/template-syntax.md)
+See [Authoring Azure Resource Manager templates](./azure-resource-manager/templates/syntax.md)
 
 ## resource provider
 A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Resource providers can be accessed through the Azure portal, Azure PowerShell, and several programming SDKs.  

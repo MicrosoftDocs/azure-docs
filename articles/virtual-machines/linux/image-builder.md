@@ -1,14 +1,14 @@
 ---
 title: Use Azure Image Builder with an image gallery for Linux VMs
 description: Create Linux VM images with Azure Image Builder and Shared Image Gallery.
-author: cynthn
-ms.author: cynthn
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/02/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: danis
+
 ---
 # Create a Linux image and distribute it to a Shared Image Gallery by using Azure CLI
 
@@ -22,16 +22,6 @@ To distribute the image to a Shared Image Gallery, the template uses [sharedImag
 
 ## Register the features
 To use Azure Image Builder, you need to register the new feature.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
-
-Check the status of the feature registration.
-
-```azurecli-interactive
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview -o json | grep state
-```
 
 Check your registration.
 

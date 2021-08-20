@@ -8,14 +8,14 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/17/2020
+ms.date: 08/10/2021
 ---
 
 # Quickstart: Create an Azure Cognitive Search knowledge store in the Azure portal
 
-Knowledge store is a feature of Azure Cognitive Search that persists output from a content processing pipeline for subsequent analyses or downstream processing. 
+Knowledge store is a feature of Azure Cognitive Search that persists output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) for subsequent analyses or downstream processing. 
 
-A pipeline accepts unstructured text and image content, applies AI powered by Cognitive Services (such as OCR and natural language processing), and outputs new structures and information that didn't previously exist. One of the physical artifacts created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md), which you can access through tools to analyze and explore content.
+A pipeline accepts unstructured text and image content, applies AI powered by Cognitive Services (such as sentiment analysis and text translation), and outputs new structures and information that didn't previously exist. One of the physical artifacts created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md), which you can access through tools that analyze and explore content in Azure Storage.
 
 In this quickstart, you'll combine services and data in the Azure cloud to create a knowledge store. Once everything is in place, you'll run the **Import data** wizard in the portal to pull it all together. The end result is original text content plus AI-generated content that you can view in the portal ([Storage Explorer](knowledge-store-view-storage-explorer.md)).
 
@@ -154,9 +154,9 @@ Now that you have enriched your data using Cognitive Services and projected the 
 
 You can view content in Storage Explorer, or take it a step further with Power BI to gain insights through visualization.
 
-> [!div class="nextstepaction"]
-> [View with Storage Explorer](knowledge-store-view-storage-explorer.md)
-> [Connect with Power BI](knowledge-store-connect-power-bi.md)
++ [View with Storage Explorer](knowledge-store-view-storage-explorer.md)
+
++[Connect with Power BI](knowledge-store-connect-power-bi.md)
 
 > [!Tip]
 > If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the *hotel-reviews-idxr* indexer. Deleting the indexer resets the free daily transaction counter back to zero for Cognitive Services processing.

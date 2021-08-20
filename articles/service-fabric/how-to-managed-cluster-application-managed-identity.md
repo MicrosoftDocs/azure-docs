@@ -37,7 +37,7 @@ Application resource supports assignment of both SystemAssigned or UserAssigned 
 }
 
 ```
-[Complete JSON reference](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2021-05-01/managedclusters/applications?tabs=json)
+[Complete JSON reference](/azure/templates/microsoft.servicefabric/2021-05-01/managedclusters/applications?tabs=json)
 
 ## User-Assigned Identity
 

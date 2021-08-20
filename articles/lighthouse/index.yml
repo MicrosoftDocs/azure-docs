@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 01/26/2021
+  ms.date: 07/07/2021
   
 landingContent:
   - title: About Azure Lighthouse
@@ -33,6 +33,8 @@ landingContent:
         links:
           - text: Onboard a customer to Azure Lighthouse
             url: ./how-to/onboard-customer.md
+          - text: Just-in-time roles (preview)
+            url: ./how-to/create-eligible-authorizations.md
           - text: View and manage customers
             url: ./how-to/view-manage-customers.md
           - text: Link your partner ID
@@ -67,7 +69,7 @@ landingContent:
         links:
           - text: View and manage service providers
             url: ./how-to/view-manage-service-providers.md
-          - text: View service provider activity
+          - text: Monitor managing tenant activity
             url: ./how-to/view-service-provider-activity.md
 
   - title: Samples and templates

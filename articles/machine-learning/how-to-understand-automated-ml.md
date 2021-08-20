@@ -31,7 +31,7 @@ For example, automated ML generates the following charts based on experiment typ
 
 ## Prerequisites
 
-- An Azure subscription. (If you don't have an Azure subscription, [create a free account](https://aka.ms/AMLFree) before you begin)
+- An Azure subscription. (If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin)
 - An Azure Machine Learning experiment created with either:
   - The [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md) (no code required)
   - The [Azure Machine Learning Python SDK](how-to-configure-auto-train.md)

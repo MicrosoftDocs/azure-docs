@@ -70,7 +70,7 @@ The **My Apps Secure Sign-in Extension** helps you:
 - Sign in directly to apps from the sign-in page.
 - Start any apps using the **Quick search** feature.
 - See the last apps you used in the **Recently Used** section.
-- Use internal company URLs when remote using [Application Proxy](../manage-apps/application-proxy.md).
+- Use internal company URLs when remote using [Application Proxy](../app-proxy/application-proxy.md).
 
 ### To download and install the extension
 

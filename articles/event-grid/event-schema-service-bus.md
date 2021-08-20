@@ -9,7 +9,7 @@ ms.date: 02/12/2021
 
 This article provides the properties and schema for Service Bus events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
-[!INCLUDE [event-grid-service-bus.md](../../includes/event-grid-service-bus.md)]
+[!INCLUDE [event-grid-service-bus.md](../service-bus-messaging/includes/event-grid-service-bus.md)]
 
 ## Tutorials and how-tos
 |Title  |Description  |

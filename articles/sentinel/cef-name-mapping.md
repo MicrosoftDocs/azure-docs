@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: reference
-ms.date: 04/12/2021
+ms.date: 07/26/2021
 ---
 
 # CEF and CommonSecurityLog field mapping
@@ -15,6 +15,10 @@ ms.date: 04/12/2021
 The following tables map Common Event Format (CEF) field names to the names they use in Azure Sentinel's CommonSecurityLog, and may be helpful when you are working with a CEF data source in Azure Sentinel.
 
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).
+
+> [!NOTE]
+> An Azure Sentinel workspace is required in order to [ingest CEF data](connect-common-event-format.md#prerequisites) into Log Analytics.
+>
 
 ## A - C
 
@@ -55,7 +59,7 @@ For more information, see [Connect your external solution using Common Event For
 | dproc | DestinationProcessName | The name of the event’s destination process, such as `telnetd` or `sshd.` |
 | dpt | DestinationPort | Destination port. <br>Valid values: `*0` - `65535` |
 | dst | DestinationIP | The destination IpV4 address that the event refers to in an IP network. |
-| dtz | DeviceTimeZon | Timezone of the device generating the event |
+| dtz | DeviceTimeZone | Timezone of the device generating the event |
 | duid |DestinationUserId | Identifies the destination user by ID. |
 | duser | DestinationUserName |Identifies the destination user by name.|
 | dvc | DeviceAddress | The IPv4 address of the device generating the event. |

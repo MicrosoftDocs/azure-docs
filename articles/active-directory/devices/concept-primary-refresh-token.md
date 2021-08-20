@@ -25,7 +25,7 @@ This article assumes that you already understand the different device states ava
 The following Windows components play a key role in requesting and using a PRT:
 
 * **Cloud Authentication Provider** (CloudAP): CloudAP is the modern authentication provider for Windows sign in, that verifies users logging to a Windows 10 device. CloudAP provides a plugin framework that identity providers can build on to enable authentication to Windows using that identity provider’s credentials.
-* **Web Account Manager** (WAM): WAM is the default token broker on Windows 10 devices. WAM also provides a plugin framework that identity providers can build on and enable SSO to their applications relying on that identity provider.
+* **Web Account Manager** (WAM): WAM is the default token broker on Windows 10 devices. WAM also provides a plugin framework that identity providers can build on and enable SSO to their applications relying on that identity provider. (Not included in Windows Server 2016 LTSC builds)
 * **Azure AD CloudAP plugin**: An Azure AD specific plugin built on the CloudAP framework, that verifies user credentials with Azure AD during Windows sign in.
 * **Azure AD WAM plugin**: An Azure AD specific plugin built on the WAM framework, that enables SSO to applications that rely on Azure AD for authentication.
 * **Dsreg**: An Azure AD specific component on Windows 10, that handles the device registration process for all device states.
@@ -55,7 +55,7 @@ The PRT is issued during user authentication on a Windows 10 device in two scena
 
 * **Azure AD joined** or **Hybrid Azure AD joined**: A PRT is issued during Windows logon when a user signs in with their organization credentials. A PRT is issued with all Windows 10 supported credentials, for example, password and Windows Hello for Business. In this scenario, Azure AD CloudAP plugin is the primary authority for the PRT.
 * **Azure AD registered device**: A PRT is issued when a user adds a secondary work account to their Windows 10 device. Users can add an account to Windows 10 in two different ways -  
-   * Adding an account via the **Use this account everywhere on this device** prompt after signing in to an app (for example, Outlook)
+   * Adding an account via the **Allow my organization to manage my device** prompt after signing in to an app (for example, Outlook)
    * Adding an account from **Settings** > **Accounts** > **Access Work or School** > **Connect**
 
 In Azure AD registered device scenarios, the Azure AD WAM plugin is the primary authority for the PRT since Windows logon is not happening with this  Azure AD account.
@@ -119,8 +119,6 @@ A PRT can get a multi-factor authentication (MFA) claim in specific scenarios. W
 * **MFA during WAM interactive sign in**: During a token request through WAM, if a user is required to do MFA to access the app, the PRT that is renewed during this interaction is imprinted with an MFA claim.
    * In this case, the MFA claim is not updated continuously, so the MFA duration is based on the lifetime set on the directory.
    * When a previous existing PRT and RT are used for access to an app, the PRT and RT will be regarded as the first proof of authentication. A new AT will be required with a second proof and an imprinted MFA claim. This will also issue a new PRT and RT.
-* **MFA during device registration**: If an admin has configured their device settings in Azure AD to [require MFA to register devices](device-management-azure-portal.md#configure-device-settings), the user needs to do MFA to complete the registration. During this process, the PRT that is issued to the user has the MFA claim obtained during the registration. This capability only applies to the user who did the join operation, not to other users who sign in to that device.
-   * Similar to the WAM interactive sign in, the MFA claim is not updated continuously, so the MFA duration is based on the lifetime set on the directory.
 
 Windows 10 maintains a partitioned list of PRTs for each credential. So, there’s a PRT for each of Windows Hello for Business, password, or smartcard. This partitioning ensures that MFA claims are isolated based on the credential used, and not mixed up during token requests.
 
@@ -179,9 +177,9 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 | Step | Description |
 | :---: | --- |
 | A | An application (for example, Outlook, OneNote etc.) initiates a token request to WAM. WAM, in turn, asks the Azure AD WAM plugin to service the token request. |
-| B | If a Refresh token for the application is already available, Azure AD WAM plugin uses it to request an access token. To provide proof of device binding, WAM plugin signs the request with the Session key. Azure AD validates the Session key and issues an access token and a new refresh token for the app, encrypted by the Session key. WAM plugin requests Cloud AP plugin to decrypt the tokens, which, in turn, requests the TPM to decrypt using the Session key, resulting in WAM plugin getting both the tokens. Next, WAM plugin provides only the access token to the application, while it re-encrypts the refresh token with DPAPI and stores it in its own cache  |
+| B | If a Refresh token for the application is already available, Azure AD WAM plugin uses it to request an access token. To provide proof of device binding, WAM plugin signs the request with the Session key. Azure AD validates the Session key and issues an access token and a new refresh token for the app, encrypted by the Session key. WAM plugin requests CloudAP plugin to decrypt the tokens, which, in turn, requests the TPM to decrypt using the Session key, resulting in WAM plugin getting both the tokens. Next, WAM plugin provides only the access token to the application, while it re-encrypts the refresh token with DPAPI and stores it in its own cache  |
 | C |  If a Refresh token for the application is not available, Azure AD WAM plugin uses the PRT to request an access token. To provide proof of possession, WAM plugin signs the request containing the PRT with the Session key. Azure AD validates the Session key signature by comparing it against the Session key embedded in the PRT, verifies that the device is valid and issues an access token and a refresh token for the application. in addition, Azure AD can issue a new PRT (based on refresh cycle), all of them encrypted by the Session key. |
-| D | WAM plugin requests Cloud AP plugin to decrypt the tokens, which, in turn, requests the TPM to decrypt using the Session key, resulting in WAM plugin getting both the tokens. Next, WAM plugin provides only the access token to the application, while it re-encrypts the refresh token with DPAPI and stores it in its own cache. WAM plugin will use the refresh token going forward for this application. WAM plugin also gives back the new PRT to Cloud AP plugin, which validates the PRT with Azure AD before updating it in its own cache. Cloud AP plugin will use the new PRT going forward. |
+| D | WAM plugin requests CloudAP plugin to decrypt the tokens, which, in turn, requests the TPM to decrypt using the Session key, resulting in WAM plugin getting both the tokens. Next, WAM plugin provides only the access token to the application, while it re-encrypts the refresh token with DPAPI and stores it in its own cache. WAM plugin will use the refresh token going forward for this application. WAM plugin also gives back the new PRT to CloudAP plugin, which validates the PRT with Azure AD before updating it in its own cache. CloudAP plugin will use the new PRT going forward. |
 | E | WAM provides the newly issued access token to WAM, which in turn, provides it back to the calling application|
 
 ### Browser SSO using PRT

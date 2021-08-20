@@ -15,6 +15,9 @@ Azure Static Web Apps APIs are supported by two possible configurations: managed
 
 This article demonstrates how to link an existing Azure Functions app to an Azure Static Web Apps resource.
 
+> [!NOTE]
+> Bring your own functions is only available in the Azure Static Web Apps Standard plan.
+
 ## Example
 
 Consider an existing Azure Functions app that exposes an endpoint via the following location.

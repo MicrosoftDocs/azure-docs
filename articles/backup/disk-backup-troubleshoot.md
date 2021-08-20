@@ -2,7 +2,7 @@
 title: Troubleshooting backup failures in Azure Disk Backup
 description: Learn how to troubleshoot backup failures in Azure Disk Backup
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 06/08/2021
 ---
 
 # Troubleshooting backup failures in Azure Disk Backup
@@ -167,6 +167,12 @@ Error Message: Unable to start the operation as maximum number of allowed concur
 
 Recommended Action: Wait until the previous running backup completes.
 
+### Error Code: UserErrorMissingSubscriptionRegistration
+
+Error Message: The subscription is not registered to use namespace ‘Microsoft.Compute’.
+
+Recommended Action: The required resource provider hasn't been registered for your subscription. Register both the resource providers' namespace (_Microsoft.Compute_ and _Microsoft.Storage_) using the steps in [Solution 3](../azure-resource-manager/templates/error-register-resource-provider.md#solution-3---azure-portal).
+
 ## Next steps
 
-- [Azure Disk Backup support matrix](disk-backup-support-matrix.md)
+[Azure Disk Backup support matrix](disk-backup-support-matrix.md)

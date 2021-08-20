@@ -1,5 +1,5 @@
 ---
-title: Decompile ARM template JSON to Bicep 
+title: Decompile ARM template JSON to Bicep
 description: Describes commands for decompiling Azure Resource Manager templates to Bicep files.
 ms.topic: conceptual
 ms.date: 06/01/2021
@@ -11,7 +11,7 @@ This article describes how to decompile Azure Resource Manager templates (ARM te
 
 Decompiling an ARM template helps you get started with Bicep development. If you have a library of ARM templates and want to use Bicep for future development, you can decompile them to Bicep. However, the Bicep file might need revisions to implement best practices for Bicep.
 
-This article shows how to run the decompile command in Azure CLI. If you're not using Azure CLI, run the command without `az` at the start of the command. For example, `az bicep decompile` becomes ``bicep decompile``.
+This article shows how to run the `decompile` command in Azure CLI. If you're not using Azure CLI, run the command without `az` at the start of the command. For example, `az bicep decompile` becomes ``bicep decompile``.
 
 ## Decompile from JSON to Bicep
 
@@ -21,7 +21,7 @@ To decompile ARM template JSON to Bicep, use:
 az bicep decompile --file main.json
 ```
 
-The command creates a file named **main.bicep** in the same directory as the ARM template.
+The command creates a file named _main.bicep_ in the same directory as the ARM template.
 
 > [!CAUTION]
 > Decompilation attempts to convert the file, but there is no guaranteed mapping from ARM template JSON to Bicep. You may need to fix warnings and errors in the generated Bicep file. Or, decompilation can fail if an accurate conversion isn't possible. To report any issues or inaccurate conversions, [create an issue](https://github.com/Azure/bicep/issues).
@@ -129,7 +129,7 @@ Since you changed the name of the variable for the storage account name, you nee
 
 ```bicep
 resource exampleStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: uniqueStorageName 
+  name: uniqueStorageName
 ```
 
 And in the output, use:
@@ -170,7 +170,7 @@ output storageAccountName string = uniqueStorageName
 
 ## Export template and convert
 
-You can export the template for a resource group, and then pass it directly to the decompile command. The following example shows how to decompile an exported template.
+You can export the template for a resource group, and then pass it directly to the `decompile` command. The following example shows how to decompile an exported template.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -196,7 +196,7 @@ Use `bicep decompile <filename>` on the downloaded file.
 
 ## Side-by-side view
 
-The [Bicep playground](https://aka.ms/bicepdemo) enables you to view equivalent JSON and Bicep files side by side. You can select a sample template to see both versions. Or, select `Decompile` to upload your own JSON template and view the equivalent Bicep file.
+The [Bicep playground](https://aka.ms/bicepdemo) enables you to view equivalent ARM template and Bicep files side by side. You can select a sample template to see both versions. Or, select `Decompile` to upload your own ARM template and view the equivalent Bicep file.
 
 ## Next steps
 

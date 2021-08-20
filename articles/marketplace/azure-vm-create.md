@@ -1,15 +1,15 @@
 ---
 title: Create a virtual machine offer on Azure Marketplace.
-description: Learn how to create a virtual machine offer in the Microsoft commercial marketplace.
+description: Create a virtual machine offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/08/2021
 ---
 
-# How to create a virtual machine offer on Azure Marketplace
+# Create a virtual machine offer on Azure Marketplace
 
 This article describes how to create an Azure virtual machine offer for [Azure Marketplace](https://azuremarketplace.microsoft.com/). It addresses both Windows-based and Linux-based virtual machines that contain an operating system, a virtual hard disk (VHD), and up to 16 data disks.
 
@@ -59,5 +59,5 @@ Select **Save draft** before continuing to the next tab in the left-nav menu, **
 
 ## Next steps
 
-- [How to configure virtual machine offer properties](azure-vm-create-properties.md)
+- [Configure virtual machine offer properties](azure-vm-create-properties.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)

@@ -1,15 +1,15 @@
 ---
 title: Resell your offer through Cloud Solution Providers (CSP) on Azure Marketplace
-description: Learn how to resell your offer through Cloud Solution Providers (CSP) on Azure Marketplace.
+description: Resell your offer through Cloud Solution Providers (CSP) on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: mingshen-ms
-ms.author: mingshen
-ms.date: 11/05/2020
+author: iqshahmicrosoft
+ms.author: iqshah
+ms.date: 11/06/2020
 ---
 
-# How to resell your offer through CSP
+# Resell your offer through CSP
 
 ## Resell through CSP
 

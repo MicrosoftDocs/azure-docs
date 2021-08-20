@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
-ms.author: trbye
+ms.author: lajanuar
 ---
 
 Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org). For licensing reasons GStreamer binaries are not compiled and linked with the Speech SDK. Developers need to install several dependencies and plugins.
@@ -32,7 +32,7 @@ gstreamer1-plugins-ugly-free
 ```
 
 > [!NOTE]
-> - On RHEL/CentOS 7 and RHEL/CentOS 8, in case of using "ANY" compressed format, more gstreamer plugins needs to be installed if stream media format plugin is not in the above installed plugins. 
+> - On RHEL/CentOS 7 and RHEL/CentOS 8, in case of using "ANY" compressed format, more GStreamer plugins needs to be installed if stream media format plugin is not in the above installed plugins. 
 
 
 ---

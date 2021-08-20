@@ -3,9 +3,9 @@ title: Connect to Azure Event Hubs
 description: Connect to your event hub, and add a trigger or an action to your workflow in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
-ms.topic: conceptual
-ms.date: 05/03/2021
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 07/16/2021
 tags: connectors
 ---
 
@@ -135,10 +135,12 @@ The following steps describe the general way to add a trigger, for example, **Wh
 
 ## Trigger polling behavior
 
-All Event Hubs triggers are *long-polling* triggers, which means that the trigger processes all the events and then waits 30 seconds per partition for more events to appear in your event hub. 
+All Event Hubs triggers are long-polling triggers. This behavior means that when a trigger fires, the trigger processes all the events and waits 30 seconds for more events to appear in your event hub. By design, if no events appear in 30 seconds, the trigger is skipped. Otherwise, the trigger continues reading events until your event hub is empty. The next trigger poll happens based on the recurrence interval that you set in the trigger's properties.
 
 For example, if the trigger is set up with four partitions, this delay might take up to two minutes before the trigger finishes polling all the partitions. If no events are received within this delay, the trigger run is skipped. Otherwise, the trigger continues reading events until your event hub is empty. The next trigger poll happens based on the recurrence interval that you specify in the trigger's properties.
 
+If you know the specific partition(s) where the messages appear, you can update the trigger to read events from only this or those partition(s) by setting the trigger's maximum and minimum partition keys. For more information, review the [Add Event Hubs trigger](#add-trigger) section.
+     
 ## Trigger checkpoint behavior
 
 When an Event Hubs trigger reads events from each partition in an event hub, the trigger users its own state to maintain information about the stream offset (the event position in a partition) and the partitions from where the trigger reads events.

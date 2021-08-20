@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: troubleshooting
 ms.workload: infrastructure
-ms.date: 10/27/2020
+ms.date: 7/1/2021
 ms.author: olayemio
 ms.reviewer: cynthn
 
@@ -292,6 +292,14 @@ If you have problems performing any operations on shared image galleries, image 
 **Message**: *Replication failed in this region due to 'The GalleryImageVersion source resource size 2048 exceeds the max size 1024 supported.'*  
 **Cause**: A data disk in the source is greater than 1TB.  
 **Workaround**: Resize the data disk to under 1 TB.
+
+**Message**: *Operation 'Update Gallery Image Version' is not on allowed on <versionNumber>; since it is marked for deletion. You can only retry the Delete operation (or wait for an ongoing one to complete).*  
+**Cause**: You attempted to update a gallery image version that is in the process of being deleted.  
+**Workaround**: Wait for the deletion event to complete and recreate the image version again.
+
+**Message**: *Encryption is not supported for source resource '<sourceID>'. Please use a different source resource type which supports encryption or remove encryption properties.*  
+**Cause**: Currently the Shared Image Gallery only supports encryption for VMs, disks, snapshots and managed images. One of the sources provided for the image version is not in the previous list of sources that support encryption.  
+**Workaround**: Remove the disk encryption set from the image version and contact the support team.
 
 ## Creating or updating a VM or scale sets from an image version ##
 

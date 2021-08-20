@@ -9,6 +9,9 @@ ms.date: 10/26/2020
 ---
 
 # Restart Azure Database for MySQL Flexible Server using Azure portal
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 This topic describes how you can restart an Azure Database for MySQL Flexible Server. You may need to restart your server for maintenance reasons, which causes a short outage as the server performs the operation.
 
 The server restart will be blocked if the service is busy. For example, the service may be processing a previously requested operation such as scaling vCores.
@@ -16,6 +19,7 @@ The server restart will be blocked if the service is busy. For example, the serv
 The time required to complete a restart depends on the MySQL recovery process. To decrease the restart time, we recommend you minimize the amount of activity occurring on the server prior to the restart.
 
 ## Prerequisites
+
 To complete this how-to guide, you need:
 - An [Azure Database for MySQL Flexible server](quickstart-create-server-portal.md)
 

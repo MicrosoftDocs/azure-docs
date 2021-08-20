@@ -24,9 +24,25 @@
   expanded: true
   items:
   - name: Security
-    items:
+    items: 
     - name: Security baseline
       href: /security/benchmark/azure/baselines/aad-security-baseline?toc=/azure/active-directory/fundamentals/toc.json
+    - name: Security operations guide
+      items: 
+      - name: Security operations overview
+        href: security-operations-introduction.md
+      - name: Security operations for user accounts
+        href: security-operations-user-accounts.md
+      - name: Security operations for privileged accounts
+        href: security-operations-privileged-accounts.md
+      - name: Security operations for PIM
+        href: security-operations-privileged-identity-management.md 
+      - name: Security operations for applications
+        href: security-operations-applications.md  
+      - name: Security operations for devices
+        href: security-operations-devices.md
+      - name: Security operations for Infrastructure
+        href: security-operations-infrastructure.md
     - name: Protect Microsoft 365 from on-premises attacks 
       href: protect-m365-from-on-premises-attacks.md    
     - name: Secure external collaboration
@@ -179,6 +195,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: Azure Active Directory deployment plans
       href: active-directory-deployment-plans.md
+    - name: Azure Active Directory B2C deployment plans
+      href: azure-active-directory-b2c-deployment-plans.md
   - name: Data storage
     items:
     - name: Identity data storage for Europe
@@ -255,5 +273,4 @@
   items:
   - name: Get support for Azure Active Directory
     href: active-directory-troubleshooting-support-howto.md
-  - name: Azure Active Directory FAQ
-    href: active-directory-faq.md
+

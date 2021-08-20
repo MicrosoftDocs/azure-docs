@@ -6,7 +6,7 @@ manager: jken
 services: azure-communication-services
 
 ms.author: manoskow
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 
@@ -158,6 +158,8 @@ When developing for Android, your logs are stored in `.blog` files. Note that yo
 
 On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file will be located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request.
 
+---
+
 ## Enable and access call logs (Windows)
 
 When developing for Windows, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
@@ -170,7 +172,6 @@ These can be accessed by looking at where your app is keeping its local data. Th
 5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
 
----
 
 ## Calling SDK error codes
 

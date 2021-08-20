@@ -40,7 +40,7 @@ Azure Import/Export service supports the following types of storage accounts:
 - General Purpose v1 storage accounts (both Classic or Azure Resource Manager deployments)
 
 > [!IMPORTANT]
-> Network File System (NFS) 3.0 protocol support in Azure Blob storage is not supported with Azure Import/Export.
+> Network File System (NFS) 3.0 protocol support in Azure Blob Storage is not supported with Azure Import/Export.
 
 For more information about storage accounts, see [Azure storage accounts overview](../storage/common/storage-account-overview.md).
 
@@ -56,8 +56,8 @@ The following list of storage types is supported with Azure Import/Export servic
 
 |Job  |Storage Service |Supported  |Not supported  |
 |---------|---------|---------|---------|
-|Import     |  Azure Blob storage <br><br> Azure File storage       | Block Blobs and Page blobs supported <br><br> Files supported          |
-|Export     |   Azure Blob storage       | Block blobs, Page blobs, and Append blobs supported         | Azure Files not supported<br>Export from archive tier not supported|
+|Import     |  Azure Blob Storage <br><br> Azure Files storage       | Block blobs and Page blobs supported <br><br> Files supported          |
+|Export     |   Azure Blob Storage       | Block blobs, Page blobs, and Append blobs supported         | Azure Files not supported<br>Export from archive tier not supported|
 
 
 ## Supported hardware

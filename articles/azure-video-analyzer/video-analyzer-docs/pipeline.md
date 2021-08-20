@@ -2,7 +2,7 @@
 title: Azure Video Analyzer pipeline
 description: An Azure Video Analyzer pipeline lets you define where input data should be captured from, how it should be processed, and where the results should be delivered. A pipeline consists of nodes that are connected to achieve the desired flow of data.
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 06/01/2021
 
 ---
 # Pipeline
@@ -69,11 +69,11 @@ The motion detection processor node enables you to detect motion in live video. 
 
 #### HTTP extension processor
 
-The HTTP extension processor node enables you to extend the pipeline to your own IoT Edge module. This node takes decoded video frames as input, and relays such frames to an HTTP REST endpoint exposed by your module, where you can analyze the frame with an AI model and return inference results back. Learn more about the [processor here](pipeline-extension.md#http-extension-processor). Additionally, this node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the HTTP endpoint. The scaler has options for the image aspect ratio to be preserved, padded, or stretched. The image encoder supports JPEG, PNG, BMP, and RAW formats. Learn more about the [processor here](/pipeline-extension.md#grpc-extension-processor).
+The HTTP extension processor node enables you to extend the pipeline to your own IoT Edge module. This node takes decoded video frames as input, and relays such frames to an HTTP REST endpoint exposed by your module, where you can analyze the frame with an AI model and return inference results back. Additionally, this node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the HTTP endpoint. The scaler has options for the image aspect ratio to be preserved, padded, or stretched. The image encoder supports JPEG, PNG, BMP, and RAW formats. Learn more about the [processor here](pipeline-extension.md#http-extension-processor).
 
 #### gRPC extension processor
 
-The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](pipeline-extension.md#grpc-extension-processor) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Just like the HTTP extension process, this node also has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. Learn more about the [processor here](/pipeline-extension.md#grpc-extension-processor).
+The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](terminology.md#grpc) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Just like the HTTP extension process, this node also has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. Learn more about the [processor here](pipeline-extension.md#grpc-extension-processor).
 
 #### Cognitive Services extension processor
 

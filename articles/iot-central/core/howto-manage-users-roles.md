@@ -268,4 +268,4 @@ When you define a custom role, you choose the set of permissions that a user is 
 
 ## Next steps
 
-Now that you've learned how to manage users and roles in your IoT Central application, the suggested next step is to learn how to [Manage your bill](howto-view-bill.md).
+Now that you've learned how to manage users and roles in your IoT Central application, the suggested next step is to learn how to [Customize application UI](howto-customize-ui.md).

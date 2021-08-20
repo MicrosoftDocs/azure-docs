@@ -1,9 +1,8 @@
 ---
-title: How to configure an indexer to pull content and metadata from Azure Data Lake Storage Gen2
+title: Index data from Azure Data Lake Storage Gen2
 titleSuffix: Azure Cognitive Search
-description: Learn how to index content and metadata in Azure Data Lake Storage Gen2.
+description: Set up an Azure Data Lake Storage Gen2 indexer to automate indexing of content and metadata for full text search in Azure Cognitive Search.
 
-manager: luisca
 author: markheff
 ms.author: maheff
 ms.service: cognitive-search
@@ -11,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/17/2021
 ---
 
-# How to configure an indexer to pull content and metadata from Azure Data Lake Storage Gen2
+# Index data from Azure Data Lake Storage Gen2
 
-When setting up an Azure storage account, you have the option to enable [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md). This allows the collection of content in an account to be organized into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
+This article shows you how to configure an Azure Data Lake Storage Gen2 indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content extracted from Azure Data Lake Storage Gen2.
 
-This article describes how to get started with indexing documents that are in Azure Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 is available through Azure Storage. When setting up an Azure storage account, you have the option to enable [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md). This allows the collection of content in an account to be organized into a hierarchy of directories and nested subdirectories. By enabling hierarchical namespace, you enable [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 ## Supported access tiers
 
@@ -151,7 +150,7 @@ In a search index, the document key uniquely identifies each document. The field
 
   Another potential issue about the storage name is that it might contain characters that are invalid for document keys, such as dashes. You can handle invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction). If you do this, remember to also encode document keys when passing them in API calls such as [Lookup Document (REST)](/rest/api/searchservice/lookup-document). In .NET, you can use the [UrlTokenEncode method](/dotnet/api/system.web.httpserverutility.urltokenencode) to encode characters.
 
-+ **`metadata_storage_path`** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](https://docs.microsoft.com/rest/api/searchservice/naming-rules). As above, you can use the `base64Encode` [function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters.
++ **`metadata_storage_path`** - using the full path ensures uniqueness, but the path definitely contains `/` characters that are [invalid in a document key](/rest/api/searchservice/naming-rules). As above, you can use the `base64Encode` [function](search-indexer-field-mappings.md#base64EncodeFunction) to encode characters.
 
 + A third option is to add a custom metadata property to the blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed.
 
@@ -338,7 +337,7 @@ To run multiple indexers in parallel, scale out your search service by creating 
 
 Errors that commonly occur during indexing include unsupported content types, missing content, or oversized blobs.
 
-By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You could use the `excludedFileNameExtensions` parameter to skip certain content types. However, you might want to indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Troubleshooting common indexer issues](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You could use the `excludedFileNameExtensions` parameter to skip certain content types. However, you might want to indexing to proceed even if errors occur, and then debug individual documents later. For more information about indexer errors, see [Indexer troubleshooting guidance](search-indexer-troubleshooting.md) and [Indexer errors and warnings](cognitive-search-common-errors-warnings.md).
 
 ### Respond to errors
 

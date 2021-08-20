@@ -2,7 +2,7 @@
 title: Azure Monitor Application Insights Java
 description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
-ms.date: 03/29/2020
+ms.date: 06/24/2021
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
@@ -44,15 +44,13 @@ The 3.x agent supports Java 8 and above.
 > See the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0)
 > for more details.
 
-Download [applicationinsights-agent-3.1.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.0/applicationinsights-agent-3.1.0.jar)
+Download [applicationinsights-agent-3.1.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.1/applicationinsights-agent-3.1.1.jar)
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.1.0.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.1.1.jar` to your application's JVM args. 
 
-Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
-
-For additional help with configuring your application's JVM args, please see [Tips for updating your JVM args](./java-standalone-arguments.md).
+For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
 
 **3. Point the agent to your Application Insights resource**
 
@@ -64,7 +62,7 @@ Point the agent to your Application Insights resource, either by setting an envi
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.1.0.jar`, with the following content:
+Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.1.1.jar`, with the following content:
 
 ```json
 {
@@ -150,8 +148,10 @@ to enable this preview feature and auto-collect the telemetry emitted by these A
 * [Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
 * [Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
 * [Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
+* [Communication Phone Numbers](/java/api/overview/azure/communication-phonenumbers-readme) 1.0.0+
 * [Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
 * [Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
+* [Digital Twins - Core](/java/api/overview/azure/digitaltwins-core-readme) 1.1.0+
 * [Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
 * [Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
 * [Event Hubs - Azure Blob Storage Checkpoint Store](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
@@ -161,6 +161,13 @@ to enable this preview feature and auto-collect the telemetry emitted by these A
 * [Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
 * [Key Vault - Secrets](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
 * [Service Bus](/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
+* [Storage - Blobs](/java/api/overview/azure/storage-blob-readme) 12.11.0+
+* [Storage - Blobs Batch](/java/api/overview/azure/storage-blob-batch-readme) 12.9.0+
+* [Storage - Blobs Cryptography](/java/api/overview/azure/storage-blob-cryptography-readme) 12.11.0+
+* [Storage - Common](/java/api/overview/azure/storage-common-readme) 12.11.0+
+* [Storage - Files Data Lake](/java/api/overview/azure/storage-file-datalake-readme) 12.5.0+
+* [Storage - Files Shares](/java/api/overview/azure/storage-file-share-readme) 12.9.0+
+* [Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
 * [Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
 
 [//]: # "the above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
@@ -177,7 +184,7 @@ to enable this preview feature and auto-collect the telemetry emitted by these A
 [//]: # "  }"
 [//]: # "  var version = versionBadge.textContent.trim()"
 [//]: # "  var link = stableRow.querySelectorAll('a')[2].href"
-[//]: # "  str += '* [' + name + '](' + link + ') ' + version"
+[//]: # "  str += '* [' + name + '](' + link + ') ' + version + '\n'"
 [//]: # "}"
 [//]: # "console.log(str)"
 

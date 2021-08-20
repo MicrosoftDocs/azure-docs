@@ -38,7 +38,7 @@ Enable resource-context RBAC in Azure Monitor. For more information, see [Manage
 > [!NOTE]
 > If your data is not an Azure resource, such as Syslog, CEF, or AAD data, or data collected by a custom collector, you'll need to manually configure the resource ID that's used to identify the data and enable access. For more information, see [Explicitly configure resource-context RBAC](#explicitly-configure-resource-context-rbac).
 >
-> Additionally, [functions](/azure/azure-monitor/logs/functions) and saved searches are not supported in resource-centric contexts. Therefore, Azure Sentinel features such as parsing and [normalization](normalization.md) are not supported for resource-context RBAC in Azure Sentinel.
+> Additionally, [functions](../azure-monitor/logs/functions.md) and saved searches are not supported in resource-centric contexts. Therefore, Azure Sentinel features such as parsing and [normalization](normalization.md) are not supported for resource-context RBAC in Azure Sentinel.
 > 
 
 ## Scenarios for resource-context RBAC
@@ -146,6 +146,7 @@ For example, the following code shows a sample Logstash configuration file:
 When collecting using the [Log Analytics data collector API](../azure-monitor/logs/data-collector-api.md), you can assign to events with a resource ID using the HTTP [*x-ms-AzureResourceId*](../azure-monitor/logs/data-collector-api.md#request-headers) request header.
 
 If you are using resource-context RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#explicitly-configure-resource-context-rbac).
+
 
 
 ## Next steps

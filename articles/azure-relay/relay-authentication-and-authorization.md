@@ -2,14 +2,34 @@
 title: Azure Relay authentication and authorization | Microsoft Docs
 description: This article provides an overview of Shared Access Signature (SAS) authentication with the Azure Relay service.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 07/19/2021
 ---
 
 # Azure Relay authentication and authorization
+There are two ways to authenticate and authorize access to Azure Relay resources: Azure Activity Directory (Azure AD) and Shared Access Signatures (SAS). This article gives you details on using these two types of security mechanisms.
 
+## Azure Active Directory (Preview)
+Azure AD integration for Azure Relay resources provides Azure role-based access control (Azure RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can be used to authorize a request to access an Azure Relay resource.
+
+For more information about authenticating with Azure AD, see the following articles:
+- [Authenticate with managed identities](authenticate-managed-identity.md)
+- [Authenticate from an Azure Active Directory application](authenticate-application.md)
+
+> [!IMPORTANT]
+> Authorizing users or applications using OAuth 2.0 token returned by Azure AD provides superior security and ease of use over shared access signatures (SAS). With Azure AD, there is no need to store tokens in your code and risk potential security vulnerabilities. We recommend that you use Azure AD with your Azure Relay applications when possible.
+
+### Built-in roles
+For Azure Relay, the management of namespaces and all related resources through the Azure portal and the Azure resource management API is already protected using the Azure RBAC model. Azure provides the below Azure built-in roles for authorizing access to a Relay namespace:
+
+| Role | Description | 
+| ---- | ----------- | 
+| [Azure Relay Owner](../role-based-access-control/built-in-roles.md#azure-relay-owner) | Use this role to grant **full** access to Azure Relay resources. |
+| [Azure Relay Listener](../role-based-access-control/built-in-roles.md#azure-relay-listener) | Use this role to grant **listen and entity read** access to Azure Relay resources. |
+| [Azure Relay Sender](../role-based-access-control/built-in-roles.md#azure-relay-sender) | Use this role to grant **send and entity read** access to Azure Relay resources. | 
+
+
+## Shared Access Signature
 Applications can authenticate to Azure Relay using Shared Access Signature (SAS) authentication. SAS authentication enables applications to authenticate to the Azure Relay service using an access key configured on the Relay namespace. You can then use this key to generate a Shared Access Signature token that clients can use to authenticate to the relay service.
-
-## Shared Access Signature authentication
 
 [SAS authentication](../service-bus-messaging/service-bus-sas.md) enables you to grant a user access to Azure Relay resources with specific rights. SAS authentication involves the configuration of a cryptographic key with associated rights on a resource. Clients can then gain access to that resource by presenting a SAS token, which consists of the resource URI being accessed and an expiry signed with the configured key.
 
@@ -17,14 +37,14 @@ You can configure keys for SAS on a Relay namespace. Unlike Service Bus messagin
 
 ![A dialog box titled "Create Hybrid Connection" has a "Name" text box and a check box labeled "Requires Client Authentication", which is checked.][0]
 
-To use SAS, you can configure a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object on a Relay namespace that consists of the following:
+To use SAS, you can configure a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object on a Relay namespace that consists of the following properties:
 
 * *KeyName* that identifies the rule.
 * *PrimaryKey* is a cryptographic key used to sign/validate SAS tokens.
 * *SecondaryKey* is a cryptographic key used to sign/validate SAS tokens.
 * *Rights* representing the collection of Listen, Send, or Manage rights granted.
 
-Authorization rules configured at the namespace level can grant access to all relay connections in a namespace for clients with tokens signed using the corresponding key. Up to 12 such authorization rules can be configured on a Relay namespace. By default, a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) with all rights is configured for every namespace when it is first provisioned.
+Authorization rules configured at the namespace level can grant access to all relay connections in a namespace for clients with tokens signed using the corresponding key. Up to 12 such authorization rules can be configured on a Relay namespace. By default, a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) with all rights is configured for every namespace when it's first provisioned.
 
 To access an entity, the client requires a SAS token generated using a specific [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). The SAS token is generated using the HMAC-SHA256 of a resource string that consists of the resource URI to which access is claimed, and an expiry with a cryptographic key associated with the authorization rule.
 

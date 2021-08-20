@@ -18,7 +18,7 @@ Use the Anomaly Detector multivariate client library for C# to:
 * When any individual time series won't tell you much and you have to look at all signals to detect a problem.
 * Predicative maintenance of expensive physical assets with tens to hundreds of different types of sensors measuring various aspects of system health.
 
-[Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/anomalydetector/Azure.AI.AnomalyDetector) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3)
+[Library reference documentation](/dotnet/api/azure.ai.anomalydetector) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/anomalydetector/Azure.AI.AnomalyDetector) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.3)
 
 ## Prerequisites
 
@@ -131,7 +131,7 @@ AnomalyDetectorClient client = new AnomalyDetectorClient(endpointUri, credential
 Create a new private async task as below to handle training your model. You will use `TrainMultivariateModel` to train the model and `GetMultivariateModelAysnc` to check when training is complete.
 
 ```csharp
-private async Task trainAsync(AnomalyDetectorClient client, string datasource, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
+private async Task<Guid?> trainAsync(AnomalyDetectorClient client, string datasource, DateTimeOffset start_time, DateTimeOffset end_time)
 {
     try
     {
@@ -148,27 +148,23 @@ private async Task trainAsync(AnomalyDetectorClient client, string datasource, D
 
         // Wait until the model is ready. It usually takes several minutes
         Response<Model> get_response = await client.GetMultivariateModelAsync(trained_model_id).ConfigureAwait(false);
-        ModelStatus? model_status = null;
-        int tryout_count = 0;
-        TimeSpan create_limit = new TimeSpan(0, 3, 0);
-        while (tryout_count < max_tryout & model_status != ModelStatus.Ready)
+        while (get_response.Value.ModelInfo.Status != ModelStatus.Ready & get_response.Value.ModelInfo.Status != ModelStatus.Failed)
         {
             System.Threading.Thread.Sleep(10000);
             get_response = await client.GetMultivariateModelAsync(trained_model_id).ConfigureAwait(false);
-            ModelInfo model_info = get_response.Value.ModelInfo;
-            Console.WriteLine(String.Format("model_id: {0}, createdTime: {1}, lastUpdateTime: {2}, status: {3}.", get_response.Value.ModelId, get_response.Value.CreatedTime, get_response.Value.LastUpdatedTime, model_info.Status));
+            Console.WriteLine(String.Format("model_id: {0}, createdTime: {1}, lastUpdateTime: {2}, status: {3}.", get_response.Value.ModelId, get_response.Value.CreatedTime, get_response.Value.LastUpdatedTime, get_response.Value.ModelInfo.Status));
+        }
 
-            if (model_info != null)
-            {
-                model_status = model_info.Status;
-            }
-            tryout_count += 1;
-        };
-        get_response = await client.GetMultivariateModelAsync(trained_model_id).ConfigureAwait(false);
-
-        if (model_status != ModelStatus.Ready)
+        if (get_response.Value.ModelInfo.Status != ModelStatus.Ready)
         {
-            Console.WriteLine(String.Format("Request timeout after {0} tryouts", max_tryout));
+            Console.WriteLine(String.Format("Trainig failed."));
+            IReadOnlyList<ErrorResponse> errors = get_response.Value.ModelInfo.Errors;
+            foreach (ErrorResponse error in errors)
+            {
+                Console.WriteLine(String.Format("Error code: {0}.", error.Code));
+                Console.WriteLine(String.Format("Error message: {0}.", error.Message));
+            }
+            throw new Exception("Training failed.");
         }
 
         model_number = await getModelNumberAsync(client).ConfigureAwait(false);
@@ -188,7 +184,7 @@ private async Task trainAsync(AnomalyDetectorClient client, string datasource, D
 To detect anomalies using your newly trained model, create a `private async Task` named `detectAsync`. You will create a new `DetectionRequest` and pass that as a parameter to `DetectAnomalyAsync`.
 
 ```csharp
-private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, string datasource, Guid model_id, DateTimeOffset start_time, DateTimeOffset end_time, int max_tryout = 500)
+private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, string datasource, Guid model_id,DateTimeOffset start_time, DateTimeOffset end_time)
 {
     try
     {
@@ -201,17 +197,21 @@ private async Task<DetectionResult> detectAsync(AnomalyDetectorClient client, st
         Guid result_id = Guid.Parse(result_id_path.Split('/').LastOrDefault());
         // get detection result
         Response<DetectionResult> result = await client.GetDetectionResultAsync(result_id).ConfigureAwait(false);
-        int tryout_count = 0;
-        while (result.Value.Summary.Status != DetectionStatus.Ready & tryout_count < max_tryout)
+        while (result.Value.Summary.Status != DetectionStatus.Ready & result.Value.Summary.Status != DetectionStatus.Failed)
         {
             System.Threading.Thread.Sleep(2000);
             result = await client.GetDetectionResultAsync(result_id).ConfigureAwait(false);
-            tryout_count += 1;
         }
 
         if (result.Value.Summary.Status != DetectionStatus.Ready)
         {
-            Console.WriteLine(String.Format("Request timeout after {0} tryouts", max_tryout));
+            Console.WriteLine(String.Format("Inference failed."));
+            IReadOnlyList<ErrorResponse> errors = result.Value.Summary.Errors;
+            foreach (ErrorResponse error in errors)
+            {
+                Console.WriteLine(String.Format("Error code: {0}.", error.Code));
+                Console.WriteLine(String.Format("Error message: {0}.", error.Message));
+            }
             return null;
         }
 
@@ -359,4 +359,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 * [What is the Anomaly Detector API?](../../overview-multivariate.md)
-* [Best practices when using the Anomaly Detector API.](../../concepts/best-practices-multivariate.md) 
+* [Best practices when using the Anomaly Detector API.](../../concepts/best-practices-multivariate.md)

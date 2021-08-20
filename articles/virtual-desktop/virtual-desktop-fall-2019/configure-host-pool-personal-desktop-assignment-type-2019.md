@@ -1,32 +1,32 @@
 ---
-title: Windows Virtual Desktop (classic) personal desktop assignment type - Azure
-description: How to configure the assignment type for a Windows Virtual Desktop (classic) personal desktop host pool.
+title: Azure Virtual Desktop (classic) personal desktop assignment type - Azure
+description: How to configure the assignment type for a Azure Virtual Desktop (classic) personal desktop host pool.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: femila
 ---
-# Configure the personal desktop host pool assignment type for Windows Virtual Desktop (classic)
+# Configure the personal desktop host pool assignment type for Azure Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../configure-host-pool-personal-desktop-assignment-type.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../configure-host-pool-personal-desktop-assignment-type.md).
 
-You can configure the assignment type of your personal desktop host pool to adjust your Windows Virtual Desktop environment to better suit your needs. In this topic, we'll show you how to configure automatic or direct assignment for your users.
+You can configure the assignment type of your personal desktop host pool to adjust your Azure Virtual Desktop environment to better suit your needs. In this topic, we'll show you how to configure automatic or direct assignment for your users.
 
 >[!NOTE]
 > The instructions in this article only apply to personal desktop host pools, not pooled host pools, since users in pooled host pools aren't assigned to specific session hosts.
 
 ## Configure automatic assignment
 
-Automatic assignment is the default assignment type for new personal desktop host pools created in your Windows Virtual Desktop environment. Automatically assigning users doesn't require a specific session host.
+Automatic assignment is the default assignment type for new personal desktop host pools created in your Azure Virtual Desktop environment. Automatically assigning users doesn't require a specific session host.
 
 To automatically assign users, first assign them to the personal desktop host pool so that they can see the desktop in their feed. When an assigned user launches the desktop in their feed, they will claim an available session host if they have not already connected to the host pool, which completes the assignment process.
 
-Before you start, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) if you haven't already.
+Before you start, [download and import the Azure Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) if you haven't already.
 
 > [!NOTE]
-> Make sure you've installed Windows Virtual Desktop PowerShell module version 1.0.1534.2001 or later before following these instructions.
+> Make sure you've installed Azure Virtual Desktop PowerShell module version 1.0.1534.2001 or later before following these instructions.
 
 After that, run the following cmdlet to sign in to your account:
 
@@ -78,11 +78,11 @@ Currently, the only way you can remove the user assignment for a personal deskto
 Remove-RdsSessionHost
 ```
 
-If you need to add the session host back into the personal desktop host pool, uninstall Windows Virtual Desktop on that machine, then follow the steps in [Create a host pool with PowerShell](create-host-pools-powershell-2019.md) to re-register the session host.
+If you need to add the session host back into the personal desktop host pool, uninstall Azure Virtual Desktop on that machine, then follow the steps in [Create a host pool with PowerShell](create-host-pools-powershell-2019.md) to re-register the session host.
 
 ## Next steps
 
-Now that you've configured the personal desktop assignment type, you can sign in to a Windows Virtual Desktop client to test it as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
+Now that you've configured the personal desktop assignment type, you can sign in to a Azure Virtual Desktop client to test it as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
 
 - [Connect with the Windows Desktop client](connect-windows-7-10-2019.md)
 - [Connect with the web client](connect-web-2019.md)

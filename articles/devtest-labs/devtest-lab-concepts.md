@@ -70,7 +70,7 @@ Since scopes are hierarchical, when a user has permissions at a certain scope, t
 ## Azure Resource Manager templates
 All of the concepts discussed in this article can be configured by using Azure Resource Manager templates, which let you define the infrastructure/configuration of your Azure solution and repeatedly deploy it in a consistent state.
 
-[Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md#template-format) describes the structure of an Azure Resource Manager template and the properties that are available in the different sections of a template.
+[Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md#template-format) describes the structure of an Azure Resource Manager template and the properties that are available in the different sections of a template.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

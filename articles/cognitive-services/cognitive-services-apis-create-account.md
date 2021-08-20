@@ -8,7 +8,7 @@ manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 06/04/2021
 ms.author: aahi
 ---
 
@@ -23,6 +23,8 @@ Azure Cognitive Services are cloud-based services with REST APIs, and client lib
 ## Prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
+* [!INCLUDE [contributor-requirement](./includes/quickstarts/contributor-requirement.md)]
+
 
 ## Create a new Azure Cognitive Services resource
 
@@ -109,6 +111,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
 2. Locate the resource group containing the resource to be deleted
 3. Right-click on the resource group listing. Select **Delete resource group**, and confirm.
+
+If you need to recover a deleted resource, see [Recover deleted Cognitive Services resources](manage-resources.md).
 
 ## See also
 

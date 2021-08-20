@@ -9,7 +9,8 @@ ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
-ms.date: 05/25/2021
+ms.custom: devplatv2
+ms.date: 06/17/2021
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
@@ -24,23 +25,23 @@ In this article, you learn about:
 > * Endpoints
 > * Deployments
 > * Managed online endpoints
-> * AKS online endpoints
+> * Azure Kubernetes Service (AKS) online endpoints
 > * Batch inference endpoints
 
 ## What are endpoints and deployments (preview)?
 
-After you train a machine learning model, you need to deploy the model so that others can use it to perform inferencing. In Azure Machine Learning, you can use **Endpoints** (preview) and **Deployments** (preview) to do so.
+After you train a machine learning model, you need to deploy the model so that others can use it to perform inferencing. In Azure Machine Learning, you can use **endpoints** (preview) and **deployments** (preview) to do so.
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
 
-An **Endpoint** is an HTTPS endpoint that clients can call to receive the inferencing (scoring) output of a trained model. It provides: 
+An **endpoint** is an HTTPS endpoint that clients can call to receive the inferencing (scoring) output of a trained model. It provides: 
 - Authentication using 'key & token' based auth 
 - SSL termination 
 - Traffic allocation between deployments 
 - A stable scoring URI (endpoint-name.region.inference.ml.azure.com)
 
 
-A **Deployment** is a set of compute resources hosting the model that performs the actual inferencing. It contains: 
+A **deployment** is a set of compute resources hosting the model that performs the actual inferencing. It contains: 
 - Model details (code, model, environment) 
 - Compute resource and scale settings 
 - Advanced settings (like request and probe settings)
@@ -52,11 +53,11 @@ Azure Machine Learning uses the concept of endpoints and deployments to implemen
 ### Multiple developer interfaces
 
 Create and manage batch and online endpoints with multiple developer tools:
-- CLI
+- the Azure CLI
 - ARM/REST API
 - Azure Machine Learning studio web portal
 - Azure portal (IT/Admin)
-- Support for CI/CD MLOps pipelines using the CLI interface & REST/ARM interfaces
+- Support for CI/CD MLOps pipelines using the Azure CLI interface & REST/ARM interfaces
 
 ## What are online endpoints (preview)?
 
@@ -105,7 +106,7 @@ There are two types of online endpoints: **managed online endpoints** (preview) 
 
 |  | Managed online endpoints | AKS online endpoints |
 |-|-|-|
-| **Recommended users** | Users who want a managed model deployment and enhanced MLOps experience | Users who prefer Azure Kubernetes Service (AKS) and can manage infrastructure requirements |
+| **Recommended users** | Users who want a managed model deployment and enhanced MLOps experience | Users who prefer Azure Kubernetes Service (AKS) and can self-manage infrastructure requirements |
 | **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | User responsibility |
 | **Compute type** | Managed (AmlCompute) | AKS |
 | **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Unsupported |
@@ -185,5 +186,7 @@ Specify the storage output location to any datastore and path. By default, batch
 - [How to deploy managed online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
 - [How to deploy batch endpoints with the Azure CLI](how-to-use-batch-endpoint.md)
 - [How to use managed online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [How to view online endpoint costs](how-to-view-online-endpoints-costs.md)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

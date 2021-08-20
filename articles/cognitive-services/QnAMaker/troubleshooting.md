@@ -299,7 +299,7 @@ If you delete an Azure Cognitive Search index, the operation is final and the in
 <summary><b>I deleted my `testkb` index in my Search service. How can I fix this?</b></summary>
 
 **Answer**:
-Your old data can't be recovered. Create a new QnA Maker resource and create your knowledge base again.
+In case you deleted the `testkb` index in your Search service, you can restore the data from the last published KB. Please use the recovery tool [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd) available on GitHub. 
 
 </details>
 
@@ -395,10 +395,10 @@ If you delete an Azure Cognitive Search index, the operation is final and the in
 </details>
 
 <details>
-<summary><b>I deleted my `testkb` index in my Search service. How can I fix this?</b></summary>
+<summary><b>I deleted my `testkbv2` index in my Search service. How can I fix this?</b></summary>
 
 **Answer**:
-Your old data can't be recovered. Create a new QnA Maker resource and create your knowledge base again.
+In case you deleted the `testkbv2` index in your Search service, you can restore the data from the last published KB. Please use the recovery tool [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd) available on GitHub. 
 
 </details>
 

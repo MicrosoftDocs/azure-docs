@@ -72,14 +72,14 @@ Rules for a network security group (NSG) or firewall can block communication bet
 
 To make Connection Monitor recognize your on-premises machines as sources for monitoring, install the Log Analytics agent on the machines.  Then enable the Network Performance Monitor solution. These agents are linked to Log Analytics workspaces, so you need to set up the workspace ID and primary key before the agents can start monitoring.
 
-To install the Log Analytics agent for Windows machines, see [Azure Monitor virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
+To install the Log Analytics agent for Windows machines, see [Install Log Analytics agent on Windows](../azure-monitor/agents/agent-windows.md).
 
 If the path includes firewalls or network virtual appliances (NVAs), then make sure that the destination is reachable.
 
 For Windows machines, to open the port, run the [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell script without any parameters in a PowerShell window with administrative privileges.
 
 For Linux machines, portNumbers to be used needs to be changed manually. 
-* Navigate to path: /var/opt/microsoft/omsagent/npm_state . 
+* Navigate to path: /var/opt/microsoft/omsagent/npm_state. 
 * Open file: npmdregistry
 * Change the value for Port Number ```“PortNumber:<port of your choice>”```
 
@@ -275,9 +275,21 @@ To view the trends in RTT and the percentage of failed checks for a test:
 
 Use Log Analytics to create custom views of your monitoring data. All data that the UI displays is from Log Analytics. You can interactively analyze data in the repository. Correlate the data from Agent Health or other solutions that are based in Log Analytics. Export the data to Excel or Power BI, or create a shareable link.
 
+#### Network Topology in Connection Monitor 
+
+Connection Monitor topology is usually built using the result of Trace route command performed by the agent which basically gets all the hops from source to destination.
+However in case when either source/destination lies with in Azure Boundary, Topology is built by merging the results of 2 distinct operations.
+First one is obviously the result of Trace Route command. The 2nd one is the result of an internal command (very similar to Next Hop Diagnostics tool of NW) which identifies a logical route based on (customer) network configuration within Azure Boundary. 
+Since the later one is logical and the former one doesn't usually identify any hops with in Azure Boundary, few hops in the merged result (mostly all the hops in the Azure Boundary) will not have latency values.
+
 #### Metrics in Azure Monitor
 
 In connection monitors that were created before the Connection Monitor experience, all four metrics are available: % Probes Failed, AverageRoundtripMs, ChecksFailedPercent, and RoundTripTimeMs. In connection monitors that were created in the Connection Monitor experience, data is available only for ChecksFailedPercent, RoundTripTimeMs and Test Result metrics.
+
+Metrics are emitted as per monitoring frequency and describe aspect of a connection monitor at a particular time. 
+Connection Monitor metrics also have multiple dimensions such as SourceName, DestinationName, TestConfiguration, TestGroup etc. 
+These dimensions can be used to visualize a specific set of data and also to target the same while defining alerts.
+Currently Azure Metrics allows minimum granularity of 1 minute, If frequency is less than 1 minute, aggregated results will be displayed.
 
   :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot showing metrics in Connection Monitor" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
@@ -361,6 +373,37 @@ For networks whose sources are Azure VMs, the following issues can be detected:
 * BGP isn't enabled on the gateway connection.
 * The DIP probe is down at the load balancer.
 
+## Comparision between Azure's Connectivity Monitoring Support 
+
+You can migrate tests from Network Performance Monitor and Connection Monitor (Classic) to New, Improved Connection Monitor with a single click and with zero downtime.
+ 
+The migration helps produce the following results:
+
+* Agents and firewall settings work as is. No changes are required. 
+* Existing connection monitors are mapped to Connection Monitor > Test Group > Test format. By selecting **Edit**, you can view and modify the properties of the new Connection Monitor, download a template to make changes to Connection Monitor, and submit it via Azure Resource Manager. 
+* Azure virtual machines with the Network Watcher extension send data to both the workspace and the metrics. Connection Monitor makes the data available through the new metrics (ChecksFailedPercent and RoundTripTimeMs) instead of the old metrics (ProbesFailedPercent and AverageRoundtripMs). The old metrics will get migrated to new metrics as ProbesFailedPercent -> ChecksFailedPercent and AverageRoundtripMs -> RoundTripTimeMs.
+* Data monitoring:
+   * **Alerts**: Migrated automatically to the new metrics.
+   * **Dashboards and integrations**: Require manually editing of the metrics set. 
+   
+There are several reasons to migrate from Network Performance Monitor and Connection Monitor (Classic) to Connection Monitor. Below are some of the use cases which show us how Azure's Connection Monitor performs against Network Performance Monitor and Connection Monitor (Classic) . 
+
+ | Feature	| Network Performance Monitor | Connection Monitor (Classic) | Connection Monitor |
+ | -------  | --------------------------- | -------------------------- | ------------------ | 
+ | Unified experience for Azure and Hybrid monitoring |	Not Available |	Not Available |	Available |
+ | Cross Subscription, Cross Region, Cross Workspace Monitoring | Allows cross subscription, cross region monitoring but doesn’t allow cross workspace monitoring |	Not Available | Allows Cross Subscription , Cross Workspace monitoring; Azure Agents have regional boundary  |
+ | Centralized workspace support | 	Not Available |	Not Available	| Available |
+ | Multiple Sources can ping Multiple Destinations | Performance Monitoring allows multiple sources to ping multiple destinations , Service Connectivity Monitoring allows multiple sources to ping a single service/URL and Express Route allows multiple source to ping multiple destinations | Not Available | Available |
+ | Unified Topology across On-Premises, Internet Hops and Azure | Not Available | Not Available	| Available |
+ | HTTP Status Code Checks | Not Available	| Not Available	| Available |
+ | Connectivity Diagnostics | Not Available | Available | Available |
+ | Compound resources - VNETs , Subnets & On-Premises Custom Networks | Performance Monitoring supports Subnets, On premise Networks and Logical Network Groups , Service Connectivity Monitoring and Express Route support only On Premise and Azure Agents | Not Available | Available |
+ | Connectivity Metrics and Dimensions Measurements |	Not Available | Loss, Latency, RTT | Available |
+ | Automation – PS/ CLI/Terraform | Not Available | Available | Available |
+ | Support for Linux | Performance Monitoring supports Linux, Service Connectivity Monitor and Express Route do not support Linux | Available | Available |
+ | Support for Public, Government , Mooncake & Air-Gapped Cloud | Available | Available | Available|
+
+
 ## FAQ
 
 ### Are classic VMs supported?
@@ -376,6 +419,9 @@ For example, using same VM with a filter and without a filter in same connection
 ### The test failure reason is "Nothing to Display"?
 Issues displayed on the Connection Monitor dashboard are found during topology discovery or hop exploration. There can be cases where the threshold set for % loss or RTT is breached but no issues are found on hops.
 
+### While migrating existing Connection Monitor (Classic) to Connection Monitor, the external endpoint tests are being migrated with TCP protocol only? 
+There is no protocol selection in Connection Monitor (Classic). So customer would not have been able to specify connectivity to external endpoints using HTTP protocol in Connection Monitor (Classic).
+All the tests have TCP protocol only in Connection Monitor (Classic), that's why on migration we create TCP configuration in tests in Connection Monitor. 
 
 ## Next Steps
     

@@ -48,4 +48,4 @@ Open Synapse Studio and navigate to the **Monitor** hub. Here, you can see a his
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore the Knowledge Center](get-started-knowledge-center.md)
+> [Explore the Knowledge center](get-started-knowledge-center.md)

@@ -8,7 +8,7 @@ author: mikebudzynski
 ms.service: api-management
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/25/2021
+ms.date: 08/04/2021
 ms.author: apimpm
 
 ---
@@ -28,15 +28,18 @@ Before you can use Application Insights, you first need to create an instance of
 
 1. Navigate to your **Azure API Management service instance** in the **Azure portal**.
 1. Select **Application Insights** from the menu on the left.
-1. Click **+ Add**.  
+1. Select **+ Add**.  
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-1.png" alt-text="Screenshot that shows where to add a new connection":::
 1. Select the previously created **Application Insights** instance and provide a short description.
-1. Click **Create**.
+1. To enable [availability monitoring](../azure-monitor/app/monitor-web-app-availability.md) of your API Management instance in Application Insights, select the **Add availability monitor** checkbox.
+
+    This setting regularly validates whether the API Management service endpoint is responding. Results appear in the **Availability** pane of the Application Insights instance.
+1. Select **Create**.
 1. You have just created an Application Insights logger with an instrumentation key. It should now appear in the list.  
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-2.png" alt-text="Screenshot that shows where to view the newly created Application Insights logger with instrumentation key":::
 
 > [!NOTE]
-> Behind the scene, a [Logger](/rest/api/apimanagement/2019-12-01/logger/createorupdate) entity is created in your API Management instance, containing the Instrumentation Key of the Application Insights instance.
+> Behind the scenes, a [Logger](/rest/api/apimanagement/2019-12-01/logger/createorupdate) entity is created in your API Management instance, containing the instrumentation key of the Application Insights instance.
 
 ## Enable Application Insights logging for your API
 
@@ -55,7 +58,7 @@ Before you can use Application Insights, you first need to create an instance of
 > Overriding the default value **0** in the **Number of payload bytes to log** setting may significantly decrease the performance of your APIs.
 
 > [!NOTE]
-> Behind the scene, a [Diagnostic](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) entity named 'applicationinsights' is created at the API level.
+> Behind the scenes, a [Diagnostic](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) entity named 'applicationinsights' is created at the API level.
 
 | Setting name                        | Value type                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -84,13 +87,18 @@ Before you can use Application Insights, you first need to create an instance of
 
 Application Insights receives:
 
-+ *Request* telemetry item, for every incoming request (*frontend request*, *frontend response*),
-+ *Dependency* telemetry item, for every request forwarded to a backend service (*backend request*, *backend response*),
++ *Request* telemetry item, for every incoming request:
+    + *frontend request*, *frontend response*
++ *Dependency* telemetry item, for every request forwarded to a backend service:
+    + *backend request*, *backend response*
 + *Exception* telemetry item, for every failed request:
     + failed because of a closed client connection
     + triggered an *on-error* section of the API policies
-    + has a response HTTP status code matching 4xx or 5xx.
-+ *Trace* telemetry item, if you configure a [trace](api-management-advanced-policies.md#Trace) policy. The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging.
+    + has a response HTTP status code matching 4xx or 5xx
++ *Trace* telemetry item, if you configure a [trace](api-management-advanced-policies.md#Trace) policy. 
+    + The `severity` setting in the `trace` policy must be equal to or greater than the `verbosity` setting in the Application Insights logging.
+
+You can also emit custom metrics by configuring the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy.
 
 > [!NOTE]
 > See [Application Insights limits](../azure-monitor/service-limits.md#application-insights) for information about the maximum size and number of metrics and events per Application Insights instance.

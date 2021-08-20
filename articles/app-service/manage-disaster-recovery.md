@@ -27,7 +27,7 @@ Identify all the App Service resources that the impacted app currently uses. For
 - [App Service plans](overview-hosting-plans.md)
 - [Deployment slots](deploy-staging-slots.md)
 - [Custom domains purchased in Azure](manage-custom-dns-buy-domain.md)
-- [SSL certificates](configure-ssl-certificate.md)
+- [TLS/SSL certificates](configure-ssl-certificate.md)
 - [Azure Virtual Network integration](web-sites-integrate-with-vnet.md)
 - [Hybrid connections](app-service-hybrid-connections.md).
 - [Managed identities](overview-managed-identity.md)

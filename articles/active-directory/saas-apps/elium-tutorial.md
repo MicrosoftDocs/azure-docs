@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 07/27/2021
 ms.author: jeedes
 ---
 
@@ -35,10 +35,10 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Elium supports **SP and IDP** initiated SSO
-* Elium supports **Just In Time** user provisioning
+* Elium supports **SP and IDP** initiated SSO.
+* Elium supports **Just In Time** user provisioning.
 
-## Adding Elium from the gallery
+## Add Elium from the gallery
 
 To configure the integration of Elium into Azure AD, you need to add Elium from the gallery to your list of managed SaaS apps.
 
@@ -53,13 +53,13 @@ To configure the integration of Elium into Azure AD, you need to add Elium from 
 
 Configure and test Azure AD SSO with Elium using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Elium.
 
-To configure and test Azure AD SSO with Elium, complete the following building blocks:
+To configure and test Azure AD SSO with Elium, perform the following steps:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Elium SSO](#configure-elium-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Elium test user](#create-elium-test-user)** - to have a counterpart of B.Simon in Elium that is linked to the Azure AD representation of user.
+    1. **[Create Elium test user](#create-elium-test-user)** - to have a counterpart of B.Simon in Elium that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -68,11 +68,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Elium** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<platform-domain>.elium.com/login/saml2/metadata`
@@ -151,20 +151,20 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **User profile** from right top corner and then select **Settings**.
 
-	![Configure Single Sign-On Elium 01](./media/elium-tutorial/elium-01.png)
+	![Configure Single Sign-On User profile.](./media/elium-tutorial/profile.png)
 
 1. Select **Security** under **Advanced**.
 
-	![Configure Single Sign-On Elium 02](./media/elium-tutorial/elium-02.png)
+	![Configure Single Sign-On Advanced.](./media/elium-tutorial/security.png)
 
 1. Scroll down to the **Single sign-on (SSO)** section and perform the following steps:
 
-	![Configure Single Sign-On Elium 03](./media/elium-tutorial/elium-03.png)
+	![Configure Single Sign-On.](./media/elium-tutorial/configuration.png)
 
 	a. Copy the value of **Verify that SAML2 authentication works for your account** and paste it in the **Sign-on URL** textbox on the **Basic SAML Configuration** section in the Azure portal.
 
 	> [!NOTE]
-	> After configuring SSO, you can always access the default remote login page at the following URL: `https://<platform_domain>/login/regular/login` 
+	> After configuring SSO, you can always access the default remote login page at the following URL: `https://<platform_domain>/login/regular/login`. 
 
 	b. Select **Enable SAML2 federation** checkbox.
 
@@ -174,11 +174,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	e. Search for the **entityID** in the **SP Metadata** file, copy the **entityID** value and paste it in the **Identifier** textbox on the **Basic SAML Configuration** section in the Azure portal. 
 
-	![Configure Single Sign-On Elium 04](./media/elium-tutorial/elium-04.png)
+	![Configure Single Sign-On Configuration.](./media/elium-tutorial/metadata.png)
 
 	f. Search for the **AssertionConsumerService** in the **SP Metadata** file, copy the **Location** value and paste it in the **Reply URL** textbox on the **Basic SAML Configuration** section in the Azure portal.
 
-	![Configure Single Sign-On Elium 05](./media/elium-tutorial/elium-05.png)
+	![Configure Single Sign-On AssertionConsumerService.](./media/elium-tutorial/service.png)
 
 	g. Open the downloaded metadata file from Azure portal into notepad, copy the content and paste it into the **IdP Metadata** textbox.
 
@@ -205,7 +205,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
  
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Elium for which you set up the SSO 
  
-You can also use Microsoft Access Panel to test the application in any mode. When you click the Elium tile in the Access Panel, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Elium for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Elium tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Elium for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next Steps
 

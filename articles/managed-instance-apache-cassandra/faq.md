@@ -40,6 +40,10 @@ The managed instance will be available in a limited number of regions during pre
 
 These limits depend on the Virtual Machine SKUs you choose.
 
+### How are Cassandra repairs carried out in Azure Managed Instance for Apache Cassandra?
+
+We use [cassandra-reaper.io](http://cassandra-reaper.io/). It is set up to run automatically for you.
+
 ### What is the cost of Azure Managed Instance for Apache Cassandra?
 
 The managed instance charges are based on the underlying VM cost, with a small markup. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/managed-instance-apache-cassandra/).

@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom: 
 ms.devlang: 
 ms.topic: troubleshooting
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: wiassaf, sstein
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
 ms.date: 1/14/2021
 ---
 

@@ -12,7 +12,7 @@ ms.author: baanders
 The following table lists the functional limits of Azure Digital Twins. 
 
 > [!TIP]
-> For modeling recommendations to operate within these functional limits, see [Best practices for designing models](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models).
+> For modeling recommendations to operate within these functional limits, see [Modeling best practices](../articles/digital-twins/concepts-models.md#modeling-best-practices).
 
 | Area | Capability | Default limit | Adjustable? |
 | --- | --- | --- | --- |
@@ -53,4 +53,4 @@ The following table reflects the rate limits of different APIs.
 
 Limits on data types and fields within DTDL documents for Azure Digital Twins models can be found within its spec documentation in GitHub: [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Query latency details are described in [Concepts: Query language](../articles/digital-twins/concepts-query-language.md#considerations-for-querying). Limitations of particular query language features can be found in the [query reference documentation](../articles/digital-twins/concepts-query-language.md#reference-documentation).
+Query latency details are described in [Query language](../articles/digital-twins/concepts-query-language.md#considerations-for-querying). Limitations of particular query language features can be found in the [query reference documentation](../articles/digital-twins/concepts-query-language.md#reference-documentation).

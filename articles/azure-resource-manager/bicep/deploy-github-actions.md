@@ -123,6 +123,7 @@ The workflow file must be stored in the **.github/workflows** folder at the root
             resourceGroupName: ${{ secrets.AZURE_RG }}
             template: ./azuredeploy.bicep
             parameters: storagePrefix=mystore
+            failOnStdErr: false
     ```
 
     Replace **mystore** with your own storage account name prefix.
