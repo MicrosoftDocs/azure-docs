@@ -191,7 +191,7 @@ Refer to the following list to configure managed identity for Azure Digital Twin
 Managed identity type |All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | Preview | Preview | Not available | Preview |
-| User assigned | Not available | Not available  | Not available  | Not available |
+| User assigned | Preview | Preview | Not available | Preview |
 
 ### Azure Firewall Policy
 
