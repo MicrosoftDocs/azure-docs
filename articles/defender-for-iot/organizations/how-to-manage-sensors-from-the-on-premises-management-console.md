@@ -57,11 +57,17 @@ You can define the following sensor system settings from the management console:
 
 1. Select **Save**.
 
-## Update versions
+## Update sensor versions
 
 You can update several sensors simultaneously from the on-premises management console.
 
+### Update sequence
+
+When upgrading an on-premises management console and managed sensors, first update the management console, and then update the sensors. The sensor update process will not succeed if you do not update the on-premises management console first.
+
 **To update several sensors**:
+
+1. Verify that you have already updated the on-premises management console to the version that you are updating the sensors. For more information on-premises management console update see, [Update the software version](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 

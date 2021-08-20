@@ -25,7 +25,7 @@ This quickstart describes the steps to create an Azure Purview account in the Az
 
    :::image type="content" source="media/create-catalog-portal/select-create.png" alt-text="Screenshot with the create button highlighted an Azure Purview in the Azure portal.":::
   
-      Instead, you can also go to the marketplace, search for **Azure Purview**, and select **Create**.
+      Or instead, you can go to the marketplace, search for **Azure Purview**, and select **Create**.
 
      :::image type="content" source="media/create-catalog-portal/search-marketplace.png" alt-text="Screenshot showing Azure Purview in the Azure marketplace, with the create button highlighted.":::
 

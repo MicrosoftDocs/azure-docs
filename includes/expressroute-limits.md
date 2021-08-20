@@ -17,7 +17,8 @@
 | Maximum number of IPv4 routes advertised to Azure private peering with ExpressRoute Premium add-on |10,000 |
 | Maximum number of IPv6 routes advertised to Azure private peering with ExpressRoute Standard |100 |
 | Maximum number of IPv6 routes advertised to Azure private peering with ExpressRoute Premium add-on |100 |
-| Maximum number of routes advertised from Azure private peering from the VNet address space for an ExpressRoute connection | 1,000 |
+| Maximum number of IPv4 routes advertised from Azure private peering from the VNet address space for an ExpressRoute connection | 1,000 |
+| Maximum number of IPv6 routes advertised from Azure private peering from the VNet address space for an ExpressRoute connection | 1,000 |
 | Maximum number of routes advertised to Microsoft peering with ExpressRoute Standard |200 |
 | Maximum number of routes advertised to Microsoft peering with ExpressRoute Premium add-on |200 |
 | Maximum number of ExpressRoute circuits linked to the same virtual network in the same peering location |4 |
