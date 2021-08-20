@@ -54,9 +54,9 @@ To quickly get started, select one of the Quickstart template that closely match
 
 - **[Azure Command-Line Interface (CLI)](/cli/azure/overview)**.
 
-- **Java source code and [Java Development Kit (JDK) version](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/development_guide/index)**
+- **Java source code and [Java Development Kit (JDK) version](https://www.oracle.com/java/technologies/javase-downloads.html)**
 
-- **[Java application based on JBoss EAP 7.2](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2html-single/development_guide/index#become_familiar_with_java_enterprise_edition_8)** or **[Java application based on JBoss EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html-single/development_guide/index#get_started_developing_applications)**.
+- **[Java application based on JBoss EAP 7.2](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/development_guide/index)** or **[Java application based on JBoss EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html-single/development_guide/index#get_started_developing_applications)**.
 
 **RHEL options** - Choose between PAYG or BYOS. For BYOS, you will need to activate your [Red Hat Cloud Access](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index) RHEL Gold Image for you use the Azure Marketplace offer. BYOS offers will appear in the Private Offer section in the Azure portal. 
 
