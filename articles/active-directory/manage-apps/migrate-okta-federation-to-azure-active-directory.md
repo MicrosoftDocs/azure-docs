@@ -269,9 +269,9 @@ that may be needed before de-federating the domains as a whole from Okta. Refer 
 
 ### Step 6 - Remove federation for Office 365 domains
 
-Once your organization is comfortable with the Managed authentication experience, its time to de-federate your domain from Okta. To accomplish this connect to the MSOnline Powershell with the following commands- if you don't already have the MSOnline powershell module, you can download it first by doing an install-module MSOnline.
+Once your organization is comfortable with the Managed authentication experience, its time to de-federate your domain from Okta. To accomplish this connect to the MSOnline PowerShell with the following commands- if you don't already have the MSOnline PowerShell module, you can download it first by doing an install-module MSOnline.
 
-```Powershell
+```PowerShell
 
 import-module MSOnline
 Connect-Msolservice
