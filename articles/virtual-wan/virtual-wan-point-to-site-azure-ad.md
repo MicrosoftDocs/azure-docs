@@ -1,17 +1,18 @@
 ---
-title: 'Configure Azure AD authentication for User VPN connection: Virtual WAN'
+title: 'Configure a User VPN connection using Azure Active Directory authentication'
+titleSuffix: Azure Virtual WAN
 description: Learn how to configure Azure Active Directory authentication for Virtual WAN User VPN (point-to-site).
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 10/14/2020
-ms.author: alzam 
+ms.date: 08/19/2021
+ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
 ---
-# Configure Azure Active Directory authentication for User VPN
+# Configure a User VPN connection - Azure Active Directory authentication
 
 This article shows you how to configure Azure AD authentication for User VPN in Virtual WAN to connect to your resources in Azure over an OpenVPN VPN connection. Azure Active Directory authentication is only available for gateways using OpenVPN protocol and clients running Windows.
 
