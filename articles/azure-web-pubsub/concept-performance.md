@@ -180,3 +180,7 @@ The bandwidth limit is the same as that for **send to big group**.
 | Outbound messages per second | 3,000 | 6,000 | 15,000 | 30,000 | 60,000 | 150,000 | 300,000 |
 | Inbound bandwidth  | 6 KBps   | 6 KBps   | 6 KBps    | 6 KBps    | 6 KBps    | 6 KBps     | 6 KBps     |
 | Outbound bandwidth | **6 MBps** | **12 MBps** | **30 MBps** | **60 MBps** | **120 MBps** | **300 MBps** | **600 MBps** |
+
+## Next steps
+
+[!INCLUDE [next step](includes/include-next-step.md)]
