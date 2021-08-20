@@ -17,6 +17,9 @@ services: iot-edge
 
 Use [Azure Monitor Log alerts](../azure-monitor/alerts/alerts-unified-log.md) to monitor IoT Edge devices at scale. As highlighted in the [solution architecture](how-to-collect-and-transport-metrics.md#architecture), Azure Monitor Log Analytics is used as the metrics database. This integration unlocks powerful and flexible alerting capabilities using resource-centric log alerts.
 
+> [!IMPORTANT]
+> This feature is currently only available for IoT Hub and not for IoT Central.
+
 ## Create an alert rule
 
 You can [create a log alert rule](../azure-monitor/alerts/alerts-log.md) for monitoring a broad range of conditions across your device fleet.

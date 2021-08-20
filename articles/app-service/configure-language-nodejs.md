@@ -25,7 +25,7 @@ To show the current Node.js version, run the following command in the [Cloud She
 az webapp config appsettings list --name <app-name> --resource-group <resource-group-name> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION'].value"
 ```
 
-To show all supported Node.js versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+To show all supported Node.js versions, navigate to `https://<sitename>.scm.azurewebsites.net/api/diagnostics/runtime` or run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes | grep node
@@ -59,7 +59,7 @@ To set your app to a [supported Node.js version](#show-nodejs-version), run the 
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_NODE_DEFAULT_VERSION="10.15"
 ```
 
-This setting specifies the Node.js version to use, both at runtime and during automated package restore during App Service build automation.
+This setting specifies the Node.js version to use, both at runtime and during automated package restore during App Service build automation. This setting only recognizes major minor versions, the _LTS_ moniker is not supported.
 
 > [!NOTE]
 > You should set the Node.js version in your project's `package.json`. The deployment engine runs in a separate process that contains all the supported Node.js versions.
