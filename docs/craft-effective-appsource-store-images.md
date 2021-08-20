@@ -2,7 +2,7 @@
 title: Craft effective Microsoft AppSource store images
 description: Make sure that the images submitted for your app are legible, focused, and demonstrate value. 
 ms.date: 11/24/2020
-
+ms.author: mingshen
 localization_priority: Normal
 ---
 
@@ -24,13 +24,12 @@ The content of each image should be easy to read, and should reflect the quality
 ![Image with correctly scaled content next to an image with pinched content](images/legibility-do-dont-2.png)
 ![Image with a close up to show small content next to image with illegible content](images/legibility-do-dont-3.png)
 
-
 ## Avoid excess content
-Use images to focus the user’s attention on your solution. Images that contain unrelated content are distracting and confusing to the user. 
+Use images to focus the user’s attention on your solution. Images that contain unrelated content are distracting and confusing to the user.
 
 |**Do**|**Don't**|
 |:----|:----|
-|Use example personas when needed.|Don't show private or personal information.|
+|Use example personas when needed. |Don't show private or personal information.|
 |Only show interface elements relevant to the app. Use the Office UI sparingly. |Don’t show unrelated user interface elements such as task bars, ribbons, excessive empty space, or other applications.|
 |Reinforce your brand by incorporating recognizable brand elements such as the logo or brand colors. | Don’t add unnecessary graphic elements that obstruct content. |
 

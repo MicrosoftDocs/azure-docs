@@ -1,6 +1,7 @@
 ---
 title: Create or update client IDs and secrets in Partner Center
 description: To enable OAuth in your SharePoint Add-ins, create or delete client IDs and secrets, update or replace expiring client secrets, and associate them with your add-ins in Partner Center.
+ms.author: mingshen
 ms.date: 1/11/2018
 localization_priority: Priority
 ---
@@ -74,7 +75,7 @@ If your add-in is a service and it needs OAuth client IDs and client secrets, fo
 
 5. Choose how long your client secret will be valid for. The options are one, two, or three years. We recommend choosing one year, because this might be easier to track within your business processes than longer time periods. However, there is no security impact to choosing two or three years. When the client secret is expiring, you will need to update your add-in.
 
-6. Select the availability of the client secret. You can select one of the following:
+6. Select the availability of the client secret. Select one of the following:
     - **This client ID will be used for an app that is available worldwide.**
     - **This client ID will be used for an app that is available in China only.**
  

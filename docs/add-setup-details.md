@@ -1,6 +1,7 @@
 ---
 title: Add setup details for your Microsoft 365 solution
-description: Learn how to add details for Microsoft 365 app or Office add-in. 
+description: Learn how to add details for Microsoft 365 app or Office add-in.
+ms.author: mingshen
 localization_priority: Normal
 ---
 

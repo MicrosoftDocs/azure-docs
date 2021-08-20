@@ -1,12 +1,13 @@
 ---
 title: Promote your Microsoft AppSource solution
 description: Use Microsoft AppSource badges to promote your solution and drive traffic from your site to Microsoft AppSource.
+ms.author: mingshen
 localization_priority: Normal
 ---
 
 # Promote your Microsoft AppSource solution
 
-After you submit your solution and it's approved for addition to Microsoft AppSource, you might want to brand it as a Microsoft AppSource solution on your webpage. You can use the **Get it from Microsoft AppSource** badge to promote your solution and drive traffic from your site to Microsoft AppSource. To do so:
+After submitting your solution and it's approved for addition to Microsoft AppSource, you might want to brand it as a Microsoft AppSource solution on your webpage. You can use the **Get it from Microsoft AppSource** badge to promote your solution and drive traffic from your site to Microsoft AppSource. To do so:
 
 1. Download the [Microsoft AppSource marketing toolkit](https://aka.ms/marketplaceresourcesguide) or download the [Get it from Microsoft AppSource](https://assetsprod.microsoft.com/mpn/ms-appsource.png) badge directly.
 

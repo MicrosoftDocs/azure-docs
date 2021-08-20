@@ -1,12 +1,13 @@
 ---
 title: Create effective listings in Microsoft AppSource and within Microsoft 365 app stores
 description: Make sure that the information you submit clearly communicates the benefits and functionality that your solution provides.
+ms.author: mingshen
 localization_priority: Normal
 ---
 
 # Create effective listings in Microsoft AppSource and Microsoft 365 app stores
 
-The information and images that you submit to Partner Center become the Microsoft AppSource and in-product listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your name, description, icons, and images—clearly communicates the benefits and functionality that your solution provides.
+The information and images you submit to Partner Center become the Microsoft AppSource and in-product listing for your solution. This information is the first thing prospective users see, and creates their first impression. Make sure that the information you submit—including your name, description, icons, and images—clearly communicates the benefits and functionality that your solution provides.
 
 Apply the following when you create your name, description, and images:
 
@@ -37,7 +38,7 @@ In your name:
 You specify your add-in name in two places, so be sure to use the same name in both:
 
 - Your add-in manifest; specifically, the [DisplayName element](/office/dev/add-ins/reference/manifest/displayname) (Office Add-in), or the [Title element](/sharepoint/dev/schema/title-element-propertiesdefinition-complextypesharepoint-add-in-manifest) (SharePoint Add-in). This specifies the name that is displayed after the user installs the add-in.
-- The name that you reserve in Partner Center. This specifies the name that is displayed in Microsoft AppSource and the in-product Store.
+- The name you reserve in Partner Center. This specifies the name that is displayed in Microsoft AppSource and the in-product Store.
 
 ## Write compelling descriptions
 
@@ -45,7 +46,7 @@ A good description makes your solution stand out. Your summary should entice pot
 
 ### Effective summaries
 
-The summary that you supply with your submission is the text that is shown to users in Microsoft AppSource and in-product search results. You want it to be original, engaging, and directed at your target audience. Describe your solution and its value to your target customer, in one or two sentences:
+The summary you supply with your submission is the text that is shown to users in Microsoft AppSource and in-product search results. You want it to be original, engaging, and directed at your target audience. Describe your solution and its value to your target customer, in one or two sentences:
 
 - Put the most important information first.
 - Do not repeat the name.
@@ -97,7 +98,7 @@ For SharePoint Add-ins, you include an image in your add-in package, and upload 
 
 ### Create an icon for your add-in
 
-For Office Add-ins that you are submitting to Microsoft AppSource, you have to link to an image by using the [IconUrl element](/office/dev/add-ins/reference/manifest/iconurl) in the manifest. This image represents your add-in within an Office application.
+For Office Add-ins you are submitting to Microsoft AppSource, you have to link to an image by using the [IconUrl element](/office/dev/add-ins/reference/manifest/iconurl) in the manifest. This image represents your add-in within an Office application.
 
 The formatting requirements for this image differ depending on the add-in type. The following table lists the requirements for the icon image, by add-in type.
 

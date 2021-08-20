@@ -2,6 +2,7 @@
 title: Microsoft 365 Store step-by-step submission guide
 description:  Use this step by step submission guide to submitting your app to the Microsoft stores. 
 localization_priority: Normal
+ms.author: mingshen
 ---
 
 # Store step-by-step submission guide
@@ -9,13 +10,13 @@ localization_priority: Normal
 This article is a step-by-step guide that will detail how to submit your app to Microsoft 365 Stores.
 
 >[!TIP]
->We recommend reading our [pre-submission checklist](./checklist.md) before reading this store submission guide, so you have all information ready to go for submission.
+>We recommend reading our [pre-submission checklist](./checklist.md) before reading this store submission guide so you have all information ready to go for submission.
 
 ## Step 1: Select the type of app you are submitting
 
 From the Overview tab in the Microsoft Partner Center, select **Create a new** and select the type of app you're submitting. The example screenshots in this article show an Office Add-in, but the steps apply to Teams apps, SharePoint solutions, etc.
 
-![Overview tab selected in the Microsoft Partner Center menu.](./images/new/step-select-type-of-add-in.png)
+![Overview tab selected in the Microsoft Partner Center menu](./images/new/step-select-type-of-add-in.png)
 
 ## Step 2: Name your app
 
@@ -40,21 +41,21 @@ The following screenshot shows the two yellow warning boxes appear, reminding yo
 
 ## Step 4: Upload your manifest for package testing
 
-You will need to upload your manifest file to the grey box on this page, as shown in the following screenshot.
+You will need to upload your manifest file to the grey box on this page.
 
 ![Your manifest needs to be updated in the shown grey box.](./images/new/step-4-packages-incomplete-upload.jpg)
 
 Remember to pre-test your package to prevent any unexpected failures in this step. Get information on all [the pre-testing manifest tools](/office/dev/add-ins/testing/troubleshoot-manifest#:~:text=%20To%20use%20a%20command-line%20XML%20schema%20validation,and%20replace%20XML_FILE%20with%20the%20path...%20More%20).
 
-When your manifest is uploaded and is correct, you will receive a confirmation and see that manifest checks have passed, as shown in the following screenshot.
+When your manifest is uploaded and is correct, you will receive a confirmation and see that manifest checks have passed.
 
-![A completed manifest upload.](./images/new/step-4-packages-complete-upload.jpg)
+![A completed manifest upload](./images/new/step-4-packages-complete-upload.jpg)
 
 ## Step 5: Define the metadata that will categorize your app in the store
 
 In this step, you will add secure URL links to your support policies, privacy policies, and End User License Agreements (EULA). For more information on what your policies should look like, see [our submission checklist](./checklist.md).
 
-You can see in the following screenshots that there is a yellow warning to remind you that notes for certification are required.
+The yellow warning seen in the following screenshots remind you that notes for certification are required.
 
 ![Properties step with support information highlighted](./images/new/step-5-a-validation.jpg)
 
@@ -65,7 +66,7 @@ The following image shows that to pass certification, your privacy policy must i
 - Your service description must include the name of app submitted.
 - A valid URL link that does not generate a 404 error.
 
-Note that a Terms of Use Policy is not considered a privacy policy. You must include a privacy policy that is separate from your Terms of Use policy.
+A Terms of Use Policy is not considered a privacy policy. You must include a privacy policy that is separate from your Terms of Use policy.
 
 ![Privacy policy specifications](./images/new/step-5-b-validation.jpg)
 
@@ -79,7 +80,7 @@ If you don't specify a support document link, you will be prompted to enter one.
 
 ## Step 6: Define your languages in Marketplace Listings
 
-This step can be confusing. Click on manage additional languages to begin. Then pick the language your app will be in to create a store entry.
+This step can be confusing. Select manage additional languages to begin. Then select the language your app will be in to create a store entry.
 
 ![Marketplace listings step with arrow pointing toward Manage Additional Languages and the Add languages step with an arrow toward English](./images/new/step-6-define-your-languages.png)
 
@@ -93,11 +94,11 @@ Within the language option, you'll find where you can fill in your app's store l
 
 ## Step 8: Decide on your availability date
 
-You can schedule when your app will be available. Note it typically takes 4 to 6 weeks to complete an app submission and get it approved. On average, most apps require multiple submissions to pass our validation process, so follow our checklist carefully to reduce this time.  
+Schedule when your app will be available. Note it typically takes 4 to 6 weeks to complete an app submission and get it approved. On average, most apps require multiple submissions to pass our validation process, so follow our checklist carefully to reduce this time.  
 
 ![Make my product available in a future market is selected in the Availability step](./images/new/step-8-set-availability-time-date.png)
 
-## Step 9: Make sure you add your critical testing instructions
+## Step 9:  Make sure you add your critical testing instructions
 
 This final critical step requires you include notes for certification. Provide any instructions for the reviewer who will be testing your app, including test accounts, license keys, and testing credentials.
 
@@ -110,9 +111,9 @@ The following image shows the Notes for certification box where you must provide
 >[!TIP]
 > Do not include an email address of a company employee who can provide log-in information. Our reviewers will **not be able to email you for log-in information**. Applications that do not list clear instructions in the certification notes will fail the submission process automatically.
 
-## Step 10: Use the following checklist to avoid the top 5 common errors that produce 80% of review rejections
+## Step 10: Use the following checklist to avoid the top five common errors that produce 80% of review rejections
 
-You can use our **[pre-submission checklist](./checklist.md)** to address all the things on this list.
+Use our **[pre-submission checklist](./checklist.md)** to address all the things on this list.
 
 - Did you include Terms of Use links?
 - Did you include Privacy Policy links?
@@ -120,8 +121,8 @@ You can use our **[pre-submission checklist](./checklist.md)** to address all th
 - Did you indicate Service or Account disclosures?
 - Did you indicate any Additional Charge Disclosures for required paid services?
 
-Once you have answered those questions for yourself, hit the submit button on your app for review and approval.
+Once you have answered those questions for yourself, select the submit button on your app for review and approval.
 
 ## Step 11: Congratulations, you are done submitting!
 
-You can expect a response within 3 to 4 business days from our reviewers if there are any issues related to your submission.
+Expect a response within 3 to 4 business days from our reviewers if there are any issues related to your submission.
