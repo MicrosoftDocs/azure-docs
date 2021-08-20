@@ -19,7 +19,7 @@ The Azure SQL Migration extension for [Azure Data Studio](/sql/azure-data-studio
 
 [!INCLUDE [database-migration-services-sql-mi-sql-vm](../../includes/database-migration-services-sql-mi-sql-vm.md)]
 
-## Azure SQL Migration extension for Azure Data Studio
+## Architecture of Azure SQL Migration extension for Azure Data Studio
 
 Azure Database Migration Service (DMS) is the core component in the overall architecture. DMS provides a reliable migration orchestrator to enable database migrations to Azure SQL. 
 Create or reuse an existing DMS using the Azure SQL Migration extension in Azure Data Studio(ADS).
