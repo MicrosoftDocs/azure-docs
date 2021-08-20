@@ -169,7 +169,7 @@ dataprep_step = PythonScriptStep(
 ```
 
 > [!NOTE]
-> Concurrent writes to a `OutputFileDatasetConfig` will fail. Do not attempt to use a single `OutputFileDatasetConfig` concurrently. Do not share a single `OutputFileDatasetConfig` in a multiprocessing situation, such as when using distributed training. 
+> Concurrent writes to a `OutputFileDatasetConfig` will fail. Do not attempt to use a single `OutputFileDatasetConfig` concurrently. Do not share a single `OutputFileDatasetConfig` in a multiprocessing situation, such as when using [distributed training](how-to-train-distributed-gpu.md). 
 
 ### Use `OutputFileDatasetConfig` as outputs of a training step
 

@@ -53,7 +53,7 @@ For Arc-enabled servers, before you rename the machine, it is necessary to remov
 
 5. Re-register the Connected Machine agent with Arc-enabled servers. Run the `azcmagent` tool with the [Connect](manage-agent.md#connect) parameter complete this step.
 
-6. Redeploy the VM extensions that were originally deployed to the machine from Arc-enabled servers. If you deployed the Azure Monitor for VMs (insights) agent or the Log Analytics agent using an Azure policy, the agents are redeployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
+6. Redeploy the VM extensions that were originally deployed to the machine from Arc-enabled servers. If you deployed the Azure Monitor for VMs (insights) agent or the Log Analytics agent using an Azure Policy definition, the agents are redeployed after the next [evaluation cycle](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers).
 
 ## Upgrading agent
 

@@ -2481,6 +2481,8 @@
         href: looop-provisioning-tutorial.md
       - name: LogMeIn
         href: logmein-provisioning-tutorial.md
+      - name: Maptician
+        href: maptician-provisioning-tutorial.md
       - name: MediusFlow
         href: mediusflow-provisioning-tutorial.md
       - name: Merchlogix
