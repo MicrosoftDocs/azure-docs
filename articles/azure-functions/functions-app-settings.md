@@ -317,7 +317,7 @@ A value of `1` enables your function app to scale when you have your storage acc
 |---|------------|
 |WEBSITE_CONTENTOVERVNET|1|
 
-Supported on [Premium](functions-premium-plan.md) and [Dedicated (App Service) plans](dedicated-plan.md) (Standard and higher) running Windows. Not currently supported for Consumption and Premium plans running Linux. 
+Supported on [Premium](functions-premium-plan.md) and [Dedicated (App Service) plans](dedicated-plan.md) (Standard and higher). Not supported when running on a [Consumption plan](consumption-plan.md). 
 
 ## WEBSITE\_CONTENTSHARE
 
