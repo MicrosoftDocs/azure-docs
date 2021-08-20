@@ -59,7 +59,7 @@ When you are ready to migrate, you can find detailed guidance on migration tools
 * [Offline migration using MongoDB native tools](mongodb/tutorial-mongotools-cosmos-db.md)
 * [Offline migration using Azure database migration service (DMS)](../../dms/tutorial-mongodb-cosmos-db.md)
 * [Online migration using Azure database migration service (DMS)](../../dms/tutorial-mongodb-cosmos-db-online.md)
-* [Offline/online migration using Azure Databricks and Spark](mongodb/migrate-databricksmigrate-databricks.md)
+* [Offline/online migration using Azure Databricks and Spark](mongodb/migrate-databricks.md)
 
 Then, follow our [post-migration guide](mongodb/post-migration-optimization.md) to optimize your Azure Cosmos DB data estate once you have migrated.
 
