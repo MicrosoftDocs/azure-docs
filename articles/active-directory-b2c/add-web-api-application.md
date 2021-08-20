@@ -22,7 +22,7 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 #### [App registrations](#tab/app-reg-ga/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** icon in the portal toolbar.
+1. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
@@ -40,7 +40,7 @@ If you have an application that implements the implicit grant flow, for example 
 #### [Applications (Legacy)](#tab/applications-legacy/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** icon in the portal toolbar.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Applications (Legacy)**, and then select **Add**.
