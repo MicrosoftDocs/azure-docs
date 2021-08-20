@@ -80,6 +80,12 @@ items:
   - name: Access using Postman
     href: using-postman.md
 
+  - name: Diagnostic logging
+    expanded: true
+    items:
+    - name: Enable diagnostic settings in the FHIR service
+      href: fhir-service-diagnostic-logs.md
+
 - name: Concepts
   items:
   - name: Security controls by Azure Policy
