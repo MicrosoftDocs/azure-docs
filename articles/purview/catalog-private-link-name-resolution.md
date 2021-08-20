@@ -73,7 +73,7 @@ The DNS resource records for PurviewA, when resolved in the virtual network host
 ## Option 2 - Use existing Azure Private DNS Zones
 During the deployment of Azure purview private endpoints, you can choose _Private DNS integration_ using existing Azure Private DNS Zones. This is common case for organizations where private endpoint is used for other services in Azure. In this case, during the deployment of private endpoints, make sure you select the existing DNS zones instead of creating new ones. 
 
-This also applis if your organizations uses a central or hub subscription for all Azure Private DNS Zones.
+This also applies if your organization uses a central or hub subscription for all Azure Private DNS Zones.
 
 The following list shows the required Azure DNS zones and A records for Purview private endpoints:
 
