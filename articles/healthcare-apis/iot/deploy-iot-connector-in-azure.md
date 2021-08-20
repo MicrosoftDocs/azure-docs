@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/19/2021
+ms.date: 08/20/2021
 ms.author: rabhaiya
 ---
 
@@ -110,8 +110,6 @@ For more information, see the open source documentation [Device Content Mapping]
    The **Destination Name** is a friendly name for the destination. Enter a unique name for your destination. As an example, you can name it `iotmedicdevice`.
 
 4. Select **Create** or **Lookup** for the **ResolutionType**.
-
-   When you select **Lookup**, this option allows you to select from a list if you have more IoT connectors created. The lookup feature looks for the destination maps of the other apps that have been previously created.
 
     > [!NOTE]
     > For the IoT Connector destination to create a valid observation resource in the FHIR Server, a device resource and patient resource **must** exist in the FHIR Server, so the observation can properly reference the device that created the data, and the patient the data was measured from. There are two modes the IoT Connector can use to resolve the device and patient resources.
