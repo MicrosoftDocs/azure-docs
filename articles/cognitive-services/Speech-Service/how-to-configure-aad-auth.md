@@ -128,7 +128,7 @@ To get the resource ID in the Azure portal:
 
 # [PowerShell](#tab/powershell)
 
-To retrieve the Resource ID using PowerShell, confirm that your computer has PowerShell version 7.x or later with the Azure PowerShell module version 5.1.0 or later. To see the versions of these tools, follow these steps:
+To get the Resource ID using PowerShell, confirm that your computer has PowerShell version 7.x or later with the Azure PowerShell module version 5.1.0 or later. To see the versions of these tools, follow these steps:
 
 1. In a PowerShell window, enter:
 
