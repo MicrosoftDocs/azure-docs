@@ -145,6 +145,8 @@ A payout profile is the bank account to which proceeds are sent from your sales.
 
 1. In the left menu, under **Payout and tax**, select **Payout and tax profile assignment**.
 
+    :::image type="content" source="./media/manage-accounts/payout-and-tax-profile-assignment.png" alt-text="Illustrates Payout and tax profile assignment page.":::
+
     > [!NOTE]
     > In you don't see the **Payout and tax** section in the left menu, contact your global admin or account admin for permissions.
 
@@ -159,6 +161,7 @@ A payout profile is the bank account to which proceeds are sent from your sales.
     > In you don't see the **Payout and tax** section in the left menu, contact your global admin or account admin for permissions.
 
 1. For more information about setting up your payout profile, see [Set up your payout account and tax forms](/partner-center/set-up-your-payout-account).
+
 ---
 
 > [!IMPORTANT]
