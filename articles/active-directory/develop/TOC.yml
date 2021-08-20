@@ -259,6 +259,12 @@
         href: scenario-desktop-acquire-token.md
       - name: Call a web API
         href: scenario-desktop-call-api.md
+      - name: Device code flow
+        href: scenario-desktop-app-device-code-flow.md
+      - name: Integrated Windows Auth
+        href: scenario-desktop-iwa.md
+      - name: Username Password
+        href: scenario-desktop-app-usernamepassword.md
       - name: Move to production
         href: scenario-desktop-production.md
     - name: Daemon app
