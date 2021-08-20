@@ -83,8 +83,6 @@ The following steps show you how to create an activity log alert rule in the Azu
 
 4. Select **Actions** and add **Alert rule details**.
 
-![Screenshot of activity log alert actions and rule details](media/monitor-app-lifecycle-events/activity-log-alert-action-and-rule-details.png)
-
 5. Select **Create alert rule**.
 
 ### Set up alerts to monitor app lifecycle events in Azure Service Health
