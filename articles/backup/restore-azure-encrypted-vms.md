@@ -59,7 +59,7 @@ Azure Backup supports Cross Region Restore of encrypted Azure VMs to the [Azure 
 Moving an encrypted VM across vault or resource group is same as moving a backed up Azure Virtual machine. See,
 
 - [Steps to move an Azure virtual machine to a different recovery service vault](backup-azure-move-recovery-services-vault.md#move-an-azure-virtual-machine-to-a-different-recovery-service-vault)
-- [Steps to move an Azure virtual machine to different resource group or subscription](../move-resource-group-and-subscription.md)
+- [Steps to move an Azure virtual machine to different resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
 
 ## Next steps
