@@ -26,9 +26,9 @@ Do the following steps in the Azure portal to order a device.
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource Group | Select an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. |
     |Source country/region    |    Select the country/region where your data currently resides.         |
-    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, go to [region availability](../articles/databox/data-box-overview.md#region-availability).            |
+    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).  |
 
-    [ ![Starting an Azure Data Box import order](media/data-box-order-portal/select-data-box-import-04-b.png) ](media/data-box-order-portal/select-data-box-import-04-b.png#lightbox)
+    [ ![Starting an Azure Data Box import order](media/data-box-order-portal/select-data-box-import-04-b.png) ](media/data-box-order-portal/select-data-box-import-04-b.png#lightbox)<!--Rework the lightbox, or remove it. This won't work.-->
 
 5. Select the **Data Box** product to order. For Data Box, the maximum usable capacity for a single order is 80 TB. For Data Box heavy, the maximum usable capacity for a single order is 770 TB. You can create multiple orders for larger data sizes.<!--Combined descriptions for both Data Box and Data Box Heavy. Final sentence approaches universal truth, but is it a concern for Heavy users?-->
 
