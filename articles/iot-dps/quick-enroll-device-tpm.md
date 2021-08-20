@@ -411,9 +411,9 @@ This section shows you how to create a .NET Core console app that adds an indivi
 
 :::zone pivot="programming-language-java"
 
-1. In the downloaded source code, navigate to the sample folder **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**. Open the file **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_**.
+1. In the downloaded source code, navigate to the sample folder *_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_*. Open the file *_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_*.
 
-2.  Replace `[Provisioning Connection String]` with the connection string that you copied in [Get the connection string for your provisioning service](#get-the-connection-string-for-your-provisioning-service).
+2. Replace `[Provisioning Connection String]` with the connection string that you copied in [Get the connection string for your provisioning service](#get-the-connection-string-for-your-provisioning-service).
 
     ```Java
     private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
@@ -422,37 +422,44 @@ This section shows you how to create a .NET Core console app that adds an indivi
    2. Add the TPM device details:
        1. Get the *Registration ID* and the *TPM endorsement key* for a TPM device simulation, by following the steps leading to the section [Simulate TPM device](quick-create-simulated-device.md#simulatetpm).
        2. Use the **_Registration ID_** and the **_Endorsement Key_** from the output of the preceding step, to replace the `[RegistrationId]` and `[TPM Endorsement Key]` in the sample code file **_ServiceEnrollmentSample.java_**:
-        
+    
            ```Java
            private static final String REGISTRATION_ID = "[RegistrationId]";
            private static final String TPM_ENDORSEMENT_KEY = "[TPM Endorsement Key]";
            ```
 
-   3. Optionally, you may configure your provisioning service through the sample code:
-      - To add this configuration to the sample, follow these steps:
-        1. Navigate to the IoT hub linked to your provisioning service in the [Azure portal](https://portal.azure.com). Open the **Overview** tab for the hub, and copy the **Hostname**. Assign this **Hostname** to the *IOTHUB_HOST_NAME* parameter.
-            ```Java
-            private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
-            ```
-        2. Assign a friendly name to the *DEVICE_ID* parameter, and keep the *PROVISIONING_STATUS* as the default *ENABLED* value. 
-    
-      - OR, if you choose not to configure your provisioning service, make sure to comment out or delete the following statements in the _ServiceEnrollmentSample.java_ file:
-          ```Java
-          // The following parameters are optional. Remove it if you don't need.
-          individualEnrollment.setDeviceId(DEVICE_ID);
-          individualEnrollment.setIotHubHostName(IOTHUB_HOST_NAME);
-          individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
-          ```
+3. To configure your provisioning service from within the sample code, proceed to the next step. If you  do not want to configure it, make sure to comment out or delete the following statements in the _ServiceEnrollmentSample.java_ file:
 
-   4. Study the sample code. It creates, updates, queries, and deletes an individual TPM device enrollment. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentSample.java_ file:
-    
-       ```Java
-       // *********************************** Delete info of individualEnrollment ************************************
-       System.out.println("\nDelete the individualEnrollment...");
-       provisioningServiceClient.deleteIndividualEnrollment(REGISTRATION_ID);
-       ```
+    ```Java
+    / / The following parameters are optional. Remove it if you don't need.
+    individualEnrollment.setDeviceId(DEVICE_ID);
+    individualEnrollment.setIotHubHostName(IOTHUB_HOST_NAME);
+    individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
+    ```
 
-   5. Save the file _ServiceEnrollmentSample.java_.
+4. This step shows you how to configure your provisioning service in the sample code.
+
+    1. Go to the [Azure portal](https://portal.azure.com).
+
+    2. On the left-hand menu or on the portal page, select **All resources**.
+
+    3. Select your Device Provisioning Service.
+
+    4. In the **Overview** panel, copy the hostname of the *Service endpoint*.  In the source code sample, replace `[Host name]` with the copied hostname.
+
+    ```Java
+    private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
+    ```
+
+5. Study the sample code. It creates, updates, queries, and deletes an individual TPM device enrollment. To verify successful enrollment in portal, temporarily comment out the following lines of code at the end of the _ServiceEnrollmentSample.java_ file:
+
+    ```Java
+    // *********************************** Delete info of individualEnrollment ************************************
+    System.out.println("\nDelete the individualEnrollment...");
+    provisioningServiceClient.deleteIndividualEnrollment(REGISTRATION_ID);
+    ```
+
+6. Save the file _ServiceEnrollmentSample.java_.
 
 :::zone-end
 
@@ -475,7 +482,7 @@ To run the sample, you'll need the connection string for your provisioning servi
     ```
 
 1. To create an individual enrollment for your TPM device, run the following command (include the quotes around the command arguments):
- 
+
      ```cmd\sh
      node create_individual_enrollment.js "<the connection string for your provisioning service>" "<endorsement key>"
      ```
@@ -497,6 +504,26 @@ To run the sample, you'll need the connection string for your provisioning servi
 :::zone-end
 
 :::zone pivot="programming-language-java"
+
+1. Open a command window in Administrator mode, and go to the folder *_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_*.
+
+2. In the command prompt, use this command:
+
+    ```cmd\sh
+    mvn install -DskipTests
+    ```
+
+    This command downloads the Maven package [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) to your machine. This package includes the binaries for the Java service SDK, that the sample code needs to build. If you ran the _X.509 certificate generator_ tool in the preceding section, this package will be already downloaded on your machine.
+
+3. In the command prompt, run the script:
+
+    ```cmd\sh
+    cd target
+    java -jar ./service-enrollment-group-sample-{version}-with-deps.jar
+    ```
+
+4. Upon successful creation, the command window displays the properties of the new enrollment.
+
 
 :::zone-end
 
@@ -532,7 +559,6 @@ To verify that the enrollment group has been created:
 
 :::zone-end
 
-4. If you've been following the steps in the [Create and provision a simulated TPM device using C# device SDK](quick-create-simulated-device-tpm-csharp.md) quickstart, you can continue with the remaining steps in that quickstart to enroll your simulated device. Be sure to skip the steps to create an individual enrollment using the Azure portal.
 
 ## Clean up resources
 
