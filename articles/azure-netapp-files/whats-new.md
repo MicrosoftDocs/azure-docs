@@ -21,6 +21,12 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
+<!-- Date TBD--> 
+
+* [Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) now generally available (GA)
+
+    The cross-region replication feature is now generally available. You no longer need to register the feature before using it.
+
 ## August 2021
 
 * Support for [enabling Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)
