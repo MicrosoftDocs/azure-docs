@@ -39,4 +39,4 @@ The same functionality as Pay-as-you-go applies to these types of agreements:
 
 ## Next steps
 
-Learn how to [create an Azure Front Door Standard/Premium profile](standard-premium/create-front-door-portal.md)
+Learn how to [create an Azure Front Door Standard/Premium profile](create-front-door-portal.md).
