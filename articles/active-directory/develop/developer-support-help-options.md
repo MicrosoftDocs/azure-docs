@@ -22,7 +22,7 @@ If you need an answer to a question or help in solving a problem not covered in 
 ## Create an Azure support request
 
 <div class='icon is-large'>
-    <img alt='Azure support' src='./media/logos/logo_azure.svg'>
+    <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
 </div>
 
 Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
@@ -68,7 +68,7 @@ If you need help with one of the Microsoft Authentication Libraries (MSAL), open
 | MSAL for iOS and macOS| https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
 | MSAL Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
 | MSAL.js | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-|MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
+| MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
 | MSAL Node | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
 | MSAL Python | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
 | MSAL React | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
@@ -76,7 +76,7 @@ If you need help with one of the Microsoft Authentication Libraries (MSAL), open
 ## Stay informed of updates and new releases
 
 <div class='icon is-large'>
-    <img alt='Stay informed' src='./media/common/i_blog.svg'>
+    <img alt='Stay informed' src='https://docs.microsoft.com/media/common/i_blog.svg'>
 </div>
 
 - [Azure Updates](https://azure.microsoft.com/updates/?category=identity): Learn about important product updates, roadmap, and announcements.
