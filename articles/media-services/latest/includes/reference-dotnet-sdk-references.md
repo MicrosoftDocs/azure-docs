@@ -16,4 +16,4 @@ ms.author: johndeu
 * [Encode and stream a remote file](../stream-files-dotnet-quickstart.md)
 * [Encode and stream an uploaded file](../stream-files-tutorial-with-api.md)
 * [Stream Live](../stream-live-tutorial-with-api.md)
-* [Analyze your audio and video](../analyze-videos-tutorial)
+* [Analyze your audio and video](../analyze-videos-tutorial.md)

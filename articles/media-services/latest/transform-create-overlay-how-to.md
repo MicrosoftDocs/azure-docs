@@ -19,7 +19,7 @@ Media Services allows you to overlay an image, audio file, or another video on t
 
 * Collect the account information that you need to configure the *appsettings.json* file in the sample. If you're not sure how to do that, see [Quickstart: Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-register-app.md). The following values are expected in the *appsettings.json* file.
 
-    ```json
+```json
     {
     "AadClientId": "",
     "AadEndpoint": "https://login.microsoftonline.com",
@@ -32,7 +32,7 @@ Media Services allows you to overlay an image, audio file, or another video on t
     "ResourceGroup": "",
     "SubscriptionId": ""
     }
-    ```
+```
 
 If you aren't already familiar with the creation of Transforms, it is recommended that you complete the following activities:
 
@@ -46,7 +46,9 @@ Once you are familiar with Transforms, download the overlays sample.
 
 Clone the Media Services .NET sample repository.
 
+```bash
     git clone https://github.com/Azure-Samples/media-services-v3-dotnet.git
+```
 
 Navigate into the solution folder, and launch Visual Studio Code, or Visual Studio 2019.
 
