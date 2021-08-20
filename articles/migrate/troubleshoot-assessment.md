@@ -14,7 +14,7 @@ This article helps you troubleshoot issues with assessment and dependency visual
 
 ## Assessment readiness issues
 
-Fix the following assessment readiness issues.
+This table lists help for fixing the following assessment readiness issues.
 
 **Issue** | **Fix**
 --- | ---
