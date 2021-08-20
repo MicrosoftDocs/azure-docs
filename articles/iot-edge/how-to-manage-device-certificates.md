@@ -4,7 +4,7 @@ description: Create test certificates, install, and manage them on an Azure IoT 
 author: kgremban
 
 ms.author: kgremban
-ms.date: 03/01/2021
+ms.date: 08/20/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -137,7 +137,7 @@ If you used the sample scripts to [Create demo certificates](how-to-create-test-
    pk = "file:///<path>/<device CA key>"
    ```
 
-1. Make sure that the user **iotedge** has read permissions for the directory holding the certificates.
+1. Make sure that the user **aziotcs** has read permissions for the directory holding the certificates.
 
 1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
 
@@ -148,7 +148,6 @@ If you used the sample scripts to [Create demo certificates](how-to-create-test-
 <!-- end 1.2 -->
 
 <!-- 1.1. -->
-<!-- Temporarily, customizable certificate lifetime not available in 1.2. Update before GA. -->
 :::moniker range="iotedge-2018-06"
 
 ## Customize certificate lifetime
@@ -219,18 +218,14 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 
-<!-- 1.2 --
+<!-- 1.2 -->
 :::moniker range=">=iotedge-2020-11"
 
-1. To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config file.
+1. To configure the certificate expiration to something other than the default 90 days, add the value in days to the **Edge CA certificate (Quickstart)** section of the config file.
 
    ```toml
-   [certificates]
-   device_ca_cert = "<ADD URI TO DEVICE CA CERTIFICATE HERE>"
-   device_ca_pk = "<ADD URI TO DEVICE CA PRIVATE KEY HERE>"
-   trusted_ca_certs = "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
-   auto_generated_ca_lifetime_days = <value>
+   [edge_ca]
+   auto_generated_edge_ca_expiry_days = <value>
    ```
 
 1. Delete the contents of the `certd` and `keyd` folders to remove any previously generated certificates: `/var/lib/aziot/certd/certs` `/var/lib/aziot/keyd/keys`
@@ -249,8 +244,7 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 
    Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated device CA certificates expire.
 :::moniker-end
-<!-- end 1.2 --
--->
+<!-- end 1.2 -->
 
 ## Next steps
 
