@@ -13,4 +13,4 @@ ms.author: tomfitz
 | Configuration store requests for Standard tier | 30,000 per hour  |Once the quota is exhausted, requests may return HTTP status code 429 indicating Too Many Requests - until the end of the hour|  |
 | Storage for Free tier | 10 MB |
 | Storage for Standard tier | 1 GB |
-| Request size | 10 KB  | Size is per request, including all metadata 
+| Keys and Values | 10 KB  | For a single key-value item
