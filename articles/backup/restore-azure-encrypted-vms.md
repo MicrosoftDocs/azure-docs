@@ -27,7 +27,7 @@ Follow below steps to restore encrypted VMs:
 
 ### **Step 1**: Restore the VM disk
 
-1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**.
+1. In **Restore configuration** > **Create new** > **Restore Type** select **Restore disks**.
 1. In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name.
 1. In **Staging location**, specify the storage account to which to copy the VHDs. [Learn more](backup-azure-arm-restore-vms.md#storage-accounts).
 
