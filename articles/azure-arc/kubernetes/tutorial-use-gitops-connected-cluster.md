@@ -90,7 +90,8 @@ Use the Azure CLI extension for `k8s-configuration` to link a connected cluster 
         "lastModifiedByType": null
       },
       "type": "Microsoft.KubernetesConfiguration/sourceControlConfigurations"
-      ```
+    }
+    ```
 
 ### Use a public Git repository
 
