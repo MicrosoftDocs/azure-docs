@@ -16,7 +16,7 @@ Do the following steps in the Azure portal to order a device.
 
 3. Select **Create**.
 
-   ![Screenshot of Azure Data Box section with Create option called out](media/data-box-order-portal/select-data-box-import-03.png)<!--Check: "Useful links" list no longer included?-->
+   ![Screenshot of Azure Data Box section with Create option called out](media/data-box-order-portal/select-data-box-import-03.png)<!--Screen edited.-->
 
 4. Check if Data Box service is available in your region. Enter or select the following information and select **Apply**.
 
@@ -30,9 +30,9 @@ Do the following steps in the Azure portal to order a device.
 
     [ ![Starting an Azure Data Box import order](media/data-box-order-portal/select-data-box-import-04-b.png) ](media/data-box-order-portal/select-data-box-import-04-b.png#lightbox)<!--Rework the lightbox, or remove it. This won't work.-->
 
-5. Select the **Data Box** product to order. For Data Box, the maximum usable capacity for a single order is 80 TB. For Data Box heavy, the maximum usable capacity for a single order is 770 TB. You can create multiple orders for larger data sizes.<!--Combined descriptions for both Data Box and Data Box Heavy. Final sentence approaches universal truth, but is it a concern for Heavy users?-->
+5. Select the **Data Box** product to order. For Data Box, the maximum usable capacity for a single order is 80 TB. For Data Box Heavy, the maximum usable capacity for a single order is 770 TB. You can create multiple orders for larger data sizes.<!--Combined descriptions for both Data Box and Data Box Heavy. Final sentence approaches universal truth, but is it a concern for Heavy users?-->
 
-    ![Available data sizes: Data Box Disk, 40 terabytes; Data Box, 100 terabytes; Data Box Heavy, 1000 terabytes; Send your own disks, 1 terabyte](media/data-box-order-portal/select-data-box-import-05.png)
+    ![Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted.](media/data-box-order-portal/select-data-box-import-05.png)<!--Reshot. Product info changed slightly.-->
 
 6. In **Order**, go to the **Basics** tab. Enter or select the following information and select **Next: Data destination>**.
 
@@ -40,9 +40,9 @@ Do the following steps in the Azure portal to order a device.
     |---------|---------|
     |Subscription      | The subscription is automatically populated based on your earlier selection.|
     |Resource group    | The resource group you selected previously. |
-    |Import order name | Provide a friendly name to track the order. <br> The name can have between 3 and 24 characters that can be letters, numbers, and hyphens. <br> The name must start and end with a letter or a number.    |
+    |Import order name | Provide a friendly name to track the order. <ul><li>The name can have from 3 to 24 characters that can be a letter, number, or hyphen.</li><li>The name must start and end with a letter or a number.</li></ul>    |
 
-    ![Data Box import Order wizard, Basics screen, with correct info filled in](media/data-box-order-portal/select-data-box-import-06.png)
+    ![Screenshot showing the Basics screen in the Order wizard for Data Box with example entries. The "Next: Data destination" button is highlighted.](media/data-box-order-portal/select-data-box-import-06.png)
 
 7. On the **Data destination** screen, select the **Data destination** - either storage accounts or managed disks.
 
@@ -87,7 +87,7 @@ Do the following steps in the Azure portal to order a device.
 
     If you don't want to use a customer-managed key, skip to Step 15.
 
-   ![Security screen showing Encryption type settings](./media/data-box-order-portal/customer-managed-key-01.png)
+   ![Screenshot of Security tab in the Data Box Order wizard. Encryption Type settings are expanded and highlighted.](./media/data-box-order-portal/customer-managed-key-01.png)
 
 10. Select **Customer managed key** as the key type. Then select **Select a key vault and key**.
    
@@ -107,7 +107,8 @@ Do the following steps in the Azure portal to order a device.
 
       ![New Azure Key Vault review screen](./media/data-box-order-portal/customer-managed-key-05.png)
 
-12. In **Select key from Azure Key Vault**, you can select an existing key in the key vault.
+
+12. The **Select a key** blade will display your selected key.
 
     ![Select existing key from Azure Key Vault](./media/data-box-order-portal/customer-managed-key-06.png)
 
@@ -115,9 +116,11 @@ Do the following steps in the Azure portal to order a device.
 
       ![Create a new key option](./media/data-box-order-portal/customer-managed-key-07.png)
 
-      You'll be notified when the key has been created in your key vault.
+      You'll be notified when the key has been created in your key vault. Your new key wil be selected and displayed on the **Select a key** blade.
 
-13. Select the **Version** of the key to use, and then choose **Select**.
+      ![Create a new key option](./media/data-box-order-portal/customer-managed-key-08.png)
+
+13. Select the **Version** of the key to use, and then choose **Select**.<!--Stopped here in screen reviews for the weekend. Build, and test again. Steps seem to lost their way, but I believe I had a hard time with the step-through earlier, so I may be missing something.-->
 
       ![New key created in key vault](./media/data-box-order-portal/customer-managed-key-08.png)
 
