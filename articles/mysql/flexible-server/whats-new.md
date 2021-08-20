@@ -23,7 +23,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **High availability within a single zone using Same-Zone High Availability**
 
-  The service now provides customers with the flexibility to choose the preferred availability zone for their standby server when they enable high availability. With this feature, customers can place a standby server in the same zone as the primary server, which reduces the replication lag between primary and standby. This also provides for lower latencies between the application server and database server if placed within the same Azure zone. [Learn more](https://aka.ms/mysql-ha-concept).
+  The service now provides customers with the flexibility to choose the preferred availability zone for their standby server when they enable high availability. With this feature, customers can place a standby server in the same zone as the primary server, which reduces the replication lag between primary and standby. This also provides for lower latencies between the application server and database server if placed within the same Azure zone. [Learn more](https://aka.ms/SameZone-HA).
 
 - **Standby zone selection using Zone-Redundant High Availability**
 
@@ -40,6 +40,10 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 - **Point-In-Time Restore for a server in an availability zone**
 
   The Point-In-Time Restore experience for the service now enables customers to configure availability zone, Co-locating the  database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](https://aka.ms/standby-selection).
+
+- **validate_password and caching_sha2_password plugin available in private preview**
+
+  Flexible Server now supports enabling validate_password and caching_sha2_password plugins in private preview. Please email us at AskAzureDBforMySQL@service.microsoft.com
 
 - **Availability in four additional Azure regions**
 
@@ -195,7 +199,7 @@ If you have questions about or suggestions for working with Azure Database for M
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+- To provide feedback or to request new features, Please email us at AskAzureDBforMySQL@service.microsoft.com.
 
 ## Next steps
 

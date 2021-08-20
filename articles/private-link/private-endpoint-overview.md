@@ -62,8 +62,8 @@ A private link resource is the destination target of a given private endpoint. T
 | **Azure Automation** | Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 | **Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Table |
 | **Azure Batch** | Microsoft.Batch/batchAccounts | batch account |
-| **Azure Cache for Redis** | Microsoft.Cache/Redis | cache account |
-| **Azure Cache for Redis Enterprise** | Microsoft.Cache/redisEnterprise | cache account |
+| **Azure Cache for Redis** | Microsoft.Cache/Redis | redisCache |
+| **Azure Cache for Redis Enterprise** | Microsoft.Cache/redisEnterprise | redisEnterprise |
 | **Cognitive Services** | Microsoft.CognitiveServices/accounts | account |
 | **Azure Managed Disks** | Microsoft.Compute/diskAccesses | managed disk |
 | **Azure Container Registry** | Microsoft.ContainerRegistry/registries | registry |
@@ -125,7 +125,7 @@ The private link resource owner can do the following actions over a private endp
 > Only a private endpoint in an approved state can send traffic to a given private link resource. 
 
 ### Connecting using Alias
-Alias is a unique moniker that is generated when the service owner creates the private link service behind a standard load balancer. Service owner can share this Alias with their consumers offline. Consumers can request a connection to private link service using either the resource URI or the Alias. If you want to connect using. Alias, you must create private endpoint using manual connection approval method. For using manual connection approval method, set manual request parameter to true during private endpoint create flow. Look at [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) for details. 
+Alias is a unique moniker that is generated when the service owner creates the private link service behind a standard load balancer. Service owner can share this Alias with their consumers offline. Consumers can request a connection to private link service using either the resource URI or the Alias. If you want to connect using Alias, you must create private endpoint using manual connection approval method. For using manual connection approval method, set manual request parameter to true during private endpoint create flow. Look at [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) for details. 
 
 ## DNS configuration 
 When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to correctly configure your DNS settings to resolve to the given private IP address. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This configuration must be overwritten to connect using your private endpoint. 
