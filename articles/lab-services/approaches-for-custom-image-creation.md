@@ -72,7 +72,7 @@ Bringing a custom image from a VHD is the most advanced approach because you mus
 Here are the high-level steps to bring a custom image from a VHD:
 
 1. Use [Windows Hyper-V](/virtualization/hyper-v-on-windows/about/) on your on-premises machine to create a Windows or Linux VHD.
-1. Connect to the Hyper-V VM and install another software. You can also make other customizations that are needed for your lab.
+1. Connect to the Hyper-V VM and install more software. You can also make other customizations that are needed for your lab.
 1. When you've finished setting up the image, upload the VHD to create a [managed disk](../virtual-machines/managed-disks-overview.md) in Azure.
 1. From the managed disk, create the [image's definition](../virtual-machines/shared-image-galleries.md#image-definitions) and version in a shared image gallery.
 1. After the custom image is saved in the gallery, you can use the image to create new labs. 
