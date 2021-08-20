@@ -20,7 +20,7 @@ This article shows how to use AAD authentication with the Speech SDK by followin
 1) Create a Speech Resource
 2) Configure the Speech Resource for AAD Authentication
 3) Get an AAD token
-4) Create the appropiate SDK configuration object.
+4) Create the appropriate SDK configuration object.
 
 ## Create a Speech Resource
 To create a Speech Resource, see [Try Speech For Free](overview.md#try-the-speech-service-for-free).
