@@ -2,7 +2,7 @@
 title: Azure AD authentication for Application Insights (Preview)
 description: Learn how to enable Azure Active Directory (Azure AD) authentication to ensure that only authenticated telemetry is ingested in your Application Insights resources.
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 08/02/2021
 
 ---
 # Azure AD authentication for Application Insights (Preview)
@@ -55,12 +55,16 @@ Below are SDKs/scenarios not supported in the Public Preview:
 ### [ASP.NET and .NET](#tab/net)
 
 > [!NOTE]
-> Support for Azure AD in the Application Insights .NET SDK is included starting with [version 2.18-Beta2](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.18.0-beta2).
+> Support for Azure AD in the Application Insights .NET SDK is included starting with [version 2.18-Beta3](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.18.0-beta3).
 
 Application Insights .NET SDK supports the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity#credential-classes).
 
 - `DefaultAzureCredential` is recommended for local development.
+- `ManagedIdentityCredential` is recommended for system-assigned and user-assigned managed identities.
+    - For system-assigned, use the default constructor without parameters.
+    - For user-assigned, provide the clientId to the constructor.
 - `ClientSecretCredential` is recommended for service principals. 
+    - Provide the tenantId, clientId, and clientSecret to the constructor.
 
 Below is an example of manually creating and configuring a `TelemetryConfiguration` using .NET:
 
@@ -399,7 +403,7 @@ This section provides distinct troubleshooting scenarios and steps that users ca
 
 The ingestion service will return specific errors, regardless of the SDK language. Network traffic can be collected using a tool such as Fiddler. You should filter traffic to the IngestionEndpoint set in the Connection String.
 
-#### HTTP/1.1 400 Incorrect API was used - v2 API does not support authentication
+#### HTTP/1.1 400 Authentication not support 
 
 This indicates that the Application Insights resource has been configured for Azure AD only, but the SDK hasn't been correctly configured and is sending to the incorrect API.
 
@@ -408,13 +412,13 @@ This indicates that the Application Insights resource has been configured for Az
 
 Next steps should be to review the SDK configuration.
 
-#### HTTP/1.1 401 Unauthorized - please provide the valid authorization token
+#### HTTP/1.1 401 Authorization required
 
 This indicates that the SDK has been correctly configured, but was unable to acquire a valid token. This may indicate an issue with Azure Active Directory.
 
 Next steps should be to identify exceptions in the SDK logs or network errors from Azure Identity.
 
-#### HTTP/1.1 403 Forbidden - provided credentials do not grant the access to ingest the telemetry into the component
+#### HTTP/1.1 403 Unauthorized 
 
 This indicates that the SDK has been configured with credentials that haven't been given permission to the Application Insights resource or subscription.
 

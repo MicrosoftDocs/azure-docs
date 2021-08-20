@@ -25,7 +25,7 @@ WebLogic Server is certified by Oracle and Microsoft to run well on AKS. The Web
 WebLogic Server clusters are fully enabled to run on Kubernetes via the WebLogic Kubernetes Operator (referred to simply as the 'Operator' from here onward). The Operator follows the standard Kubernetes Operator pattern. It simplifies the management and operation of WebLogic domains and deployments on Kubernetes by automating otherwise manual tasks and adding extra operational reliability features. The Operator supports Oracle WebLogic Server 12c, Oracle Fusion Middleware Infrastructure 12c and beyond. We've tested the official Docker images for WebLogic Server 12.2.1.3 and 12.2.1.4 with the Operator. For details on the Operator, refer to the [official documentation from Oracle](https://oracle.github.io/weblogic-kubernetes-operator/).
 
 ## Guidance, scripts, and samples for WLS on AKS
-Beyond certifying WebLogic Server on AKS, Oracle and Microsoft jointly provide detailed instructions, scripts, and samples for running WebLogic Server on AKS. The guidance is incorporated into the Azure Kubernetes Service sample section of the [Operator documentation](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/). The guidance is aimed at making production WebLogic Server on AKS deployments as easy as possible. The guidance uses official WebLogic Server Docker images provided by Oracle. Failover is achieved via Azure Files accessed through Kubernetes Persistent Volume Claims. Azure Load Balancers are supported when provisioned using a Kubernetes Service of type 'LoadBalancer'. The Azure Container Registry (ACR) is supported for deploying WLS domains inside custom Docker images. The guidance allows a high degree of configuration and customization.
+Beyond certifying WebLogic Server on AKS, Oracle and Microsoft jointly provide detailed instructions, scripts, and samples for running WebLogic Server on AKS. The guidance is incorporated into the Azure Kubernetes Service sample section of the [Operator documentation](https://oracle.github.io/weblogic-kubernetes-operator/). The guidance is aimed at making production WebLogic Server on AKS deployments as easy as possible. The guidance uses official WebLogic Server Docker images provided by Oracle. Failover is achieved via Azure Files accessed through Kubernetes Persistent Volume Claims. Azure Load Balancers are supported when provisioned using a Kubernetes Service of type 'LoadBalancer'. The Azure Container Registry (ACR) is supported for deploying WLS domains inside custom Docker images. The guidance allows a high degree of configuration and customization.
 
 :::image type="content" source="media/oracle-weblogic/wls-on-aks.gif" alt-text="You can use the sample scripts to deploy WebLogic Server on AKS":::
 
@@ -50,7 +50,7 @@ Beyond what the solutions provide customers have complete flexibility to customi
 Explore running Oracle WebLogic Server on the Azure Kubernetes Service.
 
 > [!div class="nextstepaction"]
-> [Guidance, scripts and samples for running WLS on AKS](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/)
+> [Guidance, scripts and samples for running WLS on AKS](https://oracle.github.io/weblogic-kubernetes-operator/)
 
 > [!div class="nextstepaction"]
 > [WebLogic Kubernetes Operator](https://oracle.github.io/weblogic-kubernetes-operator/)

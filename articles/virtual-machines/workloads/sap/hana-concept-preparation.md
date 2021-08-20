@@ -11,7 +11,7 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 6/15/2021
+ms.date: 7/01/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
@@ -80,7 +80,7 @@ Next, set the storage snapshot backup schedule to achieve your RTO and RPO if th
 - For the transaction log backup volume (snapshot type **logs**), set to replicate every 3 minutes to the equivalent storage volume targets in the disaster recovery site.
 
 To minimize the RPO:
-- Take a **hana** type storage snapshot every 30 minutes to 1 hour. For more information, see [Step 7: Take snapshots](hana-backup-restore.md#step-7-take-snapshots).
+- Take a **hana** type storage snapshot every 30 minutes to 1 hour. For more information, see [Back up using Azure Application Consistent Snapshot tool](../../../azure-netapp-files/azacsnap-cmd-ref-backup.md).
 - Do SAP HANA transaction log backups every 5 minutes.
 - Take a **logs** type storage snapshot every 5-15 minutes. With this interval period, you achieve an RPO of around 15-25 minutes.
 

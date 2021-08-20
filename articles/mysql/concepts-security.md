@@ -10,7 +10,7 @@ ms.date: 3/18/2020
 
 # Security in Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 There are multiple layers of security that are available to protect the data on your Azure Database for MySQL server. This article outlines those security options.
 

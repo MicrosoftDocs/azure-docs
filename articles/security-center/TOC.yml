@@ -71,6 +71,10 @@
   - name: Investigate the health of your resources
     href: investigate-resource-health.md
 
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 
 - name: Concepts
   items:

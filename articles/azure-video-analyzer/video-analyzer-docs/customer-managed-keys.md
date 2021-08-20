@@ -4,7 +4,7 @@ description: You can use a customer managed key (that is, bring your own key) wi
 author: anilmur
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 06/01/2021
 ---
 
 # Customer managed keys with Azure Video Analyzer

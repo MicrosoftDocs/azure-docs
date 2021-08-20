@@ -8,7 +8,7 @@ ms.custom: "seo-lt-2019, sqldbrb=1, devx-track-csharp"
 ms.topic: tutorial
 author: rothja
 ms.author: jroth
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 07/29/2019
 ---
 # Tutorial: Design a relational database in Azure SQL Database C&#x23; and ADO.NET

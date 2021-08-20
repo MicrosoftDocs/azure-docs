@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 06/01/2021
+ms.date: 06/30/2021
 ---
 
 # Azure AD-only authentication with Azure SQL
@@ -401,3 +401,6 @@ SELECT SERVERPROPERTY('IsExternalAuthenticationOnly')
 
 > [!div class="nextstepaction"]
 > [Tutorial: Enable Azure Active Directory only authentication with Azure SQL](authentication-azure-ad-only-authentication-tutorial.md)
+
+> [!div class="nextstepaction"]
+> [Create server with Azure AD-only authentication enabled in Azure SQL](authentication-azure-ad-only-authentication-create-server.md)

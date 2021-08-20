@@ -8,7 +8,7 @@ author: palma21
 
 ---
 
-# Use Azure Files Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS) (preview)
+# Use Azure Files Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS)
 
 The Azure Files Container Storage Interface (CSI) driver is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Files shares.
 
@@ -24,8 +24,6 @@ To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Az
 A [persistent volume (PV)](concepts-storage.md#persistent-volumes) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect by using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an AKS cluster. For static provisioning, see [Manually create and use a volume with an Azure Files share](azure-files-volume.md).
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Dynamically create Azure Files PVs by using the built-in storage classes
 
@@ -196,7 +194,7 @@ If your Azure Files resources are protected with a private endpoint, you must cr
 * `storageAccount`: The storage account name.
 * `server`: The FQDN of the storage account's private endpoint (for example, `<storage account name>.privatelink.file.core.windows.net`).
 
-Create a file named *private-azure-file-sc.yaml*, and then paste the following example manifest in the file. Replace the valules for `<resourceGroup>` and `<storageAccountName>`.
+Create a file named *private-azure-file-sc.yaml*, and then paste the following example manifest in the file. Replace the values for `<resourceGroup>` and `<storageAccountName>`.
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -254,11 +252,9 @@ kubectl apply -f private-pvc.yaml
 
 ## NFS file shares
 
-[Azure Files now has support for NFS v4.1 protocol](../storage/files/storage-files-how-to-create-nfs-shares.md). NFS 4.1 support for Azure Files provides you with a fully managed NFS file system as a service built on a highly available and highly durable distributed resilient storage platform.
+[Azure Files supports the NFS v4.1 protocol](../storage/files/storage-files-how-to-create-nfs-shares.md). NFS 4.1 support for Azure Files provides you with a fully managed NFS file system as a service built on a highly available and highly durable distributed resilient storage platform.
 
  This option is optimized for random access workloads with in-place data updates and provides full POSIX file system support. This section shows you how to use NFS shares with the Azure File CSI driver on an AKS cluster.
-
-Make sure to check the [limitations](../storage/files/files-nfs-protocol.md#limitations) and [region availability](../storage/files/files-nfs-protocol.md#regional-availability) during the preview phase.
 
 ### Create NFS file share storage class
 

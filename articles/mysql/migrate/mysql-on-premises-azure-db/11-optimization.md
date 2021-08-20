@@ -13,7 +13,7 @@ ms.date: 06/21/2021
 
 # Migrate MySQL on-premises to Azure Database for MySQL: Optimization
 
-[!INCLUDE[applies-to-single-flexible-server](../../includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ ms.date: 06/21/2021
 
 ## Monitoring hardware and query performance
 
-In addition to the audit and activity logs, the server performance can also be monitored with [Azure Metrics.](/azure/azure-monitor/platform/data-platform-metrics) Azure metrics are provided in a one-minute frequency and alerts can be configured from them. For more information, reference [Monitoring in Azure Database for MySQL](/azure/mysql/concepts-monitoring) for specifics on what kind of metrics that can be monitored.
+In addition to the audit and activity logs, the server performance can also be monitored with [Azure Metrics.](../../../azure-monitor/essentials/data-platform-metrics.md) Azure metrics are provided in a one-minute frequency and alerts can be configured from them. For more information, reference [Monitoring in Azure Database for MySQL](../../concepts-monitoring.md) for specifics on what kind of metrics that can be monitored.
 
 As previously mentioned, monitoring metrics such as the cpu\_percent or memory\_percent can be important when deciding to upgrade the database tier. Consistently high values could indicate a tier upgrade is necessary.
 
@@ -40,7 +40,7 @@ sql\_text\_s| top 5 by query\_time\_d desc
 
 ## Query Performance Insight
 
-In addition to the basic server monitoring aspects, Azure provides tools to monitor application query performance. Correcting or improving queries can lead to significant increases in the query throughput. Use the [Query Performance Insight tool](/azure/mysql/concepts-query-performance-insight) to analyze the longest running queries and determine if it's possible to cache those items if they're deterministic within a set period, or modify the queries to increase their performance.
+In addition to the basic server monitoring aspects, Azure provides tools to monitor application query performance. Correcting or improving queries can lead to significant increases in the query throughput. Use the [Query Performance Insight tool](../../concepts-query-performance-insight.md) to analyze the longest running queries and determine if it's possible to cache those items if they're deterministic within a set period, or modify the queries to increase their performance.
 
 The `slow\_query\_log` can be set to show slow queries in the MySQL log files (default is OFF). The `long\_query\_time` server parameter can alert users for long query times (default is 10 sec).
 

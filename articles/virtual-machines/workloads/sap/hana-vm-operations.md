@@ -60,7 +60,7 @@ Deploy the VMs in Azure by using:
 - Azure PowerShell cmdlets.
 - The Azure CLI.
 
-You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](./cal-s4h.md) or with the automation released [here](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
+You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](./cal-s4h.md) or with the automation released on [GitHub](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 >[!IMPORTANT]
 > In order to use M208xx_v2 VMs, you need to be careful selecting your 
@@ -212,7 +212,7 @@ instance is running. Initially two VM types can be used to run SAP HANA DT 2.0:
 - M64-32ms 
 - E32sv3 
 
-See VM type description [here](../../sizes-memory.md)
+For more information on the VM type description, see [Azure VM sizes - Memory](../../sizes-memory.md)
 
 Given the basic idea of DT 2.0, which is about offloading "warm" data in order to save costs it makes sense to use corresponding
 VM sizes. There is no strict rule though regarding the possible combinations. It depends on the specific customer workload.
@@ -235,7 +235,7 @@ All combinations of SAP HANA-certified M-series VMs with supported DT 2.0 VMs (M
 Installing DT 2.0 on a dedicated VM requires network throughput between the DT 2.0 VM and the SAP HANA VM of 10 Gb minimum. 
 Therefore it's mandatory to place all VMs within the same Azure Vnet and enable Azure accelerated networking.
 
-See additional information about Azure accelerated networking [here](../../../virtual-network/create-vm-accelerated-networking-cli.md)
+See additional information about Azure accelerated networking [Create an Azure VM with Accelerated Networking using Azure CLI](../../../virtual-network/create-vm-accelerated-networking-cli.md)
 
 ### VM Storage for SAP HANA DT 2.0
 
@@ -248,9 +248,9 @@ Azure VM types, which are supported for DT 2.0 the maximum disk IO throughput li
 It is required to attach multiple Azure disks to the DT 2.0 VM and create a software raid (striping) on OS level to achieve the max limit of disk throughput 
 per VM. A single Azure disk cannot provide the throughput to reach the max VM limit in this regard. Azure Premium storage is mandatory to run DT 2.0. 
 
-- Details about available Azure disk types can be found [here](../../disks-types.md)
-- Details about creating software raid via mdadm can be found [here](/previous-versions/azure/virtual-machines/linux/configure-raid)
-- Details about configuring LVM to create a striped volume for max throughput can be found [here](/previous-versions/azure/virtual-machines/linux/configure-lvm)
+- Details about available Azure disk types can be found on the [Select a disk type for Azure IaaS VMs - managed disks](../../disks-types.md) page
+- Details about creating software raid via mdadm can be found on the [Configure software RAID on a Linux VM](/previous-versions/azure/virtual-machines/linux/configure-raid) page
+- Details about configuring LVM to create a striped volume for max throughput can be found on the [Configure LVM on a virtual machine running Linux](/previous-versions/azure/virtual-machines/linux/configure-lvm) page
 
 Depending on size requirements, there are different options to reach the max throughput of a VM. Here are possible data volume disk configurations 
 for every DT 2.0 VM type to achieve the upper VM throughput limit. The E32sv3 VM should be considered as an entry level for smaller workloads. In case it
@@ -273,7 +273,7 @@ Regarding the size of the log volume a recommended starting point is a heuristic
 Azure disk types depending on cost and throughput requirements. For the log volume, high I/O throughput is required.  In case of using the VM type M64-32ms it is 
 mandatory to enable [Write Accelerator](../../how-to-enable-write-accelerator.md). Azure Write Accelerator provides optimal disk write latency for the transaction
 log (only available for M-series). There are some items to consider though like the maximum number of disks per VM type. Details about Write Accelerator can be
-found [here](../../how-to-enable-write-accelerator.md)
+found on the [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) page
 
 
 Here are a few examples about sizing the log volume:

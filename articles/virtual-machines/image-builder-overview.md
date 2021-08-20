@@ -23,7 +23,7 @@ The Azure VM Image Builder (Azure Image Builder) lets you start with a Windows o
 Azure Image Builder supports the following features:
 
 - Creation of baseline images, that includes your minimum security and corporate configurations, and allow departments to customize it further.
-- Integration of core applications, so VM can take on workloads after creation, or add configurations to support Windows Virtual Desktop images.
+- Integration of core applications, so VM can take on workloads after creation, or add configurations to support Azure Virtual Desktop images.
 - Patching of existing images, Image Builder will allow you to continually patch existing custom images.
 - Connect image builder to your existing virtual networks, so you can connect to existing configuration servers (DSC, Chef, Puppet etc.), file shares, or any other routable servers/services.
 - Integration with the Azure Shared Image Gallery, allows you to distribute, version, and scale images globally, and gives you an image management system.
@@ -47,6 +47,8 @@ AIB will support Azure Marketplace base OS images:
 - Windows 10 RS5 Enterprise/Enterprise multi-session/Professional
 - Windows 2016
 - Windows 2019
+
+We have listed the operating systems we have tested and know work with Azure Image Builder. However, Azure Image Builder should work with any Linux or Windows image in the marketplace.
 
 ## How it works
 

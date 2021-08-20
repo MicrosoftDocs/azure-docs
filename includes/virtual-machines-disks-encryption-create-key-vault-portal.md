@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 05/17/2021
+ ms.date: 07/15/2021
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -21,7 +21,7 @@ Setting up customer-managed keys for your disks will require you to create resou
     > [!IMPORTANT]
     > Your Azure key vault, disk encryption set, VM, disks, and snapshots must all be in the same region and subscription for deployment to succeed.
 
-1. Select **+Add** to create a new Key Vault.
+1. Select **+Create** to create a new Key Vault.
 1. Create a new resource group.
 1. Enter a key vault name, select a region, and select a pricing tier.
 
@@ -41,7 +41,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 1. Leave both **Key Type** set to **RSA** and **RSA Key Size** set to **2048**.
 1. Fill in the remaining selections as you like and then select **Create**.
 
-    ![Screenshot of the create a key blade that appears once generate/import button is selected](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
+    ![Screenshot of the create a key pane that appears once generate/import button is selected](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
 
 ### Add an Azure RBAC role
 
@@ -53,7 +53,7 @@ Now that you've created the Azure key vault and a key, you must add an Azure RBA
 ## Set up your disk encryption set
 
 1. Search for **Disk Encryption Sets** and select it.
-1. On the **Disk Encryption Sets** blade select **+Add**.
+1. On the **Disk Encryption Sets** pane select **+Create**.
 
     ![Screenshot of the disk encryption portal main screen. Highlighting the Add button](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
 
@@ -68,4 +68,4 @@ Now that you've created the Azure key vault and a key, you must add an Azure RBA
 1. Press **Select**.
 1. Select **Review + Create** and then **Create**.
 
-    ![Screenshot of the disk encryption creation blade. Showing the subscription, resource group, disk encryption set name, region, and key vault + key selector.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
+    ![Screenshot of the disk encryption creation pane. Showing the subscription, resource group, disk encryption set name, region, and key vault + key selector.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)

@@ -20,17 +20,21 @@ ms.author: duau
 
 Azure Route Server is a fully managed service that allows you to easily manage routing between your network virtual appliance (NVA) and your virtual network.
 
+## Why does Azure Route Server require a public IP address?
+
+Azure Router Server needs to ensure connectivity to the backend service that manages the Route Server configuration, as such a public IP address is required. 
+
 ### Is Azure Route Server just a VM?
 
 No. Azure Route Server is a service designed with high availability. If it's deployed in an Azure region that supports [Availability Zones](../availability-zones/az-overview.md), it will have zone-level redundancy.
 
 ### How many route servers can I create in a virtual network?
 
-You can create only one route server in a VNet. It must be deployed in a designated subnet called *RouteServerSubnet*.
+You can create only one route server in a virtual network. It must be deployed in a dedicated subnet called *RouteServerSubnet*.
 
-### Does Azure Route Server support VNet Peering?
+### Does Azure Route Server support virtual network peering?
 
-Yes. If you peer a VNet hosting the Azure Route Server to another VNet and you enable Use Remote Gateway on the latter VNet, Azure Route Server will learn the address spaces of that VNet and send them to all the peered NVAs. It will also program the routes from the NVAs into the routing table of the VMs in the peered VNet. 
+Yes, if you peer a virtual network hosting the Azure Route Server to another virtual network and you enable Use Remote Gateway on the second virtual network, Azure Route Server will learn the address spaces of that virtual network and send them to all the peered NVAs. It will also program the routes from the NVAs into the routing table of the VMs in the peered virtual network. 
 
 
 ### <a name = "protocol"></a>What routing protocols does Azure Route Server support?
@@ -67,11 +71,15 @@ The following ASNs are reserved by Azure or IANA:
 
 No, Azure Route Server supports only 16-bit (2 bytes) ASNs.
 
+### Can I configure a User Defined Route (UDR) in the AzureRouteServer Subnet?
+
+No, Azure Route Server doesn't support configuring a UDR in the AzureRouteServer subnet.
+
 ### Can I peer two route servers in two peered virtual networks and enable the NVAs connected to the route servers to talk to each other? 
 
 ***Topology: NVA1 -> RouteServer1 -> (via VNet Peering) -> RouteServer2 -> NVA2***
 
-No, Azure Route Server doesn't forward data traffic. To enable transit connectivity through the NVA, set up a direct connection (e.g., an IPsec tunnel) between the NVAs and leverage the route servers for dynamic route propagation. 
+No, Azure Route Server doesn't forward data traffic. To enable transit connectivity through the NVA, set up a direct connection (for example, an IPsec tunnel) between the NVAs and use the route servers for dynamic route propagation. 
 
 ## <a name = "limitations"></a>Route Server Limits
 
@@ -82,9 +90,9 @@ Azure Route Server has the following limits (per deployment).
 | Number of BGP peers supported | 8 |
 | Number of routes each BGP peer can advertise to Azure Route Server | 200 |
 | Number of routes that Azure Route Server can advertise to ExpressRoute or VPN gateway | 200 |
-| Number of VMs in the virtual network (including peered VNets) that Azure Route Server can support | 6000 |
+| Number of VMs in the virtual network (including peered virtual networks) that Azure Route Server can support | 6000 |
 
-If your NVA advertises more routes than the limit, the BGP session will be dropped. If this happens to the gateway and Azure Route Server, you'll lose connectivity from your on-premises network to Azure. For more information, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
+If your NVA advertises more routes than the limit, the BGP session will get dropped. In the event BGP session is dropped between the gateway and Azure Route Server, you'll lose connectivity from your on-premises network to Azure. For more information, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
 
 ## Next steps
 

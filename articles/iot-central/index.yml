@@ -69,7 +69,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create a dashboard
-            url: core/howto-create-personal-dashboards.md
+            url: core/howto-manage-dashboards.md
           - text: Analyze your device data
             url: core/howto-create-analytics.md
           - text: Export data to cloud destinations
@@ -90,10 +90,10 @@ landingContent:
             url: core/tutorial-use-device-groups.md
       - linkListType: how-to-guide
         links:
-          - text: Add, import, and export devices
-            url: core/howto-manage-devices.md
-          - text: Run a job
-            url: core/howto-run-a-job.md
+          - text: Manage devices individually
+            url: core/howto-manage-devices-individually.md
+          - text: Manage devices in bulk
+            url: core/howto-manage-devices-in-bulk.md
   - title: Administration
     linkLists:
       - linkListType: overview

@@ -29,7 +29,7 @@ When API Management deploys in internal VNET mode, you can only view the followi
 
 Use API Management in internal mode to:
 
-* Make APIs hosted in your private datacenter securely accessible by third parties, using site-to-site or Azure ExpressRoute VPN connections.
+* Make APIs hosted in your private datacenter securely accessible by third parties outside of it by using Azure VPN Connections or Azure ExpressRoute.
 * Enable hybrid cloud scenarios by exposing your cloud-based APIs and on-premises APIs through a common gateway.
 * Manage your APIs hosted in multiple geographic locations, using a single gateway endpoint.
 

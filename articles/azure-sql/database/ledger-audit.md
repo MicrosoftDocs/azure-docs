@@ -1,8 +1,8 @@
 ---
 title: "Azure SQL Database audit events with ledger-enabled tables"
 description: Overview of Azure SQL Database ledger auditing capabilities
-ms.custom: ""
-ms.date: "05/25/2021"
+ms.custom: references_regions
+ms.date: "07/23/2021"
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
@@ -16,7 +16,7 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview and available in West Central US.
+> Azure SQL Database ledger is currently in public preview and available in West Europe, Brazil South, and West Central US.
 
 When you perform forensics activities with ledger-enabled tables, data is captured in the ledger view and database ledger. Other action IDs are added to the SQL audit logs, too. The following tables outline these new audit logging events. The conditions that trigger the events follow each table.
 

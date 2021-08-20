@@ -11,7 +11,7 @@ ms.date: 07/14/2020
 
 # Best practices for Azure Kubernetes Service and Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-server](includes/applies-to-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 Azure Kubernetes Service (AKS) provides a managed Kubernetes cluster you can use in Azure. Below are some options to consider when using AKS and Azure Database for MySQL together to create an application.
 
@@ -54,7 +54,7 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 ## Use Azure premium fileshare
 
- Use [Azure premium fileshare](../storage/files/storage-how-to-create-premium-fileshare.md?tabs=azure-portal) for persistent storage that can be used by one or many pods, and can be dynamically or statically provisioned. Azure premium fileshare gives you best performance for your application if you expect large number of I/O operations on the file storage. To learn more , see [how to enable Azure Files](../aks/azure-files-dynamic-pv.md).
+ Use [Azure premium fileshare](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal) for persistent storage that can be used by one or many pods, and can be dynamically or statically provisioned. Azure premium fileshare gives you best performance for your application if you expect large number of I/O operations on the file storage. To learn more , see [how to enable Azure Files](../aks/azure-files-dynamic-pv.md).
 
 ## Next steps
 

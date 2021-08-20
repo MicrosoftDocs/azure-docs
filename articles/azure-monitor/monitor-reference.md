@@ -25,7 +25,7 @@ Insights provide a customized monitoring experience for particular applications 
 | [Cosmos DB insights](insights/cosmosdb-insights-overview.md) | Provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. |
 | [Networks insights (preview)](insights/network-insights-overview.md) | Provides a comprehensive view of health and metrics for all your network resource. The advanced search capability helps you identify resource dependencies, enabling scenarios like identifying resource that are hosting your website, by simply searching for your website name. |
 [Resource Group insights (preview)](insights/resource-group-insights.md) |  Triage and diagnose any problems your individual resources encounter, while offering context as to the health and performance of the resource group as a whole. |
-| [Storage insights](insights/storage-insights-overview.md) | Provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. |
+| [Storage insights](../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) | Provides comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. |
 | [VM insights](vm/vminsights-overview.md) | Monitors your Azure virtual machines (VM) and virtual machine scale sets at scale. It analyzes the performance and health of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. |
 | [Key Vault insights (preview)](./insights/key-vault-insights-overview.md) | Provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. |
 | [Azure Cache for Redis insights (preview)](insights/redis-cache-insights-overview.md) |  Provides a unified, interactive view of overall performance, failures, capacity, and operational health. |
@@ -150,7 +150,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |SQL Database | Yes | Yes | No |  |
 |SQL Server Stretch Database | Yes | Yes | No |  |
 |Stack | No | No | No |  |
-|Storage | Yes | No | [Yes](insights/storage-insights-overview.md) |  |
+|Storage | Yes | No | [Yes](../storage/common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json) |  |
 |Storage Cache | No | No | No |  |
 |Storage Sync Services | No | No | No |  |
 |Stream Analytics | Yes | Yes | No |  |
@@ -239,4 +239,3 @@ Azure Monitor can collect data from resources outside of Azure using the methods
 - Complete a [tutorial on monitoring an Azure resource](essentials/tutorial-resource-logs.md).
 - Complete a [tutorial on writing a log query to analyze data in Azure Monitor Logs](essentials/tutorial-resource-logs.md).
 - Complete a [tutorial on creating a metrics chart to analyze data in Azure Monitor Metrics](essentials/tutorial-metrics-explorer.md).
-

@@ -244,7 +244,7 @@ function async_sample() {
                     if (err) reject(err);
                     resolve({ feed, options });
                 });
-                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "queryDocuments was not accepted."));
             });
         },
 

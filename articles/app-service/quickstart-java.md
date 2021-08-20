@@ -74,13 +74,13 @@ JBoss EAP is only available on the Linux version of App Service. Please select t
 Clone the Pet Store demo application.
 
 ```azurecli-interactive
-git clone https://github.com/andxu/migrate-javaee-app-to-azure-training.git
+git clone https://github.com/agoncal/agoncal-application-petstore-ee7.git
 ```
 
 Change directory to the cloned project.
 
 ```azurecli-interactive
-cd migrate-javaee-app-to-azure-training
+cd agoncal-application-petstore-ee7
 ```
 
 ::: zone-end
@@ -94,7 +94,7 @@ The deployment process to Azure App Service will use your Azure credentials from
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.0.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.1.0:config
 ```
 
 ::: zone pivot="platform-windows"

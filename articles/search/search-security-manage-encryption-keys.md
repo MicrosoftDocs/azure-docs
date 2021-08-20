@@ -8,7 +8,7 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/22/2021
+ms.date: 07/02/2021
 ms.custom: references_regions, devx-track-azurepowershell 
 ---
 
@@ -362,9 +362,11 @@ You can now send the indexer creation request, and then start using it normally.
 
 ## Simpler alternative: Trusted service
 
-Depending on tenant configuration and authentication requirements, you might be able to implement a simpler approach for accessing a key vault key. Instead of creating and using an Active Directory application, you can make a search service a trusted service by enabling a system-managed identity for it. You would then use the trusted search service as a security principle, rather than an AD-registered application, to access the key vault key.
+Depending on tenant configuration and authentication requirements, you might be able to implement a simpler approach for accessing a key vault key. Instead of creating and using an Active Directory application, you can either make a search service a trusted service by enabling a system-managed identity for it or assign a user-assigned managed identity to your search service. You would then either use the trusted search service or user-assigned managed identity as a security principle, rather than an AD-registered application, to access the key vault key.
 
-This approach allows you to omit the steps for application registration and application secrets, and simplifies an encryption key definition to just the key vault components (URI, vault name, key version).
+Both of these approaches allow you to omit the steps for application registration and application secrets, and simplifies the encryption key definition.
+
+### System-assigned managed identity
 
 In general, a managed identity enables your search service to authenticate to Azure Key Vault without storing credentials (ApplicationID or ApplicationSecret) in code. The lifecycle of this type of managed identity is tied to the lifecycle of your search service, which can only have one managed identity. For more information about how managed identities work, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -390,6 +392,74 @@ Conditions that will prevent you from adopting this simplified approach include:
 + You cannot directly grant your search service access permissions to the Key vault (for example, if the search service is in a different Active Directory tenant than the Azure Key Vault).
 
 + A single search service is required to host multiple encrypted indexes\synonym maps, each using a different key from a different Key vault, where each key vault must use **a different identity** for authentication. Because a search service can only have one managed identity, a requirement for multiple identities will disqualify the simplified approach for your scenario.  
+
+### User-assigned managed identity (preview)
+
+> [!IMPORTANT] 
+> User-assigned managed identity support is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> 
+> The REST API version 2021-04-30-Preview and [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) provide this feature.
+
+Assigning a user-assigned managed identity to your search service will enable your search service to authenticate to Azure Key Vault without storing credentials (ApplicationID or ApplicationSecret) in code. The lifecycle of this type of managed identity is independent to the lifecycle of your search service. For more information about how managed identities work, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+
+1. If you don't already have a user-assigned managed identity created, you'll need to create one. To create a user-assigned managed identity follow the below steps:
+
+    1. Sign into the [Azure portal](https://portal.azure.com/).
+    1. Select **+ Create a new resource**.
+    1. In the "Search services and marketplace" search bar, search for "User Assigned Managed Identity" and then select **Create**.
+    1. Give the identity a descriptive name.
+
+1. Next, assign the user-assigned managed identity to the search service. This can be done using the [2021-04-01-preview](/rest/api/searchmanagement/management-api-versions) management API.
+
+    The identity property takes a type and one or more fully-qualified user-assigned identities:
+    
+    * **type** is the type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
+    * **userAssignedIdentities** includes the details of the user assigned managed identity.
+        * User-assigned managed identity format: 
+            * /subscriptions/**subscription ID**/resourcegroups/**resource group name**/providers/Microsoft.ManagedIdentity/userAssignedIdentities/**managed identity name**
+    
+    Example of how to assign a user-assigned managed identity to a search service:
+    
+    ```http
+    PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
+    Content-Type: application/json
+
+    {
+      "location": "[region]",
+      "sku": {
+        "name": "[sku]"
+      },
+      "properties": {
+        "replicaCount": [replica count],
+        "partitionCount": [partition count],
+        "hostingMode": "default"
+      },
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[managed identity name]": {}
+        }
+      }
+    } 
+    ```
+
+1. When setting up an access policy in Azure Key Vault, choose the user-assigned managed identity as the principle (instead of the AD-registered application). Assign the same permissions (multiple GETs, WRAP, UNWRAP) as instructed in the grant access key permissions step.
+
+1. Use a simplified construction of the `encryptionKey` that omits the Active Directory properties and add an identity property. Make sure to use the 2021-04-30-preview REST API version.
+
+    ```json
+    {
+      "encryptionKey": {
+        "keyVaultUri": "https://[key vault name].vault.azure.net",
+        "keyVaultKeyName": "[key vault key name]",
+        "keyVaultKeyVersion": "[key vault key version]",
+        "identity" : { 
+            "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+            "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[managed identity name]"
+        }
+      }
+    }
+    ```
 
 ## Work with encrypted content
 

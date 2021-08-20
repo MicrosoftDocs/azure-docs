@@ -2,7 +2,9 @@
 metadata:
   title: Azure Media Services FAQ
   description: "Get answers to common questions about Azure Media Services."
+  ms.service: media-services
   ms.custom: contperf-fy21q4
+    
 title: Common questions about Azure Media Services
 summary: This article answers commonly asked questions about Azure Media.
 sections:
@@ -35,6 +37,9 @@ sections:
           - [Node.js](https://aka.ms/ams-v3-nodejs-sdk)
           - [Go](https://aka.ms/ams-v3-go-sdk)
           - [Ruby](https://aka.ms/ams-v3-ruby-sdk)
+      - question: Should I use the client SDKs or write directly to the REST API? 
+        answer: |
+         It is not advised to attempt to wrap the REST API for Media Services directly into your own library code, as doing so properly for production purposes would require you to implement the full Azure Resource Management retry logic and understand how to manage long running operations in Azure Resource Management APIs. This is handled by the client SDKs for various language - .NET, Java, Typescript, Python, Ruby, etc. - for you automatically and reduces the chances of you having issues with rety logic or failed API calls. The client SDKs all handle this for you already. The Postman collection is provided more as a teaching tool, and to show you what the client SDKs are actually doing on the wire during your development with the various client SDKs.
       - question: Where can I find Media Services samples?
         answer: |
           See the article [Media Services v3 samples](samples-overview.md) for a listing of samples.
@@ -44,6 +49,18 @@ sections:
       - question: What quotas and limits are there for Media Services?
         answer: |
           See [Media Services quotas and limits](limits-quotas-constraints-reference.md)
+  - name: Customer data
+    questions:
+      - question: Does Media Services store any customer data outside of the service region?
+        answer: | 
+          - Customers attach their own storage accounts to their Azure Media Services account.  All asset data is stored in these associated storage accounts and the customer controls the location and replication type of this storage.
+          - Additional data associated with the Media Services account (including Content Encryption Keys, token verification keys, JobInputHttp urls, and other entity metadata) is stored in Microsoft owned storage within the region selected for the Media Services account.
+            - Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, the additional account data is stored in a zone-redundant fashion and is contained in a single region. For Southeast Asia, all the additional account data is stored in Singapore and for Brazil South, the data is stored in Brazil.
+            - In regions other than Brazil South and Southeast Asia, the additional account data may also be stored in Microsoft owned storage in the [paired region](../../best-practices-availability-paired-regions.md).
+          - Azure Media Services is a regional service and does not provide [high availability](architecture-high-availability-encoding-concept.md) or data replication. Customers needing these features are highly encouraged to build a solution using Media Services accounts in multiple regions.  A sample showing how to build a solution for High Availability with Media Services Video on Demand is available as a guide.
+      - question: Does Media Services provide high availability or data replication? 
+        answer: |
+          -	Azure Media Services is a regional service and does not provide high availability or data replication. Customers needing these features are highly encouraged to build a solution using Media Services accounts in multiple regions. A sample showing how to build a solution for [High Availability with Media Services Video on Demand](./architecture-high-availability-encoding-concept.md) is available as a guide.
   - name: Using Media Services
     questions:
       - question: What is a Media Services Asset?
@@ -75,7 +92,7 @@ sections:
           Yes.  You'll find more information in the [Encode with an auto-generated bitrate ladder](./encode-autogen-bitrate-ladder.md) page.
       - question: Can I analyze an audio or video file?
         answer: |
-          Yes you can. Azure Media Services v3 lets you extract insights from your video and audio files with Video Indexer. Media Services v3 analyzer presets can be used to extract those insights. If you want more detailed insights, use Video Indexer directly. To understand when to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
+          Yes you can. Azure Media Services v3 lets you extract insights from your video and audio files with Azure Video Analyzer for Media. Media Services v3 analyzer presets can be used to extract those insights. If you want more detailed insights, use [Azure Video Analyzer for Media (formerly Video Indexer)](../../azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview.md) directly. To understand when to use Video Analyzer for Media vs. Media Services analyzer presets, check out the [comparison document](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md).
       - question: What is a Media Services Live Event?
         answer: |
           A Media Services live event is the process of ingesting live video feeds and broadcasting them through an RTMPS protocol or Smooth Streaming. For more information about Media Services Live Events, see [Live events and live outputs in Media Services](live-event-outputs-concept.md)
@@ -127,3 +144,41 @@ sections:
       - question: How do I use a Managed Identity to give Media Services access to a restricted Storage account? 
         answer: |
           If you would like to access a storage account when the storage account is configured to block requests from unknown IP addresses,  follow the steps in [Access storage with a Media Services Managed Identity](security-access-storage-managed-identity-cli-tutorial.md).
+  - name: Streaming
+    questions:
+      - question: Can I stream existing Mp4 files that are pre-encoded or encoded in another solution?
+        answer: | 
+          Yes, Media Services origin server (Streaming Endpoint) supports dynamic packaging of MP4 files to HLS or DASH streaming format. However, the content must be encoded in closed-GOP format, with short GOPs in the 2-6 second duration range. 
+          We recommend the following settings, 2 second GOPs,  Key frame max and min distance of 2 seconds, Constant Bitrate encoding (CBR mode). Most content in this format that is encoded using H264 or HEVC video codec along with AAC audio format can be supported. 
+          Additional audio formats may also be supported that are pre-encoded, such as Dolby DD+. 
+          
+          The key to making it work is to create an Asset, upload the pre-encoded assets into the Asset's container using Blob Storage client SDKs, and then generate the required server manifest (.ism) and client manifest files. 
+          There is an example provided in the following .NET Samples project showing how to do this.  
+          See the sample project for details- [Stream existing MP4 files](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/StreamExistingMp4)
+
+          Keep in mind that there are performance implications when using this approach, as the built in encoder in AMS also generates binary indexes (.mpi files) that improve the access time into the MP4 files.  Without these files, the server can use slightly more CPU at high load.eaming an existing single bitrate MP4 file with HLS or Dash](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/Streaming/StreamExistingMp4)
+          You should monitor the Streaming Endpoint CPU load in Azure Monitor when scaling up with this approach.  If you are planning to go to production with a large library of MP4 files that are pre-encoded outside of AMS, please file a support ticket to have your architecture reviewed and
+          inquire about ways to improve the origin server performance of pre-encoded Mp4 content. 
+
+      - question: Can Azure Media Services be used for very short-form file content like on social media applications?
+        answer: | 
+          Short answer, not recommended.  Very short form content that is under a minute or two in duration is not really ideal for Adaptive Bitrate streaming.  If you intend to stream very short form files, it is recommended to pre-encode the content into a format that is 
+          easily streamed using a single bitrate. 
+          
+          Since most Adaptive bitrate players need time to buffer multiple segments of video, as well as time to analyze the network bandwidth before "shifting" up or down the adaptive bitrate ladder, it is often useless to provide 
+          a lot of bitrates for content that is under 30 seconds long.  By the time the player locks it's heuristic algorithm on the right bitrate to play due to network conditions, the file will be done streaming.  
+          
+          In addition, some players default to buffering up to 3 "segments" of video.  Each segment can be 2 to 6 seconds in duration.  For very short format videos, the player is likely to buffer and begin playback of the first selected bitrate of the ABR set. 
+          For this reason, we recommend using a single bitrate MP4 file, and uploading it to an Asset if you require HLS or DASH manifest generation. See the above question titles "Can I stream existing Mp4 files..." for details on how to achieve this. 
+          
+          It's only necessary to deliver the files in HLS or DASH format if you want to benefit from the capabilities of those protocols.  For single bitrate streams, they can still offer a lot - such as faster seeking, DRM support, more difficult to download via URL (but still possible!) than a
+          progressive download Mp4 in blob storage. Captions support for VTT and IMSC1 are also another benefit.  In addition, the ability to late bind additional audio renditions, or dubbings in alternate languages makes this a valuable choice for some situations. 
+  - name: Encoding 
+    questions:
+      - question: Can I use an externally encoded or existing Mp4 files in Media Services?
+        answer: | 
+          Yes, see the section under Streaming questions on "Can I Stream existing MP4 files" for details and links to a sample application showing how to upload a single bitrate Mp4 file that is pre-encoded and generate the server manifest (.ism) and client manifest(.ismc).
+          Note the performance impact issues on the origin that are called out in that question/answer as well.
+
+
+

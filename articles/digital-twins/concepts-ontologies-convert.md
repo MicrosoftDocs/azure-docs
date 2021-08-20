@@ -38,7 +38,7 @@ The following table is an example of how RDFS and OWL constructs can be mapped t
 
 The following C# code snippet shows how an RDF model file is loaded into a graph and converted to DTDL, using the [dotNetRDF](https://www.dotnetrdf.org/) library. 
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/convertRDF.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/other/csharp/convertRDF.cs":::
 
 ## Converter samples
 
@@ -62,6 +62,6 @@ This converter was used to translate the [Real Estate Core Ontology](https://doc
 
 ## Next steps 
 
-* Learn more about extending industry-standard ontologies to meet your specifications: [Concepts: Extending industry ontologies](concepts-ontologies-extend.md).
+* Learn more about extending industry-standard ontologies to meet your specifications: [Extending industry ontologies](concepts-ontologies-extend.md).
 
 * Or, continue on the path for developing models based on ontologies: [Using ontology strategies in a model development path](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
