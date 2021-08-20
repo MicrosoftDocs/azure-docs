@@ -1,5 +1,5 @@
 ---
-title: Weather forecast using ML Studio (classic) with IoT Hub data
+title: Weather forecast using Machine Learning Studio (classic) with IoT Hub data
 description: Use ML Studio (classic) to predict the chance of rain based on the temperature and humidity data your IoT hub collects from a sensor.
 author: robinsh
 
@@ -11,7 +11,7 @@ ms.date: 09/16/2020
 ms.author: robinsh
 ---
 
-# Weather forecast using the sensor data from your IoT hub in ML Studio (classic)
+# Weather forecast using the sensor data from your IoT hub in Machine Learning Studio (classic)
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/6.png)
 
