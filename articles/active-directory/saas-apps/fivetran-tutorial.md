@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/01/2020
+ms.date: 08/10/2021
 ms.author: jeedes
 ---
 
@@ -32,8 +32,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Fivetran supports **IDP** initiated SSO
-* Fivetran supports **Just In Time** user provisioning
+* Fivetran supports **IDP** initiated SSO.
+* Fivetran supports **Just In Time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -48,7 +48,6 @@ To configure the integration of Fivetran into Azure AD, you need to add Fivetran
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Fivetran** in the search box.
 1. Select **Fivetran** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Fivetran
 
@@ -69,12 +68,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Fivetran** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
-
 
 1. Fivetran application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -124,13 +122,14 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 In this section, you'll configure single sign-on on the **Fivetran** side.
 
 1. In a different web browser window, sign in to your Fivetran account as the account owner.
+
 1. Select the arrow in the top left corner of the window, and then select **Manage Account** from the drop-down list.
 
-   ![Screenshot that shows the Manage Account menu option selected.](media/fivetran-tutorial/fivetran-1.png)
+   ![Screenshot that shows the Manage Account menu option selected.](media/fivetran-tutorial/menu.png)
 
 1. Go to the **SAML Config** section of the **Settings** page.
 
-   ![Screenshot that shows the SAML Config pane with configuration options highlighted.](media/fivetran-tutorial/fivetran-2.png)
+   ![Screenshot that shows the SAML Config pane with configuration options highlighted.](media/fivetran-tutorial/settings.png)
 
    1. For **Enable SAML authentication**, select **ON**.
    1. In **Sign on URL**, paste the value of **Login URL**, which you copied from the Azure portal.
@@ -144,11 +143,11 @@ In this section, a user called B.Simon is created in Fivetran. Fivetran supports
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-1. Click on **Test this application** in Azure portal and you should be automatically signed in to the Fivetran for which you set up the SSO 
+* Click on Test this application in Azure portal and you should be automatically signed in to the Fivetran for which you set up the SSO.
 
-2. You can use Microsoft Access Panel. When you click the Fivetran tile in the Access Panel, you should be automatically signed in to the Fivetran for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Fivetran tile in the My Apps, you should be automatically signed in to the Fivetran for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

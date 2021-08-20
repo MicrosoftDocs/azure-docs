@@ -27,6 +27,7 @@ ms.reviewer: assafi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource </a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -137,6 +138,8 @@ static void Main(string[] args)
 The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
 
 If you're using version `3.x` of the service, you can use an optional `TextAnalyticsClientOptions` instance to initialize the client with various default settings (for example default language or country/region hint). You can also authenticate using an Azure Active Directory token. 
+
+[!INCLUDE [text-analytics-character-limits](../character-limits.md)]
 
 ## Code examples
 
