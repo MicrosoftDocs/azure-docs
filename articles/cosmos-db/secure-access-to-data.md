@@ -34,22 +34,36 @@ The process of key rotation and regeneration is simple. First, make sure that yo
 # [If your application is currently using the primary key](#tab/using-primary-key)
 
 1. Navigate to your Azure Cosmos DB account on the Azure portal.
+
 1. Select **Keys** from the left menu, then select **Regenerate Secondary Key** from the ellipsis on the right of your secondary key.
+
+    :::image type="content" source="./media/secure-access-to-data/regenerate-secondary-key.png" alt-text="Regenerating the secondary key" border="true":::
+
 1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Cosmos DB account.
+
 1. Replace your primary key with the secondary key in your application.
+
 1. Go back to the Azure portal and trigger the regeneration of the primary key.
+
+    :::image type="content" source="./media/secure-access-to-data/regenerate-primary-key.png" alt-text="Regenerating the primary key" border="true":::
 
 # [If your application is currently using the secondary key](#tab/using-secondary-key)
 
 1. Navigate to your Azure Cosmos DB account on the Azure portal.
+
 1. Select **Keys** from the left menu, then select **Regenerate Primary Key** from the ellipsis on the right of your primary key.
+
+    :::image type="content" source="./media/secure-access-to-data/regenerate-primary-key.png" alt-text="Regenerating the primary key" border="true":::
+
 1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Cosmos DB account.
+
 1. Replace your secondary key with the primary key in your application.
+
 1. Go back to the Azure portal and trigger the regeneration of the secondary key.
 
----
+    :::image type="content" source="./media/secure-access-to-data/regenerate-secondary-key.png" alt-text="Regenerating the secondary key" border="true":::
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Primary key rotation in the Azure portal - demonstrating NoSQL database security" border="false":::
+---
 
 ### Code sample to use a primary key
 
