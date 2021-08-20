@@ -2439,18 +2439,20 @@
         href: ideo-provisioning-tutorial.md        
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
+      - name: iPass SmartConnect
+        href: ipass-smartconnect-provisioning-tutorial.md
+      - name: iProva
+        href: iprova-provisioning-tutorial.md
+      - name: Iris Intranet
+        href: iris-intranet-provisioning-tutorial.md
       - name: Insight4GRC
         href: insight4grc-provisioning-tutorial.md
       - name: Insite LMS
         href: insite-lms-provisioning-tutorial.md
       - name: Invision
         href: invision-provisioning-tutorial.md
-      - name: Iris Intranet
-        href: iris-intranet-provisioning-tutorial.md        
-      - name: iPass SmartConnect
-        href: ipass-smartconnect-provisioning-tutorial.md
-      - name: iProva
-        href: iprova-provisioning-tutorial.md
+      - name: InviteDesk
+        href: invitedesk-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
       - name: Jostle
@@ -2479,6 +2481,8 @@
         href: looop-provisioning-tutorial.md
       - name: LogMeIn
         href: logmein-provisioning-tutorial.md
+      - name: Maptician
+        href: maptician-provisioning-tutorial.md
       - name: MediusFlow
         href: mediusflow-provisioning-tutorial.md
       - name: Merchlogix

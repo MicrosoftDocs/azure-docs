@@ -203,8 +203,8 @@ The following examples demonstrate scenarios for using parameters.
 
 |Template  |Description  |
 |---------|---------|
-|[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.bicep) | Demonstrates how to use Bicep functions when defining default values for parameters. The Bicep file doesn't deploy any resources. It constructs parameter values and returns those values. |
-|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.bicep) | Demonstrates using an object for a parameter. The Bicep file doesn't deploy any resources. It constructs parameter values and returns those values. |
+|[parameters with functions for default values](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterswithfunctions.bicep) | Demonstrates how to use Bicep functions when defining default values for parameters. The Bicep file doesn't deploy any resources. It constructs parameter values and returns those values. |
+|[parameter object](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/parameterobject.bicep) | Demonstrates using an object for a parameter. The Bicep file doesn't deploy any resources. It constructs parameter values and returns those values. |
 
 ## Next steps
 

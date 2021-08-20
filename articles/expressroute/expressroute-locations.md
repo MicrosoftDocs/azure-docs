@@ -246,7 +246,7 @@ If you are remote and don't have fiber connectivity or you want to explore other
 | **[C3ntro Telecom](https://www.c3ntro.com/)** | Equinix, Megaport | Dallas |
 | **[Chief](https://www.chief.com.tw/)** | Equinix | Hong Kong SAR |
 | **[Cinia](https://www.cinia.fi/palvelutiedotteet)** | Equinix, Megaport | Frankfurt, Hamburg |
-| **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | Amsterdam | 
+| **[CloudXpress](https://www2.telenet.be/content/www-telenet-be/fr/business/sme-le/aanbod/internet/cloudxpress)** | Equinix | Amsterdam | 
 | **[CMC Telecom](https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | Singapore | 
 | **[CoreAzure](https://www.coreazure.com/)**| Equinix | London |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)**| Equinix | Dallas, Silicon Valley, Washington DC |
@@ -346,7 +346,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Nelite](https://www.exakis-nelite.com/offres/)** | Europe |
 | **[New Signature](https://newsignature.com/technologies/express-route/)** | Europe |
 | **[OneAs1a](https://www.oneas1a.com/connectivity.html)** | Asia |
-| **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | Europe |
+| **[Orange Networks](https://www.orange-networks.com/blog/88-azureexpressroute)** | Europe |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
 | **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | North America |
 | **[sol-tec](https://www.sol-tec.com/what-we-do/)** | Europe |
