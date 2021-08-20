@@ -28,7 +28,7 @@ To create a Speech Resource, see [Try Speech For Free](overview.md#try-the-speec
 
 ## Configure the Speech Resource for AAD Authentication
 
-To configure the Speech Resource to be usable for AAD Authentication there are two steps needed:
+Follow these steps to configure the Speech Resource to be usable for AAD Authentication:
 1) Create a Custom Domain Name
 2) Assign Roles
 
