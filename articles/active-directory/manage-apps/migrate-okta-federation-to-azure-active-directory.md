@@ -246,9 +246,8 @@ After configuring the Okta app in Azure AD and the Identity Provider in the Okta
 
 2. Select the App registration created earlier, navigate to **Users and Groups**. Add the group that correlates with the Managed Authentication pilot.
 
->[!NOTE\]
->Users and groups can only be added from the Enterprise
-Applications selection, you cannot add users under the App Registrations menu.
+>[!NOTE]
+>Users and groups can only be added from the Enterprise Applications selection, you cannot add users under the App Registrations menu.
 
 ![image shows adding a group](media/migrate-okta-federation-to-azure-active-directory/add-group.png)
 
@@ -265,7 +264,7 @@ After configuring the Okta reverse federation app, have your users conduct full 
 
 >[!IMPORTANT]
 >Determine any additional Conditional Access Policies
-that may be needed before de-federating the domains as a whole from Okta. Refer to **Okta sign-on policies to Azure AD Conditional Access migration for steps to secure your environment prior to full cut-off.
+that may be needed before de-federating the domains as a whole from Okta. Refer to **Okta sign-on policies to Azure AD Conditional Access migration for steps to secure your environment prior to full cut-off**.
 
 ### Step 6 - Remove federation for Office 365 domains
 
