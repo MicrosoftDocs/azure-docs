@@ -91,7 +91,9 @@ You can increase the maxfiles limit to 500 million if your volume quota is at le
 
 ## Regional capacity quota
 
-You can click **Quota** under Settings of Azure NetApp Files to display the current and default quota sizes for the region:
+You can click **Quota** under Settings of Azure NetApp Files to display the current and default quota sizes for the region. 
+
+For example: 
 
 ![Screenshot that shows how to display quota information.](../media/azure-netapp-files/quota-display.png) 
 
