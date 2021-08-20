@@ -18,6 +18,9 @@ RADIUS authentication is supported for VpnGw1, VpnGw2, and VpnGw3 SKUs. If you a
 ### Is RADIUS authentication supported for the classic deployment model?
  
 No. RADIUS authentication is not supported for the classic deployment model.
+
+### What is the timeout period for RADIUS requests sent to the RADIUS server?
+RADIUS requests are set to timeout after 30 seconds. User defined timeout values are not supported today.
  
 ### Are 3rd-party RADIUS servers supported?
 

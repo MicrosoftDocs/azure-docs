@@ -97,7 +97,7 @@ For pricing details for these services, see:
 - [Automation-Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
 - [Notebooks pricing](https://azure.microsoft.com/pricing/details/machine-learning/)
 - [BYOML pricing](https://azure.microsoft.com/pricing/details/machine-learning-studio/)
-- [Azure Functions pricing](https://azure.microsoft.com/en-us/pricing/details/functions/)
+- [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/)
 
 Any other services you use could have associated costs.
 

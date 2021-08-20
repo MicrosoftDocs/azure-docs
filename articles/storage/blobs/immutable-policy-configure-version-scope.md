@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 08/19/2021
 ms.author: tamram
 ms.subservice: blobs 
 ---
@@ -69,7 +69,9 @@ To migrate a container to support version-level immutable storage in the Azure p
 
 ## Configure a time-based retention policy on a container
 
-After a container is enabled for version-level immutability, you can specify a default version-level time-based retention policy for the container. The default policy applies to all blob versions in the container, unless you override the policy for an individual version.
+Once a container is enabled for version-level immutability, you can specify a default version-level time-based retention policy for the container. After you specify a default policy for a container, that policy applies by default to all new blob versions that are created in the container. You can override the default policy for any individual blob version in the container.
+
+The default policy is not automatically applied to blob versions that existed before the default policy was configured.
 
 ### Configure a default time-based retention policy on a container
 
