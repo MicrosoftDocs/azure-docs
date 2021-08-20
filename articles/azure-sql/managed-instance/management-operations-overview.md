@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: overview
 author: urosmil
 ms.author: urmilano
-ms.reviewer: sstein, MashaMSFT
-ms.date: 05/18/2021
+ms.reviewer: mathoma
+ms.date: 08/20/2021
 ---
 
 # Overview of Azure SQL Managed Instance management operations
