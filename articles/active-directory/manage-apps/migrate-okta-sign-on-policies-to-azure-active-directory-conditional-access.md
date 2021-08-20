@@ -23,7 +23,7 @@ This tutorial assumes you have an Office 365 tenant federated to Okta for sign-o
 
 ## Prerequisites
 
-When switching from Okta sign on to Azure AD CA, it's important to understand licensing requirements. Azure AD CA requires users have an Azure AD Premium P1 License assigned before registration for Azure AD MFA.
+When switching from Okta sign on to Azure AD CA, it's important to understand licensing requirements. Azure AD CA requires users have an Azure AD Premium P1 License assigned before registration for Azure AD Multi-Factor Authentication.
 
 Before you do any of the steps for hybrid Azure AD join, you'll need an enterprise administrator credential in the on-premises forest to configure the Service Connection Point (SCP) record.
 
@@ -35,11 +35,11 @@ The following are the high-level migration tasks:
 
 2. [Configure condition pre-requisites](#step-2---configure-condition-pre-requisites)
 
-3. [Configure Azure AD MFA tenant settings](#step-3---configure-azure-ad-mfa-tenant-settings)
+3. [Configure Azure AD Multi-Factor Authentication tenant settings](#step-3---configure-azure-ad-mfa-tenant-settings)
 
 4. [Configure CA policies](#step-4---configure-ca-policies)
 
-5. [Enroll pilot members in Azure AD MFA](#step-5---enroll-pilot-members-in-azure-ad-mfa)
+5. [Enroll pilot members in Azure AD Multi-Factor Authentication](#step-5---enroll-pilot-members-in-azure-ad-mfa)
 
 6. [Enable CA policies](#step-6---enable-ca-policies)
 
@@ -118,35 +118,35 @@ While hybrid Azure AD join is direct replacement for Okta device trust on Window
 
 - **Android enrollment** - Before enrolling an Android device, [additional configurations](https://docs.microsoft.com/mem/intune/enrollment/android-enroll) must be made in the Endpoint Management Console.
 
-### Step 3 - Configure Azure AD MFA tenant settings
+### Step 3 - Configure Azure AD Multi-Factor Authentication tenant settings
 
-Before converting to CA, confirm the base Azure AD MFA
+Before converting to CA, confirm the base Azure AD Multi-Factor Authentication
 tenant settings for your organization.
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and sign in with a global administrator account.
 
 2. Select **Azure Active Directory**, followed by **Users**, and then **Multi-Factor Authentication** this will take you to the Legacy Azure MFA portal.
 
-![image shows legacy Azure AD mfa portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/legacy-azure-ad-portal.png)
+![image shows legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/legacy-azure-ad-portal.png)
 
 Instead, you can use **<https://aka.ms/mfaportal>**.
 
 4. From the **Legacy Azure MFA** menu, change the status menu through **enabled** and **enforced** to confirm you have no users enabled for Legacy MFA. If your tenant has users in the below views, you must disable them in the legacy menu. Only then CA policies will take effect on their account.
 
-![image shows disable user in legacy Azure AD mfa portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/disable-user-legacy-azure-ad-portal.png)
+![image shows disable user in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/disable-user-legacy-azure-ad-portal.png)
 
 **Enforced** field should also be empty.
 
-![image shows enforced field is empty in legacy Azure AD mfa portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enforced-empty-legacy-azure-ad-portal.png)
+![image shows enforced field is empty in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enforced-empty-legacy-azure-ad-portal.png)
 
 5. After confirming no users are configured for legacy MFA, select the **Service settings** option. Change the **App passwords** selection to **Do not allow users to create app passwords to sign in to non-browser apps**.
 
 6. Ensure the **Skip multi-factor authentication for requests from federated users on my intranet** and **Allow users to remember multi-factor authentication on devices they trust (between one to 365 days)** boxes are unchecked and then select **Save**.
 
->[!NOTE\]
+>[!NOTE]
 >See [best practices for configuring MFA prompt settings](https://aka.ms/mfaprompts).
 
-![image shows uncheck fields in legacy Azure AD mfa portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
+![image shows uncheck fields in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
 
 ### Step 4 - Configure CA policies
 
@@ -172,7 +172,7 @@ trust policy, its time to configure the equivalent [**Block legacy authenticatio
 
 With these three CA policies, the original Okta sign on policies experience has been replicated in Azure AD. Next steps involve enrolling the user to Azure MFA and testing the policies.
 
-### Step 5 - Enroll pilot members in Azure AD MFA
+### Step 5 - Enroll pilot members in Azure AD Multi-Factor Authentication
 
 Once the CA policies have been configured, users will
 need to register for Azure MFA methods. Users can be required to register through several different methods.
@@ -199,7 +199,7 @@ See the [end-user documentation for MFA enrollment](https://docs.microsoft.com/a
 
 ![image shows enable test user](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enable-test-user.png)
 
-2. On the next sign-in to Office 365, the test user John Smith is prompted to sign in with Okta MFA, and Azure AD MFA.
+2. On the next sign-in to Office 365, the test user John Smith is prompted to sign in with Okta MFA, and Azure AD Multi-Factor Authentication.
 
 ![image shows sign-in through okta](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/sign-in-through-okta.png)
 
