@@ -53,22 +53,22 @@ There are two ways to create a notebook. You can create a new notebook or import
 Notebooks consist of cells, which are individual blocks of code or text that can be run independently or as a group.
 
 We provide rich operations to develop notebooks:
-+ [Add a cell]((#Add-a-cell))
-+ [Set a primary language](#Set-a-primary-language)
-+ [Use multiple languages](#Use-multiple-languages)
-+ [Use temp tables to reference data across languages](#Use-temp-tables-to-reference-data-across-languages)
-+ [IDE-style IntelliSense](#IDE-style-IntelliSense)
-+ [Code Snippets](#Code-Snippets)
-+ [Format text cell with toolbar buttons](#Format-text-cell-with-toolbar-buttons)
-+ [Undo cell operation](#Undo-cell-operation)
-+ [Comment cell operation](#Comment-cell-operation)
-+ [Move a cell](#Move-a-cell)
-+ [Delete a cell](#Delete-a-cell)
-+ [Collapse a cell input](#Collapse-a-cell-input)
-+ [Collapse a cell output](#Collapse-a-cell-output)
-+ [Notebook outline](#Notebook-outline)
++ [Add a cell](#add-a-cell)
++ [Set a primary language](#set-a-primary-language)
++ [Use multiple languages](#use-multiple-languages)
++ [Use temp tables to reference data across languages](#use-temp-tables-to-reference-data-across-languages)
++ [IDE-style IntelliSense](#ide-style-intellisense)
++ [Code Snippets](#code-snippets)
++ [Format text cell with toolbar buttons](#format-text-cell-with-toolbar-buttons)
++ [Undo cell operation](#undo-cell-operation)
++ [Comment cell operation](#comment-cell-operation)
++ [Move a cell](#move-a-cell)
++ [Delete a cell](#delete-a-cell)
++ [Collapse a cell input](#collapse-a-cell-input)
++ [Collapse a cell output](#collapse-a-cell-output)
++ [Notebook outline](#notebook-outline)
 
-<h3 id="Add-a-cell">Add a cell</h3>
+<h3 id="add-a-cell">Add a cell</h3>
 
 There are multiple ways to add a new cell to your notebook.
 
@@ -97,7 +97,7 @@ There are multiple ways to add a new cell to your notebook.
 
 ---
 
-<h3 id="Set-a-primary-language">Set a primary language</h3>
+<h3 id="set-a-primary-language">Set a primary language</h3>
 
 Synapse notebooks support four Apache Spark languages:
 
@@ -111,7 +111,7 @@ You can set the primary language for new added cells from the dropdown list in t
    ![default-synapse-language](./media/apache-spark-development-using-notebooks/synapse-default-language.png)
 
 
-<h3 id="Use-multiple-languages">Use multiple languages</h3>
+<h3 id="use-multiple-languages">Use multiple languages</h3>
 
 You can use multiple languages in one notebook by specifying the correct language magic command at the beginning of a cell. The following table lists the  magic commands to switch cell languages.
 
@@ -127,7 +127,7 @@ The following image is an example of how you can write a PySpark query using the
    ![Synapse spark magic commands](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
 
-<h3 id="Use-temp-tables-to-reference-data-across-languages">Use temp tables to reference data across languages</h3>
+<h3 id="use-temp-tables-to-reference-data-across-languages">Use temp tables to reference data across languages</h3>
 
 You cannot reference data or variables directly across different languages in a Synapse notebook. In Spark, a temporary table can be referenced across languages. Here is an example of how to read a `Scala` DataFrame in `PySpark` and `SparkSQL` using a Spark temp table as a workaround.
 
@@ -153,7 +153,7 @@ You cannot reference data or variables directly across different languages in a 
    myNewPythonDataFrame = spark.sql("SELECT * FROM mydataframetable")
    ```
 
-<h3 id="IDE-style-IntelliSense">IDE-style IntelliSense</h3>
+<h3 id="ide-style-intellisense">IDE-style IntelliSense</h3>
 
 Synapse notebooks are integrated with the Monaco editor to bring IDE-style IntelliSense to the cell editor. Syntax highlight, error marker, and automatic code completions help you to write code and identify issues quicker.
 
@@ -169,7 +169,7 @@ The IntelliSense features are at different levels of maturity for different lang
 >[!Note]
 > An active Spark session is required to benefit the Variable Code Completion, System Function Code Completion，User Function Code Completion for .NET for Spark (C#).
 
-<h3 id="Code-Snippets">Code Snippets</h3>
+<h3 id="code-snippets">Code Snippets</h3>
 
 Synapse notebooks provide code snippets that make it easier to enter common used code patterns, such as configuring your Spark session, reading data as a Spark DataFrame, or drawing charts with matplotlib etc.
 
@@ -178,7 +178,7 @@ Snippets appear in [IntelliSense](#ide-style-intellisense) mixed with other sugg
 ![Synapse code snippets](./media/apache-spark-development-using-notebooks/synapse-code-snippets.gif#lightbox)
 
 
-<h3 id="Format-text-cell-with-toolbar-buttons">Format text cell with toolbar buttons</h3>
+<h3 id="format-text-cell-with-toolbar-buttons">Format text cell with toolbar buttons</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -192,7 +192,7 @@ Format button toolbar is not available for the preview notebook experience yet.
 
 ---
 
-<h3 id="Undo-cell-operation">Undo cell operation</h3>
+<h3 id="undo-cell-operation">Undo cell operation</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -218,7 +218,7 @@ Supported undo cell operations:
 
 ---
 
-<h3 id="Comment-cell-operation">Comment cell operation</h3>
+<h3 id="comment-cell-operation">Comment cell operation</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -243,7 +243,7 @@ We support comment on code cell in Preview Notebook for now.
 ---
 
 
-<h3 id="Move-a-cell">Move a cell</h3>
+<h3 id="move-a-cell">Move a cell</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -260,7 +260,7 @@ Click on the left-hand side of a cell and drag it to the desired position.
 
 ---
 
-<h3 id="Delete-a-cell">Delete a cell</h3>
+<h3 id="delete-a-cell">Delete a cell</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -280,7 +280,7 @@ You can also use [shortcut keys under command mode](#shortcut-keys-under-command
 
 ---
 
-<h3 id="Collapse-a-cell-input">Collapse a cell input</h3>
+<h3 id="collapse-a-cell-input">Collapse a cell input</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -296,7 +296,7 @@ Select the **More commands** ellipses (...) on the cell toolbar and **input** to
 
 ---
 
-<h3 id="Collapse-a-cell-output">Collapse a cell output</h3>
+<h3 id="collapse-a-cell-output">Collapse a cell output</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -313,7 +313,7 @@ Select the **More commands** ellipses (...) on the cell toolbar and **output** t
 
 ---
 
-<h3 id="Notebook-outline">Notebook outline</h3>
+<h3 id="notebook-outline">Notebook outline</h3>
 
 # [Classical Notebook](#tab/classical)
 
