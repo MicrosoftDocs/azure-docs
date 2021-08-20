@@ -10,5 +10,5 @@
  ms.custom: include file
 ---
 > [!NOTE]
->Azure AD authentication is supported only for OpenVPN® protocol connections and requires the Azure VPN client.
+>Azure AD authentication is supported for OpenVPN® protocol connections only and requires the Azure VPN client.
 >
