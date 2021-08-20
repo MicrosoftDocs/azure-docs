@@ -261,6 +261,8 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
     * [Custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
+* For XML transformation, support for referencing assemblies from maps is currently unavailable. Also, only XSLT 1.0 is currently supported.
+
 * **Breakpoint debugging in Visual Studio Code**: Although you can add and use breakpoints inside the **workflow.json** file for a workflow, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
 * **Trigger history and run history**: For the **Logic App (Standard)** resource type, trigger history and run history in the Azure portal appears at the workflow level, not the logic app level. For more information, review [Create single-tenant based workflows using the Azure portal](create-single-tenant-workflows-azure-portal.md).

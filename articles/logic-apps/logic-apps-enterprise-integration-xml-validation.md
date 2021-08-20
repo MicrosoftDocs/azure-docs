@@ -16,7 +16,7 @@ Often in B2B scenarios, the trading partners in an agreement need to make sure t
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * The logic app workflow, blank or existing, where you want to use the XML validation action.
 

@@ -12,23 +12,15 @@ ms.date: 04/27/2021
 
 # Validate XML with schemas in Azure Logic Apps with Enterprise Integration Pack
 
-To check that documents use valid XML and have the expected data 
-in the predefined format for enterprise integration scenarios 
-in Azure Logic Apps, your logic app can use schemas. 
-A schema can also validate messages that logic apps exchange
-in business-to-business (B2B) scenarios.
+To check that documents use valid XML and have the expected data in the predefined format for enterprise integration scenarios in Azure Logic Apps, your logic app can use schemas. A schema can also validate messages that logic apps exchange in business-to-business (B2B) scenarios.
 
-For limits related to integration accounts and artifacts such as schemas, 
-see [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+For limits related to integration accounts and artifacts such as schemas, see [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) 
-where you store your schemas and other artifacts for enterprise 
-integration and business-to-business (B2B) solutions. 
+* An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) where you store your schemas and other artifacts for enterprise integration and business-to-business (B2B) solutions. 
 
   If your schema is [2 MB or smaller](#smaller-schema), 
   you can add your schema to your integration account 
