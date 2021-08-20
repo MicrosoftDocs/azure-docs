@@ -638,9 +638,7 @@ The data sources for investigation include the centralized logging sources that 
 
 Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes. 
 
-- [Snapshot a Windows machine's disk](../virtual-machines/windows/snapshot-copy-managed-disk.md)
-
-- [Snapshot a Linux machine's disk](../virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [Snapshot a machine's disk](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 
 - [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 

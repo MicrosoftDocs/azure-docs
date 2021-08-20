@@ -25,14 +25,18 @@ To create a snapshot using the Azure portal, complete these steps:
 1. In the **Snapshot** pane, select **Create**. The **Create snapshot** window appears.
 1. Select a [Resource group](../../azure-resource-manager/management/overview.md#resource-groups) or enter the name of a new one.
 1. Enter a **Name**, **Region**, and **Snapshot type** for the new snapshot.
+
+    > [!NOTE]
+    > If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the **--sku Standard_ZRS** parameter.  A list of [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-region#azure-regions-with-availability-zones) can be found here.
+
 1. For **Source subscription**, select the subscription which contains the managed disk to be backed up.
 1. For **Source disk**, select the managed disk to snapshot.
 1. For **Storage type**, select **Standard_HDD**, unless you need the snapshot to be stored on a high-performing disk.
-1. Click Select the **Review** button, and then click **Create**.
+1. Click the **Review** button, and then click **Create**.
 
 # [PowerShell](#tab/powershell)
 
-These steps show how to copy the VHD disk and create the snapshot configuration using PowerShell. You can then take a snapshot of the disk by using the [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) cmdlet.
+Follow these steps to copy the VHD disk and create the snapshot configuration using PowerShell. You can then take a snapshot of the disk by using the [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) cmdlet.
 
 1. Set some parameters:
 
@@ -43,7 +47,7 @@ These steps show how to copy the VHD disk and create the snapshot configuration 
    $snapshotName = 'mySnapshot'  
    ```
 
-2. Get the VM:
+1. Get the VM:
 
    ```azurepowershell-interactive
    $vm = Get-AzVM `
@@ -51,7 +55,7 @@ These steps show how to copy the VHD disk and create the snapshot configuration 
        -Name $vmName
    ```
 
-3. Create the snapshot configuration. For this example, the snapshot is of the OS disk:
+1. Create the snapshot configuration. For this example, the snapshot is of the OS disk:
 
    ```azurepowershell-interactive
    $snapshot =  New-AzSnapshotConfig `
@@ -61,9 +65,9 @@ These steps show how to copy the VHD disk and create the snapshot configuration 
    ```
    
    > [!NOTE]
-   > If you would like to store your snapshot in zone-resilient storage, create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `-SkuName Standard_ZRS` parameter.
+   > If you would like to store your snapshot in zone-resilient storage, create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `-SkuName Standard_ZRS` parameter. A list of [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-region#azure-regions-with-availability-zones) can be found here.
 
-4. Take the snapshot:
+1. Take the snapshot:
 
    ```azurepowershell-interactive
    New-AzSnapshot `
@@ -78,7 +82,7 @@ This example requires that you use [Cloud Shell](https://shell.azure.com/bash) o
 
 Use these steps to take a snapshot with the **az snapshot create** command and the **--source-disk** parameter. This example assumes that you have a VM called *myVM* in the *myResourceGroup* resource group.
 
-First, get the disk ID using [az vm show](/cli/azure/vm#az_vm_show).
+First, get the disk ID with [az vm show](/cli/azure/vm#az_vm_show).
 
 ```azurecli-interactive
 osDiskId=$(az vm show \
@@ -98,7 +102,7 @@ az snapshot create \
 ```
 
 > [!NOTE]
-> If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the **--sku Standard_ZRS** parameter.
+> If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the **--sku Standard_ZRS** parameter.  A list of [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-region#azure-regions-with-availability-zones) can be found here.
 
 You can see a list of the snapshots using [az snapshot list](/cli/azure/snapshot#az_snapshot_list).
 
@@ -110,4 +114,4 @@ az snapshot list \
 
 ## Next steps
 
-Create a virtual machine from a snapshot: Create a managed disk from a snapshot and then attach the new managed disk as the OS disk. For more information, see the example in [Create a VM from a snapshot with PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot).
+Deploy a virtual machine from a snapshot. Create a managed disk from a snapshot and then attach the new managed disk as the OS disk. For more information, see the example in [Create a VM from a snapshot with PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot).
