@@ -116,12 +116,10 @@ The table below summarizes the relationship between *vCores* and *vCPUs* for Azu
 | 384           | 76800            |            128000  |
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Learn about Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/)
-> [Learn how to plan and manage costs for Azure Cosmos DB](plan-manage-costs.md)
-> [Review options for migrating to Azure Cosmos DB](cosmosdb-migrationchoices.md)
-> [Migrate to Azure Cosmos DB SQL API](import-data.md)
-> [Plan your migration to Azure Cosmos DB API for MongoDB](mongodb/pre-migration-steps.md). This doc includes links to different migration tools that you can use once you are finished planning.
+* [Learn about Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/)
+* [Learn how to plan and manage costs for Azure Cosmos DB](plan-manage-costs.md)
+* [Review options for migrating to Azure Cosmos DB](cosmosdb-migrationchoices.md)
+* [Migrate to Azure Cosmos DB SQL API](import-data.md)
+* [Plan your migration to Azure Cosmos DB API for MongoDB](mongodb/pre-migration-steps.md). This doc includes links to different migration tools that you can use once you are finished planning.
 
 [regions]: https://azure.microsoft.com/regions/
