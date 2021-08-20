@@ -30,7 +30,7 @@ ms.custom: include file
 | Maximum total request duration<sup>8</sup> | 30 seconds |
 | Maximum request payload size<sup>8</sup> | 1 GiB |
 | Maximum buffered payload size<sup>8</sup> | 2 MiB |
-| Maximum request URL size<sup>9</sup> | 4096 bytes |
+| Maximum request URL size<sup>9</sup> | 16384 bytes |
 | Maximum length of URL path segment<sup>10</sup> | 260 characters |
 | Maximum size of API schema used by [validation policy](../articles/api-management/validation-policies.md)<sup>10</sup> | 4 MB |
 | Maximum size of request or response body in [validate-content policy](../articles/api-management/validation-policies.md#validate-content)<sup>10</sup> | 100 KB |
