@@ -196,8 +196,6 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 >
 > **Changes** made to the service configuration (for example, APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
 
-<!-- Dummy comment added to suppress markdown lint warning -->$
-
 ## Constraints when making backup or restore request
 
 -   While backup is in progress, **avoid management changes in the service** such as SKU upgrade or downgrade, change in domain name, and more.
