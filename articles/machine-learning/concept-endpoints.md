@@ -105,6 +105,14 @@ Autoscale automatically runs the right amount of resources to handle the load on
 
 :::image type="content" source="media/concept-endpoints/concept-autoscale.png" alt-text="Image showing that autoscale flexibly provides between min and max instances, depending on rules":::
 
+### Visual Studio Code debugging
+
+::::image type="content" source="media/concept-endpoints/vscode-full.png" alt-text="Screenshot of endpoint debugging in VSCode." lightbox="media/concept-endpoints/vscode-full.png" :::
+
+### VNET ingress
+
+tk {>> inputs from Joon's doc -- 11860342 <<}
+
 ## Managed online endpoints vs AKS online endpoints (preview)
 
 There are two types of online endpoints: **managed online endpoints** (preview) and **AKS online endpoints** (preview). The following table highlights some of their key differences.
