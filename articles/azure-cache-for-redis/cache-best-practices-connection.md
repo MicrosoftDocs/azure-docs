@@ -16,13 +16,13 @@ Configure your client connections to retry commands with exponential backoff. Fo
 
 ## Test resiliency
 
-Test your system's resiliency to connection breaks using a [Reboot](cache-administration.md#reboot) to simulate a patch. For more information on testing your performance, see [Resilience and Performance Testing](cache-best-practices-performance.md).
+Test your system's resiliency to connection breaks using a [Reboot](cache-administration.md#reboot) to simulate a patch. For more information on testing your performance, see [Performance Testing](cache-best-practices-performance.md).
 
 ## Configure appropriate timeouts
 
 Configure your client library to use *connect timeout* of 10 to 15 seconds and a *command timeout* of 5 seconds. The *connect timeout* is the time your client waits to establish a connection with Redis server. Most client libraries have another timeout configuration for *command timeouts*, which is the time the client waits for a response from Redis server.
 
-Some libraries have the *command timeout* set to 5 seconds by default. Consider setting it to a lower value or higher value depending on your scenario and key sizes.
+Some libraries have the *command timeout* set to 5 seconds by default. Consider setting it higher or lower depending on your scenario and the sizes of the values that are stored in your cache.
 
 If the *command timeout* is too small, the connection can look unstable. However, if the *command timeout* is too large, your application might have to wait for a long time to find out whether if the command is going to timeout or not.
 
@@ -32,16 +32,18 @@ If something goes wrong (high client CPU, high server CPU, and so on), then a sh
 
 We generally recommend that you leave your *connection timeout* at 15 seconds or higher. It's better to let your connection attempt to succeed after 15 or 20 seconds than to have it fail quickly only to retry. Such a retry loop can cause your outage to last longer than if you let the system just take longer initially.
 
-## Conscious connection recreation
+## Avoid client connection spikes
 
-If you observe transient connection blips, ensure:
+Avoid creating many connections at the same time when reconnecting after a connection loss. Similar to the way that [short connect timeouts](#configure-appropriate-timeouts) can result in longer outages, starting many reconnect attempts at the same time can also increase server load and extend how long it takes for all clients to reconnect successfully.
 
-- That your client library isn't creating new connections for every retry.
-- That there are no connection leaks when your application recreates connections as caches have limits on the number of client connections per cache tier.
+If you're reconnecting many client instances, consider staggering the new connections to avoid a steep spike in the number of connected clients.
 
-<!-- is connection leaks a commonly used phrase?-->
+## Avoid leftover connections
 
-Apart from reaching the client connections limit, too many connections can cause a high server load that causes other important operations to fail. When you use the StackExchange.Redis client library, set `abortConnect` to `false` in your connection string.  We recommend letting the ConnectionMultiplexer handle reconnection.
+Caches have limits on the number of client connections per cache tier. Ensure that when your client application recreates connections that it closes and removes the old connections.
+
+> [!NOTE]
+> When you use the `StackExchange.Redis` client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [StackExchange.Redis best practices](/cache-management-faq.md#stackexchangeredis-best-practices).
 
 ## Advance maintenance notification
 
@@ -49,7 +51,7 @@ Use notifications to learn of upcoming maintenance. For more information, see [c
 
 ## Schedule maintenance window
 
-Carefully, adjust your cache settings to accommodate maintenance. For more information about creating a maintenance window to reduce any negative effects to your cache, see [Schedule updates](/azure-cache-for-redis/cache-administration.md#schedule-updates).
+Adjust your cache settings to accommodate maintenance. For more information about creating a maintenance window to reduce any negative effects to your cache, see [Schedule updates](/azure-cache-for-redis/cache-administration.md#schedule-updates).
 
 ## More design patterns for resilience
 
@@ -57,4 +59,4 @@ Apply design patterns for resiliency. For more information, see [recommended des
 
 ## Idle timeout
 
-Azure Cache for Redis currently has 10-minute idle timeout for connections, so your setting should be to less than 10 minutes. Most common client libraries have a configuration setting that allows client libraries to send Redis `PING` commands to a Redis server automatically and periodically. However, when using client libraries without this type of setting, customer applications themselves are responsible for keeping the connection alive.
+Azure Cache for Redis currently has 10-minute idle timeout for connections, so the idle timeout setting in your client application should be less than 10 minutes. Most common client libraries have a configuration setting that allows client libraries to send Redis `PING` commands to a Redis server automatically and periodically. However, when using client libraries without this type of setting, customer applications themselves are responsible for keeping the connection alive.

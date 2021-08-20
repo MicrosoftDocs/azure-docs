@@ -8,9 +8,7 @@ ms.date: 09/01/2021
 ms.author: shpathak
 ---
 
-# Resilience and performance testing
-
-## Performance testing
+# Performance testing
 
 1. Start by using `redis-benchmark.exe` to get a feel for possible throughput/latency before writing your own perf tests. For more information, see [Redis-Benchmark](#redis-benchmark-utility).
 

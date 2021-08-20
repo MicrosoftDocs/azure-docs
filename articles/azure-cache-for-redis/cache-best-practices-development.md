@@ -12,7 +12,7 @@ ms.author: shpathak
 
 ## Avoiding data loss
 
-Remember that Redis is an in-memory data store. For scenarios where data loss can occur and how you can avoid them, see [Troubleshoot data loss in Azure Cache for Redis](cache-troubleshoot-data-loss.md).
+Remember that Redis is an in-memory data store. For information about scenarios where data loss can occur, see [Troubleshoot data loss in Azure Cache for Redis](cache-troubleshoot-data-loss.md).
 
 ## Avoid using Basic tier in production
 Use Standard or Premium tier for production systems. The Basic tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are only meant for simple dev/test scenarios because:
@@ -21,9 +21,13 @@ Use Standard or Premium tier for production systems. The Basic tier is a single 
 - use little memory
 - are prone to *noisy neighbor* issues
 
-## Consider smaller keys
+## Connection resilience and server load
 
-Redis works best with smaller value. Consider dividing bigger chunks of data in to smaller chunks to spread over multiple keys. For more information on ideal key size, see this [article] (<https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/>).
+When developing client applications, be sure to consider the relevant best practices for [connection resilience](cache-best-practices-connection.md) and [managing server load](cache-best-practices-server-load.md).
+
+## Consider more keys and smaller values
+
+Redis works best with smaller values. Consider dividing bigger chunks of data in to smaller chunks to spread over multiple keys. For more information on ideal key size, see this [article](<https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/>).
 
 In this Redis discussion, some considerations are listed for you to consider carefully. For an example problem that can be caused by large values, see [Large request or response Size](cache-troubleshoot-client.md#large-request-or-response-size).
 
@@ -45,13 +49,13 @@ Use a Standard or Premium tier for production systems. Don't use the Basic tier 
 
 Use at least a C1 cache. C0 caches are meant for simple development and test scenarios because they have a shared CPU core, little memory, and are prone to *noisy neighbor* issues.
 
-We recommend performance testing to choose the right tier and validate connection settings. For more information, see [Resilience and performance testing](cache-best-practices-performance.md).
+We recommend performance testing to choose the right tier and validate connection settings. For more information, see [Performance testing](cache-best-practices-performance.md).
 
 ## Client in same region as cache
 
 Locate your cache instance and your application in the same region. Connecting to a cache in a different region can significantly increase latency and reduce reliability.  
 
-While you can connect from outside of Azure, it  not recommended *especially when using Redis as a cache*.  If you're using Redis server as just a key/value store, latency may not be the primary concern.
+While you can connect from outside of Azure, it is not recommended *especially when using Redis as a cache*.  If you're using Redis server as just a key/value store, latency may not be the primary concern.
 
 ## Use TLS encryption
 

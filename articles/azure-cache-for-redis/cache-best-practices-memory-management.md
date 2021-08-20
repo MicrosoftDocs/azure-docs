@@ -19,11 +19,11 @@ Set an expiration value on your keys. An expiration removes keys proactively ins
 
 ## Minimize memory fragmentation
 
-Large keys can leave memory fragmented on eviction and might lead to high memory usage and server load.
+Large values can leave memory fragmented on eviction and might lead to high memory usage and server load.
 
 ## Monitor memory usage
 
-Add monitoring on memory usage to ensure you do not run out of memory and have the chance to scale your cache before seeing issues.
+Add monitoring on memory usage to ensure that you don't run out of memory and have the chance to scale your cache before seeing issues.
 
 ## Configure your maxmemory-reserved setting
 
@@ -33,6 +33,6 @@ Configure your [maxmemory-reserved setting](cache-configure.md#maxmemory-policy-
 
 * The `maxmemory-reserved` setting configures the amount of memory, in MB per instance in a cluster, that is reserved for non-cache operations, such as replication during failover. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that write large amounts of data. When memory is reserved for such operations, it's unavailable for storage of cached data.
 
-* The `maxfragmentationmemory-reserved` setting configures the amount of memory, in MB per instance in a cluster, that is reserved to accommodate for memory fragmentation. When you set this value, you to have a more consistent Redis server experience when the cache is full or close to full and the fragmentation ratio is high. When memory is reserved for such operations, it's unavailable for storage of cached data.
+* The `maxfragmentationmemory-reserved` setting configures the amount of memory, in MB per instance in a cluster, that is reserved to accommodate for memory fragmentation. When you set this value, the Redis server experience is more consistent when the cache is full or close to full and the fragmentation ratio is high. When memory is reserved for such operations, it's unavailable for storage of cached data.
 
-* When choosing a new memory reservation value (`maxmemory-reserved` or `maxfragmentationmemory-reserved`) is how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53-GB cache with 49 GB of data, then change the reservation value to 8 GB. This change drops the max available memory for the system down to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system must evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Available metrics and reporting intervals](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+* One thing to consider when choosing a new memory reservation value (`maxmemory-reserved` or `maxfragmentationmemory-reserved`) is how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53-GB cache with 49 GB of data and then change the reservation value to 8 GB, the max available memory for the system will drop to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system must evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Available metrics and reporting intervals](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
