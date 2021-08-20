@@ -41,7 +41,11 @@ If you're new to logic apps, review the following documentation:
 
 * [Usage metering, billing, and pricing models for Azure Logic Apps](logic-apps-pricing.md)
 
-For limits related to integration accounts and artifacts such as maps, review [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+## Limits
+
+* For **Consumption** logic app resources, limits exist for integration accounts and artifacts such as maps. For more information, review [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+
+* For **Standard** logic app resources, no limits exist for map file sizes.
 
 ## Prerequisites
 
