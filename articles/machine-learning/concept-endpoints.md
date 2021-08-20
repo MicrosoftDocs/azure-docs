@@ -65,7 +65,7 @@ Create and manage batch and online endpoints with multiple developer tools:
 
 ### Online endpoints requirements
 
-To create an online endpoint, you need to specify the following:
+To create an online endpoint, you need to specify the following elements:
 - Model files (or specify a registered model in your workspace) 
 - Scoring script - code needed to perform scoring/inferencing
 - Environment - a Docker image with Conda dependencies, or a dockerfile 
@@ -136,7 +136,7 @@ Managed online endpoints can help streamline your deployment process. Managed on
 - Managed infrastructure
     - Automatically provisions the compute and hosts the model (you just need to specify the VM type and scale settings) 
     - Automatically performs updates and patches to the underlying host OS image
-    - Automatic node recovery in case of system failure
+    - Automatic node recovery if there is a system failure
 
 :::image type="content" source="media/concept-endpoints/log-analytics-and-azure-monitor.png" alt-text="Screenshot showing Azure Monitor graph of endpoint latency":::
 
@@ -164,11 +164,11 @@ Learn how to [deploy and use batch endpoints with the Azure CLI](how-to-use-batc
 
 Use the no-code batch endpoint creation experience for [MLflow models](how-to-use-mlflow.md) to automatically create scoring scripts and execution environments.  
 
-For batch endpoints using MLflow models, you need to specify the following:
+For batch endpoints using MLflow models, you need to specify the following elements:
 - Model files (or specify a registered model in your workspace)
 - Compute target
 
-However, if you are **not** deploying an MLflow model, you need to provide additional requirements:
+However, if you are **not** deploying an MLflow model, you need to provide two more inputs:
 - Scoring script - code needed to perform scoring/inferencing
 - Environment - a Docker image with Conda dependencies
 
