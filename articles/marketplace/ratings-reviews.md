@@ -4,9 +4,10 @@ description: Learn how to access a consolidated view of customer feedback for yo
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/03/2021
-author: mingshen-ms
-ms.author: mingshen
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 07/06/2021
 ---
 
 # Ratings & Reviews analytics dashboard in Partner Center
@@ -17,7 +18,7 @@ This article provides information on the Ratings & Reviews dashboard in Partner 
 - Reviews are posted on the Reviews tab on the product display page of the offer in Azure Marketplace or AppSource. Customers can include their name or post anonymously.  
 
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.md).
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.yml).
 
 ## Access the dashboard
 
@@ -49,7 +50,7 @@ Reviews are displayed in chronological order for when they were posted. The defa
 
 ### Responding to a review
 
-You can respond to reviews from users and the response will be visible on either Azure Marketplace or AppSource storefronts. To respond to a review, follow these steps:
+You can respond to reviews from users and the response will be visible on either Azure Marketplace or AppSource storefronts. This functionality applies to the following offer types: Azure Application, Azure Container, Azure virtual machine, Dynamics 365 Business Central, Dynamics 365 Customer Engagement & Power Apps, Dynamics 365 Operations, IoT Edge Module, Managed service, Power BI app, and Software as a Service. To respond to a review, follow these steps:
 
 1. Select the **Ratings & reviews** tab, and then select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating
 

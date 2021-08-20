@@ -10,6 +10,9 @@ ms.date: 11/10/2020
 
 # Configure server parameters in Azure Database for MySQL - Flexible Server using the Azure portal
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+
 You can manage Azure Database for MySQL Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.
 
 This article describes how to view and configure server parameters by using the Azure portal. The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameter. The non-modifiable server parameters are greyed out.
@@ -59,7 +62,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> You should restart the server to ensure the time zone tables are properly populated.<!-- FIX ME To restart the server, use the [Azure portal](how-to-restart-server-portal.md) or [CLI](how-to-restart-server-cli.md).-->
+>You should restart the server to ensure the time zone tables are properly populated.<!-- FIX ME To restart the server, use the [Azure portal](how-to-restart-server-portal.md) or [CLI](how-to-restart-server-cli.md).-->
 
 To view available time zone values, run the following command:
 

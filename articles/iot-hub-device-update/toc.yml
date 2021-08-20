@@ -47,6 +47,8 @@ items:
     href: import-concepts.md
   - name: Import-related schema
     href: import-schema.md
+  - name: Device Update limits
+    href: device-update-limits.md
 
 - name: How-to guides
   items:
@@ -109,7 +111,7 @@ items:
     - name: IoT solution accelerators
       href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights

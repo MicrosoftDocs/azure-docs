@@ -4,7 +4,7 @@ description: 'Quickstart: Create a Service Bus namespace with topic and subscrip
 documentationcenter: .net
 author: spelluru
 ms.author: spelluru
-ms.date: 06/23/2020
+ms.date: 06/08/2021
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.custom:
@@ -135,13 +135,13 @@ For JSON syntax and properties, see [namespaces](/azure/templates/microsoft.serv
 ## PowerShell
 
 ```powershell-interactive
-New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
+New-AzureResourceGroupDeployment -Name \<deployment-name\> -ResourceGroupName \<resource-group-name\> -TemplateUri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/quickstarts/microsoft.servicebus/servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## Azure CLI
 
 ```azurecli-interactive
-az deployment group create \<my-resource-group\> --name \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-topic-and-subscription/azuredeploy.json>
+az deployment group create \<my-resource-group\> --name \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/quickstarts/microsoft.servicebus/servicebus-create-topic-and-subscription/azuredeploy.json>
 ```
 
 ## Next steps
@@ -151,9 +151,9 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
 * [Manage Service Bus with PowerShell](service-bus-manage-with-ps.md)
 * [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
-[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
-[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/syntax.md
+[Azure Quickstart Templates]: https://azure.microsoft.com/resources/templates/?term=service+bus
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/management/manage-resources-powershell.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/management/manage-resources-cli.md
-[Service Bus namespace with topic and subscription]: https://azure.microsoft.com/resources/templates/201-servicebus-create-topic-and-subscription/
+[Service Bus namespace with topic and subscription]: https://azure.microsoft.com/resources/templates/servicebus-create-topic-and-subscription/

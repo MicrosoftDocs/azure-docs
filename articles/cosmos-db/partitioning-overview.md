@@ -5,7 +5,7 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 07/12/2021
 
 ---
 
@@ -67,7 +67,7 @@ Each physical partition consists of a set of replicas, also referred to as a [*r
 
 Typically, smaller containers only require a single physical partition, but they will still have at least 4 replicas.
 
-The following image shows how logical partitions are mapped to physical partitions that are distributed globally:
+The following image shows how logical partitions are mapped to physical partitions that are distributed globally. [Partition set](global-dist-under-the-hood.md#partition-sets) in the image refers to a group of physical partitions that manage the same logical partition keys across multiple regions:
 
 :::image type="content" source="./media/partitioning-overview/logical-partitions.png" alt-text="An image that demonstrates Azure Cosmos DB partitioning" border="false":::
 
@@ -131,3 +131,4 @@ Some things to consider when selecting the *item ID* as the partition key includ
 * Learn about [global distribution in Azure Cosmos DB](distribute-data-globally.md).
 * Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
 * Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
+* See the learn module on how to [Model and partition your data in Azure Cosmos DB.](/learn/modules/model-partition-data-azure-cosmos-db/)

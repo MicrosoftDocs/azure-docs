@@ -37,7 +37,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Cisco Webex Meetings supports **SP and IDP** initiated SSO.
-
+* Cisco Webex Meetings supports [**Automated** user provisioning and deprovisioning](cisco-webex-provisioning-tutorial.md) (recommended).
 * Cisco Webex Meetings supports **Just In Time** user provisioning.
 
 ## Adding Cisco Webex Meetings from the gallery

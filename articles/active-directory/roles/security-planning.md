@@ -62,13 +62,13 @@ Stage 1 of the roadmap is focused on critical tasks that are fast and easy to im
 
 ### General preparation
 
-#### Turn on Azure AD Privileged Identity Management
+#### Use Azure AD Privileged Identity Management
 
-We recommend that you turn on Azure AD Privileged Identity Management (PIM) in your Azure AD production environment. After you turn on PIM, you'll receive notification email messages for privileged access role changes. Notifications provide early warning when additional users are added to highly privileged roles.
+We recommend that you start using Azure AD Privileged Identity Management (PIM) in your Azure AD production environment. After you start using PIM, you'll receive notification email messages for privileged access role changes. Notifications provide early warning when additional users are added to highly privileged roles.
 
 Azure AD Privileged Identity Management is included in Azure AD Premium P2 or EMS E5. To help you protect access to applications and resources on-premises and in the cloud, sign up for the [Enterprise Mobility + Security free 90-day trial](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Azure AD Privileged Identity Management and Azure AD Identity Protection monitor security activity using Azure AD reporting, auditing, and alerts.
 
-After you turn on Azure AD Privileged Identity Management:
+After you start using Azure AD Privileged Identity Management:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with an account that is a Global Administrator of your Azure AD production organization.
 
@@ -82,7 +82,7 @@ Make sure the first person to use PIM in your organization is assigned to the **
 
 #### Identify and categorize accounts that are in highly privileged roles
 
-After turning on Azure AD Privileged Identity Management, view the users who are in the following Azure AD roles:
+After starting to use Azure AD Privileged Identity Management, view the users who are in the following Azure AD roles:
 
 * Global Administrator
 * Privileged Role Administrator
@@ -421,7 +421,7 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 8. Make sure you save backups of relevant logs for potential forensic and legal investigation.
 
-For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM).
+For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](/compliance/assurance/assurance-security-incident-management).
 
 ## FAQ: Answers for securing privileged access  
 

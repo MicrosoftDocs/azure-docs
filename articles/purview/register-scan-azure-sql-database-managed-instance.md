@@ -22,10 +22,6 @@ The Azure SQL Database Managed Instance data source supports the following funct
 
 - **Lineage** between data assets for ADF copy and dataflow activities.
 
-### Known limitations
-
-Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azuresqldb-mi-current&preserve-view=true) in Azure SQL Managed Instance.
-
 ## Prerequisites
 
 - Create a new Purview account if you don't already have one.
@@ -105,9 +101,9 @@ It is required to get the service principal's application ID and secret:
 
 1. Navigate to your Purview account.
 
-1. Select **Sources** on the left navigation.
+1. Select **Data Map** on the left navigation.
 
-1. Select **Register**.
+1. Select **Register**
 
 1. Select **Azure SQL Database Managed Instance** and then **Continue**.
 

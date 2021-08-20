@@ -28,7 +28,7 @@ Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure
 
 If migrating an existing web application, check to see if it is using an open-source map control library such as Cesium, Leaflet, and OpenLayers. If it is and you would prefer to continue to use that library, you can connect it to the Azure Maps tile services ([road tiles](/rest/api/maps/render/getmaptile) \| [satellite tiles](/rest/api/maps/render/getmapimagerytile)). The links below provide details on how to use Azure Maps in some commonly used open-source map control libraries.
 
-* [Cesium](https://cesiumjs.org/) - A 3D map control for the web. [Code samples](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [Plugin repo]()
+* [Cesium](https://www.cesium.com/) - A 3D map control for the web. [Code samples](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [Plugin repo]()
 * [Leaflet](https://leafletjs.com/) – Lightweight 2D map control for the web. [Code samples](https://azuremapscodesamples.azurewebsites.net/?search=leaflet) \| [Plugin repo]()
 * [OpenLayers](https://openlayers.org/) - A 2D map control for the web that supports projections. [Code samples](https://azuremapscodesamples.azurewebsites.net/?search=openlayers) \| [Plugin repo]()
 
@@ -1251,7 +1251,7 @@ Both Bing and Azure maps support overlaying georeferenced images on the map so t
 
 **Before: Bing Maps**
 
-When creating a ground overlay in Bing Maps you need to specify the URL to the image to overlay and a bounding box to bind the image to on the map. This example overlays a map image of [Newark New Jersey from 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) on the map.
+When creating a ground overlay in Bing Maps you need to specify the URL to the image to overlay and a bounding box to bind the image to on the map. This example overlays a map image of Newark New Jersey from 1922 on the map.
 
 ```html
 <!DOCTYPE html>

@@ -2,14 +2,14 @@
 title: Full backup/restore and selective restore for Azure Managed HSM
 description: This document explains full backup/restore and selective restore
 services: key-vault
-author: amitbapat
+author: mbaldwin
 tags: azure-key-vault
 
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.author: ambapat
+ms.author: mbaldwin
 # Customer intent: As a developer using Key Vault I want to know the best practices so I can implement them.
 ---
 # Full backup and restore

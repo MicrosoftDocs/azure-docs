@@ -27,7 +27,7 @@ The NER feature for Text Analytics returns the following general (non identifyin
 | [Phone number](#category-phonenumber) | Phone numbers. |
 | [Email](#category-email) | Email addresses. |
 | [URL](#category-url) | URLs to websites. |
-| [IP](#category-ip) | Network IP addresses. |
+| [IPAddress](#category-ipaddress) | Network IP addresses. |
 | [DateTime](#category-datetime) | Dates and times of day. |
 | [Quantity](#category-quantity) | Numerical measurements and units. |
 
@@ -405,7 +405,7 @@ This category contains the following entity:
     :::column span="2":::
       **Supported document languages**
 
-      `en`  
+      `en` , `es`, `fr`, `de`, `it`, `pt-pt`, `pt-br` 
       
    :::column-end:::
 :::row-end:::
@@ -510,7 +510,7 @@ This category contains the following entity:
    :::column-end:::
 :::row-end:::
 
-### Category: IP
+### Category: IPAddress
 
 This category contains the following entity:
 
@@ -518,7 +518,7 @@ This category contains the following entity:
     :::column span="":::
         **Entity**
 
-        IP
+        IPAddress
 
     :::column-end:::
     :::column span="2":::

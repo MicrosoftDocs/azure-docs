@@ -64,7 +64,7 @@ The FedRAMP audit of Azure and Azure Government included the information securit
 
 Azure continues to support more services at FedRAMP High Impact levels than any other cloud provider. And while FedRAMP High in the Azure public cloud meets the needs of many US government customers, agencies with more stringent requirements rely on Azure Government. Azure Government provides additional safeguards, such as the heightened screening of personnel. Microsoft lists all Azure public services currently available in Azure Government to the FedRAMP High boundary, as well as services planned for the current year.
 
-In addition, Microsoft is fully committed to [protecting and managing customer data](https://www.microsoft.com/trust-center/privacy/data-management) with clearly stated records retention policies. As a global company with customers in nearly every country in the world, Microsoft has a robust compliance portfolio to assist you. To view a complete list of our compliance offerings, see [Microsoft compliance offering](https://docs.microsoft.com/compliance/regulatory/offering-home). 
+In addition, Microsoft is fully committed to [protecting and managing customer data](https://www.microsoft.com/trust-center/privacy/data-management) with clearly stated records retention policies. As a global company with customers in nearly every country in the world, Microsoft has a robust compliance portfolio to assist you. To view a complete list of our compliance offerings, see [Microsoft compliance offering](/compliance/regulatory/offering-home). 
 
 ## Next steps 
 
@@ -81,4 +81,4 @@ In addition, Microsoft is fully committed to [protecting and managing customer d
 [Achieve NIST AAL2 with Azure AD](nist-authenticator-assurance-level-2.md)
 
 [Achieve NIST AAL3 with Azure AD](nist-authenticator-assurance-level-3.md) 
-‎ 
+‎

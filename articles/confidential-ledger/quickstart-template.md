@@ -9,26 +9,43 @@ ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: mbaldwin
 ms.date: 04/15/2021
 
-# [![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
 ---
 
 # Quickstart: Create an Microsoft Azure Confidential Ledger with an ARM template
 
-[Microsoft Azure Confidential Ledger](overview.md) is a new and highly secure service for managing sensitive data records. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a new ledger.
+[Microsoft Azure Confidential Ledger](overview.md) is a new and highly secure service for managing sensitive data records. This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a new ledger.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
+[![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.confidentialledger%2Fconfidential-ledger-create%2Fazuredeploy.json)
 
 ## Prerequisites
 
+### Azure subscription
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+### Register the resource provider
+
+[!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](../../includes/confidential-ledger-register-rp.md)]
+
+### Obtain your principal ID
+
+The template requires a principal ID. You can obtain your principal ID my running the Azure CLI [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) command, with the `--show-mine` flag:
+
+```azurecli-interactive
+az ad sp list --show-mine -o table
+```
+
+Your principal ID is shown in the "ObjectId" column.
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates).
+
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.confidentialledger/confidential-ledger-create/azuredeploy.json":::
 
 Azure resources defined in the template:
 
@@ -38,7 +55,7 @@ Azure resources defined in the template:
 
 1. Select the following image to sign in to Azure and open the template.
 
-    [![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
+    [![Deploy To Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.confidentialledger%2Fconfidential-ledger-create%2Fazuredeploy.json)
 
 1. Select or enter the following values.
 
@@ -46,6 +63,7 @@ Azure resources defined in the template:
 
     - **Ledger name**: Select a name for your ledger. Ledger names must be globally unique.
     - **Location**: Select a location. For example, **East US**.
+    - **PrincipalId**: Provide the Principal ID you noted in the [Prerequisites](#obtain-your-principal-id) section above.
 
 1. Select **Purchase**. After the Confidential Ledger resource has been deployed successfully, you will receive a notification.
 
@@ -83,5 +101,3 @@ Write-Host "Press [ENTER] to continue..."
 ## Next steps
 
 In this quickstart, you created an Confidential Ledger resource using an ARM template and validated the deployment. To learn more about the service, see [Overview of Microsoft Azure Confidential Ledger](overview.md).
-
-

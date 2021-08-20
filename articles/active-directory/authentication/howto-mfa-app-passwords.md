@@ -78,7 +78,7 @@ In this scenario, you use the following credentials:
 
 ## Allow users to create app passwords
 
-By default, users can't create app passwords. The app passwords feature must be enabled before users can use them. To give users the ability to create app passwords, complete the following steps:
+By default, users can't create app passwords. The app passwords feature must be enabled before users can use them. To give users the ability to create app passwords, **admin needs** to complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for and select **Azure Active Directory**, then choose **Users**.
@@ -98,7 +98,9 @@ By default, users can't create app passwords. The app passwords feature must be 
 
 When users complete their initial registration for Azure AD Multi-Factor Authentication, there's an option to create app passwords at the end of the registration process.
 
-Users can also create app passwords after registration. For more information and detailed steps for your users, see [What are app passwords in Azure AD Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Users can also create app passwords after registration. For more information and detailed steps for your users, see the following resources:
+* [What are app passwords in Azure AD Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+* [Create app passwords from the Security info page](../user-help/security-info-app-passwords.md)
 
 ## Next steps
 

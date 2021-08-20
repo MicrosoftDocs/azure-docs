@@ -7,8 +7,8 @@ ms.subservice: deployment-configuration
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: danimir 
-ms.author: danil
+author: urosmil 
+ms.author: urmilano
 ms.reviewer:  mathoma
 ms.date: 03/25/2019
 ---

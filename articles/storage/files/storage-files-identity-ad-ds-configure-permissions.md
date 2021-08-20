@@ -15,6 +15,13 @@ Before you begin this article, make sure you completed the previous article, [As
 
 After you assign share-level permissions with Azure RBAC, you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. Think of the Azure RBAC share-level permissions as the high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs operate at a more granular level to determine what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Azure RBAC permissions
 
 The following table contains the Azure RBAC permissions related to this configuration:
@@ -29,7 +36,7 @@ The following table contains the Azure RBAC permissions related to this configur
 |     |  Read & execute |  Read & execute |
 |     |  Read           |  Read    |
 |     |  Write          |  Write   |
-|Storage File Data SMB Share Elevated Contributor | Full control  |  Modify, Read, Write, Edit, Execute |
+|Storage File Data SMB Share Elevated Contributor | Full control  |  Modify, Read, Write, Edit (Change permissions), Execute |
 |     |  Modify          |  Modify |
 |     |  Read & execute  |  Read & execute |
 |     |  Read            |  Read   |

@@ -2,7 +2,7 @@
 title: Geo-disaster recovery - Azure Event Hubs| Microsoft Docs
 description: How to use geographical regions to fail over and perform disaster recovery in Azure Event Hubs
 ms.topic: article
-ms.date: 04/14/2021
+ms.date: 06/21/2021
 ---
 
 # Azure Event Hubs - Geo-disaster recovery 
@@ -18,7 +18,8 @@ The Event Hubs Geo-disaster recovery feature is designed to make it easier to re
 The Geo-Disaster recovery feature ensures that the entire configuration of a namespace (Event Hubs, Consumer Groups and settings) is continuously replicated from a primary namespace to a secondary namespace when paired, and it allows you to initiate a once-only failover move from the primary to the secondary at any time. The failover move will re-point the chosen alias name for the namespace to the secondary namespace and then break the pairing. The failover is nearly instantaneous once initiated. 
 
 > [!IMPORTANT]
-> The feature enables instantaneous continuity of operations with the same configuration, but **does not replicate the event data**. Unless the disaster caused the loss of all zones, the event data that is preserved in the primary Event Hub after failover will be recoverable and the historic events can be obtained from there once access is restored. For replicating event data and operating corresponding namespaces in active/active configurations to cope with outages and disasters, don't lean on this Geo-disaster recovery feature set, but follow the [replication guidance](event-hubs-federation-overview.md).  
+> - The feature enables instantaneous continuity of operations with the same configuration, but **does not replicate the event data**. Unless the disaster caused the loss of all zones, the event data that is preserved in the primary Event Hub after failover will be recoverable and the historic events can be obtained from there once access is restored. For replicating event data and operating corresponding namespaces in active/active configurations to cope with outages and disasters, don't lean on this Geo-disaster recovery feature set, but follow the [replication guidance](event-hubs-federation-overview.md).  
+> - Azure Active Directory (Azure AD) role-based access control (RBAC) assignments to entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them. 
 
 ## Outages and disasters
 
@@ -32,7 +33,7 @@ The Geo-disaster recovery feature of Azure Event Hubs is a disaster recovery sol
 
 The disaster recovery feature implements metadata disaster recovery, and relies on primary and secondary disaster recovery namespaces. 
 
-The Geo-disaster recovery feature is available for the [standard and dedicated SKUs](https://azure.microsoft.com/pricing/details/event-hubs/) only. You don't need to make any connection string changes, as the connection is made via an alias.
+The Geo-disaster recovery feature is available for the [standard, premium, and dedicated SKUs](https://azure.microsoft.com/pricing/details/event-hubs/) only. You don't need to make any connection string changes, as the connection is made via an alias.
 
 The following terms are used in this article:
 
@@ -45,12 +46,11 @@ The following terms are used in this article:
 ## Supported namespace pairs
 The following combinations of primary and secondary namespaces are supported:  
 
-| Primary namespace | Secondary namespace | Supported | 
-| ----------------- | -------------------- | ---------- |
-| Standard | Standard | Yes | 
-| Standard | Dedicated | Yes | 
-| Dedicated | Dedicated | Yes | 
-| Dedicated | Standard | No | 
+| Primary namespace tier | Allowed secondary namespace tier |
+| ----------------- | -------------------- |
+| Standard | Standard, Dedicated | 
+| Premium | Premium | 
+| Dedicated | Dedicated | 
 
 > [!NOTE]
 > You can't pair namespaces that are in the same dedicated cluster. You can pair namespaces that are in separate clusters. 
@@ -59,7 +59,8 @@ The following combinations of primary and secondary namespaces are supported:
 
 The following section is an overview of the failover process, and explains how to set up the initial failover. 
 
-![1][]
+:::image type="content" source="./media/event-hubs-geo-dr/geo1.png" alt-text="Image showing the overview of failover process ":::
+
 
 ### Setup
 
@@ -107,7 +108,7 @@ If you initiate the failover, two steps are required:
 > [!NOTE]
 > Only fail forward semantics are supported. In this scenario, you fail over and then re-pair with a new namespace. Failing back is not supported; for example, in a SQL cluster. 
 
-![2][]
+:::image type="content" source="./media/event-hubs-geo-dr/geo2.png" alt-text="Image showing the failover flow":::
 
 ## Management
 
@@ -132,17 +133,11 @@ Note the following considerations to keep in mind:
 5. Synchronizing entities can take some time, approximately 50-100 entities per minute.
 
 ## Availability Zones 
+Event Hubs supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. The Availability Zones support is only available in [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones). Both metadata and data (events) are replicated across data centers in the availability zone. 
 
-The Event Hubs Standard SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. 
+When creating a namespace, you see the following highlighted message when you select a region that has availability zones. 
 
-> [!NOTE]
-> The Availability Zones support for Azure Event Hubs Standard is only available in [Azure regions](../availability-zones/az-region.md) where availability zones are present.
-
-You can enable Availability Zones on new namespaces only, using the Azure portal. Event Hubs doesn't support migration of existing namespaces. You can't disable zone redundancy after enabling it on your namespace.
-
-When you use availability zones, both metadata and data (events) are replicated across data centers in the availability zone. 
-
-![3][]
+:::image type="content" source="./media/event-hubs-geo-dr/eh-az.png" alt-text="Image showing the Create Namespace page with region that has availability zones":::
 
 ## Private endpoints
 This section provides more considerations when using Geo-disaster recovery with namespaces that use private endpoints. To learn about using private endpoints with Event Hubs in general, see [Configure private endpoints](private-link-service.md).
@@ -179,6 +174,9 @@ Advantage of this approach is that failover can happen at the application layer 
 
 > [!NOTE]
 > For guidance on geo-disaster recovery of a virtual network, see [Virtual Network - Business Continuity](../virtual-network/virtual-network-disaster-recovery-guidance.md).
+
+## Role-based access control
+Azure Active Directory (Azure AD) role-based access control (RBAC) assignments to entities in the primary namespace aren't replicated to the secondary namespace. Create role assignments manually in the secondary namespace to secure access to them.
  
 ## Next steps
 Review the following samples or reference documentation. 
@@ -189,10 +187,8 @@ Review the following samples or reference documentation.
 - [Java - azure-messaging-eventhubs samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 - [Java - azure-eventhubs samples](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java)
 - [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples)
-- [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
-- [TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/typescript)
+- [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/javascript)
+- [TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/event-hubs/samples/v5/typescript)
 - [REST API reference](/rest/api/eventhub/)
 
-[1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
-[3]: ./media/event-hubs-geo-dr/eh-az.png

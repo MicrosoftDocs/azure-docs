@@ -10,6 +10,8 @@ ms.date: 10/1/2020
 
 # Limitations in Azure Database for MySQL - Flexible Server
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 This article describes limitations in the Azure Database for MySQL Flexible Server service. [General limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) in the MySQL database engine are also applicable. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute and storage](concepts-compute-storage.md) article.
 
 ## Server parameters
@@ -51,7 +53,7 @@ The following are unsupported:
 - `SELECT ... INTO OUTFILE`: Not supported in the service.
 
 ### Supported
-- `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB).
+- `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB). Additionally, if you are using MySQL client version >= 8.0 you need to include `-–local-infile=1` parameter in your connection string.
 
 ## Functional limitations
 

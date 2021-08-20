@@ -71,10 +71,6 @@ To verify that your endpoints comply with the requirements described in this art
 See also following articles:
 
 - [Troubleshooting applications that don't support TLS 1.2](../cloud-services/applications-dont-support-tls-1-2.md)
-- [Cipher Suites in TLS/SSL (Schannel SSP)](https://docs.microsoft.com/windows/win32/secauthn/cipher-suites-in-schannel)
-- [How to enable TLS 1.2](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2)
-- [Solving the TLS 1.0 Problem](https://docs.microsoft.com/security/engineering/solving-tls1-problem)
-
-
-
-
+- [Cipher Suites in TLS/SSL (Schannel SSP)](/windows/win32/secauthn/cipher-suites-in-schannel)
+- [How to enable TLS 1.2](/mem/configmgr/core/plan-design/security/enable-tls-1-2)
+- [Solving the TLS 1.0 Problem](/security/engineering/solving-tls1-problem)

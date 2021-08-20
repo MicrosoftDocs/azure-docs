@@ -42,7 +42,7 @@ Every plan must be available in at least one market. On the **Pricing and availa
 
 In the **Price** box, provide the per-month price for this plan. This price is in addition to any Azure infrastructure or usage-based costs incurred by the resources deployed by this solution.
 
-In addition to the per-month price, you can also set prices for consumption of non-standard units using [metered billing](partner-center-portal/azure-app-metered-billing.md). You may set the per-month price to zero and charge exclusively using metered billing if you like.
+In addition to the per-month price, you can also set prices for consumption of non-standard units using [metered billing](./azure-app-metered-billing.md). You may set the per-month price to zero and charge exclusively using metered billing if you like.
 
 Prices are set in USD (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates when saved. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet.
 
@@ -189,7 +189,7 @@ After you create one or more plans, you'll see your plan name, plan ID, plan typ
 The actions that are available in the **Action** column of the **Plan overview** tab vary depending on the status of your plan, and may include the following:
 
 - If the plan status is **Draft**, the link in the **Action** column will say **Delete draft**.
-- If the plan status is **Live**, the link in the **Action** column will be either **Stop selling plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
+- If the plan status is **Live**, the link in the **Action** column will be either **Stop distribution** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
 - To create another plan for this offer, at the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in [How to create plans for your Azure application offer](azure-app-plans.md). Otherwise, if you're done creating plans, go to the next section: Next steps.
 
 ## Next steps

@@ -25,7 +25,7 @@ This article shows you how to overlay an image to a fixed set of coordinates. He
 
 ## Add an image layer
 
-The following code overlays an image of a [map of Newark, New Jersey, from 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) on the map. This image is added to the `drawable` folder of the project. An image layer is created by setting the image and coordinates for the four corners in the format `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`. Adding image layers below the `label` layer is often desirable.
+The following code overlays an image of a map of Newark, New Jersey, from 1922 on the map. This image is added to the `drawable` folder of the project. An image layer is created by setting the image and coordinates for the four corners in the format `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`. Adding image layers below the `label` layer is often desirable.
 
 ::: zone pivot="programming-language-java-android"
 

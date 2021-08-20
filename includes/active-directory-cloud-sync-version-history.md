@@ -2,6 +2,15 @@ This article lists the versions and features of Azure Active Directory Connect P
 
 Microsoft provides direct support for the latest agent version and one version before.
 
+## 1.1.582.0
+
+August 8th, 2021 - released for download
+
+>[!NOTE] 
+>This is a security update release of Azure AD Connect. 
+>This release addresses a vulnerability as documented in [this CVE](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-36949). For more information about this vulnerability please refer to the CVE.
+>You can download this release using [this link](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/provisioningAgentInstaller).
+
 ## 1.1.359.0
 
 ### New features and improvements

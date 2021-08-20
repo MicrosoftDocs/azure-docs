@@ -6,20 +6,20 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
 ---
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/add-chat)
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/add-chat).
 
 ## Prerequisites
 Before you get started, make sure to:
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../create-communication-resource.md). You'll need to record your resource **endpoint** for this quickstart.
 - A [User Access Token](../../access-tokens.md). Be sure to set the scope to "chat", and note the token string as well as the userId string.
 
 ## Setting up
@@ -44,7 +44,7 @@ dotnet build
 Install the Azure Communication Chat SDK for .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat --version 1.0.0
+dotnet add package Azure.Communication.Chat
 ```
 
 ## Object model
@@ -131,9 +131,19 @@ Use `SendMessage` to send a message to a thread.
 - Use `content` to provide the content for the message, it is required.
 - Use `type` for the content type of the message such as 'Text' or 'Html'. If not specified, 'Text' will be set.
 - Use `senderDisplayName` to specify the display name of the sender. If not specified, empty string will be set.
+- Use `metadata` optionally to include any additional data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment:true' in metadata so that recipient's application can parse that and display accordingly.
 
 ```csharp
-SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(content:"hello world", type: ChatMessageType.Text);
+SendChatMessageOptions sendChatMessageOptions = new SendChatMessageOptions()
+{
+    Content = "Please take a look at the attachment",
+    MessageType = ChatMessageType.Text
+};
+sendChatMessageOptions.Metadata["hasAttachment"] = "true";
+sendChatMessageOptions.Metadata["attachmentUrl"] = "https://contoso.com/files/attachment.docx";
+
+SendChatMessageResult sendChatMessageResult = await chatThreadClient.SendMessageAsync(sendChatMessageOptions);
+
 string messageId = sendChatMessageResult.Id;
 ```
 

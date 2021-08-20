@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot issues with Azure Percept Vision and vision modules
-description: Get troubleshooting tips for some of the more common issues found in the vision AI prototyping experiences
+description: Get troubleshooting tips for some of the more common issues found in the vision AI prototyping experiences.
 author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
@@ -11,96 +11,106 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Vision solution troubleshooting
 
-See the following guidance for information on troubleshooting no-code vision solutions in Azure Percept Studio.
+This article provides information on troubleshooting no-code vision solutions in Azure Percept Studio.
 
 ## Delete a vision project
 
-1. Go to https://www.customvision.ai/projects.
+1. Go to the [Custom Vision projects](https://www.customvision.ai/projects) page.
 
-1. Hover over the project you would like to delete and click the trash can icon to delete the project.
+1. Hover over the project you want to delete, and select the trash can icon to delete the project.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/vision-delete-project.png" alt-text="Projects page in Custom Vision with delete icon highlighted.":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/vision-delete-project.png" alt-text="Screenshot that shows the Projects page in Custom Vision with the delete icon highlighted.":::
 
 ## Check which modules are on a device
 
 1. Go to the [Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home).
 
-1. Click on the **Iot Hub** icon.
+1. Select the **Iot Hub** icon.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/vision-iot-hub-2-inline.png" alt-text="Azure portal homepage with Iot Hub icon highlighted." lightbox= "./media/vision-solution-troubleshooting/vision-iot-hub-2.png":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/vision-iot-hub-2-inline.png" alt-text="Screenshot that shows the Azure portal home page with the Iot Hub icon highlighted." lightbox= "./media/vision-solution-troubleshooting/vision-iot-hub-2.png":::
 
-1. Select the IoT Hub that your target device is connected to.
+1. Select the IoT hub that your target device is connected to.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/vision-iot-hub.png" alt-text="List of IoT Hubs.":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/vision-iot-hub.png" alt-text="Screenshot that shows a list of IoT hubs.":::
 
-1. Select **IoT Edge** and click on your device under the **Device ID** tab.
+1. Select **IoT Edge**, and select your device under the **Device ID** tab.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/vision-iot-edge.png" alt-text="IoT Edge homepage.":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/vision-iot-edge.png" alt-text="Screenshot that shows the IoT Edge home page.":::
 
-1. Your device modules will be listed under the **Modules** tab.
+1. Your device modules appear in a list on the **Modules** tab.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/vision-device-modules-inline.png" alt-text="IoT Edge page for selected device showing the modules tab contents." lightbox= "./media/vision-solution-troubleshooting/vision-device-modules.png":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/vision-device-modules-inline.png" alt-text="Screenshot that shows the IoT Edge page for the selected device showing the Modules tab contents." lightbox= "./media/vision-solution-troubleshooting/vision-device-modules.png":::
 
 ## Delete a device
 
 1. Go to the [Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home).
 
-1. Click on the **Iot Hub** icon.
+1. Select the **Iot Hub** icon.
 
-1. Select the IoT Hub that your target device is connected to.
+1. Select the IoT hub that your target device is connected to.
 
-1. Select **IoT Edge** and check the box next to your target device ID. Click the trash can icon to delete your device.
+1. Select **IoT Edge**, and select the checkbox next to your target device ID. Select **Delete** to delete your device.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/vision-delete-device.png" alt-text="Delete icon highlighted in IoT Edge homepage.":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/vision-delete-device.png" alt-text="Screenshot that shows the Delete button highlighted on the IoT Edge home page.":::
 
-## Eye module troubleshooting tips
+## Check the runtime status of azureeyemodule
 
-### Check the runtime status of azureeyemodule
+If there's a problem with **WebStreamModule**, ensure that **azureeyemodule**, which handles the vision model inferencing, is running. To check the runtime status:
 
-If there is a problem with **WebStreamModule**, ensure that **azureeyemodule**, which handles the vision model inferencing, is running. To check the runtime status, go to the [Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home) and navigate to **All resources** -> **\<your IoT hub>** -> **IoT Edge** -> **\<your device ID>**. Click the **Modules** tab to see the runtime status of all installed modules.
+1. Go to the [Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home), and go to **All resources** > *\<your IoT hub>* > **IoT Edge** > *\<your device ID>*. 
+1. Select the **Modules** tab to see the runtime status of all installed modules.
 
-:::image type="content" source="./media/vision-solution-troubleshooting/over-the-air-iot-edge-device-page-inline.png" alt-text="Device module runtime status screen." lightbox= "./media/vision-solution-troubleshooting/over-the-air-iot-edge-device-page.png":::
+   :::image type="content" source="./media/vision-solution-troubleshooting/over-the-air-iot-edge-device-page-inline.png" alt-text="Screenshot that shows the device module runtime status screen." lightbox= "./media/vision-solution-troubleshooting/over-the-air-iot-edge-device-page.png":::
 
-If the runtime status of **azureeyemodule** is not listed as **running**, click **Set modules** -> **azureeyemodule**. On the **Module Settings** page, set **Desired Status** to **running** and click **Update**.
+1. If the runtime status of **azureeyemodule** isn't listed as **running**, select **Set modules** > **azureeyemodule**. 
+1. On the **Module Settings** page, set **Desired Status** to **running**, and select **Update**.
 
- :::image type="content" source="./media/vision-solution-troubleshooting/firmware-desired-status-stopped.png" alt-text="Module setting configuration screen.":::
+    :::image type="content" source="./media/vision-solution-troubleshooting/firmware-desired-status-stopped.png" alt-text="Screenshot that shows the Module Settings configuration screen.":::
 
-### Update TelemetryIntervalNeuralNetworkMs
+## Change how often messages are sent from the azureeyemodule
 
-If you encounter the following count limitation error, the TelemetryIntervalNeuralNetworkMs value in the azureeyemodule module twin settings will need to be updated.
+Your subscription tier may cap the number of messages that can be sent from your device to IoT Hub. For instance, the Free Tier will limit the number of messages to 8,000 per day. Once that limit is reached, your azureeyemodule will stop functioning and you may receive this error:
 
-|Error Message|
+|Error message|
 |------|
-|Total number of messages on IotHub 'xxxxxxxxx' exceeded the allocated quota. Max allowed message count: '8000', current message count: 'xxxx'. Send and Receive operations are blocked for this hub until the next UTC day. Consider increasing the units for this hub to increase the quota.|
+|*Total number of messages on IotHub 'xxxxxxxxx' exceeded the allocated quota. Max allowed message count: '8000', current message count: 'xxxx'. Send and Receive operations are blocked for this hub until the next UTC day. Consider increasing the units for this hub to increase the quota.*|
 
-TelemetryIntervalNeuralNetworkMs determines how often to send messages (in milliseconds) from the neural network. Azure subscriptions have a limited number of messages per day, depending on your subscription tier. If you find yourself locked out due to having sent too many messages, increase this to a higher number. 12000 (meaning once every 12 seconds) will give you a nice round 7200 messages per day, which is under the 8000 message limit for the free subscription.
+Using the azureeyemodule module twin, it's possible change the interval rate for how often messages are sent. The value entered for the interval rate indicates the frequency that each message gets sent, in milliseconds. The larger the number the more time there is between each message. For example, if you set the interval rate to 12,000 it means one message will be sent every 12 seconds. For a model that is running for the entire day this rate factors out to 7,200 messages per day, which is under the Free Tier limit. The value that you choose depends on how responsive you need your vision model to be.
 
-To update your TelemetryIntervalNeuralNetworkMs value, follow these steps:
+> [!NOTE]
+> Changing the message interval rate does not impact the size of each message. The message size depends on a few different factors such as the model type and the number of objects being detected in each message. As such, it is difficult to determine message size.
 
-1. Log in to the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home) and open **All resources**.
+Follow these steps to update the message interval:
 
-1. On the **All resources** page, click on the name of the IoT Hub that was provisioned to your devkit during the setup experience.
+1. Sign in to the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home), and open **All resources**.
 
-1. On the left side of the IoT Hub page, click on **IoT Edge** under **Automatic Device Management**. On the IoT Edge devices page, find the device ID of your devkit. Click the device ID of your devkit to open its IoT Edge device page.
+1. On the **All resources** page, select the name of the IoT hub that was provisioned to your development kit during setup.
 
-1. Select **azureeyemodule** under the **Modules** tab.
+1. On the left side of the **IoT Hub** page, under **Automatic Device Management**, select **IoT Edge**. On the IoT Edge devices page, find the device ID of your development kit. Select the device ID of your development kit to open its IoT Edge device page.
 
-1. On the azureeyemodule page, open **Module Identity Twin**.
+1. On the **Modules** tab, select **azureeyemodule**.
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/module-page-inline.png" alt-text="Screenshot of module page." lightbox= "./media/vision-solution-troubleshooting/module-page.png":::
+1. On the **azureeyemodule** page, open **Module Identity Twin**.
 
-1. Scroll down to **properties**. The properties "Running" and "Logging" are not active at this time.
+    :::image type="content" source="./media/vision-solution-troubleshooting/module-page-inline.png" alt-text="Screenshot of a module page." lightbox= "./media/vision-solution-troubleshooting/module-page.png":::
 
-    :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline.png" alt-text="Screenshot of module twin properties." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
+1. Scroll down to **properties**
+1. Find **TelemetryInterval** and replace it with **TelemetryIntervalNeuralNetworkMs**
 
-1. Update the **TelemetryIntervalNeuralNetworkMs** value as desired and click the **Save** icon.
+    :::image type="content" source="./media/vision-solution-troubleshooting/module-identity-twin-inline-02.png" alt-text="Screenshot of Module Identity Twin properties." lightbox= "./media/vision-solution-troubleshooting/module-identity-twin.png":::
+
+1. Update the **TelemetryIntervalNeuralNetworkMs** value to the needed value
+
+1. Select the **Save** icon.
 
 ## View device RTSP video stream
 
 View your device's RTSP video stream in [Azure Percept Studio](./how-to-view-video-stream.md) or [VLC media player](https://www.videolan.org/vlc/index.html).
 
-To open the RTSP stream in VLC media player, go to **Media** -> **Open network stream** -> **rtsp://[device IP address]:8554/result**.
+To open the RTSP stream in VLC media player, go to **Media** > **Open network stream** > **rtsp://[device IP address]:8554/result**.
+
+If your RTSP stream is partially blocked by a gray box, you may be trying to view it over a poor network connection. Check that your connection has sufficient bandwidth for video streams.
 
 ## Next steps
 
-See the [general troubleshooting guide](./troubleshoot-dev-kit.md) for more information on troubleshooting your Azure Percept DK.
+For more information on troubleshooting your Azure Percept DK instance, see the [General troubleshooting guide](./troubleshoot-dev-kit.md).

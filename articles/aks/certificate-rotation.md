@@ -3,7 +3,7 @@ title: Rotate certificates in Azure Kubernetes Service (AKS)
 description: Learn how to rotate your certificates in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 7/13/2021
 ---
 
 # Rotate certificates in Azure Kubernetes Service (AKS)
@@ -28,17 +28,32 @@ AKS generates and uses the following certificates, Certificate Authorities, and 
 * The `kubectl` client has a certificate for communicating with the AKS cluster.
 
 > [!NOTE]
-> AKS clusters created prior to March 2019 have certificates that expire after two years. Any cluster created after March 2019 or any cluster that has its certificates rotated have Cluster CA certificates that expire after 30 years. All other certificates expire after two years. To verify when your cluster was created, use `kubectl get nodes` to see the *Age* of your node pools.
+> AKS clusters created prior to May 2019 have certificates that expire after two years. Any cluster created after May 2019 or any cluster that has its certificates rotated have Cluster CA certificates that expire after 30 years. All other AKS certificates, which use the Cluster CA to for signing, will expire after two years and are automatically rotated during AKS version upgrade. To verify when your cluster was created, use `kubectl get nodes` to see the *Age* of your node pools.
 > 
-> Additionally, you can check the expiration date of your cluster's certificate. For example, the following Bash command displays the certificate details for the *myAKSCluster* cluster.
+> Additionally, you can check the expiration date of your cluster's certificate. For example, the following bash command displays the client certificate details for the *myAKSCluster* cluster in resource group *rg*
 > ```console
-> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
+> kubectl config view --raw -o jsonpath="{.users[?(@.name == 'clusterUser_rg_myAKSCluster')].user.client-certificate-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```
+
+* Check expiration date of apiserver certificate
+```console
+curl https://{apiserver-fqdn} -k -v 2>&1 |grep expire
+```
+
+* Check expiration date of certificate on VMAS agent node
+```console
+az vm run-command invoke -g MC_rg_myAKSCluster_region -n vm-name --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
+```
+
+* Check expiration date of certificate on one VMSS agent node
+```console
+az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-id 0 --command-id RunShellScript --query 'value[0].message' -otsv --scripts "openssl x509 -in /etc/kubernetes/certs/apiserver.crt -noout -enddate"
+```
 
 ## Rotate your cluster certificates
 
 > [!WARNING]
-> Rotating your certificates using `az aks rotate-certs` can cause up to 30 minutes of downtime for your AKS cluster.
+> Rotating your certificates using `az aks rotate-certs` will recreate all of your nodes and can cause up to 30 minutes of downtime for your AKS cluster.
 
 Use [az aks get-credentials][az-aks-get-credentials] to sign in to your AKS cluster. This command also downloads and configures the `kubectl` client certificate on your local machine.
 

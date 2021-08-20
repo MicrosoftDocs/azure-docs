@@ -18,7 +18,7 @@ Azure Data Lake Storage Gen2 implements an access control model that supports bo
 
 ## About ACLs
 
-You can associate a [security principal](../../role-based-access-control/overview.md#security-principal) with an access level for files and directories. These associations are captured in an *access control list (ACL)*. Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, An ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.
+You can associate a [security principal](../../role-based-access-control/overview.md#security-principal) with an access level for files and directories. Each association is captured as an entry in an *access control list (ACL)*. Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, An ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.
 
 > [!NOTE]
 > ACLs apply only to security principals in the same tenant, and they don't apply to users who use Shared Key or shared access signature (SAS) token authentication. That's because no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.  
@@ -89,7 +89,7 @@ In the POSIX-style model that's used by Data Lake Storage Gen2, permissions for 
 
 The following table shows you the ACL entries required to enable a security principal to perform the operations listed in the **Operation** column. 
 
-This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`\`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. 
+This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**. 
 
 > [!IMPORTANT]
 > This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC and ACL](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-and-acl).
@@ -149,11 +149,21 @@ The owning group can be changed by:
 > [!NOTE]
 > The owning group cannot change the ACLs of a file or directory.  While the owning group is set to the user who created the account in the case of the root directory, **Case 1** above, a single user account isn't valid for providing permissions via the owning group. You can assign this permission to a valid user group if applicable.
 
-## Access check algorithm
+## How permissions are evaluated
 
-The following pseudocode represents the access check algorithm for storage accounts.
+Identities are evaluated in the following order: 
 
-```console
+1. Superuser
+2. Owning user
+3. Named user, service principal or managed identity
+4. Owning group or named group
+5. All other users
+
+If more than one of these identities applies to a security principal, then the permission level associated with the first identity is granted. For example, if a security principal is both the owning user and a named user, then the permission level associated with the owning user applies.
+
+The following pseudocode represents the access check algorithm for storage accounts. This algorithm shows the order in which identities are evaluated.
+
+```python
 def access_check( user, desired_perms, path ) : 
   # access_check returns true if user has the desired permissions on the path, false otherwise
   # user is the identity that wants to perform an operation on path
@@ -201,7 +211,7 @@ For a new Data Lake Storage Gen2 container, the mask for the access ACL of the r
 
 |Entity|Directories|Files|
 |--|--|--|
-|Owning user|`rwx`|`r-w`|
+|Owning user|`rwx`|`rw-`|
 |Owning group|`r-x`|`r--`|
 |Other|`---`|`---`|
 

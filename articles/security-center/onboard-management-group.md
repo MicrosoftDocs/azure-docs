@@ -18,18 +18,18 @@ To onboard a management group and all its subscriptions:
 
 1. As a user with **Security Admin** permissions, open Azure Policy and search for the definition **Enable Azure Security Center on your subscription**.
 
-    :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="The Azure Policy definition Enable Azure Security Center on your subscription":::
+    :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="The Azure Policy definition Enable Azure Security Center on your subscription.":::
 
 1. Select **Assign** and ensure you set the scope to the MG level.
 
-    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Assigning the definition Enable Azure Security Center on your subscription":::
+    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="Assigning the definition Enable Azure Security Center on your subscription.":::
 
     > [!TIP]
     > Other than the scope, there are no required parameters.
 
 1. Select **Create a remediation task** to ensure all existing subscriptions that don't have Security Center enabled, will get onboarded.
 
-    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Creating a remediation task for the Azure Policy definition Enable Azure Security Center on your subscription":::
+    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="Creating a remediation task for the Azure Policy definition Enable Azure Security Center on your subscription.":::
 
 1. When the definition is assigned it will:
 

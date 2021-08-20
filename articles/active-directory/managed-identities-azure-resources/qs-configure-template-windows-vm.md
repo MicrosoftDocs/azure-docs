@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 07/13/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -35,7 +35,7 @@ In this article, using the Azure Resource Manager deployment template, you learn
 
 As with the Azure portal and scripting, [Azure Resource Manager](../../azure-resource-manager/management/overview.md) templates provide the ability to deploy new or modified resources defined by an Azure resource group. Several options are available for template editing and deployment, both local and portal-based, including:
 
-   - Using a [custom template from the Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [quickstart template](https://azure.microsoft.com/documentation/templates/).
+   - Using a [custom template from the Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), which allows you to create a template from scratch, or base it on an existing common or [quickstart template](https://azure.microsoft.com/resources/templates/).
    - Deriving from an existing resource group, by exporting a template from either [the original deployment](../../azure-resource-manager/templates/export-template-portal.md), or from the [current state of the deployment](../../azure-resource-manager/templates/export-template-portal.md).
    - Using a local [JSON editor (such as VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), and then uploading and deploying by using PowerShell or CLI.
    - Using the Visual Studio [Azure Resource Group project](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to both create and deploy a template.
@@ -79,49 +79,8 @@ To enable system-assigned managed identity on a VM, your account needs the [Virt
 
 ### Assign a role the VM's system-assigned managed identity
 
-After you have enabled system-assigned managed identity on your VM, you may want to grant it a role such as **Reader** access to the resource group in which it was created.
+After you enable a system-assigned managed identity on your VM, you may want to grant it a role such as **Reader** access to the resource group in which it was created. You can find detailed information to help you with this step in the [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md) article.
 
-To assign a role to your VM's system-assigned identity, your account needs the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role assignment.
-
-1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
-
-2. Load the template into an [editor](#azure-resource-manager-templates) and add the following information to give your VM **Reader** access to the resource group in which it was created.  Your template structure may vary depending on the editor and the deployment model you choose.
-
-   Under the `parameters` section add the following:
-
-    ```json
-    "builtInRoleType": {
-        "type": "string",
-        "defaultValue": "Reader"
-    },
-    "rbacGuid": {
-        "type": "string"
-    }
-    ```
-
-    Under the `variables` section add the following:
-
-    ```json
-    "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
-    ```
-
-    Under the `resources` section add the following:
-
-    ```json
-    {
-        "apiVersion": "2017-09-01",
-        "type": "Microsoft.Authorization/roleAssignments",
-        "name": "[parameters('rbacGuid')]",
-        "properties": {
-            "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-            "principalId": "[reference(variables('vmResourceId'), '2017-12-01', 'Full').identity.principalId]",
-            "scope": "[resourceGroup().id]"
-        },
-         "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-        ]
-    }
-    ```
 
 ### Disable a system-assigned managed identity from an Azure VM
 

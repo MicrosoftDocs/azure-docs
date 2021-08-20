@@ -9,7 +9,7 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 05/03/2021
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devplatv2
 ---
 
 # Monitor managed online endpoints (preview)

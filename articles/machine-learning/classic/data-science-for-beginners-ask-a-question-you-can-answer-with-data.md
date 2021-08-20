@@ -82,8 +82,8 @@ But, most important, ask that sharp question - the question that you can answer 
 
 We've talked about some basic principles for asking a question you can answer with data.
 
-Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning Studio (classic).
+Be sure to check out the other videos in "Data Science for Beginners" from Machine Learning Studio (classic).
 
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](../overview-what-is-azure-ml.md)
+* [Get an introduction to Azure Machine Learning](../overview-what-is-azure-machine-learning.md)

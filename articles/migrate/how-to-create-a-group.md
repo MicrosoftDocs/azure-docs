@@ -12,7 +12,7 @@ ms.date: 07/17/2019
 
 This article describes how to create groups of servers for assessment with Azure Migrate: Discovery and assessment.
 
-[Azure Migrate](migrate-services-overview.md) helps you to migrate to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings. 
+[Azure Migrate](migrate-services-overview.md) helps you to migrate to Azure. Azure Migrate provides a centralized hub to track discovery, assessment, and migration of on-premises infrastructure, applications, and data to Azure. The hub provides Azure tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
 ## Grouping servers
 
@@ -42,12 +42,13 @@ If you want to create a group manually outside of creating an assessment, do the
 
     ![Create group](./media/how-to-create-a-group/create-group.png)
 
-You can now use this group when you [create an Azure VM assessment](how-to-create-assessment.md) or [an Azure VMware Solution (AVS) assessment](how-to-create-azure-vmware-solution-assessment.md) or [an Azure SQL assessment](how-to-create-azure-sql-assessment.md).
+You can now use this group when you [create an Azure VM assessment](how-to-create-assessment.md) or [an Azure VMware Solution (AVS) assessment](how-to-create-azure-vmware-solution-assessment.md) or [an Azure SQL assessment](how-to-create-azure-sql-assessment.md) or [an Azure App Service assessment](how-to-create-azure-app-service-assessment.md).
 
 ## Refine a group with dependency mapping
 
 Dependency mapping helps you to visualize dependencies across servers. You typically use dependency mapping when you want to assess server groups with higher levels of confidence.
-- It helps you to cross-check server dependencies, before you run an assessment. 
+
+- It helps you to cross-check server dependencies, before you run an assessment.
 - It also helps to effectively plan your migration to Azure, by ensuring that nothing is left behind, and thus avoiding surprise outages during migration.
 - You can discover interdependent systems that need to migrate together, and identify whether a running system is still serving users, or is a candidate for decommissioning instead of migration.
 
@@ -79,7 +80,6 @@ If you've already [set up dependency mapping](how-to-create-group-machine-depend
     - You can only add servers that have been discovered.
     - Adding and removing servers invalidates past assessments for a group.
     - You can optionally create a new assessment when you modify the group.
-
 
 ## Next steps
 

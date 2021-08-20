@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/201-vmss-windows-webapp-dsc-autoscale/).
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/vmss-windows-webapp-dsc-autoscale/).
 
 :::code language="json" source="~/quickstart-templates/demos/vmss-windows-webapp-dsc-autoscale/azuredeploy.json":::
 

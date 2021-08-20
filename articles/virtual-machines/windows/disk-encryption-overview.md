@@ -35,12 +35,13 @@ You can learn the fundamentals of Azure Disk Encryption for Windows in just a fe
 
 Windows VMs are available in a [range of sizes](../sizes-general.md). Azure Disk Encryption is supported on Generation 1 and Generation 2 VMs. Azure Disk Encryption is also available for VMs with premium storage.
 
-Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines with a less than 2 GB of memory.  Azure Disk Encryption is also not available on VM images without temp disks (Dv4, Dsv4, Ev4, and Esv4).  See [Azure VM sizes with no local temporary disk](../azure-vms-no-temp-disk.md).  For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-windows.md#unsupported-scenarios).
+Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/), or on virtual machines with a less than 2 GB of memory.  Azure Disk Encryption is also not available on VM images without temp disks (Dv4, Dsv4, Ev4, and Esv4).  See [Azure VM sizes with no local temporary disk](../azure-vms-no-temp-disk.yml).  For more exceptions, see [Azure Disk Encryption: Unsupported scenarios](disk-encryption-windows.md#unsupported-scenarios).
 
 ### Supported operating systems
 
 - Windows client: Windows 8 and later.
-- Windows Server: Windows Server 2008 R2 and later.  
+- Windows Server: Windows Server 2008 R2 and later.
+- Windows 10 Enterprise multi-session.  
  
 > [!NOTE]
 > Windows Server 2008 R2 requires the .NET Framework 4.5 to be installed for encryption; install it from Windows Update with the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
@@ -60,9 +61,12 @@ To enable Azure Disk Encryption, the VMs must meet the following network endpoin
 
 Azure Disk Encryption uses the BitLocker external key protector for Windows VMs. For domain joined VMs, don't push any group policies that enforce TPM protectors. For information about the group policy for "Allow BitLocker without a compatible TPM," see [BitLocker Group Policy Reference](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
-BitLocker policy on domain joined virtual machines with custom group policy must include the following setting: [Configure user storage of BitLocker recovery information -> Allow 256-bit recovery key](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption will fail when custom group policy settings for BitLocker are incompatible. On machines that didn't have the correct policy setting, apply the new policy, force the new policy to update (gpupdate.exe /force), and then restarting may be required.
+BitLocker policy on domain joined virtual machines with custom group policy must include the following setting: [Configure user storage of BitLocker recovery information -> Allow 256-bit recovery key](/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption will fail when custom group policy settings for BitLocker are incompatible. On machines that didn't have the correct policy setting, apply the new policy, and force the new policy to update (gpupdate.exe /force).  Restarting may be required.
 
-Azure Disk Encryption does not store recovery keys. If the [Interactive logon: Machine account lockout threshold](/windows/security/threat-protection/security-policy-settings/interactive-logon-machine-account-lockout-threshold) security setting is enabled, machines can only be recovered by providing a recovery key via the serial console. Instructions for ensuring the appropriate recovery policies are enabled can be found in the [Bitlocker recovery guide plan](/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan).
+Microsoft Bitlocker Administration and Monitoring (MBAM) group policy features are not compatible with Azure Disk Encryption.
+
+> [!WARNING]
+> Azure Disk Encryption **does not store recovery keys**. If the [Interactive logon: Machine account lockout threshold](/windows/security/threat-protection/security-policy-settings/interactive-logon-machine-account-lockout-threshold) security setting is enabled, machines can only be recovered by providing a recovery key via the serial console. Instructions for ensuring the appropriate recovery policies are enabled can be found in the [Bitlocker recovery guide plan](/windows/security/information-protection/bitlocker/bitlocker-recovery-guide-plan).
 
 Azure Disk Encryption will fail if domain level group policy blocks the AES-CBC algorithm, which is used by BitLocker.
 

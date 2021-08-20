@@ -37,7 +37,7 @@ landingContent:
           - text: Best practices for Azure Cache for Redis
             url: cache-best-practices.md
           - text: Frequently asked questions
-            url: cache-faq.md
+            url: cache-faq.yml
   - title: 'Quickstarts: Azure Cache for Redis'
     linkLists:
       - linkListType: quickstart

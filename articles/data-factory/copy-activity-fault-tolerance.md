@@ -1,8 +1,11 @@
 ---
 title: Fault tolerance of copy activity in Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: 'Learn about how to add fault tolerance to copy activity in Azure Data Factory by skipping the incompatible data.'
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
@@ -240,7 +243,7 @@ From the sample log file above, you can see one row "data1, data2, data3" has be
 
 ## Copying tabular data (legacy):
 
-The following is the legacy way to enable fault tolerance for copying tabular data only. If you are creating new pipeline or activity, you are encouraged to start from [here](#copying-tabular-data) instead.
+The following approach is the legacy way to enable fault tolerance for copying tabular data only. If you are creating new pipeline or activity, you are encouraged to start from [here](#copying-tabular-data) instead.
 
 ### Configuration
 The following example provides a JSON definition to configure skipping the incompatible rows in copy activity:

@@ -77,7 +77,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Peering Service FAQs
-            url: service-faqs.md
+            url: service-faqs.yml
       - linkListType: how-to-guide
         links:
           - text: Peering Service partner walkthrough

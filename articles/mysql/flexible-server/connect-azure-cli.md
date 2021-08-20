@@ -11,6 +11,8 @@ ms.date: 03/01/2021
 
 # Quickstart: Connect and query with Azure CLI  with Azure Database for MySQL - Flexible Server
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 This quickstart demonstrates how to connect to an Azure Database for MySQL Flexible Server using Azure CLI with ```az mysql flexible-server connect``` and execute single query or sql file with ```az mysql flexible-server execute``` command. This command allows you test connectivity to your database server and run queries. You can also run multiple queries using the interactive mode.
 
 ## Prerequisites
@@ -59,6 +61,7 @@ az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -
 You should see the following output for successful connection:
 
 ```output
+Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 Connecting to newdatabase database.
 Successfully connected to mysqldemoserver1.
 ```
@@ -83,6 +86,8 @@ az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -
 You will see the **MySQL** shell experience as shown below:
 
 ```bash
+Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+Password:
 mysql 5.7.29-log
 mycli 1.22.2
 Chat: https://gitter.im/dbcli/mycli
@@ -124,6 +129,7 @@ az mysql flexible-server execute -n mysqldemoserver1 -u dbuser -p "dbpassword" -
 You will see an output as shown below:
 
 ```output
+Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 Successfully connected to mysqldemoserver1.
 Ran Database Query: 'select * from table1;'
 Retrieving first 30 rows of query output, if applicable.
@@ -156,6 +162,7 @@ az mysql flexible-server execute -n mysqldemoserver -u dbuser -p "dbpassword" -d
 You will see an output as shown below:
 
 ```output
+Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 Running sql file '.\test.sql'...
 Successfully executed the file.
 Closed the connection to mysqldemoserver.

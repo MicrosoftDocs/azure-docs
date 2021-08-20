@@ -152,7 +152,7 @@ For many businesses, the decision to transition to a cloud service is as much ab
 
 For many IT departments, meeting up-time obligations of a service-level agreement (SLA) is a top priority. In this section, we look at what SLA applies to each database hosting option.
 
-For both **Azure SQL Database** and **Azure SQL Managed Instance**, Microsoft provides an availability SLA of 99.99%. For the latest information, see [Service-level agreement](https://azure.microsoft.com/support/legal/sla/sql-database/).
+For both **Azure SQL Database** and **Azure SQL Managed Instance**, Microsoft provides an availability SLA of 99.99%. For the latest information, see [Service-level agreement](https://azure.microsoft.com/support/legal/sla/azure-sql-database).
 
 For **SQL on Azure VM**, Microsoft provides an availability SLA of 99.95% that covers just the virtual machine. This SLA does not cover the processes (such as SQL Server) running on the VM and requires that you host at least two VM instances in an availability set. For the latest information, see the [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). For database high availability (HA) within VMs, you should configure one of the supported high availability options in SQL Server, such as [Always On availability groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). Using a supported high availability option doesn't provide an additional SLA, but allows you to achieve >99.99% database availability.
 

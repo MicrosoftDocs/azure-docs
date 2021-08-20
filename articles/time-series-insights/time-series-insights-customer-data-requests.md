@@ -1,9 +1,10 @@
 ---
 title: 'Customer data request features​ - Azure Time Series Insights | Microsoft Docs'
 description: Learn about customer data request features in Azure Time Series Insights.
-author: deepakpalled
-ms.author: dpalled
-manager: cshankar
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights

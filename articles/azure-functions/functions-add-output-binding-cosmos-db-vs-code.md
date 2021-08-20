@@ -34,7 +34,7 @@ Before you get started, make sure to install the [Azure Databases extension](htt
 
 2. Click **Create a resource** > **Databases** > **Azure Cosmos DB**.
    
-    :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png" alt-text="The Azure portal Databases pane" border="true":::
+    :::image type="content" source="../cosmos-db/includes/media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png" alt-text="The Azure portal Databases pane" border="true":::
 
 3. In the **Create Azure Cosmos DB Account** page, enter the settings for your new Azure Cosmos DB account. 
  
@@ -124,7 +124,7 @@ Open the *HttpExample.cs* project file and add the following parameter to the `R
     ConnectionStringSetting = "CosmosDbConnectionString")]IAsyncCollector<dynamic> documentsOut,
 ```
 
-The `documentsOut` parameter is an IAsyncCollector<T> type, which represents a collection of JSON documents that will be written to your Azure Cosmos DB container when the function completes. Specific attributes specifies the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `ConnectionStringSettingAttribute`.
+The `documentsOut` parameter is an `IAsyncCollector<T>` type, which represents a collection of JSON documents that will be written to your Azure Cosmos DB container when the function completes. Specific attributes specifies the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `ConnectionStringSettingAttribute`.
 
 The Run method definition should now look like the following:  
 

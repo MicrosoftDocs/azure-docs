@@ -196,9 +196,8 @@ map.events.add((OnFeatureClick)(feature) -> {
     TextView tv = customView.findViewById(R.id.message);
     tv.setText(props.get("title").getAsString());
 
-    //Get the coordinates from the clicked feature and create a position object.
-    List<Double> c = ((Point)(f.geometry())).coordinates();
-    Position pos = new Position(c.get(0), c.get(1));
+    //Get the position of the clicked feature.
+    Position pos = MapMath.getPosition((Point)cluster.geometry());
 
     //Set the options on the popup.
     popup.setOptions(
@@ -213,6 +212,9 @@ map.events.add((OnFeatureClick)(feature) -> {
 
         //Optionally, hide the close button of the popup.
         //, closeButton(false)
+            
+        //Optionally offset the popup by a specified number of pixels.
+        //pixelOffset(new Pixel(10, 10))
     );
 
     //Open the popup.
@@ -244,9 +246,8 @@ map.events.add(OnFeatureClick { feature: List<Feature> ->
     val tv: TextView = customView.findViewById(R.id.message)
     tv.text = props!!["title"].asString
 
-    //Get the coordinates from the clicked feature and create a position object.
-    val c: List<Double> = (f.geometry() as Point?).coordinates()
-    val pos = Position(c[0], c[1])
+    //Get the position of the clicked feature.
+    val pos = MapMath.getPosition(f.geometry() as Point?);
 
     //Set the options on the popup.
     popup.setOptions( 
@@ -261,13 +262,16 @@ map.events.add(OnFeatureClick { feature: List<Feature> ->
 
         //Optionally, hide the close button of the popup.
         //, closeButton(false)
+            
+        //Optionally offset the popup by a specified number of pixels.
+        //pixelOffset(Pixel(10, 10))
     )
 
     //Open the popup.
     popup.open()
 
     //Return a boolean indicating if event should be consumed or continue bubble up.
-    return false
+    false
 })
 ```
 

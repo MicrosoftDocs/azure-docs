@@ -10,6 +10,8 @@ ms.date: 9/21/2020
 
 # Track database activity with Audit Logs in Azure Database for MySQL Flexible Server
 
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 Azure Database for MySQL Flexible Server provides users with the ability to configure audit logs. Audit logs can be used to track database-level activity including connection, admin, DDL, and DML events. These types of logs are commonly used for compliance purposes.
 
 ## Configure audit logging
