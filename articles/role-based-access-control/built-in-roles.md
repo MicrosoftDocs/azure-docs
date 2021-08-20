@@ -5324,45 +5324,25 @@ Lets you manage SQL servers and databases, but not access to them, and not their
 
 ```json
 {
-
     "id": "/providers/Microsoft.Authorization/roleDefinitions/e8113dce-c529-4d33-91fa-e9b972617508",
-
     "properties": {
-
         "roleName": "Azure Connected SQL Server Onboarding",
-
         "description": "Microsoft.AzureArcData service role to access the resources of Microsoft.AzureArcData stored with RPSAAS.",
-
         "assignableScopes": [
-
             "/"
-
         ],
-
         "permissions": [
-
             {
-
                 "actions": [
-
                     "Microsoft.AzureArcData/sqlServerInstances/read",
-
                     "Microsoft.AzureArcData/sqlServerInstances/write"
-
                 ],
-
                 "notActions": [],
-
                 "dataActions": [],
-
                 "notDataActions": []
-
             }
-
         ]
-
     }
-
 }
 ```
 
