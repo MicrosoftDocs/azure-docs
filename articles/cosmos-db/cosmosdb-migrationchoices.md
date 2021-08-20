@@ -53,7 +53,7 @@ If you need help with capacity planning, consider reading our [guide to estimati
 
 Follow the [pre-migration guide](mongodb/pre-migration-steps.md) to plan your migration. 
 * If you need help with capacity planning, consider reading our [guide to estimating RU/s using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md). 
-* If you are migrating from a vCores- or server-based platform and you need guidance on estimating request units, consider reading our [guide to estimating RU/s based on vCores](estimate-ru-with-capacity-planner.md).
+* If you are migrating from a vCores- or server-based platform and you need guidance on estimating request units, consider reading our [guide to estimating RU/s based on vCores](tutorial-vcore-pricing.md).
 
 When you are ready to migrate, you can find detailed guidance on migration tools below
 * [Offline migration using MongoDB native tools](mongodb/tutorial-mongotools-cosmos-db.md)
