@@ -2,12 +2,14 @@
 title: Enable managed identity on Azure Event Grid system topic
 description: This article describes how enable managed service identity for an Azure Event Grid system topic. 
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 08/20/2021
 ---
 
 # Assign a system-managed identity to an Event Grid system topic
 In this article, you learn how to assign system-assigned or user-assigned identity to an existing Event Grid system topic. To learn about managed identities, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).  
 
+> [!IMPORTANT]
+> You can enable either system-assigned identity or user-assigned identity for a system topic, but not both. You can have at most two user-assigned identities assigned to a system topic. 
 
 ## Enable managed identity for an existing system topic
 This section shows you how to enable a managed identity for an existing system topic. 
