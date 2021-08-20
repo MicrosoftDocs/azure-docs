@@ -6,7 +6,7 @@ author: miaojiang
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 08/12/2021
+ms.date: 08/20/2021
 ms.author: apimpm
 ms.custom: subject-moving-resources
 #cusomerintent: As an Azure service administrator, I want to move my service resources to another Azure region.
@@ -35,16 +35,14 @@ To move API Management instances from one Azure region to another, use the servi
 ## Prerequisites
 
 * Review requirements and limitations of the API Management [backup and restore](api-management-howto-disaster-recovery-backup-restore.md) operations. 
-* See [What is not backed up](api-management-howto-disaster-recovery-backup-restore.md#what-is-not-backed-up), and record settings and data that you will need to recreate manually after moving the instance.
-* Create a [storage account](../storage/common/storage-account-create.md?tabs=azure-portal) with a blob container in the source region. You will use this account to back up the source instance. 
- 
-  You will need the following information from the storage account: account name, access key, and an existing target container name. 
+* See [What is not backed up](api-management-howto-disaster-recovery-backup-restore.md#what-is-not-backed-up). Record settings and data that you will need to recreate manually after moving the instance.
+* Create a [storage account](../storage/common/storage-account-create.md?tabs=azure-portal) in the source region. You will use this account to back up the source instance. 
 
 ## Prepare and move
 
 ### Option 1: Use a different API Management instance name
 
-1. In the target region, create a new API Management instance with the same pricing tier as the source API Management instance. The new instance should have a different name.
+1. In the target region, create a new API Management instance with the same pricing tier as the source API Management instance. Use a different name for the new instance.
 1. [Back up](api-management-howto-disaster-recovery-backup-restore.md#-back-up-an-api-management-service) the existing API Management instance to the storage account. 
 1. [Restore](api-management-howto-disaster-recovery-backup-restore.md#-restore-an-api-management-service) the source instance's backup to the new API Management instance.
 1. If you have a custom domain pointing to the source region API Management instance, update the custom domain CNAME to point to the new API Management instance. 
@@ -52,7 +50,7 @@ To move API Management instances from one Azure region to another, use the servi
 ### Option 2: Use the same API Management instance name
 
 > [!WARNING]
-> This option deletes the original API Management instance and results in downtime during the migration. Ensure that you have a valid backup before proceeding.
+> This option deletes the original API Management instance and results in downtime during the migration. Ensure that you have a valid backup before deleting the source instance.
 
 1. [Back up](api-management-howto-disaster-recovery-backup-restore.md#-back-up-an-api-management-service) the existing API Management instance to the storage account. 
 1. Delete the API Management instance in the source region. 

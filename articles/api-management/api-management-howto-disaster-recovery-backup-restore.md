@@ -3,16 +3,11 @@ title: Implement disaster recovery using backup and restore in API Management
 titleSuffix: Azure API Management
 description: Learn how to use backup and restore to perform disaster recovery in Azure API Management.
 services: api-management
-documentationcenter: ''
 author: mikebudzynski
-manager: erikre
-editor: ''
 
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 12/05/2020
+ms.date: 08/20/2021
 ms.author: apimpm 
 ms.custom: devx-track-azurepowershell
 ---
@@ -53,7 +48,7 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 ### Create an Azure Active Directory application
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Using the subscription that contains your API Management service instance, navigate to the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) to register an app in Active Directory.
+1. Using the subscription that contains your API Management service instance, navigate to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) to register an app in Active Directory.
     > [!NOTE]
     > If the Azure Active Directory default directory isn't visible to your account, contact the administrator of the Azure subscription to grant the required permissions to your account.
 1. Select **+ New registration**.
@@ -149,7 +144,7 @@ where:
 -   `subscriptionId` - ID of the subscription that holds the API Management service you're trying to back up
 -   `resourceGroupName` - name of the resource group of your Azure API Management service
 -   `serviceName` - the name of the API Management service you're making a backup of specified at the time of its creation
--   `api-version` - replace with `2020-12-01`
+-   `api-version` - replace with a supported REST API version such as `2020-12-01`
 
 In the body of the request, specify the target Azure storage account name, access key, blob container name, and backup name:
 
@@ -205,7 +200,6 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 
 ## Constraints when making backup or restore request
 
--   **Container** specified in the request body **must exist**.
 -   While backup is in progress, **avoid management changes in the service** such as SKU upgrade or downgrade, change in domain name, and more.
 -   Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
 -   **Changes** made to the service configuration (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
