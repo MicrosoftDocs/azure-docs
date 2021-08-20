@@ -11,6 +11,8 @@
       href: overview-azure-percept-dk.md   
     - name: Azure Percept Audio
       href: overview-azure-percept-audio.md   
+    - name: Azure Percept Vision Module and Workload
+      href: azureeyemodule-overview.md   
 
 - name: Quickstarts
   items:

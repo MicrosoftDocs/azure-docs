@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 03/03/2021
+ms.date: 08/17/2021
 ms.author: duau
 ---
 
@@ -51,6 +51,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
     | Region | Select the region the Route Server will be created in. Select the same region as the virtual network you created previously to see the virtual network in the drop-down. |
     | Virtual Network | Select the virtual network in which the Route Server will be created. You can create a new virtual network or use an existing virtual network. If you're using an existing virtual network, make sure the existing virtual network has enough space for a minimum of a /27 subnet to accommodate the Route Server subnet requirement. If you don't see your virtual network from the dropdown, make sure you've selected the correct Resource Group or region. |
     | Subnet | Once you've created or select a virtual network, the subnet field will appear. This subnet is dedicated to Route Server only. Select **Manage subnet configuration** and create the Azure Route Server subnet. Select **+ Subnet** and create a subnet using the following guidelines:</br><br>- The subnet must be named *RouteServerSubnet*.</br><br>- The subnet must be a minimum of /27 or larger.</br> |
+    | Public IP address | Create a new or select an existing Standard public IP resource to assign to the Route Server. To ensure connectivity to the backend service that manages the Route Server configuration, a public IP address is required. |
 
 1. Select **Review + create**, review the summary, and then select **Create**. 
 

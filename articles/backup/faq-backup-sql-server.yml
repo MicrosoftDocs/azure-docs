@@ -3,8 +3,10 @@ metadata:
   title: FAQ - Backing up SQL Server databases on Azure VMs
   description: Find answers to common questions about backing up SQL Server databases on Azure VMs with Azure Backup.
   ms.reviewer: vijayts
-  ms.topic: conceptual
-  ms.date: 08/11/2021
+  ms.topic: article
+  ms.service: backup
+  ms.date: 08/20/2021
+
     
 title: FAQ about SQL Server databases that are running on an Azure VM backup
 summary: |
