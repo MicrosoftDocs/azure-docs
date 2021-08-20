@@ -33,10 +33,10 @@
     - name: Capacity
       items:
         - name: Request units
-          displayName: RUs, RU
-        - name: Convert vcores to request units
-          href: tutorial-vcore-pricing.md            
+          displayName: RUs, RU     
           href: request-units.md
+        - name: Convert vcores to request units
+          href: tutorial-vcore-pricing.md                 
         - name: Provisioned throughput
           displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
           href: set-throughput.md
