@@ -214,6 +214,6 @@ If you no longer need the Route Server and all associating resources, you can de
 
 ## Next steps
 
-Advance to the next article to learn how to troubleshoot Route Server...
+Advance to the next article to learn how to troubleshoot Route Server.
 > [!div class="nextstepaction"]
-> [Next steps button](troubleshoot-route-server.md)
+> [Troubleshoot Route Server](troubleshoot-route-server.md)
