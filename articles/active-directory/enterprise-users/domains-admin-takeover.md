@@ -90,8 +90,8 @@ External admin takeover is supported by the following online services:
 
 The supported service plans include:
 
-- PowerApps Free
-- PowerFlow Free
+- Power Apps Free
+- Power Automate Free
 - RMS for individuals
 - Microsoft Stream
 - Dynamics 365 free trial

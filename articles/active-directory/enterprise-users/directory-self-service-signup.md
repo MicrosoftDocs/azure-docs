@@ -57,7 +57,7 @@ AllowEmailVerifiedUsers and AllowAdHocSubscriptions are tenant-wide settings tha
 
 If the preceding conditions are true, then a member user is created in the home tenant, and a B2B guest user is created in the inviting tenant.
 
-For more information on Flow and PowerApps trial sign-ups, see the following articles:
+For more information on Flow and Power Apps trial sign-ups, see the following articles:
 
 * [How can I prevent my existing users from starting to use Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
 * [Flow in your organization Q&A](/flow/organization-q-and-a)
