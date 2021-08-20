@@ -31,7 +31,7 @@ For *R*, we recommend plugging in the average replication factor of your databas
 
 Azure Cosmos DB interop APIs run on top of the SQL API and implement their own unique architectures; thus Azure Cosmos DB API for MongoDB v4.0 has a different *C*-value than Azure Cosmos DB SQL API.
 
-## Worked example: request unit estimation for migration from a single replica set
+## Worked example: estimate RU/s for single replica set migration
 
 ![Single replica set](media/tutorial-vcore-pricing/one-replica-set.png)
 
@@ -51,7 +51,7 @@ And the recommended request units for Azure Cosmos DB API for MongoDB are
 Provisioned RU/s, API for MongoDB = (1,000 RU/s/vCore) * (12 vCores) / (3) = 4,000 RU/s
 `
 
-## Worked example: request unit estimation for migration from a cluster of homogeneous replica sets
+## Worked example: estimate RU/s when migrating a cluster of homogeneous replica sets
 
 ![Homogeneous sharded replica sets](media/tutorial-vcore-pricing/homogeneous-sharded-replica-sets.png)
 
@@ -71,7 +71,7 @@ And the recommended request units for Azure Cosmos DB API for MongoDB are
 Provisioned RU/s, API for MongoDB = (1,000 RU/s/vCore) * (36 vCores) / (3) = 12,000 RU/s
 `
 
-## Worked example: request unit estimation for migration from a cluster of heterogeneous replica sets
+## Worked example: estimate RU/s when migrating a cluster of heterogeneous replica sets
 
 ![Heterogeneous sharded replica sets](media/tutorial-vcore-pricing/heterogeneous-sharded-replica-sets.png)
 
