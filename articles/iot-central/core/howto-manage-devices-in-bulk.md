@@ -23,7 +23,9 @@ The following example shows you how to create and run a job to set the light thr
 
 1. On the **Configure your job** page, enter a name and description to identify the job you're creating.
 
-1. Select the target device group that you want your job to apply to. You can see how many devices your job configuration applies to below your **Device group** selection.
+1. If your application uses [organizations](howto-create-organizations.md), select the organization to associate the job to. Only users in the organization can view or modify the job. The user's role determines the permissions the user has.
+
+1. Select the target device group that you want your job to apply to. If your application uses organizations, the selected organization determines the available device groups. You can see how many devices your job configuration applies to below your **Device group** selection.
 
 1. Choose **Cloud property**, **Property**, or **Command** as the **Job type**:
 
