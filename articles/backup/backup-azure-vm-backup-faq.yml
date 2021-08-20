@@ -159,7 +159,7 @@ sections:
         answer: In the event of a managed VM restore, even if the VM creation fails, the disks will still be restored.
 
       - question: Can I restore a VM that's been deleted?
-        answer: Yes. Even if you delete the VM, you can go to the corresponding backup item in the vault and restore from a recovery point.
+        answer: Yes. Even if you delete the VM, you can go to the corresponding backup item in the vault and [restore from a recovery point](backup-azure-arm-restore-vms.md#select-a-restore-point).
 
       - question: How do I restore a VM to the same availability sets?
         answer: For Managed Disk Azure VMs, restoring to the availability sets is enabled by providing an option in the template while restoring as managed disks. This template has the input parameter called **Availability sets**.
