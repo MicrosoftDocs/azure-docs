@@ -9,11 +9,16 @@ ms.date: 08/19/2021
 ms.custom: devx-track-java
 ---
 
-# Monitor app lifecycle events using Azure Activity log and Azure Service Health
-
 This article shows you how to monitor app lifecycle events and set up alerts with Azure Activity log and Azure Service Health.
 
 Azure Spring Cloud provides built-in tools to monitor the status and health of your applications. App lifecycle events help you understand any changes that were made to your applications so you can take action as necessary. 
+
+# Prerequisites
+
+To follow these procedures, you need:
+
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- A deployed Azure Spring Cloud service instance and at least one application already created in your service instance. Follow the [Deploy your first Azure Spring Cloud application quickstart](https://review.docs.microsoft.com/en-us/azure/spring-cloud/quickstart) to provision an Azure Spring Cloud service and create an application. 
 
 ## Monitor app lifecycle events triggered by users in Azure Activity logs
 
@@ -59,7 +64,7 @@ You can set up alerts for app lifecycle events. Service health notifications are
 
 The following list describes the key steps needed to set up an alert: 
 
-1. Set up an action group with the actions to take when an alert is triggered. Example actions include email, SMS, Runbook, and Webhook. Action groups can be reused among different alerts.
+1. Set up an action group with the actions to take when an alert is triggered. Example action types include sending a voice call, SMS, email; or triggering various types of automated actions. Various alerts may use the same action group or different action groups depending on the user's requirements.
 2. Set up alert rules. The alerts use action groups to notify users that an alert for some specific app lifecycle event has been triggered.
 
 ### Set up alerts on Activity log
