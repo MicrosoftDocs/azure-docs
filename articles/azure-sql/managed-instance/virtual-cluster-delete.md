@@ -10,7 +10,7 @@ ms.topic: how-to
 author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
-ms.date: 06/26/2019
+ms.date: 08/20/2021
 ---
 
 # Delete a subnet after deleting an Azure SQL Managed Instance
@@ -18,13 +18,13 @@ ms.date: 06/26/2019
 
 This article provides guidelines on how to manually delete a subnet after deleting the last Azure SQL Managed Instance residing in it.
 
-SQL Managed Instances are deployed into [virtual clusters](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture). Each virtual cluster is associated with a subnet. The virtual cluster persists by design for 12 hours after the last instance deletion to enable you to more quickly create SQL Managed Instances in the same subnet. There's no charge for keeping an empty virtual cluster. During this period, the subnet associated with the virtual cluster can't be deleted.
+SQL Managed Instances are deployed into [virtual clusters](connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture). Each virtual cluster is associated with a subnet and deployed together with first instance creation. In the same way, virtual cluster is automatically removed together with last instance deletion leaving the subnet empty and ready for removal.
 
-If you don't want to wait 12 hours and prefer to delete the virtual cluster and its subnet sooner, you can do so manually. Delete the virtual cluster manually by using the Azure portal or the Virtual Clusters API.
+There are rare circumstances when create operation can fail and result with deployed empty virtual cluster. Additionaly, as instance creation [can be canceled](management-operations-cancel.md), this event can also result with virtual cluster being deployed with instances residing inside (in creation failed state). There's no charge for keeping an empty virtual cluster or instances that have failed to create. During this period, the subnet associated with the virtual cluster can't be deleted.
 
 > [!IMPORTANT]
 > - The virtual cluster should contain no SQL Managed Instances for the deletion to be successful. 
-> - Deletion of a virtual cluster is a long-running operation lasting for about 1.5 hours (see [SQL Managed Instance management operations](./sql-managed-instance-paas-overview.md#management-operations) for up-to-date virtual cluster delete time). The virtual cluster will still be visible in the portal until this process is completed.
+> - Deletion of a virtual cluster is a long-running operation lasting for about 1.5 hours (see [SQL Managed Instance management operations](management-operations-overview.md) for up-to-date virtual cluster delete time). The virtual cluster will still be visible in the portal until this process is completed.
 
 ## Delete a virtual cluster from the Azure portal
 
