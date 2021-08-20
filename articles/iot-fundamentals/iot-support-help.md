@@ -25,7 +25,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 * [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure portal for the United States government](https://portal.azure.us)
 
-## Post a question or feedback* on Microsoft Q&A
+## Post a question on Microsoft Q&A
 
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](/answers/products/azure), Azure’s preferred destination for community support. 
 
@@ -43,8 +43,6 @@ If you can't find an answer to your problem using search, submit a new question 
 - [Azure Time Series Insights](/answers/topics/azure-time-series-insights.html)
 - [Azure Maps](/answers/topics/azure-maps.html)
 - [Azure Percept](/answers/topics/azure-percept.html)
-
-\* Share your ideas for making Azure IoT services work better for the applications you develop. Microsoft Engineers are actively listening for new features requests in Microsoft Q&A and we will prioritize threads with high number of votes and comments. 
 
 ## Post a question on Stack Overflow
 
