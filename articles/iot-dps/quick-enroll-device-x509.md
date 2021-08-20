@@ -12,7 +12,7 @@ ms.custom: mvc
 zone_pivot_groups: iot-dps-set2
 ---
  
-# Quickstart: Group enrollment to the Device Provisioning Service using X.509 certificate attestation 
+# Quickstart: Enroll a group of devices to the Device Provisioning Service using X.509 certificate attestation 
 
 :::zone pivot="programming-language-csharp,programming-language-nodejs, programming-language-python"
 
@@ -221,7 +221,7 @@ This section shows you how to create a .NET Core console application that adds a
 
 6. Select **Create**.
 
-7. After the solution is opened, in the **Solution Explorer** pane, right-click the **CreateEnrollmentGroup** project, and then select **Manage NuGet Packages**.
+7. After the solution opens, in the **Solution Explorer** pane, right-click the **CreateEnrollmentGroup** project, and then select **Manage NuGet Packages**.
 
 8. In **NuGet Package Manager**, select **Browse**.
 
@@ -469,7 +469,7 @@ This section shows you how to create a Python script that adds an enrollment gro
 
 :::zone pivot="programming-language-csharp"
 
-1. Run the sample in Visual Studio to create the enrollment group. A command window will appear, and will show confirmation messages.
+1. Run the sample in Visual Studio to create the enrollment group. A command window will appear, and will display confirmation messages.
 
 2. Upon successful creation, the command window displays the properties of the new enrollment group.
 
