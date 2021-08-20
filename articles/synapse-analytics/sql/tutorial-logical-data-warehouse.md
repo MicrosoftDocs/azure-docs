@@ -81,9 +81,9 @@ Any user with the Synapse Administrator role can use these credentials to access
 If you have low priviledged users that do not have Synapse Administrator role, you would need to give them an explicit permission to reference these database scoped credentials:
 
 ```sql
-GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO [jovan@contoso.com]
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::WorkspaceIdentity TO <user>
 GO
-GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO [jovan@contoso.com]
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO <user>
 GO
 ```
 
