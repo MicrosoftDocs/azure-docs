@@ -5,7 +5,7 @@ author: Jejiang
 ms.service: synapse-analytics
 ms.subservice: purview
 ms.topic: quickstart
-ms.date: 08/06/2021
+ms.date: 08/19/2021
 ms.author: jejiang
 ms.reviewer: jrasnick
 ---
@@ -41,9 +41,11 @@ Follow the steps to connect an Purview account:
 2. You can choose **From Azure subscription** or **Enter manually**. **From Azure subscription**, you can select the account that you have access to. 
 3. Once connected, you can see the name of the Purview account in the tab **Azure Purview account**. 
 
-When connecting Synapse workspace with Purview, Synapse also tries to grant the Synapse workspace's managed identity **Purview Data Curator** role on your Purview account. Managed identity is used to authenticate lineage push operations from Synapse to Purview. If you have **Owner** or **User Access Administrator** role on the Purview account, this operation will be done automatically. 
+When connecting Synapse workspace with Purview, Synapse also tries to grant the Synapse workspace's managed identity **Purview Data Curator** role on your Purview account. Managed identity is used to authenticate lineage push operations from Synapse to Purview. If you have **Owner** or **User Access Administrator** role on the Purview account, this operation will be done automatically. If you see warning like the following, it means the needed role is not granted:
 
-To make sure the connection is properly set for the Synapse pipeline lineage push, go to Azure portal -> your Purview account -> Access control (IAM), check if **Purview Data Curator** role is granted to the Synapse workspace's managed identity. Manually add the role assignment as needed.
+:::image type="content" source="../../data-factory/media/data-factory-purview/register-purview-account-warning.png" alt-text="Screenshot for warning of registering a Purview account.":::
+
+\To fix the issue, go to Azure portal -> your Purview account -> Access control (IAM), check if **Purview Data Curator** role is granted to the Synapse workspace's managed identity. Manually add the role assignment as needed.
 
 Once the connection is established, you can use the Search bar at the top center of the Synapse workspace to search for data, and the pipeline execution will push lineage information to the Purview account.
 

@@ -35,7 +35,7 @@ To establish the connection, you need to have **Owner** or **Contributor** role 
 
 3. Once connected, you can see the name of the Purview account in the tab **Purview account**.
 
-When connecting data factory to Purview, ADF UI also tries to grant the data factory's managed identity **Purview Data Curator** role on your Purview account. Managed identity is used to authenticate lineage push operations from data factory to Purview. If you have **Owner** or **User Access Administrator** role on the Purview account, this operation will be done automatically. If not, you would see warning like below:
+When connecting data factory to Purview, ADF UI also tries to grant the data factory's managed identity **Purview Data Curator** role on your Purview account. Managed identity is used to authenticate lineage push operations from data factory to Purview. If you have **Owner** or **User Access Administrator** role on the Purview account, this operation will be done automatically. If you see warning like the following, it means the needed role is not granted:
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Screenshot for warning of registering a Purview account.":::
 
