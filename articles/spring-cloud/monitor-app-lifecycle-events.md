@@ -56,7 +56,7 @@ Your app may be restarted during platform maintenance. You can receive the maint
 
 ![Screenshot of an example notification for planned maintenance](media/monitor-app-lifecycle-events/planned-maintenance-notification.png)
 
-When the platform maintenance happens, the status of your Azure Spring Cloud instance will become degraded. You can find the latest status in the health history page. Degraded means that your resource detected a loss in performance, although it's still available for use.
+When the platform maintenance happens, the status of your Azure Spring Cloud instance will become degraded too. Azure Spring Cloud perform a rolling update to incrementally update your applications if restarting is needed during platform maintenance. Rolling updates are designed to update your workloads without downtime. You can find the latest status in the health history page.
 
 ![Screenshot of an example log for planned maintenance in progress](media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png)
 
