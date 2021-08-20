@@ -12,7 +12,7 @@ ms.date: 08/19/2021
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
-This article explains how to estimate Azure Cosmos DB request units (RU/s) when you are considering data migration but all you know is the total vcore or vCPU count in your existing database replica set(s). When you migrate one or more replica sets to Azure Cosmos DB, each collection held in those replica sets will be stored as an Azure Cosmos DB collection consisting of a sharded cluster with a 4x replication factor. You can read more about our architecture in this [partitioning and scaling guide](partitioning-overview.md). Request units are how throughput capacity is provisioned on a collection; you can [read the request units guide](request-units.md) and the RU/s [provisioning guide]() to learn more. When you migrate a collection, Azure Cosmos DB provisions enough shards to serve your provisioned request units and store your data. Therefore estimating RU/s for collections is an important step in scoping out the scale of your planned Azure Cosmos DB data estate prior to migration. Based on our experience with thousands of customers, we have found this formula helps us arrive at a rough starting-point RU/s estimate from vcores or vCPU: 
+This article explains how to estimate Azure Cosmos DB request units (RU/s) when you are considering data migration but all you know is the total vcore or vCPU count in your existing database replica set(s). When you migrate one or more replica sets to Azure Cosmos DB, each collection held in those replica sets will be stored as an Azure Cosmos DB collection consisting of a sharded cluster with a 4x replication factor. You can read more about our architecture in this [partitioning and scaling guide](partitioning-overview.md). Request units are how throughput capacity is provisioned on a collection; you can [read the request units guide](request-units.md) and the RU/s [provisioning guide](provision-database-throughput.md) to learn more. When you migrate a collection, Azure Cosmos DB provisions enough shards to serve your provisioned request units and store your data. Therefore estimating RU/s for collections is an important step in scoping out the scale of your planned Azure Cosmos DB data estate prior to migration. Based on our experience with thousands of customers, we have found this formula helps us arrive at a rough starting-point RU/s estimate from vcores or vCPU: 
 
 $Provisioned$ $RU/s = \frac{C*T}{R}$
 
@@ -31,9 +31,15 @@ Azure Cosmos DB interop APIs run on top of the SQL API and implement their own u
 
 ## Worked example: request unit estimation for migration from a single replica set
 
+![Single replica set](media/tutorial-vcore-pricing/one_replica_set.png)
+
 ## Worked example: request unit estimation for migration from a cluster of homogeneous replica sets
 
+![Homogeneous sharded replica sets](media/tutorial-vcore-pricing/homogeneous_sharded_replica_sets.png)
+
 ## Worked example: request unit estimation for migration from a cluster of hetergeneous replica sets
+
+![Heterogeneous sharded replica sets](media/tutorial-vcore-pricing/heterogeneous_sharded_replica_sets.png)
 
 ## Tips for getting the most accurate RU/s estimate
 
