@@ -146,15 +146,8 @@
         items:
         - name: Configuring SSL
           href: concepts-ssl-connection-security.md
-<<<<<<< HEAD
-      - name: Advanced Threat Protection
-        items:
-          - name: Threat protection with Azure Defender
-            href: ../security-center/defender-for-databases-introduction.md
-=======
       - name: Threat protection with Azure Defender
         href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
->>>>>>> 95008c9280a3e7c4822d1683c8766b83b81b8f96
       - name: Encryption at rest
         items:
         - name: Data Encryption
@@ -395,7 +388,7 @@
     items:
     - name: Configure Java connection pooling
       href: sample-scripts-java-connection-pooling.md
-- name: Flexible Server (Preview)
+- name: Flexible Server
   items:
   - name: Flexible Server documentation
     href: flexible-server/index.yml
@@ -418,7 +411,7 @@
             displayName: Resource Manager
             href: flexible-server/quickstart-create-arm-template.md
       - name: Connect and query
-        items:          
+        items:
           - name: Azure CLI
             href: flexible-server/connect-azure-cli.md
           - name: PHP
@@ -431,7 +424,7 @@
             href: flexible-server/connect-java.md
           - name: .NET
             href: flexible-server/connect-csharp.md
-          - name: Connect to server in VNET 
+          - name: Connect to server in VNET
             href: flexible-server/quickstart-create-connect-server-vnet.md
       - name: Connect using TLS/SSL
         href: flexible-server/how-to-connect-tls-ssl.md
@@ -463,10 +456,10 @@
       - name: Networking concepts
         href: flexible-server/concepts-networking.md
         displayName: virtual network, IP address, public access
-      - name: Private Access 
+      - name: Private Access
         href: flexible-server/concepts-networking-vnet.md
         displayName: virtual network
-      - name: Public Access 
+      - name: Public Access
         href: flexible-server/concepts-networking-public.md
         displayName: Public access,
     - name: Service Maintenance
