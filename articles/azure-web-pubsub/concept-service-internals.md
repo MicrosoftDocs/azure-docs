@@ -12,10 +12,10 @@ ms.date: 08/18/2021
 
 Azure Web PubSub Service provides an easy way to publish/subscribe messages using simple [WebSocket](https://tools.ietf.org/html/rfc6455) connections.
 
-1. Client can be written in any language having WebSocket support
-1. Both text and binary messages are supported within one connection
-1. A simple protocol for clients to do direct client-client message publish
-1. The service manages the WebSocket connections for you
+- Client can be written in any language having WebSocket support
+- Both text and binary messages are supported within one connection
+- A simple protocol for clients to do direct client-client message publish
+- The service manages the WebSocket connections for you
 
 ## Terms
 * **Service**: Azure Web PubSub Service.
@@ -34,7 +34,7 @@ Azure Web PubSub Service provides an easy way to publish/subscribe messages usin
 
 ## Workflow
 
-![The service workflow](./media/concept-service-internals/workflow.png)
+![Diagram showing the Web PubSub service workflow.](./media/concept-service-internals/workflow.png)
 
 As illustrated by the above workflow graph:
 1. A *client* connects to the service `/client` endpoint using WebSocket transport. Service forward every WebSocket frame to the configured upstream(server). The WebSocket connection can connect with any custom subprotocol for the server to handle, or it can connect with the service-supported subprotocol `json.webpubsub.azure.v1`, which empowers the clients to do pub/sub directly. Details are described in [client protocol](#client_protocol).
@@ -43,13 +43,13 @@ As illustrated by the above workflow graph:
 
 <a name="client_protocol"></a>
 
-## Client Protocol
+## Client protocol
 
 A client connection connects to the `/client` endpoint of the service using [WebSocket protocol](https://tools.ietf.org/html/rfc6455). The WebSocket protocol provides full-duplex communication channels over a single TCP connection and was standardized by the IETF as RFC 6455 in 2011. Most languages have native support to start WebSocket connections. 
 
 Our service supports two kinds of clients:
-1. One is called [the simple WebSocket client](#simple_client)
-2. The other is called [the PubSub WebSocket client](#pubsub_client)
+- One is called [the simple WebSocket client](#simple_client)
+- The other is called [the PubSub WebSocket client](#pubsub_client)
 
 <a name="simple_client"></a>
 
@@ -67,7 +67,7 @@ var client2 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', '
 ```
 
 A simple WebSocket client follows a client<->server architecture, as the below sequence diagram shows:
-![Simple Client Sequence](./media/concept-service-internals/simple_client_sequence.png)
+![Diagram showing the sequence for a client connection.](./media/concept-service-internals/simple-client-sequence.png)
 
 
 1. When the client starts WebSocket handshake, the service tries to invoke the `connect` event handler (the server) for WebSocket handshake. Users can use this handler to handle the WebSocket handshake, determine the subprotocol to use, auth the client, and join the client to some groups.
@@ -192,7 +192,7 @@ Client uses a signed JWT token to connect to the service. The upstream can also 
 
 The below graph describes the workflow:
 
-![Client Connect Workflow](./media/concept-service-internals/client_connect_workflow.png)
+![Diagram showing the client authentication workflow.](./media/concept-service-internals/client-connect-workflow.png)
 
 As you may have noticed when we describe the PubSub WebSocket clients, that a client can publish to other clients only when it is *authorized* to. The `role`s of the client determines the *initial* permissions the client have:
 
@@ -227,7 +227,7 @@ For every event, it formulates an HTTP POST request to the registered upstream a
 
 The data sending from the service to the server is always in CloudEvents `binary` format.
 
-![Event PUSH](./media/concept-service-internals/event_push.png)
+![Diagram showing the Web PubSub service event push mode.](./media/concept-service-internals/event-push.png)
 
 #### Upstream and Validation
 
@@ -242,11 +242,11 @@ When doing the validation, the `{event}` parameter is resolved to `validate`. Fo
 For now, we do not support [WebHook-Request-Rate](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#414-webhook-request-rate) and [WebHook-Request-Callback](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#413-webhook-request-callback).
 
 #### Authentication between service and webhook
-1. Anonymous mode
-1. Simple Auth that `code` is provided through the configured Webhook URL.
-1. AAD Auth. 
-   1. Add a client secret in AAD's [App Registrations] and provide the [client secret] to Azure Web PubSub through portal/cli.
-   2. Provide the [Identity](/azure/app-service/overview-managed-identity?tabs=dotnet) to Azure Web PubSub through portal/cli
+- Anonymous mode
+- Simple Auth that `code` is provided through the configured Webhook URL.
+- AAD Auth. 
+   - Add a client secret in AAD's [App Registrations] and provide the [client secret] to Azure Web PubSub through portal/cli.
+   - Provide the [Identity](/azure/app-service/overview-managed-identity?tabs=dotnet) to Azure Web PubSub through portal/cli
 
 <a name="connection_manager"></a>
 
@@ -269,14 +269,14 @@ It can also grant or revoke publish/join permissions for a PubSub client:
    
 For public preview, the service provides REST APIs for the server to do connection management:
 
-![Manager REST](./media/concept-service-internals/manager_rest.png)
+![Diagram showing the Web PubSub service connection manager workflow.](./media/concept-service-internals/manager-rest.png)
 
 The detailed REST API protocol is defined [here][rest].
 
 ### Summary
 You may have noticed that the *event handler role* handles communication from the service to the server while *the manager role* handles communication from the server to the service. So combing the two roles, the data flow between service and server looks as similar to below, using HTTP protocol:
 
-![HTTP Protocol](./media/concept-service-internals/http_service_server.png)
+![Diagram showing the Web PubSub service bi-directional workflow.](./media/concept-service-internals/http-service-server.png)
 
 [rest]: /rest/api/webpubsub/
 

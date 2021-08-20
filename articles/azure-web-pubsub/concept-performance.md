@@ -94,7 +94,7 @@ In all use cases, the default message size is 2,048 bytes, and the message send 
 ### Send to groups through Web PubSub subprotocol
 The service supports a specific subprotocol called `json.webpubsub.azure.v1`, which empowers the clients to do publish/subscribe directly instead of a round trip to the upstream server. This scenario is efficient as no server is involved and all traffic goes through the client-service WebSocket connection.
 
-![Send to groups](./media/concept-performance/wps-group.png)
+![Diagram showing the send to group workflow.](./media/concept-performance/group.png)
 
 Group member and group count are two factors that affect performance. To simplify the analysis, we define two kinds of groups:
 
@@ -159,7 +159,7 @@ In this case, the app server writes back the original message back in the http r
 
 Azure Web PubSub provides powerful [APIs](/rest/api/webpubsub/) to manage clients and deliver real-time messages.
 
-![The Rest API](./media/concept-performance/restapi.png)
+![Diagram showing the Web PubSub service overall workflow using REST APIs.](./media/concept-performance/rest-api.png)
 
 #### Send to user through REST API
 The benchmark assigns usernames to all of the clients before they start connecting to Azure Web PubSub Service. 
