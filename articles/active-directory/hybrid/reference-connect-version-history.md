@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
+ms.custom: has-adal-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -51,6 +52,31 @@ Please follow this link to read more about [auto upgrade](how-to-connect-install
 >Please refer to [this article](./how-to-upgrade-previous-version.md) to learn more about how to upgrade Azure AD Connect to the latest version.
 >
 >For version history information on retired versions, see [Azure AD Connect version release history archive](reference-connect-version-history-archive.md)
+
+## 2.0.10.0
+
+>[!NOTE] 
+>This is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer. This hotfix addresses an issue that is present in version 2.0 as well as in Azure AD Connect version 1.6. If you are running Azure AD Connect on an older Windows Server you should install the [1.6.13.0](#16130) build instead.
+
+### Release status
+8/19/2021: Released for download only, not available for auto upgrade.
+
+### Bug fixes
+
+ - We fixed a bug where, when a domain is renamed, Password Hash Sync would fail with an error indicating "a specified cast is not valid" in the Event log. This is a regression from earlier builds.
+
+## 1.6.13.0
+>[!NOTE] 
+>This is a hotfix update release of Azure AD Connect. This release is intended for customers who are running Azure AD Connect on a server with Windows Server 2012 or 2012 R2.
+
+8/19/2021: Released for download only, not available for auto upgrade.
+
+### Bug fixes
+
+ - We fixed a bug where, when a domain is renamed, Password Hash Sync would fail with an error indicating "a specified cast is not valid" in the Event log. This is a regression from earlier builds.
+
+### Functional changes
+There are no functional changes in this release
 
 ## 2.0.9.0
 
