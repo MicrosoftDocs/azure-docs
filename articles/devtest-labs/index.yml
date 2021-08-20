@@ -26,10 +26,6 @@ landingContent:
         links:
           - text: About DevTest Labs
             url: devtest-lab-overview.md
-          - text: About DevTest Labs and Lab Services
-            url: lab-services-overview.md
-      - linkListType: concept
-        links:
           - text: DevTest Labs concepts
             url: devtest-lab-concepts.md
           - text: Popular scenarios
@@ -58,7 +54,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure and use public environments 
+          - text: Configure & use public environments 
             url: devtest-lab-configure-use-public-environments.md
           - text: Create an environment
             url: devtest-lab-create-environment-from-arm.md
@@ -66,8 +62,12 @@ landingContent:
             url: use-paas-services.md 
           - text: Connect to lab's virtual network
             url: connect-environment-lab-virtual-network.md  
-          - text: Troubleshoot environment failures
-            url: troubleshoot-vm-environment-creation-failures.md
+  - title: Templates
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Custom image vs. formula
+            url: devtest-lab-comparing-vm-base-image-types.md
   - title: Reference docs
     linkLists:
       - linkListType: reference
@@ -78,13 +78,3 @@ landingContent:
             url: /powershell/module/az.devtestlabs/#devtest_labs
           - text: REST API
             url: /rest/api/dtl
-  - title: Templates
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Custom image vs. Formula
-            url: devtest-lab-comparing-vm-base-image-types.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create a custom image from a VM 
-            url: devtest-lab-create-custom-image-from-vm-using-portal.md
