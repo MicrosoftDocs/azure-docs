@@ -99,6 +99,11 @@ However [managed online endpoints](#managed-online-endpoints-vs-aks-online-endpo
 - Managed identity: User assigned and system assigned (managed online endpoint only)
 - SSL by default for endpoint invocation
 
+### Autoscaling
+
+Autoscale automatically runs the right amount of resources to handle the load on your application. Managed endpoints supports autoscaling through integration with the [Azure monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview.md) feature. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination.
+
+:::image type="content" source="media/concept-endpoints/concept-autoscale.png" alt-text="Image showing that autoscale flexibly provides between min and max instances, depending on rules":::
 
 ## Managed online endpoints vs AKS online endpoints (preview)
 
