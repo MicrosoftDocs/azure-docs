@@ -2,7 +2,7 @@
 title: Tutorial - Configure external identity source for vCenter
 description:  Learn how to configure Active Directory over LDAP or LDAPS for vCenter as an external identity source.
 ms.topic: tutorial
-ms.date: 08/23/2021
+ms.date: 08/30/2021
 
 
 
