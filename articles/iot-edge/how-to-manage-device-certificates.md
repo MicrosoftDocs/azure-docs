@@ -147,9 +147,6 @@ If you used the sample scripts to [Create demo certificates](how-to-create-test-
 :::moniker-end
 <!-- end 1.2 -->
 
-<!-- 1.1. -->
-:::moniker range="iotedge-2018-06"
-
 ## Customize certificate lifetime
 
 IoT Edge automatically generates certificates on the device in several cases, including:
@@ -159,12 +156,15 @@ IoT Edge automatically generates certificates on the device in several cases, in
 
 For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
-For these two automatically generated certificates, you have the option of setting the **auto_generated_ca_lifetime_days** flag in the config file to configure the number of days for the lifetime of the certificates.
+For these two automatically generated certificates, you have the option of setting a flag in the config file to configure the number of days for the lifetime of the certificates.
 
 >[!NOTE]
->There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 90 day lifetime, but is automatically renewed before expiring. The **auto_generated_ca_lifetime_days** value doesn't affect this certificate.
+>There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 90 day lifetime, but is automatically renewed before expiring. The auto-generated CA lifetime value set in the config file doesn't affect this certificate.
 
 Upon expiry after the specified number of days, IoT Edge has to be restarted to regenerate the device CA certificate. The device CA certificate won't be renewed automatically.
+
+<!-- 1.1. -->
+:::moniker range="iotedge-2018-06"
 
 1. To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config file.
 
