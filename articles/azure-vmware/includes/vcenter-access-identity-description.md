@@ -7,7 +7,7 @@ ms.date: 08/23/2021
 
 <!-- used in concepts-run-commands.md and tutorial-configure-identity-source.md -->
 
-In Azure VMware Solution, vCenter has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). In general, the CloudAdmin role creates and manages workloads in your private cloud. But in Azure VMware Solution, the CloudAdmin role has vCenter privileges that differ from other VMware cloud solutions.     
+In Azure VMware Solution, vCenter has a built-in local user called *cloudadmin* assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). In general, the CloudAdmin role creates and manages workloads in your private cloud. But in Azure VMware Solution, the CloudAdmin role has vCenter privileges that differ from other VMware cloud solutions.     
 
 - In a vCenter and ESXi on-premises deployment, the administrator has access to the vCenter administrator\@vsphere.local account. They can also have more AD users and groups assigned. 
 

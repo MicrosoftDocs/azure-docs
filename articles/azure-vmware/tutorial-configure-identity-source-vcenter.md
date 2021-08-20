@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 - Establish connectivity from your on-premises network to your private cloud.
 
-- If you have AD with SSL, download the certificate for AD authentication and upload it to an Azure Storage account as a blob storage.  You must [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md). 
+- If you have AD with SSL, download the certificate for AD authentication and upload it to an Azure Storage account as a blob storage.  You'll need to [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md). 
 
 - If you use FQDN, enable DNS resolution on your on-premises AD.
 
@@ -72,9 +72,9 @@ You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an exte
    | --- | --- |
    | **Name**  | User-friendly name of the external identity source. For example, **avslap.local**.  |
    | **DomainName**  | The FQDN of the domain.    |
-   | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the Active Directory domain as an alias of the identity source if you are using SSPI authentications.      |
+   | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the AD domain as an alias of the identity source if you're using SSPI authentications.      |
    | **PrimaryUrl**  | Primary URL of the external identity source. For example, **ldap://yourserver:389**.  |
-   | **SecondaryURL**  | Secondary fall-back URL if there is primary failure.  |
+   | **SecondaryURL**  | Secondary fall-back URL if there's primary failure.  |
    | **BaseDNUsers**  |  Where to look for valid users. For example, **CN=users,DC=yourserver,DC=internal**.  Base DN is needed to use LDAP Authentication.  |
    | **BaseDNGroups**  | Where to look for groups. For example, **CN=group1, DC=yourserver,DC= internal**. Base DN is needed to use LDAP Authentication.  |
    | **Credential**  | The username and password used for authentication with the AD source (not cloudadmin).  |
@@ -91,7 +91,9 @@ You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an exte
 
 You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter. 
 
-1. Make sure you've downloaded the certificate for AD authentication and uploaded it to an Azure Storage account as a blob storage.  You must [grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
+1. Download the certificate for AD authentication and upload it to an Azure Storage account as a blob storage.  
+
+1. [Grant access to Azure Storage resources using shared access signature (SAS)](../storage/common/storage-sas-overview.md).  
    
 1. Select **Run command** > **Packages** > **New-AvsLDAPSIdentitySource**.
 
@@ -101,9 +103,9 @@ You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with S
    | --- | --- |
    | **Name**  | User-friendly name of the external identity source. For example, **avslap.local**.  |
    | **DomainName**  | The FQDN of the domain.   |
-   | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the Active Directory domain as an alias of the identity source if you are using SSPI authentications.     |
+   | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the AD domain as an alias of the identity source if you're using SSPI authentications.     |
    | **PrimaryUrl**  | Primary URL of the external identity source. For example, **ldap://yourserver:389**.  |
-   | **SecondaryURL**  | Secondary fall-back URL if there is primary failure.  |
+   | **SecondaryURL**  | Secondary fall-back URL if there's primary failure.  |
    | **BaseDNUsers**  |  Where to look for valid users. For example, **CN=users,DC=yourserver,DC=internal**.  Base DN is needed to use LDAP Authentication.  |
    | **BaseDNGroups**  | Where to look for groups. For example, **CN=group1, DC=yourserver,DC= internal**. Base DN is needed to use LDAP Authentication.  |
    | **Credential**  | The username and password used for authentication with the AD source (not cloudadmin).  |
@@ -124,7 +126,7 @@ You'll run the `Add-GroupToCloudAdmins` cmdlet to add an existing AD group to cl
 
 1. Select **Run command** > **Packages** > **Add-GroupToCloudAdmins**.
 
-1. Provide the required values or change the The default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -144,7 +146,7 @@ You'll run the `Remove-GroupFromCloudAdmins` cmdlet to remove a specified AD gro
 
 1. Select **Run command** > **Packages** > **Remove-GroupFromCloudAdmins**.
 
-1. Provide the required values or change the The default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -166,7 +168,7 @@ You'll run the `Remove-ExternalIdentitySources` cmdlet to remove all existing ex
 
 1. Select **Run command** > **Packages** > **Remove-ExternalIdentitySources**.
 
-1. Provide the required values or change the The default values, and then select **Run**.
+1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -181,7 +183,7 @@ You'll run the `Remove-ExternalIdentitySources` cmdlet to remove all existing ex
 
 Now that you've learned about how to configure LDAP and LDAPS, you can learn more about:
 
-- [How to configure storage policy](tutorial-configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you perform other VM operations, such as cloning or migrating.
+- [How to configure storage policy](tutorial-configure-storage-policy.md) - Each VM deployed to a vSAN datastore is assigned at least one VM storage policy. You can assign a VM storage policy in an initial deployment of a VM or when you do other VM operations, such as cloning or migrating.
 
 - [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
 
