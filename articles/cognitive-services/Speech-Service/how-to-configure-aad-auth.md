@@ -48,7 +48,7 @@ An example of using Azure.Identity to get an AAD Token from an interactive brows
 ```c#
 TokenRequestContext context = new Azure.Core.TokenRequestContext(new string[] { "https://cognitiveservices.azure.com/.default" });
 InteractiveBrowserCredential browserCredential = new InteractiveBrowserCredential();
-var browserToekn = browserCredential.GetToken(context);
+var browserToken = browserCredential.GetToken(context);
 ```
 The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
