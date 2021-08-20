@@ -14,9 +14,11 @@ ms.date: 08/18/2021
 
 # blah
 
-When your Azure Machine Learning workspace and associated resources are secured in an Azure Virtual Network, it changes how network communication flows between resources. Without a virtual network, network traffic flows over the public internet or within an Azure data center. Once a virtual network (VNet) is introduced, it may restrict traffic and cause errors or unexpected behavior.
+When your Azure Machine Learning workspace and associated resources are secured in an Azure Virtual Network, it changes how network communication flows between resources. Without a virtual network, network traffic flows over the public internet or within an Azure data center. Once a virtual network (VNet) is introduced, you may also want to harden network security. For example, blocking inbound and outbound communications between the VNet and public internet.
 
-This article explains how network communication works with Azure Machine Learning when your workspace is in a VNet. It covers the following scenarios commonly used with Azure Machine Learning:
+However, Azure Machine Learning requires access to some resources on the public internet. For example, Azure Resource Management is used for deployments and management operations.
+
+This article lists the required inbound/outbound communication with the public internet. It also explains how network communication flows between your client development environment and a secured Azure Machine Learning workspace. It covers the following scenarios commonly used with Azure Machine Learning:
 
 * Using Azure Machine Learning studio to work with:
 
@@ -24,6 +26,9 @@ This article explains how network communication works with Azure Machine Learnin
     * AutoML
     * Designer
     * Datasets and datastores
+
+    > [!TIP]
+    > Azure Machine Learning studio is a web-based UI that runs partially in your web browser, and makes calls to Azure services to perform tasks such as training a model, using designer, or viewing datasets. Some of these calls use a different communication flow than if you are using the SDK, CLI, REST API, or VS Code.
 
 * Using Azure Machine Learning studio, SDK, CLI, or REST API to work with:
 
@@ -44,7 +49,21 @@ TODO: Figure out how to represent the table in the limited width of a doc.
 
 ## Scenario: Access workspace from studio
 
-The network communication pattern for accessing your workspace is different depending on whether you are using the Azure Machine Learning studio or using the SDK (including the CLI or REST API).
+> [!NOTE]
+> The information in this section is specific to using the workspace from the Azure Machine Learning studio. If you use the Azure Machine Learning SDK, REST API, CLI, or Visual Studio Code, the information in this section does not apply to you.
+
+When accessing your workspace from studio, the communication flows are as follows:
+
+* To authenticate to resources, traffic must be able to reach Azure Active Directory.
+* To perform management or deployment operations, traffic must be able to reach Azure Resource Manager.
+* To perform Azure Machine Learning specific tasks, traffic must be able to reach the Azure Machine Learning service and Azure Frontdoor.
+* For most storage operations, traffic flows through the private endpoint of the default storage for your workspace. Exceptions are discussed in the [Use AutoML, designer, dataset, and datastore]() section.
+
+You will also need a DNS solution that allows you to resolve the names of the resources within the VNet. For more information, see [Use your workspace with a custom DNS](how-to-custom-dns.md).
+
+
+
+
 
 ## Scenario: Use AutoML, designer, dataset, and datastore from studio
 
