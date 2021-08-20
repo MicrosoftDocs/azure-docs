@@ -183,6 +183,7 @@ Schedules can also be defined for [create on behalf of](#on-behalf) compute inst
 1. Select **Add schedule** again if you want to create another schedule.
 
 Once the compute instance is created, you can view, edit, or add new schedules from the compute instance details section.
+Please note timezone labels don't account for day light savings. For instance,  (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna is actually UTC+02:00 during day light savings.
 
 ### Create a schedule with a Resource Manager template
 
