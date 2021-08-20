@@ -228,7 +228,6 @@ Scale limitations are per private cloud.
 \* For information about Recovery Point Objective (RPO) lower than 15 minutes, see [How the 5 Minute Recovery Point Objective Works](https://docs.vmware.com/en/vSphere-Replication/8.3/com.vmware.vsphere.replication-admin.doc/GUID-9E17D567-A947-49CD-8A84-8EA2D676B55A.html) in the _vSphere Replication Administration guide_.
 
 
-For more information, see [Operational Limits of VMware Site Recovery](https://docs.vmware.com/en/VMware-Site-Recovery/services/com.vmware.srmaas.install_config.doc/GUID-D4EE4AE4-FF80-4355-977A-CF211EEC5E1F.html) 
 
 ## SRM licenses
 
