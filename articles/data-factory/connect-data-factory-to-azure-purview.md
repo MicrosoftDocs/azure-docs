@@ -14,7 +14,7 @@ ms.date: 08/10/2021
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-[Azure Purview](../purview/overview.md) is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. You can connect your data factory to Azure Purview. That connection allows you to use Azure Purview for capturing lineage data, as well as to discover and explore Azure Purview assets.
+[Azure Purview](../purview/overview.md) is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. You can connect your data factory to Azure Purview. That connection allows you to use Azure Purview for capturing lineage data, and to discover and explore Azure Purview assets.
 
 ## Connect Data Factory to Azure Purview
 

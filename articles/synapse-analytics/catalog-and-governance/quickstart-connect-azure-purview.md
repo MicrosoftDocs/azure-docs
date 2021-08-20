@@ -35,7 +35,7 @@ Go to [https://web.azuresynapse.net](https://web.azuresynapse.net) and sign 
 
 ## Connect an Azure Purview account  
 
-Follow the steps to connect an Purview account:
+Follow the steps to connect an Azure Purview account:
 
 1. In the Synapse workspace, go to **Manage** -> **Azure Purview**. Select **Connect to a Purview account**. 
 2. You can choose **From Azure subscription** or **Enter manually**. **From Azure subscription**, you can select the account that you have access to. 
@@ -43,7 +43,7 @@ Follow the steps to connect an Purview account:
 
 When connecting Synapse workspace with Purview, Synapse also tries to grant the Synapse workspace's managed identity **Purview Data Curator** role on your Purview account. Managed identity is used to authenticate lineage push operations from Synapse to Purview. If you have **Owner** or **User Access Administrator** role on the Purview account, this operation will be done automatically. If you see warning like the following, it means the needed role is not granted:
 
-:::image type="content" source="../../data-factory/media/data-factory-purview/register-purview-account-warning.png" alt-text="Screenshot for warning of registering a Purview account.":::
+:::image type="content" source="./media/register-purview-account-warning.png" alt-text="Screenshot for warning of registering a Purview account.":::
 
 To fix the issue, go to Azure portal -> your Purview account -> Access control (IAM), check if **Purview Data Curator** role is granted to the Synapse workspace's managed identity. Manually add the role assignment as needed.
 
