@@ -116,17 +116,17 @@ After you sign in, use the [az desktopvirtualization hostpool create](/cli/azure
 
 ```azurecli
 az desktopvirtualization hostpool create --name "MyHostPool" \
-    --resource-group "MyResourceGroup" \
+    --resource-group "MyResourceGroup" \ 
     --location "MyLocation" \
     --host-pool-type "Pooled" \
     --load-balancer-type "BreadthFirst" \
-    --personal-desktop-assignment-type "Automatic" \
-    --max-session-limit 999999 \
+    --max-session-limit 999 \
+    --personal-desktop-assignment-type "Automatic"  \
     --registration-info expiration-time="2022-03-22T14:01:54.9571247Z" registration-token-operation="Update" \
     --sso-context "KeyVaultPath" \
-    --tags tag1="value1" tag2="value2" \
-    --friendly-name "friendly name of this hostpool" \
-    --description "description of this hostpool" 
+    --description "Description of this host pool" \
+    --friendly-name "Friendly name of this host pool" \
+    --tags tag1="value1" tag2="value2" 
 ```
 
 If you want to create new virtual machines and register them to the new host pool, continue with the following section. If you've already created virtual machines and want to use them with the new host pool, jump to the [Workspace information](#workspace-information) section. 
@@ -217,12 +217,13 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the [az vm create](/cli/azure/vm#az_vm_create) command to create one or more new Azure virtual machines:
+Use the [az vm create](/cli/azure/vm#az_vm_create) command to create a new Azure virtual machine:
 
 ```azurecli
 az vm create --name "MyVMName" \
     --resource-group "MyResourceGroup" \
-    --count 3
+    --image "MyImage" \
+    --generate-ssh-keys
 ```
 
 For additional information on using the Azure CLI to create Azure virtual machines, see:
@@ -272,10 +273,9 @@ Use the [az desktopvirtualization workspace create](/cli/azure/desktopvirtualiza
 az desktopvirtualization workspace create --name "MyWorkspace" \
     --resource-group "MyResourceGroup" \
     --location "MyLocation" \
-    --application-group-references MyApplicationGroupID1 MyApplicationGroupID2 \
     --tags tag1="value1" tag2="value2" \
-    --friendly-name "friendly name of this workspace" \
-    --description "description of this workspace" 
+    --friendly-name "Friendly name of this workspace" \
+    --description "Description of this workspace" 
 ```
 ---
 

@@ -76,9 +76,9 @@ az desktopvirtualization hostpool create --name "MyHostPool" \
    --location "MyLocation" \
    --host-pool-type "Pooled" \
    --load-balancer-type "BreadthFirst" \
-   --max-session-limit 999999 \
+   --max-session-limit 999 \
    --personal-desktop-assignment-type "Automatic" \
-   --registration-info expiration-time="2020-10-01T14:01:54.9571247Z" registration-token-operation="Update" \
+   --registration-info expiration-time="2022-03-22T14:01:54.9571247Z" registration-token-operation="Update" \
    --sso-context "KeyVaultPath" \
    --description "Description of this host pool" \
    --friendly-name "Friendly name of this host pool" \

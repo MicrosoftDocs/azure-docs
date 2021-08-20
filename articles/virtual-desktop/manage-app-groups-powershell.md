@@ -121,7 +121,7 @@ To create a RemoteApp group with the Azure CLI:
       --resource-group "MyResourceGroup" \
       --location "MyLocation" \
       --application-group-type "RemoteApp" \
-      --host-pool-arm-path "/subscriptions/MySubscriptionGUID/resourceGroups/MyResourceGroup/providers/Microsoft.DesktopVirtualization/hostPools/MyHostPool"
+      --host-pool-arm-path "/subscriptions/MySubscriptionGUID/resourceGroups/MyResourceGroup/providers/Microsoft.DesktopVirtualization/hostpools/MyHostPool"
       --tags tag1="value1" tag2="value2" \
       --friendly-name "Friendly name of this application group" \
       --description "Description of this application group" 
@@ -131,7 +131,6 @@ To create a RemoteApp group with the Azure CLI:
 
    ```azurecli
    az desktopvirtualization applicationgroup list \
-      --filter "applicationGroupType eq 'RailApplication'" \
       --resource-group "MyResourceGroup"
    ```
 ---
