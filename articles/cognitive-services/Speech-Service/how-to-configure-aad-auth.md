@@ -24,7 +24,7 @@ This article shows how to use AAD authentication with the Speech SDK by followin
 4) Create the appropiate SDK configuration object.
 
 ## Create a Speech Resource
-For steps on creating a Speech Resource, see [Try Speech For Free](overview.md#try-the-speech-service-for-free)
+To create a Speech Resource, see [Try Speech For Free](overview.md#try-the-speech-service-for-free).
 
 ## Configure the Speech Resource for AAD Authentication
 
