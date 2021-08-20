@@ -62,7 +62,7 @@ If you've established an on-premises to Azure connection successfully and you ca
 
 ## Connect the developer box
 
-It is also possible to connect your developer box to SQL Managed Instance. In order to access it from your developer box via virtual network, you first need to make a connection between your developer box and the SQL Managed Instance virtual network. To do so, configure a point-to-site connection to a virtual network using native Azure certificate authentication. For more information, see  [Configure a point-to-site connection to connect to Azure SQL Managed Instance from an on-premises computer](point-to-site-p2s-configure.md).
+It is also possible to connect your developer box to SQL Managed Instance. In order to access it from your developer box via virtual network, you first need to make a connection between your developer box and the SQL Managed Instance virtual network. To do so, configure a point-to-site connection to a virtual network using native Azure certificate authentication. For more information, see [Configure a point-to-site connection to connect to Azure SQL Managed Instance from an on-premises computer](point-to-site-p2s-configure.md).
 
 For data access to your managed instance from outside a virtual network see [Configure public endpoint in Azure SQL Managed Instance](./public-endpoint-configure.md).
 
