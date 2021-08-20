@@ -207,7 +207,7 @@ Once the Azure AD Connect install has been verified and your pending exports are
 
 ![image shows edit enable api integration in Okta](./media/migrate-okta-sync-provisioning-to-azure-active-directory-connect-based-synchronization/edit-api-integration.png)
 
->[!NOTE\]
+>[!NOTE]
 >If you have multiple Office 365 apps handling provisioning to Azure AD, ensure that all are switched off.
 
 ### Step 6 - Disable staging mode in Azure AD Connect
