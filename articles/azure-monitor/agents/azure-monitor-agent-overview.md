@@ -30,9 +30,10 @@ When compared with the existing agents, this new agent doesn't yet have full par
 - **Comparison with Log Analytics agents (MMA/OMS):**
 	- Not all Log Analytics solutions are supported today. See [what's supported](#supported-services-and-features).
 	- No support for Azure Private Links.
-	- No support for collecting custom logs or IIS logs.
+	- No support for collecting file based logs or IIS logs.
 - **Comparison with Azure Diagnostics extensions (WAD/LAD):**
 	- No support for Event Hubs and Storage accounts as destinations.
+	- No support for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
 
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different from each other. Each method has challenges that are addressed with the Azure Monitor agent.
