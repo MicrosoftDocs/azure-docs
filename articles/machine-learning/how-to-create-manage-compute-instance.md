@@ -183,6 +183,7 @@ Schedules can also be defined for [create on behalf of](#on-behalf) compute inst
 1. Select **Add schedule** again if you want to create another schedule.
 
 Once the compute instance is created, you can view, edit, or add new schedules from the compute instance details section.
+Please note timezone labels don't account for day light savings. For instance,  (UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna is actually UTC+02:00 during day light savings.
 
 ### Create a schedule with a Resource Manager template
 
@@ -190,47 +191,47 @@ You can schedule the automatic start and stop of a compute instance by using a R
 
 ```json
 "schedules": {
-    "value": {
-    "computeStartStop": [
-        {
-        "TriggerType": "Cron",
-        "Cron": {
-            "StartTime": "2021-03-10T21:21:07",
-            "TimeZone": "Pacific Standard Time",
-            "Expression": "0 18 * * *"
-        },
-        "Action": "Stop",
-        "Status": "Enabled"
-        },
-        {
-        "TriggerType": "Cron",
-        "Cron": {
-            "StartTime": "2021-03-10T21:21:07",
-            "TimeZone": "Pacific Standard Time",
-            "Expression": "0 8 * * *"
-        },
-        "Action": "Start",
-        "Status": "Enabled"
-        },
-        { 
-        "triggerType": "Recurrence", 
-        "recurrence": { 
-            "frequency": "Day", 
-            "interval": 1, 
-            "timeZone": "Pacific Standard Time", 
-          "schedule": { 
-            "hours": [18], 
-            "minutes": [0], 
-            "weekDays": [ 
-                "Saturday", 
-                "Sunday"
-            ] 
-            } 
-        }, 
-        "Action": "Stop", 
-        "Status": "Enabled" 
-        } 
-    ]
+  "computeStartStop": [
+      {
+      "triggerType": "Cron",
+      "cron": {
+          "startTime": "2021-03-10T21:21:07",
+          "timeZone": "Pacific Standard Time",
+          "expression": "0 18 * * *"
+      },
+      "action": "Stop",
+      "status": "Enabled"
+      },
+      {
+      "triggerType": "Cron",
+      "cron": {
+          "startTime": "2021-03-10T21:21:07",
+          "timeZone": "Pacific Standard Time",
+          "expression": "0 8 * * *"
+      },
+      "action": "Start",
+      "status": "Enabled"
+      },
+      { 
+      "triggerType": "Recurrence", 
+      "recurrence": { 
+          "frequency": "Day", 
+          "interval": 1,
+          "timeZone": "Pacific Standard Time", 
+        "schedule": { 
+          "hours": [18], 
+          "minutes": [0], 
+          "weekDays": [ 
+              "Saturday", 
+              "Sunday"
+          ] 
+          } 
+      }, 
+      "action": "Stop", 
+      "status": "Enabled" 
+      } 
+  ]
+}
 ```
 
 * Action can have value of “Start” or “Stop”.
@@ -256,7 +257,7 @@ You can schedule the automatic start and stop of a compute instance by using a R
     // hyphen (meaning an inclusive range). 
     ```
 
-Use Azure policy to enforce a shutdown schedule exists for every compute instance in a subscription or default to a schedule if nothing exists.
+Use Azure Policy to enforce a shutdown schedule exists for every compute instance in a subscription or default to a schedule if nothing exists.
 
 ## <a name="setup-script"></a> Customize the compute instance with a script (preview)
 
@@ -313,7 +314,7 @@ You can also use the following environment variables in your script:
 3. CI_NAME
 4. CI_LOCAL_UBUNTU_USER. This points to azureuser
 
-You can use setup script in conjunction with Azure policy to either enforce or default a setup script for every compute instance creation.
+You can use setup script in conjunction with Azure Policy to either enforce or default a setup script for every compute instance creation.
 
 ### Use the script in the studio
 

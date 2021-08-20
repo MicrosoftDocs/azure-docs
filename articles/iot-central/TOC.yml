@@ -8,6 +8,8 @@
     href: core/overview-iot-central-tour.md
   - name: Recent updates
     items:
+    - name: July 2021 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-july-2021/
     - name: June 2021 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-june-2021/
     - name: May 2021 new and updated features
@@ -146,16 +148,6 @@
       href: core/overview-iot-central-operator.md
     - name: What are application templates?
       href: core/concepts-app-templates.md
-    - name: Industry specific application templates
-      items:
-      - name: Retail Overview
-        href: retail/overview-iot-central-retail.md
-      - name: Energy Overview
-        href: energy/overview-iot-central-energy.md
-      - name: Government Overview
-        href: government/overview-iot-central-government.md      
-      - name: Healthcare Overview
-        href: healthcare/overview-iot-central-healthcare.md
         
     - name: What are device templates?
       href: core/concepts-device-templates.md
@@ -216,8 +208,6 @@
           href: core/howto-create-custom-rules.md
         - name: Create custom analytics with Databricks
           href: core/howto-create-custom-analytics.md
-        - name: Visualize your data in Power BI
-          href: core/howto-connect-powerbi.md
         - name: Connect other IoT clouds
           href: core/howto-build-iotc-device-bridge.md
     - name: Use the REST API

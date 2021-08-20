@@ -12,6 +12,7 @@ ms.workload: identity
 ms.date: 03/09/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
+ms.custom: has-adal-ref
 ---
 
 # Support and help options for developers
