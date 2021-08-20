@@ -50,20 +50,20 @@ To quickly get started, select one of the Quickstart template that closely match
 
 - **JBoss EAP installation** - You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. This entitlement will let you download the Red Hat tested and certified JBoss EAP version.  If you don't have EAP entitlement, you can sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Once registered, you can find the necessary credentials (Pool IDs) at the [Red Hat Customer Portal](https://access.redhat.com/management/).
 
-- **RHEL options** - Choose between Pay-As-You-Go (PAYG) or Bring-Your-Own-Subscription (BYOS). With BYOS, you need to activate your [Red Hat Cloud Access](https://access.redhat.com/) [RHEL Gold Image](https://azure.microsoft.com/updates/red-hat-enterprise-linux-gold-images-now-available-on-azure/) before deploying the Marketplace  offer with solutions template. Follow [these instructions](https://access.redhat.com/documentation/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access) to enable RHEL Gold images for use on Microsoft Azure.
+- **RHEL options** - Choose between Pay-As-You-Go (PAYG) or Bring-Your-Own-Subscription (BYOS). With BYOS, you need to activate your [Red Hat Cloud Access](https://access.redhat.com/) [RHEL Gold Image](https://azure.microsoft.com/updates/red-hat-enterprise-linux-gold-images-now-available-on-azure/) before deploying the Marketplace  offer with solutions template. Follow [these instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide) to enable RHEL Gold images for use on Microsoft Azure.
 
 - **[Azure Command-Line Interface (CLI)](/cli/azure/overview)**.
 
 - **Java source code and [Java Development Kit (JDK) version](https://www.oracle.com/java/technologies/javase-downloads.html)**
 
-- **[Java application based on JBoss EAP 7.2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/development_guide/index#become_familiar_with_java_enterprise_edition_8)** or **[Java application based on JBoss EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html-single/development_guide/index#get_started_developing_applications)**.
+- **[Java application based on JBoss EAP 7.2](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2html-single/development_guide/index#become_familiar_with_java_enterprise_edition_8)** or **[Java application based on JBoss EAP 7.3](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.3/html-single/development_guide/index#get_started_developing_applications)**.
 
-**RHEL options** - Choose between PAYG or BYOS. For BYOS, you will need to activate your [Red Hat Cloud Access](https://access.redhat.com/documentation/red_hat_subscription_management/1/html-single/red_hat_cloud_access_reference_guide/index) RHEL Gold Image for you use the Azure Marketplace offer. BYOS offers will appear in the Private Offer section in the Azure portal. 
+**RHEL options** - Choose between PAYG or BYOS. For BYOS, you will need to activate your [Red Hat Cloud Access](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index) RHEL Gold Image for you use the Azure Marketplace offer. BYOS offers will appear in the Private Offer section in the Azure portal. 
 
 **Product versions**
 
-* [JBoss EAP 7.2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/)
-* [JBoss EAP 7.3](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/)
+* [JBoss EAP 7.2](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2)
+* [JBoss EAP 7.3](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3)
 * [RHEL 7.7](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux77-ARM)
 * [RHEL 8.0](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RedHatEnterpriseLinux80-ARM)
 
@@ -157,7 +157,7 @@ If your application uses any databases, you need to capture the following inform
 * What is the connection pool configuration?
 * Where can I find the Java Database Connectivity (JDBC) driver JAR file?
 
-For more information, see [About JBoss EAP DataSources](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/html/configuration_guide/datasource_management) in the JBoss EAP documentation.
+For more information, see [About JBoss EAP DataSources](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3html/configuration_guide/datasource_management) in the JBoss EAP documentation.
 
 ### Determine whether and how the file system is used
 
@@ -216,20 +216,20 @@ Please refer to the getting started with Azure Marketplace section to evaluate y
 
 There are tools that can assist you in Migration :
 
-* [Red Hat Application Migration Toolkit to Analyze Applications for Migration](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/migration_guide/index#use_windup_to_analyze_applications_for_migration).
-* [JBoss Server Migration Tool to Migrate Server Configurations](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/migration_guide/index#migration_tool_server_migration_tool)
+* [Red Hat Application Migration Toolkit to Analyze Applications for Migration](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/migration_guide/index#use_windup_to_analyze_applications_for_migration).
+* [JBoss Server Migration Tool to Migrate Server Configurations](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/migration_guide/index#migration_tool_server_migration_tool)
 
-To migrate your server configuration from the older JBoss EAP version to the newer JBoss EAP version, you can either use the [JBoss Server Migration Tool](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/migration_guide/index#migrate_server_migration_tool_option) or you can perform a manual migration with the help of the [management CLI migrate operation](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/migration_guide/index#migrate__migrate_operation_option).
+To migrate your server configuration from the older JBoss EAP version to the newer JBoss EAP version, you can either use the [JBoss Server Migration Tool](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/migration_guide/index#migrate_server_migration_tool_option) or you can perform a manual migration with the help of the [management CLI migrate operation](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html/migration_guide/index#migrate__migrate_operation_option).
 
 ### Run Red Hat Application Migration Toolkit
 
 You can [run the JBoss Server Migration Tool in Interactive Mode](https://access.redhat.com/documentation/en/red_hat_jboss_enterprise_application_platform/7.2/html-single/using_the_jboss_server_migration_tool/index#migration_tool_server_run_interactive_mode). By default, the JBoss Server Migration Tool runs interactively. This mode allows you to choose exactly which server configurations you want to migrate.
 
-You can also [run the JBoss Server Migration Tool in Non-interactive Mode](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/using_the_jboss_server_migration_tool/index#migration_tool_server_run_noninteractive_mode). This mode allows it to run without prompts.
+You can also [run the JBoss Server Migration Tool in Non-interactive Mode](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/using_the_jboss_server_migration_tool/running_the_server_migration_tool#migration_tool_server_run_noninteractive_mode). This mode allows it to run without prompts.
 
 ### Review the result of JBoss server migration toolkit execution
 
-When the migration is complete, review the migrated server configuration files in the *EAP_HOME/standalone/configuration/* and *EAP_HOME/domain/configuration/* directories. For more information, visit [Reviewing the Results of JBoss Server Migration Tool Execution](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/html-single/using_the_jboss_server_migration_tool/index#migration_tool_server_results).
+When the migration is complete, review the migrated server configuration files in the *EAP_HOME/standalone/configuration/* and *EAP_HOME/domain/configuration/* directories. For more information, visit [Reviewing the Results of JBoss Server Migration Tool Execution](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/using_the_jboss_server_migration_tool/running_the_server_migration_tool#migration_tool_server_results).
 
 ### Expose the application
 
