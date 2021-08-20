@@ -18,7 +18,7 @@ Azure Synapse Analytics Data Explorer is a fast, fully managed data analytics se
 This article describes the steps to create a Data Explorer pool in a Synapse workspace by using Synapse Studio.
 
 > [!IMPORTANT]
-> Billing for Data Explorer instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Data Explorer instance after you have finished using it, or set a short timeout. For more information, see the **Clean up resources** section of this article.
+> Billing for Data Explorer instances is prorated per minute, whether you are using them or not. Be sure to shutdown your Data Explorer instance after you have finished using it, or set a short timeout. For more information, see **Clean up resources**.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 
@@ -36,6 +36,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 1. Navigate to the Synapse workspace where the Data Explorer pool will be created by typing the service name (or resource name directly) into the search bar.
 
     ![Azure portal search bar with Synapse workspaces typed in.](../media/quickstart-create-sql-pool/create-sql-pool-00a.png)
+
 1. From the list of workspaces, type the name (or part of the name) of the workspace to open. For this example, we'll use a workspace named **contosoanalytics**.
 
     ![Listing of Synapse workspaces filtered to show those containing the name Contoso.](../media/quickstart-create-sql-pool/create-sql-pool-00b.png)
@@ -78,19 +79,18 @@ From the workspace overview, select the **Workspace web URL** to open Synapse St
     > [!IMPORTANT]
     > Note that there are specific limitations for the names that Data Explorer pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.
 
-1. In the next tab (**Additional settings**), leave all settings as defaults.
+1. Select **Next: additional settings** and review the default settings. Leave all te default settings.
+1. Select **Next: tags**. Don't add any tags.
+1. Select **Review + create**.
+1. Review the detail making sure they are correct, and then select **Create**.
 
-1. We won't add any tags for now, so select **Review + create**.
-
-1. In the **Review + create** tab, make sure that the details look correct based on what was previously entered, and press **Create**.
+    The Data Explorer pool will start the provisioning process.
 
     ![Create Synapse Studio new Data Explorer pool](media/create-data-explorer-pool-studio.png)
 
     **TODO: REPLACE IMAGE**
 
-1. The Data Explorer pool will start the provisioning process.
-
-1. Once the provisioning is complete, the new Data Explorer pool will appear in the list.
+1. Once the provisioning is complete, navigate back to the workspace and verify that the new Data Explorer pool appears in the list.
 
     ![Synapse Studio new Data Explorer pool list](media/create-data-explorer-pool-studio.png)
 
@@ -98,21 +98,21 @@ From the workspace overview, select the **Workspace web URL** to open Synapse St
 
 ## Clean up Data Explorer pool resources using Synapse Studio
 
-Follow the steps below to delete the Data Explorer pool from the workspace using Synapse Studio.
+Use the following steps to delete the Data Explorer pool from the workspace using the Azure portal.
+
 > [!WARNING]
-> Deleting a data-explorer pool will remove the analytics engine from the workspace. It will no longer be possible to connect to the pool, and all queries, pipelines, and notebooks that use this data-explorer pool will no longer work.
+> Deleting a data-explorer pool will remove the analytics engine from the workspace. It will no longer be possible to connect to the pool, and all queries, pipelines, and notebooks that use the deleted pool will no longer work.
 
 If you want to delete the Data Explorer pool, do the following:
 
-1. Navigate to the Data Explorer pools in the Management Hub in Synapse Studio.
-1. Select the ellipsis next to the Apache pool to be deleted (in this case, **contosodataexplorer**) to show the commands for the Data Explorer pool.
+1. Navigate to the Data Explorer pools in the Management Hub in the Azure portal.
+1. To remove the Data Explorer pool (in this case, **contosodataexplorer**), select **More [...]** > **Delete**.
 
     ![Listing of Data Explorer pools, with the recently created pool selected.](media/create-data-explorer-pool-studio.png)
 
     **TODO: REPLACE IMAGE**
 
-1. Press **delete**.
-1. Confirm the deletion, and press **Delete** button.
-1. When the process completes successfully, the Data Explorer pool will no longer be listed in the workspace resources.
+1. To confirm the deletion, select **Delete**.
+1. Once the process completes successfully, verify that the pool no longer appears in the list.
 
 ## Next steps
