@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 08/20/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
@@ -39,8 +39,7 @@ Object replication requires that the following Azure Storage features are also e
 
 Enabling change feed and blob versioning may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
-Object replication is supported only for general-purpose v2 storage accounts. Both the source and destination accounts must be general-purpose v2.
-Also there are no plans to support Append blobs currently. Unlike block blobs (with Versioning enabled), these blob mutate/get-modified and doesn't fit the criteria for Object Replication.
+Object replication is supported only for general-purpose v2 storage accounts. Both the source and destination accounts must be general-purpose v2. Object replication supports block blobs only; append blobs and page blobs are not supported. Unlike block blobs (with Versioning enabled), these blobs mutate/get-modified and don't fit the criteria for Object Replication.
 
 ## How object replication works
 
