@@ -58,17 +58,17 @@ After the secondary is created and seeded, data begins replicating from the prim
 # [Portal](#tab/portal)
 
 1. In the [Azure portal](https://portal.azure.com), browse to the database that you want to set up for geo-replication.
-2. On the SQL Database page, select your database, scroll to **Data management**, select **Replicas**, and then select **Create replica**. You can select any region other than the region hosting the primary database, but we recommend the [paired region](../../best-practices-availability-paired-regions.md).
+2. On the SQL Database page, select your database, scroll to **Data management**, select **Replicas**, and then select **Create replica**.
 
     :::image type="content" source="./media/active-geo-replication-configure-portal/azure-cli-create-geo-replica.png" alt-text="Configure geo-replication":::
 
-3. Select or create the server for the secondary database, and configure the **Compute + storage** options if necessary.
+3. Select or create the server for the secondary database, and configure the **Compute + storage** options if necessary. You can select any region for your secondary server other than the region hosting the primary database, but we recommend the [paired region](../../best-practices-availability-paired-regions.md).
 
     :::image type="content" source="./media/active-geo-replication-configure-portal/azure-portal-create-and-configure-replica.png" alt-text="{alt-text}":::
 
     Optionally, you can add a secondary database to an elastic pool. To create the secondary database in a pool, select **Yes** next to **Want to use SQL elastic pool?** and select a pool on the target server. A pool must already exist on the target server. This workflow doesn't create a pool.
 
-4. Click **Review + create**, review the information, and then click **Create** to add the secondary.
+4. Click **Review + create**, review the information, and then click **Create**.
 5. The secondary database is created and the deployment process begins.
 
     :::image type="content" source="./media/active-geo-replication-configure-portal/azure-portal-geo-replica-deployment.png" alt-text="Screenshot that shows the deployment status of the secondary database.":::
@@ -102,9 +102,9 @@ az sql db replica create --resource-group ContosoHotel --server contosoeast --na
 
 Optionally, you can add a secondary database to an elastic pool. To create the secondary database in a pool, use the `--elastic-pool` parameter. A pool must already exist on the target server. This workflow doesn't create a pool.
 
-The secondary database is created and the seeding process begins.
+The secondary database is created and the deployment process begins.
 
-When the seeding process is complete, you can check the status of the secondary database by running the [az sql db replica list-links](/cli/azure/sql/db/replica#az_sql_db_replica_list-links) command:
+When the deployment is complete, you can check the status of the secondary database by running the [az sql db replica list-links](/cli/azure/sql/db/replica#az_sql_db_replica_list-links) command:
     
 ```azurecli
 az sql db replica list-links --name guestlist --resource-group ContosoHotel --server contosowest
