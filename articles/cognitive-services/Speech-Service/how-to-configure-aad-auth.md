@@ -11,7 +11,6 @@ ms.topic: conceptual
 ms.date: 06/18/2021
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
-ROBOTS: NOINDEX
 ---
 # Using Azure Active Directory Authentication with the Speech SDK
 
@@ -80,7 +79,7 @@ The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone pivot="programming-language-java"
 To get an AAD token in Java, use the [Azure Identy Client Library](/java/api/overview/azure/identity-readme).
 
-An example of using Azure.Identity to get an AAD Token from an interactive browser:
+An example of using Azure.Identity to get an AAD Token from a browser:
 ```java
 TokenRequestContext context = new TokenRequestContext();
 context.addScopes("https://cognitiveservices.azure.com/.default");
