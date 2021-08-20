@@ -31,7 +31,7 @@ Go to Azure portal > **Reservations**.
 
 ## If you don't renew
 
-Your services continue to run normally. You're charged pay-as-you-go rates for your usage after the reservation expires.
+Your services continue to run normally. You're charged pay-as-you-go rates for your usage after the reservation expires. If the reservation was not set for automatic renewal before expiration, you cannot renew an epired reservation and you can continue to receive savings by purchasing a new reservation.
 
 ## Required renewal permissions
 
