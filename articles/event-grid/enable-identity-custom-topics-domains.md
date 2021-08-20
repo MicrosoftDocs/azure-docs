@@ -6,7 +6,7 @@ ms.date: 08/19/2021
 ---
 
 # Assign a managed identity to an Event Grid custom topic or domain 
-This article shows you how to assign a system-assigned identity or a user-assigned identity to an Event Grid custom topic or a domain. To learn about managed identities, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+This article shows you how to assign a system-assigned or a user-assigned identity to an Event Grid custom topic or a domain. To learn about managed identities, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Enable identity when creating a topic or domain
 
@@ -14,7 +14,7 @@ This article shows you how to assign a system-assigned identity or a user-assign
 You can assign a system-assigned identity or a user-assigned identity to a custom topic or domain while creating it in the Azure portal. 
 
 ### Enable system-assigned identity
-On the **Advanced** tab of of the topic or domain creation wizard, select **Enable system assigned identity**. 
+On the **Advanced** tab of the topic or domain creation wizard, select **Enable system assigned identity**. 
 
 :::image type="content" source="./media/managed-service-identity/create-topic-identity.png" alt-text="Image showing the Enable system assigned identity option selected.":::
 
@@ -36,6 +36,8 @@ Similarly, you can use the `az eventgrid domain create` command to create a doma
 
 > [!NOTE]
 > Azure CLI doesn't support assigning a user-assigned managed identity to an Event Grid topic or a domain yet. 
+
+---
 
 ## Enable identity for an existing custom topic or domain
 In this section, you learn how to enable a system-assigned identity or a user-assigned identity for an existing custom topic or domain. 
@@ -79,6 +81,8 @@ The command for updating an existing domain is similar (`az eventgrid domain upd
 
 > [!NOTE]
 > Azure CLI doesn't support assigning a user-assigned managed identity to an Event Grid topic or a domain yet. 
+
+---
 
 ## Next steps
 Add the identity to an appropriate role (for example, Service Bus Data Sender) on the destination (for example, a Service Bus queue). For detailed steps, see [Grant managed identity the access to Event Grid destination](add-identity-roles.md). 
