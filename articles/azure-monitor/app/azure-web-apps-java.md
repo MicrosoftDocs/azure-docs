@@ -17,7 +17,7 @@ The recommended way to enable application monitoring for Java application runnin
 
 ### Auto-instrumentation through Azure portal
 
-This method requires no code change or advanced configurations. For Azure App Services, this is the easiest way to get the monitoring started. You can apply additional configurations, and then based on your specific scenario you can evaluate whether more advanced monitoring through [manual instrumentation](https://docs.microsoft.com/azure/azure-monitor/app/java-2x-get-started?tabs=maven) is needed.
+This method requires no code change or advanced configurations. For Azure App Services, this is the easiest way to get the monitoring started. You can apply additional configurations, and then based on your specific scenario you can evaluate whether more advanced monitoring through [manual instrumentation](./java-2x-get-started.md) is needed.
 
 ### Enable backend monitoring
 
