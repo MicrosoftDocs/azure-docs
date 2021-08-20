@@ -825,4 +825,4 @@ If you plan to continue working on and exploring the device client sample, don't
 To learn how to enroll your X.509 device programmatically:
 
 > [!div class="nextstepaction"]
-> [Azure quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-java.md)
+> [Azure quickstart - Enroll X.509 devices to Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509.md)
