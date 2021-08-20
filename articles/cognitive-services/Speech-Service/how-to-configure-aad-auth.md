@@ -307,7 +307,7 @@ The DialogServiceConnector is not currently supported in Python
 ::: zone-end
 
 ### VoiceProfileClient
-To use the VoiceProfileClient with AAD Authentication the custom domain name created above is used.
+To use the VoiceProfileClient with AAD Authentication, use the custom domain name created above.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
