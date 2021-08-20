@@ -8,16 +8,16 @@ ms.author: rhurey
 ---
 
 
-Use the following instructions to create a [custom subdomain name for Cognitive Services](../../../cognitive-services-custom-subdomains.md) for your Speech resource.
+Follow these steps to create a [custom subdomain name for Cognitive Services](../../../cognitive-services-custom-subdomains.md) for your Speech resource.
 
-> [!WARNING]
+> [!CAUTION]
 > When you turn on a custom domain name, the operation is [not reversible](../../../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). The only way to go back to the [regional name](../../../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints) is to create a new Speech resource.
 >
 > If your Speech resource has a lot of associated custom models and projects created via [Speech Studio](https://speech.microsoft.com/), we strongly recommend trying the configuration with a test resource before you modify the resource used in production.
 
 # [Azure portal](#tab/portal)
 
-To create a custom domain name by using the Azure portal, follow these steps:
+To create a custom domain name using the Azure portal, follow these steps:
 
 1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
 1. Select the required Speech resource.
@@ -54,7 +54,7 @@ Before you proceed, run `Connect-AzAccount` to create a connection with Azure.
 Check whether the custom domain that you want to use is available. 
 The following code confirms that the domain is available by using the [Check Domain Availability](/rest/api/cognitiveservices/accountmanagement/checkdomainavailability/checkdomainavailability) operation in the Cognitive Services REST API.
 
-> [!TIP]
+> [!NOTE]
 > The following code will *not* work in Azure Cloud Shell.
 
 ```azurepowershell
@@ -99,7 +99,7 @@ subdomainName        : my-custom-name
 
 To turn on a custom domain name for the selected Speech resource, use the [Set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount) cmdlet.
 
-> [!WARNING]
+> [!CAUTION]
 > After the following code runs successfully, you'll create a custom domain name for your Speech resource. Remember that this name *cannot* be changed.
 
 ```azurepowershell
@@ -165,13 +165,13 @@ If the name is already taken, then you'll see the following response:
 
 To use a custom domain name with the selected Speech resource, use the [az cognitiveservices account update](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_update) command.
 
-Select the Azure subscription that contains the Speech resource. If your Azure account has only one active subscription, you can skip this step. Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with your Azure subscription ID.
+(If your Azure account has only one active subscription, you can skip this step.) Select the Azure subscription that contains the Speech resource. Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with your Azure subscription ID.
 ```azurecli-interactive
 az account set --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 Set the custom domain name to the selected resource. Replace the sample parameter values with the actual ones and run the following command.
 
-> [!WARNING]
+> [!CAUTION]
 > After successful execution of the following command, you'll create a custom domain name for your Speech resource. Remember that this name *cannot* be changed.
 
 ```azurecli
