@@ -55,15 +55,7 @@
     - name: Group enrollment using X.509 Certificate Attestation
       href: quick-enroll-device-x509.md
     - name: Individual device enrollment using TPM attestation
-      items:
-      - name: Java
-        href: quick-enroll-device-tpm-java.md
-      - name: C#
-        href: quick-enroll-device-tpm-csharp.md
-      - name: Node.js
-        href: quick-enroll-device-tpm-node.md
-      - name: Python
-        href: quick-enroll-device-tpm-python.md
+      href: quick-enroll-device-tpm.md
 - name: Concepts
   items:
   - name: DPS terminology
