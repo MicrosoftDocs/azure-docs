@@ -34,7 +34,7 @@ To follow these procedures, you need:
 
 For example, when you restart your app, you can find the affected instances from the **Activity log** detail page in the Azure portal.
 
-![Azure portal screenshot of restart details in the activity log](media/monitor-app-lifecycle-events/activity-log-restart-detail.png)
+:::image type="content" source="media/monitor-app-lifecycle-events/activity-log-restart-detail.png" lightbox="media/monitor-app-lifecycle-events/activity-log-restart-detail.png" alt-text="Azure portal screenshot of restart details in the activity log":::
 
 ## Monitor app lifecycle events in Azure Service Health
 
@@ -44,21 +44,22 @@ For example, when you restart your app, you can find the affected instances from
 
 When your app is restarted because of unplanned events such as app crash, health check failure, or system outage, the status of your Azure Spring Cloud instance will become degraded in the **Resource health** section of the Azure portal. Degraded means that your resource detected a loss in performance, although it's still available for use.
 
-![Screenshot of the resource health pane](media/monitor-app-lifecycle-events/resource-health-detail.png)
+:::image type="content" source="media/monitor-app-lifecycle-events/resource-health-detail.png" alt-text="Screenshot of the resource health pane":::
 
 You can find the latest status, the root cause, and affected instances in the health history page.
 
-![Screenshot of example logs for unplanned app lifecycle events](media/monitor-app-lifecycle-events/unplanned-app-lifecycle-event-details.png)
+:::image type="content" source="media/monitor-app-lifecycle-events/unplanned-app-lifecycle-event-details.png" lightbox="media/monitor-app-lifecycle-events/unplanned-app-lifecycle-event-details.png" alt-text="Screenshot of example logs for unplanned app lifecycle events":::
+
 
 ### Monitor planned app lifecycle events
 
 Your app may be restarted during platform maintenance. You can receive the maintenance notification from the **Planned maintenance** page of Azure Service Health in advance.
 
-![Screenshot of an example notification for planned maintenance](media/monitor-app-lifecycle-events/planned-maintenance-notification.png)
+:::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-notification.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-notification.png" alt-text="Screenshot of an example notification for planned maintenance":::
 
 When the platform maintenance happens, the status of your Azure Spring Cloud instance will become degraded too. Azure Spring Cloud perform a rolling update to incrementally update your applications if restarting is needed during platform maintenance. Rolling updates are designed to update your workloads without downtime. You can find the latest status in the health history page.
 
-![Screenshot of an example log for planned maintenance in progress](media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png)
+:::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" alt-text="Screenshot of an example log for planned maintenance in progress":::
 
 ## Set up alerts
 
@@ -75,13 +76,13 @@ The following steps show you how to create an activity log alert rule in the Azu
 
 1. Navigate to **Activity log**, open the detail page for any activity log, then select **New alert rule**.
 
-![Screenshot of an activity log alert](media/monitor-app-lifecycle-events/activity-log-alert.png)
+   :::image type="content" source="media/monitor-app-lifecycle-events/activity-log-alert.png" lightbox="media/monitor-app-lifecycle-events/activity-log-alert.png" alt-text="Screenshot of an activity log alert":::
 
 2. Select the **Scope** for the alert.
 
 3. Specify the alert **Condition**.
 
-![Screenshot of an activity log alert condition](media/monitor-app-lifecycle-events/activity-log-alert-condition.png)
+   :::image type="content" source="media/monitor-app-lifecycle-events/activity-log-alert-condition.png" lightbox="media/monitor-app-lifecycle-events/activity-log-alert-condition.png" alt-text="Screenshot of an activity log alert condition":::
 
 4. Select **Actions** and add **Alert rule details**.
 
@@ -93,15 +94,15 @@ The following steps show you how to create an alert rule for service health noti
 
 1. Navigate to **Resource health** under **Service Health**, then select **Add resource health alert**.
 
-![Screenshot of the resource health pane with the "Add resource health alert" button highlighted](media/monitor-app-lifecycle-events/add-resource-health-alert.png)
+   :::image type="content" source="media/monitor-app-lifecycle-events/add-resource-health-alert.png" alt-text="Screenshot of the resource health pane with the 'Add resource health alert' button highlighted":::
 
 2. Select the **Resource** for the alert.
 
-![Screenshot of a resource health alert target](media/monitor-app-lifecycle-events/resource-health-alert-target.png)
+   :::image type="content" source="media/monitor-app-lifecycle-events/resource-health-alert-target.png" alt-text="Screenshot of a resource health alert target":::
 
 3. Specify the **Alert condition**.
 
-![Screenshot of a resource health alert condition](media/monitor-app-lifecycle-events/resource-health-alert-condition.png)
+   :::image type="content" source="media/monitor-app-lifecycle-events/resource-health-alert-condition.png" alt-text="Screenshot of a resource health alert condition":::
 
 4. Select the **Actions** and add **Alert rule details**.
 
@@ -113,11 +114,11 @@ The following steps show you how to create an alert rule for planned maintenance
 
 1. Navigate to **Health alerts** under **Service Health**, then select **Add service health alert**.
 
-![Screenshot of the health alerts pane with the "Add service health alert" button highlighted](media/monitor-app-lifecycle-events/add-service-health-alert.png)
+   :::image type="content" source="media/monitor-app-lifecycle-events/add-service-health-alert.png" alt-text="Screenshot of the health alerts pane with the 'Add service health alert' button highlighted":::
 
 2. Provide values for **Subscription**, **Service(s)**, **Region(s)**, **Event type**, **Actions**, and **Alert rule details**.
 
-![Screenshot of the "Create rule alert" pane for Service Health](media/monitor-app-lifecycle-events/add-service-health-alert-details.png)
+   :::image type="content" source="media/monitor-app-lifecycle-events/add-service-health-alert-details.png" lightbox="media/monitor-app-lifecycle-events/add-service-health-alert-details.png" alt-text="Screenshot of the 'Create rule alert' pane for Service Health":::
 
 3. Click **Create alert rule**.
 
