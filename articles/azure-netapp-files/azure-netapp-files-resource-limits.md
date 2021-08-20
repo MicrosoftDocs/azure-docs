@@ -91,33 +91,39 @@ You can increase the maxfiles limit to 500 million if your volume quota is at le
 
 ## Regional capacity quota
 
-Azure NetApp Files has a regional limit based on capacity. The standard capacity limit for each subscription is 25 TiB per region, across all service levels.   
+This section explains how to display the regional capacity quota and how to request an increase.
 
-You can request a capacity increase by submitting a specific **Service and subscription limits (quotas)** support ticket as follows:
+### Displaying quota information 
 
-1. Go to **Support + Troubleshooting** in the portal to start the Support request process:  
+The **Quota** under Settings display general quota information:
 
-    ![Screenshot that shows the Support Troubleshooting menu.](../media/azure-netapp-files/support-troubleshoot-menu.png)   
+![Screenshot that shows how to display quota information.](../media/azure-netapp-files/quota-display.png)
 
-2.	Select the **Service and subscription limits (quotas)** issue type and enter all relevant details:
+### Requesting regional capacity quota increase  
 
-    ![Screenshot that shows the Service and Subscription Limits menu.](../media/azure-netapp-files/service-subscription-limits-menu.png)   
+You can submit a support request for an increase of a regional capacity quota without incurring additional cost. The support request you submit will be sent to the Azure capacity management team for processing. You will receive a response typically within 2 business days. The Azure capacity management team might contact you in case of large requests.  
 
-3. Click the **Enter details** link in the Details tab, then select the **TiBs per subscription** quota type:   
+A regional capacity quota increase does not incur a billing increase. Billing is still based on the provisioned capacity pools.
+For example, if you currently have 25 TiB of provisioned capacity, you can request a quota increase to 35 TiB.  Within two business days, your quota increase will be applied to the requested region. When the quota increase is applied, you still pay for only the current provisioned capacity (25 TiB). But when you actually provision the additional 10 TiB, you will be billed for 35 TiB.
 
-    ![Screenshot that shows the Enter Details link in Details tab.](../media/azure-netapp-files/support-details.png)   
+Note that the current [resource limits](#resource-limits) for Azure NetApp Files are not changing. You will still be able to provision a 500 TiB capacity pool. But before doing so, the regional capacity quota needs to be increased to 500 TiB.
 
-    ![Screenshot that shows the Quota Details window.](../media/azure-netapp-files/support-quota-details.png)   
+To request an increase of a regional capacity quota:
 
-4.  On the Support Method page, make sure to select **Severity Level B – Moderate impact**:  
+1. Go to **New Support Request** under **Support + Troubleshooting**.
+1. Under the **Problem Description** tab, provide the requested information.
+1. Under the **Additional details** tab, click **Enter details** in the Request Details field.  
 
-    ![Screenshot that shows the Support Method window.](../media/azure-netapp-files/support-method-severity.png)   
+    ![Screenshot that shows the Details tab and the Enter Details field.](../media/azure-netapp-files/quota-additional-details.png)
 
-5. Complete the request process to issue the request. 
- 
-After the ticket is submitted, the request will be sent to the Azure capacity management team for processing. You will receive a response typically within 2 business days. The Azure capacity management team might contact you for handling of large requests.
- 
-A regional capacity quota increase does not incur a billing increase. Billing will still be based on the provisioned capacity pools.
+1. In the Quota Details tab that appears:
+    1. For Quota Type, select **Regional Capacity Quota per Subscription (TiB)**.
+    1. In Region Requested, select your region.   
+        Quota State displays the current and default size.
+    1. Enter a value to request an increase for regional capacity quota.
+    
+    ![Screenshot that shows how to display and request increase for regional quota.](../media/azure-netapp-files/quota-details-regional-request.png)
+
 
 ## Request limit increase <a name="limit_increase"></a> 
 
