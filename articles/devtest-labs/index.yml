@@ -40,7 +40,8 @@ landingContent:
             url: tutorial-create-custom-lab.md 
           - text: Access a lab
             url: tutorial-use-custom-lab.md 
-       - linkListType: learn
+      - linkListType: learn
+        links:       
           - text: Intro to DevTest Labs
             url: /learn/modules/intro-to-azure-devtest-labs/
   - title: Artifacts
