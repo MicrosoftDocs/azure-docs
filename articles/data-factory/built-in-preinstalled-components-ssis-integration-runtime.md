@@ -16,6 +16,13 @@ ms.date: 05/14/2020
 
 This article lists all built-in and preinstalled components, such as clients, drivers, providers, connection managers, data sources/destinations/transformations, and tasks on SSIS Integration Runtime (IR) in Azure Data Factory (ADF).  To provision SSIS IR in ADF, follow the instructions in [Provision Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md).
 
+## OS and .NET Framework on Azure-SSIS IR
+
+| Name | Version |
+|------|---------|
+| **Windows** | Windows Server 2019 |
+| **.NET Framework** | 4.7.2 |
+
 ## Built-in and preinstalled clients, drivers, and providers on Azure-SSIS IR
 
 | Type | Name - Version - Platform |

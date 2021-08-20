@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 04/27/2021
+ms.date: 08/18/2021
 ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
 ---
 
@@ -72,7 +72,7 @@ The training code is taken from [this introductory example](https://pytorch.org/
 
     Create a *train.py* script in the **src** subfolder:
 
-     ```python
+    ```python
     import torch
     import torch.optim as optim
     import torchvision
