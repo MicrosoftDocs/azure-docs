@@ -18,26 +18,25 @@ API Management occasionally upgrades its compute platform - the underlying compu
 
 | Version | Description | Architecture | API Management tiers |
 | -------| ----------| ----------- | ------- |
+| **Stv2** | Single-tenant v2 | [Virtual machine scale sets](../virtual-machine-scale-sets/overview.md) | Developer, Basic, Standard, and Premium |
 | **Stv1** |  Single-tenant v1 | [Cloud Service (classic)](../cloud-services/cloud-services-choose-me.md) | Developer, Basic, Standard, and Premium |
 | **Mtv1** | Multi-tenant v1 |  [App service](../app-service/overview.md) | Consumption only |
-| **Stv2** | Single-tenant v2 | [Virtual machine scale sets](../virtual-machine-scale-sets/overview.md) | Developer, Basic, Standard, and Premium |
 
-Currently, only certain features such as [zone redundancy](zone-redundancy.md) (Premium SKU) and some [virtual network options](virtual-network-concepts.md) require the **Stv2** platform.
 
 ## How do I know which platform hosts my API Management instance?
 
 ### Developer, Basic, Standard, and Premium tiers
 
-* Instances created or updated using the Azure portal after **April 2021**, or using the API Management REST API version **2021-01-01-preview** or later, are hosted on the Stv2 platform
-* If you enabled [zone redundancy](zone-redundancy.md) in your Premium tier instance, it's hosted on the Stv2 platform
-* Otherwise, the instance is hosted on the Stv1 platform
+* Instances created or updated using the Azure portal after **April 2021**, or using the API Management REST API version **2021-01-01-preview** or later, are hosted on the **Stv2** platform
+* If you enabled [zone redundancy](zone-redundancy.md) in your Premium tier instance, it's hosted on the **Stv2** platform
+* Otherwise, the instance is hosted on the **Stv1** platform
 
 > [!TIP]
-> Starting with API version 2021-04-01-preview, the API Management instance has a read-only `platformVersion` property that shows this platform information. 
+> Starting with API version 2021-04-01-preview, the API Management instance has a read-only `PlatformVersion` property that shows this platform information. 
 
 ### Consumption tier
 
-* All instances are hosted on the Mtv1 platform
+* All instances are hosted on the **Mtv1** platform
 
 ## How do I update to the Stv2 platform? 
 
