@@ -275,9 +275,10 @@ This error may occur if the export/import/download request was not initiated fro
   
 To resolve this error, retry the import/export/download operation from a client residing in a virtual network that is connected to Azure over a private link. You can open the Azure portal in your on-premises network or your appliance VM and retry the operation. 
 
-**Option 2** 
+**Option 2**:
 
 The import/export/download request makes a connection to a storage account for uploading/downloading reports. You can also change the networking settings of the storage account used for the import/export/download operation and allow access to the storage account via other networks (public networks).  
+
 To set up the storage account for public endpoint connectivity,
 
 1. **Locate the storage account**: The storage account name is available on the Azure Migrate: Discovery and Assessment properties page. The storage account name will have the suffix of **usa**. 
