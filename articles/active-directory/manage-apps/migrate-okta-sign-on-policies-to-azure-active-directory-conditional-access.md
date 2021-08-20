@@ -104,8 +104,6 @@ Enabling hybrid Azure AD join can be done on your Azure AD Connect server by run
 
 4. You can either allow the entire legacy authentication stack through for all Windows clients or contact Okta support to enable their custom client string on your existing app policies.
 
-![image shows hybrid azure ad join in okta](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/hybrid-azure-ad-join.png)
-
 #### Configure device compliance
 
 While hybrid Azure AD join is direct replacement for Okta device trust on Windows, CA policies can also look at device compliance for devices that have fully enrolled into Microsoft Endpoint Manager.
@@ -167,7 +165,7 @@ practices for deploying and designing CA](https://docs.microsoft.com/azure/activ
 
 ![image shows testing user](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/test-user.png)
 
-![image shows success in testing user](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/success-testing-user.png)
+![image shows success in testing user](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/success-test-user.png)
 
 6. After you configured the location-based policy, and device
 trust policy, its time to configure the equivalent [**Block legacy authentication**](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy) policy.
