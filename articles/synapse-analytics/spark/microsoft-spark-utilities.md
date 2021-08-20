@@ -200,7 +200,7 @@ Use mssparkutils.fs.help("methodName") for more info about a method.
 
 ```
 
-### List files
+### List fileszz
 List the content of a directory.
 
 
@@ -451,7 +451,7 @@ FS.Rm("file path", true) // Set the last parameter as True to remove all files a
 
 :::zone pivot = "programming-language-python"
 
-## Notebook utilities 
+## Notebook utilities
 
 You can use the MSSparkUtils Notebook Utilities to run a notebook or exit a notebook with a value. 
 Run the following command to get an overview of the available methods:
@@ -537,7 +537,7 @@ Sample1 run success with input is 20
 
 :::zone pivot = "programming-language-scala"
 
-## Notebook utilities 
+## Notebook utilities
 
 You can use the MSSparkUtils Notebook Utilities to run a notebook or exit a notebook with a value. 
 Run the following command to get an overview of the available methods:
