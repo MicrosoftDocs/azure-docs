@@ -15,7 +15,7 @@ ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
 ---
 
-# How to: Configure terms of service and privacy statement for an app
+# Configure terms of service and privacy statement for an app
 
 Developers who build and manage multi-tenant apps that integrate with Azure Active Directory (Azure AD) and Microsoft accounts should include links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. They help your users know that they can trust your app. The terms of service and privacy statement are especially critical for user-facing multi-tenant apps--apps that are used by multiple directories or are available to any Microsoft account.
 
