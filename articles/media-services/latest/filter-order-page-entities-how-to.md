@@ -14,7 +14,7 @@ ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
 ---
 
-# Filtering, ordering, and paging of Media Services entities
+# Filtering, ordering, and paging entities
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
