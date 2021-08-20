@@ -206,6 +206,12 @@ When the creation process finishes, you train your model by using the cluster in
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
+### Inbound traffic
+
+[!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
+
+For more information on input and output traffic requirements for Azure Machine Learning, see [Use a workspace behind a firewall](how-to-access-azureml-behind-firewall.md).
+
 ## Azure Databricks
 
 For specific information on using Azure Databricks with a virtual network, see [Deploy Azure Databricks in your Azure Virtual Network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
