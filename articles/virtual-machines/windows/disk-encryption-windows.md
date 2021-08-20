@@ -255,7 +255,7 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
 > [!WARNING]
 > Disabling data disk encryption when both the OS and data disks have been encrypted can have unexpected results. Disable encryption on all disks instead.
 >
-> Disabling encryption will start a background process of Bitlocker to decrypt the disks. This process should be given sufficient time to complete before attempting to any re-enable encryption.  
+> Disabling encryption will start a background process of BitLocker to decrypt the disks. This process should be given sufficient time to complete before attempting to any re-enable encryption.  
 
 - **Disable disk encryption with Azure PowerShell:** To disable the encryption, use the [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet.
 
