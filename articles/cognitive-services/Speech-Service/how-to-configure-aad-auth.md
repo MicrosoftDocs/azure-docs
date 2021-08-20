@@ -12,22 +12,22 @@ ms.date: 06/18/2021
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
 ---
-# Using Azure Active Directory Authentication with the Speech SDK
+# Azure Active Directory Authentication with the Speech SDK
 
 When using the Speech SDK to access the Speech service, there are three authentication methods available: service keys, a key-based token, and Azure Active Directory (AAD). This article describes how to configure the Speech resource and create a Speech SDK configuration object to use AAD for authentication.
 
-To use AAD authentication with the Speech SDK there are four steps:
+This article shows how to use AAD authentication with the Speech SDK by following four steps:
 1) Create a Speech Resource
 2) Configure the Speech Resource for AAD Authentication
 3) Get an AAD token
 4) Create the appropiate SDK configuration object.
 
 ## Create a Speech Resource
-For steps on creating a Speech Resource, see [Try Speech For Free](overview.md#try-the-speech-service-for-free)
+To create a Speech Resource, see [Try Speech For Free](overview.md#try-the-speech-service-for-free).
 
 ## Configure the Speech Resource for AAD Authentication
 
-To configure the Speech Resource to be usable for AAD Authentication there are two steps needed:
+Follow these steps to configure the Speech Resource to be usable for AAD Authentication:
 1) Create a Custom Domain Name
 2) Assign Roles
 
@@ -37,7 +37,7 @@ To configure the Speech Resource to be usable for AAD Authentication there are t
 ### Assign Roles
 AAD Authentication requires that the correct roles be assigned to the AAD user or application, for Speech Resources, either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* roles must be assigned.
 
-You can assign roles to the user or application using the [Azure portal](/azure/role-based-access-control/role-assignments-portal) or [PowerShell](/azure/role-based-access-control/role-assignments-powershell) 
+You can assign roles to the user or application using the [Azure portal](/azure/role-based-access-control/role-assignments-portal) or [PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ## Get an AAD token
 ::: zone pivot="programming-language-csharp"
@@ -47,7 +47,7 @@ An example of using Azure.Identity to get an AAD Token from an interactive brows
 ```c#
 TokenRequestContext context = new Azure.Core.TokenRequestContext(new string[] { "https://cognitiveservices.azure.com/.default" });
 InteractiveBrowserCredential browserCredential = new InteractiveBrowserCredential();
-var browserToekn = browserCredential.GetToken(context);
+var browserToken = browserCredential.GetToken(context);
 ```
 The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
@@ -105,7 +105,7 @@ aadToken = ibc.get_token("https://cognitiveservices.azure.com/.default")
 ::: zone-end
 
 ::: zone pivot="programming-language-more"
-More samples for acquiring an AAD token can be found [here](/azure/active-directory/develop/sample-v2-code).
+Find samples that get an AAD token in [Microsoft identity platform code samples](/azure/active-directory/develop/sample-v2-code).
 
 For programming languages where an Azure Identity client is not available, you can directly [request an OAuth token](/azure/active-directory/develop/v2-oauth-ropc).
 ::: zone-end
@@ -127,7 +127,7 @@ To get the resource ID in the Azure portal:
 
 # [PowerShell](#tab/powershell)
 
-To retrieve the Resource ID using PowerShell, confirm that your computer has PowerShell version 7.x or later with the Azure PowerShell module version 5.1.0 or later. To see the versions of these tools, follow these steps:
+To get the Resource ID using PowerShell, confirm that your computer has PowerShell version 7.x or later with the Azure PowerShell module version 5.1.0 or later. To see the versions of these tools, follow these steps:
 
 1. In a PowerShell window, enter:
 
@@ -141,7 +141,7 @@ To retrieve the Resource ID using PowerShell, confirm that your computer has Pow
 
     If nothing appears, or if that version of the Azure PowerShell module is earlier than 5.1.0, follow the instructions at [Install the Azure PowerShell module](/powershell/azure/install-Az-ps) to upgrade.
 
-Before you proceed, run `Connect-AzAccount` to create a connection with Azure.
+Now run `Connect-AzAccount` to create a connection with Azure.
 
 
 ```azurepowershell
@@ -162,13 +162,13 @@ $resourceId = resource.Id
 ***
 
 ## Create the Speech SDK configuration object
-With an AAD Token, you can now create the appropiate Speech SDK configuration object.
+With an AAD token, you can now create the appropriate Speech SDK configuration object.
 
 The method of providing the token, and the method to construct the corresponding Speech SDK Config object varies by the object you'll be using.
 
 ### SpeechRecognizer, IntentRecognizer, ConversationTranscriber & SpeechSynthizer
 
-For these objects the authorization token is built from the Resource ID and the AAD Token and then used to create a SpeechConfig object.
+For these objects, build the authorization token from the Resource ID and the AAD Token and then use it to create a SpeechConfig object.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
@@ -215,7 +215,7 @@ speechConfig = SpeechConfig(auth_token=speechToken, region=region)
 
 ### TranslationRecognizer
 
-For the TranslationRecognizer the authorization token is built from the Resource ID and the AAD Token and then used to create a SpeechTranslationConfig object.
+For the TranslationRecognizer, build the authorization token from the Resource ID and the AAD Token and then use it to create a SpeechTranslationConfig object.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
@@ -262,7 +262,7 @@ translationConfig = SpeechTranslationConfig(auth_token=speechToken, region=regio
 
 ### DialogServiceConnector
 
-For the DialogServiceConnection the authorization token is built from the Resource ID and the AAD Token and then used to create a CustomCommandsConfig or a BotFrameworkConfig object.
+For the DialogServiceConnection, build the authorization token from the Resource ID and the AAD Token and then use it to create a CustomCommandsConfig or a BotFrameworkConfig object.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
@@ -306,7 +306,7 @@ The DialogServiceConnector is not currently supported in Python
 ::: zone-end
 
 ### VoiceProfileClient
-To use the VoiceProfileClient with AAD Authentication the custom domain name created above is used.
+To use the VoiceProfileClient with AAD Authentication, use the custom domain name created above.
 
 ::: zone pivot="programming-language-csharp"
 ```C#
