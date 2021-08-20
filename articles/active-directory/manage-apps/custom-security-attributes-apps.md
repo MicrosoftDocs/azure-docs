@@ -70,7 +70,7 @@ To assign or remove custom security attributes for an application in your Azure 
 
     - For freeform, single-valued custom security attributes, update the value in the Assigned values box.
     - For predefined custom security attribute values, select a value from the Assigned values list.
-    - For multi-valued custom security attributes, select <number> values to open the Attribute values pane and update your values. When finished updating values, select Done.
+    - For multi-valued custom security attributes, select &lt;number&gt; values to open the Attribute values pane and update your values. When finished updating values, select Done.
 
 1. When finished updating all your custom security attribute assignment values, select Save.
 

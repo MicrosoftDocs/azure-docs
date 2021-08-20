@@ -122,10 +122,10 @@ Azure AD provides built-in roles to work with custom security attributes. The At
 > [!div class="mx-tableFixed"]
 > | Role | Permissions |
 > | --- | --- |
-> | Attribute Definition Administrator | Manage attribute sets in the catalog<br/>Manage security attribute definitions |
 > | Attribute Definition Reader | Read attribute set in the catalog<br/>Read security attribute definitions |
-> | Attribute Assignment Administrator | Read attribute set in the catalog<br/>Read security attribute definitions<br/>Read security attributes values for devices<br/>Manage security attributes values for devices<br/>Read security attributes values for service principals<br/>Manage security attributes values for service principals<br/>Read security attributes values for users<br/>Manage security attributes values for users |
+> | Attribute Definition Administrator | Manage attribute sets in the catalog<br/>Manage security attribute definitions |
 > | Attribute Assignment Reader | Read attribute set in the catalog<br/>Read security attribute definitions<br/>Read security attributes values for devices<br/>Read security attributes values for service principals<br/>Read security attributes values for users |
+> | Attribute Assignment Administrator | Read attribute set in the catalog<br/>Read security attribute definitions<br/>Read security attributes values for devices<br/>Manage security attributes values for devices<br/>Read security attributes values for service principals<br/>Manage security attributes values for service principals<br/>Read security attributes values for users<br/>Manage security attributes values for users |
 
 > [!IMPORTANT]
 > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) do not have permissions to read or manage custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
