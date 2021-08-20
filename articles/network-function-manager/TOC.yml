@@ -26,7 +26,6 @@
   - name: SDK for Python
     href: https://pypi.org/project/azure-mgmt-hybridnetwork/1.0.0/
 - name: Resources
-  expanded: true
   items:
   - name: Network Function Manager product page
     href: https://go.microsoft.com/fwlink/?linkid=2166098
