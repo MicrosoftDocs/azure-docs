@@ -15,7 +15,7 @@ This article discusses and lists the categories and industries available to choo
 
 ## Category and industry listings by offer type
 
-Microsoft AppSource and Azure Marketplace are two different storefronts that serve different customer personas. Your offer will be published to Microsoft AppSource or Azure Marketplace depending on the category/subcategory selection, the offer t,ype and transaction capabilities. 
+Microsoft AppSource and Azure Marketplace are two different storefronts that serve different customer personas. Your offer will be published to Microsoft AppSource or Azure Marketplace depending on the category/subcategory selection, the offer type, and transaction capabilities. 
 
 Following are the categories and industries applicable to each online stores, by offer:
 
