@@ -11,7 +11,7 @@ ms.date: 08/20/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: rogoya
+ms.reviewer: lvandenende
 
 ms.collection: M365-identity-device-management
 
