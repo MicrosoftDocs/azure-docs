@@ -253,19 +253,19 @@ For now, we do not support [WebHook-Request-Rate](https://github.com/cloudevents
 ### Connection manager
 
 The server is by nature an authorized user. With the help of the *event handler role*, the server knows the metadata of the clients, for example, `connectionId` and `userId`, so it can:
-   1. Close a client connection
-   1. Send messages to a client
-   1. Send messages to clients that belong to the same user
-   1. Add a client to a group
-   1. Add clients authed as the same user to a group
-   1. Remove a client from a group
-   1. Remove clients authed as the same user from a group
-   1. Publish messages to a group
+   - Close a client connection
+   - Send messages to a client
+   - Send messages to clients that belong to the same user
+   - Add a client to a group
+   - Add clients authed as the same user to a group
+   - Remove a client from a group
+   - Remove clients authed as the same user from a group
+   - Publish messages to a group
 
 It can also grant or revoke publish/join permissions for a PubSub client:
-   1. Grant Join/Publish permissions to some specific group or to all groups
-   1. Revoke Join/Publish permissions for some specific group or for all groups
-   3. Check if the client has permission to Join/Publish to some specific group or to all groups
+   - Grant Join/Publish permissions to some specific group or to all groups
+   - Revoke Join/Publish permissions for some specific group or for all groups
+   - Check if the client has permission to Join/Publish to some specific group or to all groups
    
 For public preview, the service provides REST APIs for the server to do connection management:
 

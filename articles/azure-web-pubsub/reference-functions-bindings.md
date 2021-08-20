@@ -49,7 +49,7 @@ func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub -
 
 ## Key concepts
 
-![function-workflow](./media/reference-functions-bindings/functions_workflow.png)
+![Diagram showing the workflow of Azure Web PubSub service working with Function Apps.](./media/reference-functions-bindings/functions-workflow.png)
 
 (1)-(2) `WebPubSubConnection` input binding with HttpTrigger to generate client connection.
 
