@@ -83,7 +83,7 @@ The following steps show you how to create an activity log alert rule in the Azu
 
 4. Select **Actions** and add **Alert rule details**.
 
-5. Select **Create alert rule**.
+5. Click **Create alert rule**.
 
 ### Set up alerts to monitor app lifecycle events in Azure Service Health
 
@@ -103,9 +103,7 @@ The following steps show you how to create an alert rule for service health noti
 
 4. Select the **Actions** and add **Alert rule details**.
 
-![Screenshot of resource health alert actions and rule details](media/monitor-app-lifecycle-events/resource-health-alert-actions-and-rule-details.png)
-
-5. Select **Create alert rule**.
+5. Click **Create alert rule**.
 
 ### Set up alerts to monitor the planned maintenance notification
 
@@ -119,7 +117,7 @@ The following steps show you how to create an alert rule for planned maintenance
 
 ![Screenshot of the "Create rule alert" pane for Service Health](media/monitor-app-lifecycle-events/add-service-health-alert-details.png)
 
-3. Select **Create alert rule**.
+3. Click **Create alert rule**.
 
 ## Next steps
 
