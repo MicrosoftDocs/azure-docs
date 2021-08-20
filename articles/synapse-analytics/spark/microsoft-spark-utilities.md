@@ -200,7 +200,7 @@ Use mssparkutils.fs.help("methodName") for more info about a method.
 
 ```
 
-### List fileszz
+### List files
 List the content of a directory.
 
 
