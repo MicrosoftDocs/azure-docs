@@ -26,21 +26,7 @@ Migrating federation to Azure Active Directory (AD) can be done in a staged mann
 - Configure Azure AD Connect server or Azure AD connect cloud provisioning agents for user provisioning to
 Azure AD.
 
-## High-level migration tasks
-
-1. [Configure Azure AD Connect for authentication](#step-1---configure-azure-ad-connect-for-authentication)
-
-2. [Configure staged rollout features](#step-2---configure-staged-rollout-features)
-
-3. [Create Okta app in Azure AD](#step-3---create-okta-app-in-azure-ad)
-
-4. [Test Okta app access on pilot members](#step-4---test-okta-app-access-on-pilot-members)
-
-5. [Test managed Authentication on pilot members](#step-5---test-managed-authentication-on-pilot-members)
-
-6. [Remove federation for Office 365 domains](#step-6---remove-federation-for-office-365-domains)
-
-### Step 1 - Configure Azure AD Connect for authentication
+## Step 1 - Configure Azure AD Connect for authentication
 
 Customers who have federated their Office 365 domains with Okta may not currently have a valid authentication method configured in Azure AD. Before migrating to managed authentication, Azure AD Connect should be validated and configured with one of the following options to allow user sign-in.
 
@@ -59,7 +45,7 @@ Ensure that you deploy all necessary pre-requisites of Seamless SSO to your end 
 
 For our example, we'll be configuring Password hash sync and Seamless SSO.
 
-#### Configure Azure AD Connect for password hash synchronization and seamless SSO
+### Configure Azure AD Connect for password hash synchronization and seamless SSO
 
 Follow these steps to configure Azure AD Connect for Password hash synchronization:
 
@@ -93,7 +79,7 @@ Follow these steps to enable Seamless SSO:
 
 ![image shows reconfigure device options](media/migrate-okta-federation-to-azure-active-directory/reconfigure-device-options.png)
 
-### Step 2 - Configure staged rollout features
+## Step 2 - Configure staged rollout features
 
 [Staged rollout of cloud authentication](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) is a feature of Azure AD that can be used to test de-federating users before de-federating an entire
 domain. Before the deployment review the [pre-requisites](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout#prerequisites).
@@ -128,7 +114,7 @@ The staged rollout feature have some unsupported scenarios, they are as follows:
 
 - If you have configured hybrid Azure AD join for use with Okta, all of the hybrid Azure AD join flows will still go to Okta until the domain has been de-federated. A sign-on policy should remain in Okta that allows Legacy authentication for Hybrid Azure AD join windows clients.
 
-### Step 3 - Create Okta app in Azure AD
+## Step 3 - Create Okta app in Azure AD
 
 Users that are converted to managed authentication may still have
 applications in Okta that they need to access, to allow the users easy access to those applications. Learn how to configure an Azure AD application registration that links to the Okta home page for users.
@@ -238,7 +224,7 @@ authentication tab, followed by **Add a platform** and **Web**.
 
 26. After saving the user attributes, attempt to sign in as the modified user to [Microsoft 356 portal](https://portal.office.com). You'll notice it loops if your user isn't a part of the Managed Authentication pilot. To have the users exit the loop, add them to the Managed Authentication experience.
 
-### Step 4 - Test Okta app access on pilot members
+## Step 4 - Test Okta app access on pilot members
 
 After configuring the Okta app in Azure AD and the Identity Provider in the Okta portal, you must assign the application to users.
 
@@ -258,7 +244,7 @@ Authentication Pilot users and access [Myapplications](https://myapplications.mi
 
 4. Once authenticated, there will be an **Okta Application Access** tile, that will link the user back to the Okta homepage.
 
-### Step 5 - Test-managed authentication on pilot members
+## Step 5 - Test-managed authentication on pilot members
 
 After configuring the Okta reverse federation app, have your users conduct full testing on the Managed authentication experience. Its recommended to set up Company branding to help your users distinguish the proper tenant they are signing into. Get [guidance](https://docs.microsoft.com/azure/active-directory/fundamentals/customize-branding) for setting up company branding.
 
@@ -266,7 +252,7 @@ After configuring the Okta reverse federation app, have your users conduct full 
 >Determine any additional Conditional Access Policies
 that may be needed before de-federating the domains as a whole from Okta. Refer to **Okta sign-on policies to Azure AD Conditional Access migration for steps to secure your environment prior to full cut-off**.
 
-### Step 6 - Remove federation for Office 365 domains
+## Step 6 - Remove federation for Office 365 domains
 
 Once your organization is comfortable with the Managed authentication experience, its time to de-federate your domain from Okta. To accomplish this connect to the MSOnline PowerShell with the following commands- if you don't already have the MSOnline PowerShell module, you can download it first by doing an install-module MSOnline.
 
