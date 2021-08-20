@@ -21,7 +21,7 @@ This method requires no code change or advanced configurations. For Azure App Se
 
 ### Enable backend monitoring
 
-You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. Application Insights for Java is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows - code-based apps. It is important to know how your application will be monitored. The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get all the telemetry that it auto-collects.
+You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. Application Insights for Java is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows - code-based apps. It is important to know how your application will be monitored. The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get the telemetry auto-collected.
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 
@@ -34,7 +34,11 @@ You can turn on monitoring for your Java apps running in Azure App Service just 
 
     >[!div class="mx-imgBorder"]
     >![Instrument your web app.](./media/azure-web-apps/ai-create-new.png)
-2. This step is not required. After specifying which resource to use, you can configure the Java agent. If you do not configure the Java agent, default configurations will apply. The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid json file. **Exclude the connection string and any configurations that are in preview** - you will be able to add those as they become generally available.
+2. This step is not required. After specifying which resource to use, you can configure the Java agent. If you do not configure the Java agent, default configurations will apply. 
+
+    The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid [json file](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#an-example). **Exclude the connection string and any configurations that are in preview** - you will be able to add the items that are currently in preview as they become generally available.
+
+    Once you modify the configurations through Azure portal, APPLICATIONINSIGHTS_CONFIGURATION_FILE environment variable will automatically be populated and will appear in App Service settings panel. This variable will contain the full json content that you have pasted in Azure portal configutation text box for your Java app. 
 
     > [!div class="mx-imgBorder"]
     > ![Choose options per platform.](./media/azure-web-apps/create-app-service-ai.png)
@@ -50,7 +54,8 @@ In order to enable telemetry collection with Application Insights, only the foll
 |App setting name |  Definition | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Controls runtime monitoring | `~2` for Windows or `~3` for Linux |
-|XDT_MicrosoftApplicationInsights_Java |  Flag to control that Java agent is included | 0 or 1 only applicable in Windows. 
+|XDT_MicrosoftApplicationInsights_Java |  Flag to control that Java agent is included | 0 or 1 only applicable in Windows
+|APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL | Only use it if you need to debug the integration of Application Insights with App Service | debug
 
 > [!div class="mx-imgBorder"]
 > ![App Service Application Settings with available Application Insights settings](./media/azure-web-apps/application-settings-java.png)
@@ -72,6 +77,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
     > [!div class="mx-imgBorder"]
     > ![Screenshot of https://yoursitename.scm.azurewebsites results page](./media/azure-web-apps/app-insights-java-status.png)
 1. After enabling application monitoring for your Java app, you can validate that the agent is working by looking at the live metrics - even before you deploy and app to App Service you will see some requests from the environment. Please remember that the full set of telemetry will only be available when you have your app deployed and running. 
+1. Set APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL environment variable to 'debug' if you do not see any errors and there is no telemetry
 
 
 [!INCLUDE [azure-web-apps-footer](./includes/azure-web-apps-footer.md)]
