@@ -1,14 +1,14 @@
 ---
 title: Find a Microsoft 365 product GUID in Partner Center
 description: Find the GUID for a Microsoft 365 product in Partner Center.
-ms.author: mingshen
-ms.date: 11/25/2020
 localization_priority: Normal
+ms.author: mingshen
+ms.date: 08/20/2021
 ---
 
 # Find a Microsoft 365 product GUID in Partner Center
 
-Follow these steps to find a GUID that identifies a product in Partner Center that’s been published to the Microsoft 365 Store. Independent software vendors, use the GUID to get reports on the Microsoft 365 product.
+Follow these steps to find a GUID that identifies a product in Partner Center that is published to the Microsoft 365 Store. Independent software vendors, use the GUID to get reports on the Microsoft 365 product.
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home). You can use the same username and password you use to manage Office Store products.
 1. On the leftmost side of the page, under **Office Store**, select **Overview**.
