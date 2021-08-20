@@ -60,7 +60,7 @@ The sample project contains two media files. A video file, and a logo image to o
 
 In this sample, we first create a custom Transform that can overlay the image on top of the video in the CreateCustomTransform method.  Using the *[Filters](/rest/api/media/transforms/create-or-update#filters)* property of the *[StandardEncoderPreset](/rest/api/media/transforms/create-or-update#standardencoderpreset)*, we assign a new Filters collection that contains the video overlay settings.
 
-A [VideoOverlay](/rest/api/media/transforms/create-or-update#videooverlay) contains a property that is used to map from the list of input files submitted into the job to match the right input source file to be used as the overlay image or video.  When submitting the job this same label name is used to match up to the setting here in the Transform. In the sample we are using the label name of "logo" as seen in the string constant *OverlayLabel*.
+A [VideoOverlay](/rest/api/media/transforms/create-or-update#videooverlay) contains a property called *InputLabel* that is required to map from the list of job input files submitted into the job and locate the right input source file intended for use as the overlay image or video.  When submitting the job this same label name is used to match up to the setting here in the Transform. In the sample we are using the label name of "logo" as seen in the string constant *OverlayLabel*.
 
 The following code snippet shows how the Transform is formatted to use an overlay.
 
