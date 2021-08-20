@@ -43,7 +43,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **validate_password and caching_sha2_password plugin available in private preview**
 
-Flexible Server now supports enabling validate_password and caching_sha2_password plugins in private preview. Please email [Ask Azure DB for MySQL](AskAzureDBforMySQL@service.microsoft.com)
+  Flexible Server now supports enabling validate_password and caching_sha2_password plugins in private preview. Please email [Ask Azure DB for MySQL](AskAzureDBforMySQL@service.microsoft.com)
 
 - **Availability in four additional Azure regions**
 
