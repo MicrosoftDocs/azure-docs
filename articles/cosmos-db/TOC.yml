@@ -36,7 +36,7 @@
           displayName: RUs, RU     
           href: request-units.md
         - name: Convert vcores to request units
-          href: tutorial-vcore-pricing.md                 
+          href: convert-vcore-to-request-unit.md                 
         - name: Provisioned throughput
           displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
           href: set-throughput.md
