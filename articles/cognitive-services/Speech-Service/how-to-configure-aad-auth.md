@@ -163,7 +163,7 @@ $resourceId = resource.Id
 ***
 
 ## Create the Speech SDK configuration object
-With an AAD Token, you can now create the appropiate Speech SDK configuration object.
+With an AAD token, you can now create the appropriate Speech SDK configuration object.
 
 The method of providing the token, and the method to construct the corresponding Speech SDK Config object varies by the object you'll be using.
 
