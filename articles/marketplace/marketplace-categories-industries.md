@@ -13,7 +13,28 @@ ms.date: 08/20/2021
 
 This article discusses and lists the categories and industries available to choose from when creating an offer in Partner Center for our two different online stores: Microsoft AppSource or Azure Marketplace.
 
-## Combining offer types
+## Category and industry listings by offer type
+
+Microsoft AppSource and Azure Marketplace are two different storefronts that serve different customer personas. Your offer will be published to Microsoft AppSource or Azure Marketplace depending on the category/subcategory selection, the offer t,ype and transaction capabilities. 
+
+Following are the categories and industries applicable to each online stores, by offer:
+
+| Offer type | Categories for Azure Marketplace | Categories for AppSource | Industries for AppSource |
+| :------------------- |:----------------:|:------:|:-------------:|
+| Azure Application     | &#x2714; |   |   |
+| Azure Container       | &#x2714; |   |   |
+| Azure Virtual Machine | &#x2714; |   |   |
+| IoT Edge Module | &#x2714;  |  |  |
+| Managed service | &#x2714; |  |  |
+| SaaS | &#x2714; | &#x2714; | &#x2714; |
+| Consulting Service    | &#x2714; |   | &#x2714; |
+| Dynamics 365 Customer Engagement & Power Apps | | &#x2714; | &#x2714; |
+| Dynamics 365 for Operations | | &#x2714; | &#x2714; |
+| Dynamics 365 business central | | &#x2714; | &#x2714; |
+| Power BI app | | &#x2714; | &#x2714; |
+|
+
+## Applicable store by offer type
 
 Following are the combinations of options applicable to each online stores:
 
