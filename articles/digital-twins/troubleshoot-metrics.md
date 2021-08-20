@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Troubleshooting Azure Digital Twins: Metrics
 
-The metrics described in this article give you information about the state of Azure Digital Twins resources in your Azure subscription. Azure Digital Twins metrics help you assess the overall health of Azure Digital Twins service and the resources connected to it. These user-facing statistics help you see what is going on with your Azure Digital Twins and help perform root-cause analysis on issues without needing to contact Azure support.
+The metrics described in this article give you information about the state of Azure Digital Twins resources in your Azure subscription. Azure Digital Twins metrics help you assess the overall health of Azure Digital Twins service and the resources connected to it. These user-facing statistics help you see what is going on with your Azure Digital Twins and help analyze the root-causes of issues without needing to contact Azure support.
 
 Metrics are enabled by default. You can view Azure Digital Twins metrics from the [Azure portal](https://portal.azure.com).
 
@@ -54,12 +54,12 @@ The following tables describe the metrics tracked by each Azure Digital Twins in
 
 You can configure these metrics to track when you're approaching a [published service limit](reference-service-limits.md#functional-limits) for some aspect of your solution. 
 
-To set this up, use the [alerts](troubleshoot-alerts.md) feature in Azure Monitor. You can define thresholds for these metrics so that you receive an alert when a metric reaches a certain percentage of its published limit.
+To set up tracking, use the [alerts](troubleshoot-alerts.md) feature in Azure Monitor. You can define thresholds for these metrics so that you receive an alert when a metric reaches a certain percentage of its published limit.
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| TwinCount | Twin Count (Preview) | Count | Total | Total number of twins in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of twins allowed per instance. |  None |
-| ModelCount | Model Count (Preview) | Count | Total | Total number of models in the Azure Digital Twins instance. Use this metric to determine if you are approaching the [service limit](reference-service-limits.md#functional-limits) for max number of models allowed per instance. | None |
+| TwinCount | Twin Count (Preview) | Count | Total | Total number of twins in the Azure Digital Twins instance. Use this metric to determine if you're approaching the [service limit](reference-service-limits.md#functional-limits) for max number of twins allowed per instance. |  None |
+| ModelCount | Model Count (Preview) | Count | Total | Total number of models in the Azure Digital Twins instance. Use this metric to determine if you're approaching the [service limit](reference-service-limits.md#functional-limits) for max number of models allowed per instance. | None |
 
 #### API request metrics
 
@@ -68,8 +68,8 @@ Metrics having to do with API requests:
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | ApiRequests | API Requests | Count | Total | The number of API Requests made for Digital Twins read, write, delete, and query operations. |  Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text |
-| ApiRequestsFailureRate | API Requests Failure Rate | Percent | Average | The percentage of API requests that the service receives for your instance that give an internal error (500) response code for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text
-| ApiRequestsLatency | API Requests Latency | Milliseconds | Average | The response time for API requests. This refers to the time from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol |
+| ApiRequestsFailureRate | API Requests Failure Rate | Percent | Average | The percentage of API requests that the service receives for your instance, which give an internal error (500) response code for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text
+| ApiRequestsLatency | API Requests Latency | Milliseconds | Average | The response time for API requests. This value refers to the time from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol |
 
 #### Billing metrics
 
@@ -78,10 +78,10 @@ Metrics having to do with billing:
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Billing API Operations | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | Meter ID |
-| BillingMessagesProcessed | Billing Messages Processed | Count | Total | Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints.<br><br>To be considered a single message for billing purposes, a payload must be no larger than 1 KB. Payloads larger than this will be counted as additional messages in 1 KB increments (so a message between 1 and 2 KB will be counted as 2 messages, between 2 and 3 KB will be 3 messages, and so on).<br>This restriction also applies to responses—so a call that returns 1.5KB in the response body, for example, will be billed as 2 operations. | Meter ID |
-| BillingQueryUnits | Billing Query Units | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There is also a helper API available for measuring Query Units: [QueryChargeHelper Class](/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet&preserve-view=true) | Meter ID |
+| BillingMessagesProcessed | Billing Messages Processed | Count | Total | Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints.<br><br>To be considered a single message for billing purposes, a payload must be no larger than 1 KB. Payloads larger than this limit will be counted as additional messages in 1 KB increments (so a message between 1 KB and 2 KB will be counted as 2 messages, between 2 KB and 3 KB will be 3 messages, and so on).<br>This restriction also applies to responses—so a call that returns 1.5 KB in the response body, for example, will be billed as 2 operations. | Meter ID |
+| BillingQueryUnits | Billing Query Units | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There's also a helper API available for measuring Query Units: [QueryChargeHelper Class](/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet&preserve-view=true) | Meter ID |
 
-For more details on the way Azure Digital Twins is billed, see [Azure Digital Twins pricing](https://azure.microsoft.com/pricing/details/digital-twins/).
+For more information on the way Azure Digital Twins is billed, see [Azure Digital Twins pricing](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 #### Ingress metrics
 
@@ -91,7 +91,7 @@ Metrics having to do with data ingress:
 | --- | --- | --- | --- | --- | --- |
 | IngressEvents | Ingress Events | Count | Total | The number of incoming telemetry events into Azure Digital Twins. | Result |
 | IngressEventsFailureRate | Ingress Events Failure Rate | Percent | Average | The percentage of incoming telemetry events for which the service returns an internal error (500) response code. | Result |
-| IngressEventsLatency | Ingress Events Latency | Milliseconds | Average | The time from when an event arrives to when it is ready to be egressed by Azure Digital Twins, at which point the service sends a success/fail result. | Result |
+| IngressEventsLatency | Ingress Events Latency | Milliseconds | Average | The time from when an event arrives to when it's ready to be egressed by Azure Digital Twins, at which point the service sends a success/fail result. | Result |
 
 #### Routing metrics
 
@@ -100,8 +100,8 @@ Metrics having to do with routing:
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | MessagesRouted | Messages Routed | Count | Total | The number of messages routed to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
-| RoutingFailureRate | Routing Failure Rate | Percent | Average | The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
-| RoutingLatency | Routing Latency | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
+| RoutingFailureRate | Routing Failure Rate | Percent | Average | The percentage of events that result in an error as they're routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
+| RoutingLatency | Routing Latency | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it's posted to the endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Endpoint Type, <br>Result |
 
 ## Dimensions
 
