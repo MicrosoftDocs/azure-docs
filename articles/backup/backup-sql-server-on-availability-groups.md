@@ -24,7 +24,7 @@ The workload backup extension gets installed on the node when it is registered w
 
 The selected node proceeds with the backup job, whereas the job triggered on the other nodes bail out, that is, it skips the job.
 
->[!Note}
+>[!Note]
 >Azure Backup doesn’t consider backup priorities or replicas while deciding among the secondary replicas.
 
 ## Register AG nodes to the Recovery Services vault
@@ -40,7 +40,7 @@ Let’s consider the following AG deployment as a reference.
 
 :::image type="content" source="./media/backup-sql-server-on-availability-groups/ag-deployment.png" alt-text="Diagram for AG deployment as reference.":::
 
-Taking the above sample AG deployment, following are various considerations:
+>Taking the above sample AG deployment, following are various considerations:
 
 >- As the primary node is in region 1 and subscription 1, the Recovery Services vault (Vault 1) must be in Region 1 and Subscription 1 for protecting this AG.
 >- VM3 can't be registered to Vault 1 as it's in a different subscription.
@@ -59,7 +59,7 @@ After the AG has failed over to one of the secondary nodes:
 >[!Note]
 >Log chain breaks do not happen on failover if the failover doesn’t coincide with a backup.
 
-Taking the above sample AG deployment, following are the various failover possibilities:
+>Taking the above sample AG deployment, following are the various failover possibilities:
 
 >- Failover to VM2 <ul><li> Full and differential backups will happen from VM2.</li><li> Log and copy-only full backups will happen from VM1 or VM2 based on backup preference.</li></ul>
 >- Failover to VM3 (another subscription)<ul><li> As backups aren't configured in Vault 2, no backups would happen. </li><li> If the backup preference isn't secondary-only, backups can be configured now in Vault 2, because the primary node is registered in this vault. But this can lead to conflicts/backup failures. More about this in [Configure backups for a multi-region AG](#configure-backups-for-a-multi-region-ag).</li></ul>
