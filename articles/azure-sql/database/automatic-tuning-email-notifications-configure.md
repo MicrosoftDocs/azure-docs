@@ -183,7 +183,7 @@ To complete the solution, as the final step, create an automation flow in Micros
 - "**Azure Automation - Get job output**" – used to retrieve output from the executed PowerShell script.
 - "**Office 365 Outlook – Send an email**" – used to send out email. E-mails are sent out using the work or school account of the individual creating the flow.
 
-To learn more about Microsoft Power Automate capabilities, see [Getting started with Microsoft Power Automate](/flow/getting-started).
+To learn more about Microsoft Power Automate capabilities, see [Getting started with Microsoft Power Automate](/power-automate/getting-started).
 
 Prerequisite for this step is to sign up for a [Microsoft Power Automate](https://flow.microsoft.com) account and to log in. Once inside the solution, follow these steps to set up a **new flow**:
 
