@@ -77,8 +77,6 @@ The following steps show you how to create an activity log alert rule in the Azu
 
 2. Select the **Scope** for the alert.
 
-![Screenshot of an activity log alert scope](media/monitor-app-lifecycle-events/activity-log-alert-scope.png)
-
 3. Specify the alert **Condition**.
 
 ![Screenshot of an activity log alert condition](media/monitor-app-lifecycle-events/activity-log-alert-condition.png)
