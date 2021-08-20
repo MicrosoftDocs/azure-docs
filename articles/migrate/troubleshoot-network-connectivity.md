@@ -289,6 +289,6 @@ To set up the storage account for public endpoint connectivity,
 
     :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall-virtual-networks.png" alt-text="Snapshot of storage account networking properties.":::
 
-3. Alternatively, you can limit the access to selected networks and add the public IP address of the client from where you're trying to access the Azure Portal.  
+3. Alternatively, you can limit the access to selected networks and add the public IP address of the client from where you're trying to access the Azure portal.  
 
     :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall.png" alt-text="Snapshot of add the public IP address of the client.":::
