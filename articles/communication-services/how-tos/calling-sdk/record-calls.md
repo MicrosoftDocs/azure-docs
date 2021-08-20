@@ -1,5 +1,5 @@
 ---
-title: Manage call recording on the client with Azure Communication Services SDKs
+title: Manage call recording on the client
 description: Use Azure Communication Services SDKs to manage call recording on the client.
 author: probableprime
 ms.author: rifox
@@ -12,7 +12,7 @@ zone_pivot_groups: acs-web-ios-android
 #Customer intent: As a developer, I want to manage call recording on the client so that my users can record calls.
 ---
 
-# Manage call recording on the client with Azure Communication Services SDKs
+# Manage call recording on the client
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 

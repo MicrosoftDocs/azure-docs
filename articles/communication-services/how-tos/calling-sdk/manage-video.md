@@ -1,5 +1,5 @@
 ---
-title: Manage video calls with Azure Communication Services SDKs
+title: Manage video during calls
 description: Use Azure Communication Services SDKs to manage video calls.
 author: probableprime
 ms.author: rifox
@@ -12,7 +12,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 #Customer intent: As a developer, I want to manage video calls with the acs sdks so that I can create a calling application that provides video capabilities.
 ---
 
-# Manage video calls with Azure Communication Services SDKs
+# Manage video during calls
 
 Learn how to manage video calls with the Azure Communication Services SDKS. We'll learn how to manage receiving and sending video within a call.
 

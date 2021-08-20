@@ -1,5 +1,5 @@
 ---
-title: Manage Calls with Azure Communication Services SDKs
+title: Manage calls
 description: Use Azure Communication Services SDKs to manage calls.
 author: probableprime
 ms.author: rifox
@@ -12,7 +12,7 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 #Customer intent: As a developer, I want to manage calls with the acs sdks so that I can create a calling application that manages calls.
 ---
 
-# Manage calls with Azure Communication Services SDKs
+# Manage calls
 
 Learn how to manage calls with the Azure Communication Services SDKS. We'll learn how to place calls, manage their participants and properties.
 

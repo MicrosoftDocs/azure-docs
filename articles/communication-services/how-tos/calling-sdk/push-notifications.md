@@ -1,5 +1,5 @@
 ---
-title: Enable push notifications for Azure Communication Services calls.
+title: Enable push notifications for calls.
 description: Use Azure Communication Services SDKs to enable push notifications for calls.
 author: probableprime
 ms.author: rifox
@@ -12,7 +12,7 @@ zone_pivot_groups: acs-plat-ios-android
 #Customer intent: As a developer, I want to enable push notifications with the acs sdks so that I can create a calling application that provides push notifications to its users.
 ---
 
-# Enable push notifications for Azure Communication Services calls
+# Enable push notifications for calls
 
 Here, we'll learn how to enable push notifications for Azure Communication Services calls. Setting these up will let your users know when they have an incoming call which they can then answer.
 
