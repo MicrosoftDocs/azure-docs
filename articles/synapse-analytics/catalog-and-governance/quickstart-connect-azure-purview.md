@@ -45,7 +45,7 @@ When connecting Synapse workspace with Purview, Synapse also tries to grant the 
 
 :::image type="content" source="../../data-factory/media/data-factory-purview/register-purview-account-warning.png" alt-text="Screenshot for warning of registering a Purview account.":::
 
-\To fix the issue, go to Azure portal -> your Purview account -> Access control (IAM), check if **Purview Data Curator** role is granted to the Synapse workspace's managed identity. Manually add the role assignment as needed.
+To fix the issue, go to Azure portal -> your Purview account -> Access control (IAM), check if **Purview Data Curator** role is granted to the Synapse workspace's managed identity. Manually add the role assignment as needed.
 
 Once the connection is established, you can use the Search bar at the top center of the Synapse workspace to search for data, and the pipeline execution will push lineage information to the Purview account.
 
