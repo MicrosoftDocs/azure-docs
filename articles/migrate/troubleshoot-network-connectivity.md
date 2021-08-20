@@ -281,7 +281,7 @@ The import/export/download request makes a connection to a storage account for u
 
 To set up the storage account for public endpoint connectivity,
 
-1. **Locate the storage account**: The storage account name is available on the Azure Migrate: Discovery and Assessment properties page. The storage account name will have the suffix of **usa**. 
+1. **Locate the storage account**: The storage account name is available on the Azure Migrate: Discovery and Assessment properties page. The storage account name will have the suffix *usa*. 
 
    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png" alt-text="Snapshot of download DNS settings."::: 
 
