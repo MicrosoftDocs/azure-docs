@@ -29,32 +29,7 @@ There is also a [Visual Studio Code-based version](create-first-function-vs-code
 
 Before you begin, you must have the following:
 
-# [In-process](#tab/in-process)    
-
-+ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
-
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
-
-+ One of the following tools for creating Azure resources:
-
-    + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
-
-    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
-
-# [Isolated process](#tab/isolated-process)
-
-+ [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
-
-+ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
-
-+ [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
-
-+ One of the following tools for creating Azure resources:
-
-    + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
-
-    + [Azure PowerShell](/powershell/azure/install-az-ps) version 5.0 or later.
----
+[!INCLUDE [functions-cli-dotnet-prerequisites](../../includes/functions-cli-dotnet-prerequisites.md)]
 
 + You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -236,7 +211,7 @@ Because your function uses an HTTP trigger and supports GET requests, you invoke
 
 # [In-process](#tab/in-process) 
 
-Copy the complete **Invoke URL** shown in the output of the publish command into a browser address bar, appending the query parameter `&name=Functions`. When you navigate to this URL, the browser should display similar output as when you ran the function locally.
+Copy the complete **Invoke URL** shown in the output of the publish command into a browser address bar, appending the query parameter `?name=Functions`. When you navigate to this URL, the browser should display similar output as when you ran the function locally.
 
 # [Isolated process](#tab/isolated-process)
 

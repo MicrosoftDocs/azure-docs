@@ -200,6 +200,60 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
     ```azurecli-interactive
     az functionapp plan delete --name <PREMIUM_PLAN> --resource-group <MY_RESOURCE_GROUP>
     ```
+## Get your function URL
+
+HTTP triggered functions can generally be called by using a URL in the format: `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. When the authorization to your function is set a value other than `anonymous`, you must also provide an access key in your request. The access key can either be provided in the URL using the `?code=` query string or in the request header. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). There are several ways to get the full URL of your function endpoint, along with the required access key. 
+
+# [Portal](#tab/portal)
+
+1. Sign in to the Azure portal, then search for and select **Function App**.
+
+1. Select the function you want to verify.
+
+1. In the left navigation panel, select **Functions**, and then select the function you want to verify.
+
+    ![Choose your function in the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-select-function.png)   
+
+
+1. Select **Get Function Url**.
+
+    ![Get the function URL from the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-function-url.png)   
+
+
+1. In the pop-up window, select **default (function key)** and then copy the URL to the clipboard. The key is the string of characters following `?code=`.
+
+    ![Choose the default function access key](./media/functions-create-function-linux-custom-image/functions-portal-copy-url.png)   
+
+
+# [Azure CLI](#tab/azurecli)
+
+1. Construct a URL string in the following format, replacing `<subscription_id>`, `<resource_group>`, and `<app_name>` with your Azure subscription ID, the resource group of your function app, and the name of your function app, respectively:
+
+    ```
+    "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Web/sites/<app_name>/host/default/listKeys?api-version=2018-11-01"
+    ```
+
+    For example, the URL might look the following address:
+
+    ```
+    "/subscriptions/1234aaf4-1234-abcd-a79a-245ed34eabcd/resourceGroups/AzureFunctionsContainers-rg/providers/Microsoft.Web/sites/msdocsfunctionscontainer/host/default/listKeys?api-version=2018-11-01"
+    ```
+
+    > [!TIP]
+    > For convenience, you can instead assign the URL to an environment variable and use it in the `az rest` command.
+
+1. Run the following `az rest` command (available in the Azure CLI version 2.0.77 and later), replacing `<uri>` with the URI string from the last step, including the quotes:
+
+    ```azurecli
+    az rest --method post --uri <uri> --query functionKeys.default --output tsv
+    ```
+
+1. The output of the command is the function key. The full function URL is then `https://<app_name>.azurewebsites.net/api/<function_name>?code=<key>`, replacing `<app_name>`, `<function_name>`, and `<key>` with your specific values.
+
+    > [!NOTE]
+    > The key retrieved here is the *host* key that works for all functions in the functions app; the method shown for the portal retrieves the key for the one function only.
+
+---
 
 ## Platform features
 
