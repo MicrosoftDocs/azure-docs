@@ -17,10 +17,7 @@ ms.custom: template-how-to
 
 During an active call, you may want to transfer the call to another person or number. Let's learn how. 
 
-This feature is currently only available in our JavaScript / Web SDK right now. 
-
 [!INCLUDE [Transfer calls Client-side JavaScript](./includes/transfer-calls/transfer-calls-web.md)]
-
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

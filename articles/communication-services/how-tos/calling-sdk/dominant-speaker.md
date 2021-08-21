@@ -17,10 +17,7 @@ ms.custom: template-how-to
 
 During an active call, you may want to get a list of active speakers in order to render or display them differently. Here's how.
 
-This feature is currently only available in our JavaScript / Web SDK right now. 
-
 [!INCLUDE [Dominant Speaker JavaScript](./includes/dominant-speaker/dominant-speaker-web.md)]
-
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

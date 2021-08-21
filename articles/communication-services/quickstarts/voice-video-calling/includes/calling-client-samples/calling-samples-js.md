@@ -360,39 +360,12 @@ callAgent.on('callsUpdated', e => {
 })
 ```
 
-### Join a Teams Meeting
-> [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
-To join a Teams meeting, use the `join` method and pass a meeting link or a meeting's coordinates.
-
-Join by using a meeting link:
-
-```js
-const locator = { meetingLink: '<MEETING_LINK>'}
-const call = callAgent.join(locator);
-```
-
-Join by using meeting coordinates:
-
-```js
-const locator = {
-    threadId: <thread id>,
-    organizerId: <organizer id>,
-    tenantId: <tenant id>,
-    messageId: <message id>
-}
-const call = callAgent.join(locator);
-```
 
 See Call Diagnostics section to see how to handle this call diagnostic.
 
 
 ## Call Feature Extensions
-
-
-
-
 
 
 ## Releasing resources
