@@ -97,6 +97,8 @@ Azure Blockchain Service team pauses the consortium, exports a snapshot of data,
 
 ### Download data
 
+#### Data format v1
+
 Download the data using the Microsoft Support provided short-lived SAS URL link.
 
 > [!IMPORTANT]
@@ -106,6 +108,23 @@ Decrypt the data using the API access key. You can [get the key from the Azure p
 
 > [!CAUTION]
 > Only the default transaction node API access key 1 is used to encrypt all the nodes data of that member.
+>
+> Do not reset the API access key in between of the migration.
+
+#### Data format v2
+
+In this version, the SAS token is encryped instead of the data, resulting in
+faster snapshot creation, and, _if_ you decide to migrate to QBS by ConsenSys, a
+faster import into QBS.
+
+Once the SAS token is decrypted, data can be downloaded as normal. The data
+itself will not have an additional layer of encryption.
+
+> [!IMPORTANT]
+> Creating snapshot in data format v2 is about 8-10 times faster - resulting in lower downtime.
+
+> [!CAUTION]
+> The default transaction node API access key 1 is used to encrypt the SAS token.
 >
 > Do not reset the API access key in between of the migration.
 
