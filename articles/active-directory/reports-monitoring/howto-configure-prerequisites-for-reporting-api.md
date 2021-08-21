@@ -95,7 +95,7 @@ If you want to access the Azure Active Directory reporting API, you need to gran
 | Microsoft Graph | Read directory data |
 | Microsoft Graph | Read all audit log data |
 
-![Screenshot shows where you can select Add a permission in the A P I permissions pane.](./media/howto-configure-prerequisites-for-reporting-api/Picture1.png)
+![Screenshot shows where you can select Add a permission in the A P I permissions pane.](./media/howto-configure-prerequisites-for-reporting-api/Picture1.PNG)
 
 The following section lists the steps for API setting.
 
@@ -116,7 +116,7 @@ The following section lists the steps for API setting.
 
 4. On the **Reporting API Application - API Permissions** page, select **Grant admin consent**.
 
-    ![Screenshot shows the Reporting A P I Application A P I permissions page where you can select Grant admin consent.](./media/howto-configure-prerequisites-for-reporting-api/Picture5.png)
+    ![Screenshot shows the Reporting A P I Application A P I permissions page where you can select Grant admin consent.](./media/howto-configure-prerequisites-for-reporting-api/Picture5.PNG)
 
 
 ## Gather configuration settings 
@@ -183,7 +183,7 @@ You need these values when configuring calls to the reporting API. We recommend 
 
     d. Copy the key value.
 
-### Upload certificate of your application###
+### Upload certificate of your application
 
 **To upload certificate:**
 
