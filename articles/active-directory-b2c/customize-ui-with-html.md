@@ -91,6 +91,63 @@ You localize your HTML content by enabling [language customization](language-cus
 > [!NOTE]
 > Azure AD B2C doesn't pass OpenID Connect parameters, such as `ui_locales` to the [Exception pages](page-layout.md#exception-page-globalexception).
 
+There are serval ways to localize your HTML content.
+
+#### Single template approach
+B2C will modify your HTML and it adds a language tag ("lang") to the HTML root element. Based on that you can modify your layout via CSS.
+
+Sample html root element of B2C site:
+
+```html
+<html lang="en">
+```
+
+1. Step: Sample custom CSS:
+    
+```html
+.imprint {
+    display: none;
+}
+.imprint-en:lang(en),
+.imprint-de:lang(de) {
+    display: inherit !important;
+}
+```
+
+2. Step: Sample content/ custom link:
+
+```html
+<a class="imprint imprint-en" href="Link EN">Imprint</a>
+<a class="imprint imprint-de" href="Link DE">Impressum</a>
+```
+
+Sample template site with different languages and links for the Imprint.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Product Brand Name</title>
+</head>
+<style>
+	.imprint {
+		display: none;
+	}
+
+	.imprint-en:lang(en),
+	.imprint-de:lang(de) {
+		display: inherit !important;
+	}
+</style>
+<body>
+    <div id="api"></div>
+    <a class="imprint imprint-en" href="Link EN">Imprint</a>
+    <a class="imprint imprint-de" href="Link DE">Impressum</a>
+</body>
+</html>
+```
+
+#### Multi template approach
 
 Content can be pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value `{Culture:RFC5646}`.
 
