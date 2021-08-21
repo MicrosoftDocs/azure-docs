@@ -7,7 +7,7 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: mvc, references_regions
 #Customer intent: As an Azure enterprise customer, I want to know what capabilities Azure Maps has, so that I can take advantage of mapping in my applications. 
 ---

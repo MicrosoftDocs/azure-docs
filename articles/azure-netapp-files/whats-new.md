@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 08/18/2021
 ms.author: b-juche
 ---
 
@@ -22,6 +22,14 @@ ms.author: b-juche
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 ## August 2021
+
+* Support for [enabling Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)
+
+    You can already enable the SMB Continuous Availability (CA) feature when you [create a new SMB volume](azure-netapp-files-create-volumes-smb.md#continuous-availability). You can now also enable SMB CA on an existing SMB volume. See [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md).
+
+* [Snapshot policy](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) now generally available (GA)  
+
+    The snapshot policy feature is now generally available. You no longer need to register the feature before using it.
 
 * [NFS `Chown Mode` export policy and UNIX export permissions](configure-unix-permissions-change-ownership-mode.md) (Preview)   
 
