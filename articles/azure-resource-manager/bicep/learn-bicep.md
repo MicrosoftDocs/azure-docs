@@ -6,7 +6,9 @@ ms.date: 08/17/2021
 ---
 # Bicep on Microsoft Learn
 
-For step-by-step guidance on using Bicep to deploy your infrastructure to Azure, Microsoft Learn offers a large set of content. To learn about Bicep, we recommend you take these two learning paths:
+Ready to see how Bicep can help simplify and accelerate your deployments to Azure? Check out the many hands-on courses on Microsoft Learn.
+
+These two learning paths will help you get started:
 
 :::row:::
 :::column:::
