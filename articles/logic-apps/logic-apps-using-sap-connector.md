@@ -66,7 +66,7 @@ This article explains how you can access your SAP resources from Azure Logic App
 
   * If you use this SAP trigger with the **IDOC Format** parameter set to **FlatFile** along with the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md), you have to use the `early_terminate_optional_fields` property in your flat file schema by setting the value to `true`.
 
-    This requirement is necessary because the flat file IDOC data record that's sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDOC original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match.
+    This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match.
 
   > [!NOTE]
   > This SAP trigger uses the same URI location to both renew and unsubscribe from a webhook subscription. The renewal 
@@ -127,20 +127,20 @@ The managed SAP connector integrates with SAP systems through your [on-premises 
   > which might include updates to resolve your problem.
 
 1. [Download and install the latest SAP client library](#sap-client-library-prerequisites) on the same local computer as your on-premises data gateway.
-   
+
 1. Configure the network host names and service names resolution for the host machine where you installed the on-premises data gateway.
 
   If you intend to use host names or service names for connection from Azure Logic Apps, you must set up each SAP application, message, and gateway server along with their services for name resolution. The network host name resolution is configured in the `%windir%\System32\drivers\etc\hosts` file or in the DNS server that's available to your on-premises data gateway host machine. The service name resolution is configured in `%windir%\System32\drivers\etc\services`. If you do not intend to use network host names or service names for the connection, you can use host IP addresses and service port numbers instead.
-   
+
    If you do not have a DNS entry for your SAP system, the following example shows a sample entry for the hosts file:
-   
+
    ```text
    10.0.1.9           sapserver                   # SAP single-instance system host IP by simple computer name
    10.0.1.9           sapserver.contoso.com       # SAP single-instance system host IP by fully qualified DNS name
    ```
-   
+
    A sample set of entries for the services files is:
-   
+
    ```text
    sapdp00            3200/tcp              # SAP system instance 00 dialog (application) service port
    sapgw00            3300/tcp              # SAP system instance 00 gateway service port
@@ -725,7 +725,7 @@ This example uses a logic app workflow that triggers when the app receives a mes
 
    * To receive IDocs as a flat file using the same SAP trigger, add and set the **IDOC Format** parameter to **FlatFile**. When you also use the [Flat File Decode action](logic-apps-enterprise-integration-flatfile.md), in your flat file schema, you have to use the `early_terminate_optional_fields` property and set the value to `true`.
 
-     This requirement is necessary because the flat file IDOC data record that's sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDOC original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match.
+     This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match.
 
    * To [filter the messages that you receive from your SAP server, specify a list of SAP actions](#filter-with-sap-actions).
 
@@ -948,10 +948,10 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 1. Select **TCP/IP Connections** > **Create**.
 
 1. Create a new RFC destination with the following settings:
-    
+
     1. For your **RFC Destination**, enter a name.
-    
-    1. On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**. 
+
+    1. On the **Technical Settings** tab, for **Activation Type**, select **Registered Server Program**.
 
     1. For your **Program ID**, enter a value. In SAP, your logic app workflow's trigger is registered by using this identifier.
 
@@ -964,15 +964,16 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
        > * **Non-ABAP RFC client (partner type ) not supported**
        >
        > For more information from SAP, review the following notes (login required):
-       > 
+       >
        > * [https://launchpad.support.sap.com/#/notes/2399329](https://launchpad.support.sap.com/#/notes/2399329)
        > * [https://launchpad.support.sap.com/#/notes/353597](https://launchpad.support.sap.com/#/notes/353597)
 
     1. On the **Unicode** tab, for **Communication Type with Target System**, select **Unicode**.
 
        > [!NOTE]
-       > SAP .NET Client libraries support only Unicode character encoding. If you get the error `Non-ABAP RFC client (partner type ) not supported` when sending IDOC from SAP
-       >  to Azure Logic Apps, check that the **Communication Type with Target System** value is set to **Unicode**.
+       > SAP .NET Client libraries support only Unicode character encoding. If you get the error 
+       > `Non-ABAP RFC client (partner type ) not supported` when sending IDoc from SAP to 
+       > Azure Logic Apps, check that the **Communication Type with Target System** value is set to **Unicode**.
 
 1. Save your changes.
 
@@ -1010,7 +1011,7 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 
 #### Create sender port
 
-1.  To open the **Ports In IDOC processing** settings, in your SAP interface, use the **we21** transaction code (T-Code) with the **/n** prefix.
+1. To open the **Ports In IDOC processing** settings, in your SAP interface, use the **we21** transaction code (T-Code) with the **/n** prefix.
 
 1. Select **Ports** > **Transactional RFC** > **Create**.
 
@@ -1688,7 +1689,7 @@ Here are the currently known issues and limitations for the managed (non-ISE) SA
 
 * For [logic apps in an ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
-## Connector reference 
+## Connector reference
 
 For more information about the SAP connector, review the [connector reference](/connectors/sap/). You can find details about limits, parameters, and returns for the SAP connector, triggers, and actions.
 
@@ -1699,7 +1700,7 @@ For more information about the SAP connector, review the [connector reference](/
         [**When a message is received from SAP**](/connectors/sap/#when-a-message-is-received)
     :::column-end:::
     :::column span="3":::
-        When a message is received from SAP, do something. 
+        When a message is received from SAP, do something.
     :::column-end:::
 :::row-end:::
 
@@ -1741,9 +1742,9 @@ For more information about the SAP connector, review the [connector reference](/
         **Input BAPI parameters** (`body`), in which you call the XML document that contains the BAPI method input parameter values for the call, or the URI of the storage blob that contains your BAPI parameters.
         \
         \
-        For detailed examples of how to use the **[BAPI] Call method in SAP** action, review the [XML samples of BAPI requests](#xml-samples-for-bapi-requests). 
+        For detailed examples of how to use the **[BAPI] Call method in SAP** action, review the [XML samples of BAPI requests](#xml-samples-for-bapi-requests).
         \
-        If you're using the workflow designer to edit your BAPI request, you can use the following search functions: 
+        If you're using the workflow designer to edit your BAPI request, you can use the following search functions:
         \
         \
         Select an object in the designer to view a drop-down menu of available methods.
@@ -1806,7 +1807,7 @@ For more information about the SAP connector, review the [connector reference](/
         **IDOC type with optional extension** (`idocType`), which is a searchable drop-down menu.
         \
         \
-        **Input IDOC message** (`body`), in which you call the XML document containing the IDoc payload, or the URI of the storage blob that contains your IDoc XML document. This document must comply with either the SAP IDOC XML schema according to the WE60 IDoc Documentation, or the generated schema for the matching SAP IDoc action URI.
+        **Input IDOC message** (`body`), in which you call the XML document containing the IDoc payload, or the URI of the storage blob that contains your IDoc XML document. This document must comply with either the SAP IDoc XML schema according to the WE60 IDoc Documentation, or the generated schema for the matching SAP IDoc action URI.
         \
         \
         The optional parameter **SAP release version** (`releaseVersion`) populates values after you select the IDoc type, and depends on the selected IDoc type.
@@ -1823,7 +1824,7 @@ For more information about the SAP connector, review the [connector reference](/
         [**[RFC] Add RFC to transaction**](/connectors/sap/#[rfc]-add-rfc-to-transaction-(preview))
     :::column-end:::
     :::column span="3":::
-        Add an RFC call to your transaction. 
+        Add an RFC call to your transaction.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -1847,7 +1848,7 @@ For more information about the SAP connector, review the [connector reference](/
         [**[RFC] Create transaction**](/connectors/sap/#[rfc]-create-transaction-(preview))
     :::column-end:::
     :::column span="3":::
-        Create a new transaction by identifier and/or queue name. If the transaction exists, get the details. 
+        Create a new transaction by identifier and/or queue name. If the transaction exists, get the details.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -1885,6 +1886,6 @@ For more information about the SAP connector, review the [connector reference](/
 
 ## Next steps
 
-* [Connect to on-premises systems](logic-apps-gateway-connection.md) from Azure Logic Apps.
-* Learn how to validate, transform, and use other message operations with the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
-* Learn about other [Logic Apps connectors](../connectors/apis-list.md).
+* [Connect to on-premises systems](logic-apps-gateway-connection.md) from Azure Logic Apps
+* Learn how to validate, transform, and use other message operations with the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md)
