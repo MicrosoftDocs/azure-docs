@@ -17,10 +17,8 @@ Azure Spring Cloud provides built-in tools to monitor the status and health of y
 
 ## Prerequisites
 
-To follow these procedures, you need:
-
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- A deployed Azure Spring Cloud service instance and at least one application already created in your service instance. Follow the [Deploy your first Azure Spring Cloud application quickstart](./quickstart.md) to provision an Azure Spring Cloud service and create an application. 
+- A deployed Azure Spring Cloud service instance and at least one application already created in your service instance. For more information, see [Quickstart: Deploy your first Azure Spring Cloud application](quickstart.md) 
 
 ## Monitor app lifecycle events triggered by users in Azure Activity logs
 
@@ -42,7 +40,7 @@ For example, when you restart your app, you can find the affected instances from
 
 ### Monitor unplanned app lifecycle events
 
-When your app is restarted because of unplanned events such as app crash, health check failure, or system outage, the status of your Azure Spring Cloud instance will become degraded in the **Resource health** section of the Azure portal. Degraded means that your resource detected a loss in performance, although it's still available for use.
+When your app is restarted because of unplanned events, your Azure Spring Cloud instance will show a status of **degraded** in the **Resource health** section of the Azure portal. Degraded means that your resource detected a loss in performance, although it's still available for use. Examples of unplanned events include app crash, health check failure, and system outage.
 
 :::image type="content" source="media/monitor-app-lifecycle-events/resource-health-detail.png" alt-text="Screenshot of the resource health pane":::
 
@@ -53,11 +51,11 @@ You can find the latest status, the root cause, and affected instances in the he
 
 ### Monitor planned app lifecycle events
 
-Your app may be restarted during platform maintenance. You can receive the maintenance notification from the **Planned maintenance** page of Azure Service Health in advance.
+Your app may be restarted during platform maintenance. You can receive a maintenance notification in advance from the **Planned maintenance** page of Azure Service Health.
 
 :::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-notification.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-notification.png" alt-text="Screenshot of an example notification for planned maintenance":::
 
-When the platform maintenance happens, the status of your Azure Spring Cloud instance will become degraded too. Azure Spring Cloud perform a rolling update to incrementally update your applications if restarting is needed during platform maintenance. Rolling updates are designed to update your workloads without downtime. You can find the latest status in the health history page.
+When platform maintenance happens, your Azure Spring Cloud instance will also show a status of **degraded**. If restarting is needed during platform maintenance, Azure Spring Cloud will perform a rolling update to incrementally update your applications. Rolling updates are designed to update your workloads without downtime. You can find the latest status in the health history page.
 
 :::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" alt-text="Screenshot of an example log for planned maintenance in progress":::
 
@@ -86,7 +84,7 @@ The following steps show you how to create an activity log alert rule in the Azu
 
 4. Select **Actions** and add **Alert rule details**.
 
-5. Click **Create alert rule**.
+5. Select **Create alert rule**.
 
 ### Set up alerts to monitor app lifecycle events in Azure Service Health
 
@@ -106,7 +104,7 @@ The following steps show you how to create an alert rule for service health noti
 
 4. Select the **Actions** and add **Alert rule details**.
 
-5. Click **Create alert rule**.
+5. Select **Create alert rule**.
 
 ### Set up alerts to monitor the planned maintenance notification
 
@@ -120,7 +118,7 @@ The following steps show you how to create an alert rule for planned maintenance
 
    :::image type="content" source="media/monitor-app-lifecycle-events/add-service-health-alert-details.png" lightbox="media/monitor-app-lifecycle-events/add-service-health-alert-details.png" alt-text="Screenshot of the 'Create rule alert' pane for Service Health":::
 
-3. Click **Create alert rule**.
+3. Select **Create alert rule**.
 
 ## Next steps
 
