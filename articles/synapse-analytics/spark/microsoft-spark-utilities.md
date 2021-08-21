@@ -46,7 +46,7 @@ Follow these steps to make sure your Azure AD and workspace MSI have access to t
 
 You can access data on ADLS Gen2 with Synapse Spark via the following URL:
 
-`<code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>`
+<code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
 
 ### Configure access to Azure Blob Storage  
 
@@ -64,7 +64,7 @@ Follow these steps to add a new linked service for an Azure Blob Storage account
 
 You can access data on Azure Blob Storage with Synapse Spark via following URL:
 
-`<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>`
+<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
 
 Here is a code example:
 
@@ -451,7 +451,7 @@ FS.Rm("file path", true) // Set the last parameter as True to remove all files a
 
 :::zone pivot = "programming-language-python"
 
-## Notebook utilities
+## Notebook utilities 
 
 You can use the MSSparkUtils Notebook Utilities to run a notebook or exit a notebook with a value. 
 Run the following command to get an overview of the available methods:
@@ -537,7 +537,7 @@ Sample1 run success with input is 20
 
 :::zone pivot = "programming-language-scala"
 
-<h2>Notebook utilities</h2> 
+## Notebook utilities 
 
 You can use the MSSparkUtils Notebook Utilities to run a notebook or exit a notebook with a value. 
 Run the following command to get an overview of the available methods:
