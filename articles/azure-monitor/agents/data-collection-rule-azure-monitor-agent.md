@@ -85,6 +85,7 @@ See [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitat
 > Get-WinEvent -LogName 'Application' -FilterXPath $XPath
 > ```
 >
+> - **In the cmdlet above, the value for '-LogName' parameter is the initial part of the XPath query until the '!', while only the rest of the XPath query goes into the $XPath parameter.**
 > - If events are returned, the query is valid.
 > - If you receive the message *No events were found that match the specified selection criteria.*, the query may be valid, but there are no matching events on the local machine.
 > - If you receive the message *The specified query is invalid* , the query syntax is invalid. 
