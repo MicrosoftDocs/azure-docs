@@ -25,11 +25,11 @@ The following integrations are both more unique and more popular, and so are tre
 - [Amazon Web Services (AWS) CloudTrail](connect-aws.md)
 
 There are three main groups of connectors of this type that will be treated in this article:
-- **"One-click"** connections, including **Subscription-based** connections
-- **Diagnostic settings** connections, an increasing number of which are managed by Azure Policy
+- **API-based** connections, including **Subscription-based** connections
+- **Diagnostic settings** connections, an increasing number of the configurations of which are managed by Azure Policy
 - **Log Analytics agent**-based connections
 
-## One-click connections
+## API-based connections
 
 This section's following instructions apply to the following connectors:
 
@@ -52,14 +52,16 @@ This section's following instructions apply to the following connectors:
 
 This section's following instructions apply to the following connectors:
 
-- [Azure Activity](data-connectors-reference.md#azure-activity)
+- [Azure Activity *](data-connectors-reference.md#azure-activity)
 - [Azure DDoS Protection](data-connectors-reference.md#azure-ddos-protection)
 - [Azure Firewall](data-connectors-reference.md#azure-firewall)
-- [Azure Key Vault](data-connectors-reference.md#azure-key-vault)
-- [Azure Kubernetes Service (AKS)](data-connectors-reference.md#azure-kubernetes-service-aks)
-- [Azure SQL Databases](data-connectors-reference.md#azure-sql-databases)
-- [Azure Storage Account](data-connectors-reference.md#azure-storage-account)
+- [Azure Key Vault *](data-connectors-reference.md#azure-key-vault)
+- [Azure Kubernetes Service (AKS) *](data-connectors-reference.md#azure-kubernetes-service-aks)
+- [Azure SQL Databases *](data-connectors-reference.md#azure-sql-databases)
+- [Azure Storage Account *](data-connectors-reference.md#azure-storage-account)
 - [Azure Web Application Firewall](data-connectors-reference.md#azure-web-application-firewall-waf)
+
+\* This connector's configuration is managed by Azure Policy.
 
 ### Prerequisites
 
