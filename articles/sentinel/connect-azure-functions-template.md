@@ -18,7 +18,7 @@ ms.author: yelevin
 ---
 # Use Azure Functions to connect your data source to Azure Sentinel
 
-You can use [Azure Functions](/azure/azure-functions/functions-overview), in conjunction with various coding languages such as [PowerShell](../azure-functions/functions-reference-powershell.md) or Python, to create a serverless connector to the REST API endpoints of your compatible data sources. Azure Function APps then allow you to connect Azure Sentinel to your data source's REST API to pull in logs.
+You can use [Azure Functions](/azure/azure-functions/functions-overview), in conjunction with various coding languages such as [PowerShell](../azure-functions/functions-reference-powershell.md) or Python, to create a serverless connector to the REST API endpoints of your compatible data sources. Azure Function Apps then allow you to connect Azure Sentinel to your data source's REST API to pull in logs.
 
 This article describes how to configure Azure Sentinel for using Azure Function Apps. You may also need to configure your source system, and you can find vendor- and product-specific information links in each data connector's page in the portal, or the section for your service in the [Azure Sentinel data connectors reference](data-connectors-reference.md) page.
 
