@@ -17,10 +17,11 @@ ms.date: 01/05/2021
 ms.author: yelevin
 
 ---
-# STEP 3: Validate connectivity
+# Troubleshoot CEF data connection
 
-Once you have deployed your log forwarder (in Step 1) and configured your security solution to send it CEF messages (in Step 2), follow these instructions to verify connectivity between your security solution and Azure Sentinel.
+Once you have deployed your log forwarder and configured your security solution to send it CEF messages, follow these instructions to verify connectivity between your security solution and Azure Sentinel.
 
+For more information, see [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md) and [Deploy a log forwarder to ingest Syslog and CEF logs to Azure Sentinel](connect-log-forwarder.md).
 ## Prerequisites
 
 - You must have elevated permissions (sudo) on your log forwarder machine.

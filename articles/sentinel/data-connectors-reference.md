@@ -11,24 +11,29 @@ ms.author: bagol
 
 ---
 
-# Azure Sentinel data connectors reference
+# Find your Azure Sentinel data connector
 
-This article lists all built-in data connectors provided by Azure Sentinel, together with links to generic deployment procedures and any extra steps required for specific connectors.
+This article describes how to deploy data connectors in Azure Sentinel, listing all supported, built-in data connectors, together with links to generic deployment procedures and extra steps required for specific connectors.
 
-Data connectors are deployed in Azure Sentinel using one of the following procedures:
+Connect your data sources to Azure Sentinel using the following generic procedures:
 
-- [Connect data sources](connect-data-sources.md)
+- [Enable a data connector](#enable-a-data-connector)
 - [Use Azure Functions to connect your data source to Azure Sentinel](connect-azure-functions-template.md)
+- [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md)
 - [Collect data from Linux-based sources using Syslog](connect-syslog.md)
-- [Resources for creating Azure Sentinel custom connectors](create-custom-connector.md)
-
+- [Collect data in custom log formats to Azure Sentinel with the Log Analytics agent](connect-custom-logs.md)
+- [Connect your data source to Azure Sentinel's REST-API to ingest data](connect-rest-api-template.md)
 
 Check the sections below for additional guidance when deploying a specific connector.
 
 > [!TIP]
 > - Many data connectors can also be deployed as part of an [Azure Sentinel solution](sentinel-solutions.md), together with related analytics rules, workbooks and playbooks. For more information, see the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 >
-> - Additional data connectors are provided by the Azure Sentinel community and can be found in the Azure Marketplace. Documentation for community data connectors is the responsibility of the organization that created the connector.
+>
+> - More data connectors are provided by the Azure Sentinel community and can be found in the Azure Marketplace. Documentation for community data connectors is the responsibility of the organization that created the connector.
+>
+>
+> - If you have a data source that isn't listed or currently supported, you can also create your own, custom connector. For more information, see [Resources for creating Azure Sentinel custom connectors](create-custom-connector.md).
 >
 
 > [!IMPORTANT]
@@ -42,18 +47,31 @@ Check the sections below for additional guidance when deploying a specific conne
 | **Azure Function App code** | https://aka.ms/sentinel-agari-functionapp |
 | **API credentials** | <li>Client ID<li>Client Secret<li>(Optional: Graph Tenant ID, Graph Client ID, Graph Client Secret) |
 | **Vendor documentation/<br>installation instructions** | <li>[Quick Start](https://developers.agari.com/agari-platform/docs/quick-start)<li>[Agari Developers Site](https://developers.agari.com/agari-platform) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) <br><br>**Before deployment**: [Enable the Security Graph API (Optional)](#enable-the-security-graph-api-optional). <br>**After deployment**: [Assign necessary permissions to your Function App](#assign-necessary-permissions-to-your-function-app)|
 | **Application settings** | <li>clientID<li>clientSecret<li>workspaceID<li>workspaceKey<li>enableBrandProtectionAPI (true/false)<li>enablePhishingResponseAPI (true/false)<li>enablePhishingDefenseAPI (true/false)<li>resGroup (enter Resource group)<li>functionName<li>subId (enter Subscription ID)<li>enableSecurityGraphSharing (true/false; see below)<br>Required if enableSecurityGraphSharing is set to true (see below):<li>GraphTenantId<li>GraphClientId<li>GraphClientSecret<li>logAnalyticsUri (optional) |
 | **Supported by** | [Agari](https://support.agari.com/hc/en-us/articles/360000645632-How-to-access-Agari-Support) |
 |
 
-### Extra steps for deployment of this connector
+### Enable the Security Graph API (Optional)
 
-| Stage | Instruction |
-| --- | --- |
-| **Before deployment** | **(Optional) Enable the Security Graph API**<br><br>The Agari Function App allows you to share threat intelligence with Azure Sentinel via the Security Graph API. To use this feature, you'll need to enable the [Sentinel Threat Intelligence Platforms connector](connect-threat-intelligence.md) and also [register an application](/graph/auth-register-app-v2) in Azure Active Directory.<br>This process will give you three pieces of information for use when [deploying the Function App](connect-azure-functions-template.md): the **Graph tenant ID**, the **Graph client ID**, and the **Graph client secret** (see the *Application settings* in the table above). |
-| **After deployment** | **Assign the necessary permissions to your Function App**<br><br>The Agari connector uses an environment variable to store log access timestamps. In order for the application to write to this variable, permissions must be assigned to the system assigned identity.<br><ol><li>In the Azure portal, navigate to **Function App**.<li>In the **Function App** blade, select your Function App from the list, then select **Identity** under **Settings** in the Function App's navigation menu.<li>In the **System assigned** tab, set the **Status** to **On**.<li>Select **Save**, and an **Azure role assignments** button will appear. Click it.<li>In the **Azure role assignments** screen, select **Add role assignment**. Set **Scope** to **Subscription**, select your subscription from the **Subscription** drop-down, and set **Role** to **App Configuration Data Owner**.<li> Select **Save**. |
-|
+> [!IMPORTANT]
+> If you perform this step, do this before you deploy your data connector.
+>
+The Agari Function App allows you to share threat intelligence with Azure Sentinel via the Security Graph API. To use this feature, you'll need to enable the [Sentinel Threat Intelligence Platforms connector](connect-threat-intelligence.md) and also [register an application](/graph/auth-register-app-v2) in Azure Active Directory.
+
+This process will give you three pieces of information for use when [deploying the Function App](connect-azure-functions-template.md): the **Graph tenant ID**, the **Graph client ID**, and the **Graph client secret** (see the *Application settings* in the table above).
+
+### Assign necessary permissions to your Function App
+
+The Agari connector uses an environment variable to store log access timestamps. In order for the application to write to this variable, permissions must be assigned to the system assigned identity.
+
+1. In the Azure portal, navigate to **Function App**.
+1. In the **Function App** blade, select your Function App from the list, then select **Identity** under **Settings** in the Function App's navigation menu.
+1. In the **System assigned** tab, set the **Status** to **On**.
+1. Select **Save**, and an **Azure role assignments** button will appear. Select it.
+1. In the **Azure role assignments** screen, select **Add role assignment**. Set **Scope** to **Subscription**, select your subscription from the **Subscription** drop-down, and set **Role** to **App Configuration Data Owner**.
+1. Select **Save**.
+
 
 ## AI Analyst (AIA) by Darktrace (Preview)
 
@@ -61,7 +79,7 @@ Check the sections below for additional guidance when deploying a specific conne
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Supported by** | [Darktrace](https://customerportal.darktrace.com/) |
-| **CEF configuration:** | Configure Darktrace to forward Syslog messages in CEF format to your Azure workspace via the Log Analytics agent.<br><ol><li>Within the Darktrace Threat Visualizer, navigate to the **System Config** page in the main menu under **Admin**.<li>From the left-hand menu, select **Modules** and choose **Azure Sentinel** from the available **Workflow Integrations**.<li>A configuration window will open. Locate **Azure Sentinel Syslog CEF** and click **New** to reveal the configuration settings, unless already exposed.<li>In the **Server configuration** field, enter the location of the log forwarder and optionally modify the communication port. Ensure that the port selected is set to 514 and is allowed by any intermediary firewalls.<li>Configure any alert thresholds, time offsets, or additional settings as required.<li>Review any additional configuration options you may wish to enable that alter the Syslog syntax.<li>Enable **Send Alerts** and save your changes.
+| **CEF configuration:** | Configure Darktrace to forward Syslog messages in CEF format to your Azure workspace via the Log Analytics agent.<br><ol><li>Within the Darktrace Threat Visualizer, navigate to the **System Config** page in the main menu under **Admin**.<li>From the left-hand menu, select **Modules** and choose **Azure Sentinel** from the available **Workflow Integrations**.<li>A configuration window will open. Locate **Azure Sentinel Syslog CEF** and select **New** to reveal the configuration settings, unless already exposed.<li>In the **Server configuration** field, enter the location of the log forwarder and optionally modify the communication port. Ensure that the port selected is set to 514 and is allowed by any intermediary firewalls.<li>Configure any alert thresholds, time offsets, or additional settings as required.<li>Review any additional configuration options you may wish to enable that alter the Syslog syntax.<li>Enable **Send Alerts** and save your changes.
 
 ## AI Vectra Detect (Preview)
 
@@ -82,9 +100,9 @@ From the Vectra interface, navigate to Settings > Notifications and choose Edit 
 - Set the Protocol as **UDP**
 - Set the format to **CEF**
 - Set Log types (select all log types available)
-- Click on **Save**
+- Select **Save**
 
-You can click the **Test** button to force the sending of some test events to the log forwarder.
+You can select the **Test** button to force the sending of some test events to the log forwarder.
 
 For more information, refer to Cognito Detect Syslog Guide which can be downloaded from the resource page in Detect UI.
 
@@ -134,7 +152,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Amazon Web Services - Cloudtrail
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | AWSCloudTrail |
 | **Vendor documentation/<br>installation instructions** | [Connect data sources](connect-data-sources.md) |
@@ -206,7 +224,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure Active Directory
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | SigninLogs<br>AuditLogs<br>AADNonInteractiveUserSignInLogs<br>AADServicePrincipalSignInLogs<br>AADManagedIdentitySignInLogs<br>AADProvisioningLogs<br>ADFSSignInLogs |
 | **Supported by** | Microsoft |
@@ -214,7 +232,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure Active Directory Identity Protection
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
@@ -222,9 +240,9 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure Activity
 
-- **Configurable by Azure Policy**
+**Configurable by Azure Policy**. Use the **Azure Policy Assignment wizard** in the data connector page to select and configure your Azure Policy. For more information, see [Azure Policy documentation.](/azure/governance/policy/overview)
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | AzureActivity |
 | **Supported by** | Microsoft |
@@ -232,7 +250,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure DDoS Protection
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | AzureDiagnostics |
 | **Diagnostics** | DDoSProtectionNotifications<br>DDoSMitigationFlowLogs<br>DDoSMitigationReports |
@@ -241,7 +259,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure Defender
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
@@ -249,7 +267,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure Defender for IoT
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
@@ -257,7 +275,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure Firewall
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | AzureDiagnostics |
 | **Diagnostics** | AzureFirewallApplicationRule<br>AzureFirewallNetworkRule |
@@ -266,19 +284,19 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure Information Protection
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | InformationProtectionLogs_CL |
 | **Supported by** | Microsoft |
 |
 
-- For more information, see [How to modify the reports and create custom queries](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries).
+For more information, see the [Azure Information Protection documentation](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries).
 
 ## Azure Key Vault
 
-- **Configurable by Azure Policy**
+**Configurable by Azure Policy**. Use the **Azure Policy Assignment wizard** in the data connector page to select and configure your Azure Policy. For more information, see [Azure Policy documentation.](/azure/governance/policy/overview)
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | KeyVaultData |
 | **Supported by** | Microsoft |
@@ -286,9 +304,9 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure Kubernetes Service (AKS)
 
-- **Configurable by Azure Policy**
+**Configurable by Azure Policy**. Use the **Azure Policy Assignment wizard** in the data connector page to select and configure your Azure Policy. For more information, see [Azure Policy documentation.](/azure/governance/policy/overview)
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | kube-apiserver<br>kube-audit<br>kube-audit-admin<br>kube-controller-manager<br>kube-scheduler<br>cluster-autoscaler<br>guard |
 | **Supported by** | Microsoft |
@@ -296,9 +314,9 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure SQL Databases
 
-- **Configurable by Azure Policy**
+**Configurable by Azure Policy**. Use the **Azure Policy Assignment wizard** in the data connector page to select and configure your Azure Policy. For more information, see [Azure Policy documentation.](/azure/governance/policy/overview)
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | SQLSecurityAuditEvents<br>SQLInsights<br>AutomaticTuning<br>QueryStoreWaitStatistics<br>Errors<br>DatabaseWaitStatistics<br>Timeouts<br>Blocks<br>Deadlocks<br>Basic<br>InstanceAndAppAdvanced<br>WorkloadManagement<br>DevOpsOperationsAudit |
 | **Supported by** | Microsoft |
@@ -306,9 +324,9 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure Storage Account
 
-- **Configurable by Azure Policy**
+**Configurable by Azure Policy**. Use the **Azure Policy Assignment wizard** in the data connector page to select and configure your Azure Policy. For more information, see [Azure Policy documentation.](/azure/governance/policy/overview)
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | StorageBlobLogs<br>StorageQueueLogs<br>StorageTableLogs<br>StorageFileLogs |
 | **Supported by** | Microsoft |
@@ -316,7 +334,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure Web Application Firewall (WAF)
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | AzureDiagnostics |
 | **Supported by** | Microsoft |
@@ -348,7 +366,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** | BetterMTDDeviceLog_CL<br>BetterMTDIncidentLog_CL<br>BetterMTDAppLog_CL<br>BetterMTDNetflowLog_CL |
-| **Vendor documentation/<br>installation instructions** | [BETTER MTD Documentation](https://mtd-docs.bmobi.net/integrations/azure-sentinel/setup-integration)<br><br>Threat Policy setup (Which incidents should be reported to Azure Sentinel):<br><ol><li>In **Better MTD Console**, click on **Policies** on the side bar.<li>Click on the **Edit** button of the Policy that you are using.<li>For each Incident type that you want to be logged, go to **Send to Integrations** field and select **Sentinel**. |
+| **Vendor documentation/<br>installation instructions** | [BETTER MTD Documentation](https://mtd-docs.bmobi.net/integrations/azure-sentinel/setup-integration)<br><br>Threat Policy setup (Which incidents should be reported to Azure Sentinel):<br><ol><li>In **Better MTD Console**, select  **Policies** on the side bar.<li>Select the **Edit** button of the Policy that you are using.<li>For each Incident type that you want to be logged, go to **Send to Integrations** field and select **Sentinel**. |
 | **Supported by** | [Better Mobile](mailto:support@better.mobi) |
 |
 
@@ -358,7 +376,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** | beSECURE_ScanResults_CL<br>beSECURE_ScanEvents_CL<br>beSECURE_Audit_CL |
-| **Vendor documentation/<br>installation instructions** | Access the **Integration** menu:<br><ol><li>Click on the **More** menu option.<li>Select **Server**<li>Select **Integration**<li>Enable Azure Sentinel<li>Paste the **Workspace ID** and **Primary Key** values in the beSECURE configuration.<li>Click Modify. |
+| **Vendor documentation/<br>installation instructions** | Access the **Integration** menu:<br><ol><li>Select the **More** menu option.<li>Select **Server**<li>Select **Integration**<li>Enable Azure Sentinel<li>Paste the **Workspace ID** and **Primary Key** values in the beSECURE configuration.<li>Select **Modify**. |
 | **Supported by** | [Beyond Security](https://beyondsecurity.freshdesk.com/support/home) |
 |
 
@@ -488,7 +506,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** | CognniIncidents_CL |
-| **Vendor documentation/<br>installation instructions** | **Connect to Cognni**<br><ol><li>Go to [Cognni integrations page](https://intelligence.cognni.ai/integrations).<li>Click **Connect** on the Azure Sentinel box.<li>Paste **workspaceId** and **sharedKey** (Primary Key) to the fields on Cognni's integrations screen.<li>Click the **Connect** botton to complete the configuration. |
+| **Vendor documentation/<br>installation instructions** | **Connect to Cognni**<br><ol><li>Go to [Cognni integrations page](https://intelligence.cognni.ai/integrations).<li>Select **Connect** on the Azure Sentinel box.<li>Paste **workspaceId** and **sharedKey** (Primary Key) to the fields on Cognni's integrations screen.<li>Select the **Connect** botton to complete the configuration. |
 | **Supported by** | [Cognni](https://cognni.ai/contact-support/)
 |
 
@@ -513,7 +531,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 ## Domain name server
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
 | **Supported by** | Microsoft |
@@ -521,7 +539,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 ## Dynamics 365
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
 | **Supported by** | Microsoft |
@@ -543,7 +561,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 ### Create an API user
 
 1. Log into the ESET Security Management Center / ESET PROTECT console with an administrator account, select the **More** tab and the **Users** subtab.
-1. Click on the **ADD NEW** button and add a **native user**.
+1. Select the **ADD NEW** button and add a **native user**.
 1. Create a new user for the API account. **Optional:** Select a **Home group** other than **All** to limit what detections are ingested.
 1. Under the **Permission Sets** tab, assign the **Enterprise Inspector reviewer** permission set.
 1. Log out of the administrator account and log into the console with the new API credentials for validation, then log out of the API account.
@@ -841,7 +859,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 ## Microsoft 365 Defender
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | SecurityAlert<br>SecurityIncident<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo |
 | **Supported by** | Microsoft |
@@ -849,7 +867,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 ## Microsoft Cloud App Security (MCAS)
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
@@ -857,7 +875,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 ## Microsoft Defender for Endpoint
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
@@ -865,7 +883,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 ## Microsoft Defender for Identity
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
@@ -873,7 +891,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 ## Microsoft Defender for Office 365
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
@@ -881,7 +899,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 ## Microsoft Office 365
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** | OfficeActivity |
 | **Supported by** | Microsoft |
@@ -1103,10 +1121,10 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 ### Custom instructions to deploy this connector
 
-#### Step 1 - Configuration steps for the Qualys API
+#### Configuration steps for the Qualys API
 
 1. Log into the Qualys Vulnerability Management console with an administrator account, select the **Users** tab and the **Users** subtab.
-1. Click on the **New** drop-down menu and select **Users**.
+1. Select the **New** drop-down menu and select **Users**.
 1. Create a username and password for the API account.
 1. In the **User Roles** tab, ensure the account role is set to **Manager** and access is allowed to **GUI** and **API**
 1. Log out of the administrator account and log into the console with the new API credentials for validation, then log out of the API account.
@@ -1128,10 +1146,10 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 ### Custom instructions to deploy this connector
 
-#### Step 1 - Configuration steps for the Qualys API
+#### Configuration steps for the Qualys API
 
 1. Log into the Qualys Vulnerability Management console with an administrator account, select the **Users** tab and the **Users** subtab.
-1. Click on the **New** drop-down menu and select **Users**.
+1. Select the **New** drop-down menu and select **Users**.
 1. Create a username and password for the API account.
 1. In the **User Roles** tab, ensure the account role is set to **Manager** and access is allowed to **GUI** and **API**
 1. Log out of the administrator account and log into the console with the new API credentials for validation, then log out of the API account.
@@ -1145,7 +1163,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 Due to the potentially large amount of Qualys host detection data being ingested, it can cause the execution time to surpass the default Function App timeout of five (5) minutes. Increase the default timeout duration to the maximum of ten (10) minutes, under the Consumption Plan, to allow more time for the Function App to execute.
 
 1. In the Function App, select the Function App Name and select the **App Service Editor** blade.
-1. Click **Go** to open the editor, then select the **host.json** file under the **wwwroot** directory.
+1. Select **Go** to open the editor, then select the **host.json** file under the **wwwroot** directory.
 1. Add the line `"functionTimeout": "00:10:00",` above the `managedDependancy` line.
 1. Ensure **SAVED** appears on the top right corner of the editor, then exit the editor.
 
@@ -1170,7 +1188,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 ## Security events (Windows)
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
 | **Supported by** | Microsoft |
@@ -1195,17 +1213,17 @@ For more information, see [Insecure protocols workbook setup](./get-visibility.m
 
 ### Custom instructions for deploying this connector
 
-#### STEP 1 - Configuration steps for the SentinelOne API
+#### Configuration steps for the SentinelOne API
 
 Follow the instructions to obtain the credentials.
 
 1. Log in to the SentinelOne Management Console with Admin user credentials.
-1. In the Management Console, click **Settings**.
-1. In the **SETTINGS** view, click **USERS**
-1. Click **New User**.
+1. In the Management Console, select **Settings**.
+1. In the **SETTINGS** view, select **USERS**
+1. Select **New User**.
 1. Enter the information for the new console user.
 1. In Role, select **Admin**.
-1. Click **SAVE**
+1. Select **SAVE**
 1. Save credentials of the new user for using in the data connector.
 
 ## SonicWall Firewall (Preview)
@@ -1223,7 +1241,7 @@ Follow the instructions to obtain the credentials.
 | Data ingestion method: | [REST-API](connect-rest-api-template.md) |
 | --- | --- |
 | **Log Analytics table(s)** | SophosCloudOptix_CL |
-| **Vendor documentation/<br>installation instructions** | [Integrate with Azure Sentinel](https://docs.sophos.com/pcg/optix/help/en-us/pcg/optix/tasks/IntegrateAzureSentinel.html) (SKIP STEP 1!)<br>[Sophos query samples](https://docs.sophos.com/pcg/optix/help/en-us/pcg/optix/concepts/ExampleAzureSentinelQueries.html) |
+| **Vendor documentation/<br>installation instructions** | [Integrate with Azure Sentinel](https://docs.sophos.com/pcg/optix/help/en-us/pcg/optix/tasks/IntegrateAzureSentinel.html), skipping the first step.<br>[Sophos query samples](https://docs.sophos.com/pcg/optix/help/en-us/pcg/optix/concepts/ExampleAzureSentinelQueries.html) |
 | **Supported by** | [Sophos](https://secure2.sophos.com/en-us/support.aspx) |
 |
 
@@ -1386,7 +1404,7 @@ Follow the instructions to obtain the credentials.
 
 ## Windows firewall
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
 | **Supported by** | Microsoft |
@@ -1394,7 +1412,7 @@ Follow the instructions to obtain the credentials.
 
 ## Windows security events
 
-| Data ingestion method: | Azure service |
+| Data ingestion method: | [Azure service](connect-azure-windows-microsoft-services.md) |
 | --- | --- |
 | **Log Analytics table(s)** |  |
 | **Supported by** | Microsoft |
@@ -1422,9 +1440,9 @@ Follow the instructions to obtain the credentials.
 **Configure Webhooks:**
 
 1. Log in to the Workplace with Admin user credentials.
-1. In the Admin panel, click **Integrations**.
-1. In the **All integrations** view, click **Create custom integration**.
-1. Enter the name and description and click **Create**.
+1. In the Admin panel, select **Integrations**.
+1. In the **All integrations** view, select **Create custom integration**.
+1. Enter the name and description and select **Create**.
 1. In the **Integration details** panel, show the **App secret** and copy it.
 1. In the **Integration permissions** panel, set all read permissions. Refer to [permission page](https://developers.facebook.com/docs/workplace/reference/permissions) for details.
 
@@ -1432,9 +1450,9 @@ Follow the instructions to obtain the credentials.
 
 **Add Callback URL to Webhook configuration:**
 
-1. Open your Function App's page, go to the **Functions** list, click **Get Function URL** and copy it.
+1. Open your Function App's page, go to the **Functions** list, select **Get Function URL** and copy it.
 1. Go back to **Workplace from Facebook**. In the **Configure webhooks** panel, on each Tab set the **Callback URL** as the Function URL you copied in the last step, and the **Verify token** as the same value you received during automatic deployment, or entered during manual deployment.
-1. Click Save.
+1. Select **Save**.
 
 ## Zimperium Mobile Thread Defense (Preview)
 
@@ -1451,15 +1469,15 @@ For more information about connecting to Azure Sentinel, see [Connect Zimperium 
 
 ### Configure and connect Zimperium MTD
 
-1. In zConsole, click **Manage** on the navigation bar.
-1. Click the **Integrations** tab.
-1. Click the **Threat Reporting** button and then the **Add Integrations** button.
+1. In zConsole, select **Manage** on the navigation bar.
+1. Select the **Integrations** tab.
+1. Select the **Threat Reporting** button and then the **Add Integrations** button.
 1. Create the Integration:
     1. From the available integrations, select **Microsoft Azure Sentinel**.
-    1. Enter your *workspace ID* and *primary key*, click **Next**.
+    1. Enter your *workspace ID* and *primary key*, select **Next**.
     1. Fill in a name for your Azure Sentinel integration.
     1. Select a **Filter Level** for the threat data you wish to push to Azure Sentinel.
-    1. Click **Finish**.
+    1. Select **Finish**.
 
 ## Zoom Reports (Preview)
 

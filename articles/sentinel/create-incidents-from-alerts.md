@@ -38,7 +38,7 @@ Use the built-in rules available in Azure Sentinel to choose which connected Mic
 
     ![Rule templates](media/incidents-from-alerts/rule-templates.png)
 
-1. Choose the **Microsoft security** analytics rule template that you want to use, and click on **Create rule**.
+1. Choose the **Microsoft security** analytics rule template that you want to use, and select  **Create rule**.
 
     ![Security analytics rule](media/incidents-from-alerts/security-analytics-rule.png)
 

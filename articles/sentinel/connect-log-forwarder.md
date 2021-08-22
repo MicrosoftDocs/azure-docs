@@ -86,7 +86,7 @@ If your devices are sending Syslog and CEF logs over TLS (because, for example, 
 
 ## Run the deployment script
  
-1. From the Azure Sentinel navigation menu, click **Data connectors**. Select the connector for your product from the connectors gallery (or the **Common Event Format (CEF)** if your product isn't listed), and then the **Open connector page** button on the lower right. 
+1. From the Azure Sentinel navigation menu, select **Data connectors**. Select the connector for your product from the connectors gallery (or the **Common Event Format (CEF)** if your product isn't listed), and then the **Open connector page** button on the lower right. 
 
 1. On the connector page, in the instructions under **1.2 Install the CEF collector on the Linux machine**, copy the link provided under **Run the following script to install and apply the CEF collector**.  
 If you don't have access to that page, copy the link from the text below (copying and pasting the **Workspace ID** and **Primary Key** from above in place of the placeholders):
