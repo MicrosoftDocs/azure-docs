@@ -128,7 +128,7 @@ Use the following step-by-step instructions to manually deploy Azure Functions-b
 
     1. Enter a unique name for your function and enter a *cron* expression to specify the schedule. The default interval is every 5 minutes.
 
-    1. When the function has been created, select on **Code + Test** on the left pane.
+    1. When the function has been created, select **Code + Test** on the left pane.
 
     1. Download the Function App Code supplied by your source system's vendor and copy and paste it into the **Function App** *run.ps1* editor, replacing what's there by default. You can find the download link on the connector page or in the section for your service in the [Azure Sentinel data connectors reference](data-connectors-reference.md) page.
 
