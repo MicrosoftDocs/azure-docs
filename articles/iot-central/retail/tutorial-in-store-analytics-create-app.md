@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
 ms.author: timlt
 author: timlt
-ms.date: 11/12/2019
+ms.date: 08/17/2021
 ---
 
 # Tutorial: Deploy and walk through the in-store analytics application template
