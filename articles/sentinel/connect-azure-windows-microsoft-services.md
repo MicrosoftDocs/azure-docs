@@ -70,7 +70,7 @@ This section's following instructions apply to the following connectors:
 This section's following instructions apply to the following connectors:
 
 - [Domain Name Server](data-connectors-reference.md#domain-name-server)
-- [Security Events](data-connectors-reference.md#security-events)
+- [Security Events](connect-windows-security-events.md)
 - [Windows Firewall](data-connectors-reference.md#windows-firewall)
 
 ### Prerequisites
