@@ -142,7 +142,7 @@ To address a registry artifact for push and pull operations with Docker or other
     
   **Address by digest**: `[loginServerUrl]/[repository@sha256][:digest]`  
 
-When using Docker or other client tools to pull or push artifacts to an Azure container registry, use the registry's fully qualified URL, also called the *login server* name. In the Azure cloud, the fully qualified URL of an Azure container registry is in the format `myregistry.azurecr.io` (all lowercase).
+When using Docker or other client tools to pull or push artifacts to an Azure Container Registry, use the registry's fully qualified URL, also called the *login server* name. In the Azure cloud, the fully qualified URL of an Azure Container Registry is in the format `myregistry.azurecr.io` (all lowercase).
 
 > [!NOTE]
 > * You can't specify a port number in the registry login server URL, such as `myregistry.azurecr.io:443`. 
