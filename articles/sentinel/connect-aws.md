@@ -36,7 +36,7 @@ You must have write permission on the Azure Sentinel workspace.
 ## Connect AWS 
 
 
-1. In Azure Sentinel, select **Data connectors** and then select the **Amazon Web Services** line in the table and in the AWS pane to the right,  click **Open connector page**.
+1. In Azure Sentinel, select **Data connectors** and then select the **Amazon Web Services** line in the table and in the AWS pane to the right,  select **Open connector page**.
 
 1. Follow the instructions under **Configuration** using the following steps.
  
@@ -72,7 +72,7 @@ You must have write permission on the Azure Sentinel workspace.
 
     ![AWS8](./media/connect-aws/aws-8.png)
 
-1.  Copy the **Role ARN**. In the Azure Sentinel portal, in the Amazon Web Services connector screen, paste it into the **Role to add** field and click **Add**.
+1.  Copy the **Role ARN**. In the Azure Sentinel portal, in the Amazon Web Services connector screen, paste it into the **Role to add** field and select **Add**.
 
     ![AWS9](./media/connect-aws/aws-9.png)
 
