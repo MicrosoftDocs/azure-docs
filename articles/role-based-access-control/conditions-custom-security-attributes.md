@@ -39,7 +39,7 @@ To assign custom security attributes and add role assignments conditions in your
     - `Microsoft.Authorization/roleAssignments/write`
 
 > [!NOTE]
-> If you do not meet these requirements, you won’t see the principal/user attributes in the condition builder. 
+> If you do not meet these requirements, you won't see the principal/user attributes in the condition builder. 
 
 ## Condition
 
@@ -116,7 +116,7 @@ The Add role assignment condition page appears.
     | Setting | Value |
     | --- | --- |
     | Attribute source | Principal |
-    | Attribute | <attributeset>_Project |
+    | Attribute | &lt;attributeset&gt;_Project |
     | Operator | StringEquals |
     | Option | Attribute |
     | Attribute source | Resource |
