@@ -102,7 +102,7 @@ The following table lists the field names and descriptions:
 | --- | --- |
 | **TimeGenerated** | The date and time in UTC when the report was created. |
 | **ResourceId** | The resource ID of your public IP address. |
-| **Category** | For notifications, this will be `DDoSProtectionNotifications`.|
+| **Category** | For notifications, this will be `DDoSMitigationReports`.|
 | **ResourceGroup** | The resource group that contains your public IP address and virtual network. |
 | **SubscriptionId** | Your DDoS protection plan subscription ID. |
 | **Resource** | The name of your public IP address. |
