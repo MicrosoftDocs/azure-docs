@@ -56201,11 +56201,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/load-balancer/egress-only.md",
-      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sip-interface-infrastructure.md",
       "redirect_url": "/azure/communication-services/concepts/telephony-sms/direct-routing-infrastructure",
       "redirect_document_id": false

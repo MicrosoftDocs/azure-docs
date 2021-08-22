@@ -82,7 +82,7 @@ You need to create secrets for your Azure credentials, resource group, and subsc
 Add a Bicep file to your GitHub repository. The following Bicep file creates a storage account:
 
 ```url
-https://raw.githubusercontent.com/mumian/azure-docs-json-samples/master/get-started-with-templates/add-variable/azuredeploy.bicep
+https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/get-started-with-bicep-files/add-variable/azuredeploy.bicep
 ```
 
 The Bicep file takes one parameter called **storagePrefix** with 3 to 11 characters.
