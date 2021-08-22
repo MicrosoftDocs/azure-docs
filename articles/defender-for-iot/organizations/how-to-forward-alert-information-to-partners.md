@@ -160,7 +160,6 @@ Send alert information to a webhook server. Working with webhook servers lets yo
 
 Webhook extended can be used to send extra data to the endpoint. The extended feature includes all of the information in the Webhook alert, and adds the following information to the report:
 
-- id, time, title, message, severity, engine, sourcedevice, destinationdevice
 - sensorID
 - sensorName
 - zoneID
@@ -175,13 +174,13 @@ Webhook extended can be used to send extra data to the endpoint. The extended fe
 
 **To define a webhook extended action**:
 
-1. In the management console, select **Forwarding** fom the left hand pane.
+1. In the management console, select **Forwarding** from the left-hand pane.
 
 1. Add a forwarding rule by selecting the :::image type="icon" source="media/how-to-forward-alert-information-to-partners/add-icon.png" border="false"::: button.
 
-1. Select a severity level.
-
 1. Add a meaningful name for the forwarding alert.
+
+1. Select a severity level.
 
 1. Select **Add**.
 
@@ -191,7 +190,7 @@ Webhook extended can be used to send extra data to the endpoint. The extended fe
 
 1. Add the endpoint data URL in the URL field.
 
-1. (Optional) Customize the HTTP header with a key and value definition. Add additional headers by selecting the :::image type="icon" source="media/how-to-forward-alert-information-to-partners/add-header.png" border="false"::: button.
+1. (Optional) Customize the HTTP header with a key and value definition. Add extra headers by selecting the :::image type="icon" source="media/how-to-forward-alert-information-to-partners/add-header.png" border="false"::: button.
 
 1. Select **Save**.
 
@@ -199,7 +198,7 @@ Once the Webhook Extended forwarding rule has been configured, you can test the 
 
 **To test the Webhook Extended forwarding rule**:
 
-1. In the management console, select **Forwarding** fom the left hand pane.
+1. In the management console, select **Forwarding** from the left-hand pane.
 
 1. Select the **run** button to test your alert.
 
@@ -207,7 +206,7 @@ Once the Webhook Extended forwarding rule has been configured, you can test the 
 
 You will know the forwarding rule is working if you see the Success notification appear.
 
-
+:::image type="content" source="media/how-to-forward-alert-information-to-partners/success.png" alt-text="The alert has worked correctly if the success notification appears.":::
 
 ### NetWitness action
 
