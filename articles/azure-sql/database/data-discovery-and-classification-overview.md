@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/16/2021
+ms.date: 08/22/2021
 tags: azure-synapse
 ---
 # Data Discovery & Classification
@@ -120,11 +120,21 @@ These built-in roles can read the data classification of a database:
 - SQL Security Manager
 - User Access Administrator
 
+These are the required actions to read the data classification of a database are:
+
+- Microsoft.Sql/servers/databases/currentSensitivityLabels/*
+- Microsoft.Sql/servers/databases/recommendedSensitivityLabels/*
+- Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/*
+
 These built-in roles can modify the data classification of a database:
 
 - Owner
 - Contributor
 - SQL Security Manager
+
+This is the required action to modify the data classification of a database are:
+
+- Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/*
 
 Learn more about role-based permissions in [Azure RBAC](../../role-based-access-control/overview.md).
 
