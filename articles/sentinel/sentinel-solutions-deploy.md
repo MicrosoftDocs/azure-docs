@@ -41,7 +41,7 @@ Solutions can consist of any or all of the following components:
 
     :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Solutions list":::
 
-    - If you scroll to the bottom of the list but don't find what you're looking for, click the **Load more** link at the bottom to expand the list.
+    - If you scroll to the bottom of the list but don't find what you're looking for, select the **Load more** link at the bottom to expand the list.
 
         :::image type="content" source="./media/sentinel-solutions-deploy/load-more.png" alt-text="Load more solutions":::
 
@@ -63,7 +63,7 @@ Solutions can consist of any or all of the following components:
 
 1. Enter the subscription, resource group, and workspace to which you want to deploy the solution. 
 
-1. Click **Next** to cycle through the remaining tabs (corresponding to the components included in the solution), where you can learn about, and in some cases configure, each of the components.
+1. Select **Next** to cycle through the remaining tabs (corresponding to the components included in the solution), where you can learn about, and in some cases configure, each of the components.
 
     > [!NOTE]
     > The tabs listed below correspond with the components offered by the solution shown in the accompanying screenshots. Different solutions may have different types of components, so you may not see all the same tabs in every solution, and you may see tabs not shown below.
@@ -77,7 +77,7 @@ Solutions can consist of any or all of the following components:
     1. **Playbooks** tab - you'll need to enter valid Proofpoint TAP credentials here, so that the playbook can authenticate to your Proofpoint system to take any prescribed response actions.
         :::image type="content" source="./media/sentinel-solutions-deploy/wizard-playbooks.png" alt-text="deployment wizard playbooks tab":::
 
-1. Finally, in the **Review + create** tab, wait for the "Validation Passed" message, then click **Create** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
+1. Finally, in the **Review + create** tab, wait for the "Validation Passed" message, then select **Create** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
 
     :::image type="content" source="./media/sentinel-solutions-deploy/wizard-create.png" alt-text="deployment wizard review and create tab":::
 

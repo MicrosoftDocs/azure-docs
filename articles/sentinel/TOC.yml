@@ -45,7 +45,7 @@
       href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=%2fazure%2fsentinel%2fTOC.json
   - name: Data collection and analysis
     items:
-    - name: Connect data sources
+    - name: Data collection methods
       href: connect-data-sources.md
     - name: Normalization and the Azure Sentinel Information Model (ASIM)
       items:
@@ -109,9 +109,9 @@
     href: migration.md
   - name: Collect data
     items:
-    - name: Find your data source
+    - name: Connect your data source
       href: data-connectors-reference.md
-    - name: REST-API connection instructions (TBA)
+    - name: REST-API connection instructions
       href: connect-rest-api-template.md
     - name: Log Analytics agent connection instructions
       items:
@@ -127,8 +127,6 @@
         href: connect-custom-logs.md
     - name: Azure Functions connection instructions
       href: connect-azure-functions-template.md
-    - name: Data source collection instructions
-      href: partner-data-connectors-reference.md
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Connect Azure Stack VMs
@@ -257,8 +255,6 @@
       href: data-source-schema-reference.md
     - name: CEF log field mapping
       href: cef-name-mapping.md
-    - name: Partner data connectors reference
-      href: partner-data-connectors-reference.md
     - name: Normalization
       items:
       - name: Authentication normalization schema

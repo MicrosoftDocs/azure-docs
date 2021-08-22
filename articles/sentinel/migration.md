@@ -177,7 +177,7 @@ Make sure that you migrate only the data that represents your current key use ca
 
     - Use **[Syslog](connect-data-sources.md#syslog), [Common Event Format (CEF)](connect-data-sources.md#common-event-format-cef), or [REST APIs](connect-data-sources.md#rest-api-integration)** to connect other data sources.
 
-        For more information, see [Azure Sentinel partner data connectors](partner-data-connectors.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
+        For more information, see [Azure Sentinel data connectors reference](data-connectors-reference.md) and the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
 > [!TIP]
 > - Limiting yourself to only free data sources may limit your ability to test with data that's important to you. When testing, consider limited data ingestion from both free and paid data connectors to get the most out of your test results.

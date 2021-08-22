@@ -25846,6 +25846,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/partner-data-connectors.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sentinel/user-analytics.md",
       "redirect_url": "/azure/sentinel/overview",
       "redirect_document_id": false
