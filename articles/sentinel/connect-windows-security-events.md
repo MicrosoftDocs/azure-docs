@@ -108,7 +108,7 @@ To collect your Windows security events in Azure Sentinel:
     For Azure Virtual Machines:
     
     1. Select **Install agent on Azure Windows Virtual Machine**, and then on the link that appears below.
-    1. For each virtual machine that you want to connect, select on its name in the list that appears on the right, and then select **Connect**.
+    1. For each virtual machine that you want to connect, select its name in the list that appears on the right, and then select **Connect**.
 
     For non-Azure Windows machines (physical, virtual on-prem, or virtual in another cloud):
 
