@@ -30,12 +30,19 @@ This configuration provides outbound NAT for an internal load balancer scenario,
 In this how-to article, you'll:
 
 1. Create a virtual network with a bastion host.
+
 2. Create both internal and public standard load balancers with backend pools.
+
 3. Create a virtual machine with only a private IP and add to the internal load balancer backend pool.
+
 4. Add virtual machine to public load balancer backend pool.
+
 5. Connect to your VM through the bastion host and:
+    
     1. Test outbound connectivity, 
+    
     2. Configure an outbound rule on the public load balancer.
+    
     3. Retest outbound connectivity.
 
 ## Create virtual network and load balancers
@@ -89,7 +96,6 @@ In this section, you'll create the virtual network and subnets for the virtual m
     | Bastion name | Enter **myBastionHost** |
     | AzureBastionSubnet address space | Enter **10.1.1.0/27** |
     | Public IP Address | Select **Create new**. </br> For **Name**, enter **myBastionIP**. </br> Select **OK**. |
-
 
 11. Select the **Review + create** tab or select the **Review + create** button.
 
@@ -293,7 +299,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 8. Select **Add**.
 
 9. Select **Save**.
-### Test connectivity before outbound rule
+## Test connectivity before outbound rule
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -311,7 +317,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 8. The connection should fail. By default, standard public load balancer [doesn't allow outbound traffic without a defined outbound rule](load-balancer-overview.md#securebydefault).
  
-### Create a public load balancer outbound rule
+## Create a public load balancer outbound rule
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
@@ -321,7 +327,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 4. Select **+ Add** in **Outbound rules**.
 
-3. Enter or select the following information to configure the outbound rule.
+5. Enter or select the following information to configure the outbound rule.
 
     | Setting | Value |
     | ------- | ----- |
@@ -337,9 +343,9 @@ In this section, you'll add the virtual machine you created previously to the ba
     | Choose by | Select **Ports per instance**. |
     | Ports per instance | Enter **10000**
 
-4. Select **Add**.
+6. Select **Add**.
 
-### Test connectivity after outbound rule
+## Test connectivity after outbound rule
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
