@@ -99,7 +99,7 @@ To collect your Windows security events in Azure Sentinel:
 
 # [Log Analytics Agent (Legacy)](#tab/LAA)
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select on **Security Events**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
+1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Security Events**, and then **Open connector page** on the details pane. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
 
 1. Verify that you have the appropriate permissions as described under the **Prerequisites** section on the connector page.
 
