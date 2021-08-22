@@ -1,16 +1,11 @@
 ---
 title: Outbound-only load balancer configuration
 titleSuffix: Azure Load Balancer
-description: With this article, learn about how to create an internal load balancer with outbound NAT
-services: load-balancer
-documentationcenter: na
+description: In this article, learn about how to create an internal load balancer with outbound NAT
 author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 08/21/2021
 ms.author: allensu
 ---
@@ -32,7 +27,7 @@ This configuration provides outbound NAT for an internal load balancer scenario,
 
 *Figure: Egress only load balancer configuration*
 
-The steps required are:
+In this how-to article, you'll:
 
 1. Create a virtual network with a bastion host.
 2. Create both internal and public standard load balancers with backend pools.
@@ -45,7 +40,7 @@ The steps required are:
 
 ## Create virtual network and load balancers
 
-In this section, you'll create a virtual network and subnet for the load balancers and the virtual machine.  You'll next create an internal and public load balancer.
+In this section, you'll create a virtual network and subnet for the load balancers and the virtual machine.  You'll next create the load balancers.
 
 ### Create the virtual network
 
@@ -102,7 +97,7 @@ In this section, you'll create the virtual network and subnets for the virtual m
 
 ### Create internal load balancer
 
-In this section you'll create the internal load balancer.
+In this section, you'll create the internal load balancer.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
@@ -227,7 +222,7 @@ In this section, you'll create the public load balancer.
 
 ## Create virtual machine
 
-In this section, you'll create a virtual machine and add it to the backend pool of the internal load balancer. After the virtual machine is created, you'll add the virtual machine to the backend pool of the public load balancer.
+You'll create a virtual machine in this section. During creation, you'll add it to the backend pool of the internal load balancer. After the virtual machine is created, you'll add the virtual machine to the backend pool of the public load balancer.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -279,7 +274,7 @@ In this section, you'll create a virtual machine and add it to the backend pool 
 
 ### Add VM to backend pool of public load balancer
 
-In this section, you'll add the virtual machine you created in the previous section to the backend pool of the public load balancer.
+In this section, you'll add the virtual machine you created previously to the backend pool of the public load balancer.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
@@ -339,7 +334,7 @@ In this section, you'll add the virtual machine you created in the previous sect
     | **Port allocation** |  |
     | Port allocation | Select **Manually choose number of outbound ports**. |
     | **Outbound ports** |  |
-    | Chose by | Select **Ports per instance**. |
+    | Choose by | Select **Ports per instance**. |
     | Ports per instance | Enter **10000**
 
 4. Select **Add**.
