@@ -28,7 +28,7 @@ The Agari Phishing Defense and Brand Protection connector connects Brand Protect
 
 For more information, see the [Agari Developers Site](https://developers.agari.com/agari-platform) and [Connect Agari Phishing Defense and Brand Protection to Azure Sentinel](connect-agari-phishing-defense.md).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** [Agari](https://support.agari.com/hc/en-us/articles/360000645632-How-to-access-Agari-Support)
 
@@ -68,7 +68,7 @@ Alcide kAudit connector automatically exports your Kubernetes cluster audit logs
 
 For more information about connecting to Azure Sentinel, see [Connect Alcide kAudit to Azure Sentinel](connect-alcide-kaudit.md).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [REST API](connect-data-sources.md#rest-api-integration).
 
 **Supported by:** [Alcide](https://www.alcide.io/company/contact-us/)
 
@@ -120,7 +120,7 @@ For more information about connecting to Azure Sentinel, see [Connect Aruba Clea
 
 The [Atlassian Confluence](https://www.atlassian.com/software/confluence) Audit data connector ingests Confluence Audit Records. The connector can get events to examine potential security risks, analyze your team's collaboration, diagnose configuration problems, and more. For more information, see [View the audit log](https://support.atlassian.com/confluence-cloud/docs/view-the-audit-log/).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** Microsoft
 
@@ -128,7 +128,7 @@ The [Atlassian Confluence](https://www.atlassian.com/software/confluence) Audi
 
 The Atlassian Jira Audit data connector ingests Jira Audit Records events into Azure Sentinel. The connector can get events to examine potential security risks, analyze your team's collaboration, diagnose configuration problems, and more. For more information, see [Audit records](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-audit-records/).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** Microsoft
 
@@ -244,7 +244,7 @@ The Cisco Umbrella data connector ingests Cisco Umbrella events stored in Amazon
 
 For more information about connecting to Azure Sentinel, see [Connect Cisco Umbrella to Azure Sentinel](connect-cisco-umbrella.md).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** Microsoft
 
@@ -301,7 +301,7 @@ The Cyberpion Security Logs data connector ingests logs from the Cyberpion syste
 
 The ESET Enterprise Inspector data connector ingests detections from ESET Enterprise Inspector using the REST API provided in ESET Enterprise Inspector version 1.4 and later. For more information, see [REST API](https://help.eset.com/eei/1.5/en-US/api.html) in the ESET Enterprise Inspector documentation.
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** [ESET](https://support.eset.com/en)
 
@@ -424,7 +424,7 @@ To get credentials, follow the instructions at [Perform Google Workspace Domain-
 
 For more information about connecting to Azure Sentinel, see [Connect Google Workspace (formerly G Suite) to Azure Sentinel](connect-google-workspace.md).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** Microsoft
 
@@ -480,7 +480,7 @@ The Morphisec Data Connector for Azure Sentinel integrates vital insights from y
 
 The Netskope Cloud Security Platform connector ingests Netskope logs and events into Azure Sentinel. For more information, see [The Netskope Cloud Security Platform](https://www.netskope.com/platform).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** Microsoft
 
@@ -526,7 +526,7 @@ The Okta Single Sign-On (SSO) data connector ingests audit and event logs from t
 
 For more information about connecting to Azure Sentinel, see [Connect Okta SSO to Azure Sentinel](connect-okta-single-sign-on.md).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** Microsoft
 
@@ -602,7 +602,7 @@ The POD Email Security data connector gets POD Email Protection data. With this 
 
 For more information about connecting to Azure Sentinel, see [Connect Proofpoint On Demand (POD) Email Security to Azure Sentinel](connect-proofpoint-pod.md).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** Microsoft
 
@@ -612,7 +612,7 @@ The Proofpoint TAP connector ingests Proofpoint TAP logs and events into Azure S
 
 For more information about connecting to Azure Sentinel, see [Connect Proofpoint TAP to Azure Sentinel](connect-proofpoint-tap.md).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** Microsoft
 
@@ -640,7 +640,7 @@ The Qualys VM data connector ingests vulnerability host detection data into Azur
 
 For more information about connecting to Azure Sentinel, see [Connect Qualys VM to Azure Sentinel](connect-qualys-vm.md).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** Microsoft
 
@@ -658,7 +658,7 @@ For more information about connecting to Azure Sentinel, see [Connect Salesforce
 
 The SentinelOne data connector ingests SentinelOne events into Azure Sentinel. Events include server objects like Threats, Agents, Applications, Activities, Policies, Groups, and more. The connector can get events to examine potential security risks, analyze your team's collaboration, diagnose configuration problems, and more.
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** Microsoft
 
@@ -782,7 +782,7 @@ For more information about connecting to Azure Sentinel, see [Connect Trend Micr
 
 The Trend Micro XDR data connector ingests workbench alerts from the Trend Micro XDR API into Azure Sentinel. To create an account and an API authentication token, follow the instructions at [Obtaining API Keys for Third-Party Access](https://docs.trendmicro.com/en-us/enterprise/trend-micro-xdr-help/ObtainingAPIKeys).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** [Trend Micro](https://success.trendmicro.com/technical-support)
 
@@ -792,7 +792,7 @@ The VMware Carbon Black Endpoint Standard data connector ingests Carbon Black En
 
 For more information about connecting to Azure Sentinel, see [Connect VMware Carbon Black Cloud Endpoint Standard to Azure Sentinel](connect-vmware-carbon-black.md).
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by:** Microsoft
 
@@ -828,7 +828,7 @@ For more information about connecting to Azure Sentinel, see [Connect WireX Netw
 
 The Workplace data connector ingests common Workplace events into Azure Sentinel through Webhooks. Webhooks enable custom integration apps to subscribe to events in Workplace and receive updates in real time. When a change occurs, Workplace sends an HTTPS POST request with event information to a callback data connector URL. For more information, see the Webhooks documentation. The connector can get events to examine potential security risks, analyze your team's collaboration, diagnose configuration problems, and more.
 
-**Data ingestion method:** [Azure Functions and the REST API](connect-data-sources.md#rest-api-integration-using-azure-functions).
+**Data ingestion method:** [Azure Functions and the REST API](connect-azure-functions-template.md).
 
 **Supported by**: Microsoft
 
