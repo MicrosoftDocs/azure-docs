@@ -27,13 +27,14 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Onboard with Azure Defender for IoT
 > * Create and install the virtual management console
+> * Create and install the virtual sensor
 > * 
 
 ## Prerequisites
 
 - Permissions: Azure **Subscription Owners**, or **Subscription Contributors** level.
 
-- At least one device to monitor connected to a port on the switch.
+- At least one device to monitor connected to a SPAN port on the switch.
 
 - Either VMware (ESXi 5.5 or later), or Hyper-V hypervisor (Windows 10 Pro or Enterprise) is installed and operational.
 
@@ -112,11 +113,11 @@ The virtual appliances have minimum specifications that are required for both th
 
 The on-premises management console VM supports any of the following architectures:
 
-    | Architecture | Specifications | Usage |
-    |--|--|--|
-    | **Enterprise** <br/>(Default and most common) | CPU: 8 <br/>Memory: 32G RAM<br/> HDD: 1.8 TB | Large production environments |
-    | **Small** | CPU: 4 <br/> Memory: 8G RAM<br/> HDD: 500 GB | Large production environments |
-    | **Office** | CPU: 4 <br/>Memory: 8G RAM <br/> HDD: 100 GB | Small test environments |
+| Architecture | Specifications | Usage |
+|--|--|--|
+| **Enterprise** <br/>(Default and most common) | CPU: 8 <br/>Memory: 32G RAM<br/> HDD: 1.8 TB | Large production environments |
+| **Small** | CPU: 4 <br/> Memory: 8G RAM<br/> HDD: 500 GB | Large production environments |
+| **Office** | CPU: 4 <br/>Memory: 8G RAM <br/> HDD: 100 GB | Small test environments |
 
 The on-premises management console supports both VMware and Hyper-V deployment options. Before you begin the installation, verify the following:
 
@@ -130,7 +131,7 @@ The on-premises management console supports both VMware and Hyper-V deployment o
 
 ### Create the virtual machine for the management console (ESXi)
 
-To a create virtual machine (ESXi):
+**To a create virtual machine (ESXi)**:
 
 1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
@@ -162,7 +163,7 @@ To a create virtual machine (ESXi):
 
 ### Create the virtual machine for the management console (Hyper-V)
 
-To create a virtual machine by using Hyper-V:
+**To create a virtual machine by using Hyper-V**:
 
 1. Create a virtual disk in Hyper-V Manager.
 
@@ -224,13 +225,15 @@ To create a virtual machine by using Hyper-V:
 
 1. On the **Actions** menu, select **Connect** to continue the software installation.
 
-### Software installation for the management console (ESXi and Hyper-V)
+### Install the management console software (ESXi and Hyper-V)
 
-Starting the virtual machine will start the installation process from the ISO image.
+Either ESXi, or Hyper-V can be used to install the software for the management console. 
 
-**To install the software**:
+**To install the management console software**:
 
-1. Select **English**.
+1. Open the virtual machine console.
+
+1. The VM will start the installation process from the ISO image and the language selection screen will appear. Select **English**.
 
 1. Select the required [architecture](#create-and-install-the-virtual-management-console) for your deployment.
 
@@ -246,11 +249,11 @@ Starting the virtual machine will start the installation process from the ISO im
 
 The sensor VM supports any of the following architectures:
 
-    | Architecture | Specifications | Usage | Comments |
-    |--|--|--|--|
-    | **Enterprise** | CPU: 8<br/>Memory: 32G RAM<br/>HDD: 1800 GB | Production environment | Default and most common |
-    | **Small Business** | CPU: 4 <br/>Memory: 8G RAM<br/>HDD: 500 GB | Test or small production environments | - |
-    | **Office** | CPU: 4<br/>Memory: 8G RAM<br/>HDD: 100 GB | Small test environments | - |
+| Architecture | Specifications | Usage | Comments |
+|--|--|--|--|
+| **Enterprise** | CPU: 8<br/>Memory: 32G RAM<br/>HDD: 1800 GB | Production environment | Default and most common |
+| **Small Business** | CPU: 4 <br/>Memory: 8G RAM<br/>HDD: 500 GB | Test or small production environments | - |
+| **Office** | CPU: 4<br/>Memory: 8G RAM<br/>HDD: 100 GB | Small test environments | - |
 
 The on-premises management console supports both VMware and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
 
@@ -263,6 +266,8 @@ The on-premises management console supports both VMware and Hyper-V deployment o
 - Make sure the hypervisor is running.
 
 ### Create the virtual machine for the sensor (ESXi)
+
+**To create the virtual machine for the sensor (ESXi)**:
 
 1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
@@ -294,7 +299,7 @@ The on-premises management console supports both VMware and Hyper-V deployment o
 
 This procedure describes how to create a virtual machine by using Hyper-V.
 
-To create a virtual machine:
+**To create a virtual machine**:
 
 1. Create a virtual disk in Hyper-V Manager.
 
@@ -336,11 +341,11 @@ To create a virtual machine:
 
 1. On the **Actions** menu, select **Connect** to continue the software installation.
 
-### Software installation for the virtual sensor (ESXi and Hyper-V)
+### Install the virtual sensor software (ESXi and Hyper-V)
 
-This section describes the ESXi and Hyper-V software installation.
+Either ESXi, or Hyper-V can be used to install the software for the sensor.
 
-To install:
+**To install the software on the virtual sensor**:
 
 1. Open the virtual machine console.
 
@@ -368,3 +373,6 @@ To install:
 1. The appliance restarts.
 
 1. Access the management console via the IP address previously configured: `https://ip_address`.
+
+## 
+
