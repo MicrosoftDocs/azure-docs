@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: rolyon
 ms.reviewer: 
 ms.subservice: common
-ms.date: 05/06/2021
+ms.date: 09/15/2021
 
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
@@ -155,7 +155,7 @@ $content = Set-AzStorageBlobContent -File $localSrcFile -Container example2 -Blo
 
 ## Example 3: Existing blobs must have tag keys
 
-This condition requires that any existing blobs be tagged with at least one of the allowed blob index tag keys, Project or Program. This condition is useful for adding governance to existing blobs.
+This condition requires that any existing blobs be tagged with at least one of the allowed blob index tag keys: Project or Program. This condition is useful for adding governance to existing blobs.
 
 > [!TIP]
 > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md).
@@ -606,6 +606,95 @@ $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logsAlpi
 # Try to get granted blob
 $content = Get-AzStorageBlobContent -Container $grantedContainer -Blob "logs/AlpineFile.txt" -Context $bearerCtx
 ```
+
+## Example 9: Allow read and write access to blobs based on tags and custom security attributes
+
+This condition allows read and write access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) that matches the blob index tag.
+ 
+For example, if Brenda has the attribute `Project=Baker`, she can only read and write blobs with the `Project=Baker` blob index tag. Similarly, Chandra can only read and write blobs with `Project=Cascade`.
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+ )
+ OR 
+ (
+  @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Test_Project] StringEquals @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
+ )
+)
+AND
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Write.WithTagHeaders'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Write.WithTagHeaders'})
+ )
+ OR 
+ (
+  @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Test_Project] StringEquals @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>]
+ )
+)
+```
+
+#### Azure portal
+
+Here are the settings to add this condition using the Azure portal.
+
+| Condition #1 | Setting |
+| --- | --- |
+| Actions | Read content from a blob with tag conditions |
+| Attribute source | Principal |
+| Attribute | &lt;attributeset&gt;_&lt;key&gt; |
+| Operator | StringEquals |
+| Option | Attribute |
+| Attribute source | Resource |
+| Attribute | Blob index tags [Values in key] |
+| Key | &lt;key&gt; |
+
+| Condition #2 | Setting |
+| --- | --- |
+| Actions | Write to a blob with blob index tags<br/>Write to a blob with blob index tags |
+| Attribute source | Principal |
+| Attribute | &lt;attributeset&gt;_&lt;key&gt; |
+| Operator | StringEquals |
+| Option | Attribute |
+| Attribute source | Request |
+| Attribute | Blob index tags [Values in key] |
+| Key | &lt;key&gt; |
+
+## Example 10: Allow read access to blobs based on tags and multi-value custom security attributes
+
+This condition allows read access to blobs if the user has a [custom security attribute](../../active-directory/fundamentals/custom-security-attributes-overview.md) with any values that matches the blob index tag.
+ 
+For example, if Chandra has the Project attribute with the values Baker and Cascade, she can only read blobs with the `Project=Baker` or `Project=Cascade` blob index tag.
+
+```
+(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] ForAnyOfAnyValues:StringEquals @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Test_Project]
+ )
+)
+```
+
+#### Azure portal
+
+Here are the settings to add this condition using the Azure portal.
+
+| Condition #1 | Setting |
+| --- | --- |
+| Actions | Read content from a blob with tag conditions |
+| Attribute source | Resource |
+| Attribute | Blob index tags [Values in key] |
+| Key | &lt;key&gt; |
+| Operator | ForAnyOfAnyValues:StringEquals |
+| Option | Attribute |
+| Attribute source | Principal |
+| Attribute | &lt;attributeset&gt;_&lt;key&gt; |
 
 ## Next steps
 
