@@ -293,7 +293,7 @@ Service Fabric managed clusters automatically creates load balancer probes for f
 ```
 
 <a id="ipv6"></a>
-## Enable IPv6
+## Enable IPv6 (preview)
 Managed clusters do not enable IPv6 by default. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. Any changes you make to the managed cluster load balancer config or NSG rules will affect both the IPv4 and IPv6 routing.
 
 > [!NOTE]
@@ -320,7 +320,7 @@ After deployment, your clusters virtual network and resources will be dual-stack
 
 
 <a id="byovnet"></a>
-## Bring your own virtual network
+## Bring your own virtual network (preview)
 This feature allows customers to use an existing virtual network by specifying a dedicated subnet the managed cluster will deploy its resources into. This can be useful if you already have a configured VNet and subnet with related security policies and traffic routing that you want to use. After you deploy to an existing virtual network, it's easy to use or incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering. Additionally, you can [bring your own Azure Load balancer](#byolb) if needed also.
 
 > [!NOTE]
@@ -427,7 +427,7 @@ In the following example, we'll create a resource group called `MyResourceGroup`
 When you bring your own VNet subnet the public endpoint is still created and managed by the resource provider, but in the configured subnet. The feature does not allow you to specify the public ip/re-use static ip on the Azure Load Balancer. You can [bring your own Azure Load Balancer](#byolb) in concert with this feature or by itself if you require those or other load balancer scenarios that aren't natively supported.
 
 <a id="byolb"></a>
-## Bring your own Azure Load Balancer
+## Bring your own Azure Load Balancer (preview)
 Managed clusters create an Azure Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. This feature allows you to create or reuse an Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer, you can:
 
 * Use a pre-configured Load Balancer static IP address for either private or public traffic
