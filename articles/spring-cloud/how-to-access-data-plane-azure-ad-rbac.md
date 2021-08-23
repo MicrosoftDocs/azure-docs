@@ -17,11 +17,12 @@ This article explains how to access the Spring Cloud Config Server and Spring Cl
 ## Assign role to Azure AD user/group, MSI, or service principal
 
 Assign the role to the [user | group | service-principal | managed-identity] at [management-group | subscription | resource-group | resource] scope.
-| Role name | Description |
-| - | - |
-| Azure Spring Cloud Config Server Reader | Allow read access to Azure Spring Cloud Config Server. |
-| Azure Spring Cloud Config Server Contributor | Allow read, write, and delete access to Azure Spring Cloud Config Server. |
-| Azure Spring Cloud Service Registry Reader | Allow read access to Azure Spring Cloud Service Registry. |
+
+| Role name                                       | Description                                                                  |
+|-------------------------------------------------|------------------------------------------------------------------------------|
+| Azure Spring Cloud Config Server Reader         | Allow read access to Azure Spring Cloud Config Server.                       |
+| Azure Spring Cloud Config Server Contributor    | Allow read, write, and delete access to Azure Spring Cloud Config Server.    |
+| Azure Spring Cloud Service Registry Reader      | Allow read access to Azure Spring Cloud Service Registry.                    |
 | Azure Spring Cloud Service Registry Contributor | Allow read, write, and delete access to Azure Spring Cloud Service Registry. |
 
 For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
