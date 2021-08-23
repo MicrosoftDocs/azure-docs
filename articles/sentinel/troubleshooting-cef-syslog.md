@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2021
+ms.date: 08/23/2021
 ms.author: bagol
 
 ---
@@ -24,9 +24,19 @@ This article describes common methods for troubleshooting a CEF or Syslog data c
 
 For example, if your logs are not appearing in Azure Sentinel, either in the Syslog or the Common Security Log tables, your data source may be failing to connect or there may be another reason your data is not being ingested.
 
+Other symptoms of a failed connector deployment include when either the **security_events.conf** or the **security-omsagent.config.conf** files are missing, or if the rsyslog server is not listening on port 514.
+
 We recommend that you work through the steps in this article in the order they're presented to check and resolve issues in your Syslog Collector, operating system, or OMS agent.
 
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md) and [Collect data from Linux-based sources using Syslog](connect-syslog.md).
+
+> [!NOTE]
+> The Log Analytics agent for Windows is often referred to as the *Microsoft Monitoring Agent (MMA)*. The Log Analytics agent for Linux is often referred to as the *OMS agent*.
+>
+
+> [!TIP]
+> If you've deployed your connector using a method different than the documented procedure and are having issues, we recommend that you purge the deployment and install again as documented.
+>
 
 ## Verify prerequisites
 
@@ -40,17 +50,13 @@ If you're using an Azure Virtual Machine as a Syslog collector, verify the follo
 
     You can turn them back on after your data connector is completely set up.
 
-    > [!NOTE]
-    > The Log Analytics agent for Windows is often referred to as the *Microsoft Monitoring Agent (MMA)*. The Log Analytics agent for Linux is often referred to as the *OMS agent*.
-    >
-
 - Before you deploy the [Common Event Format Data connector python script](connect-cef-agent.md), make sure that your Virtual Machine isn't already connected to an existing Syslog workspace. You can find this information on the Log Analytics Workspace Virtual Machine list, where a VM that's connected to a Syslog workspace is listed as **Connected**.
 
 - Make sure that Azure Sentinel is connected to the correct Syslog workspace, with the **SecurityInsights** solution installed.
 
     For more information, see [Step 1: Deploy the log forwarder](connect-cef-agent.md).
 
-- Make sure that your Virtual Machine is sized correctly with at least the minimum required prerequisites. For more information, see [CEF prerequisites](connect-common-event-format.md#prerequisites).
+- Make sure that your machine is sized correctly with at least the minimum required prerequisites. For more information, see [CEF prerequisites](connect-common-event-format.md#prerequisites).
 
 ### On-premises or a non-Azure Virtual Machine
 
@@ -233,8 +239,6 @@ This procedure describes how to verify whether a firewall policy is blocking the
      pkts bytes target     prot opt in     out     source               destination
     ```
 
-    For more information, see the [CentOS Wiki](https://wiki.centos.org/HowTos/Network/IPTables).
-
 1. To create a rule to allow TCP/UDP ports 25226 and 25224 through the active firewall, add rules as needed.
 
     1. To install the Firewall Policy editor, run:
@@ -292,6 +296,8 @@ Heartbeat
  | where Computer contains "<computername>"
  | sort by TimeGenerated desc
 ```
+
+A log entry is returned if the agent is communicating successfully. Otherwise, the OMS agent may be blocked.
 
 ## Next steps
 
