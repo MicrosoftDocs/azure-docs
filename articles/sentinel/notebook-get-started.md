@@ -546,12 +546,12 @@ When you frequently author new notebooks, auto-loading query providers can save 
 
    - **Alias:** When MSTICPy loads a provider, it assigns the provider to a Python variable name. By default, the variable name is **qryworkspace_name** for Azure Sentinel providers and **qryprovider_name** for other providers. Add an alias if you want to use something shorter or easier to type and remember. The variable name will be **qry_alias**.
 
-      Providers you load by this mechanism are added to the MSTICPy `current_providers` attriute, which is used for example in the following code:
+        Providers you load by this mechanism are added to the MSTICPy `current_providers` attriute, which is used for example in the following code:
 
-      ```python
-      import msticpy
-      msticpy.current_providers
-    ```
+        ```python
+        import msticpy
+        msticpy.current_providers
+        ```
 
 1. Select **Save File** to save your changes.
 
@@ -774,8 +774,8 @@ This tutorial walked through the basics of installing MSTICPy and setting up con
 
 Try out other notebooks stored in the [Azure Sentinel Notebooks GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks), especially:
 
-- Tour of the Cybersec features
-- Machine Learning examples
+- [Tour of the Cybersec features](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/9bba6bb9007212fca76169c3d9a29df2da95582d/A%20Tour%20of%20Cybersec%20notebook%20features.ipynb)
+- [Machine Learning examples](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/9bba6bb9007212fca76169c3d9a29df2da95582d/Machine%20Learning%20in%20Notebooks%20Examples.ipynb)
 
 > [!TIP]
 > If you use the notebook described in this tutorial in another Jupyter environment, you can use any kernel that supports Python 3.6 or later.
