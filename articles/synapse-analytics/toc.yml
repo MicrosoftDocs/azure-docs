@@ -1333,4 +1333,4 @@ items:
     - name: System integration
       href: ./sql-data-warehouse/sql-data-warehouse-partner-system-integration.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Compatibility issues with third-party applications
-      href: ./sql-data-warehouse/sql-data-warehouse-partner-compatibility-issues.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      href:./sql-data-warehouse/sql-data-warehouse-partner-compatibility-issues.md?context=/azure/synapse-analytics/context/context
