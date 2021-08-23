@@ -4,9 +4,10 @@ description: Learn how to access information about your licenses using the Licen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 06/10/2021
 author: smannepalle
 ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 06/10/2021
 ---
 
 # License dashboard in commercial marketplace analytics

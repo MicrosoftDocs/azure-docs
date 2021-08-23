@@ -114,7 +114,6 @@ SET WORKSPACE_SHARED_KEY=<primarySharedKey>
 ```console
 $Env:WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
-```
 ::: zone-end
 
 

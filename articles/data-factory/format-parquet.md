@@ -1,7 +1,7 @@
 ---
-title: Parquet format in Azure Data Factory 
+title: Parquet format
 titleSuffix: Azure Data Factory & Azure Synapse
-description: 'This topic describes how to deal with Parquet format in Azure Data Factory.'
+description: This topic describes how to deal with Parquet format in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
@@ -11,7 +11,7 @@ ms.date: 09/27/2020
 ms.author: jianleishen
 ---
 
-# Parquet format in Azure Data Factory
+# Parquet format in Azure Data Factory and Azure Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Follow this article when you want to **parse the Parquet files or write the data into Parquet format**. 
@@ -158,7 +158,7 @@ Parquet complex data types (e.g. MAP, LIST, STRUCT) are currently supported only
 > [!IMPORTANT]
 > For copy empowered by Self-hosted Integration Runtime e.g. between on-premises and cloud data stores, if you are not copying Parquet files **as-is**, you need to install the **64-bit JRE 8 (Java Runtime Environment) or OpenJDK** and **Microsoft Visual C++ 2010 Redistributable Package** on your IR machine. Check the following paragraph with more details.
 
-For copy running on Self-hosted IR with Parquet file serialization/deserialization, ADF locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
+For copy running on Self-hosted IR with Parquet file serialization/deserialization, the service locates the Java runtime by firstly checking the registry *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* for JRE, if not found, secondly checking system variable *`JAVA_HOME`* for OpenJDK.
 
 - **To use JRE**: The 64-bit IR requires 64-bit JRE. You can find it from [here](https://go.microsoft.com/fwlink/?LinkId=808605).
 - **To use OpenJDK**: It's supported since IR version 3.13. Package the jvm.dll with all other required assemblies of OpenJDK into Self-hosted IR machine, and set system environment variable JAVA_HOME accordingly.
@@ -169,7 +169,7 @@ For copy running on Self-hosted IR with Parquet file serialization/deserializati
 
 ![Set JVM heap size on Self-hosted IR](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Example: set variable `_JAVA_OPTIONS` with value `-Xms256m -Xmx16g`. The flag `Xms` specifies the initial memory allocation pool for a Java Virtual Machine (JVM), while `Xmx` specifies the maximum memory allocation pool. This means that JVM will be started with `Xms` amount of memory and will be able to use a maximum of `Xmx` amount of memory. By default, ADF use min 64 MB and max 1G.
+Example: set variable `_JAVA_OPTIONS` with value `-Xms256m -Xmx16g`. The flag `Xms` specifies the initial memory allocation pool for a Java Virtual Machine (JVM), while `Xmx` specifies the maximum memory allocation pool. This means that JVM will be started with `Xms` amount of memory and will be able to use a maximum of `Xmx` amount of memory. By default, the service uses min 64 MB and max 1G.
 
 ## Next steps
 

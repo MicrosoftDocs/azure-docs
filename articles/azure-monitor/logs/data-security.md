@@ -36,7 +36,7 @@ To ensure the security of data in transit to Azure Monitor, we strongly encourag
 
 The [PCI Security Standards Council](https://www.pcisecuritystandards.org/) has set a [deadline of June 30th, 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) to disable older versions of TLS/SSL and upgrade to more secure protocols. Once Azure drops legacy support, if your agents cannot communicate over at least TLS 1.2 you would not be able to send data to Azure Monitor Logs. 
 
-We do not recommend explicitly setting your agent to only use TLS 1.2 unless absolutely necessary, as it can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available, such as TLS 1.3. 
+We recommend you do NOT explicit set your agent to only use TLS 1.2 unless absolutely necessary. Allowing the agent to automatically detect, negotiate, and take advantage of future security standards is preferable. Otherwise you may miss the added security of the newer standards and possibly experience problems if TLS 1.2 is ever deprecated in favor of those newer standards.    
 
 ### Platform-specific guidance
 
@@ -169,7 +169,7 @@ The Azure Monitor service ensures that incoming data is from a trusted source by
 
 The retention period of collected data stored in the database depends on the selected pricing plan. For the *Free* tier, collected data is available for seven days. For the *Paid* tier, collected data is available for 31 days by default, but can be extended to 730 days. Data is stored encrypted at rest in Azure storage, to ensure data confidentiality, and the data is replicated within the local region using locally redundant storage (LRS). The last two weeks of data are also stored in SSD-based cache and this cache is encrypted.
 
-Data in database storage cannot be altered once ingested but can be deleted via [*purge* API path](personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](logs-data-export.md) to a storage account that is configured as [immutable storage](../../storage/blobs/storage-blob-immutability-policies-manage.md).
+Data in database storage cannot be altered once ingested but can be deleted via [*purge* API path](personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](logs-data-export.md) to a storage account that is configured as [immutable storage](../../storage/blobs/immutable-policy-configure-version-scope.md).
 
 ## 4. Use Azure Monitor to access the data
 To access your Log Analytics workspace, you sign into the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Azure Monitor service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.
@@ -185,4 +185,3 @@ You can use these additional security features to further secure your Azure Moni
 
 ## Next steps
 * [See the different kinds of data that you can collect in Azure Monitor](../monitor-reference.md).
-

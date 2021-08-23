@@ -65,7 +65,7 @@ Azure Backup uses [incremental snapshots](../virtual-machines/disks-incremental-
 
 Incremental snapshots are always stored on standard storage, irrespective of the storage type of parent-managed disks, and are charged based on  the pricing of standard storage. For example, incremental snapshots of a Premium SSD-Managed Disk are stored on standard storage. By default, they are stored on ZRS  in regions that support ZRS. Otherwise, they are stored on locally redundant storage (LRS). The per GiB pricing of both the options, LRS and ZRS, is the same. 
 
-The snapshots created by Azure Backup are stored in the resource group within your Azure subscription and incur Snapshot Storage charges. ForTo more details about the snapshot pricing, see [Managed Disk Pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Because the snapshots aren't copied to the Backup Vault, Azure Backup doesn't charge a Protected Instance fee and Backup Storage cost doesn't apply. 
+The snapshots created by Azure Backup are stored in the resource group within your Azure subscription and incur Snapshot Storage charges. ForTo more details about the snapshot pricing, see [Managed Disk Pricing](https://azure.microsoft.com/pricing/details/managed-disks/). Because the snapshots aren't copied to the Backup Vault, Azure Backup doesn't charge a Protected Instance fee and Backup Storage cost doesn't apply. 
 
 During a backup operation, the Azure Backup service creates a Storage Account in the Snapshot Resource Group, where the snapshots are stored. Managed disk’s incremental snapshots are ARM resources created on Resource group and not in Storage Account. 
 

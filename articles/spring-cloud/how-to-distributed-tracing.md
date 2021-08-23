@@ -166,7 +166,6 @@ To follow these procedures, you need an Azure Spring Cloud service that is alrea
       </dependencies>
       ```
 
-
 1. Build and deploy again for your Azure Spring Cloud service to reflect these changes.
 
 ## Modify the sample rate

@@ -14,6 +14,8 @@ ms.custom: devx-track-azurecli
 
 # List, update, and delete image resources 
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 You can manage your shared image gallery resources using the Azure CLI.
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli.md](../../includes/virtual-machines-common-gallery-list-cli.md)]

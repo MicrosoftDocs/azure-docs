@@ -47,7 +47,7 @@ sections:
       - question: |
           What is the propagation time if I make a change to my WAF policy?
         answer: |
-          Deploying a WAF policy globally usually takes about 5 minutes and often completes sooner.
+          Most WAF policy deployments complete under 20 minutes. You can expect the policy to take effect as soon as the update is completed across all edge locations globally.
 
       - question: |
           Can WAF policies be different for different regions?

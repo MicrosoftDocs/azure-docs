@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 08/03/2021
+ms.date: 08/06/2021
 ---
 
 # Da Vinci PDex
@@ -31,7 +31,7 @@ The first set of tests that we'll focus on is testing the FHIR service against t
 
 * The third test validates that the [$patient-everything operation](patient-everything.md) is supported.
 
-:::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-failed.png" alt-text="Da Vinci PDex execution failed.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/davinci-pdex-test-script-failed.png" alt-text="Da Vinci PDex execution failed.":::
 
 ## Touchstone $member-match test
 
@@ -39,19 +39,19 @@ The [second test](https://touchstone.aegis.net/touchstone/testdefinitions?select
 
 In this test, you’ll need to load some sample data for the test to pass. We have a rest file [here](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/membermatch.http) with the patient and coverage linked that you will need for the test. Once this data is loaded, you'll be able to successfully pass this test. If the data is not loaded, you'll receive a 422 response due to not finding an exact match.
 
-:::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-passed.png" alt-text="Da Vinci PDex test script passed.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/davinci-pdex-test-script-passed.png" alt-text="Da Vinci PDex test script passed.":::
 
 ## Touchstone patient by reference
 
 The next tests we'll review is the [patient by reference](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PayerExchange/02-PatientByReference&activeOnly=false&contentEntry=TEST_SCRIPTS) tests. This set of tests validate that you can find a patient based on various search criteria. The best way to test the patient by reference will be to test against your own data, but we have uploaded a [sample resource file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/PDex_Sample_Data.http) that you can load to use as well.
 
-:::image type="content" source="media/cms-tutorials/davinci-pdex-test-execution-passed.png" alt-text="Da Vinci PDex execution passed.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/davinci-pdex-test-execution-passed.png" alt-text="Da Vinci PDex execution passed.":::
 
 ## Touchstone patient/$everything test
 
 The final test we'll walk through is testing patient-everything. For this test, you'll need to load a patient, and then you'll use that patient’s ID to test that you can use the $everything operation to pull all data related to the patient.
 
-:::image type="content" source="media/cms-tutorials/davinci-pdex-test-patient-everything.png" alt-text="touchstone patient/$everything test passed.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/davinci-pdex-test-patient-everything.png" alt-text="touchstone patient/$everything test passed.":::
 
 ## Next steps
 
