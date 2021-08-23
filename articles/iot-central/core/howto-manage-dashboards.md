@@ -56,7 +56,7 @@ After you select **Edit** or **New dashboard**, the dashboard is in *edit* mode.
 
    :::image type="content" source="media/howto-manage-dashboards/device-details.png" alt-text="Screenshot that shows adding a tile to a dashboard.":::
 
-1. After you select all the devices to show on the tile, select **Update**
+1. After you select all the devices to show on the tile, select **Update**.
 
 1. After you finish adding and customizing tiles on the dashboard, select **Save**. Doing so takes you out of edit mode.
 
@@ -133,4 +133,4 @@ This feature is available on the KPI, LKV, and property tiles. It lets you adjus
 
 ## Next steps
 
-Now that you've learned how to create and manage personal dashboards, you can [Learn how to manage your application preferences](howto-manage-preferences.md).
+Now that you've learned how to create and manage personal dashboards, you can [learn how to manage your application preferences](howto-manage-preferences.md).
