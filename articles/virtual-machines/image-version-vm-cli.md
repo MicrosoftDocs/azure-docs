@@ -15,6 +15,8 @@ ms.custom: devx-track-azurecli
 
 # Create an image version from a VM in Azure using the Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 If you have an existing VM that you would like to use to make multiple, identical VMs, you can use that VM to create an image in a Shared Image Gallery using the Azure CLI. You can also create an image from a VM using [Azure PowerShell](image-version-vm-powershell.md).
 
 An **image version** is what you use to create a VM when using a Shared Image Gallery. You can have multiple versions of an image as needed for your environment. When you use an image version to create a VM, the image version is used to create disks for the new VM. Image versions can be used multiple times.
