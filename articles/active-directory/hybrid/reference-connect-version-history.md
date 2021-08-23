@@ -32,7 +32,9 @@ Required permissions | For permissions required to apply an update, see [account
 > **Starting on 31 August, 2022, all V1 versions of Azure AD Connect will be retired.** If you have not already done so, you need to update your server to Azure AD Connect V2.0. 
 > 
 > You need to make sure you are running a recent version of Azure AD Connect to receive an optimal support experience. 
-> If you run a retired version of Azure AD Connect it may unexpectedly stop wporking and you may not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools and service enhancements. If you require support we may not be able to provide you with the level of service your organization needs.
+> 
+> If you run a retired version of Azure AD Connect it may unexpectedly stop working and you may not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools and service enhancements. Moreover, if you require support we may not be able to provide you with the level of service your organization needs.
+> 
 > Go to this article to learn more about [Azure Active Directory Connect V2.0](whatis-azure-ad-connect-v2.md),  what has changed in V2.0 and how this change impacts you.
 >
 > Please refer to [this article](./how-to-upgrade-previous-version.md) to learn more about how to upgrade Azure AD Connect to the latest version.
