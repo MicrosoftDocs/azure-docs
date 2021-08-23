@@ -58,7 +58,7 @@ It may take up to 20 minutes before your logs start to appear in Log Analytics.
 
 ## Next steps
 
-In this document, you learned how to connect external data sources to Azure Sentinel's Data Collector API. To take full advantage of the capabilities built in to these data connectors, select  on the **Next steps** tab on the data connector page. There you'll find some ready-made sample queries, workbooks, and analytics rule templates so you can get started finding useful information.
+In this document, you learned how to connect external data sources to Azure Sentinel's Data Collector API. To take full advantage of the capabilities built in to these data connectors, select the **Next steps** tab on the data connector page. There you'll find some ready-made sample queries, workbooks, and analytics rule templates so you can get started finding useful information.
 
 To learn more about Azure Sentinel, see the following articles:
 
