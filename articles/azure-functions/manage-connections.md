@@ -37,8 +37,9 @@ Here are some guidelines to follow when you're using a service-specific client i
 
 This section demonstrates best practices for creating and using clients from your function code.
 
-### HttpClient example (C#)
+### HTTP requests
 
+# [C#](#tab/csharp)
 Here's an example of C# function code that creates a static [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1&preserve-view=true) instance:
 
 ```cs
@@ -54,7 +55,7 @@ public static async Task Run(string input)
 
 A common question about [HttpClient](/dotnet/api/system.net.http.httpclient?view=netcore-3.1&preserve-view=true) in .NET is "Should I dispose of my client?" In general, you dispose of objects that implement `IDisposable` when you're done using them. But you don't dispose of a static client because you aren't done using it when the function ends. You want the static client to live for the duration of your application.
 
-### HTTP agent examples (JavaScript)
+# [JavaScript](#tab/javascript)
 
 Because it provides better connection management options, you should use the native [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) class instead of non-native methods, such as the `node-fetch` module. Connection parameters are configured through options on the `http.agent` class. For detailed options available with the HTTP agent, see [new Agent(\[options\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
 
@@ -74,7 +75,11 @@ const options = { agent: httpAgent };
 http.request(options, onResponseCallback);
 ```
 
-### DocumentClient code example (C#)
+---
+
+### Azure Cosmos DB clients 
+
+# [C#](#tab/csharp)
 
 [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient) connects to an Azure Cosmos DB instance. The Azure Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](../cosmos-db/performance-tips.md#sdk-usage). The following example shows one pattern for doing that in a function:
 
@@ -122,7 +127,9 @@ Also, create a file named "function.proj" for your trigger and add the below con
 </Project>
 
 ```
-### CosmosClient code example (JavaScript)
+
+# [JavaScript](#tab/javascript)
+
 [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) connects to an Azure Cosmos DB instance. The Azure Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](../cosmos-db/performance-tips.md#sdk-usage). The following example shows one pattern for doing that in a function:
 
 ```javascript
@@ -140,6 +147,8 @@ module.exports = async function (context) {
     context.log(itemArray);
 }
 ```
+
+---
 
 ## SqlClient connections
 
