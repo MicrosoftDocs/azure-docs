@@ -107,7 +107,7 @@ Autoscale automatically runs the right amount of resources to handle the load on
 
 ### Visual Studio Code debugging
 
-::::image type="content" source="media/concept-endpoints/vscode-full.png" alt-text="Screenshot of endpoint debugging in VSCode." lightbox="media/concept-endpoints/vscode-full.png" :::
+::::image type="content" source="media/concept-endpoints/visual-studio-code-full.png" alt-text="Screenshot of endpoint debugging in VSCode." lightbox="media/concept-endpoints/visual-studio-code-full.png" :::
 
 ### VNET ingress
 
