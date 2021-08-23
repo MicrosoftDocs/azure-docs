@@ -14,6 +14,8 @@ ms.custom:
 
 # Create and deploy virtual machines in an availability set using Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 In this tutorial, you learn how to increase the availability and reliability of your Virtual Machine solutions on Azure using a capability called Availability Sets. Availability sets ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware clusters. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs is impacted and that your overall solution remains available and operational.
 
 In this tutorial, you learn how to:
