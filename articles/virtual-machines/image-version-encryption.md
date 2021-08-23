@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 
 # Preview: Use customer-managed keys for encrypting images
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Images in a shared image gallery are stored as snapshots, so they're automatically encrypted through server-side encryption. Server-side encryption uses 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available. Server-side encryption is also FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
 
 You can rely on platform-managed keys for the encryption of your images, or use your own keys. You can also use both together, for double encryption. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all disks in your images. 

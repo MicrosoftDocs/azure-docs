@@ -14,6 +14,7 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Tutorial: Monitor changes and update a Windows virtual machine in Azure
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 With Azure [Change Tracking](../../automation/change-tracking/overview.md) and [Update Management](../../automation/update-management/overview.md), you can easily identify changes in your Windows virtual machines in Azure and manage operating system updates for those VMs.
 

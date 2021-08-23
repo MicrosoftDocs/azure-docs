@@ -14,6 +14,9 @@ ms.custom: devx-track-azurecli
 ---
 
 # Clone a managed image to an image version using the Azure CLI
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 If you have an existing managed image that you would like to clone into a Shared Image Gallery, you can create a Shared Image Gallery image directly from the managed image. Once you have tested your new image, you can delete the source managed image. You can also migrate from a managed image to a Shared Image Gallery using [PowerShell](image-version-managed-image-powershell.md).
 
 Images in an image gallery have two components, which we will create in this example:
