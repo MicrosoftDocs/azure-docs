@@ -134,7 +134,7 @@ To assess upgrading from Azure Data Lake Storage Gen1 to Azure Data Lake Storage
 
 ADF offers a serverless architecture that allows parallelism at different levels, which allows developers to build pipelines to fully utilize your network bandwidth as well as storage IOPS and bandwidth to maximize data movement throughput for your environment. 
 
-Customers have successfully migrated petabytes of data consisting of hundreds of millions of files from ADLS gen1 to gen2, with a sustained throughput of 2 GBps and higher.
+Customers have successfully migrated petabytes of data consisting of hundreds of millions of files from Data Lake Storage Gen1 to Gen2, with a sustained throughput of 2 GBps and higher.
 
 you can achieve great data movement speeds through different levels of parallelism:
 
