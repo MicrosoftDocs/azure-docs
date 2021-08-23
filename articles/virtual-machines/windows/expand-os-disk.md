@@ -1,19 +1,11 @@
 ---
 title: Expand the OS drive of a Windows VM in an Azure 
 description: Expand the size of the OS drive of a virtual machine using Azure PowerShell in the  Resource Manager deployment model.
-services: virtual-machines
-documentationcenter: ''
 author: kirpasingh
 manager: roshar
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
 ms.service: virtual-machines
 ms.collection: windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks 
@@ -21,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 
 ---
 # How to expand the OS drive of a virtual machine
+
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 When you create a new virtual machine (VM) in a resource group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default OS drive is often 127 GB (some images have smaller OS disk sizes by default). Even though it's possible to add data disks to the VM (the number depends on the SKU you chose) and we recommend installing applications and CPU-intensive workloads on these addendum disks, often, customers need to expand the OS drive to support specific scenarios:
 
