@@ -40,7 +40,7 @@ The following are values that you can typically expect, based on existing servic
 
 - **Virtual cluster creation**: Creation is a synchronous step in instance management operations. <br/> **90% of operations finish in 4 hours**.
 - **Virtual cluster resizing (expansion or shrinking)**: Expansion is a synchronous step, while shrinking is performed asynchronously (without impact on the duration of instance management operations). <br/>**90% of cluster expansions finish in less than 2.5 hours**.
-- **Virtual cluster deletion**: Virtual cluster deletion can be synchronous and asynchronous. Asynchronous deletion is performed in the background and it is triggered in case of multiple virtual clusters inside the same subnet, when last instance in the non-last cluster in the subnet is deleted. Synchronous deletion of the virtual cluster is triggered as part of the very last instance deletion in the subnet. <br/>**90% of cluster deletions finish in 1.5 hour**.
+- **Virtual cluster deletion**: Virtual cluster deletion can be synchronous and asynchronous. Asynchronous deletion is performed in the background and it is triggered in case of multiple virtual clusters inside the same subnet, when last instance in the non-last cluster in the subnet is deleted. Synchronous deletion of the virtual cluster is triggered as part of the very last instance deletion in the subnet. <br/>**90% of cluster deletions finish in 1.5 hours**.
 
 Additionally, management of instances may also include one of the operations on hosted databases, which result in longer durations:
 
