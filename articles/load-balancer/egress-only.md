@@ -353,7 +353,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load Balancers, VM, and all related resources. 
+When no longer needed, delete the resource group, load balancers, VM, and all related resources. 
 
 To do so, select the resource group **myResourceGroupLB** and then select **Delete**.
 
