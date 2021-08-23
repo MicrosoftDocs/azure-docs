@@ -2,6 +2,8 @@ In Azure Active Directory (Azure AD), the term **app provisioning** refers to au
 
 ![Provisioning overview diagram](./media/active-directory-app-provisioning/provisioning-overview.png)
 
+xichan-test master branch
+
 This feature lets you:
 
 - **Automate provisioning**: Automatically create new accounts in the right systems for new people when they join your team or organization.
