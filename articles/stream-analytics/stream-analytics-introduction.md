@@ -97,7 +97,7 @@ Azure Stream Analytics follows multiple compliance certifications as described i
 
 ## Performance
 
-Stream Analytics can process millions of events every second and it can deliver results with ultra low latencies. It allows you to [scale out](./stream-analytics-autoscale) to adjust to your workloads. Stream Analytics supports higher performance by partitioning, allowing complex queries to be parallelized and executed on multiple streaming nodes. Azure Stream Analytics is built on [Trill](https://github.com/Microsoft/Trill), a high-performance in-memory streaming analytics engine developed in collaboration with Microsoft Research.
+Stream Analytics can process millions of events every second and it can deliver results with ultra low latencies. It allows you to [scale out](stream-analytics-autoscale.md) to adjust to your workloads. Stream Analytics supports higher performance by partitioning, allowing complex queries to be parallelized and executed on multiple streaming nodes. Azure Stream Analytics is built on [Trill](https://github.com/Microsoft/Trill), a high-performance in-memory streaming analytics engine developed in collaboration with Microsoft Research.
 
 ## Next steps
 
