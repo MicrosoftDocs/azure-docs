@@ -387,7 +387,7 @@ The following procedure creates an instance of Azure Spring Cloud using the Azur
 
 4. On the Azure Spring Cloud page, select **Create**.
 
-    ![ASC icon add](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+    ![ASC icon add](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-create.png)
 
 5. Fill out the form on the Azure Spring Cloud **Create** page.  Consider the following guidelines:
 
@@ -417,22 +417,16 @@ The following procedure builds and deploys the application using the Azure CLI. 
    az account list -o table
    ```
 
-Use the following command to set the default subscription to use with the Azure CLI commands in this quickstart.
+   Use the following command to set the default subscription to use with the Azure CLI commands in this quickstart.
 
    ```azurecli
    az account set --subscription <Name or ID of a subscription from the last step>
-   
+   ```
 
 1. Build the project using Maven:
 
     ```console
     mvn clean package -DskipTests
-    ```
-
-1. (If you haven't already installed it) Install the Azure Spring Cloud extension for the Azure CLI:
-
-    ```azurecli
-    az extension add --name spring-cloud
     ```
 
 1. Create the app with public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the --runtime-version=Java_11 switch.
@@ -444,7 +438,7 @@ Use the following command to set the default subscription to use with the Azure 
 1. Deploy the Jar file for the app (`target\hellospring-0.0.1-SNAPSHOT.jar` on Windows):
 
     ```azurecli
-    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --jar-path <jar file path>
+    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --artifact-path <jar file path>
     ```
 
 1. It takes a few minutes to finish deploying the application. To confirm that it has deployed, go to the **Apps** blade in the Azure portal. You should see the status of the application.
