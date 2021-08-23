@@ -6,7 +6,7 @@ services: api-management
 author: mikebudzynski
 
 ms.service: api-management
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/23/2021
 ms.author: apimpm 
 ms.custom: devx-track-azurepowershell
@@ -278,7 +278,8 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 -   Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
 -   **Changes** made to the service configuration (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
 -   If the Azure Storage account is [firewall][azure-storage-ip-firewall] enabled and a storage key is used for access, then the customer must **Allow** the set of [Azure API Management control plane IP addresses][control-plane-ip-address] on their storage account for backup or restore to work. The storage account can be in any Azure region except the one where the API Management service is located. For example, if the API Management service is in West US, then the Azure Storage account can be in West US 2 and the customer needs to open the control plane IP 13.64.39.16 (API Management control plane IP of West US) in the firewall. This is because the requests to Azure Storage are not SNATed to a public IP from compute (Azure API Management control plane) in the same Azure region. Cross-region storage requests will be SNATed to the public IP address.
-    If an API Management managed identity is used for access to a firewall enabled storage account, ensure that the storage account [grants access to trusted Azure services](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
+
+    If an API Management system-assigned managed identity is used for access to a firewall enabled storage account, ensure that the storage account [grants access to trusted Azure services](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
 
 -   [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) should **not** be enabled on the Blob Service in the Azure Storage Account.
 -   **The SKU** of the service being restored into **must match** the SKU of the backed-up service being restored.
