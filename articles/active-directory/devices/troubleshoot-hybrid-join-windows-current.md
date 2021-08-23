@@ -659,6 +659,12 @@ Resolution:
 > Other network error codes located [here](/windows/win32/winhttp/error-messages).
 
 ---
+Note:
+
+- Deleting devices in your on-premises AD or Azure AD does not remove registration on the client. It will only prevent access to resources using device as an identity (e.g. Conditional Access). Read additional information on how to remove registration on the client.
+- Deleting a Windows 10 device only in Azure AD will re-synchronize the device from your on-premises using Azure AD connect but as a new object in "**Pending**" state. A re-registration is required on the device.
+- Removing the device from sync scope for Windows 10/Server 2016 devices will delete the Azure AD device. Adding it back to sync scope will place a new object in "**Pending**" state. A re-registration of the device is required.
+
 
 ### Step 4: Collect logs ###
 
