@@ -1628,7 +1628,7 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
 1. In your on-premises data gateway installation directory, check that the **Microsoft.ApplicationInsights.dll** file has the same version number as the **Microsoft.ApplicationInsights.EventSourceListener.dll** file that you added. The gateway currently uses version 2.14.0.
 
-1. If the file versions don't match for any reason, update the **ApplicationInsights.config** file by uncommenting the line with the `<InstrumentationKey></Instrumentation>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your [Application Insights instrumentation key](../azure-monitor/app/app-insights-overview.md#how-does-application-insights-work), for example:
+1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](../azure-monitor/app/app-insights-overview.md#how-does-application-insights-work) by uncommenting the line with the `<InstrumentationKey></Instrumentation>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
 
       ```xml
       <?xml version="1.0" encoding="utf-8"?>
@@ -1727,7 +1727,7 @@ You can also create metric charts or alerts using those capabilities in Applicat
 
 ### Traces from Microsoft SAP Adapter
 
-You can use traces sent from Microsoft SAP Adapter for issue post-analysis and to find any existing internal system errors that might or might not surface from SAP connector operations. These traces have `message` set to `"n\a"` because they come from an older event source framework that's not designed for Application Insights, for example:
+You can use traces sent from Microsoft SAP Adapter for issue post-analysis and to find any existing internal system errors that might or might not surface from SAP connector operations. These traces have `message` set to `"n\a"` because they come from an earlier event source framework that predates Application Insights, for example:
 
 ```Kusto
 traces
