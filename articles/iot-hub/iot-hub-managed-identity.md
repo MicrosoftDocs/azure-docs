@@ -5,7 +5,7 @@ author: miag
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 08/24/2021
 ms.author: miag
 ---
 

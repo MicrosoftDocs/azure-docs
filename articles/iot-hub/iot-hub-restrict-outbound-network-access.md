@@ -13,13 +13,13 @@ ms.custom: ['Role: Cloud Development']
 
 # Restrict outbound network access for Azure IoT Hub
 
-IoT Hub supports data egress to other services through [routing to custom endpoints](iot-hub-devguide-messages-d2c.md), [file upload](iot-hub-devguide-file-upload.md), and [device identity export](iot-hub-bulk-identity-mgmt.md). For additional security in an enterprise environment, use the `restrictOutboundNetworkAccess` API to restrict an IoT hub egress to only explicitly approved destinations. Currently, this feature isn't available in Azure portal.
+IoT Hub supports data egress to other services through [routing to custom endpoints](iot-hub-devguide-messages-d2c.md), [file upload](iot-hub-devguide-file-upload.md), and [device identity export](iot-hub-bulk-identity-mgmt.md). For extra security in an enterprise environment, use the `restrictOutboundNetworkAccess` API to restrict an IoT hub egress to only explicitly approved destinations. Currently, this feature isn't available in Azure portal.
 
 ## Enabling the restriction
 
 To enable the feature, use any method to update the IoT Hub resource properties (a `PUT`) to set the `restrictOutboundNetworkAccess` to `true` while including an `allowedFqdnList` containing Fully Qualified Domain Names (FQDNs) as an array. 
 
-An example showing the JSON representation to use with a the [create or update method](/rest/api/iothub/iothubresource/createorupdate):
+An example showing the JSON representation to use with the [create or update method](/rest/api/iothub/iothubresource/createorupdate):
 
 ```json
 {
@@ -53,7 +53,7 @@ Once `restrictOutboundNetworkAccess` is set to `true`, attempts to emit data to 
 
 ## Built-in endpoint
 
-If `restrictOutboundNetworkAccess` is set to `true`, the built-in event hub compatible endpoint isn't exempt for the restriction. This means you must include the built-in endpoint FQDN in the allowed FQDN list for it to continue to work.
+If `restrictOutboundNetworkAccess` is set to `true`, the built-in event hub compatible endpoint isn't exempt for the restriction. In other words, you must include the built-in endpoint FQDN in the allowed FQDN list for it to continue to work.
 
 ## Next steps
 
