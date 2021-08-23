@@ -96,6 +96,10 @@ Imagine you have two applications (or one app with a slot) with Health check ena
 
 In the scenario where all instances of your application are unhealthy, App Service will remove instances from the load balancer up to the percentage specified in `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`. In this scenario, taking all unhealthy app instances out of the load balancer rotation would effectively cause an outage for your application.
 
+### Does Health Check work on App Service Environments?
+
+Yes, on App Service Environments (ASEs), the platform will ping your instances on the specified path and remove any unhealthy instances from the load balancer so requests will not be routed to them. However, currently these unhealthy instances will not be replaced with new instances if they remain unhealthy for 1 hour.
+
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
