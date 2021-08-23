@@ -1,13 +1,15 @@
 ---
 title: Azure Synapse Analytics encryption
 description: An article that explains encryption in Azure Synapse Analytics
-author: nanditavalsan
+author: nanditavalsan, meenalsri
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 07/14/2021
-ms.author: nanditav
+ms.date: 07/20/2021
+ms.author: nanditav, mesrivas
 ms.reviewer: jrasnick, wiassaf
+
+
 ---
 # Encryption for Azure Synapse Analytics workspaces
 
@@ -54,7 +56,7 @@ The Azure Synapse encryption model with customer-managed keys involves the works
 #### Using a User-assigned Managed identity
 Workspaces can be configured to use a [User-assigned Managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to access your customer-managed key stored in Azure Key Vault. Configure a User-assigned Managed identity to avoid phased activation of your Azure Synapse workspace when using double encryption with customer managed keys. The Managed Identity Contributor built-in role is required to assign a user-assigned managed identity to an Azure Synapse workspace.
 > [!NOTE]
-> A User-assigned Managed Identity cannot be configured to access customer-managed key when Azure Key Vault is behind a firewall
+> A User-assigned Managed Identity cannot be configured to access customer-managed key when Azure Key Vault is behind a firewall.
 
 :::image type="content" source="./media/workspaces-encryption/workspaces-encryption-uami.png" alt-text="This diagram shows the option that must be selected to enable a workspace to use user-assigned managed-identity for double encryption with a customer-managed key." lightbox="./media/workspaces-encryption/workspaces-encryption-uami.png":::
 
