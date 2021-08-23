@@ -23,6 +23,7 @@
 | Web application firewall policy per subscription | 100 |
 | Web application firewall match conditions per custom rule | 10 |
 | Web application firewall IP address ranges per match condition | 600 |
+| Web application firewall IP address ranges per policy | 30,000 |
 | Web application firewall string match values per match condition | 10 |
 | Web application firewall string match value length | 256 |
 | Web application firewall POST body parameter name length | 256 |
