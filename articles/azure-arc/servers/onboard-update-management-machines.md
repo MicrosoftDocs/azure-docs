@@ -40,7 +40,7 @@ Perform the following steps to configure the hybrid machine with Arc-enabled ser
 
 1. On the **Tags** page, specify one or more **Name**/**Value** pairs to support your standards. Select **Next: Review + add**.
 
-1. On the **Review _ add** page, review the summary information, and then select *Add machines**. If you still need to make changes, select **Previous**.
+1. On the **Review _ add** page, review the summary information, and then select **Add machines**. If you still need to make changes, select **Previous**.
 
 ## Verify the connection with Azure Arc
 
