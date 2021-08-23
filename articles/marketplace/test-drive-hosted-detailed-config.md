@@ -131,7 +131,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
 7. Complete the fields on the **Test drive marketplace listing** page.
 
-    [![The Marketplace listing details page.](media/test-drive/marketplace-listing-details-workspaces.png)](media/test-drive/marketplace-listing-details-workspaces.png#lightbox)
+    [![The Marketplace listing details page.](media/test-drive/marketplace-listing-details-ops-workspaces.png)](media/test-drive/marketplace-listing-details-workspaces.png#lightbox)
 
     - **Description** – An overview of your test drive. This text will be shown to the user while the test drive is being provisioned. This field supports HTML if you want to provide formatted content (required).
     - **User manual** – A PDF user manual that helps test drive users understand how to use your app (required).
