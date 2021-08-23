@@ -120,12 +120,12 @@ Here are some of the limits and constraints for a custom security attributes.
 Azure AD provides built-in roles to work with custom security attributes. The Attribute Definition Administrator role is the minimum role you need to manage custom security attributes. The Attribute Assignment Administrator role is the minimum role you need to assign custom security attribute values for Azure AD objects like users and applications.
 
 > [!div class="mx-tableFixed"]
-> | Role | Permissions |
-> | --- | --- |
-> | Attribute Definition Reader | Read attribute set in the catalog<br/>Read security attribute definitions |
-> | Attribute Definition Administrator | Manage attribute sets in the catalog<br/>Manage security attribute definitions |
-> | Attribute Assignment Reader | Read attribute set in the catalog<br/>Read security attribute definitions<br/>Read security attributes values for devices<br/>Read security attributes values for service principals<br/>Read security attributes values for users |
-> | Attribute Assignment Administrator | Read attribute set in the catalog<br/>Read security attribute definitions<br/>Read security attributes values for devices<br/>Manage security attributes values for devices<br/>Read security attributes values for service principals<br/>Manage security attributes values for service principals<br/>Read security attributes values for users<br/>Manage security attributes values for users |
+> | Role | Template ID | Permissions |
+> | --- | --- | --- |
+> | Attribute Definition Reader | 1d336d2c-4ae8-42ef-9711-b3604ce3fc2c | Read attribute set in the catalog<br/>Read security attribute definitions |
+> | Attribute Definition Administrator | 8424c6f0-a189-499e-bbd0-26c1753c96d4 | Manage attribute sets in the catalog<br/>Manage security attribute definitions |
+> | Attribute Assignment Reader | ffd52fa5-98dc-465c-991d-fc073eb59f8f | Read attribute set in the catalog<br/>Read security attribute definitions<br/>Read security attributes values for devices<br/>Read security attributes values for service principals<br/>Read security attributes values for users |
+> | Attribute Assignment Administrator | 58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d | Read attribute set in the catalog<br/>Read security attribute definitions<br/>Read security attributes values for devices<br/>Manage security attributes values for devices<br/>Read security attributes values for service principals<br/>Manage security attributes values for service principals<br/>Read security attributes values for users<br/>Manage security attributes values for users |
 
 > [!IMPORTANT]
 > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) do not have permissions to read or manage custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
