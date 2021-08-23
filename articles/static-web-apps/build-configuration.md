@@ -143,11 +143,7 @@ You can take fine-grained control over what commands run during the app or API b
 # [Azure DevOps](#tab/azure-devops)
 
 ```yaml
-trigger:
-  - main
-
-pool:
-  vmImage: ubuntu-latest
+...
 
 steps:
   - checkout: self
@@ -166,6 +162,7 @@ steps:
 
 ```yml
 ...
+
 with:
   azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
   repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
@@ -191,6 +188,7 @@ To skip building the front-end app, set `skip_app_build` to `true` and `app_loca
 
 ```yml
 ...
+
 inputs:
   app_location: '/src'
   api_location: 'api'
@@ -203,6 +201,7 @@ inputs:
 
 ```yml
 ...
+
 with:
   azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
   repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
@@ -228,6 +227,7 @@ You can set environment variables for your build via the `env` section of a job'
 
 ```yaml
 ...
+
 steps:
   - checkout: self
     submodules: true
@@ -248,6 +248,7 @@ env: # Add environment variables here
 
 ```yaml
 ...
+
 with:
   azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
   repo_token: ${{ secrets.GITHUB_TOKEN }}
