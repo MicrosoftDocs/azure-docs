@@ -25841,7 +25841,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/sentinel/connect-cef-verify.md.md",
+      "source_path_from_root": "/articles/sentinel/connect-cef-verify.md",
       "redirect_url": "/azure/sentinel/troubleshooting-cef-syslog",
       "redirect_document_id": false
     },
