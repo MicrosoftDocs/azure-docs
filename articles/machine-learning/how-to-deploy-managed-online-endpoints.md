@@ -15,6 +15,8 @@ ms.custom: how-to, devplatv2
 
 # Deploy and score a machine learning model by using a managed online endpoint (preview)
 
+{>> The document discusses deployments "on the endpoint" and "under the endpoint." We need to have consistent terminology. <<}
+
 Learn how to use a managed online endpoint (preview) to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure. 
 
 You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for online and real-time scoring. 
@@ -67,10 +69,10 @@ set ENDPOINT_NAME=YOUR_ENDPOINT_NAME
 ```
 
 > [!NOTE]
-> We have recently changed the CLI interface: earlier we had both `endpoint` and `deployment` under `az ml endpoint`, now we have separated them into `az ml online-endpoint` and `az ml online-deployment`.  This would make it easier to use endpoints in CI/CD scripts.
+> We have recently changed the CLI interface: earlier we had both `endpoint` and `deployment` under `az ml endpoint`, now we have separated them into `az ml online-endpoint` and `az ml online-deployment`.  This will make it easier to use endpoints in CI/CD scripts.
 
 > [!NOTE]
-> Endpoint names must be unique within an Azure region. For example, in the Azure westus2 region, there can be only one endpoint with the name `my-endpoint`. 
+> Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`. 
 
 ## Review the endpoint and deployment configurations
 
@@ -88,21 +90,20 @@ The reference for the endpoint YAML format is described in the following table. 
 | `$schema`    | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding example in a browser.|
 | `name`       | The name of the endpoint. It must be unique in the Azure region.|
 | `traffic` | The percentage of traffic from the endpoint to divert to each deployment. The sum of traffic values must be 100. |
-| `auth_mode` | Use `key` for key-based authentication or use `aml_token` for Azure Machine Learning token-based authentication. `key` doesn't expire, but `aml_token` does expire. (Get the most recent token by using the `az ml online-endpoint get-credentials` command.) |
+| `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. `key` doesn't expire, but `aml_token` does expire. (Get the most recent token by using the `az ml online-endpoint get-credentials` command.) |
 
-Specific inputs are required to deploy a model on an online endpoint. All required files are part of the example - nothing needs to be added.
+The example contains all the files needed to deploy a model on an online endpoint. To deploy a model, you must have:
 
 - Model files (or the name and version of a model that's already registered in your workspace). In the example, we have a scikit-learn model that does regression.
 - The code that's required to score the model. In this case, we have a *score.py* file.
 - An environment in which your model runs. As you'll see, the environment might be a Docker image with Conda dependencies, or it might be a Dockerfile.
 - Settings to specify the instance type and scaling capacity.
 
-The following snippet shows the *endpoints/online/managed/saferollout/blue-deployment.yml* file, which captures all the required inputs: 
-test:
+The following snippet shows the *endpoints/online/managed/saferollout/blue-deployment.yml* file, with all the required inputs: 
 
 :::code language="yaml" source="~/azureml-examples-puprefresh/cli/endpoints/online/managed/saferollout/blue-deployment.yml":::
 
-The table describes the attributes of `deployment`:
+The table describes the attributes of a `deployment`:
 
 | Key | Description |
 | --- | --- |
@@ -117,11 +118,11 @@ The table describes the attributes of `deployment`:
 For more information about the YAML schema, see the [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md).
 
 > [!NOTE]
-> To use K8s via Azure Arc instead of managed endpoints as a compute target:
+> To use Kubernetes via Azure Arc instead of managed endpoints as a compute target:
 > 1. <<todo: Shivani to update instruction here>>
 > 1. Use the [endpoint YAML](todo:Shivani to provide detail) to target AKS instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `compute` to the name of your registered compute target.
 >
-> All the commands that are used in this article can be used either with managed endpoints or with K8s endpoints.
+> All the commands that are used in this article can be used either with managed endpoints or with Kubernetes endpoints.
 
 ### Register your model and environment separately
 
@@ -161,7 +162,7 @@ To save time debugging, we *highly recommend* that you test-run your endpoint lo
 
 ### Deploy the model locally
 
-First create the endpoint. Optionally, For local endpoint, you can also skip this step and directly create deployment (next step), which will inturn create the required metadata. This is useful for development and testing purposes.
+First create the endpoint. Optionally, for a local endpoint, you can skip this step and directly create deployment (next step), which will, in turn, create the required metadata. This is useful for development and testing purposes.
 
 ```azurecli
 az ml online-endpoint create --local -n $ENDPOINT_NAME -f endpoints/online/managed/saferollout/endpoint.yml
@@ -194,7 +195,7 @@ Invoke the endpoint to score the model by using the convenience command `invoke`
 az ml online-deployment invoke --local -n $ENDPOINT_NAME --request-file endpoints/online/model-1/sample-request.json
 ```
 
-If you want to use a REST client (like curl), you must have the scoring URI. To get the scoring URI, run `az ml online-endpoint show --local -n $ENDPOINT_NAME`. In the returned data, find the `scoring_uri` attribute. Sample curl based commands are available later in this doc.
+If you want to use a REST client (like curl), you must have the scoring URI. To get the scoring URI, run `az ml online-endpoint show --local -n $ENDPOINT_NAME`. In the returned data, find the `scoring_uri` attribute.
 
 ### Review the logs for output from the invoke operation
 
@@ -214,14 +215,14 @@ To create the endpoint in the cloud, run the following code:
 
 ::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
 
-To create the deployment named blue under endpoint, run the following code:
+To create the deployment named blue under the endpoint, run the following code:
 
 ::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
 
 This deployment might take up to 15 minutes, depending on whether the underlying environment or image is being built for the first time. Subsequent deployments that use the same environment will finish processing more quickly.
 
 > [!Important]
-> The --all-traffic flag in the above `az ml online-deployment create` allocates 100% of the traffic in the endpoint to the newly created deployment. Though this is helpful development and testing purposes, for production, you might want to open traffic to the new deployment through an explicit command. For e.g.
+> The --all-traffic flag in the above `az ml online-deployment create` allocates 100% of the traffic to the endpoint to the newly created deployment. Though this is helpful for development and testing purposes, for production, you might want to open traffic to the new deployment through an explicit command. For example,
 > `az ml online-endpoint update -n $ENDPOINT_NAME --traffic "blue=100"` 
 
 > [!TIP]
@@ -259,7 +260,7 @@ Alternatively you can use curl (or any REST client). The below should work in Un
 
 ::: code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
 
-Notice we use `show` and `get-credentials` commands to get the scoring uri and authentication credentials. Also notice that we're using the `--query` flag to filter attributes to only what we need. To learn more about `--query`, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
+Notice we use `show` and `get-credentials` commands to get the scoring uri and authentication credentials. Also notice that we're using the `--query` flag to filter attributes to only those we need. To learn more about `--query`, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
 
 To see the invocation logs, run `get-logs` again.
 
@@ -268,7 +269,7 @@ To see the invocation logs, run `get-logs` again.
 If you want to update the code, model, environment, or your scale settings, update the YAML file, and then run the `az ml online-endpoint update` command. 
 
 > [!Note]
-> If you update instance count and along with other model settings (code, model, or environment) in a single `update` command: first the scaling operation will be performed, then the other updates will be applied. In production environment is a good practice to perform these operations separately.
+> If you update instance count *and* other model settings (code, model, or environment) in a single `update` command: the scaling operation will be performed first and then the other updates will be applied. In a production environment, it is a good practice to perform these operations separately.
 
 To understand how `update` works:
 
@@ -302,11 +303,11 @@ The `update` command also works with local deployments. Use the same `az ml onli
 > With the `update` command, you can use the [`--set` parameter in the Azure CLI](/cli/azure/use-cli-effectively#generic-update-arguments) to override attributes in your YAML *or* to set specific attributes without passing the YAML file. Using `--set` for single attributes is especially valuable in development and test scenarios. For example, to scale up the `instance_count` value for the first deployment, you could use the `--set instance_count=2` flag. However, because the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
 
 > [!Note]
-> The above is an example of inplace rolling update: i.e. the same deployment is updated with the new configuration, with 20% nodes at a time. If the deployment has 10 nodes, 2 nodes at a time will be updated. For production usage, you might want to consider [blue-green deployment](how-to-safely-rollout-managed-endpoints.md), which offers a safer alternative.
+> The above is an example of an in-place rolling update: i.e. the same deployment is updated with the new configuration for 20% of the nodes at a time. If the deployment has 10 nodes, 2 nodes at a time will be updated. For production usage, you might want to consider [blue-green deployment](how-to-safely-rollout-managed-endpoints.md), which offers a safer alternative.
 
 ### (Optional) Configure autoscaling
 
-Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints supports autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, follow the steps [here](how-to-autoscale-endpoints.md)
+Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints supports autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, follow the steps [here](how-to-autoscale-endpoints.md).
 
 ### (Optional) Monitor SLA by using Azure Monitor
 
