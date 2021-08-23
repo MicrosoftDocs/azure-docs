@@ -101,10 +101,12 @@ Azure Database Migration Service prerequisites that are common across all suppor
     - Server audit
 - Automating migrations with Azure Data Studio using PowerShell / CLI isn't supported.
 - Migrating to Azure SQL Database isn't supported.
+- Azure storage accounts secured by specific firewall rules or configured with a private endpoint are not supported for migrations.
 
 ### Regions
 Migrate SQL Server database(s) to your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine to any of the following regions during Preview:
 - Australia East
+- Australia Southeast
 - Canada Central
 - Canada East
 - Central India
@@ -113,8 +115,10 @@ Migrate SQL Server database(s) to your target Azure SQL Managed Instance or SQL 
 - East US 2
 - France Central
 - Japan East
+- North Central US
 - South Central US
 - Southeast Asia
+- South India
 - UK South
 - West Europe
 - West US
