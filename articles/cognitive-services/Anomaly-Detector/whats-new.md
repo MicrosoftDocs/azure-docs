@@ -17,6 +17,10 @@ We've also added links to some user-generated content. Those items will be marke
 
 ### July 2021
 
+* Multivariate anomaly detection APIs deployed in five more regions: West US 3, Japan East, Brazil South, Central US, Norway East . Now in total 15 regions are supported.
+
+### July 2021
+
 * Multivariate anomaly detection APIs deployed in four more regions: Australia East, Canada Central, North Europe, and Southeast Asia. Now in total 10 regions are supported.
 * Anomaly Detector (univariate) available in West US 3 and Norway East.
 
