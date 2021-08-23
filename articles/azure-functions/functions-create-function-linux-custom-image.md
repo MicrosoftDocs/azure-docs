@@ -337,7 +337,7 @@ After the image starts in the local container, browse to `http://localhost:8080/
 
 ---
 ::: zone-end
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other""  
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-other"  
 After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which should display the same "hello" message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. To learn more, see [authorization keys].
 ::: zone-end  
 
@@ -487,6 +487,7 @@ A function app on Azure manages the execution of your functions in your hosting 
     Write-Output($string) 
     ```
     The key returned by the [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) cmdlet is used to construct the connection string for the storage account.
+
     ---    
 
     Replace `<STORAGE_NAME>` with the name of the storage account you created previously.
@@ -504,6 +505,7 @@ A function app on Azure manages the execution of your functions in your hosting 
     Update-AzFunctionAppSetting -Name <APP_NAME> -ResourceGroupName AzureFunctionsContainers-rg -AppSetting @{"AzureWebJobsStorage"="<CONNECTION_STRING>"}
     ```
     The [Update-AzFunctionAppSetting](/powershell/module/az.functions/update-azfunctionappsetting) cmdlet creates the setting.
+
     ---
 
     In this command, replace `<APP_NAME>` with the name of your function app and `<CONNECTION_STRING>` with the connection string from the previous step. The connection should be a long encoded string that begins with `DefaultEndpointProtocol=`.
@@ -527,6 +529,7 @@ In your browser, navigate to a URL like the following:
 `https://<APP_NAME>.azurewebsites.net/api/HttpExample?name=Functions`
 # [Isolated process](#tab/isolated-process)
 `https://<APP_NAME>.azurewebsites.net/api/HttpExample`
+
 ---
 :::zone-end  
 
@@ -552,6 +555,7 @@ You can enable Azure Functions to automatically update your deployment of an ima
     ```
     
     The `DOCKER_ENABLE_CI` application setting controls whether continuous deployment is enabled from the container repository.  The [Get-AzWebAppContainerContinuousDeploymentUrl](/powershell/module/az.websites/get-azwebappcontainercontinuousdeploymenturl) cmdlet returns the URL of the deployment webhook.
+
     ---    
 
     As before, replace `<APP_NAME>` with your function app name. 
