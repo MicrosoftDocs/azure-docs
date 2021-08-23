@@ -244,7 +244,7 @@ parameters.
 
 Azure Policy definitions in the category 'Guest Configuration' can be assigned
 to Management Groups only when the effect is 'AuditIfNotExists'. Policy
-definitions with effect 'DeployIfNotExists' are not supported as assignments to
+definitions with effect 'DeployIfNotExists' aren't supported as assignments to
 Management Groups.
 
 ### Client log files
