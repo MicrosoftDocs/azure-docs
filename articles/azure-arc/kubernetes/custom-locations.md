@@ -62,7 +62,7 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
         az provider show -n Microsoft.ExtendedLocation -o table
         ```
 
-    Once registered, the `RegistrationState` state will have the `Registered` value.
+        Once registered, the `RegistrationState` state will have the `Registered` value.
 
 - Verify you have an existing [Azure Arc enabled Kubernetes connected cluster](quickstart-connect-cluster.md).
     - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.1.0 or later.
