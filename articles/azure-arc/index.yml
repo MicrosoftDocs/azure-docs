@@ -61,7 +61,7 @@ conceptualContent:
           text: Security overview
         - url: ./servers/policy-reference.md
           itemType: learn
-          text: Admission control policies using Azure Policy
+          text: Admission control policy definitions using Azure Policy
         - url: /sql/sql-server/azure-arc/overview
           itemType: overview
           text: Connect Arc-enabled SQL Server

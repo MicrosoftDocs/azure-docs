@@ -70,11 +70,11 @@ Azure Key Vault or Service Principal.
 
 ### What private DNS zones are required for Azure Purview for a private endpoint?
 
-For an Azure Purview resource:
+For Azure Purview _account_ and _portal_ private endpoints:
 
 - `privatelink.purview.azure.com`
 
-For Azure Purview managed resources:
+For Azure Purview _ingestion_ private endpoints:
 
 - `privatelink.blob.core.windows.net`
 - `privatelink.queue.core.windows.net`

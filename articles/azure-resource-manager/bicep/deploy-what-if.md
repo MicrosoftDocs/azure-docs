@@ -190,7 +190,7 @@ The following results show the two different output formats:
 
 ### Set up environment
 
-To see how what-if works, let's runs some tests. First, deploy a [Bicep file that creates a virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.bicep). You'll use this virtual network to test how changes are reported by what-if. Download a copy of the Bicep file.
+To see how what-if works, let's runs some tests. First, deploy a [Bicep file that creates a virtual network](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-before.bicep). You'll use this virtual network to test how changes are reported by what-if. Download a copy of the Bicep file.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -218,7 +218,7 @@ az deployment group create \
 
 ### Test modification
 
-After the deployment completes, you're ready to test the what-if operation. This time you deploy a [Bicep file that changes the virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.bicep). It's missing one the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
+After the deployment completes, you're ready to test the what-if operation. This time you deploy a [Bicep file that changes the virtual network](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/what-if/what-if-after.bicep). It's missing one the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
 
 # [PowerShell](#tab/azure-powershell)
 

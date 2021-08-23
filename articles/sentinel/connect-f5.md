@@ -35,7 +35,7 @@ This article explains how to use the F5 ASM data connector to easily pull your F
 
 1. To use the relevant schema in Log Analytics for CEF events, search for `CommonSecurityLog`.
 
-1. Continue to [STEP 3: Validate connectivity](connect-cef-verify.md).
+1. Continue to [Validate CEF connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity).
 
 
 ## Next steps

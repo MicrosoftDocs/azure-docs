@@ -12,6 +12,8 @@ ms.colletion: windows
 ---
 # Create a Windows VM with Azure Image Builder
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 This article is to show you how you can create a customized Windows image using the Azure VM Image Builder. The example in this article uses [customizers](../linux/image-builder-json.md#properties-customize) for customizing the image:
 - PowerShell (ScriptUri) - download and run a [PowerShell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
 - Windows Restart - restarts the VM.
@@ -23,7 +25,7 @@ This article is to show you how you can create a customized Windows image using 
 - identity - providing an identity for Azure Image Builder to use during the build
 
 
-You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and you can increase a build time to allow for longer running builds.
+You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and you can increase a build time to allow for longer running builds. The minimum allowed value is 6 minutes; shorter values will cause errors.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
