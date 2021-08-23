@@ -14,7 +14,7 @@ ms.author: cavoeg
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-How the FHIR service in the Azure Healthcare APIs (here by called the FHIR service) validates the access token will depend on implementation and configuration. In this article, we will walk through the validation steps, which can be helpful when troubleshooting access issues.
+How the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) validates the access token will depend on implementation and configuration. In this article, we will walk through the validation steps, which can be helpful when troubleshooting access issues.
 
 ## Validate token has no issues with identity provider
 
