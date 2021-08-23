@@ -6,8 +6,8 @@ ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
-ms.topic: conceptual
-ms.date: 08/16/2021
+ms.topic: how-to
+ms.date: 08/31/2021
 tags: connectors
 ---
 
@@ -487,7 +487,7 @@ Next, create an action to send your IDoc message to SAP when your [Request trigg
 
 1. Save your logic app workflow. On the designer toolbar, select **Save**.
 
-#### Send flat file IDocs
+### Send flat file IDocs
 
 You can use IDocs with a flat file schema if you wrap them in an XML envelope. To send a flat file IDoc, use the generic instructions to [create an SAP action to send your IDoc message](#create-sap-action-to-send-message) with the following changes.
 
@@ -628,7 +628,7 @@ Now add a response action to your logic app's workflow and include the output fr
 
 1. Save your logic app workflow.
 
-#### Create RFC request-response
+### Create RFC request-response
 
 You must create a request and response pattern if you need to receive replies by using a remote function call (RFC) to Azure Logic Apps from SAP ABAP. To receive IDocs in your logic app workflow, you should make the workflow's first action a [Response action](../connectors/connectors-native-reqres.md#add-a-response-action) with a status code of `200 OK` and no content. This recommended step completes the SAP Logical Unit of Work (LUW) asynchronous transfer over tRFC immediately, which leaves the SAP CPIC conversation available again. You can then add further actions in your logic app workflow to process the received IDoc without blocking further transfers.
 
@@ -648,7 +648,7 @@ In the following example, a request and response pattern is generated from the `
   <RESPTEXT>Azure Logic Apps @{utcNow()}</RESPTEXT>
 ```
 
-### Test your logic app workflow 
+### Test your logic app workflow
 
 1. If your logic app isn't already enabled, on your logic app menu, select **Overview**. On the toolbar, select **Enable**.
 
@@ -789,7 +789,7 @@ You might get a similar error when SAP application server or message server name
 10.0.1.9 SAPDBSERVER01.someguid.xx.xxxxxxx.cloudapp.net # SAP System Server VPN IP by fully qualified computer name
 ```
 
-#### Parameters
+### Parameters
 
 Along with simple string and number inputs, the SAP connector accepts the following table parameters (`Type=ITAB` inputs):
 
@@ -799,9 +799,9 @@ Along with simple string and number inputs, the SAP connector accepts the follow
 
 * Hierarchical table parameters
 
-#### Filter with SAP actions
+### Filter with SAP actions
 
-You can optionally filter the messages that your logic app workflow receives from your SAP server by providing a list, or array, with a single or multiple SAP actions. By default, this array is empty, which means that your logic app receives all the messages from your SAP server without filtering. 
+You can optionally filter the messages that your logic app workflow receives from your SAP server by providing a list, or array, with a single or multiple SAP actions. By default, this array is empty, which means that your logic app receives all the messages from your SAP server without filtering.
 
 When you set up the array filter, the trigger only receives messages from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong.
 
@@ -809,7 +809,7 @@ Any SAP action filtering happens at the level of the SAP adapter for your on-pre
 
 If you can't send IDoc packets from SAP to your logic app workflow's trigger, review the Transactional RFC (tRFC) call rejection message in the SAP tRFC (T-Code SM58) dialog box. In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
 
-##### The RequestContext on the IReplyChannel was closed without a reply being sent
+#### The RequestContext on the IReplyChannel was closed without a reply being sent
 
 This error message means unexpected failures happen when the catch-all handler for the channel terminates the channel due to an error, and rebuilds the channel to process other messages.
 
@@ -827,7 +827,7 @@ If you're receiving this error message and experience intermittent failures call
 
 1. Save your changes. Restart your on-premises data gateway.
 
-##### The segment or group definition E2EDK36001 was not found in the IDoc meta
+#### The segment or group definition E2EDK36001 was not found in the IDoc meta
 
 This error message means expected failures happen with other errors. For example, the failure to generate an IDoc XML payload because its segments are not released by SAP. As a result, the segment type metadata required for conversion is missing.
 
@@ -835,7 +835,7 @@ To have these segments released by SAP, contact the ABAP engineer for your SAP s
 
 ### Asynchronous request-reply for triggers
 
-The SAP connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply) for Azure Logic Apps triggers. You can use this pattern to create successful requests that would have otherwise failed with the default synchronous request-reply pattern. 
+The SAP connector supports Azure's [asynchronous request-reply pattern](/azure/architecture/patterns/async-request-reply) for Azure Logic Apps triggers. You can use this pattern to create successful requests that would have otherwise failed with the default synchronous request-reply pattern.
 
 > [!TIP]
 > In logic app workflows that have multiple response actions, all response actions must use the same request-reply pattern. 
@@ -860,27 +860,25 @@ To configure an asynchronous request-reply pattern for your logic app workflow u
 
 For full error messages, check your SAP adapter's extended logs. You can also [enable an extended log file for the SAP connector](#extended-sap-logging-in-on-premises-data-gateway).
 
-For on-premises data gateway releases from June 2020 and later, you can [enable gateway logs in the app settings](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
+* For on-premises data gateway releases from April 2020 and earlier, logs are disabled by default.
 
-* The default logging level is **Warning**.
+* For on-premises data gateway releases from June 2020 and later, you can [enable gateway logs in the app settings](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app).
 
-* If you enable  **Additional logging** in the **Diagnostics** settings of the on-premises data gateway app, the logging level is increased to **Informational**.
+  * The default logging level is **Warning**.
 
-* To increase the logging level to **Verbose**, update the following setting in your configuration file:
+  * If you enable  **Additional logging** in the **Diagnostics** settings of the on-premises data gateway app, the logging level is increased to **Informational**.
 
-  ```xml
-  <setting name="SapTraceLevel" serializeAs="String">
-     <value>Verbose</value>
-  </setting>
-  ```
+  * To increase the logging level to **Verbose**, update the following setting in your configuration file. Typically, the configuration file is located at `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config`.
 
-  Typically, the configuration file is located at `C:\Program Files\On-premises data gateway\Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config`.
-
-For on-premises data gateway releases from April 2020 and earlier, logs are disabled by default.
+    ```xml
+    <setting name="SapTraceLevel" serializeAs="String">
+       <value>"Verbose"</value>
+    </setting>
+    ```
 
 ### Extended SAP logging in on-premises data gateway
 
-If you use an [on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files. 
+If you use an [on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md), you can configure an extended log file for the SAP connector. You can use your on-premises data gateway to redirect Event Tracing for Windows (ETW) events into rotating log files that are included in your gateway's logging .zip files.
 
 You can [export all of your gateway's configuration and service logs](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) to a .zip file in from the gateway app's settings.
 
@@ -902,17 +900,17 @@ Optionally, advanced users can capture ETW events directly. You can then [consum
 
 1. After you've reproduced your issue or collected enough analysis data, select **Stop Collection**.
 
-To share your data with another party, such as Azure support engineers, compress the ETL file.
+1. To share your data with another party, such as Azure support engineers, compress the ETL file.
 
-To view the content of your trace:
+1. To view the content of your trace:
 
-1. In PerfView, select **File** &gt; **Open** and select the ETL file you just generated.
+   1. In PerfView, select **File** &gt; **Open** and select the ETL file you just generated.
 
-1. In the PerfView sidebar, the **Events** section under your ETL file.
+   1. In the PerfView sidebar, the **Events** section under your ETL file.
 
-1. Under **Filter**, filter by `Microsoft-LobAdapter` to only view relevant events and gateway processes.
+   1. Under **Filter**, filter by `Microsoft-LobAdapter` to only view relevant events and gateway processes.
 
-### Test your logic app workflow
+### Test your workflow
 
 1. To trigger your logic app workflow, send a message from your SAP system.
 
@@ -1079,7 +1077,7 @@ For production environments, you must create two partner profiles. The first pro
 
 1. To start outbound IDoc processing, select **Continue**. When processing finishes, the **IDoc sent to SAP system or external program** message appears.
 
-1.  To check for processing errors, use the **sm58** transaction code (T-Code) with the **/n** prefix.
+1. To check for processing errors, use the **sm58** transaction code (T-Code) with the **/n** prefix.
 
 ## Receive IDoc packets from SAP
 
@@ -1457,7 +1455,7 @@ The following example is an alternative method to set the transaction identifier
 
 By default, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. Learn more about the [Safe Typing option](#safe-typing).
 
-### Test your logic app workflow
+### Test your workflow
 
 1. On the designer toolbar, select **Run** to trigger a run for your logic app workflow.
 
@@ -1501,7 +1499,7 @@ Optionally, you can download or store the generated schemas in repositories, suc
 
 1. Save your logic app workflow. On the designer toolbar, select **Save**.
 
-### Test your logic app workflow
+### Test your workflow
 
 1. On the designer toolbar, select **Run** to manually trigger your logic app workflow.
 
@@ -1579,6 +1577,173 @@ When messages are sent with **Safe Typing** enabled, the DATS and TIMS response 
 <DATE>99991231</DATE>
 <TIME>235959</TIME>
 ```
+
+## Send SAP telemetry for on-premises data gateway to Azure Application Insights
+
+With the August 2021 update for the on-premises data gateway, SAP connector operations can send telemetry data from the SAP client library and traces from the Microsoft SAP Adapter to [Application Insights](../azure-monitor/app/app-insights-overview.md), which is a capability in Azure Monitor. This telemetry primarily includes the following data:
+
+* Metrics and traces based on SAP NCo metrics and monitors.
+
+* Traces from Microsoft SAP adapter.
+
+### Metrics and traces from SAP client library
+
+*Metrics* are numeric values that might or might not vary over a time period, based on the usage and availability of resources on the on-premises data gateway. You can use these metrics to better understand system health and to create alerts about the following activities:
+
+* Whether system health is declining.
+
+* Unusual events.
+
+* Heavy load on your system.
+
+This information is sent to the Application Insights table, `customMetrics`. By default, metrics are sent at 30-second intervals.
+
+SAP NCo metrics and traces are based on SAP NCo metrics, specifically the following NCo classes:
+
+* RfcDestinationMonitor.
+
+* RfcConnectionMonitor.
+
+* RfcServerMonitor.
+
+* RfcRepositoryMonitor.
+
+For more information about the metrics that each class provides, review the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546).
+
+*Traces* include text information that is used with metrics. This information is sent to the Application Insights table named `traces`. By default, traces are sent at 10-minute intervals.
+
+### Set up SAP telemetry for Application Insights
+
+Before you can send SAP telemetry for your gateway installation to Application Insights, you need to have created and set up your Application Insights resource. For more information, review the following documentation:
+
+* [Create an Application Insights resource (classic)](../azure-monitor/app/create-new-resource.md)
+
+* [Workspace-based Application Insights resources](../azure-monitor/app/create-workspace-resource.md)
+
+To enable sending SAP telemetry to Application insights, follow these steps:
+
+1. In your on-premises data gateway installation directory, check that the **Microsoft.ApplicationInsights.EventSourceListener.dll** file has the same version that matches the **Microsoft.ApplicationInsights.dll** file in your gateway installation directory. The gateway currently uses version 2.14.0.
+
+   If the file versions don't match for any reason, follow these steps:
+
+   1. Download the NuGet package from this location: [https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0).
+
+   1. Add the downloaded file to the installation directory.
+
+   1. If necessary, update the ApplicationInsights.config file, which is also in your gateway installation directory by uncommenting the line with the `<InstrumentationKey></Instrumentation>` element, and replacing *user-key-placeholder* with your [Application Insights instrumentation key](../azure-monitor/app/app-insights-overview.md#how-does-application-insights-work), for example:
+
+      ```xml
+      <?xml version="1.0" encoding="utf-8"?>
+      <ApplicationInsights schemaVersion="2014-05-30" xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
+         <!-- Uncomment this element and insert your Application Insights key to receive ETW telemetry about your gateway <InstrumentationKey>*user-key-placeholder*</InstrumentationKey> -->
+         <TelemetryModules>
+            <Add Type="Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule, Microsoft.ApplicationInsights">
+               <IsHeartbeatEnabled>false</IsHeartbeatEnabled>
+            </Add>
+            <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
+               <Sources>
+                  <Add Name="Microsoft-LobAdapter" Level="Verbose" />
+               </Sources>
+            </Add>
+         </TelemetryModules>
+      </ApplicationInsights>
+      ```
+
+1. In the **ApplicationInsights.config** file, you can change the required traces `Level` value for your SAP connector operations, per your requirements, for example:
+
+   ```xml
+   <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
+      <Sources>
+         <Add Name="Microsoft-LobAdapter" Level="Verbose" />
+      </Sources>
+   </Add>
+   ```
+
+   For more information, review the following documentation:
+
+   * `Level` values: [EventLevel Enum](/dotnet/api/system.diagnostics.tracing.eventlevel)
+
+   * [EventSource tracking](../azure-monitor/app/configuration-with-applicationinsights-config.md#eventsource-tracking)
+
+   * [EventSource events](../azure-monitor/app/asp-net-trace-logs.md#use-eventsource-events)
+
+1. After you apply your changes, restart the on-premies data gateway service.
+
+## Review metrics in Application Insights
+
+After your SAP operations run in your logic app workflow, you can review the telemetry that was sent to Application Insights.
+
+1. In the Azure portal, open your Application Insights resource.
+
+1. On the resource menu, under **Monitoring**, select **Logs**.
+
+   The following screenshot shows the Azure portal with Application Insights, which is open to the **Logs** pane:
+
+   [![Screenshot showing the Azure portal with Application Insights open to the "Logs" pane for creating queries.](./media/logic-apps-using-sap-connector/application-insights-query-panel.png)](./media/logic-apps-using-sap-connector/application-insights-query-panel.png#lightbox)
+
+1. On the **Logs** pane, you can create a [query](../data-explorer/kusto/query.md) using the [Kusto Query Language (KQL)](../data-explorer/kusto/concepts.md) that's based on your specific requirements.
+
+   You can use a query pattern similar to the following example query:
+
+   ```Kusto
+   customMetrics
+   | extend DestinationName = tostring(customDimensions["DestinationName"])
+   | extend MetricType = tostring(customDimensions["MetricType"])
+   | where customDimensions contains "RfcDestinationMonitor"
+   | where name contains "MaxUsedCount"
+   ```
+
+1. After you run your query, review the results.
+
+   The following screenshot shows the example query's metrics results table:
+
+   [![Screenshot showing Application Insights with the metrics results table.](./media/logic-apps-using-sap-connector/application-insights-metrics.png)](./media/logic-apps-using-sap-connector/application-insights-metrics.png#lightbox)
+
+   * **MaxUsedCount** is "The maximal number of client connections that were simultaneously used by the monitored destination." as described in the [SAP NCo documentation (sign-in required)](https://support.sap.com/en/product/connectors/msnet.html#section_512604546). You can use this value to understand the number of simultaneously open connections.
+
+   * The **valueCount** column shows **2** for each reading because metrics are generated at 30-second intervals, and Application Insights aggregates these metrics by the minute.
+
+   * The **DestinationName** column contains a character string that is a Microsoft SAP adapter internal name.
+
+     To better understand this Remote Function Call (RFC) destination, use this value with `traces`, for example:
+
+     ```Kusto
+     customMetrics
+     | extend DestinationName = tostring(customDimensions["DestinationName"])
+     | join kind=inner (traces
+        | extend DestinationName = tostring(customDimensions["DestinationName"]),
+        AppServerHost = tostring(customDimensions["AppServerHost"]),
+        SncMode = tostring(customDimensions["SncMode"]),
+        SapClient = tostring(customDimensions["Client"])
+        | where customDimensions contains "RfcDestinationMonitor"
+        )
+        on DestinationName , $left.DestinationName == $right.DestinationName
+     | where customDimensions contains "RfcDestinationMonitor"
+     | where name contains "MaxUsedCount"
+     | project AppServerHost, SncMode, SapClient, name, valueCount, valueSum, valueMin, valueMax
+     ```
+
+You can also create metric charts or alerts using those capabilities in Application Insights, for example:
+
+[![Screenshot showing Application Insights with the results in chart format.](./media/logic-apps-using-sap-connector/application-insights-metrics-chart.png)](./media/logic-apps-using-sap-connector/application-insights-metrics-chart.png#lightbox)
+
+### Traces from Microsoft SAP adapter
+
+You can use traces sent from Microsoft SAP adapter for issue post-analysis and to find any existing internal system errors that might or might not surface from SAP connector operations. These traces have `message` set to `"n\a"` because they come from an older event source framework that's not designed for Application Insights, for example:
+
+```Kusto
+traces  
+| where message == "n/a" 
+| where severityLevel > 0 
+| extend ActivityId = tostring(customDimensions["ActivityId"]) 
+| extend fullMessage = tostring(customDimensions["fullMessage"]) 
+| extend shortMessage = tostring(customDimensions["shortMessage"]) 
+| where ActivityId contains "8ad5952b-371e-4d80-b355-34e28df9b5d1"  
+```
+
+The following screenshot shows the example query's traces results table:
+
+[![Screenshot showing Application Insights with the traces results table.](./media/logic-apps-using-sap-connector/application-insights-traces.png)](./media/logic-apps-using-sap-connector/application-insights-traces.png#lightbox)
 
 ## Advanced scenarios
 
