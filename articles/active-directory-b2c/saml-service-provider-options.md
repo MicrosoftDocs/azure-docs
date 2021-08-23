@@ -115,7 +115,7 @@ Your policy must specify a certificate to be used to sign the SAML assertions se
 
 When your application expects SAML assertions to be in an encrypted format, make sure that encryption is enabled in the Azure AD B2C policy.
 
-Azure AD B2C uses the service provider's public key certificate to encrypt the SAML assertion. The public key must exist in the SAML application's metadata endpoint with the `KeyDescriptor` `use` value set to 'Encryption', as shown in the following example:
+Azure AD B2C uses the service provider's public key certificate to encrypt the SAML assertion. The public key must exist in the SAML application's metadata endpoint with the `KeyDescriptor` `use` value set to `Encryption`, as shown in the following example:
 
 ```xml
 <KeyDescriptor use="encryption">
@@ -176,7 +176,7 @@ The following example shows the `EncryptedAssertion` section of a SAML assertion
 </saml:EncryptedAssertion>
 ```
 
-You can change the format of the encrypted assertions. To configure the encryption format, set the `UseDetachedKeys` metadata key within the relying party. Possible values: `true` or `false` (default). When the value is set to `true`, the detached keys add the encrypted assertion as a child of `EncrytedAssertion` instead of `EncryptedData`.
+You can change the format of the encrypted assertions. To configure the encryption format, set the `UseDetachedKeys` metadata key within the relying party. Possible values: `true` or `false` (default). When the value is set to `true`, the detached keys add the encrypted assertion as a child of `EncryptedAssertion` instead of `EncryptedData`.
 
 Configure the encryption method and format by using the metadata keys within the [relying party technical profile](relyingparty.md#technicalprofile):
 
@@ -228,9 +228,9 @@ https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/g
 
 Replace the following values:
 
-* Replace *tenant-name* with your tenant name.
-* Replace *policy-name* with the name of your SAML relying party policy.
-* Replace *app-identifier-uri* with the `identifierUris` value in the metadata file, such as `https://contoso.onmicrosoft.com/app-name`.
+* Replace `<tenant-name>` with your tenant name.
+* Replace `<policy-name>` with the name of your SAML relying party policy.
+* Replace `app-identifier-uri` with the `identifierUris` value in the metadata file, such as `https://contoso.onmicrosoft.com/app-name`.
 
 ### Sample policy
 
