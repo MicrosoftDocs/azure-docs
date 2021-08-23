@@ -92,8 +92,7 @@ Deleting the parent resource (virtual machine or Arc-enabled machine) will also
 delete the guest configuration assignment.
 
 To manually delete a guest configuration assignment, use the following
-example. Make sure to replace all example strings, indicated by "<myExample>"
-pattern.
+example. Make sure to replace all example strings, indicated by "\<\>" brackets.
 
 ```PowerShell
 # First get details about the guest configuration assignment
