@@ -20,7 +20,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ### Image tagging language expansion
 
-The Image Analysis [tagging](concept-tagging-images.md) feature now supports tags in 50 languages. See the [language support](language-support.md) page for more information.
+The [latest version (v3.2)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200) of the Image tagger now supports tags in 50 languages. See the [language support](language-support.md) page for more information.
 
 ## May 2021
 
