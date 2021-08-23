@@ -31,7 +31,7 @@ The Storage Account hosting this dataset is in the East US Azure region. Allocat
 
 Storage Account: 'https://datasetgnomad.blob.core.windows.net/dataset/'
 
-Th data is available publicly without restrictions, and the AzCopy tool is recommended for bulk operations. For example, to view the VCFs in release 3.0 of gnomAD:
+The data is available publicly without restrictions, and the AzCopy tool is recommended for bulk operations. For example, to view the VCFs in release 3.0 of gnomAD:
 
 ```powershell
 $ azcopy ls https://datasetgnomad.blob.core.windows.net/dataset/release/3.0/vcf/genomes
