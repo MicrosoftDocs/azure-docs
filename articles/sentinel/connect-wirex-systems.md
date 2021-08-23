@@ -54,7 +54,7 @@ To get its logs into Azure Sentinel, configure your WireX Systems NFP appliance 
         - Log format – CEF
         - Log types – all recommended by WireX
 
-    1. **3. Validate connection** - Verify data ingestion by copying the command on the connector page and running it on your log forwarder. See [STEP 3: Validate connectivity](connect-cef-verify.md) in the Azure Sentinel documentation for more detailed instructions and explanation.
+    1. **3. Validate connection** - Verify data ingestion by copying the command on the connector page and running it on your log forwarder. See [Validate CEF connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity) in the Azure Sentinel documentation for more detailed instructions and explanation.
 
         It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
