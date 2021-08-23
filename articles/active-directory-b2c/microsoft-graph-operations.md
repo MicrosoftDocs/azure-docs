@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 06/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -147,6 +147,12 @@ For more information about accessing Azure AD B2C audit logs, see [Accessing Azu
 - [Update a Conditional Access policy](/graph/api/conditionalaccesspolicy-update)
 - [Delete a Conditional Access policy](/graph/api/conditionalaccesspolicy-delete)
 
+## How to programmatically manage Microsoft Graph
+
+When you want to manage Microsoft Graph, you can either do it as the application using the application permissions, or you can use delegated permissions. For delegated permissions, either the user or an administrator consents to the permissions that the app requests. The app is delegated with the permission to act as a signed-in user when it makes calls to the target resource. Application permissions are used by apps that do not require a signed in user present and thus require application permissions. Because of this, only administrators can consent to application permissions.
+
+> [!NOTE]
+> Delegated permissions for users signing in through user flows or custom policies cannot be used against delegated permissions for Microsoft Graph.
 ## Code sample: How to programmatically manage user accounts
 
 This code sample is a .NET Core console application that uses the [Microsoft Graph SDK](/graph/sdks/sdks-overview) to interact with Microsoft Graph API. Its code demonstrates how to call the API to programmatically manage users in an Azure AD B2C tenant.
@@ -176,6 +182,9 @@ After you've obtained the code sample, configure it for your environment and the
 
 The application displays a list of commands you can execute. For example, get all users, get a single user, delete a user, update a user's password, and bulk import.
 
+> [!NOTE]
+> For the application to update user account passwords, you'll need to [grant the user administrator role](microsoft-graph-get-started.md#optional-grant-user-administrator-role) to the application.
+ 
 ### Code discussion
 
 The sample code uses the [Microsoft Graph SDK](/graph/sdks/sdks-overview), which is designed to simplify building high-quality, efficient, and resilient applications that access Microsoft Graph.

@@ -3,12 +3,16 @@ title: Quickstart - Add joining a teams meeting to an Android app using Azure Co
 description: In this quickstart, you learn how to use the Azure Communication Services Teams Embed library for Android.
 author: palatter
 ms.author: palatter
-ms.date: 01/25/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
 In this quickstart, you'll learn how to join a Microsoft Teams meeting using the Azure Communication Services Teams Embed library for Android.
+
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/teams-embed-android-getting-started).
 
 ## Prerequisites
 
@@ -261,25 +265,21 @@ private void getAllPermissions() {
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services Teams Embed library:
 
-| Name                                  | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
-| MeetingUIClient| The MeetingUIClient is the main entry point to the Teams Embed library. |
-| MeetingUIClientJoinOptions | MeetingUIClientJoinOptions are used for configurable options such as display name. |
-| MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator is used to set the meeting URL for joining a meeting. |
-| MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator is used for setting the group ID to join. |
-| MeetingUIClientInCallScreenProvider | MeetingUIClientInCallScreenProvider is used to provide customizations on main call screen in the UI. |
-| MeetingUIClientStagingScreenProvider | MeetingUIClientStagingScreenProvider is used to provide customizations on staging call screen in the UI. |
-| MeetingUIClientConnectingScreenProvider | MeetingUIClientConnectingScreenProvider is used to provide customizations on connecting call screen in the UI. |
-| MeetingUIClientIconType | MeetingUIClientIconType is used to specify which icons could be replaced with app-specific icon. |
-| MeetingUIClientCall | MeetingUIClientCall describes the call and provides APIs to control it. |
-| MeetingUIClientCallState | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: `CONNECTING`, `WAITING_IN_LOBBY`, `CONNECTED`, and `ENDED`. |
-| MeetingUIClientUserRole | MeetingUIClientUserRole is used for setting the user roles in group call. |
-| MeetingUIClientAudioRoute | MeetingUIClientAudioRoute is used for local audio routes like `Earpiece` or `SpeakerOn`. |
-| MeetingUIClientLayoutMode | MeetingUIClientLayoutMode is used for allowing to select different in call UI modes. |
-| MeetingUIClientAvatarSize | MeetingUIClientAvatarSize is an enum to denote different avatar sizes that can be requested by MeetingUIClientCallIdentityProvider |
-| MeetingUIClientCallEventListener | The MeetingUIClientCallEventListener is used to receive events, such as changes in call state. |
-| MeetingUIClientCallIdentityProvider | The MeetingUIClientCallIdentityProvider is used to map user details to the users in a meeting. |
-| MeetingUIClientCallUserEventListener | The MeetingUIClientCallUserEventListener provides information about user actions in the UI. |
+| Name                                    | Description                                                                                                                                                       |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MeetingUIClient                         | The MeetingUIClient is the main entry point to the Teams Embed library.                                                                                           |
+| MeetingUIClientJoinOptions              | MeetingUIClientJoinOptions are used for configurable options such as display name.                                                                                |
+| MeetingUIClientTeamsMeetingLinkLocator  | MeetingUIClientTeamsMeetingLinkLocator is used to set the meeting URL for joining a meeting.                                                                      |
+| MeetingUIClientGroupCallLocator         | MeetingUIClientGroupCallLocator is used for setting the group ID to join.                                                                                         |
+| MeetingUIClientIconType                 | MeetingUIClientIconType is used to specify which icons could be replaced with app-specific icon.                                                                  |
+| MeetingUIClientCall                     | MeetingUIClientCall describes the call and provides APIs to control it.                                                                                           |
+| MeetingUIClientCallState                | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: `CONNECTING`, `WAITING_IN_LOBBY`, `CONNECTED`, and `ENDED`. |
+| MeetingUIClientAudioRoute               | MeetingUIClientAudioRoute is used for local audio routes like `Earpiece` or `SpeakerOn`.                                                                          |
+| MeetingUIClientLayoutMode               | MeetingUIClientLayoutMode is used for allowing to select different in call UI modes.                                                                              |
+| MeetingUIClientAvatarSize               | MeetingUIClientAvatarSize is an enum to denote different avatar sizes that can be requested by MeetingUIClientCallIdentityProvider                                |
+| MeetingUIClientCallEventListener        | The MeetingUIClientCallEventListener is used to receive events, such as changes in call state.                                                                    |
+| MeetingUIClientCallIdentityProvider     | The MeetingUIClientCallIdentityProvider is used to map user details to the users in a meeting.                                                                    |
+| MeetingUIClientCallUserEventListener    | The MeetingUIClientCallUserEventListener provides information about user actions in the UI.                                                                       |
 
 ## Create a MeetingClient from the user access token
 
@@ -360,7 +360,3 @@ The Microsoft Teams SDK supports over 100 strings in over 50 languages. By defau
 1. Determine the list of languages your app supports
 2. Open MicrosoftTeamsSDK.gradle file
 3. In the defaultConfig block, the resConfigs property is set to "en" by default. Add the languages that your app needs. Reference: [Android Documentation](https://developer.android.com/studio/build/shrink-code#unused-alt-resources)
-
-## Sample Code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/teams-embed-android-getting-started)

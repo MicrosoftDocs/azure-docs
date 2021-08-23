@@ -1,5 +1,5 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide Performance Baselines"
+title: "Migrate MySQL on-premises to Azure Database for MySQL: Performance Baselines"
 description: "Understanding the existing MySQL workload is one of the best investments that can be made to ensure a successful migration."
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,10 +8,12 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/21/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Performance Baselines
+# Migrate MySQL on-premises to Azure Database for MySQL: Performance Baselines
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Prerequisites
 
@@ -91,6 +93,8 @@ Additionally, review any parameters that will affect maximums:
 WWI reviewed their Conference database workload and determined it had a very small load. Although a basic tier server would work for them, they did not want to perform work later to migrate to another tier. The server being deployed will eventually host the other MySQL data workloads and so they picked the `General Performance` tier.
 
 In reviewing the MySQL database, the MySQL 5.5 server is running with the defaults server parameters that are set during the initial install.
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Data Migration](./08-data-migration.md)

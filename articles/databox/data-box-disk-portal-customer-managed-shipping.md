@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/08/2021
+ms.date: 06/22/2021
 ms.author: alkohli
 ---
 
@@ -60,7 +60,7 @@ When you place a Data Box Disk order, you can choose self-managed shipping optio
    - Order name
    - Company name
    - Company legal name (if different) 
-   - Tax ID 
+   - CNPJ (Business Tax ID, format: 00.000.000/0000-00) or CPF (Individual Tax ID, format: 000.000.000-00)
    - Address 
    - Country 
    - Phone number 

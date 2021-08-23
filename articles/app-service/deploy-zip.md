@@ -50,6 +50,8 @@ az webapp deployment source config-zip --resource-group <group-name> --name <app
 
 This command deploys the files and directories from the ZIP file to your default App Service application folder (`\home\site\wwwroot`) and restarts the app.
 
+## Enable build automation
+
 By default, the deployment engine assumes that a ZIP file is ready to run as-is and doesn't run any build automation. To enable the same build automation as in a [Git deployment](deploy-local-git.md), set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting by running the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
@@ -95,3 +97,4 @@ enables version control, package restore, MSBuild, and more.
 
 * [Kudu: Deploying from a zip file](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Azure App Service Deployment Credentials](deploy-ftp.md)
+* [Environment variables and app settings reference](reference-app-settings.md)

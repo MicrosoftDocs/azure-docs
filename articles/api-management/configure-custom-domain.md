@@ -57,7 +57,7 @@ When you create an Azure API Management service instance, Azure assigns it a `az
     > 
     > Only API Management instance owners can use **Management** and **SCM** endpoints internally. These endpoints are less frequently assigned a custom domain name.
     >
-    > The **Premium** tier supports setting multiple host names for the **Gateway** endpoint.
+    > The **Premium** and **Developer** tiers support setting multiple host names for the **Gateway** endpoint.
 
 1. Select **+Add**, or select an existing endpoint that you want to update.
 1. In the window on the right, select the **Type** of endpoint for the custom domain.

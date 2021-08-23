@@ -3,12 +3,16 @@ title: Quickstart - Add joining a Microsoft Teams meeting to an iOS app using Az
 description: In this quickstart, you'll learn how to use the Azure Communication Services Teams Embed library for iOS.
 author: palatter
 ms.author: palatter
-ms.date: 01/25/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
 In this quickstart, you'll learn how to join a Microsoft Teams meeting using the Azure Communication Services Teams Embed library for iOS.
+
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/teams-embed-ios-getting-started).
 
 ## Prerequisites
 
@@ -83,10 +87,11 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 
 ### Add the Teams Embed framework
 
-1. Download the `MicrosoftTeamsSDK` iOS package.
+1. Download the `Teams Embed iOS SDK Bundle` and uncompress it.
 2. Create a `Frameworks` folder in the project root. Ex. `\TeamsEmbedGettingStarted\Frameworks\`
-3. Copy the downloaded `TeamsAppSDK.framework` and `MeetingUIClient.framework` and other frameworks provided in the release bundle to this folder.
-4. Add the frameworks to the project target under the general tab. Use the `Add Other` -> `Add Files...` to navigate to the framework files and add them.
+3. Copy the downloaded `AzureMeetingUIClient.xcframework` and `TeamsAppSDK.xcframework` and other frameworks provided in the release bundle to the folder mentioned above.
+4. Add the frameworks to the project target under the general tab. Use the `Add Other` -> `Add Files...` to navigate to the framework files and add them. 
+5. Select `Embed & Sign` for all of the added frameworks. 
 
 :::image type="content" source="../media/ios/xcode-add-frameworks.png" alt-text="Screenshot showing the added frameworks in Xcode.":::
 
@@ -138,6 +143,7 @@ override func viewDidLoad() {
     self.view.addSubview(button)
     button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+}
 ```
 
 Create an outlet for the button in **ViewController.swift**.
@@ -155,7 +161,7 @@ Open your project's **ViewController.swift** file and add an `import` declaratio
 ```swift
 import UIKit
 import AzureCommunicationCommon
-import MeetingUIClient
+import AzureMeetingUIClient
 ```
 
 Replace the implementation of the `ViewController` class with a simple button to allow the user to join a meeting. We will attach business logic to the button in this quickstart.
@@ -193,19 +199,16 @@ The following classes and interfaces handle some of the major features of the Az
 | MeetingUIClientGroupCallJoinOptions | MeetingUIClientGroupCallJoinOptions are used for configurable options such as display name. |
 | MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator is used to set the meeting URL for joining a meeting. |
 | MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator is used for setting the group ID to join. |
-| MeetingUIClientInCallScreenDelegate | MeetingUIClientInCallScreenDelegate is used to provide customizations on main call screen in the UI. |
-| MeetingUIClientStagingScreenDelegate | MeetingUIClientStagingScreenDelegate is used to provide customizations on staging call screen in the UI. |
-| MeetingUIClientConnectingScreenDelegate | MeetingUIClientConnectingScreenDelegate is used to provide customizations on connecting call screen in the UI. |
-| MeetingUIClientIconType | MeetingUIClientIconType is used to specify which icons could be replaced with app specific icon. |
-| MeetingUIClientCall | MeetingUIClientCall describes the call and provides API's to control it. |
+| MeetingUIClientIconType | MeetingUIClientIconType is used to specify which icons could be replaced with app-specific icon. |
+| MeetingUIClientCall | MeetingUIClientCall describes the call and provides APIs to control it. |
 | MeetingUIClientCallState | The MeetingUIClientCallState is used to for reporting call state changes. The options are as follows: `connecting`, `waitingInLobby`, `connected`, and `ended`. |
-| MeetingUIClientUserRole | MeetingUIClientUserRole is used for setting the user roles in group call. |
 | MeetingUIClientAudioRoute | MeetingUIClientAudioRoute is used for local audio routes like `Earpiece` or `SpeakerOn`. |
 | MeetingUIClientLayoutMode | MeetingUIClientLayoutMode is used for allowing to select different in call UI modes. |
 | MeetingUIClientAvatarSize | MeetingUIClientAvatarSize is an enum to denote different avatar sizes that can be requested by MeetingUIClientCallIdentityProvider. |
 | MeetingUIClientCallDelegate | The MeetingUIClientDelegate is used to receive events, such as changes in call state. |
 | MeetingUIClientCallIdentityProviderDelegate | The MeetingUIClientIdentityProviderDelegate is used to map user details to the users in a meeting. |
 | MeetingUIClientCallUserEventDelegate | The MeetingUIClientUserEventDelegate provides information about user actions in the UI. |
+| MeetingUIClientCallRosterDelegate | The MeetingUIClientCallRosterDelegate provides information about call roster. |
 
 ## Create and Authenticate the client
 
@@ -247,7 +250,7 @@ The `join` method is set as the action that will be performed when the *Join Mee
 
 ```swift
 private func joinMeeting() {
-    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true)
+    let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: false, enableNamePlateOptionsClickDelegate: false, enableCallStagingScreen: false, enableCallRosterDelegate: false)
     let meetingLocator = MeetingUIClientTeamsMeetingLinkLocator(meetingLink: "<MEETING_URL>")
     meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
         if (error != nil) {
@@ -267,7 +270,7 @@ The completion handler will return error in case the operation fails or it will 
 
 ### Get a Microsoft Teams meeting link
 
-A Microsoft Teams meeting link can be retrieved using Graph APIs. This is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+A Microsoft Teams meeting link can be retrieved using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
 The Communication Services Calling SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
@@ -291,8 +294,3 @@ The Microsoft Teams SDK supports over 100 strings and resources. The framework b
 1. Determine what kind of localizations your application supports from the app Xcode Project > Info > Localizations list
 2. Unzip the Localizations.zip included with the package
 3. Copy the localization folders from the unzipped folder based on what your app supports to the root of the TeamsAppSDK.framework
-
-
-## Sample Code
-
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/teams-embed-ios-getting-started)

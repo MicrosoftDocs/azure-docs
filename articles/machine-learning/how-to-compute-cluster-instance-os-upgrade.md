@@ -37,7 +37,7 @@ If you have existing compute clusters or compute instances created before __Marc
     * If the cluster is configured with __min nodes = 0__, it will automatically be upgraded when all jobs are completed and it reduces to zero nodes.
     * If __min nodes > 0__, temporarily change the minimum nodes to zero and allow the cluster to reduce to zero nodes.
 
-    For more information on changing the minimum nodes, see the [az ml computetarget update amlcompute](/cli/azure/ml/computetarget/update#az_ml_computetarget_update_amlcompute) Azure CLI command, or the [AmlCompute.update()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-) SDK reference.
+    For more information on changing the minimum nodes, see the [az ml computetarget update amlcompute](/cli/azure/ml(v1)/computetarget/update#az_ml_computetarget_update_amlcompute) Azure CLI command, or the [AmlCompute.update()](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#update-min-nodes-none--max-nodes-none--idle-seconds-before-scaledown-none-) SDK reference.
 
 * __Azure Machine Learning compute instance__: Create a new compute instance (which will use Ubuntu 18.04) and delete the old instance.
 

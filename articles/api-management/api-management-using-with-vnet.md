@@ -6,7 +6,7 @@ author: vladvino
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 07/23/2021
 ms.author: apimpm
 ms.custom: references_regions, devx-track-azurepowershell
 ---
@@ -97,9 +97,9 @@ You can also enable VNET connectivity by using the following methods.
 
 ### API version 2021-01-01-preview
 
-* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-management-create-with-external-vnet-publicip)
+* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet-publicip)
 
-     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-external-vnet-publicip%2Fazuredeploy.json)
+     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet-publicip%2Fazuredeploy.json)
 
 ### API version 2020-12-01
 
@@ -123,7 +123,7 @@ Common misconfiguration issues that can occur while deploying API Management ser
     * For reference, see the [ports table](#required-ports) and network requirements.
 
     > [!IMPORTANT]
-    > If you plan to use a Custom DNS server(s) for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2019-12-01/apimanagementservice/applynetworkconfigurationupdates).
+    > If you plan to use a Custom DNS server(s) for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2020-12-01/api-management-service/apply-network-configuration-updates).
 
 * **Ports required for API Management:**  
     You can control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][network security groups]. If any of the following ports are unavailable, API Management may not operate properly and may become inaccessible. Blocked ports are another common misconfiguration issue when using API Management with a VNET.
@@ -193,8 +193,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
   * Enable [service endpoints][ServiceEndpoints] on the subnet in which the API Management service is deployed for:
       * Azure Sql
       * Azure Storage
-      * Azure EventHub
-      * Azure ServiceBus, and
+      * Azure EventHub, and
       * Azure KeyVault. 
   
     By enabling endpoints directly from API Management-delegated subnet to these services, you can use the Microsoft Azure backbone network, providing optimal routing for service traffic. If you use service endpoints with a force tunneled API Management, the above Azure services traffic isn't force tunneled. The other API Management service dependency traffic is force tunneled and can't be lost. If lost, the API Management service would not function properly.
@@ -232,7 +231,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
   To address connectivity issues, review [Common network configuration issues](#network-configuration-issues) and fix required network settings.
 
 * **Incremental Updates:**  
-  When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2019-12-01/networkstatus) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
+  When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
 
 * **Resource Navigation Links:**  
   When deploying into a Resource Manager VNET subnet with API version 2020-12-01 and earlier, API Management reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.
@@ -268,50 +267,52 @@ The IP Addresses are divided by **Azure Environment**. When allowing inbound req
 |-----------------|-------------------------|---------------|
 | Azure Public| South Central US (Global)| 104.214.19.224|
 | Azure Public| North Central US (Global)| 52.162.110.80|
-| Azure Public| West Central US| 52.253.135.58|
-| Azure Public| Korea Central| 40.82.157.167|
-| Azure Public| UK West| 51.137.136.0|
-| Azure Public| Japan West| 40.81.185.8|
-| Azure Public| North Central US| 40.81.47.216|
-| Azure Public| UK South| 51.145.56.125|
-| Azure Public| West India| 40.81.89.24|
-| Azure Public| East US| 52.224.186.99|
-| Azure Public| West Europe| 51.145.179.78|
-| Azure Public| Japan East| 52.140.238.179|
-| Azure Public| France Central| 40.66.60.111|
-| Azure Public| Canada East| 52.139.80.117|
-| Azure Public| UAE North| 20.46.144.85|
+| Azure Public| Australia Central| 20.37.52.67|
+| Azure Public| Australia Central 2| 20.39.99.81|
+| Azure Public| Australia East| 20.40.125.155|
+| Azure Public| Australia Southeast| 20.40.160.107|
 | Azure Public| Brazil South| 191.233.24.179|
 | Azure Public| Brazil Southeast| 191.232.18.181|
-| Azure Public| Southeast Asia| 40.90.185.46|
-| Azure Public| South Africa North| 102.133.130.197|
 | Azure Public| Canada Central| 52.139.20.34|
-| Azure Public| Korea South| 40.80.232.185|
+| Azure Public| Canada East| 52.139.80.117|
 | Azure Public| Central India| 13.71.49.1|
-| Azure Public| West US| 13.64.39.16|
-| Azure Public| Australia Southeast| 20.40.160.107|
-| Azure Public| Australia Central| 20.37.52.67|
-| Azure Public| South India| 20.44.33.246|
 | Azure Public| Central US| 13.86.102.66|
-| Azure Public| Australia East| 20.40.125.155|
-| Azure Public| West US 2| 51.143.127.203|
-| Azure Public| West US 3| 20.150.167.160|
-| Azure Public| East US 2 EUAP| 52.253.229.253|
 | Azure Public| Central US EUAP| 52.253.159.160|
-| Azure Public| South Central US| 20.188.77.119|
-| Azure Public| East US 2| 20.44.72.3|
-| Azure Public| North Europe| 52.142.95.35|
 | Azure Public| East Asia| 52.139.152.27|
+| Azure Public| East US| 52.224.186.99|
+| Azure Public| East US 2| 20.44.72.3|
+| Azure Public| East US 2 EUAP| 52.253.229.253|
+| Azure Public| France Central| 40.66.60.111|
 | Azure Public| France South| 20.39.80.2|
-| Azure Public| Switzerland West| 51.107.96.8|
-| Azure Public| Australia Central 2| 20.39.99.81|
-| Azure Public| UAE Central| 20.37.81.41|
-| Azure Public| Switzerland North| 51.107.0.91|
-| Azure Public| South Africa West| 102.133.0.79|
-| Azure Public| Germany West Central| 51.116.96.0|
 | Azure Public| Germany North| 51.116.0.0|
+| Azure Public| Germany West Central| 51.116.96.0|
+| Azure Public| Japan East| 52.140.238.179|
+| Azure Public| Japan West| 40.81.185.8|
+| Azure Public| Jio India Central| 20.192.234.160|
+| Azure Public| Jio India West| 20.193.202.160|
+| Azure Public| Korea Central| 40.82.157.167|
+| Azure Public| Korea South| 40.80.232.185|
+| Azure Public| North Central US| 40.81.47.216|
+| Azure Public| North Europe| 52.142.95.35|
 | Azure Public| Norway East| 51.120.2.185|
 | Azure Public| Norway West| 51.120.130.134|
+| Azure Public| South Africa North| 102.133.130.197|
+| Azure Public| South Africa West| 102.133.0.79|
+| Azure Public| South Central US| 20.188.77.119|
+| Azure Public| South India| 20.44.33.246|
+| Azure Public| Southeast Asia| 40.90.185.46|
+| Azure Public| Switzerland North| 51.107.0.91|
+| Azure Public| Switzerland West| 51.107.96.8|
+| Azure Public| UAE Central| 20.37.81.41|
+| Azure Public| UAE North| 20.46.144.85|
+| Azure Public| UK South| 51.145.56.125|
+| Azure Public| UK West| 51.137.136.0|
+| Azure Public| West Central US| 52.253.135.58|
+| Azure Public| West Europe| 51.145.179.78|
+| Azure Public| West India| 40.81.89.24|
+| Azure Public| West US| 13.64.39.16|
+| Azure Public| West US 2| 51.143.127.203|
+| Azure Public| West US 3| 20.150.167.160|
 | Azure China 21Vianet| China North (Global)| 139.217.51.16|
 | Azure China 21Vianet| China East (Global)| 139.217.171.176|
 | Azure China 21Vianet| China North| 40.125.137.220|

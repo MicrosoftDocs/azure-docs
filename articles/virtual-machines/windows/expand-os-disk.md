@@ -53,7 +53,7 @@ When you create a new virtual machine (VM) in a resource group by deploying an i
 5. In **Size + performance**, select the disk size you want.
    
    > [!WARNING]
-   > The new size should be greater than the existing disk size. The maximum allowed is 2,048 GB for OS disks. (It's possible to expand the VHD blob beyond that size, but the OS works only with the first 2,048 GB of space.)
+   > The new size should be greater than the existing disk size. The maximum allowed is 4,095 GB for OS disks. (It's possible to expand the VHD blob beyond that size, but the OS works only with the first 4,095 GB of space.)
    > 
 
     :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot that shows the Size and performance pane with the disk size selected.":::
@@ -101,7 +101,7 @@ Open your PowerShell ISE or PowerShell window in administrative mode and follow 
     Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
     ```   
     > [!WARNING]
-    > The new size should be greater than the existing disk size. The maximum allowed is 2,048 GB for OS disks. (It is possible to expand the VHD blob beyond that size, but the OS works only with the first 2,048 GB of space.)
+    > The new size should be greater than the existing disk size. The maximum allowed is 4,095 GB for OS disks. (It is possible to expand the VHD blob beyond that size, but the OS works only with the first 4,095 GB of space.)
     > 
          
 6. Updating the VM might take a few seconds. When the command finishes executing, restart the VM:

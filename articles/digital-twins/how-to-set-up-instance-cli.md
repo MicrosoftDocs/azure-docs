@@ -22,8 +22,8 @@ ms.service: digital-twins
 This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you will have an Azure Digital Twins instance ready to start programming against.
 
 This version of this article goes through these steps manually, one by one, using the CLI.
-* To go through these steps manually using the Azure portal, see the portal version of this article: [How-to: Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md).
-* To run through an automated setup using a deployment script sample, see the scripted version of this article: [How-to: Set up an instance and authentication (scripted)](how-to-set-up-instance-scripted.md).
+* To go through these steps manually using the Azure portal, see the portal version of this article in [Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md).
+* To run through an automated setup using a deployment script sample, see the scripted version of this article in [Set up an instance and authentication (scripted)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -43,7 +43,7 @@ In this section, you will **create a new instance of Azure Digital Twins** using
 * A name for your instance. If your subscription has another Azure Digital Twins instance in the region that's
   already using the specified name, you'll be asked to pick a different name.
 
-Use these values in the following command to create the instance:
+Use these values in the following [az dt command](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) to create the instance:
 
 ```azurecli-interactive
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-group <your-resource-group> --location <region>
@@ -103,7 +103,7 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
 * [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
-* [Concepts: Azure Digital Twins CLI command set](concepts-cli.md)
+* [Azure Digital Twins CLI command set](concepts-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:
-* [How-to: Write app authentication code](how-to-authenticate-client.md)
+* [Write app authentication code](how-to-authenticate-client.md)

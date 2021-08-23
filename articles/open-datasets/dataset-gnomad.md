@@ -29,18 +29,18 @@ The Storage Account hosting this dataset is in the East US Azure region. Allocat
 
 ## Data Access
 
-Storage Account: https://azureopendatastorage.blob.core.windows.net/gnomad
+Storage Account: 'https://datasetgnomad.blob.core.windows.net/dataset/'
 
 Th data is available publicly without restrictions, and the azcopy tool is recommended for bulk operations. For example, to view the VCFs in release 3.0 of gnomAD:
 
 ```powershell
-$ azcopy ls https://azureopendatastorage.blob.core.windows.net/gnomad/release/3.0/vcf/genomes
+$ azcopy ls https://datasetgnomad.blob.core.windows.net/dataset/release/3.0/vcf/genomes
 ```
 
 To download all the VCFs recursively:
 
 ```powershell
-$ azcopy cp --recursive=true https://azureopendatastorage.blob.core.windows.net/gnomad/release/3.0/vcf/genomes .
+$ azcopy cp --recursive=true https://datasetgnomad.blob.core.windows.net/dataset/release/3.0/vcf/genomes .
 ```
 
 The [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is also a useful tool for browsing the list of files in the gnomAD release.

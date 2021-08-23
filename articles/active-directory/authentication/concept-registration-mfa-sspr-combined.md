@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 07/29/2021
 
 ms.author: justinha
 author: justinha
@@ -31,7 +31,7 @@ This article outlines what combined security registration is. To get started wit
 
 Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and effect of this feature. Base your training on the [user documentation](../user-help/security-info-setup-signin.md) to prepare your users for the new experience and help to ensure a successful rollout.
 
-Azure AD combined security information registration is not currently available to national clouds like Azure Germany or Azure China 21Vianet. It is available for Azure US Government.
+Azure AD combined security information registration is available for Azure US Government but not Azure Germany or Azure China 21Vianet.
 
 > [!IMPORTANT]
 > Users that are enabled for both the original preview and the enhanced combined registration experience see the new behavior. Users that are enabled for both experiences see only the My Account experience. The *My Account* aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Account by going to [https://myaccount.microsoft.com](https://myaccount.microsoft.com).
@@ -66,12 +66,12 @@ Combined registration supports the following authentication methods and actions:
 
 Users can set one of the following options as the default Multi-Factor Authentication method:
 
-- Microsoft Authenticator – notification.
-- Authenticator app or hardware token – code.
-- Phone call.
-- Text message.
+- Microsoft Authenticator – push notification
+- Authenticator app or hardware token – code
+- Phone call
+- Text message
 
-As we continue to add more authentication methods to Azure AD, those methods are available in combined registration.
+Third party authenticator apps do not provide push notification. As we continue to add more authentication methods to Azure AD, those methods become available in combined registration.
 
 ## Combined registration modes
 
@@ -82,9 +82,11 @@ There are two modes of combined registration: interrupt and manage.
 
 For both modes, users who have previously registered a method that can be used for Multi-Factor Authentication need to perform Multi-Factor Authentication before they can access their security info. Users must confirm their information before continuing to use their previously registered methods. 
 
+
+
 ### Interrupt mode
 
-Combined registration respects both Multi-Factor Authentication and SSPR policies, if both are enabled for your tenant. These policies control whether a user is interrupted for registration during sign-in and which methods are available for registration.
+Combined registration adheres to both Multi-Factor Authentication and SSPR policies, if both are enabled for your tenant. These policies control whether a user is interrupted for registration during sign-in and which methods are available for registration. If only an SSPR policy is enabled, then users will be able to skip the registration interruption and complete it at a later time.
 
 The following are sample scenarios where users might be prompted to register or refresh their security info:
 
@@ -98,10 +100,10 @@ When registration is enforced, users are shown the minimum number of methods nee
 
 Consider the following example scenario:
 
-- A user is enabled for SSPR. The SSPR policy required two methods to reset and has enabled mobile app code, email, and phone.
-- This user is required to register two methods.
-   - The user is shown authenticator app and phone by default.
-   - The user can choose to register email instead of authenticator app or phone.
+- A user is enabled for SSPR. The SSPR policy requires two methods to reset and has enabled Authenticator app, email, and phone.
+- When the user chooses to register, two methods are required:
+   - The user is shown Authenticator app and phone by default.
+   - The user can choose to register email instead of Authenticator app or phone.
 
 The following flowchart describes which methods are shown to a user when interrupted to register during sign-in:
 
@@ -137,7 +139,16 @@ A user who has previously set up at least one method navigates to [https://aka.m
 
 A user who has previously set up at least one method that can be used for Multi-Factor Authentication navigates to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). The user changes the current default method to a different default method. When finished, the user sees the new default method on the Security info page.
 
-An external identity such as a B2B user may need to switch the directory to change the security registration information for a third-party tenant. In the Azure portal, click the user account name in the upper right corner and click **SWitch directory**.
+### Switch directory
+
+An external identity such as a B2B user may need to switch the directory to change the security registration information for a third-party tenant. 
+In addition, users who access a resource tenant may be confused when they change settings in their home tenant but don't see the changes reflected in the resource tenant. 
+
+For example, a user sets Microsoft Authenticator app push notification as the primary authentication to sign-in to home tenant and also has SMS/Text as another option. 
+This user is also configured with SMS/Text option on a resource tenant. 
+If this user removes SMS/Text as one of the authentication option on their home tenant, they get confused when access to the resource tenant asks them to respond to SMS/Text message. 
+
+To switch the directory in the Azure portal, click the user account name in the upper right corner and click **Switch directory**.
 
 ![External users can switch directory.](media/concept-registration-mfa-sspr-combined/switch-directory.png)
 

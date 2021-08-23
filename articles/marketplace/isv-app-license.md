@@ -12,9 +12,6 @@ ms.date: 04/30/2021
 
 # ISV app license management
 
-> [!IMPORTANT]
-> This capability is currently in Public Preview.
-
 Applies to the following offer type:
 
 - Dynamics 365 for Customer Engagement & Power Apps

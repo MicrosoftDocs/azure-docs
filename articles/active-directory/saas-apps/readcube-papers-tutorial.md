@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 06/07/2021
 ms.author: jeedes
 
 ---
@@ -108,7 +108,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure ReadCube Papers SSO
 
-To configure single sign-on on **ReadCube Papers** side, you need to send the **App Federation Metadata Url** to [ReadCube Papers support team](mailto:support@readcube.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **ReadCube Papers** side, you need to send the **App Federation Metadata URL** to the [ReadCube Papers support team](mailto:sso-support@readcube.com). They change this setting so that the SAML SSO connection works properly on both sides.
 
 ### Create ReadCube Papers test user
 
@@ -117,6 +117,9 @@ In this section, a user called Britta Simon is created in ReadCube Papers. ReadC
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
+
+> [!NOTE]
+> Before testing, please confirm with the [ReadCube Papers support team](mailto:sso-support@readcube.com) that SSO is set up on the ReadCube side.
 
 * Click on **Test this application** in Azure portal. This will redirect to ReadCube Papers Sign-on URL where you can initiate the login flow. 
 

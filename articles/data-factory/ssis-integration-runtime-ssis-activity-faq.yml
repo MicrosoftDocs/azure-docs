@@ -3,6 +3,7 @@ metadata:
   title: Troubleshoot package execution in the SSIS integration runtime
   description: "This article provides troubleshooting guidance for SSIS package execution in the SSIS integration runtime"
   ms.service: data-factory
+  ms.subservice: integration-services
   ms.topic: conceptual
   ms.author: sawinark
   author: swinarko
@@ -30,7 +31,7 @@ sections:
   - name: Common errors, causes, and solutions
     questions:         
       - question: |
-          Error message: "Connection Timeout Expired" or "The service has encountered an error processing your request. Please try again."
+          Error message: "Connection Timeout Expired" or "The service has encountered an error processing your request. Please try again. "
         answer: |
           Here are potential causes and recommended actions:
           * The data source or destination is overloaded. Check the load on your data source or destination and see whether it has enough capacity. For example, if you used Azure SQL Database, consider scaling up if the database is likely to time out.
@@ -41,7 +42,7 @@ sections:
             * For an ADO.NET and OLE DB source or destination component, set **ConnectRetryCount** and **ConnectRetryInterval** in Connection Manager in the SSIS package or SSIS activity.
           
       - question: |
-          Error message: "ADO NET Source has failed to acquire the connection '...'" with "A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible."
+          Error message: "ADO NET Source has failed to acquire the connection '...'` with "A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. "
         answer: |
           This issue usually means the data source or destination is inaccessible from the SSIS integration runtime. The reasons can vary. Try these actions:
           * Make sure you're passing the data source or destination name/IP correctly.
@@ -51,30 +52,30 @@ sections:
             * You can find more details about using a virtual network with an SSIS integration runtime in [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
           
       - question: |
-          Error message: "ADO NET Source has failed to acquire the connection '...'" with "Could not create a managed connection manager."
+          Error message: "ADO NET Source has failed to acquire the connection '...'" with "Could not create a managed connection manager. "
         answer: |
           The potential cause is that the ADO.NET provider used in the package isn't installed in the SSIS integration runtime. You can install the provider by using a custom setup. You can find more details about custom setup in [Customize setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
           
       - question: |
-          Error message: "The connection '...' is not found"
+          Error message: "The connection '...' is not found "
         answer: |
           A known issue in older versions of SQL Server Management Studio (SSMS) can cause this error. If the package contains a custom component (for example, SSIS Azure Feature Pack or partner components) that isn't installed on the machine where SSMS is used to do the deployment, SSMS will remove the component and cause the error. Upgrade [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) to the latest version that has the issue fixed.
           
       - question: |
-          Error message：“SSIS Executor exit code: -1073741819.”
+          Error message：`SSIS Executor exit code: -1073741819. "
         answer: |
           * Potential cause & recommended action:
             * This error may be because of the limitation for Excel source and destination when multiple Excel sources or destinations are executing in parallel in multi-thread. You can workaround this limitation by change your Excel components to execute in sequence, or separate them into different packages and trigger through "Execute Package Task" with ExecuteOutOfProcess property set as True.
           
       - question: |
-          Error message: "There is not enough space on the disk"
+          Error message: "There is not enough space on the disk "
         answer: |
           This error means the local disk is used up in the SSIS integration runtime node. Check whether your package or custom setup is consuming a lot of disk space:
           * If the disk is consumed by your package, it will be freed up after the package execution finishes.
           * If the disk is consumed by your custom setup, you'll need to stop the SSIS integration runtime, modify your script, and start the integration runtime again. The whole Azure blob container that you specified for custom setup will be copied to the SSIS integration runtime node, so check whether there's any unnecessary content under that container.
           
       - question: |
-          Error message: "Failed to retrieve resource from master. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: Code:300004. Description:Load file "***" failed."
+          Error message: "Failed to retrieve resource from master. Microsoft.SqlServer.IntegrationServices.Scale.ScaleoutContract.Common.MasterResponseFailedException: Code:300004. Description:Load file "***" failed. "
         answer: |
           * Potential cause & recommended action:
             * If the SSIS Activity is executing package from file system (package file or project file), this error will occur if the project, package or configuration file is not accessible with the package access credential you provided in the SSIS Activity
@@ -86,14 +87,14 @@ sections:
               * If your are using on-premises file, please check if VNet, package access credential and permission are configured properly so that your Azure-SSIS integration runtime can access your on-premises file share
           
       - question: |
-          Error message: "The file name '...' specified in the connection was not valid"
+          Error message: "The file name '...' specified in the connection was not valid "
         answer: |
           * Potential cause & recommended action:
             * An invalid file name is specified
             * Make sure you are using FQDN (Fully Qualified Domain Name) instead of short time in your connection manager
           
       - question: |
-          Error message: "Cannot open file '...'"
+          Error message: "Cannot open file '...' "
         answer: |
           This error occurs when package execution can't find a file in the local disk in the SSIS integration runtime. Try these actions:
           * Don't use the absolute path in the package that's being executed in the SSIS integration runtime. Use the current execution working directory (.) or the temp folder (%TEMP%) instead.
@@ -101,19 +102,19 @@ sections:
           * Use Azure Files instead of storing the file in the SSIS integration runtime node. For details, see [Use Azure file shares](/sql/integration-services/lift-shift/ssis-azure-files-file-shares#use-azure-file-shares).
           
       - question: |
-          Error message: "The database 'SSISDB' has reached its size quota"
+          Error message: "The database 'SSISDB' has reached its size quota "
         answer: |
           A potential cause is that the SSISDB database created in Azure SQL Database or in SQL Managed Instance has reached its quota. Try these actions:
           * Consider increasing the DTU of your database. You can find details in [SQL Database limits for an logical server](../azure-sql/database/resource-limits-logical-server.md).
           * Check whether your package would generate many logs. If so, you can configure an elastic job to clean up these logs. For details, see [Clean up SSISDB logs with Azure Elastic Database jobs](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md).
           
       - question: |
-          Error message: "The request limit for the database is ... and has been reached."
+          Error message: "The request limit for the database is ... and has been reached. "
         answer: |
-          If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTC of SSISDB to resolve this issue. You can find details in [SQL Database limits for an logical server](../azure-sql/database/resource-limits-logical-server.md).
+          If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTU of SSISDB to resolve this issue. You can find details in [SQL Database limits for an logical server](../azure-sql/database/resource-limits-logical-server.md).
           
       - question: |
-          Error message: "SSIS Operation failed with unexpected operation status: ..."
+          Error message: "SSIS Operation failed with unexpected operation status: ... "
         answer: |
           The error is mostly caused by a transient problem, so try to rerun the package execution. Apply the retry pattern in the SSIS package by following these steps:
           
@@ -123,17 +124,17 @@ sections:
           * For an ADO.NET and OLE DB source or destination component, set **ConnectRetryCount** and **ConnectRetryInterval** in Connection Manager in the SSIS package or SSIS activity.
           
       - question: |
-          Error message: "There is no active worker."
+          Error message: "There is no active worker. "
         answer: |
           This error usually means the SSIS integration runtime has an unhealthy status. Check the Azure portal for the status and detailed errors. For more information, see [Azure-SSIS integration runtime](./monitor-integration-runtime.md#azure-ssis-integration-runtime).
           
       - question: |
-          Error message: "Your integration runtime cannot be upgraded and will eventually stop working, since we cannot access the Azure Blob container you provided for custom setup."
+          Error message: "Your integration runtime cannot be upgraded and will eventually stop working, since we cannot access the Azure Blob container you provided for custom setup. "
         answer: |
           This error occurs when the SSIS integration runtime can't access the storage configured for custom setup. Check whether the shared access signature (SAS) URI that you provided is valid and hasn't expired.
 
       - question: |
-          Error message: "Microsoft OLE DB Provider for Analysis Services. 'Hresult: 0x80004005 Description:' COM error: COM error: mscorlib; Exception has been thrown by the target of an invocation"
+          Error message: "Microsoft OLE DB Provider for Analysis Services. 'Hresult: 0x80004005 Description:' COM error: COM error: mscorlib; Exception has been thrown by the target of an invocation "
         answer: |
           One potential cause is that the username or password with Azure AD Multi-Factor Authentication enabled is configured for Azure Analysis Services authentication. This authentication isn't supported in the SSIS integration runtime. Try to use a service principal for Azure Analysis Services authentication:
           
@@ -144,42 +145,42 @@ sections:
           1. In Connection Manager, configure **Use a specific user name and password**: set **AppID** as the username and **clientSecret** as the password.
           
       - question: |
-          Error message: "ADONET Source has failed to acquire the connection {GUID} with the following error message: Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'" when using a managed identity
+          Error message: "ADONET Source has failed to acquire the connection {GUID} with the following error message: Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'" when using a managed identity "
         answer: |
           Make sure you don't configure the authentication method of Connection Manager as **Active Directory Password Authentication** when the parameter *ConnectUsingManagedIdentity* is **True**. You can configure it as **SQL Authentication** instead, which is ignored if *ConnectUsingManagedIdentity* is set.
 
       - question: |
-          Error message: "0xC020801F at ..., OData Source [...]: Cannot acquire a managed connection from the run-time connection manager"
+          Error message: "0xC020801F at ..., OData Source [...]: Cannot acquire a managed connection from the run-time connection manager "
         answer: |
           One potential cause is that the Transport Layer Security (TLS) is not enable in SSIS integration runtime which is required by your OData source. You can enable TLS in SSIS integration runtime by using Customize setup. More detail can be found at [Can't connect Project Online Odata from SSIS](/office365/troubleshoot/cant-connect-project-online-odata-from-ssis) and [Customize setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
           
       - question: |
-          Error message: "Request staging task with operation guid ... fail since error: Failed to dispatch staging operation with error message: Microsoft.SqlServer.IntegrationServices.AisAgentCore.AisAgentException: Failed to load data proxy."
+          Error message: "Request staging task with operation guid ... fail since error: Failed to dispatch staging operation with error message: Microsoft.SqlServer.IntegrationServices.AisAgentCore.AisAgentException: Failed to load data proxy. "
         answer: |
           Make sure your Azure-SSIS integration runtime is configured with Self-Hosted integration runtime. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md).
           
       - question: |
-          Error message: "Staging task status: Failed. Staging task error: ErrorCode: 2010, ErrorMessage: The Self-hosted Integration Runtime ... is offline"
+          Error message: "Staging task status: Failed. Staging task error: ErrorCode: 2010, ErrorMessage: The Self-hosted Integration Runtime ... is offline "
         answer: |
           Make sure your Self-Hosted integration runtime is installed and started. More detail can be found at [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md)
           
       - question: |
-          Error message: "Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "Error: The requested OLE DB provider ... is not registered. If the 64-bit driver is not installed, run the package in 32-bit mode..."
+          Error message: "Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed. Output: {"OperationErrorMessages": "Error: The requested OLE DB provider ... is not registered. If the 64-bit driver is not installed, run the package in 32-bit mode... "
         answer: |
           Make sure the corresponding provider used by your OLE DB connectors in your package are installed on Self-Hosted integration runtime machine properly. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
           
       - question: |
-          Error message: "Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "Error: System.IO.FileLoadException: Could not load file or assembly 'Microsoft.WindowsAzure.Storage, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference.'..."
+          Error message: "Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed. Output: {"OperationErrorMessages": "Error: System.IO.FileLoadException: Could not load file or assembly 'Microsoft.WindowsAzure.Storage, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference.'... "
         answer: |
           One potential cause is your Self-Hosted integration runtime is not installed or upgraded properly. Suggest to download and reinstall the latest Self-hosted integration runtime. More detail can be found at [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md#installation-best-practices)
           
       - question: |
-          Error message: "Staging task failed. TaskStatus: Failed, ErrorCode: 2906, ErrorMessage: Package execution failed. For more details, select the output of your activity run on the same row., Output: {"OperationErrorMessages": "4/14/2021 7:10:35 AM +00:00 : = Failed to start Named pipe proxy..."
+          Error message: "Staging task failed. TaskStatus: Failed, ErrorCode: 2906, ErrorMessage: Package execution failed. For more details, select the output of your activity run on the same row., Output: {"OperationErrorMessages": "4/14/2021 7:10:35 AM +00:00 : = Failed to start Named pipe proxy... "
         answer: |
           Check if security policies are correctly assigned to the account running self-hosted IR service. If Windows authentication is used on Execute SSIS Package activity or the execution credential is set in SSIS catalog (SSISDB), the same security policies must be assigned to the Windows account used. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-windows-authentication-for-on-premises-tasks)
           
       - question: |
-          Error message: "A connection is required when requesting metadata. If you are working offline, uncheck Work Offline on the SSIS menu to enable the connection"
+          Error message: "A connection is required when requesting metadata. If you are working offline, uncheck Work Offline on the SSIS menu to enable the connection "
         answer: |
           * Potential cause & recommended action:
             * If there is also a warning message "The component does not support using connection manager with ConnectByProxy value setting true“ in the execution log, this means a connection manager is used on a component which hasn't supported "ConnectByProxy" yet. The supported components can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#enable-ssis-packages-to-use-a-proxy)
@@ -187,7 +188,7 @@ sections:
             * vNet can also be used to access on-premises data as an alternative. More detail can be found at [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md)
           
       - question: |
-          Error message: "Staging task status: Failed. Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed., Output: {"OperationErrorMessages": "SSIS Executor exit code: -1.\n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }}"
+          Error message: "Staging task status: Failed. Staging task error: ErrorCode: 2906, ErrorMessage: Package execution failed. Output: {"OperationErrorMessages": "SSIS Executor exit code: -1.\n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }} "
         answer: |
           Make sure Visual C++ runtime is installed on Self-Hosted integration runtime machine. More detail can be found at [Configure Self-Hosted IR as a proxy for Azure-SSIS IR in ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir)
           
@@ -196,7 +197,7 @@ sections:
         answer: |
           * Potential cause & recommended action:
             * ADF stored procedure activity or Lookup activity are used to trigger SSIS package execution. The t-sql command may hit transient issue and trigger the rerun which would cause multiple package executions.
-            * Use ExecuteSSISPackage activity instead which ensures package execution won’t rerun unless user set retry count in activity. Detail can be found at [https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](./how-to-invoke-ssis-package-ssis-activity.md)
+            * Use ExecuteSSISPackage activity instead which ensures package execution won’t rerun unless user set retry count in activity. Detail can be found at [Run an SSIS package with the Execute SSIS Package activity](how-to-invoke-ssis-package-ssis-activity.md).
             * Refine your t-sql command to be able to rerun by checking if an execution has already been triggered
           
       - question: |

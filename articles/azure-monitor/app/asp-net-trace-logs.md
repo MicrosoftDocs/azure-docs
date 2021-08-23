@@ -137,7 +137,7 @@ For example:
 ```csharp
 TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
 var telemetryClient = new TelemetryClient(configuration);
-telemetry.TrackTrace("Slow response - database01");
+telemetryClient.TrackTrace("Slow response - database01");
 ```
 
 An advantage of TrackTrace is that you can put relatively long data in the message. For example, you can encode POST data there.

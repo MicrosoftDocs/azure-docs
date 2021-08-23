@@ -51,7 +51,13 @@ Create a Hugo app using the Hugo Command Line Interface (CLI):
 1. Initialize a Git repo.
 
    ```bash
-    git init
+   git init
+   ```
+
+1. Ensure that your branch is named `main`.
+
+   ```bash
+   git branch -M main
    ```
 
 1. Next, add a theme to the site by installing a theme as a git submodule and then specifying it in the Hugo config file.

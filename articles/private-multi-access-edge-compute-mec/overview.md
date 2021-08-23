@@ -1,9 +1,9 @@
 ---
 title: 'Azure private multi-access edge compute'
 description: Learn about the Azure private multi-access edge compute (MEC) solution that brings together a portfolio of Microsoft compute, networking and application services managed from the cloud.
-services: vnf-manager
+
 author: niravi-msft
-ms.service: vnf-manager
+ms.service: private-multi-access-edge-compute-mec
 ms.topic: overview
 ms.date: 06/16/2021
 ms.author: kumud
@@ -59,7 +59,7 @@ Fusion Core enables ISVs to deploy applications on the same Azure Stack Edge nod
 
 ### Application services
 
-**Azure IoT Edge Runtime**: Azure IoT Edge Runtime enables cloud workloads to be managed and deployed across edge compute appliances using the same tools and security posture as cloud native workloads. For more information, see [Azure IoT Edge Runtime](https://go.microsoft.com/fwlink/?linkid=2165375).
+**Azure IoT Edge Runtime**: Azure IoT Edge Runtime enables cloud workloads to be managed and deployed across edge compute appliances using the same tools and security posture as cloud native workloads. For more information, see [Azure IoT Edge Runtime](/windows/ai/windows-ml-container/iot-edge-runtime).
 
 **Azure IoT Hub** Azure IoT Edge Runtime: Azure IoT Edge Runtime enables cloud workloads to be managed and deployed across edge compute appliances using the same tools and security posture as cloud native workloads. For more information, see [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/).
 
@@ -70,5 +70,3 @@ Fusion Core enables ISVs to deploy applications on the same Azure Stack Edge nod
 ## Next steps
 - Learn more about [Metaswitch Fusion Core](metaswitch-fusion-core-overview.md)
 - Learn more about [Affirmed Private Network Service](affirmed-private-network-service-overview.md)
-
-

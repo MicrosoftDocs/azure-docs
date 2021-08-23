@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: sstein, emlisa
+ms.reviewer: mathoma, emlisa
 ms.date: 10/28/2020
 ---
 
@@ -43,7 +43,7 @@ Whenever the database engine or the operating system is upgraded, or a failure i
 
 ## General Purpose service tier zone redundant availability (Preview)
 
-Zone redundant configuration for the general purpose service tier is offered for both serverless and provisioned compute. This configuration utilizes [Azure Availability Zones](../../availability-zones/az-overview.md)  to replicate databases across multiple physical locations within an Azure region. By selecting zone redundancy, you can make your new and existing serverlesss and provisioned general purpose single databases and elastic pools resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes of the application logic.
+Zone redundant configuration for the general purpose service tier is offered for both serverless and provisioned compute. This configuration utilizes [Azure Availability Zones](../../availability-zones/az-overview.md)  to replicate databases across multiple physical locations within an Azure region. By selecting zone redundancy, you can make your new and existing serverless and provisioned general purpose single databases and elastic pools resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes of the application logic.
 
 Zone redundant configuration for the general purpose tier has two layers:  
 

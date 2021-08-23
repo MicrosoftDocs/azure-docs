@@ -11,6 +11,10 @@ ms.custom: seodec18
 ---
 # Networking considerations for an App Service Environment #
 
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
+
 ## Overview ##
 
  Azure [App Service Environment][Intro] is a deployment of Azure App Service into a subnet in your Azure virtual network (VNet). There are two deployment types for an App Service environment (ASE):
@@ -122,7 +126,7 @@ An ASE has a few IP addresses to be aware of. They are:
 - **Public inbound IP address**: Used for app traffic in an External ASE, and management traffic in both an External ASE and an ILB ASE.
 - **Outbound public IP**: Used as the "from" IP for outbound connections from the ASE that leave the VNet, which aren't routed down a VPN.
 - **ILB IP address**: The ILB IP address only exists in an ILB ASE.
-- **App-assigned IP-based SSL addresses**: Only possible with an External ASE and when IP-based SSL is configured.
+- **App-assigned IP-based TLS/SSL addresses**: Only possible with an External ASE and when IP-based TLS/SSL binding is configured.
 
 All these IP addresses are visible in the Azure portal from the ASE UI. If you have an ILB ASE, the IP for the ILB is listed.
 

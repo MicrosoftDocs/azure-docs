@@ -2,8 +2,8 @@
 title: Migrate your dedicated SQL pool (formerly SQL DW) to Gen2 
 description: Instructions for migrating an existing dedicated SQL pool (formerly SQL DW) to Gen2 and the migration schedule by region.
 services: synapse-analytics
-author: mlee3gsd
-ms.author: anjangsh
+author: rothja
+ms.author: jroth
 ms.reviewer: jrasnick
 manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
@@ -28,12 +28,8 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 
 | **Region** | **Lower Gen2 available** | **Automatic upgrades begin** |
 |:--- |:--- |:--- |
-| Canada East |June 1, 2020 |July 1, 2020 |
 | China East |\* |\* |
 | China North |\* |\* |
-| Germany Central |\* |\* |
-| Germany West Central |Available |May 1, 2020 |
-| India West |Available |May 1, 2020  |
 
 ## Automatic upgrade process
 

@@ -2,7 +2,7 @@
 title: Work Item Integration - Application Insights
 description: Learn how to create work items in GitHub or Azure DevOps with Application Insights data embedded in them.
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 06/27/2021
 
 ---
 
@@ -10,13 +10,23 @@ ms.date: 04/22/2021
 
 Work item integration functionality allows you to easily create work items in GitHub or Azure DevOps that have relevant Application Insights data embedded in them.
 
+
+The new work item integration offers the following features over [classic](#classic-work-item-integration):
+- Advanced fields like assignee, projects, or milestones.
+- Repo icons so you can differentiate between GitHub & Azure DevOps workbooks.
+- Multiple configurations for any number of repositories or work items.
+- Deployment through Azure Resource Manager templates.
+- Pre-built & customizable Keyword Query Language (KQL) queries to add Application Insights data to your work items.
+- Customizable workbook templates.
+
+
 ## Create and configure a work item template
 
 1. To create a work item template, go to your Application Insights resource and on the left under *Configure* select **Work Items** then at the top select **Create a new template**
 
     :::image type="content" source="./media/work-item-integration/create-work-item-template.png" alt-text=" Screenshot of the Work Items tab with create a new template selected." lightbox="./media/work-item-integration/create-work-item-template.png":::
 
-    You can also create a work item template from the End-to-end transaction details tab, if no template currently exists. Select an event and on the right select **Create a work item**, then **Start with a workbook template**.
+    You can also create a work item template from the end-to-end transaction details tab, if no template currently exists. Select an event and on the right select **Create a work item**, then **Start with a workbook template**.
 
     :::image type="content" source="./media/work-item-integration/create-template-from-transaction-details.png" alt-text=" Screenshot of  end-to-end transaction details tab with create a work item, start with a workbook template selected." lightbox="./media/work-item-integration/create-template-from-transaction-details.png":::
 
@@ -51,3 +61,24 @@ Select edit ![edit icon](./media/work-item-integration/edit-icon.png) at the top
 :::image type="content" source="./media/work-item-integration/edit-workbook.png" alt-text=" Screenshot of the work item template workbook in edit mode." lightbox="./media/work-item-integration/edit-workbook.png":::
 
 You can create more than one work item configuration and have a custom workbook to meet each scenario. The workbooks can also be deployed by Azure Resource Manager ensuring standard implementations across your environments.
+
+## Classic work item integration 
+
+1. In your Application Insights resource under *Configure* select **Work Items**.
+1. Select **Switch to Classic**, fill out the fields with your information, and authorize. 
+
+    :::image type="content" source="./media/work-item-integration/classic.png" alt-text=" Screenshot of how to configure classic work items." lightbox="./media/work-item-integration/classic.png":::
+
+1. Create a work item by going to the end-to-end transaction details, select an event then select **Create work item (Classic)**. 
+
+
+### Migrate to new work item integration
+
+To migrate, delete your classic work item configuration then [create and configure a work item template](#create-and-configure-a-work-item-template) to recreate your integration.
+
+To delete, go to in your Application Insights resource under *Configure* select **Work Items** then select  **Switch to Classic** and **Delete* at the top.
+
+
+## Next steps
+[Availability test](availability-overview.md)
+

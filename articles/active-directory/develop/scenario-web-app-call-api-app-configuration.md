@@ -207,7 +207,7 @@ The sample currently lets MSAL.Python produce the authorization-code URL and han
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-Microsoft.Identity.Web simplifies your code by setting the correct OpenID Connect settings, subscribing to the code received event, and redeeming the code. No additional code is required to redeem the authorization code. See [Microsoft.Identity.Web source code](https://github.com/AzureAD/microsoft-identity-web/blob/c29f1a7950b940208440bebf0bcb524a7d6bee22/src/Microsoft.Identity.Web/WebAppExtensions/WebAppCallsWebApiAuthenticationBuilderExtensions.cs#L140) for details on how this works.
+Microsoft.Identity.Web simplifies your code by setting the correct OpenID Connect settings, subscribing to the code received event, and redeeming the code. No extra code is required to redeem the authorization code. See [Microsoft.Identity.Web source code](https://github.com/AzureAD/microsoft-identity-web/blob/c29f1a7950b940208440bebf0bcb524a7d6bee22/src/Microsoft.Identity.Web/WebAppExtensions/WebAppCallsWebApiAuthenticationBuilderExtensions.cs#L140) for details on how this works.
 
 # [ASP.NET](#tab/aspnet)
 
@@ -384,7 +384,7 @@ The use of client assertions is an advanced scenario, detailed in [Client assert
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-The ASP.NET core tutorial uses dependency injection to let you decide the token cache implementation in the Startup.cs file for your application. Microsoft.Identity.Web comes with pre-built token-cache serializers described in [Token cache serialization](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
+The ASP.NET core tutorial uses dependency injection to let you decide the token cache implementation in the Startup.cs file for your application. Microsoft.Identity.Web comes with pre-built token-cache serializers described in [Token cache serialization](msal-net-token-cache-serialization.md). An interesting possibility is to choose ASP.NET Core [distributed memory caches](/aspnet/core/performance/caching/distributed#distributed-memory-cache):
 
 ```csharp
 // Use a distributed token cache by adding:
@@ -413,32 +413,60 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-For details about the token-cache providers, see also Microsoft.Identity.Web's [Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) article, as well as the [ASP.NET Core Web app tutorials | Token caches](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) phase of the web apps tutorial.
+For details about the token-cache providers, see also Microsoft.Identity.Web's [Token cache serialization](https://aka.ms/ms-id-web/token-cache-serialization) article, and the [ASP.NET Core Web app tutorials | Token caches](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache) phase of the web apps tutorial.
 
 # [ASP.NET](#tab/aspnet)
 
 The token-cache implementation for web apps or web APIs is different from the implementation for desktop applications, which is often [file based](scenario-desktop-acquire-token.md#file-based-token-cache).
 
-The web-app implementation can use the ASP.NET session or the server memory. For example, see how the cache implementation is hooked after the creation of the MSAL.NET application in [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Utils/MsalAppBuilder.cs#L39-L51):
+The web-app implementation can use the ASP.NET session or the server memory. For example, see how the cache implementation is hooked after the creation of the MSAL.NET application in [MsalAppBuilder.cs#L39-L51](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/79e3e1f084cd78f9170a8ca4077869f217735a1a/WebApp/Utils/MsalAppBuilder.cs#L57-L58):
+
+
+First, to use these implementations:
+- add the Microsoft.Identity.Web Nuget package. These token cache serializers are not brought in MSAL.NET directly to avoid unwanted dependencies. In addition to a higher level for ASP.NET Core, Microsoft.Identity.Web brings classes that are helpers for MSAL.NET, 
+- In your code, use the Microsoft.Identity.Web namespace:
+
+  ```csharp
+  #using Microsoft.Identity.Web
+  ```
+- Once you have built your confidential client application, add the token cache serialization of your choice.
 
 ```csharp
 public static class MsalAppBuilder
 {
- // Omitted code
-    public static IConfidentialClientApplication BuildConfidentialClientApplication(ClaimsPrincipal currentUser)
+  private static IConfidentialClientApplication clientapp;
+
+  public static IConfidentialClientApplication BuildConfidentialClientApplication()
+  {
+    if (clientapp == null)
     {
-      IConfidentialClientApplication clientapp = ConfidentialClientApplicationBuilder.Create(AuthenticationConfig.ClientId)
+      clientapp = ConfidentialClientApplicationBuilder.Create(AuthenticationConfig.ClientId)
             .WithClientSecret(AuthenticationConfig.ClientSecret)
             .WithRedirectUri(AuthenticationConfig.RedirectUri)
             .WithAuthority(new Uri(AuthenticationConfig.Authority))
             .Build();
 
-      // After the ConfidentialClientApplication is created, we overwrite its default UserTokenCache with our implementation.
-      MSALPerUserMemoryTokenCache userTokenCache = new MSALPerUserMemoryTokenCache(clientapp.UserTokenCache, currentUser ?? ClaimsPrincipal.Current);
-
-      return clientapp;
+      // After the ConfidentialClientApplication is created, we overwrite its default UserTokenCache serialization with our implementation
+      clientapp.AddInMemoryTokenCache();
+    }
+    return clientapp;
   }
 ```
+
+Instead of `clientapp.AddInMemoryTokenCache()`, you can also use more advanced cache serialization implementations like Redis, SQL, CosmosDB, or distributed memory. Here's an example for Redis:
+
+```csharp
+  clientapp.AddDistributedTokenCache(services =>
+  {
+    services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = "localhost";
+        options.InstanceName = "SampleInstance";
+    });
+  });
+```
+
+For details see [Token cache serialization for MSAL.NET](./msal-net-token-cache-serialization.md).
 
 # [Java](#tab/java)
 

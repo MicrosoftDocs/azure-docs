@@ -181,7 +181,12 @@ sections:
           Encryption of XFS OS disks is supported.
           
           Encryption of XFS data disks is supported only when the EncryptFormatAll parameter is used. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](disk-encryption-linux.md#use-encryptformatall-feature-for-data-disks-on-linux-vms).
-          
+
+      - question: |
+          Is resizing the OS partition supported?
+        answer: |
+          Resize of an ADE encrypted OS disk is currently not supported.
+                    
       - question: |
           Can I backup and restore an encrypted VM? 
         answer: |

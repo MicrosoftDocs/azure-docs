@@ -488,6 +488,10 @@ In particular, Sysprep requires the drives to be fully decrypted before executio
 ### Generalize a VHD
 
 >[!NOTE]
+> If you're creating a generalized image from an existing Azure VM, we recommend to remove the VM extensions 
+> before running the sysprep.
+
+>[!NOTE]
 > After you run `sysprep.exe` in the following steps, turn off the VM. Don't turn it back on until
 > you create an image from it in Azure.
 

@@ -11,7 +11,7 @@ ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 06/15/2017
 ---
-# Enable logging for Azure Machine Learning Studio (classic) web services
+# Enable logging for Machine Learning Studio (classic) web services
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
@@ -20,9 +20,9 @@ This document provides information on the logging capability of Machine Learning
 
 ## How to enable logging for a Web service
 
-You enable logging from the [Azure Machine Learning Studio (classic) Web Services](https://services.azureml.net) portal. 
+You enable logging from the [Machine Learning Studio (classic) Web Services](https://services.azureml.net) portal. 
 
-1. Sign in to the Azure Machine Learning Studio (classic) Web Services portal at [https://services.azureml.net](https://services.azureml.net). For a Classic web service, you can also get to the portal by clicking **New Web Services Experience** on the Machine Learning Studio (classic) Web Services page in Studio (classic).
+1. Sign in to the Machine Learning Studio (classic) Web Services portal at [https://services.azureml.net](https://services.azureml.net). For a Classic web service, you can also get to the portal by clicking **New Web Services Experience** on the Machine Learning Studio (classic) Web Services page in Studio (classic).
 
    ![New Web Services Experience link](./media/web-services-logging/new-web-services-experience-link.png)
 

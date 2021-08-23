@@ -154,7 +154,7 @@ While setting up *Email ARM Role* you need to make sure below 3 conditions are m
 ### Function
 Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md). To handle a request, your endpoint must handle the HTTP POST verb.
 
-When defining the Function action the the Function's httptrigger endpoint and access key are saved in the action definition. For example: https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key. If you change the access key for the function you will need to remove and recreate the Function action in the Action Group.
+When defining the Function action the the Function's httptrigger endpoint and access key are saved in the action definition. For example: `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key`. If you change the access key for the function you will need to remove and recreate the Function action in the Action Group.
 
 You may have a limited number of Function actions in an Action Group.
 

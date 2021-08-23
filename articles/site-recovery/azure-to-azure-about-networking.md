@@ -54,7 +54,7 @@ login.microsoftonline.com | Required for authorization and authentication to the
 
 ## Outbound connectivity using Service Tags
 
-Apart from controlling URLs, you can also use service tags to control connectivity. To do so, you will first need to create a [Network Security Group](https://docs.microsoft.com/azure/virtual-network/network-security-group-how-it-works) in Azure. Once created, you will need to use our existing service tags and create an NSG rule to allow access to Azure Site Recovery services. 
+Apart from controlling URLs, you can also use service tags to control connectivity. To do so, you will first need to create a [Network Security Group](../virtual-network/network-security-group-how-it-works.md) in Azure. Once created, you will need to use our existing service tags and create an NSG rule to allow access to Azure Site Recovery services. 
 
 The advantages of using service tags to control connectivity, when compared to controlling connectivity using IP addresses, is that there will be no hard dependency on a particular IP address to stay connected to our services. In such a scenario, if the IP address of one of our services changes, then the ongoing replication will not be impacted for your machines. Whereas, a dependency on hard coded IP addresses will cause the replication status to become critical and put your systems at risk. Moreover, service tags ensures better security, stability and resiliency than hard coded IP addresses.
 

@@ -28,7 +28,7 @@ Use the `npm install` command to install the Azure Communication Services Callin
 
 ```console
 npm install @azure/communication-common --save
-npm install @azure/communication-calling@1.1.0-beta.1 --save
+npm install @azure/communication-calling@1.1.0 --save
 ```
 
 The following versions of webpack are recommended for this quickstart:
