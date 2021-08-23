@@ -13,7 +13,7 @@ ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: "mvc, devx-track-csharp"
-ms.date: 08/05/2021
+ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019

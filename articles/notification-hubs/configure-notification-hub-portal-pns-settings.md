@@ -8,7 +8,7 @@ manager: femila
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
-ms.date: 08/05/2021
+ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019 
