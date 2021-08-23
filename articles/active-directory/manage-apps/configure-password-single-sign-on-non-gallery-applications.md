@@ -1,6 +1,6 @@
 ---
 title: Add password-based single sign-on to an application
-description: Add of password-based single sign-on to an application in Azure Active Directory.
+description: Add of password-based single sign-on to an application.
 titleSuffix: Azure Active Directory
 services: active-directory
 author: davidmu1
@@ -15,7 +15,7 @@ ms.reviewer: ergreenl
 # Customer intent: As an IT admin, I need to know how to implement password-based single sign-on in Azure Active Directory.
 ---
 
-# Add password-based single sign-on to an application in Azure Active Directory
+# Add password-based single sign-on to an application
 
 This article shows you how to set up password-based single sign-on (SSO). With password-based sign-on, a user signs in to the application with a username and password the first time it's accessed. After the first sign-on, Azure Active Directory (Azure AD) sends the username and password to the application. 
 

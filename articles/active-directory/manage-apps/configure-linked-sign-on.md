@@ -15,7 +15,7 @@ ms.reviewer: ergreenl
 # Customer intent: As an IT admin, I need to know how to implement linked single sign-on in Azure Active Directory.
 ---
 
-# Add linked single sign-on to an application in Azure Active Directory
+# Add linked single sign-on to an application
 
 This article shows you how to set up linked single sign-on (SSO) for your application. Linked sign-on enables Azure AD to provide single sign-on to an application that is already configured for single sign-on in another service. The linked option lets you configure the target location when a user selects the application in your organization's My Apps or Microsoft 365 portal.
 
