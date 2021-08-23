@@ -107,7 +107,6 @@ Do the following steps in the Azure portal to order a device.
 
       ![New Azure Key Vault review screen](./media/data-box-order-portal/customer-managed-key-05.png)
 
-
 12. The **Select a key** blade will display your selected key vault.
 
     ![Screenshot of the "Select a key" screen in Azure Key Vault. The Key Vault field is highlighted.](./media/data-box-order-portal/customer-managed-key-06.png)
