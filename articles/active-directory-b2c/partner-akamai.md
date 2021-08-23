@@ -18,6 +18,9 @@ ms.subservice: B2C
 
 In this sample tutorial, learn how to enable [Akamai Web Application Firewall (WAF)](https://www.akamai.com/us/en/resources/web-application-firewall.jsp) solution for Azure Active Directory (AD) B2C tenant using custom domains. Akamai WAF helps organization protect their web applications from malicious attacks that aim to exploit vulnerabilities such as SQL injection and Cross site scripting.
 
+>[!NOTE]
+>This feature is in public preview.
+
 Benefits of using Akamai WAF solution:
 
 - An edge platform that allows traffic management to your services.

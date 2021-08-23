@@ -121,8 +121,8 @@
         href: connect-common-event-format.md
       - name: Deploy a log forwarder
         href: connect-log-forwarder.md
-      - name: Troubleshoot CEF data collection
-        href: connect-cef-verify.md
+      - name: Troubleshoot CEF/Syslog data collection
+        href: troubleshooting-cef-syslog.md
       - name: Connect Syslog sources
         href: connect-syslog.md
       - name: Connect custom log sources
@@ -229,6 +229,8 @@
       href: sap-solution-log-reference.md
     - name: SAP workbook, rules, and watchlists
       href: sap-solution-security-content.md
+    - name: Use an SNC connection to deploy your SAP data connector
+      href: sap-solution-deploy-snc.md
     - name: Expert configuration options
       href: sap-solution-deploy-alternate.md
     - name: Troubleshooting your SAP solution deployment

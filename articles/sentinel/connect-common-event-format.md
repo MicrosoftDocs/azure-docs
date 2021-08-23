@@ -131,10 +131,10 @@ In this document, you learned how Azure Sentinel collects CEF logs from devices 
 
 - [Deploy a Syslog/CEF forwarder](connect-log-forwarder.md)
 - [Azure Sentinel data connectors reference](data-connectors-reference.md)
-- [Troubleshoot log forwarder connectivity](connect-cef-verify.md)
+- [Troubleshoot log forwarder connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity)
 
 To learn more about what to do with the data you've collected in Azure Sentinel, see the following articles:
 
 - Learn about [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
-- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).
