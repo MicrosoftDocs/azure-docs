@@ -1,22 +1,24 @@
 ---
 title: Copy data from an SAP table
-description: Learn how to copy data from an SAP table to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from an SAP table to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 05/26/2021
+ms.custom: synapse
+ms.date: 07/30/2021
 ---
 
-# Copy data from an SAP table by using Azure Data Factory
+# Copy data from an SAP table using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the copy activity in Azure Data Factory to copy data from an SAP table. For more information, see [Copy activity overview](copy-activity-overview.md).
+This article outlines how to use the copy activity in Azure Data Factory and Azure Synapse Analytics pipelines to copy data from an SAP table. For more information, see [Copy activity overview](copy-activity-overview.md).
 
 >[!TIP]
->To learn ADF's overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparsion and guidance.
+>To learn the overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparsion and guidance.
 
 ## Supported capabilities
 
@@ -58,7 +60,7 @@ To use this SAP table connector, you need to:
 
   ![Install SAP Connector for .NET](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 
-- The SAP user who's being used in the Data Factory SAP table connector must have the following permissions:
+- The SAP user who's being used in the SAP table connector must have the following permissions:
 
   - Authorization for using Remote Function Call (RFC) destinations.
   - Permissions to the Execute activity of the S_SDSAUTH authorization object. You can refer to SAP Note 460089 on the majority authorization objects. Certain RFCs are required by the underlying NCo connector, for example RFC_FUNCTION_SEARCH. 
@@ -67,7 +69,7 @@ To use this SAP table connector, you need to:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define the Data Factory entities specific to the SAP table connector.
+The following sections provide details about properties that are used to define the entities specific to the SAP table connector.
 
 ## Linked service properties
 
@@ -85,7 +87,7 @@ The following properties are supported for the SAP BW Open Hub linked service:
 | `clientId` | The ID of the client in the SAP system.<br/>Allowed value: A three-digit decimal number represented as a string. | Yes |
 | `language` | The language that the SAP system uses.<br/>Default value is `EN`.| No |
 | `userName` | The name of the user who has access to the SAP server. | Yes |
-| `password` | The password for the user. Mark this field with the `SecureString` type to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| `password` | The password for the user. Mark this field with the `SecureString` type to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | `sncMode` | The SNC activation indicator to access the SAP server where the table is located.<br/>Use if you want to use SNC to connect to the SAP server.<br/>Allowed values are `0` (off, the default) or `1` (on). | No |
 | `sncMyName` | The initiator's SNC name to access the SAP server where the table is located.<br/>Applies when `sncMode` is on. | No |
 | `sncPartnerName` | The communication partner's SNC name to access the SAP server where the table is located.<br/>Applies when `sncMode` is on. | No |
@@ -219,12 +221,12 @@ To copy data from an SAP table, the following properties are supported:
 | `rowCount`                         | The number of rows to be retrieved.                              | No       |
 | `rfcTableFields`                 | The fields (columns) to copy from the SAP table. For example, `column0, column1`. | No       |
 | `rfcTableOptions`                | The options to filter the rows in an SAP table. For example, `COLUMN0 EQ 'SOMEVALUE'`. See also the SAP query operator table later in this article. | No       |
-| `customRfcReadTableFunctionModule` | A custom RFC function module that can be used to read data from an SAP table.<br>You can use a custom RFC function module to define how the data is retrieved from your SAP system and returned to Data Factory. The custom function module must have an interface implemented (import, export, tables) that's similar to `/SAPDS/RFC_READ_TABLE2`, which is the default interface used by Data Factory.<br>Data Factory | No       |
+| `customRfcReadTableFunctionModule` | A custom RFC function module that can be used to read data from an SAP table.<br>You can use a custom RFC function module to define how the data is retrieved from your SAP system and returned to the service. The custom function module must have an interface implemented (import, export, tables) that's similar to `/SAPDS/RFC_READ_TABLE2`, which is the default interface used by the service.| No       |
 | `partitionOption`                  | The partition mechanism to read from an SAP table. The supported options include: <ul><li>`None`</li><li>`PartitionOnInt` (normal integer or integer values with zero padding on the left, such as `0000012345`)</li><li>`PartitionOnCalendarYear` (4 digits in the format "YYYY")</li><li>`PartitionOnCalendarMonth` (6 digits in the format "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 digits in the format "YYYYMMDD")</li><li>`PartitionOntime` (6 digits in the format "HHMMSS", such as `235959`)</li></ul> | No       |
 | `partitionColumnName`              | The name of the column used to partition the data.                | No       |
 | `partitionUpperBound`              | The maximum value of the column specified in `partitionColumnName` that will be used to continue with partitioning. | No       |
 | `partitionLowerBound`              | The minimum value of the column specified in `partitionColumnName` that will be used to continue with partitioning. (Note: `partitionLowerBound` cannot be "0" when partition option is `PartitionOnInt`) | No       |
-| `maxPartitionsNumber`              | The maximum number of partitions to split the data into.     | No       |
+| `maxPartitionsNumber`              | The maximum number of partitions to split the data into. The default value is 1.    | No       |
 | `sapDataColumnDelimiter` | The single character that is used as delimiter passed to SAP RFC to split the output data. | No |
 
 >[!TIP]
@@ -232,11 +234,11 @@ To copy data from an SAP table, the following properties are supported:
 <br/>
 >Taking `partitionOption` as `partitionOnInt` as an example, the number of rows in each partition is calculated with this formula: (total rows falling between `partitionUpperBound` and `partitionLowerBound`)/`maxPartitionsNumber`.<br/>
 <br/>
->To load data partitions in parallel to speed up copy, the parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, Data Factory concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your SAP table. We strongly recommend making `maxPartitionsNumber` a multiple of the value of the `parallelCopies` property. When copying data into file-based data store, it's also recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
+>To load data partitions in parallel to speed up copy, the parallel degree is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. For example, if you set `parallelCopies` to four, the service concurrently generates and runs four queries based on your specified partition option and settings, and each query retrieves a portion of data from your SAP table. We strongly recommend making `maxPartitionsNumber` a multiple of the value of the `parallelCopies` property. When copying data into file-based data store, it's also recommanded to write to a folder as multiple files (only specify folder name), in which case the performance is better than writing to a single file.
 
 
 >[!TIP]
-> The `BASXML` is enabled by default for this SAP Table connector on Azure Data Factory side.
+> The `BASXML` is enabled by default for this SAP Table connector within the service.
 
 In `rfcTableOptions`, you can use the following common SAP query operators to filter the rows:
 
@@ -328,9 +330,9 @@ Below are illustrations of how SAP table connector works with custom function mo
 
 1. Invoke "Custom function module" with the parameters set as below:
 
-    - QUERY_TABLE: the table name you set in the ADF SAP Table dataset; 
-    - Delimiter: the delimiter you set in the ADF SAP Table Source; 
-    - ROWCOUNT/Option/Fields: the Rowcount/Aggregated Option/Fields you set in the ADF Table source.
+    - QUERY_TABLE: the table name you set in the SAP Table dataset; 
+    - Delimiter: the delimiter you set in the SAP Table Source; 
+    - ROWCOUNT/Option/Fields: the Rowcount/Aggregated Option/Fields you set in the Table source.
 
 1. Get the result and parse the data in below ways:
 
@@ -346,9 +348,9 @@ Below are illustrations of how SAP table connector works with custom function mo
 
 ## Data type mappings for an SAP table
 
-When you're copying data from an SAP table, the following mappings are used from the SAP table data types to the Azure Data Factory interim data types. To learn how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When you're copying data from an SAP table, the following mappings are used from the SAP table data types to interim data types used within the service. To learn how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-| SAP ABAP Type | Data Factory interim data type |
+| SAP ABAP Type | Service interim data type |
 |:--- |:--- |
 | `C` (String) | `String` |
 | `I` (Integer) | `Int32` |
@@ -366,4 +368,4 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## Next steps
 
-For a list of the data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of the data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

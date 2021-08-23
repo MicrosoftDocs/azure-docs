@@ -41,7 +41,7 @@ As you configure the account, choose these values:
 |Location|All available regions |All available regions    
 |Performance|Premium| Standard
 |Account kind|BlockBlobStorage| General-purpose V2
-|Replication|Locally-redundant storage (LRS)| Locally-redundant storage (LRS), Zone-redundant storage (ZRS)
+|Replication|Locally-redundant storage (LRS), Zone-redundant storage (ZRS)| Locally-redundant storage (LRS), Zone-redundant storage (ZRS)
 |Connectivity method|Public endpoint (selected networks) or Private endpoint |Public endpoint (selected networks) or Private endpoint
 |Hierarchical namespace|Enabled|Enabled
 |NFS V3|Enabled |Enabled 

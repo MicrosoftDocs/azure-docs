@@ -23,6 +23,8 @@ Azure Cognitive Services are cloud-based services with REST APIs, and client lib
 ## Prerequisites
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
+* [!INCLUDE [contributor-requirement](./includes/quickstarts/contributor-requirement.md)]
+
 
 ## Create a new Azure Cognitive Services resource
 

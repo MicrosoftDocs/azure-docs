@@ -142,6 +142,8 @@ BYOD and corporate owned mobile device are registered by users installing the Co
 
 * [Windows 10](/mem/intune/user-help/enroll-windows-10-device)
 
+* [macOS](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp)
+
 If registering your devices is the best option for your organization, see the following resources:
 
 * This overview of [Azure AD registered devices](concept-azure-ad-register.md).

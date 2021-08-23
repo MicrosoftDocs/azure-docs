@@ -79,7 +79,7 @@ Azure Sentinel uses the Azure foundation to provide built-in, service-to-service
 - [Microsoft Defender for Identity](connect-azure-atp.md) (formerly Azure Advanced Threat Protection)
 - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) (formerly Office 365 Advanced Threat Protection)
 - [Office 365](connect-office-365.md), including Microsoft Teams
-- [Security events (Windows)](connect-windows-security-events.md). For more information, see [Insecure protocols workbook setup](./quickstart-get-visibility.md#use-built-in-workbooks).
+- [Security events (Windows)](connect-windows-security-events.md). For more information, see [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks).
 - [Windows firewall](connect-windows-firewall.md)
 
 ### REST API integration
@@ -173,4 +173,4 @@ To find the support contact information for a data connector:
 ## Next steps
 
 - To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md) and [get visibility into your data and potential threats](quickstart-get-visibility.md).
+- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md) and [get visibility into your data and potential threats](get-visibility.md).

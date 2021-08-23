@@ -176,7 +176,7 @@ union (AppAvailabilityResults),
 
 Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.insights/components for Application Insights) will allow you to track your spending. Then for "Group by" select "Meter category" or "Meter".  For Application Insights resources on the current pricing plans, most usage will show up as Log Analytics for the Meter category since there is a single logs backend for all Azure Monitor components. 
 
-More understanding of your usage can be gained by [downloading your usage from the Azure portal](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal).
+More understanding of your usage can be gained by [downloading your usage from the Azure portal](../../cost-management-billing/understand/download-azure-daily-usage.md).
 In the downloaded spreadsheet, you can see usage per Azure resource per day. In this Excel spreadsheet, usage from your Application Insights resources can be found by first filtering on the "Meter Category" column to show "Application Insights" and "Log Analytics", and then adding a filter on the "Instance ID" column which is "contains microsoft.insights/components".  Most Application Insights usage is reported on meters with the Meter Category of Log Analytics, since there is a single logs backend for all Azure Monitor components.  Only Application Insights resources on legacy pricing tiers and multi-step web tests are reported with a Meter Category of Application Insights.  The usage is shown in the "Consumed Quantity" column and the unit for each entry is shown in the "Unit of Measure" column.  More details are available to help you [understand your Microsoft Azure bill](../../cost-management-billing/understand/review-individual-bill.md).
 
 ## Managing your data volume
@@ -229,7 +229,7 @@ To [change the daily cap via Azure Resource Manager](./powershell.md), the prope
 
 ### Create alerts for the Daily Cap
 
-The Application Insights Daily Cap creates an event in the Azure activity log when the ingested data volumes reaches the warning level or the daily cap level.  You can [create an alert based on these activity log events](../alerts/alerts-activity-log.md#create-with-the-azure-portal). The signal names for these events are:
+The Application Insights Daily Cap creates an event in the Azure activity log when the ingested data volumes reaches the warning level or the daily cap level.  You can [create an alert based on these activity log events](../alerts/alerts-activity-log.md#azure-portal). The signal names for these events are:
 
 * Application Insights component daily cap warning threshold reached
 

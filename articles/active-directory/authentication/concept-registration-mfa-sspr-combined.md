@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/23/2021
+ms.date: 07/29/2021
 
 ms.author: justinha
 author: justinha
@@ -66,12 +66,12 @@ Combined registration supports the following authentication methods and actions:
 
 Users can set one of the following options as the default Multi-Factor Authentication method:
 
-- Microsoft Authenticator – notification.
-- Authenticator app or hardware token – code.
-- Phone call.
-- Text message.
+- Microsoft Authenticator – push notification
+- Authenticator app or hardware token – code
+- Phone call
+- Text message
 
-As we continue to add more authentication methods to Azure AD, those methods are available in combined registration.
+Third party authenticator apps do not provide push notification. As we continue to add more authentication methods to Azure AD, those methods become available in combined registration.
 
 ## Combined registration modes
 
@@ -147,7 +147,6 @@ In addition, users who access a resource tenant may be confused when they change
 For example, a user sets Microsoft Authenticator app push notification as the primary authentication to sign-in to home tenant and also has SMS/Text as another option. 
 This user is also configured with SMS/Text option on a resource tenant. 
 If this user removes SMS/Text as one of the authentication option on their home tenant, they get confused when access to the resource tenant asks them to respond to SMS/Text message. 
-
 
 To switch the directory in the Azure portal, click the user account name in the upper right corner and click **Switch directory**.
 

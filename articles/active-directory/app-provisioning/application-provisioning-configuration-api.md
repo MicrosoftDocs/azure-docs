@@ -37,7 +37,7 @@ The Azure portal is a convenient way to configure provisioning for individual ap
 1. Upon successful sign-in, you'll see the user account details in the left-hand pane.
 
 ### Retrieve the gallery application template identifier
-Applications in the Azure AD application gallery each have an [application template](/graph/api/applicationtemplate-list?tabs=http&view=graph-rest-beta) that describes the metadata for that application. Using this template, you can create an instance of the application and service principal in your tenant for management. Retrieve the identifier of the application template for **AWS Single-Account Access** and from the response, record the value of the **id** property to use later in this tutorial.
+Applications in the Azure AD application gallery each have an [application template](/graph/api/applicationtemplate-list?tabs=http&view=graph-rest-beta&preserve-view=true) that describes the metadata for that application. Using this template, you can create an instance of the application and service principal in your tenant for management. Retrieve the identifier of the application template for **AWS Single-Account Access** and from the response, record the value of the **id** property to use later in this tutorial.
 
 #### Request
 
@@ -56,6 +56,7 @@ GET https://graph.microsoft.com/beta/applicationTemplates?$filter=displayName eq
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
+
 {
   "value": [
   {
@@ -82,7 +83,7 @@ Content-type: application/json
 
 ### Create the gallery application
 
-Use the template ID retrieved for your application in the last step to [create an instance](/graph/api/applicationtemplate-instantiate?tabs=http&view=graph-rest-beta) of the application and service principal in your tenant.
+Use the template ID retrieved for your application in the last step to [create an instance](/graph/api/applicationtemplate-instantiate?tabs=http&view=graph-rest-beta&preserve-view=true) of the application and service principal in your tenant.
 
 #### Request
 
@@ -90,6 +91,7 @@ Use the template ID retrieved for your application in the last step to [create a
 ```msgraph-interactive
 POST https://graph.microsoft.com/beta/applicationTemplates/{id}/instantiate
 Content-type: application/json
+
 {
   "displayName": "AWS Contoso"
 }
@@ -100,6 +102,7 @@ Content-type: application/json
 ```http
 HTTP/1.1 201 OK
 Content-type: application/json
+
 {
     "application": {
         "objectId": "cbc071a6-0fa5-4859-8g55-e983ef63df63",
@@ -137,7 +140,7 @@ Content-type: application/json
 
 ### Retrieve the template for the provisioning connector
 
-Applications in the gallery that are enabled for provisioning have templates to streamline configuration. Use the request below to [retrieve the template for the provisioning configuration](/graph/api/synchronization-synchronizationtemplate-list?tabs=http&view=graph-rest-beta). Note that you will need to provide the ID. The ID refers to the preceding resource, which in this case is the servicePrincipal resource. 
+Applications in the gallery that are enabled for provisioning have templates to streamline configuration. Use the request below to [retrieve the template for the provisioning configuration](/graph/api/synchronization-synchronizationtemplate-list?tabs=http&view=graph-rest-beta&preserve-view=true). Note that you will need to provide the ID. The ID refers to the preceding resource, which in this case is the servicePrincipal resource. 
 
 #### Request
 
@@ -148,6 +151,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/temp
 #### Response
 ```http
 HTTP/1.1 200 OK
+
 {
     "value": [
         {
@@ -163,13 +167,14 @@ HTTP/1.1 200 OK
 ```
 
 ### Create the provisioning job
-To enable provisioning, you'll first need to [create a job](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta). Use the following request to create a provisioning job. Use the templateId from the previous step when specifying the template to be used for the job.
+To enable provisioning, you'll first need to [create a job](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta&preserve-view=true). Use the following request to create a provisioning job. Use the templateId from the previous step when specifying the template to be used for the job.
 
 #### Request
 
 ```msgraph-interactive
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 Content-type: application/json
+
 { 
     "templateId": "aws"
 }
@@ -179,6 +184,7 @@ Content-type: application/json
 ```http
 HTTP/1.1 201 OK
 Content-type: application/json
+
 {
     "id": "{jobId}",
     "templateId": "aws",
@@ -207,15 +213,20 @@ Content-type: application/json
 
 ### Test the connection to the application
 
-Test the connection with the third-party application. The following example is for an application that requires a client secret and secret token. Each application has its own requirements. Applications often use a base address in place of a client secret. To determine what credentials your app requires, go to the provisioning configuration page for your application, and in developer mode, click **test connection**. The network traffic will show the parameters used for credentials. For a full list of credentials, see [synchronizationJob: validateCredentials](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta). Most applications, such as Azure Databricks, rely on a BaseAddress and SecretToken. The BaseAddress is referred to as a tenant URL in the Azure portal. 
+Test the connection with the third-party application. The following example is for an application that requires a client secret and secret token. Each application has its own requirements. Applications often use a base address in place of a client secret. To determine what credentials your app requires, go to the provisioning configuration page for your application, and in developer mode, click **test connection**. The network traffic will show the parameters used for credentials. For a full list of credentials, see [synchronizationJob: validateCredentials](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta&preserve-view=true). Most applications, such as Azure Databricks, rely on a BaseAddress and SecretToken. The BaseAddress is referred to as a tenant URL in the Azure portal. 
 
 #### Request
 ```msgraph-interactive
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{id}/validateCredentials
+
 { 
     "credentials": [ 
-        { "key": "ClientSecret", "value": "xxxxxxxxxxxxxxxxxxxxx" },
-        { "key": "SecretToken", "value": "xxxxxxxxxxxxxxxxxxxxx" }
+        { 
+            "key": "ClientSecret", "value": "xxxxxxxxxxxxxxxxxxxxx" 
+        },
+        {
+            "key": "SecretToken", "value": "xxxxxxxxxxxxxxxxxxxxx"
+        }
     ]
 }
 ```
@@ -226,7 +237,7 @@ HTTP/1.1 204 No Content
 
 ### Save your credentials
 
-Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third-party application. The following example is for an application that requires a client secret and a secret token. Each application has its own requirements. Review the [API documentation](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta) to see the available options. 
+Configuring provisioning requires establishing a trust between Azure AD and the application. Authorize access to the third-party application. The following example is for an application that requires a client secret and a secret token. Each application has its own requirements. Review the [API documentation](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta&preserve-view=true) to see the available options. 
 
 #### Request
 ```msgraph-interactive
@@ -234,8 +245,12 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
  
 { 
     "value": [ 
-        { "key": "ClientSecret", "value": "xxxxxxxxxxxxxxxxxxxxx" },
-        { "key": "SecretToken", "value": "xxxxxxxxxxxxxxxxxxxxx" }
+        { 
+            "key": "ClientSecret", "value": "xxxxxxxxxxxxxxxxxxxxx"
+        },
+        {
+            "key": "SecretToken", "value": "xxxxxxxxxxxxxxxxxxxxx"
+        }
     ]
 }
 ```
@@ -246,7 +261,7 @@ HTTP/1.1 204 No Content
 ```
 
 ## Step 4: Start the provisioning job
-Now that the provisioning job is configured, use the following command to [start the job](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta). 
+Now that the provisioning job is configured, use the following command to [start the job](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta&preserve-view=true). 
 
 
 #### Request
@@ -277,7 +292,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
-Content-length: 2577
+
 {
     "id": "{jobId}",
     "templateId": "aws",
@@ -311,7 +326,7 @@ Content-length: 2577
 
 
 ### Monitor provisioning events using the provisioning logs
-In addition to monitoring the status of the provisioning job, you can use the [provisioning logs](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta) to query for all the events that are occurring. For example, query for a particular user and determine if they were successfully provisioned.
+In addition to monitoring the status of the provisioning job, you can use the [provisioning logs](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta&preserve-view=true) to query for all the events that are occurring. For example, query for a particular user and determine if they were successfully provisioned.
 
 #### Request
 ```msgraph-interactive
@@ -321,6 +336,7 @@ GET https://graph.microsoft.com/beta/auditLogs/provisioning
 ```http
 HTTP/1.1 200 OK
 Content-type: application/json
+
 {
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#auditLogs/provisioning",
     "value": [
@@ -358,5 +374,5 @@ Content-type: application/json
 ```
 ## See also
 
-- [Review the synchronization Microsoft Graph documentation](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Review the synchronization Microsoft Graph documentation](/graph/api/resources/synchronization-overview?view=graph-rest-beta&preserve-view=true)
 - [Integrating a custom SCIM app with Azure AD](./use-scim-to-provision-users-and-groups.md)

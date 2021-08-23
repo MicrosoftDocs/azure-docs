@@ -3,7 +3,7 @@ title: How to track Speech SDK memory usage - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech Service SDK supports numerous programming languages for speech-to-text and text-to-speech conversion, along with speech translation. This article discusses memory management tooling built into the SDK.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
