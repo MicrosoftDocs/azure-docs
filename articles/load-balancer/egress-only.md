@@ -359,11 +359,9 @@ To do so, select the resource group **myResourceGroupLB** and then select **Dele
 
 ## Next steps
 
-In this tutorial, you created an "egress only" configuration with a combination of public and internal load balancers.  
+In this article, you created an "egress only" configuration with a combination of public and internal load balancers.  
 
 This configuration allows you to load balance incoming internal traffic to your backend pool while still preventing any public inbound connections.
 
-- Learn about [Azure Load Balancer](load-balancer-overview.md).
-- Learn about [outbound connections in Azure](load-balancer-outbound-connections.md).
-- Load balancer [FAQs](load-balancer-faqs.yml).
-- Learn about [Azure Bastion](../bastion/bastion-overview.md)
+For more information about Azure Load Balancer and Azure Bastion, see [What is Azure Load Balancer?](load-balancer-overview.md) and [What is Azure Bastion?](../bastion/bastion-overview.md).
+
