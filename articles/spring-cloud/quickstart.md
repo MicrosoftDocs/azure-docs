@@ -165,7 +165,7 @@ In Visual Studio, create an ASP.NET Core Web application named as "hello-world" 
                    });
    ```
 
-4. In the *Startup.cs* file, add a `using` directive and code that uses the Steeltoe Service Discovery at the end of the `ConfigureServices` and `Configure` methods:
+4. In the *Startup.cs* file, add a `using` directive and code that uses the Steeltoe Service Discovery at the end of the `ConfigureServices` method:
 
    ```csharp
    using Steeltoe.Discovery.Client;
