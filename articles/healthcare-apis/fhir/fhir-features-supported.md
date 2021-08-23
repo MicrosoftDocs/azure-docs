@@ -32,10 +32,10 @@ Previous versions also currently supported include: `3.0.2`
 | update | Yes                | Yes                             |         | 
 | update with optimistic locking | Yes       | Yes       |
 | update (conditional)           | Yes       | Yes       |
-| patch                          | Yes       | Yes       | Support for [JSON Patch](https://www.hl7.org/fhir/http.html#patch) only. In addition, we have included a workaround to use JSON Patch in a bundle in [this PR](https://github.com/microsoft/fhir-server/pull/2143).|
+| patch                          | Yes       | Yes       | Support for [JSON Patch](https://www.hl7.org/fhir/http.html#patch) only. We have included a workaround to use JSON Patch in a bundle in [this PR](https://github.com/microsoft/fhir-server/pull/2143).|
 | patch (conditional)            | No        | No        |
-| delete                         | Yes       | Yes       | See additional details in the delete section below |
-| delete (conditional)           | Yes       | Yes       | See additional details in the delete section below |
+| delete                         | Yes       | Yes       | See details in the delete section below |
+| delete (conditional)           | Yes       | Yes       | See details in the delete section below |
 | history                        | Yes       | Yes       |
 | create                         | Yes       | Yes       | Support both POST/PUT |
 | create (conditional)           | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
@@ -63,7 +63,7 @@ You can do the same search but include hardDelete=true to also delete all histor
 DELETE https://{{hostname}}/Patient?identifier=1032704&hardDelete=true
 ```
 
-If you want to delete multiple resources, you can include `_count=100` which will delete up to 100 resources that match the search critera. 
+If you want to delete multiple resources, you can include `_count=100`, which will delete up to 100 resources that match the search criteria. 
 ``` JSON
 DELETE https://{{hostname}}/Patient?identifier=1032704&_count=100
 ```
@@ -91,7 +91,7 @@ The FHIR service uses [Azure Active Directory](https://azure.microsoft.com/servi
 
 * **Bundle size** - Each bundle is limited to 500 items.
 
-* **Subscription Limit** - By default, each subscription is limited to a maximum of 10 FHIR services. This can be in one or many workspaces. 
+* **Subscription Limit** - By default, each subscription is limited to a maximum of 10 FHIR services. The limit can be used in one or many workspaces. 
 
 ## Next steps
 

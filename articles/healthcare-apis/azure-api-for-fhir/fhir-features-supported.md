@@ -29,10 +29,10 @@ Previous versions also currently supported include: `3.0.2`
 | update | Yes                | Yes                             |         | 
 | update with optimistic locking | Yes       | Yes       |
 | update (conditional)           | Yes       | Yes       |
-| patch                          | Yes       | Yes       | Support for [JSON Patch](https://www.hl7.org/fhir/http.html#patch) only. In addition, we have included a workaround to use JSON Patch in a bundle in [this PR](https://github.com/microsoft/fhir-server/pull/2143).|
+| patch                          | Yes       | Yes       | Support for [JSON Patch](https://www.hl7.org/fhir/http.html#patch) only. We have included a workaround to use JSON Patch in a bundle in [this PR](https://github.com/microsoft/fhir-server/pull/2143).|
 | patch (conditional)            | No        | No        |
-| delete                         | Yes       | Yes       | See additional details in the delete section below |
-| delete (conditional)           | Yes       | Yes       | See additional details in the delete section below
+| delete                         | Yes       | Yes       | See details in the delete section below |
+| delete (conditional)           | Yes       | Yes       | See details in the delete section below |
 | history                        | Yes       | Yes       |
 | create                         | Yes       | Yes       | Support both POST/PUT |
 | create (conditional)           | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
@@ -49,7 +49,7 @@ Previous versions also currently supported include: `3.0.2`
 
 ### Delete and conditional delete
 
-Delete defined by the FHIR spec requires that after deleting, subsequent non-version specific reads of a resource returns a 410 HTTP status code and the resource is no longer found through searching. The Azure API for FHIR and the FHIR service also enable you to fully delete (including all history) the resource. To fully delete the resource, you can pass a parameter settings `hardDelete` to true (`DELETE {server}/{resource}/{id}?hardDelete=true`). If you do not pass this parameter or set `hardDelete` to false, the historic versions of the resource will still be available.
+Delete defined by the FHIR spec requires that after deleting, subsequent non-version specific reads of a resource return a 410 HTTP status code and the resource is no longer found through searching. The Azure API for FHIR and the FHIR service also enable you to fully delete (including all history) the resource. To fully delete the resource, you can pass a parameter settings `hardDelete` to true (`DELETE {server}/{resource}/{id}?hardDelete=true`). If you do not pass this parameter or set `hardDelete` to false, the historic versions of the resource will still be available.
 
 In addition to delete, the Azure API for FHIR and the FHIR service support conditional delete, which allow you to pass a search criteria to delete a resource. By default, the conditional delete will allow you to delete one item at a time. You can also specify the `_count` parameter to delete up to 100 items at a time. Below are some examples of using conditional delete.
 
@@ -63,7 +63,7 @@ You can do the same search but include hardDelete=true to also delete all histor
 DELETE https://{{hostname}}/Patient?identifier=1032704&hardDelete=true
 ```
 
-If you want to delete multiple resources, you can include `_count=100` which will delete up to 100 resources that match the search critera. 
+If you want to delete multiple resources, you can include `_count=100`, which will delete up to 100 resources that match the search criteria. 
 ``` JSON
 DELETE https://{{hostname}}/Patient?identifier=1032704&_count=100
 ```
@@ -99,7 +99,7 @@ Currently, the allowed actions for a given role are applied *globally* on the AP
 
 ## Service limits
 
-* [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 40 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have this increased. The maximum available is 1,000,000.
+* [**Request Units (RUs)**](../../cosmos-db/concepts-limits.md) - You can configure up to 10,000 RUs in the portal for Azure API for FHIR. You will need a minimum of 400 RUs or 40 RUs/GB, whichever is larger. If you need more than 10,000 RUs, you can put in a support ticket to have the RUs increased. The maximum available is 1,000,000.
 
 * **Bundle size** - Each bundle is limited to 500 items.
 
