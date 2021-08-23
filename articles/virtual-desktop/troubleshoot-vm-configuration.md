@@ -337,6 +337,10 @@ If your users see an error that says, "We couldn't connect to the remote PC beca
 
 To learn more about this policy, see [Allow log on through Remote Desktop Services](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services).
 
+## I can't deploy the golden image
+
+Golden images must not include the Azure Virtual Desktop agent. You can install the agent only after you deploy the golden image.
+
 ## Next steps
 
 - For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).

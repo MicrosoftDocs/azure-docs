@@ -7,13 +7,16 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 08/02/2021
+ms.date: 08/19/2021
 ms.author: cherylmc
 
 ---
 # Tutorial: Create a User VPN connection using Azure Virtual WAN
 
-This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an OpenVPN or IPsec/IKE (IKEv2) VPN connection using a User VPN (P2S) configuration. This type of connection requires the native VPN client to be configured on each connecting client computer. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
+This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an OpenVPN or IPsec/IKE (IKEv2) VPN connection using a User VPN (P2S) configuration. This type of connection requires the native VPN client to be configured on each connecting client computer.
+ 
+* If you want to create a User VPN connection using Azure AD authentication, use the [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md) article instead.
+* For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
 In this tutorial, you learn how to:
 
@@ -43,17 +46,11 @@ The User VPN (P2S) configuration defines the parameters for remote clients to co
 
 In the following steps, when selecting the authentication method, you have three choices. Each method has specific requirements. Select one of the following methods, and then complete the steps.
 
-* **Azure Active Directory authentication:** Obtain the following information:
+* **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
-   * The **Application ID** of the Azure VPN Enterprise Application registered in your Azure AD tenant.
-   * The **Issuer**. Example: `https://sts.windows.net/your-Directory-ID`.
-   * The **Azure AD tenant**. Example: `https://login.microsoftonline.com/your-Directory-ID`.
-
-   For more information, see [Configure Azure AD authentication](virtual-wan-point-to-site-azure-ad.md) and [Prepare Azure AD tenant - OpenVPN](openvpn-azure-ad-tenant.md)
+* **Azure Active Directory authentication:** Use the [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md) article, which contains the specific steps necessary for this configuration.
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
-
-* **Azure certificates:** For this configuration, certificates are required. You need to either generate or obtain certificates. A client certificate is required for each client. Additionally, the root certificate information (public key) needs to be uploaded. For more information about the required certificates, see [Generate and export certificates](certificates-point-to-site.md).
 
 [!INCLUDE [Create P2S configuration](../../includes/virtual-wan-p2s-configuration-include.md)]
 

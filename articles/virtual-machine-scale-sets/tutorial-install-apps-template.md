@@ -12,6 +12,9 @@ ms.custom: mimckitt, devx-track-azurecli
 
 ---
 # Tutorial: Install applications in virtual machine scale sets with an Azure template
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 To run applications on virtual machine (VM) instances in a scale set, you first need to install the application components and required files. In a previous tutorial, you learned how to create and use a custom VM image to deploy your VM instances. This custom image included manual application installs and configurations. You can also automate the install of applications to a scale set after each VM instance is deployed, or update an application that already runs on a scale set. In this tutorial you learn how to:
 
 > [!div class="checklist"]

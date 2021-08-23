@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-js
 ---
 
@@ -26,7 +26,7 @@ Let's add some code that works as a skeleton for our project.
 
 Now we'll add some basic UI for input boxes, reference the Speech SDK's JavaScript, and grab an authorization token if available.
 
-```html  
+```html
 <body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; font-size:13px;">
   <div id="content" style="display:none">
     <table width="100%">
@@ -127,7 +127,7 @@ Now we'll add some basic UI for input boxes, reference the Speech SDK's JavaScri
     });
   </script>
 ```
- 
+
 ## Create a Speech configuration
 
 Before you can initialize a `SpeechRecognizer` object, you need to create a configuration that uses your subscription key and subscription region. Insert this code in the `startRecognizeOnceAsyncButton.addEventListener()` method.
@@ -173,7 +173,7 @@ Now, let's create the `IntentRecognizer` object using the `SpeechConfig` and `Au
 
 You need to associate a `LanguageUnderstandingModel` with the intent recognizer and add the intents you want recognized. We're going to use intents from the prebuilt domain for home automation.
 
-Insert this code below your `IntentRecognizer`. Make sure that you replace `"YourLanguageUnderstandingAppId"` with your LUIS app ID. 
+Insert this code below your `IntentRecognizer`. Make sure that you replace `"YourLanguageUnderstandingAppId"` with your LUIS app ID.
 
 ```JavaScript
         if (appId.value !== "" && appId.value !== "YOUR_LANGUAGE_UNDERSTANDING_APP_ID") {
@@ -200,9 +200,9 @@ Insert this code below the model addition:
         recognizer.recognizeOnceAsync(
           function (result) {
             window.console.log(result);
-  
+
             phraseDiv.innerHTML = result.text + "\r\n";
-  
+
             statusDiv.innerHTML += "(continuation) Reason: " + SpeechSDK.ResultReason[result.reason];
             switch (result.reason) {
               case SpeechSDK.ResultReason.RecognizedSpeech:
@@ -210,7 +210,7 @@ Insert this code below the model addition:
                 break;
               case SpeechSDK.ResultReason.RecognizedIntent:
                 statusDiv.innerHTML += " Text: " + result.text + " IntentId: " + result.intentId;
-                
+
                 // The actual JSON returned from Language Understanding is a bit more complex to get to, but it is available for things like
                 // the entity name and type if part of the intent.
                 statusDiv.innerHTML += " Intent JSON: " + result.properties.getProperty(SpeechSDK.PropertyId.LanguageUnderstandingServiceResponse_JsonResult);
@@ -223,7 +223,7 @@ Insert this code below the model addition:
               case SpeechSDK.ResultReason.Canceled:
                 var cancelDetails = SpeechSDK.CancellationDetails.fromResult(result);
                 statusDiv.innerHTML += " CancellationReason: " + SpeechSDK.CancellationReason[cancelDetails.reason];
-              
+
               if (cancelDetails.reason === SpeechSDK.CancellationReason.Error) {
                 statusDiv.innerHTML += ": " + cancelDetails.errorDetails;
               }
@@ -234,7 +234,7 @@ Insert this code below the model addition:
           },
           function (err) {
             window.console.log(err);
-    
+
             phraseDiv.innerHTML += "ERROR: " + err;
             startIntentRecognizeAsyncButton.disabled = false;
           });
@@ -242,7 +242,7 @@ Insert this code below the model addition:
 
 ## Check your code
 
- [!code-html [SampleCode](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/index-intent-recognition.html)]
+ [!code-html [SampleCode](~/samples-cognitive-services-speech-sdk/quickstart/javascript/browser/intent-recognition/index.html)]
 
 ## Create the token source (optional)
 
