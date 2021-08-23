@@ -26,7 +26,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
 1. [Install EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) on your Windows device using PowerShell.
 
     > [!NOTE]
-    > There are two ways to deploy EFLOW (PowerShell and Windows Admin Center) and two ways to provision the virtual machine (manual provisioning using the connection string and manual provisioning using X.509 certificates). Please follow the [PowerShell deployment](../../iot-edge/how-to-install-iot-edge-on-windows.md#powershell) and [provision the machine using the connection string from the IoT Hub](../../iot-edge/how-to-install-iot-edge-on-windows.md#powershell-1).
+    > There are two ways to deploy EFLOW (PowerShell and Windows Admin Center) and two ways to provision the virtual machine (manual provisioning using the connection string and manual provisioning using X.509 certificates). Please follow the [PowerShell deployment](../../iot-edge/how-to-install-iot-edge-on-windows.md#tab/powershell) and [provision the machine using the connection string from the IoT Hub](../../iot-edge/how-to-install-iot-edge-on-windows.md#tab/powershell-1).
 
 1. Once EFLOW is set up, type the command `Connect-EflowVm` into PowerShell (with administrative privilege) to connect. This will bring up a bash terminal within PowerShell to control the EFLOW VM, where you can run Linux commands including utilities like Top and Nano. 
 
