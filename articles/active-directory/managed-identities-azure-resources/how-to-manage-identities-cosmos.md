@@ -306,7 +306,8 @@ Assign a user assigned managed identity to an existing VM
 
 Now that you have a virtual machine configured with a managed identity we need to [grant the managed identity access](../../cosmos-db/how-to-setup-rbac.md) to Cosmos. Cosmos DB uses RBAC roles to grant access to either data plane or management plane operations. Access to management plane operations is controlled using [Azure RBAC roles](../../cosmos-db/role-based-access-control.md). Data plane access control is managed using Azure Cosmos DB [data plane RBAC](../../cosmos-db/how-to-setup-rbac.md). In this example, we will grant contributor access to the vm's managed identity.
 
-> [!NOTE] Azure Cosmos DB exposes two built-in role definitions. We will use the **Cosmos DB Built-in Data contributor** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
+> [!NOTE] 
+> Azure Cosmos DB exposes two built-in role definitions. We will use the **Cosmos DB Built-in Data contributor** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
 
 
 
