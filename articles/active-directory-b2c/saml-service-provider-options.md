@@ -75,9 +75,9 @@ Configure the signature algorithm by using the `XmlSignatureAlgorithm` metadata 
 </RelyingParty>
 ```
 
-## Set up a SAML assertions signature
+## Check the SAML assertion signature
 
-When your application expects SAML assertion section to be signed, make sure the SAML service provider set the `WantAssertionsSigned` to `true`. If it's set to `false` or doesn't exist, the assertion section won't be signed. 
+When your application expects the SAML assertion section to be signed, make sure the SAML service provider set the `WantAssertionsSigned` to `true`. If it's set to `false` or doesn't exist, the assertion section won't be signed. 
 
 The following example shows metadata for a SAML service provider, with `WantAssertionsSigned` set to `true`.
 
