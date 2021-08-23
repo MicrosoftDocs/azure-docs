@@ -1732,13 +1732,13 @@ You can also create metric charts or alerts using those capabilities in Applicat
 You can use traces sent from Microsoft SAP Adapter for issue post-analysis and to find any existing internal system errors that might or might not surface from SAP connector operations. These traces have `message` set to `"n\a"` because they come from an older event source framework that's not designed for Application Insights, for example:
 
 ```Kusto
-traces  
-| where message == "n/a" 
-| where severityLevel > 0 
-| extend ActivityId = tostring(customDimensions["ActivityId"]) 
-| extend fullMessage = tostring(customDimensions["fullMessage"]) 
-| extend shortMessage = tostring(customDimensions["shortMessage"]) 
-| where ActivityId contains "8ad5952b-371e-4d80-b355-34e28df9b5d1"  
+traces
+| where message == "n/a"
+| where severityLevel > 0
+| extend ActivityId = tostring(customDimensions["ActivityId"])
+| extend fullMessage = tostring(customDimensions["fullMessage"])
+| extend shortMessage = tostring(customDimensions["shortMessage"])
+| where ActivityId contains "8ad5952b-371e-4d80-b355-34e28df9b5d1"
 ```
 
 The following screenshot shows the example query's traces results table:
@@ -1840,13 +1840,13 @@ If you experience an issue with duplicate IDocs being sent to SAP from your logi
 
 ## Known issues and limitations
 
-Here are the currently known issues and limitations for the managed (non-ISE) SAP connector: 
+Here are the currently known issues and limitations for the managed (non-ISE) SAP connector:
 
 * In general, the SAP trigger doesn't support data gateway clusters. In some failover cases, the data gateway node that communicates with the SAP system might differ from the active node, which results in unexpected behavior.
 
-  * For send scenarios, data gateway clusters in failover mode are supported. 
+  * For send scenarios, data gateway clusters in failover mode are supported.
 
-  * Data gateway clusters in load-balancing mode aren't supported by stateful [SAP actions](#actions). These actions include **\[BAPI - RFC] Create stateful session**, **\[BAPI] commit transaction**, **\[BAPI] Rollback transaction**, **\[BAPI - RFC] Close stateful session**, and all actions that specify a **Session ID** value. Stateful communications must remain on the same data gateway cluster node. 
+  * Data gateway clusters in load-balancing mode aren't supported by stateful [SAP actions](#actions). These actions include **\[BAPI - RFC] Create stateful session**, **\[BAPI] commit transaction**, **\[BAPI] Rollback transaction**, **\[BAPI - RFC] Close stateful session**, and all actions that specify a **Session ID** value. Stateful communications must remain on the same data gateway cluster node.
 
   * For stateful SAP actions, use the data gateway either in non-cluster mode or in a cluster that's set up for failover only.
 
@@ -1966,7 +1966,7 @@ For more information about the SAP connector, review the [connector reference](/
         Sends the IDoc message to your SAP server.
         \
         \
-        You must use the following parameters with your call: 
+        You must use the following parameters with your call:
         \
         \
         **IDOC type with optional extension** (`idocType`), which is a searchable drop-down menu.
