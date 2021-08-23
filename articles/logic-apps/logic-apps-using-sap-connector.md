@@ -1931,7 +1931,7 @@ For more information about the SAP connector, review the [connector reference](/
         [**[BAPI] Rollback transaction**](/connectors/sap/#[bapi]-roll-back-transaction-(preview))
     :::column-end:::
     :::column span="3":::
-        Rollback the BAPI transaction for the session.
+        Roll back the BAPI transaction for the session.
     :::column-end:::
 :::row-end:::
 :::row:::
