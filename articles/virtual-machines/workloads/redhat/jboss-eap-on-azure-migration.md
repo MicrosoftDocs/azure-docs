@@ -261,7 +261,7 @@ For any support related questions, issues or customization requirements, please 
 * Learn more about [Azure Virtual Machines](https://azure.microsoft.com/overview/what-is-a-virtual-machine/)
 * Learn more about [Azure Virtual Machine Scale Set](../../../virtual-machine-scale-sets/overview.md)
 * Learn more about [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
-* Learn more about Azure App Service on Linux](../../../app-service/overview.md#app-service-on-linux)
+* Learn more about [Azure App Service on Linux](../../../app-service/overview.md#app-service-on-linux)
 * Learn more about [Azure Storage](../../../storage/common/storage-introduction.md)
 * Learn more about [Azure Networking](../../../networking/fundamentals/networking-overview.md)
 
