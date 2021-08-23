@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/04/2021
+ms.date: 08/20/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -177,10 +177,6 @@ This section outlines variations and considerations when using Analytics service
 The following Data Factory **features are not currently available** in Azure Government:
 
 - Mapping data flows
-
-### [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
-
-For access to Azure Databricks in an Azure Government environment, contact your Microsoft or Databricks account representative.
 
 ### [HDInsight](../hdinsight/hadoop/apache-hadoop-introduction.md)
 
