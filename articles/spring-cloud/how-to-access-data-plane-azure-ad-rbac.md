@@ -29,9 +29,9 @@ For detailed steps, see [Assign Azure roles using the Azure portal](../role-base
 
 ## Access Config Server and Service Registry Endpoints
 
-After the role is assigned, you can access the Spring Cloud Config Server and the Spring Cloud Service Registry endpoints. Use the following procedures:
+After the role is assigned, the assignee can access the Spring Cloud Config Server and the Spring Cloud Service Registry endpoints using the following procedures:
 
-1. Get an access token. After an Azure AD user is assigned the role, you can use the following commands to log in to Azure CLI with user, service principal, or managed identity to get an access token. For details, see [Authenticate Azure CLI](/cli/azure/authenticate-azure-cli).
+1. Get an access token. After an Azure AD user is assigned the role, they can use the following commands to sign in to Azure CLI with user, service principal, or managed identity to get an access token. For details, see [Authenticate Azure CLI](/cli/azure/authenticate-azure-cli).
 
     ```azurecli
     az login
@@ -44,7 +44,7 @@ After the role is assigned, you can access the Spring Cloud Config Server and th
     * *'https://SERVICE_NAME.svc.azuremicroservices.io/config/{path}'*
 
     >[!NOTE]
-    > If you're using Azure China, please replace `*.azuremicroservices.io` with `*.microservices.azure.cn`. For more information, see the section [Check endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure) in the [Azure China developer guide](/azure/china/resources-developer-guide).
+    > If you're using Azure China, replace `*.azuremicroservices.io` with `*.microservices.azure.cn`. For more information, see the section [Check endpoints in Azure](/azure/china/resources-developer-guide#check-endpoints-in-azure) in the [Azure China developer guide](/azure/china/resources-developer-guide).
 
 1. Access the composed endpoint with the access token. Put the access token in a header to provide authorization: `--header 'Authorization: Bearer {TOKEN_FROM_PREVIOUS_STEP}`.
 
@@ -54,81 +54,79 @@ After the role is assigned, you can access the Spring Cloud Config Server and th
 
     b. Access an endpoint like *'https://SERVICE_NAME.svc.azuremicroservices.io/eureka/eureka/apps'* to see the registered apps in Spring Cloud Service Registry (Eureka here).
 
-    If the response is *401 Unauthorized*, check to see if the role is successfully assigned.  It'll take several minutes for the role to take effect or to verify that the access token has not expired.
+    If the response is *401 Unauthorized*, check to see if the role is successfully assigned.  It will take several minutes for the role to take effect or to verify that the access token has not expired.
 
-1. More reference for endpoint path
+For more information about actuator endpoint, see [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints).
 
-    - For more information about actuator endpoint, see [Production ready endpoints](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#production-ready-endpoints).
+For Eureka endpoints, see [Eureka-REST-operations](https://github.com/Netflix/eureka/wiki/Eureka-REST-operations)
 
-    - For eureka endpoints, see [Eureka-REST-operations](https://github.com/Netflix/eureka/wiki/Eureka-REST-operations)
-
-    - For config server endpoints and detailed path information, see [ResourceController.java](https://github.com/spring-cloud/spring-cloud-config/blob/main/spring-cloud-config-server/src/main/java/org/springframework/cloud/config/server/resource/ResourceController.java) and [EncryptionController.java](https://github.com/spring-cloud/spring-cloud-config/blob/main/spring-cloud-config-server/src/main/java/org/springframework/cloud/config/server/encryption/EncryptionController.java).
+For config server endpoints and detailed path information, see [ResourceController.java](https://github.com/spring-cloud/spring-cloud-config/blob/main/spring-cloud-config-server/src/main/java/org/springframework/cloud/config/server/resource/ResourceController.java) and [EncryptionController.java](https://github.com/spring-cloud/spring-cloud-config/blob/main/spring-cloud-config-server/src/main/java/org/springframework/cloud/config/server/encryption/EncryptionController.java).
 
 ## Register Spring Boot apps to Spring Cloud Config Server and Service Registry managed by Azure Spring Cloud
 
 After the role is assigned, you can register Spring Boot apps to Spring Cloud Config Server and Service Registry managed by Azure Spring Cloud with Azure AD token authentication. Both Config Server and Service Registry support [custom REST template](https://cloud.spring.io/spring-cloud-config/reference/html/#custom-rest-template) to inject the bearer token for authentication.
 
-For more information about how to implement your own Config Server / Service Registry REST template integrated with Azure AD, see the [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples) repository on GitHub. Please pay attention to the following key code.
+For more information about how to implement your own Config Server / Service Registry REST template integrated with Azure AD, see the [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples) repository on GitHub. Pay attention to the following key code.
 
-1. *AccessTokenManager.java*
+**In *AccessTokenManager.java*:**
 
-    This class is responsible for getting an access token from Azure AD. Configure the service principal's login information in the *application.properties* file and initialize `ApplicationTokenCredentials` to get the token.
+`AccessTokenManager` is responsible for getting an access token from Azure AD. Configure the service principal's sign-in information in the *application.properties* file and initialize `ApplicationTokenCredentials` to get the token.
 
-    ```java
-    prop.load(in);
-    tokenClientId = prop.getProperty("access.token.clientId");
-    String tenantId = prop.getProperty("access.token.tenantId");
-    String secret = prop.getProperty("access.token.secret");
-    String clientId = prop.getProperty("access.token.clientId");
-    credentials = new ApplicationTokenCredentials(
-        clientId, tenantId, secret, AzureEnvironment.AZURE);
-    ```
+```java
+prop.load(in);
+tokenClientId = prop.getProperty("access.token.clientId");
+String tenantId = prop.getProperty("access.token.tenantId");
+String secret = prop.getProperty("access.token.secret");
+String clientId = prop.getProperty("access.token.clientId");
+credentials = new ApplicationTokenCredentials(
+    clientId, tenantId, secret, AzureEnvironment.AZURE);
+```
 
-1. *CustomConfigServiceBootstrapConfiguration.java*
+**In *CustomConfigServiceBootstrapConfiguration.java*:**
 
-    `CustomConfigServiceBootstrapConfiguration` implements the custom REST template for Config Server and injects the token from Azure AD as `Authorization` headers.
+`CustomConfigServiceBootstrapConfiguration` implements the custom REST template for Config Server and injects the token from Azure AD as `Authorization` headers.
 
-    ```java
-    public class RequestResponseHandlerInterceptor implements ClientHttpRequestInterceptor {
+```java
+public class RequestResponseHandlerInterceptor implements ClientHttpRequestInterceptor {
 
-        @Override
-        public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
-            String accessToken = AccessTokenManager.getToken();
-            request.getHeaders().remove(AUTHORIZATION);
-            request.getHeaders().add(AUTHORIZATION, "Bearer " + accessToken);
+    @Override
+    public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
+        String accessToken = AccessTokenManager.getToken();
+        request.getHeaders().remove(AUTHORIZATION);
+        request.getHeaders().add(AUTHORIZATION, "Bearer " + accessToken);
 
-            ClientHttpResponse response = execution.execute(request, body);
-            return response;
-        }
-
+        ClientHttpResponse response = execution.execute(request, body);
+        return response;
     }
-    ```
 
-1. *CustomRestTemplateTransportClientFactories.java*
+}
+```
 
-    The two classes are for the implementation of the custom REST template for Spring Cloud Service Registry. The `intercept` part is the same as Config Server above. Be sure to add `factory.mappingJacksonHttpMessageConverter()` to the message converters.
+**In *CustomRestTemplateTransportClientFactories.java*:**
 
-    ```java
-    private RestTemplate customRestTemplate() {
-        /*
-         * Inject your custom rest template
-         */
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getInterceptors()
-            .add(new RequestResponseHandlerInterceptor());
-        RestTemplateTransportClientFactory factory = new RestTemplateTransportClientFactory();
+The previous two classes are for the implementation of the custom REST template for Spring Cloud Service Registry. The `intercept` part is the same as in the Config Server above. Be sure to add `factory.mappingJacksonHttpMessageConverter()` to the message converters.
 
-        restTemplate.getMessageConverters().add(0, factory.mappingJacksonHttpMessageConverter());
+```java
+private RestTemplate customRestTemplate() {
+    /*
+     * Inject your custom rest template
+     */
+    RestTemplate restTemplate = new RestTemplate();
+    restTemplate.getInterceptors()
+        .add(new RequestResponseHandlerInterceptor());
+    RestTemplateTransportClientFactory factory = new RestTemplateTransportClientFactory();
 
-        return restTemplate;
-    }
-    ```
+    restTemplate.getMessageConverters().add(0, factory.mappingJacksonHttpMessageConverter());
 
-1. If you're running applications on a Kubernetes cluster, we recommend that you use an IP address to register Spring Cloud Service Registry for access.
+    return restTemplate;
+}
+```
 
-    ```properties
-    eureka.instance.prefer-ip-address=true
-    ```
+If you're running applications on a Kubernetes cluster, we recommend that you use an IP address to register Spring Cloud Service Registry for access.
+
+```properties
+eureka.instance.prefer-ip-address=true
+```
 
 ## Next steps
 
