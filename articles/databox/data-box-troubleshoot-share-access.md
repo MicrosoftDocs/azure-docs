@@ -35,13 +35,12 @@ If you can connect to the device, a domain issue isn't preventing your share con
 
 ## Account locked out of share
 
-After several attempts to connect to a share on your device with an incorrect share password, the share will be locked, and you won't be able to connect. The account lock will clear after a few minutes, and you'll be able to connect to the device.
-
-**Account lockout.** The lockout period and number of failed attempts depend on the version of your Data Box:
-- In Data Box 4.1 and later, the account is locked after 5 attempts and is unlocked 15 minutes later.
-- In Data Box 4.0 and earlier, the account is locked after 3 attempts and is unlocked 30 minutes later.
+After five failed attempts to connect to a share with an incorrect password, the share will be locked, and you won't be able to connect for 15 minutes.
  
 The failed connection attempts may include background processes, such as retries, which you may not be aware of.
+
+> [!NOTE]
+> If you have an older device with Data Box version 4.0 or earlier, the account is locked after 3 attempts and is unlocked 30 minutes later.
 
 **Error description.** You'll see one of the following errors, depending on how you're accessing the share:
 
@@ -62,7 +61,10 @@ The failed connection attempts may include background processes, such as retries
   ![Screenshot of the Notifications pane in the local Web UI for a Data Box. A notification for a locked share account is highlighted.](media/data-box-troubleshoot-share-access/share-lock-01.png)
 
 
-**Suggested resolution.** To connect to an SMB share after a share account lockout, do these steps:
+**Suggested
+
+
+ resolution.** To connect to an SMB share after a share account lockout, do these steps:
 
 1. Verify the SMB credentials for the share. In the local web UI of your device, go to **Connect and copy**, and select **SMB** for the share. You'll see the following dialog box.
 
