@@ -11,7 +11,7 @@ ms.subservice: azure-sentinel
 
 ---
 
-# Expert configuration options, on-premises deployment and SAPControl log sources
+# Expert configuration options, on-premises deployment, and SAPControl log sources
 
 This article describes how to deploy the Azure Sentinel SAP data connector in an expert or custom process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
 
@@ -343,7 +343,7 @@ To ingest all ABAP logs into Azure Sentinel, including both NW RFC and SAP Contr
 
 To ingest SAP Control Web Service logs into Azure Sentinel, configure the following JAVA SAP Control instance details:
 
-|Paramter  |Description  |
+|Parameter  |Description  |
 |---------|---------|
 |**javaappserver**     |Enter your SAP Control Java server host. <br>For example: `contoso-java.server.com`         |
 |**javainstance**     |Enter your SAP Control ABAP instance number. <br>For example: `10`         |
