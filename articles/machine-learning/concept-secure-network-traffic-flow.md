@@ -69,12 +69,14 @@ The following features of Azure Machine Learning studio use _data profiling_:
 
 * Dataset: Explore the dataset from studio.
 * Designer: Visualize module output data.
-* AutoML: View a data preview/profile and choose a targete column.
+* AutoML: View a data preview/profile and choose a target column.
 * Labeling
 
-Data profiling depends on the Azure Machine Learning managed service being able to access your data storage service(s). The Azure ML managed service does not belong to your VNet, so cannot directly access storage services in the VNet. For example, the Azure Storage Account that contains the default storage for your workspace. To allow access to the storage services, you must configure the storage service to __Allow Azure services on the trusted services list to access this storage account__. This allows the managed service to access storage through the Azure data center network.
+Data profiling depends on the Azure Machine Learning managed service being able to access the Azure Storage Account that contains the default storage for the workspace. The Azure ML managed service does not belong to your VNet, so cannot directly access the storage account in the VNet. To allow access to the storage account, you must configure the storage account to __Allow Azure services on the trusted services list to access this storage account__. This allows the managed service to access storage through the Azure data center network.
 
-Azure Machine Learning adds another layer of validation in this scenario, [need clarification on this. Have messaged Jumpei on it.]
+Azure Machine Learning adds another layer of validation in this scenario; you have to give the service principal for the workspace the __Data blob contributor__ role to the private endpoint of the storage account.
+
+:::image type="content" source="{source}" alt-text="Diagram of traffic between client, data profiling, and storage":::
 
 ## Scenario: Use compute instance and compute cluster
 
