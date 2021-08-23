@@ -6,7 +6,7 @@ ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 06/30/2021
-ms.custom: template-quickstart, references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: template-quickstart
 keywords: "Kubernetes, Arc, Azure, cluster"
 ---
 
@@ -19,6 +19,14 @@ In this quickstart, you'll learn the benefits of Azure Arc enabled Kubernetes an
 ## Prerequisites
 
 ### [Azure CLI](#tab/azure-cli)
+
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
+
+* Install the **connectedk8s** Azure CLI extension of version >= 1.0.0:
+
+  ```console
+  az extension add --name connectedk8s
+  ```
 
 * An up-and-running Kubernetes cluster. If you don't have one, you can create a cluster using one of these options:
     * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
@@ -37,13 +45,6 @@ In this quickstart, you'll learn the benefits of Azure Arc enabled Kubernetes an
 * 'Read' and 'Write' permissions on the Azure Arc enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
 
 * Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
-
-* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
-* Install the **connectedk8s** Azure CLI extension of version >= 1.0.0:
-
-  ```console
-  az extension add --name connectedk8s
-  ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
