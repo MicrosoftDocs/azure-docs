@@ -805,7 +805,7 @@ You can optionally filter the messages that your logic app workflow receives fro
 
 When you set up the array filter, the trigger only receives messages from the specified SAP action types and rejects all other messages from your SAP server. However, this filter doesn't affect whether the typing of the received payload is weak or strong.
 
-Any SAP action filtering happens at the level of the SAP adapter for your on-premises data gateway. For more information, review [how to send test IDocs to Azure Logic Apps from SAP](#test-sending-idocs-from-sap).
+Any SAP action filtering happens at the level of the SAP Adapter for your on-premises data gateway. For more information, review [how to send test IDocs to Azure Logic Apps from SAP](#test-sending-idocs-from-sap).
 
 If you can't send IDoc packets from SAP to your logic app workflow's trigger, review the Transactional RFC (tRFC) call rejection message in the SAP tRFC (T-Code SM58) dialog box. In the SAP interface, you might get the following error messages, which are clipped due to the substring limits on the **Status Text** field.
 
@@ -858,7 +858,7 @@ To configure an asynchronous request-reply pattern for your logic app workflow u
 
 ## Find extended error logs
 
-For full error messages, check your SAP adapter's extended logs. You can also [enable an extended log file for the SAP connector](#extended-sap-logging-in-on-premises-data-gateway).
+For full error messages, check your SAP Adapter's extended logs. You can also [enable an extended log file for the SAP connector](#extended-sap-logging-in-on-premises-data-gateway).
 
 * For on-premises data gateway releases from April 2020 and earlier, logs are disabled by default.
 
@@ -892,7 +892,7 @@ Optionally, advanced users can capture ETW events directly. You can then [consum
 
 1. In the PerfView menu, select **Collect** &gt; **Collect** to capture the events.
 
-1. In the **Additional Provider** field, enter `*Microsoft-LobAdapter` to specify the SAP provider to capture SAP adapter events. If you don't specify this information, your trace only includes general ETW events.
+1. In the **Additional Provider** field, enter `*Microsoft-LobAdapter` to specify the SAP provider to capture SAP Adapter events. If you don't specify this information, your trace only includes general ETW events.
 
 1. Keep the other default settings. If you want, you can change the file name or location in the **Data File** field.
 
@@ -979,7 +979,7 @@ To send IDocs from SAP to your logic app workflow, you need the following minimu
 
    This way, when you save your workflow, Azure Logic Apps registers the **Program ID** on the SAP Gateway.
 
-1. In your workflow's trigger history, the on-premises data gateway SAP adapter logs, and the SAP Gateway trace logs, check the registration status. In the SAP Gateway monitor dialog box (T-Code SMGW), under **Logged-On Clients**, the new registration should appear as **Registered Server**.
+1. In your workflow's trigger history, the on-premises data gateway SAP Adapter logs, and the SAP Gateway trace logs, check the registration status. In the SAP Gateway monitor dialog box (T-Code SMGW), under **Logged-On Clients**, the new registration should appear as **Registered Server**.
 
 1. To test your connection, in the SAP interface, under your new **RFC Destination**, select **Connection Test**.
 
@@ -1584,7 +1584,7 @@ With the August 2021 update for the on-premises data gateway, SAP connector oper
 
 * Metrics and traces based on SAP NCo metrics and monitors.
 
-* Traces from Microsoft SAP adapter.
+* Traces from Microsoft SAP Adapter.
 
 ### Metrics and traces from SAP client library
 
@@ -1703,7 +1703,7 @@ After your SAP operations run in your logic app workflow, you can review the tel
 
    * The **valueCount** column shows **2** for each reading because metrics are generated at 30-second intervals, and Application Insights aggregates these metrics by the minute.
 
-   * The **DestinationName** column contains a character string that is a Microsoft SAP adapter internal name.
+   * The **DestinationName** column contains a character string that is a Microsoft SAP Adapter internal name.
 
      To better understand this Remote Function Call (RFC) destination, use this value with `traces`, for example:
 
@@ -1727,9 +1727,9 @@ You can also create metric charts or alerts using those capabilities in Applicat
 
 [![Screenshot showing Application Insights with the results in chart format.](./media/logic-apps-using-sap-connector/application-insights-metrics-chart.png)](./media/logic-apps-using-sap-connector/application-insights-metrics-chart.png#lightbox)
 
-### Traces from Microsoft SAP adapter
+### Traces from Microsoft SAP Adapter
 
-You can use traces sent from Microsoft SAP adapter for issue post-analysis and to find any existing internal system errors that might or might not surface from SAP connector operations. These traces have `message` set to `"n\a"` because they come from an older event source framework that's not designed for Application Insights, for example:
+You can use traces sent from Microsoft SAP Adapter for issue post-analysis and to find any existing internal system errors that might or might not surface from SAP connector operations. These traces have `message` set to `"n\a"` because they come from an older event source framework that's not designed for Application Insights, for example:
 
 ```Kusto
 traces  
