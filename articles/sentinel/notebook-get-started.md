@@ -554,10 +554,10 @@ This procedure describes how to define the components that are automatically loa
 
 Supported components include, in the following order:
 
-1. **TILookup:** The [TI provider library](#define-threat-intelligence-providers)
-1. **GeoIP:** The [GeoIP provider](#define-geoip-providers) you want to use
-1. **AzureData:** The module you use to query details about [Azure resources](#define-azure-authentication-and-azure-sentinel-apis)
-1. **AzureSentinelAPI:** The module you use to query the [Azure Sentinel API](#define-azure-authentication-and-azure-sentinel-apis)
+1. **TILookup:** The [TI provider library](#add-threat-intelligence-provider-settings)
+1. **GeoIP:** The [GeoIP provider](#add-geoip-provider-settings) you want to use
+1. **AzureData:** The module you use to query details about [Azure resources](#define-azure-authentication-and-azure-sentinel-apis-optional)
+1. **AzureSentinelAPI:** The module you use to query the [Azure Sentinel API](#define-azure-authentication-and-azure-sentinel-apis-optional)
 1. **Notebooklets:** Notebooklets from the [msticnb package](https://msticnb.readthedocs.io/en/latest/)
 1. **Pivot:** Pivot functions
 
