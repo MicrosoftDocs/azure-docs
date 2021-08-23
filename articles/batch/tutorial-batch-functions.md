@@ -48,14 +48,14 @@ In this section, you'll use Batch Explorer to create the Batch pool and Batch jo
 
 ### Create a job
 
-1. Create a job on the pool by selecting **Jobs** on the left side bar, then the **Add** button above the search form. 
+1. Create a job on the pool by selecting **Jobs** on the left side bar, then the **Add** button above the search form.
    1. Choose an ID and display name. We'll use `ocr-job` for this example.
    1. Set the pool to `ocr-pool`, or whatever name you chose for your pool.
    1. Select **OK**.
 
 ## Create blob containers
 
-Here you'll create blob containers that will store your input and output files for the OCR Batch job. In this example, the input container is named `input` and is where all documents without OCR are initially uploaded for processing. The output container is named `output` and is where the Batch job writes processed documents with OCR. 
+Here you'll create blob containers that will store your input and output files for the OCR Batch job. In this example, the input container is named `input` and is where all documents without OCR are initially uploaded for processing. The output container is named `output` and is where the Batch job writes processed documents with OCR.
 
 1. Sign in to [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) using your Azure credentials.
 1. Using the storage account linked to your Batch account, create two blob containers (one for input files, one for output files) by following the steps at [Create a blob container](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
