@@ -4,7 +4,7 @@ description: In this tutorial, learn how to onboard a sensor and management cons
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 08/16/2021
+ms.date: 08/23/2021
 ms.custom: template-tutorial
 ---
 
@@ -359,20 +359,44 @@ Either ESXi, or Hyper-V can be used to install the software for the sensor.
     | ----------| ------------- |
     | **Hardware profile** | Based on the required [architecture](#create-and-install-the-virtual-sensor). |
     | **Management interface** | **ens192** |
-    | **Network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**default gateway:** <br/>**input interfaces:**|
+    | **Network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br>**appliance hostname:** <br/>**DNS:** <br/>**default gateway:** <br/>**input interfaces:**|
     | **bridge interfaces:** | There's no need to configure the bridge interface. This option is for special use cases only. |
 
 1. Enter **Y** to accept the settings.
 
-1. Sign-in credentials are automatically generated and presented. Copy the username and password in a safe place, because they're required for sign-in and administration.
+1. Sign-in credentials are automatically generated and presented. Copy the username and password in a safe place, because they're required for sign-in, and administration. The username and password will not be presented again.
 
-      - **Support**: The administrative user for user management.
+    - **Support**: The administrative user for user management.
 
-      - **CyberX**: The equivalent of root for accessing the appliance.
+    - **CyberX**: The equivalent of root for accessing the appliance.
 
 1. The appliance restarts.
 
 1. Access the management console via the IP address previously configured: `https://ip_address`.
 
-## 
+### Post-installation validation
+
+To validate the installation of a physical appliance, you need to perform many tests. The same validation process applies to all the appliance types.
+
+The validation is available to both the **Support**, and **CyberX** user.
+
+:::image type="content" source="media/tutorial-install-components/system-health-check-screen.png" alt-text="Screenshot that shows the system health check.":::
+
+**To access the post validation tool**:
+
+1. Sign in to the sensor.
+
+1. Select **System Settings** from the left side pane.
+
+1. Select **System Statistics**.
+
+    :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
+
+**To verify that the system is running**:
+
+1. Select **Appliance**, and ensure that each line item shows `Running` and the bottom line states `System is up`.
+
+1. Select **Version**, and ensure that the correct version appears.
+
+1. Under the System section select **ifconfig** to displays the parameters for the appliance's physical interfaces.
 
