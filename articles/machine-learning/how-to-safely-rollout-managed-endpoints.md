@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 08/05/2021
+ms.date: 09/05/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
 ---
@@ -81,7 +81,7 @@ In the deployment described in [Deploy and score a machine learning model with a
 :::code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
 
 > [!Note]
-> Notice that in the above command we use `--set` to override the deployment configuration. Alternatively you can update the yaml file and pass it as an input to the `update` command using the `--file` input.
+> Notice that in the above command we use `--set` to override the deployment configuration. Alternatively, you can update the yaml file and pass it as an input to the `update` command using the `--file` input.
 
 ## Deploy a new model, but send it no traffic yet
 
@@ -89,7 +89,7 @@ Create a new deployment named `green`:
 
 :::code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-safe-rollout-online-endpoints.sh" ID="create_green" :::
 
-Since we have not explicitly allocated any traffic to green, it will zero traffic allocated to it. You can verify that using the command:
+Since we have not explicitly allocated any traffic to green, it will have zero traffic allocated to it. You can verify that using the command:
 
 :::code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-safe-rollout-online-endpoints.sh" ID="get_traffic" :::
 
@@ -105,7 +105,7 @@ If you want to use a REST client to invoke the deployment directly without going
 
 ## Test the new deployment with a small percentage of live traffic
 
-Once you have tested your `green` deployment, allocate small percentage of traffic to it:
+Once you have tested your `green` deployment, allocate a small percentage of traffic to it:
 
 :::code language="azurecli" source="~/azureml-examples-puprefresh/cli/deploy-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
 
