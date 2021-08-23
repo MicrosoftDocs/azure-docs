@@ -67,16 +67,11 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
 - Verify you have an existing [Azure Arc enabled Kubernetes connected cluster](quickstart-connect-cluster.md).
     - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.1.0 or later.
 
->[!NOTE]
->**Supported regions for custom locations:**
->* East US
->* West Europe
-
 ## Enable custom locations on cluster
 
 If you are logged into Azure CLI as a Azure AD user, to enable this feature on your cluster, execute the following command:
 
-```console
+```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
 ```
 
@@ -84,13 +79,13 @@ If you are logged into Azure CLI using a service principal, to enable this featu
 
 1. Fetch the Object ID of the Azure AD application used by Azure Arc service:
 
-    ```console
+    ```azurecli
     az ad sp show --id 'bc313c14-388c-4e7d-a58e-70017303ee3b' --query objectId -o tsv
     ```
 
 1. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
 
-    ```console
+    ```azurecli
     az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
     ```
 
