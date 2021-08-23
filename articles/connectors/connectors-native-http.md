@@ -302,7 +302,7 @@ HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.
 
 <a name="disable-location-header-check"></a>
 
-### Retry-After  
+### Set up interval between retry attempts with the Retry-After header
 
 The HTTP action supports using the `Retry-After` header and the `429 - Too many requests` status code. To set up the interval between retry attempts, add the `Retry-After` header to the HTTP action, and set the value in seconds:
 the value will be considered as Seconds
