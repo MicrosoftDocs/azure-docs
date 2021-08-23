@@ -1622,20 +1622,18 @@ Before you can send SAP telemetry for your gateway installation to Application I
 
 To enable sending SAP telemetry to Application insights, follow these steps:
 
-1. In your on-premises data gateway installation directory, check that the **Microsoft.ApplicationInsights.EventSourceListener.dll** file has the same version that matches the **Microsoft.ApplicationInsights.dll** file in your gateway installation directory. The gateway currently uses version 2.14.0.
+1. Download the NuGet package for **Microsoft.ApplicationInsights.EventSourceListener.dll** from this location: [https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0).
 
-   If the file versions don't match for any reason, follow these steps:
+1. Add the downloaded file to your on-premises data gateway installation directory.
 
-   1. Download the NuGet package from this location: [https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0).
+1. In your on-premises data gateway installation directory, check that the **Microsoft.ApplicationInsights.dll** file has the same version number as the **Microsoft.ApplicationInsights.EventSourceListener.dll** file that you added. The gateway currently uses version 2.14.0.
 
-   1. Add the downloaded file to the installation directory.
-
-   1. If necessary, update the ApplicationInsights.config file, which is also in your gateway installation directory by uncommenting the line with the `<InstrumentationKey></Instrumentation>` element, and replacing *user-key-placeholder* with your [Application Insights instrumentation key](../azure-monitor/app/app-insights-overview.md#how-does-application-insights-work), for example:
+1. If the file versions don't match for any reason, update the **ApplicationInsights.config** file by uncommenting the line with the `<InstrumentationKey></Instrumentation>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your [Application Insights instrumentation key](../azure-monitor/app/app-insights-overview.md#how-does-application-insights-work), for example:
 
       ```xml
       <?xml version="1.0" encoding="utf-8"?>
       <ApplicationInsights schemaVersion="2014-05-30" xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-         <!-- Uncomment this element and insert your Application Insights key to receive ETW telemetry about your gateway <InstrumentationKey>*user-key-placeholder*</InstrumentationKey> -->
+         <!-- Uncomment this element and insert your Application Insights key to receive ETW telemetry about your gateway <InstrumentationKey>*your-instrumentation-key-placeholder*</InstrumentationKey> -->
          <TelemetryModules>
             <Add Type="Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule, Microsoft.ApplicationInsights">
                <IsHeartbeatEnabled>false</IsHeartbeatEnabled>
