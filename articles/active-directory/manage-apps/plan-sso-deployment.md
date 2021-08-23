@@ -14,7 +14,7 @@ ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-# Customer intent: As an IT admin, I need to learn about single-sign on (SSO) so I can understand the feature and help others in my organization to understand its value.
+# Customer intent: As an IT admin, I need to learn what it takes to plan a single-sign on deployment for my application.
 ---
 
 # Plan a single sign-on deployment
@@ -87,7 +87,7 @@ From the sign-in perspective, applications with shared accounts aren't different
 ## Single sign-on options
 
 There are several ways you can configure an application for single sign-on. Choosing a single sign-on method depends on how the application is configured for authentication.
-- Cloud applications can use OpenID Connect, OAuth, SAML, password-based, linked, or disabled methods for single sign-on.
+- Cloud applications can use OpenID Connect, OAuth, SAML, password-based, or linked for single sign-on. Single sign-on can also be disabled.
 - On-premises applications can use password-based, Integrated Windows Authentication, header-based, linked, or disabled methods for single sign-on. The on-premises choices work when applications are configured for [Application Proxy](../app-proxy/what-is-application-proxy.md).
 
 This flowchart can help you decide which single sign-on method is best for your situation.

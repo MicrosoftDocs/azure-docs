@@ -13,17 +13,18 @@ ms.date: 07/19/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.custom: contperf-fy21q1
+# Customer intent: As an IT admin, I need to learn about single sign-on and my applications in Azure Active Directory.
 ---
 
 # What is single sign-on?
 
-This article provides you with information about what single sign-on (SSO) is in relation to your applications and Azure Active Directory (Azure AD). Using SSO means a user doesn't have to sign into every application they use. The user logs in once and that credential is used for other apps too. With SSO, users can access all needed applications without being required to authenticate a second time. 
+This article provides you with information about the single sign-on (SSO) options that are available to you when using Azure Active Directory (Azure AD) and an introduction to planning a single sign-on deployment. Single sign-on is an authentication method that allows users to sign in using one set of credentials to multiple independent software systems. Using SSO means a user doesn't have to sign in to every application they use. With SSO, users can access all needed applications without being required to authenticate using different credentials. 
 
-Many applications already exist in Azure Active Directory (Azure AD) that you can use with SSO. You have several options for SSO depending on the needs of the application and how it is implemented. Take time to plan your SSO deployment before you create applications in Azure AD. The management of applications can be made easier by using the MyApps portal.
+Many applications already exist in Azure AD that you can use with SSO. You have several options for SSO depending on the needs of the application and how it is implemented. Take time to plan your SSO deployment before you create applications in Azure AD. The management of applications can be made easier by using the MyApps portal.
 
 ## SSO options
 
-Choosing an SSO method depends on how the application is configured for authentication. Cloud applications can use federation-based options, such as OpenID Connect, OAuth, and SAML, or password-based, linked, or disabled methods.
+Choosing an SSO method depends on how the application is configured for authentication. Cloud applications can use federation-based options, such as OpenID Connect, OAuth, and SAML. The application can also use password-based SSO, linked SSO, or SSO can be disabled.
 
 - **Federation** - When you set up SSO to work between multiple identity providers, it's called federation. An SSO implementation based on federation protocols improves security, reliability, end-user experiences, and implementation. 
 
@@ -33,13 +34,25 @@ Choosing an SSO method depends on how the application is configured for authenti
 
     Single sign-on is not available when an application is hosted in another tenant. Single sign-on is also not available if your account doesn't have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open single sign-on but won't be able to save.
 
-    Authentication fundamentals: Federation | Azure Active Directory
-
     > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8]
 
 - **Password-based** - On-premises applications can use password-based, Integrated Windows Authentication, header-based, linked, or disabled methods for single sign-on. The on-premises choices work when applications are configured for [Application Proxy](../app-proxy/what-is-application-proxy.md).
 
     With password-based single sign-on, users sign in to the application with a username and password the first time they access it. After the first sign-on, Azure AD supplies the username and password to the application. Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This option uses the existing sign-in process provided by the application, enables an administrator to manage the passwords, and doesn't require the user to know the password.
+
+- **Linked sign-on** - Linked sign-on can provide a consistent user experience while you migrate applications over a period of time. If you're migrating applications to Azure AD, you can use linked sign-on to quickly publish links to all the applications you intend to migrate. Users can find all the links in the MyApps or the Microsoft 365 portals.
+
+    After a user has authenticated with a linked application, an account needs to be created before the user is provided single sign-on access. Provisioning this account can either occur automatically, or it can occur manually by an administrator. You cannot apply conditional access policies or multi-factor authentication to a linked application because a linked application does not provide single sign-on capabilities through Azure AD. When you configure a linked application you are simply adding a link that appears for launching the app.
+
+- **Disabled** - When SSO is disabled, it isn't available for the application. When single sign-on is disabled, users might need to authenticate twice. First, users authenticate to Azure AD, and then they sign in to the application.
+
+    Disable SSO when:
+
+    - You're not ready to integrate this application with Azure AD single sign-on
+    - You're testing other aspects of the application
+    - An on-premises application doesn't require users to authenticate, but you want them to. With SSO disabled, the user needs to authenticate.
+
+    If you configured the application for SP-initiated SAML-based SSO and you change the SSO mode to disabled, it won't stop users from signing in to the application outside the MyApps portal. To achieve this, you need to [disable the ability for users to sign-in](disable-user-sign-in-portal.md).
 
 ## Plan SSO deployment
 
@@ -47,7 +60,7 @@ Web applications are hosted by various companies and made available as a service
 
 How you implement single sign-on depends on where the application is hosted. Hosting matters because of the way network traffic is routed to access the application. Users don't need to use the Internet to access on-premises applications (hosted on a local network). If the application is hosted in the cloud, users need the Internet to use it. Cloud hosted applications are also called Software as a Service (SaaS) applications.
 
-For cloud applications, federation protocols are used. You can also use single sign-on for on-premises-based applications. You let the identity provider know it's being used for the application, and then you configure the application using Application Proxy to trust the identity provider. 
+For cloud applications, federation protocols are used. You can also use single sign-on for on-premises applications. You can use Application Proxy to configure access for your on-premises application. For more information, see [Remote access to on-premises applications through Azure AD Application Proxy](../app-proxy/application-proxy.md).
 
 ## MyApps
 
