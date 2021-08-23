@@ -25,10 +25,10 @@ Through the use of virtual environments along with the software needed to create
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Onboard with Azure Defender for IoT
-> * Create and install the virtual management console
-> * Create and install the virtual sensor
-> * 
+> Onboard with Azure Defender for IoT
+> Create and install the virtual management console
+> Create and install the virtual sensor
+> Activate the on-premises management console
 
 ## Prerequisites
 
@@ -392,11 +392,48 @@ The validation is available to both the **Support**, and **CyberX** user.
 
     :::image type="icon" source="media/tutorial-install-components/system-statistics-icon.png" border="false":::
 
+For post-installation validation, you must test to ensure the system is running, that you have the right version, and to verify that all of the input interfaces that were configured during the installation process are running.
+
 **To verify that the system is running**:
 
 1. Select **Appliance**, and ensure that each line item shows `Running` and the bottom line states `System is up`.
 
 1. Select **Version**, and ensure that the correct version appears.
 
-1. Under the System section select **ifconfig** to displays the parameters for the appliance's physical interfaces.
+1. Select **ifconfig** to displays the parameters for the appliance's physical interfaces.
+
+## Activate the on-premises management console
+
+In order to set up your management console, you will need to sign in, and activate it.
+
+**To sign in to the management console:**
+
+1. Navigate to the IP address you received for the on-premises management console during the system installation.
+
+1. Enter the username and password you received for the on-premises management console during the system installation.
+
+After you sign in for the first time, you will need to activate the on-premises management console by getting, and uploading an activation file.
+
+**To activate the on-premises management console:**
+
+1. Select the **Take Action** link, in the alert notification at the top of the screen.
+
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/take-action.png" alt-text="Select the Take Action link from the alert on the top of the screen.":::
+
+1. In the Activation popup screen, select the **Azure portal** link.
+
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/azure-portal.png" alt-text="Select the Azure portal link from the popup message.":::
+
+1. Select a subscription to associate the on-premises management console to, and then select the **Download on-premises management console activation file** button. The activation file is downloaded.
+
+   The on-premises management console can be associated to one, or more subscriptions. The activation file will be associated with all of the selected subscriptions, and the number of committed devices at the time of download.
+
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="You can select multiple subscriptions to onboard your on-premises management console to.":::
+
+1. Navigate back to the **Activation** popup screen, and select **Choose File**.
+
+1. Select the downloaded file.
+
+> [!Note]
+> Valuation environments will use the self signed certificate. Production environments should not use the self signed certificate.
 
