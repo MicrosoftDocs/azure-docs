@@ -33,7 +33,7 @@ This article helps you configure Azure Route Server to peer with a Network Virtu
 
 ### Create a resource group 
 
-Before you can create an Azure Route Server, you have to create a resource group to host the Router Server. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a resource group named **myRouteServerRG** in the **WestUS** location:
+Before you can create an Azure Route Server, you have to create a resource group to host the Route Server. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a resource group named **myRouteServerRG** in the **WestUS** location:
 
 ```azurepowershell-interactive
 $rg = @{
