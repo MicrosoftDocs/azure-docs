@@ -111,7 +111,9 @@ Autoscale automatically runs the right amount of resources to handle the load on
 
 ### VNET ingress
 
-tk {>> inputs from Joon's doc -- 11860342 <<}
+Securing managed online/batch endpoints requires minimal effort compared to the other compute environments as they share the same private endpoint resource used for securing your workspace. If you have a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint), all managed online/batch endpoints in the workspace will be secured by the same private endpoint resource that was created.
+
+ You can further allow individual online/batch endpoints to have public internet access if you want a particular endpoint to be accessible from the public as well as from your VNet.
 
 ## Managed online endpoints vs AKS online endpoints (preview)
 
