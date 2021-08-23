@@ -576,14 +576,14 @@ Supported components include, in the following order:
 
 1. In the **Autoload Components** tab, define any parameter values as needed. For example:
 
-   - **GeoIpLookup**.  Enter the name of the GeoIP provider you want to use, either *GeoLiteLookup* or *IPStack*.  For more information, see [Define GeoIP providers](#define-geoip-providers).
+   - **GeoIpLookup**.  Enter the name of the GeoIP provider you want to use, either *GeoLiteLookup* or *IPStack*.  For more information, see [Add GeoIP provider settings](#add-geoip-provider-settings).
 
    - **AzureData and AzureSentinelAPI components**.  Define the following values:
 
       - **auth_methods:** Override the default settings for AzureCLI, and connect using the selected methods.
       - **Auto-connect:** Set to false to load without connecting.
 
-      For more information, see [Define Azure authentication and Azure Sentinel APIs](#define-azure-authentication-and-azure-sentinel-apis).
+      For more information, see [Define Azure authentication and Azure Sentinel APIs](#define-azure-authentication-and-azure-sentinel-apis-optional).
 
    - **Notebooklets**. The **Notebooklets** component has a single parameter block: **AzureSentinel**.
 
