@@ -311,7 +311,7 @@ The combined invoice shows Azure usage first, followed by any Azure Marketplace 
 
 If there's no overage usage at the end of the standard billing cycle, charges billed separately are invoiced separately. This process applies to customers in Australia, Japan, and Singapore.
 
-The following services are examples of charges billed separately. You can get a full list of charges billed separately services by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+The following services are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 - Canonical
 - Citrix XenApp Essentials

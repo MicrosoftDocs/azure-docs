@@ -4,7 +4,7 @@ description: Learn how to set up Azure Diagnostics to push Azure Active Director
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/28/2021
+ms.date: 08/19/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -94,6 +94,7 @@ After data is displayed in the event hub, you can access and read the data in tw
 
 ## Next steps
 
+* [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md)
 * [Integrate Azure Active Directory logs with ArcSight using Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](./howto-integrate-activity-logs-with-splunk.md)
 * [Integrate Azure AD logs with SumoLogic by using Azure Monitor](howto-integrate-activity-logs-with-sumologic.md)

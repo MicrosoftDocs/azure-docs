@@ -12,6 +12,8 @@ ms.custom: references_regions, devx-track-azurepowershell
 
 # Redundancy options for managed disks
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Azure managed disks offer two storage redundancy options, zone-redundant storage (ZRS), and locally-redundant storage. ZRS provides higher availability for managed disks than locally-redundant storage (LRS) does. However, the write latency for LRS disks is better than ZRS disks because LRS disks synchronously write data to three copies in a single data center.
 
 ## Locally-redundant storage for managed disks

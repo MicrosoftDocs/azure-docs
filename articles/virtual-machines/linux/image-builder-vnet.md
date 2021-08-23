@@ -13,6 +13,8 @@ ms.subservice: image-builder
 
 # Use Azure Image Builder for Linux VMs allowing access to an existing Azure VNET
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article shows you how you can use the Azure Image Builder to create a basic customized Linux image that has access to existing resources on a VNET. The build VM you create is deployed to a new or existing VNET you specify in your subscription. When you use an existing Azure VNET, the Azure Image Builder service does not require public network connectivity.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
