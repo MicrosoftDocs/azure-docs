@@ -101,40 +101,40 @@ Do the following steps in the Azure portal to order a device.
 
     - You can also select **Create new** to create a new key vault. On the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults, and select **Review + Create**.
 
-      ![Create a new Azure Key Vault settings](./media/data-box-order-portal/customer-managed-key-04.png)
+      ![Create a new Azure Key Vault settings](./media/data-box-order-portal/customer-managed-key-04.png)<!--Updated breadcrumbs.>
 
-      Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
+      Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete. STOPPED HERE REVIEWING LATEST SCREENS. dc
 
       ![New Azure Key Vault review screen](./media/data-box-order-portal/customer-managed-key-05.png)
 
 
-12. The **Select a key** blade will display your selected key.
+12. The **Select a key** blade will display your selected key vault.
 
-    ![Select existing key from Azure Key Vault](./media/data-box-order-portal/customer-managed-key-06.png)
+    ![Screenshot of the "Select a key" screen in Azure Key Vault. The Key Vault field is highlighted.](./media/data-box-order-portal/customer-managed-key-06.png)
 
     If you want to create a new key, select **Create new**. You must use an RSA key. The size can be 2048 or greater. Enter a name for your new key, accept the other defaults, and select **Create**.
 
-      ![Create a new key option](./media/data-box-order-portal/customer-managed-key-07.png)
+      ![Screenshot of the "Create a Key" screen in Azure Key Vault with a key name entered. The Name field and the Create button are highlighted.](./media/data-box-order-portal/customer-managed-key-07.png)
 
       You'll be notified when the key has been created in your key vault. Your new key wil be selected and displayed on the **Select a key** blade.
 
-      ![Create a new key option](./media/data-box-order-portal/customer-managed-key-08.png)
+      ![Screenshot of the "Select a key" screen in Azure Key vault after a new key is added. The Version field, with the default version, is highlighted.](./media/data-box-order-portal/customer-managed-key-08.png)
 
-13. Select the **Version** of the key to use, and then choose **Select**.<!--Stopped here in screen reviews for the weekend. Build, and test again. Steps seem to lost their way, but I believe I had a hard time with the step-through earlier, so I may be missing something.-->
+13. Select the **Version** of the key to use, and then choose **Select**.
 
-      ![New key created in key vault](./media/data-box-order-portal/customer-managed-key-08.png)
+      ![Screenshot of the "Create a Key" screen in Azure Key Vault. The Version field is highlighted, with available versions displayed.](./media/data-box-order-portal/customer-managed-key-08-a.png)
 
-    If you want to create a new key version, select **Create new**.
+    If you want to create a new key version, select **Create new version**.
 
-    ![Open a dialog box for creating a new key version](./media/data-box-order-portal/customer-managed-key-08-a.png)
+    ![Screenshot of the "Create a Key" screen in Azure Key Vault. The "Create new version" link is highlighted.](./media/data-box-order-portal/customer-managed-key-08.png)
 
     Choose settings for the new key version, and select **Create**.
 
-    ![Create a new key version](./media/data-box-order-portal/customer-managed-key-08-b.png)
+    ![Screenshot of the Create a Key dialog box in Azure Key Vault with example field settings. The Create button is highlighted.](./media/data-box-order-portal/customer-managed-key-08-b.png)
 
     The **Encryption type** settings on the **Security** screen show your key vault and key.
 
-    ![Key and key vault for a customer-managed key](./media/data-box-order-portal/customer-managed-key-09.png)
+    ![Screenshot of the Security tab for a Data Box import order. A key vault and key are highlighted in the Encryption type settings.](./media/data-box-order-portal/customer-managed-key-09.png)
 
 14. Select a user identity that you'll use to manage access to this resource. Choose **Select a user identity**. In the panel on the right, select the subscription and the managed identity to use. Then choose **Select**.
 
@@ -142,11 +142,11 @@ Do the following steps in the Azure portal to order a device.
 
     If you need to create a new managed identity, follow the guidance in [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
-    ![Select a user identity](./media/data-box-order-portal/customer-managed-key-10.png)
+    ![Screenshot of Security tab showing "Select user assigned management identity" panel for a Data Box order. Subscription and Selected Identity fields are highlighted.](./media/data-box-order-portal/customer-managed-key-10.png)
 
     The user identity is shown in **Encryption type** settings.
 
-    ![A selected user identity shown in Encryption type settings](./media/data-box-order-portal/customer-managed-key-11.png)
+    ![Screenshot of the Security tab for a Data Box import order. A selected User Identify is highlighted in the Encryption Type settings.](./media/data-box-order-portal/customer-managed-key-11.png)
 
 15. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
 
