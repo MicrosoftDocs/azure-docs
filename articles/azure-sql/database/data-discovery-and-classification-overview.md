@@ -192,7 +192,7 @@ You can use the REST API to programmatically manage classifications and recommen
 
 You can use the following SQL drivers to retrieve classification metadata:
 
-- [ODBC Driver](https://docs.microsoft.com/en-us/sql/connect/odbc/data-classification)
+- [ODBC Driver](https://docs.microsoft.com/sql/connect/odbc/data-classification)
 - [OLE DB Driver](https://docs.microsoft.com/sql/connect/oledb/features/using-data-classification)
 - [JDBC Driver](https://docs.microsoft.com/sql/connect/jdbc/data-discovery-classification-sample)
 - [Microsoft Drivers for PHP for SQL Server](https://docs.microsoft.com/sql/connect/php/release-notes-php-sql-driver)
