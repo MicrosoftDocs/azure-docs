@@ -26,13 +26,20 @@ the policy.
 //additional metadata properties exist
 ```
 
-## How guest configuration metadata is used by Azure
+## How Azure Policy uses guest configuration assignments
 
 The metadata information is used by the guest configuration service to
 automatically create an audit resource for definitions with either
-**AuditIfNotExists** or **DeployIfNotExists** policy effects. That's how
-Azure Policy displays guest configuration results about the current
-state and inform decisions about remediation.
+**AuditIfNotExists** or **DeployIfNotExists** policy effects. The resource type
+is `Microsoft.GuestConfiguration/guestConfigurationAssignments`. Azure Policy
+uses the **complianceStatus** property of the guest assignment resource to
+report compliance status. For more information, see
+[getting compliance data](../how-to/get-compliance-data.md).
+
+### Deletion of guest assignments from Azure Policy
+
+When an Azure Policy assignment is deleted, if a guest configuration assignment
+was created by the policy, the guest configuration assignment is also deleted.
 
 ## Manually creating guest configuration assignments
 
@@ -77,10 +84,33 @@ The following table describes each property of guest assignment resources.
 | assignmentType | Behavior of the assignment. Allowed values: `Audit`, `ApplyandMonitor`, and `ApplyandAutoCorrect`. |
 | configurationParameter | List of DSC resource type, name, and value in the content package MOF file to be overridden after it's downloaded in the machine. |
 
-Guest assignments are created automatically per machine by the guest
-configuration service. The resource type is `Microsoft.GuestConfiguration/guestConfigurationAssignments`. Azure Policy uses the **complianceStatus**
-property of the guest assignment resource to report compliance status. For more
-information, see [getting compliance data](../how-to/get-compliance-data.md).
+### Deletion of manually created guest configuration assignments
+
+Guest configuration assignments created through any manual approach (such as
+an Azure Resource Manager template deployment) must be deleted manually.
+Deleting the parent resource (virtual machine or Arc-enabled machine) will also
+delete the guest configuration assignment.
+
+To manually delete a guest configuration assignment, use the following
+example. Make sure to replace all example strings, indicated by "<myExample>"
+pattern.
+
+```PowerShell
+# First get details about the guest configuration assignment
+$resourceDetails = @{
+  ResourceGroupName = '<myResourceGroupName>'
+  ResourceType      = 'Microsoft.Compute/virtualMachines/providers/guestConfigurationAssignments/'
+  ResourceName      = '<myVMName>/Microsoft.GuestConfiguration'
+  ApiVersion        = '2020-06-25'
+}
+$guestAssignment = Get-AzResource @resourceDetails
+
+# Review details of the guest configuration assignment
+$guestAssignment
+
+# After reviewing properties of $guestAssignment to confirm
+$guestAssignment | Remove-AzResource
+```
 
 ## Next steps
 
