@@ -22,7 +22,8 @@ to create and publish a custom guest configuration package.
 > but packages that apply configurations are **in preview**. **The following limitations apply:**
 > 
 > To use guest configuration packages that apply configurations, Azure VM guest
-> configuration extension version **1.29.24** or later is required.
+> configuration extension version **1.29.24** or later,
+> or Arc agent **1.10.0** or later, is required.
 > 
 > To test creating and applying configurations on Linux, the 
 > `GuestConfiguration` module is only available on Ubuntu 18 but the package
