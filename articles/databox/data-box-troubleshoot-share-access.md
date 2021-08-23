@@ -61,10 +61,7 @@ The failed connection attempts may include background processes, such as retries
   ![Screenshot of the Notifications pane in the local Web UI for a Data Box. A notification for a locked share account is highlighted.](media/data-box-troubleshoot-share-access/share-lock-01.png)
 
 
-**Suggested
-
-
- resolution.** To connect to an SMB share after a share account lockout, do these steps:
+**Suggested resolution.** To connect to an SMB share after a share account lockout, do these steps:
 
 1. Verify the SMB credentials for the share. In the local web UI of your device, go to **Connect and copy**, and select **SMB** for the share. You'll see the following dialog box.
 
