@@ -19,7 +19,7 @@ The following table lists the available configuration settings.
 | Property | Description | Required |
 |---|---|---|
 | `app_location` | Folder that contains the source code for your front-end application. | Yes |
-| `api_location` | Folder that contains the source code for you API application. | No |
+| `api_location` | Folder that contains the source code for your API application. | No |
 | `output_location` | If your web app runs a build step, this is the folder where the public files are generated. | No |
 | `app_build_command` | Defines a custom command to build the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:azure` commands. | No |
 | `api_build_command` | Defines a custom command to build the Azure Functions API application. | No |
@@ -69,9 +69,9 @@ steps:
 In this configuration:
 
 - The `main` branch is monitored for commits.
-- The `app_location` points to `/src` folder which contains the source files for the web app.
-- The `api_location` points to the `api` folder which contains the Azure Functions application for the site's API endpoints.
-- The `output_location` points to the `/public` folder which contains the final version of the app's source files.
+- The `app_location` points to the `/src` folder that contains the source files for the web app.
+- The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints.
+- The `output_location` points to the `/public` folder that contains the final version of the app's source files.
 - The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./publish-devops.md).
 
 # [GitHub Actions](#tab/github-actions)
@@ -126,11 +126,11 @@ jobs:
 In this configuration:
 
 - The `main` branch is monitored for commits.
-- A GitHub Actions is [triggered](https://help.github.com/actions/reference/events-that-trigger-workflows) is triggered begins when a pull request on the `main` branch is: opened, synchronized, reopened, or closed.
+- A GitHub Actions workflow is [triggered](https://help.github.com/actions/reference/events-that-trigger-workflows) is triggered begins when a pull request on the `main` branch is: opened, synchronized, reopened, or closed.
 - The `build_and_deploy_job` executes when you push commits or open a pull request against the branch listed in the `on` property.
-- The `app_location` points to `/src` folder which contains the source files for the web app.
-- The `api_location` points to the `api` folder which contains the Azure Functions application for the site's API endpoints.
-- The `output_location` points to the `/public` folder which contains the final version of the app's source files.
+- The `app_location` points to the `/src` folder that contains the source files for the web app.
+- The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints.
+- The `output_location` points to the `/public` folder that contains the final version of the app's source files.
 
 Don't change the values for `repo_token`, `action`, and `azure_static_web_apps_api_token` as they are set for you by Azure Static Web Apps.
 
@@ -138,7 +138,7 @@ Don't change the values for `repo_token`, `action`, and `azure_static_web_apps_a
 
 ## Custom build commands
 
-You can take fine-grained control over what commands run during the app or API build process. The following example show how to define build with values for `app_build_command` and `api_build_command`.
+You can take fine-grained control over what commands run during the app or API build process. The following example shows how to define build with values for `app_build_command` and `api_build_command`.
 
 # [Azure DevOps](#tab/azure-devops)
 
@@ -183,7 +183,7 @@ with:
 
 ## Skip building front-end app
 
-If you need full control of the build for your front-end app, you can add custom steps to the workflow. For instance, you may choose to bypass the automatic build and deploy the app built in a previous step.
+If you need full control of the build for your front-end app, you may choose to bypass the automatic build and deploy the app built in a previous step.
 
 To skip building the front-end app, set `skip_app_build` to `true` and `app_location` to the location of the folder to deploy.
 
@@ -285,7 +285,7 @@ To target a workflow file to a single app, you specify paths in the `push` and `
 
 # [GitHub Actions](#tab/github-actions)
 
-When you set up a monorepo, each static app has its own configuration file scoped to only files in a single app. The different workflow files live side by side in the repository's _.github/workflows_ folder.
+When you set up a monorepo, each static app configuration is scoped to only files for a single app. The different workflow files live side by side in the repository's _.github/workflows_ folder.
 
 ```files
 ├── .github
