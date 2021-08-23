@@ -106,15 +106,15 @@ Get started with Flexible orchestration mode for your scale sets through the [Az
 ## Add instances with autoscaling or manually
 Virtual machine scale sets with Flexible orchestration works as a thin orchestration layer to manage multiple VMs. There are several ways you can add VMs to be managed by the scale set:
 
-1. **Set instance count**
+- **Set instance count**
 
     When you create the scale set with Flexible orchestration, define a VM profile or template which describes the template to be used to scale out. You can then set the capacity parameter to increase or decrease the number of VM instances managed by the scale set. 
 
-1. **Autoscaling with Metrics or Schedule** 
+- **Autoscaling with Metrics or Schedule** 
 
     Alternatively, you can set up autoscale rules to increase or decrease the capacity based on metrics or a schedule. See [Virtual machine scale sets with Autoscaling](..\virtual-machine-scale-sets\virtual-machine-scale-sets-autoscale-overview.md). 
 
-1. **Specify a scale set when creating a VM**
+- **Specify a scale set when creating a VM**
 
     When you create a VM, you can optionally specify that it is added to a virtual machine scale set. A VM can only be added to a scale set at time of VM creation.
 
@@ -267,7 +267,7 @@ InvalidParameter. Parameter 'virtualMachineProfile' is not allowed.
 
 
 <!-- error -->
-### BadRequest. Creating a Virtual Machine with a Public IP Address via NetworkInterfaceConfigurations during the Public Preview of VM NetworkInterfaceConfigurations initially requires the feature 'Microsoft.Compute/SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview'.
+### BadRequest. Creating a Virtual Machine with a Public IP Address via NetworkInterfaceConfigurations
 
 ```
 BadRequest. Creating a Virtual Machine with a Public IP Address via NetworkInterfaceConfigurations during the Public Preview of VM NetworkInterfaceConfigurations initially requires the feature 'Microsoft.Compute/SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview'.
