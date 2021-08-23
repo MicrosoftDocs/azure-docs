@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: msi
 ms.workload: integration
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 08/23/2021
 ms.author: barclayn
 ms.custom: ep-msia
 #Customer intent: As an administrator I want to know how to access Cosmos DB from a virtual machine using a managed identity
@@ -21,20 +21,20 @@ ms.custom: ep-msia
 # How to use managed identities to connect to Cosmos DB from an Azure virtual machine
 
 
-In this article we set up a virtual machine to use managed identities to connect to Cosmos. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities](overview.md) for Azure resources allow your applications to authenticate when accessing resources while using an identity Azure manages for you. 
+In this article, we set up a virtual machine to use managed identities to connect to Cosmos. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities](overview.md) for Azure resources allow your applications to authenticate when accessing resources while using an identity Azure manages for you. 
 
 ## Prerequisites
 
  - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
 - Before you begin, you must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- A [Comos DB account](../../cosmos-db/create-cosmosdb-resources-portal.md).
+- A [Comos DB Core (SQL) API account](../../cosmos-db/create-cosmosdb-resources-portal.md).
 - You may need either [PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-6.3.0) or the [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 - A resource group that we can use to create all resources.
 
 
 ## Get a virtual machine with a managed identity
 
-Before we proceed, we need a virtual machine with a managed identity. You have a few options: 
+Before we continue, we need a virtual machine with a managed identity. You may choose to create a new VM or use an existing one: 
 - You may choose to create a virtual machine with a system assigned managed identity enabled.
 - You may enable system assigned managed identities on an existing virtual machine.
 - You could create a virtual machine with a user-assigned managed identity enabled.
@@ -304,9 +304,9 @@ Assign a user assigned managed identity to an existing VM
 
 ## Grant access 
 
-Now that you have a virtual machine configured with a managed identity we need to [grant the managed identity access](../../cosmos-db/how-to-setup-rbac.md) to Cosmos. Cosmos DB uses RBAC roles to grant access to either data plane or management plane operations. Access to management plane operations is controlled using [Azure RBAC roles](../../cosmos-db/role-based-access-control.md). Data plane access control is managed using Azure Cosmos DB [data plane RBAC](../../cosmos-db/how-to-setup-rbac.md) helps you manage access to data plane operations. In this example we will grant reader access to the vm's managed identity.
+Now that you have a virtual machine configured with a managed identity we need to [grant the managed identity access](../../cosmos-db/how-to-setup-rbac.md) to Cosmos. Cosmos DB uses RBAC roles to grant access to either data plane or management plane operations. Access to management plane operations is controlled using [Azure RBAC roles](../../cosmos-db/role-based-access-control.md). Data plane access control is managed using Azure Cosmos DB [data plane RBAC](../../cosmos-db/how-to-setup-rbac.md). In this example, we will grant contributor access to the vm's managed identity.
 
->[!NOTE] Azure Cosmos DB exposes two built-in role definitions. We will use the **Cosmos DB Built-in Data Reader** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
+>[!NOTE] Azure Cosmos DB exposes two built-in role definitions. We will use the **Cosmos DB Built-in Data contributor** role. To grant access, you need to associate the role definition with the identity. In our case, the managed identity associated with our virtual machine.
 
 
 
@@ -320,7 +320,7 @@ Now that you have a virtual machine configured with a managed identity we need t
 ```powershell
 $resourceGroupName = "<myResourceGroup>"
 $accountName = "<myCosmosAccount>" 
-$readOnlyRoleDefinitionId = "00000000-0000-0000-0000-000000000001" # This is the ID of the Cosmos DB Built-in Data Reader role definition
+$readOnlyRoleDefinitionId = "00000000-0000-0000-0000-000000000002" # This is the ID of the Cosmos DB Built-in Data contributor role definition
 $principalId = "1111111-1111-11111-1111-11111111" # This is the object ID of the managed identity.
 New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
     -ResourceGroupName $resourceGroupName `
@@ -340,7 +340,7 @@ When the role assignment step completes you should see results similar to the on
 
 resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
-readOnlyRoleDefinitionId = '00000000-0000-0000-0000-000000000001' # This is the ID of the Cosmos DB Built-in Data Reader role definition
+readOnlyRoleDefinitionId = '00000000-0000-0000-0000-000000000002' # This is the ID of the Cosmos DB Built-in Data contributor role definition
 principalId = "1111111-1111-11111-1111-11111111" # This is the object ID of the managed identity.
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 
@@ -348,67 +348,50 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ### [Resource Manager Template](#tab/azure-resource-manager)
 
-TBD what we would show here
+```JSON
+{
+  "id": "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleAssignments/00000000-0000-0000-0000-000000000002",
+  "name": "myRoleAssignmentId",
+  "type": "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments",
+  "properties": {
+    "roleDefinitionId": "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleDefinitions/00000000-0000-0000-0000-000000000002",
+    "scope": "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases/colls/redmond-purchases",
+    "principalId": "myPrincipalId"
+  }
+}
+
+```
 
 
 ---
 
-
-## Get an access token
-
-
-### Windows
-
-1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top. 
-2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 
-3. Now that you have created a **Remote Desktop Connection** with the virtual machine, open PowerShell in the remote session.
-4. Using Powershell’s Invoke-WebRequest, make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Resource Manager.
-
-   ```powershell
-   $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
-   ```
-
-   > [!NOTE]
-   > The value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
-    
-   Next, extract the "Content" element, which is stored as a JavaScript Object Notation (JSON) formatted string in the $response object. 
-    
-   ```powershell
-   $content = $response.Content | ConvertFrom-Json
-   ```
-   Next, extract the access token from the response.
-    
-   ```powershell
-   $ArmToken = $content.access_token
-
-### Linux
-
-Remaining steps are performed from the virtual machine. To complete these steps, you need an SSH client. If you need assistance configuring your SSH client's keys, see [How to create and use an SSH public and private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
-
-1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page click **Connect** at the top. Copy the string to connect to your VM. 
-2. Connect to your VM using your SSH client.  
-3. Next, you are prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
-4. Use CURL to get an access token for Azure Resource Manager: 
-     
-    ```bash
-    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
-    ```
- 
-    > [!NOTE]
-    > In the previous request, the value of the "resource" parameter must be an exact match for what is expected by Azure AD. When using the Azure Resource Manager resource ID, you must include the trailing slash on the URI.
-    > In the following response, the access_token element as been shortened for brevity.
-    
-    ```bash
-    {"access_token":"eyJ0eXAiOi...",
-     "expires_in":"3599",
-     "expires_on":"1518503375",
-     "not_before":"1518499475",
-     "resource":"https://management.azure.com/",
-     "token_type":"Bearer",
-     "client_id":"1ef89848-e14b-465f-8780-bf541d325cd5"}
-     ```
 ## Access data
 
+Navigate to the Azure Cosmos DB account in the Azure portal and create a database and a container. 
+
+Next steps are language-specific:
+
+### .NET
+Initialize your Cosmos DB client:
+CosmosClient client = new CosmosClient("<account-endpoint>", new ManagedIdentityCredential());
+Then [read and write data](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-dotnet-v3sdk-samples).
+
+### Java
+Initialize your Cosmos DB client:
+```java
+CosmosAsyncClient Client = new CosmosClientBuilder() .endpoint("<account-endpoint>") .credential(new ManagedIdentityCredential()) .build();
+```
+
+Then read and write data as described in [these samples](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-java-sdk-samples
+)
+
+### JavaScript
+Initialize your Cosmos DB client:
+
+```javascript
+const client = new CosmosClient({ "<account-endpoint>", aadCredentials: new ManagedIdentityCredential() });
+```
+Then read and write data as described in [these samples](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-nodejs-samples)
 
 ## Clean up steps
 
@@ -419,6 +402,8 @@ Remaining steps are performed from the virtual machine. To complete these steps,
 1. Select **Delete**. 
 
 1. When prompted, confirm the deletion.
+
+
 
 
 ### [PowerShell](#tab/azure-powershell)
