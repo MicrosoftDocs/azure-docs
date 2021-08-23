@@ -58,7 +58,7 @@
       href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
     - name: Enforce threat protection using Azure Defender
       href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
-    - name: Admission control policies using Azure Policy
+    - name: Admission control policy definitions using Azure Policy
       href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
     - name: Deploy Arc enabled Open Service Mesh
       href: tutorial-arc-enabled-open-service-mesh.md

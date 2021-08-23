@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Tutorial to build an Azure Digital Twins scenario using a sample command-line application
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 5/8/2020
+ms.date: 6/1/2021
 ms.topic: tutorial
 ms.service: digital-twins
 

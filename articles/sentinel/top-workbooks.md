@@ -22,7 +22,7 @@ ms.author: bagol
 
 The following table lists the most commonly used, built-in Azure Sentinel workbooks.
 
-Access workbooks in Azure Sentinel under **Threat Management** > **Workbooks** on the left, and then search for the workbook you want to use. For more information, see [Visualize and monitor your data](tutorial-monitor-your-data.md).
+Access workbooks in Azure Sentinel under **Threat Management** > **Workbooks** on the left, and then search for the workbook you want to use. For more information, see [Visualize and monitor your data](monitor-your-data.md).
 
 > [!TIP]
 > We recommend deploying any workbooks associated with the data you're ingesting. Workbooks allow for broader monitoring and investigating based on your collected data.
@@ -51,5 +51,3 @@ Access workbooks in Azure Sentinel under **Threat Management** > **Workbooks** o
 |**Security Operations Efficiency**     |  Intended for security operations center (SOC) managers to view overall efficiency metrics and measures regarding the performance of their team. <br><br>For more information, see [Manage your SOC better with incident metrics](manage-soc-with-incident-metrics.md).  |
 |**Threat Intelligence**     | Provides insights into threat indicators, including type and severity of threats, threat activity over time, and correlation with other data sources, including Office 365 and firewalls.  <br><br>For more information, see [Understand threat intelligence in Azure Sentinel](understand-threat-intelligence.md).      |
 |**Zero Trust (TIC3.0)**     |  Provides an automated visualization of Zero Trust principles, cross-walked to the [Trusted Internet Connections framework](https://www.cisa.gov/trusted-internet-connections).   <br><br>For more information, see the [Zero Trust (TIC 3.0) workbook announcement blog](https://techcommunity.microsoft.com/t5/public-sector-blog/announcing-the-azure-sentinel-zero-trust-tic3-0-workbook/ba-p/2313761).  |
-
-
