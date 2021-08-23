@@ -10,9 +10,7 @@ ms.service: azure-vmware
 
 <!-- Used in faq.md and concepts-private-clouds-clusters.md -->
 
-Host maintenance and lifecycle management have no impact on the private cloud clusters' capacity or performance. Upgrades to the private cloud software are on a schedule that tracks the software bundle's release from VMware.  As a result, your private cloud doesn't require downtime for upgrades.
-
-The private cloud software bundle upgrades keep the software within one version of the most recent software bundle release from VMware. The private cloud software versions may differ from the most recent versions of the individual software components (ESXi, NSX-T, vCenter, vSAN). Updates also include drivers, software on the network switches, and firmware on the bare-metal nodes.
+Updates also include drivers, software on the network switches, and firmware on the bare-metal nodes.
 
 You'll be notified before and after patches are applied to your private clouds. We'll also work with you to schedule a maintenance window before applying updates or upgrades to your private cloud. 
 
