@@ -11,7 +11,7 @@ ms.date: 08/23/2021
 
 ## Subscription-level monitoring
 
-At the subscription level, which includes Batch accounts, the [Azure activity log](../azure-monitor/essentials/activity-log) collects operational event data in several categories.
+At the subscription level, which includes Batch accounts, the [Azure activity log](../azure-monitor/essentials/activity-log.md) collects operational event data in several categories.
 
 For Batch accounts specifically, the activity log collects events related to account creation and deletion and key management.
 
@@ -22,7 +22,7 @@ You can view the activity log in the Azure portal, or query for events using the
 Monitor each Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/essentials/data-platform-metrics.md) and optionally [resource logs](../azure-monitor/essentials/resource-logs.md) for resources within a Batch account, such as pools, jobs, and tasks. Collect and consume this data manually or programmatically to monitor activities in your Batch account and to diagnose issues. For more information, see [Batch metrics, alerts, and logs for diagnostic evaluation and monitoring](batch-diagnostics.md).
 
 > [!NOTE]
-> Metrics are available by default in your Batch account without additional configuration, and they have a 30-day rolling history. You must enable diagnostic logging for a Batch account, and you may incur additional costs to store or process diagnostic log data.
+> Metrics are available by default in your Batch account without additional configuration, and they have a 30-day rolling history. You must create a diagnostic setting for a Batch account in order to send its resource logs to a Log Analytics workspace, and you may incur additional costs to store or process resource log data.
 
 ## Batch resource monitoring
 
