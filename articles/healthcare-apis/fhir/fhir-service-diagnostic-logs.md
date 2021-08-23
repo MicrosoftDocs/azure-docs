@@ -14,7 +14,7 @@ ms.author: zxue
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you'll learn how to enable diagnostic settings in the FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) and review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service. Compliance with regulatory requirements like Health Insurance Portability and Accountability Act (HIPAA), is a must. To access this feature in the Azure portal, refer to the steps below.
+In this article, you'll learn how to enable diagnostic settings in the FHIR service in the Azure Healthcare APIs (here by called the FHIR service) and review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service. Compliance with regulatory requirements like Health Insurance Portability and Accountability Act (HIPAA), is a must. To access this feature in the Azure portal, refer to the steps below.
 
 ## Enable audit logs
 
