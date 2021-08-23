@@ -1667,7 +1667,7 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
    * [EventSource events](../azure-monitor/app/asp-net-trace-logs.md#use-eventsource-events)
 
-1. After you apply your changes, restart the on-premies data gateway service.
+1. After you apply your changes, restart the on-premises data gateway service.
 
 ## Review metrics in Application Insights
 
