@@ -307,7 +307,7 @@ The `update` command also works with local deployments. Use the same `az ml onli
 
 ### (Optional) Configure autoscaling
 
-Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints supports autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, follow the steps [here](how-to-autoscale-endpoints.md).
+Autoscale automatically runs the right amount of resources to handle the load on your application. Managed online endpoints supports autoscaling through integration with the Azure monitor autoscale feature. To configure autoscaling, follow the steps in "How to autoscale managed online endpoints."
 
 ### (Optional) Monitor SLA by using Azure Monitor
 
@@ -349,7 +349,7 @@ To learn more, review these articles:
 - [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
 - [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
-- [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
+- How to autoscale managed online endpoints
 - [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
 - [Tutorial: Access Azure resources by using a managed online endpoint and system-managed identity (preview)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
