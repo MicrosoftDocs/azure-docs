@@ -8,7 +8,7 @@ ms.topic: conceptual
 
 Azure Policy can audit or configure settings inside a machine, both for machines
 running in Azure and
-[Arc Connected Machines](../../../azure-arc/servers/overview.md).
+[Arc-enabled machines](../../../azure-arc/servers/overview.md).
 Each task is performed by the guest configuration agent in Windows and Linux.
 The guest configuration extension, through the agent, manages settings such as:
 
