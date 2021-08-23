@@ -58,7 +58,6 @@ Select the appropriate tab below, depending on whether your connector has a data
     |**For any other Linux machine**     |       1. Under **Choose where to install the Linux agent**, expand **Install agent on a non-Azure Linux Machine**. <br><br>    2. Select the **Download & install agent for non-Azure Linux machines >** link. <br><br>3. In the **Agents management** blade, select the **Linux servers** tab, then copy the command for **Download and onboard agent for Linux** and run it on your Linux machine.<br><br>        If you want to keep a local copy of the Linux agent installation file, select the **Download Linux Agent** link above the "Download and onboard agent" command.|
     |**For an Azure Windows VM**     |     1. Under **Choose where to install the Windows agent**, expand **Install agent on Azure Windows virtual machine**. <br><br>2. Select the **Download & install agent for Azure Windows Virtual machines >** link. <br><br>2. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect.        |
     |**For any other Windows machine**     |      1. Under **Choose where to install the Windows agent**, expand **Install agent on a non-Azure Windows Machine** <br><br><br>2. Select the **Download & install agent for non-Azure Windows machines >** link.  <br><br>3. In the **Agents management** blade, on the **Windows servers** tab, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate.      |
-    | | |
 
 
 # [Other data sources](#tab/CUS)
@@ -71,7 +70,6 @@ Select the appropriate tab below, depending on whether your connector has a data
     |---------|---------|
     |**Azure VM (Windows or Linux)**     |   1. From the Log Analytics workspace navigation menu, select **Virtual machines**. <br><br>2. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect.      |
     |**Any other Windows or Linux machine**     |         1. From the Log Analytics workspace navigation menu, select **Agents management**.<br><br> 2. Select the **Windows servers** or **Linux servers** tab as appropriate.<br><br>        3. For Windows, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate. For Linux, copy the command for **Download and onboard agent for Linux** and run it from your command line, or select the **Download Linux Agent** link to download a local copy of the installation file.  |
-    |     |         |
 
 ---
 
@@ -110,5 +108,3 @@ In this document, you learned how to collect data from custom log types to inges
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.
-
-{"mode":"full","isActive":false}
