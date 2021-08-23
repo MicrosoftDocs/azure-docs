@@ -56,7 +56,7 @@ OR
 > 
 > :::image type="content" source="media/how-to-use-batch-endpoints-studio/mlflow-model-wizard.png" alt-text="Deploy MLflow model":::
 
-Complete all the steps in wizard to create a batch endpoint and deployment.
+Complete all the steps in the wizard to create a batch endpoint and deployment.
 
 :::image type="content" source="media/how-to-use-batch-endpoints-studio/review-batch-wizard.png" alt-text="Batch endpoints and deployment review screen":::
 
