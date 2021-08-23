@@ -44,7 +44,7 @@ Since a wide range of factors influence the design, API monetization doesn't com
 
 The following steps explain how to implement a monetization strategy for your API.
 
-:::image type="content" source="/media/monetization-overview/illustration2.png" alt-text="implementing monetization strategy steps":::
+:::image type="content" source="media/monetization-overview/illustration2.png" alt-text="implementing monetization strategy steps":::
 
 ### Step 1 - Understand your customer
 
