@@ -418,6 +418,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-puprefresh",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "rsethur/puprefresh",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azureml-examples-cli-preview",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "cli-preview",
