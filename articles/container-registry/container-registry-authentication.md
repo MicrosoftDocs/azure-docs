@@ -1,14 +1,14 @@
 ---
 title: Registry authentication options
-description: Authentication options for a private Azure container registry, including signing in with an Azure Active Directory identity, using service principals, and using optional admin credentials.
+description: Authentication options for a private Azure Container Registry, including signing in with an Azure Active Directory identity, using service principals, and using optional admin credentials.
 ms.topic: article
 ms.date: 06/16/2021
 ms.custom: devx-track-azurepowershell
 ---
 
-# Authenticate with an Azure container registry
+# Authenticate with an Azure Container Registry
 
-There are several ways to authenticate with an Azure container registry, each of which is applicable to one or more registry usage scenarios.
+There are several ways to authenticate with an Azure Container Registry, each of which is applicable to one or more registry usage scenarios.
 
 Recommended ways include:
 
@@ -115,7 +115,7 @@ The available roles for a container registry include:
 
 For a complete list of roles, see [Azure Container Registry roles and permissions](container-registry-roles.md).
 
-For CLI scripts to create a service principal for authenticating with an Azure container registry, and more guidance, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
+For CLI scripts to create a service principal for authenticating with an Azure Container Registry, and more guidance, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
 
 ## Admin account
 
