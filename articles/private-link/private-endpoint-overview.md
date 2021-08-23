@@ -140,7 +140,7 @@ The following table includes a list of known limitations when using private endp
 
 | Limitation | Description |Mitigation |
 | --------- | --------- | --------- |
-| Traffic destined to a Private Endpoint using a User defined route may be asymmetric  | Return traffic from a Private Endpoint bypasses NVA and attempt to return to source VM | For all traffic destined to a Private Endpoint by way of a UDR it is recommend to SNAT traffic at NVA to ensure symmetric routing.  |
+| Traffic destined to a private endpoint using a user defined route may be asymmetric  | Return traffic from a private endpoint bypasses an NVA and attempts to return to the source VM | For all traffic destined to a private endpoint by way of a UDR, it's recommended to SNAT traffic at the NVA to ensure symmetric routing.  |
 
 > [!IMPORTANT]
 > NSG and UDR support for private endpoints is in private preview.
