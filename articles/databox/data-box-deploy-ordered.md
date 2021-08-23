@@ -238,7 +238,7 @@ Do the following steps using Azure CLI to order a device:
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
    |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
-   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
+   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query \<string\>|
    |verbose| Include verbose logging. | --verbose |
 
 2. In your command-prompt of choice or terminal, run [az data box job create](/cli/azure/databox/job#az_databox_job_create) to create your Azure Data Box order.
@@ -353,7 +353,7 @@ Do the following steps using Azure PowerShell to order a device:
     |CountryCode [Required]| The country that the device will be shipped. | "United States" |
     |PostalCode [Required]| The zip code or postal code associated with the shipping address.| "98052"|
     |CompanyName| The name of your company you work for.| "Contoso, LTD" |
-    |StorageAccountResourceId [Required]| The Azure Storage account ID from where you want to import data.| <storageAccount>.id |
+    |StorageAccountResourceId [Required]| The Azure Storage account ID from where you want to import data.| \<storageAccount\>.id |
 
 3. In your command-prompt of choice or terminal, use the [New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob) to create your Azure Data Box order.
 
@@ -425,7 +425,7 @@ To get tracking information about a single, existing Azure Data Box order, run [
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
    |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
-   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
+   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query \<string\>|
    |verbose| Include verbose logging. | --verbose |
 
    Here is an example of the command with output format set to "table":
@@ -466,7 +466,7 @@ The following table shows the parameter information for `az databox job list`:
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
    |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
-   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
+   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query \<string\>|
    |verbose| Include verbose logging. | --verbose |
 
    Here is an example of the command with output format set to "table":
@@ -587,7 +587,7 @@ To cancel an Azure Data Box order, run [`az databox job cancel`](/cli/azure/data
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
    |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
-   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
+   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query \<string\>|
    |verbose| Include verbose logging. | --verbose |
 
    Here is an example of the command with output:
@@ -624,7 +624,7 @@ If you have canceled an Azure Data Box order, you can run [`az databox job delet
    |help| Display help information for this command. | --help -h |
    |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
    |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
-   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
+   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query \<string\>|
    |verbose| Include verbose logging. | --verbose |
 
 Here is an example of the command with output:
