@@ -110,53 +110,53 @@ Some actions of the [Analyze - Image](https://westcentralus.dev.cognitive.micros
 
 |Language | Language code | Categories | Tags | Description | Adult | Brands | Color | Faces | ImageType | Objects | Celebrities | Landmarks |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Arabic |`ar`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Azeri (Azerbaijani) |`az`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Bulgarian |`bg`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Bosnian Latin |`bs`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Catalan |`ca`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Czech |`cs`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Welsh |`cy`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Danish |`da`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|German |`de`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Greek |`el`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|English |`en`|✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
-|Spanish |`es`|✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-|Estonian |`et`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Basque |`eu`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Finnish |`fi`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|French |`fr`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Irish |`ga`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Galician |`gl`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Hebrew |`he`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Hindi |`hi`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Croatian |`hr`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Hungarian |`hu`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Indonesian |`id`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Italian |`it`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Japanese  |`ja`|✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-|Kazakh |`kk`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Korean |`ko`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Lithuanian |`It`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Latvian |`Iv`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Macedonian |`mk`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Malay  Malaysia |`ms`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Norwegian (Bokmal) |`nb`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Dutch |`nl`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Polish |`pl`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Dari |`prs`|- | ✔| -|-|-|-|-|-|❌|-|-|
-| Portuguese-Brazil|`pt-BR`|- | ✔| -|-|-|-|-|-|❌|-|-|
-| Portuguese-Portugal |`pt`/`pt-PT`|✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-|Romanian |`ro`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Russian |`ru`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Slovak |`sk`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Slovenian |`sl`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Serbian - Cyrillic RS |`sr-Cryl`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Serbian - Latin RS |`sr-Latn`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Swedish |`sv`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Thai |`th`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Turkish |`tr`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Ukrainian |`uk`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Vietnamese |`vi`|- | ✔| -|-|-|-|-|-|❌|-|-|
-|Chinese Simplified |`zh`/ `zh-Hans`|✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-|Chinese Traditional |`zh-Hant`|- | ✔| -|-|-|-|-|-|❌|-|-|
+|Arabic |`ar`|- | ✅| |||||| |||
+|Azeri (Azerbaijani) |`az`|- | ✅| |||||| |||
+|Bulgarian |`bg`|- | ✅| |||||| |||
+|Bosnian Latin |`bs`|- | ✅| |||||| |||
+|Catalan |`ca`|- | ✅| |||||| |||
+|Czech |`cs`|- | ✅| |||||| |||
+|Welsh |`cy`|- | ✅| |||||| |||
+|Danish |`da`|- | ✅| |||||| |||
+|German |`de`|- | ✅| |||||| |||
+|Greek |`el`|- | ✅| |||||| |||
+|English |`en`|✅ | ✅| ✅|✅|✅|✅|✅|✅|✅|✅|✅|
+|Spanish |`es`|✅ | ✅| ✅|||||| |✅|✅|
+|Estonian |`et`|- | ✅| |||||| |||
+|Basque |`eu`|- | ✅| |||||| |||
+|Finnish |`fi`|- | ✅| |||||| |||
+|French |`fr`|- | ✅| |||||| |||
+|Irish |`ga`|- | ✅| |||||| |||
+|Galician |`gl`|- | ✅| |||||| |||
+|Hebrew |`he`|- | ✅| |||||| |||
+|Hindi |`hi`|- | ✅| |||||| |||
+|Croatian |`hr`|- | ✅| |||||| |||
+|Hungarian |`hu`|- | ✅| |||||| |||
+|Indonesian |`id`|- | ✅| |||||| |||
+|Italian |`it`|- | ✅| |||||| |||
+|Japanese  |`ja`|✅ | ✅| ✅|||||| |✅|✅|
+|Kazakh |`kk`|- | ✅| |||||| |||
+|Korean |`ko`|- | ✅| |||||| |||
+|Lithuanian |`It`|- | ✅| |||||| |||
+|Latvian |`Iv`|- | ✅| |||||| |||
+|Macedonian |`mk`|- | ✅| |||||| |||
+|Malay  Malaysia |`ms`|- | ✅| |||||| |||
+|Norwegian (Bokmal) |`nb`| | ✅| |||||| |||
+|Dutch |`nl`|- | ✅| |||||| |||
+|Polish |`pl`|- | ✅| |||||| |||
+|Dari |`prs`|- | ✅| |||||| |||
+| Portuguese-Brazil|`pt-BR`| | ✅| |||||| |||
+| Portuguese-Portugal |`pt`/`pt-PT`|✅ | ✅| ✅|||||| |✅|✅|
+|Romanian |`ro`|- | ✅| |||||| |||
+|Russian |`ru`|- | ✅| |||||| |||
+|Slovak |`sk`|- | ✅| |||||| |||
+|Slovenian |`sl`|- | ✅| |||||| |||
+|Serbian - Cyrillic RS |`sr-Cryl`| | ✅| |||||| |||
+|Serbian - Latin RS |`sr-Latn`| | ✅| |||||| |||
+|Swedish |`sv`|- | ✅| |||||| |||
+|Thai |`th`|- | ✅| |||||| |||
+|Turkish |`tr`|- | ✅| |||||| |||
+|Ukrainian |`uk`|- | ✅| |||||| |||
+|Vietnamese |`vi`|- | ✅| |||||| |||
+|Chinese Simplified |`zh`/ `zh-Hans`|✅ | ✅| ✅|||||| |✅|✅|
+|Chinese Traditional |`zh-Hant`| | ✅| |||||| |||
