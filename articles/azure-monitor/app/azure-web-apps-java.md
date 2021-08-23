@@ -88,7 +88,7 @@ Below is our step-by-step troubleshooting guide for Java-based applications runn
     * Restart the app
 
     > [!NOTE]
-    > If you set the JAVA_OPTS environment variable, you will have to disable Application Insights in the portal. Alternatively, if you prefer to enable Application Insights from the portal, make sure that you don't to set the JAVA_OPTS variable in App Service configurations settings. 
+    > If you set the JAVA_OPTS environment variable, you will have to disable Application Insights in the portal. Alternatively, if you prefer to enable Application Insights from the portal, make sure that you don't set the JAVA_OPTS variable in App Service configurations settings. 
 
 
 [!INCLUDE [azure-web-apps-footer](./includes/azure-web-apps-footer.md)]
