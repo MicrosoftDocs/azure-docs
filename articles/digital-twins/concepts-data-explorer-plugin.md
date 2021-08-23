@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Querying with Azure Data Explorer
+title: Querying historized data
 titleSuffix: Azure Digital Twins
 description: Understand the Azure Digital Twins query plugin for Azure Data Explorer
 author: baanders
