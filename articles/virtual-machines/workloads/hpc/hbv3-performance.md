@@ -4,7 +4,7 @@ description: Learn about performance and scalability of HBv3-series VM sizes in 
 services: virtual-machines 
 author: vermagit 
 ms.service: virtual-machines 
-ms.subservice: workloads
+ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
 ms.date: 03/25/2021 
@@ -13,6 +13,8 @@ ms.reviewer: cynthn
 --- 
 
 # HBv3-series virtual machine performance
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Performance expectations using common HPC microbenchmarks are as follows:
 

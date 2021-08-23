@@ -12,6 +12,9 @@ ms.author: mimckitt
 
 ---
 # Apply policies to Linux VMs with Azure Resource Manager
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization. In this article, we describe how you can use Azure Resource Manager policies to define the desired behavior for your organization's Virtual Machines.
 
 For an introduction to policies, see [What is Azure Policy?](../../governance/policy/overview.md).
@@ -26,7 +29,6 @@ To ensure that virtual machines for your organization are compatible with an app
       {
         "field": "type",
         "in": [
-          "Microsoft.Compute/disks",
           "Microsoft.Compute/virtualMachines",
           "Microsoft.Compute/VirtualMachineScaleSets"
         ]

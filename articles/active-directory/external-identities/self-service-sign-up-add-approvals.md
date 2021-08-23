@@ -82,7 +82,7 @@ Now you'll add the API connectors to a self-service sign-up user flow with these
 4. Select **User flows**, and then select the user flow you want to enable the API connector for.
 5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
 
-   - **After signing in with an identity provider**: Select your approval status API connector, for example _Check approval status_.
+   - **After federating with an identity provider during sign-up**: Select your approval status API connector, for example _Check approval status_.
    - **Before creating the user**: Select your approval request API connector, for example _Request approval_.
 
    ![Add APIs to the user flow](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)

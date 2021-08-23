@@ -92,7 +92,7 @@
     - name: Role startup failure
       href: role-startup-failure.md
     - name: Frequently asked questions
-      href: faq.md
+      href: faq.yml
 - name: Samples
   items: 
   - name: Sample templates
@@ -108,7 +108,7 @@
   - name: Sample deployment files
     href: https://github.com/Azure-Samples/cloud-services-extended-support
   - name: Az.CloudService module
-    href: https://www.powershellgallery.com/packages/Az.CloudService/0.1.0
+    href: https://www.powershellgallery.com/packages/Az.CloudService/0.5.0
   - name: PowerShell cmdlets
     href: /powershell/module/az.cloudservice/#cloudservice
   - name: ARM template reference

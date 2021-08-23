@@ -57,7 +57,7 @@ This article describes how to provision a dedicated gateway, configure the integ
 > [!NOTE]
 > If you are using the latest .NET or Java SDK version, the default connection mode is direct mode. In order to use the integrated cache, you must override this default.
 
-If you're using the Java SDK, you must also manually set [contentResponseOnWriteEnabled](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmosclientbuilder.contentresponseonwriteenabled?view=azure-java-stable) to `true` within the `CosmosClientBuilder`. If you're using any other SDK, this value already defaults to `true`, so you don't need to make any changes.
+If you're using the Java SDK, you must also manually set [contentResponseOnWriteEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.contentresponseonwriteenabled?view=azure-java-stable&preserve-view=true) to `true` within the `CosmosClientBuilder`. If you're using any other SDK, this value already defaults to `true`, so you don't need to make any changes.
 
 ## Adjust request consistency
 

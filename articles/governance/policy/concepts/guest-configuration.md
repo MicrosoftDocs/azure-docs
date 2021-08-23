@@ -261,6 +261,12 @@ For machines protected by
 ensure that machines in a secondary site are within scope of Azure Policy assignments
 for the same definitions using the same parameter values as machines in the primary site.
 
+## Data residency
+
+Guest configuration stores/processes customer data. By default, customer data is replicated to the
+[paired region.](../../../best-practices-availability-paired-regions.md)
+For single resident region all customer data is stored and processed in the region.
+
 ## Troubleshooting guest configuration
 
 For more information about troubleshooting Guest Configuration, see

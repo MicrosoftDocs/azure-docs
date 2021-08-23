@@ -7,7 +7,7 @@ ms.date: 11/26/2018
 ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
-manager: philmea
+
 ---
 
 # What is industrial IoT (IIoT)
@@ -48,4 +48,4 @@ OPC Vault is an implementation of OPC UA Global Discovery Server (GDS) that can 
 
 Now that you've had an introduction to industrial IoT and its components, here is the suggested next step:
 
-[What is OPC Twin](overview-opc-twin.md)
+[What is OPC Twin](/previous-versions/azure/iot-accelerators/overview-opc-twin)

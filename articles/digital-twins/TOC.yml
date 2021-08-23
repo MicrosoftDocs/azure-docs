@@ -101,10 +101,10 @@
       href: how-to-use-azure-digital-twins-explorer.md  
     - name: Manage digital twins
       href: how-to-manage-twin.md
-    - name: Manage the twin graph with relationships
+    - name: Manage the twin graph and relationships
       href: how-to-manage-graph.md
-    - name: Set up an Azure function for processing data
-      href: how-to-create-azure-function.md
+    - name: Set up twin-to-twin event handling
+      href: how-to-send-twin-to-twin-events.md
     - name: Query the twin graph
       href: how-to-query-graph.md
   - name: Develop client apps
@@ -126,11 +126,7 @@
   - name: Connect output
     items:
     - name: Manage endpoints and routes
-      items:
-      - name: Portal
-        href: how-to-manage-routes-portal.md
-      - name: APIs and CLI
-        href: how-to-manage-routes-apis-cli.md
+      href: how-to-manage-routes.md
     - name: Route events with a managed identity
       href: how-to-route-with-managed-identity.md
     - name: Integrate with Azure Maps

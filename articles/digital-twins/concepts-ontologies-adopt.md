@@ -59,6 +59,6 @@ You can also read more about the partnerships and approach for energy grids in t
 
 ## Next steps
 
-* Learn more about extending industry-standard ontologies to meet your specifications: [Concepts: Extending industry ontologies](concepts-ontologies-extend.md).
+* Learn more about extending industry-standard ontologies to meet your specifications: [Extending industry ontologies](concepts-ontologies-extend.md).
 
 * Or, continue on the path for developing models based on ontologies: [Using ontology strategies in a model development path](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

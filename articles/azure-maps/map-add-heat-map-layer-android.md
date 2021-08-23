@@ -254,7 +254,18 @@ The following video shows a map running the above code, which scales the radius 
 
 ![Animation showing a map zooming with a heat map layer showing a consistent geospatial size](media/map-add-heat-map-layer-android/android-consistent-zoomable-heat-map-layer.gif)
 
+The `zoom` expression can only be used in `step` and `interpolate` expressions. The following expression can be used to approximate a radius in meters. This expression uses a placeholder `radiusMeters` which you should replace with your desired radius. This expression calculates the approximate pixel radius for a zoom level at the equator for zoom levels 0 and 24, and uses an `exponential interpolation` expression to scale between these values the same way the tiling system in the map works.
+
 ::: zone pivot="programming-language-java-android"
+
+```java
+interpolate(
+    exponential(2),
+    zoom(),
+    stop(1, product(radiusMeters, 0.000012776039596366526)),
+    stop(24, product(radiusMeters, 214.34637593279402))
+)
+```
 
 > [!TIP]
 > When you enable clustering on the data source, points that are close to one another are grouped together as a clustered point. You can use the point count of each cluster as the weight expression for the heat map. This can significantly reduce the number of points to be rendered. The point count of a cluster is stored in a `point_count` property of the point feature:
@@ -270,6 +281,15 @@ The following video shows a map running the above code, which scales the radius 
 ::: zone-end
 
 ::: zone pivot="programming-language-kotlin"
+
+```kotlin
+interpolate(
+    exponential(2),
+    zoom(),
+    stop(1, product(radiusMeters, 0.000012776039596366526)),
+    stop(24, product(radiusMeters, 214.34637593279402))
+)
+```
 
 > [!TIP]
 > When you enable clustering on the data source, points that are close to one another are grouped together as a clustered point. You can use the point count of each cluster as the weight expression for the heat map. This can significantly reduce the number of points to be rendered. The point count of a cluster is stored in a `point_count` property of the point feature:

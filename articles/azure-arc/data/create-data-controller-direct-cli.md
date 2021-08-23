@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: overview
 ---
 
@@ -15,7 +15,6 @@ ms.topic: overview
 
 This article describes how to create the Azure Arc data controller in **direct** connectivity mode using CLI, during the current preview of this feature. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Complete prerequisites
 
@@ -100,7 +99,7 @@ You can verify if  the Arc enabled data services extension is created either fro
 #### Azure portal
 1. Login to the Azure portal and browse to the resource group where the Kubernetes connected cluster resource is located.
 1. Select the Arc enabled kubernetes cluster (Type = "Kubernetes - Azure Arc") where the extension was deployed.
-1. In the navigation on the left side, under **Settings**, select "Extensions (preview)".
+1. In the navigation on the left side, under **Settings**, select "Extensions".
 1. You should see the extension that was just created earlier in an "Installed" state.
 
 :::image type="content" source="media/deploy-data-controller-direct-mode-prerequisites/dc-extensions-dashboard.png" alt-text="Extensions dashboard":::

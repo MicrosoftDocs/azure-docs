@@ -27,16 +27,16 @@ The diagram shows how disk pools work with Azure VMware Solution hosts. Each iSC
 
 ## Supported regions
 
-You can only connect the disk pool to an Azure VMware Solution private cloud in the same region. For a list of supported regions, see [Regional availability](/azure/virtual-machines/disks-pools#regional-availability).  If your private cloud is deployed in a non-supported region, you can redeploy it in a supported region. Azure VMware Solution private cloud and disk pool colocation provide the best performance with minimal network latency.
+You can only connect the disk pool to an Azure VMware Solution private cloud in the same region. For a list of supported regions, see [Regional availability](../virtual-machines/disks-pools.md#regional-availability).  If your private cloud is deployed in a non-supported region, you can redeploy it in a supported region. Azure VMware Solution private cloud and disk pool colocation provide the best performance with minimal network latency.
 
 
 ## Prerequisites
 
 - Scalability and performance requirements of your workloads are identified. For details, see [Planning for Azure disk pools](../virtual-machines/disks-pools-planning.md).
 
-- [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#step-3-connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md). 
+- [Azure VMware Solution private cloud](deploy-azure-vmware-solution.md) deployed with a [virtual network configured](deploy-azure-vmware-solution.md#connect-to-azure-virtual-network-with-expressroute). For more information, see [Network planning checklist](tutorial-network-checklist.md) and [Configure networking for your VMware private cloud](tutorial-configure-networking.md). 
 
-   - If you select ultra disks, use Ultra Performance for the Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](/azure/expressroute/expressroute-howto-linkvnet-arm#configure-expressroute-fastpath).
+   - If you select ultra disks, use Ultra Performance for the Azure VMware Solution private cloud and then [enable ExpressRoute FastPath](../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
 
    - If you select premium SSDs, use Standard (1 Gbps) for the Azure VMware Solution private cloud.  You must use Standard\_DS##\_v3 to host iSCSI.  If you encounter quota issues, request an increase in [vCPU quota limits](../azure-portal/supportability/per-vm-quota-requests.md) per Azure VM series for Dsv3 series.
 
@@ -109,7 +109,7 @@ You'll attach to a disk pool surfaced through an iSCSI target as the VMware data
 
 3. Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target:
 
-   ```azurecli
+   ```bash
    az vmware datastore disk-pool-volume create --name iSCSIDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud --target-id /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.StoragePool/diskPools/mpio-diskpool/iscsiTargets/mpio-iscsi-target --lun-name lun0
    ```
 
@@ -157,9 +157,9 @@ Now that you've attached a disk pool to your Azure VMware Solution hosts, you ma
 
 - [Managing an Azure disk pool](../virtual-machines/disks-pools-manage.md ).  Once you've deployed a disk pool, there are various management actions available to you. You can add or remove a disk to or from a disk pool, update iSCSI LUN mapping, or add ACLs.
 
-- [Deleting a disk pool](/azure/virtual-machines/disks-pools-deprovision#delete-a-disk-pool). When you delete a disk pool, all the resources in the managed resource group are also deleted.
+- [Deleting a disk pool](../virtual-machines/disks-pools-deprovision.md#delete-a-disk-pool). When you delete a disk pool, all the resources in the managed resource group are also deleted.
 
-- [Disabling iSCSI support on a disk](/azure/virtual-machines/disks-pools-deprovision#disable-iscsi-support). If you disable iSCSI support on a disk pool, you effectively can no longer use a disk pool.
+- [Disabling iSCSI support on a disk](../virtual-machines/disks-pools-deprovision.md#disable-iscsi-support). If you disable iSCSI support on a disk pool, you effectively can no longer use a disk pool.
 
 - [Moving disk pools to a different subscription](../virtual-machines/disks-pools-move-resource.md). Move an Azure disk pool to a different subscription, which involves moving the disk pool itself, contained disks, managed resource group, and all the resources. 
 

@@ -21,7 +21,7 @@ Azure Migrate automatically handles these configuration changes for the operatin
 - Red Hat Enterprise Linux 8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
 - CentOS 8, 7.7, 7.6, 7.5, 7.4, 6.x
 - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11
-- Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
+- Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Ubuntu 18.04LTS, 16.04LTS
 - Debian 9, 8, 7
 - Oracle Linux 6, 7.7, 7.7-CI
@@ -44,7 +44,7 @@ To set up the hydration process, Azure Migrate creates a temporary Azure VM and 
 
 Azure Migrate will create the network interface, a new virtual network, subnet, and a network security group (NSG) to host the temporary VM. These resources are created in the customer's subscription. If there are conflicting policies that prevent the creation of the network artifacts, Azure Migrate will attempt to create the temporary Azure VM in the virtual network and subnet provided as part of the replication target settings options.
 
-After the virtual machine is created, Azure Migrate will invoke the [Custom Script Extension](/azure/virtual-machines/extensions/custom-script-windows) on the temporary VM using the Azure Virtual Machine REST API. The Custom Script Extension utility will execute a preparation script containing the required configuration for Azure readiness on the on-premises VM disks attached to the temporary Azure VM. The preparation script is downloaded from an Azure Migrate owned storage account. The network security group rules of the virtual network will be configured to permit the temporary Azure VM to access the Azure Migrate storage account for invoking the script.
+After the virtual machine is created, Azure Migrate will invoke the [Custom Script Extension](../virtual-machines/extensions/custom-script-windows.md) on the temporary VM using the Azure Virtual Machine REST API. The Custom Script Extension utility will execute a preparation script containing the required configuration for Azure readiness on the on-premises VM disks attached to the temporary Azure VM. The preparation script is downloaded from an Azure Migrate owned storage account. The network security group rules of the virtual network will be configured to permit the temporary Azure VM to access the Azure Migrate storage account for invoking the script.
 
  ![Migration steps](./media/concepts-vmware-agentless-migration/migration-steps.png)
 
@@ -117,7 +117,7 @@ The preparation script executes the following changes based on the OS type of th
    Make “VMware Tools” service start-type to disabled if it exists as they are not required for the VM in Azure.
 
    >[!NOTE]                        
-   >To connect to Windows Server 2003 VMs, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default. See this [article](/azure/migrate/prepare-windows-server-2003-migration) to install and prepare for migration.
+   >To connect to Windows Server 2003 VMs, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default. See this [article](./prepare-windows-server-2003-migration.md) to install and prepare for migration.
 
 1. **Install the Windows Azure Guest Agent**
 
@@ -125,12 +125,12 @@ The preparation script executes the following changes based on the OS type of th
 
     The Windows VM agent can be manually installed with a Windows installer package. To manually install the Windows VM Agent, [download the VM Agent installer](https://go.microsoft.com/fwlink/?LinkID=394789). You can also search for a specific version in the [GitHub Windows IaaS VM Agent releases](https://github.com/Azure/WindowsVMAgent/releases). The VM Agent is supported on Windows Server 2008 (64 bit) and later.
 
-    To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell)
+    To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](../virtual-machines/extensions/agent-windows.md#powershell)
 
     ![Successfull Installation of Azure VM Agent](./media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png)
 
     After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for migration.
-    [Learn more about the changes for Windows servers.](/azure/virtual-machines/windows/prepare-for-upload-vhd-image)
+    [Learn more about the changes for Windows servers.](../virtual-machines/windows/prepare-for-upload-vhd-image.md)
 
 ### Changes performed on Linux servers
 
@@ -169,7 +169,7 @@ The preparation script executes the following changes based on the OS type of th
    1. If any of these drivers are missing, add the required drivers and regenerate the image for the corresponding kernel version.
 
       >[!NOTE]
-      >This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built-in by default. [Learn more about the changes.](/azure/virtual-machines/linux/create-upload-generic#installing-kernel-modules-without-hyper-v)
+      >This step may not apply to Ubuntu and Debian VMs as the Hyper-V drivers are built-in by default. [Learn more about the changes.](../virtual-machines/linux/create-upload-generic.md#installing-kernel-modules-without-hyper-v)
 
       An illustrative example for rebuilding initrd
 
@@ -189,7 +189,7 @@ The preparation script executes the following changes based on the OS type of th
 
 1. **Enable Azure Serial Console logging**
 
-   The script will then make changes to enable Azure Serial Console logging. Enabling console logging helps with troubleshooting issues on the Azure VM. Learn more about Azure Serial Console for Linux [Azure Serial Console for Linux - Virtual Machines | Microsoft Docs](/azure/virtual-machines/serial-console-linux).
+   The script will then make changes to enable Azure Serial Console logging. Enabling console logging helps with troubleshooting issues on the Azure VM. Learn more about Azure Serial Console for Linux [Azure Serial Console for Linux - Virtual Machines | Microsoft Docs](/troubleshoot/azure/virtual-machines/serial-console-linux).
 
    Modify the kernel boot line in GRUB or GRUB2 to include the following parameters, so that all console messages are sent to the first serial port. These messages can assist Azure support with debugging any issues.
 
@@ -202,7 +202,7 @@ The preparation script executes the following changes based on the OS type of th
    ```
    rhgb quiet crashkernel=auto
    ```
-    [Refer to this article](/azure/virtual-machines/linux/create-upload-generic#general-linux-system-requirements) for specific changes.
+    [Refer to this article](../virtual-machines/linux/create-upload-generic.md#general-linux-system-requirements) for specific changes.
 
 1. **Network changes for connectivity**
 
@@ -264,9 +264,9 @@ The preparation script executes the following changes based on the OS type of th
 
 1. **Install the Linux Azure Guest Agent**
 
-    Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](/azure/virtual-machines/extensions/agent-linux) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
+    Azure Migrate will attempt to install the Microsoft Azure Linux Agent (waagent), a secure, lightweight process that manages Linux & FreeBSD provisioning, and VM interaction with the Azure Fabric Controller.  [Learn more](../virtual-machines/extensions/agent-linux.md) about the functionality enabled for Linux and FreeBSD IaaS deployments via the Linux agent.
 
-    Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL6, RHEL7, CentOS7 (6 should be supported like RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually](/azure/virtual-machines/extensions/agent-linux#installation) for other OS versions.
+    Review the list of [required packages](../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for RHEL6, RHEL7, CentOS7 (6 should be supported like RHEL), Ubuntu 14.04, Ubuntu 16.04, Ubuntu18.04, Ubuntu 19.04, Ubuntu 19.10, and Ubuntu 20.04 when using the agentless method of VMware migration. Follow these instructions to [install the Linux Agent manually](../virtual-machines/extensions/agent-linux.md#installation) for other OS versions.
 
     You can use the command to verify the service status of the Azure Linux Agent to make sure it's running. The service name might be **walinuxagent** or **waagent**.
     Once the hydration changes are done, the script will unmount all the partitions mounted, deactivate volume groups, and then flush the devices.
@@ -276,7 +276,7 @@ The preparation script executes the following changes based on the OS type of th
     $ blockdev –flushbufs <disk-device-name>
    ```
 
-   [Learn more on the changes for Linux servers.](/azure/virtual-machines/linux/create-upload-generic)
+   [Learn more on the changes for Linux servers.](../virtual-machines/linux/create-upload-generic.md)
 
 ### Clean up the temporary VM
 

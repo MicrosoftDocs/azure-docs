@@ -7,7 +7,7 @@ ms.date: 12/19/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
+
 ---
 
 # Azure IoT Central architecture
@@ -65,6 +65,9 @@ IoT Central classifies IoT Edge device types as follows:
 - Gateway devices with downstream devices. Both gateway device and downstream devices are provisioned in IoT Central
 
 ![IoT Central with IoT Edge Overview](./media/concepts-architecture/gatewayedge.png)
+
+> [!NOTE]
+> IoT Central currently doesn't support connecting an IoT Edge device as a downstream device to an IoT Edge gateway. This is because all devices that connect to IoT Central are provisioned using the Device Provisioning Service (DPS) and DPS doesn't support nested IoT Edge scenarios.
 
 ### IoT Edge patterns
 

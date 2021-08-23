@@ -273,6 +273,8 @@
       items:
         - name: 'Recognize speech intents with LUIS, C#'
           href: how-to-recognize-intents-from-speech-csharp.md
+        - name: 'Recognize speech intents with simple pattern matching, C++'
+          href: how-to-use-simple-language-pattern-matching.md
     - name: Reference
       items:
         - name: Speech SDK

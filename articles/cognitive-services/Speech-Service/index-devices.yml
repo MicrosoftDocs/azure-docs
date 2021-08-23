@@ -6,12 +6,12 @@ metadata:
   title: Speech devices documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: trevorbye
+  author: laujan
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: trbye
+  ms.author: lajanuar
 
 landingContent:
 - title: About the Speech devices SDK

@@ -56,7 +56,7 @@ IPv6 for Azure VNet includes the following capabilities:
     - Note: IPv6 can be load balanced only to the primary network interface (NIC) on Azure VMs. 
 - [Standard IPv6 internal Load Balancer](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) support to create resilient multi-tier applications within Azure VNETs.   
 - Basic IPv6 public Load Balancer support for compatibility with legacy deployments
-- [Reserved IPv6 Public IP addresses and address ranges](ipv6-public-ip-address-prefix.md) provide stable, predictable IPv6 addresses which ease filtering of your azure-hosted applications for your company and your customers.
+- [Reserved IPv6 Public IP addresses and address ranges](./public-ip-address-prefix.md) provide stable, predictable IPv6 addresses which ease filtering of your azure-hosted applications for your company and your customers.
 - Instance-level Public IP provides IPv6 Internet connectivity directly to individual VMs.
 - [Add IPv6 to Existing IPv4-only deployments](ipv6-add-to-existing-vnet-powershell.md)- this feature enables you to easily add IPv6 connectivity to existing IPv4-only deployments without the need to recreate deployments.  The IPv4 network traffic is unaffected during this process so depending on your application and OS you may be able to add IPv6 even to live services.    
 - Let Internet clients seamlessly access your dual stack application using their protocol of choice with Azure DNS support for IPv6 (AAAA) records. 

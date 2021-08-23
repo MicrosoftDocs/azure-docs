@@ -386,22 +386,22 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
 
 | Server error code | Server error message | Possible reasons | Resolution |
 | --- | --- | --- | --- |
-| DirectoryError | AADSTS90002: Tenant <UUID> not found. This error may happen if there are no active subscriptions for the tenant. Check with your subscription administrator. | Tenant ID in SCP object is incorrect | Ensure SCP object is configured with the correct Azure AD tenant ID and active subscriptions and present in the tenant. |
+| DirectoryError | AADSTS90002: Tenant `UUID` not found. This error may happen if there are no active subscriptions for the tenant. Check with your subscription administrator. | Tenant ID in SCP object is incorrect | Ensure SCP object is configured with the correct Azure AD tenant ID and active subscriptions and present in the tenant. |
 | DirectoryError | The device object by the given ID is not found. | Expected error for sync join. The device object has not synced from AD to Azure AD | Wait for the Azure AD Connect sync to complete and the next join attempt after sync completion will resolve the issue |
 | AuthenticationError | The verification of the target computer's SID | The certificate on the Azure AD device doesn't match the certificate used to sign the blob during the sync join. This error typically means sync hasn’t completed yet. |  Wait for the Azure AD Connect sync to complete and the next join attempt after sync completion will resolve the issue |
 
 ### Step 5: Collect logs and contact Microsoft Support
 
-Download the file Auth.zip from [https://github.com/CSS-Identity/DRS/tree/main/Auth](https://github.com/CSS-Identity/DRS/tree/main/Auth)
+Download the file Auth.zip from [https://cesdiagtools.blob.core.windows.net/windows/Auth.zip](https://cesdiagtools.blob.core.windows.net/windows/Auth.zip)
 
-1. Unzip the files and rename the included files **start-auth.txt** and **stop-auth.txt** to **start-auth.cmd** and **stop-auth.cmd**.
-1. From an elevated command prompt, run **start-auth.cmd**.
+1. Unzip the files to a folder such as c:\temp and change into the folder.
+1. From an elevated PowerShell session, run **.\start-auth.ps1 -v -accepteula**.
 1. Use Switch Account to toggle to another session with the problem user.
 1. Reproduce the issue.
 1. Use Switch Account to toggle back to the admin session running the tracing.
-1. From an elevated command prompt, run **stop-auth.cmd**.
-1. Contact support with contents of the **Authlogs** folder. The Authlogs folder will be created in the directory where the scripts were executed from.
-
+1. From the elevated PowerShell session, run **.\stop-auth.ps1**.
+1. Zip and send the folder **Authlogs** from the folder where the scripts were executed from.
+    
 ## Troubleshoot Post-Join Authentication issues
 
 ### Step 1: Retrieve PRT status using dsregcmd /status
@@ -545,8 +545,8 @@ Resolution:
 Reason(s): 
 -  User’s UPN is not in expected format. 
 > [!NOTE] 
-> - For AADJ devices the UPN is the text entered by the user in the LoginUI.
-> - For Hybrid Joined devices the UPN is returned from the domain controller during the login process.
+> - For Azure AD joined devices, the UPN is the text entered by the user in the LoginUI.
+> - For Hybrid Azure AD joined devices, the UPN is returned from the domain controller during the login process.
 
 Resolution:
 -  User’s UPN should be in the Internet-style login name, based on the Internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). Event 1144 (AAD analytic logs) will contain the UPN provided.
@@ -615,7 +615,7 @@ Resolution :
 
 ---
 
-**AADSTS50034: The user account <Account> does not exist in the <tenant id> directory**
+**AADSTS50034: The user account `Account` does not exist in the `tenant id` directory**
 
 Reason: 
 -  AAD is unable to find the user account in the tenant.
@@ -669,7 +669,7 @@ Resolution:
 3. For Fiddler traces accept the certificate requests that will pop up.
 4. The wizard will prompt you for a password to safeguard your trace files. Provide a password.
 5. Finally, open the folder where all the logs collected are stored. It is typically in a folder like
-                %LOCALAPPDATA%\ElevatedDiagnostics\<numbers>
+                %LOCALAPPDATA%\ElevatedDiagnostics\numbers
 7. Contact support with contents of latest.cab, which contains all the collected logs.
 
 **Network traces**

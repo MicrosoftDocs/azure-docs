@@ -100,7 +100,7 @@ When users complete their initial registration for Azure AD Multi-Factor Authent
 
 Users can also create app passwords after registration. For more information and detailed steps for your users, see the following resources:
 * [What are app passwords in Azure AD Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
-* [Create app passwords from the Security info page](https://docs.microsoft.com/azure/active-directory/user-help/security-info-app-passwords)
+* [Create app passwords from the Security info page](../user-help/security-info-app-passwords.md)
 
 ## Next steps
 

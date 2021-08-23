@@ -88,6 +88,6 @@ New-AzCosmosDBAccount -ResourceGroupName "MyResourcegroup" `
 After you create a free tier account, you can start building apps with Azure Cosmos DB with the following articles:
 
 * [Build a console app using the .NET V4 SDK](create-sql-api-dotnet-v4.md) to manage Azure Cosmos DB resources.
-* [Build a .NET web app using Azure Cosmos DB's API for MongoDB](create-mongodb-dotnet.md)
+* [Build a .NET web app using Azure Cosmos DB's API for MongoDB](mongodb/create-mongodb-dotnet.md)
 * [Download a notebook from the gallery](publish-notebook-gallery.md#download-a-notebook-from-the-gallery) and analyze your data.
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
