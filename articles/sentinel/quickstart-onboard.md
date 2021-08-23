@@ -60,7 +60,7 @@ For more information, see [Pre-deployment activities and prerequisites for deplo
     | Switzerland | Switzerland |
     |
 
-    \* Single-region data residency is currently provided only in the Southeast Asia region (Singapore) of the Asia Pacific geography, and in the Brazil South (Sao Paulo State) region of the Brazil geography. For all other regions, customer data is stored anywhere in the customer's geography, and Azure Sentinel-generated data is stored as noted in the table above.
+    \* Single-region data residency is currently provided only in the Southeast Asia region (Singapore) of the Asia Pacific geography, and in the Brazil South (Sao Paulo State) region of the Brazil geography. For all other regions, customer data can be stored anywhere in the geography of the workspace where Sentinel is onboarded.
 
     > [!IMPORTANT]
     > - By enabling certain rules that make use of the machine learning (ML) engine, **you give Microsoft permission to copy relevant ingested data outside of your Azure Sentinel workspace's geography** as may be required by the machine learning engine to process these rules.
