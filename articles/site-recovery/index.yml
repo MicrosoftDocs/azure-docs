@@ -29,7 +29,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Try out disaster recovery for an Azure VM
-            url: ./azure-to-azure-quickstart.md    
+            url: ./azure-to-azure-quickstart.md
+          - text: Try out disaster recovery for a VMware VM (preview)
+            url: ./deploy-vmware-azure-replication-appliance-preview.md        
       - linkListType: tutorial
         links:
           - text: Disaster recovery for Azure VMs
