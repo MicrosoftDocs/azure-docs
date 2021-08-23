@@ -155,7 +155,7 @@ When you delete a private cloud datastore, the disk pool resources don't get del
 
 Now that you've attached a disk pool to your Azure VMware Solution hosts, you may want to learn about:
 
-- [Managing an Azure disk pool](../virtual-machines/disks-pools-manage.md ).  Once you've deployed a disk pool, there are various management actions available to you. You can add or remove a disk to or from a disk pool, update iSCSI LUN mapping, or add ACLs.
+- [Managing an Azure disk pool](../virtual-machines/disks-pools-manage.md).  Once you've deployed a disk pool, there are various management actions available to you. You can add or remove a disk to or from a disk pool, update iSCSI LUN mapping, or add ACLs.
 
 - [Deleting a disk pool](../virtual-machines/disks-pools-deprovision.md#delete-a-disk-pool). When you delete a disk pool, all the resources in the managed resource group are also deleted.
 
