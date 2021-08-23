@@ -1,6 +1,6 @@
 --- 
-title: Run the Getting Started ML notebook in Azure Sentinel | Microsoft Docs
-description: Walk through the Azure Sentinel Getting Started Guide For Azure Sentinel ML Notebooks to learn the basics of Azure Sentinel notebooks and queries.
+title: Work with notebooks and MSTICPY in Azure Sentinel | Microsoft Docs
+description: Walk through the Azure Sentinel Getting Started Guide For Azure Sentinel ML Notebooks to learn the basics of Azure Sentinel notebooks with MSTICPy and queries.
 services: sentinel
 author: batamig
 ms.author: bagol
@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.date: 08/19/2021
 ---
 
-# Tutorial: Run a Getting Started Guide notebook in Azure Sentinel
+# Work with notebooks and MSTICPy
 
-This tutorial describes how to run the **Getting Started Guide For Azure Sentinel ML Notebooks** notebook, which focuses on setup activities and basic queries.
+This artcile describes how to run the **Getting Started Guide For Azure Sentinel ML Notebooks** notebook, which focuses on setup activities and basic queries.
 
 The **Getting Started Guide for Azure Sentinel ML Notebooks** notebook uses MSTICPy, a Python package that provides threat hunting and investigation functionality. MSTICPy provides:
 
@@ -21,7 +21,7 @@ The **Getting Started Guide for Azure Sentinel ML Notebooks** notebook uses MSTI
 - Visualization using event timelines, process trees, and geo mapping.
 - Advanced analyses like time series decomposition, anomaly detection, and clustering.
 
-The steps in this tutorial describe how to run the notebook in your Azure ML workspace via Azure Sentinel. You can also use this article as guidance for performing similar steps to run notebooks in other environments, including locally.
+The steps in this article describe how to run the notebook in your Azure ML workspace via Azure Sentinel. You can also use this article as guidance for performing similar steps to run notebooks in other environments, including locally.
 
 For more information, see [Use notebooks to power investigations](hunting.md#use-notebooks-to-power-investigations) and [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
@@ -630,7 +630,7 @@ We recommend that you don't use `!pip install...` to install packages in Azure M
   1. Close the terminal and restart the kernel.
 
 
-## Set an environment variable for your msticpyconfig.yaml file (Optional)
+### Set an environment variable for your msticpyconfig.yaml file (Optional)
 
 Defining the path to your **msticpyconfig.yaml** file in an environment variable allows you to store your file in a known location and make sure that you always load the same settings.
 
@@ -763,7 +763,7 @@ This procedure describes how to update the **.bashrc** file to set the **MSTICPY
 
 ## Next steps
 
-This tutorial walked through the basics of installing MSTICPy and setting up configurations.
+This article walked through the basics of installing MSTICPy and setting up configurations.
 
 Try out other notebooks stored in the [Azure Sentinel Notebooks GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks).
 
