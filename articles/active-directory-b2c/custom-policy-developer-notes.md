@@ -70,7 +70,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 [SP initiated](saml-service-provider.md) | NA | GA | POST and Redirect bindings. |
-[IDP initiated](saml-service-provider-options.md#idp-initiated-flow) | NA | GA | Where the initiating identity provider is Azure AD B2C.  |
+[IDP initiated](saml-service-provider-options.md#configure-idp-initiated-flow) | NA | GA | Where the initiating identity provider is Azure AD B2C.  |
 
 ## User experience customization
 
