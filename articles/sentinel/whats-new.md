@@ -30,27 +30,27 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## September 2021
 
-### New in docs: data connector docs reorg
+### New in docs: scaling data connector documentation
 
-As more and more built-in data connectors are added for Azure Sentinel, we've reorganized our data connector documentation to reflect this scaling.
+As we continue to add more and more built-in data connectors for Azure Sentinel, we've reorganized our data connector documentation to reflect this scaling.
 
-You may notice that we've removed full articles for individual data connectors, replacing them with a set of generic procedures and a full reference of all currently supported connectors.
+For most data connectors, we've replaced full articles that describe an indidvidual connector with a series of generic procedures and a full reference of all currently supported connectors.
 
-Check the [Azure Sentinel data connectors reference](data-connectors-reference.md) for the generic procedure to use for your data connector and any other important information about your connector or configuration required.
+Check the [Azure Sentinel data connectors reference](data-connectors-reference.md) for details about your connector, including references to the relevant generic procedure, as well as extra information and configurations required.
 
 For more information, see:
 
-**Conceptual information**: [Connect data sources](connect-data-sources.md)
+- **Conceptual information**: [Connect data sources](connect-data-sources.md)
 
-**How-to articles**:
+- **Generic how-to articles**:
 
-- [Azure Sentinel data connectors reference](data-connectors-reference.md)
-- [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md)
-- [Collect data from Linux-based sources using Syslog](connect-syslog.md)
-- [Connect your data source to Azure Sentinel's REST-API to ingest data](connect-rest-api-template.md)
-- [Use Azure Functions to connect your data source to Azure Sentinel](connect-azure-functions-template.md)
-- [Resources for creating Azure Sentinel custom connectors](create-custom-connector.md)
-- [Collect data in custom log formats to Azure Sentinel with the Log Analytics agent](connect-custom-logs.md)
+   - [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
+   - [Connect your data source to Azure Sentinel's REST-API to ingest data](connect-rest-api-template.md)
+   - [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md)
+   - [Collect data from Linux-based sources using Syslog](connect-syslog.md)
+   - [Collect data in custom log formats to Azure Sentinel with the Log Analytics agent](connect-custom-logs.md)
+   - [Use Azure Functions to connect your data source to Azure Sentinel](connect-azure-functions-template.md)
+   - [Resources for creating Azure Sentinel custom connectors](create-custom-connector.md)
 
 ## August 2021
 
