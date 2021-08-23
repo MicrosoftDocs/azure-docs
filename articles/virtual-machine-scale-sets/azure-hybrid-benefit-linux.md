@@ -70,7 +70,7 @@ To start using the benefit for SUSE:
 1. Register your VMs that are receiving the benefit with a separate source of updates.
 
 
-## Enable and disable the benefit on Azure Portal 
+## Enable and disable the benefit on Azure portal 
 ### Azure portal example to enable the benefit during creation:
 1. Visit [Microsoft Azure portal](https://portal.azure.com/)
 1. Go to 'Create a Virtual Machine scale set' page on the portal.
