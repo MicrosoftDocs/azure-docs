@@ -1,10 +1,10 @@
 ---
 title: Azure DDoS Protection Standard Overview
 description: Learn how the Azure DDoS Protection Standard, when combined with application design best practices, provides defense against DDoS attacks.
-services: virtual-network
+services: ddos-protection
 documentationcenter: na
 author: aletheatoh
-ms.service: virtual-network
+ms.service: ddos-protection
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
