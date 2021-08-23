@@ -52,15 +52,15 @@ A conceptual overview of this feature is available in [Custom locations - Azure 
 - Verify completed provider registration for `Microsoft.ExtendedLocation`.
     1. Enter the following commands:
     
-    ```azurecli
-    az provider register --namespace Microsoft.ExtendedLocation
-    ```
+        ```azurecli
+        az provider register --namespace Microsoft.ExtendedLocation
+        ```
 
     2. Monitor the registration process. Registration may take up to 10 minutes.
     
-    ```azurecli
-    az provider show -n Microsoft.ExtendedLocation -o table
-    ```
+        ```azurecli
+        az provider show -n Microsoft.ExtendedLocation -o table
+        ```
 
     Once registered, the `RegistrationState` state will have the `Registered` value.
 
