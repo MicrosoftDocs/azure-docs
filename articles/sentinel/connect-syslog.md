@@ -44,11 +44,11 @@ For some device types that don't allow local installation of the Log Analytics a
 
 There are three steps to configuring Syslog collection:
 
-- Configure your Linux device or appliance. This refers to the device on which the Log Analytics agent will be installed, whether it is the same device that originates the events or a log collector that will forward them.
+- **Configure your Linux device or appliance**. This refers to the device on which the Log Analytics agent will be installed, whether it is the same device that originates the events or a log collector that will forward them.
 
-- Configure your application's logging settings corresponding to the location of the Syslog daemon that will be sending events to the agent.
+- **Configure your application's logging settings** corresponding to the location of the Syslog daemon that will be sending events to the agent.
 
-- Configure the Log Analytics agent itself. This is done from within Azure Sentinel, and the configuration is sent to all installed agents.
+- **Configure the Log Analytics agent itself**. This is done from within Azure Sentinel, and the configuration is sent to all installed agents.
 
 ## Configure your Linux machine or appliance
 
@@ -64,7 +64,7 @@ There are three steps to configuring Syslog collection:
     |---------|---------|
     |**For an Azure Linux VM**     |    1. Expand **Install agent on Azure Linux virtual machine**. <br><br>2. Select the **Download & install agent for Azure Linux Virtual machines >** link.<br><br>3. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect.     |
     |**For any other Linux machine**     |     1. Expand **Install agent on a non-Azure Linux Machine** <br><br>2. Select the **Download & install agent for non-Azure Linux machines >** link.<br><br>3. In the **Agents management** blade, select the **Linux servers** tab, then copy the command for **Download and onboard agent for Linux** and run it on your Linux machine.<br><br>        If you want to keep a local copy of the Linux agent installation file, select the **Download Linux Agent** link above the "Download and onboard agent" command. |
-    |Row3     |         |
+    |     |         |
 
    > [!NOTE]
    > Make sure you configure security settings for these devices according to your organization's security policy. For example, you can configure the network settings to align with your organization's network security policy, and change the ports and protocols in the daemon to align with the security requirements.
