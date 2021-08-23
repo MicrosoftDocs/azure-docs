@@ -142,7 +142,7 @@ Find the `<ClaimsProviders>` section and add the following XML snippet to implem
 
 #### Configure the issuer URI of the SAML response
 
-You can change the value of the `IssuerUri` metadata item in the technical profile of the SAML token issuer. This change will be reflected in the `issuerUri` attribute returned in the SAML response from Azure AD B2C. Configure your application to accept the same `IssuerUri` value during SAML response validation.
+You can change the value of the `IssuerUri` metadata item in the SAML Token Issuer technical profile. This change will be reflected in the `issuerUri` attribute returned in the SAML response from Azure AD B2C. Configure your application to accept the same `IssuerUri` value during SAML response validation.
 
 ```xml
 <ClaimsProvider>
@@ -183,7 +183,7 @@ Now that your policy can create SAML responses, you must configure the policy to
     PublicPolicyUri="http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
 
-1. At the end of the user journey, Azure AD B2C contains a `SendClaims` step. This step references the technical profile of the token issuer. To issue a SAML response rather than the default JWT response, modify the `SendClaims` step to reference the new technical profile of the SAML token issuer, `Saml2AssertionIssuer`.
+1. At the end of the user journey, Azure AD B2C contains a `SendClaims` step. This step references the Token Issuer technical profile. To issue a SAML response rather than the default JWT response, modify the `SendClaims` step to reference the new SAML Token Issuer technical profile, `Saml2AssertionIssuer`.
 
 Add the following XML snippet just before the `<RelyingParty>` element. This XML overwrites orchestration step number 7 in the _SignUpOrSignIn_ user journey. 
 
