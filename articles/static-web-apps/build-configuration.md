@@ -134,6 +134,8 @@ In this configuration:
 
 Don't change the values for `repo_token`, `action`, and `azure_static_web_apps_api_token` as they are set for you by Azure Static Web Apps.
 
+---
+
 ## Custom build commands
 
 You can take fine-grained control over what commands run during the app or API build process. The following example show how to define build with values for `app_build_command` and `api_build_command`.
@@ -199,8 +201,6 @@ inputs:
 
 # [GitHub Actions](#tab/github-actions)
 
----
-
 ```yml
 ...
 with:
@@ -214,6 +214,8 @@ with:
   skip_app_build: true
   ###### End of Repository/Build Configurations ######
 ```
+
+---
 
 > [!NOTE]
 > You can only skip the build for the front-end app. The API is always built if it exists.
