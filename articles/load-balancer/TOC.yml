@@ -166,6 +166,8 @@
       href: move-across-regions-internal-load-balancer-powershell.md
   - name: Retrieve metadata using the Azure IMDS
     href: howto-load-balancer-imds.md
+  - name: Outbound only load balancer configuration
+    href: egress-only.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer
