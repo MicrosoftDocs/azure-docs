@@ -4,6 +4,7 @@ description: Use Azure Data Factory to migrate data from your data lake and data
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/30/2019

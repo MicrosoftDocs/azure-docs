@@ -14,6 +14,8 @@ ms.author: cynthn
 ---
 # Create a Linux VM from a custom disk with the Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 <!-- rename to create-vm-specialized -->
 
 This article shows you how to upload a customized virtual hard disk (VHD), and how to copy an existing VHD in Azure. The newly created VHD is then used to create new Linux virtual machines (VMs). You can install and configure a Linux distro to your requirements and then use that VHD to create a new Azure virtual machine.

@@ -3,7 +3,7 @@ title: Deploy modules at scale using Azure CLI - Azure IoT Edge
 description: Use the IoT extension for Azure CLI to create automatic deployments for groups of IoT Edge devices
 keywords: 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 10/13/2020
 ms.topic: conceptual

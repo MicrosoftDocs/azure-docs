@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Azure PowerShell
 description: This article describes how to deploy virtual machine extensions to Azure Arc-enabled servers running in hybrid cloud environments using Azure PowerShell.
-ms.date: 07/16/2021
+ms.date: 08/05/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -46,12 +46,12 @@ PS C:\> $Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
 PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute"  -Settings $Setting -ExtensionType CustomScriptExtension
 ```
 
-### Key Vault VM extension (preview)
+### Key Vault VM extension 
 
 > [!WARNING]
 > PowerShell clients often add `\` to `"` in the settings.json which will cause akvvm_service fails with error: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
-The following example enables the Key Vault VM extension (preview) on an Arc-enabled server:
+The following example enables the Key Vault VM extension on an Arc-enabled server:
 
 ```powershell
 # Build settings

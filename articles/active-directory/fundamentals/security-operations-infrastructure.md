@@ -30,7 +30,7 @@ Monitoring and alerting the components of your authentication infrastructure is 
 
 We recommend all the components be considered Control Plane / Tier 0 assets, as well as the accounts used to manage them. Refer to [Securing privileged assets](/security/compass/overview) (SPA) for guidance on designing and implementing your environment. This guidance includes recommendations for each of the hybrid authentication components that could potentially be used for an Azure AD tenant.
 
-A first step in being able to detect unexpected events and potential attacks is to establish a baseline. For all on-premises components listed in this article, see [Privileged access deployment](https://docs.microsoft.com/security/compass/privileged-access-deployment), which is part of the Securing privileged assets (SPA) guide.
+A first step in being able to detect unexpected events and potential attacks is to establish a baseline. For all on-premises components listed in this article, see [Privileged access deployment](/security/compass/privileged-access-deployment), which is part of the Securing privileged assets (SPA) guide.
 
 ## Where to look
 
@@ -282,4 +282,4 @@ See these additional security operations guide articles:
  
 
   
-‎ 
+‎

@@ -63,7 +63,7 @@ For more detailed information on installing each of these pieces, see the follow
 * [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
 * [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge.md) 
 * [OPC Publisher on GitHub](https://github.com/Azure/iot-edge-opc-publisher)
-* [Configure OPC Publisher](../iot-accelerators/howto-opc-publisher-configure.md)
+* [Configure OPC Publisher](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 
 ### Set up OPC UA Server
 
@@ -438,6 +438,6 @@ Next, use the following resources to read more about the supporting tools and pr
 * [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
 * [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge.md) 
 * [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher)
-* [Configure OPC Publisher](../iot-accelerators/howto-opc-publisher-configure.md)
+* [Configure OPC Publisher](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 * [UANodeSetWebViewer](https://github.com/barnstee/UANodesetWebViewer) 
 * [OPCUA2DTDL](https://github.com/khilscher/OPCUA2DTDL)

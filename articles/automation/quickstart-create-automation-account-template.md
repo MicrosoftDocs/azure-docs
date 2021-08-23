@@ -1,11 +1,11 @@
 ---
-title: 'Quickstart: Create an Automation account - Azure template'
+title: 'Create an Automation account - Azure template'
 titleSuffix: Azure Automation
-description: This quickstart shows how to create an Automation account by using the Azure Resource Manager template.
+description: This article shows how to create an Automation account by using the Azure Resource Manager template.
 services: automation
 ms.author: magoedte
 ms.date: 07/20/2021
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.custom:
   - mvc
@@ -14,9 +14,9 @@ ms.custom:
 # Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
 ---
 
-# Quickstart: Create an Automation account by using ARM template
+# Create an Automation account by using ARM template
 
-Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. This quickstart shows you how to deploy an Azure Resource Manager template (ARM template) that creates an Automation account. Using an ARM template takes fewer steps compared to other deployment methods.
+Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. This article shows you how to deploy an Azure Resource Manager template (ARM template) that creates an Automation account. Using an ARM template takes fewer steps compared to other deployment methods.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -42,7 +42,7 @@ This sample template performs the following:
 
 After you complete these steps, you need to [configure diagnostic settings](automation-manage-send-joblogs-log-analytics.md) for your Automation account to send runbook job status and job streams to the linked Log Analytics workspace.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-automation/).
+The template used in this article is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-automation/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.automation/101-automation/azuredeploy.json":::
 
@@ -128,7 +128,7 @@ When you no longer need them, unlink the Automation account from the Log Analyti
 
 ## Next steps
 
-In this quickstart, you created an Automation account, a Log Analytics workspace, and linked them together.
+In this article, you created an Automation account, a Log Analytics workspace, and linked them together.
 
 To learn more, continue to the tutorials for Azure Automation.
 

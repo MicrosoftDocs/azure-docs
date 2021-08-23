@@ -45,7 +45,7 @@ landingContent:
       links:            
         - text: Detect motion, record video on edge devices
           url: detect-motion-record-video-edge-devices.md
-        - text: Detect Motion, record video in the cloud
+        - text: Detect motion, record video in the cloud
           url: detect-motion-record-video-clips-cloud.md
     - linkListType: tutorial
       links:            

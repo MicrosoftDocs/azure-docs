@@ -3,6 +3,7 @@ title: Configure Azure-SSIS integration runtime for business continuity and disa
 description: This article describes how to configure Azure-SSIS integration runtime in Azure Data Factory with Azure SQL Database/Managed Instance failover group for business continuity and disaster recovery (BCDR). 
 services: data-factory
 ms.service: data-factory
+ms.subservice: integration-services
 ms.workload: data-services
 ms.devlang: powershell
 author: swinarko

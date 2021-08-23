@@ -10,6 +10,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
 ms.author: davidmu
+ms.reviewer: alamaral
 ---
 
 # Understand how users are assigned to apps in Azure Active Directory

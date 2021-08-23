@@ -173,4 +173,4 @@ In this guide, you learned how to run near-real-time analysis on live video stre
 Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) or, for broader API feedback, on our [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743) site.
 
 ## Related Topics
-- [How to Detect Faces in Image](HowtoDetectFacesinImage.md)
+- [Call the detect API](HowtoDetectFacesinImage.md)
