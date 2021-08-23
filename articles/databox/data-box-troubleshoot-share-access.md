@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 08/18/2021
+ms.date: 08/23/2021
 ms.author: alkohli
 ---
 
@@ -35,9 +35,15 @@ If you can connect to the device, a domain issue isn't preventing your share con
 
 ## Account locked out of share
 
-After five attempts to connect to a share on your device with an incorrect share password, the share will be locked, and you won't be able to connect to the share for 15 minutes. 
+After several attempts to connect to a share on your device with an incorrect share password, the share will be locked, and you won't be able to connect. The account lock will clear after a few minutes, and you'll be able to connect to the device.
 
+**Account lockout.** The lockout period and number of failed attempts depend on the version of your Data Box:
+- In Data Box 4.1 and later, the account is locked after 5 attempts and is unlocked 15 minutes later.
+- In Data Box 4.0 and earlier, the account is locked after 3 attempts and is unlocked 30 minutes later.
+ 
 The failed connection attempts may include background processes, such as retries, which you may not be aware of.
+
+**Error description.** You'll see one of the following errors, depending on how you're accessing the share:
 
 - If you're trying to connect from your host computer via SMB, you'll see this error: "The referenced account is currently locked out and may not be logged on to."
 
@@ -56,13 +62,13 @@ The failed connection attempts may include background processes, such as retries
   ![Screenshot of the Notifications pane in the local Web UI for a Data Box. A notification for a locked share account is highlighted.](media/data-box-troubleshoot-share-access/share-lock-01.png)
 
 
-To connect to an SMB share after a share account lockout, do these steps:
+**Suggested resolution.** To connect to an SMB share after a share account lockout, do these steps:
 
 1. Verify the SMB credentials for the share. In the local web UI of your device, go to **Connect and copy**, and select **SMB** for the share. You'll see the following dialog box.
 
     ![Screenshot of Access Share And Copy Data screen for an SMB share on a Data Box. Copy icons for the account, username, and password are highlighted.](media/data-box-troubleshoot-share-access/get-share-credentials-01.png)
 
-1. After 15 minutes, the lock will clear. You can now connect to the share.
+1. After the lockout period ends (either 15 minutes or half an hour), the lock will clear. You can now connect to the share.
 
    - To connect to the share from your host computer via SMB, run the following command. For a procedure, see [Copy data to Data Box via SMB](data-box-deploy-copy-data.md#connect-to-data-box).
   
