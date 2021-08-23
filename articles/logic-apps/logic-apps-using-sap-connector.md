@@ -1669,7 +1669,7 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
 1. After you apply your changes, restart the on-premises data gateway service.
 
-## Review metrics in Application Insights
+### Review metrics in Application Insights
 
 After your SAP operations run in your logic app workflow, you can review the telemetry that was sent to Application Insights.
 
