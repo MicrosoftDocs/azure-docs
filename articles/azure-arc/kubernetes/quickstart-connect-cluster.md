@@ -102,13 +102,13 @@ In this quickstart, you'll learn the benefits of Azure Arc enabled Kubernetes an
 ### [Azure CLI](#tab/azure-cli)
 
 1. Enter the following commands:
-    ```console
+    ```azurecli
     az provider register --namespace Microsoft.Kubernetes
     az provider register --namespace Microsoft.KubernetesConfiguration
     az provider register --namespace Microsoft.ExtendedLocation
     ```
 2. Monitor the registration process. Registration may take up to 10 minutes.
-    ```console
+    ```azurecli
     az provider show -n Microsoft.Kubernetes -o table
     az provider show -n Microsoft.KubernetesConfiguration -o table
     az provider show -n Microsoft.ExtendedLocation -o table
@@ -140,7 +140,7 @@ Run the following command:
 
 ### [Azure CLI](#tab/azure-cli)
 
-```console
+```azurecli
 az group create --name AzureArcTest --location EastUS --output table
 ```
 
@@ -174,7 +174,7 @@ Run the following command:
 
 ### [Azure CLI](#tab/azure-cli)
 
-```console
+```azurecli
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
@@ -241,7 +241,7 @@ Run the following command:
 
 ### [Azure CLI](#tab/azure-cli)
 
-```console
+```azurecli
 az connectedk8s list --resource-group AzureArcTest --output table
 ```
 
@@ -296,7 +296,7 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc 
 
 2. Run the connect command with proxy parameters specified:
 
-    ```console
+    ```azurecli
     az connectedk8s connect --name <cluster-name> --resource-group <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
     ```
 
@@ -366,7 +366,7 @@ Azure Arc enabled Kubernetes deploys a few operators into the `azure-arc` namesp
 
 You can delete the Azure Arc enabled Kubernetes resource, any associated configuration resources, *and* any agents running on the cluster using Azure CLI using the following command:
 
-```console
+```azurecli
 az connectedk8s delete --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
