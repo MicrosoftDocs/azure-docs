@@ -1,5 +1,5 @@
 ---
-title: Validate connectivity to Azure Sentinel | Microsoft Docs
+title: Troubleshoot CEF data connection | Microsoft Docs
 description: Validate connectivity of your security solution to make sure CEF messages are being forwarded to Azure Sentinel.
 services: sentinel
 documentationcenter: na
