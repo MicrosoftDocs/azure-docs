@@ -108,7 +108,7 @@ After the organization-wide policy has been defined, you can continue classifyin
 
 An important aspect of the classification is the ability to monitor access to sensitive data. [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) has been enhanced to include a new field in the audit log called `data_sensitivity_information`. This field logs the sensitivity classifications (labels) of the data that was returned by a query. Here's an example:
 
-![Audit log](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
+[ ![Audit log](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
 
 ## <a id="permissions"></a>Permissions
 
