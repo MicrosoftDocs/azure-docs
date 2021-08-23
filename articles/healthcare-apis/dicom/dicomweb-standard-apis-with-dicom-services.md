@@ -14,9 +14,9 @@ ms.author: aersoy
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This tutorial provides an overview of how to use the DICOMweb&trade; Standard APIs with the DICOM Services.
+This tutorial provides an overview of how to use the DICOMweb&trade; Standard APIs with the DICOM service.
 
-The DICOM service supports a subset of the DICOMweb&trade; Standard. This support includes the following:
+The DICOM service supports a subset of the DICOMweb&trade; Standard that includes the following:
 
 * Store (STOW-RS)
 * Retrieve (WADO-RS)
@@ -39,7 +39,21 @@ Once deployment is complete, you can use the Azure portal to navigate to the new
 
 Because the DICOM service is exposed as a REST API, you can access it using any modern development language. For language-agnostic information on working with the service, see [DICOM Conformance Statement](dicom-services-conformance-statement.md).
 
-To see language-specific examples, refer to the examples below. If you open the Postman Collection, you can view examples in several languages including Go, Java, JavaScript, C#, PHP, C, NodeJS, Objective-C, OCaml, PowerShell, Python, Ruby, and Swift.
+To see language-specific examples, refer to the examples below. You can view Postman collection examples in several languages including:
+
+* Go 
+* Java 
+* JavaScript 
+* C# 
+* PHP 
+* C 
+* NodeJS
+* Objective-C
+* OCaml
+* PowerShell
+* Python
+* Ruby 
+* Swift.
 
 ### C#
 
@@ -74,7 +88,7 @@ This tutorial provided an overview of the APIs supported by the DICOM service. G
 
 ### Next Steps
 
-For more information about DICOM service, see
+For more information, see
 
 >[!div class="nextstepaction"]
 >[Overview of the DICOM service](dicom-services-overview.md)
