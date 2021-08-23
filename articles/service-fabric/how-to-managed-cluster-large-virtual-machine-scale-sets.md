@@ -7,9 +7,9 @@ ms.date: 8/23/2021
 
 # Service Fabric managed cluster node type scaling
 
-Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. To allow managed cluster node types to create [large virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) a property `multiplePlacementGroups` has been added to node type definition. By default, managed cluster node types set this property to false to keep fault and upgrade domains consistent within a placement group, but this limits a node type from scaling beyond 100 VMs. To help decide whether your application can make effective use of large scale sets please see [this list of requirements](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md#checklist-for-using-large-scale-sets).
+Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. To allow managed cluster node types to create [large virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) a property `multiplePlacementGroups` has been added to node type definition. By default, managed cluster node types set this property to false to keep fault and upgrade domains consistent within a placement group, but this setting limits a node type from scaling beyond 100 VMs. To help decide whether your application can make effective use of large scale sets, see [this list of requirements](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md#checklist-for-using-large-scale-sets).
 
-Since managed clusters handles scale scenarios directly from the resource provider and uses managed disks for data we are able to support this for both stateful and stateless secondary node types.
+Since the Azure Service Fabric managed cluster resource provider orchestrates scaling and uses managed disks for data, we are able to support large scale sets for both stateful and stateless secondary node types.
 
 > [!NOTE]
 > This property can not be modified after a node type is deployed.
