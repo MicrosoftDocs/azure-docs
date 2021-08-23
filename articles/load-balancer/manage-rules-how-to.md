@@ -10,7 +10,7 @@ ms.date: 08/23/2021
 ms.custom: template-how-to
 ---
 
-# Managed load-balancing rules for Azure Load Balancer
+# Manage load-balancing rules for Azure Load Balancer
 
 [Add your introductory paragraph]
 
