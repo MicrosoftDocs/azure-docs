@@ -17,7 +17,7 @@ This article describes how to deploy data connectors in Azure Sentinel, listing 
 
 Connect your data sources to Azure Sentinel using the following generic procedures:
 
-- [Enable a data connector](#enable-a-data-connector)
+- [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
 - [Use Azure Functions to connect your data source to Azure Sentinel](connect-azure-functions-template.md)
 - [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md)
 - [Collect data from Linux-based sources using Syslog](connect-syslog.md)
@@ -471,7 +471,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog <br><br>[Extra configuration for Cisco Firepower eStreamer](#extra-configurations-for-cisco-firepower-estreamer)|
+| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog <br><br>[Extra configuration for Cisco Firepower eStreamer](#extra-configuration-for-cisco-firepower-estreamer)|
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [eStreamer eNcore for Sentinel Operations Guide](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html) |
 | **Supported by** | [Cisco](https://www.cisco.com/c/en/us/support/index.html)
