@@ -40,6 +40,7 @@ AKS clusters can currently be created using availability zones in the following 
 * US Gov Virginia
 * West Europe
 * West US 2
+* West US 3
 
 The following limitations apply when you create an AKS cluster using availability zones:
 

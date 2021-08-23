@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 08/17/2021
 ms.author: victorh
 
 ---
@@ -18,9 +18,12 @@ A WAF policy usually includes a set of custom rules. A rule consists of match co
 
 You can configure a geo-filtering policy for your Front Door by either using [Azure PowerShell](waf-front-door-tutorial-geo-filtering.md) or by using our [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-geo-filtering).
 
+> [!IMPORTANT]
+> Include the country code **ZZ** whenever you use geo-filtering. The **ZZ** country code (or *Unknown* country) captures IP addresses that are not yet mapped to a country in our dataset. This avoids false positives.
+
 ## Country/Region code reference
 
-|Country/Region code | Country?Region name |
+|Country/Region code | Country/Region name |
 | ----- | ----- |
 | AD | Andorra |
 | AE | United Arab Emirates|

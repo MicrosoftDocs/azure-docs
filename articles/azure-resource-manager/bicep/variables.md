@@ -68,13 +68,13 @@ Because storage account names must use lowercase letters, the `storageName` vari
 
 The following template doesn't deploy any resources. It shows some ways of declaring variables of different types.
 
-:::code language="bicep" source="~/resourcemanager-templates/azure-resource-manager/variables.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variables.bicep":::
 
 ## Configuration variables
 
 You can define variables that hold related values for configuring an environment. You define the variable as an object with the values. The following example shows an object that holds values for two environments - **test** and **prod**. Pass in one of these values during deployment.
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variablesconfigurations.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/variablesconfigurations.bicep":::
 
 ## Next steps
 
