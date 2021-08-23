@@ -29,7 +29,7 @@ In either case, the `provisionAfterExtensions` property designates which extensi
 
 If you wish to have Azure Disk Encryption applied after another extension, put the `provisionAfterExtensions` property in the AzureDiskEncryption extension block. 
 
-Here is an example using "CustomScriptExtension", a Powershell script that initializes and formats a Windows disk, followed by "AzureDiskEncryption":
+Here is an example using "CustomScriptExtension", a PowerShell script that initializes and formats a Windows disk, followed by "AzureDiskEncryption":
 
 ```json
 "virtualMachineProfile": {
