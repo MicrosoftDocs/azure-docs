@@ -6,22 +6,24 @@ author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 08/23/2021
 ---
 
-# Work with notebooks and MSTICPy
+# Tutorial: Configure notebooks with MSTICPy
 
-This artcile describes how to run the **Getting Started Guide For Azure Sentinel ML Notebooks** notebook, which focuses on setup activities and basic queries.
+This tutorial describes how to run the **Getting Started Guide For Azure Sentinel ML Notebooks** notebook, which focuses on setup activities with notebooks and basic queries.
 
-The **Getting Started Guide for Azure Sentinel ML Notebooks** notebook uses MSTICPy, a Python package that provides threat hunting and investigation functionality. MSTICPy provides:
+The **Getting Started Guide for Azure Sentinel ML Notebooks** notebook uses MSTICPy, a Python library built by Microsoft for Cybersecurity tools, which provides threat hunting and investigation functionality.
 
-- Data querying against Azure Sentinel tables, Microsoft Defender for Endpoint, Splunk, and other data sources.
+MSTICPy reduces the amount of code that customers need to write for Azure Sentinel, and provides:
+
+- Data query capabilities, against Azure Sentinel tables, Microsoft Defender for Endpoint, Splunk, and other data sources.
 - Threat intelligence lookups with TI providers, such as VirusTotal and AlienVault OTX.
 - Enrichment functions like GeoIP, IoC extraction, and WhoIs.
-- Visualization using event timelines, process trees, and geo mapping.
-- Advanced analyses like time series decomposition, anomaly detection, and clustering.
+- Visualization tools using event timelines, process trees, and geo mapping.
+- Advanced analyses, such as time series decomposition, anomaly detection, and clustering.
 
-The steps in this article describe how to run the notebook in your Azure ML workspace via Azure Sentinel. You can also use this article as guidance for performing similar steps to run notebooks in other environments, including locally.
+The steps in this tutorial describe how to run the **Getting Started Guide for Azure Sentinel ML Notebooks** notebook in your Azure ML workspace via Azure Sentinel. You can also use this tutorial as guidance for performing similar steps to run notebooks in other environments, including locally.
 
 For more information, see [Use notebooks to power investigations](hunting.md#use-notebooks-to-power-investigations) and [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
@@ -29,7 +31,7 @@ For more information, see [Use notebooks to power investigations](hunting.md#use
 
 - To use notebooks in Azure Sentinel, make sure that you have required permissions. For more information, see [Manage access to Azure Sentinel notebooks](notebooks.md#manage-access-to-azure-sentinel-notebooks).
 
-- To perform the steps in this article, you'll need the either the Python 3.8 kernel (recommended) or the Python 3.6 kernel.
+- To perform the steps in this tutorial, you'll need the either the Python 3.8 kernel (recommended) or the Python 3.6 kernel.
 
 - This notebook uses [VirusTotal](https://www.virustotal.com) (VT) as a threat intelligence source. To use a VirusTotal threat intelligence lookup, you'll need a VirusTotal account and API key.
 
@@ -41,6 +43,10 @@ For more information, see [Use notebooks to power investigations](hunting.md#use
     > In such cases, sign up for and use a free account until you can set up Key Vault storage.
 
 - An account key for a geolocation lookup service for IP addresses, such as [MaxMind GeoLite2](https://www.maxmind.com) Sign up for a free account and key at the [Maxmind signup page](https://www.maxmind.com/en/geolite2/signup).
+
+> [!NOTE]
+> MSTICPy is only required for Azure Sentinel notebooks that use the MSTICPY library. Azure Sentinel provides other notebooks out of the box that do not use MSTICPy, such as TBD. For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
+> 
 
 ## Run and initialize the Getting Started Guide notebook
 
@@ -487,6 +493,7 @@ For more information, see [MSTICPy GeoIP Providers](https://msticpy.readthedocs.
 ## Extra configurations
 
 Use the following procedures to configure additional settings for MTSICPy.
+
 ### Define Azure authentication and Azure Sentinel APIs (optional)
 
 This procedure describes how to configure APIs for Azure Sentinel and other Azure resources in your **msticpyconfig.yaml** file.
@@ -763,37 +770,26 @@ This procedure describes how to update the **.bashrc** file to set the **MSTICPY
 
 ## Next steps
 
-This article walked through the basics of installing MSTICPy and setting up configurations.
+This tutorial walked through the basics of installing MSTICPy and setting up configurations.
 
-Try out other notebooks stored in the [Azure Sentinel Notebooks GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks).
+Try out other notebooks stored in the [Azure Sentinel Notebooks GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks), especially:
+
+- Tour of the Cybersec features
+- Machine Learning examples
 
 > [!TIP]
-> If you use the notebook described in this article in another Jupyter environment, you can use any kernel that supports Python 3.6 or later.
+> If you use the notebook described in this tutorial in another Jupyter environment, you can use any kernel that supports Python 3.6 or later.
 >
 > To use MSTICPy notebooks outside of Azure Sentinel and Azure Machine Learning (ML), you'll also need to configure your Python environment. Install Python 3.6 or later with the Anaconda distribution, which includes many of the required packages.
-
-For more information, see:
-
-**MSTICPy**:
-
-- [MSTICPy Package Configuration](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html)
-- [MSTICPy Settings Editor](https://msticpy.readthedocs.io/en/latest/getting_started/SettingsEditor.html)
-- [Configuring Your Notebook Environment](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/ConfiguringNotebookEnvironment.ipynb).
-- [MPSettingsEditor notebook](https://github.com/microsoft/msticpy/blob/master/docs/notebooks/MPSettingsEditor.ipynb).
-
-> [!NOTE]
-> The Azure-Sentinel-Notebooks GitHub repo also contains a template *msticpyconfig.yaml* file with commented-out sections, which might help you understand the settings.
 >
 
-**Azure Sentinel notebooks and Jupyter**:
+### More reading on MSTICPy and notebooks
 
-- [Jupyter Notebooks: An Introduction](https://realpython.com/jupyter-notebook-introduction/)
-- [MSTICPy documentation](https://msticpy.readthedocs.io/)
-- [Azure Sentinel Notebooks documentation](notebooks.md)
-- [The Infosec Jupyterbook](https://infosecjupyterbook.com/introduction.html)
-- [Linux Host Explorer Notebook walkthrough](https://techcommunity.microsoft.com/t5/azure-sentinel/explorer-notebook-series-the-linux-host-explorer/ba-p/1138273)
-- [Why use Jupyter for Security Investigations](https://techcommunity.microsoft.com/t5/azure-sentinel/why-use-jupyter-for-security-investigations/ba-p/475729)
-- [Security Investigations with Azure Sentinel & Notebooks](https://techcommunity.microsoft.com/t5/azure-sentinel/security-investigation-with-azure-sentinel-and-jupyter-notebooks/ba-p/432921)
-- [Pandas Documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html)
-- [Bokeh Documentation](https://docs.bokeh.org/en/latest/)
+The following table provide more references for learning about MSTICPy, Azure Sentinel, and Jupyter notebooks.
+
+|Subject  |More references  |
+|---------|---------|
+|**MSTICPy**     |      - [MSTICPy Package Configuration](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html)<br> - [MSTICPy Settings Editor](https://msticpy.readthedocs.io/en/latest/getting_started/SettingsEditor.html)<br>    - [Configuring Your Notebook Environment](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/ConfiguringNotebookEnvironment.ipynb).<br>    - [MPSettingsEditor notebook](https://github.com/microsoft/msticpy/blob/master/docs/notebooks/MPSettingsEditor.ipynb). <br><br>**Note**: The Azure-Sentinel-Notebooks GitHub repo also contains a template *msticpyconfig.yaml* file with commented-out sections, which might help you understand the settings.      |
+|**Azure Sentinel and Jupyter notebooks**     |      - [Jupyter Notebooks: An Introduction](https://realpython.com/jupyter-notebook-introduction/)<br>    - [MSTICPy documentation](https://msticpy.readthedocs.io/)<br>    - [Azure Sentinel Notebooks documentation](notebooks.md)<br>    - [The Infosec Jupyterbook](https://infosecjupyterbook.com/introduction.html)<br>    - [Linux Host Explorer Notebook walkthrough](https://techcommunity.microsoft.com/t5/azure-sentinel/explorer-notebook-series-the-linux-host-explorer/ba-p/1138273)<br>    - [Why use Jupyter for Security Investigations](https://techcommunity.microsoft.com/t5/azure-sentinel/why-use-jupyter-for-security-investigations/ba-p/475729)<br>    - [Security Investigations with Azure Sentinel & Notebooks](https://techcommunity.microsoft.com/t5/azure-sentinel/security-investigation-with-azure-sentinel-and-jupyter-notebooks/ba-p/432921)<br>    - [Pandas Documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html)<br>    - [Bokeh Documentation](https://docs.bokeh.org/en/latest/)       |
+|     |         |
 
