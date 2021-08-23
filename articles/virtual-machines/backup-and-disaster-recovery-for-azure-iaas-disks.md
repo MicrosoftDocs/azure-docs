@@ -11,6 +11,8 @@
 
 # Backup and disaster recovery for Azure managed disks
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
+
 This article explains how to plan for backup and disaster recovery for Azure managed disks.
 
 First, we cover the built-in fault tolerance capabilities in the Azure platform that guard against local failures. We then discuss the disaster scenarios not fully covered by the built-in capabilities. We also show several examples of workload scenarios where different backup and disaster recovery considerations can apply. We then review possible solutions for the DR of IaaS disks.
