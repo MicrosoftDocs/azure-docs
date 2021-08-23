@@ -3,7 +3,7 @@ title: Monetization with Azure API Management
 description: Learn how to set up your monetization strategy for Azure API Management in six simple stages.
 author: v-hhunter
 ms.author: v-hhunter
-ms.date: 08/20/2021
+ms.date: 08/23/2021
 ms.topic: article
 ms.service: api-management
 ---
@@ -26,7 +26,7 @@ Organizations publishing their first API face a complex set of decisions. While 
 
 *Monetization* is the process of converting something into money - in this case, the API value. API interactions typically involve three distinct parties in the value chain:
 
-:::image type="content" source="/media/monetization-overview/illustration1.png" alt-text="Monetization features overview":::
+:::image type="content" source="media/monetization-overview/illustration1.png" alt-text="Monetization features overview":::
 
 Categories of API monetization strategy include:
 
@@ -72,7 +72,7 @@ Calculate the total cost of ownership for your API.
 
 | Cost | Description |
 | ----- | ----- |
-| **Cost of customer acquisition (COCA)** | The cost of marketing, sales, and onboarding. The most successful APIs tend to have a COCA with zero as adoption level increase. APIs should be largely self-service in onboarding. Factors include documentation and frictionless integration with payment systems. |
+| **Cost of customer acquisition (COCA)** | The cost of marketing, sales, and onboarding. The most successful APIs tend to have a COCA with zero as adoption levels increase. APIs should be largely self-service in onboarding. Factors include documentation and frictionless integration with payment systems. |
 | **Engineering costs** | The human resources required to build, test, operate, and maintain the API over its lifetime. Tends to be the most significant cost component. Where possible, exploit cloud PaaS and serverless technologies to minimize. |
 | **Infrastructure costs** | The costs for the underlying platforms, compute, network, and storage required to support the API over its lifetime. Exploit cloud platforms to achieve an infrastructure cost model that scales up proportionally in line with API usage levels. |
 
@@ -160,10 +160,10 @@ Calibrate the pricing across the revenue model to:
 
 Choose an appropriate solution to collect payment for usage of your APIs.  Providers tend to fall into two groups:
 
-- **Payment platforms, like Stripe**
+- **Payment platforms, like [Stripe](https://stripe.com/)**
     
     Calculate the payment based on the raw API usage metrics by applying the specific revenue model that the customer has chosen. Configure the payment platform to reflect your monetization strategy.
-- **Payment providers, like Adyen**
+- **Payment providers, like [Adyen](https://www.adyen.com/)**
 
     Only concerned with the facilitating the payment transaction. You will need to apply your monetization strategy (like, translate API usage metrics into a payment) before calling this service.
 
@@ -173,7 +173,7 @@ Implement a solution that builds flexibility into how you codify your monetizati
 
 For a description of how the sample project works from an API consumer perspective see [how the sample project works in practice].
 
-Follow the README() and Deployment and initialization() articles to implement the sample project in your own Azure subscription.
+Follow the [monetization GitHub repo documentation](https://github.com/microsoft/azure-api-management-monetization) to implement the sample project in your own Azure subscription.
 
 Regularly monitor how your API is being consumed to enable you to make evidence-based decisions. For example, if evidence shows you are churning customers, repeat steps 1 to 5 above to uncover and address the source.
 

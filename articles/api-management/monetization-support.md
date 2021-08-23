@@ -3,14 +3,12 @@ title: Azure API Management support for monetization
 description: Learn how Azure API Management supports monetization strategies for your API products.
 author: v-hhunter
 ms.author: v-hhunter
-ms.date: 08/20/2021
+ms.date: 08/23/2021
 ms.topic: article
 ms.service: api-management
 ---
 
 # How API Management supports monetization
-
-## Azure API Management Service
 
 With [Azure API Management](./api-management-key-concepts.md) service platform, you can:
 * Publish APIs, to which your consumers subscribe.
@@ -18,7 +16,7 @@ With [Azure API Management](./api-management-key-concepts.md) service platform, 
 * Accelerate project timescales.
 * Scale your APIs with confidence.
 
-In this document, we focus on API Management features that enable the implementation your monetization strategy, like providing a frictionless experience to:
+In this document, we focus on API Management features that enable the implementation of your monetization strategy, like providing a frictionless experience to:
 * Discover your public APIs.
 * Enter payment details.
 * Activate your subscription.
@@ -30,13 +28,13 @@ The diagram below introduces these key API Management features:
 
 :::image type="content" source="/media/monetization-support/architecture-overview.png" alt-text="Monetization features overview":::
 
-## API Discovery
+## API discovery
 
 Launch your API and onboard API consumers using API Management's built-in developer portal. Emphasize good quality development content for the developer portal, enabling API consumers to explore and use your APIs seamlessly. Test the content and information provided for accessibility, thoroughness, and usability.
 
 For details about how to add content and control the branding of the developer portal, see the [overview of the developer portal](./api-management-howto-developer-portal.md).
 
-## API Packaging
+## API packaging
 
 API Management manages how your APIs are packaged and presented using the concept of *products* and *policies*.
 
@@ -65,7 +63,7 @@ Apply API Management policies to control the quality of service for each product
 
 For more details about policies, see the [Policies in Azure API Management](./api-management-howto-policies.md) documentation.
 
-## API Consumption
+## API consumption
 
 Grant access for API consumers to your APIs via products using API subscriptions.
 
@@ -148,7 +146,7 @@ API Management can be deployed either through:
 * The Azure portal UI, or
 * An "infrastructure as code" approach using [Azure Resource Manager templates](https://azure.microsoft.com/services/arm-templates). 
 
-## Next Steps
+## Next steps
 
 * [Learn more about API Management monetization strategies](monetization-overview.md).
 * Deploy a demo Adyen or Stripe integration via the associated [Git repo](https://github.com/microsoft/azure-api-management-monetization).
