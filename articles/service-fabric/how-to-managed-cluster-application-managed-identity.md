@@ -7,7 +7,7 @@ ms.date: 8/23/2021
 
 # Deploy an application with Managed Identity to a Service Fabric managed cluster
 
-To deploy a Service Fabric application with managed identity, the application needs to be deployed through Azure Resource Manager, typically with an Azure Resource Manager template. For more information on how to deploy Service Fabric application through Azure Resource Manager, see [Manage applications and services as Azure Resource Manager resources](service-fabric-application-arm-resource.md).
+To deploy a Service Fabric application with managed identity, the application needs to be deployed through Azure Resource Manager, typically with an Azure Resource Manager template. For more information on how to deploy Service Fabric application through Azure Resource Manager, see [Deploy an application to a managed cluster using Azure Resource Manager](how-to-managed-cluster-app-deployment-template.md).
 
 > [!NOTE] 
 > 
@@ -190,6 +190,6 @@ This property declares (to Azure Resource Manager, and the Managed Identity and 
     This is the equivalent mapping of an identity to a service as described above, but from the perspective of the service definition. The identity is referenced here by its friendly name (`WebAdmin`), as declared in the application manifest.
 
 ## Next steps
-
-* [Leverage the managed identity of a Service Fabric application from service code](./how-to-managed-identity-service-fabric-app-code.md)
-* [Grant an Azure Service Fabric application access to other Azure resources](./how-to-grant-access-other-resources.md)
+* [Add a managed identity to a Service Fabric managed cluster node type](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md)
+* [Leverage the managed identity of a Service Fabric application from service code](how-to-managed-identity-service-fabric-app-code.md)
+* [Grant an Azure Service Fabric application access to other Azure resources](how-to-grant-access-other-resources.md)
