@@ -39,7 +39,7 @@ There are three primary components to provisioning users into an on-premises app
 You don't need to open inbound connections to the corporate network. The provisioning agents only use outbound connections to the provisioning service, which means there's no need to open firewall ports for incoming connections. You also don't need a perimeter (DMZ) network because all connections are outbound and take place over a secure channel.
 
 ## ECMA Connector Host architecture
-The ECMA Connector Host has serveral areas it uses to achieve on-premises provisioning.  The diagram below is a conceputal drawing that presents these individaul areas.  The table below describes the areas in more detail.
+The ECMA Connector Host has several areas it uses to achieve on-premises provisioning.  The diagram below is a conceptual drawing that presents these individual areas.  The table below describes the areas in more detail.
 
 [![ECMA connector host](.\media\on-premises-application-provisioning-architecture\ecma-2.png)](.\media\on-premises-application-provisioning-architecture\ecma-2.png#lightbox)
 
@@ -50,7 +50,7 @@ The ECMA Connector Host has serveral areas it uses to achieve on-premises provis
 |Endpoints|Responsible for communication and data-transfer with the Azure AD provisioning service|
 |In-memory cache|Used to store the data imported from the on-premises data source|
 |Autosync|Provides asynchronous data synchronization between the ECMA Connector Host and the on-premises data source|
-|Business logic|Used to coordianate all of the ECMA Connector Host activities.  The Autosync time is configurable in the ECMA host. This is in the properties page.|
+|Business logic|Used to coordinate all of the ECMA Connector Host activities.  The Autosync time is configurable in the ECMA host. This is in the properties page.|
 
 ### About anchor attributes and distinguished names
 The following information is provided to better explain the anchor attributes and the distinguished names, particularly used by the genericSQL connector.
