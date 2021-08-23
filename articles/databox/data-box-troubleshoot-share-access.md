@@ -102,9 +102,9 @@ To review Windows Security event logs in Event Viewer, do these steps:
 
 1. To open the Windows Event Viewer, on the **Start screen**, type **Event Viewer**, and press Enter.
 
-1. In the Event Viewer navigation pane, expand **Windows**, and select the **Security** folder.
+1. In the Event Viewer navigation pane, expand **Windows Logs**, and select the **Security** folder.
 
-    ![Screenshot of the Windows Event Viewer with Security events displayed. The Windows folder and Security subfolder are highlighted.](media/data-box-troubleshoot-share-access/security-policy-04.png)
+    ![Screenshot of the Windows Event Viewer with Security events displayed. The Windows folder and Security subfolder are highlighted.](media/data-box-troubleshoot-share-access/event-viewer-01.png)
 
 3. Look for one of the following errors:
 
