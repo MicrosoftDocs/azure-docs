@@ -13,7 +13,7 @@ ms.custom: references_regions
 ---
 # Tutorial: Use Log Analytics to collect and visualize metrics and logs (preview)
 
-In this tutorial, you learn how to enable the connector called Synapse Studio, which is built in to Log Analytics. You can then collect and send Apache Spark application metrics and logs to your [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). Finally, you can use an Azure Monitor workbook to visualize the metrics and logs.
+In this tutorial, you learn how to enable the Synapse Studio connector that's built in to Log Analytics. You can then collect and send Apache Spark application metrics and logs to your [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). Finally, you can use an Azure Monitor workbook to visualize the metrics and logs.
 
 ## Configure workspace information
 
