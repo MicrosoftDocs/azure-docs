@@ -40,7 +40,7 @@ After five failed attempts to connect to a share with an incorrect password, the
 The failed connection attempts may include background processes, such as retries, which you may not be aware of.
 
 > [!NOTE]
-> If you have an older device with Data Box version 4.0 or earlier, the account is locked after 3 attempts and is unlocked 30 minutes later.
+> If you have an older device with Data Box version 4.0 or earlier, the account is locked for 30 minutes after 3 failed login attempts.
 
 **Error description.** You'll see one of the following errors, depending on how you're accessing the share:
 
