@@ -38,6 +38,7 @@ The Event Grid Contributor role allows you to create and manage Event Grid resou
 | [Event Grid Subscription Reader](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-reader) | Lets you read Event Grid event subscriptions. |
 | [Event Grid Subscription Contributor](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) | Lets you manage Event Grid event subscription operations. |
 | [Event Grid Contributor](../role-based-access-control/built-in-roles.md#eventgrid-contributor) | Lets you create and manage Event Grid resources. |
+| [Event Grid Data Sender](../role-based-access-control/built-in-roles.md#eventgrid-data-sender) | Lets you send events to Event Grid topics. |
 
 
 > [!NOTE]

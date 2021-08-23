@@ -29,7 +29,7 @@ Use the permissions listed in this article to manage app consent policies, as we
 > [!NOTE]
 > The Azure AD admin portal does not yet support adding the permissions listed in this article to a custom directory role definition. You must [use Azure AD PowerShell to create a custom directory role](custom-create.md#create-a-role-using-powershell) with the permissions listed in this article.
 
-### Granting delegated permissions to apps on behalf of self (user consent)
+#### Granting delegated permissions to apps on behalf of self (user consent)
 
 To allow users to grant consent to applications on behalf of themselves (user consent), subject to an app consent policy.
 
@@ -39,7 +39,7 @@ Where `{id}` is replaced by the ID of an [app consent policy](../manage-apps/man
 
 For example, to allow users to grant consent on their own behalf, subject to the built-in app consent policy with ID `microsoft-user-default-low`, you would use the permission `...managePermissionGrantsForSelf.microsoft-user-default-low`.
 
-### Granting permissions to apps on behalf of all (admin consent)
+#### Granting permissions to apps on behalf of all (admin consent)
 
 To delegate tenant-wide admin consent to apps, for both delegated permissions and application permissions (app roles):
 
@@ -49,7 +49,7 @@ Where `{id}` is replaced by the ID of an [app consent policy](../manage-apps/man
 
 For example, to allow role assignees to grant tenant-wide admin consent to apps subject to a custom [app consent policy](../manage-apps/manage-app-consent-policies.md) with ID `low-risk-any-app`, you would use the permission `microsoft.directory/servicePrincipals/managePermissionGrantsForAll.low-risk-any-app`.
 
-### Managing app consent policies
+#### Managing app consent policies
 
 To delegate the creation, update and deletion of [app consent policies](../manage-apps/manage-app-consent-policies.md).
 

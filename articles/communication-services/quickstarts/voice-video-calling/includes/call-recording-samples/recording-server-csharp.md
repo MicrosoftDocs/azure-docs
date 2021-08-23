@@ -20,9 +20,9 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 - [Node.js (12.18.4 and above)](https://nodejs.org/en/download/).
 - [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/).
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit).
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). You'll need to record your resource **connection string** for this quickstart.
-- An Azure storage account and container, for details, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal). You'll need to record your storage **connection string** and **container name** for this quickstart.
-- An [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) Web hook.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
+- An Azure storage account and container, for details, see [Create a storage account](../../../../../storage/common/storage-account-create.md?tabs=azure-portal). You'll need to record your storage **connection string** and **container name** for this quickstart.
+- An [Azure Event Grid](../../../../../event-grid/overview.md) Web hook.
 
 ## Object model
 

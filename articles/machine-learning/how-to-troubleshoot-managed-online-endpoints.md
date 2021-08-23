@@ -32,7 +32,7 @@ The section [HTTP status codes](#http-status-codes) explains how invocation and 
 
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* The [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
+* The [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
 
 ## Deploy locally
 
@@ -204,5 +204,5 @@ When you access managed online endpoints with REST requests, the returned status
 
 - [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
-- [Managed online endpoints (preview) YAML reference](reference-online-endpoint-yaml.md)
+- [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md)
 

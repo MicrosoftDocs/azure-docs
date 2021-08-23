@@ -1,8 +1,11 @@
 ---
 title: Copy data from OData sources by using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from OData sources to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: jianleishen
@@ -351,7 +354,7 @@ To copy data from Project Online, you can use the OData connector and an access 
     - **Authentication type**: Select **Anonymous**.
     - **Auth headers**:
         - **Property name**: Choose **Authorization**.
-        - **Value**: Enter the **access token** copied from step 1.
+        - **Value**: Enter `Bearer <access token from step 1>`.
     - Test the linked service.
 
     ![Create OData linked service](./media/connector-odata/odata-project-online-linked-service.png)

@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/23/2021
+ms.date: 08/20/2021
 ms.author: helohr
 ---
 # Connections to Azure AD-joined VMs
@@ -36,10 +36,11 @@ If you come across an error saying **The logon attempt failed** on the Windows S
 - You are on a device that is Azure AD-joined or hybrid Azure AD-joined to the same Azure AD tenant as the session host OR
 - You are on a device running Windows 10 2004 or later that is Azure AD registered to the same Azure AD tenant as the session host
 - The [PKU2U protocol is enabled](/windows/security/threat-protection/security-policy-settings/network-security-allow-pku2u-authentication-requests-to-this-computer-to-use-online-identities) on both the local PC and the session host
+- [Per-user MFA is disabled](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms) for the user account as it's not supported for Azure AD-joined VMs.
 
 ### The sign-in method you're trying to use isn't allowed
 
-If you come across an error saying **The sign-in method you're trying to use isn't allowed. Try a different sign-in method or contact your system administrator**, you have Conditional Access policies restricting the type of credentials that can be used to sign in to the VMs. Ensure you use the right credential type when signing in or update your [Conditional Access policies](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#mfa-sign-in-method-required).
+If you come across an error saying **The sign-in method you're trying to use isn't allowed. Try a different sign-in method or contact your system administrator**, you have Conditional Access policies restricting access. Follow the instructions in [Enable multifactor authentication](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms) to enable multifactor authentication for your Azure AD-joined VMs.
 
 ## Web client
 
@@ -49,7 +50,7 @@ If you come across an error saying **Oops, we couldn't connect to NAME. Sign in 
 
 ### We couldn't connect to the remote PC because of a security error
 
-If you come across an error saying **Oops, we couldn't connect to NAME. We couldn't connect to the remote PC because of a security error. If this keeps happening, ask your admin or tech support for help.**, you have Conditional Access policies restricting the type of credentials that can be used to sign in to the VMs. This isn't supported for this client. Follow the instructions to [enable multifactor authentication](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms) for Azure AD joined VMs.
+If you come across an error saying **Oops, we couldn't connect to NAME. We couldn't connect to the remote PC because of a security error. If this keeps happening, ask your admin or tech support for help.**, you have Conditional Access policies restricting access. Follow the instructions in [Enable multifactor authentication](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms) to enable multifactor authentication for your Azure AD-joined VMs.
 
 ## Android client
 
