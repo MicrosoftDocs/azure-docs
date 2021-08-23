@@ -38,9 +38,9 @@ Check your product's section in the [data connectors reference](data-connectors-
 
 ## Configure and connect your data source
 
-1. In the Azure Sentinel portal, click **Data connectors** on the navigation menu.
+1. In the Azure Sentinel portal, select **Data connectors** on the navigation menu.
 
-1. Select your product's entry from the data connectors gallery, and then click the **Open connector page** button.
+1. Select your product's entry from the data connectors gallery, and then select the **Open connector page** button.
 
 1. Follow any steps that appear on the connector page, or any links to vendor instructions that appear there.
 
@@ -58,7 +58,7 @@ It may take up to 20 minutes before your logs start to appear in Log Analytics.
 
 ## Next steps
 
-In this document, you learned how to connect external data sources to Azure Sentinel's Data Collector API. To take full advantage of the capabilities built in to these data connectors, click on the **Next steps** tab on the data connector page. There you'll find some ready-made sample queries, workbooks, and analytics rule templates so you can get started finding useful information.
+In this document, you learned how to connect external data sources to Azure Sentinel's Data Collector API. To take full advantage of the capabilities built in to these data connectors, select the **Next steps** tab on the data connector page. There you'll find some ready-made sample queries, workbooks, and analytics rule templates so you can get started finding useful information.
 
 To learn more about Azure Sentinel, see the following articles:
 

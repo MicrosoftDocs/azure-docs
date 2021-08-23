@@ -28,6 +28,30 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
+## September 2021
+
+### New in docs: scaling data connector documentation
+
+As we continue to add more and more built-in data connectors for Azure Sentinel, we've reorganized our data connector documentation to reflect this scaling.
+
+For most data connectors, we've replaced full articles that describe an indidvidual connector with a series of generic procedures and a full reference of all currently supported connectors.
+
+Check the [Azure Sentinel data connectors reference](data-connectors-reference.md) for details about your connector, including references to the relevant generic procedure, as well as extra information and configurations required.
+
+For more information, see:
+
+- **Conceptual information**: [Connect data sources](connect-data-sources.md)
+
+- **Generic how-to articles**:
+
+   - [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
+   - [Connect your data source to Azure Sentinel's REST-API to ingest data](connect-rest-api-template.md)
+   - [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md)
+   - [Collect data from Linux-based sources using Syslog](connect-syslog.md)
+   - [Collect data in custom log formats to Azure Sentinel with the Log Analytics agent](connect-custom-logs.md)
+   - [Use Azure Functions to connect your data source to Azure Sentinel](connect-azure-functions-template.md)
+   - [Resources for creating Azure Sentinel custom connectors](create-custom-connector.md)
+
 ## August 2021
 
 - [Advanced incident search (Public preview)](#advanced-incident-search-public-preview)

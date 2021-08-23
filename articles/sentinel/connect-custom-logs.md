@@ -21,7 +21,9 @@ ms.author: yelevin
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Many applications log data to text files instead of standard logging services like Windows Event log or Syslog. You can use the Log Analytics agent to collect data in text files of nonstandard formats from both Windows and Linux computers. Once collected, you can either parse the data into individual fields in your queries or extract the data during collection to individual fields. 
+Many applications log data to text files instead of standard logging services like Windows Event log or Syslog. You can use the Log Analytics agent to collect data in text files of nonstandard formats from both Windows and Linux computers. Once collected, you can either parse the data into individual fields in your queries or extract the data during collection to individual fields.
+
+This article describes how to connect your data sources to Azure Sentinel using custom log formats. For more information about supported data connectors that use this method, see [Data connectors reference](data-connectors-reference.md).
 
 Learn all about [custom logs in the Azure Monitor documentation](../azure-monitor/agents/data-sources-custom-logs.md).
 
@@ -40,49 +42,23 @@ Install the Log Analytics agent on the Linux or Windows machine that will be gen
 > [!NOTE]
 > Some vendors recommend installing the Log Analytics agent on a separate log server instead of directly on the device. Consult your product's section on the [Data connectors reference](data-connectors-reference.md) page, or your product's own documentation.
 
-Select the appropriate tab according to whether your device type is listed in the data connectors gallery.
+Select the appropriate tab below, depending on whether your connector has a data connector page in Azure Sentinel.
 
-# [From the Data connectors gallery](#tab/DCG)
+# [From a specific data connector page](#tab/DCG)
 
 1. From the Azure Sentinel navigation menu, select **Data connectors**.
 
-1. From the connectors gallery, select your device type and then select **Open connector page**.
+1. Select your device type and then select **Open connector page**.
 
 1. Install and onboard the agent on the device that generates the logs. Choose Linux or Windows as appropriate.
 
-    **For an Azure Linux VM:**
+    |Machine type  |Instructions  |
+    |---------|---------|
+    |**For an Azure Linux VM**     |       1. Under **Choose where to install the Linux agent**, expand **Install agent on Azure Linux virtual machine**.<br><br>2. Select the **Download & install agent for Azure Linux Virtual machines >** link. <br><br>3. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect.          |
+    |**For any other Linux machine**     |       1. Under **Choose where to install the Linux agent**, expand **Install agent on a non-Azure Linux Machine**. <br><br>    2. Select the **Download & install agent for non-Azure Linux machines >** link. <br><br>3. In the **Agents management** blade, select the **Linux servers** tab, then copy the command for **Download and onboard agent for Linux** and run it on your Linux machine.<br><br>        If you want to keep a local copy of the Linux agent installation file, select the **Download Linux Agent** link above the "Download and onboard agent" command.|
+    |**For an Azure Windows VM**     |     1. Under **Choose where to install the Windows agent**, expand **Install agent on Azure Windows virtual machine**. <br><br>2. Select the **Download & install agent for Azure Windows Virtual machines >** link. <br><br>2. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect.        |
+    |**For any other Windows machine**     |      1. Under **Choose where to install the Windows agent**, expand **Install agent on a non-Azure Windows Machine** <br><br><br>2. Select the **Download & install agent for non-Azure Windows machines >** link.  <br><br>3. In the **Agents management** blade, on the **Windows servers** tab, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate.      |
 
-    1. Under **Choose where to install the Linux agent**, expand **Install agent on Azure Linux virtual machine**.
-    
-    1. Select the **Download & install agent for Azure Linux Virtual machines >** link. 
-    
-    1. In the **Virtual machines** blade, click a virtual machine to install the agent on, and then click **Connect**. Repeat this step for each VM you wish to connect.
-    
-    **For any other Linux machine:**
-
-    1. Under **Choose where to install the Linux agent**, expand **Install agent on a non-Azure Linux Machine**
-
-    1. Select the **Download & install agent for non-Azure Linux machines >** link. 
-
-    1. In the **Agents management** blade, click the **Linux servers** tab, then copy the command for **Download and onboard agent for Linux** and run it on your Linux machine.
-
-        If you want to keep a local copy of the Linux agent installation file, select the **Download Linux Agent** link above the "Download and onboard agent" command.
-
-    **For an Azure Windows VM:**
-
-    1. Under **Choose where to install the Windows agent**, expand **Install agent on Azure Windows virtual machine**.
-    
-    1. Select the **Download & install agent for Azure Windows Virtual machines >** link. 
-    
-    1. In the **Virtual machines** blade, click a virtual machine to install the agent on, and then click **Connect**. Repeat this step for each VM you wish to connect.
-    
-    **For any other Windows machine:**
-
-    1. Under **Choose where to install the Windows agent**, expand **Install agent on a non-Azure Windows Machine**
-
-    1. Select the **Download & install agent for non-Azure Windows machines >** link. 
-
-    1. In the **Agents management** blade, on the **Windows servers** tab, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate.
 
 # [Other data sources](#tab/CUS)
 
@@ -90,25 +66,20 @@ Select the appropriate tab according to whether your device type is listed in th
 
 1. Install and onboard the agent on the device that generates the logs. Choose Linux or Windows as appropriate.
 
-    - To install the agent on an Azure VM (Windows or Linux):
-        1. From the Log Analytics workspace navigation menu, select **Virtual machines**.
-        1. In the **Virtual machines** blade, click a virtual machine to install the agent on, and then click **Connect**. Repeat this step for each VM you wish to connect.
+    |Machine type  |Instructions  |
+    |---------|---------|
+    |**Azure VM (Windows or Linux)**     |   1. From the Log Analytics workspace navigation menu, select **Virtual machines**. <br><br>2. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect.      |
+    |**Any other Windows or Linux machine**     |         1. From the Log Analytics workspace navigation menu, select **Agents management**.<br><br> 2. Select the **Windows servers** or **Linux servers** tab as appropriate.<br><br>        3. For Windows, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate. For Linux, copy the command for **Download and onboard agent for Linux** and run it from your command line, or select the **Download Linux Agent** link to download a local copy of the installation file.  |
 
-    - To install the agent on any other kind of Windows or Linux machine:
-        1. From the Log Analytics workspace navigation menu, select **Agents management**.
-        1. Select the **Windows servers** or **Linux servers** tab as appropriate.
-        1. For Windows, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate.  
-            For Linux, copy the command for **Download and onboard agent for Linux** and run it from your command line, or select the **Download Linux Agent** link to download a local copy of the installation file.
-        
 ---
 
 ## Configure the logs to be collected
 
-Many device types have their own data connectors appearing in the **Data connectors** gallery. Some of these connectors require special additional instructions to properly set up log collection in Azure Sentinel. These instructions can include the implementation of a parser based on a Kusto function. 
+Many device types have their own data connectors appearing in the **Data connectors** page in Azure Sentinel. Some of these connectors require special additional instructions to properly set up log collection in Azure Sentinel. These instructions can include the implementation of a parser based on a Kusto function. 
 
-All connectors listed in the gallery will display any specific instructions on their respective connector pages in the portal, as well as in their sections of the [partner data connectors reference](partner-data-connectors-reference.md) page.
+All connectors listed in Azure Sentinel will display any specific instructions on their respective connector pages in the portal, as well as in their sections of the [Azure Sentinel data connectors reference](data-connectors-reference.md) page.
 
-(For the most up-to-date and reliable information?), or if your product is not listed in the Data connectors gallery, consult your vendor's documentation for instructions on configuring logging for your device.
+If your product is not listed in the **Data connectors** page, consult your vendor's documentation for instructions on configuring logging for your device.
 
 ## Configure the Log Analytics agent
 
@@ -117,24 +88,23 @@ All connectors listed in the gallery will display any specific instructions on t
 
 1. In the **Custom tables** tab, select **Add custom log**.
 
-1. In the **Sample** tab, upload a sample of a log file from your device (e.g. access.log or error.log). Then, click **Next**.
+1. In the **Sample** tab, upload a sample of a log file from your device (e.g. access.log or error.log). Then, select **Next**.
 
-1. In the **Record delimiter** tab, select a record delimiter, either **New line** or **Timestamp** (see the instructions on that tab), and click **Next**.
+1. In the **Record delimiter** tab, select a record delimiter, either **New line** or **Timestamp** (see the instructions on that tab), and select **Next**.
 
-1. In the **Collection paths** tab, select a path type of Windows or Linux, and enter the path to your device's logs based on your configuration. Then, click **Next**.
+1. In the **Collection paths** tab, select a path type of Windows or Linux, and enter the path to your device's logs based on your configuration. Then, select **Next**.
 
-1. Give your custom log a name and optionally a description and click **Next**.  
+1. Give your custom log a name and optionally a description and select **Next**.  
     Don't end your name with "_CL", as it will be appended automatically.
 
 
 ## Find your data
 
-1. To query the custom log data in **Logs**, type the name you gave your custom log (ending in "_CL") in the query window.
+To query the custom log data in **Logs**, type the name you gave your custom log (ending in "_CL") in the query window.
 
 ## Next steps
+
 In this document, you learned how to collect data from custom log types to ingest into Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.
-
-{"mode":"full","isActive":false}

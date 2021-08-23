@@ -13,21 +13,24 @@ ms.author: yelevin
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Azure Sentinel uses the Azure foundation to provide built-in, service-to-service support for data ingestion from many Azure and Microsoft 365 services, Amazon Web Services, and various Windows Server services. There are a few different methods through which these connections are made, and this article will outline the procedures for making these connections.
+Azure Sentinel uses the Azure foundation to provide built-in, service-to-service support for data ingestion from many Azure and Microsoft 365 services, Amazon Web Services, and various Windows Server services. There are a few different methods through which these connections are made, and this article describes how to make these connections.
 
-This article will present information that is common to groups of connectors. See the accompanying [data connector reference](data-connectors-reference.md) page for information that is unique to each connector - for example, licensing prerequisites and Log Analytics tables for data storage.
+This article discusses the following types of connectors:
 
-The following integrations are both more unique and more popular, and so are treated individually in their own articles:
+- **API-based** connections, including **Subscription-based** connections
+- **Diagnostic settings** connections, many of which are managed by [Azure Policy](/azure/governance/policy/overview)
+- **Log Analytics agent**-based connections
+
+This article presents information that is common to groups of connectors. See the accompanying [data connector reference](data-connectors-reference.md) page for information that is unique to each connector, such as licensing prerequisites and Log Analytics tables for data storage.
+
+The following integrations are both more unique and more popular, and are treated individually, with their own articles:
+
 - [Microsoft 365 Defender](connect-microsoft-365-defender.md)
 - [Azure Defender](connect-azure-security-center.md)
 - [Azure Active Directory](connect-azure-active-directory.md)
 - [Windows Security Events](connect-windows-security-events.md)
 - [Amazon Web Services (AWS) CloudTrail](connect-aws.md)
 
-There are three main groups of connectors of this type that will be treated in this article:
-- **API-based** connections, including **Subscription-based** connections
-- **Diagnostic settings** connections, an increasing number of the configurations of which are managed by Azure Policy
-- **Log Analytics agent**-based connections
 
 ## API-based connections
 
