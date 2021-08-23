@@ -43,7 +43,7 @@ Azure Arc enabled Kubernetes supports the following scenarios:
 
 * Enforce threat protection using Azure Defender for Kubernetes.
 
-* Apply policies using Azure Policy for Kubernetes.
+* Apply policy definitions using Azure Policy for Kubernetes.
 
 * Create [custom locations](./custom-locations.md) as target locations for deploying Azure Arc enabled Data Services, [App Services on Azure Arc](../../app-service/overview-arc-integration.md) (including web, function, and logic apps) and [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
 

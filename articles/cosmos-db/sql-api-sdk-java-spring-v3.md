@@ -86,6 +86,7 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 | **Azure Cosmos DB workshops and labs** |[Cosmos DB workshops home page](https://aka.ms/cosmosworkshop)
 
 > [!IMPORTANT]
+> * The 3.10.0 release - it's strongly recommended to use version 3.10.0 and above.
 > * The 3.5.0 release supports Spring Boot 2.4.3 and above.
 
 [!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]

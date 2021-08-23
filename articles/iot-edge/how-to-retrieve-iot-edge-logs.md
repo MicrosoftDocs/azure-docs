@@ -2,7 +2,7 @@
 title: Retrieve IoT Edge logs - Azure IoT Edge
 description: IoT Edge module log retrieval and upload to Azure Blob Storage. 
 author: v-tcassi
-manager: philmea
+
 ms.author: v-tcassi
 ms.date: 11/12/2020
 ms.topic: conceptual

@@ -6,7 +6,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 08/16/2021
 ms.author: cavoeg
 ---
 
@@ -22,7 +22,7 @@ Follow these steps to create a new service client.
 
 2. Select **App registrations**.
 
-    ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
+    ![Azure portal. New App Registration.](media/add-azure-active-directory/portal-aad-new-app-registration.png)
 
 3. Select **New registration**.
 
@@ -60,7 +60,7 @@ The service client needs a secret (password) to obtain a token.
 1. Select **Certificates & secrets**.
 2. Select **New client secret**.
 
-    ![Azure portal. Service Client Secret](media/how-to-aad/portal-aad-register-new-app-registration-SERVICE-CLIENT-SECRET.png)
+    ![Azure portal. Service Client Secret](media/add-azure-active-directory/portal-aad-register-new-app-registration-service-client-secret.png)
 
 3. Provide a description and duration of the secret (either 1 year, 2 years or never).
 
@@ -71,4 +71,4 @@ The service client needs a secret (password) to obtain a token.
 In this article, you've learned how to register a service client application in Azure Active Directory. Next, test access to your FHIR server using Postman.
  
 >[!div class="nextstepaction"]
->[Access Azure API for FHIR with Postman](access-fhir-postman-tutorial.md)
+>[Access the FHIR service using Postman](../fhir/using-postman.md)
