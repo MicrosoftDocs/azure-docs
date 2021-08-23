@@ -127,9 +127,19 @@ In this section, you create a user called Britta Simon in Ezra Coaching. Work wi
 
 ## Test SSO 
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-When you click the Ezra Coaching tile in the Access Panel, you should be automatically signed in to the Ezra Coaching for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+SP initiated:
+
+* Click on Test this application in Azure portal. This will redirect to Ezra Coaching Sign on URL where you can initiate the login flow.
+
+* Go to Ezra Coaching Sign-on URL directly and initiate the login flow from there.
+
+IDP initiated:
+
+* Click on Test this application in Azure portal and you should be automatically signed in to the Ezra Coaching for which you set up the SSO
+
+You can also use Microsoft My Apps to test the application in any mode. When you click the Ezra Coaching tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Ezra Coaching for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
