@@ -47,7 +47,7 @@ Follow below steps to set up a linked service to the external Hive metastore in 
 
 7.	Click **Create** to create the linked service. 
 
-## Test connection and get the metastore version in notebook
+### Test connection and get the metastore version in notebook
 Some network security rule settings may block access from Spark pool to the external Hive metastore DB. Before you configure the Spark pool, run below code in any Spark pool notebook to test connection to the external Hive metastore DB. 
 
 You can also get your Hive metastore version from the output results. The Hive metastore version will be used in the Spark configuration.
@@ -80,7 +80,6 @@ Here are the configurations and descriptions:
 
 ### Configure Spark pool 
 When creating the Spark pool, under **Additional Settings** tab, put below configurations in a text file and upload it in **Apache Spark configuration** section. You can also use the context menu for an existing Spark pool, choose Apache Spark configuration to add these configurations.
-
     :::image type="content" source="./media/share-hive-metastore-with-synapse/config-spark-pool.png" alt-text="Set up Hive Metastore linked service" border="true":::
 
 Update metastore version and linked service name, and save below configs in a text file for Spark pool configuration:
