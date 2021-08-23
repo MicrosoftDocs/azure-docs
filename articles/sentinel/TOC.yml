@@ -320,7 +320,7 @@
     - name: Visualize collected data
       href: get-visibility.md
     - name: Use Azure Monitor workbooks
-      href: monitor-your-data.md
+      href: /azure/sentinel/monitor-your-data
   - name: Detect threats and analyze data
     items:
     - name: Use built-in rules
@@ -397,6 +397,8 @@
       href: sap-solution-log-reference.md
     - name: SAP workbook, rules, and watchlists
       href: sap-solution-security-content.md
+    - name: Use an SNC connection to deploy your SAP data connector
+      href: sap-solution-deploy-snc.md
     - name: Expert configuration options
       href: sap-solution-deploy-alternate.md
     - name: Troubleshooting your SAP solution deployment
