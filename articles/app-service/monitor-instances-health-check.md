@@ -98,7 +98,7 @@ In the scenario where all instances of your application are unhealthy, App Servi
 
 ### Does Health Check work on App Service Environments?
 
-On App Service Environments (ASEs), the platform will ping your instances on the specified path and remove any unhealthy instances from the load balancer so requests will not be routed to them. However, currently these unhealthy instances will not be replaced with new instances if they remain unhealthy for 1 hour.
+Yes, on App Service Environments (ASEs), the platform will ping your instances on the specified path and remove any unhealthy instances from the load balancer so requests will not be routed to them. However, currently these unhealthy instances will not be replaced with new instances if they remain unhealthy for 1 hour.
 
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
