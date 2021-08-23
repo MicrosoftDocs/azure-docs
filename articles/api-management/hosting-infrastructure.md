@@ -14,7 +14,7 @@ As a cloud platform-as-a-service (PaaS), Azure API Management abstracts many det
 
 To enhance service capabilities, we're upgrading the API Management compute platform version - the Azure compute resources that host the service - for instances in several [service tiers](api-management-features.md). This article gives you context about the upgrade and the major versions of API Management's compute platform: `stv1` and `stv2`.
 
-We've minimized impacts of this upgrade on your operation of your API Management instance. However, if your instance is connected to an [Azure virtual network](virtual-network-concepts.md), you'll need to change some network configuration settings after the instance upgrades to the `stv2` platform version.
+We've minimized impacts of this upgrade on your operation of your API Management instance. However, if your instance is connected to an [Azure virtual network](virtual-network-concepts.md), you'll need to change some network configuration settings when the instance upgrades to the `stv2` platform version.
 
 ## Compute platform versions
 
