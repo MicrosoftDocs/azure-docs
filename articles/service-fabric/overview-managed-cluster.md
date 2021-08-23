@@ -28,12 +28,15 @@ In terms of size and complexity, the ARM template for a Service Fabric managed c
 | Storage account(s) | |
 | Virtual network | |
 
-Service Fabric managed clusters provide a number of advantages over traditional clusters:
+## Service Fabric managed cluster advantages
+Service Fabric managed clusters provide a number of advantages over traditional clusters including:
 
 **Simplified cluster deployment and management**
 - Deploy and manage a single Azure resource
-- Certificate management and autorotation
+- Cluster certificate management and 90 day autorotation
 - Simplified scaling operations
+- Automatic OS Image upgrade support
+- In-Place OS SKU change support
 
 **Prevent operational errors**
 - Prevent configuration mismatches with underlying resources
@@ -80,6 +83,8 @@ To get started with Service Fabric managed clusters, try the quickstart:
 
 > [!div class="nextstepaction"]
 > [Create a Service Fabric managed cluster](quickstart-managed-cluster-template.md)
+
+And reference [how to configure your managed cluster](how-to-managed-cluster-configuration.md)
 
 [sf-composition]: ./media/overview-managed-cluster/sfrp-composition-resource.png
 [sf-encapsulation]: ./media/overview-managed-cluster/sfrp-encapsulated-resource.png
