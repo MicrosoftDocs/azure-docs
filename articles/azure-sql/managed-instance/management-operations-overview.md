@@ -36,16 +36,21 @@ Subsequent management operations on managed instances may impact the underlying 
 
 The duration of operations on the virtual cluster can vary, but typically have the longest duration. 
 
-The following are values that you can typically expect, based on existing service telemetry data:
+The following table lists the long running steps that can be triggered as part of the create, update, or delete operation. Table also lists the durations that you can typically expect, based on existing service telemetry data:
 
-- **Virtual cluster creation**: Creation is a synchronous step in instance management operations. <br/> **90% of operations finish in 4 hours**.
-- **Virtual cluster resizing (expansion or shrinking)**: Expansion is a synchronous step, while shrinking is performed asynchronously (without impact on the duration of instance management operations). <br/>**90% of cluster expansions finish in less than 2.5 hours**.
-- **Virtual cluster deletion**: Virtual cluster deletion can be synchronous and asynchronous. Asynchronous deletion is performed in the background and it is triggered in case of multiple virtual clusters inside the same subnet, when last instance in the non-last cluster in the subnet is deleted. Synchronous deletion of the virtual cluster is triggered as part of the very last instance deletion in the subnet. <br/>**90% of cluster deletions finish in 1.5 hours**.
+|Step|Description|Estimated duration|
+|---------|---------|---------|
+|**Virtual cluster creation**|Creation is a synchronous step in instance management operations.|**90% of operations finish in 4 hours**|
+|**Virtual cluster resizing (expansion or shrinking)**|Expansion is a synchronous step, while shrinking is performed asynchronously (without impact on the duration of instance management operations).|**90% of cluster expansions finish in less than 2.5 hours**|
+|**Virtual cluster deletion**|Virtual cluster deletion can be synchronous and asynchronous. Asynchronous deletion is performed in the background and it is triggered in case of multiple virtual clusters inside the same subnet, when last instance in the non-last cluster in the subnet is deleted. Synchronous deletion of the virtual cluster is triggered as part of the very last instance deletion in the subnet.|**90% of cluster deletions finish in 1.5 hours**|
+|**Seeding database files**<sup>1</sup>|A synchronous step, triggered during compute (vCores), or storage scaling in the Business Critical service tier as well as in changing the service tier from General Purpose to Business Critical (or vice versa). Duration of this operation is proportional to the total database size as well as current database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration.|**90% of these operations execute at 220 GB/hour or higher**|
 
-Additionally, management of instances may also include one of the operations on hosted databases, which result in longer durations:
+<sup>1</sup> When scaling compute (vCores) or storage in Business Critical service tier, or switching service tier from General Purpose to Business Critical, seeding also includes Always On availability group seeding.
 
-- **Attaching database files from Azure Storage**:  A synchronous step, such as scaling compute (vCores), or storage up or down in the General Purpose service tier. <br/>**90% of these operations finish in 5 minutes**.
-- **Always On availability group seeding**: A synchronous step, such as compute (vCores), or storage scaling in the Business Critical service tier as well as in changing the service tier from General Purpose to Business Critical (or vice versa). Duration of this operation is proportional to the total database size as well as current database activity (number of active transactions). Database activity when updating an instance can introduce significant variance to the total duration. <br/>**90% of these operations execute at 220 GB/hour or higher**.
+> [!IMPORTANT]
+> Scaling storage up or down in the General Purpose service tier consists of updating meta data and propagating response for submitted request. It is a fast operation that completes in up to 5 minutes, without a downtime and failover.
+
+### Management operations long running segments
 
 The following tables summarize operations and typical overall durations, based on the category of the operation:
 
@@ -58,21 +63,19 @@ The following tables summarize operations and typical overall durations, based o
 |Subsequent instance creation within the non-empty subnet (2nd, 3rd, etc. instance)|Virtual cluster resizing|90% of operations finish in 2.5 hours.|
 | | | 
 
-<sup>1</sup> Virtual cluster is built per hardware generation.
+<sup>1</sup> Virtual cluster is built per hardware generation and maintenance window configuration.
 
 **Category: Update**
 
 |Operation  |Long-running segment  |Estimated duration  |
 |---------|---------|---------|
 |Instance property change (admin password, Azure AD login, Azure Hybrid Benefit flag)|N/A|Up to 1 minute.|
-|Instance storage scaling up/down (General Purpose service tier)|No long-running segment<sup>1</sup>|99% of operations finish in 5 minutes.|
+|Instance storage scaling up/down (General Purpose service tier)|No long-running segment|99% of operations finish in 5 minutes.|
 |Instance storage scaling up/down (Business Critical service tier)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB/hour).|
 |Instance compute (vCores) scaling up and down (General Purpose)|- Virtual cluster resizing<br>- Attaching database files|90% of operations finish in 2.5 hours.|
 |Instance compute (vCores) scaling up and down (Business Critical)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB/hour).|
 |Instance service tier change (General Purpose to Business Critical and vice versa)|- Virtual cluster resizing<br>- Always On availability group seeding|90% of operations finish in 2.5 hours + time to seed all databases (220 GB/hour).|
 | | | 
-
-<sup>1</sup> Scaling General Purpose managed instance storage will not cause a failover at the end of operation. In this case operation consists of updating meta data and propagating response for submitted request.
 
 **Category: Delete**
 
