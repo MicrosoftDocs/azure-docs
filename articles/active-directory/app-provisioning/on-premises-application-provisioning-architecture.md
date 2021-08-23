@@ -80,10 +80,10 @@ Since ECMA Connector Host currently only supports the USER object type, the OBJE
 
 1.  The Azure AD provisioning service queries the ECMA Connector Host to see if the user exists.  It uses the **matching attribute** as the filter.  This attribute is defined in the Azure AD portal under Enterprise applications -> On-premises provisioning -> provisioning -> attribute matching.  It is denoted by the 1 for matching precedence.
 You can define one or more matching attribute(s) and prioritize them based on the precedence.  Should you want to change the matching attribute you can also do so.
- [![Matching attribute](.\media\on-premises-application-provisioning-architecture\matching-1.png)](.\media\on-premises-application-provisioning-architecture\matching-1.png#lightbox)
+ [![Matching attribute](.\media\on-premises-application-provisioning-architecture\match-1.png)](.\media\on-premises-application-provisioning-architecture\match-1.png#lightbox)
 
 2.  ECMA Connector Host receives the GET request and queries its internal cache to see if the user exists and has based imported.  This is done using the **query attribute**. The query attribute is defined in the object types page.  
- [![Query attribute](.\media\on-premises-application-provisioning-architecture\matching-2.png)](.\media\on-premises-application-provisioning-architecture\matching-2.png#lightbox)
+ [![Query attribute](.\media\on-premises-application-provisioning-architecture\match-2.png)](.\media\on-premises-application-provisioning-architecture\match-2.png#lightbox)
 
 
 3. If the user does not exist, Azure AD will make a POST request to create the user.  The ECMA Connector Host will respond back to Azure AD with the HTTP 201 and provide an ID for the user. This ID is derived from the anchor value defined in the object types page. This anchor will be used by Azure AD to query the ECMA Connector Host for future and subsequent requests. 
