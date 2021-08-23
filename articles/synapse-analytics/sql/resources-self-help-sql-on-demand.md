@@ -550,42 +550,15 @@ Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the sto
 
 ### Partitioning column returns NULL values
 
-If you are using views over the `OPENROWSET` function that read partitioned Delta Lake folder, you might get the value `NULL` instead of the actual column values for the partitioning columns. An example of a view that references `Year` and `Month` partitioning columns is shown in the following example:
+**Status**: Resolved
 
-```sql
-create or alter view test as
-select top 10 * 
-from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
-                format = 'delta') 
-     with (ID int, Year int, Month int, Temperature float) 
-                as rows
-```
-
-Due to the known issue, the `OPENROWSET` function with the `WITH` clause cannot read the values from the partitioning columns. The [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake should not have the `OPENROWSET` function with the `WITH` clause. You need to use the `OPENROWSET` function that doesn't have explicitly specified schema.
-
-**Workaround:** Remove the `WITH` clause from the `OPENROWSET` function that is used in the views - example:
-
-```sql
-create or alter view test as
-select top 10 * 
-from openrowset(bulk 'https://storageaccount.blob.core.windows.net/path/to/delta/lake/folder',
-                format = 'delta') 
-   --with (ID int, Year int, Month int, Temperature float) 
-                as rows
-```
+**Release**: August 2021
 
 ### Query failed because of a topology change or compute container failure
 
-Some Delta Lake queries on partitioned data sets might fail with this error message if your database collation is not `Latin1_General_100_BIN2_UTF8`. Create a database with `Latin1_General_100_BIN2_UTF8` collation and execute the queries on that database instead of master and other databases with the default collation.
+**Status**: Resolved
 
-```sql
-CREATE DATABASE mydb 
-    COLLATE Latin1_General_100_BIN2_UTF8;
-```
-
-The queries executed via master database are affected with this issue. This is not applicable on all queries that are reading partitioned data. The data sets partitioned by string columns are affected by this issue.
-
-**Workaround:** Execute the queries on a custom database with `Latin1_General_100_BIN2_UTF8` database collation.
+**Release**: August 2021
 
 ### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
 
@@ -619,9 +592,19 @@ First, make sure that your Delta Lake data set is not corrupted.
 - Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Synapse or Databricks cluster. This way you will ensure that the `_delta_log` file is not corrupted.
 - Verify that you can read the content of data files by specifying `FORMAT='PARQUET'` and using recursive wildcard `/**` at the end of the URI path. If you can read all Parquet files, the issue is in `_delta_log` transaction log folder.
 
-**Workaround:** This problem might happen if you are using some `_UTF8` database collation. Try to run a query on `master` database or any other database that has non-UTF8 collation. If this workaround resolves your issue, use a database without `_UTF8` collation.
+Some common errors and workarounds:
 
-In the data set is valid, and the workaround cannot help, report a support ticket and provide a repro to Azure support:
+- `JSON text is not properly formatted. Unexpected character '.'` - it is possible that the underlying parquet files contain some data types that are not supported in serverless SQL pool.
+
+**Workaround:** Try to use WITH schema that will exclude unsupported types.
+
+- `JSON text is not properly formatted. Unexpected character '{'` - it is possible that you are using some `_UTF8` database collation. 
+
+**Workaround:** Try to run a query on `master` database or any other database that has non-UTF8 collation. If this workaround resolves your issue, use a database without `_UTF8` collation. Specify `_UTF8` collation in the column definition in the `WITH` clause.
+
+**General workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
+
+In the data set is valid, and the workarounds cannot help, report a support ticket and provide a repro to Azure support:
 - Do not make any changes like adding/removing the columns or optimizing the table because this might change the state of Delta Lake transaction log files.
 - Copy the content of `_delta_log` folder into a new empty folder. **DO NOT** copy `.parquet data` files.
 - Try to read the content that you copied in new folder and verify that you are getting the same error.
@@ -629,6 +612,52 @@ In the data set is valid, and the workaround cannot help, report a support ticke
 - Send the content of the copied `_delta_log` file to Azure support.
 
 Azure team will investigate the content of the `delta_log` file and provide more info about the possible errors and the workarounds.
+
+## Security
+
+### AAD service principal login failures when SPI is creating a role assignment
+If you want to create role assignment for Service Principal Identifier/AAD app using another SPI, or have already created one and it fails to login, you're probably receiving following error:
+```
+Login error: Login failed for user '<token-identified principal>'.
+```
+For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing Synapse service to fetch Application Id from Azure AD Graph when creating role assignment for another SPI/app.  
+
+#### Solution #1
+Navigate to Azure Portal > Synapse Studio > Manage > Access control and manually add Synapse Administrator or Synapse SQL Administrator for desired Service Principal.
+
+#### Solution #2
+You need to manually create a proper login through SQL code:
+```sql
+use master
+go
+CREATE LOGIN [<service_principal_name>] FROM EXTERNAL PROVIDER;
+go
+ALTER SERVER ROLE sysadmin ADD MEMBER [<service_principal_name>];
+go
+```
+
+#### Solution #3
+You can also setup service principal Synapse Admin using PowerShell. You need to have [Az.Synapse module](/powershell/module/az.synapse) installed.
+The solution is to use cmdlet New-AzSynapseRoleAssignment with `-ObjectId "parameter"` - and in that parameter field to provide Application ID (instead of Object ID) using workspace admin Azure service principal credentials. PowerShell script:
+```azurepowershell
+$spAppId = "<app_id_which_is_already_an_admin_on_the_workspace>"
+$SPPassword = "<application_secret>"
+$tenantId = "<tenant_id>"
+$secpasswd = ConvertTo-SecureString -String $SPPassword -AsPlainText -Force
+$cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $spAppId, $secpasswd
+
+Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant $tenantId
+
+New-AzSynapseRoleAssignment -WorkspaceName "<workspaceName>" -RoleDefinitionName "Synapse Administrator" -ObjectId "<app_id_to_add_as_admin>" [-Debug]
+```
+
+#### Validation
+Connect to serverless SQL endpoint and verify that the external login with SID `app_id_to_add_as_admin` is created:
+```sql
+select name, convert(uniqueidentifier, sid) as sid, create_date
+from sys.server_principals where type in ('E', 'X')
+```
+or just try to login on serverless SQL endpoint using the just set admin app.
 
 ## Constraints
 

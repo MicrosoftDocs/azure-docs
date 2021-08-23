@@ -18,9 +18,25 @@ ms.author: chrande
 
 The Azure Managed Instance for Apache Casandra service requires certain network rules to properly manage the service. By ensuring you have the proper rules exposed, you can keep your service secure and prevent operational issues.
 
+## Virtual network service tags
+
+If you are using Azure Firewall to restrict outbound access, we highly recommend using [virtual network service tags](../virtual-network/service-tags-overview.md). Below are the tags required to make Azure Managed Instance for Apache Cassandra function properly.
+
+| Destination Service Tag                                                             | Protocol | Port    | Use  |
+|----------------------------------------------------------------------------------|----------|---------|------|
+| Storage | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage for Control Plane communication and configuration.|
+| AzureKeyVault | HTTPS | 443 | Required for secure communication between the nodes and Azure Key Vault. Certificates and keys are used to secure communication inside the cluster.|
+| EventHub | HTTPS | 443 | Required to forward logs to Azure |
+| AzureMonitor | HTTPS | 443 | Required to forward metrics to Azure |
+| AzureActiveDirectory| HTTPS | 443 | Required for Azure Active Directory authentication.|
+| GuestandHybridManagement | HTTPS | 443 |  Required to gather information about and manage Cassandra nodes (for example, reboot) |
+| ApiManagement  | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (for example, reboot) |
+| `Storage.<Region>`  | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage for Control Plane communication and configuration. **You need an entry for each region where you have deployed a datacenter.** |
+
+
 ## Azure Global required network rules
 
-The required network rules and IP address dependencies are:
+If you are not using Azure Firewall, the required network rules and IP address dependencies are:
 
 | Destination Endpoint                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|
@@ -45,6 +61,8 @@ The following ports are only accessible within the VNET (or peered vnets./expres
 | 7001 | Gossip - Used by Cassandra nodes to talk to each other |
 | 9042 | Cassandra -Used by clients to connect to Cassandra |
 | 7199 | Internal |
+
+
 
 ## Next steps
 

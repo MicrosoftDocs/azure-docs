@@ -15,6 +15,8 @@ ms.collection: linux
 
 # Deploy enterprise Java applications to Azure with JBoss EAP on Red Hat Enterprise Linux
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 The Azure Quickstart templates in this article show you how to deploy [JBoss Enterprise Application Platform (EAP)](https://www.redhat.com/en/technologies/jboss-middleware/application-platform) with [Red Hat Enterprise Linux (RHEL)](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux) to Azure virtual machines (VMs) and virtual machine scale sets. You'll use a sample Java app to validate the deployment. 
 
 JBoss EAP is an open-source application server platform. It delivers enterprise-grade security, scalability, and performance for your Java applications. RHEL is an open-source operating system (OS) platform. It allows scaling of existing apps and rolling out of emerging technologies across all environments. 
@@ -225,7 +227,7 @@ You can start by using one of the following Quickstart templates for JBoss EAP o
 
 * <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-multivm-rhel/"> JBoss EAP on RHEL (clustered, multiple VMs)</a>. This will deploy a web application called eap-session-replication on a JBoss EAP 7.2 or 7.3 cluster running on *n* number of RHEL 7.7 or 8.0 VMs. The user decides the *n* value. All the VMs are added to the back-end pool of a load balancer.
 
-* <a href="https://azure.microsoft.com/en-us/resources/templates/jboss-eap-clustered-vmss-rhel/"> JBoss EAP on RHEL (clustered, virtual machine scale set)</a>. This will deploy a web application called eap-session-replication on a JBoss EAP 7.2 or 7.3 cluster running on RHEL 7.7 or 8.0 virtual machine scale sets.
+* <a href="https://azure.microsoft.com/resources/templates/jboss-eap-clustered-vmss-rhel/"> JBoss EAP on RHEL (clustered, virtual machine scale set)</a>. This will deploy a web application called eap-session-replication on a JBoss EAP 7.2 or 7.3 cluster running on RHEL 7.7 or 8.0 virtual machine scale sets.
 
 ## Resource links
 

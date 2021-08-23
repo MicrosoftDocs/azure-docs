@@ -115,7 +115,7 @@ If you use Azure Pipelines with an Azure container registry that limits access t
 
 One workaround is to change the agent used to run the pipeline from Microsoft-hosted to self-hosted. With a self-hosted agent running on a [Windows](/azure/devops/pipelines/agents/v2-windows) or [Linux](/azure/devops/pipelines/agents/v2-linux) machine that you manage, you control the outbound IP address of the pipeline, and you can add this address in a registry IP access rule.
 
-## Access from AKS
+### Access from AKS
 
 If you use Azure Kubernetes Service (AKS) with an Azure container registry that limits access to specific IP addresses, you can't configure a fixed AKS IP address by default. The egress IP address from the AKS cluster is randomly assigned.
 

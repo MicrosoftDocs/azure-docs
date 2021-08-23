@@ -160,6 +160,8 @@
        - name: Secure API Management API
          href: secure-api-management.md
          displayName: apim, api management, migrate, b2clogin.com 
+    - name: Microsoft Power Apps
+      href: /powerapps/maker/portals/configure/configure-azure-ad-b2c-provider
     - name: SAML application
       items:
       - name: Configure a SAML application
@@ -212,6 +214,9 @@
       href: add-identity-provider.md
     - name: AD FS
       href: identity-provider-adfs.md
+      displayName: AD-FS, ADFS
+    - name: AD FS (SAML)
+      href: identity-provider-adfs-saml.md
       displayName: AD-FS, ADFS
     - name: Amazon
       href: identity-provider-amazon.md
@@ -351,11 +356,11 @@
     href: age-gating.md
   - name: API connectors
     items:
-    - name: Add an API connector to a sign-up user flow
+    - name: Modify sign-up experiences 
       href: add-api-connector.md
       displayName: rest claims validation, validate
-    - name: Add an API connector to a sign-up or sign-in user flow
-      href: custom-policy-rest-api-claims-exchange.md
+    - name: Enrich tokens with external claims
+      href: add-api-connector-token-enrichment.md
       displayName: rest claims exchange
     - name: Secure an API connector
       href: secure-rest-api.md
@@ -411,6 +416,8 @@
       items:
       - name: Akamai
         href: partner-akamai.md
+      - name: Azure WAF
+        href: partner-azure-web-application-firewall.md
       - name: Cloudflare
         href: partner-cloudflare.md
     - name: Configure web API domains 
