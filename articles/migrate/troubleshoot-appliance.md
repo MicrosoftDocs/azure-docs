@@ -178,7 +178,7 @@ You get "Validation failed" for domain credentials added on the VMware appliance
 1. Ensure that the domain is reachable from the appliance to validate the credentials. The appliance might be having line-of-sight issues, or the domain name might not be resolvable from the appliance server.
 1. Select **Edit** to update the domain name or credentials. Select **Revalidate credentials** to validate the credentials again after some time.
 
-## "Access is denied" error occurs when connecting to Hyper-V hosts or clusters during validation
+## "Access is denied" error occurs when you connect to Hyper-V hosts or clusters during validation
 
 **Error**
 
