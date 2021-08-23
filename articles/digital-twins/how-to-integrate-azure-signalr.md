@@ -34,7 +34,7 @@ Here are the prerequisites you should complete before proceeding:
     
 * You'll need [Node.js](https://nodejs.org/) installed on your machine.
 
-Be sure to sign in to the [Azure portal](https://portal.azure.com/) with your Azure account as you'll need to use it in this guide.
+Be sure to sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, as you'll need to use it in this guide.
 
 ## Solution architecture
 
@@ -46,11 +46,11 @@ You'll be attaching Azure SignalR Service to Azure Digital Twins through the pat
 
 First, download the required sample apps. You'll need both of the following samples:
 * [Azure Digital Twins end-to-end samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): This sample contains an *AdtSampleApp* that holds two Azure functions for moving data around an Azure Digital Twins instance (you can learn about this scenario in more detail in [Connect an end-to-end solution](tutorial-end-to-end.md)). It also contains a *DeviceSimulator* sample application that simulates an IoT device, generating a new temperature value every second.
-    - If you haven't already downloaded the sample as part of the tutorial in [Prerequisites](#prerequisites), [navigate to the sample](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) and select the *Browse code* button underneath the title. Clicking this button will take you to the GitHub repo for the samples, which you can download as a .zip by selecting the *Code* button and *Download ZIP*.
+    - If you haven't already downloaded the sample as part of the tutorial in [Prerequisites](#prerequisites), [navigate to the sample](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) and select the *Browse code* button underneath the title. Doing so will take you to the GitHub repo for the samples, which you can download as a .zip by selecting the *Code* button and *Download ZIP*.
 
         :::image type="content" source="media/includes/download-repo-zip.png" alt-text="Screenshot of the digital-twins-samples repo on GitHub and the steps for downloading it as a zip." lightbox="media/includes/download-repo-zip.png":::
 
-    The downloaded .zip file will create a copy of the sample repo in your machine, as **digital-twins-samples-master.zip**. Unzip the folder.
+    This button will download a copy of the sample repo in your machine, as **digital-twins-samples-master.zip**. Unzip the folder.
 * [SignalR integration web app sample](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): This sample React web app will consume Azure Digital Twins telemetry data from an Azure SignalR Service.
     -  Navigate to the sample link and use the same download process to download a copy of the sample to your machine, as _**digitaltwins-signalr-webapp-sample-main.zip**_. Unzip the folder.
 
@@ -105,7 +105,7 @@ Next, configure the function to communicate with your Azure SignalR instance. Yo
 
 Next, subscribe the *broadcast* Azure function to the **event grid topic** you created during the [tutorial prerequisite](how-to-integrate-azure-signalr.md#prerequisites). This action will allow telemetry data to flow from the thermostat67 twin through the event grid topic and to the function. From here, the function can broadcast the data to all the clients.
 
-To do broadcast the data, you'll create an **Event subscription** from your event grid topic to your *broadcast* Azure function as an endpoint.
+To broadcast the data, you'll create an **Event subscription** from your event grid topic to your *broadcast* Azure function as an endpoint.
 
 In the [Azure portal](https://portal.azure.com/), navigate to your event grid topic by searching for its name in the top search bar. Select *+ Event Subscription*.
 

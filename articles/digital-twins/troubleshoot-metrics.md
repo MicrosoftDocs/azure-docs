@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Troubleshooting Azure Digital Twins: Metrics
 
-The metrics described in this article give you information about the state of Azure Digital Twins resources in your Azure subscription. Azure Digital Twins metrics help you assess the overall health of Azure Digital Twins service and the resources connected to it. These user-facing statistics help you see what is going on with your Azure Digital Twins and help analyze the root-causes of issues without needing to contact Azure support.
+The metrics described in this article give you information about the state of Azure Digital Twins resources in your Azure subscription. Azure Digital Twins metrics help you assess the overall health of Azure Digital Twins service and the resources connected to it. These user-facing statistics help you see what is going on with your Azure Digital Twins and help analyze the root causes of issues without needing to contact Azure support.
 
 Metrics are enabled by default. You can view Azure Digital Twins metrics from the [Azure portal](https://portal.azure.com).
 
@@ -68,7 +68,7 @@ Metrics having to do with API requests:
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | ApiRequests | API Requests | Count | Total | The number of API Requests made for Digital Twins read, write, delete, and query operations. |  Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text |
-| ApiRequestsFailureRate | API Requests Failure Rate | Percent | Average | The percentage of API requests that the service receives for your instance, which give an internal error (500) response code for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text
+| ApiRequestsFailureRate | API Requests Failure Rate | Percent | Average | The percentage of API requests that the service receives for your instance that give an internal error (500) response code for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol, <br>Status Code, <br>Status Code Class, <br>Status Text
 | ApiRequestsLatency | API Requests Latency | Milliseconds | Average | The response time for API requests. This value refers to the time from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete, and query operations. | Authentication, <br>Operation, <br>Protocol |
 
 #### Billing metrics

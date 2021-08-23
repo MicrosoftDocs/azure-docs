@@ -41,7 +41,7 @@ You can also read more about the partnership with RealEstateCore and goals for t
 
 *Get the ontology from the following repository:* [Digital Twins Definition Language (DTDL) ontology for Smart Cities](https://github.com/Azure/opendigitaltwins-smartcities).
 
-Microsoft has collaborated with [Open Agile Smart Cities (OASC)](https://oascities.org/) and [Sirus](https://sirus.be/) to provide a DTDL-based ontology for smart cities, starting with [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim). Apart from ETSI NGSI-LD, we’ve also evaluated Saref4City, CityGML, ISO, and others.
+Microsoft has collaborated with [Open Agile Smart Cities (OASC)](https://oascities.org/) and [Sirus](https://sirus.be/) to provide a DTDL-based ontology for smart cities, starting with [ETSI CIM NGSI-LD](https://www.etsi.org/committee/cim). Apart from ETSI NGSI-LD, we've also evaluated Saref4City, CityGML, ISO, and others.
 
 To learn more about the ontology, how to use it, and how to contribute, visit the ontology's repository on GitHub: [Azure/opendigitaltwins-smartcities](https://github.com/Azure/opendigitaltwins-smartcities). 
 
