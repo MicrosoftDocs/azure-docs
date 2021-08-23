@@ -421,7 +421,7 @@ Use the following command to set the default subscription to use with the Azure 
 
    ```azurecli
    az account set --subscription <Name or ID of a subscription from the last step>
-   
+   ```
 
 1. Build the project using Maven:
 
