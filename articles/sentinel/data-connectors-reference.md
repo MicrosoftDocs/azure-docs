@@ -407,7 +407,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 | --- | --- |
 | **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | BetterMTDDeviceLog_CL<br>BetterMTDIncidentLog_CL<br>BetterMTDAppLog_CL<br>BetterMTDNetflowLog_CL |
-| **Vendor documentation/<br>installation instructions** | [BETTER MTD Documentation](https://mtd-docs.bmobi.net/integrations/azure-sentinel/setup-integration)<br><br>Threat Policy setup (Which incidents should be reported to Azure Sentinel):<br><ol><li>In **Better MTD Console**, select  **Policies** on the side bar.<li>Select the **Edit** button of the Policy that you are using.<li>For each Incident type that you want to be logged, go to **Send to Integrations** field and select **Sentinel**. |
+| **Vendor documentation/<br>installation instructions** | [BETTER MTD Documentation](https://mtd-docs.bmobi.net/integrations/azure-sentinel/setup-integration)<br><br>Threat Policy setup, which defines the incidents that are reported to Azure Sentinel:<br><ol><li>In **Better MTD Console**, select  **Policies** on the side bar.<li>Select the **Edit** button of the Policy that you are using.<li>For each Incident type that you want to be logged, go to **Send to Integrations** field and select **Sentinel**. |
 | **Supported by** | [Better Mobile](mailto:support@better.mobi) |
 | | |
 
@@ -550,7 +550,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 | --- | --- |
 | **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | To configure WAF, see [Support WIKI - WAF Configuration with NetScaler](https://support.citrix.com/article/CTX234174).<br>To configure CEF logs, see [CEF Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146).<br>To forward the logs to proxy, see [Configuring Citrix ADC appliance for audit logging](https://docs.citrix.com/en-us/citrix-adc/current-release/system/audit-logging/configuring-audit-logging.html). |
+| **Vendor documentation/<br>installation instructions** | To configure WAF, see [Support WIKI - WAF Configuration with NetScaler](https://support.citrix.com/article/CTX234174).<br><br>To configure CEF logs, see [CEF Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146).<br><br>To forward the logs to proxy, see [Configuring Citrix ADC appliance for audit logging](https://docs.citrix.com/en-us/citrix-adc/current-release/system/audit-logging/configuring-audit-logging.html). |
 | **Supported by** | [Citrix Systems](https://www.citrix.com/support/) |
 | | |
 
@@ -659,7 +659,11 @@ Configure rsyslog to accept logs from your Eset SMC IP address.
 
 ### Configure OMS agent to pass Eset SMC data in API format
 
-In order to easily recognize Eset data, we will push it to a separate table and parse at agent so query in Azure Sentinel is easier and faster. To make it simple we will just modify `match oms.**` section to send data as API objects by changing type to `out_oms_api`. Modify file on /etc/opt/microsoft/omsagent/{REPLACEyourworkspaceid}/conf/omsagent.conf. Full `match oms.**` section looks like this:
+In order to easily recognize Eset data, push it to a separate table and parse at agent to simplify and speed up your Azure Sentinel query. 
+
+In the **/etc/opt/microsoft/omsagent/{REPLACEyourworkspaceid}/conf/omsagent.conf** file, modify the `match oms.**` section to send data as API objects, by changing the type to `out_oms_api`.
+    
+The following is an example of the full `match oms.**` section:
 
 ```bash
     <match oms.** docker.**>
@@ -687,7 +691,9 @@ In order to easily recognize Eset data, we will push it to a separate table and 
 
 ### Change OMS agent configuration to catch tag oms.api.eset and parse structured data
 
-Modify file /etc/opt/microsoft/omsagent/{REPLACEyourworkspaceid}/conf/omsagent.d/syslog.conf
+Modify the **/etc/opt/microsoft/omsagent/{REPLACEyourworkspaceid}/conf/omsagent.d/syslog.conf** file. 
+
+For example:
 
 ```bash
     <source>
@@ -712,6 +718,8 @@ Modify file /etc/opt/microsoft/omsagent/{REPLACEyourworkspaceid}/conf/omsagent.d
 ```
 ### Disable automatic configuration and restart agent
 
+For example: 
+
 ```bash
     # Disable changes to configuration files from Portal
     sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'
@@ -727,8 +735,10 @@ Modify file /etc/opt/microsoft/omsagent/{REPLACEyourworkspaceid}/conf/omsagent.d
 
 Configure Eset Logs using BSD style and JSON format.
 
-- Go to Syslog server configuration as described in Eset documentation and configure Host (your connector), Format BSD, Transport TCP
-- Go to Logging section as described in Eset documentation and enable JSON
+- Go to the Syslog server configuration configure the Host (your connector), Format BSD, and Transport TCP
+- Go to the Logging section and enable JSON
+
+For more information, see the Eset documentation.
 
 ## Exabeam Advanced Analytics (Preview)
 
