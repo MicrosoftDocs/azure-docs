@@ -184,9 +184,9 @@ The following examples show common scenarios for creating more than one instance
 
 |Template  |Description  |
 |---------|---------|
-|[Loop storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopstorage.bicep) |Deploys more than one storage account with an index number in the name. |
-|[Serial loop storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopserialstorage.bicep) |Deploys several storage accounts one at time. The name includes the index number. |
-|[Loop storage with array](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopstoragewitharray.bicep) |Deploys several storage accounts. The name includes a value from an array. |
+|[Loop storage](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopstorage.bicep) |Deploys more than one storage account with an index number in the name. |
+|[Serial loop storage](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopserialstorage.bicep) |Deploys several storage accounts one at time. The name includes the index number. |
+|[Loop storage with array](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopstoragewitharray.bicep) |Deploys several storage accounts. The name includes a value from an array. |
 
 ## Next steps
 
