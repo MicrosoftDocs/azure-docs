@@ -49,21 +49,6 @@ Azure Arc enabled Kubernetes supports the following scenarios:
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
-## Supported regions 
-
-Azure Arc enabled Kubernetes is currently supported in these regions: 
-
-* East US
-* West Europe
-* West Central US
-* South Central US
-* Southeast Asia
-* UK South
-* West US 2
-* Australia East
-* East US 2
-* North Europe
-
 ## Next steps
 
 Learn how to connect a cluster to Azure Arc.
