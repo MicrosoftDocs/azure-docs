@@ -468,7 +468,6 @@ The notebook module.
 
 exit(value: String): void -> This method lets you exit a notebook with a value.
 run(path: String, timeoutSeconds: int, arguments: Map): String -> This method runs a notebook and returns its exit value.
-
 ```
 
 ::: zone-end
@@ -488,14 +487,13 @@ The notebook module.
 
 exit(value: String): void -> This method lets you exit a notebook with a value.
 run(path: String, timeoutSeconds: int, arguments: Map): String -> This method runs a notebook and returns its exit value.
-
 ```
 
 ::: zone-end
 
 :::zone pivot = "programming-language-csharp"
 
-**Not Support yet**.
+Not supported yet.
 
 ::: zone-end
 
@@ -506,9 +504,7 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 Runs a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function. 
 
 ```python
-
 mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
-
 ```
 
 For example:
@@ -524,9 +520,7 @@ mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
 Runs a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function. 
 
 ```scala
-
 mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
-
 ```
 
 For example:
@@ -539,7 +533,7 @@ mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
 
 :::zone pivot = "programming-language-csharp"
 
-**Not Support yet**.
+Not supported yet.
 
 ::: zone-end
 
@@ -570,10 +564,8 @@ For example:
 You can run the **Sample1** in another notebook with default values:
 
 ```python
-
 exitVal = mssparkutils.notebook.run("folder/Sample1")
 print (exitVal)
-
 ```
 Results in:
 
@@ -621,10 +613,8 @@ For example:
 You can run the **Sample1** in another notebook with default values:
 
 ```scala
-
 val exitVal = mssparkutils.notebook.run("mssparkutils/folder/Sample1")
 print(exitVal)
-
 ```
 Results in:
 
@@ -651,7 +641,7 @@ Sample1 run success with input is 20
 
 :::zone pivot = "programming-language-csharp"
 
-**Not Support yet**.
+Not supported yet.
 
 ::: zone-end
 
