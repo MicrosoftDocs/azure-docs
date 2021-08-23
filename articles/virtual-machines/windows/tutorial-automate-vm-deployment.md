@@ -14,6 +14,7 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Tutorial - Deploy applications to a Windows virtual machine in Azure with the Custom Script Extension
+**Applies to:** :heavy_check_mark: Window :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 To configure virtual machines (VMs) in a quick and consistent manner, you can use the [Custom Script Extension for Windows](../extensions/custom-script-windows.md). In this tutorial you learn how to:
 

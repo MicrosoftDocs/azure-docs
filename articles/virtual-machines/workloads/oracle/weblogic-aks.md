@@ -13,6 +13,8 @@ ms.reviewer: cynthn
 ---
 # What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This page describes the solutions for running Oracle WebLogic Server (WLS) on the Azure Kubernetes Service (AKS). These solutions are jointly developed and supported by Oracle and Microsoft.
 
 It's also possible to run WebLogic Server on Azure Virtual Machines. The solutions to do so are described in [this Microsoft article](./oracle-weblogic.md).
