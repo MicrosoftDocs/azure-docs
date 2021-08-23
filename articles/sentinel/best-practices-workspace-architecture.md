@@ -21,6 +21,9 @@ When planning your Azure Sentinel workspace deployment, you must also design you
 
 For more information, see [Design your Azure Sentinel workspace architecture](design-your-workspace-architecture.md) and [Sample workspace designs](sample-workspace-designs.md) for common scenarios, and [Pre-deployment activities and prerequisites for deploying Azure Sentinel](prerequisites.md).
 
+See our video: [Architecting SecOps for Success: Best Practices for Deploying Azure Sentinel](https://youtu.be/DyL9MEMhqmI)
+
+
 ## Tenancy considerations
 
 While fewer workspaces are simpler to manage, you may have specific needs for multiple tenants and workspaces. For example, many organizations have a cloud environment that contains multiple [Azure Active Directory (Azure AD) tenants](../active-directory/develop/quickstart-create-new-tenant.md), resulting from mergers and acquisitions or due to identity separation requirements.
@@ -170,4 +173,4 @@ For more information, see [Extend Azure Sentinel across workspaces and tenants](
 >[On-board Azure Sentinel](quickstart-onboard.md)
 
 > [!div class="nextstepaction"]
->[Get visibility into alerts](/azure/sentinel/articles/sentinel/get-visibility.md)
+>[Get visibility into alerts](get-visibility.md)

@@ -44,8 +44,6 @@
     href: concepts-api-management.md
   - name: Hub and spoke
     href: concepts-hub-and-spoke.md
-  - name: Monitor and protection
-    href: concepts-monitor-protection.md
   - name: Networking and interconnectivity
     href: concepts-networking.md
   - name: Private clouds and clusters
@@ -76,14 +74,14 @@
       href: enable-public-internet-access.md
     - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
-    - name: Configure GitHub Enterprise Server
-      href: configure-github-enterprise-server.md
-    - name: Configure Windows Server Failover Cluster
+  - name: Connect multiple private clouds in same region
+    href: connect-multiple-private-clouds-same-region.md
+  - name: Configure GitHub Enterprise Server
+    href: configure-github-enterprise-server.md
+  - name: Configure Windows Server Failover Cluster
     href: configure-windows-server-failover-cluster.md
   - name: Rotate cloudadmin credentials
     href: rotate-cloudadmin-credentials.md
-  - name: Connect multiple private clouds in same region
-    href: connect-multiple-private-clouds-same-region.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions

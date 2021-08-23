@@ -14,7 +14,7 @@ This document explains the steps required for connecting an Azure Data Factory a
 
 ## View existing Data Factory connections
 
-Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog to push lineage information. The current limit allows you to connect up ten Data Factory accounts at a time from the Purview management center. To show the list of Data Factory accounts connected to your Purview Data Catalog, do the following:
+Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog to push lineage information. The current limit allows you to connect up 10 Data Factory accounts at a time from the Purview management center. To show the list of Data Factory accounts connected to your Purview Data Catalog, do the following:
 
 1. Select **Management** on the left navigation pane.
 2. Under **Lineage connections**, select **Data Factory**.
@@ -43,7 +43,7 @@ Multiple Azure Data Factories can connect to a single Azure Purview Data Catalog
 >
 > Besides, it requires the users to be the data factory’s “Owner”, or “Contributor”. 
 
-Follow the steps below to connect an existing Data Factory accounts to your Purview Data Catalog.
+Follow the steps below to connect an existing data factory to your Purview Data Catalog.
 
 1. Select **Management** on the left navigation pane.
 2. Under **Lineage connections**, select **Data Factory**.
@@ -64,7 +64,7 @@ Follow the steps below to connect an existing Data Factory accounts to your Purv
 
 ### How does the authentication work?
 
-When a Purview user registers an Data Factory to which they have access to, the following happens in the backend:
+When a Purview user registers a data factory to which they have access, the following happens in the backend:
 
 1. The **Data Factory managed identity** gets added to Purview RBAC role: **Purview Data Curator**.
 
@@ -126,9 +126,9 @@ There are several patterns of lineage that Azure Purview supports. The generated
 
 To configure Data Factory to send lineage information, see [Get started with lineage](catalog-lineage-user-guide.md#get-started-with-lineage).
 
-Some additional ways of finding information in the lineage view, include the following:
+Some other ways of finding information in the lineage view, include the following:
 
-- In the **Lineage** tab, hover on shapes to preview additional information about the asset in the tooltip .
+- In the **Lineage** tab, hover on shapes to preview additional information about the asset in the tooltip.
 - Select the node or edge to see the asset type it belongs or to switch assets.
 - Columns of a dataset are displayed in the left side of the **Lineage** tab. For more information about column-level lineage, see [Dataset column lineage](catalog-lineage-user-guide.md#dataset-column-lineage).
 

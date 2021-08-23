@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/14/2021
+ms.date: 08/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
@@ -33,7 +33,7 @@ Azure AD B2C is available worldwide via the Azure public cloud. You can see exam
 
 ## Data residency
 
-Azure AD B2C stores user data in either United States, Europe, or the Asia Pacific region.
+Azure AD B2C stores user data in the United States, Europe, the Asia Pacific region, or Australia.
 
 Data residency is determined by the country/region you select when you [create an Azure AD B2C tenant](tutorial-create-tenant.md):
 

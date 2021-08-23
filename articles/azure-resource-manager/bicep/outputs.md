@@ -107,7 +107,7 @@ The following template doesn't deploy any resources. It shows some ways of retur
 
 Bicep doesn't currently support loops.
 
-:::code language="bicep" source="~/resourcemanager-templates/azure-resource-manager/outputs.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/bicep/output.bicep":::
 
 ## Get output values
 
