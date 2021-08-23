@@ -240,6 +240,13 @@ Guest configuration policy definitions currently only support assigning the same
 guest assignment once per machine when the policy assignment uses different
 parameters.
 
+### Assignments to Azure Management Groups
+
+Azure Policy definitions in the category 'Guest Configuration' can be assigned
+to Management Groups only when the effect is 'AuditIfNotExists'. Policy
+definitions with effect 'DeployIfNotExists' are not supported as assignments to
+Management Groups.
+
 ### Client log files
 
 The guest configuration extension writes log files to the following locations:
