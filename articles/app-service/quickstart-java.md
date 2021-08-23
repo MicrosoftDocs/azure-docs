@@ -287,12 +287,6 @@ Be careful about the values of `<appName>` and `<resourceGroup>` (`helloworld-15
 
 ## Deploy the app
 
-The Maven plugin uses account credentials from the Azure CLI to deploy to App Services. [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli) before continuing.
-
-```azurecli-interactive
-az login
-```
-
 Then you can deploy your Java app to Azure using the following command.
 
 ```azurecli-interactive
