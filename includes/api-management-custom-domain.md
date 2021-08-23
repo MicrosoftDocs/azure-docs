@@ -2,13 +2,13 @@
 author: vladvino
 ms.service: api-management
 ms.topic: include
-ms.date: 06/11/2021
+ms.date: 08/23/2021
 ms.author: vlvinogr
 ---
 ## How API Management Proxy Server responds with SSL certificates in the TLS handshake
 
 ### Clients calling with Server Name Indication (SNI) header
-If you have one or multiple custom domains configured for Proxy, API Management can respond to HTTPS requests from both:
+If you have one or multiple custom domains configured for Proxy (Gateway), API Management can respond to HTTPS requests from both:
 * Custom domain (for example, `contoso.com`)
 * Default domain (for example, `apim-service-name.azure-api.net`). 
 
