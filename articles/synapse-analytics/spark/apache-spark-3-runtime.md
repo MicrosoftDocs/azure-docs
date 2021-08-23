@@ -1,24 +1,23 @@
 ---
-title: Azure Synapse Runtime for Apache Spark 3.0 (preview)
-description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.0 (preview).
+title: Azure Synapse Runtime for Apache Spark 3.1 (preview)
+description: Supported versions of Spark, Scala, Python, and .NET for Apache Spark 3.1 (preview).
 services: synapse-analytics
 author: midesa 
 ms.service: synapse-analytics 
 ms.topic: reference
 ms.subservice: spark
-ms.date: 05/26/2021 
+ms.date: 08/23/2021 
 ms.author: midesa 
 ms.custom: has-adal-ref
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.0 (preview)
+# Azure Synapse Runtime for Apache Spark 3.1 (preview)
 
-Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.0 (preview).  The runtime engine will be periodically updated with the latest features and libraries during the preview period.  Check here to see the latest updates to the libraries and their versions.
+Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.1 (preview).  The runtime engine will be periodically updated with the latest features and libraries during the preview period.  Check here to see the latest updates to the libraries and their versions.
 
 ## Known Issues in Preview
 * Synapse Pipeline/Dataflows support is coming soon.
-* Library Management to add libraries is coming soon.
-* Connectors : the following connector support are coming soon.
+* The following connector support are coming soon:
   * Azure Data Explorer connector
   * CosmosDB
   * SQL Server
@@ -27,14 +26,14 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 ## Component versions
 |  Component   | Version   |  
 | ----- | ----- |
-| Apache Spark | 3.0 |
+| Apache Spark | 3.1 |
 | Operating System | Ubuntu 18.04 |
 | Java | 1.8.0_282 |
 | Scala | 2.12  |
 | .NET Core | 3.1 |
-| .NET | 1.0.0 |
-| Delta Lake | 0.8 |
-| Python | 3.6 |
+| .NET | 2.0.0 |
+| Delta Lake | 1.0 |
+| Python | 3.8 |
 
 ## Scala and Java libraries
 
