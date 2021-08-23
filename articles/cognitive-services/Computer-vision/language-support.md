@@ -110,14 +110,6 @@ Some actions of the [Analyze - Image](https://westcentralus.dev.cognitive.micros
 
 |Language | Language code | Categories | Tags | Description | Adult | Brands | Color | Faces | ImageType | Objects | Celebrities | Landmarks |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Chinese | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-|English | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
-|Japanese | `ja`   | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-|Portuguese | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-|Spanish | `es`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
-|Spanish | `es`    | - | ✔| -|-|-|-|-|-|❌|-|-|
-
-
 |Arabic |`ar`|- | ✔| -|-|-|-|-|-|❌|-|-|
 |Azeri (Azerbaijani) |`az`|- | ✔| -|-|-|-|-|-|❌|-|-|
 |Bulgarian |`bg`|- | ✔| -|-|-|-|-|-|❌|-|-|
