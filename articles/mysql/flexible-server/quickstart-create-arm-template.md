@@ -77,7 +77,7 @@ Create a _mysql-flexible-server-template.json_ file and copy this JSON script in
     }
   },
   "variables": {
-    "api": "2020-07-01-preview",
+    "api": "2021-05-01",
     "firewallRules": "[parameters('firewallRules').rules]",
     "publicNetworkAccess": "[if(empty(parameters('vnetData')), 'Enabled', 'Disabled')]",
     "vnetDataSet": "[if(empty(parameters('vnetData')), json('{ \"subnetArmResourceId\": \"\" }'), parameters('vnetData'))]",
