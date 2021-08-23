@@ -43,28 +43,28 @@ There are two ways to create Batch Endpoints in Azure Machine Learning studio:
 
 * From the **Endpoints** page, select **Batch Endpoints** and then select **+ Create**. 
 
-    :::image type="content" source="media/how-to-use-batch-endpoints-studio/create-batch-endpoints.png" alt-text="Create a batch endpoint and deployment from Endpoints page":::
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/create-batch-endpoints.png" alt-text="Screenshot of creating a batch endpoint/deployment from Endpoints page":::
 
 OR
 
 * From the **Models** page, select the model you want to deploy and then select **Deploy to batch endpoint (preview)**.
 
-    :::image type="content" source="media/how-to-use-batch-endpoints-studio/models-page-deployment.png" alt-text="Create a batch endpoint and deployment from Models page":::
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/models-page-deployment.png" alt-text="Screenshot of creating a batch endpoint/deployment from Models page":::
 
 > [!TIP]
 > If you're using an MLflow model, you can use no-code batch endpoint creation. That is, you don't need to prepare a scoring script and environment, both can be auto generated. For more, see [Train and track ML models with MLflow and Azure Machine Learning (preview)](how-to-use-mlflow.md).
 > 
-> :::image type="content" source="media/how-to-use-batch-endpoints-studio/mlflow-model-wizard.png" alt-text="Deploy MLflow model":::
+> :::image type="content" source="media/how-to-use-batch-endpoints-studio/mlflow-model-wizard.png" alt-text="Screenshot of deploying an MLflow model":::
 
 Complete all the steps in the wizard to create a batch endpoint and deployment.
 
-:::image type="content" source="media/how-to-use-batch-endpoints-studio/review-batch-wizard.png" alt-text="Batch endpoints and deployment review screen":::
+:::image type="content" source="media/how-to-use-batch-endpoints-studio/review-batch-wizard.png" alt-text="Screenshot of batch endpoints/deployment review screen":::
 
 ## Check batch endpoint details
 
 After a batch endpoint is created, select it from the **Endpoints** page to view the details.
 
-:::image type="content" source="media/how-to-use-batch-endpoints-studio/batch-endpoint-details.png" alt-text="Check batch endpoints and deployment details":::
+:::image type="content" source="media/how-to-use-batch-endpoints-studio/batch-endpoint-details.png" alt-text="Screenshot of the check batch endpoints and deployment details":::
 
 ## Start a batch scoring job
 
@@ -72,17 +72,17 @@ A batch scoring workload runs as an offline job. By default, batch scoring store
 
 1. Select **+ Create job**:
 
-    :::image type="content" source="media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Select create job option to start batch scoring":::
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/create-batch-job.png" alt-text="Screenshot of the create job option to start batch scoring":::
 
 1. You can update the default deployment while submitting a job from the drop-down:
 
-    :::image type="content" source="media/how-to-use-batch-endpoints-studio/job-setting-batch-scoring.png" alt-text="Select the deployment to submit a batch job":::
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/job-setting-batch-scoring.png" alt-text="Screenshot of using the deployment to submit a batch job":::
 
 ### Overwrite settings
 
 Some settings can be overwritten when you start a batch scoring job. For example, you might overwrite settings to make better use of the compute resource, or to improve performance. To override settings, select __Override deployment settings__ and provide the settings. For more information, see [Use batch endpoints](how-to-use-batch-endpoint.md#overwrite-settings).
 
-:::image type="content" source="media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Overwrite setting to start a batch job":::
+:::image type="content" source="media/how-to-use-batch-endpoints-studio/overwrite-setting.png" alt-text="Screenshot of the overwrite setting when starting a batch job":::
 
 ### Start a batch scoring job with different input options
 
@@ -93,7 +93,7 @@ You have two options to specify the data inputs in Azure machine learning studio
     > [!NOTE]
     > During Preview, only FileDataset is supported. 
 
-    :::image type="content" source="media/how-to-use-batch-endpoints-studio/select-dataset-for-job.png" alt-text="Select registered dataset as an input option":::
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/select-dataset-for-job.png" alt-text="Screenshot of selecting registered dataset as an input option":::
 
 OR
 
@@ -101,7 +101,7 @@ OR
 
     You can specify AML registered datastore or if your data is publicly available, specify the public path.
 
-    :::image type="content" source="media/how-to-use-batch-endpoints-studio/select-datastore-job.png" alt-text="Select datastore as an input option":::
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/select-datastore-job.png" alt-text="Screenshot of selecting datastore as an input option":::
 
 ### Configure the output location
 
@@ -112,13 +112,13 @@ To change where the results are stored, providing a blob store and output path w
 > [!IMPORTANT]
 > You must use a unique output location. If the output file exists, the batch scoring job will fail. 
 
-:::image type="content" source="media/how-to-use-batch-endpoints-studio/configure-output-location.png" alt-text="Optionally configure output location":::
+:::image type="content" source="media/how-to-use-batch-endpoints-studio/configure-output-location.png" alt-text="Screenshot of optionally configuring output location":::
 
 ### Summary of all submitted jobs
 
 To see a summary of all the submitted jobs for an endpoint, select the endpoint and then select the **Runs** tab.
 
-:::image type="content" source="media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Summary of jobs submitted to a batch endpoint":::
+:::image type="content" source="media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint":::
 ## Check batch scoring results
 
 To learn how to view the scoring results, see [Use batch endpoints](how-to-use-batch-endpoint.md#check-batch-scoring-results).
@@ -129,13 +129,13 @@ In Azure machine learning studio, there are two ways to add a deployment to an e
 
 * From the **Endpoints** page, select the batch endpoint to add a new deployment to. Select **+ Add deployment**, and complete the wizard to add a new deployment.
 
-    :::image type="content" source="media/how-to-use-batch-endpoints-studio/add-deployment-option.png" alt-text="Select add new deployment option":::
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/add-deployment-option.png" alt-text="Screenshot of add new deployment option":::
 
 OR
 
 * From the **Models** page, select the model you want to deploy. Then select **Deploy to batch endpoint (preview)** option from the drop-down. In the wizard, on the **Endpoint** screen, select **Existing**. Complete the wizard to add the new deployment.
 
-    :::image type="content" source="media/how-to-use-batch-endpoints-studio/add-deployment-models-page.png" alt-text="Select an existing batch endpoint to add new deployment":::
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/add-deployment-models-page.png" alt-text="Screenshot of selecting an existing batch endpoint to add new deployment":::
 
 ## Update the default deployment
 
@@ -143,7 +143,7 @@ If an endpoint has multiple deployments, one of the deployments is the *default*
 
 1. Select the endpoint from the **Endpoints** page.
 1. Select **Update default deployment**. From the **Details** tab, select the deployment you want to set as default and then select **Update**.
-    :::image type="content" source="media/how-to-use-batch-endpoints-studio/update-default-deployment.png" alt-text="Update default deployment":::
+    :::image type="content" source="media/how-to-use-batch-endpoints-studio/update-default-deployment.png" alt-text="Screenshot of updating default deployment":::
 
 ## Delete batch endpoint and deployments
 
