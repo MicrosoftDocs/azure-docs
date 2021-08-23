@@ -415,11 +415,11 @@
       href: how-to-managed-cluster-managed-disk.md
     - name: Configure managed cluster upgrade options
       href: how-to-managed-cluster-upgrades.md  
-    - name: Deploy managed cluster application secrets
+    - name: Deploy application secrets to a managed cluster
       href: how-to-managed-cluster-application-secrets.md
-    - name: Deploy managed cluster applications using ARM template
+    - name: Deploy an application to a managed cluster using Azure Resource Manager
       href: how-to-managed-cluster-app-deployment-template.md
-    - name: Deploy managed cluster applications with managed identity
+    - name: Deploy an application with managed identity to a managed cluster
       href: how-to-managed-cluster-application-managed-identity.md
     - name: Deploy stateless-only node types to a managed cluster 
       href: how-to-managed-cluster-stateless-node-type.md
