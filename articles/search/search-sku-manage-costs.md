@@ -89,7 +89,7 @@ For [AI enrichment](cognitive-search-concept-intro.md) using billable skills, yo
 | [Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) | Metered by Azure Cognitive Search. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing) for details. |
 
 > [!TIP]
-> [Incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) lowers the cost of skillset processing by caching and reusing enrichments that are unaffected by changes made to a skillset. Caching requires Azure Storage (see [pricing](/pricing/details/storage/blobs/) but the cumulative cost of skillset execution is lower if existing enrichments can be reused.
+> [Incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) lowers the cost of skillset processing by caching and reusing enrichments that are unaffected by changes made to a skillset. Caching requires Azure Storage (see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) but the cumulative cost of skillset execution is lower if existing enrichments can be reused.
 
 ## Tips for managing costs
 
