@@ -120,7 +120,7 @@ Replace `{tenant id}`, `{application id}`, and `{redirect uri}` using the follow
 
 ## Accessing Azure Storage
 
-API Management uses an Azure Storage account that you specify for backup and restore operations. When calling a backup or restore operation with the storage account, you need to provide an access mechanism. API Management supports two storage access mechanisms: an API Management managed identity, or an Azure Storage access key. Using an access key is the default access type.
+API Management uses an Azure Storage account that you specify for backup and restore operations. When calling a backup or restore operation that uses the storage account, you need to provide an access mechanism. API Management supports two storage access mechanisms: an API Management managed identity, or an Azure Storage access key. Using an access key is the default access type.
 
 ### Configure API Management managed identity
 
@@ -128,6 +128,8 @@ API Management uses an Azure Storage account that you specify for backup and res
 > Using an API Management managed identity for storage operations during backup and restore requires API Management REST API version `2021-04-01-preview` or later.
 
 1. Create a system-assigned or user-assigned [managed identity for API Management](api-management-howto-use-managed-service-identity.md).
+
+    If you back up and restore to different API Management instances, create a managed identity in both the source and target instance.
 1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
 
 ### Configure storage account access key
@@ -188,7 +190,7 @@ In the body of the request, specify the target storage account name, blob contai
     "containerName": "{backup container name}",
     "backupName": "{backup blob name}",
     "accessType": "UserAssignedManagedIdentity",
-    "clientId": "{client ID of user-assigned identiy}
+    "clientId": "{client ID of user-assigned identity}"
 }
 ```
 
@@ -248,7 +250,7 @@ In the body of the request, specify the existing storage account name, blob cont
     "containerName": "{backup container name}",
     "backupName": "{backup blob name}",
     "accessType": "UserAssignedManagedIdentity",
-    "clientId": "{client ID of user-assigned identiy}
+    "clientId": "{client ID of user-assigned identity}"
 }
 ```
 
