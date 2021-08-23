@@ -1,12 +1,12 @@
 ---
 title: Configure network settings for Service Fabric managed clusters
-description: Learn how to configure your Service Fabric managed cluster for NSG rules, RDP port access, load balancing rules, and more.
+description: Learn how to configure your Service Fabric managed cluster for NSG rules, RDP port access, load-balancing rules, and more.
 ms.topic: how-to
 ms.date: 8/23/2021
 ---
 # Configure network settings for Service Fabric managed clusters
 
-Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated, and a NSG configured with mandatory NSG rules for essential cluster functionality. There are also optional rules applied such as allowing all outbound traffic by default which are intended to make customer configuration easier. This document walks through how to modify the following networking configuration options and more:
+Service Fabric managed clusters are created with a default networking configuration. This configuration consists of an [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with a public ip, a VNet with one subnet allocated, and a NSG configured for essential cluster functionality. There are also optional NSG rules applied such as allowing all outbound traffic by default that are intended to make customer configuration easier. This document walks through how to modify the following networking configuration options and more:
 
 - [Manage NSG Rules](#nsgrules)
 - [Manage RDP access](#rdp)
@@ -235,7 +235,7 @@ Service Fabric managed clusters creates an NSG rule in default priority range fo
 
 ### Load balancer probes
 
-Service Fabric managed clusters automatically creates load balancer probes for fabric gateway ports as well as all ports configured under the `loadBalancingRules` section of managed cluster properties.
+Service Fabric managed clusters automatically creates load balancer probes for fabric gateway ports and all ports configured under the `loadBalancingRules` section of managed cluster properties.
 
 ```json
 {
@@ -294,7 +294,7 @@ Service Fabric managed clusters automatically creates load balancer probes for f
 
 <a id="ipv6"></a>
 ## Enable IPv6
-Managed clusters do not enable IPv6 by default. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. Any changes you make to the managed cluster load balancer config or NSG rules will effect both the IPv4 and IPv6 routing.
+Managed clusters do not enable IPv6 by default. This feature will enable full dual stack IPv4/IPv6 capability from the Load Balancer frontend to the backend resources. Any changes you make to the managed cluster load balancer config or NSG rules will affect both the IPv4 and IPv6 routing.
 
 > [!NOTE]
 > This setting is not available in portal and cannot be changed once the cluster is created
@@ -316,12 +316,12 @@ In the following example, we'll create a resource group called `MyResourceGroup`
     New-AzResourceGroup -Name MyResourceGroup -Location westus
     New-AzResourceGroupDeployment -Name deployment -ResourceGroupName MyResourceGroup -TemplateFile AzureDeploy.json
 ```
-After deployment, your clusters virtual network and resources will be dual-stack. As a result, the clusters frontend load balancer will have a unique dns address created e.g. `mycluster-ipv6.southcentralus.cloudapp.azure.com` that is associated to a public IPv6 address on the Azure Load Balancer and private IPv6 addresses on the VMs. 
+After deployment, your clusters virtual network and resources will be dual-stack. As a result, the clusters frontend load balancer will have a unique dns address created for example, `mycluster-ipv6.southcentralus.cloudapp.azure.com` that is associated to a public IPv6 address on the Azure Load Balancer and private IPv6 addresses on the VMs. 
 
 
 <a id="byovnet"></a>
 ## Bring your own virtual network
-This feature allows customers to use an existing virtual network by specifying a dedicated subnet the managed cluster will deploy it's resources into. This can be useful if you already have a configured VNet and subnet with related security policies and traffic routing that you want to use. After you deploy to an existing virtual network, it's easy to use or incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering. Additionally, you can [bring your own Azure Load balancer](#byolb) if needed also.
+This feature allows customers to use an existing virtual network by specifying a dedicated subnet the managed cluster will deploy its resources into. This can be useful if you already have a configured VNet and subnet with related security policies and traffic routing that you want to use. After you deploy to an existing virtual network, it's easy to use or incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering. Additionally, you can [bring your own Azure Load balancer](#byolb) if needed also.
 
 > [!NOTE]
 > This setting cannot be changed once the cluster is created and the managed cluster will assign a NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
@@ -354,11 +354,11 @@ Note the **Id** of the previous output as **principalId** for use in a later ste
 
 Note the `Role definition name` and `Role definition ID` property values for use in a later step
 
-2\. Add a role assignment to the Service Fabric Resource Provider application. This is a one time action. You add the role by running the following PowerShell commands or by configuring an ARM Template as detailed below. 
+2\. Add a role assignment to the Service Fabric Resource Provider application. Adding a role assignment is a one time action. You add the role by running the following PowerShell commands or by configuring an ARM Template as detailed below. 
 
 In the following steps, we start with an existing virtual network named ExistingRG-vnet, in the ExistingRG resource group. The subnet is named default.
 
-Obtain the the required info from the existing VNet.
+Obtain the required info from the existing VNet.
 
 ```powershell
 Login-AzAccount
@@ -400,7 +400,7 @@ Or you can add the role assignment by using an ARM Template configured with prop
 
 Here is a full sample [ARM Template that creates a VNet subnet and does role assignment](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOVNET/SFMC-VNet-RoleAssign.json) you can use for this step.
 
-3\. Configure the `subnetId` property for the cluster deployment after the role is setup as shown below:
+3\. Configure the `subnetId` property for the cluster deployment after the role is set up as shown below:
 
 ```JSON
     "resources": [
@@ -428,7 +428,7 @@ When you bring your own VNet subnet the public endpoint is still created and man
 
 <a id="byolb"></a>
 ## Bring your own Azure Load Balancer
-Managed clusters create an Azure Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. This feature allows you to create or re-use an Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer you can:
+Managed clusters create an Azure Load Balancer and fully qualified domain name with a static public IP for both the primary and secondary node types. This feature allows you to create or reuse an Azure Load Balancer for secondary node types for both inbound and outbound traffic. When you bring your own Azure Load Balancer, you can:
 
 * Use a pre-configured Load Balancer static IP address for either private or public traffic
 * Map a Load Balancer to a specific node type
@@ -442,12 +442,12 @@ Managed clusters create an Azure Load Balancer and fully qualified domain name w
  * Basic and Standard SKU Azure Load Balancer types are supported
  * You must have backend and NAT pools configured on the existing Azure Load Balancer. See full [create and assign role sample here](https://raw.githubusercontent.com/Azure-Samples/service-fabric-cluster-templates/SF-Managed-Standard-SKU-2-NT-BYOLB/createlb-and-assign-role) for an example. 
 
-Here are a couple example scenarios customers may leverage this for:
+Here are a couple example scenarios customers may use this for:
 
-In this example a customer wants to route traffic through an existing Azure Load Balancer configured with a known static public ip address to two node types.
+In this example, a customer wants to route traffic through an existing Azure Load Balancer configured with an existing static ip address to two node types.
 ![Bring your own Load Balancer example 1][sfmc-byolb-example-1]
 
-In this example a customer wants to route traffic through existing Azure Load Balancers to help them manage traffic flow to their applications independently that live on separate node types. When this is configured each node type will be behind it's own NSG that you can manage.
+In this example, a customer wants to route traffic through existing Azure Load Balancers to help them manage traffic flow to their applications independently that live on separate node types. When set up like this example, each node type will be behind it's own NSG that you can manage.
 ![Bring your own Load Balancer example 2][sfmc-byolb-example-2]
 
 To configure bring your own load balancer:
@@ -478,11 +478,11 @@ Note the **Id** of the previous output as **principalId** for use in a later ste
 
 Note the `Role definition name` and `Role definition ID` property values for use in a later step
 
-2\. Add a role assignment to the Service Fabric Resource Provider application. This is a one time action. You add the role by running the following PowerShell commands or by configuring an ARM Template as detailed below.
+2\. Add a role assignment to the Service Fabric Resource Provider application. Adding a role assignment is a one time action. You add the role by running the following PowerShell commands or by configuring an ARM Template as detailed below.
 
 In the following steps, we start with an existing load balancer named Existing-LoadBalancer1, in the Existing-RG resource group. The subnet is named default.
 
-Obtain the the required `Id` property info from the existing Azure Load Balancer. We'll 
+Obtain the required `Id` property info from the existing Azure Load Balancer. We'll 
 
 ```powershell
 Login-AzAccount
