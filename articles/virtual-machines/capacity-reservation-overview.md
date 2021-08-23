@@ -35,6 +35,54 @@ Once Azure accepts a reservation request, it's available to be consumed by VMs o
 > [!NOTE]
 > Capacity Reservation also comes with Azure availability SLA for use with virtual machines. The SLA won't be enforced during public preview and will be defined when Capacity Reservation is generally available.
 
+
+## Register for Capacity Reservation 
+
+Before you can use the Capacity Reservation feature, you must register your subscription for the preview. The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
+
+### [CLI](#tab/cli1)
+
+1. Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription:
+
+    ```azurecli-interactive
+    az feature register --namespace Microsoft.Compute --name CapacityReservationPreview
+    ```
+
+1. Feature registration can take up to 15 minutes. Check the registration status:
+
+    ```azurecli-interactive
+    az feature show --namespace Microsoft.Compute --name CapacityReservationPreview
+    ```
+
+1. Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider:
+
+    ```azurecli-interactive
+    az provider register --namespace Microsoft.Compute
+    ``` 
+
+### [PowerShell](#tab/powershell1)
+
+1. Use the [Register-AzProviderFeature cmdlet](/powershell/module/az.resources/register-azproviderfeature) to enable the preview for your subscription:
+
+    ```powershell-interactive
+    Register-AzProviderFeature -FeatureName CapacityReservationPreview -ProviderNamespace Microsoft.Compute
+    ``` 
+
+1. Feature registration can take up to 15 minutes. Check the registration status:
+
+    ```powershell-interactive
+    Get-AzProviderFeature -FeatureName CapacityReservationPreview -ProviderNamespace Microsoft.Compute
+    ``` 
+
+1. Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider:
+
+    ```powershell-interactive
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
+    ``` 
+
+--- 
+<!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
+
 ## Benefits of Capacity Reservation 
 
 - Once deployed, capacity is reserved for your use and always available within the scope of applicable SLAs  
@@ -140,6 +188,29 @@ When a VM is allocated against the Capacity Reservation, the other VM components
 ![Capacity Reservation image 8.](\media\capacity-reservation-overview\capacity-reservation-8.jpg)
 
 In the image above, the VM Reserved Instance discount is applied to VM 0, which will only be charged for other components such as disk and networking. The other unused instance is being charged at PAYG rate for the VM size reserved.
+
+
+## Frequently asked questions 
+
+- **What’s the price of on-demand capacity reservation?**
+
+    The price of your on-demand capacity reservation is same as the price of underlying VM size associated with the reservation. When using capacity reservation, you will be charged for the VM size you selected at pay-as-you-go rates, whether the VM has been provisioned or not.  Visit the [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) VM pricing pages for more details.
+
+- **Will I get charged twice, for the cost of on-demand capacity reservation and for the actual VM when I finally provision it?**
+
+    No, you will only get charged once for on-demand capacity reservation.   
+
+- **Can I apply Reserved Virtual Machine Instance (RI) to on-demand capacity reservation to lower my costs?**
+
+    Yes, you can apply existing or future RIs to on-demand capacity reservations and receive RI discounts. Available RIs are applied automatically to capacity reservation the same way they are applied to VMs.
+
+- **What is the difference between Reserved Virtual Machine Instance (RI) and on-demand capacity reservation?**
+
+    Both RIs and on-demand capacity reservations are applicable to Azure VMs. However, RIs provide discounted reservation rates for your VMs compared to pay-as-you-go rates as a result of a term commitment, 1-year or 3-year terms. Conversely, on-demand capacity reservations do not require a commitment. You can create or cancel a capacity reservation at any time. However, no discounts are applied, and you will incur charges at pay-as-you-go rates after your capacity reservation has been successfully provisioned. Unlike RIs, which prioritize capacity but do not guarantee it, when you purchase an on-demand capacity reservation, Azure sets aside compute capacity for your VM and provides an SLA guarantee.  
+
+- **Which scenarios would benefit the most from on-demand capacity reservations?**
+
+    Typical scenarios include business continuity, disaster recovery, and scale-out of mission-critical applications.  
 
 
 ## Next steps
