@@ -2,7 +2,7 @@
 title: Deploy to an IoT Edge for Linux on Windows - Azure
 description: This article provides guidance on how to deploy to an IoT Edge for Linux on Windows device.
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 08/23/2021
 
 ---
 
@@ -25,6 +25,8 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
 1. [Install EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) on your Windows device using PowerShell.
 
+    > [!NOTE]
+    > There are two ways to deploy EFLOW (PowerShell and Windows Admin Center) and two ways to provision the virtual machine (manual provisioning using the connection string and manual provisioning using X.509 certificates). Please follow the [PowerShell deployment](../../iot-edge/how-to-install-iot-edge-on-windows.md#powershell) and [provision the machine using the connection string from the IoT Hub](../../iot-edge/how-to-install-iot-edge-on-windows.md#powershell-1).
 
 1. Once EFLOW is set up, type the command `Connect-EflowVm` into PowerShell (with administrative privilege) to connect. This will bring up a bash terminal within PowerShell to control the EFLOW VM, where you can run Linux commands including utilities like Top and Nano. 
 
@@ -45,6 +47,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
     * `/var/media`
 
     Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed. 
+    
 1. Now that you have the edge device set up, registered to the hub, and running successfully with the correct folder structures created, the next step is to set up the following additional Azure resources and deploy the AVA module. The following deployment template will take care of the resource creation:
 
     [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
@@ -67,6 +70,10 @@ The following depicts the overall flow of the document and in 5 simple steps you
     You should see the following four modules deployed and running on your edge device. Please note that the resource creation script deploys the AVA module along with IoT Edge modules (edgeAgent and edgeHub) and an RTSP simulator module to provide the simulated RTSP video feed.
     
     ![Deployed Modules](./media/vscode-common-screenshots/avaedge-module.png)
+    
+    > [!WARNING] 
+    > To run memory-intensive AI models like YOLO, you may have to increase the resources allotted to the EFLOW VM by running the command `Set-EflowVM` on PowerShell with elevated privilege. After running command, set your desired parameters, for example `cpuCount: 1`, `memoryInMB: 2048`. Afterwards, re-activate the live pipeline to view inferences.
+
 1. With the modules deployed and set up, you are ready to run your first AVA pipeline on EFLOW. You can run a simple motion detection pipeline as below and visualize the results by executing the following steps:
 
     ![Video Analyzer based on motion detection](./media/get-started-detect-motion-emit-events/motion-detection.svg)
