@@ -8,7 +8,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -151,12 +151,12 @@ Use either of the following commands.
 
    Each of them runs on 3 nodes/pods: 1 coordinator and 2 workers.
 
-- **With azdata:**
+- **With Azure CLI (az):**
 
 Run the following command. The output shows similar information to what kubectl shows:
 
-   ```console
-   azdata arc postgres server list
+   ```azurecli
+   az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 
    `output
    Name        State    Workers
@@ -277,18 +277,18 @@ Let's call out some specific points of interest in the description of the `serve
    >  State:              Ready
    > ```
 
-**With azdata:**
+**With Azure CLI (az):**
 
 The general format of the command is:
 
-```console
-azdata arc postgres server show -n <server group name>
+```azurecli
+az postgres arc-server show -n <server group name>  --k8s-namespace <namespace> --use-k8s
 ```
 
 For example:
 
-```console
-azdata arc postgres server show -n postgres02
+```azurecli
+az postgres arc-server show -n postgres02 --k8s-namespace <namespace> --use-k8s
 ```
 
 Returns the below output in a format and content very similar to the one returned by kubectl.

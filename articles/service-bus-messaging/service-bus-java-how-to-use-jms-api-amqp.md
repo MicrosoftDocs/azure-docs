@@ -145,7 +145,7 @@ You can access all the source code and configuration information from the [Azure
 
 package com.microsoft.azure.servicebus.samples.jmsqueuequickstart;
 
-import com.microsoft.azure.servicebus.primitives.ConnectionStringBuilder;
+import com.azure.core.amqp.implementation.ConnectionStringProperties;
 import org.apache.commons.cli.*;
 import org.apache.log4j.*;
 
@@ -172,10 +172,10 @@ public class JmsQueueQuickstart {
 
     public void run(String connectionString) throws Exception {
 
-        // The connection string builder is the only part of the azure-servicebus SDK library
+        // The connection string properties is the only part of the azure-servicebus SDK library
         // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
         // connection string. 
-        ConnectionStringBuilder csb = new ConnectionStringBuilder(connectionString);
+        ConnectionStringProperties csb = new ConnectionStringProperties(connectionString);
         
         // Set up JNDI context
         Hashtable<String, String> hashtable = new Hashtable<>();
@@ -192,7 +192,7 @@ public class JmsQueueQuickstart {
         // again to show the receive side separately with minimal clutter.
         {
             // Create connection
-            Connection connection = cf.createConnection(csb.getSasKeyName(), csb.getSasKey());
+            Connection connection = cf.createConnection(csb.getSharedAccessKeyName(), csb.getSharedAccessKey());
             // Create session, no transaction, client ack
             Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
 
@@ -215,7 +215,7 @@ public class JmsQueueQuickstart {
 
         {
             // Create connection
-            Connection connection = cf.createConnection(csb.getSasKeyName(), csb.getSasKey());
+            Connection connection = cf.createConnection(csb.getSharedAccessKeyName(), csb.getSharedAccessKey());
             connection.start();
             // Create session, no transaction, client ack
             Session session = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);

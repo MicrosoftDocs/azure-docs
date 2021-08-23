@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/20/2021
+ms.date: 07/29/2021
 ms.author: jeedes
 ---
 # Tutorial: Integrate Atlassian Cloud with Azure Active Directory
@@ -90,10 +90,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. In the **ATLASSIAN Admin** portal, navigate to **Security** tab, select **SAML single sign-on** and click **Add SAML configuration**.
 
    ![Security](./media/atlassian-cloud-tutorial/admin.png)
-
-1. In the **Add SAML configuration** section, fill the required fields which you have copied from the Azure portal and click **Save configuration**.
-
-   ![Add SAML Configuration](./media/atlassian-cloud-tutorial/configuration.png)
 
 1. In the Azure portal, on the **Atlassian Cloud** application integration page, find the **Manage** section and select **Set up single sign-on**.
 

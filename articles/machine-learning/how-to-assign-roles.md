@@ -118,7 +118,7 @@ az role definition create --role-definition data_scientist_role.json
 After deployment, this role becomes available in the specified workspace. Now you can add and assign this role in the Azure portal. Or, you can assign this role to a user by using the `az ml workspace share` CLI command:
 
 ```azurecli-interactive
-az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
+az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist Custom" --user jdoe@contoson.com
 ```
 
 For more information on custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md). 
@@ -498,7 +498,7 @@ Here are a few things to be aware of while you use Azure role-based access contr
 
 - To deploy your compute resources inside a VNet, you need to explicitly have permissions for the following actions:
     - `Microsoft.Network/virtualNetworks/*/read` on the VNet resources.
-    - `Microsoft.Network/virtualNetworks/subnet/join/action` on the subnet resource.
+    - `Microsoft.Network/virtualNetworks/subnets/join/action` on the subnet resource.
     
     For more information on Azure RBAC with networking, see the [Networking built-in roles](../role-based-access-control/built-in-roles.md#networking).
 

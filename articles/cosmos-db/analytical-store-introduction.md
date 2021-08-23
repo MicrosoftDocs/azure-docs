@@ -148,13 +148,37 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 ### Schema representation
 
-There are two modes of schema representation in the analytical store. These modes have tradeoffs between the simplicity of a columnar representation, handling the polymorphic schemas, and simplicity of query experience:
+There are two modes of schema representation in the analytical store. These modes define the schema representation method for all containers in the database account and have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
 
-* Well-defined schema representation
-* Full fidelity schema representation
+* Well-defined schema representation, default option for SQL (CORE) API accounts. 
+* Full fidelity schema representation, default option for Azure Cosmos DB API for MongoDB accounts.
 
+It is possible to use Full Fidelity Schema for SQL (Core) API accounts. Here are the considerations about this possibility:
+
+ * This option is only valid for accounts that don't have Synapse Link enabled.
+ * It is not possible to turn Synapse Link off and on again, to reset the default option and change from well-defined to full fidelity.
+ * It is not possible to change from well-defined to full fidelity using any other process.
+ * MongoDB accounts are not compatible with this possibility of changing the method of representation.
+ * Currently this decision cannot be made through the Azure portal.
+ * The decision on this option should be made at the same time that Synapse Link is enabled on the account:
+ 
+ With the Azure CLI:
+ ```cli
+ az cosmosdb create --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --subscription MySubscription --analytical-storage-schema-type "FullFidelity" --enable-analytical-storage true
+ ```
+ 
 > [!NOTE]
-> For SQL (Core) API accounts, when analytical store is enabled, the default schema representation in the analytical store is well-defined. Whereas for Azure Cosmos DB API for MongoDB accounts, the default schema representation in the analytical store is a full fidelity schema representation. 
+> In the command above, replace `create` with `update` for existing accounts.
+ 
+  With the PowerShell:
+  ```
+   New-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount  -EnableAnalyticalStorage true -AnalyticalStorageSchemaType "FullFidelity"
+   ```
+ 
+> [!NOTE]
+> In the command above, replace `New-AzCosmosDBAccount` with `Update-AzCosmosDBAccount` for existing accounts.
+ 
+
 
 #### Well-defined schema representation
 
@@ -269,7 +293,7 @@ If you have a globally distributed Azure Cosmos DB account, after you enable ana
 
 ## Security
 
-* Authentication with the analytical store is the same as the transactional store for a given database. You can use primary or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available to anyone who has access into the workspace.
+* **Authentication with the analytical store** is the same as the transactional store for a given database. You can use primary or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. For Azure Synapse SQL serverless, you can use SQL credentials to also prevent pasting the Azure Cosmos DB keys in the SQL notebooks. The Access to this Linked Services or to this credentials are available to anyone who has access to the workspace.
 
 * **Network isolation using private endpoints** - You can control network access to the data in the transactional and analytical stores independently. Network isolation is done using separate managed private endpoints for each store, within managed virtual networks in Azure Synapse workspaces. To learn more, see how to [Configure private endpoints for analytical store](analytical-store-private-endpoints.md) article.
 

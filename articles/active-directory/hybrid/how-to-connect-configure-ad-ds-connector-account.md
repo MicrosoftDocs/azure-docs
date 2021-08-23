@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 08/20/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -249,7 +249,7 @@ This cmdlet will set the following permissions:
 |Allow |AD DS Connector Account |Read/Write all properties |Descendant Group objects| 
 |Allow |AD DS Connector Account |Read/Write all properties |Descendant Contact objects| 
 
-### Permissions for Exchange Mail Public Folders (Preview) 
+### Permissions for Exchange Mail Public Folders
 To set permissions for the AD DS Connector account when using Exchange Mail Public Folders feature, run: 
 
 ``` powershell
