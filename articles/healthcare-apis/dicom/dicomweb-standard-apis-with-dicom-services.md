@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 08/04/2021
+ms.date: 08/23/2021
 ms.author: aersoy
 ---
 
@@ -51,7 +51,7 @@ cURL is a common command-line tool for calling web endpoints that is available f
 
 To learn how to use cURL with the DICOM service, see [Using DICOMWeb™ Standard APIs with cURL](dicomweb-standard-apis-curl.md) tutorial.
 
-### Phyton
+### Python
 
 Refer to the [Using DICOMWeb™ Standard APIs with Python](dicomweb-standard-apis-python.md) tutorial to learn how to use Python with the DICOM service.
 
