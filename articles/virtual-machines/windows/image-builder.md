@@ -12,6 +12,8 @@ ms.colletion: windows
 ---
 # Create a Windows VM with Azure Image Builder
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 This article is to show you how you can create a customized Windows image using the Azure VM Image Builder. The example in this article uses [customizers](../linux/image-builder-json.md#properties-customize) for customizing the image:
 - PowerShell (ScriptUri) - download and run a [PowerShell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
 - Windows Restart - restarts the VM.
