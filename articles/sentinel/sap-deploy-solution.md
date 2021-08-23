@@ -295,7 +295,20 @@ If you have a Docker container already running with an earlier version of the SA
     ./ sapcon-instance-update.sh
     ```
 
-The SAP data connector Docker container on your machine is updated.
+1. Restart the Docker container:
+
+    ```bash
+    docker restart sapcon-[SID]
+    ```
+
+The SAP data connector Docker container on your machine is updated. 
+
+Make sure to check for any other updates available:
+
+- Relevant SAP change requests, in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR).
+- Azure Sentinel SAP security content, in the **Azure Sentinel Continuous Threat Monitoring for SAP** solution
+- Relevant watchlists, in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists)
+
 
 ## Collect SAP HANA audit logs
 

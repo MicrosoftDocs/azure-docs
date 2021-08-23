@@ -6,7 +6,7 @@ ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: troubleshooting
 ms.custom: mvc
-ms.date: 07/29/2021
+ms.date: 08/09/2021
 ms.subservice: azure-sentinel
 
 ---
@@ -29,27 +29,36 @@ For more information, see the [Docker CLI documentation](https://docs.docker.com
 
 ## Review system logs
 
-We highly recommend that you review the system logs after installing or resetting the data connector.
+We highly recommend that you review the system logs after installing or [resetting the data connector](#reset-the-sap-data-connector).
 
 Run:
 
 ```bash
 docker logs -f sapcon-[SID]
 ```
+
 ## Enable debug mode printing
 
-To enable debug mode printing:
+**To enable debug mode printing**:
 
 1. Copy the following file to your **sapcon/[SID]** directory, and then rename it as `loggingconfig.yaml`: https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.yaml
 
 1. [Reset the SAP data connector](#reset-the-sap-data-connector).
 
-For example, for SID A4H:
+For example, for SID `A4H`:
 
 ```bash
 wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.y
               cp loggingconfig.yaml ~/sapcon/A4H
               docker restart sapcon-A4H
+```
+
+**To disable debug mode printing again, run**:
+
+```bash
+mv loggingconfig.yaml loggingconfig.old
+ls
+docker restart sapcon-[SID]
 ```
 
 ## View all Docker execution logs
@@ -122,7 +131,13 @@ The following steps reset the connector and re-ingest SAP logs from the last 24 
     docker stop sapcon-[SID]
     ```
 
-1.	Delete the **metadata.db** file from the **sapcon/[SID]** directory.
+1.	Delete the **metadata.db** file from the **sapcon/[SID]** directory. Run:
+
+    ```bash
+    cd ~/sapcon/<SID>
+    ls
+    mv metadata.db metadata.old
+    ```
 
     > [!NOTE]
     > The **metadata.db** file contains the last timestamp for each of the logs, and works to prevent duplication.
@@ -148,7 +163,7 @@ This occurs when the connector fails to boot with PyRfc, or zip-related error me
 1. Reinstall the SAP SDK.
 1. Verify that you're the correct Linux 64-bit version. As of the current date, the release filename is: **nwrfc750P_8-70002752.zip**.
 
-If you'd installed the data connector manually, make sure that you'd copied the SDK file into the docker container.
+If you'd installed the data connector manually, make sure that you'd copied the SDK file into the Docker container.
 
 Run:
 
@@ -169,7 +184,7 @@ If ABAP runtime errors appear on large systems, try setting a smaller chunk size
 ### Empty or no audit log retrieved, with no special error messages
 
 1. Check that audit logging is enabled in SAP.
-1. Verify transactions **SM19** and **RASU_CONFIG**.
+1. Verify the **SM19** or **RSAU_CONFIG** transactions.
 1. Enable any events as needed.
 1. Verify whether messages arrive and exist in the SAP **SM20** or **RSAU_READ_LOG**, without any special errors appearing on the connector log.
 
@@ -177,6 +192,12 @@ If ABAP runtime errors appear on large systems, try setting a smaller chunk size
 ### Incorrect Azure Sentinel workspace ID or key
 
 If you realize that you've entered an incorrect workspace ID or key in your [deployment script](sap-deploy-solution.md#create-key-vault-for-your-sap-credentials), update the credentials stored in Azure KeyVault.
+
+After verifying your credentials in Azure KeyVault, restart the container:
+
+```bash
+docker restart sapcon-[SID]
+```
 
 ### Incorrect SAP ABAP user credentials in a fixed configuration
 
@@ -188,10 +209,13 @@ Use base64 encryption to encrypt the user and password. You can use online encry
 
 ### Incorrect SAP ABAP user credentials in key vault
 
-Check your credentials and fix them as needed.
+Check your credentials and fix them as needed, applying the correct values to the **ABAPUSER** and **ABAPPASS** values in Azure Key Vault.
 
-Apply the correct values to the **ABAPUSER** and **ABAPPASS** values in Azure Key Vault.
+Then, restart the container:
 
+```bash
+docker restart sapcon-[SID]
+```
 
 
 ### Missing ABAP (SAP user) permissions
@@ -240,7 +264,14 @@ If your attempt to retrieve an audit log, without the [required change request](
 While your system should automatically switch to compatibility mode if needed, you may need to switch it manually. To switch to compatibility mode manually:
 
 1. In the **sapcon/SID** directory, edit the **systemconfig.ini** file
+
 1. Define: `auditlogforcexal = True`
+
+1. Restart the Docker container:
+
+    ```bash
+    docker restart sapcon-[SID]
+    ```
 
 ### SAPCONTROL or JAVA subsystems unable to connect
 
@@ -261,6 +292,34 @@ For example, use `javatz = GMT+12` or `abaptz = GMT-3**`.
 
 If you're not able to import the [required SAP log change requests](sap-solution-detailed-requirements.md#required-sap-log-change-requests) and are getting an error about an invalid component version, add `ignore invalid component version` when you import the change request.
 
+### Audit log data not ingested past initial load
+
+If the SAP audit log data, visible in either the **RSAU_READ_LOAD** or **SM200** transactions, is not ingested into Azure Sentinel past the initial load, you may have a misconfiguration of the SAP system and the SAP host operating system.
+
+- Initial loads are ingested after a fresh installation of the SAP data connector, or after the **metadata.db** file is deleted.
+- A sample misconfiguration might be when your SAP system timezone is set to **CET** in the **STZAC** transaction, but the SAP host operating system time zone is set to **UTC**.
+
+To check for misconfigurations, run the **RSDBTIME** report in transaction **SE38**. If you find a mismatch between the SAP system and the SAP host operating system:
+
+1. Stop the Docker container. Run
+
+    ```bash
+    docker stop sapcon-[SID]
+    ```
+
+1.	Delete the **metadata.db** file from the **sapcon/[SID]** directory. Run:
+
+    ```bash
+    rm ~/sapcon/[SID]/metadata.db
+    ```
+
+1. Update the SAP system and the SAP host operating system to have matching settings, such as the same time zone. For more information, see the [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/Basis/Time+zone+settings%2C+SAP+vs.+OS+level).
+
+1. Start the container again. Run:
+
+    ```bash
+    docker start sapcon-[SID]
+    ```
 
 ## Next steps
 

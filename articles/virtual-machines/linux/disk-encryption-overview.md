@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 ---
 
-# Azure Disk Encryption for Linux VMs 
+# Azure Disk Encryption for Linux VMs
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
