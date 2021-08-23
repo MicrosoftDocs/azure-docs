@@ -3,11 +3,11 @@
   topicHref: /azure/index
   items:
   - name: Machine Learning
-    tocHref: /azure/architecture/
+    tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/index
     items:
-    - name: Studio (classic)
-      tocHref: /azure/architecture/data-guide/technology-choices/
+    - name: ML Studio (classic)
+      tocHref: /azure/machine-learning/classic/
       topicHref: /azure/machine-learning/classic/index
       items:
       - name: Data Architecture Guide
