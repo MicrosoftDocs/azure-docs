@@ -169,7 +169,7 @@ Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out Fi
 Ultra SSD disks | Not supported. For more information, see these [limitations](selective-disk-backup-restore.md#limitations).
 [Temporary disks](../virtual-machines/managed-disks-overview.md#temporary-disk) | Temporary disks aren't backed up by Azure Backup.
 NVMe/[ephemeral disks](../virtual-machines/ephemeral-os-disks.md) | Not supported.
-[ReFS](/windows-server/storage/refs/refs-overview) restore | Supported. VSS supports app-consistency backups on ReFS also like NFS.
+[ReFS](/windows-server/storage/refs/refs-overview) restore | Supported. VSS supports app-consistent backups on ReFS also like NFS.
 
 ## VM network support
 
