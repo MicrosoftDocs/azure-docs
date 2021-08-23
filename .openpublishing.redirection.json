@@ -28146,6 +28146,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/storage-lifecycle-management-concepts.md",
+      "redirect_url": "/azure/storage/blobs/lifecycle-management-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/storage-manage-access-to-resources.md",
       "redirect_url": "/azure/storage/blobs/storage-manage-access-to-resources",
       "redirect_document_id": true
@@ -56193,11 +56198,6 @@
     {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/load-balancer/egress-only.md",
-      "redirect_url": "/azure/virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal",
       "redirect_document_id": false
     },
     {
