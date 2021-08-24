@@ -39,7 +39,7 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 |Variable explorer| Not supported |&#9745;|
 |Format text cell with toolbar buttons|&#9745;| Not available |
 |Undo cell operation| &#9745;| &#9745;|
-|Comment cell operation| Not supported | &#9745;|
+|Code cell commenting| Not supported | &#9745;|
 
 
 ## Create a notebook
