@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 This document is a step-by-step guide to move an Azure Synapse workspace from one Azure region to another.
 
 > [!NOTE]
-> The steps in this document do not actually move the workspace. The steps show you how to create a new workspace in a new region using Synapse workspace backups and artifacts from the source region.
+> The steps in this document do not actually move the workspace. The steps show you how to create a new workspace in a new region using Synapse dedicated SQL pool backups and artifacts from the source region.
 
 
 ## Prerequisites
