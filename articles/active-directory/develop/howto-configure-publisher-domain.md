@@ -57,7 +57,7 @@ To set your app's publisher domain, follow these steps.
 
 If your app is registered in a tenant, you'll see two tabs to select from: **Select a verified domain** and **Verify a new domain**.
 
-If your app isn't registered in a tenant, you'll only see the option to verify a new domain for your application.
+If your domain isn't registered in the tenant, you'll only see the option to verify a new domain for your application.
 
 ### To verify a new domain for your app
 
