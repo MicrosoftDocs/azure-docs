@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: databox   
 ms.topic: include
-ms.date: 08/20/2021
+ms.date: 08/24/2021
 ms.author: alkohli
 ---
 
@@ -117,21 +117,21 @@ Do the following steps in the Azure portal to order a device.
 
     ![Screenshot of the "Select a key" screen in Azure Key Vault. The Key Vault field is highlighted.](./media/data-box-order-portal/customer-managed-key-06.png)
 
-    If you want to create a new key, select **Create new**. You must use an RSA key. The size can be 2048 or greater. Enter a name for your new key, accept the other defaults, and select **Create**.
+    If you want to create a new key, select **Create new key**. You must use an RSA key. The size can be 2048 or greater. Enter a name for your new key, accept the other defaults, and select **Create**.
 
       ![Screenshot of the "Create a Key" screen in Azure Key Vault with a key name entered. The Name field and the Create button are highlighted.](./media/data-box-order-portal/customer-managed-key-07.png)
 
       You'll be notified when the key has been created in your key vault. Your new key wil be selected and displayed on the **Select a key** blade.
 
-      ![Screenshot of the "Select a key" screen in Azure Key vault after a new key is added. The Version field, with the default version, is highlighted.](./media/data-box-order-portal/customer-managed-key-08.png)
+      <!--![Screenshot of the "Select a key" screen in Azure Key vault after a new key is added. The Version field, with the default version, is highlighted.](./media/data-box-order-portal/customer-managed-key-08.png)-->
 
 13. Select the **Version** of the key to use, and then choose **Select**.
 
-      ![Screenshot of the "Create a Key" screen in Azure Key Vault. The Version field is highlighted, with available versions displayed.](./media/data-box-order-portal/customer-managed-key-08-a.png)
+      ![Screenshot of the "Create a Key" screen in Azure Key Vault. The Version field is highlighted, with available versions displayed.](./media/data-box-order-portal/customer-managed-key-08.png)
 
     If you want to create a new key version, select **Create new version**.
 
-    ![Screenshot of the "Create a Key" screen in Azure Key Vault. The "Create new version" link is highlighted.](./media/data-box-order-portal/customer-managed-key-08.png)
+    ![Screenshot of the "Create a Key" screen in Azure Key Vault. The "Create new version" link is highlighted.](./media/data-box-order-portal/customer-managed-key-08-a.png)
 
     Choose settings for the new key version, and select **Create**.
 
