@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 02/11/2021
+ms.date: 07/27/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, devx-track-azurepowershell
 ---
@@ -42,6 +42,22 @@ When you receive errors during runbook execution in Azure Automation, you can us
 1. Do this step if the runbook job or the environment on Hybrid Runbook Worker doesn't respond.
 
     If you're running your runbooks on a Hybrid Runbook Worker instead of in Azure Automation, you might need to [troubleshoot the hybrid worker itself](hybrid-runbook-worker.md).
+
+## Scenario: Access blocked to Azure Storage, or Azure Key Vault, or Azure SQL
+
+This scenario uses [Azure Storage](../../storage/common/storage-network-security.md) as an example; however, the information is equally applicable to [Azure Key Vault](../../key-vault/general/network-security.md) and [Azure SQL](../../azure-sql/database/firewall-configure.md).
+
+### Issue
+
+Attempting to access Azure Storage from a Runbook results in an error similar to the following message: `The remote server returned an error: (403) Forbidden. HTTP Status Code: 403 - HTTP Error Message: This request is not authorized to perform this operation.`
+
+### Cause
+
+The Azure Firewall on Azure Storage is enabled.
+
+### Resolution
+
+Enabling the Azure Firewall on [Azure Storage](../../storage/common/storage-network-security.md), [Azure Key Vault](../../key-vault/general/network-security.md), or [Azure SQL](../../azure-sql/database/firewall-configure.md) blocks access from Azure Automation runbooks for those services. Access will be blocked even when the firewall exception to allow trusted Microsoft services is enabled, as Automation is not a part of the trusted services list. With an enabled firewall, access can only be made by using a Hybrid Runbook Worker and a [virtual network service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="runbook-fails-no-permission"></a>Scenario: Runbook fails with a No permission or Forbidden 403 error
 

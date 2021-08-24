@@ -4,13 +4,14 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 08/16/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
 ---
 
 # Share an Azure managed disk
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Azure shared disks is a feature for Azure managed disks that allow you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure.
 

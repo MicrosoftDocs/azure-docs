@@ -30,7 +30,7 @@ You're entirely responsible for all layers of security for your on-premises IT e
 
 * For more information on securing access for privileged users, see [Securing Privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md).
 
-* For a wide range of videos, how-to guides, and content of key concepts for privileged identity, visit [Privileged Identity Management documentation](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/). 
+* For a wide range of videos, how-to guides, and content of key concepts for privileged identity, visit [Privileged Identity Management documentation](../privileged-identity-management/index.yml). 
 
 Privileged Identity Management (PIM) is an Azure AD service that enables you to manage, control, and monitor access to important resources in your organization. These resources include resources in Azure AD, Azure, and other Microsoft Online Services such as Microsoft 365 or Microsoft Intune. You can use PIM to help mitigate the following risks:
 

@@ -149,7 +149,7 @@ compression and deduplication.
     - **Readiness unknown**: Azure Migrate couldn't determine the readiness of the server because of insufficient metadata collected from the on-premises environment.
 
 3. Review the Suggested tool:
-    - **VMware HCX or Enterprise**: For VMware servers, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+    - **VMware HCX or Enterprise**: For VMware servers, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/configure-vmware-hcx.md).
     - **Unknown**: For servers imported via a CSV file, the default migration tool is unknown. Though for VMware servers, it is suggested to use the VMware Hybrid Cloud Extension (HCX) solution. 
 
 4. Click on an **AVS readiness** status. You can view VM readiness details, and drill down to see VM details, including compute, storage, and network settings.

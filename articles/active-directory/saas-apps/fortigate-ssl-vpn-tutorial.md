@@ -72,16 +72,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
 1. On the **Set up Single Sign-On with SAML** page, enter the following values:
 
     a. In the **Sign on URL** box, enter a URL in the pattern
-    `https://<FQDN>/remote/login`.
+    `https://<FQDN>/remote/saml/login`.
 
     b. In the **Identifier** box, enter a URL in the pattern
-    `https://<FQDN>/remote/saml/metadata/`.
+    `https://<FQDN>/remote/saml/metadata`.
 
     c. In the **Reply URL** box, enter a URL in the pattern
-    `https://<FQDN>/remote/saml/login/`.
+    `https://<FQDN>/remote/saml/login`.
 
     d. In the **Logout URL** box, enter a URL in the pattern
-    `https://<FQDN>/remote/saml/logout/`.
+    `https://<FQDN>/remote/saml/logout`.
 
 	> [!NOTE]
 	> These values are just patterns. You need to use the actual **Sign on URL**, **Identifier**, **Reply URL**, and **Logout URL**. Contact [Fortinet support](https://support.fortinet.com) for guidance. You can also refer to the example patterns shown in the Fortinet documentation and the **Basic SAML Configuration** section in the Azure portal.
