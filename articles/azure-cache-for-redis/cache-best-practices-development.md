@@ -10,17 +10,6 @@ ms.author: shpathak
 
 # Development
 
-## Avoiding data loss
-
-Remember that Redis is an in-memory data store. For information about scenarios where data loss can occur, see [Troubleshoot data loss in Azure Cache for Redis](cache-troubleshoot-data-loss.md).
-
-## Avoid using Basic tier in production
-Use Standard or Premium tier for production systems. The Basic tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are only meant for simple dev/test scenarios because:
-
-- they share a CPU core
-- use little memory
-- are prone to *noisy neighbor* issues
-
 ## Connection resilience and server load
 
 When developing client applications, be sure to consider the relevant best practices for [connection resilience](cache-best-practices-connection.md) and [managing server load](cache-best-practices-server-load.md).
@@ -44,10 +33,11 @@ Try to choose a Redis client that supports [Redis pipelining](https://redis.io/t
 Some Redis operations, like the [KEYS](https://redis.io/commands/keys) command, are expensive and should be avoided. For some considerations around long running commands, see  [long-running commands](cache-troubleshoot-server.md#long-running-commands)
 
 ## Choose an appropriate tier
+Use Standard or Premium tier for production systems.  Don't use the Basic tier in production. The Basic tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are only meant for simple dev/test scenarios because:
 
-Use a Standard or Premium tier for production systems. Don't use the Basic tier in production. The Basic tier is a single node system with no data replication and no SLA. 
-
-Use at least a C1 cache. C0 caches are meant for simple development and test scenarios because they have a shared CPU core, little memory, and are prone to *noisy neighbor* issues.
+- they share a CPU core
+- use little memory
+- are prone to *noisy neighbor* issues
 
 We recommend performance testing to choose the right tier and validate connection settings. For more information, see [Performance testing](cache-best-practices-performance.md).
 
