@@ -7,7 +7,7 @@ author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/11/2021
+ms.date: 08/24/2021
 ---
 
 # Copy data from Amazon S3 Compatible Storage by using Azure Data Factory

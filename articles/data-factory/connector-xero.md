@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
 ---
 # Copy data from Xero using Azure Data Factory

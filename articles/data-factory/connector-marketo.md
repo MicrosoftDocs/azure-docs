@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 08/24/2021
 ms.author: chez
 author: chez-charlie
 ---

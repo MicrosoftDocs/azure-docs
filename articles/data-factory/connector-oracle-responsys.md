@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/01/2019
+ms.date: 08/24/2021
 ---
 
 # Copy data from Oracle Responsys using Azure Data Factory (Preview)

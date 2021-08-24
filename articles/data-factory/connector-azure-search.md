@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
+ms.date: 08/24/2021
 ---
 
 # Copy data to an Azure Cognitive Search index using Azure Data Factory

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/15/2021
+ms.date: 08/24/2021
 ---
 
 # Copy data from QuickBooks Online using Azure Data Factory (Preview)

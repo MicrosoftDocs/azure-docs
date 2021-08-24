@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/24/2021
 ms.author: jianleishen
 ---
 # Copy data from Web table by using Azure Data Factory

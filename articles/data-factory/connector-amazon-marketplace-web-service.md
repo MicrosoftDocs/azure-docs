@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 08/01/2018
+ms.date: 08/24/2021
 ---
 
 # Copy data from Amazon Marketplace Web Service using Azure Data Factory

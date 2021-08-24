@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 08/24/2021
 ---
 
 # Execute Pipeline activity in Azure Data Factory
