@@ -17,8 +17,8 @@ Azure Sentinel uses the Azure foundation to provide built-in, service-to-service
 
 This article discusses the following types of connectors:
 
-- **API-based** connections, including **Subscription-based** connections
-- **Diagnostic settings** connections, many of which are managed by [Azure Policy](/azure/governance/policy/overview)
+- **API-based** connections
+- **Diagnostic settings** connections, some of which are managed by Azure Policy
 - **Log Analytics agent**-based connections
 
 This article presents information that is common to groups of connectors. See the accompanying [data connector reference](data-connectors-reference.md) page for information that is unique to each connector, such as licensing prerequisites and Log Analytics tables for data storage.
@@ -34,20 +34,10 @@ The following integrations are both more unique and more popular, and are treate
 
 ## API-based connections
 
-This section's following instructions apply to the following connectors:
-
-- [Azure Active Directory](data-connectors-reference.md#azure-active-directory)
-- [Azure Active Directory Identity Protection](data-connectors-reference.md#azure-active-directory-identity-protection)
-- [Azure Defender](data-connectors-reference.md#azure-defender)
-- [Azure Defender for IoT](data-connectors-reference.md#azure-defender-for-iot)
-- [Dynamics 365](data-connectors-reference.md#dynamics-365)
-- [Microsoft Cloud App Security](data-connectors-reference.md#microsoft-cloud-app-security-mcas)
-- [Microsoft Defender for Endpoint](data-connectors-reference.md#microsoft-defender-for-endpoint)
-- [Microsoft Defender for Identity](data-connectors-reference.md#microsoft-defender-for-identity)
-- [Microsoft Defender for Office 365](data-connectors-reference.md#microsoft-defender-for-office-365)
-- [Office 365 Activity](data-connectors-reference.md#microsoft-office-365)
-
 ### Prerequisites
+
+- You must have read and write permissions on the Log Analytics workspace.
+- You must have the Global administrator or Security administrator role on your Azure Sentinel workspace's tenant.
 
 ### Instructions
 
@@ -87,7 +77,7 @@ To ingest data into Azure Sentinel:
 
 1. In the **Diagnostics settings** screen, enter a name in the **Diagnostic settings name** field.
 
-Mark the **Send to Log Analytics** check box. Two new fields will be displayed below it. Choose the relevant **Subscription** and **Log Analytics Workspace** (where Azure Sentinel resides).
+    Mark the **Send to Log Analytics** check box. Two new fields will be displayed below it. Choose the relevant **Subscription** and **Log Analytics Workspace** (where Azure Sentinel resides).
 
 1. Mark the check boxes of the types of logs and metrics you want to collect. See our recommended choices for each resource type in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page.
 
@@ -144,6 +134,9 @@ This section's following instructions apply to the following connectors:
 - [Windows Firewall](data-connectors-reference.md#windows-firewall)
 
 ### Prerequisites
+
+- You must have read and write permissions on the Log Analytics workspace, and any workspace that contains machines you want to collect logs from.
+- You must have the **Log Analytics Contributor** role on the SecurityInsights (Azure Sentinel) solution on those workspaces, in addition to any Azure Sentinel roles.
 
 ### Instructions
 

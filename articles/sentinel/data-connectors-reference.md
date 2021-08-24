@@ -249,7 +249,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Connect Azure Active Directory data to Azure Sentinel](connect-azure-active-directory.md)** |
-| **License prerequisites/<br>Cost information** | <li>Azure Active Directory P1 or P2 license for sign-in logs<li>Any Azure AD license (Free/O365/P1/P2) for other log types<br>Other charges may apply
+| **License prerequisites/<br>Cost information** | <li>Azure Active Directory P1 or P2 license for sign-in logs<li>Any Azure AD license (Free/O365/P1/P2) for other log types<br>Other charges may apply |
 | **Log Analytics table(s)** | SigninLogs<br>AuditLogs<br>AADNonInteractiveUserSignInLogs<br>AADServicePrincipalSignInLogs<br>AADManagedIdentitySignInLogs<br>AADProvisioningLogs<br>ADFSSignInLogs |
 | **Supported by** | Microsoft |
 | | |
@@ -259,7 +259,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
+| **License prerequisites/<br>Cost information** | [Azure AD Premium P2 subscription](https://azure.microsoft.com/pricing/details/active-directory/)<br>Other charges may apply |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -270,18 +270,44 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)**<br><br>[Upgrade to the new Azure Activity connector](#upgrade-to-the-new-azure-activity-connector) |
 | **Log Analytics table(s)** | AzureActivity |
 | **Supported by** | Microsoft |
 | | |
+
+### Upgrade to the new Azure Activity connector
+
+#### Data structure changes
+
+This connector recently changed its back-end mechanism for collecting Activity log events. It is now using the **diagnostic settings** pipeline. If you're still using the legacy method for this connector, you are *strongly encouraged to upgrade* to the new version, which provides better functionality and greater consistency with resource logs. See the instructions below.
+
+The **diagnostic settings** method sends the same data that the legacy method sent from the Activity log service, although there have been some [changes to the structure](../azure-monitor/essentials/activity-log.md#data-structure-changes) of the **AzureActivity** table.
+
+Here are some of the key improvements resulting from the move to the diagnostic settings pipeline:
+- Improved ingestion latency (event ingestion within 2-3 minutes of occurrence instead of 15-20 minutes).
+- Improved reliability.
+- Improved performance.
+- Support for all categories of events logged by the Activity log service (the legacy mechanism supports only a subset - for example, no support for Service Health events).
+- Management at scale with Azure Policy.
+
+See the [Azure Monitor documentation](../azure-monitor/logs/data-platform-logs.md) for more in-depth treatment of [Azure Activity log](../azure-monitor/essentials/activity-log.md) and the [diagnostic settings pipeline](../azure-monitor/essentials/diagnostic-settings.md).
+
+#### Disconnect from old pipeline
+
+Before setting up the new Azure Activity log connector, you must disconnect the existing subscriptions from the legacy method.
+
+1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Azure Activity**, and then click the **Open connector page** button on the lower right.
+
+1. Under the **Instructions** tab, in the **Configuration** section, in step 1, review the list of your existing subscriptions that are connected to the legacy method (so you know which ones to add to the new), and disconnect them all at once by clicking the **Disconnect All** button below.
+
+1. Continue setting up the new connector with the [instructions linked in the table above](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections).
 
 ## Azure DDoS Protection
 
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
+| **License prerequisites/<br>Cost information** | <li>You must have a configured [Azure DDoS Standard protection plan](../ddos-protection/manage-ddos-protection.md#create-a-ddos-protection-plan).<li>You must have a configured [virtual network with Azure DDoS Standard enabled](../ddos-protection/manage-ddos-protection.md#enable-ddos-protection-for-a-new-virtual-network)<br>Other charges may apply |
 | **Log Analytics table(s)** | AzureDiagnostics |
 | **Recommended diagnostics** | DDoSProtectionNotifications<br>DDoSMitigationFlowLogs<br>DDoSMitigationReports |
 | **Supported by** | Microsoft |
@@ -291,8 +317,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
+| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect Azure Defender alerts from Azure Security Center](connect-azure-security-center.md)** |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -302,7 +327,6 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -312,7 +336,6 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | AzureDiagnostics |
 | **Recommended diagnostics** | AzureFirewallApplicationRule<br>AzureFirewallNetworkRule<br>AzureFirewallDnsProxy |
 | **Supported by** | Microsoft |
@@ -323,7 +346,6 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | InformationProtectionLogs_CL |
 | **Supported by** | Microsoft |
 | | |
@@ -337,7 +359,6 @@ For more information, see the [Azure Information Protection documentation](/azur
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | KeyVaultData |
 | **Supported by** | Microsoft |
 | | |
@@ -349,7 +370,6 @@ For more information, see the [Azure Information Protection documentation](/azur
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | kube-apiserver<br>kube-audit<br>kube-audit-admin<br>kube-controller-manager<br>kube-scheduler<br>cluster-autoscaler<br>guard |
 | **Supported by** | Microsoft |
 | | |
@@ -361,7 +381,6 @@ For more information, see the [Azure Information Protection documentation](/azur
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | SQLSecurityAuditEvents<br>SQLInsights<br>AutomaticTuning<br>QueryStoreWaitStatistics<br>Errors<br>DatabaseWaitStatistics<br>Timeouts<br>Blocks<br>Deadlocks<br>Basic<br>InstanceAndAppAdvanced<br>WorkloadManagement<br>DevOpsOperationsAudit |
 | **Supported by** | Microsoft |
 | | |
@@ -373,7 +392,6 @@ For more information, see the [Azure Information Protection documentation](/azur
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)**<br><br>[Notes about storage account diagnostic settings configuration](#notes-about-storage-account-diagnostic-settings-configuration) |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | StorageBlobLogs<br>StorageQueueLogs<br>StorageTableLogs<br>StorageFileLogs |
 | **Recommended diagnostics** | **Blob/Queue/Table/File**<br><li>Read<li>Write<li>Delete |
 | **Supported by** | Microsoft |
@@ -386,7 +404,6 @@ For more information, see the [Azure Information Protection documentation](/azur
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | AzureDiagnostics |
 | **Recommended diagnostics** | **Application Gateway**<br><li>ApplicationGatewayAccessLog<li>ApplicationGatewayFirewallLog<br>**Front Door**<li>FrontdoorAccessLog<li>FrontdoorWebApplicationFirewallLog<br>**CDN WAF policy**<li>WebApplicationFirewallLogs |
 | **Supported by** | Microsoft |
@@ -613,7 +630,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
+| **License prerequisites/<br>Cost information** | <li>[Microsoft Dynamics 365 production license](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description). Not available for sandbox environments.<li>Microsoft 365 Enterprise [E3 or E5](/power-platform/admin/enable-use-comprehensive-auditing#requirements) subscription is required to do Activity Logging.<br>Other charges may apply |
 | **Log Analytics table(s)** | Dynamics365Activity |
 | **Supported by** | Microsoft |
 | | |
@@ -944,8 +961,8 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
+| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect data from Microsoft 365 Defender to Azure Sentinel](connect-microsoft-365-defender.md)** |
+| **License prerequisites/<br>Cost information** | [Valid license for Microsoft 365 Defender](/microsoft-365/security/mtp/prerequisites)
 | **Log Analytics table(s)** | SecurityAlert<br>SecurityIncident<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo |
 | **Supported by** | Microsoft |
 | | |
@@ -954,9 +971,8 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
-| **Log Analytics table(s)** | SecurityAlert<br>McasShadowItReporting​ |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)**<br><br>For Cloud Discovery logs, [enable Azure Sentinel as your SIEM in Microsoft Cloud App Security](/cloud-app-security/siem-sentinel) |
+| **Log Analytics table(s)** | SecurityAlert - for alerts<br>McasShadowItReporting​ - for Cloud Discovery logs |
 | **Supported by** | Microsoft |
 | | |
 
@@ -965,7 +981,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
+| **License prerequisites/<br>Cost information** | [Valid license for Microsoft Defender for Endpoint deployment](/microsoft-365/security/defender-endpoint/production-deployment)
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -975,7 +991,6 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -985,7 +1000,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
+| **License prerequisites/<br>Cost information** | You must have a valid license for [Office 365 ATP Plan 2](/microsoft-365/security/office-365-security/office-365-atp#office-365-atp-plan-1-and-plan-2)
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -995,7 +1010,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Azure Sentinel workspace.<br>Other charges may apply |
 | **Log Analytics table(s)** | OfficeActivity |
 | **Supported by** | Microsoft |
 | | |
