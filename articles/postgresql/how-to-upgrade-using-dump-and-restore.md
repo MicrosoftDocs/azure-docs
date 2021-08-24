@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/02/2021
+ms.date: 06/23/2021
 ---
 
 # Upgrade your PostgreSQL database using dump and restore
@@ -81,6 +81,9 @@ You may choose to use one of the methods described in this section for your upgr
 - If your PostgreSQL server requires TLS/SSL connections (on by default in Azure Database for PostgreSQL servers), set an environment variable `PGSSLMODE=require` so that the pg_restore tool connects with TLS. Without TLS, the error may read  `FATAL:  SSL connection is required. Please specify SSL options and retry.`
 
 - In the Windows command line, run the command `SET PGSSLMODE=require` before running the pg_restore command. In Linux or Bash run the command `export PGSSLMODE=require` before running the pg_restore command.
+
+>[!Important]
+> It is recommended to test and validate the commands in a test environment before you use them in production.
 
 ### Method 1: Migrate using dump file
 
@@ -166,4 +169,6 @@ You can consider this method if you have few larger tables in your database and 
 
 - After you're satisfied with the target database function, you can drop your old database server. 
 - For Azure Database for PostgreSQL - Single server only. If you want to use the same database endpoint as the source server, then after you had deleted your old source database server, you can create a read replica with the old database server name. Once the steady replication state is established, you can stop the replica, which will promote the replica server to be an independent server. See [Replication](./concepts-read-replicas.md) for more details.
-- Remember to test and validate these commands in a test environment before you use them in production.
+
+>[!Important] 
+> It is highly recommended to test the new PostgreSQL upgraded version before using it directly for production. This includes comparing server parameters between the older source version source and the newer version target. Please ensure that they are same and check on any new parameters that were added in the new version. Differences between versions can be found [here](https://www.postgresql.org/docs/release/).

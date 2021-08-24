@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/06/2021
+ms.date: 08/20/2021
 ms.author: jeedes
 ---
 
@@ -28,12 +28,16 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * 4me single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * 4me supports **SP** initiated SSO.
 * 4me supports **Just In Time** user provisioning.
+* 4me supports [Automated user provisioning](4me-provisioning-tutorial.md).
 
 ## Add 4me from the gallery
 

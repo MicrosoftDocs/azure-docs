@@ -246,7 +246,7 @@ The following examples show common scenarios for creating more than one instance
 
 ## Next steps
 
-- To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md).
+- To set dependencies on resources that are created in a copy loop, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).
 - To go through a tutorial, see [Tutorial: Create multiple resource instances with ARM templates](template-tutorial-create-multiple-instances.md).
 - For a Microsoft Learn module that covers resource copy, see [Manage complex cloud deployments by using advanced ARM template features](/learn/modules/manage-deployments-advanced-arm-template-features/).
 - For other uses of the copy loop, see:

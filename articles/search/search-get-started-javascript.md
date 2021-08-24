@@ -4,12 +4,11 @@ titleSuffix: Azure Cognitive Search
 description: In this JavaScript quickstart, learn how to create an index, load data, and run queries on Azure Cognitive Search using JavaScript
 
 author: dereklegenzoff
-manager: luisca
 ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/02/2021
+ms.date: 07/08/2021
 ms.custom: devx-track-js
 ---
 
@@ -105,7 +104,7 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
       "author": "Your Name",
       "license": "MIT",
       "dependencies": {
-        "@azure/search-documents": "^11.0.3",
+        "@azure/search-documents": "^11.2.0",
         "dotenv": "^8.2.0"
       }
     }
@@ -194,7 +193,7 @@ Add the following to **hotels_quickstart_index.json** or [download the file](htt
             "filterable": false,
             "sortable": false,
             "facetable": false,
-            "analyzer": "en.lucene"
+            "analyzerName": "en.lucene"
         },
         {
             "name": "Description_fr",
@@ -203,7 +202,7 @@ Add the following to **hotels_quickstart_index.json** or [download the file](htt
             "filterable": false,
             "sortable": false,
             "facetable": false,
-            "analyzer": "fr.lucene"
+            "analyzerName": "fr.lucene"
         },
         {
             "name": "Category",
@@ -603,9 +602,8 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-In this JavaScript quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. 
+In this JavaScript quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. To continue learning, try the following tutorial and sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. 
 
-If you already have some background in Azure Cognitive Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. If you're new to Azure Cognitive Search, we recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. 
++ [Tutorial: Add search to web apps](tutorial-csharp-overview.md)
 
-> [!div class="nextstepaction"]
-> [Build a React front-end for Azure Cognitive Search](https://github.com/dereklegenzoff/azure-search-react-template)
++ [Sample: Build a React front-end for Azure Cognitive Search](https://github.com/dereklegenzoff/azure-search-react-template)

@@ -2,7 +2,7 @@
 title: Detect when objects cross a virtual line in a live video with Azure Video Analyzer
 description: This quickstart shows you how to use Azure Video Analyzer to detect when objects cross a line in a live video feed from a (simulated) IP camera.
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 06/01/2021
 ---
 
 # Tutorial: Detect when objects cross a virtual line in a live video
@@ -32,7 +32,7 @@ This diagram shows how the signals flow in this tutorial. An [edge module](https
 
 The HTTP extension node plays the role of a proxy. It converts every 10th video frame to the specified image type. Then it relays the image over HTTP to another edge module that runs an AI model behind a HTTP endpoint. In this example, that edge module is built by using the [YOLOv3](https://github.com/Azure/video-analyzer/tree/main/edge-modules/extensions/yolo/yolov3) model, which can detect many types of objects. The HTTP extension processor node gathers the detection results and sends these results and all the video frames (not just the 10th frame) to the object tracker node. The object tracker node uses optical flow techniques to track the object in the 9 frames that did not have the AI model applied to them. The tracker node publishes its results to the IoT Hub message sink node. This [IoT Hub message sink](pipeline.md#iot-hub-message-sink) node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-hub).
 
-The line crossing node will receive the results from the upstream object tracker node. The output of the object tracker node contains the coordinates of the detected objects. These coordinates are evaluated by the line crossing node against the line coordinates. When objects cross the line the line crossing node will emit an event. The events are sent to the IoT Edge Hub message sink. 
+The line crossing node will receive the results from the upstream object tracker node. The output of the object tracker node contains the coordinates of the detected objects. These coordinates are evaluated by the line crossing node against the line coordinates. When objects cross the line, the line crossing node will emit an event. The events are sent to the IoT Edge Hub message sink. 
 
 In this tutorial, you will:
 
@@ -108,7 +108,7 @@ Open the URL for the pipeline topology in a browser, and examine the settings fo
    }
 ```
 
-Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. If the live video is at a frame rate of 30 frames/sec, that means at least two frames in every second should be sent to the HTTP server for inferencing - hence `maximumSamplesPerSecond` is set to 2. This will effectively be 15 frames/sec.
+Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. Your AI model has a maximum FPS for processing, which is the highest value that `maximumSamplesPerSecond` should be set to.
 
 Also look at the line crossing node parameter placeholders `linecrossingName` and `lineCoordinates`. We have provided default values for these parameters but you overwrite them using the operations.json file. Look at how we pass other parameters from the operations.json file to a topology (i.e. rtsp url).  
 

@@ -14,6 +14,8 @@ ms.custom: devx-track-azurepowershell
 
 # Create an image from a VM
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 If you have an existing VM that you would like to use to make multiple, identical VMs, you can use that VM to create an image in a Shared Image Gallery using Azure PowerShell. You can also create an image from a VM using the [Azure CLI](image-version-vm-cli.md).
 
 You can capture an image from both [specialized and generalized](./shared-image-galleries.md#generalized-and-specialized-images) VMs using Azure PowerShell. 
@@ -91,7 +93,9 @@ $imageDefinition = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-
+> [!NOTE]
+> For image definitions that will contain images descended from third-party images, the plan information must match exactly the plan information from the third-party image. Include the plan information in the image definition by adding `-PurchasePlanName`, `-PurchasePlanProduct`, and `-PurchasePlanPublisher` when you create the image definition.
+>
 
 ## Create an image version
 

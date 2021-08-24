@@ -11,7 +11,6 @@
 ---
 | Resource |  Limit |
 | --- | --- |
-| Virtual WAN hubs per virtual wan |Azure regions |
 | VPN (branch) connections per hub | 1,000 |
 | Aggregate throughput per Virtual WAN Site-to-site VPN gateway | 20 Gbps |
 | Throughput per Virtual WAN VPN connection (2 tunnels) | 2 Gbps with 1 Gbps/IPsec tunnel |

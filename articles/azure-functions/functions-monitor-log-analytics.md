@@ -18,7 +18,7 @@ Azure Monitor Logs gives you the ability to consolidate logs from different reso
 Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) used by Azure Data Explorer that is suitable for simple log queries but also includes advanced functionality such as aggregations, joins, and smart analytics. You can quickly learn the query language using [multiple lessons](../azure-monitor/logs/get-started-queries.md).
 
 > [!NOTE]
-> Integration with Azure Monitor Logs is currently in public preview for v2 and v3 function apps running on Windows Consumption, Premium, and Dedicated hosting plans.
+> Integration with Azure Monitor Logs is currently in public preview. Not supported for function apps running on [version 1.x](functions-versions.md).
 
 ## Setting up
 

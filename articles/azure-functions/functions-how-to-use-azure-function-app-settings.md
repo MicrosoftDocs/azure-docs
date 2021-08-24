@@ -3,7 +3,7 @@ title: Configure function app settings in Azure Functions
 description: Learn how to configure function app settings in Azure Functions.
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 01/21/2021
 ms.custom: cc996988-fb4f-47, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -27,9 +27,11 @@ You can navigate to everything you need to manage your function app from the ove
 
 ## <a name="settings"></a>Work with application settings
 
-Application settings can be managed from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage application settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings). 
+You can create any number of application settings required by your function code. There are also predefined application settings used by Functions. To learn more, see the [App settings reference for Azure Functions](functions-app-settings.md).
 
 These settings are stored encrypted. To learn more, see [Application settings security](security-concepts.md#application-settings).
+
+Application settings can be managed from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage application settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings). 
 
 # [Portal](#tab/portal)
 
@@ -78,7 +80,7 @@ Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOUR
 
 [!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-When you develop a function app locally, you must maintain local copies of these values in the local.settings.json project file. To learn more, see [Local settings file](functions-run-local.md#local-settings-file).
+When you develop a function app locally, you must maintain local copies of these values in the local.settings.json project file. To learn more, see [Local settings file](functions-develop-local.md#local-settings-file).
 
 ## Hosting plan type
 

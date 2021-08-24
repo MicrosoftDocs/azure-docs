@@ -53,7 +53,7 @@ To register a new Teradata source in your data catalog, do the
 following:
 
 1.  Navigate to your Purview account.
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 3.  Select **Register**
 4.  On Register sources, select **Teradata**. Select **Continue**
 
@@ -80,11 +80,11 @@ To create and run a new scan, do the following:
 
 1.  In the Management Center, click on **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to setup a self-hosted integration runtime
 
-2.  Navigate to the **Sources**
+2.  Select the **Data Map** tab on the left pane in the Purview Studio.
 
 3.  Select the registered Teradata source.
 
-4.  Select **+ New scan**
+4.  Select **New scan**
 
 5.  Provide the below details:
 

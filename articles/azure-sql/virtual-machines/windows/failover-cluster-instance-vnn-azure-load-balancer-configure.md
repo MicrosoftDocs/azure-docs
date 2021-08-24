@@ -37,6 +37,9 @@ Before you complete the steps in this article, you should already have:
 
 ## Create load balancer
 
+You can create either an internal load balancer or an external load balancer. An internal load balancer can only be from accessed private resources that are internal to the network.  An external load balancer can route traffic from the public to internal resources. When you configure an internal load balancer, use the same IP address as the FCI resource for the frontend IP when configuring the load-balancing rules. When you configure an external load balancer, you cannot use the same IP address as the FCI IP address cannot be a public IP address. As such, to use an external load balancer, logically allocate an IP address in the same subnet as the FCI that does not conflict with any other IP address, and use this address as the frontend IP address for the load-balancing rules. 
+
+
 Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. In the Azure portal, go to the resource group that contains the virtual machines.
@@ -70,7 +73,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. Associate the backend pool with the availability set that contains the VMs.
 
-1. Under **Target network IP configurations**, select **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI.
+1. Under **Target network IP configurations**, select **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI. Only add the primary IP address of each VM, do not add any secondary IP addresses. 
 
 1. Select **OK** to create the backend pool.
 
@@ -92,14 +95,19 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 ## Set load-balancing rules
 
+Set the load-balancing rules for the load balancer. 
+
+
+# [Private load balancer](#tab/ilb)
+
+Set the load-balancing rules for the private load balancer by following these steps: 
+
 1. On the load balancer pane, select **Load-balancing rules**.
-
 1. Select **Add**.
-
 1. Set the load-balancing rule parameters:
 
    - **Name**: A name for the load-balancing rules.
-   - **Frontend IP address**: The IP address for the SQL Server FCI's or the AG listener's clustered network resource.
+   - **Frontend IP address**: The IP address for the clustered network resource of the SQL Server FCI.
    - **Port**: The SQL Server TCP port. The default instance port is 1433.
    - **Backend port**: The same port as the **Port** value when you enable **Floating IP (direct server return)**.
    - **Backend pool**: The backend pool name that you configured earlier.
@@ -110,9 +118,35 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. Select **OK**.
 
+# [Public load balancer](#tab/elb)
+
+Set the load-balancing rules for the public load balancer by following these steps: 
+
+1. On the load balancer pane, select **Load-balancing rules**.
+1. Select **Add**.
+1. Set the load-balancing rule parameters:
+
+   - **Name**: A name for the load-balancing rules.
+   - **Frontend IP address**: The public IP address that clients use to connect to the public endpoint. 
+   - **Port**: The SQL Server TCP port. The default instance port is 1433.
+   - **Backend port**: The port used by the FCI instance. The default is 1433. 
+   - **Backend pool**: The backend pool name that you configured earlier.
+   - **Health probe**: The health probe that you configured earlier.
+   - **Session persistence**: None.
+   - **Idle timeout (minutes)**: 4.
+   - **Floating IP (direct server return)**: Disabled.
+
+1. Select **OK**.
+
+---
+
+
+
 ## Configure cluster probe
 
 Set the cluster probe port parameter in PowerShell.
+
+# [Private load balancer](#tab/ilb)
 
 To set the cluster probe port parameter, update the variables in the following script with values from your environment. Remove the angle brackets (`<` and `>`) from the script.
 
@@ -133,7 +167,7 @@ The following table describes the values that you need to update:
 |**Value**|**Description**|
 |---------|---------|
 |`Cluster Network Name`| The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.|
-|`SQL Server FCI/AG listener IP Address Resource Name`|The resource name for the SQL Server FCI's or AG listener's IP address. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.|
+|`SQL Server FCI IP Address Resource Name`|The resource name for the SQL Server FCI IP address. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.|
 |`ILBIP`|The IP address of the internal load balancer (ILB). This address is configured in the Azure portal as the ILB's frontend address. This is also the SQL Server FCI's IP address. You can find it in **Failover Cluster Manager** on the same properties page where you located the `<SQL Server FCI/AG listener IP Address Resource Name>`.|
 |`nnnnn`|The probe port that you configured in the load balancer's health probe. Any unused TCP port is valid.|
 |"SubnetMask"| The subnet mask for the cluster parameter. It must be the TCP IP broadcast address: `255.255.255.255`.| 
@@ -144,6 +178,43 @@ After you set the cluster probe, you can see all the cluster parameters in Power
 ```powershell
 Get-ClusterResource $IPResourceName | Get-ClusterParameter
 ```
+
+# [Public load balancer](#tab/elb)
+
+To set the cluster probe port parameter, update the variables in the following script with values from your environment. Remove the angle brackets (`<` and `>`) from the script.
+
+```powershell
+$ClusterNetworkName = "<Cluster Network Name>"
+$IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
+$ELBIP = "<n.n.n.n>" 
+[int]$ProbePort = <nnnnn>
+
+Import-Module FailoverClusters
+
+Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ELBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+```
+
+The following table describes the values that you need to update:
+
+
+|**Value**|**Description**|
+|---------|---------|
+|`Cluster Network Name`| The Windows Server Failover Cluster name for the network. In **Failover Cluster Manager** > **Networks**, right-click the network and select **Properties**. The correct value is under **Name** on the **General** tab.|
+|`SQL Server FCI IP Address Resource Name`|The resource name for the IP address of the SQL Server FCI. In **Failover Cluster Manager** > **Roles**, under the SQL Server FCI role, under **Server Name**, right-click the IP address resource and select **Properties**. The correct value is under **Name** on the **General** tab.|
+|`ELBIP`|The IP address of the external load balancer (ELB). This address is configured in the Azure portal as the frontend address of the ELB and is used to connect to the public load balancer from external resources. |
+|`nnnnn`|The probe port that you configured in the health probe of the load balancer. Any unused TCP port is valid.|
+|"SubnetMask"| The subnet mask for the cluster parameter. It must be the TCP IP broadcast address: `255.255.255.255`.| 
+
+After you set the cluster probe, you can see all the cluster parameters in PowerShell. Run this script:
+
+```powershell
+Get-ClusterResource $IPResourceName | Get-ClusterParameter
+```
+
+> [!NOTE]
+> Since there is no private IP address for the external load balancer, users cannot directly use the VNN DNS name as it resolves the IP address within the subnet. Use either the public IP address of the public LB or configure another DNS mapping on the DNS server. 
+
+---
 
 ## Modify connection string 
 
@@ -184,8 +255,8 @@ Take the following steps:
 
 To test connectivity, sign in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI name. 
 
->[!NOTE]
->If you need to, you can [download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+> [!NOTE]
+> If you need to, you can [download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 

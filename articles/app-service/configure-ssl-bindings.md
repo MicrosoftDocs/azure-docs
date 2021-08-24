@@ -124,7 +124,7 @@ Your inbound IP address can change when you delete a binding, even if that bindi
 
 By default, anyone can still access your app using HTTP. You can redirect all HTTP requests to the HTTPS port.
 
-In your app page, in the left navigation, select **SSL settings**. Then, in **HTTPS Only**, select **On**.
+In your app page, in the left navigation, select **TLS/SSL settings**. Then, in **HTTPS Only**, select **On**.
 
 ![Enforce HTTPS](./media/configure-ssl-bindings/enforce-https.png)
 
@@ -138,7 +138,7 @@ When the operation is complete, navigate to any of the HTTP URLs that point to y
 
 Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 by default, which is the recommended TLS level by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce different TLS versions, follow these steps:
 
-In your app page, in the left navigation, select **SSL settings**. Then, in **TLS version**, select the minimum TLS version you want. This setting controls the inbound calls only. 
+In your app page, in the left navigation, select **TLS/SSL settings**. Then, in **TLS version**, select the minimum TLS version you want. This setting controls the inbound calls only. 
 
 ![Enforce TLS 1.1 or 1.2](./media/configure-ssl-bindings/enforce-tls1-2.png)
 
@@ -149,6 +149,17 @@ When the operation is complete, your app rejects all connections with lower TLS 
 In App Service, [TLS termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
 
 Language specific configuration guides, such as the [Linux Node.js configuration](configure-language-nodejs.md#detect-https-session) guide, shows you how to detect an HTTPS session in your application code.
+
+## Renew certificate binding
+
+> [!NOTE]
+> To renew an [App Service certificate you purchased](configure-ssl-certificate.md#import-an-app-service-certificate), see [Export (an App Service) certificate](configure-ssl-certificate.md#export-certificate). App Service certificates can be automatically renewed and the binding can be automatically synced.
+
+To replace an expiring certificate, how you update the certificate binding with the new certificate can adversely affect user experience. For example, your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, and to avoid downtime for your app, follow these steps in order:
+
+1. Upload the new certificate.
+2. Bind the new certificate to the same custom domain without deleting the existing (expiring) certificate. This action replaces the binding instead of removing the existing certificate.
+3. Delete the existing certificate.
 
 ## Automate with scripts
 
@@ -163,4 +174,4 @@ Language specific configuration guides, such as the [Linux Node.js configuration
 ## More resources
 
 * [Use a TLS/SSL certificate in your code in Azure App Service](configure-ssl-certificate-in-code.md)
-* [FAQ : App Service Certificates](./faq-configuration-and-management.md)
+* [FAQ : App Service Certificates](./faq-configuration-and-management.yml)

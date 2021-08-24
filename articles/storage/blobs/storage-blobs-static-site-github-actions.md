@@ -167,6 +167,7 @@ In the example above, replace the placeholders with your subscription ID and res
         - name: logout
           run: |
                 az logout
+          if: always()
     ```
 
 ## Review your deployment

@@ -25,8 +25,8 @@ When providing the ability to failover to an alternate region, all components in
 
 Consider the following points when designing a solution that can failover:
 
-- Pre-create all required accounts in each region, such as the Batch account and storage account. There is often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
-- Make sure the appropriate [quotas](batch-quota-limit.md) are set on all accounts ahead of time, so you can allocate the required number of cores using the Batch account.
+- Pre-create all required services in each region, such as the Batch account and storage account. There is often no charge for having accounts created, and charges accrue only when the account is used or when data is stored.
+- Make sure the appropriate [quotas](batch-quota-limit.md) are set on all subscriptions ahead of time, so you can allocate the required number of cores using the Batch account.
 - Use templates and/or scripts to automate the deployment of the application in a region.
 - Keep application binaries and reference data up-to-date in all regions. Staying up-to-date will ensure the region can be brought online quickly without having to wait for the upload and deployment of files. For example, if a custom application to install on pool nodes is stored and referenced using Batch application packages, then when a new version of the application is produced, it should be uploaded to each Batch account and referenced by the pool configuration (or make the new version the default version).
 - In the application calling Batch, storage, and any other services, make it easy to switch over clients or the load to different regions.

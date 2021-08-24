@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 04/06/2021
+ms.date: 06/15/2021
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
 
@@ -42,8 +42,6 @@ ms.custom: devx-track-dotnet
 |**Get started**|[Get started with the Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Current supported framework**|[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
-
-## Release Notes
 
 > [!NOTE]
 > If you are using .NET Core, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard.

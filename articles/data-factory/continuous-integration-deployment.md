@@ -2,6 +2,7 @@
 title: Continuous integration and delivery in Azure Data Factory 
 description: Learn how to use continuous integration and delivery to move Data Factory pipelines from one environment (development, test, production) to another.
 ms.service: data-factory
+ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
@@ -92,9 +93,9 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
     d.  In the **Action** list, select **Create or update resource group**.
 
-    e.  Select the ellipsis button (**…**) next to the **Template** box. Browse for the Azure Resource Manager template that is generated in your publish branch of the configured git repository. Look for the file `ARMTemplateForFactory.json` in the <FactoryName> folder of the adf_publish branch.
+    e.  Select the ellipsis button (**…**) next to the **Template** box. Browse for the Azure Resource Manager template that is generated in your publish branch of the configured git repository. Look for the file `ARMTemplateForFactory.json` in the &lt;FactoryName&gt; folder of the adf_publish branch.
 
-    f.  Select **…** next to the **Template parameters** box to choose the parameters file. Look for the file `ARMTemplateParametersForFactory.json` in the <FactoryName> folder of the adf_publish branch.
+    f.  Select **…** next to the **Template parameters** box to choose the parameters file. Look for the file `ARMTemplateParametersForFactory.json` in the &gt;FactoryName&lt; folder of the adf_publish branch.
 
     g.  Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target data factory. For credentials that come from Azure Key Vault, enter the secret's name between double quotation marks. For example, if the secret's name is cred1, enter **"$(cred1)"** for this value.
 
@@ -620,7 +621,7 @@ Remember to add the Data Factory scripts in your CI/CD pipeline before and after
 
 If you don't have Git configured, you can access the linked templates via **Export ARM Template** in the **ARM Template** list.
 
-When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template. Please review [Deployment Modes](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes).
+When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template. Please review [Deployment Modes](../azure-resource-manager/templates/deployment-modes.md).
 
 ## Hotfix production environment
 

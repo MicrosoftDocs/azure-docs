@@ -10,6 +10,9 @@ ms.author: vikancha
 ---
 
 # NP-series 
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 The NP-series virtual machines are powered by [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGAs for accelerating workloads including machine learning inference, video transcoding, and database search & analytics. NP-series VMs are also powered by Intel Xeon 8171M (Skylake) CPUs with all core turbo clock speed of 3.2 GHz.
 
 [Premium Storage](premium-storage-performance.md): Supported<br>
@@ -36,7 +39,7 @@ VM Generation Support: Generation 1<br>
 
 **Q:** How to request quota for NP VMs?
 
-**A:** Please follow this page [Increase limits by VM series](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests). NP VMs are available in East US, West US2, West Europe and SouthEast Asia.
+**A:** Please follow this page [Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md). NP VMs are available in East US, West US2, West Europe and SouthEast Asia.
 
 **Q:** What version of Vitis should I use? 
 
@@ -44,7 +47,7 @@ VM Generation Support: Generation 1<br>
 
 **Q:** Do I need to use NP VMs to develop my solution? 
 
-**A:** No, you can develop on-premise and deploy to the cloud! Please make sure to follow the [attestation documentation](https://docs.microsoft.com/azure/virtual-machines/field-programmable-gate-arrays-attestation) to deploy on NP VMs. 
+**A:** No, you can develop on-premise and deploy to the cloud! Please make sure to follow the [attestation documentation](./field-programmable-gate-arrays-attestation.md) to deploy on NP VMs. 
 
 **Q:** Which file returned from attestation should I use when programming my FPGA in an NP VM?
 

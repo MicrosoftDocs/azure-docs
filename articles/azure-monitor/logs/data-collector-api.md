@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor HTTP Data Collector API | Microsoft Docs
-description: You can use the Azure Monitor HTTP Data Collector API to add POST JSON data to a Log Analytics workspace from any client that can call the REST API. This article describes how to use the API, and has examples of how to publish data by using different programming languages.
+description: You can use the Azure Monitor HTTP Data Collector API to add POST JSON data to a Log Analytics workspace from any client that can call the REST API. This article describes how to use the API, and it has examples of how to publish data by using various programming languages.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
@@ -8,26 +8,22 @@ ms.date: 07/14/2020
 
 ---
 
-# Send log data to Azure Monitor with the HTTP Data Collector API (public preview)
-This article shows you how to use the HTTP Data Collector API to send log data to Azure Monitor from a REST API client.  It describes how to format data collected by your script or application, include it in a request, and have that request authorized by Azure Monitor.  Examples are provided for PowerShell, C#, and Python.
+# Send log data to Azure Monitor by using the HTTP Data Collector API (preview)
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+This article shows you how to use the HTTP Data Collector API to send log data to Azure Monitor from a REST API client.  It describes how to format data that's collected by your script or application, include it in a request, and have that request authorized by Azure Monitor. We provide examples for Azure PowerShell, C#, and Python.
 
 > [!NOTE]
 > The Azure Monitor HTTP Data Collector API is in public preview.
 
 ## Concepts
-You can use the HTTP Data Collector API to send log data to a Log Analytics workspace in Azure Monitor from any client that can call a REST API.  This might be a runbook in Azure Automation that collects management data from Azure or another cloud, or it might be an alternate management system that uses Azure Monitor to consolidate and analyze log data.
+You can use the HTTP Data Collector API to send log data to a Log Analytics workspace in Azure Monitor from any client that can call a REST API.  The client might be a runbook in Azure Automation that collects management data from Azure or another cloud, or it might be an alternative management system that uses Azure Monitor to consolidate and analyze log data.
 
-All data in the Log Analytics workspace is stored as a record with a particular record type.  You format your data to send to the HTTP Data Collector API as multiple records in JSON.  When you submit the data, an individual record is created in the repository for each record in the request payload.
+All data in the Log Analytics workspace is stored as a record with a particular record type.  You format your data to send to the HTTP Data Collector API as multiple records in JavaScript Object Notation (JSON).  When you submit the data, an individual record is created in the repository for each record in the request payload.
 
-
-![HTTP Data Collector overview](media/data-collector-api/overview.png)
-
-
+![Screenshot illustrating the HTTP Data Collector overview.](media/data-collector-api/overview.png)
 
 ## Create a request
-To use the HTTP Data Collector API, you create a POST request that includes the data to send in JavaScript Object Notation (JSON).  The next three tables list the attributes that are required for each request. We describe each attribute in more detail later in the article.
+To use the HTTP Data Collector API, you create a POST request that includes the data to send in JSON. The next three tables list the attributes that are required for each request. We describe each attribute in more detail later in the article.
 
 ### Request URI
 | Attribute | Property |
@@ -35,25 +31,28 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 | Method |POST |
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Content type |application/json |
+| | |
 
 ### Request URI parameters
 | Parameter | Description |
 |:--- |:--- |
 | CustomerID |The unique identifier for the Log Analytics workspace. |
 | Resource |The API resource name: /api/logs. |
-| API Version |The version of the API to use with this request. Currently, it's 2016-04-01. |
+| API Version |The version of the API to use with this request. Currently, the version is 2016-04-01. |
+| | |
 
 ### Request headers
 | Header | Description |
 |:--- |:--- |
 | Authorization |The authorization signature. Later in the article, you can read about how to create an HMAC-SHA256 header. |
-| Log-Type |Specify the record type of the data that is being submitted. Can only contain letters, numbers, and underscore (_), and may not exceed 100 characters. |
-| x-ms-date |The date that the request was processed, in RFC 1123 format. |
-| x-ms-AzureResourceId | Resource ID of the Azure resource the data should be associated with. This populates the [_ResourceId](./log-standard-columns.md#_resourceid) property and allows the data to be included in [resource-context](./design-logs-deployment.md#access-mode) queries. If this field isn't specified, the data will not be included in resource-context queries. |
-| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field then its contents are used for **TimeGenerated**. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
+| Log-Type |Specify the record type of the data that's being submitted. It can contain only letters, numbers, and the underscore (_) character, and it can't exceed 100 characters. |
+| x-ms-date |The date that the request was processed, in RFC 7234 format. |
+| x-ms-AzureResourceId | The resource ID of the Azure resource that the data should be associated with. It populates the [_ResourceId](./log-standard-columns.md#_resourceid) property and allows the data to be included in [resource-context](./design-logs-deployment.md#access-mode) queries. If this field isn't specified, the data won't be included in resource-context queries. |
+| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field, its contents are used for **TimeGenerated**. If you don't specify this field, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
+| | |
 
 ## Authorization
-Any request to the Azure Monitor HTTP Data Collector API must include an authorization header. To authenticate a request, you must sign the request with either the primary or the secondary key for the workspace that is making the request. Then, pass that signature as part of the request.   
+Any request to the Azure Monitor HTTP Data Collector API must include an authorization header. To authenticate a request, sign the request with either the primary or the secondary key for the workspace that's making the request. Then, pass that signature as part of the request.   
 
 Here's the format for the authorization header:
 
@@ -61,7 +60,7 @@ Here's the format for the authorization header:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* is the unique identifier for the Log Analytics workspace. *Signature* is a [Hash-based Message Authentication Code (HMAC)](/dotnet/api/system.security.cryptography.hmacsha256) that is constructed from the request and then computed by using the [SHA256 algorithm](/dotnet/api/system.security.cryptography.sha256). Then, you encode it by using Base64 encoding.
+*WorkspaceID* is the unique identifier for the Log Analytics workspace. *Signature* is a [Hash-based Message Authentication Code (HMAC)](/dotnet/api/system.security.cryptography.hmacsha256) that's constructed from the request and then computed by using the [SHA256 algorithm](/dotnet/api/system.security.cryptography.sha256). Then, you encode it by using Base64 encoding.
 
 Use this format to encode the **SharedKey** signature string:
 
@@ -88,7 +87,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 The samples in the next sections have sample code to help you create an authorization header.
 
 ## Request body
-The body of the message must be in JSON. It must include one or more records with the property name and value pairs in the following format. The property name can only contain letters, numbers, and underscore (_).
+The body of the message must be in JSON. It must include one or more records with the property name and value pairs in the following format. The property name can contain only letters, numbers, and the underscore (_) character.
 
 ```json
 [
@@ -125,7 +124,7 @@ You define a custom record type when you submit data through the Azure Monitor H
 
 Each request to the Data Collector API must include a **Log-Type** header with the name for the record type. The suffix **_CL** is automatically appended to the name you enter to distinguish it from other log types as a custom log. For example, if you enter the name **MyNewRecordType**, Azure Monitor creates a record with the type **MyNewRecordType_CL**. This helps ensure that there are no conflicts between user-created type names and those shipped in current or future Microsoft solutions.
 
-To identify a property's data type, Azure Monitor adds a suffix to the property name. If a property contains a null value, the property is not included in that record. This table lists the property data type and corresponding suffix:
+To identify a property's data type, Azure Monitor adds a suffix to the property name. If a property contains a null value, the property isn't included in that record. This table lists the property data type and corresponding suffix:
 
 | Property data type | Suffix |
 |:--- |:--- |
@@ -134,80 +133,82 @@ To identify a property's data type, Azure Monitor adds a suffix to the property 
 | Double |_d |
 | Date/time |_t |
 | GUID (stored as a string) |_g |
+| | |
 
 > [!NOTE]
-> String values that appear to be GUIDs will be given the _g suffix and formatted as a GUID, even if the incoming value doesn't include dashes. For example, both "8145d822-13a7-44ad-859c-36f31a84f6dd" and "8145d82213a744ad859c36f31a84f6dd" will be stored as "8145d822-13a7-44ad-859c-36f31a84f6dd". The only differences between this and another string is the _g in the name and the insertion of dashes if they aren't provided in the input. 
+> String values that appear to be GUIDs are given the _g suffix and formatted as a GUID, even if the incoming value doesn't include dashes. For example, both "8145d822-13a7-44ad-859c-36f31a84f6dd" and "8145d82213a744ad859c36f31a84f6dd" are stored as "8145d822-13a7-44ad-859c-36f31a84f6dd". The only differences between this and another string are the _g in the name and the insertion of dashes if they aren't provided in the input. 
 
 The data type that Azure Monitor uses for each property depends on whether the record type for the new record already exists.
 
-* If the record type does not exist, Azure Monitor creates a new one using the JSON type inference to determine the data type for each property for the new record.
+* If the record type doesn't exist, Azure Monitor creates a new one by using the JSON type inference to determine the data type for each property for the new record.
 * If the record type does exist, Azure Monitor attempts to create a new record based on existing properties. If the data type for a property in the new record doesn’t match and can’t be converted to the existing type, or if the record includes a property that doesn’t exist, Azure Monitor creates a new property that has the relevant suffix.
 
-For example, this submission entry would create a record with three properties, **number_d**, **boolean_b**, and **string_s**:
+For example, the following submission entry would create a record with three properties, **number_d**, **boolean_b**, and **string_s**:
 
-![Sample record 1](media/data-collector-api/record-01.png)
+![Screenshot of sample record 1.](media/data-collector-api/record-01.png)
 
-If you then submitted this next entry, with all values formatted as strings, the properties would not change. These values can be converted to existing data types:
+If you were to submit this next entry, with all values formatted as strings, the properties wouldn't change. You can convert the values to existing data types.
 
-![Sample record 2](media/data-collector-api/record-02.png)
+![Screenshot of sample record 2.](media/data-collector-api/record-02.png)
 
-But, if you then made this next submission, Azure Monitor would create the new properties **boolean_d** and **string_d**. These values can't be converted:
+But, if you then make this next submission, Azure Monitor would create the new properties **boolean_d** and **string_d**. You can't convert these values.
 
-![Sample record 3](media/data-collector-api/record-03.png)
+![Screenshot of sample record 3.](media/data-collector-api/record-03.png)
 
-If you then submitted the following entry, before the record type was created, Azure Monitor would create a record with three properties, **number_s**, **boolean_s**, and **string_s**. In this entry, each of the initial values is formatted as a string:
+If you then submit the following entry, before the record type is created, Azure Monitor would create a record with three properties, **number_s**, **boolean_s**, and **string_s**. In this entry, each of the initial values is formatted as a string:
 
-![Sample record 4](media/data-collector-api/record-04.png)
+![Screenshot of sample record 4.](media/data-collector-api/record-04.png)
 
 ## Reserved properties
-The following properties are reserved and should not be used in a custom record type. You will receive an error if your payload includes any of these property names.
+The following properties are reserved and shouldn't be used in a custom record type. You'll receive an error if your payload includes any of these property names:
 
 - tenant
 
 ## Data limits
-There are some constraints around the data posted to the Azure Monitor Data collection API.
+The data posted to the Azure Monitor Data collection API is subject to certain constraints:
 
-* Maximum of 30 MB per post to Azure Monitor Data Collector API. This is a size limit for a single post. If the data from a single post that exceeds 30 MB, you should split the data up to smaller sized chunks and send them concurrently.
-* Maximum of 32 KB limit for field values. If the field value is greater than 32 KB, the data will be truncated.
-* Recommended maximum number of fields for a given type is 50. This is a practical limit from a usability and search experience perspective.  
-* A table in a Log Analytics workspace only supports up to 500 columns (referred to as a field in this article). 
-* The maximum number of characters for the column name is 500.
+* Maximum of 30 MB per post to Azure Monitor Data Collector API. This is a size limit for a single post. If the data from a single post exceeds 30 MB, you should split the data into smaller sized chunks and send them concurrently.
+* Maximum of 32 KB for field values. If the field value is greater than 32 KB, the data will be truncated.
+* Recommended maximum of 50 fields for a given type. This is a practical limit from a usability and search experience perspective.  
+* Tables in Log Analytics workspaces support only up to 500 columns (referred to as fields in this article). 
+* Maximum of 50 characters for column names.
 
 ## Return codes
-The HTTP status code 200 means that the request has been received for processing. This indicates that the operation completed successfully.
+The HTTP status code 200 means that the request has been received for processing. This indicates that the operation finished successfully.
 
-This table lists the complete set of status codes that the service might return:
+The complete set of status codes that the service might return is listed in the following table:
 
 | Code | Status | Error code | Description |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |The request was successfully accepted. |
 | 400 |Bad request |InactiveCustomer |The workspace has been closed. |
-| 400 |Bad request |InvalidApiVersion |The API version that you specified was not recognized by the service. |
-| 400 |Bad request |InvalidCustomerId |The workspace ID specified is invalid. |
-| 400 |Bad request |InvalidDataFormat |Invalid JSON was submitted. The response body might contain more information about how to resolve the error. |
-| 400 |Bad request |InvalidLogType |The log type specified contained special characters or numerics. |
+| 400 |Bad request |InvalidApiVersion |The API version that you specified wasn't recognized by the service. |
+| 400 |Bad request |InvalidCustomerId |The specified workspace ID is invalid. |
+| 400 |Bad request |InvalidDataFormat |An invalid JSON was submitted. The response body might contain more information about how to resolve the error. |
+| 400 |Bad request |InvalidLogType |The specified log type contained special characters or numerics. |
 | 400 |Bad request |MissingApiVersion |The API version wasn’t specified. |
 | 400 |Bad request |MissingContentType |The content type wasn’t specified. |
 | 400 |Bad request |MissingLogType |The required value log type wasn’t specified. |
-| 400 |Bad request |UnsupportedContentType |The content type was not set to **application/json**. |
+| 400 |Bad request |UnsupportedContentType |The content type wasn't set to **application/json**. |
 | 403 |Forbidden |InvalidAuthorization |The service failed to authenticate the request. Verify that the workspace ID and connection key are valid. |
-| 404 |Not Found | | Either the URL provided is incorrect, or the request is too large. |
+| 404 |Not Found | | Either the provided URL is incorrect or the request is too large. |
 | 429 |Too Many Requests | | The service is experiencing a high volume of data from your account. Please retry the request later. |
 | 500 |Internal Server Error |UnspecifiedError |The service encountered an internal error. Please retry the request. |
 | 503 |Service Unavailable |ServiceUnavailable |The service currently is unavailable to receive requests. Please retry your request. |
+| | |
 
 ## Query data
-To query data submitted by the Azure Monitor HTTP Data Collector API, search for records with **Type** that is equal to the **LogType** value that you specified, appended with **_CL**. For example, if you used **MyCustomLog**, then you'd return all records with `MyCustomLog_CL`.
+To query data submitted by the Azure Monitor HTTP Data Collector API, search for records whose **Type** is equal to the **LogType** value that you specified and appended with **_CL**. For example, if you used **MyCustomLog**, you would return all records with `MyCustomLog_CL`.
 
 ## Sample requests
-In the next sections, you'll find samples of how to submit data to the Azure Monitor HTTP Data Collector API by using different programming languages.
+In the next sections, you'll find samples that demonstrate how to submit data to the Azure Monitor HTTP Data Collector API by using various programming languages.
 
-For each sample, do these steps to set the variables for the authorization header:
+For each sample, set the variables for the authorization header by doing the following:
 
 1. In the Azure portal, locate your Log Analytics workspace.
 2. Select **Agents management**.
-2. To the right of **Workspace ID**, select the copy icon, and then paste the ID as the value of the **Customer ID** variable.
-3. To the right of **Primary Key**, select the copy icon, and then paste the ID as the value of the **Shared Key** variable.
+2. To the right of **Workspace ID**, select the **Copy** icon, and then paste the ID as the value of the **Customer ID** variable.
+3. To the right of **Primary Key**, select the **Copy** icon, and then paste the ID as the value of the **Shared Key** variable.
 
 Alternatively, you can change the variables for the log type and JSON data.
 
@@ -593,7 +594,7 @@ public class ApiExample {
     String stringToHash = String
         .join("\n", httpMethod, String.valueOf(json.getBytes(StandardCharsets.UTF_8).length), contentType,
             xmsDate , resource);
-    String hashedString = getHMAC254(stringToHash, sharedKey);
+    String hashedString = getHMAC256(stringToHash, sharedKey);
     String signature = "SharedKey " + workspaceId + ":" + hashedString;
 
     postData(signature, dateString, json);
@@ -601,7 +602,7 @@ public class ApiExample {
 
   private static String getServerTime() {
     Calendar calendar = Calendar.getInstance();
-    SimpleDateFormat dateFormat = new SimpleDateFormat(RFC_1123_DATE);
+    SimpleDateFormat dateFormat = new SimpleDateFormat(RFC_1123_DATE, Locale.US);
     dateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
     return dateFormat.format(calendar.getTime());
   }
@@ -622,14 +623,14 @@ public class ApiExample {
     }
   }
 
-  private static String getHMAC254(String input, String key) throws InvalidKeyException, NoSuchAlgorithmException {
+  private static String getHMAC256(String input, String key) throws InvalidKeyException, NoSuchAlgorithmException {
     String hash;
-    Mac sha254HMAC = Mac.getInstance("HmacSHA256");
+    Mac sha256HMAC = Mac.getInstance("HmacSHA256");
     Base64.Decoder decoder = Base64.getDecoder();
     SecretKeySpec secretKey = new SecretKeySpec(decoder.decode(key.getBytes(StandardCharsets.UTF_8)), "HmacSHA256");
-    sha254HMAC.init(secretKey);
+    sha256HMAC.init(secretKey);
     Base64.Encoder encoder = Base64.getEncoder();
-    hash = new String(encoder.encode(sha254HMAC.doFinal(input.getBytes(StandardCharsets.UTF_8))));
+    hash = new String(encoder.encode(sha256HMAC.doFinal(input.getBytes(StandardCharsets.UTF_8))));
     return hash;
   }
 
@@ -640,16 +641,17 @@ public class ApiExample {
 
 
 ## Alternatives and considerations
-While the Data Collector API should cover most of your needs to collect free-form data into Azure Logs, there are instances where an alternative might be required to overcome some of the limitations of the API. All your options are as follows, major considerations included:
+
+Although the Data Collector API should cover most of your needs as you collect free-form data into Azure Logs, you might require an alternative approach to overcome some of the limitations of the API. Your options, including major considerations, are listed in the following table:
 
 | Alternative | Description | Best suited for |
 |---|---|---|
-| [Custom events](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Native SDK-based ingestion in Application Insights | Application Insights, typically instrumented through an SDK within your application, offers the ability for you to send custom data through Custom Events. | <ul><li> Data that is generated within your application, but not picked up by SDK through one of the default data types (requests, dependencies, exceptions, and so on).</li><li> Data that is most often correlated to other application data in Application Insights </li></ul> |
-| Data Collector API in Azure Monitor Logs | The Data Collector API in Azure Monitor Logs is a completely open-ended way to ingest data. Any data formatted in a JSON object can be sent here. Once sent, it will be processed, and available in Logs to be correlated with other data in Logs or against other Application Insights data. <br/><br/> It is fairly easy to upload the data as files to an Azure Blob blob, from where these files will be processed and uploaded to Log Analytics. Please see [this](./create-pipeline-datacollector-api.md) article for a sample implementation of such a pipeline. | <ul><li> Data that is not necessarily generated within an application instrumented within Application Insights.</li><li> Examples include lookup and fact tables, reference data, pre-aggregated statistics, and so on. </li><li> Intended for data that will be cross-referenced against other Azure Monitor data (Application Insights, other Logs data types, Security Center, Container insights/VMs, and so on). </li></ul> |
-| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) is the data platform that powers Application Insights Analytics and Azure Monitor Logs. Now Generally Available ("GA"), using the data platform in its raw form provides you complete flexibility (but requiring the overhead of management) over the cluster (Kubernetes RBAC, retention rate, schema, and so on). ADX provides many [ingestion options](/azure/data-explorer/ingest-data-overview#ingestion-methods) including [CSV, TSV, and JSON](/azure/kusto/management/mappings) files. | <ul><li> Data that will not be correlated to any other data under Application Insights or Logs. </li><li> Data requiring advanced ingestion or processing capabilities not today available in Azure Monitor Logs. </li></ul> |
+| [Custom events](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Native SDK-based ingestion in Application Insights | Application Insights, usually instrumented through an SDK within your application, gives you the ability to send custom data through Custom Events. | <ul><li> Data that's generated within your application, but not picked up by the SDK through one of the default data types (requests, dependencies, exceptions, and so on).</li><li> Data that's most often correlated with other application data in Application Insights. </li></ul> |
+| Data Collector API in Azure Monitor Logs | The Data Collector API in Azure Monitor Logs is a completely open-ended way to ingest data. Any data that's formatted in a JSON object can be sent here. After it's sent, it's processed and made available in Monitor Logs to be correlated with other data in Monitor Logs or against other Application Insights data. <br/><br/> It's fairly easy to upload the data as files to an Azure Blob Storage blob, where the files will be processed and then uploaded to Log Analytics. For a sample implementation, see [Create a data pipeline with the Data Collector API](./create-pipeline-datacollector-api.md). | <ul><li> Data that isn't necessarily generated within an application that's instrumented within Application Insights.<br>Examples include lookup and fact tables, reference data, pre-aggregated statistics, and so on. </li><li> Data that will be cross-referenced against other Azure Monitor data (Application Insights, other Monitor Logs data types, Security Center, Container insights and virtual machines, and so on). </li></ul> |
+| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer, now generally available to the public, is the data platform that powers Application Insights Analytics and Azure Monitor Logs. By using the data platform in its raw form, you have complete flexibility (but require the overhead of management) over the cluster (Kubernetes role-based access control (RBAC), retention rate, schema, and so on). Azure Data Explorer provides many [ingestion options](/azure/data-explorer/ingest-data-overview#ingestion-methods), including [CSV, TSV, and JSON](/azure/kusto/management/mappings) files. | <ul><li> Data that won't be correlated with any other data under Application Insights or Monitor Logs. </li><li> Data that requires advanced ingestion or processing capabilities that aren't available today in Azure Monitor Logs. </li></ul> |
 
 
 ## Next steps
 - Use the [Log Search API](./log-query-overview.md) to retrieve data from the Log Analytics workspace.
 
-- Learn more about how [create a data pipeline with the Data Collector API](create-pipeline-datacollector-api.md) using Logic Apps workflow to Azure Monitor.
+- Learn more about how to [create a data pipeline with the Data Collector API](create-pipeline-datacollector-api.md) by using a Logic Apps workflow to Azure Monitor.

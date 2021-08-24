@@ -41,24 +41,21 @@ Before you complete the instructions in this article, you should already have:
 ## Mount premium file share
 
 1. Sign in to the [Azure portal](https://portal.azure.com). and go to your storage account.
-1. Go to **File Shares** under **File service**, and then select the premium file share you want to use for your SQL storage.
+1. Go to **File shares** under **Data storage**, and then select the premium file share you want to use for your SQL storage.
 1. Select **Connect** to bring up the connection string for your file share.
-1. In the drop-down list, select the drive letter you want to use, and then copy both code blocks to Notepad.
+1. In the drop-down list, select the drive letter you want to use, choose **Storage account key** as the authentication method, and then copy the code block to a text editor, such as Notepad.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="Copy both PowerShell commands from the file share connect portal":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/premium-file-storage-commands.png" alt-text="Copy the PowerShell command from the file share connect portal":::
 
 1. Use Remote Desktop Protocol (RDP) to connect to the SQL Server VM with the account that your SQL Server FCI will use for the service account.
 1. Open an administrative PowerShell command console.
-1. Run the commands that you saved earlier when you were working in the portal.
+1. Run the command that you copied earlier to your text editor from the File share portal.
 1. Go to the share by using either File Explorer or the **Run** dialog box (Windows + R on your keyboard). Use the network path `\\storageaccountname.file.core.windows.net\filesharename`. For example, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
-
 1. Create at least one folder on the newly connected file share to place your SQL data files into.
 1. Repeat these steps on each SQL Server VM that will participate in the cluster.
 
   > [!IMPORTANT]
   > - Consider using a separate file share for backup files to save the input/output operations per second (IOPS) and space capacity of this share for data and log files. You can use either a Premium or Standard File Share for backup files.
-  > - If you're on Windows 2012 R2 or earlier, you can follow similar steps to mount a file share you can use for the file share witness. 
-  > 
 
 
 ## Add Windows cluster feature
@@ -211,7 +208,9 @@ You can configure a virtual network name, or a distributed network name for a fa
 - Microsoft Distributed Transaction Coordinator (MSDTC) is not supported on Windows Server 2016 and earlier. 
 - Filestream isn't supported for a failover cluster with a premium file share. To use filestream, deploy your cluster by using [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) or [Azure shared disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) instead.
 - Only registering with the SQL IaaS Agent extension in [lightweight management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes) is supported. 
-- Database Snapshots are not currently supported with [Azure Files due to sparse files limitations](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).  
+- Database Snapshots are not currently supported with [Azure Files due to sparse files limitations](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+- Running DBCC CHECKDB is not currently supported as Database Snapshots cannot be created. 
+- Databases that use the in-memory OLTP feature are not supported on a failover cluster instance deployed with a premium file share. If your business requires in-memory OLTP, consider deploying your FCI with [Azure shared disks](failover-cluster-instance-azure-shared-disks-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead.
 
 ## Next steps
 

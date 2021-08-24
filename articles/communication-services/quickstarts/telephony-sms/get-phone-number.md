@@ -1,18 +1,19 @@
 ---
-title: Quickstart - Manage Phone Numbers using Azure Communication Services
+title: Quickstart - Get and manage phone numbers using Azure Communication Services
 description: Learn how to manage phone numbers using Azure Communication Services
 author: prakulka
 manager: nmurav
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
 zone_pivot_groups: acs-azp-java-net-python-csharp-js
 ---
-# Quickstart: Manage Phone Numbers
+
+# Quickstart: Get and manage phone numbers
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 

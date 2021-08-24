@@ -4,20 +4,46 @@ description: Describes the Bicep operators available for Azure Resource Manager 
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/29/2021
 ---
 
 # Bicep operators
 
-This article describes the Bicep operators that are available when you create a Bicep template and use Azure Resource Manager to deploy resources. Operators are used to calculate values, compare values, or evaluate conditions. There are three types of Bicep operators:
+This article describes the Bicep operators. Operators are used to calculate values, compare values, or evaluate conditions. There are four types of Bicep operators:
 
+- [accessor](#accessor)
 - [comparison](#comparison)
 - [logical](#logical)
 - [numeric](#numeric)
 
+## Operator precedence and associativity
+
+The operators below are listed in descending order of precedence (the higher the position the higher the precedence). Operators listed at the same level have equal precedence.
+
+| Symbol | Type of Operation | Associativity |
+|:-|:-|:-|
+| `(` `)` `[` `]` `.` `::` | Parentheses, array indexers, property accessors, and nested resource accessor  | Left to right |
+| `!` `-` | Unary | Right to left |
+| `%` `*` `/` | Multiplicative | Left to right |
+| `+` `-` | Additive | Left to right |
+| `<=` `<` `>` `>=` | Relational | Left to right |
+| `==` `!=` `=~` `!~` | Equality | Left to right |
+| `&&` | Logical AND | Left to right |
+| `||` | Logical OR | Left to right |
+| `?` `:` | Conditional expression (ternary) | Right to left
+| `??` | Coalesce | Left to right
+
 Enclosing an expression between `(` and `)` allows you to override the default Bicep operator precedence. For example, the expression x + y / z evaluates the division first and then the addition. However, the expression (x + y) / z evaluates the addition first and division second.
 
-For information about accessing a resource through the `::` operator, see [Set name and type for child resources in Bicep](child-resource-name-type.md).
+## Accessor
+
+The accessor operators are used to access nested resources and properties on objects.
+
+| Operator | Name | Description |
+| ---- | ---- | ---- |
+| `::` | [Nested resource accessor](./operators-access.md#nested-resource-accessor) | Access a nested resource from outside of the parent resource. |
+| `.` | [Property accessor](./operators-access.md#property-accessor) | Access properties of an object. |
+| `.` | [Function accessor](./operators-access.md#function-accessor) | Call a function on a resource. |
 
 ## Comparison
 
@@ -62,6 +88,7 @@ The numeric operators use integers to do calculations and return integer values.
 > [!NOTE]
 > Subtract and minus use the same operator. The functionality is different because subtract uses two
 > operands and minus uses one operand.
+
 
 ## Next steps
 

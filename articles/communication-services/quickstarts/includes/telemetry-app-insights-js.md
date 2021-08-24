@@ -7,7 +7,7 @@ manager: vravikumar
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/01/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: orwatson
@@ -18,7 +18,7 @@ ms.author: orwatson
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
-- Create an [Application Insights Resources](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) in Azure portal.
+- Create an [Application Insights Resources](../../../azure-monitor/app/create-new-resource.md) in Azure portal.
 
 ## Setting Up
 

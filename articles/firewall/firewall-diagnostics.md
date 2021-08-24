@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 05/06/2021
+ms.date: 08/03/2021
 ms.author: victorh
 #Customer intent: As an administrator, I want monitor Azure Firewall logs and metrics so that I can track firewall activity.
 ---
@@ -102,11 +102,11 @@ You can view and analyze activity log data by using any of the following methods
 * **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Azure Activity Logs content pack for Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), you can analyze your data with preconfigured dashboards that you can use as is or customize.
 * **Azure Sentinel**: You can connect Azure Firewall logs to Azure Sentinel, enabling you to view log data in workbooks, use it to create custom alerts, and incorporate it to improve your investigation. The Azure Firewall data connector in Azure Sentinel is currently in public preview. For more information, see [Connect data from Azure Firewall](../sentinel/connect-azure-firewall.md).
 
+   See the following video by Mohit Kumar for an overview:
+   > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWI4nn]
+
+
 ## View and analyze the network and application rule logs
-
-[Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md) collects the counter and event log files. It includes visualizations and powerful search capabilities to analyze your logs.
-
-For Azure Firewall log analytics sample queries, see [Azure Firewall log analytics samples](./firewall-workbook.md).
 
 [Azure Firewall Workbook](firewall-workbook.md) provides a flexible canvas for Azure Firewall data analysis. You can use it to create rich visual reports within the Azure portal. You can tap into multiple Firewalls deployed across Azure, and combine them into unified interactive experiences.
 

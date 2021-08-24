@@ -3,6 +3,7 @@ title: Handle error rows with mapping data flows in Azure Data Factory
 description: Learn how to handle SQL truncation errors in Azure Data Factory using mapping data flows.
 author: kromerm
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: makromer

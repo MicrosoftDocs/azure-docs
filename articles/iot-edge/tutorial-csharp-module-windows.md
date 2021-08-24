@@ -3,7 +3,7 @@ title: Tutorial - Develop C# modules for Windows by using Azure IoT Edge
 description: This tutorial shows you how to create IoT Edge modules with C# code and deploy them to Windows devices that are running IoT Edge.
 services: iot-edge
 author: kgremban
-manager: philmea
+
 
 ms.author: kgremban
 ms.date: 08/03/2020

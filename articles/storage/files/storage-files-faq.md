@@ -195,7 +195,7 @@ This article answers common questions about Azure Files features and functionali
 
     - Azure File Sync preserves and replicates all discretionary ACLs, or DACLs, (whether Active Directory-based or local) to all server endpoints that it syncs to. 
     
-    You can refer to [Authorizing access to Azure Storage](../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a comprehensive representation of all protocols supported on Azure Storage services. 
+    You can refer to [Authorizing access to Azure Storage](../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a comprehensive representation of all protocols supported on Azure Storage services. 
     
 * <a id="encryption-at-rest"></a>
 **How can I ensure that my Azure file share is encrypted at rest?**  
@@ -325,7 +325,7 @@ This article answers common questions about Azure Files features and functionali
 * <a id="when-to-use-nfs"></a>
 **When should I use Azure Files NFS?**
 
-    See [NFS shares (preview)](storage-files-compare-protocols.md#nfs-shares-preview).
+    See [NFS shares (preview)](files-nfs-protocol.md).
 
 * <a id="backup-nfs-data"></a>
 **How do I backup data stored in NFS shares?**
@@ -446,7 +446,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="need-larger-share"></a>
 **What sizes are available for Azure file shares?**  
-    Azure file share sizes (premium and standard) can scale up to 100 TiB. See the [Onboard to larger file shares (standard tier)](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) section of the planning guide for onboarding instructions to the larger file shares for the standard tier.
+    Azure file share sizes (premium and standard) can scale up to 100 TiB. See [Create an Azure file share](storage-how-to-create-file-share.md) for more information.
 
 * <a id="lfs-performance-impact"></a>
 **Does expanding my file share quota impact my workloads or Azure File Sync?**

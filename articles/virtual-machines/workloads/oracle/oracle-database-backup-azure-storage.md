@@ -14,6 +14,8 @@ ms.reviewer: dbakevlar
 
 # Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Storage
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This article demonstrates the use of Azure Storage as a media to back up and restore an Oracle database running on an Azure VM. You will back up the database using Oracle RMAN to Azure File storage mounted to the VM using the SMB protocol. Using Azure storage for backup media is extremely cost effective and performant. However, for very large databases, Azure Backup provides a better solution.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
@@ -169,7 +171,7 @@ To back up to Azure Files, complete these steps:
 
 ### Set up Azure File Storage
 
-In this step, you will back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure File storage. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [Mount Blob storage by using the NFS 3.0 protocol](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
+In this step, you will back up the Oracle database using Oracle Recovery Manager (RMAN) to Azure Files storage. Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block (SMB) protocol or the Network File System (NFS) protocol. This step covers creating a file share that uses the SMB protocol to mount to your VM. For information about how to mount using NFS, see [Mount Blob storage by using the NFS 3.0 protocol](../../../storage/blobs/network-file-system-protocol-support-how-to.md).
 
 When mounting the Azure Files, we will use the `cache=none` to disable caching of file share data. And to ensure files created in the share are owned by the oracle user set the `uid=oracle` and `gid=oinstall` options as well. 
 

@@ -2,7 +2,7 @@
 title: Detect motion, record video with Azure Video Analyzer
 description: This quickstart shows how to use Azure Video Analyzer edge module in order to detect motion in a live video stream and record video to the Video Analyzer account.
 ms.topic: quickstart
-ms.date: 04/03/2021
+ms.date: 06/01/2021
 
 ---
 # Quickstart: Detect motion, record video to Video Analyzer
@@ -13,8 +13,7 @@ This article walks you through the steps to use Azure Video Analyzer edge module
 
 * An Azure account that includes an active subscription. [Create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) for free if you don't already have one.
 
-    > [!NOTE]    
-    > You will need an Azure subscription where you have access to both [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role, and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role. If you do not have the right permissions, please reach out to your account administrator to grant you those permissions.
+    [!INCLUDE [azure-subscription-permissions](./includes/common-includes/azure-subscription-permissions.md)]
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
@@ -89,11 +88,7 @@ When you use run this quickstart, events will be sent to the IoT Hub. To see the
 1. Expand the **Devices** node.
 1. Right-click on `avasample-iot-edge-device`, and select **Start Monitoring Built-in Event Endpoint**.
 
-    > [!NOTE]
-    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
-        ```
-        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-        ```
+    [!INCLUDE [provide-builtin-endpoint](./includes/common-includes/provide-builtin-endpoint.md)]
 
 ## Use direct method calls to analyze live video
 
@@ -996,9 +991,7 @@ You can examine the Video Analyzer video resource that was created by the live p
     <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
 
 
-> [!NOTE]
-> Because the source of the video was a container simulating a camera feed, the time stamps in the video are related to when you activated the live pipeline and when you deactivated it.
-    
+[!INCLUDE [activate-deactivate-pipeline](./includes/common-includes/activate-deactivate-pipeline.md)]    
 
 ## Clean up resources
 

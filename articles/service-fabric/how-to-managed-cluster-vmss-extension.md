@@ -53,4 +53,4 @@ For more information on configuring Service Fabric managed cluster node types, s
 To learn more about Service Fabric managed clusters, see:
 
 > [!div class="nextstepaction"]
-> [Service Fabric managed clusters frequently asked questions](./faq-managed-cluster.md)
+> [Service Fabric managed clusters frequently asked questions](./faq-managed-cluster.yml)

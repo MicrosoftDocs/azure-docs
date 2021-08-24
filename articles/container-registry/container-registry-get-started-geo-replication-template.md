@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). The template sets up a registry and an additional regional replica.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/container-registry-geo-replication/). The template sets up a registry and an additional regional replica.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.containerregistry/container-registry-geo-replication/azuredeploy.json":::
 

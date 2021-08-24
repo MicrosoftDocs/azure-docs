@@ -38,6 +38,29 @@ To view the built-in policy definitions related to monitoring, perform the follo
 
   ![Screenshot of the Azure Policy Definitions page in Azure portal showing a list of policy definitions for the Monitoring category and Built-in Type.](media/deploy-scale/builtin-policies.png)
 
+## Azure Monitor Agent
+The [Azure Monitor agent](agents/azure-monitor-agent-overview.md) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. It uses [Data Collection Rules](agents/data-collection-rule-overview.md) to configure data to collect from each agent, that enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines.  
+Use the policies and policy initiatives below to automatically install the agent and associate it to a data collection rule, every time you create a virtual machine.
+
+### Built-in policy initiatives
+View prerequisites for agent installation [here](agents/azure-monitor-agent-install.md#prerequisites). 
+
+There are policy initiatives for Windows and Linux virtual machines, comprising of individual policies that
+- Install the Azure Monitor agent extension on the virtual machine
+- Create and deploy the association to link the virtual machine to a data collection rule
+
+  ![Partial screenshot from the Azure Policy Definitions page showing two built-in policy initiaves for configuring Azure Monitor Agent.](media/deploy-scale/built-in-ama-dcr-initiatives.png)  
+
+### Built-in policy  
+You may choose to use the individual policies as per your needs, from the respective policy initiative. For example if you only want to automatically install the agent, simply use the first policy from the initiative as shown below:  
+
+  ![Partial screenshot from the Azure Policy Definitions page showing policies contained within the initiative for configuring Azure Monitor Agent.](media/deploy-scale/built-in-ama-dcr-policy.png)  
+
+### Remediation
+The initiatives or policies will apply to each virtual machine as it's created. A [remediation task](../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to **existing resources**, so this allows you to configure the Azure Monitor agent for any resources that were already created. When you create the assignment using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md) for details on the remediation.
+
+![Initiative remediation for AMA](media/deploy-scale/built-in-ama-dcr-remediation.png)
+
 
 ## Diagnostic settings
 [Diagnostic settings](essentials/diagnostic-settings.md) collect resource logs and metrics from Azure resources to multiple locations, typically to a Log Analytics workspace which allows you to analyze the data with [log queries](logs/log-query-overview.md) and [log alerts](alerts/alerts-log.md). Use Policy to automatically create a diagnostic setting each time you create a resource.

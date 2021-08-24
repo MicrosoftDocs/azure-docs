@@ -26,7 +26,7 @@ In this article, you migrate a MySQL database restored to an on-premises instanc
 > Amazon Relational Database Service (RDS) for MySQL and Amazon Aurora (MySQL-based) are also supported as sources for migration.
 
 > [!IMPORTANT]
-> For online migrations, you can use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with [data-in replication](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication).
+> For online migrations, you can use open-source tools such as [MyDumper/MyLoader](https://centminmod.com/mydumper.html) with [data-in replication](../mysql/concepts-data-in-replication.md).
 
 
 The article helps to automate the scenario where source and target database names can be same or different and as part of migration either all or few of the tables in the target database need to be migrated which have the same name and table structure. Although the articles assumes the source to be a MySQL database instance and target to be Azure Database for MySQL, it can be used to migrate from one Azure Database for MySQL to another just by changing the source server name and credentials. Also, migration from lower version MySQL servers (v5.6 and above) to higher versions is also supported.

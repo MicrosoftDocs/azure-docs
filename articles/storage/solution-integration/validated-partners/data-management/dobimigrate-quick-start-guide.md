@@ -36,8 +36,8 @@ Microsoft offers a framework to follow to get you started with Azure. The [Cloud
 
 Several aspects are important when considering migrations of file data to Azure. Before proceeding learn more:
 
-- [storage migration overview](/azure/storage/common/storage-migration-overview)
-- latest supported features by DobiMigrate in [migration tools comparison matrix](/azure/storage/solution-integration/validated-partners/data-management/migration-tools-comparison).
+- [storage migration overview](../../../common/storage-migration-overview.md)
+- latest supported features by DobiMigrate in [migration tools comparison matrix](./migration-tools-comparison.md).
 
 Remember, you'll require enough network capacity to support migrations without impacting production applications. This section outlines the tools and techniques that are available to assess your network needs.
 
@@ -75,7 +75,7 @@ This section provides a brief guide for how to add Azure Files share to an on-pr
    2. Provide a unique name for your storage account
    3. Choose the region
    4. Select  **Standard**  or **Premium** performance, depending on your needs. If you select **Premium**, select **File shares** under **Premium account type**.
-   5. Choose the **[Redundancy](/azure/storage/common/storage-redundancy)** that meets your data protection requirements
+   5. Choose the **[Redundancy](../../../common/storage-redundancy.md)** that meets your data protection requirements
    
    :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-account-create-1.png" alt-text="Shows storage account settings in the portal.":::
 
@@ -99,17 +99,17 @@ This section provides a brief guide for how to add Azure Files share to an on-pr
 
 8. (_Optional_) You can add extra layers of security to your deployment.
  
-   1. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](/azure/storage/common/authorization-resource-provider#built-in-roles-for-management-operations).
+   1. Configure role-based access to limit who can make changes to your storage account. For more information, see [Built-in roles for management operations](../../../common/authorization-resource-provider.md#built-in-roles-for-management-operations).
  
-   2.  Restrict access to the account to specific network segments with [storage firewall settings](/azure/storage/common/storage-network-security). Configure firewall settings to prevent access from outside of your corporate network.
+   2.  Restrict access to the account to specific network segments with [storage firewall settings](../../../common/storage-network-security.md). Configure firewall settings to prevent access from outside of your corporate network.
 
        :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-storage-firewall.png" alt-text="Shows storage firewall settings in the portal.":::
 
-   3.  Set a [delete lock](/azure/azure-resource-manager/management/lock-resources) on the account to prevent accidental deletion of the storage account.
+   3.  Set a [delete lock](../../../../azure-resource-manager/management/lock-resources.md) on the account to prevent accidental deletion of the storage account.
 
        :::image type="content" source="./media/dobimigrate-quick-start-guide/azure-resource-lock.png" alt-text="Shows setting a delete lock in the portal.":::
 
-   4.  Configure extra [security best practices](/azure/storage/blobs/security-recommendations).
+   4.  Configure extra [security best practices](../../../blobs/security-recommendations.md).
 
 9.  In DobiMigrate, navigate to Configuration -> File Servers. Click **Add** to add Microsoft Azure Files as a file server type:
 
@@ -173,7 +173,7 @@ Datadobi has made it easy to deploy their solution in Azure to protect Azure Vir
 
 Learn more by visiting our guides:
 
-- [Storage migration overview](/azure/storage/common/storage-migration-overview)
+- [Storage migration overview](../../../common/storage-migration-overview.md)
 - [DobiMigrate User Manual](https://downloads.datadobi.com/NAS/olh/latest/dobimigrate.html)
 - [DobiMigrate Prerequisites Guide](https://downloads.datadobi.com/NAS/guides/latest/prerequisites.html)
 - [DobiMigrate Install Guide](https://downloads.datadobi.com/NAS/guides/latest/installguide.html)

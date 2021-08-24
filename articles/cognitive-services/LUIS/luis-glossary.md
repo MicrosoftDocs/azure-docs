@@ -290,7 +290,7 @@ The model will return the normalized value for the entity when any of synonyms a
 
 ## Test
 
-[Testing](luis-concept-test.md) a LUIS app means viewing model predictions.
+[Testing](./luis-interactive-test.md) a LUIS app means viewing model predictions.
 
 ## Timezone offset
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/12/2021
+ms.date: 06/11/2021
 ms.custom: devx-track-python
 ---
 
@@ -352,7 +352,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-As a simplification, this quickstart uses an abbreviated version of the Hotels index. You can create the full version to try out more interesting queries. To get the full version and all 50 documents, run the **Import data** wizard, selecting *hotels-sample* from the built-in sample data sources.
+In this JavaScript quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. To continue learning, try the following tutorial.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create an index in the Azure portal](search-get-started-portal.md)
+> [Tutorial: Add search to web apps](tutorial-python-overview.md)

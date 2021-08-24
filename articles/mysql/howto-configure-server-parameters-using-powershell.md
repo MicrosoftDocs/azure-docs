@@ -12,6 +12,8 @@ ms.custom: devx-track-azurepowershell
 
 # Configure server parameters in Azure Database for MySQL using PowerShell
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 You can list, show, and update configuration parameters for an Azure Database for MySQL server using
 PowerShell. A subset of engine configurations is exposed at the server-level and can be modified.
 

@@ -1,7 +1,7 @@
 ---
 title: What is the Anomaly Detector Multivariate API?
 titleSuffix: Azure Cognitive Services
-description: Overview of new Anomaly Detector public preview multivariate APIs.
+description: Overview of new Anomaly Detector preview multivariate APIs.
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
@@ -13,7 +13,7 @@ ms.author: mbullwin
 keywords: anomaly detection, machine learning, algorithms
 ---
 
-# Multivariate time series Anomaly Detection (public preview)
+# Multivariate time series Anomaly Detection (preview)
 
 The new **multivariate anomaly detection** APIs further enable developers by easily integrating advanced AI for detecting anomalies from groups of metrics, without the need for machine learning knowledge or labeled data. Dependencies and inter-correlations between up to 300 different signals are now automatically counted as key factors. This new capability helps you to proactively protect your complex systems such as software applications, servers, factory machines, spacecraft, or even your business, from failures.
 
@@ -33,10 +33,9 @@ To learn how to call the Anomaly Detector API (multivariate), try this [Notebook
 
 To run the Notebook, you should get a valid Anomaly Detector API **subscription key** and an **API endpoint**. In the notebook, add your valid Anomaly Detector API subscription key to the `subscription_key` variable, and change the `endpoint` variable to your endpoint.
 
-
 ## Region support
 
-The public preview of Anomaly Detector multivariate is currently available in three regions: West US2, East US2, and West Europe.
+The preview of Anomaly Detector multivariate is currently available in 10 Azure regions: Southeast Asia, Australia East, Canada Central, North Europe, West Europe, East US, East US 2, South Central US, West US 2, and UK South.
 
 ## Algorithms
 
@@ -55,5 +54,6 @@ See the following technical documents for information about the algorithms used:
 
 ## Next steps
 
+- [Tutorial](./tutorials/learn-multivariate-anomaly-detection.md): This article is an end-to-end tutorial of how to use the multivariate APIs.
 - [Quickstarts](./quickstarts/client-libraries-multivariate.md).
-- [Best Practices](./concepts/best-practices-multivariate.md): This article is about recommended patterns to use with the  multivariate APIs.
+- [Best Practices](./concepts/best-practices-multivariate.md): This article is about recommended patterns to use with the multivariate APIs.
