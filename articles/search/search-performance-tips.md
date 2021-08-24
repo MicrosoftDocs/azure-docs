@@ -63,7 +63,9 @@ The types of queries you send are one of the most important factors for performa
 
 + **Use of partial term searches.** [Partial term searches](search-query-partial-matching.md), such as prefix search, fuzzy search, and regular expression search, are more computationally expensive than typical keyword searches, as they require full index scans to produce results.
 
-+ **Number of facets.** Adding facets to queries requires aggregations for each query. In general, only add the facets that you plan to render in your app.
++ **Number of facets.** Adding facets to queries requires aggregations for each query. Requesting a higher "count" for a facet also requires extra work by the service. In general, only add the facets that you plan to render in your app and avoid requesting a high count for facets unless necessary.
+
++ **High skip values.** Queries with high skip values require extra results to be retrieved and ranked and causes queries to be more computationally expensive. Setting a skip value isn't a major concern for basic pagination but rather when skip values are in the thousands. For performance reasons, it's best to avoid high skip values and use other techniques instead such as filtering.
 
 + **Limit high cardinality fields.**  A *high cardinality field* refers to a facetable or filterable field that has a significant number of unique values, and as a result, consumes significant resources when computing results. For example, setting a Product ID or Description field as facetable and filterable would count as high cardinality because most of the values from document to document are unique.
 
