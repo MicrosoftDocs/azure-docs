@@ -25,7 +25,7 @@ Version: 21.08.11
 
 Main changes:
 
-- Vulnerabilities mitigated - KB4583458
+- Windows Security update
 - Update of Nvidia CuDNN to 8.1.0
 - Update of Jupyter Lab -to 3.0.16
 - Added MLFLow for experiment tracking
