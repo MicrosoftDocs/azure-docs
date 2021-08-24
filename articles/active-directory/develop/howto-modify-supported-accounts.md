@@ -17,7 +17,7 @@ ms.reviewer: marsma, aragra, lenalepa, sureshja
 # Customer intent: As an application developer, I need to know how to modify which account types can sign in to or access my application or API.
 ---
 
-# How to modify the accounts supported by an application
+# Modify the accounts supported by an application
 
 When you registered your application with the Microsoft identity platform, you specified who--which account types--can access it. For example, you might've specified accounts only in your organization, which is a *single-tenant* app. Or, you might've specified accounts in any organization (including yours), which is a *multi-tenant* app.
 
