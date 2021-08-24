@@ -61,7 +61,7 @@ Placeholder
 > OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the OpenTelemetry community for OpenTelemetry issues outside the Azure Support Boundary.
 
 ## Sampling
-OpenTelemetry SDKs provide built-in sampling as a way to control data volume and ingestion costs. Learn how to enable it [here](https://opentelemetry-python.readthedocs.io/en/latest/sdk/trace.sampling.html).
+OpenTelemetry SDKs provide built-in sampling as a way to control data volume and ingestion costs. To learn how to enable built-in sampling, see [OpenTelemetry Python SDK on trace sampling](https://opentelemetry-python.readthedocs.io/en/latest/sdk/trace.sampling.html).
 
 > [!WARNING]
 > We do not recommend enabling sampling in the preview release because it will result in broken traces if used alongside the existing Application Insights SDKs and it will make standard and log-based metrics inaccurate.
