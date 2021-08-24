@@ -84,7 +84,12 @@ If you have a policy at the global level and a policy configured for an API, the
 </policies>
 ```
 
-In the example policy definition above, the `cross-domain` statement would execute before any higher policies which would in turn, be followed by the `find-and-replace` policy. 
+In the example policy definition above:
+* The `cross-domain` statement would execute before any higher policies.
+* The `find-and-replace` policy would execute after any higher policies. 
+
+>[!NOTE]
+> If you remove the `<base />` tag at the API scope, only policies configured at the API scope will be applied. Neither Product nor Global scope policies would be applied.
 
 ### Restrict incoming requests
 
