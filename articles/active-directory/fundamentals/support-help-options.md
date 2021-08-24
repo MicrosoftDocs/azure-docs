@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2021
+ms.date: 08/23/2021
 ms.author: celested
 ms.reviewer: jahule
 ---
@@ -33,8 +33,8 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 ## Post a question to Microsoft Q&A
 
 <div class='icon is-large'>
-    <img alt='Microsoft Q&A' src='https://docs.microsoft.com/media/common/question-mark-icon.png'>
-</div>             
+    <img alt='Microsoft Q&A' src='../develop/media/common/question-mark-icon.png'>
+</div>
 
 Get answers to your identity and access management questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
 
