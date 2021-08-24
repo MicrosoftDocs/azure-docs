@@ -1,5 +1,5 @@
 ---
-title: Email notifications in PIM - Azure Active Directory | Microsoft Docs
+title: Email notifications in Privileged Identity Management (PIM) - Azure Active Directory | Microsoft Docs
 description: Describes email notifications in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 06/30/2021
+ms.date: 08/24/2021
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
@@ -41,7 +41,7 @@ Privileged Identity Management sends emails when the following events occur for 
 - When a privileged role activation request is completed
 - When Azure AD Privileged Identity Management is enabled
 
-Who receives these emails for Azure AD roles depends on your role, the event, and the notifications setting:
+Who receives these emails for Azure AD roles depends on your role, the event, and the notifications setting. When the owner of a privileged access group assigns membership to a user or when a user activates their group membership in Privileged Identity Management, the owner is notified but not the Azure AD admins.
 
 | User | Role activation is pending approval | Role activation request is completed | PIM is enabled |
 | --- | --- | --- | --- |
