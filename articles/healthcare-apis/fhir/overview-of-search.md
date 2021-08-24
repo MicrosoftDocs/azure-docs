@@ -25,7 +25,7 @@ You can also search using `POST`, which is useful if the query string is too lon
 
 If the search request is successful, you’ll receive a FHIR bundle response with the type `searchset`. If the search fails, you’ll find the error details in the `OperationOutcome` to help you understand why the search failed.
 
-In the following sections, we’ll cover the various aspects involved in searching. Once you’ve reviewed these details, refer to our [samples page](search-samples.md) that has examples of searches that you can make in the FHIR service.
+In the following sections, we’ll cover the various aspects involved in searching. Once you’ve reviewed these details, refer to our [samples page](search-samples.md) that has examples of searches that you can make in the FHIR service in the Azure Healthcare APIs.
 
 ## Search parameters
 
