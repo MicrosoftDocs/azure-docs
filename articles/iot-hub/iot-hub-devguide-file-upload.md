@@ -24,8 +24,10 @@ You can use file uploads to send media files or to send large telemetry batches 
 There are three parts to using file uploads with IoT Hub:
 
 1. Associate an [Azure storage account](/azure/storage/common/storage-account-overview) and [blob container](/azure/storage/blobs/storage-blobs-introduction) with your IoT hub and configure other file upload settings according to your requirements.
-2. Devices upload files to the container using file-specific SAS URIs that they get from the IoT hub. 
-3. IoT Hub notifies backend services whenever a file has been uploaded. This last part is optional and depends on whether you've enabled file upload notifications for your IoT hub. 
+
+1. Devices upload files to the container using file-specific SAS URIs that they get from the IoT hub. 
+
+1. IoT Hub notifies backend services whenever a file upload has completed. This last part is optional and depends on whether you've enabled file upload notifications for your IoT hub. 
 
 Before you can use the file upload feature, you must associate an Azure storage account and blob container with your IoT hub. You can also configure settings that control how IoT Hub authenticates with Azure storage, the time-to-live (TTL) of the SAS URIs that the IoT hub hands out to devices, and file upload notifications to your backend services. To learn more, see [Associate an Azure Storage account with IoT Hub](#associate-an-azure-storage-account-with-iot-hub).
 
@@ -37,7 +39,7 @@ After you've associated an Azure storage account and blob container to your IoT 
 
 1. When the file upload is complete, the device notifies the IoT hub of the completion status using the correlation ID it received from IoT Hub when it initiated the upload. For details, see [Device: Notify IoT Hub of a completed file upload](#device-notify-iot-hub-of-a-completed-file-upload).
 
-If you've enabled file upload notifications on your IoT hub, backend services can subscribe to them on the IoT hub's service-facing file notification endpoint. The IoT hub delivers notifications on this endpoint whenever a device notifies the IoT hub that it has completed a file upload. Backend services can use notifications to trigger further processing of the blob data. For details, see [Service: File upload notifications](#service-file-upload-notifications).
+If you've enabled file upload notifications on your IoT hub, backend services can subscribe to them on the IoT hub's service-facing file notification endpoint. The IoT hub delivers notifications on this endpoint whenever a device notifies the hub that it has completed a file upload. Backend services can use notifications to trigger further processing of the blob data. For details, see [Service: File upload notifications](#service-file-upload-notifications).
 
 File upload is fully supported by the Azure IoT device and service SDKs. For details, see [File upload using an SDK](#file-upload-using-an-sdk).
 
@@ -133,7 +135,7 @@ The device calls the [Create File Upload SAS URI](/rest/api/iothub/device/create
 | hostName | The Azure storage account host name for the storage account configured on the IoT hub |
 | containerName | The name of the blob container configured on the IoT hub. |
 | blobName | The location where the blob will be stored in the container. The name is in- the following format: `{device ID of the device making the request}/{blobName in the request}` | 
-| sasToken | A SAS token that grants read/write access on the blob. The token is generated and signed by IoT Hub. |
+| sasToken | A SAS token that grants read/write access on the blob with Azure storage. The token is generated and signed by IoT Hub. |
 
 When it receives the response, the device:
 
@@ -160,7 +162,11 @@ x-ms-blob-type: BlockBlob
 hello world
 ```
 
-To learn more about uploadingSee the Azure storage documentation for more infoFor more information about using Azure storage, see 
+Working with Azure storage APIs is beyond the scope of this topic. In addition to the Azure Blob Storage REST APIs linked previously in this section, you can also explore the following documentation to help you get started:
+
+- To learn more about working with blobs in Azure storage, see the [Azure blob storage](/azure/storage/blobs/). 
+
+-  For information about using Azure storage client SDKs to upload blobs, see [Azure Blob Storage API reference](/azure/storage/blobs/reference).  
 
 
 ## Device: Notify IoT Hub of a completed file upload
