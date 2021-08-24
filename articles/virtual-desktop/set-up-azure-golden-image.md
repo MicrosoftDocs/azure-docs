@@ -1,5 +1,5 @@
 ---
-title: Create a golden image in Azure
+title: Set up an Golden Image 
 description: Walk through the steps to set up a golden image from scratch in Azure.
 author: cshea15, emmclare 
 ms.topic: how-to
@@ -8,7 +8,7 @@ ms.author:
 manager: 
 ---
 
-# Create a Golden Image in Azure
+# Create a AVD Golden Image in Azure
 
 ## Introduction
 This article will walk you through the process of creating a custom image from an Azure VM for use with Azure Virtual Desktop. This image is known as a 'golden image' and will contain the applications and customizations needed for your session hosts.
