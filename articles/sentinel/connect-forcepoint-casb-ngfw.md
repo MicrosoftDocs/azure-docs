@@ -43,7 +43,7 @@ The Forcepoint data connectors allow you to connect Forcepoint Cloud Access Secu
 
 2. Search for CommonSecurityLog to use the relevant schema in Log Analytics with DeviceVendor name contains 'Forcepoint'. 
 
-3. Continue to [STEP 3: Validate connectivity](connect-cef-verify.md).
+3. Continue to [Validate CEF connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity).
 
 
 

@@ -12,6 +12,8 @@ ms.subservice: image-builder
 ---
 # Create a Linux image and distribute it to a Shared Image Gallery by using Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in a [Shared Image Gallery](../shared-image-galleries.md), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
