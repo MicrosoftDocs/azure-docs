@@ -59,6 +59,7 @@ In this article you learn how to secure the following training compute resources
     * A compute cluster can dynamically scale. If there aren't enough unassigned IP addresses, the cluster will be partially allocated.
     * A compute instance only requires one IP address.
 
+* To create a compute instance without a public IP address (a preview feature), your workspace must use a private endpoint to connect to the VNet. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 * Make sure that there are no security policies or locks that restrict permissions to manage the virtual network. When checking for policies or locks, look at both the subscription and resource group for the virtual network.
 * Check to see whether your security policies or locks on the virtual network's subscription or resource group restrict permissions to manage the virtual network. 
 * If you plan to secure the virtual network by restricting traffic, see the [Required public internet access](#required-public-internet-access) section.
@@ -84,7 +85,10 @@ In this article you learn how to secure the following training compute resources
 
         :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Screenshot of NSG":::
 
-    * One public IP address. If you have Azure Policy assignments prohibiting Public IP creation then deployment of cluster/instances will fail
+        If your compute instance does not use a public IP address, these are not required.
+
+    * For compute clusters, one public IP address. For compute instance, a public IP is optional. If you have Azure Policy assignments prohibiting Public IP creation then deployment of the compute will fail.
+
     * One load balancer
 
     For compute clusters, these resources are deleted every time the cluster scales down to 0 nodes and created when scaling up.
