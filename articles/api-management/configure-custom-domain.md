@@ -118,7 +118,7 @@ A CNAME-record maps a *specific* domain (such as `contoso.com` or www\.contoso.c
 An A-record maps a domain, such as `contoso.com` or **www\.contoso.com**, *or a wildcard domain*, such as **\*.contoso.com**, to an IP address. Since an A-record is mapped to a static IP address, it cannot automatically resolve changes to the IP address. We recommend using the more stable CNAME-record instead of an A-record.
 
 > [!NOTE]
-> Although the API Management instance IP address is static, it may change in a few scenarios. When choosing DNS configuration method, we recommend using a CNAME-record when configuring custom domain, as it is more stable than an A-record in case the IP changes. Read more in the [the IP documentation article](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) and the [API Management FAQ](./api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services-).
+> Although the API Management instance IP address is static, it may change in a few scenarios. When choosing DNS configuration method, we recommend using a CNAME-record when configuring custom domain, as it is more stable than an A-record in case the IP changes. Read more in the [the IP documentation article](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) and the [API Management FAQ](./api-management-faq.yml#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services-).
 
 ## Next steps
 
