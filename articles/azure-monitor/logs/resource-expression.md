@@ -4,7 +4,7 @@ description: The resource expression is used in a resource-centric Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/10/2018
+ms.date: 08/19/2021
 
 ---
 
