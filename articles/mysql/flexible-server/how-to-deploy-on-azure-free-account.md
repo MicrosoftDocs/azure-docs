@@ -38,23 +38,23 @@ To complete this tutorial, you need:
 
 1. To create a MySQL Flexible Server database, search for and select **Azure Database for MySQL servers**:
     
-    :::image type="content" source="./media/how-to-deploy-on-azure-free-account/select-azure-database-for-mysql.png" alt-text="Search and select Azure Database for MySQL":::
+    :::image type="content" source="./media/how-to-deploy-on-azure-free-account/select-azure-database-for-mysql.png" alt-text="Screenshot that shows how to search and select Azure Database for MySQL.":::
 
 
     Alternatively, you can search for and navigate to **Free Services**, and then select **Azure Database for MySQL** tile from the list:
     
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/all-free-services.png" alt-text="View a list of all free services on the Azure portal":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/all-free-services.png" alt-text="Screenshot that shows a list of all free services on the Azure portal.":::
 
 1. Select **Create**.
 
 1. On the **Select Azure Database for MySQL deployment option** page, select **Flexible Server (Preview)**. 
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-deployment-option.png" alt-text="Select Flexible Server Deployment Option":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-deployment-option.png" alt-text="Screenshot that shows the Flexible Server Deployment Option to be chosen.":::
 
 1. Enter the basic settings for a new **Flexible Server**.
 
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/basic-settings-all.PNG" alt-text="Choose Basic Settings for Flexible Server":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/basic-settings-all.PNG" alt-text="Screenshot that shows the Basic Settings for creating Flexible Server.":::
 
 
     |Setting    |Suggested value    |Description  |
@@ -74,7 +74,7 @@ To complete this tutorial, you need:
  
     Select Burstable B1MS Instance (1-2 vCores), specify storage less than or equal to 32 GB and keep the default settings for the remaining options.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/compute-storage.png" alt-text="Configure Server to choose B1MS SKU and 32GiB Storage":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/compute-storage.png" alt-text="Screenshot that shows the Compute + Storage Configure Server blade, to choose B1MS SKU and 32GB Storage.":::
 
 1. Select **Save** to continue with the configuration.
 
@@ -95,14 +95,14 @@ To complete this tutorial, you need:
 1. On the **Networking** tab, for **Connectivity method** select **Public access**. 
 1. For configuring **Firewall rules**, select **Add current client IP address**.
     
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/networking.png" alt-text="Choose public access and add current client IP address":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/networking.png" alt-text="Screenshot that shows the networking options to be chosen, and highlights the add current client IP address button.":::
 
     > [!NOTE]
     > You can't change the connectivity method after you create the server. For example, if you select **Public access (allowed IP addresses)** during server creation, you can't change to **Private access (VNet Integration)** after the server is created. We highly recommend that you create your server with private access to help secure access to your server via VNet Integration. For more information about private access, see [Connectivity and networking concepts.](./concepts-networking.md)
 
 1. To review your flexible server configuration, select **Review + create**.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-and-create.png" alt-text="Select Review + create":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-and-create.png" alt-text="Screenshot that shows the Review + create blade, and highlights the Review + create button.":::
 
     >[!IMPORTANT]
     >As long as you are using your Azure free account, and your free service usage is within monthly limits (to view usage information, refer [**Monitor and track free services usage**](#monitor-and-track-free-services-usage) section below), you won't be charged for the service. We're currently working to improve the **Cost Summary** experience for free services. 
@@ -139,11 +139,11 @@ You're not charged for Azure Database for MySQL - Flexible Server services inclu
 
 1. On the **Overview** page, scroll down to show the tile **Top free services by usage**, and then select **View all free services**.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-usage-overview.png" alt-text="Click on View all free services":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-usage-overview.png" alt-text="Screenshot that shows the Free Trial subscription overview page and highlights View all free services.":::
 
 1. Locate the meters related to **Azure Database for MySQL – Flexible Server** to track usage.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-tracking.png" alt-text="View and track usage information":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-tracking.png" alt-text="Screenshot that shows the View and track usage information blade on Azure Portal for all free services.":::
 
     |Meter    |Description    |Monthly Limit  |
     |---------|---------|---------|

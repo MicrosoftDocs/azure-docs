@@ -38,23 +38,23 @@ To complete this tutorial, you need:
 1. To create a PostgreSQL Flexible Server database, search for and select **Azure Database for PostgreSQL servers**:
 
     
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-pgsql.png" alt-text="Select Azure Database for PostgreSQL":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-postgresql.png" alt-text="Screenshot that shows how to search and select Azure Database for PostgreSQL.":::
 
 
     Alternatively, you can search for and navigate to **Free Services**, and then select **Azure Database for PostgreSQL** tile from the list:
 
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-all-pgsql.png" alt-text="View a list of all free services on the Azure portal":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-all-postgresql.png" alt-text="Screenshot that shows a list of all free services on the Azure portal, highlighting PostgreSQL.":::
 
 1. Select **Create**.
 
 1. On the **Select Azure Database for PostgreSQL deployment option** page, select **Flexible Server (Preview)**.
     
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-pgsql-deployment-option.png" alt-text="Select Flexible Server deployment option":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/select-postgresql-deployment-option.png" alt-text="Screenshot that shows the Flexible Server Deployment Option to be chosen.":::
 
 1. Enter the basic settings for a new **Flexible Server**.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/basic-settings-pgsql.png" alt-text="Basic settings for a new Flexible Server":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/basic-settings-postgresql.png" alt-text="Screenshot that shows the Basic Settings for creating Flexible Server.":::
 
     |Setting	|Suggested Value	|Description |
     |-------|------|------|
@@ -71,13 +71,13 @@ To complete this tutorial, you need:
 
 1. For **Compute + storage** setting, keep the default values populated upon selecting **Development** workload type. 
     
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/compute-storage-default-pgsql.png" alt-text="Default values for compute + storage settings":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/compute-storage-default-postgresql.png" alt-text="Screenshot that shows the default values for compute + storage settings.":::
 
     Select **Configure Server** to review and customize the **Compute + storage** setting.
     
     Make sure to select Burstable B1MS Instance (1-2 vCores), specify to include storage of less than or equal to 32 GB, and keep the default settings for the remaining options.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/compute-storage-pgsql.png" alt-text="Compute + storage blade for PostgreSQL":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/compute-storage-postgresql.png" alt-text="Screenshot that shows the Compute + Storage Configure Server blade, to choose B1MS SKU and 32GB Storage.":::
 
 	Select **Save** to continue with the configuration.
 
@@ -97,11 +97,11 @@ To complete this tutorial, you need:
 
 1. For configuring **Firewall rules**, select **Add current client IP address**.
     
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/networking-pgsql.png" alt-text="Networking options for PostgreSQL":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/networking-postgresql.png" alt-text="Screenshot that shows the networking options to be chosen, and highlights the add current client IP address button.":::
 
 1. To review your flexible server configuration, select **Review + create**.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-create-pgsql.png" alt-text="Select Review + create":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-create-postgresql.png" alt-text="Screenshot that shows the Review + create blade.":::
 
     >[!IMPORTANT]
     >As long as you are using your Azure free account, and your free service usage is within monthly limits (to view usage information, refer [**Monitor and track free services usage**](#monitor-and-track-free-services-usage) section below), you won't be charged for the service. We're currently working to improve the **Cost Summary** experience for free services. 
@@ -135,7 +135,7 @@ You're not charged for Azure Database for PostgreSQL - Flexible Server services 
 1.	In the Azure portal, search for **Subscriptions** and select the Azure free account - **Free Trial** subscription.
 1.	On the **Overview** page, scroll down to show the tile **Top free services by usage**, and then select **View all free services**.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-usage-overview.png" alt-text="Click on View all free services":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-usage-overview.png" alt-text="Screenshot that shows the Free Trial subscription overview page and highlights View all free services.":::
 
 1. Locate the below meters related to **Azure Database for PostgreSQL – Flexible Server** to track usage:
 
@@ -144,7 +144,7 @@ You're not charged for Azure Database for PostgreSQL - Flexible Server services 
     |Azure Database for PostgreSQL, Flexible Server Burstable BS Series Compute, B1MS	|Tracks Compute usage in terms of number of hours of running	|750 Hours per month - Burstable B1MS Compute Tier|
     |Azure Database for PostgreSQL, Flexible Server Storage, Data Stored	|Tracks Data Storage Provisioned in terms of GB used per month	|32 GB per month|
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-tracking.png" alt-text="View and track usage information":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-tracking.png" alt-text="Screenshot that shows the View and track usage information blade on Azure Portal for all free services.":::
 
     - Meter: Identifies the unit of measure for the service being consumed.
     - Usage/Limit: Current month's usage and limit for the meter.
