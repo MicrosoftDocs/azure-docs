@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Overview of what can be done with Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/12/2020
+ms.date: 8/19/2021
 ms.topic: overview
 ms.service: digital-twins
 
@@ -104,4 +104,4 @@ You can view a list of **common IoT terms** and their uses across the Azure IoT 
 
 * Dive into working with Azure Digital Twins in [Get started with Azure Digital Twins Explorer](quickstart-azure-digital-twins-explorer.md).
 
-* Or, start reading about Azure Digital Twins concepts with [Custom models](concepts-models.md).
+* Or, start reading about Azure Digital Twins concepts with [DTDL models](concepts-models.md).
