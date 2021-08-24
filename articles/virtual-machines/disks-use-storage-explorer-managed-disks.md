@@ -56,7 +56,7 @@ If your Storage Explorer isn't connected to Azure, you won't be able to use it t
 
     ![Select upload](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button.png)
 
-1. In **Upload VHD** specify your source virtual hard disk (VHD) file, the name of the disk, the operating system type, the region you want to upload the disk to, as well as the account type. In some regions availability zones are supported, and in those regions you can select a zone of your choice.
+1. In **Upload VHD** specify your virtual hard disk (VHD) source file, the name of the disk, the operating system type, the region to which you want to upload the disk, and the account type. In some regions availability zones are supported, and in those regions you can select a zone of your choice.
 1. Select **Create** to begin uploading your disk.
 
     ![Upload vhd dialog](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-vhd-dialog.png)
