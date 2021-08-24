@@ -34,6 +34,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Adobe Identity Management supports **SP** initiated SSO
+* Adobe Identity Management supports [**automated** user provisioning and deprovisioning](adobe-identity-management-provisioning-tutorial.md) (recommended).
 
 ## Adding Adobe Identity Management from the gallery
 

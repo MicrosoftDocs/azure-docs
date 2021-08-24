@@ -118,9 +118,9 @@ You can learn more here:
 
 Any SMB migrations require Active Directory to be properly set up before adding any resources. We will be using an existing Azure NetApp Files implementation with new volume for migration target. Before we can create a new Azure NetApp Files volume, we need to:
 
-- [Create Azure NetApp Files account](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-portal#create-a-netapp-account)
-- [Create Capacity Pool](/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes?tabs=azure-portal#set-up-a-capacity-pool)
-- [Join Azure NetApp Files account to Active Directory Domain](/azure/azure-netapp-files/create-active-directory-connections)
+- [Create Azure NetApp Files account](../../../../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md?tabs=azure-portal#create-a-netapp-account)
+- [Create Capacity Pool](../../../../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md?tabs=azure-portal#set-up-a-capacity-pool)
+- [Join Azure NetApp Files account to Active Directory Domain](../../../../azure-netapp-files/create-active-directory-connections.md)
 
 Once the configuration for Azure NetApp Files is done, we can create a share we will use for migration. 
 

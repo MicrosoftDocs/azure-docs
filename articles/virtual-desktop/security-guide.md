@@ -190,7 +190,40 @@ The following operating systems support running nested virtualization on Azure V
 - Windows Server 2016
 - Windows Server 2019
 - Windows 10 Enterprise
-- Windows 10 Enterprise multi-session.
+- Windows 10 Enterprise multi-session
+
+## Windows Defender Application Control
+
+The following operating systems support using Windows Defender Application Control with Azure Virtual Desktop:
+
+- Windows Server 2016
+- Windows Server 2019
+- Windows 10 Enterprise
+- Windows 10 Enterprise multi-session
+
+>[!NOTE]
+>When using Windows Defender Access Control, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied, it affects all users on the device equally.
+
+## IP virtualization
+
+If you want to use IP virtualization on Windows Server 2019, please follow these steps:
+
+1. From an admin Windows PowerShell window, rename the following key: 
+```powershell
+Rename-Item HKLM:\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catalog\2C69D9F1 Backup_2C69D9F1
+```
+>[!NOTE]
+>Deleting the key would achieve the same thing, but the rename provides a way to revert back more easily if desired. This is the data that is there by default:
+>       
+>HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WinSock2\Parameters\AppId_Catalog\2C69D9F1\
+>AppFullPath: C:\Windows\System32\svchost.exe\
+>PermittedLspCategories: 0x40000000
+
+2. Restart the VM.
+
+3. Enable the IP Virtualization feature by opening **gpedit.msc**, then going to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Application Compatibility**. Enable the **Turn on Remote Desktop IP Virtualization** policy, then specify the IP address you want the policy to use.
+
+4. Restart the VM.
 
 ## Next steps
 

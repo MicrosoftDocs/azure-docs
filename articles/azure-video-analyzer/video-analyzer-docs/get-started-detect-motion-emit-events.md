@@ -3,7 +3,7 @@ title: Get started with Azure Video Analyzer - Azure
 description: This quickstart walks you through the steps to get started with Azure Video Analyzer. It uses an Azure VM as an IoT Edge device and a simulated live video stream.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 04/21/2021
+ms.date: 06/01/2021
 
 ---
 
@@ -20,14 +20,12 @@ After completing the setup steps, you'll be able to run the simulated live video
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 
-    > [!NOTE]    
-    > You will need an Azure subscription where you have access to both [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role, and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role. If you do not have the right permissions, please reach out to your account administrator to grant you those permissions.  
+    [!INCLUDE [azure-subscription-permissions](./includes/common-includes/azure-subscription-permissions.md)]
 * [Visual Studio Code](https://code.visualstudio.com/), with the following extensions:
 
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
-> [!TIP] 
-> You might be prompted to install Docker while you're installing the Azure IoT Tools extension. Feel free to ignore the prompt.
+[!INCLUDE [install-docker-prompt](./includes/common-includes/install-docker-prompt.md)]
 
 ## Set up Azure resources
 
@@ -89,14 +87,14 @@ When you use run this quickstart, events will be sent to the IoT Hub. To see the
 
 ## Use direct method calls
 
-You can now analyze live video streams by invoking direct methods exposed by the Video Analyzer edge module. Read [Video Analyzer direct methods](direct-methods.md) to examine all the direct methods provided by the module. 
+You can now analyze live video streams by invoking direct methods exposed by the Video Analyzer edge module. Read [Video Analyzer direct methods](direct-methods.md) to examine all the direct methods provided by the module. The schema for the direct methods can be found [here](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/data-plane/VideoAnalyzer.Edge/preview/1.0.0/AzureVideoAnalyzerSdkDefinitions.json).
 
 ### Enumerate pipeline topologies
 
 This step enumerates all the [pipeline topologies](pipeline.md) in the module.
 
 1. Right-click on "avaedge" module and select **Invoke Module Direct Method** from the context menu.
-1. You will see an edit box pop in the top-middle of Visual Studio Code window. Enter "pipelineTopologyList" in the edit box and press enter.
+1. You will see an edit box pop in the top-middle of Visual Studio Code window. Enter `pipelineTopologyList` in the edit box and press enter.
 1. Next, copy, and paste the below JSON payload in the edit box and press enter.
    
 ```json

@@ -102,7 +102,7 @@ We recommend the following best practices:
 - Split full and differential backups into multiple files, instead of using a single file.
 - Enable backup compression.
 - Use Cloud Shell to run scripts, because it will always be updated to the latest cmdlets released.
-- Plan to complete the migration within 47 hours after you start LRS. This is a grace period that prevents the installation of system-managed software patches.
+- Plan to complete the migration within 36 hours after you start LRS. This is a grace period that prevents the installation of system-managed software patches.
 
 > [!IMPORTANT]
 > - You can't use the database that's being restored through LRS until the migration process finishes. 
@@ -161,7 +161,7 @@ Azure Blob Storage is used as intermediary storage for backup files between SQL 
 
 In migrating databases to a managed instance by using LRS, you can use the following approaches to upload backups to Blob Storage:
 - Using SQL Server native [BACKUP TO URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) functionality
-- Using [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer) to upload backups to a blob container
+- Using [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) to upload backups to a blob container
 - Using Storage Explorer in the Azure portal
 
 ### Make backups from SQL Server directly to Blob Storage
@@ -325,7 +325,7 @@ az sql midb log-replay start <required parameters> &
 ```
 
 > [!IMPORTANT]
-> After you start LRS, any system-managed software patches are halted for 47 hours. After this window, the next automated software patch will automatically stop LRS. If that happens, you can't resume migration and need to restart it from scratch. 
+> After you start LRS, any system-managed software patches are halted for 36 hours. After this window, the next automated software patch will automatically stop LRS. If that happens, you can't resume migration and need to restart it from scratch. 
 
 ## Monitor the migration progress
 
@@ -384,7 +384,7 @@ az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last
 
 Functional limitations of LRS are:
 - The database that you're restoring can't be used for read-only access during the migration process.
-- System-managed software patches are blocked for 47 hours after you start LRS. After this time window expires, the next software update will stop LRS. You then need to restart LRS from scratch.
+- System-managed software patches are blocked for 36 hours after you start LRS. After this time window expires, the next software update will stop LRS. You then need to restart LRS from scratch.
 - LRS requires databases on SQL Server to be backed up with the `CHECKSUM` option enabled.
 - The SAS token that LRS will use must be generated for the entire Azure Blob Storage container, and it must have only read and list permissions.
 - Backup files for different databases must be placed in separate folders on Blob Storage.

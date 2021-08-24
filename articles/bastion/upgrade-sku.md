@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 07/12/2021
+ms.date: 07/13/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to upgrade to the Standard SKU.
 
@@ -18,6 +18,8 @@ ms.author: cherylmc
 This article helps you upgrade from the Basic Tier (SKU) to Standard. Once you upgrade, you can't revert back to the Basic SKU without deleting and reconfiguring Bastion. During Preview, this setting can be configured in the Azure portal only. For more information about host scaling, see [Configuration settings- SKUs](configuration-settings.md#skus). 
 
 ## Configuration steps
+
+[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
 
 1. In the Azure portal, navigate to your Bastion host.
 1. On the **Configuration** page, for **Tier**, select **Standard** from the dropdown.

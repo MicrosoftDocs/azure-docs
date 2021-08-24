@@ -54,7 +54,7 @@ This policy allows you to manage the lifetime action specified for certificates 
 
 ### Certificates should be issued by the specified integrated certificate authority (preview)
 
-If you use a Key Vault integrated certificate authority (Digicert or GlobalSign) and you want users to use one or either of these providers, you can use this policy to audit or enforce your selection. This policy can also be used to audit or deny the creation of self-signed certificates in key vault.
+If you use a Key Vault integrated certificate authority (Digicert or GlobalSign) and you want users to use one or either of these providers, you can use this policy to audit or enforce your selection. This policy will evaluate the CA selected in the issuance policy of the cert and the CA provider defined in the key vault. This policy can also be used to audit or deny the creation of self-signed certificates in key vault.
 
 ### Certificates should be issued by the specified non-integrated certificate authority (preview)
 
@@ -256,4 +256,4 @@ If the compliance results show up as "Not Started" it may be due to the followin
 
 - Learn more about the [Azure Policy service](../../governance/policy/overview.md)
 - See Key Vault samples: [Key Vault built-in policy definitions](../../governance/policy/samples/built-in-policies.md#key-vault)
-- Learn about [Azure Security Benchmark guidance on Key vault](https://docs.microsoft.com/security/benchmark/azure/baselines/key-vault-security-baseline?source=docs#network-security)
+- Learn about [Azure Security Benchmark guidance on Key vault](/security/benchmark/azure/baselines/key-vault-security-baseline?source=docs#network-security)

@@ -47,7 +47,7 @@
     - name: IoT solution accelerators
       href: ./index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights
@@ -70,8 +70,8 @@
   - name: FAQ
     items:
     - name: Solution Accelerators FAQ
-      href: iot-accelerators-faq.md
+      href: iot-accelerators-faq.yml
     - name: Connected Factory FAQ
-      href: iot-accelerators-faq-cf.md
+      href: iot-accelerators-faq-cf.yml
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite

@@ -2,7 +2,7 @@
 title: Encryption of backup data using customer-managed keys
 description: Learn how Azure Backup allows you to encrypt your backup data using customer-managed keys (CMK).
 ms.topic: conceptual
-ms.date: 05/12/2021 
+ms.date: 08/24/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -32,6 +32,7 @@ This article discusses the following:
 - The Recovery Services vault can be encrypted only with keys stored in an Azure Key Vault, located in the **same region**. Also, keys must be **RSA keys** only and should be in **enabled** state.
 
 - Moving CMK encrypted Recovery Services vault across Resource Groups and Subscriptions isn't currently supported.
+- Recovery Services vaults encrypted with customer-managed keys don't support cross-region restore of backed-up instances.
 - When you move a Recovery Services vault already encrypted with customer-managed keys to a new tenant, you'll need to update the Recovery Services vault to recreate and reconfigure the vault’s managed identity and CMK (which should be in the new tenant). If this isn't done, the backup and restore operations will start failing. Also, any role-based access control (RBAC) permissions set up within the subscription will need to be reconfigured.
 
 - This feature can be configured through the Azure portal and PowerShell.
@@ -107,7 +108,11 @@ TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Type        : SystemAssigned
 ```
 
-### Assign user-assigned managed identity to the vault
+### Assign user-assigned managed identity to the vault (in preview)
+
+>[!Note]
+>- Vaults using user-assigned managed identities for CMK encryption don't support the use of private endpoints for Backup.
+>- Azure Key Vaults limiting access to specific networks aren't yet supported for use along with user-assigned managed identities for CMK encryption.
 
 To assign the user-assigned managed identity for your Recovery Services vault, perform the following steps:
 
@@ -281,11 +286,11 @@ Before proceeding to configure protection, we strongly recommend you ensure the 
 >[!IMPORTANT]
 > Before proceeding to configure protection, you must have **successfully** completed the following steps:
 >
->1. Created your Backup vault
+>1. Created your Recovery Services vault
 >1. Enabled the Recovery Services vault's system-assigned managed identity or assigned a user-assigned managed identity to the vault
->1. Assigned permissions to your Backup Vault (or the user-assigned managed identity) to access encryption keys from your Key Vault
+>1. Assigned permissions to your Recovery Services vault (or the user-assigned managed identity) to access encryption keys from your Key Vault
 >1. Enabled soft delete and purge protection for your Key Vault
->1. Assigned a valid encryption key for your Backup vault
+>1. Assigned a valid encryption key for your Recovery Services vault
 >
 >If all the above steps have been confirmed, only then proceed with configuring backup.
 

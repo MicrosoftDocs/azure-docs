@@ -29,7 +29,7 @@ If you aren't sure whether you should use the latest model, skip to the [Evaluat
 You should be familiar with the concept of AI face detection. If you aren't, see the face detection conceptual guide or how-to guide:
 
 * [Face detection concepts](../concepts/face-detection.md)
-* [How to detect faces in an image](HowtoDetectFacesinImage.md)
+* [Call the detect API](HowtoDetectFacesinImage.md)
 
 ## Detect faces with specified model
 
@@ -105,7 +105,7 @@ The best way to compare the performances of the detection models is to use them 
 
 ## Next steps
 
-In this article, you learned how to specify the detection model to use with different Face APIs. Next, follow a quickstart to get started using face detection.
+In this article, you learned how to specify the detection model to use with different Face APIs. Next, follow a quickstart to get started with face detection and analysis.
 
 * [Face .NET SDK](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)

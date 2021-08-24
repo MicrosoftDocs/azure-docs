@@ -14,6 +14,8 @@ ms.reviewer: akjosh
 
 # Copy an image from another gallery using the Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 If you have multiple galleries in your organization, you can also create image versions from existing image versions stored in other galleries. For example, you might have a development and test gallery for creating and testing new images. When they are ready to be used in production, you can copy them into a production gallery using this example. You can also create an image from an image in another gallery using [Azure PowerShell](image-version-another-gallery-powershell.md).
 
 
@@ -71,7 +73,7 @@ az sig image-version show \
 
 ## Create the image definition 
 
-You need to create an image definition that matches the image definition of your source image version. You can see all of the information you need to recreate the image definition in your new gallery using [az sig image-definition show](/cli/azure/sig/image-definition#az_sig_image_definition_show).
+You need to create an image definition that matches the operating system, operating system state, and Hyper-V generation of the image definition containing your source image version. You can see all of the information you need to recreate the image definition in your new gallery using [az sig image-definition show](/cli/azure/sig/image-definition#az_sig_image_definition_show).
 
 ```azurecli-interactive
 az sig image-definition show \
@@ -125,6 +127,10 @@ az sig image-definition create \
    --hyper-v-generation V1 \
    --os-state specialized 
 ```
+
+> [!NOTE]
+> For image definitions that will contain images descended from third-party images, the plan information must match exactly the plan information from the third-party image. Include the plan information in the image definition by adding `--plan-name`, `--plan-product`, and `--plan-publisher` when you create the image definition.
+>
 
 
 ## Create the image version

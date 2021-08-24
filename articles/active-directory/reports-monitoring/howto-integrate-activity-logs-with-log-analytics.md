@@ -17,6 +17,7 @@ ms.subservice: report-monitor
 ms.date: 07/09/2021
 ms.author: markvi
 ms.reviewer: besiler
+ms.custom: has-adal-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -49,8 +50,6 @@ You can route audit activity logs and sign-in activity logs to Azure Monitor log
 * **Risky users logs (public preview)**: With the [risky users logs](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users), you can monitor changes in user risk level and remediation activity. 
 * **Risk detections logs (public preview)**: With the [risk detections logs](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections), you can monitor user's risk detections and analyze trends in risk activity detected in your organization. 
 
-> [!NOTE]
-> Azure AD B2C audit and sign-in activity logs are currently unsupported.
 
 ## Prerequisites 
 

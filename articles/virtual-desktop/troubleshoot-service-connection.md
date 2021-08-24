@@ -16,7 +16,7 @@ Use this article to resolve issues with Azure Virtual Desktop client connections
 
 ## Provide feedback
 
-You can give us feedback and discuss the Azure Virtual Desktop Service with the product team and other active community members at the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+You can give us feedback and discuss the Azure Virtual Desktop Service with the product team and other active community members at the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/bd-p/AzureVirtualDesktopForum).
 
 ## User connects but nothing is displayed (no feed)
 
