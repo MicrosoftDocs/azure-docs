@@ -82,7 +82,7 @@ In this section, you create a Python console app that responds to a direct metho
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-4. Define the following function that will instantiate a client and configure it to respond to the **lockDoor** method, as well as receive device twin updates
+4. Define the following function, which will instantiate a client and configure it to respond to the **lockDoor** method, as well as receive device twin updates:
 
     ```python
     def create_client():
