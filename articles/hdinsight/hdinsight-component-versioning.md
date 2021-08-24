@@ -3,7 +3,7 @@ title: Apache Hadoop components and versions - Azure HDInsight
 description: Learn about the Apache Hadoop components and versions in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 08/24/2021
 ---
 
 # Azure HDInsight versions
@@ -17,9 +17,7 @@ This table lists the versions of HDInsight that are available in the Azure porta
 | HDInsight version | VM OS | Release date| Support type | Support expiration date | Retirement date | High availability |
 | --- | --- | --- | --- | --- | --- | ---|
 | [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |September 24, 2018 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | | |Yes |
-| [HDInsight 3.6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |April 4, 2017      | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Standard support expiration - June 30, 2021 <br> Basic support expiration - April 3, 2022 |April 4, 2022 |Yes |
-
-*Starting July 1st, 2021 Microsoft will offer Basic support for certain HDI 3.6 cluster types. See [HDInsight 3.6 component versions](hdinsight-36-component-versioning.md).
+| [HDInsight 3.6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |April 4, 2017      | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Standard support expired on June 30, 2021 for all cluster types<br> Basic support expires on April 3, 2022. See [HDInsight 3.6 component versions](hdinsight-36-component-versioning.md) for cluster type details. |April 4, 2022 |Yes |
 
 ## Release notes
 
@@ -28,10 +26,36 @@ For additional release notes on the latest versions of HDInsight, see [HDInsight
 ## Support options for HDInsight versions
 
 Support is defined as a time period that an HDInsight version is supported by Microsoft Customer Service and Support. HDInsight offers two types of support: 
-- **Standard support** is a time period in which Microsoft provides updates and support on HDInsight clusters.  
-    We recommend building solutions using the most recent fully supported version. 
-- **Basic support** is a time period in which Microsoft will provide limited servicing to HDInsight Resource provider. HDInsight images and open-source software (OSS) components will not be serviced.   Only critical security fixes will be patched on HDInsight clusters.  
-  Microsoft does not encourage creating new clusters or building any fresh solutions when a version is in Basic support. We recommend migrating existing clusters to the most recent fully supported version. 
+- **Standard support**
+- **Basic support**
+
+### Standard support
+
+Standard support is a time period in which Microsoft provides updates and support on HDInsight clusters. Microsoft recommends building solutions using the most recent fully supported version. 
+
+### Basic support
+
+Basic support is a time period in which Microsoft will provide limited servicing to the HDInsight Resource provider. HDInsight images and open-source software (OSS) components will not be serviced. Only critical security fixes will be patched on HDInsight clusters. 
+
+Basic support includes the following:
+- Continued use of existing HDInsight 3.6 clusters.
+- Ability for existing HDInsight 3.6 customers to create new 3.6 clusters.
+- Ability to scale HDInsight 3.6 clusters up and down via autoscale or manual scale.
+- Scoped product updates to the HDInsight Resource provider.
+- Product updates for critical security fixes until version retirement.
+- Requests to restart services or nodes.
+- Ability to create support requests on HDInsight 3.6 clusters.
+
+Basic support does not include the following:
+- Fixes or changes to HDInsight 3.6 images or open-source software (OSS) component versions.
+- Support for troubleshooting solutions built on 3.6 clusters. 
+- Adding new features or functionality.
+- Support for advice or ad-hoc queries.
+- Root cause analysis investigations on support requests.
+- Root cause analysis or fixes to improve job or query performance.
+- Root cause analysis or fixes to improve customer-initiated changes, e.g., changing service configurations or issues due to custom script actions.
+
+Microsoft does not encourage creating new clusters or building any fresh solutions when a version is in Basic support. We recommend migrating existing clusters to the most recent fully supported version. 
 
 **Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. And it may no longer available through the Azure portal for cluster creation.
 
