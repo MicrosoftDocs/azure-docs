@@ -121,7 +121,7 @@ In this section, you create a Python console app that responds to a direct metho
             raise
     ```
 
-5. Add the following code to run the sample
+5. Add the following code to run the sample:
 
     ```python
     def main():
