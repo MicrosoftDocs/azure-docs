@@ -156,6 +156,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * = (Equal sign)
   * " (Quotation mark)
  
+* Azure Synapse Spark now supports properties with whitespaces in their names.
 
 ### Schema representation
 
