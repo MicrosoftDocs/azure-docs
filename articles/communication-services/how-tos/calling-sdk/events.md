@@ -29,5 +29,6 @@ Azure Communication Services SDKs are dynamic and contain a lot of properties. W
 ::: zone-end
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- 
+- [Try our calling quickstart](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
+- [Try our video calling quickstart](../../quickstarts/voice-video-calling/get-started-with-video-calling.md)
+- [Learn how to enable push notifications](./push-notifications.md)

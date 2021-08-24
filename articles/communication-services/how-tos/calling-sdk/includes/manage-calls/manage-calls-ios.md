@@ -1,22 +1,4 @@
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A deployed Azure Communication Services resource. [Create a Communication Services resource](../../../../quickstarts/create-communication-resource.md).
-- A user access token to enable the call client. [Get a user access token](../../../../quickstarts/access-tokens.md).
-- Optional: Complete the [Add voice calling to your app](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md) quickstart.
-
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
-
-## Learn the object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK for iOS.
-
-| Name                                  | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
-| `CallClient` | `CallClient` is the main entry point to the Calling SDK.|
-| `CallAgent` | `CallAgent` is used to start and manage calls. |
-| `CommunicationTokenCredential` | `CommunicationTokenCredential` is used as the token credential to instantiate `CallAgent`.| 
-| `CommunicationIdentifier` | `CommunicationIdentifier` is used to represent the identity of the user. The identity can be `CommunicationUserIdentifier`, `PhoneNumberIdentifier`, or `CallingApplication`. |
 
 > [!NOTE]
 > When the application implements event delegates, it has to hold a strong reference to the objects that require event subscriptions. For example, when a `RemoteParticipant` object is returned on invoking the `call.addParticipant` method and the application sets the delegate to listen on `RemoteParticipantDelegate`, the application must hold a strong reference to the `RemoteParticipant` object. Otherwise, if this object gets collected, the delegate will throw a fatal exception when the Calling SDK tries to invoke the object.
@@ -45,7 +27,6 @@ self.callAgent?.startCall(participants: callees, options: StartCallOptions()) { 
 To place the call to PSTN, you have to specify a phone number acquired with Communication Services.
 
 ```swift
-
 let pstnCallee = PhoneNumberIdentifier(phoneNumber: '+1999999999')
 let callee = CommunicationUserIdentifier('UserId')
 self.callAgent?.startCall(participants: [pstnCallee, callee], options: StartCallOptions()) { (groupCall, error) in
@@ -56,7 +37,6 @@ self.callAgent?.startCall(participants: [pstnCallee, callee], options: StartCall
          print("Failed to start outgoing call to multiple participants")
      }
 }
-
 ```
 
 ## Join a group call

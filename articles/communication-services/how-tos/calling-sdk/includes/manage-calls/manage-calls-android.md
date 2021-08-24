@@ -1,22 +1,4 @@
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../../access-tokens.md)
-- Optional: Complete the quickstart for [getting started with adding calling to your application](../../getting-started-with-calling.md)
-
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
-
-## Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
-
-| Name                                  | Description                                                  |
-| ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| The CallClient is the main entry point to the Calling SDK.|
-| CallAgent | The CallAgent is used to start and manage calls. |
-| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.|
-| CommunicationIdentifier | The CommunicationIdentifier is used as different type of participant that would could be part of a call.|
 
 ## Place a call
 

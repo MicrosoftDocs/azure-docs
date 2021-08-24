@@ -1,10 +1,3 @@
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A deployed Azure Communication Services resource. [Create a Communication Services resource](../../../../quickstarts/create-communication-resource.md).
-- A user access token to enable the call client. [Get a user access token](../../../../quickstarts/access-tokens.md).
-- Optional: Complete the [Add voice calling to your app](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md) quickstart.
-
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
 
 ## Manage devices

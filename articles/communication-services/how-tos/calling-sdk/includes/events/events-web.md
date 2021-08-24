@@ -1,5 +1,4 @@
-### Events model
-Each object in the calling sdk, has properties and collections values of which, change throughout the lifetime of the object.
+Each object in the JavaScript calling sdk has properties and collections. Their values change throughout the lifetime of the object.
 Use the `on()` method to subscribe to objects' events, and use the `off()` method to unsubscribe from objects' events.
 
 #### Properties

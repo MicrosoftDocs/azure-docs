@@ -1,7 +1,6 @@
-## Eventing model
-You can subscribe to most of the properties and collections to be notified when values change.
+With our Android SDK, you can subscribe to most of the properties and collections to be notified when values change.
 
-### Properties
+## Properties
 To subscribe to `property changed` events:
 
 ```java
@@ -20,7 +19,7 @@ call.addOnStateChangedListener(callStateChangeListener);
 call.removeOnStateChangedListener(callStateChangeListener);
 ```
 
-### Collections
+## Collections
 To subscribe to `collection updated` events:
 
 ```java

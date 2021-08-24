@@ -1,10 +1,3 @@
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../../access-tokens.md)
-- Optional: Complete the quickstart for [getting started with adding calling to your application](../../getting-started-with-calling.md)
-
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
 ## Device management

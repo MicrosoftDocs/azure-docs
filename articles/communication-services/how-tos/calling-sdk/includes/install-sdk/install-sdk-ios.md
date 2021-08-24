@@ -13,11 +13,11 @@ You're not going to create unit tests or UI tests during this quickstart. Feel f
 1. Create a Podfile for your application, like this:
 
 ```
-    platform :ios, '13.0'
-    use_frameworks!
-    target 'AzureCommunicationCallingSample' do
-        pod 'AzureCommunicationCalling', '~> 1.0.0'
-    end
+platform :ios, '13.0'
+use_frameworks!
+target 'AzureCommunicationCallingSample' do
+    pod 'AzureCommunicationCalling', '~> 1.0.0'
+end
 ```
 2. Run `pod install`.
 3. Open `.xcworkspace` with Xcode.
@@ -86,3 +86,14 @@ self.callClient!.createCallAgent(userCredential: userCredential!,
         }
 })
 ```
+
+## Learn the object model
+
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK for iOS.
+
+| Name                                  | Description                                                  |
+| ------------------------------------- | ------------------------------------------------------------ |
+| `CallClient` | `CallClient` is the main entry point to the Calling SDK.|
+| `CallAgent` | `CallAgent` is used to start and manage calls. |
+| `CommunicationTokenCredential` | `CommunicationTokenCredential` is used as the token credential to instantiate `CallAgent`.| 
+| `CommunicationIdentifier` | `CommunicationIdentifier` is used to represent the identity of the user. The identity can be `CommunicationUserIdentifier`, `PhoneNumberIdentifier`, or `CallingApplication`. |

@@ -1,29 +1,4 @@
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../../quickstarts/create-communication-resource.md).
-- A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../../../quickstarts/access-tokens.md).
-- Optional: Complete the quickstart to [add voice calling to your application](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md)
-
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
-
-### Object model
-
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
-
-| Name                                | Description                                                                                                                              |
-| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `CallClient`                        | The main entry point to the Calling SDK.                                                                                                 |
-| `AzureCommunicationTokenCredential` | Implements the `CommunicationTokenCredential` interface, which is used to instantiate `callAgent`.                                       |
-| `CallAgent`                         | Used to start and manage calls.                                                                                                          |
-| `DeviceManager`                     | Used to manage media devices.                                                                                                            |
-| `Call`                              | Used for representing a Call                                                                                                              |
-| `LocalVideoStream`                  | Used for creating a local video stream for a camera device on the local system.                                                          |
-| `RemoteParticipant`                 | Used for representing a remote participant in the Call                                                                                   |
-| `RemoteVideoStream`                 | Used for representing a remote video stream from a Remote Participant.                                                                  |
-
-> [!NOTE]
-> The Calling SDK object instances shouldn't be considered to be a plain JavaScript objects. These are actual instances of various classes and therefore can't be serialized.
 
 ## Place a call
 
@@ -76,7 +51,7 @@ const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCaller
 To start a new group call or join an ongoing group call, use the `join` method and pass an object with a `groupId` property. The `groupId` value has to be a GUID.
 
 ```js
-const context = { groupId: '<GUID>'}
+const context = { groupId: '<GUID>'};
 const call = callAgent.join(context);
 ```
 
@@ -119,8 +94,6 @@ callAgentInstance.on('incomingCall', incomingCallHandler);
 The `incomingCall` event includes an `incomingCall` instance that you can accept or reject.
 
 When starting/joining/accepting a call with video on, if the specified video camera device is being used by another process or if it is disabled in the system, the call will start with video off, and a cameraStartFailed: true call diagnostic will be raised.
-
-TODO: See Call Diagnostics section to see how to handle this call diagnostic.
 
 ## Mute and unmute
 

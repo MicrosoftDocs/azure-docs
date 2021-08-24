@@ -1,8 +1,6 @@
-## Subscribe to notifications
+With our iOS SDK, You can subscribe to most of the properties and collections to be notified when values change.
 
-You can subscribe to most of the properties and collections to be notified when values change.
-
-### Properties
+## Properties
 To subscribe to `property changed` events, use the following code.
 
 ```swift
@@ -13,12 +11,11 @@ public func call(_ call: Call, didChangeState args: PropertyChangedEventArgs) {
     print("Callback from SDK when the call state changes, current state: " + call.state.rawValue)
 }
 
- // to unsubscribe
- self.call.delegate = nil
-
+// to unsubscribe
+self.call.delegate = nil
 ```
 
-### Collections
+## Collections
 To subscribe to `collection updated` events, use the following code.
 
 ```swift

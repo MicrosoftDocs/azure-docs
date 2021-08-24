@@ -1,4 +1,4 @@
-### Install the SDK
+## Install the SDK
 
 Locate your project level build.gradle and make sure to add `mavenCentral()` to the list of repositories under `buildscript` and `allprojects`
 ```groovy
@@ -30,7 +30,7 @@ dependencies {
 }
 ```
 
-## Initialize the CallClient, create a CallAgent, and access the DeviceManager
+### Initialize the CallClient, create a CallAgent, and access the DeviceManager
 
 To create a `CallAgent` instance you have to call the `createCallAgent` method on a `CallClient` instance. This asynchronously returns a `CallAgent` instance object.
 The `createCallAgent` method takes a `CommunicationUserCredential` as an argument, which encapsulates an [access token](../../../access-tokens.md).
@@ -56,3 +56,14 @@ callAgentOptions.setDisplayName("Alice Bob");
 DeviceManager deviceManager = callClient.getDeviceManager(appContext).get();
 CallAgent callAgent = callClient.createCallAgent(appContext, tokenCredential, callAgentOptions).get();
 ```
+
+## Object model
+
+The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
+
+| Name                                  | Description                                                  |
+| ------------------------------------- | ------------------------------------------------------------ |
+| CallClient| The CallClient is the main entry point to the Calling SDK.|
+| CallAgent | The CallAgent is used to start and manage calls. |
+| CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.|
+| CommunicationIdentifier | The CommunicationIdentifier is used as different type of participant that would could be part of a call.|

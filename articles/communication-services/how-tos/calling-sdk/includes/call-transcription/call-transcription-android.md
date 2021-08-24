@@ -20,7 +20,7 @@ You can also subscribe to changes in transcription:
 
 ```java
 private void handleCallOnIsTranscriptionChanged(PropertyChangedEvent args) {
-	boolean isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive();
+    boolean isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive();
 }
 
 callTranscriptionFeature.addOnIsTranscriptionActiveChangedListener(handleCallOnIsTranscriptionChanged);
