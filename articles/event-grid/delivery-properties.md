@@ -67,20 +67,29 @@ Authorization: BEARER SlAV32hkKG...
 > Defining authorization headers is a sensible option when your destination is a Webhook. It should not be used for [functions subscribed with a resource id](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate#azurefunctioneventsubscriptiondestination), Service Bus, Event Hubs, and Hybrid Connections as those destinations support their own authentication schemes when used with Event Grid.
 
 ### Service Bus example
-Azure Service Bus supports the use of a [BrokerProperties HTTP header](/rest/api/servicebus/message-headers-and-properties#message-headers) to define message properties when sending single messages. The value of the `BrokerProperties` header should be provided in the JSON format. For example, if you need to set message properties when sending a single message to Service Bus, set the  header in the following way:
+Azure Service Bus supports the use of following message properties when sending single messages. 
 
-| Header name | Header type | Header value |
+| Header name | Header type | Header value | 
 | :-- | :-- | :-- |
-|`BrokerProperties` | Static     | `BrokerProperties:  { "MessageId": "{701332E1-B37B-4D29-AA0A-E367906C206E}", "TimeToLive" : 90}` |
+| `MessageId` | Dynamic |  By default, it's the internal ID of the Event Grid event. You can override it. For example, `data.field`. |
+| `PartitionKey` | | | 
+| `SessionId` | | | 
+| `CorrelationId` | | | 
+| `Label` | | | 
+| `ReplyTo` | Static | A static header value. <br/>Example: `foo@contoso.com` | 
+| `ReplyToSessionId` | | | 
+| `To` | | | 
+| `ViaPartitionKey` | | | 
+
 
 
 ### Event Hubs example
 
-If you need to publish events to a specific partition within an event hub, define a [BrokerProperties HTTP header](/rest/api/eventhub/event-hubs-runtime-rest#common-headers) on your event subscription to specify the partition key that identifies the target event hub partition.
+If you need to publish events to a specific partition within an event hub, set the `ParitionKey` property on your event subscription to specify the partition key that identifies the target event hub partition.
 
 | Header name | Header type | Header value                                  |
 | :-- | :-- | :-- |
-|`BrokerProperties` | Static | `BrokerProperties: {"PartitionKey": "0000000000-0000-0000-0000-000000000000000"}`  |
+|`PartitionKey` | Static | A partition key. |
 
 
 ### Configure time to live on outgoing events to Azure Storage Queues
