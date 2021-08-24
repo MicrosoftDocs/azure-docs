@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/20/2021
+ms.date: 08/23/2021
 ms.author: rabhaiya
 ---
 
@@ -50,6 +50,8 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 [ ![IoT configure instance details.](media/basics-instance-details.png) ](media/basics-instance-details.png#lightbox)
 
 1. Enter the **IoT Connector name**.
+
+   The **IoT Connector name** is a friendly name for the IoT Connector. Enter a unique name for your IoT Connector. As an example, you can name it `healthdemo-iot`.
 
 2. Enter the **Event Hub name**.
 
