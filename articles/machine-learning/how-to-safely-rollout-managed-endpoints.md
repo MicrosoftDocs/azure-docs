@@ -8,14 +8,14 @@ ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 08/05/2021
+ms.date: 09/05/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
 ---
 
 # Safe rollout for online endpoints (preview)
 
-You have an existing model deployed in production and you want to deploy a new version of the model. How do you roll out your new ML model without causing any disruption? A good answer is blue-green deployment, an approach in which a new version of a web service is introduced to production by rolling out the change to a small subset of users/requests before rolling it out completely. This article assumes you're using online endpoints; for more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
+You've an existing model deployed in production and you want to deploy a new version of the model. How do you roll out your new ML model without causing any disruption? A good answer is blue-green deployment, an approach in which a new version of a web service is introduced to production by rolling out the change to a small subset of users/requests before rolling it out completely. This article assumes you're using online endpoints; for more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
 
 In this article, you'll learn to:
 
@@ -34,7 +34,7 @@ In this article, you'll learn to:
 
 * To use Azure machine learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
-* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
+* You must install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md). 
 
 * You must have an Azure Resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
 
@@ -49,7 +49,7 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 
 * An existing managed endpoint. This article assumes that your deployment is as described in [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
 
-* If you have not already set the environment variable $ENDPOINT_NAME, do so now:
+* If you haven't already set the environment variable $ENDPOINT_NAME, do so now:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
 
@@ -137,7 +137,7 @@ Update the deployment with:
 
 ## Delete the endpoint and deployment
 
-If you are not going use the deployment, you should delete it with:
+If you aren't going to use the deployment, you should delete it with:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
 
