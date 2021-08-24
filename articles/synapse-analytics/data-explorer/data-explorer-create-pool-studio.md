@@ -51,11 +51,11 @@ From the workspace overview, select the **Workspace web URL** to open Synapse St
 
 1. On the Synapse Studio home page, navigate to the **Management Hub** in the left navigation by selecting the **Manage** icon.
 
-    ![Synapse Studio home page with Management Hub section highlighted.](media/select-synapse-studio-management-hub.png)
+    ![Synapse Studio home page with Management Hub section highlighted.](media/create-data-explorer-pool-studio/select-synapse-studio-management-hub.png)
 
 1. Once in the Management Hub, navigate to the **Data Explorer pools** section to see the current list of Data Explorer pools that are available in the workspace.
 
-    ![Synapse Studio management hub with Data Explorer pools navigation selected](media/goto-data-explorer-pool-studio.png)
+    ![Synapse Studio management hub with Data Explorer pools navigation selected](media/create-data-explorer-pool-studio/goto-data-explorer-pool-studio.png)
 
 1. Select **+ New**. The new Data Explorer pool create wizard appears.
 
@@ -67,7 +67,7 @@ From the workspace overview, select the **Workspace web URL** to open Synapse St
     | Workload | Computer optimized | This workload requires more CPU than SSD storage. |
     | Node size | Small (4 cores) | Set this to the smallest size to reduce costs for this quickstart |
 
-    ![Basics for Synapse Studio new Data Explorer pool](media/create-data-explorer-pool-basics-studio.png)
+    ![Basics for Synapse Studio new Data Explorer pool](media/create-data-explorer-pool-studio/create-data-explorer-pool-basics-studio.png)
 
     > [!IMPORTANT]
     > Note that there are specific limitations for the names that Data Explorer pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.
@@ -80,7 +80,7 @@ From the workspace overview, select the **Workspace web URL** to open Synapse St
     | Autoscale | Disabled | We won't need autoscale in this quickstart |
     | Number of instances | 2 | Set this to the smallest size to reduce costs for this quickstart |
 
-    ![Advanced settings for Synapse Studio new Data Explorer pool](media/create-data-explorer-pool-advanced-settings-studio.png)
+    ![Advanced settings for Synapse Studio new Data Explorer pool](media/create-data-explorer-pool-studio/create-data-explorer-pool-advanced-settings-studio.png)
 
 1. Select **Next: tags**. Don't add any tags.
 1. Select **Review + create**.
@@ -88,11 +88,11 @@ From the workspace overview, select the **Workspace web URL** to open Synapse St
 
     The Data Explorer pool will start the provisioning process.
 
-    ![Create Synapse Studio new Data Explorer pool](media/create-data-explorer-pool-studio.png)
+    ![Create Synapse Studio new Data Explorer pool](media/create-data-explorer-pool-studio/create-data-explorer-pool-studio.png)
 
 1. Once the provisioning is complete, navigate back to the workspace and verify that the new Data Explorer pool appears in the list.
 
-    ![Synapse Studio new Data Explorer pool list](media/verify-data-explorer-pool-studio.png)
+    ![Synapse Studio new Data Explorer pool list](media/create-data-explorer-pool-studio/verify-data-explorer-pool-studio.png)
 
 ## Clean up Data Explorer pool resources using Synapse Studio
 
@@ -106,11 +106,11 @@ If you want to delete the Data Explorer pool, do the following:
 1. Navigate to the Data Explorer pools in the Management Hub in the Azure portal.
 1. To remove the Data Explorer pool (in this case, **contosodataexplorer**), select **More [...]** > **Delete**.
 
-    ![Listing of Data Explorer pools, with the recently created pool selected.](media/list-data-explorer-pool-studio.png)
+    ![Listing of Data Explorer pools, with the recently created pool selected.](media/create-data-explorer-pool-studio/list-data-explorer-pool-studio.png)
 
 1. To confirm the deletion, enter the name of the pool being deleted and then select **Delete**.
 
-    ![Confirm deletion of the recently created pool.](media/confirm-deletion-data-explorer-pool-studio.png)
+    ![Confirm deletion of the recently created pool.](media/create-data-explorer-pool-studio/confirm-deletion-data-explorer-pool-studio.png)
 
 1. Once the process completes successfully, verify that the pool no longer appears in the list.
 
