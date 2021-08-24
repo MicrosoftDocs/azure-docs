@@ -49,7 +49,7 @@ You can list secret names using the [`list_secrets()`](/python/api/azureml-core/
 > [!IMPORTANT]
 > Using `list_secrets()` will only list secrets created through `set_secret()` or `set_secrets()` using the Azure ML SDK. It will not list secrets created by something other than the SDK. For example, a secret created using the Azure portal or Azure PowerShell will not be listed.
 > 
-> You can use [`get_secret()`](#get-secrets) to get a secret value from the key vault, regardless of how it was created.
+> You can use [`get_secret()`](#get-secrets) to get a secret value from the key vault, regardless of how it was created. So you can retrieve secrets that are not listed by `list_secrets()`.
 
 ## Get secrets
 
