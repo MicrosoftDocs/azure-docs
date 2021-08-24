@@ -218,11 +218,11 @@ The following example demonstrates an authorization request with **AllowCreate**
 
 ### Force authentication
 
-To request that the external SAML IDP prompt the user for authentication, you can pass the `ForceAuthN` property in the SAML AuthN Reuqest. This will be dependent on your identity provider supporting this property.
+You can force the external SAML IDP to prompt the user for authentication by passing the `ForceAuthn` property in the SAML authentication request. Your identity provider must also support this property.
 
-Azure AD B2C will by default set this flag to `False` unless there is a valid session and the initiating request asked to force authentication (for example prompt=login on an OIDC request). You can change this behavior using the `ForceAuthN` metadata. The value of this metadata is `true` or `false`.
+The `ForceAuthn` property is a Boolean `true` or `false` value. By default, Azure AD B2C sets the ForceAuthn value to `false`. You can change this behavior by setting ForceAuthn to `true` so that when there is a valid session, the initiating request forces authentication (for example, by sending `prompt=login` in the OpenID Connect request).
 
-The following example demonstrates how to set `ForceAuthN` property to `true`.
+The following example shows the `ForceAuthn` property set to `true`:
 
 ```xml
 <Metadata>
@@ -232,7 +232,7 @@ The following example demonstrates how to set `ForceAuthN` property to `true`.
 </Metadata>
 ```
 
-The following example demonstrates an authorization request with **ForceAuthN** in the authorization request.
+The following example shows the `ForceAuthn` property in an authorization request:
 
 
 ```xml
@@ -287,7 +287,7 @@ The following example illustrates the use of extension data:
 ```
 
 > [!NOTE]
-> As per the SAML Specification the Extension data must be Namespace qualified XML (For example 'urn:ext:custom' in the sample above). And that namespace can not be one of the SAML specific namespaces.
+> Per the SAML specification, the extension data must be namespace-qualified XML (for example, 'urn:ext:custom' shown in the sample above), and it must not be one of the SAML-specific namespaces.
 
 When using the SAML protocol message extension, the SAML response will look like the following example:
 
