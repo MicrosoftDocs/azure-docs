@@ -46,6 +46,8 @@ From the Data Object Explorer, follow these steps to directly connect an Azure D
 
     ![Screenshot that shows a new linked service.](./media/quickstart-connect-azure-data-explorer/003-new-linked-service.png)
 
+1. The linked service needs to be published to the Workspace before it can be referenced in a notebook. Click **Publish**.
+
     > [!NOTE]
     > (Optional) **Test connection** doesn't validate write access. Ensure your service principal ID has write access to the Azure Data Explorer database.
 
