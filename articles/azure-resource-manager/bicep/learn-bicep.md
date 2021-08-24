@@ -8,6 +8,8 @@ ms.date: 08/17/2021
 
 Ready to see how Bicep can help simplify and accelerate your deployments to Azure? Check out the many hands-on courses on Microsoft Learn.
 
+## Get started
+
 These two learning paths will help you get started:
 
 :::row:::
@@ -15,13 +17,19 @@ These two learning paths will help you get started:
 <img src="media/learn-bicep/bicep-deploy-manage.svg" width="101" height="120" alt="The trophy for the Deploy and manage resources in Azure by using Bicep learning path." role="presentation"></img>
 
 [Part 1: Deploy and manage resources in Azure by using Bicep](/learn/paths/bicep-deploy/)
+
+Learn the basics of the Bicep syntax. This path is the best place to start if you are new to Bicep.
 :::column-end:::
 :::column:::
 <img src="media/learn-bicep/bicep-collaborate.svg" width="101" height="120" alt="The trophy for the Build Azure infrastructure in a team environment by using Bicep learning path." role="presentation"></img>
 
 [Part 2: Build Azure infrastructure in a team environment by using Bicep](/learn/paths/bicep-collaborate/)
+
+Learn how to collaborate with others on your Bicep projects.
 :::column-end:::
 :::row-end:::
+
+## Azure Pipelines and GitHub Actions modules
 
 In addition to the preceding learning paths, the following modules contain Bicep content related to Azure Pipelines and GitHub Actions.
 
