@@ -23,7 +23,7 @@ ms.reviewer: jrasnick
 
 * Synapse SQL offers both **serverless** and **dedicated** resource models. For predictable performance and cost, create dedicated SQL pools to reserve processing power for data stored in SQL tables. For unplanned or bursty workloads, use the always-available, serverless SQL endpoint.
 * Use built-in **streaming** capabilities to land data from cloud data sources into SQL tables.
-* Load data into managed tables to get the best query performance or directly query data in [Azure Data lake storage](sql/query-data-storage.md) or [Azure Cosmos DB](sql/query-cosmos-db-analytical-store.md) without need to perform periodic import tasks and wait for them to finish.
+* Load data into managed tables to get the best query performance or directly query data in [Azure Data Lake Storage](sql/query-data-storage.md) or [Azure Cosmos DB](sql/query-cosmos-db-analytical-store.md) without need to perform periodic import tasks and wait for them to finish.
 * Integrate AI with SQL by using **machine learning** models to score data using the [T-SQL PREDICT function](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).
 
 ## Industry-standard Apache Spark
