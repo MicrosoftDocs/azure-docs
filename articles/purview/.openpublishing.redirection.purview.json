@@ -12,7 +12,7 @@
       },
       {
         "source_path_from_root": "/articles/purview/concept-detect-deleted-assets.md",
-        "redirect_url": "/azure/purview/concept-scans-and-ingestion.md",
+        "redirect_url": "/azure/purview/concept-scans-and-ingestion",
         "redirect_document_id": true
       }
 ]
