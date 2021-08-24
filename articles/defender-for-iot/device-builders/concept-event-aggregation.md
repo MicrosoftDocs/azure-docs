@@ -1,7 +1,7 @@
 ---
 title: Micro agent event collection (Preview)
 description: Defender for IoT security agents collects data and system events from your local device, and sends the data to the Azure cloud for processing, and analytics.
-ms.date: 08/22/2021
+ms.date: 08/24/2021
 ms.topic: conceptual
 ---
 
@@ -12,6 +12,8 @@ Defender for IoT security agents collects data, and system events from your loca
 To reduce the amount of messages, and costs while maintaining your device's security, Defender for IoT agents aggregates the following types of events:
 
 - ProcessCreate (Linux only)
+
+- Login activity (Linux only)
 
 - Network ConnectionCreate
 
@@ -91,43 +93,42 @@ Currently SSH, and Telnet are fully supported.
 
 The following data is collected:
 
-- operation -  Login, Logout, or LoginFailed.
+- **operation** -  The Login, Logout, or LoginFailed.
 
-- process_id
+- **process_id** - The Linux PID.
 
-- user_name
+- **user_name** – The Linux user.
 
-- executable
+- **executable** - The terminal device. For example, tty1..6, or pts/n.
 
-- remote_address
+- **remote_address** - The source of connection, either remote IP in IPv6 or IPv4 format, or 127.0.0.1/0.0.0.0 to indicate local connection.
+
+> [!Note]
+> A login event is captured when a terminal is opened on a device, before the user actually logs in. This event has a TTY process, login event type, and a username. For example, `LOGIN`.
 
 ## System information (trigger based collector))
 
 The data collected for each event is:
 
-- Device Vendor
+- **Device Vendor** - The name of the vendor of the device.
 
-- Device Model
+- **Device Model** - The model number of the device.
 
-- Serial Number
+- **OS distribution** - The distribution of the operating system. For example, Linux.
 
-- OS Build
+- **OS version** - The version of the operating system. For example, Windows 10, or Ubuntu 20.04.1.
 
-- OS distribution
+- **OS platform** - The OS of the device.
 
-- OS version
+- **OS architecture** - The architecture of the OS. For example, x86_64.
 
-- OS platform
+- **IP address** -The IP address of the device.
 
-- OS architecture
+- **MAC address** - The MAC address of the device.
 
-- IP address
+- **First seen** - The date and time the device was first seen. In format MM/DD/YYYY HH:MM:SS AM/PM.
 
-- MAC address
-
-- First seen  
-
-- Last seen
+- **Last seen** - The date and time the device was last seen. Presented in format MM/DD/YYYY HH:MM:SS AM/PM.
 
 ## Baseline (trigger based)
 
