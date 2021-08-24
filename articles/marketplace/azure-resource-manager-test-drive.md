@@ -21,7 +21,7 @@ For information on a **hosted** or **logic app** test drive, see [What is a test
 
 A deployment template contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. Set the following properties in Partner Center:
 
-- **Regions** (required) – Currently there are 26 Azure-supported regions where your test drive can be made available. For the best performance, we recommmend choosing one region where you expect the largest number of customers to be located. You will need to make sure that your subscription is allowed to deploy all of the resources needed in each of the regions you are selecting.
+- **Regions** (required) – Currently there are 26 Azure-supported regions where your test drive can be made available. For the best performance, we recommend choosing one region where you expect the largest number of customers to be located. You will need to make sure that your subscription is allowed to deploy all of the resources needed in each of the regions you are selecting.
 
 - **Instances** – Select the type (hot or cold) and number of available instances, which will be multiplied by the number of regions where your offer is available.
 
@@ -307,7 +307,7 @@ The final section to complete is to be able to deploy the test drives automatica
     1. **Install the Azure Az PowerShell module**.
 
         1. Open Powershell.
-        1. Run `Get-InstalledModule Az` to check if you already have the module installed. If not, install using **Install the Azure Az PowerShell module**.<font color="red"> Is this a command? Button? Subheading?</font>
+        1. Run `Get-InstalledModule Az` to check if you already have the module installed. If not, install using **Install the Azure Az PowerShell module**. <font color=red> Is this a command? Link? </font>
 
      1. **Add the Service Principal for Microsoft Test-Drive application**.
         1. Run `Connect-AzAccount` and provide credentials to sign in to your Azure account.
@@ -333,9 +333,10 @@ The final section to complete is to be able to deploy the test drives automatica
 
    1. Select **Save**.
 
-7. <strike>Generate an **Azure AD App** authentication key. Under **Keys**, add a **Key Description**, set the duration to **Never expires** (an expired key will break your test drive in production), then select **Save**. Copy and paste this value into your required test drive field.</strike>
-
-![Shows the Keys for the Azure AD application](media/test-drive/azure-ad-app-keys.png)
+> [!NOTE]
+> Before deleting the old appID, go to the Azure portal, then **Resource groups**, and search for `CloudTry_`. Check the **Event initiated by** field. Don't delete the old appID unless at least one resource is set to **Microsoft TestDrive**.
+>
+> To delete the appID, in the left nav menu select **Azure Active Directory** > **App Registrations**, then the **All applications** tab. Choose your application and select **Delete**. A deletion can take up to a week to process.
 
 ## Republish
 
