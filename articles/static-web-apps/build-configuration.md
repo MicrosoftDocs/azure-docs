@@ -145,17 +145,13 @@ You can take fine-grained control over what commands run during the app or API b
 ```yaml
 ...
 
-steps:
-  - checkout: self
-    submodules: true
-  - task: AzureStaticWebApp@0
-    inputs:
-      app_location: '/src'
-      api_location: 'api'
-      app_build_command: 'npm run build-ui-prod'
-      api_build_command: 'npm run build-api-prod'
-      output_location: '/public'
-      azure_static_web_apps_api_token: $(deployment_token)
+inputs:
+  app_location: '/src'
+  api_location: 'api'
+  app_build_command: 'npm run build-ui-prod'
+  api_build_command: 'npm run build-api-prod'
+  output_location: '/public'
+  azure_static_web_apps_api_token: $(deployment_token)
 ```
 
 # [GitHub Actions](#tab/github-actions)
@@ -180,7 +176,11 @@ with:
 
 If you need full control of the build for your front-end app, you may choose to bypass the automatic build and deploy the app built in a previous step.
 
-To skip building the front-end app, set `skip_app_build` to `true` and `app_location` to the location of the folder to deploy.
+To skip building the front-end app:
+
+- Set `app_location` to the location the files you wan to deploy.
+- Set `skip_app_build` to `true`.
+- Set `output_location` to an empty string (`''`).
 
 # [Azure DevOps](#tab/azure-devops)
 
@@ -277,6 +277,24 @@ To target a workflow file to a single app, you specify paths in the `push` and `
 ├── azure-pipelines.yml
 │
 └── README.md
+```
+
+```yaml
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - checkout: self
+    submodules: true
+  - task: AzureStaticWebApp@0
+    inputs:
+      app_location: '/src'
+      api_location: 'api'
+      output_location: '/public'
+      azure_static_web_apps_api_token: $(deployment_token)
 ```
 
 # [GitHub Actions](#tab/github-actions)
