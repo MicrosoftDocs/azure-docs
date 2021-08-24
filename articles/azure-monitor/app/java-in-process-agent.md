@@ -191,6 +191,108 @@ to enable this preview feature and auto-collect the telemetry emitted by these A
 [//]: # "}"
 [//]: # "console.log(str)"
 
+## Modify Telemetry
+
+### Add Span Attributes
+
+> [!NOTE]
+> This feature is only in 3.0.2 and later
+
+Add `applicationinsights-web-2.6.3.jar` to your application
+(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.3</version>
+</dependency>
+```
+
+and add custom dimensions in your code:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.getProperties().put("mydimension", "myvalue");
+```
+
+#### Set the request telemetry user_Id using the 2.x SDK
+
+> [!NOTE]
+> This feature is only in 3.0.2 and later
+
+Add `applicationinsights-web-2.6.3.jar` to your application
+(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.3</version>
+</dependency>
+```
+
+and set the `user_Id` in your code:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.getContext().getUser().setId("myuser");
+```
+
+### Override the request telemetry name using the 2.x SDK
+
+> [!NOTE]
+> This feature is only in 3.0.2 and later
+
+Add `applicationinsights-web-2.6.3.jar` to your application
+(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.3</version>
+</dependency>
+```
+
+and set the name in your code:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+requestTelemetry.setName("myname");
+```
+
+### Get the request telemetry Id and the operation Id using the 2.x SDK
+
+> [!NOTE]
+> This feature is only in 3.0.3 and later
+
+Add `applicationinsights-web-2.6.3.jar` to your application
+(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>applicationinsights-web</artifactId>
+  <version>2.6.3</version>
+</dependency>
+```
+
+and get the request telemetry Id and the operation Id in your code:
+
+```java
+import com.microsoft.applicationinsights.web.internal.ThreadContext;
+
+RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
+String requestId = requestTelemetry.getId();
+String operationId = requestTelemetry.getContext().getOperation().getId();
+```
 ## Custom Telemetry
 
 Our goal in Application Insights Java 3.x is to allow you to send your custom telemetry using standard APIs.
@@ -320,109 +422,6 @@ try {
 } catch (Exception e) {
     telemetryClient.trackException(e);
 }
-```
-
-## Modify Telemetry
-
-### Add request custom dimensions using the 2.x SDK
-
-> [!NOTE]
-> This feature is only in 3.0.2 and later
-
-Add `applicationinsights-web-2.6.3.jar` to your application
-(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
-
-```xml
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.3</version>
-</dependency>
-```
-
-and add custom dimensions in your code:
-
-```java
-import com.microsoft.applicationinsights.web.internal.ThreadContext;
-
-RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
-requestTelemetry.getProperties().put("mydimension", "myvalue");
-```
-
-### Set the request telemetry user_Id using the 2.x SDK
-
-> [!NOTE]
-> This feature is only in 3.0.2 and later
-
-Add `applicationinsights-web-2.6.3.jar` to your application
-(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
-
-```xml
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.3</version>
-</dependency>
-```
-
-and set the `user_Id` in your code:
-
-```java
-import com.microsoft.applicationinsights.web.internal.ThreadContext;
-
-RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
-requestTelemetry.getContext().getUser().setId("myuser");
-```
-
-### Override the request telemetry name using the 2.x SDK
-
-> [!NOTE]
-> This feature is only in 3.0.2 and later
-
-Add `applicationinsights-web-2.6.3.jar` to your application
-(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
-
-```xml
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.3</version>
-</dependency>
-```
-
-and set the name in your code:
-
-```java
-import com.microsoft.applicationinsights.web.internal.ThreadContext;
-
-RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
-requestTelemetry.setName("myname");
-```
-
-### Get the request telemetry Id and the operation Id using the 2.x SDK
-
-> [!NOTE]
-> This feature is only in 3.0.3 and later
-
-Add `applicationinsights-web-2.6.3.jar` to your application
-(all 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest if you have a choice):
-
-```xml
-<dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>applicationinsights-web</artifactId>
-  <version>2.6.3</version>
-</dependency>
-```
-
-and get the request telemetry Id and the operation Id in your code:
-
-```java
-import com.microsoft.applicationinsights.web.internal.ThreadContext;
-
-RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
-String requestId = requestTelemetry.getId();
-String operationId = requestTelemetry.getContext().getOperation().getId();
 ```
 
 ## Troubleshooting
