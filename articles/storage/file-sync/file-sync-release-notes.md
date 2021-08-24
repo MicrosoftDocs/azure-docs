@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 8/10/2021
+ms.date: 8/24/2021
 ms.author: wgries
 ms.subservice: files
 ---
@@ -116,7 +116,6 @@ The following items don't sync, but the rest of the system continues to operate 
 - Failover Clustering is supported only with clustered disks, but not with Cluster Shared Volumes (CSVs).
 - A server endpoint can't be nested. It can coexist on the same volume in parallel with another endpoint.
 - Do not store an OS or application paging file within a server endpoint location.
-- The server name in the portal is not updated if the server is renamed.
 
 ### Cloud endpoint
 - Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share. In addition, changes made to an Azure file share over the REST protocol will not update the SMB last modified time and will not be seen as a change by sync.
