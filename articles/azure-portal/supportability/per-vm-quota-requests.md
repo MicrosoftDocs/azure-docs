@@ -40,6 +40,7 @@ VM-series quotas are enforced across all vCPUs for a given VM series, such as th
 
 Spot vCPU quotas apply to spot VMs. When you deploy a new spot VM, the total new and existing vCPU usage for all spot VM instances must not exceed the approved spot vCPU quota limit. If the spot quota is exceeded, the spot VM cannot be deployed. To learn more about increasing spot VM vCPU limits, see [Spot quota: Increase limits for all VM series](low-priority-quota.md).
 
+
 ## Request a standard quota increase from Help + support<a name="hs"></a>
 
 To request a standard vCPU quota increase per VM series from **Help + support**:
