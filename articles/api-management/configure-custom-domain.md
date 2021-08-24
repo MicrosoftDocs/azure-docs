@@ -34,7 +34,7 @@ When you create an Azure API Management service instance, Azure assigns it a `az
 -   An active Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 -   An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 -   A custom domain name that is owned by you or your organization. This topic does not provide instructions on how to procure a custom domain name.
--   A [CNAME-record hosted on a DNS server](#DNS-configuration) that maps the custom domain name to the default domain name of your API Management instance. This topic does not provide instructions on how to host a CNAME-record.
+-   A [CNAME-record hosted on a DNS server](#dns-configuration) that maps the custom domain name to the default domain name of your API Management instance. This topic does not provide instructions on how to host a CNAME-record.
 -   A valid certificate with a public and private key (.PFX). Subject or subject alternative name (SAN) has to match the domain name (this enables API Management instance to securely expose URLs over TLS).
 
 ## Use the Azure portal to set a custom domain name
@@ -118,7 +118,7 @@ A CNAME-record maps a *specific* domain (such as `contoso.com` or www\.contoso.c
 An A-record maps a domain, such as `contoso.com` or **www\.contoso.com**, *or a wildcard domain*, such as **\*.contoso.com**, to an IP address. Since an A-record is mapped to a static IP address, it cannot automatically resolve changes to the IP address. We recommend using the more stable CNAME-record instead of an A-record.
 
 > [!NOTE]
-> Although the API Management instance IP address is static, it may change in a few scenarios. When choosing DNS configuration method, we recommend using a CNAME-record when configuring custom domain, as it is more stable than an A-record in case the IP changes. Read more in the [the IP documentation article](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) and the [API Management FAQ](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services).
+> Although the API Management instance IP address is static, it may change in a few scenarios. When choosing DNS configuration method, we recommend using a CNAME-record when configuring custom domain, as it is more stable than an A-record in case the IP changes. Read more in the [the IP documentation article](api-management-howto-ip-addresses.md#changes-to-the-ip-addresses) and the [API Management FAQ](./api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services-).
 
 ## Next steps
 
