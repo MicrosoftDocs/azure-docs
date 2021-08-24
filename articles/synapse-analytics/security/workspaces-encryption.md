@@ -1,12 +1,12 @@
 ---
 title: Azure Synapse Analytics encryption
 description: An article that explains encryption in Azure Synapse Analytics
-author: nanditavalsan, meenalsri
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 07/20/2021
-ms.author: nanditav, mesrivas
+ms.author: mesrivas
 ms.reviewer: jrasnick, wiassaf
 
 
