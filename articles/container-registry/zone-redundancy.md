@@ -239,4 +239,4 @@ In the command output, note the `zoneRedundancy` property for the registry and t
 ## Next steps
 
 * Learn more about [regions that support availability zones](../availability-zones/az-region.md).
-* Learn more about building for [reliability](/azure/architecture/framework/resiliency/overview) in Azure.
+* Learn more about building for [reliability](/azure/architecture/framework/resiliency/app-design) in Azure.

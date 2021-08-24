@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/06/2021
+ms.date: 07/15/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
@@ -28,6 +28,7 @@ ms.reviewer: tasharm, assafi, sumeh
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) with version 8 or above
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource </a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -86,6 +87,12 @@ import com.azure.ai.textanalytics.TextAnalyticsClient;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import java.util.Arrays;
+import com.azure.core.util.Context;
+import com.azure.core.util.polling.SyncPoller;
+import com.azure.ai.textanalytics.util.AnalyzeHealthcareEntitiesResultCollection;
+import com.azure.ai.textanalytics.util.AnalyzeHealthcareEntitiesPagedIterable;
 ```
 
 # [Version 3.0](#tab/version-3)
@@ -153,6 +160,8 @@ public static void main(String[] args) {
 ## Object model
 
 The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
+
+[!INCLUDE [text-analytics-character-limits](../character-limits.md)]
 
 ## Code examples
 
@@ -384,7 +393,7 @@ Recognized entity: last week, entity category: DateTime, entity sub-category: Da
 ```
 
 
-### Personally Identifiable Information Recognition
+## Personally Identifiable Information (PII) recognition
 
 Create a new function called `recognizePiiEntitiesExample()` that takes the client that you created earlier, and call its `recognizePiiEntities()` function. The returned `PiiEntityCollection` object will contain a list of `PiiEntity` if successful, or an `errorMessage` if not. It will also
 contain the redacted text, which consists of the input text with all identifiable entities replaced with `*****`.
@@ -591,6 +600,89 @@ Recognized phrases:
 cat
 veterinarian
 ```
+---
+
+## Extract health entities
+
+# [Version 3.1](#tab/version-3-1)
+
+You can use Text Analytics to perform an asynchronous request to extract healthcare entities from text. The below sample shows a basic example. You can find a more advanced sample [on GitHub](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeHealthcareEntities.java).
+
+
+```java
+static void healthExample(TextAnalyticsClient client){
+    List<TextDocumentInput> documents = Arrays.asList(
+            new TextDocumentInput("0",
+                    "Prescribed 100mg ibuprofen, taken twice daily."));
+
+    AnalyzeHealthcareEntitiesOptions options = new AnalyzeHealthcareEntitiesOptions().setIncludeStatistics(true);
+
+    SyncPoller<AnalyzeHealthcareEntitiesOperationDetail, AnalyzeHealthcareEntitiesPagedIterable>
+            syncPoller = client.beginAnalyzeHealthcareEntities(documents, options, Context.NONE);
+
+    System.out.printf("Poller status: %s.%n", syncPoller.poll().getStatus());
+    syncPoller.waitForCompletion();
+
+    // Task operation statistics
+    AnalyzeHealthcareEntitiesOperationDetail operationResult = syncPoller.poll().getValue();
+    System.out.printf("Operation created time: %s, expiration time: %s.%n",
+            operationResult.getCreatedAt(), operationResult.getExpiresAt());
+    System.out.printf("Poller status: %s.%n", syncPoller.poll().getStatus());
+
+    for (AnalyzeHealthcareEntitiesResultCollection resultCollection : syncPoller.getFinalResult()) {
+        // Model version
+        System.out.printf(
+                "Results of Azure Text Analytics \"Analyze Healthcare Entities\" Model, version: %s%n",
+                resultCollection.getModelVersion());
+
+        for (AnalyzeHealthcareEntitiesResult healthcareEntitiesResult : resultCollection) {
+            System.out.println("Document ID = " + healthcareEntitiesResult.getId());
+            System.out.println("Document entities: ");
+            // Recognized healthcare entities
+            for (HealthcareEntity entity : healthcareEntitiesResult.getEntities()) {
+                System.out.printf(
+                        "\tText: %s, normalized name: %s, category: %s, subcategory: %s, confidence score: %f.%n",
+                        entity.getText(), entity.getNormalizedText(), entity.getCategory(),
+                        entity.getSubcategory(), entity.getConfidenceScore());
+            }
+            // Recognized healthcare entity relation groups
+            for (HealthcareEntityRelation entityRelation : healthcareEntitiesResult.getEntityRelations()) {
+                System.out.printf("Relation type: %s.%n", entityRelation.getRelationType());
+                for (HealthcareEntityRelationRole role : entityRelation.getRoles()) {
+                    HealthcareEntity entity = role.getEntity();
+                    System.out.printf("\tEntity text: %s, category: %s, role: %s.%n",
+                            entity.getText(), entity.getCategory(), role.getName());
+                }
+            }
+        }
+    }
+}
+```
+
+### output
+
+```console
+Poller status: IN_PROGRESS.
+Operation created time: 2021-07-20T19:45:50Z, expiration time: 2021-07-21T19:45:50Z.
+Poller status: SUCCESSFULLY_COMPLETED.
+Results of Azure Text Analytics "Analyze Healthcare Entities" Model, version: 2021-05-15
+Document ID = 0
+Document entities: 
+	Text: 100mg, normalized name: null, category: Dosage, subcategory: null, confidence score: 1.000000.
+	Text: ibuprofen, normalized name: ibuprofen, category: MedicationName, subcategory: null, confidence score: 1.000000.
+	Text: twice daily, normalized name: null, category: Frequency, subcategory: null, confidence score: 1.000000.
+Relation type: DosageOfMedication.
+	Entity text: 100mg, category: Dosage, role: Dosage.
+	Entity text: ibuprofen, category: MedicationName, role: Medication.
+Relation type: FrequencyOfMedication.
+	Entity text: ibuprofen, category: MedicationName, role: Medication.
+	Entity text: twice daily, category: Frequency, role: Frequency.
+```
+
+# [Version 3.0](#tab/version-3)
+
+This feature is not available in version 3.0.
+
 ---
 
 ## Use the API asynchronously with the Analyze operation

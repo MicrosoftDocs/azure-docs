@@ -18,7 +18,7 @@ ms.custom: contperf-fy21q2
 
 # Query the Azure Digital Twins twin graph
 
-This article offers query examples and instructions for using the **Azure Digital Twins query language** to query your [twin graph](concepts-twins-graph.md) for information. (For an introduction to the query language, see [Concepts: Query language](concepts-query-language.md).)
+This article offers query examples and instructions for using the **Azure Digital Twins query language** to query your [twin graph](concepts-twins-graph.md) for information. (For an introduction to the query language, see [Query language](concepts-query-language.md).)
 
 The article contains sample queries that illustrate the query language structure and common query operations for digital twins. It also describes how to run your queries after you've written them, using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query) or an [SDK](concepts-apis-sdks.md#overview-data-plane-apis).
 
@@ -109,6 +109,8 @@ The following sections give examples of what this looks like.
 Here's a sample relationship-based query. This code snippet selects all digital twins with an *ID* property of 'ABC', and all digital twins related to these digital twins via a *contains* relationship.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryByRelationship1":::
+
+The type of the relationship (`contains` in the example above) is indicated using the relationship's **name** field from its [DTDL definition](concepts-models.md#basic-relationship-example).
 
 > [!NOTE]
 > The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.

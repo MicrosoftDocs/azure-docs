@@ -43,7 +43,7 @@ Key features of Azure Arc include:
 
 * Run [Azure data services](../azure-arc/kubernetes/custom-locations.md) on any Kubernetes environment as if it runs in Azure (specifically Azure SQL Managed Instance and Azure Database for PostgreSQL Hyperscale, with benefits such as upgrades, updates, security, and monitoring). Use elastic scale and apply updates without any application downtime, even without continuous connection to Azure.
 
-* Create [custom locations](./kubernetes/custom-locations.md) on top of your [Azure Arc enabled Kubernetes](./kubernetes/overview.md) clusters, using them as target locations for deploying Azure services instances. Deploy your Azure service cluster extensions for [Azure Arc enabled Data Services](./data/deploy-data-controller-direct-mode.md), [App Services on Azure Arc](../app-service/overview-arc-integration.md) (including web, function, and logic apps) and [Event Grid on Kubernetes](../event-grid/kubernetes/overview.md).
+* Create [custom locations](./kubernetes/custom-locations.md) on top of your [Azure Arc enabled Kubernetes](./kubernetes/overview.md) clusters, using them as target locations for deploying Azure services instances. Deploy your Azure service cluster extensions for [Azure Arc enabled Data Services](./data/create-data-controller-direct-azure-portal.md), [App Services on Azure Arc](../app-service/overview-arc-integration.md) (including web, function, and logic apps) and [Event Grid on Kubernetes](../event-grid/kubernetes/overview.md).
 
 * A unified experience viewing your Azure Arc enabled resources whether you are using the Azure portal, the Azure CLI, Azure PowerShell, or Azure REST API.
 
@@ -51,7 +51,7 @@ Key features of Azure Arc include:
 
 The following are pricing details for the features available today with Azure Arc.
 
-### Arc enabled servers
+### Arc-enabled servers
 
 The following Azure Arc control plane functionality is offered at no extra cost:
 
@@ -65,7 +65,7 @@ The following Azure Arc control plane functionality is offered at no ex
 
 * Update management.
 
-Any Azure service that is used on Arc enabled servers, for example Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information, see the [Azure pricing page](https://azure.microsoft.com/pricing/).
+Any Azure service that is used on Arc-enabled servers, for example Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information, see the [Azure pricing page](https://azure.microsoft.com/pricing/).
 
 ### Azure Arc enabled Kubernetes
 
@@ -77,7 +77,7 @@ In the current preview phase, Azure Arc enabled data services are offered at no 
 
 ## Next steps
 
-* To learn more about Arc enabled servers, see the following [overview](./servers/overview.md)
+* To learn more about Arc-enabled servers, see the following [overview](./servers/overview.md)
 
 * To learn more about Arc enabled Kubernetes, see the following [overview](./kubernetes/overview.md)
 

@@ -24,7 +24,7 @@ Microsoft provides two REST APIs for working with Azure Storage resources. These
 
 A request that reads or writes blob data requires different permissions than a request that performs a management operation. Azure RBAC provides fine-grained control over permissions to both types of resources. When you assign an Azure role to a security principal, make sure that you understand what permissions that principal will be granted. For a detailed reference that describes which actions are associated with each Azure built-in role, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-Azure Storage supports using Azure AD to authorize requests against Blob and Queue storage. For information about Azure roles for blob and queue data operations, see [Authorize access to blobs and queues using Active Directory](storage-auth-aad.md).
+Azure Storage supports using Azure AD to authorize requests against Blob and Queue storage. For information about Azure roles for blob and queue data operations, see [Authorize access to blobs and queues using Active Directory](authorize-data-access.md).
 
 ## Assign management permissions with Azure role-based access control (Azure RBAC)
 

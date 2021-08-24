@@ -7,21 +7,19 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 07/27/2021
 ms.author: cherylmc
 
 ---
 # Install client certificates for P2S certificate authentication connections
 
-When a P2S VPN gateway is configured to require certificate authentication, each client must have a client certificate installed locally. You can generate a client certificate from either a self-signed root certificate, or from a root certificate that was generated using an Enterprise CA solution. 
+When a P2S VPN gateway is configured to require certificate authentication, each client computer must have a client certificate installed locally. This article helps you install a client certificate.
 
-When you generate a client certificate, the certificate is typically automatically installed on the client computer from which it was generated. If you want to connect to your VNet from a different client computer, you need to install a client certificate on the computer from which you are connecting. This is in addition to configuring the VPN client on that computer.
+If you want to generate a client certificate from a self-signed root certificate, see one of the following articles:
 
-You can use multiple methods to generate and export self-signed certificates. For more information, see the following articles:
-
-* [PowerShell](vpn-gateway-certificates-point-to-site.md)
-* [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
-* [Linux](vpn-gateway-certificates-point-to-site-linux.md) 
+* [Generate certificates - PowerShell](vpn-gateway-certificates-point-to-site.md)
+* [Generate certificates - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
+* [Generate certificates - Linux](vpn-gateway-certificates-point-to-site-linux.md) 
 
 ## <a name="installwin"></a>Windows
 
@@ -30,7 +28,7 @@ You can use multiple methods to generate and export self-signed certificates. Fo
 ## <a name="installmac"></a>Mac
 
 >[!NOTE]
->Mac VPN clients are supported for the Resource Manager deployment model only. They are not supported for the classic deployment model.
+>Mac VPN clients are supported for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not supported for the classic deployment model.
 >
 >
 

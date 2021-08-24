@@ -15,7 +15,7 @@ ms.date: 03/19/2021
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
 
-In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your SAP Adapter Server Enterprise (ASE) databases to an Azure SQL database by using [SQL Server Migration](https://azure.microsoft.com/en-us/migration/sql-server/) Assistant for SAP Adapter Server Enterprise.
+In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your SAP Adapter Server Enterprise (ASE) databases to an Azure SQL database by using [SQL Server Migration](https://azure.microsoft.com/migration/sql-server/) Assistant for SAP Adapter Server Enterprise.
 
 For other migration guides, see [Azure Database Migration Guide](/data-migration). 
 
@@ -24,7 +24,7 @@ For other migration guides, see [Azure Database Migration Guide](/data-migration
 Before you begin migrating your SAP SE database to your SQL database, do the following:
 
 - Verify that your source environment is supported. 
-- Download and install [SQL Server Migration Assistant for SAP Adaptive Server Enterprise (formerly SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256).
+- Download and install [SQL Server Migration Assistant for SAP Adaptive Server Enterprise (formerly SAP Sybase ASE)](https://www.microsoft.com/download/details.aspx?id=54256).
 - Ensure that you have connectivity and sufficient permissions to access both source and target.
 
 ## Pre-migration
@@ -33,7 +33,7 @@ After you've met the prerequisites, you're ready to discover the topology of you
 
 ### Assess
 
-By using [SQL Server Migration Assistant (SSMA) for SAP Adaptive Server Enterprise (formally SAP Sybase ASE)](https://www.microsoft.com/en-us/download/details.aspx?id=54256), you can review database objects and data, assess databases for migration, migrate Sybase database objects to your SQL database, and then migrate data to the SQL database. To learn more, see [SQL Server Migration Assistant for Sybase (SybaseToSQL)](/sql/ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql).
+By using [SQL Server Migration Assistant (SSMA) for SAP Adaptive Server Enterprise (formally SAP Sybase ASE)](https://www.microsoft.com/download/details.aspx?id=54256), you can review database objects and data, assess databases for migration, migrate Sybase database objects to your SQL database, and then migrate data to the SQL database. To learn more, see [SQL Server Migration Assistant for Sybase (SybaseToSQL)](/sql/ssma/sybase/sql-server-migration-assistant-for-sybase-sybasetosql).
 
 To create an assessment, do the following: 
 

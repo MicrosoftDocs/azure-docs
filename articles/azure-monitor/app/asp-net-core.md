@@ -462,7 +462,7 @@ It's important to note that the following doesn't cause the ApplicationInsights 
 }
 ```
 
-For more information, see [ILogger configuration](ilogger.md#control-logging-level).
+For more information, see [ILogger configuration](ilogger.md#logging-level).
 
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 
@@ -482,7 +482,7 @@ If the SDK is installed at build time as shown in this article, you don't need t
    * You can track additional custom telemetry by using the `TrackXXX()` API.
    * You have full control over the configuration.
 
-### Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formally Status Monitor v2)?
+### Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formerly Status Monitor v2)?
 
 No, [Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md) currently supports only ASP.NET 4.x.
 

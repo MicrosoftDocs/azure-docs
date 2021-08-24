@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage the twin graph with relationships
+title: Manage the twin graph and relationships
 titleSuffix: Azure Digital Twins
 description: See how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
@@ -21,7 +21,7 @@ The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) re
 
 Once you have a working [Azure Digital Twins instance](how-to-set-up-instance-portal.md) and have set up [authentication](how-to-authenticate-client.md) code in your client app, you can create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
 
-This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [How-to: Manage digital twins](how-to-manage-twin.md).
+This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [Manage digital twins](how-to-manage-twin.md).
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ This custom function can now be called to create a _contains_ relationship in th
 
 If you wish to create multiple relationships, you can repeat calls to the same method, passing different relationship types into the argument. 
 
-For more information on the helper class `BasicRelationship`, see [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers).
+For more information on the helper class `BasicRelationship`, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers).
 
 ### Create multiple relationships between twins
 
@@ -219,5 +219,5 @@ Here's the console output of the program:
 ## Next steps
 
 Learn about querying an Azure Digital Twins twin graph:
-* [Concepts: Query language](concepts-query-language.md)
-* [How-to: Query the twin graph](how-to-query-graph.md)
+* [Query language](concepts-query-language.md)
+* [Query the twin graph](how-to-query-graph.md)

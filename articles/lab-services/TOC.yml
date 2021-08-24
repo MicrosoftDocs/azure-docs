@@ -106,12 +106,24 @@
       href: how-to-connect-peer-virtual-network.md
     - name: How to create a lab with a shared resource
       href: how-to-create-a-lab-with-shared-resource.md
-    - name: Use shared image gallery
+    - name: Use shared image gallery for custom images
       items:
       - name: Attach or detach a shared image gallery
         href: how-to-attach-detach-shared-image-gallery.md
-      - name: Upload a Windows custom image to shared image gallery
-        href: upload-custom-image-shared-image-gallery.md
+      - name: Create custom images for labs
+        href: approaches-for-custom-image-creation.md
+      - name: Windows
+        items:
+          - name: Bring a custom image from an Azure VM
+            href: how-to-bring-custom-windows-image-azure-vm.md
+          - name: Bring a custom image from a physical environment
+            href: upload-custom-image-shared-image-gallery.md
+      - name: Linux
+        items:
+          - name: Bring a custom image from an Azure VM
+            href: how-to-bring-custom-linux-image-azure-vm.md
+          - name: Bring a custom image from a physical environment
+            href: how-to-bring-custom-linux-image-vhd.md
     - name: Add additional owners to a classroom lab
       href: how-to-add-user-lab-owner.md
     - name: Configure firewall settings
@@ -197,7 +209,7 @@
   - name: Az.LabServices PowerShell module (preview)
     href: reference-powershell-module.md
   - name: Azure CLI
-    href: /cli/azure/hack
+    href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
 - name: Resources
   items:
   - name: Azure Lab Services Blog

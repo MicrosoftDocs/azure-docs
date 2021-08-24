@@ -52,8 +52,6 @@ Resource Health isn't supported.
 
 * Learn about [Virtual Network NAT](nat-overview.md)
 * Learn about [NAT gateway resource](nat-gateway-resource.md)
-* Learn about [Azure Monitor](/azure/azure-monitor/overview)
+* Learn about [Azure Monitor](../../azure-monitor/overview.md)
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
 * [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
-
-

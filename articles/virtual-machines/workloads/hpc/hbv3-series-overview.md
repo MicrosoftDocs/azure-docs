@@ -5,7 +5,7 @@ services: virtual-machines
 author: vermagit 
 tags: azure-resource-manager 
 ms.service: virtual-machines 
-ms.subservice: workloads
+ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
 ms.date: 03/25/2021 
@@ -14,6 +14,8 @@ ms.reviewer: cynthn
 --- 
 
 # HBv3-series virtual machine overview 
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 An [HBv3-series](../../hbv3-series.md) server features 2 * 64-core EPYC 7V13 CPUs for a total of 128 physical "Zen3" cores. Simultaneous Multithreading (SMT) is disabled on HBv3. These 128 cores are divided into 16 sections (8 per socket), each section containing 8 processor cores with uniform access to a 32 MB L3 cache. Azure HBv3 servers also run the following AMD BIOS settings:
 
@@ -125,7 +127,7 @@ When paired in a striped array, the NVMe SSD provides up to 7 GB/s reads and 3 G
 | Orchestrator Support           | Azure CycleCloud, Azure Batch, AKS; [cluster configuration options](../../sizes-hpc.md#cluster-configuration-options)                      | 
 
 > [!NOTE] 
-> Windows Server 2012 R2 is not supported on HBv3 and other VMs with more than 64 (virtual or physical) cores. See [here](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) for more details.
+> Windows Server 2012 R2 is not supported on HBv3 and other VMs with more than 64 (virtual or physical) cores. See [Supported Windows guest operating systems for Hyper-V on Windows Server](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) for more details.
 
 ## Next steps
 

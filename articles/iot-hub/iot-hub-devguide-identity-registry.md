@@ -176,8 +176,8 @@ Device identities are represented as JSON documents with the following propertie
 | etag |required, read-only |A string representing a weak ETag for the device identity, as per [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | authentication |optional |A composite object containing authentication information and security materials. For more information, see [Authentication Mechanism](/rest/api/iothub/service/devices/get-identity#authenticationmechanism) in the REST API documentation. |
 | capabilities | optional | The set of capabilities of the device. For example, whether the device is an edge device or not. For more information, see [Device Capabilities](/rest/api/iothub/service/devices/get-identity#devicecapabilities) in the REST API documentation. |
-| deviceScope | optional | The scope of the device. In edge devices, auto generated and immutable. Deprecated in non-edge devices. However, in child (leaf) devices, set this property to the same value as the **parentScopes** property (the **deviceScope** of the parent device) for backward compatibility with previous versions of the API. For more information, see [IoT Edge as a gateway: Parent and child relationships](/azure/iot-edge/iot-edge-as-gateway#parent-and-child-relationships).|
-| parentScopes | optional | The scope of a child device's direct parent (the value of the **deviceScope** property of the parent device). In edge devices, the value is empty if the device has no parent. In non-edge devices, the property is not present if the device has no parent. For more information, see [IoT Edge as a gateway: Parent and child relationships](/azure/iot-edge/iot-edge-as-gateway#parent-and-child-relationships). |
+| deviceScope | optional | The scope of the device. In edge devices, auto generated and immutable. Deprecated in non-edge devices. However, in child (leaf) devices, set this property to the same value as the **parentScopes** property (the **deviceScope** of the parent device) for backward compatibility with previous versions of the API. For more information, see [IoT Edge as a gateway: Parent and child relationships](../iot-edge/iot-edge-as-gateway.md#parent-and-child-relationships).|
+| parentScopes | optional | The scope of a child device's direct parent (the value of the **deviceScope** property of the parent device). In edge devices, the value is empty if the device has no parent. In non-edge devices, the property is not present if the device has no parent. For more information, see [IoT Edge as a gateway: Parent and child relationships](../iot-edge/iot-edge-as-gateway.md#parent-and-child-relationships). |
 | status |required |An access indicator. Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
 | statusReason |optional |A 128 character-long string that stores the reason for the device identity status. All UTF-8 characters are allowed. |
 | statusUpdateTime |read-only |A temporal indicator, showing the date and time of the last status update. |
@@ -239,7 +239,7 @@ Now that you have learned how to use the IoT Hub identity registry, you may be i
 
 To try out some of the concepts described in this article, see the following IoT Hub tutorial:
 
-* [Get started with Azure IoT Hub](quickstart-send-telemetry-dotnet.md)
+* [Get started with Azure IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 
 To explore using the IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning, see: 
 

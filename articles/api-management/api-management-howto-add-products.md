@@ -159,7 +159,7 @@ az apim product api delete --resource-group apim-hello-word-resource-group \
 ---
 
 > [!TIP]
-> You can create or update a user's subscription to a product with custom subscription keys through a [REST API](/rest/api/apimanagement/2019-12-01/subscription/createorupdate) or PowerShell command.
+> You can create or update a user's subscription to a product with custom subscription keys through a [REST API](/rest/api/apimanagement/2020-12-01/subscription/create-or-update) or PowerShell command.
 
 ## Next steps
 
