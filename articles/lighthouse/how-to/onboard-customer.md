@@ -30,31 +30,7 @@ To onboard a customer's tenant, it must have an active Azure subscription. You'l
 - The tenant ID of the customer's tenant (which will have resources managed by the service provider).
 - The subscription IDs for each specific subscription in the customer's tenant that will be managed by the service provider (or that contains the resource group(s) that will be managed by the service provider).
 
-If you don't have these ID values already, you can retrieve them in one of the following ways. Be sure and use these exact values in your deployment.
-
-### Azure portal
-
-Your tenant ID can be seen by hovering over your account name on the upper right-hand side of the Azure portal, or by selecting **Switch directory**. To select and copy your tenant ID, search for "Azure Active Directory" from within the portal, then select **Properties** and copy the value shown in the **Directory ID** field. To find the ID of a subscription in the customer tenant, search for "Subscriptions" and then select the appropriate subscription ID.
-
-### PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-Select-AzSubscription <subscriptionId>
-```
-
-### Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set --subscription <subscriptionId/name>
-az account show
-```
-
-> [!NOTE]
-> When onboarding a subscription (or one or more resource groups within a subscription) using the process described here, the **Microsoft.ManagedServices** resource provider will be registered for that subscription.
+If you don't know the ID for a tenant, you can [retrieve it by using the Azure portal, Azure PowerShell, or Azure CLI](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
 
 ## Define roles and permissions
 
@@ -63,7 +39,7 @@ As a service provider, you may want to perform multiple tasks for a single custo
 > [!NOTE]
 > Unless explicitly specified, references to a "user" in the Azure Lighthouse documentation can apply to an Azure AD user, group, or service principal in an authorization.
 
-To define authorizations, you'll need to know the ID values for each user, user group, or service principal in the managing tenant to which you want to grant access. You can retrieve these IDs by [using the Azure portal, Azure PowerShell, or Azure CLI](../../role-based-access-control/role-assignments-template.md#get-object-ids) from within the managing tenant. You'll also need the role definition ID for each [built-in role](../../role-based-access-control/built-in-roles.ms) you want to assign.
+To define authorizations, you'll need to know the ID values for each user, user group, or service principal in the managing tenant to which you want to grant access. You can [retrieve these IDs by using the Azure portal, Azure PowerShell, or Azure CLI](../../role-based-access-control/role-assignments-template.md#get-object-ids) from within the managing tenant. You'll also need the role definition ID for each [built-in role](../../role-based-access-control/built-in-roles.md) you want to assign.
 
 > [!TIP]
 > We recommend assigning the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) when onboarding a customer, so that users in your tenant can [remove access to the delegation](remove-delegation.md) later if needed. If this role is not assigned, delegated resources can only be removed by a user in the customer's tenant.
@@ -195,6 +171,8 @@ The last authorization in the example above adds a **principalId** with the User
 ## Deploy the Azure Resource Manager template
 
 Once you have created your template, a user in the customer's tenant must deploy it within their tenant. A separate deployment is needed for each subscription that you want to onboard (or for each subscription that contains resource groups that you want to onboard).
+
+When onboarding a subscription (or one or more resource groups within a subscription) using the process described here, the **Microsoft.ManagedServices** resource provider will be registered for that subscription.
 
 > [!IMPORTANT]
 > This deployment must be done by a non-guest account in the customer's tenant who has a role with the `Microsoft.Authorization/roleAssignments/write` permission, such as [Owner](../../role-based-access-control/built-in-roles.md#owner), for the subscription being onboarded (or which contains the resource groups that are being onboarded). To find users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
