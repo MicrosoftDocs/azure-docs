@@ -95,4 +95,6 @@ You can delete a self-hosted integration runtime by navigating to **Integration 
 
 ## Next steps
 
-[How scans detect deleted assets](concept-detect-deleted-assets.md)
+- [How scans detect deleted assets](concept-scans-and-ingestion.md#how-scans-detect-deleted-assets)
+
+- [Use private endpoints with Purview](catalog-private-link.md)
