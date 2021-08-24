@@ -25,7 +25,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* A Log Analytics workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/vm/quick-collect-azurevm.md#create-a-workspace).
+* A Log Analytics workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/vm/monitor-virtual-machine.md).
 
 * An Azure HDInsight cluster. Currently, you can use Azure Monitor logs with the following HDInsight cluster types:
 
@@ -183,7 +183,7 @@ HDInsight support cluster auditing with Azure Monitor logs, by importing the fol
 
 ## Prerequisites
 
-* A Log Analytics workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/vm/quick-collect-azurevm.md#create-a-workspace).
+* A Log Analytics workspace. You can think of this workspace as a unique Azure Monitor logs environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/vm/monitor-virtual-machine.md).
 
 * An Azure HDInsight cluster. Currently, you can use Azure Monitor logs with the following HDInsight cluster types:
 

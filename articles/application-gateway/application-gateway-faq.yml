@@ -80,7 +80,7 @@ sections:
         answer: In Application Gateway V1 SKU, the VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway. In Application Gateway V2 SKU, you can set the IP address as static, so IP and DNS name will not change over the lifetime of the application gateway. 
 
       - question: Does Application Gateway support static IP?
-        answer: Yes, the Application Gateway v2 SKU supports static public IP addresses. The v1 SKU supports static internal IPs.
+        answer: Yes, the Application Gateway v2 SKU supports static public IP addresses and static internal IPs. The v1 SKU supports static internal IPs.
 
       - question: Does Application Gateway support multiple public IPs on the gateway?
         answer: An application gateway supports only one public IP address.

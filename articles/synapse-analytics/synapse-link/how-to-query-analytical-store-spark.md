@@ -45,6 +45,9 @@ Thus, you can choose between loading to Spark DataFrame and creating a Spark tab
 > [!NOTE]
 > To query the Azure Cosmos DB API of Mongo DB accounts, learn more about the [full fidelity schema representation](../../cosmos-db/analytical-store-introduction.md#analytical-schema) in the analytical store and the extended property names to be used.
 
+> [!NOTE]
+> Please note that all `options` in the commands below are case sensitive. For example, you must use `Gateway` while `gateway` will return an error.
+
 ### Load to Spark DataFrame
 
 In this example, you'll create a Spark DataFrame that points to the Azure Cosmos DB analytical store. You can then perform additional analysis by invoking Spark actions against the DataFrame. This operation doesn't impact the transactional store.
@@ -178,7 +181,7 @@ streamQuery = dfStream\
         .option("checkpointLocation", "/localWriteCheckpointFolder")\
         .option("spark.synapse.linkedService", "<enter linked service name>")\
         .option("spark.cosmos.container", "<enter container name>")\
-        .option("spark.cosmos.connection.mode", "gateway")\
+        .option("spark.cosmos.connection.mode", "Gateway")\
         .start()
 
 streamQuery.awaitTermination()
@@ -197,7 +200,7 @@ val query = dfStream.
             option("checkpointLocation", "/localWriteCheckpointFolder").
             option("spark.synapse.linkedService", "<enter linked service name>").
             option("spark.cosmos.container", "<enter container name>").
-            option("spark.cosmos.connection.mode", "gateway").
+            option("spark.cosmos.connection.mode", "Gateway").
             start()
 
 query.awaitTermination()

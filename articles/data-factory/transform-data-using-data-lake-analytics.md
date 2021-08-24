@@ -43,7 +43,7 @@ The Azure Data Lake Analytics linked service requires a service principal authen
 * Application key 
 * Tenant ID
 
-Grant service principal permission to your Azure Data Lake Anatlyics using the [Add User Wizard](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
+Grant service principal permission to your Azure Data Lake Analytics using the [Add User Wizard](../data-lake-analytics/data-lake-analytics-manage-use-portal.md#add-a-new-user).
 
 Use service principal authentication by specifying the following properties:
 
@@ -190,5 +190,5 @@ See the following articles that explain how to transform data in other ways:
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
 * [Spark activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [Azure Machine Learning Studio (classic) Batch Execution activity](transform-data-using-machine-learning.md)
+* [ML Studio (classic) Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

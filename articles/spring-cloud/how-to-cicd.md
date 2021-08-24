@@ -12,9 +12,15 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Automate application deployments to Azure Spring Cloud
 
-Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs.
-
 This article shows you how to use the [Azure Spring Cloud task for Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud) to deploy applications.
+
+Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs. 
+
+The following video describes end-to-end automation using tools of your choice, including Azure Pipelines.
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/D2cfXAbUwDc?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
 ## Create an Azure Resource Manager service connection
 

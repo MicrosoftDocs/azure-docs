@@ -30,7 +30,7 @@ Here is the sample JSON definition of a Databricks Python Activity:
         "description": "MyActivity description",
         "type": "DatabricksSparkPython",
         "linkedServiceName": {
-            "referenceName": "MyDatabricksLinkedservice",
+            "referenceName": "MyDatabricksLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {

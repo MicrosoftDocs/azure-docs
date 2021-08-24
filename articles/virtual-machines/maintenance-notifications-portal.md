@@ -13,7 +13,7 @@ ms.author: shants
 
 # Handling planned maintenance notifications using the portal
 
-**This article applies to virtual machines running both Linux and Windows.**
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Once a [planned maintenance](maintenance-notifications.md) wave is scheduled, you can check for a list of virtual machines that are impacted. 
 

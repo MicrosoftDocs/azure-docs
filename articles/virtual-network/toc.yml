@@ -85,6 +85,8 @@
       href: manage-public-ip-address-prefix.md
     - name: IPv6 for Azure VNet
       href: ipv6-overview.md
+    - name: Default outbound access
+      href: default-outbound-access.md
     - name: Routing preference
       href: routing-preference-overview.md
     - name: Routing preference Unmetered
@@ -126,6 +128,8 @@
       href: subnet-extension.md
     - name: Subnet delegation
       href: subnet-delegation-overview.md
+  - name: Virtual machine networking
+    href: network-overview.md
   - name: Classic deployment
     href: /previous-versions/azure/virtual-network/virtual-network-ip-addresses-overview-classic
 - name: How-to guides
