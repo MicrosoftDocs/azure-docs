@@ -19,9 +19,9 @@ This table lists the versions of HDInsight that are available in the Azure porta
 | [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 16.0.4 LTS |September 24, 2018 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | | |Yes |
 | [HDInsight 3.6](hdinsight-36-component-versioning.md) |Ubuntu 16.0.4 LTS |April 4, 2017      | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Standard support expired on June 30, 2021 for all cluster types<br> Basic support expires on April 3, 2022. See [HDInsight 3.6 component versions](hdinsight-36-component-versioning.md) for cluster type details. |April 4, 2022 |Yes |
 
-## Release notes
+**Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. And it may no longer available through the Azure portal for cluster creation.
 
-For additional release notes on the latest versions of HDInsight, see [HDInsight release notes](hdinsight-release-notes.md).
+**Retirement** means that existing clusters of an HDInsight version continue to run as is. New clusters of this version can't be created through any means, which includes the CLI and SDKs. Other control plane features, such as manual scaling and autoscaling, are not guaranteed to work after retirement date. Support isn't available for retired versions.
 
 ## Support options for HDInsight versions
 
@@ -57,9 +57,9 @@ Basic support does not include the following:
 
 Microsoft does not encourage creating new clusters or building any fresh solutions when a version is in Basic support. We recommend migrating existing clusters to the most recent fully supported version. 
 
-**Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. And it may no longer available through the Azure portal for cluster creation.
+## Release notes
 
-**Retirement** means that existing clusters of an HDInsight version continue to run as is. New clusters of this version can't be created through any means, which includes the CLI and SDKs. Other control plane features, such as manual scaling and autoscaling, are not guaranteed to work after retirement date. Support isn't available for retired versions.
+For additional release notes on the latest versions of HDInsight, see [HDInsight release notes](hdinsight-release-notes.md).
 
 ## Versioning considerations
 - Once a cluster is deployed with an image, that cluster is not automatically upgraded to newer image version. When creating new clusters, most recent image version will be deployed.
