@@ -109,7 +109,7 @@ The key components of the architecture are:
 - **Managed resource group** – Deployed automatically as part of the Azure Monitor for SAP Solutions resource deployment. The resources deployed within managed resource group help with collection of telemetry. Key resources deployed and their purposes are:
    - **Azure virtual machine**: Also known as *collector VM*, it is a Standard_B2ms VM. The main purpose of this VM is to host the *monitoring payload*. Monitoring payload refers to the logic of collecting telemetry from the source systems and transferring the data to the monitoring framework. In the above diagram, the monitoring payload contains the logic to connect to SAP HANA database over SQL port.
    - **[Azure Key Vault](../../../key-vault/general/basic-concepts.md)**: This resource is deployed to securely hold SAP HANA database credentials and to store information about [providers](./azure-monitor-providers.md).
-   - **Log Analytics Workspace**: the destination where the telemetry data is stored.
+   - **Log Analytics Workspace**: The destination where the telemetry data is stored.
       - Visualization is built on top of telemetry in Log Analytics using [Azure Workbooks](../../../azure-monitor/visualize/workbooks-overview.md). You can customize visualization. You can also pin your Workbooks or specific visualization within Workbooks to Azure dashboard for autorefresh. The maximum frequency for refresh is every 30 minutes.
       - You can use your existing workspace within the same subscription as SAP monitor resource by choosing this option at deployment.
       - You can use Kusto query language (KQL) to run [queries](../../../azure-monitor/logs/log-query-overview.md) against the raw tables inside Log Analytics workspace. Look at *Custom Logs*.
@@ -128,30 +128,27 @@ Here are the key highlights of the architecture:
  - **Open source** - The source code of Azure Monitor for SAP Solutions is available in [GitHub](https://github.com/Azure/AzureMonitorForSAPSolutions). You can refer to the provider code and learn more about the product, contribute, or share feedback.
  - **Extensible query framework** - SQL queries to collect telemetry data are written in [JSON](https://github.com/Azure/AzureMonitorForSAPSolutions/blob/master/sapmon/content/SapHana.json). More SQL queries to collect more telemetry data can be easily added. You can request specific telemetry data to be added to Azure Monitor for SAP Solutions. Do so by leaving feedback using the link at the end of this article. You can also leave feedback by contacting your account team.
 
-
 ## Analyzing metrics
 
-Azure Monitor for SAP Solutions does not support metrics. See the following section on analyzing logs.
+Azure Monitor for SAP Solutions does not support metrics. 
 
 ## Analyzing logs
 
-Azure Monitor for SAP Solutions doesn't support resource logs. It does, however, support the activity log. The [Activity log](../../../azure-monitor/essentials/activity-log.md) is a type of platform log within Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics. 
-
-For a list of the tables used by Azure Monitor Logs that can be queried by Log Analytics, see [Monitor SAP on Azure data reference](monitor-sap-on-azure-reference.md#azure-monitor-logs-tables). 
+Azure Monitor for SAP Solutions doesn't support resource logs or activity logs. For a list of the tables used by Azure Monitor Logs that can be queried by Log Analytics, see [Monitor SAP on Azure data reference](monitor-sap-on-azure-reference.md#azure-monitor-logs-tables). 
 
 ### Sample Kusto queries
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Monitor for SAP Solutions menu, Log Analytics is opened with the query scope set to the current Azure Monitor for SAP Solutions. This means that log queries will only include data from that resource. If you want to run a query that includes data from other accounts or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../../../azure-monitor/logs/scope.md) for details.
 
-You can use Kusto queries to help you monitor your Monitor SAP on Azure resources. Here's a sample query that gives you data from a custom log for a specified time range. You specify the number of rows; for instance, in this example, you'll get 5 rows of data. 
+You can use Kusto queries to help you monitor your Monitor SAP on Azure resources. Here's a sample query that gives you data from a custom log for a specified time range. You specify the number of rows; for instance, in this example, you'll get five rows of data. 
 
     ```Kusto
     custom log name 
     | take 5
 
     ```
-For more information on other Kusto queries you can use, see [Use Kusto queries in Azure Data Explorer and Azure Monitor](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+For more information on the many other Kusto queries you can use, see [Use Kusto queries in Azure Data Explorer and Azure Monitor](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
 ## Alerts
 
@@ -162,7 +159,7 @@ You can configure alerts in Azure Monitor for SAP Solutions from the Azure porta
 ## Create Azure Monitor for SAP Solutions resources
 
 You have several options to deploy Azure Monitor for SAP Solutions and configure providers: 
-- As described earlier, you can deploy Azure Monitor for SAP Solutions right from the Azure portal. For more information, see [Deploy Azure Monitor for SAP Solutions by using the Azure portal](azure-monitor-sap-quickstart.md).
+- You can deploy Azure Monitor for SAP Solutions right from the Azure portal. For more information, see [Deploy Azure Monitor for SAP Solutions by using the Azure portal](azure-monitor-sap-quickstart.md).
 - Use Azure PowerShell. For more information, see [Deploy Azure Monitor for SAP Solutions with Azure PowerShell](azure-monitor-sap-quickstart-powershell.md).
 - Use the CLI extension. For more information, see [SAP HANA Command Module](https://github.com/Azure/azure-hanaonazure-cli-extension#sapmonitor).
 
