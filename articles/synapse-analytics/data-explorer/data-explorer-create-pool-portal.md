@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a Data Explorer pool using the Azure portal'
+title: 'Quickstart: Create a Data Explorer pool using the Azure portal (Preview)'
 description: Create a Data Explorer pool using the Azure portal by following the steps in this guide.
 ms.topic: quickstart
 ms.date: 08/20/2021
@@ -11,7 +11,7 @@ ms.service: synapse-analytics
 ms.subservice: data-explorer
 ---
 
-# Quickstart: Create a Data Explorer pool using the Azure portal
+# Quickstart: Create a Data Explorer pool using the Azure portal (Preview)
 
 Azure Synapse Analytics Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Data Explorer, you first create a Data Explorer pool.
 
@@ -45,42 +45,41 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 
 1. In the Synapse workspace where you want to create the Data Explorer pool, select **New Data Explorer pool**.
 
-    ![Azure portal home page with Management Hub section highlighted.](media/create-data-explorer-pool-studio.png)
-
-    **TODO: REPLACE IMAGE**
+    ![Azure portal home page with Overview section highlighted.](media/goto-data-explorer-pool-portal.png)
 
 1. Enter the following details in the **Basics** tab:
 
     | Setting | Suggested value | Description |
     |--|--|--|
     | Data Explorer pool name | contosodataexplorer | This is the name that the Data Explorer pool will have. |
-    | Node size | Small (4 vCPU / 32 GB) | Set this to the smallest size to reduce costs for this quickstart |
-    | Autoscale | Disabled | We won't need autoscale in this quickstart |
-    | Number of nodes | 8 | Use a small size to limit costs in this quickstart |
+    | Workload | Computer optimized | This workload requires more CPU than SSD storage. |
+    | Node size | Small (4 cores) | Set this to the smallest size to reduce costs for this quickstart |
 
-    ![Basics for Azure portal new Data Explorer pool](media/create-data-explorer-pool-studio.png)
-
-    **TODO: REPLACE IMAGE**
+    ![Basics for Azure portal new Data Explorer pool](media/create-data-explorer-pool-basics-portal.png)
 
     > [!IMPORTANT]
     > Note that there are specific limitations for the names that Data Explorer pools can use. Names must contain letters or numbers only, must be 15 or less characters, must start with a letter, not contain reserved words, and be unique in the workspace.
 
-1. Select **Next: additional settings** and review the default settings. Leave all te default settings.
+1. Select **Next: Additional settings**. Use the following settings and leave the defaults for the remaining settings.
+
+    | Setting | Suggested value | Description |
+    |--|--|--|
+    | Scaling | Manual scale | We won't need autoscale in this quickstart |
+    | Number count | 2 | Set this to the smallest size to reduce costs for this quickstart |
+
+    ![Advanced settings for Azure portal new Data Explorer pool](media/create-data-explorer-pool-advanced-settings-portal.png)
+
 1. Select **Next: tags**. Don't add any tags.
 1. Select **Review + create**.
 1. Review the detail making sure they are correct, and then select **Create**.
 
     The Data Explorer pool will start the provisioning process.
 
-    ![Create Azure portal new Data Explorer pool](media/create-data-explorer-pool-studio.png)
+    ![Create Azure portal new Data Explorer pool](media/create-data-explorer-pool-portal.png)
 
-    **TODO: REPLACE IMAGE**
+1. Once the provisioning is complete, navigate back to the workspace **Overview** page and verify that the new Data Explorer pool welcome page appears.
 
-1. Once the provisioning is complete, navigate back to the workspace and verify that the new Data Explorer pool appears in the list.
-
-    ![Azure portal new Data Explorer pool list](media/create-data-explorer-pool-studio.png)
-
-    **TODO: REPLACE IMAGE**
+    ![Azure portal new Data Explorer pool list](media/verify-data-explorer-pool-portal.png)
 
 ## Clean up Data Explorer pool resources using the Azure portal
 
@@ -94,7 +93,7 @@ Use the following steps to delete the Data Explorer pool from the workspace usin
 1. Navigate to the Data Explorer pools in the Management Hub in the Azure portal.
 1. To remove the Data Explorer pool (in this case, **contosodataexplorer**), select **More [...]** > **Delete**.
 
-    ![Listing of Data Explorer pools, with the recently created pool selected.](media/create-data-explorer-pool-studio.png)
+    ![Listing of Data Explorer pools, with the recently created pool selected.](media/create-data-explorer-pool-portal.png)
 
     **TODO: REPLACE IMAGE**
 
