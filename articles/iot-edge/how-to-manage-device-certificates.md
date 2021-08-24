@@ -4,7 +4,7 @@ description: Create test certificates, install, and manage them on an Azure IoT 
 author: kgremban
 
 ms.author: kgremban
-ms.date: 08/20/2021
+ms.date: 08/24/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -61,59 +61,77 @@ To see an example of these certificates, review the scripts that create demo cer
 
 Install your certificate chain on the IoT Edge device and configure the IoT Edge runtime to reference the new certificates.
 
-Copy the three certificate and key files onto your IoT Edge device. You can use a service like [Azure Key Vault](../key-vault/index.yml) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files. If you generated the certificates on the IoT Edge device itself, you can skip this step and use the path to the working directory.
+Copy the three certificate and key files onto your IoT Edge device. 
 
-If you are using IoT Edge for Linux on Windows, you need to use the SSH key located in the Azure IoT Edge `id_rsa` file to authenticate file transfers between the host OS and the Linux virtual machine. You can do an authenticated SCP using the following command:
-
-   ```powershell-interactive
-   C:\WINDOWS\System32\OpenSSH\scp.exe -i 'C:\Program Files\Azure IoT Edge\id_rsa' <PATH_TO_SOURCE_FILE> iotedge-user@<VM_IP>:<PATH_TO_FILE_DESTINATION>
-   ```
-
-   >[!NOTE]
-   >The Linux virtual machine's IP address can be queried via the `Get-EflowVmAddr` command.
-
-If you used the sample scripts to [Create demo certificates](how-to-create-test-certificates.md), copy the following files onto your IoT-Edge device:
+If you used the sample scripts to [Create demo certificates](how-to-create-test-certificates.md), the three certificate and key files are located at the following paths:
 
 * Device CA certificate: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * Device CA private key: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
 * Root CA: `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
+You can use a service like [Azure Key Vault](../key-vault/index.yml) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files. If you generated the certificates on the IoT Edge device itself, you can skip this step and use the path to the working directory.
+
+If you are using IoT Edge for Linux on Windows, you need to use the SSH key located in the Azure IoT Edge `id_rsa` file to authenticate file transfers between the host OS and the Linux virtual machine. Retrieve the Linux virtual machine's IP address using the `Get-EflowVmAddr` command. Then, you can do an authenticated SCP using the following command:
+
+   ```powershell
+   C:\WINDOWS\System32\OpenSSH\scp.exe -i 'C:\Program Files\Azure IoT Edge\id_rsa' <PATH_TO_SOURCE_FILE> iotedge-user@<VM_IP>:<PATH_TO_FILE_DESTINATION>
+   ```
+
+### Configure IoT Edge with the new certificates
+
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
 
-1. Open the IoT Edge security daemon config file.
+# [Linux containers](#tab/linux)
 
-   * Linux and IoT Edge for Linux on Windows: `/etc/iotedge/config.yaml`
-
-   * Windows using Windows containers: `C:\ProgramData\iotedge\config.yaml`
+1. Open the IoT Edge security daemon config file: `/etc/iotedge/config.yaml`
 
 1. Set the **certificate** properties in config.yaml to the file URI path to the certificate and key files on the IoT Edge device. Remove the `#` character before the certificate properties to uncomment the four lines. Make sure the **certificates:** line has no preceding whitespace and that nested items are indented by two spaces. For example:
 
-   * Linux and IoT Edge for Linux on Windows:
+   ```yaml
+   certificates:
+      device_ca_cert: "file:///<path>/<device CA cert>"
+      device_ca_pk: "file:///<path>/<device CA key>"
+      trusted_ca_certs: "file:///<path>/<root CA cert>"
+   ```
 
-      ```yaml
-      certificates:
-        device_ca_cert: "file:///<path>/<device CA cert>"
-        device_ca_pk: "file:///<path>/<device CA key>"
-        trusted_ca_certs: "file:///<path>/<root CA cert>"
-      ```
-
-   * Windows using Windows containers:
-
-      ```yaml
-      certificates:
-        device_ca_cert: "file:///C:/<path>/<device CA cert>"
-        device_ca_pk: "file:///C:/<path>/<device CA key>"
-        trusted_ca_certs: "file:///C:/<path>/<root CA cert>"
-      ```
-
-1. On Linux devices, make sure that the user **iotedge** has read permissions for the directory holding the certificates.
+1. Make sure that the user **iotedge** has read permissions for the directory holding the certificates.
 
 1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
 
-   * Linux and IoT Edge for Linux on Windows: `/var/lib/iotedge/hsm/certs` and `/var/lib/iotedge/hsm/cert_keys`
+   * `/var/lib/iotedge/hsm/certs`
+   * `/var/lib/iotedge/hsm/cert_keys`
 
-   * Windows using Windows containers: `C:\ProgramData\iotedge\hsm\certs` and `C:\ProgramData\iotedge\hsm\cert_keys`
+1. Restart IoT Edge.
+
+   ```bash
+   sudo iotedge system restart
+   ```
+
+# [Windows containers](#tab/windows)
+
+1. Open the IoT Edge security daemon config file: `C:\ProgramData\iotedge\config.yaml`
+
+1. Set the **certificate** properties in config.yaml to the file URI path to the certificate and key files on the IoT Edge device. Remove the `#` character before the certificate properties to uncomment the four lines. Make sure the **certificates:** line has no preceding whitespace and that nested items are indented by two spaces. For example:
+
+   ```yaml
+   certificates:
+      device_ca_cert: "file:///C:/<path>/<device CA cert>"
+      device_ca_pk: "file:///C:/<path>/<device CA key>"
+      trusted_ca_certs: "file:///C:/<path>/<root CA cert>"
+   ```
+
+1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
+
+   * `C:\ProgramData\iotedge\hsm\certs`
+   * `C:\ProgramData\iotedge\hsm\cert_keys`
+
+1. Restart IoT Edge.
+
+   ```powershell
+   Restart-Service iotedge
+   ```
+---
 
 :::moniker-end
 <!-- end 1.1 -->
@@ -137,12 +155,23 @@ If you used the sample scripts to [Create demo certificates](how-to-create-test-
    pk = "file:///<path>/<device CA key>"
    ```
 
-1. Make sure that the user **aziotcs** has read permissions for the directory holding the certificates.
+1. Make sure that the service has read permissions for the directories holding the certificates and keys.
 
-1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
+   * The private key file should be owned by the **aziotks** group.
+   * The certificate files should be owned by the **aziotcs** group.
+
+   >[!TIP]
+   >If your certificate is read-only, meaning you created it and don't want the IoT Edge service to rotate it, set the private key file to mode 0440 and the certificate file to mode 0444. If you created the initial files but have configured the cert service to rotate the certificate in the future, set the private key file to mode 0660 and the certificate file to mode 0664.
+
+1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following directory. IoT Edge will recreate them with the new CA certificate you provided.
 
    * `/var/lib/aziot/certd/certs`
-   * `/var/lib/aziot/keyd/keys`
+
+1. Apply the configuration changes.
+
+   ```bash
+   sudo iotedge config apply
+   ```
 
 :::moniker-end
 <!-- end 1.2 -->
@@ -230,10 +259,10 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 
 1. Delete the contents of the `certd` and `keyd` folders to remove any previously generated certificates: `/var/lib/aziot/certd/certs` `/var/lib/aziot/keyd/keys`
 
-1. Restart IoT Edge.
+1. Apply the configuration changes.
 
    ```bash
-   sudo iotedge system restart
+   sudo iotedge config apply
    ```
 
 1. Confirm the new lifetime setting.
