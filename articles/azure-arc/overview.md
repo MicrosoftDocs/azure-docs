@@ -79,10 +79,10 @@ In the current preview phase, Azure Arc-enabled data services are offered at no 
 
 * To learn more about Azure Arc-enabled servers, see the following [overview](./servers/overview.md)
 
-* To learn more about Arc-enabled Kubernetes, see the following [overview](./kubernetes/overview.md)
+* To learn more about Azure Arc-enabled Kubernetes, see the following [overview](./kubernetes/overview.md)
 
-* To learn more about Arc-enabled data services, see the following [overview](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/)
+* To learn more about Azure Arc-enabled data services, see the following [overview](https://azure.microsoft.com/services/azure-arc/hybrid-data-services/)
 
 * To learn more about SQL Server on Azure Arc-enabled servers, see the following [overview](/sql/sql-server/azure-arc/overview)
 
-* Experience Arc-enabled services from the [Jumpstart proof of concept](https://azurearcjumpstart.io/azure_arc_jumpstart/)
+* Experience Azure Arc-enabled services from the [Jumpstart proof of concept](https://azurearcjumpstart.io/azure_arc_jumpstart/)
