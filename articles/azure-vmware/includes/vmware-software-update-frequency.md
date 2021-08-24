@@ -33,15 +33,10 @@ You'll be notified before patches/updates or upgrades are applied to your privat
 
 Software updates include:
 
-|   |   |
-| --- | --- |
-| **Patches**  | Security patches or bug fixes released by VMware  |
-| **Updates**  | Minor version change of a VMware stack component  |
-| **Upgrades**  | Major version change of a VMware stack component  |
-
-
 - **Patches** - Security patches or bug fixes released by VMware
+
 - **Updates** - Minor version change of a VMware stack component
+
 - **Upgrades** - Major version change of a VMware stack component
 
 >[!NOTE]
