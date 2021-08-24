@@ -205,6 +205,8 @@
         href: bamboo-hr-tutorial.md
       - name: Bambu by Sprout Social
         href: bambubysproutsocial-tutorial.md
+      - name: Baldwin Safety & Compliance
+        href: baldwin-safety-&-compliance-tutorial.md  
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
       - name: Beekeeper Azure AD Data Connector
@@ -475,6 +477,8 @@
         href: contractsafe-saml2-sso-tutorial.md
       - name: ContractWorks
         href: contractworks-tutorial.md
+      - name: Contrast Security
+        href: contrast-security-tutorial.md  
       - name: Control
         href: control-tutorial.md
       - name: Convene
@@ -1240,6 +1244,8 @@
         href: meta4-global-hr-tutorial.md
       - name: Meta Networks Connector
         href: metanetworksconnector-tutorial.md
+      - name: Metatask
+        href: metatask-tutorial.md  
       - name: Mevisio
         href: mevisio-tutorial.md
       - name: Michigan Data Hub Single Sign-On
@@ -1350,6 +1356,8 @@
         href: nexsure-tutorial.md
       - name: Nimblex
         href: nimblex-tutorial.md
+      - name: Nimbus
+        href: nimbus-tutorial.md  
       - name: Nintex Promapp
         href: promapp-tutorial.md
       - name: Nitro Productivity Suite
@@ -2439,18 +2447,20 @@
         href: ideo-provisioning-tutorial.md        
       - name: Infor CloudSuite
         href: infor-cloudsuite-provisioning-tutorial.md
+      - name: iPass SmartConnect
+        href: ipass-smartconnect-provisioning-tutorial.md
+      - name: iProva
+        href: iprova-provisioning-tutorial.md
+      - name: Iris Intranet
+        href: iris-intranet-provisioning-tutorial.md
       - name: Insight4GRC
         href: insight4grc-provisioning-tutorial.md
       - name: Insite LMS
         href: insite-lms-provisioning-tutorial.md
       - name: Invision
         href: invision-provisioning-tutorial.md
-      - name: Iris Intranet
-        href: iris-intranet-provisioning-tutorial.md        
-      - name: iPass SmartConnect
-        href: ipass-smartconnect-provisioning-tutorial.md
-      - name: iProva
-        href: iprova-provisioning-tutorial.md
+      - name: InviteDesk
+        href: invitedesk-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
       - name: Jostle
@@ -2479,6 +2489,8 @@
         href: looop-provisioning-tutorial.md
       - name: LogMeIn
         href: logmein-provisioning-tutorial.md
+      - name: Maptician
+        href: maptician-provisioning-tutorial.md
       - name: MediusFlow
         href: mediusflow-provisioning-tutorial.md
       - name: Merchlogix
