@@ -16,25 +16,25 @@ Do the following steps in the Azure portal to order a device.
 
 3. Select **Create**.
 
-   ![Screenshot of Azure Data Box section with Create option called out](media/data-box-order-portal/select-data-box-import-03.png)<!--Screen edited.-->
+   ![Screenshot of Azure Data Box section with Create option called out](media/data-box-order-portal/select-data-box-import-03.png)
 
-4. Check if Data Box service is available in your region. Enter or select the following information and select **Apply**.
+4. Check if Data Box service is available in your region. Enter or select the following information, and then select **Apply**.
 
     |Setting  |Value  |
     |---------|---------|
     |Transfer type     | Select **Import to Azure**.        |
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
-    |Resource Group | Select an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. |
+    |Resource group | Select an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. |
     |Source country/region    |    Select the country/region where your data currently resides.         |
     |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).  |
 
-    [ ![Starting an Azure Data Box import order](media/data-box-order-portal/select-data-box-import-04-b.png) ](media/data-box-order-portal/select-data-box-import-04-b.png#lightbox)<!--Rework the lightbox, or remove it. This won't work.-->
+    [ ![Starting an Azure Data Box import order](media/data-box-order-portal/select-data-box-import-04-b.png) ](media/data-box-order-portal/select-data-box-import-04-b.png#lightbox)
 
-5. Select the **Data Box** product to order. For Data Box, the maximum usable capacity for a single order is 80 TB. For Data Box Heavy, the maximum usable capacity for a single order is 770 TB. You can create multiple orders for larger data sizes.<!--Combined descriptions for both Data Box and Data Box Heavy. Final sentence approaches universal truth, but is it a concern for Heavy users?-->
+5. Select the **Data Box** product to order, either Data Box, as shown below, or Data Box Heavy. For Data Box, the maximum usable capacity for a single order is 80 TB. For Data Box Heavy, the maximum usable capacity for a single order is 770 TB. You can create multiple orders for larger data sizes.
 
-    ![Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted.](media/data-box-order-portal/select-data-box-import-05.png)<!--Reshot. Product info changed slightly.-->
+    ![Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted.](media/data-box-order-portal/select-data-box-import-05.png#lightbox)
 
-6. In **Order**, go to the **Basics** tab. Enter or select the following information and select **Next: Data destination>**.
+6. In **Order**, go to the **Basics** tab. Enter or select the following information. Then select **Next: Data destination>**.
 
     |Setting  |Value  |
     |---------|---------|
@@ -42,13 +42,13 @@ Do the following steps in the Azure portal to order a device.
     |Resource group    | The resource group you selected previously. |
     |Import order name | Provide a friendly name to track the order. <ul><li>The name can have from 3 to 24 characters that can be a letter, number, or hyphen.</li><li>The name must start and end with a letter or a number.</li></ul>    |
 
-    ![Screenshot showing the Basics screen in the Order wizard for Data Box with example entries. The "Next: Data destination" button is highlighted.](media/data-box-order-portal/select-data-box-import-06.png)
+    ![Screenshot showing the Basics screen for a Data Box order with example entries. The Basics tab and "Next: Data destination" button are highlighted.](media/data-box-order-portal/select-data-box-import-06.png)
 
 7. On the **Data destination** screen, select the **Data destination** - either storage accounts or managed disks.
 
     If using **storage account(s)** as the storage destination, you see the following screen:
 
-    ![Data Box import Order wizard, Data destination screen, with storage accounts selected](media/data-box-order-portal/select-data-box-import-07.png)
+    ![Screenshot of the Data Destination screen for a Data Box order with a Storage Accounts destination. The Data Destination tab, Storage Accounts, and Next: Security button are highlighted.](media/data-box-order-portal/select-data-box-import-07.png)
 
     Based on the specified Azure region, select one or more storage accounts from the filtered list of existing storage accounts. Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**.
 
@@ -64,7 +64,7 @@ Do the following steps in the Azure portal to order a device.
     |---------|---------|
     |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box order for managed disks by the Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.|
 
-    ![Data Box import Order wizard, Data destination screen, with Managed Disks selected](media/data-box-order-portal/select-data-box-import-07-b.png)
+    ![Screenshot of the Data Destination tab for a Data Box order with a Managed Disks destination. The Data Destination tab, Managed Disks, and Next: Security button are highlighted.](media/data-box-order-portal/select-data-box-import-07-b.png)
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
@@ -77,7 +77,7 @@ Do the following steps in the Azure portal to order a device.
 
     All settings on the **Security** screen are optional. If you don't change any settings, the default settings will apply.
 
-    ![Security screen of the Data Box import Order wizard](media/data-box-order-portal/select-data-box-import-security-01.png)
+    ![Screenshot of the Security tab for a Data Box import Order. The Security tab is highlighted.](media/data-box-order-portal/select-data-box-import-security-01.png)
 
 9. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
 
@@ -89,21 +89,27 @@ Do the following steps in the Azure portal to order a device.
 
    ![Screenshot of Security tab in the Data Box Order wizard. Encryption Type settings are expanded and highlighted.](./media/data-box-order-portal/customer-managed-key-01.png)
 
-10. Select **Customer managed key** as the key type. Then select **Select a key vault and key**.
+10. To use a customer-managed key, select **Customer managed key** as the key type. Then select **Select a key vault and key**.
    
     ![Security screen, settings for a customer-managed key](./media/data-box-order-portal/customer-managed-key-02.png)
 
-11. In the **Select key from Azure Key Vault** blade, the subscription is automatically populated.
+11. In the **Select key from Azure Key Vault** blade:
+
+    - The **Subscription** is automatically populated.
 
     - For **Key vault**, you can select an existing key vault from the dropdown list.
 
-      ![Select key from Azure Key Vault screen](./media/data-box-order-portal/customer-managed-key-03.png)
+      ![Screenshot of Encryption type settings on the Security tab for a Data Box order. The "Customer managed key" option and the "Select a key and key vault" link are selected.](./media/data-box-order-portal/customer-managed-key-03.png)
 
-    - You can also select **Create new** to create a new key vault. On the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults, and select **Review + Create**.
+      Or select **Create new key vault** if you want to create a new key vault. 
+    
+      ![Screenshot of Encryption type settings on the Security tab for a Data Box order. The "Create new key vault" link is highlighted.](./media/data-box-order-portal/customer-managed-key-03-a.png)      
 
-      ![Create a new Azure Key Vault settings](./media/data-box-order-portal/customer-managed-key-04.png)<!--Updated breadcrumbs.>
+      Then, on the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults, and select **Review + Create**.
 
-      Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete. STOPPED HERE REVIEWING LATEST SCREENS. dc
+      ![Create a new Azure Key Vault settings](./media/data-box-order-portal/customer-managed-key-04.png)
+
+      Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
 
       ![New Azure Key Vault review screen](./media/data-box-order-portal/customer-managed-key-05.png)
 
