@@ -141,4 +141,4 @@ For systems that use ACLs, Azure HPC Cache needs to track additional user-specif
 
 ## Next steps
 
-If you have a problem that was not addressed in this article, [open a support ticket](hpc-cache-support-ticket.md) to get expert help.
+If you have a problem that was not addressed in this article, [contact support](hpc-cache-support-ticket.md) to get expert help.

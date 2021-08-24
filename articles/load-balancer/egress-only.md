@@ -27,23 +27,9 @@ This configuration provides outbound NAT for an internal load balancer scenario,
 
 *Figure: Egress only load balancer configuration*
 
-In this how-to article, you'll:
+## Prerequisites
 
-1. Create a virtual network with a bastion host.
-
-2. Create both internal and public standard load balancers with backend pools.
-
-3. Create a virtual machine with only a private IP and add to the internal load balancer backend pool.
-
-4. Add virtual machine to public load balancer backend pool.
-
-5. Connect to your VM through the bastion host and:
-    
-    1. Test outbound connectivity, 
-    
-    2. Configure an outbound rule on the public load balancer.
-    
-    3. Retest outbound connectivity.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Create virtual network and load balancers
 
@@ -367,17 +353,15 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load Balancers, VM, and all related resources. 
+When no longer needed, delete the resource group, load balancers, VM, and all related resources. 
 
 To do so, select the resource group **myResourceGroupLB** and then select **Delete**.
 
 ## Next steps
 
-In this tutorial, you created an "egress only" configuration with a combination of public and internal load balancers.  
+In this article, you created an "egress only" configuration with a combination of public and internal load balancers.  
 
 This configuration allows you to load balance incoming internal traffic to your backend pool while still preventing any public inbound connections.
 
-- Learn about [Azure Load Balancer](load-balancer-overview.md).
-- Learn about [outbound connections in Azure](load-balancer-outbound-connections.md).
-- Load balancer [FAQs](load-balancer-faqs.yml).
-- Learn about [Azure Bastion](../bastion/bastion-overview.md)
+For more information about Azure Load Balancer and Azure Bastion, see [What is Azure Load Balancer?](load-balancer-overview.md) and [What is Azure Bastion?](../bastion/bastion-overview.md).
+
