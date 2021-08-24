@@ -129,7 +129,7 @@ conceptualContent:
       links:
         - url: /sql/sql-server/azure-arc/assess
           itemType: how-to-guide
-          text: Assess Arc enabled instance
+          text: Assess instance
         - url: /sql/sql-server/azure-arc/configure-advanced-data-security
           itemType: how-to-guide
           text: Configure advanced data security
