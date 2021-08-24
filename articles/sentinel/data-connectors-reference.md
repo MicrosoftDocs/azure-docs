@@ -936,7 +936,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **Log Analytics table(s)** | SecurityAlert |
+| **Log Analytics table(s)** | SecurityAlert<br>McasShadowItReporting​ |
 | **Supported by** | Microsoft |
 | | |
 
