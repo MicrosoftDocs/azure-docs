@@ -35,6 +35,10 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Ezra Coaching supports **SP and IDP** initiated SSO.
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
+
 ## Adding Ezra Coaching from the gallery
 
 To configure the integration of Ezra Coaching into Azure AD, you need to add Ezra Coaching from the gallery to your list of managed SaaS apps.
@@ -70,15 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
-
-    In the **Reply URL** text box, type one of the following URLs:
-
-    | Reply URL|
-    | ------------|
-    | `https://app.helloezra.com/sso/saml/acs/Microsoft` |
-    | `https://app.helloezra.com/sso/saml/acs/Microsoft` |
-    |
+1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -93,6 +89,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Ezra Coaching** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
