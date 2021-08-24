@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/22/2021
+ms.date: 08/24/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
@@ -22,7 +22,7 @@ Speech containers enable customers to build a speech application architecture th
 
 
 > [!IMPORTANT]
-> We are retiring the standard speech synthesis voices and text-to-speech container on August 31st 2021. Starting September 1st 2021, the container will no longer be available, and you will need to use the Neural text-to-speech container. [Follow these steps](https://aka.ms/sttsretirement) for more information on updating your application.
+> We are retiring the standard speech synthesis voices and text-to-speech container on August 31st 2021. Consider migrating your applications to use the Neural text-to-speech container instead. [Follow these steps](https://aka.ms/sttsretirement) for more information on updating your application.
 
 | Container | Features | Latest | Release status |
 |--|--|--|--|
