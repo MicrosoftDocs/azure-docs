@@ -102,7 +102,7 @@ To complete this tutorial, you need:
 
 1. To review your flexible server configuration, select **Review + create**.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-and-create.png" alt-text="Screenshot that shows the Review + create blade, and highlights the Review + create button.":::
+    :::image type="content" source="media/how-to-deploy-on-azure-free-account/review-and-create.png" alt-text="Screenshot that shows the Review + create blade.":::
 
     >[!IMPORTANT]
     >As long as you are using your Azure free account, and your free service usage is within monthly limits (to view usage information, refer [**Monitor and track free services usage**](#monitor-and-track-free-services-usage) section below), you won't be charged for the service. We're currently working to improve the **Cost Summary** experience for free services. 
