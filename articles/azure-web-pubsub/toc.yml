@@ -40,7 +40,7 @@
     - name: Build a chat app
       href: tutorial-build-chat.md
     - name: Client streaming using service-supported subprotocol
-      href: https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols
+      href: tutorial-subprotocol.md
     - name: Authentication and permissions
       href: https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions
 - name: How-to guides
