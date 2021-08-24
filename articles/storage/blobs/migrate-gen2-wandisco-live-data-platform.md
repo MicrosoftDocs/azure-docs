@@ -13,7 +13,7 @@ ms.subservice: data-lake-storage-gen2
 
 # Meet demanding migration requirements with WANdisco LiveData Platform for Azure (preview)
 
-[WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) migrates petabytes of on-premises Hadoop data to Azure Data Lake Storage Gen2 containers without interrupting data operations or requiring downtime. The platform's continuous checks prevent data from being lost while keeping it consistent at both ends of transference even while it undergoes modification.
+[WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) migrates petabytes of on-premises Hadoop data to Azure Data Lake Storage Gen2 file systems without interrupting data operations or requiring downtime. The platform's continuous checks prevent data from being lost while keeping it consistent at both ends of transference even while it undergoes modification.
 
 The platform consists of two services. [LiveData Migrator for Azure](https://www.wandisco.com/products/livedata-migrator-for-azure) migrates actively used data from on-premises environments to Azure storage, and [LiveData Plane for Azure](https://www.wandisco.com/products/livedata-plane-for-azure) ensures that all modified or ingested data is replicated consistently.
 
@@ -38,9 +38,9 @@ Key benefits of the platform include the following:
 
 - **Data efficiency**: Transfer large data volumes continuously with full control of bandwidth consumption.
 
-- **Downtime elimination**: Freely create, modify, read and delete data with other applications during migration, without the need to disrupt business operations during data transference to Azure. Continue to operate applications, analytics infrastructure, ingest jobs, and other processing.
+- **Downtime elimination**: Freely create, modify, read, and delete data with other applications during migration, without the need to disrupt business operations during data transference to Azure. Continue to operate applications, analytics infrastructure, ingest jobs, and other processing.
 
-- **Simple use**: Use the Platform's Azure integration to create, configure, schedule and track the progress of automated migrations. Additionally, configure selective data replication, Hive metadata, data security and confidentiality as needed.
+- **Simple use**: Use the Platform's Azure integration to create, configure, schedule, and track the progress of automated migrations. Additionally, configure selective data replication, Hive metadata, data security, and confidentiality as needed.
 
 ## Key features of WANdisco LiveData Platform for Azure
 
@@ -52,13 +52,13 @@ Key features of the platform include the following:
 
 - **Kerberos**: LiveData Migrator for Azure supports Kerberized clusters.
 
-- **Exclusion Templates**: Create rules in LiveData Migrator for Azure to prevent certain file sizes or file names (defined using glob patterns) from being migrated to your target storage. Create exclusion templates in the Azure Portal or with the CLI, and apply them to any number of migrations.
+- **Exclusion Templates**: Create rules in LiveData Migrator for Azure to prevent certain file sizes or file names (defined using glob patterns) from being migrated to your target storage. Create exclusion templates in the Azure portal or with the CLI, and apply them to any number of migrations.
 
 - **Path Mappings**: Define alternate target paths for specific target file systems, which automatically move transferred data to directories you specify.
 
 - **Bandwidth Management**: Configure the maximum amount of network bandwidth LiveData Migrator for Azure can use to prevent bandwidth over consumption.
 
-- **Exclusions**: Define template queries that prevent the migration of any files and directories which meet the criteria, allowing you to selectively migrate data from your source system.
+- **Exclusions**: Define template queries that prevent the migration of any files and directories that meet the criteria, allowing you to selectively migrate data from your source system.
 
 - **Metrics**: View details about data transfer in LiveData Migrator for Azure, such as files transferred over time, excluded paths, items that failed to transfer and more.
 
@@ -124,6 +124,7 @@ LiveData Plane for Azure consistently replicates data changes across all environ
 From [LiveData Platform for Azure's Marketplace page](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldm?tab=Overview), you have two options:
 
 - The **Get It Now** button launches the service in your subscription. From there, you may use your own Hadoop cluster or WANdisco's Trial cluster.
+
 - Click **Test Drive** to test LiveData Migrator for Azure in an environment that is preconfigured and hosted for you. This enables you to try LiveData Migrator for Azure before adding it to your subscription, without any cost or risk to your data.
 
 Watch the [Test Drive Demonstration Video](https://fast.wistia.net/embed/channel/qg51p8erky?wchannelid=qg51p8erky&wmediaid=ute6gsc60w) to see the test drive in action.
