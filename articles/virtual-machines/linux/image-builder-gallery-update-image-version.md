@@ -63,10 +63,10 @@ imageDefName=myIbImageDef
 runOutputName=aibSIGLinuxUpdate
 ```
 
-Create a variable for your subscription ID. You can get this using `az account show | grep id`.
+Create a variable for your subscription ID.
 
 ```console
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 
 Get the image version that you want to update.
@@ -76,7 +76,7 @@ sigDefImgVersionId=$(az sig image-version list \
    -g $sigResourceGroup \
    --gallery-name $sigName \
    --gallery-image-definition $imageDefName \
-   --subscription $subscriptionID --query [].'id' -o json | grep 0. | tr -d '"' | tr -d '[:space:]')
+   --subscription $subscriptionID --query [].'id' -o tsv)
 ```
 
 ## Create a user-assigned identity and set permissions on the resource group
