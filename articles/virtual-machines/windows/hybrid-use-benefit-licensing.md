@@ -178,6 +178,7 @@ az vmss list --query "[?virtualMachineProfile.licenseType=='Windows_Server']" -o
 Within your virtual machine scale set Resource Manager templates, an additional parameter `licenseType` must be specified within your VirtualMachineProfile property. You can do this during create or update for your scale set through ARM template, PowerShell, Azure CLI or REST.
 
 The following example uses ARM template with a Windows Server 2016 Datacenter image:
+
 ```json
 "virtualMachineProfile": {
     "storageProfile": {
@@ -197,6 +198,7 @@ The following example uses ARM template with a Windows Server 2016 Datacenter im
             "adminUsername": "[parameters('adminUsername')]",
             "adminPassword": "[parameters('adminPassword')]"
     }
+}    
 ```
 You can also learn more about how to [Modify a virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) for more ways to update your scale set.
 
