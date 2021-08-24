@@ -25,15 +25,17 @@ In this tutorial, you learn how to:
 
 - This setup requires version 2.22.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-## Create a resource group
+## Create an Azure Web PubSub instance
+
+### Create a resource group
 
 [!INCLUDE [Create a resource group](includes/cli-rg-creation.md)]
 
-## Create a Web PubSub instance
+### Create a Web PubSub instance
 
 [!INCLUDE [Create a Web PubSub instance](includes/cli-awps-creation.md)]
 
-## Get the ConnectionString for future use
+### Get the ConnectionString for future use
 
 [!INCLUDE [Get the connection string](includes/cli-awps-connstr.md)]
 
@@ -53,7 +55,7 @@ Copy the fetched **ConnectionString** and it will be used later in this tutorial
 
 ---
 
-### Create the application
+## Create the application
 
 In Azure Web PubSub, there are two roles, server and client. This concept is similar to the sever and client roles in a web application. Server is responsible for managing the clients, listen and respond to client messages, while client's role is to send user's messages to server, and receive messages from server and visualize them to end user.
 
@@ -259,7 +261,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 
 ---
 
-### Handle events
+## Handle events
 
 In Azure Web PubSub, when there are certain activities happening at client side (for example a client is connected or disconnected), service will send notifications to sever so it can react to these events.
 
@@ -348,9 +350,9 @@ In the above code we simply print a message to console when a client is connecte
 
 ---
 
-### Set up the event handler
+## Set up the event handler
 
-#### Expose localhost
+### Expose localhost
 
 Then we need to set the Webhook URL in the service so it can know where to call when there is a new event. But there is a problem that our server is running on localhost so does not have an internet accessible endpoint. Here we use [ngrok](https://ngrok.com/) to expose our localhost to internet.
 
@@ -362,7 +364,7 @@ Then we need to set the Webhook URL in the service so it can know where to call 
 
 ngrok will print out an URL (`https://<domain-name>.ngrok.io`) that can be accessed from internet.
 
-#### Set event handler
+### Set event handler
 
 Then we update the service event handler and set the Webhook URL.
 
@@ -370,7 +372,7 @@ Then we update the service event handler and set the Webhook URL.
 
 After the update is completed, open the home page http://localhost:5000/index.html, input your user name, you’ll see the connected message printed out in the server console.
 
-### Message events
+## Handle Message events
 
 Besides system events like `connected` or `disconnected`, client can also send messages through the WebSocket connection and these messages will be delivered to server as a special type of event called `message` event. We can use this event to receive messages from one client and broadcast them to all clients so they can talk to each other.
 
