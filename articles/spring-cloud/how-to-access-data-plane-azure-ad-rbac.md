@@ -66,11 +66,11 @@ For config server endpoints and detailed path information, see [ResourceControll
 
 After the role is assigned, you can register Spring Boot apps to Spring Cloud Config Server and Service Registry managed by Azure Spring Cloud with Azure AD token authentication. Both Config Server and Service Registry support [custom REST template](https://cloud.spring.io/spring-cloud-config/reference/html/#custom-rest-template) to inject the bearer token for authentication.
 
-For more information about how to implement your own Config Server / Service Registry REST template integrated with Azure AD, see the [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples) repository on GitHub. Pay attention to the following key code.
+We provide the code examples for the [custom Config Server client](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-config-server-client) and [custom serivce registry client](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/custom-eureka-client). Some explaination for the code piece below.
 
 **In *AccessTokenManager.java*:**
 
-`AccessTokenManager` is responsible for getting an access token from Azure AD. Configure the service principal's sign-in information in the *application.properties* file and initialize `ApplicationTokenCredentials` to get the token.
+`AccessTokenManager` is responsible for getting an access token from Azure AD. Configure the service principal's sign-in information in the *application.properties* file and initialize `ApplicationTokenCredentials` to get the token. You can find the file in both sample codes.
 
 ```java
 prop.load(in);
