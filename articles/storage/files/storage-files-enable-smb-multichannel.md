@@ -82,7 +82,14 @@ Update-AzStorageFileServiceProperty -ResourceGroupName $resourceGroupName -Stora
 ```
 
 # [Azure CLI](#tab/azure-cli)
-Azure CLI does not yet support configuring SMB Multichannel. See the portal instructions to configure SMB Multichannel on storage account.
+Azure CLI support configuring SMB Multichannel in `storage-preview` extension.
+```azurecli
+# Install `storage-preview` extension
+az extension add --name storage-preview
+
+# Enable SMB Multichannel on the premium storage account that's in one of the supported regions
+az storage account file-service-properties update --enable-smb-multichannel -n $storageAccountName -g $resourceGroupName
+```
 
 ---
 
