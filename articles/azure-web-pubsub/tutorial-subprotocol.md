@@ -60,7 +60,7 @@ Copy the fetched **ConnectionString** and it will be used later in this tutorial
 
 ## Using a subprotocol
 
-The client can start a WebSocket connection using a specific [subprotocol](https://datatracker.ietf.org/doc/html/rfc6455#section-1.9). Azure Web PubSub service supports a subprotocol called `json.webpubsub.azure.v1` to empower the clients to do publish/subscribe directly instead of a round trip to the upstream server. Check [Azure Web PubSub supported JSON WebSocket subprotocol](./reference-json-webpubsub-subprotocl.md) for details about the subprotocol.
+The client can start a WebSocket connection using a specific [subprotocol](https://datatracker.ietf.org/doc/html/rfc6455#section-1.9). Azure Web PubSub service supports a subprotocol called `json.webpubsub.azure.v1` to empower the clients to do publish/subscribe directly instead of a round trip to the upstream server. Check [Azure Web PubSub supported JSON WebSocket subprotocol](./reference-json-webpubsub-subprotocol.md) for details about the subprotocol.
 
 > If you use other protocol names, they will be ignored by the service and passthrough to server in the connect event handler, so you can build your own protocols.
 
@@ -108,7 +108,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
 
     # [C#](#tab/csharp)
 
-    In `Startup.cs`, update the `ConfigureServices` method to add the service client, and read the connection string from configuration. Under development, we use [Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets#secret-manager) tool for .NET Core to set the connection string. Also update the `Configure` method to add `app.UseStaticFiles();` before `app.UseRouting();` to support static files, and update `app.UseEndpoints` to generate the client access token with `/negotiate` requests
+    In `Startup.cs`, update the `ConfigureServices` method to add the service client, and read the connection string from configuration. Under development, we use [Secret Manager](/aspnet/core/security/app-secrets#secret-manager) tool for .NET Core to set the connection string. Also update the `Configure` method to add `app.UseStaticFiles();` before `app.UseRouting();` to support static files, and update `app.UseEndpoints` to generate the client access token with `/negotiate` requests
 
     ```csharp
     using Azure.Messaging.WebPubSub;
@@ -458,7 +458,7 @@ This will be useful if you want to stream a large amount of data to other client
     
     ---
     
-    You can see there is a new concept "group" here. Group is logical concept in a hub where you can publish message to a group of connections. In a hub, you can have multiple groups and one client can subscribe to multiple groups at the same time. When using subprotocol, you can only publish to a group instead of broadcasting to the whole hub. For details about the terms, please check the [basic concepts](./key-concepts.md).
+    You can see there is a new concept "group" here. Group is logical concept in a hub where you can publish message to a group of connections. In a hub, you can have multiple groups and one client can subscribe to multiple groups at the same time. When using subprotocol, you can only publish to a group instead of broadcasting to the whole hub. For details about the terms, check the [basic concepts](./key-concepts.md).
 
 2.  Since we use group here, we also need to update the web page `index.html` to join the group when the WebSocket connection is established inside `ws.onopen` callback.
     
@@ -577,7 +577,7 @@ The complete code sample of this tutorial can be found [here][code-js].
 
 # [Python](#tab/python)
 
-Now you can run `python stream.py`, type any text and they will be displayed in the browser in real time.
+Now you can run `python stream.py`, type any text and they'll be displayed in the browser in real time.
 
 Or you can also use this app pipe any output from another console app and stream it to the browser. For example:
 
