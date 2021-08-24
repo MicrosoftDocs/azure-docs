@@ -141,7 +141,7 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
     Add the `CloudEnvironment` parameter if you are using a cloud other than Azure public. You can set this parameter to `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`,       `AZUREGERMANCLOUD`, and `AZUREUSGOVERNMENTCLOUD`.
 
     > [!NOTE]
-    > - To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). 
+    > - To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc). 
     > - Use the `az account list-locations` command to figure out the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
     > - `ClientId` and `ClientSecret` are required parameters. `ClientSecret` is a secure string.
     

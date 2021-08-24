@@ -158,7 +158,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     In a manual QoS capacity pool, you can assign the capacity and throughput for a volume independently. The total throughput of all volumes created with a manual QoS capacity pool is limited by the total throughput of the pool. It is determined by the combination of the pool size and the service-level throughput. Alternatively, a capacity pool’s [QoS type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) can be auto (automatic), which is the default. In an auto QoS capacity pool, throughput is assigned automatically to the volumes in the pool, proportional to the size quota assigned to the volumes.
 
-* [LDAP signing](azure-netapp-files-create-volumes-smb.md) (Preview)   
+* [LDAP signing](create-active-directory-connections.md#create-an-active-directory-connection) (Preview)   
 
     Azure NetApp Files now supports LDAP signing for secure LDAP lookups between the Azure NetApp Files service and the user-specified Active Directory Domain Services domain controllers. This feature is currently in preview.
 
