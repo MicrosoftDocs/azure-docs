@@ -19,7 +19,7 @@ On 31 August 2024, we'll retire Basic and Standard A-series VMs. Before that dat
 
 ## Migrate workloads from Basic and Standard A-series VMs to Av2-series VMs 
 
-You can resize your virtual machines to the Av2-series using the [Azure portal](https://portal.azure.com), [PowerShell](windows/resize-vm.md) and [CLI](/linux/change-vm-size.md). Below are examples on how to resize your VM using Azure portal and PowerShell. 
+You can resize your virtual machines to the Av2-series using the [Azure portal](https://portal.azure.com), [PowerShell](windows/resize-vm.md) and [CLI](linux/change-vm-size.md). Below are examples on how to resize your VM using Azure portal and PowerShell. 
 
 > [!IMPORTANT]
 > Resizing the virtual machine will result in a restart. It is suggested to perform actions that will result in a restart during off-peak business hours. 
@@ -55,7 +55,7 @@ You can resize your virtual machines to the Av2-series using the [Azure portal](
 
 ## Help and support
 
-If you have questions, ask community experts in [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html). If you have a support plan and need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+If you have questions, ask community experts in [Microsoft Q&A](/answers/topics/azure-virtual-machines.html). If you have a support plan and need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
 
 1. For Issue type, select Technical.
 1. For Subscription, select your subscription.
@@ -67,5 +67,3 @@ If you have questions, ask community experts in [Microsoft Q&A](https://docs.mic
 
 ## Next steps
 Learn more about the [Av2-series VMs](av2-series.md)
-
-

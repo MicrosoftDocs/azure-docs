@@ -191,7 +191,7 @@ Refer to the following list to configure managed identity for Azure Digital Twin
 Managed identity type |All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | Preview | Preview | Not available | Preview |
-| User assigned | Not available | Not available  | Not available  | Not available |
+| User assigned | Preview | Preview | Not available | Preview |
 
 ### Azure Firewall Policy
 
@@ -431,6 +431,15 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Government |  | Not Available |
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
+
+### Azure Cosmos DB
+
+| Cloud | Resource ID | Status |
+|--------|------------|:-:|
+| Azure Global | `https://<account>.documents.azure.com/`<br/><br/>`https://cosmos.azure.com` | ![Available][check] |
+| Azure Government | `https://<account>.documents.azure.us/`<br/><br/>`https://cosmos.azure.us` | ![Available][check] |
+| Azure Germany | `https://<account>.documents.microsoftazure.de/`<br/><br/>`https://cosmos.microsoftazure.de` | ![Available][check] |
+| Azure China 21Vianet | `https://<account>.documents.azure.cn/`<br/><br/>`https://cosmos.azure.cn` | ![Available][check] |
 
 ### Azure SQL
 
