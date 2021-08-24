@@ -20,19 +20,19 @@ View graphical representations of the following items:
 - [Deployment count](#deployment-count)
 - [Deployment count by status](#deployment-count-by-status)
 - [Deployment errors codes and resources](#deployment-errors-codes-and-resources)
-- [Deployment errors by offer SKU](#deployment-errors-by-offer-sku)
+- [Deployment errors by offer plan](#deployment-errors-by-offer-plan)
 - [Deployment reliability by location](#deployment-reliability-by-location)
 
 Additionally, view [offer deployment details](#offer-deployment-details) in tabular form.
 
 > [!IMPORTANT]
-> This dashboard is currently only available for **Azure Global application** offers.
+> This dashboard is currently only available for **Public Azure application** offers.
 
 The following sections describe how to use the Quality-of-Service (QoS) dashboard and how to read the data.
 
 To access the Quality-of-Service dashboard in the Partner Center, select **Commercial Marketplace** > [**Analyze**](https://partner.microsoft.com/dashboard/commercial-marketplace/quality-of-service/summary) > **Quality of Service**.
 
-This feature is currently applicable to all partners performing deployment of Azure Global applications using Azure Resource Manager (ARM) templates. This report will not show data for other marketplace offers.
+This feature is currently applicable to all partners performing deployment of Public Azure applications using Azure Resource Manager (ARM) templates. This report will not show data for other marketplace offers.
 
 ### Month range
 
@@ -117,54 +117,25 @@ This graph shows metrics and trends of the offer deployments basis error codes a
 
 For more information about error codes, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](/azure/azure-resource-manager/templates/common-deployment-errors) and [Resource providers for Azure services](/azure/azure-resource-manager/management/azure-services-resource-providers)
 
-:::image type="content" source="media/quality-of-service/deployment-error-codes-1.png" alt-text="Shows a deployment error codes graph, version 1.":::
-:::image type="content" source="media/quality-of-service/deployment-error-codes-2.png" alt-text="Shows a deployment error codes graph, version 2.":::
+:::image type="content" source="media/quality-of-service/deployment-error-codes.png" alt-text="Shows a deployment error codes graph.":::
 
-About these graphs:
+About this graph:
 
 - Select specific errors or resources in the legend to be displayed.
 - The trend widget displays error count on a month-by-month basis.
 - When viewing a month-over-month trend by error codes or resources, select a maximum of three items in the table.
 - Sort error codes and resources for deployment failures by basis error count in the table.
 
-### Dictionary of data terms
+## Deployment errors by offer plan
 
-| Column name | Attribute Name | Definition |
-| --- | --- | --- |
-| Offer ID | Offer ID | The name of the deployed offer |
-| Sku | Sku | The name of the deployed offer plan/SKU |
-| Deployment Status | Deployment Status | The offer deployment status marked as either **successful** or **failed** |
-| Subscription ID | Subscription ID | The Subscription ID of the customer |
-| Customer Tenant ID | Customer Tenant ID | The Tenant ID of the customer |
-| Customer Name | Customer Name | The name of the customer |
-| Template Type | Template Type | Type of Azure Global App deployed. It can be either Managed App or Solution Templates. |
-| Deployment Start Time | Deployment Start Time | The start time of the deployment |
-| Deployment End Time | Deployment End Time | The end time of the deployment |
-| Deployment Duration: | Deployment Duration: | The total time duration of offer deployment in milliseconds. It is shown in minutes in the graph. |
-| Deployment Region | Deployment Region | The location of the Azure App deployment |
-| Resource Provider | Resource Provider | The resource provider for the particular deployed resource |
-| Resource Uri | Resource Uri | The URI of the deployed resource |
-| Resource Group | Resource Group | The resource group where the resource is deployed |
-| Resource Type | Resource Type | The type of deployed resource |
-| Resource Name | Resource Name | The name of the deployed resource |
-| Error Code | Error Code | The error code for the deployment failure |
-| Error Name | Error Name | The error name for the deployment failure |
-| Error Message | Error Message | The error message for the deployment failure |
-| Deep Error Code | Deep Error Code | If present, contains further information on the error code |
-| Deep Message Code | Deep Message Code | If present, contains further information on the error message |
-| Correlation ID | Correlation ID | The identifier used to distinguish different deployments. The same value means all resources being deployed are for one deployment. |
-|
+On this graph, the Y-axis represents deployment error count and the X-axis represents the percentile of top offer plans (by error count).
 
-## Deployment errors by offer SKU
-
-On this graph, the Y-axis represents deployment error count and the X-axis represents the percentile of top offer SKUs (by error count).
-
-:::image type="content" source="media/quality-of-service/deployment-error-by-offer-sku.png" alt-text="Shows a deployment errors by offer SKU graph.":::
+:::image type="content" source="media/quality-of-service/deployment-error-by-offer-plan.png" alt-text="Shows deployment errors by offer plan graph.":::
 
 About this graph:
 
-1. The bar charts represent the deployment error counts for the selected month range.
-2. The values on the line chart represent the cumulative error percentages by the offer SKUs.
+- The bar charts represent the deployment error counts for the selected month range.
+- The values on the line chart represent the cumulative error percentages by offer plan.
 
 ## Deployment reliability by location
 
@@ -193,13 +164,34 @@ About this table:
 - Expand the control and export the table.
 - The detail view is paginated. Select other pages at the bottom.
 
+### Dictionary of data terms
+
+| Column name | Attribute Name | Definition |
+| --- | --- | --- |
+| Offer ID | Offer ID | The name of the deployed offer |
+| Sku | Sku | The name of the deployed offer plan/SKU |
+| Deployment Status | Deployment Status | The offer deployment status marked as either **successful** or **failed** |
+| Subscription ID | Subscription ID | The Subscription ID of the customer |
+| Customer Tenant ID | Customer Tenant ID | The Tenant ID of the customer |
+| Customer Name | Customer Name | The name of the customer |
+| Template Type | Template Type | Type of Public Azure App deployed. It can be either Managed App or Solution Templates. |
+| Deployment Start Time | Deployment Start Time | The start time of the deployment |
+| Deployment End Time | Deployment End Time | The end time of the deployment |
+| Deployment Duration: | Deployment Duration: | The total time duration of offer deployment in milliseconds. It is shown in minutes in the graph. |
+| Deployment Region | Deployment Region | The location of the Azure App deployment |
+| Resource Provider | Resource Provider | The resource provider for the particular deployed resource |
+| Resource Uri | Resource Uri | The URI of the deployed resource |
+| Resource Group | Resource Group | The resource group where the resource is deployed |
+| Resource Type | Resource Type | The type of deployed resource |
+| Resource Name | Resource Name | The name of the deployed resource |
+| Error Code | Error Code | The error code for the deployment failure |
+| Error Name | Error Name | The error name for the deployment failure |
+| Error Message | Error Message | The error message for the deployment failure |
+| Deep Error Code | Deep Error Code | If present, contains further information on the error code |
+| Deep Message Code | Deep Message Code | If present, contains further information on the error message |
+| Correlation ID | Correlation ID | The identifier used to distinguish different deployments. The same value means all resources being deployed are for one deployment. |
+|
+
 ## Next steps
 
-- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary dashboard in commercial marketplace analytics](summary-dashboard.md).
-- For information about your orders in a graphical and downloadable format, see [Orders dashboard in commercial marketplace analytics](orders-dashboard.md).
-- For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](usage-dashboard.md).
-- For detailed information about your customers, including growth trends, see [Customer dashboard in commercial marketplace analytics](customer-dashboard.md).
-- For information about your licenses, see [License dashboard in commercial marketplace analytics](license-dashboard.md)
-- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
-- To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.yml).
+- ???
