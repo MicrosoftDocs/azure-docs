@@ -118,13 +118,44 @@ You can automate the process described earlier using Azure Resource Manager temp
 ### Create and manage Azure Monitor Private Link Scopes (AMPLS)
 To create and manage private link scopes, use the [REST API](/rest/api/monitor/privatelinkscopes(preview)/private%20link%20scoped%20resources%20(preview)) or [Azure CLI (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
 
-#### Example Azure Resource Manager template (ARM template)
+#### Create AMPLS with Open access modes - CLI example
+The below CLI command creates a new AMPLS resource named "my-scope", with both query and ingestion access modes set to Open.
+```
+az resource create -g "my-resource-group" --name "my-scope" --api-version "2021-07-01-preview" --resource-type Microsoft.Insights/privateLinkScopes --properties "{\"accessModeSettings\":{\"queryAccessMode\":\"Open\", \"ingestionAccessMode\":\"Open\"}}"
+```
+
+#### Create AMPLS with mixed access modes - PowerShell example
+The below PS script creates a new AMPLS resource named "my-scope", with the query access mode Open but the ingestion access modes set to PrivateOnly (meaing it will allow ingestion only to resources in the AMPLS).
+
+```
+# scope details
+$scopeSubscriptionId = "ab1800bd-ceac-48cd-...-..."
+$scopeResourceGroup = "my-resource-group"
+$scopeName = "my-scope"
+$scopeProperties = @{
+    accessModeSettings = @{
+        queryAccessMode     = "Open"; 
+        ingestionAccessMode = "PrivateOnly"
+    } 
+}
+
+# login
+Connect-AzAccount
+
+# select subscription
+Select-AzSubscription -SubscriptionId $scopeSubscriptionId
+
+# create private link scope resource
+$scope = New-AzResource -Location "Global" -Properties $scopeProperties -ResourceName $scopeName -ResourceType "Microsoft.Insights/privateLinkScopes" -ResourceGroupName $scopeResourceGroup -ApiVersion "2021-07-01-preview" -Force
+```
+
+#### Create AMPLS - Azure Resource Manager template (ARM template)
 The below Azure Resource Manager template creates:
 * A private link scope (AMPLS) named "my-scope"
 * A Log Analytics workspace named "my-workspace"
 * Add a scoped resource to the "my-scope" AMPLS, named "my-workspace-connection"
 > [!NOTE]
-> The below ARM template uses an API version "2019-04-01" that doesn't support setting the AMPLS access modes. When using the below template, the resulting AMPLS is set with QueryAccessMode="Open" and IngestionAccessMode="PrivateOnly", meaning it allows queries to run on resources both in and out of the AMPLS, but limits ingestion to reach only Private Link resources.
+> The below ARM template uses API version "2019-04-01", which doesn't support setting the AMPLS access modes. When using the below template, the resulting AMPLS is set with QueryAccessMode="Open" and IngestionAccessMode="PrivateOnly", meaning it allows queries to run on resources both in and out of the AMPLS, but limits ingestion to reach only Private Link resources.
 
 ```
 {
@@ -178,7 +209,7 @@ The below Azure Resource Manager template creates:
 }
 ```
 
-### Set AMPLS access flags
+### Set AMPLS access flags - PowerShell example
 To set the access mode flags on your AMPLS, you can use the following PowerShell script. This below script sets the flags to Open. To use the Private Only mode, use the value "PrivateOnly".
 
 ```
