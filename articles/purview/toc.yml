@@ -66,8 +66,6 @@ items:
     href: concept-scans-and-ingestion.md
   - name: Elastic Data Map
     href: concept-elastic-data-map.md
-  - name: How scans detect deleted assets
-    href: concept-detect-deleted-assets.md
   - name: Understanding resource sets
     href: concept-resource-sets.md
   - name: Data lineage

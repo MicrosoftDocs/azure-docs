@@ -115,6 +115,8 @@
     items:
     - name: Log data
       href: logs/data-security.md
+    - name: Azure AD Authentication for Logs
+      href: logs/azure-ad-authentication-logs.md
     - name: Customer-managed keys
       href: logs/customer-managed-keys.md
     - name: Private Link networking
