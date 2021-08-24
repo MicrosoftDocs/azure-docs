@@ -30,9 +30,31 @@ ms.author: inhenkel
 
 ## Overview
 
-By default, Media Reserve Units are no longer needed to be used and are not supported by Azure Media Services. For compatibility purposes, the current Azure portal has an option for you to manage and scale MRUs. However, by default, none of the MRU configurations that you set will be used to control encoding concurrency or performance. Make sure to review the [Overview](media-services-scale-media-processing-overview.md) to get more information about scaling media processing. 
+By default, Media Reserve Units are no longer needed to be used and are not supported by Azure Media Services. For compatibility purposes, the current Azure portal has an option for you to manage and scale MRUs. However, by default, none of the MRU configurations that you set will be used to control encoding concurrency or performance.
+
+> [!IMPORTANT]
+> Make sure to review the [overview](media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
+
+## Scale media processing
+>[!NOTE]
+>Selecting MRUs will not affect concurrency or performance in Azure Media Services V3. 
+
+To change the reserved unit type and the number of reserved units, do the following:
+
+1. In the [Azure portal](https://portal.azure.com/), select your Azure Media Services account.
+2. In the **Settings** window, select **Media reserved units**.
+   
+    To change the number of reserved units for the selected reserved unit type, use the **Media Served Units** slider at the top of the screen.
+   
+    To change the **RESERVED UNIT TYPE**, click on the **Speed of reserved processing units** bar. Then, select the pricing tier you need: S1, S2, or S3.
+   
+3. Press the SAVE button to save your changes.
+   
+    The new reserved units are allocated when you press SAVE.
 
 ## Next steps
+Review Media Services learning paths.
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
