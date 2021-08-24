@@ -76,9 +76,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Sign-on URL** text box, type the URL:
     `https://app.animaker.com/login/samlsuccess/azure/`
 
-	> [!NOTE]
-	> This value is not real. Update this value with the actual Sign-on URL. Contact [Animaker Client support team](mailto:help@animaker.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
