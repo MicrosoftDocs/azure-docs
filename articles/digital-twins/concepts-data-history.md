@@ -17,26 +17,26 @@ ms.service: digital-twins
 
 # Azure Digital Twins Data History
 
-Data History is an integration feature of Azure Digital Twins. It connects an Azure Digital Twins instance to an [Azure Data Explorer (ADX)](https://docs.microsoft.com/en-us/azure/data-explorer/data-explorer-overview) cluster and automatically historizes digital twin property updates to ADX. The direct integration simplifies setup, reduces management overhead, and eliminates the need to write an Azure function to transform and historize twin property updates. Once the twin property values are historized to ADX, customers can run joint queries using the [Azure Digital Twins plugin for ADX](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data to gain insights into the behavior of modeled environments. Customers can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive AR/MR experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins. 
+Data History is an integration feature of Azure Digital Twins. It connects an Azure Digital Twins instance to an [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/data-explorer-overview) cluster and automatically historizes digital twin property updates to Azure Data Explorer. The direct integration simplifies setup, reduces management overhead, and eliminates the need to write an Azure function to transform and historize twin property updates. Once the twin property values are historized to Azure Data Explorer, customers can run joint queries using the [Azure Digital Twins plugin for Azure Data Explorer](concepts-data-explorer-plugin.md) to reason across digital twins, their relationships, and time series data to gain insights into the behavior of modeled environments. Customers can also use these queries to power operational dashboards, enrich 2D and 3D web applications, and drive immersive AR/MR experiences to convey the current and historical state of assets, processes, and people modeled in Azure Digital Twins. 
 
 ## Data History architecture
 
-Data History configures a connection between an Azure Digital Twins instance, an Event Hub, and an ADX cluster: 
+Data History configures a connection between an Azure Digital Twins instance, an Event Hub, and an Azure Data Explorer cluster: 
 
 :::image type="content" source="media/concepts-data-history/data-history-architecture.png" alt-text="Diagram showing the flow of telemetry data into Azure Digital Twins, through Event Hub, to Azure Data Explorer.":::
 
-When a property in a digital twin is updated, Data History forwards a message containing the twin's updated property value and metadata to Event Hub. The Event Hub then forwards the message to the target ADX cluster. The ADX cluster maps the message fields to the Data History schema and stores the data as a timestamped record in a Data History table.
+When a property in a digital twin is updated, Data History forwards a message containing the twin's updated property value and metadata to Event Hub. The Event Hub then forwards the message to the target Azure Data Explorer cluster. The Azure Data Explorer cluster maps the message fields to the Data History schema and stores the data as a timestamped record in a Data History table.
 
 ### Resources required to use Data History
 
-Data History requires an Azure Digital Twins instance, an Event Hubs namespace with an Event Hub, and an ADX cluster with a database. The walkthrough below includes steps to provision these resources, create a Data History connection between them, and historize sample digital twin updates to ADX. To run the Data History commands in the CLI, you'll need to install a pre-release version of the [azure-iot](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) CLI extension. If you already have these resources available in your account, you can connect them using the Azure CLI.
+Data History requires an Azure Digital Twins instance, an Event Hubs namespace with an Event Hub, and an Azure Data Explorer cluster with a database. The walkthrough below includes steps to provision these resources, create a Data History connection between them, and historize sample digital twin updates to Azure Data Explorer. To run the Data History commands in the CLI, you'll need to install a pre-release version of the [azure-iot](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) CLI extension. If you already have these resources available in your account, you can connect them using the Azure CLI.
 
 ## Creating a Data History connection using the CLI
 
 >[!NOTE]
 > Run the following CLI commands a locally on your machine rather than in Cloud Shell to avoid a known [MSI issue in Cloud Shell](https://github.com/Azure/azure-cli/issues/17695).
 
-Run az login before creating the connection ensure the CLI is running under a normal device login that enables ADX connections (Cloud shell can otherwise default to a restricted set of MSI Audience IDs, thereby blocking a Data History connection). 
+Run az login before creating the connection ensure the CLI is running under a normal device login that enables Azure Data Explorer connections (Cloud shell can otherwise default to a restricted set of MSI Audience IDs, thereby blocking a Data History connection). 
 
 ```azurecli-interactive
 az login
@@ -80,9 +80,9 @@ For help on other Data History CLI commands, enter:
 az dt data-history -h
 ```
 
-## Schema for time series data in ADX
+## Schema for time series data in Azure Data Explorer
 
-Below is the schema used to store twin property updates to ADX:
+Below is the schema used to store twin property updates to Azure Data Explorer:
 
 | Attribute | Type | Description |
 | --- | --- | --- |
@@ -94,7 +94,7 @@ Below is the schema used to store twin property updates to ADX:
 | RelationshipId | String | For properties defined on relationships (as opposed to twins or devices), this column contains the ID of the relationship; otherwise, empty |
 | RelationshipTarget | String | For properties defined on relationships, this column defines the twin ID of the twin targeted by the relationship |
 
-Below is an example table of twin property updates stored to ADX.
+Below is an example table of twin property updates stored to Azure Data Explorer.
 
 | TimeStamp | Id | ModelId | Key | Value | RelationshipTarget | RelationshipID |
 | --- | --- | --- | --- | --- | --- | --- |
