@@ -165,3 +165,6 @@ Below is an example of PowerShell commands that you can use to disable local aut
     $workspace.Properties.Features | Add-Member -MemberType NoteProperty -Name DisableLocalAuth -Value $disableLocalAuth -Force
     $workspace | Set-AzResource -Force
 ```
+
+## Next steps
+* [Azure AD authentication for Application Insights (Preview)](../app/azure-ad-authentication.md)
