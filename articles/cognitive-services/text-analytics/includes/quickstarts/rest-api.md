@@ -13,11 +13,11 @@ ms.author: aahi
 ---
 
 
-# [Version 3.2-preview.1](#tab/version-3-1)
+#### [Version 3.2-preview.1](#tab/version-3-1)
 
 [v3.1 Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-1)
 
-# [Version 3.1](#tab/version-3)
+#### [Version 3.1](#tab/version-3)
 
 [v3 Reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1) 
 
@@ -76,7 +76,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/sen
 
 ### JSON response
 
-[!INCLUDE [REST API response is the same for both versions](rest-api-response-same.md)]
+[!INCLUDE [REST API response is the same for both versions](../rest-api-response-same.md)]
 
 ```json
 {
@@ -171,7 +171,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/lan
 
 ### JSON response
 
-[!INCLUDE [REST API response is the same for both versions](rest-api-response-same.md)]
+[!INCLUDE [REST API response is the same for both versions](../rest-api-response-same.md)]
 
 ```json
 {
@@ -221,7 +221,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/ent
 
 ### JSON response
 
-[!INCLUDE [REST API response is the same for both versions](rest-api-response-same.md)]
+[!INCLUDE [REST API response is the same for both versions](../rest-api-response-same.md)]
 
 ```json
 {
@@ -285,7 +285,7 @@ curl -X POST https://your-text-analytics-endpoint-here>/text/analytics/v3.1/enti
 
 ### JSON response
 
-[!INCLUDE [REST API response is the same for both versions](rest-api-response-same.md)]
+[!INCLUDE [REST API response is the same for both versions](../rest-api-response-same.md)]
 
 ```json
 {
@@ -345,7 +345,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/ent
 
 ### JSON response
 
-[!INCLUDE [REST API response is the same for both versions](rest-api-response-same.md)]
+[!INCLUDE [REST API response is the same for both versions](../rest-api-response-same.md)]
 
 ```json
 {
@@ -456,7 +456,7 @@ curl -X POST https://<your-text-analytics-endpoint-here>/text/analytics/v3.1/key
 
 ### JSON response
 
-[!INCLUDE [REST API response is the same for both versions](rest-api-response-same.md)]
+[!INCLUDE [REST API response is the same for both versions](../rest-api-response-same.md)]
 
 
 ```json
@@ -537,7 +537,7 @@ curl -X GET  https://your-text-analytics-endpoint-here/text/analytics/v3.1/entit
 
 ### JSON response
 
-[!INCLUDE [REST API response is the same for both versions](rest-api-response-same.md)]
+[!INCLUDE [REST API response is the same for both versions](../rest-api-response-same.md)]
 
 ```json
 {
