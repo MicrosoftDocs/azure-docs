@@ -1,23 +1,22 @@
 ---
-title: Support and help options for Microsoft identity platform developers | Azure
-description: Learn where to get help and find answers to your questions as you build identity and access management (IAM) solutions that integrate with Azure Active Directory (Azure AD) and other components of the Microsoft identity platform.
+title: Support and help options for Azure Active Directory
+description: Learn where to get help and find answers to your questions as you build and configure identity and access management (IAM) solutions that integrate with Azure Active Directory (Azure AD).
 services: active-directory
-author: mmacy
+author: CelesteDG
 manager: CelesteDG
 
 ms.service: active-directory
-ms.subservice: develop
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/19/2021
-ms.author: marsma
-ms.reviewer: jmprieur, saeeda
-ms.custom: has-adal-ref
+ms.date: 08/23/2021
+ms.author: celested
+ms.reviewer: jahule
 ---
 
-# Support and help options for developers
+# Support and help options for Azure Active Directory
 
-If you need an answer to a question or help in solving a problem not covered in our documentation, it might be time to reach out to experts for help. Here are several suggestions for getting answers to your questions as you develop applications that integrate with the Microsoft identity platform.
+If you need an answer to a question or help in solving a problem not covered in our documentation, it might be time to reach out to experts for help. Here are several suggestions for getting answers to your questions as you use Azure Active Directory (Azure AD).
 
 ## Create an Azure support request
 
@@ -25,7 +24,7 @@ If you need an answer to a question or help in solving a problem not covered in 
     <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
 </div>
 
-Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
+Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're an IT admin managing your organization's tenant, a developer just starting your cloud journey, or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
 
 - If you already have an Azure Support Plan, [open a support request here](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
@@ -34,10 +33,10 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 ## Post a question to Microsoft Q&A
 
 <div class='icon is-large'>
-    <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
-</div>             
+    <img alt='Microsoft Q&A' src='../develop/media/common/question-mark-icon.png'>
+</div>
 
-Get answers to your identity app development questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
+Get answers to your identity and access management questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
 
 [Microsoft Q&A](/answers/products/) is Azure's recommended source of community support.
 
@@ -53,26 +52,6 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 | [Microsoft Graph API](https://developer.microsoft.com/graph/)               | [[azure-ad-graph]](/answers/topics/azure-ad-graph.html)                 |
 | All other authentication and authorization areas                            | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
 
-## Create a GitHub issue
-
-<div class='icon is-large'>
-    <img alt='GitHub-image' src='./media/common/github.svg'>
-</div>
-
-If you need help with one of the Microsoft Authentication Libraries (MSAL), open an issue in its repository on GitHub.
-
-| MSAL Library | GitHub issues URL|
-| --- | --- |
-| MSAL for Android | https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
-| MSAL Angular | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-| MSAL for iOS and macOS| https://github.com/AzureAD/microsoft-authentication-library-for-objc/issues |
-| MSAL Java | https://github.com/AzureAD/microsoft-authentication-library-for-java/issues |
-| MSAL.js | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-| MSAL.NET| https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues |
-| MSAL Node | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-| MSAL Python | https://github.com/AzureAD/microsoft-authentication-library-for-python/issues |
-| MSAL React | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues |
-
 ## Stay informed of updates and new releases
 
 <div class='icon is-large'>
@@ -81,7 +60,7 @@ If you need help with one of the Microsoft Authentication Libraries (MSAL), open
 
 - [Azure Updates](https://azure.microsoft.com/updates/?category=identity): Learn about important product updates, roadmap, and announcements.
 
-- [What's new in docs](./whats-new-docs.md): Get to know what's new in the Microsoft identity platform documentation.
+- [What's new in Azure AD](whats-new.md): Get to know what's new in Azure AD including the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 
 - [Azure Active Directory Identity Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity): Get news and information about Azure AD.
 
