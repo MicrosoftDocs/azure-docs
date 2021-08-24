@@ -57,11 +57,8 @@ Set a value to an Authorization header to identify the request with your Webhook
 Outgoing requests should now contain the header set on the event subscription:
 
 ```console
-GET /home.html HTTP/1.1
-
+POST /home.html HTTP/1.1
 Host: acme.com
-
-User-Agent: <user-agent goes here>
 
 Authorization: BEARER SlAV32hkKG...
 ```
