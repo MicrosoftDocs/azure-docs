@@ -78,8 +78,13 @@ Now start up your application and go to your Application Insights resource in th
 ## Enable OTLP Exporter
 You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
 
-See xyz.
+Add the code to xyz.file in your application.
+```Java
+Placeholder
+```
 
+> [!NOTE]
+> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the OpenTelemetry community for OpenTelemetry issues outside the Azure Support Boundary.
 
 ## Configuration options
 
@@ -194,6 +199,12 @@ to enable this preview feature and auto-collect the telemetry emitted by these A
 ## Modify Telemetry
 
 ### Add Span Attributes
+You may use X to add attributes to spans. This may include adding a custom business dimension to your telemetry or setting optional fields in the Application Insights Schema such as User ID.
+
+For more information, see [GitHub Repo](link).
+
+#### Add Custom Dimension
+Adding one or more custom dimensions will populate the _customDimensions_ field in the requests, dependencies, and/or exceptions table.
 
 > [!NOTE]
 > This feature is only in 3.0.2 and later
@@ -218,7 +229,8 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.getProperties().put("mydimension", "myvalue");
 ```
 
-#### Set the request telemetry user_Id using the 2.x SDK
+#### Set User ID
+Setting user id will populate the _user_Id_ field in the requests, dependencies, and/or exceptions table.
 
 > [!NOTE]
 > This feature is only in 3.0.2 and later
@@ -243,7 +255,8 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.getContext().getUser().setId("myuser");
 ```
 
-### Override the request telemetry name using the 2.x SDK
+### Override Span Name
+You may use X to override span name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
 
 > [!NOTE]
 > This feature is only in 3.0.2 and later
@@ -268,7 +281,8 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.setName("myname");
 ```
 
-### Get the request telemetry Id and the operation Id using the 2.x SDK
+### Get Trace ID or Span ID
+You may use X or Y to get trace ID or span ID. This may be done to add these identifiers to existing logging telemetry to improve correlation when debugging and diagnosing issues.
 
 > [!NOTE]
 > This feature is only in 3.0.3 and later
