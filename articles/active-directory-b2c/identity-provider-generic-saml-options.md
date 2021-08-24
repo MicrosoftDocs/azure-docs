@@ -216,7 +216,7 @@ The following example demonstrates an authorization request with **AllowCreate**
 </samlp:AuthnRequest>
 ```
 
-### Force Authentication
+### Force authentication
 
 To request that the external SAML IDP prompt the user for authentication, you can pass the `ForceAuthN` property in the SAML AuthN Reuqest. This will be dependent on your identity provider supporting this property.
 
