@@ -123,8 +123,6 @@ Do the following steps in the Azure portal to order a device.
 
       You'll be notified when the key has been created in your key vault. Your new key wil be selected and displayed on the **Select a key** blade.
 
-      <!--![Screenshot of the "Select a key" screen in Azure Key vault after a new key is added. The Version field, with the default version, is highlighted.](./media/data-box-order-portal/customer-managed-key-08.png)-->
-
 13. Select the **Version** of the key to use, and then choose **Select**.
 
       ![Screenshot of the "Create a Key" screen in Azure Key Vault. The Version field is highlighted, with available versions displayed.](./media/data-box-order-portal/customer-managed-key-08.png)
@@ -157,22 +155,22 @@ Do the following steps in the Azure portal to order a device.
 
     The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
 
-    ![Expanded Bring your own password options for a Data Box import order](media/data-box-order-portal/select-data-box-import-security-02.png) 
+    ![Screenshot of expanded "Bring your own password" on the Security tab for a Data Box import order. The Security tab and the password options are highlighted.](media/data-box-order-portal/select-data-box-import-security-02.png) 
 
    - To use your own password for your new device, by **Set preference for the device password**, select **Use your own password**, and type a password that meets the security requirements.
      
-     The password must be alphanumeric and contain from 12 to 15 characters, with at least one uppercase letter, one lowercase letter, one special character, and one number. 
+     The password must be alphanumeric and contain from 12 to 15 characters, with at least one uppercase letter, one lowercase letter, one special character, and one number.<!--Verify: Updated requirements require at least 1 number and 1 special character - no letters, no c/lc requirement?-->
 
      - Allowed special characters: @ # - $ % ^ ! + = ; : _ ( )
      - Characters not allowed: I i L o O 0
    
-     ![Options for using your own device password on the Security screen for a Data Box import order](media/data-box-order-portal/select-data-box-import-security-03.png)
+     ![Screenshot of options for using your own device password on the Security tab for a Data Box import order. The Use Your Own Password option and Device Password option are highlighted.](media/data-box-order-portal/select-data-box-import-security-03.png)
 
  - To use your own passwords for shares:
 
    1. By **Set preference for share passwords**, select **Use your own passwords** and then **Select passwords for the shares**.
      
-       ![Options for using your own share passwords on the Security screen for a Data Box import order](media/data-box-order-portal/select-data-box-import-security-04.png)
+       ![Screenshot of options for using your own share passwords on the Security tab for a Data Box import order. The Use Your Own Passwords op and Select Passwords for the Shares option are highlighted.](media/data-box-order-portal/select-data-box-import-security-04.png)
 
     1. Type a password for each storage account in the order. The password will be used on all shares for the storage account.
     
@@ -185,13 +183,13 @@ Do the following steps in the Azure portal to order a device.
 
     1. When you finish, select **Save**.
      
-       ![Screen for entering share passwords for a Data Box import order](media/data-box-order-portal/select-data-box-import-security-05.png)
+       ![Screenshot of Set Share Passwords screen for a Data Box order. The Copy To All link and the Save button are highlighted.](media/data-box-order-portal/select-data-box-import-security-05.png)
 
     On the **Security** screen, you can use **View or change passwords** to change the passwords.
 
 16. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
 
-    ![Security screen for Data Box import, enabling software-based encryption for a Data Box order](media/data-box-order-portal/select-data-box-import-security-07.png)
+    ![Screenshot of Double Encryption options on the Security tab for a Data Box order. The Enable Double Encryption For The Order option the Next: Contact Details button are highlighted.](media/data-box-order-portal/select-data-box-import-security-07.png)
 
     The software-based encryption is performed in addition to the  AES-256 bit encryption of the data on the Data Box.
 
@@ -200,23 +198,23 @@ Do the following steps in the Azure portal to order a device.
 
     Select **Next: Contact details** to continue.
 
-17. In **Contact details**, select **+ Add Shipping Address**.<!--Has this been simplified to "Add Address"?-->
+17. In **Contact details**, select **+ Add Address**.
 
-    ![From the Contact details screen, add shipping addresses to your Azure Data Box import order](media/data-box-order-portal/select-data-box-import-08-a.png)<!--Edit screen to remove "Shipping" from "Add Shipping Address"?-->
+    ![Screenshot of Contact Details tab for a Data Box order. The Contact Details tab and the Plus Add Address option are highlighted.](media/data-box-order-portal/select-data-box-import-08-a.png)
 
-18. In the **Shipping address**, provide your first and last name, name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the shipping address for service availability. If the service is available for the specified shipping address, you receive a notification to that effect.
+18. On the **Add address** screen, provide your first and last name, the name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the address for service availability and notifies you if service is available for that address.
 
-    ![Screenshot of the Add Shipping Address dialog box with the Ship using options and the Add shipping address option called out.](media/data-box-order-portal/select-data-box-import-10.png)
+    ![Screenshot of the Add Address screen for a Data Box order. The Ship using options and the Add shipping address option called out.](media/data-box-order-portal/select-data-box-import-10.png)
 
     If you selected self-managed shipping, you will receive an email notification after the order is placed successfully. For more information about self-managed shipping, see [Use self-managed shipping](../articles/databox/data-box-portal-customer-managed-shipping.md).
 
-19. Select **Add Shipping Address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
+19. Select **Add shipping address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
 
 20. After you return to **Contact details**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
-    ![Email section of Contact details in the Order wizard](media/data-box-order-portal/select-data-box-import-08-c.png)
+    ![Screenshot showing the Email section of the Contact Details tab for a Data Box order. The area for typing email addresses and the Review Plus Order button are highlighted.](media/data-box-order-portal/select-data-box-import-08-c.png)
 
 21. Review the information in **Review + Order** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
 
