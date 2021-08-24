@@ -20,7 +20,7 @@ The Azure Managed Instance for Apache Casandra service requires certain network 
 
 ## Virtual network service tags
 
-If you are using Azure Firewall to restrict outbound access, we highly recommend using [virtual network service tags](/azure/virtual-network/service-tags-overview). Below are the tags required to make Azure Managed Instance for Apache Cassandra function properly.
+If you are using Azure Firewall to restrict outbound access, we highly recommend using [virtual network service tags](../virtual-network/service-tags-overview.md). Below are the tags required to make Azure Managed Instance for Apache Cassandra function properly.
 
 | Destination Service Tag                                                             | Protocol | Port    | Use  |
 |----------------------------------------------------------------------------------|----------|---------|------|

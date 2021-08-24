@@ -7,7 +7,7 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 08/19/2021
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
