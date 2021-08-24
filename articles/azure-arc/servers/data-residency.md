@@ -27,7 +27,7 @@ Metadata information about the connected machine is also collected. Specifically
 * Connected Machine agent heartbeat
 * Connected Machine agent version
 * Public key for managed identity
-* Policy compliance status and details (if using Azure Policy Guest Configuration policies)
+* Policy compliance status and details (if using guest configuration policies)
 
 Arc-enabled servers allow you to specify the region where your data is stored. Microsoft may replicate to other regions for data resiliency, but Microsoft does not replicate or move data outside the geography. This data is stored in the region where the Azure Arc machine resource is configured. For example, if the machine is registered with Arc in the East US region, this data is stored in the US region.
 
