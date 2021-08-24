@@ -61,14 +61,82 @@ This section's following instructions apply to the following connectors:
 - [Azure Key Vault *](data-connectors-reference.md#azure-key-vault)
 - [Azure Kubernetes Service (AKS) *](data-connectors-reference.md#azure-kubernetes-service-aks)
 - [Azure SQL Databases *](data-connectors-reference.md#azure-sql-databases)
-- [Azure Storage Account *](data-connectors-reference.md#azure-storage-account)
+- [Azure Storage Account](data-connectors-reference.md#azure-storage-account)
 - [Azure Web Application Firewall](data-connectors-reference.md#azure-web-application-firewall-waf)
 
-\* This connector's configuration is managed by Azure Policy.
+\* This connector's configuration is managed by Azure Policy. Select the **Azure Policy** tab below for instructions. For the other connectors of this type, select the **Standalone** tab.
+
+# [Standalone](#tab/SA)
 
 ### Prerequisites
 
+To ingest data into Azure Sentinel:
+
+- You must have read and write permissions on the Azure Sentinel workspace.
+
 ### Instructions
+
+1. From the Azure Sentinel navigation menu, select **Data connectors**.
+
+1. Select your resource type from the data connectors gallery, and then select **Open Connector Page** on the preview pane.
+
+1. In the **Configuration** section of the connector page, select the link to open the resource configuration page.
+
+1. From the resource navigation menu, select **Diagnostic settings**.
+
+1. Select **+ Add diagnostic setting** at the bottom of the list.
+
+1. In the **Diagnostics settings** screen, enter a name in the **Diagnostic settings name** field.
+
+Mark the **Send to Log Analytics** check box. Two new fields will be displayed below it. Choose the relevant **Subscription** and **Log Analytics Workspace** (where Azure Sentinel resides).
+
+1. Mark the check boxes of the types of logs and metrics you want to collect. See our recommended choices for each resource type in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page.
+
+1. Select **Save** at the top of the screen.
+
+You can find and query the data for each resource type using the table name that appears in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page.
+
+# [Azure Policy](#tab/AP)
+
+### Prerequisites
+
+To ingest data into Azure Sentinel:
+
+- You must have read and write permissions on the Azure Sentinel workspace.
+
+- To use Azure Policy to apply a log streaming policy to your resources, you must have the Owner role for the policy assignment scope.
+
+### Instructions
+
+Connectors of this type use Azure Policy to apply a single diagnostic settings configuration to a collection of resources of a single type, defined as a scope. You can see the log types ingested from a given resource type on the left side of the connector page for that resource, under **Data types**.
+
+1. From the Azure Sentinel navigation menu, select **Data connectors**.
+
+1. Select your resource type from the data connectors gallery, and then select **Open Connector Page** on the preview pane.
+
+1. In the **Configuration** section of the connector page, expand any expanders you see there and select the **Launch Azure Policy Assignment wizard** button.
+
+    The policy assignment wizard opens, ready to create a new policy, with a policy name pre-populated.
+
+    1. In the **Basics** tab, select the button with the three dots under **Scope** to choose your subscription (and, optionally, a resource group). You can also add a description.
+
+    1. In the **Parameters** tab:
+      - Clear the **Only show parameters that require input** check box.
+      - If you see **Effect** and **Setting name** fields, leave them as is.
+      - Choose your Azure Sentinel workspace from the **Log Analytics workspace** drop-down list.
+      - The remaining drop-down fields represent the available diagnostic log types. Leave marked as “True” all the log types you want to ingest.
+
+    1. The policy will be applied to resources added in the future. To apply the policy on your existing resources as well, select the **Remediation** tab and mark the **Create a remediation task** check box.
+
+    1. In the **Review + create** tab, click **Create**. Your policy is now assigned to the scope you chose.
+
+> [!NOTE]
+>
+> With this type of data connector, the connectivity status indicators (a color stripe in the data connectors gallery and connection icons next to the data type names) will show as *connected* (green) only if data has been ingested at some point in the past 14 days. Once 14 days have passed with no data ingestion, the connector will show as being disconnected. The moment more data comes through, the *connected* status will return.
+
+You can find and query the data for each resource type using the table name that appears in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page.
+
+---
 
 ## Log Analytics agent-based connections
 
@@ -81,38 +149,6 @@ This section's following instructions apply to the following connectors:
 ### Prerequisites
 
 ### Instructions
-
-To ingest data into Azure Sentinel:
-
-- You must have read and write permissions on the Azure Sentinel workspace.
-
-- To use Azure Policy to apply a log streaming policy to Azure Key Vault resources, you must have the Owner role for the policy assignment scope.
-
-## Connect to Azure Key Vault
-
-This connector uses Azure Policy to apply a single Azure Key Vault log streaming configuration to a collection of instances, defined as a scope. You can see the log types ingested from Azure Key Vault on the left side of connector page, under **Data types**.
-
-1. From the Azure Sentinel navigation menu, select **Data connectors**.
-
-1. Select **Azure Key Vault** from the data connectors gallery, and then select **Open Connector Page** on the preview pane.
-
-1. In the **Configuration** section of the connector page, expand **Stream diagnostics logs from your Azure Key Vault at scale**.
-
-1. Select the **Launch Azure Policy Assignment wizard** button.
-
-    The policy assignment wizard opens, ready to create a new policy called **Deploy - Configure diagnostic settings for Azure Key Vault to Log Analytics workspace**.
-
-    1. In the **Basics** tab, click the button with the three dots under **Scope** to select your subscription (and, optionally, a resource group). You can also add a description.
-
-    1. In the **Parameters** tab, leave the **Effect** and **Setting name** fields as is. Choose your Azure Sentinel workspace from the **Log Analytics workspace** drop-down list. The remaining drop-down fields represent the available diagnostic log types. Leave marked as “True” all the log types you want to ingest.
-
-    1. The policy will be applied to resources added in the future. To apply the policy on your existing resources as well, select the **Remediation** tab and mark the **Create a remediation task** check box.
-
-    1. In the **Review + create** tab, click **Create**. Your policy is now assigned to the scope you chose.
-
-> [!NOTE]
->
-> With this particular data connector, the connectivity status indicators (a color stripe in the data connectors gallery and connection icons next to the data type names) will show as *connected* (green) only if data has been ingested at some point in the past 14 days. Once 14 days have passed with no data ingestion, the connector will show as being disconnected. The moment more data comes through, the *connected* status will return.
 
 ## Next steps
 

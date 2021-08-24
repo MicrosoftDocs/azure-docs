@@ -25961,11 +25961,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/sentinel/connect-azure-active-directory.md",
-      "redirect_url": "/azure/sentinel/data-connectors-reference#azure-active-directory",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/sentinel/connect-azure-activity.md",
       "redirect_url": "/azure/sentinel/data-connectors-reference#azure-activity",
       "redirect_document_id": false
@@ -26003,11 +25998,6 @@
     {
       "source_path_from_root": "/articles/sentinel/connect-azure-kubernetes-service.md",
       "redirect_url": "/azure/sentinel/data-connectors-reference#azure-kubernetes-service-aks",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sentinel/connect-azure-security-center.md",
-      "redirect_url": "/azure/sentinel/data-connectors-reference#azure-defender",
       "redirect_document_id": false
     },
     {

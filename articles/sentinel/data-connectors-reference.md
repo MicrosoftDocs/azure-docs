@@ -48,7 +48,7 @@ Check the sections below for additional guidance when deploying a specific conne
 | **Azure Function App code** | https://aka.ms/sentinel-agari-functionapp |
 | **API credentials** | <li>Client ID<li>Client Secret<li>(Optional: Graph Tenant ID, Graph Client ID, Graph Client Secret) |
 | **Vendor documentation/<br>installation instructions** | <li>[Quick Start](https://developers.agari.com/agari-platform/docs/quick-start)<li>[Agari Developers Site](https://developers.agari.com/agari-platform) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
 | **Application settings** | <li>clientID<li>clientSecret<li>workspaceID<li>workspaceKey<li>enableBrandProtectionAPI (true/false)<li>enablePhishingResponseAPI (true/false)<li>enablePhishingDefenseAPI (true/false)<li>resGroup (enter Resource group)<li>functionName<li>subId (enter Subscription ID)<li>enableSecurityGraphSharing (true/false; see below)<br>Required if enableSecurityGraphSharing is set to true (see below):<li>GraphTenantId<li>GraphClientId<li>GraphClientSecret<li>logAnalyticsUri (optional) |
 | **Supported by** | [Agari](https://support.agari.com/hc/en-us/articles/360000645632-How-to-access-Agari-Support) |
 | | |
@@ -78,7 +78,7 @@ The Agari connector uses an environment variable to store log access timestamps.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog <br><br>[Configure CEF log forwarding for AI Analyst](#configure-cef-log-forwarding-for-ai-analyst) |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>[Configure CEF log forwarding for AI Analyst](#configure-cef-log-forwarding-for-ai-analyst) |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Supported by** | [Darktrace](https://customerportal.darktrace.com/) |
 | | |
@@ -99,7 +99,7 @@ Configure Darktrace to forward Syslog messages in CEF format to your Azure works
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog <br><br>[Configure CEF log forwarding for AI Vectra Detect](#configure-cef-log-forwarding-for-ai-vectra-detect)|
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>[Configure CEF log forwarding for AI Vectra Detect](#configure-cef-log-forwarding-for-ai-vectra-detect)|
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Supported by** | [Vectra AI](https://www.vectra.ai/support) |
 | | |
@@ -125,7 +125,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog, with a Kusto function parser |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Kusto function alias:** | AkamaiSIEMEvent |
 | **Kusto function URL:** | https://aka.ms/sentinel-akamaisecurityevents-parser |
@@ -173,9 +173,8 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect AWS CloudTrail to Azure Sentinel](connect-aws.md)** |
 | **Log Analytics table(s)** | AWSCloudTrail |
-| **Azure Sentinel documentation** | [Connect AWS CloudTrail to Azure Sentinel](connect-aws.md) |
 | **Supported by** | Microsoft |
 | | |
 
@@ -188,7 +187,6 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | **Kusto function alias:** | ApacheHTTPServer |
 | **Kusto function URL:** | https://aka.ms/sentinel-apachehttpserver-parser |
 | **Custom log sample file:** | access.log or error.log |
-| **Supported by** |  |
 | | |
 
 ## Apache Tomcat
@@ -200,14 +198,13 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | **Kusto function alias:** | TomcatEvent |
 | **Kusto function URL:** | https://aka.ms/sentinel-ApacheTomcat-parser |
 | **Custom log sample file:** | access.log or error.log |
-| **Supported by** | |
 | | |
 
 ## Aruba ClearPass (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog, with a Kusto function parser |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Kusto function alias:** | ArubaClearPass |
 | **Kusto function URL:** | https://aka.ms/sentinel-arubaclearpass-parser |
@@ -224,7 +221,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | **Azure Function App code** | https://aka.ms/sentinel-confluenceauditapi-functionapp |
 | **API credentials** | <li>ConfluenceAccessToken<li>ConfluenceUsername<li>ConfluenceHomeSiteName |
 | **Vendor documentation/<br>installation instructions** | <li>[API Documentation](https://developer.atlassian.com/cloud/confluence/rest/api-group-audit/)<li>[Requirements and instructions for obtaining credentials](https://developer.atlassian.com/cloud/confluence/rest/intro/#auth)<li>[View the audit log](https://support.atlassian.com/confluence-cloud/docs/view-the-audit-log/) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | ConfluenceAudit |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-confluenceauditapi-parser |
 | **Application settings** | <li>ConfluenceUsername<li>ConfluenceAccessToken<li>ConfluenceHomeSiteName<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -240,7 +237,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | **Azure Function App code** | https://aka.ms/sentinel-jiraauditapi-functionapp |
 | **API credentials** | <li>JiraAccessToken<li>JiraUsername<li>JiraHomeSiteName |
 | **Vendor documentation/<br>installation instructions** | <li>[API Documentation - Audit records](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-audit-records/)<li>[Requirements and instructions for obtaining credentials](https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/#authentication) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | JiraAudit |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-jiraauditapi-parser |
 | **Application settings** | <li>JiraUsername<li>JiraAccessToken<li>JiraHomeSiteName<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -251,7 +248,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect Azure Active Directory data to Azure Sentinel](connect-azure-active-directory.md)** |
 | **Log Analytics table(s)** | SigninLogs<br>AuditLogs<br>AADNonInteractiveUserSignInLogs<br>AADServicePrincipalSignInLogs<br>AADManagedIdentitySignInLogs<br>AADProvisioningLogs<br>ADFSSignInLogs |
 | **Supported by** | Microsoft |
 | | |
@@ -260,7 +257,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -271,7 +268,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
 | **Log Analytics table(s)** | AzureActivity |
 | **Supported by** | Microsoft |
 | | |
@@ -280,7 +277,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
 | **Log Analytics table(s)** | AzureDiagnostics |
 | **Diagnostics** | DDoSProtectionNotifications<br>DDoSMitigationFlowLogs<br>DDoSMitigationReports |
 | **Supported by** | Microsoft |
@@ -299,7 +296,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -308,7 +305,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
 | **Log Analytics table(s)** | AzureDiagnostics |
 | **Diagnostics** | AzureFirewallApplicationRule<br>AzureFirewallNetworkRule |
 | **Supported by** | Microsoft |
@@ -331,7 +328,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
 | **Log Analytics table(s)** | KeyVaultData |
 | **Supported by** | Microsoft |
 | | |
@@ -342,7 +339,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
 | **Log Analytics table(s)** | kube-apiserver<br>kube-audit<br>kube-audit-admin<br>kube-controller-manager<br>kube-scheduler<br>cluster-autoscaler<br>guard |
 | **Supported by** | Microsoft |
 | | |
@@ -353,7 +350,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
 | **Log Analytics table(s)** | SQLSecurityAuditEvents<br>SQLInsights<br>AutomaticTuning<br>QueryStoreWaitStatistics<br>Errors<br>DatabaseWaitStatistics<br>Timeouts<br>Blocks<br>Deadlocks<br>Basic<br>InstanceAndAppAdvanced<br>WorkloadManagement<br>DevOpsOperationsAudit |
 | **Supported by** | Microsoft |
 | | |
@@ -364,7 +361,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
 | **Log Analytics table(s)** | StorageBlobLogs<br>StorageQueueLogs<br>StorageTableLogs<br>StorageFileLogs |
 | **Supported by** | Microsoft |
 | | |
@@ -373,7 +370,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
 | **Log Analytics table(s)** | AzureDiagnostics |
 | **Supported by** | Microsoft |
 | | |
@@ -439,7 +436,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog, with a Kusto function parser |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Kusto function alias:** | SymantecDLP |
 | **Kusto function URL:** | https://aka.ms/sentinel-symantecdlp-parser |
@@ -451,7 +448,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Log Exporter - Check Point Log Export](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323) |
 | **Supported by** | [Check Point](https://www.checkpoint.com/support-services/contact-support/) |
@@ -461,7 +458,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Cisco ASA Series CLI Configuration Guide](https://www.cisco.com/c/en/us/support/docs/security/pix-500-series-security-appliances/63884-config-asa-00.html) |
 | **Supported by** | Microsoft |
@@ -471,7 +468,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog <br><br>[Extra configuration for Cisco Firepower eStreamer](#extra-configuration-for-cisco-firepower-estreamer)|
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>[Extra configuration for Cisco Firepower eStreamer](#extra-configuration-for-cisco-firepower-estreamer)|
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [eStreamer eNcore for Sentinel Operations Guide](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html) |
 | **Supported by** | [Cisco](https://www.cisco.com/c/en/us/support/index.html)
@@ -515,7 +512,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 | **Azure Function App code** | https://aka.ms/sentinel-CiscoUmbrellaConn-functionapp |
 | **API credentials** | <li>AWS Access Key Id<li>AWS Secret Access Key<li>AWS S3 Bucket Name |
 | **Vendor documentation/<br>installation instructions** | <li>[Logging to Amazon S3](https://docs.umbrella.com/deployment-umbrella/docs/log-management#section-logging-to-amazon-s-3) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | Cisco_Umbrella |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-ciscoumbrella-function |
 | **Application settings** | <li>WorkspaceID<li>WorkspaceKey<li>S3Bucket<li>AWSAccessKeyId<li>AWSSecretAccessKey<li>logAnalyticsUri (optional) |
@@ -548,7 +545,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | To configure WAF, see [Support WIKI - WAF Configuration with NetScaler](https://support.citrix.com/article/CTX234174).<br><br>To configure CEF logs, see [CEF Logging Support in the Application Firewall](https://support.citrix.com/article/CTX136146).<br><br>To forward the logs to proxy, see [Configuring Citrix ADC appliance for audit logging](https://docs.citrix.com/en-us/citrix-adc/current-release/system/audit-logging/configuring-audit-logging.html). |
 | **Supported by** | [Citrix Systems](https://www.citrix.com/support/) |
@@ -568,7 +565,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Security Information and Event Management (SIEM) Applications](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/DV-Integrating-with-SIEM-Applications.htm) |
 | **Supported by** | [CyberArk](https://www.cyberark.com/customer-support/) |
@@ -589,8 +586,8 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
-| **Log Analytics table(s)** |  |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md#log-analytics-agent-based-connections)** |
+| **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
 | **Supported by** | Microsoft |
 | | |
 
@@ -598,8 +595,8 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
-| **Log Analytics table(s)** |  |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **Log Analytics table(s)** | Dynamics365Activity |
 | **Supported by** | Microsoft |
 | | |
 
@@ -609,11 +606,9 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 | --- | --- |
 | **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md)<br><br>[Create an API user](#create-an-api-user) |
 | **Log Analytics table(s)** | ESETEnterpriseInspector_CL​ |
-| **Azure Function App code** |  |
 | **API credentials** | <li>EEI Username<li>EEI Password<li>Base URL |
 | **Vendor documentation/<br>installation instructions** | <li>[ESET Enterprise Inspector REST API documentation](https://help.eset.com/eei/1.5/en-US/api.html) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) |
-| **Application settings** |  |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) |
 | **Supported by** | [ESET](https://support.eset.com/en) |
 | | |
 ### Create an API user
@@ -756,7 +751,7 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [ExtraHop Detection SIEM Connector](https://aka.ms/asi-syslog-extrahop-forwarding) |
 | **Supported by** | [ExtraHop](https://www.extrahop.com/support/) |
@@ -775,7 +770,7 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Configuring Application Security Event Logging](https://aka.ms/asi-syslog-f5-forwarding) |
 | **Supported by** | [F5 Networks](https://support.f5.com/csp/home) |
@@ -785,7 +780,7 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Forcepoint CASB and Azure Sentinel](https://forcepoint.github.io/docs/casb_and_azure_sentinel/) |
 | **Supported by** | [Forcepoint](https://support.forcepoint.com/) |
@@ -795,7 +790,7 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Forcepoint Cloud Security Gateway and Azure Sentinel](https://forcepoint.github.io/docs/csg_and_sentinel/) |
 | **Supported by** | [Forcepoint](https://support.forcepoint.com/) |
@@ -814,7 +809,7 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Forcepoint Next-Gen Firewall and Azure Sentinel](https://forcepoint.github.io/docs/ngfw_and_azure_sentinel/) |
 | **Supported by** | [Forcepoint](https://support.forcepoint.com/) |
@@ -824,7 +819,7 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Install this first! ForgeRock Common Audit (CAUD) for Azure Sentinel](https://github.com/javaservlets/SentinelAuditEventHandler) |
 | **Supported by** | [ForgeRock](https://www.forgerock.com/support) |
@@ -834,7 +829,7 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog <br><br>[Send Fortinet logs to the log forwarder](#send-fortinet-logs-to-the-log-forwarder) |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>[Send Fortinet logs to the log forwarder](#send-fortinet-logs-to-the-log-forwarder) |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Fortinet Document Library](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary)<br>Choose your version and use the *Handbook* and *Log Message Reference* PDFs. |
 | **Supported by** | [Fortinet](https://support.fortinet.com/) |
@@ -866,7 +861,7 @@ end
 | **Azure Function App code** | https://aka.ms/sentinel-GWorkspaceReportsAPI-functionapp |
 | **API credentials** | <li>GooglePickleString |
 | **Vendor documentation/<br>installation instructions** | <li>[API Documentation](https://developers.google.com/admin-sdk/reports/v1/reference/activities)<li>Get credentials at [Perform Google Workspace Domain-Wide Delegation of Authority](https://developers.google.com/admin-sdk/reports/v1/guides/delegation)<li>[Convert token.pickle file to pickle string](https://aka.ms/sentinel-GWorkspaceReportsAPI-functioncode) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | GWorkspaceActivityReports |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-GWorkspaceReportsAPI-parser |
 | **Application settings** | <li>GooglePickleString<li>WorkspaceID<li>workspaceKey<li>logAnalyticsUri (optional) |
@@ -885,7 +880,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Illusive Networks Admin Guide](https://support.illusivenetworks.com/hc/en-us/sections/360002292119-Documentation-by-Version) |
 | **Supported by** | [Illusive Networks](https://www.illusivenetworks.com/technical-support/) |
@@ -895,7 +890,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Steps for Enabling Imperva WAF Gateway Alert Logging to Azure Sentinel](https://community.imperva.com/blogs/craig-burlingame1/2020/11/13/steps-for-enabling-imperva-waf-gateway-alert) |
 | **Supported by** | [Imperva](https://www.imperva.com/support/technical-support/) |
@@ -940,7 +935,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -949,7 +944,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -958,7 +953,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -967,7 +962,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -976,7 +971,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
 | **Log Analytics table(s)** | OfficeActivity |
 | **Supported by** | Microsoft |
 | | |
@@ -985,11 +980,10 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog, with a Kusto function parser |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Kusto function alias:** | Morphisec |
 | **Kusto function URL** | https://aka.ms/sentinel-Morphiescutpp-parser |
-| **Vendor documentation/<br>installation instructions** |  |
 | **Supported by** | [Morphisec](https://support.morphisec.com/support/home) |
 | | |
 
@@ -1003,7 +997,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | **Azure Function App code** | https://aka.ms/sentinel-netskope-functioncode |
 | **API credentials** | <li>Netskope API Token |
 | **Vendor documentation/<br>installation instructions** | <li>[Netskope Cloud Security Platform](https://www.netskope.com/platform)<li>[Netskope API Documentation](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v1-overview.html)<li>[Obtain an API Token](https://innovatechcloud.goskope.com/docs/Netskope_Help/en/rest-api-v2-overview.html) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
 | **Kusto function alias** | Netskope |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-netskope-parser |
 | **Application settings** | <li>apikey<li>workspaceID<li>workspaceKey<li>uri (depends on region, follows schema: `https://<Tenant Name>.goskope.com`) <li>timeInterval (set to 5)<li>logTypes<li>logAnalyticsUri (optional) |
@@ -1065,7 +1059,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | **Azure Function App code** | https://aka.ms/sentineloktaazurefunctioncodev2 |
 | **API credentials** | <li>API Token |
 | **Vendor documentation/<br>installation instructions** | <li>[Okta System Log API Documentation](https://developer.okta.com/docs/reference/api/system-log/)<li>[Create an API token](https://developer.okta.com/docs/guides/create-an-api-token/create-the-token/)<li>[Connect Okta SSO to Azure Sentinel](connect-okta-single-sign-on.md) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
 | **Application settings** | <li>apiToken<li>workspaceID<li>workspaceKey<li>uri (follows schema `https://<OktaDomain>/api/v1/logs?since=`. [Identify your domain namespace](https://developer.okta.com/docs/reference/api-overview/#url-namespace).) <li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
 | | |
@@ -1075,20 +1069,25 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog, with a Kusto lookup and enrichment function |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto lookup and enrichment function<br><br>[Configure Onapsis to send CEF logs to the log forwarder](#configure-onapsis-to-send-cef-logs-to-the-log-forwarder) |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Kusto function alias:** | incident_lookup |
 | **Kusto function URL** | https://aka.ms/sentinel-Onapsis-parser |
-| **Vendor documentation/<br>installation instructions** |  |
 | **Supported by** | [Onapsis](https://onapsis.force.com/s/login/) |
 | | |
 
+### Configure Onapsis to send CEF logs to the log forwarder
+
+Refer to the Onapsis in-product help to set up log forwarding to the Log Analytics agent.
+
+1. Go to **Setup > Third-party integrations > Defend Alarms** and follow the instructions for Azure Sentinel.
+1. Make sure your Onapsis Console can reach the log forwarder machine where the agent is installed. Logs should be sent to port 514 using TCP.
 
 ## One Identity Safeguard (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [One Identity Safeguard for Privileged Sessions Administration Guide](https://aka.ms/sentinel-cef-oneidentity-forwarding) |
 | **Supported by** | [One Identity](https://support.oneidentity.com/) |
@@ -1123,7 +1122,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog, with a Kusto function parser |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Kusto function alias:** | OSSECEvent |
 | **Kusto function URL:** | https://aka.ms/sentinel-OSSEC-parser |
@@ -1136,7 +1135,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Common Event Format (CEF) Configuration Guides](https://aka.ms/asi-syslog-paloalto-forwarding)<br>[Configure Syslog Monitoring](https://aka.ms/asi-syslog-paloalto-configure) |
 | **Supported by** | [Palo Alto Networks](https://www.paloaltonetworks.com/company/contact-support) |
@@ -1163,7 +1162,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | **Azure Function App code** | https://aka.ms/sentinel-proofpointpod-functionapp |
 | **API credentials** | <li>ProofpointClusterID<li>ProofpointToken |
 | **Vendor documentation/<br>installation instructions** | <li>[Sign in to the Proofpoint Community](https://proofpointcommunities.force.com/community/s/article/How-to-request-a-Community-account-and-gain-full-customer-access?utm_source=login&utm_medium=recommended&utm_campaign=public)<li>[Proofpoint API documentation and instructions](https://proofpointcommunities.force.com/community/s/article/Proofpoint-on-Demand-Pod-Log-API) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | ProofpointPOD |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-proofpointpod-parser |
 | **Application settings** | <li>ProofpointClusterID<li>ProofpointToken<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -1179,7 +1178,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | **Azure Function App code** | https://aka.ms/sentinelproofpointtapazurefunctioncode |
 | **API credentials** | <li>API Username<li>API Password |
 | **Vendor documentation/<br>installation instructions** | <li>[Proofpoint SIEM API Documentation](https://help.proofpoint.com/Threat_Insight_Dashboard/API_Documentation/SIEM_API) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
 | **Application settings** | <li>apiUsername<li>apiUsername<li>uri (set to `https://tap-api-v2.proofpoint.com/v2/siem/all?format=json&sinceSeconds=300`)<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
 | | |
@@ -1206,7 +1205,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | **Azure Function App code** | https://aka.ms/sentinel-qualyskb-functioncode |
 | **API credentials** | <li>API Username<li>API Password |
 | **Vendor documentation/<br>installation instructions** | <li>[QualysVM API User Guide](https://www.qualys.com/docs/qualys-api-vmpc-user-guide.pdf) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
 | **Kusto function alias** | QualysKB |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-qualyskb-parser |
 | **Application settings** | <li>apiUsername<li>apiUsername<li>uri (by region; see [API Server list](https://www.qualys.com/docs/qualys-api-vmpc-user-guide.pdf#G4.735348). Follows schema `https://<API Server>/api/2.0`.<li>WorkspaceID<li>WorkspaceKey<li>filterParameters (add to end of URI, delimited by `&`. No spaces.)<li>logAnalyticsUri (optional) |
@@ -1232,7 +1231,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | **Azure Function App code** | https://aka.ms/sentinelqualysvmazurefunctioncode |
 | **API credentials** | <li>API Username<li>API Password |
 | **Vendor documentation/<br>installation instructions** | <li>[QualysVM API User Guide](https://www.qualys.com/docs/qualys-api-vmpc-user-guide.pdf) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
 | **Application settings** | <li>apiUsername<li>apiUsername<li>uri (by region; see [API Server list](https://www.qualys.com/docs/qualys-api-vmpc-user-guide.pdf#G4.735348). Follows schema `https://<API Server>/api/2.0/fo/asset/host/vm/detection/?action=list&vm_processed_after=`.<li>WorkspaceID<li>WorkspaceKey<li>filterParameters (add to end of URI, delimited by `&`. No spaces.)<li>timeInterval (set to 5. If you modify, change Function App timer trigger accordingly.)<li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
 | | |
@@ -1270,7 +1269,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 | **Azure Function App code** | https://aka.ms/sentinel-SalesforceServiceCloud-functionapp |
 | **API credentials** | <li>Salesforce API Username<li>Salesforce API Password<li>Salesforce Security Token<li>Salesforce Consumer Key<li>Salesforce Consumer Secret |
 | **Vendor documentation/<br>installation instructions** | [Salesforce REST API Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart.htm)<br>Under **Set up authorization**, use **Session ID** method instead of OAuth. |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | SalesforceServiceCloud |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-SalesforceServiceCloud-parser |
 | **Application settings** | <li>SalesforceUser<li>SalesforcePass<li>SalesforceSecurityToken<li>SalesforceConsumerKey<li>SalesforceConsumerSecret<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -1282,8 +1281,8 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
-| **Log Analytics table(s)** |  |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** |
+| **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1298,7 +1297,7 @@ For more information, see [Insecure protocols workbook setup](./get-visibility.m
 | **Azure Function App code** | https://aka.ms/sentinel-SentinelOneAPI-functionapp |
 | **API credentials** | <li>SentinelOneAPIToken<li>SentinelOneUrl (`https://<SOneInstanceDomain>.sentinelone.net`) |
 | **Vendor documentation/<br>installation instructions** | <li>https://`<SOneInstanceDomain>`.sentinelone.net/api-doc/overview<li>See instructions below |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | SentinelOne |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-SentinelOneAPI-parser |
 | **Application settings** | <li>SentinelOneAPIToken<li>SentinelOneUrl<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -1322,7 +1321,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Log > Syslog](http://help.sonicwall.com/help/sw/eng/7020/26/2/3/content/Log_Syslog.120.2.htm)<br>Select facility local4 and ArcSight as the Syslog format.  |
 | **Supported by** | [SonicWall](https://www.sonicwall.com/support/) |
@@ -1372,7 +1371,6 @@ Follow the instructions to obtain the credentials.
 | **Kusto function alias:** | SquidProxy |
 | **Kusto function URL** | https://aka.ms/sentinel-squidproxy-parser |
 | **Custom log sample file:** | access.log or cache.log |
-| **Vendor documentation/<br>installation instructions** |  |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1417,7 +1415,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Secure Syslog/CEF Logging](https://thy.center/ss/link/syslog) |
 | **Supported by** | [Thycotic](https://thycotic.force.com/support/s/) |
@@ -1427,7 +1425,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog, with a Kusto function parser |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Kusto function alias:** | TrendMicroDeepSecurity |
 | **Kusto function URL** | https://aka.ms/TrendMicroDeepSecurityFunction |
@@ -1439,7 +1437,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog, with a Kusto function parser |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog**, with a Kusto function parser |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Kusto function alias:** | TrendMicroTippingPoint |
 | **Kusto function URL** | https://aka.ms/sentinel-trendmicrotippingpoint-function |
@@ -1453,11 +1451,9 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | [**Azure Functions and the REST API**](connect-azure-functions-template.md) |
 | **Log Analytics table(s)** | TrendMicro_XDR_CL |
-| **Azure Function App code** |  |
 | **API credentials** | <li>API Token |
 | **Vendor documentation/<br>installation instructions** | <li>[Trend Micro Vision One API](https://automation.trendmicro.com/xdr/home)<li>[Obtaining API Keys for Third-Party Access](https://docs.trendmicro.com/en-us/enterprise/trend-micro-xdr-help/ObtainingAPIKeys) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) |
-| **Application settings** |  |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) |
 | **Supported by** | [Trend Micro](https://success.trendmicro.com/technical-support) |
 | | |
 
@@ -1470,7 +1466,7 @@ Follow the instructions to obtain the credentials.
 | **Azure Function App code** | https://aka.ms/sentinelcarbonblackazurefunctioncode |
 | **API credentials** | **API access level** (for *Audit* and *Event* logs):<li>API ID<li>API Key<br><br>**SIEM access level** (for *Notification* events):<li>SIEM API ID<li>SIEM API Key |
 | **Vendor documentation/<br>installation instructions** | <li>[Carbon Black API Documentation](https://developer.carbonblack.com/reference/carbon-black-cloud/cb-defense/latest/rest-api/)<li>[Creating an API Key](https://developer.carbonblack.com/reference/carbon-black-cloud/authentication/#creating-an-api-key) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPS) |
 | **Application settings** | <li>apiId<li>apiKey<li>WorkspaceID<li>WorkspaceKey<li>uri (by region; [see list of options](https://community.carbonblack.com/t5/Knowledge-Base/PSC-What-URLs-are-used-to-access-the-APIs/ta-p/67346). Follows schema: `https://<API URL>.conferdeploy.net`.)<li>timeInterval (Set to 5)<li>SIEMapiId (if ingesting *Notification* events)<li>SIEMapiKey (if ingesting *Notification* events)<li>logAnalyticsUri (optional) |
 | **Supported by** | Microsoft |
 | | |
@@ -1503,7 +1499,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | Contact [WireX support](https://wirexsystems.com/contact-us/) in order to configure your NFP solution to send Syslog messages in CEF format. |
 | **Supported by** | [WireX Systems](mailto:support@wirexsystems.com) |
@@ -1514,8 +1510,8 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
-| **Log Analytics table(s)** |  |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md#log-analytics-agent-based-connections)** |
+| **Log Analytics table(s)** | WindowsFirewall |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1523,8 +1519,8 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
-| **Log Analytics table(s)** |  |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** |
+| **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1537,7 +1533,7 @@ Follow the instructions to obtain the credentials.
 | **Azure Function App code** | https://aka.ms/sentinel-WorkplaceFacebook-functionapp |
 | **API credentials** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken |
 | **Vendor documentation/<br>installation instructions** | <li>[Configure Webhooks](https://developers.facebook.com/docs/workplace/reference/webhooks)<li>[Configure permissions](https://developers.facebook.com/docs/workplace/reference/permissions) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | Workplace_Facebook |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-WorkplaceFacebook-parser |
 | **Application settings** | <li>WorkplaceAppSecret<li>WorkplaceVerifyToken<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -1594,7 +1590,7 @@ For more information about connecting to Azure Sentinel, see [Connect Zimperium 
 | **Azure Function App code** | https://aka.ms/sentinel-ZoomAPI-functionapp |
 | **API credentials** | <li>ZoomApiKey<li>ZoomApiSecret |
 | **Vendor documentation/<br>installation instructions** | <li>[Get credentials using JWT With Zoom](https://marketplace.zoom.us/docs/guides/auth/jwt) |
-| **Connector deployment instructions** | [One-click](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
+| **Connector deployment instructions** | [ARM template](connect-azure-functions-template.md?tabs=ARM) \| [Manual](connect-azure-functions-template.md?tabs=MPY) |
 | **Kusto function alias** | Zoom |
 | **Kusto function URL/<br>Parser config instructions** | https://aka.ms/sentinel-ZoomAPI-parser |
 | **Application settings** | <li>ZoomApiKey<li>ZoomApiSecret<li>WorkspaceID<li>WorkspaceKey<li>logAnalyticsUri (optional) |
@@ -1605,7 +1601,7 @@ For more information about connecting to Azure Sentinel, see [Connect Zimperium 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Common Event Format (CEF)**](connect-common-event-format.md) over Syslog |
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Zscaler and Microsoft Azure Sentinel Deployment Guide](https://aka.ms/ZscalerCEFInstructions) |
 | **Supported by** | [Zscaler](https://help.zscaler.com/submit-ticket-links) |
