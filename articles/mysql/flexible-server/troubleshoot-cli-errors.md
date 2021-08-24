@@ -72,5 +72,5 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 ## Next steps
 
 - If you are still experiencing issues, please [report the issue](https://github.com/Azure/azure-cli/issues). 
-- If you have questions, visit our Stack Overflow page: aka.ms/azcli/questions. 
+- If you have questions, visit our Stack Overflow page: https://aka.ms/azcli/questions. 
 - Let us know how we are doing with this short survey https://aka.ms/azureclihats. 
