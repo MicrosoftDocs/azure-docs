@@ -11,7 +11,7 @@ ms.author: mjbrown
 
 # Manage Azure Cosmos DB Core (SQL) API resources with Azure Resource Manager templates
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 In this article, you learn how to use Azure Resource Manager templates to help deploy and manage your Azure Cosmos DB accounts, databases, and containers.
 

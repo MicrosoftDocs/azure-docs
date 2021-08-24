@@ -11,7 +11,7 @@ ms.custom: seodec18, devx-track-azurepowershell
 ---
 
 # Manage Azure Cosmos DB Core (SQL) API resources using PowerShell
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 The following guide describes how to use PowerShell to script and automate management of Azure Cosmos DB Core (SQL) API resources, including the Cosmos account, database, container, and throughput. For PowerShell cmdlets for other APIs see [PowerShell Samples for Cassandra](cassandra/powershell-samples.md), [PowerShell Samples for MongoDB API](mongodb/powershell-samples.md), [PowerShell Samples for Gremlin](powershell-samples-gremlin.md), [PowerShell Samples for Table](powershell-samples-table.md)
 
