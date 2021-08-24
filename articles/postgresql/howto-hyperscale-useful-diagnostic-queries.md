@@ -281,10 +281,11 @@ SELECT pid, query, state
  WHERE state != 'idle';
 ```
 
-### Waiting queries
+### Why are queries waiting
 
-We can also query to see the most common reasons that queries that are unable
-to run.
+We can also query to see the most common reasons that non-idle queries that are
+waiting. For an explanation of the reasons, check the [PostgreSQL
+documentation](https://www.postgresql.org/docs/current/monitoring-stats.html#WAIT-EVENT-TABLE).
 
 ```sql
 SELECT wait_event || ':' || wait_event_type AS type, count(*) AS number_of_occurences
