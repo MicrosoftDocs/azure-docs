@@ -25,7 +25,7 @@ Learn the basics of the Bicep syntax. This path is the best place to start if yo
 
 [Part 2: Build Azure infrastructure in a team environment by using Bicep](/learn/paths/bicep-collaborate/)
 
-Learn how to collaborate with others on your Bicep projects.
+Learn how to use Bicep and Azure Resource Manager features that enable you to work collaboratively and improve the quality of your Azure infrastructure deployments.
 :::column-end:::
 :::row-end:::
 
