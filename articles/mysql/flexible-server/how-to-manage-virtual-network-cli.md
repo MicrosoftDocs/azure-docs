@@ -20,7 +20,7 @@ Azure Database for MySQL Flexible Server supports two types of mutually exclusiv
 - Public access (allowed IP addresses)
 - Private access (VNet Integration)
 
-In this article, we will focus on creation of MySQL server with **Private access (VNet Integration)** using Azure CLI. With *Private access (VNet Integration)*, you can deploy your flexible server into your own [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure Virtual Networks provide private and secure network communication. In Private access, the connections to the MySQL server are restricted to only within your virtual network. To learn more about it, refer to [Private access (VNet Integration)](./concepts-networking.md#private-access-vnet-integration).
+In this article, we will focus on creation of MySQL server with **Private access (VNet Integration)** using Azure CLI. With *Private access (VNet Integration)*, you can deploy your flexible server into your own [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md). Azure Virtual Networks provide private and secure network communication. In Private access, the connections to the MySQL server are restricted to only within your virtual network. To learn more about it, refer to [Private access (VNet Integration)](./concepts-networking-vnet.md).
 
 In Azure Database for MySQL Flexible Server, you can only deploy the server to a virtual network and subnet during creation of the server. After the flexible server is deployed to a virtual network and subnet, you cannot move it to another virtual network, subnet or to *Public access (allowed IP addresses)*.
 
@@ -81,4 +81,4 @@ Refer to the Azure CLI [reference documentation](/cli/azure/mysql/flexible-serve
 ## Next steps
 - Learn more about [networking in Azure Database for MySQL Flexible Server](./concepts-networking.md).
 - [Create and manage Azure Database for MySQL Flexible Server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).
-- Understand more about [Azure Database for MySQL Flexible Server virtual network](./concepts-networking.md#private-access-vnet-integration).
+- Understand more about [Azure Database for MySQL Flexible Server virtual network](./concepts-networking-vnet.md#private-access-vnet-integration).

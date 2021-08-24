@@ -11,198 +11,116 @@ ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
 ---
-# Language support for text and speech translation
+# Translator language support
 
-Use Translator to translate to and from any of the 90 text translation languages and dialects. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of Translator when a neural system is available.
+**Translation - Cloud:** Cloud translation is available in all languages for the Translate operation of Text Translation and for Document Translation. 
 
-You can also use Translator in conjunction with Custom Translator to build neural translation systems that understand the terminology used in your own business and industry, and with Microsoft Speech Service to add speech translation to your app.
+**Translation – Containers:** Language support for Containers.
 
-[Learn more about how machine translation works](https://www.microsoft.com/translator/mt.aspx)
+**Custom Translator:** Custom Translator can be used to create customized translation models which you can then use to customize your translated output while using the Text Translation or Document Translation features.
 
-## Text translation
-Text Translation is available using the Translate operation to or from any of the languages available in Translator. The API also offers language detection using the Detect operation, transliteration using the Transliterate operation, and bilingual dictionaries using the Dictionary Lookup and Dictionary Examples operations. The available languages for each of these operations are listed below. 
+**Auto Language Detection:** Automatically detect the language of the source text while using Text Translation or Document Translation.
 
-### Translate
+**Dictionary:** Use the [Dictionary Lookup](reference/v3-0-dictionary-lookup.md) or [Dictionary Examples](reference/v3-0-dictionary-examples.md) operations from the Text Translation feature to display alternative translations from or to English and examples of words in context.
 
-Translator supports the following languages for text to text translation. 
-
-[View Translate operation reference documentation](reference/v3-0-translate.md)
-
-| Language | Language code |
-|:-|:-:|
-| Afrikaans | `af` |
-| Albanian | `sq` |
-| Amharic | `am` |
-| Arabic | `ar` |
-| Armenian | `hy` |
-| Assamese | `as` |
-| Azerbaijani | `az` |
-| Bangla | `bn` |
-| Bosnian (Latin) | `bs` |
-| Bulgarian | `bg` |
-| Cantonese (Traditional) | `yue` |
-| Catalan | `ca` |
-| Chinese Simplified | `zh-Hans` |
-| Chinese Traditional | `zh-Hant` |
-| Croatian | `hr` |
-| Czech | `cs` |
-| Danish | `da` |
-| Dari | `prs` |
-| Dutch | `nl` |
-| English | `en` |
-| Estonian | `et` |
-| Fijian | `fj` |
-| Filipino | `fil` |
-| Finnish | `fi` |
-| French | `fr` |
-| French (Canada) | `fr-ca` |
-| German | `de` |
-| Greek | `el` |
-| Gujarati | `gu` |
-| Haitian Creole | `ht` |
-| Hebrew | `he` |
-| Hindi | `hi` |
-| Hmong Daw | `mww` |
-| Hungarian | `hu` |
-| Icelandic | `is` |
-| Indonesian | `id` |
-| Inuktitut | `iu` |
-| Irish | `ga` |
-| Italian | `it` |
-| Japanese | `ja` |
-| Kannada | `kn` |
-| Kazakh | `kk` |
-| Khmer | `km` |
-| Klingon | `tlh-Latn` |
-| Klingon (plqaD) | `tlh-Piqd` |
-| Korean | `ko` |
-| Kurdish (Central) | `ku` |
-| Kurdish (Northern) | `kmr` |
-| Lao | `lo` |
-| Latvian | `lv` |
-| Lithuanian | `lt` |
-| Malagasy | `mg` |
-| Malay | `ms` |
-| Malayalam | `ml` |
-| Maltese | `mt` |
-| Maori | `mi` |
-| Marathi | `mr` |
-| Myanmar | `my` |
-| Nepali | `ne` |
-| Norwegian | `nb` |
-| Odia | `or` |
-| Pashto | `ps` |
-| Persian | `fa` |
-| Polish | `pl` |
-| Portuguese (Brazil) | `pt` |
-| Portuguese (Portugal) | `pt-pt` |
-| Punjabi | `pa` |
-| Queretaro Otomi | `otq` |
-| Romanian | `ro` |
-| Russian | `ru` |
-| Samoan | `sm` |
-| Serbian (Cyrillic) | `sr-Cyrl` |
-| Serbian (Latin) | `sr-Latn` |
-| Slovak | `sk` |
-| Slovenian | `sl` |
-| Spanish | `es` |
-| Swahili | `sw` |
-| Swedish | `sv` |
-| Tahitian | `ty` |
-| Tamil | `ta` |
-| Telugu | `te` |
-| Thai | `th` |
-| Tigrinya | `ti` |
-| Tongan | `to` |
-| Turkish | `tr` |
-| Ukrainian | `uk` |
-| Urdu | `ur` |
-| Vietnamese | `vi` |
-| Welsh | `cy` |
-| Yucatec Maya | `yua` |
+| Language | Language code | Cloud – Text Translation and Document Translation| Containers – Text Translation|Custom Translator|Auto Language Detection|Dictionary
+|:-|:-:|:-:|:-:|:-:|:-:|:-:|
+| Afrikaans | `af` |✔|✔|✔|✔|✔|
+| Albanian | `sq` |✔|✔||✔||
+| Amharic | `am` |✔|✔||||
+| Arabic | `ar` |✔|✔|✔|✔|✔|
+| Armenian | `hy` |✔|✔||✔||
+| Assamese | `as` |✔|✔||||
+| Azerbaijani | `az` |✔|✔||||
+| Bangla | `bn` |✔|✔|✔||✔|
+| Bosnian (Latin) | `bs` |✔|✔|✔||✔|
+| Bulgarian | `bg` |✔|✔|✔|✔|✔|
+| Cantonese (Traditional) | `yue` |✔|✔||||
+| Catalan | `ca` |✔|✔|✔|✔|✔|
+| Chinese Simplified | `zh-Hans` |✔|✔|✔|✔|✔|
+| Chinese Traditional | `zh-Hant` |✔|✔|✔|✔||
+| Croatian | `hr` |✔|✔|✔|✔|✔|
+| Czech | `cs` |✔|✔|✔|✔|✔|
+| Danish | `da` |✔|✔|✔|✔|✔|
+| Dari | `prs` |✔|✔||||
+| Dutch | `nl` |✔|✔|✔|✔|✔|
+| English | `en` |✔|✔|✔|✔|✔|
+| Estonian | `et` |✔|✔|✔|✔||
+| Fijian | `fj` |✔|✔|✔|||
+| Filipino | `fil` |✔|✔|✔|||
+| Finnish | `fi` |✔|✔|✔|✔|✔|
+| French | `fr` |✔|✔|✔|✔|✔|
+| French (Canada) | `fr-ca` |✔|✔||||
+| German | `de` |✔|✔|✔|✔|✔|
+| Greek | `el` |✔|✔|✔|✔|✔|
+| Gujarati | `gu` |✔|✔|✔|✔||
+| Haitian Creole | `ht` |✔|✔||✔|✔|
+| Hebrew | `he` |✔|✔|✔|✔|✔|
+| Hindi | `hi` |✔|✔|✔|✔|✔|
+| Hmong Daw | `mww` |✔|✔|||✔|
+| Hungarian | `hu` |✔|✔|✔|✔|✔|
+| Icelandic | `is` |✔|✔|✔|✔|✔|
+| Indonesian | `id` |✔|✔|✔|✔|✔|
+| Inuktitut | `iu` |✔|✔|✔|✔||
+| Irish | `ga` |✔|✔|✔|✔||
+| Italian | `it` |✔|✔|✔|✔|✔|
+| Japanese | `ja` |✔|✔|✔|✔|✔|
+| Kannada | `kn` |✔|✔|✔|||
+| Kazakh | `kk` |✔|✔||||
+| Khmer | `km` |✔|✔||✔||
+| Klingon | `tlh-Latn` |✔| ||✔|✔|
+| Klingon (plqaD) | `tlh-Piqd` |✔| ||✔||
+| Korean | `ko` |✔|✔|✔|✔|✔|
+| Kurdish (Central) | `ku` |✔|✔||✔||
+| Kurdish (Northern) | `kmr` |✔|✔||||
+| Lao | `lo` |✔|✔||✔||
+| Latvian | `lv` |✔|✔|✔|✔|✔|
+| Lithuanian | `lt` |✔|✔|✔|✔|✔|
+| Malagasy | `mg` |✔|✔|✔|||
+| Malay | `ms` |✔|✔|✔|✔|✔|
+| Malayalam | `ml` |✔|✔||||
+| Maltese | `mt` |✔|✔|✔|✔|✔|
+| Maori | `mi` |✔|✔|✔|||
+| Marathi | `mr` |✔|✔|✔|||
+| Myanmar | `my` |✔|✔||✔||
+| Nepali | `ne` |✔|✔||||
+| Norwegian | `nb` |✔|✔|✔|✔|✔|
+| Odia | `or` |✔|✔||||
+| Pashto | `ps` |✔|✔||✔||
+| Persian | `fa` |✔|✔|✔|✔|✔|
+| Polish | `pl` |✔|✔|✔|✔|✔|
+| Portuguese (Brazil) | `pt` |✔|✔|✔|✔|✔|
+| Portuguese (Portugal) | `pt-pt` |✔|✔||||
+| Punjabi | `pa` |✔|✔|✔|||
+| Queretaro Otomi | `otq` |✔|✔||||
+| Romanian | `ro` |✔|✔|✔|✔|✔|
+| Russian | `ru` |✔|✔|✔|✔|✔|
+| Samoan | `sm` |✔| |✔|||
+| Serbian (Cyrillic) | `sr-Cyrl` |✔|✔||✔||
+| Serbian (Latin) | `sr-Latn` |✔|✔|✔|✔|✔|
+| Slovak | `sk` |✔|✔|✔|✔|✔|
+| Slovenian | `sl` |✔|✔|✔|✔|✔|
+| Spanish | `es` |✔|✔|✔|✔|✔|
+| Swahili | `sw` |✔|✔|✔|✔|✔|
+| Swedish | `sv` |✔|✔|✔|✔|✔|
+| Tahitian | `ty` |✔| |✔|✔||
+| Tamil | `ta` |✔|✔|||✔|
+| Telugu | `te` |✔|✔||||
+| Thai | `th` |✔| |✔|✔|✔|
+| Tigrinya | `ti` |✔|✔||||
+| Tongan | `to` |✔|✔|✔|||
+| Turkish | `tr` |✔|✔|✔|✔|✔|
+| Ukrainian | `uk` |✔|✔|✔|✔|✔|
+| Urdu | `ur` |✔|✔|✔|✔|✔|
+| Vietnamese | `vi` |✔|✔|✔|✔|✔|
+| Welsh | `cy` |✔|✔|✔|✔|✔|
+| Yucatec Maya | `yua` |✔|✔||✔||
 
 > [!NOTE]
 > Language code `pt` will default to `pt-br`, Portuguese (Brazil).
 
-> [!NOTE]
-> The following languages are not currently available in containers: Samoan, Tahitian, Klingon, Klingon (plqaD), and Thai.
-
-### Detect
-
-Translator detects the following languages for translation and transliteration.
-
-[View Detect operation reference documentation](reference/v3-0-detect.md)
-
-| Language | Language code |
-|:-|:-:|
-| Afrikaans | `af` |
-| Albanian | `sq` |
-| Arabic | `ar` |
-|Armenian| `hy` |
-| Bulgarian | `bg` |
-| Catalan | `ca` |
-| Chinese Simplified | `zh-Hans` |
-| Chinese Traditional | `zh-Hant` |
-| Croatian | `hr` |
-| Czech | `cs` |
-| Danish | `da` |
-| Dutch | `nl` |
-| English | `en` |
-| Estonian | `et` |
-| Finnish | `fi` |
-| French | `fr` |
-| German | `de` |
-| Greek | `el` |
-| Gujarati | `gu` |
-| Haitian Creole | `ht` |
-| Hebrew | `he` |
-| Hindi | `hi` |
-| Hungarian | `hu` |
-| Icelandic | `is` |
-| Indonesian | `id` |
-| Inuktitut | `iu` |
-| Irish | `ga` |
-| Italian | `it` |
-| Japanese | `ja` |
-|Khmer|`km` |
-| Klingon | `tlh-Latn` |
-| Korean | `ko` |
-| Kurdish (Central) | `ku-Arab` |
-|Lao|`lo` |
-| Latvian | `lv` |
-| Lithuanian | `lt` |
-| Malay | `ms` |
-| Maltese | `mt` |
-|Myanmar|`my` |
-| Norwegian | `nb` |
-| Pashto | `ps` |
-| Persian | `fa` |
-| Polish | `pl` |
-| Portuguese | `pt` |
-| Romanian | `ro` |
-| Russian | `ru` |
-| Serbian (Cyrillic) | `sr-Cyrl` |
-| Serbian (Latin) | `sr-Latn` |
-| Slovak | `sk` |
-| Slovenian | `sl` |
-| Spanish | `es` |
-| Swahili | `sw` |
-| Swedish | `sv` |
-| Tahitian | `ty` |
-| Thai | `th` |
-| Turkish | `tr` |
-| Ukrainian | `uk` |
-| Urdu | `ur` |
-| Vietnamese | `vi` |
-| Welsh | `cy` |
-| Yucatec Maya | `yua` |
-
-### Transliterate
-
-The Transliterate method supports the following languages. In the "To/From", "<-->" indicates that the language can be transliterated from or to either of the scripts listed. The "-->" indicates that the language can only be transliterated from one script to the other.
-
-[View Transliterate operation reference documentation](reference/v3-0-translate.md)
-
+## Transliteration
+The [Transliterate operation](reference/v3-0-transliterate.md) in the Text Translation feature supports the following languages. In the "To/From", "<-->" indicates that the language can be transliterated from or to either of the scripts listed. The "-->" indicates that the language can only be transliterated from one script to the other.
 
 | Language    | Language code | Script | To/From | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
@@ -244,144 +162,16 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 |Ukrainian| `uk` | Cyrillic `Cyrl`  | <--> | Latin `Latn` |
 |Urdu| `ur` | Arabic `Arab`  | <--> | Latin `Latn` |
 
-### Dictionary
+## Other Cognitive Services
+Add additional capabilities to your apps and workflows by utilizing other Cognitive Services with Translator. Language lists for additional services are below.
+* [Computer Vision](../computer-vision/language-support.md) 
+* [Speech](../speech-service/language-support.md) 
+* [Text Analytics ](../text-analytics/language-support.md) 
 
-The dictionary supports the following languages to or from English using the Lookup and Examples methods.
+View all [Cognitive Services](../index.yml). 
 
-View reference documentation for the [Dictionary Lookup](reference/v3-0-dictionary-lookup.md) and [Dictionary Examples](reference/v3-0-dictionary-examples.md) operations.
+## Next steps
+* [Text Translation reference](reference/v3-0-reference.md)
+* [Document Translation reference](document-translation/reference/rest-api-guide.md)
+* [Custom Translator overview](custom-translator/overview.md)
 
-| Language    | Language code |
-|:----------- |:-------------:|
-| Afrikaans      | `af`          |
-| Arabic       | `ar`          |
-| Bangla      | `bn`          |
-| Bosnian (Latin)      | `bs`          |
-| Bulgarian      | `bg`          |
-| Catalan      | `ca`          |
-| Chinese Simplified      | `zh-Hans`          |
-| Croatian      | `hr`          |
-| Czech      | `cs`          |
-| Danish      | `da`          |
-| Dutch      | `nl`          |
-| Estonian      | `et`          |
-| Finnish      | `fi`          |
-| French      | `fr`          |
-| German      | `de`          |
-| Greek      | `el`          |
-| Haitian Creole      | `ht`          |
-| Hebrew      | `he`          |
-| Hindi      | `hi`          |
-| Hmong Daw      | `mww`          |
-| Hungarian      | `hu`          |
-| Icelandic    | `is`  |
-| Indonesian      | `id`          |
-| Italian      | `it`          |
-| Japanese      | `ja`          |
-| Klingon      | `tlh`          |
-| Korean      | `ko`          |
-| Latvian      | `lv`          |
-| Lithuanian      | `lt`          |
-| Malay      | `ms`          |
-| Maltese      | `mt`          |
-| Norwegian      | `nb`          |
-| Persian      | `fa`          |
-| Polish      | `pl`          |
-| Portuguese (Brazil)     | `pt`          |
-| Romanian      | `ro`          |
-| Russian      | `ru`          |
-| Serbian (Latin)      | `sr-Latn`          |
-| Slovak     | `sk`          |
-| Slovenian      | `sl`          |
-| Spanish      | `es`          |
-| Swahili      | `sw`          |
-| Swedish      | `sv`          |
-| Tamil      | `ta`          |
-| Thai      | `th`          |
-| Turkish      | `tr`          |
-| Ukrainian      | `uk`          |
-| Urdu      | `ur`          |
-| Vietnamese      | `vi`          |
-| Welsh      | `cy`          |
-
-### Access the Translator language list programmatically
-
-You can retrieve a list of supported languages for Translator using the Languages method. You can view the list by feature, language code, as well as the language name in English or any other supported language. This list is automatically updated by the Microsoft Translator service as new languages are made available.
-
-[View Languages operation reference documentation](reference/v3-0-languages.md)
-
-## Customization
-
-The following languages are available for customization to or from English using [Custom Translator](https://aka.ms/CustomTranslator).
-
-| Language    | Language code |
-|:----------- |:-------------:|
-|Afrikaans|	`af`|
-| Arabic       | `ar`          |
-| Bangla      | `bn`          |
-| Bosnian (Latin)      | `bs`          |
-| Bulgarian      | `bg`          |
-|Catalan|	`ca`	|
-| Chinese Simplified      | `zh-Hans`          |
-|Chinese Traditional|	`zh-Hant`	|
-| Croatian      | `hr`          |
-| Czech      | `cs`          |
-| Danish      | `da`          |
-| Dutch      | `nl`          |
-| English    | `en`     |
-| Estonian      | `et`          |
-|Fijian|	`fj`	|
-|Filipino|	`fil`	|
-| Finnish      | `fi`          |
-| French      | `fr`          |
-| German      | `de`          |
-| Greek      | `el`          |
-| Gujarati|	`gu`	|
-| Hebrew      | `he`          |
-| Hindi      | `hi`          |
-| Hungarian      | `hu`          |
-| Icelandic | `is` |
-| Indonesian|	`id`	|
-| Inuktitut|	`iu`	|
-| Irish | `ga`	|
-| Italian      | `it`          |
-| Japanese      | `ja`          |
-|Kannada|`kn`|
-| Korean      | `ko`          |
-| Latvian      | `lv`          |
-| Lithuanian      | `lt`          |
-| Malagasy|	`mg`	|
-| Malay|	`ms` |
-|Maltese|	`mt`	|
-| Maori| `mi`  |
-| Marathi| `mr`  |
-| Norwegian      | `nb`          |
-| Persian      | `fa`          |
-| Polish      | `pl`          |
-| Portuguese (Brazil) | `pt` |
-| Punjabi|`pa`|
-| Romanian      | `ro`          |
-| Russian      | `ru`          |
-| Samoan|	`sm`	|
-| Serbian (Latin)      | `sr-Latn`          |
-| Slovak     | `sk`          |
-| Slovenian      | `sl`          |
-| Spanish      | `es`          |
-| Swahili|	`sw`	|
-| Swedish      | `sv`          |
-|Tahitian|	`ty`	|
-| Thai      | `th`          |
-|Tongan|	`to`	|
-| Turkish      | `tr`          |
-| Ukrainian      | `uk`          |
-| Urdu|	`ur`	|
-| Vietnamese      | `vi`          |
-| Welsh | `cy` |
-
-## Speech Translation
-Speech Translation is available by using Translator with Cognitive Services Speech service. View [Speech Service documentation](../speech-service/index.yml) to learn more about using speech translation and to view all of the [available language options](../speech-service/language-support.md).
-
-## View the language list on the Microsoft Translator website
-
-For a quick look at the languages, the Microsoft Translator website shows all the languages supported by Translator for text translation and Speech service for speech translation. This list doesn't include developer-specific information such as language codes.
-
-[See the list of languages](https://www.microsoft.com/translator/languages.aspx)

@@ -13,6 +13,8 @@ ms.subservice: image-builder
 
 # Create an image and use a user-assigned managed identity to access files in Azure Storage 
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Azure Image Builder supports using scripts, or copying files from multiple locations, such as GitHub and Azure storage etc. To use these, they must have been externally accessible to Azure Image Builder, but you could protect Azure Storage blobs using SAS Tokens.
 
 This article shows how to create a customized image using the Azure VM Image Builder, where the service will use a [User-assigned Managed Identity](../../active-directory/managed-identities-azure-resources/overview.md) to access files in Azure storage for the image customization, without you having to make the files publicly accessible, or setting up SAS tokens.

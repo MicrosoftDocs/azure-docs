@@ -150,8 +150,8 @@ Refer to the following list to configure managed identity for Azure Container In
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | Not available | Not available | Not available |
-| User assigned | Preview | Not available | Not available | Not available |
+| System assigned | ![Available][check] | Preview | Not available | Preview |
+| User assigned | Preview | Preview | Not available | Preview |
 
 Refer to the following list to configure managed identity for Azure Container Registry Tasks (in regions where available):
 
@@ -174,9 +174,6 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 Refer to the following list to configure managed identity for Azure Data Factory V2 (in regions where available):
 
 - [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
-- [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
-- [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
-- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 ### Azure Digital Twins
 
@@ -187,14 +184,14 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 Refer to the following list to configure managed identity for Azure Digital Twins (in regions where available):
 
-- [Azure portal](../../digital-twins/how-to-enable-managed-identities-portal.md)
+- [Azure portal](../../digital-twins/how-to-route-with-managed-identity.md)
 
 ### Azure Event Grid
 
 Managed identity type |All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | Preview | Preview | Not available | Preview |
-| User assigned | Not available | Not available  | Not available  | Not available |
+| User assigned | Preview | Preview | Not available | Preview |
 
 ### Azure Firewall Policy
 
@@ -434,6 +431,15 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Government |  | Not Available |
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
+
+### Azure Cosmos DB
+
+| Cloud | Resource ID | Status |
+|--------|------------|:-:|
+| Azure Global | `https://<account>.documents.azure.com/`<br/><br/>`https://cosmos.azure.com` | ![Available][check] |
+| Azure Government | `https://<account>.documents.azure.us/`<br/><br/>`https://cosmos.azure.us` | ![Available][check] |
+| Azure Germany | `https://<account>.documents.microsoftazure.de/`<br/><br/>`https://cosmos.microsoftazure.de` | ![Available][check] |
+| Azure China 21Vianet | `https://<account>.documents.azure.cn/`<br/><br/>`https://cosmos.azure.cn` | ![Available][check] |
 
 ### Azure SQL
 

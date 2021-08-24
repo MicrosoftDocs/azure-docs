@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 07/12/2021
+ms.date: 08/03/2021
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -14,6 +14,27 @@ manager: CelesteDG
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## July 2021
+
+### New articles
+
+- [Configure authentication in a sample Angular Single Page application using Azure Active Directory B2C](configure-authentication-sample-angular-spa-app.md)
+- [Configure authentication in a sample iOS Swift application using Azure Active Directory B2C](configure-authentication-sample-ios-app.md)
+- [Configure authentication options in an Angular application using Azure Active Directory B2C](enable-authentication-angular-spa-app-options.md)
+- [Enable authentication in your own Angular Application using Azure Active Directory B2C](enable-authentication-angular-spa-app.md)
+- [Configure authentication options in an iOS Swift application using Azure Active Directory B2C](enable-authentication-ios-app-options.md)
+- [Enable authentication in your own iOS Swift application using Azure Active Directory B2C](enable-authentication-ios-app.md)
+
+### Updated articles
+
+- [Customize the user interface in Azure Active Directory B2C](customize-ui.md)
+- [Integer claims transformations](integer-transformations.md)
+- [Enable JavaScript and page layout versions in Azure Active Directory B2C](javascript-and-page-layout.md)
+- [Monitor Azure AD B2C with Azure Monitor](azure-monitor.md)
+- [Page layout versions](page-layout.md)
+- [Set up a password reset flow in Azure Active Directory B2C](add-password-reset-policy.md)
+
 
 ## June 2021
 
@@ -72,7 +93,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 - [Developer notes for Azure Active Directory B2C](custom-policy-developer-notes.md)
 - [Add an API connector to a sign-up user flow](add-api-connector.md)
-- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](custom-policy-rest-api-claims-exchange.md)
+- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](add-api-connector-token-enrichment.md)
 - [Secure your API Connector](secure-rest-api.md)
 - [Use API connectors to customize and extend sign-up user flows](api-connectors-overview.md)
 - [Technical and feature overview of Azure Active Directory B2C](technical-overview.md)
@@ -82,7 +103,6 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Tutorial: Create user flows in Azure Active Directory B2C](tutorial-create-user-flows.md)
 - [Azure AD B2C custom policy overview](custom-policy-overview.md)
 - [User flows and custom policies overview](user-flow-overview.md)
-- [Tutorial: Enable authentication in a single-page application with Azure AD B2C](tutorial-single-page-app.md)
 - [Set up phone sign-up and sign-in for user flows](phone-authentication-user-flows.md)
 - [Enable multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md)
 - [User flow versions in Azure Active Directory B2C](user-flow-versions.md)
@@ -117,6 +137,6 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ### Updated articles
 
-- [Azure Active Directory B2C code samples](code-samples.md)
+- [Azure Active Directory B2C code samples](integrate-with-app-code-samples.md)
 - [Track user behavior in Azure AD B2C by using Application Insights](analytics-with-application-insights.md)
 - [Configure session behavior in Azure Active Directory B2C](session-behavior.md)

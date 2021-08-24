@@ -7,13 +7,15 @@ ms.topic: how-to
 
 # Forward alert information
 
-You can send alert information to partners who are integrating with Azure Defender for IoT, to syslog servers, to email addresses, and more. Working with forwarding rules lets you quickly deliver alert information to security stakeholders.  
+You can send alert information to partners who are integrating with Azure Defender for IoT, to syslog servers, to email addresses, and more. Working with forwarding rules lets you quickly deliver alert information to security stakeholders.
+
+Define criteria by which to trigger a forwarding rule. Working with forwarding rule criteria helps pinpoint and manage the volume of information sent from the sensor to external systems.
 
 Syslog and other default forwarding actions are delivered with your system. More forwarding actions might become available when you integrate with partner vendors, such as Microsoft Azure Sentinel, ServiceNow, or Splunk.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alert-information-screen.png" alt-text="Alert information.":::
 
-Defender for IoT administrators have permission to use forwarding rules.
+Defender for IoT administrators has permission to use forwarding rules.
 
 ## About forwarded alert information
 
@@ -47,63 +49,27 @@ Relevant information is sent to partner systems when forwarding rules are create
 
    :::image type="content" source="media/how-to-work-with-alerts-sensor/create-forwarding-rule-screen.png" alt-text="Create a Forwarding Rule icon.":::
 
-1. Enter a name for the forwarding rule.
+1. Enter a name for the forwarding rule. 
 
 1. Select the severity level.
 
+   This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
+
 1. Select any protocols to apply.
+
+   Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
 
 1. Select which engines the rule should apply to.
 
+   Select the required engines, or choose them all. Alerts from selected engines will be sent. 
+
 1. Select an action to apply, and fill in any parameters needed for the selected action.
+
+   Forwarding rule actions instruct the sensor to forward alert information to partner vendors or servers. You can create multiple actions for each forwarding rule.
 
 1. Add another action if desired.
 
 1. Select **Submit**.
-
-**To create a forwarding rule on the management console**:
-
-1. Sign in to the sensor.
-
-1. Select **Forwarding** on the side menu.
-
-1. Select the :::image type="icon" source="../media/how-to-work-with-alerts-sensor/plus-add-icon.png" border="false"::: icon.
-
-1. In the Create Forwarding Rule window, enter a name for the rule
-
-   :::image type="content" source="../media/how-to-work-with-alerts-sensor/management-console-create-forwarding-rule.png" alt-text="Enter a meaningful name in the name field of the Create Forwarding Rule window.":::
-
-1. Select the severity level from the drop-down menu.
- 
-1. Select any protocols to apply.
-
-1. Select which engines the rule should apply to.
-
-1. Select the checkbox if you want the forwarding to rule to report system notifications.
-  
-1. Select the checkbox if you want the forwarding to rule to report alert notifications.
-
-1. Select **Add** to add an action to apply. Fill in any parameters needed for the selected action.
-
-1. Add another action if desired.
-
-1. Select **Save**.
-
-### Forwarding rule criteria 
-
-Define criteria by which to trigger a forwarding rule. Working with forwarding rule criteria helps pinpoint and manage the volume of information sent from the sensor to external systems. The following options are available:
-
-**Protocols**: Only trigger the forwarding rule if the traffic detected was running over specific protocols. Select the required protocols from the drop-down list or choose them all.
-
-**Engines**: Select the required engines or choose them all. Alerts from selected engines will be sent.
-
-**Severity levels**: This is the minimum incident to forward, in terms of severity level. For example, if you select **Minor**, minor alerts and any alert above this severity level will be forwarded. Levels are predefined.
-
-### Forwarding rule actions
-
-Forwarding rule actions instruct the sensor to forward alert information to partner vendors or servers. You can create multiple actions for each forwarding rule.
-
-In addition to the forwarding actions delivered with your system, other actions might become available when you integrate with partner vendors. 
 
 ### Email address action
 
@@ -178,7 +144,7 @@ After you enter all the information, select **Submit**.
 
 ### Webhook server action
 
-Send alert information to a webhook server. Working with webhook servers lets you set up integrations that subscribe to alert events with Defender for IoT. When an alert event is triggered, the management console sends a HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external SIEM system, SOAR systems, Incident management systems, etc.   
+Send alert information to a webhook server. Working with webhook servers lets you set up integrations that subscribe to alert events with Defender for IoT. When an alert event is triggered, the management console sends an HTTP POST payload to the webhook's configured URL. Webhooks can be used to update an external SIEM system, SOAR systems, Incident management systems, etc.   
 
 **To define to a webhook action:**
 
@@ -236,11 +202,11 @@ Test the connection between the sensor and the partner server that's defined in 
 
 ## Edit and delete forwarding rules 
 
-To edit a forwarding rule:
+**To edit a forwarding rule**:
 
 - On the **Forwarding Rule** screen, select **Edit** under the **More** drop-down menu. Make the desired changes and select **Submit**.
 
-To remove a forwarding rule:
+**To remove a forwarding rule**:
 
 - On the **Forwarding Rule** screen, select **Remove** under the **More** drop-down menu. In the **Warning** dialog box, select **OK**.
 

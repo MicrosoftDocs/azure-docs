@@ -1,7 +1,7 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 07/07/2021
+ms.date: 08/13/2021
 ms.topic: reference
 ms.custom: generated
 ---
@@ -30,26 +30,41 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 For sample queries for this table, see [Resource Graph sample queries for extendedlocationresources](../samples/samples-by-table.md#extendedlocationresources).
 
 - microsoft.extendedlocation/customlocations/enabledresourcetypes
-  - Sample query: [Get enabled resource types for Azure Arc enabled custom locations](../samples/samples-by-category.md#get-enabled-resource-types-for-azure-arc-enabled-custom-locations)
-  - Sample query: [List Azure Arc enabled custom locations with VMware or SCVMM enabled](../samples/samples-by-category.md#list-azure-arc-enabled-custom-locations-with-vmware-or-scvmm-enabled)
+  - Sample query: [Get enabled resource types for Azure Arc-enabled custom locations](../samples/samples-by-category.md#get-enabled-resource-types-for-azure-arc-enabled-custom-locations)
+  - Sample query: [List Azure Arc-enabled custom locations with VMware or SCVMM enabled](../samples/samples-by-category.md#list-azure-arc-enabled-custom-locations-with-vmware-or-scvmm-enabled)
 
 ## guestconfigurationresources
 
 For sample queries for this table, see [Resource Graph sample queries for guestconfigurationresources](../samples/samples-by-table.md#guestconfigurationresources).
 
 - microsoft.guestconfiguration/guestconfigurationassignments
+  - Sample query: [Count machines in scope of guest configuration policies](../samples/samples-by-category.md#count-machines-in-scope-of-guest-configuration-policies)
+  - Sample query: [Count of non-compliant guest configuration assignments](../samples/samples-by-category.md#count-of-non-compliant-guest-configuration-assignments)
+  - Sample query: [Find all reasons a machine is non-compliant for guest configuration assignments](../samples/samples-by-category.md#find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments)
+  - Sample query: [Query details of guest configuration assignment reports](../samples/samples-by-category.md#query-details-of-guest-configuration-assignment-reports)
+
+## healthresources
+
+For sample queries for this table, see [Resource Graph sample queries for healthresources](../samples/samples-by-table.md#healthresources).
+
+- microsoft.resourcehealth/availabilitystatuses
+  - Sample query: [Count of virtual machines by availability state and Subscription Id](../samples/samples-by-category.md#count-of-virtual-machines-by-availability-state-and-subscription-id)
+  - Sample query: [List of virtual machines and associated availability states by Resource Ids](../samples/samples-by-category.md#list-of-virtual-machines-and-associated-availability-states-by-resource-ids)
+  - Sample query: [List of virtual machines by availability state and power state with Resource Ids and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
+  - Sample query: [List of virtual machines that are not Available by Resource Ids](../samples/samples-by-category.md#list-of-virtual-machines-that-are-not-available-by-resource-ids)
 
 ## kubernetesconfigurationresources
 
 For sample queries for this table, see [Resource Graph sample queries for kubernetesconfigurationresources](../samples/samples-by-table.md#kubernetesconfigurationresources).
 
 - microsoft.kubernetesconfiguration/extensions
-  - Sample query: [List all Azure Arc enabled Kubernetes clusters with Azure Monitor extension](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-with-azure-monitor-extension)
-  - Sample query: [List all Azure Arc enabled Kubernetes clusters without Azure Monitor extension](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-without-azure-monitor-extension)
+  - Sample query: [List all Azure Arc-enabled Kubernetes clusters with Azure Monitor extension](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-with-azure-monitor-extension)
+  - Sample query: [List all Azure Arc-enabled Kubernetes clusters without Azure Monitor extension](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-without-azure-monitor-extension)
 - microsoft.kubernetesconfiguration/sourcecontrolconfigurations
 
 ## maintenanceresources
 
+- microsoft.maintenance/applyupdates
 - microsoft.maintenance/configurationassignments
 - microsoft.maintenance/updates
 
@@ -94,11 +109,17 @@ For sample queries for this table, see [Resource Graph sample queries for policy
 
 For sample queries for this table, see [Resource Graph sample queries for resourcecontainers](../samples/samples-by-table.md#resourcecontainers).
 
+- microsoft.management/managementgroups
+  - Sample query: [Count of subscriptions per management group](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
+  - Sample query: [List all management group ancestors for a specified management group](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-management-group)
 - microsoft.resources/subscriptions (Subscriptions)
+  - Sample query: [Count of subscriptions per management group](../samples/samples-by-category.md#count-of-subscriptions-per-management-group)
   - Sample query: [Key vaults with subscription name](../samples/samples-by-category.md#key-vaults-with-subscription-name)
+  - Sample query: [List all management group ancestors for a specified subscription](../samples/samples-by-category.md#list-all-management-group-ancestors-for-a-specified-subscription)
+  - Sample query: [List all subscriptions under a specified management group](../samples/samples-by-category.md#list-all-subscriptions-under-a-specified-management-group)
   - Sample query: [Remove columns from results](../samples/samples-by-category.md#remove-columns-from-results)
+  - Sample query: [Secure score per management group](../samples/samples-by-category.md#secure-score-per-management-group)
 - Microsoft.Resources/subscriptions/resourceGroups (Resource groups)
-  - Sample query: [Combine results from two queries into a single result](../samples/samples-by-category.md#combine-results-from-two-queries-into-a-single-result)
   - Sample query: [Find storage accounts with a specific case-insensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Sample query: [Find storage accounts with a specific case-sensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
 
@@ -132,7 +153,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.alertsmanagement/resourcehealthalertrules
 - microsoft.alertsmanagement/smartdetectoralertrules
 - Microsoft.AnalysisServices/servers (Analysis Services)
-- microsoft.anybuild/clusters
+- Microsoft.AnyBuild/clusters (AnyBuild Clusters)
 - Microsoft.ApiManagement/service (API Management services)
 - microsoft.appassessment/migrateprojects
 - Microsoft.AppConfiguration/configurationStores (App Configuration)
@@ -142,6 +163,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.Authorization/resourceManagementPrivateLinks (Resource management private links)
 - microsoft.automanage/accounts
 - microsoft.automanage/configurationprofilepreferences
+- microsoft.automanage/configurationprofiles
 - Microsoft.Automation/AutomationAccounts (Automation Accounts)
 - microsoft.automation/automationaccounts/configurations
 - Microsoft.Automation/automationAccounts/runbooks (Runbook)
@@ -152,7 +174,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.AzureActiveDirectory/b2cDirectories (B2C Tenants)
 - Microsoft.AzureActiveDirectory/guestUsages (Guest Usages)
 - Microsoft.AzureArcData/dataControllers (Azure Arc data controllers)
-- Microsoft.AzureArcData/postgresInstances (Azure Database for PostgreSQL server groups - Azure Arc)
+- Microsoft.AzureArcData/postgresInstances (Azure Arc-enabled PostgreSQL Hyperscale server groups)
 - Microsoft.AzureArcData/sqlManagedInstances (SQL managed instances - Azure Arc)
 - Microsoft.AzureArcData/sqlServerInstances (SQL Server - Azure Arc)
 - microsoft.azurecis/autopilotenvironments
@@ -164,7 +186,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.azuredata/sqlmanagedinstances
 - microsoft.azuredata/sqlserverinstances
 - Microsoft.AzureData/sqlServerRegistrations (SQL Server registries)
-- microsoft.azurepercept/accounts
+- Microsoft.AzurePercept/accounts (Azure Percept accounts)
 - microsoft.azuresphere/catalogs
 - microsoft.azuresphere/catalogs/products
 - microsoft.azuresphere/catalogs/products/devicegroups
@@ -177,6 +199,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.azurestackhci/virtualharddisks
 - Microsoft.AzureStackHci/virtualMachines (Azure Stack HCI virtual machine - Azure Arc)
 - microsoft.azurestackhci/virtualnetworks
+- microsoft.backupsolutions/vmwareapplications
 - microsoft.baremetal/consoleconnections
 - Microsoft.BareMetal/crayServers (Cray Servers)
 - Microsoft.BareMetal/monitoringServers (Monitoring Servers)
@@ -201,7 +224,8 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.Cdn/Profiles/AfdEndpoints (Endpoints)
 - microsoft.cdn/profiles/endpoints (Endpoints)
 - Microsoft.CertificateRegistration/certificateOrders (App Service Certificates)
-- Microsoft.chaos/chaosexperiments (Chaos Experiments)
+- microsoft.chaos/chaosexperiments (Chaos Experiments)
+- microsoft.chaos/experiments
 - microsoft.classicCompute/domainNames (Cloud services (classic))
 - Microsoft.ClassicCompute/VirtualMachines (Virtual machines (classic))
 - Microsoft.ClassicNetwork/networkSecurityGroups (Network security groups (classic))
@@ -228,7 +252,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.Compute/disks (Disks)
 - Microsoft.Compute/galleries (Shared image galleries)
 - Microsoft.Compute/galleries/applications (Gallery applications)
-- microsoft.compute/galleries/applications/versions
+- Microsoft.Compute/galleries/applications/versions (Gallery application versions)
 - Microsoft.Compute/galleries/images (Image definitions)
 - Microsoft.Compute/galleries/images/versions (Image versions)
 - Microsoft.Compute/hostgroups (Host groups)
@@ -244,9 +268,11 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.Compute/sshPublicKeys (SSH keys)
 - microsoft.compute/swiftlets
 - Microsoft.Compute/VirtualMachines (Virtual machines)
+  - Sample query: [Count of virtual machines by power state](../samples/samples-by-category.md#count-of-virtual-machines-by-power-state)
   - Sample query: [Count virtual machines by OS type](../samples/samples-by-category.md#count-virtual-machines-by-os-type)
   - Sample query: [Count virtual machines by OS type with extend](../samples/samples-by-category.md#count-virtual-machines-by-os-type-with-extend)
   - Sample query: [List all extensions installed on a virtual machine](../samples/samples-by-category.md#list-all-extensions-installed-on-a-virtual-machine)
+  - Sample query: [List of virtual machines by availability state and power state with Resource Ids and resource Groups](../samples/samples-by-category.md#list-of-virtual-machines-by-availability-state-and-power-state-with-resource-ids-and-resource-groups)
   - Sample query: [List virtual machines with their network interface and public IP](../samples/samples-by-category.md#list-virtual-machines-with-their-network-interface-and-public-ip)
   - Sample query: [Show all virtual machines ordered by name in descending order](../samples/samples-by-category.md#show-all-virtual-machines-ordered-by-name-in-descending-order)
   - Sample query: [Show first five virtual machines by name and their OS type](../samples/samples-by-category.md#show-first-five-virtual-machines-by-name-and-their-os-type)
@@ -257,7 +283,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.compute/virtualmachines/runcommands
 - Microsoft.Compute/virtualMachineScaleSets (Virtual machine scale sets)
   - Sample query: [Get virtual machine scale set capacity and size](../samples/samples-by-category.md#get-virtual-machine-scale-set-capacity-and-size)
-- microsoft.confidentialledger/ledgers
+- Microsoft.ConfidentialLedger/ledgers (Confidential Ledgers)
 - Microsoft.Confluent/organizations (Confluent organizations)
 - Microsoft.ConnectedCache/cacheNodes (Connected Cache Resources)
 - Microsoft.ConnectedVehicle/platformAccounts (Connected Vehicle Platforms)
@@ -285,7 +311,8 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.costmanagement/connectors
 - microsoft.customproviders/resourceproviders
 - microsoft.d365customerinsights/instances
-- Microsoft.DataBox/jobs (Data Box)
+- Microsoft.Dashboard/grafana (Grafana Workspaces)
+- Microsoft.DataBox/jobs (Azure Data Box)
 - Microsoft.DataBoxEdge/dataBoxEdgeDevices (Azure Stack Edge / Data Box Gateway)
 - Microsoft.Databricks/workspaces (Azure Databricks Services)
 - Microsoft.DataCatalog/catalogs (Data Catalog)
@@ -302,7 +329,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.datamigration/slots
 - microsoft.datamigration/sqlmigrationservices
 - Microsoft.DataProtection/BackupVaults (Backup vaults)
-- microsoft.dataprotection/resourceguards
+- Microsoft.DataProtection/resourceGuards (Resource Guards (Preview))
 - microsoft.dataprotection/resourceoperationgatekeepers
 - Microsoft.DataShare/accounts (Data Shares)
 - Microsoft.DBforMariaDB/servers (Azure Database for MariaDB servers)
@@ -344,7 +371,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.DigitalTwins/digitalTwinsInstances (Azure Digital Twins)
 - Microsoft.DocumentDB/cassandraClusters (Azure Managed Instance for Apache Cassandra)
 - Microsoft.DocumentDb/databaseAccounts (Azure Cosmos DB accounts)
-  - Sample query: [List Cosmos DB with specific write locations](../samples/samples-by-category.md#list-cosmos-db-with-specific-write-locations)
+  - Sample query: [List Azure Cosmos DB with specific write locations](../samples/samples-by-category.md#list-azure-cosmos-db-with-specific-write-locations)
 - Microsoft.DomainRegistration/domains (App Service Domains)
 - microsoft.dynamics365fraudprotection/instances
 - Microsoft.EdgeOrder/addresses (Azure Edge Hardware Center Address)
@@ -363,12 +390,13 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.EventHub/namespaces (Event Hubs Namespaces)
 - Microsoft.Experimentation/experimentWorkspaces (Experiment Workspaces)
 - Microsoft.ExtendedLocation/CustomLocations (Custom locations)
-  - Sample query: [List Azure Arc enabled custom locations with VMware or SCVMM enabled](../samples/samples-by-category.md#list-azure-arc-enabled-custom-locations-with-vmware-or-scvmm-enabled)
+  - Sample query: [List Azure Arc-enabled custom locations with VMware or SCVMM enabled](../samples/samples-by-category.md#list-azure-arc-enabled-custom-locations-with-vmware-or-scvmm-enabled)
 - microsoft.falcon/namespaces
 - Microsoft.Fidalgo/devcenters (Fidalgo DevCenters)
+- microsoft.fidalgo/machinedefinitions
 - Microsoft.Fidalgo/projects (Fidalgo Projects)
 - Microsoft.Fidalgo/projects/environments (Fidalgo Environments)
-- microsoft.fluidrelay/fluidrelayservers
+- Microsoft.FluidRelay/fluidRelayServers (FluidRelay Servers)
 - microsoft.footprintmonitoring/profiles
 - microsoft.gaming/titles
 - Microsoft.Genomics/accounts (Genomics accounts)
@@ -376,17 +404,19 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.HanaOnAzure/hanaInstances (SAP HANA on Azure)
 - Microsoft.HanaOnAzure/sapMonitors (Azure Monitors for SAP Solutions)
 - microsoft.hardwaresecuritymodules/dedicatedhsms
-- microsoft.hdinsight/clusterpools
-- microsoft.hdinsight/clusterpools/clusters
+- Microsoft.HDInsight/clusterpools (HDInsight cluster pools)
+- Microsoft.HDInsight/clusterpools/clusters (HDInsight gen2 clusters)
 - Microsoft.HDInsight/clusters (HDInsight clusters)
 - Microsoft.HealthBot/healthBots (Azure Health Bot)
 - Microsoft.HealthcareApis/services (Azure API for FHIR)
 - microsoft.healthcareapis/services/privateendpointconnections
 - Microsoft.HealthcareApis/workspaces (Healthcare APIs Workspaces)
-- Microsoft.HealthcareApis/workspaces/dicomservices (DICOM Services)
-- Microsoft.HealthcareApis/workspaces/fhirservices (FHIR Services)
+- Microsoft.HealthcareApis/workspaces/dicomservices (DICOM services)
+- Microsoft.HealthcareApis/workspaces/fhirservices (FHIR services)
 - Microsoft.HealthcareApis/workspaces/iotconnectors (IoT Connectors)
+- Microsoft.HpcWorkbench/instances (HPC Workbenches (preview))
 - Microsoft.HybridCompute/machines (Servers - Azure Arc)
+  - Sample query: [Get count and percentage of Arc-enabled servers by domain](../samples/samples-by-category.md#get-count-and-percentage-of-arc-enabled-servers-by-domain)
 - microsoft.hybridcompute/machines/extensions
 - Microsoft.HybridCompute/privateLinkScopes (Azure Arc Private Link Scopes)
 - Microsoft.HybridData/dataManagers (StorSimple Data Managers)
@@ -431,8 +461,8 @@ For sample queries for this table, see [Resource Graph sample queries for resour
   - Sample query: [Count key vault resources](../samples/samples-by-category.md#count-key-vault-resources)
   - Sample query: [Key vaults with subscription name](../samples/samples-by-category.md#key-vaults-with-subscription-name)
 - Microsoft.Kubernetes/connectedClusters (Kubernetes - Azure Arc)
-  - Sample query: [List all Azure Arc enabled Kubernetes clusters without Azure Monitor extension](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-without-azure-monitor-extension)
-  - Sample query: [List all Azure Arc enabled Kubernetes resources](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-resources)
+  - Sample query: [List all Azure Arc-enabled Kubernetes clusters without Azure Monitor extension](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-clusters-without-azure-monitor-extension)
+  - Sample query: [List all Azure Arc-enabled Kubernetes resources](../samples/samples-by-category.md#list-all-azure-arc-enabled-kubernetes-resources)
 - Microsoft.Kusto/clusters (Azure Data Explorer Clusters)
 - Microsoft.Kusto/clusters/databases (Azure Data Explorer Databases)
 - Microsoft.LabServices/labAccounts (Lab Services)
@@ -502,7 +532,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks
 - microsoft.mobilenetwork/sims
-- Microsoft.MobileNetwork/sims/simProfiles (Sims)
+- microsoft.mobilenetwork/sims/simprofiles
 - Microsoft.NetApp/netAppAccounts (NetApp accounts)
 - microsoft.netapp/netappaccounts/backuppolicies
 - Microsoft.NetApp/netAppAccounts/capacityPools (Capacity pools)
@@ -519,6 +549,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.Network/customIpPrefixes (Custom IP Prefixes)
 - microsoft.network/ddoscustompolicies
 - Microsoft.Network/ddosProtectionPlans (DDoS protection plans)
+- microsoft.network/dnsforwardingrulesets
 - microsoft.network/dnsresolvers
 - Microsoft.Network/dnsZones (DNS zones)
 - microsoft.network/dscpconfigurations
@@ -544,6 +575,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.network/networkprofiles
 - Microsoft.Network/NetworkSecurityGroups (Network security groups)
   - Sample query: [Show unassociated network security groups](../samples/samples-by-category.md#show-unassociated-network-security-groups)
+- microsoft.network/networksecurityperimeters
 - microsoft.network/networkvirtualappliances
 - microsoft.network/networkwatchers (Network Watchers)
 - microsoft.network/networkwatchers/connectionmonitors
@@ -705,6 +737,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.TimeSeriesInsights/environments/referenceDataSets (Time Series Insights reference data sets)
 - microsoft.token/stores
 - microsoft.tokenvault/vaults
+- Microsoft.VideoIndexer/accounts (Video Analyzer for Media)
 - Microsoft.VirtualMachineImages/imageTemplates (Image Templates)
 - microsoft.visualstudio/account (Azure DevOps organizations)
 - microsoft.visualstudio/account/extension
@@ -741,9 +774,10 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.workloadbuilder/migrationagents
 - microsoft.workloadbuilder/workloads
 - myget.packagemanagement/services
+- NGINX.NGINXPLUS/nginxDeployments (NGINX Deployment)
 - Paraleap.CloudMonix/services (CloudMonix)
 - Pokitdok.Platform/services (PokitDok Platform)
-- Providers.Test/statefulIbizaEngines (Application assessments)
+- Providers.Test/statefulIbizaEngines (Service Linkers)
 - RavenHq.Db/databases (RavenHQ)
 - Raygun.CrashReporting/apps (Raygun)
 - Sendgrid.Email/accounts (SendGrid Accounts)
@@ -793,6 +827,7 @@ For sample queries for this table, see [Resource Graph sample queries for securi
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
   - Sample query: [Regulatory compliance assessments state](../samples/samples-by-category.md#regulatory-compliance-assessments-state)
 - microsoft.security/securescores
+  - Sample query: [Secure score per management group](../samples/samples-by-category.md#secure-score-per-management-group)
   - Sample query: [Secure score per subscription](../samples/samples-by-category.md#secure-score-per-subscription)
 - microsoft.security/securescores/securescorecontrols
   - Sample query: [Controls secure score per subscription](../samples/samples-by-category.md#controls-secure-score-per-subscription)

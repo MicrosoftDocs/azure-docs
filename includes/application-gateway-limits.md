@@ -32,9 +32,9 @@ ms.author: victorh
 | Concurrent WebSocket connections |Medium gateways 20k<sup>2</sup><br> Large gateways 50k<sup>2</sup>| |
 | Maximum URL length|32KB| |
 | Maximum header size for HTTP/2 |16KB| |
-| Maximum file upload size, Standard |4 GB | |
-| Maximum file upload size WAF |V1 Medium WAF gateways - 100 MB<br>V1 Large WAF gateways - 500 MB<br>V2 WAF - 750 MB<br>V2 WAF with CRS 3.2 or newer - 4GB| |
-| WAF body size limit, without files|v1 WAF or v2 WAF with CRS 3.1 and older - 128KB<br>v2 WAF with CRS 3.2 or newer - 2MB||
+| Maximum file upload size (Standard SKU) |V2 - 4 GB<br>V1 - 2GB | |
+| Maximum file upload size (WAF SKU) |V1 Medium - 100 MB<br>V1 Large - 500 MB<br>V2 - 750 MB<br>V2 (with CRS 3.2 or newer) - 4GB| |
+| WAF body size limit (without files)|V1 or V2 (with CRS 3.1 and older) - 128KB<br>V2 (with CRS 3.2 or newer) - 2MB| |
 | Maximum WAF custom rules|100||
 | Maximum WAF exclusions per Application Gateway|40||
 

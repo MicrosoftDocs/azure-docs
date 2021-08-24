@@ -30,6 +30,8 @@
      items:
      - name: What is Azure AD Connect and Connect Health?
        href: whatis-azure-ad-connect.md
+     - name: What is Azure AD Connect V2.0?
+       href: whatis-azure-ad-connect-v2.md
      - name: Choose the right authentication
        href: ./choose-ad-authn.md
      - name: Identity synchronization and duplicate attribute resiliency
@@ -392,7 +394,5 @@
     href: reference-connect-adconnectivitytools.md
   - name: msExchUserHoldPolicies and cloudMSExchUserHoldPolicies
     href: reference-connect-msexchuserholdpolicies.md
-  - name: Understanding Azure AD Connect 1.4.xx.x device disappearance
-    href: reference-connect-device-disappearance.md
   - name: Azure AD Connect version history archive
     href:  reference-connect-version-history-archive.md

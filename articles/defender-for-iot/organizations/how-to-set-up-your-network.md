@@ -1,7 +1,7 @@
 ---
 title: Set up your network
 description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Azure Defender for IoT appliances.
-ms.date: 02/18/2021
+ms.date: 07/25/2021
 ms.topic: how-to
 ---
 
@@ -51,7 +51,7 @@ Record site information such as:
 
 - DNS servers (optional). Prepare your DNS server's IP and host name.
 
-For a detailed list and description of important site information, see [Example site book](#example-site-book).
+For a detailed list and description of important site information, see [Predeployment checklist](#predeployment-checklist).
 
 #### Successful monitoring guidelines
 
@@ -75,11 +75,15 @@ Make sure the required firewall rules are open on the workstation. See [Network 
 
 The following browsers are supported for the sensors and on-premises management console web applications:
 
-- Chrome 32+
+- Microsoft Edge (latest version)
 
-- Microsoft Edge 86+
+- Safari (latest version, Mac only)
 
-- Internet Explorer 10+
+- Chrome (latest version)
+
+- Firefox (latest version)
+
+For more information on supported browsers, see [Recommended browsers](../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
 
 ### Network access requirements
 
@@ -100,6 +104,7 @@ Verify that your organizational security policy allows access to the following:
 | SNMP | UDP | OUT | 161 | Monitoring | Remote SNMP collectors. | On-premises management console and Sensor | SNMP server |
 | WMI | UDP | OUT | 135 | monitoring | Windows Endpoint Monitoring | Sensor | Relevant network element |
 | Tunneling | TCP | IN | 9000 <br /><br />- on top of port 443 <br /><br />From end user to the on-premises management console. <br /><br />- Port 22 from sensor to the on-premises management console  | monitoring | Tunneling | Sensor | On-premises management console |
+| HTTP| TCP | OUT | 80 | Certificate validation  | Download CRL file | Sensor | CRL server |
 
 ### Planning rack installation
 
@@ -515,9 +520,9 @@ Use these sections for troubleshooting issues:
 
 For any other issues, contact [Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
-## Example site book
+## Predeployment checklist
 
-Use the example site book to retrieve and review important information that you need for network setup.
+Use the predeployment checklist to retrieve and review important information that you need for network setup.
 
 ### Site checklist
 
@@ -531,17 +536,18 @@ Review this list before site deployment:
 | 4 | Provide a list of switch models in the network. | ☐ |  |
 | 5 | Provide a list of vendors and protocols of the industrial equipment. | ☐ |  |
 | 6 | Provide network details for sensors (IP address, subnet, D-GW, DNS). | ☐ |  |
-| 7 | Create necessary firewall rules and the access list. | ☐ |  |
-| 8 | Create spanning ports on switches for port monitoring, or configure network taps as desired. | ☐ |  |
-| 9 | Prepare rack space for sensor appliances. | ☐ |  |
-| 10 | Prepare a workstation for personnel. | ☐ |  |
-| 11 | Provide a keyboard, monitor, and mouse for the Defender for IoT rack devices. | ☐ |  |
-| 12 | Rack and cable the appliances. | ☐ |  |
-| 13 | Allocate site resources to support deployment. | ☐ |  |
-| 14 | Create Active Directory groups or local users. | ☐ |  |
-| 15 | Set-up training (self-learning). | ☐ |  |
-| 16 | Go or no-go. | ☐ |  |
-| 17 | Schedule the deployment date. | ☐ |  |
+| 7 | Third-party switch management | ☐ |  |
+| 8 | Create necessary firewall rules and the access list. | ☐ |  |
+| 9 | Create spanning ports on switches for port monitoring, or configure network taps as desired. | ☐ |  |
+| 10 | Prepare rack space for sensor appliances. | ☐ |  |
+| 11 | Prepare a workstation for personnel. | ☐ |  |
+| 12 | Provide a keyboard, monitor, and mouse for the Defender for IoT rack devices. | ☐ |  |
+| 13 | Rack and cable the appliances. | ☐ |  |
+| 14 | Allocate site resources to support deployment. | ☐ |  |
+| 15 | Create Active Directory groups or local users. | ☐ |  |
+| 16 | Set-up training (self-learning). | ☐ |  |
+| 17 | Go or no-go. | ☐ |  |
+| 18 | Schedule the deployment date. | ☐ |  |
 
 
 | **Date** | **Note** | **Deployment date** | **Note** |
@@ -554,16 +560,16 @@ Review this list before site deployment:
 
 An overview of the industrial network diagram will allow you to define the proper location for the Defender for IoT equipment.
 
-1.  View a global network diagram of the industrial OT environment. For example:
+1.  **Global network diagram** - View a global network diagram of the industrial OT environment. For example:
 
-    :::image type="content" source="media/how-to-set-up-your-network/ot-global-network-diagram.png" alt-text="Diagram of the industrial OT environment for the global network.":::
+    :::image type="content" source="media/how-to-set-up-your-network/backbone-switch.png" alt-text="Diagram of the industrial OT environment for the global network.":::
 
     > [!NOTE]
     > The Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch.  
 
-2. Provide the approximate number of network devices that will be monitored. You will need this information when onboarding your subscription to the Azure Defender for IoT portal. During the onboarding process, you will be prompted to enter the number of devices in increments of 1000.
+1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You will need this information when onboarding your subscription to the Azure Defender for IoT portal. During the onboarding process, you will be prompted to enter the number of devices in increments of 1000.
 
-3. Provide a subnet list for the production networks and a description (optional). 
+1. **(Optional) Subnet list** - Provide a subnet list for the production networks and a description (optional). 
 
     |  **#**  | **Subnet name** | **Description** |
     |--| --------------- | --------------- |
@@ -572,7 +578,7 @@ An overview of the industrial network diagram will allow you to define the prope
     | 3  | |
     | 4  | |
 
-4. Provide a VLAN list of the production networks.
+1. **VLANs** - Provide a VLAN list of the production networks.
 
     | **#** | **VLAN Name** | **Description** |
     |--|--|--|
@@ -581,7 +587,7 @@ An overview of the industrial network diagram will allow you to define the prope
     | 3 |  |  |
     | 4 |  |  |
 
-5. To verify that the switches have port mirroring capability, provide the switch model numbers that the Defender for IoT platform should connect to:
+1. **Switch models and mirroring support** - To verify that the switches have port mirroring capability, provide the switch model numbers that the Defender for IoT platform should connect to:
 
     | **#** | **Switch** | **Model** | **Traffic mirroring support (SPAN, RSPAN, or none)** |
     |--|--|--|--|
@@ -590,7 +596,7 @@ An overview of the industrial network diagram will allow you to define the prope
     | 3 |  |  |
     | 4 |  |  |
 
-    Does a third party manage the switches? Y or N 
+1. **Third-party switch management** - Does a third party manage the switches? Y or N 
 
     If yes, who? __________________________________ 
 
@@ -604,88 +610,94 @@ An overview of the industrial network diagram will allow you to define the prope
 
     - Emerson – DeltaV, Ovation
     
-6. Are there devices that communicate via a serial connection in the network? Yes or No 
+1.  **Serial connection** - Are there devices that communicate via a serial connection in the network? Yes or No 
 
     If yes, specify which serial communication protocol: ________________ 
 
     If yes, mark on the network diagram what devices communicate with serial protocols, and where they are: 
  
-    <Add your network diagram with marked serial connection> 
+    *Add your network diagram with marked serial connection* 
 
-7. For Quality of Service (QoS), the default setting of the sensor is 1.5 Mbps. Specify if you want to change it: ________________ 
+1. **Quality of Service** - For Quality of Service (QoS), the default setting of the sensor is 1.5 Mbps. Specify if you want to change it: ________________ 
 
    Business unit (BU): ________________ 
 
-### Specifications for site equipment
+1.  **Sensor** - Specifications for site equipment
 
-#### Network  
+    The sensor appliance is connected to switch SPAN port through a network adapter. It's connected to the customer's corporate network for management through another dedicated network adapter.
+    
+    Provide address details for the sensor NIC that will be connected in the corporate network: 
+    
+    | Item | Appliance 1 | Appliance 2 | Appliance 3 |
+    |--|--|--|--|
+    | Appliance IP address |  |  |  |
+    | Subnet |  |  |  |
+    | Default gateway |  |  |  |
+    | DNS |  |  |  |
+    | Host name |  |  |  |
 
-The sensor appliance is connected to switch SPAN port through a network adapter. It's connected to the customer's corporate network for management through another dedicated network adapter.
+1.  **iDRAC/iLO/Server management**
 
-Provide address details for the sensor NIC that will be connected in the corporate network: 
+    | Item | Appliance 1 | Appliance 2 | Appliance 3 |
+    |--|--|--|--|
+    | Appliance IP address |  |  |  |
+    | Subnet |  |  |  |
+    | Default gateway |  |  |  |
+    | DNS |  |  |  |
 
-|  Item               | Appliance 1 | Appliance 2 | Appliance 3 |
-| --------------- | ------------- | ------------- | ------------- |
-| Appliance IP address    |               |               |               |
-| Subnet          |               |               |               |
-| Default gateway |               |               |               |
-| DNS             |               |               |               |
-| Host name       |               |               |               |
+1. **On-premises management console** 
 
-#### iDRAC/iLO/Server management
+    | Item | Active | Passive (when using HA) |
+    |--|--|--|
+    | IP address |  |  |
+    | Subnet |  |  |
+    | Default gateway |  |  |
+    | DNS |  |  |
 
-|       Item          | Appliance 1 | Appliance 2 | Appliance 3 |
-| --------------- | ------------- | ------------- | ------------- |
-| Appliance IP address     |               |               |               |
-| Subnet          |               |               |               |
-| Default gateway |               |               |               |
-| DNS             |               |               |               |
+1. **SNMP**  
 
-#### On-premises management console  
+    | Item | Details |
+    |--|--|
+    | IP |  |
+    | IP address |  |
+    | Username |  |
+    | Password |  |
+    | Authentication type | MD5 or SHA |
+    | Encryption | DES or AES |
+    | Secret key |  |
+    | SNMP v2 community string |
 
-|       Item          | Active | Passive (when using HA) |
-| --------------- | ------ | ----------------------- |
-| IP address             |        |                         |
-| Subnet          |        |                         |
-| Default gateway |        |                         |
-| DNS             |        |                         |
+1. **On-premises management console SSL certificate**
 
-#### SNMP  
+    Are you planning to use an SSL certificate? Yes or No
+    
+    If yes, what service will you use to generate it? What attributes will you include in the certificate (for example, domain or IP address)?
 
-|   Item              | Details |
-| --------------- | ------ |
-| IP              |        |
-| IP address | |
-| Username | |
-| Password | |
-| Authentication type | MD5 or SHA |
-| Encryption | DES or AES |
-| Secret key | |
-| SNMP v2 community string |
+1. **SMTP authentication**
 
-### On-premises management console SSL certificate
+    Are you planning to use SMTP to forward alerts to an email server? Yes or No
+    
+    If yes, what authentication method you will use?  
+    
+1. **Active Directory or local users**
 
-Are you planning to use an SSL certificate? Yes or No
+    Contact an Active Directory administrator to create an Active Directory site user group or create local users. Be sure to have your users ready for the deployment day. 
 
-If yes, what service will you use to generate it? What attributes will you include in the certificate (for example, domain or IP address)?
+1. IoT device types in the network
 
-### SMTP authentication
+    | Device type | Number of devices in the network | Average bandwidth |
+    | --------------- | ------ | ----------------------- |
+    | Camera | |
+    | X-ray machine | |
+    |  |  |
+    |  |  |
+    |  |  |
+    |  |  |
+    |  |  |
+    |  |  |
+    |  |  |
+    |  |  |
 
-Are you planning to use SMTP to forward alerts to an email server? Yes or No
-
-If yes, what authentication method you will use?  
-
-### Active Directory or local users
-
-Contact an Active Directory administrator to create an Active Directory site user group or create local users. Be sure to have your users ready for the deployment day. 
-
-### IoT device types in the network
-
-| Device type | Number of devices in the network | Average bandwidth |
-| --------------- | ------ | ----------------------- |
-| Camera | |
-| X-ray machine | |
-
-## See also
+## Next steps
 
 [About the Defender for IoT installation](how-to-install-software.md)

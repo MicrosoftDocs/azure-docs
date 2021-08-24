@@ -2,7 +2,7 @@
 title: Deprovision an Azure disk pool (preview)
 description: Learn how to deprovision, stop, and delete and Azure disk pool.
 author: roygara
-ms.date: 07/13/2021
+ms.date: 07/19/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: storage

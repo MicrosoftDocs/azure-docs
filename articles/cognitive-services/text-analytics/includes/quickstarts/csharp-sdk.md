@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/06/2021
+ms.date: 07/15/2021
 ms.author: aahi
 ms.reviewer: assafi
 ---
@@ -27,6 +27,7 @@ ms.reviewer: assafi
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Text Analytics resource"  target="_blank">create a Text Analytics resource </a> in the Azure portal to get your key and endpoint.  After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Text Analytics API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -137,6 +138,8 @@ static void Main(string[] args)
 The Text Analytics client is a `TextAnalyticsClient` object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
 
 If you're using version `3.x` of the service, you can use an optional `TextAnalyticsClientOptions` instance to initialize the client with various default settings (for example default language or country/region hint). You can also authenticate using an Azure Active Directory token. 
+
+[!INCLUDE [text-analytics-character-limits](../character-limits.md)]
 
 ## Code examples
 
@@ -424,7 +427,7 @@ Named Entities:
                 Score: 0.80,    Length: 9,      Offset: 34
 ```
 
-### Personally Identifiable Information recognition
+## Personally Identifiable Information (PII) recognition
 
 Create a new function called `RecognizePIIExample()` that takes the client that you created earlier, call its `RecognizePiiEntities()` function and iterate through the results. The returned `PiiEntityCollection` represents the list of detected PII entities. If there was an error, it will throw a `RequestFailedException`.
 
@@ -706,6 +709,126 @@ Key phrases:
     cat
     veterinarian
 ```
+
+---
+
+
+## Extract health entities
+
+[!INCLUDE [health operation pricing](../health-operation-pricing-caution.md)]
+
+You can use Text Analytics to perform an asynchronous request to extract healthcare entities from text. The below sample shows a basic example. You can find a more advanced sample [on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample7_AnalyzeHealthcareEntities.md).
+
+# [Version 3.1](#tab/version-3-1)
+
+```csharp
+static async Task healthExample(TextAnalyticsClient client)
+{
+    string document = "Prescribed 100mg ibuprofen, taken twice daily.";
+
+    List<string> batchInput = new List<string>()
+    {
+        document
+    };
+    AnalyzeHealthcareEntitiesOperation healthOperation = await client.StartAnalyzeHealthcareEntitiesAsync(batchInput);
+    await healthOperation.WaitForCompletionAsync();
+
+    await foreach (AnalyzeHealthcareEntitiesResultCollection documentsInPage in healthOperation.Value)
+    {
+        Console.WriteLine($"Results of Azure Text Analytics \"Healthcare Async\" Model, version: \"{documentsInPage.ModelVersion}\"");
+        Console.WriteLine("");
+
+        foreach (AnalyzeHealthcareEntitiesResult entitiesInDoc in documentsInPage)
+        {
+            if (!entitiesInDoc.HasError)
+            {
+                foreach (var entity in entitiesInDoc.Entities)
+                {
+                    // view recognized healthcare entities
+                    Console.WriteLine($"  Entity: {entity.Text}");
+                    Console.WriteLine($"  Category: {entity.Category}");
+                    Console.WriteLine($"  Offset: {entity.Offset}");
+                    Console.WriteLine($"  Length: {entity.Length}");
+                    Console.WriteLine($"  NormalizedText: {entity.NormalizedText}");
+                }
+                Console.WriteLine($"  Found {entitiesInDoc.EntityRelations.Count} relations in the current document:");
+                Console.WriteLine("");
+
+                // view recognized healthcare relations
+                foreach (HealthcareEntityRelation relations in entitiesInDoc.EntityRelations)
+                {
+                    Console.WriteLine($"    Relation: {relations.RelationType}");
+                    Console.WriteLine($"    For this relation there are {relations.Roles.Count} roles");
+
+                    // view relation roles
+                    foreach (HealthcareEntityRelationRole role in relations.Roles)
+                    {
+                        Console.WriteLine($"      Role Name: {role.Name}");
+
+                        Console.WriteLine($"      Associated Entity Text: {role.Entity.Text}");
+                        Console.WriteLine($"      Associated Entity Category: {role.Entity.Category}");
+                        Console.WriteLine("");
+                    }
+                    Console.WriteLine("");
+                }
+            }
+            else
+            {
+                Console.WriteLine("  Error!");
+                Console.WriteLine($"  Document error code: {entitiesInDoc.Error.ErrorCode}.");
+                Console.WriteLine($"  Message: {entitiesInDoc.Error.Message}");
+            }
+            Console.WriteLine("");
+        }
+    }
+}
+```
+
+```console
+Results of Azure Text Analytics "Healthcare Async" Model, version: "2021-05-15"
+
+  Entity: 100mg
+  Category: Dosage
+  Offset: 11
+  Length: 5
+  NormalizedText:
+  Entity: ibuprofen
+  Category: MedicationName
+  Offset: 17
+  Length: 9
+  NormalizedText: ibuprofen
+  Entity: twice daily
+  Category: Frequency
+  Offset: 34
+  Length: 11
+  NormalizedText:
+  Found 2 relations in the current document:
+
+    Relation: DosageOfMedication
+    For this relation there are 2 roles
+      Role Name: Dosage
+      Associated Entity Text: 100mg
+      Associated Entity Category: Dosage
+
+      Role Name: Medication
+      Associated Entity Text: ibuprofen
+      Associated Entity Category: MedicationName
+
+
+    Relation: FrequencyOfMedication
+    For this relation there are 2 roles
+      Role Name: Medication
+      Associated Entity Text: ibuprofen
+      Associated Entity Category: MedicationName
+
+      Role Name: Frequency
+      Associated Entity Text: twice daily
+      Associated Entity Category: Frequency
+```
+
+# [Version 3.0](#tab/version-3)
+
+This feature is not available in version 3.0.
 
 ---
 

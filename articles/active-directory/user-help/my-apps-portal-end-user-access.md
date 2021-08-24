@@ -80,7 +80,7 @@ Download and install the extension, based on the browser you're using.
 
 - **Google Chrome** - From the Chrome Web Store, go to the [My Apps Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) feature, and then select **Add to Chrome**.
 
-- **Mozilla Firefox** - From the **Firefox Add-ons** page, go to the [My Apps Secure Sign-in Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/) feature, and then select **Add to Firefox**.
+- **Mozilla Firefox** - From the **Firefox Add-ons** page, go to the My Apps Secure Sign-in Extension feature, and then select **Add to Firefox**.
 
 An icon is added to the right of your **Address** bar, letting you sign in and customize the extension.
 
