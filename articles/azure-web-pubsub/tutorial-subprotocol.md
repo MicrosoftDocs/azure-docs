@@ -80,6 +80,8 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     # [JavaScript](#tab/javascript)
     
     ```bash
+    mkdir logstream
+    cd logstream
     npm init -y
     npm install --save express
     npm install --save ws
@@ -90,6 +92,9 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     # [Python](#tab/python)
     
     ```bash
+    mkdir logstream
+    cd logstream
+
     # Create venv
     python -m venv env
 
@@ -99,7 +104,6 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     # Or call .\env\Scripts\activate when you are using CMD under Windows
 
     pip install azure-messaging-webpubsubservice
-    pip install websockets
     ```
     
     ---
@@ -108,7 +112,10 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
 
     # [C#](#tab/csharp)
 
-    In `Startup.cs`, update the `ConfigureServices` method to add the service client, and read the connection string from configuration. Under development, we use [Secret Manager](/aspnet/core/security/app-secrets#secret-manager) tool for .NET Core to set the connection string. Also update the `Configure` method to add `app.UseStaticFiles();` before `app.UseRouting();` to support static files, and update `app.UseEndpoints` to generate the client access token with `/negotiate` requests
+    Update `Startup.cs` with the below code.
+    - Update the `ConfigureServices` method to add the service client, and read the connection string from configuration. 
+    - Update the `Configure` method to add `app.UseStaticFiles();` before `app.UseRouting();` to support static files. 
+    - And update `app.UseEndpoints` to generate the client access token with `/negotiate` requests.
 
     ```csharp
     using Azure.Messaging.WebPubSub;
@@ -181,7 +188,9 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     const app = express();
 
     app.get('/negotiate', async (req, res) => {
-      let token = await endpoint.getAuthenticationToken();
+      let token = await endpoint.getAuthenticationToken({
+        roles: ['webpubsub.sendToGroup.stream', 'webpubsub.joinLeaveGroup.stream']
+      });
       res.send({
         url: token.url
       });
@@ -276,9 +285,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
 
 4. Run the server
     # [C#](#tab/csharp)
-    
-    Init the secret manager, and don't forget to replace `<connection_string>` with the one fetched in [previous step](#get-the-connectionstring-for-future-use); 
-    Now run the below command, and open `http://localhost:5000/index.html` in browser:
+    We use [Secret Manager](/aspnet/core/security/app-secrets#secret-manager) tool for .NET Core to set the connection string. Run the below command, replacing `<connection_string>` with the one fetched in [previous step](#get-the-connectionstring-for-future-use), and open http://localhost:5000/index.html in browser:
 
     ```bash
     dotnet user-secrets init
@@ -288,7 +295,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     
     # [JavaScript](#tab/javascript)
     
-    Now run the below command, replacing `<connection-string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use), and open `http://localhost:8080` in browser:
+    Now run the below command, replacing `<connection-string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use), and open http://localhost:8080 in browser:
 
     ```bash
     
@@ -297,14 +304,14 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     
     # [Python](#tab/python)
 
-    Now run the below command, replacing `<connection-string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use), and open `http://localhost:8080` in browser:
+    Now run the below command, replacing `<connection-string>` with the **ConnectionString** fetched in [previous step](#get-the-connectionstring-for-future-use), and open http://localhost:8080 in browser:
 
     ```bash
     python server.py "<connection-string>"
     ```
     ---
 
-    You can see the WebSocket connection is established as before, with below `connected` event message received in client. You can see that you can get the `connectionId` generated for this client.
+    If you are using Chrome, you can press F12 or right-click -> **Inspect** -> **Developer Tools**, and select the **Network** tab. Load the web page, and you can see the WebSocket connection is established. Click to inspect the WebSocket connection, you can see below `connected` event message is received in client. You can see that you can get the `connectionId` generated for this client.
     
     ```json
     {"type":"system","event":"connected","userId":null,"connectionId":"<the_connection_id>"}
@@ -416,6 +423,23 @@ This will be useful if you want to stream a large amount of data to other client
     The code above creates a WebSocket connection to the service and then whenever it receives some data it uses `ws.send()` to publish the data. In order to publish to others, you just need to set `type` to `sendToGroup` and specify a group name in the message.
 
     # [Python](#tab/python)
+
+    Open another bash window for the `stream` program, and install the `websockets` dependency:
+
+    ```bash
+    mkdir stream
+    cd stream
+
+    # Create venv
+    python -m venv env
+
+    # Active venv
+    ./env/Scripts/activate
+
+    # Or call .\env\Scripts\activate when you are using CMD under Windows
+    pip install websockets
+    ```
+
     Create a `stream.py` with the following content.
 
     ```python
@@ -438,14 +462,14 @@ This will be useful if you want to stream a large amount of data to other client
                     'type': 'sendToGroup',
                     'group': 'stream',
                     'dataType': 'text',
-                    'data': str(data),
+                    'data': str(data + '\n'),
                     'ackId': id
                 }
                 id = id + 1
                 await ws.send(json.dumps(payload))
                 await ws.recv()
 
-    res = requests.get('http://localhost:8081/negotiate').json()
+    res = requests.get('http://localhost:8080/negotiate').json()
 
     try:
         asyncio.get_event_loop().run_until_complete(connect(res['url']))
@@ -488,7 +512,7 @@ This will be useful if you want to stream a large amount of data to other client
     };
     ```
 
-4.  For security consideration, by default a client can't publish or subscribe to a group by itself. We also need to update the token generation code to give client such `roles`:
+4.  For security consideration, by default a client can't publish or subscribe to a group by itself. So you may have noticed that we set `roles` to the client when generating the token:
 
     # [C#](#tab/csharp)
     Set the `roles` when `GenerateClientAccessUri` in `Startup.cs` like below:
@@ -540,13 +564,11 @@ Now run below code and type any text and they'll be displayed in the browser in 
 
 # [C#](#tab/csharp)
 
-```cmd
-dir /s /b | dotnet run
-
-```
-
 ```bash
 ls -R | dotnet run
+
+# Or call `dir /s /b | dotnet run` when you are using CMD under Windows
+
 ```
 
 Or you make it slower so you can see the data is streamed to browser in real time:
@@ -565,6 +587,8 @@ Or you can also use this app pipe any output from another console app and stream
 
 ```bash
 ls -R | node stream
+
+# Or call `dir /s /b | node stream` when you are using CMD under Windows
 ```
 
 Or you make it slower so you can see the data is streamed to browser in real time:
@@ -583,6 +607,8 @@ Or you can also use this app pipe any output from another console app and stream
 
 ```bash
 ls -R | python stream.py
+
+# Or call `dir /s /b | python stream.py` when you are using CMD under Windows
 ```
 
 Or you make it slower so you can see the data is streamed to browser in real time:
