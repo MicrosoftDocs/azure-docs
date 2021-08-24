@@ -29,13 +29,11 @@ Datasets for customer-created data assets, such as customized speech models and 
 -   Test audio/text data
 -   Custom voice fonts
 
-## Business Continuity and Disaster Recovery (BCDR) Best Practices
-
 While some customers use our default endpoints to transcribe audio or standard voices for speech synthesis, other customers create assets for customization.
 
 These assets are backed up regularly and automatically by the repositories themselves, so **no data loss will occur** if a region becomes unavailable. However, you must take steps to ensure service continuity in the event of a region outage.
 
-### How to monitor service availability
+## How to monitor service availability
 
 If you use our default endpoints, you should configure your client code to monitor for errors, and if errors persist, be prepared to re-direct to another region of your choice where you have a service subscription.
 
@@ -57,13 +55,13 @@ Follow these steps to configure your client to monitor for errors:
 
 The recovery from regional failures for this usage type can be instantaneous and at a very low cost. All that is required is the development of this functionality on the client side. The data loss that will incur assuming no backup of the audio stream will be minimal.
 
-### Custom endpoint recovery
+## Custom endpoint recovery
 
 Data assets, models or deployments in one region cannot be made visible or accessible in any other region.
 
 You should create Speech Service resources in both a main and a secondary region by following the same steps as used for default endpoints.
 
-#### Custom Speech
+### Custom Speech
 
 Custom Speech Service does not support automatic failover. We suggest the following additional steps to replicate custom models in all prepared regions.
 
@@ -75,11 +73,11 @@ Custom Speech Service does not support automatic failover. We suggest the follow
 
 Again, your client code should monitor availability of your deployed models (primary region) and redirect their audio traffic to the secondary region should the primary fail. This approach would guarantee failover in real time, assuming you have taken the time to complete the previous 4 steps.
 
-##### Offline failover
+#### Offline failover
 
 If you do not require real-time failover you can decide to import your data, create and deploy your models in the secondary region at a later time with the understanding that these tasks will take time to complete.
 
-##### Failover Tests
+#### Failover Tests
 
 This section provides general guidance about timing. The times were recorded to estimate offline failover using a [representative test data set](https://github.com/microsoft/Cognitive-Custom-Speech-Service).
 
@@ -92,7 +90,7 @@ This section provides general guidance about timing. The times were recorded to 
 
 It is nonetheless advisable to create keys for a primary and secondary region for production models with real-time requirements.
 
-#### Custom Voice
+### Custom Voice
 
 Custom Voice does not support automatic failover. Handle real-time synthesis failures with these two options.
 
