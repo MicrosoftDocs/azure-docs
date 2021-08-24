@@ -19,13 +19,18 @@ Azure Synapse Analytics allows the different computational workspace engines to 
 A database created with a Spark job will become visible with that same name to all current and future Spark pools in the workspace, including the serverless SQL pool engine. You cannot add custom objects (external tables, views, procedures) directly in this replicated database using the serverless SQL pool.
 
 The Spark default database, called `default`, will also be visible in the serverless SQL pool context as a database called `default`. 
-You can't create a database in Spark and then create another database with the same name in serverless. Eligible objects will get synced.
+You can't create a database in Spark and then create another database with the same name in serverless SQL pool.
 
 Since the databases are synchronized to serverless SQL pool asynchronously, there will be a delay until they appear.
 
 ## Manage a Spark created database
 
-You need to use Spark to manage Spark created databases. For example, delete it through a Spark pool job, and create tables in it from Spark. Objects can't be modified using serverless SQL pool, if you try it, the operation will fail.
+To manage Spark created databases you need to use Spark pools. For example, delete it through a serverless Apache Spark pool job, and create tables in it from Spark.
+
+Objects in synchronized databases cannot be modified from serverless SQL pool.
+
+>[!NOTE]
+>You cannot create multiple databases with the same name from different pools. If a serverless SQL pool database is created, you won't be able to create a Spark database with the same name. Respectively, if database is created in Spark, you won't be able to create a serverless SQL pool database with the same name.
 
 ## Security model
 
