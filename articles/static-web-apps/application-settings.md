@@ -18,7 +18,7 @@ Application settings:
 
 - Are encrypted at rest
 - Are copied to [staging](review-publish-pull-requests.md) and production environments
-- May only be alphanumeric characters, '.', and '_'
+- May only be alphanumeric characters, `.`, and `_`
 - Are also sometimes referred to as environment variables
 
 > [!IMPORTANT]
