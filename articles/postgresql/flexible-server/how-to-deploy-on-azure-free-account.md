@@ -1,6 +1,6 @@
 ---
 title: Use an Azure free account to try Azure Database for PostgreSQL - Flexible Server for free
-description: Guidance on how to deploy an Azure Database for MySQL - Flexible Server for free using an Azure Free Account. 
+description: Guidance on how to deploy an Azure Database for PostgreSQL - Flexible Server for free using an Azure Free Account. 
 author: shreyaaithal 
 ms.author: shaithal
 ms.service: postgresql
@@ -10,7 +10,7 @@ ms.custom: template-how-to
 ---
 
 
-# Use an Azure free account to try Azure Database for MySQL - Flexible Server for free
+# Use an Azure free account to try Azure Database for PostgreSQL - Flexible Server for free
 
 Azure Database for PostgreSQL - Flexible Server (Preview) is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. With an Azure free account, you can use Flexible Server for **free for 12 months** with **monthly limits** of up to:
 - **750 hours** of **Burstable B1MS** instance, enough hours to run a database instance continuously each month.
@@ -150,9 +150,9 @@ You're not charged for Azure Database for PostgreSQL - Flexible Server services 
     - Usage/Limit: Current month's usage and limit for the meter.
     - Status: Usage status of the service. Based on your usage, you can have one of the following statutes:
     - Not in use: You haven't used the meter or the usage for the meter hasn't reached the billing system.
-    - Exceeded on <Date>: You've exceeded the limit for the meter on <Date>.
+    - Exceeded on \<Date\>: You've exceeded the limit for the meter on \<Date\>.
     - Unlikely to Exceed: You're unlikely to exceed the limit for the meter.
-    - Exceeds on <Date>: You're likely to exceed the limit for the meter on <Date>.
+    - Exceeds on \<Date\>: You're likely to exceed the limit for the meter on \<Date\>.
 
     >[!IMPORTANT]
     >With an Azure free account, you also get $200 in credit to use in 30 days. During this time, any usage beyond the free monthly amounts of services will be deducted from this credit.
