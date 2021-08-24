@@ -155,6 +155,8 @@ The Azure Sentinel documentation has more best practice guidance scattered throu
     - [Create custom analytics rules to detect threats](detect-threats-custom.md)
     - [Use Jupyter Notebook to hunt for security threats](notebooks.md)
 
+For more information, also see our video: [Architecting SecOps for Success: Best Practices for Deploying Azure Sentinel](https://youtu.be/DyL9MEMhqmI)
+
 ## Next steps
 
 To get started with Azure Sentinel, see:

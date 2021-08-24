@@ -11,7 +11,7 @@ ms.subservice: azure-sentinel
 
 ---
 
-# Expert configuration options, on-premises deployment and SAPControl log sources
+# Expert configuration options, on-premises deployment, and SAPControl log sources
 
 This article describes how to deploy the Azure Sentinel SAP data connector in an expert or custom process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
 
@@ -26,7 +26,7 @@ This article describes how to deploy the Azure Sentinel SAP data connector in an
 
 The basic prerequisites for deploying your Azure Sentinel SAP data connector are the same regardless of your deployment method.
 
-Make sure that your system complies with the prerequisites documented in the main [SAP data connector deployment tutorial](sap-deploy-solution.md#prerequisites) before you start.
+Make sure that your system complies with the prerequisites documented in the main [SAP data connector deployment procedure](sap-deploy-solution.md#prerequisites) before you start.
 
 For more information, see [Azure Sentinel SAP solution detailed SAP requirements (public preview)](sap-solution-detailed-requirements.md).
 
@@ -343,7 +343,7 @@ To ingest all ABAP logs into Azure Sentinel, including both NW RFC and SAP Contr
 
 To ingest SAP Control Web Service logs into Azure Sentinel, configure the following JAVA SAP Control instance details:
 
-|Paramter  |Description  |
+|Parameter  |Description  |
 |---------|---------|
 |**javaappserver**     |Enter your SAP Control Java server host. <br>For example: `contoso-java.server.com`         |
 |**javainstance**     |Enter your SAP Control ABAP instance number. <br>For example: `10`         |
@@ -358,6 +358,7 @@ For more information, see [Deploy the SAP solution](sap-deploy-solution.md#deplo
 
 For more information, see:
 
+- [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
 - [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: security content reference](sap-solution-security-content.md)

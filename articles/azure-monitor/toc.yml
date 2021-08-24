@@ -250,6 +250,8 @@
         href: logs/service-providers.md
       - name: Dedicated clusters
         href: logs/logs-dedicated-clusters.md
+      - name: Availability zones
+        href: logs/availability-zones.md
     - name: Log Analytics
       items:
       - name: Overview

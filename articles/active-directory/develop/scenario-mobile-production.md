@@ -36,4 +36,4 @@ For each Microsoft Authentication Library (MSAL) type, you can find sample code 
 
 ## Next steps
 
-To try out additional samples, see [Desktop and mobile public client apps](sample-v2-code.md#desktop-and-mobile-public-client-apps).
+To try out additional samples, [Mobile public client applications](sample-v2-code.md#mobile).
