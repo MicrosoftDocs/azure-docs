@@ -30,9 +30,9 @@ With the Dynatrace OneAgent you can:
 
 ## Prerequisites
 
+* Install [Azure CLI](/cli/azure/install-azure-cli)
 * A Dynatrace account
-* [Install Azure CLI](/cli/azure/install-azure-cli)
-* Create a [PaaS token](https://www.dynatrace.com/support/help/reference/dynatrace-concepts/access-tokens/)
+* Create [Dynatrace PaaS token and Tenant token](https://www.dynatrace.com/support/help/reference/dynatrace-concepts/access-tokens/)
 
 ## Set up integration 
 
@@ -42,7 +42,7 @@ To set up integration, use the instructions in the following sections.
 
 1. In the Azure portal, create an instance of Azure Spring Cloud.
 1. In the new Azure Spring Cloud instance, create a resource group where Dynatrace will be deployed.
-1.  In the new resource group, create an application that you want to report to Dynatrace by running the following command. Replace the placeholders *\<...>* with your own values.
+1. In the new resource group, create an application that you want to report to Dynatrace by running the following command. Replace the placeholders *\<...>* with your own values.
 
    ```azurecli
    az spring-cloud app create --name <your-application-name> --is-public true -s <your-resource-name> -g <your-resource-group-name>
@@ -129,7 +129,7 @@ You can also get the logs of the Dynatrace agent from the following locations:
 * Azure Spring Cloud Application Insights.
 * Azure Spring Cloud LogStream.
 
-You can leverage some environment variables provided by Dynatrace to configure logging for the Dynatrace OneAgent. For example, `DT_LOGLEVELCON` controls the level of logs. For more information, see [Dynatrace Environment Variables](https://docs.newrelic.com/docs/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables).
+You can leverage some environment variables provided by Dynatrace to configure logging for the Dynatrace OneAgent. For example, `DT_LOGLEVELCON` controls the level of logs. For more information, see [Dynatrace Environment Variables](https://docs.microsoft.com) (Note: The doc not available yet).
 
 > [!CAUTION]
 >
