@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 
 This article shows you how to connect a Spring Cloud Config Server instance to your Azure Spring Cloud service.
 
-Spring Cloud Config provides server and client-side support for an externalized configuration in a distributed system. With the Config Server instance, you have a central place to manage external properties for applications across all environments.​ For more information, see [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config).
+Spring Cloud Config provides server and client-side support for an externalized configuration in a distributed system. With the Config Server instance, you have a central place to manage external properties for applications across all environments.​ For more information, see .
 
 ## Prerequisites
 
@@ -96,10 +96,11 @@ All configurable properties used to set up private Git repository with basic aut
 | `default-label` | No     | The default label of the Git repository, should be the *branch name*, *tag name*, or *commit-id* of the repository. |
 | `search-paths`  | No     | An array of strings used to search subdirectories of the Git repository. |
 | `username`      | No     | The username that's used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
-| `password`      | No     | The password used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
+| `password`      | No     | The password or personal access token used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
 
 > [!NOTE]
-> Many `Git` repository servers support the use of tokens rather than passwords for HTTP Basic Authentication. Some repositories, such as GitHub, allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps, force tokens to expire in a few hours. Repositories that cause tokens to expire should not use token-based authentication with Azure Spring Cloud.
+> Many `Git` repository servers support the use of tokens rather than passwords for HTTP Basic Authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps, force tokens to expire in a few hours. Repositories that cause tokens to expire should not use token-based authentication with Azure Spring Cloud.
+> Github has removed support for password authentication, please use a personal access token instead of password authentication for Github, see [here](https://spring.io/projects/spring-cloud-config) for more information.
 
 ### Git repositories with pattern
 
@@ -117,7 +118,7 @@ All configurable properties used to set up Git repositories with pattern are lis
 | `repos."default-label"`            | No             | The default label of the Git repository, should be the *branch name*, *tag name*, or *commit-id* of the repository. |
 | `repos."search-paths`"             | No             | An array of strings used to search subdirectories of the Git repository. |
 | `repos."username"`                 | No             | The username that's used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
-| `repos."password"`                 | No             | The password used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
+| `repos."password"`                 | No             | The password or personal access token used to access the Git repository server, _required_ when the Git repository server supports `Http Basic Authentication`. |
 | `repos."private-key"`              | No             | The SSH private key to access Git repository, _required_ when the URI starts with *git@* or *ssh://*. |
 | `repos."host-key"`                 | No             | The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`. |
 | `repos."host-key-algorithm"`       | No             | The host key algorithm, should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. *Required* only if `host-key` exists. |
@@ -162,7 +163,8 @@ Now that your configuration files are saved in a repository, you need to connect
     ![The Edit Authentication pane basic auth](media/spring-cloud-tutorial-config-server/basic-auth.png)
 
     > [!CAUTION]
-    > Some Git repository servers, such as GitHub, use a *personal-token* or an *access-token*, such as a password, for **Basic Authentication**. You can use that kind of token as a password in Azure Spring Cloud, because it will never expire. But for other Git repository servers, such as Bitbucket and Azure DevOps, the *access-token* expires in one or two hours. This means that the option isn't viable when you use those repository servers with Azure Spring Cloud.
+    > Some Git repository servers use a *personal-token* or an *access-token*, such as a password, for **Basic Authentication**. You can use that kind of token as a password in Azure Spring Cloud, because it will never expire. But for other Git repository servers, such as Bitbucket and Azure DevOps, the *access-token* expires in one or two hours. This means that the option isn't viable when you use those repository servers with Azure Spring Cloud.
+    > Github has removed support for password authentication, please use a personal access token instead of password authentication for Github, see [here](https://spring.io/projects/spring-cloud-config) for more information.
 
     * **SSH**: In the **Default repository** section, in the **Uri** box, paste the repository URI, and then select the **Authentication** ("pencil" icon) button. In the **Edit Authentication** pane, in the **Authentication type** drop-down list, select **SSH**, and then enter your **Private key**. Optionally, specify your **Host key** and **Host key algorithm**. Be sure to include your public key in your Config Server repository. Select **OK**, and then select **Apply** to finish setting up your Config Server instance.
 
