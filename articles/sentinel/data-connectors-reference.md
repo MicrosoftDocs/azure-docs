@@ -361,6 +361,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | SQLSecurityAuditEvents<br>SQLInsights<br>AutomaticTuning<br>QueryStoreWaitStatistics<br>Errors<br>DatabaseWaitStatistics<br>Timeouts<br>Blocks<br>Deadlocks<br>Basic<br>InstanceAndAppAdvanced<br>WorkloadManagement<br>DevOpsOperationsAudit |
 | **Supported by** | Microsoft |
 | | |
@@ -372,6 +373,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)**<br><br>[Notes about storage account diagnostic settings configuration](#notes-about-storage-account-diagnostic-settings-configuration) |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | StorageBlobLogs<br>StorageQueueLogs<br>StorageTableLogs<br>StorageFileLogs |
 | **Recommended diagnostics** | **Blob/Queue/Table/File**<br><li>Read<li>Write<li>Delete |
 | **Supported by** | Microsoft |
@@ -384,6 +386,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | AzureDiagnostics |
 | **Recommended diagnostics** | **Application Gateway**<br><li>ApplicationGatewayAccessLog<li>ApplicationGatewayFirewallLog<br>**Front Door**<li>FrontdoorAccessLog<li>FrontdoorWebApplicationFirewallLog<br>**CDN WAF policy**<li>WebApplicationFirewallLogs |
 | **Supported by** | Microsoft |
@@ -610,6 +613,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | Dynamics365Activity |
 | **Supported by** | Microsoft |
 | | |
@@ -941,6 +945,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | SecurityAlert<br>SecurityIncident<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo |
 | **Supported by** | Microsoft |
 | | |
@@ -950,6 +955,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | SecurityAlert<br>McasShadowItReporting​ |
 | **Supported by** | Microsoft |
 | | |
@@ -959,6 +965,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -968,6 +975,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -977,6 +985,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -986,6 +995,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | OfficeActivity |
 | **Supported by** | Microsoft |
 | | |

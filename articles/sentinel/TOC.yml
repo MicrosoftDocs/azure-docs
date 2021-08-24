@@ -112,8 +112,8 @@
     - name: Connect your data source
       href: data-connectors-reference.md
     - name: Top connectors
-      items:
       expanded: true
+      items:
       - name: Amazon Web Services CloudTrail
         href: connect-aws.md
       - name: Azure Active Directory
