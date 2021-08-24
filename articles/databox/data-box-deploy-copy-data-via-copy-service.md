@@ -8,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 08/24/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -45,6 +45,8 @@ After you're connected to the NAS device, the next step is to copy your data. Be
 * If data uploaded by Data Box is concurrently uploaded by other applications outside Data Box, upload-job failures and data corruption might result.
 
 * If the data is being modified as the data copy service is reading it, you might see failures or corruption of data.
+
+* If **File optimization** is on, and you've deleted any of the packed files, the original file won't be uploaded. A packed file has a GUID as its filename.
 
 > [!IMPORTANT]
 > Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
