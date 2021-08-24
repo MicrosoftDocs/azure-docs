@@ -161,7 +161,7 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
    * The certificate files should be owned by the **aziotcs** group.
 
    >[!TIP]
-   >If your certificate is read-only, meaning you created it and don't want the IoT Edge service to rotate it, set the private key file to mode 0440 and the certificate file to mode 0444. If you created the initial files but have configured the cert service to rotate the certificate in the future, set the private key file to mode 0660 and the certificate file to mode 0664.
+   >If your certificate is read-only, meaning you created it and don't want the IoT Edge service to rotate it, set the private key file to mode 0440 and the certificate file to mode 0444. If you created the initial files and then configured the cert service to rotate the certificate in the future, set the private key file to mode 0660 and the certificate file to mode 0664.
 
 1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following directory. IoT Edge will recreate them with the new CA certificate you provided.
 
@@ -195,6 +195,8 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 <!-- 1.1. -->
 :::moniker range="iotedge-2018-06"
 
+# [Linux containers](#tab/linux)
+
 1. To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config file.
 
    ```yaml
@@ -210,19 +212,44 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 
 1. Delete the contents of the `hsm` folder to remove any previously generated certificates.
 
-   * Linux and IoT Edge for Linux on Windows: `/var/lib/iotedge/hsm/certs` and `/var/lib/iotedge/hsm/cert_keys`
-
-   * Windows using Windows containers: `C:\ProgramData\iotedge\hsm\certs` and `C:\ProgramData\iotedge\hsm\cert_keys`
+   * `/var/lib/iotedge/hsm/certs`
+   * `/var/lib/iotedge/hsm/cert_keys`
 
 1. Restart the IoT Edge service.
-
-   * Linux and IoT Edge for Linux on Windows:
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-   * Windows using Windows containers:
+1. Confirm the lifetime setting.
+
+   ```bash
+   sudo iotedge check --verbose
+   ```
+
+   Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated device CA certificates expire.
+
+# [Windows containers](#tab/windows)
+
+1. To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config file.
+
+   ```yaml
+   certificates:
+     device_ca_cert: "<ADD URI TO DEVICE CA CERTIFICATE HERE>"
+     device_ca_pk: "<ADD URI TO DEVICE CA PRIVATE KEY HERE>"
+     trusted_ca_certs: "<ADD URI TO TRUSTED CA CERTIFICATES HERE>"
+     auto_generated_ca_lifetime_days: <value>
+   ```
+
+   > [!NOTE]
+   > Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
+
+1. Delete the contents of the `hsm` folder to remove any previously generated certificates.
+
+   * `C:\ProgramData\iotedge\hsm\certs`
+   * `C:\ProgramData\iotedge\hsm\cert_keys`
+
+1. Restart the IoT Edge service.
 
    ```powershell
    Restart-Service iotedge
@@ -230,19 +257,13 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 
 1. Confirm the lifetime setting.
 
-   * Linux and IoT Edge for Linux on Windows:
-
-   ```bash
-   sudo iotedge check --verbose
-   ```
-
-   * Windows using Windows containers:
-
    ```powershell
    iotedge check --verbose
    ```
 
    Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated device CA certificates expire.
+
+---
 
 :::moniker-end
 <!-- end 1.1 -->
