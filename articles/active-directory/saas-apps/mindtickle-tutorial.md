@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/20/2021
+ms.date: 08/24/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with MindTickle
@@ -128,6 +128,8 @@ To configure single sign-on on **MindTickle** side, you need to send the downloa
 ### Create MindTickle test user
 
 In this section, a user called Britta Simon is created in MindTickle. MindTickle supports **just-in-time user provisioning**, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in MindTickle, a new one is created after authentication.
+
+MindTickle also supports automatic user provisioning, you can find more details [here](./mindtickle-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

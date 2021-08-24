@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/20/2021
+ms.date: 08/24/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Merchlogix
@@ -119,6 +119,8 @@ To configure single sign-on on **Merchlogix** side, you need to send the downloa
 ### Create Merchlogix test user
 
 In this section, you create a user called Britta Simon in Merchlogix. Work with [Merchlogix support team](https://www.merchlogix.com/contact/) to add the users in the Merchlogix platform. Users must be created and activated before you use single sign-on.
+
+Merchlogix also supports automatic user provisioning, you can find more details [here](./merchlogix-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 

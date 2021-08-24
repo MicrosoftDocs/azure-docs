@@ -153,6 +153,9 @@ The objective of this section is to create a user called Britta Simon in Mixpane
 > [!Note]
 > The user will get an email to set up the profile.
 
+> [!NOTE]
+> Mixpanel also supports automatic user provisioning, you can find more details [here](./mixpanel-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 

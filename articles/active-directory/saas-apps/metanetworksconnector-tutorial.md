@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/20/2021
+ms.date: 08/24/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Meta Networks Connector
@@ -202,6 +202,8 @@ In this section, a user called Britta Simon is created in Meta Networks Connecto
 
 >[!Note]
 >If you need to create a user manually, contact [Meta Networks Connector Client support team](mailto:support@metanetworks.com).
+
+Meta Networks also supports automatic user provisioning, you can find more details [here](./meta-networks-connector-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
