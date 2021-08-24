@@ -14,7 +14,7 @@ ms.author: mitagaki
 
 # Backup and recover speech customization resources
 
-The Speech service is [available in various regions](/azure/cognitive-services/speech-service/regions)). Since service subscription keys are tied to a single region, when you acquire a key, you select a specific region, in which your data, model and deployments reside.
+The Speech service is [available in various regions](/azure/cognitive-services/speech-service/regions). Service subscription keys are tied to a single region. When you acquire a key, you select a specific region, where your data, model and deployments reside.
 
 Datasets for customer-created data assets, such as customized speech models and custom voice fonts, are also **available only within the service-deployed region**. Such assets are:
 
@@ -63,7 +63,7 @@ You should create Speech Service resources in both a main and a secondary region
 
 ### Custom Speech
 
-Custom Speech Service does not support automatic failover. We suggest the following additional steps to replicate custom models in all prepared regions.
+Custom Speech Service does not support automatic failover. We suggest the following steps to prepare for manual or automatic failover implemented in your client code. In these steps you replicate custom models in a secondary region. With this preparation, your client code can switch to a secondary region when the primary region fails.
 
 1.  Create your custom model in one main region (Primary).
 2.  Run the [Model Copy API](https://eastus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) to replicate the custom model to all prepared regions (Secondary).
@@ -71,7 +71,7 @@ Custom Speech Service does not support automatic failover. We suggest the follow
     -  If you have set a specific quota, also consider setting the same quota in the backup regions. See details in [Speech service Quotas and Limits](/azure/cognitive-services/speech-service/speech-services-quotas-and-limits).
 4.  Configure your client to fail over on persistent errors as with the default endpoints usage.
 
-Again, your client code should monitor availability of your deployed models (primary region) and redirect their audio traffic to the secondary region should the primary fail. This approach would guarantee failover in real time, assuming you have taken the time to complete the previous 4 steps.
+Your client code can monitor availability of your deployed models in your primary region, and redirect their audio traffic to the secondary region when the primary fails. If you do not require real-time failover, you can still follow these steps to prepare for a manual failover.
 
 #### Offline failover
 
