@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 08/24/2021
 ms.author: makromer
 ---
 # Copy data from and to a REST endpoint using Azure Data Factory or Azure Synapse Analytics
