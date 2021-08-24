@@ -255,7 +255,7 @@ Even if a model meets the requirements to delete it immediately, you may want to
 5. Wait for another few minutes to make sure the changes have percolated through
 6. Delete the model 
 
-To delete a model, you can use the [DeleteModel]/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.deletemodel?view=azure-dotnet&preserve-view=true) SDK call:
+To delete a model, you can use the [DeleteModel](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.deletemodel?view=azure-dotnet&preserve-view=true) SDK call:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DeleteModel":::
 

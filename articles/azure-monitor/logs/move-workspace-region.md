@@ -247,6 +247,12 @@ The following steps show how to prepare the workspace and resources for the move
     - Install solutions -- Some solutions such as [Azure Sentinel](../../sentinel/quickstart-onboard.md) require certain onboarding procedure and weren't included in the template. You should onboard them separately to the new workspace
     - Data collector API -- Configure data collector API instances to send data to target workspace
     - Alert rules -- When alerts aren't exported in template, you need to configure them manually in target workspace
+21. Very that new data isn't ingested to original workspace. Run this query in your original workspace and observe that there is no ingestion post migration time
+
+    ```kusto
+    search *
+    | summarize max(TimeGenerated) by Type
+    ```
 
 Ingested data after data sources connection to target workspace is stored in target workspace while older data remains in original workspace. You can perform [cross workspace query](./cross-workspace-query.md#performing-a-query-across-multiple-resources) and if both were assigned with the same name, use qualified name (*subscriptionName/resourceGroup/componentName*) in workspace reference.
 
@@ -267,7 +273,7 @@ If you wish to discard the source workspace, delete the exported resources or re
 
 ## Clean up
 
-Data from original workspace isn't moved and subjected to retention policy in original workspace. It's recommended to remain the original workspace for the retention period to preserve your access to your data. If you choose to discard resources in original location, select the original resource group in Azure portal, then select the resources that you want to remove and click **Delete** in toolbar.
+While new data is being ingested to your new workspace, older data in original workspace remain available for query and subjected to the retention policy defined in workspace. It's recommended to remain the original workspace for the duration older data is needed to allow you to [query across](./cross-workspace-query.md#performing-a-query-across-multiple-resources) workspaces. If you no longer need access to older data in original workspace, select the original resource group in Azure portal, then select any resources that you want to remove and click **Delete** in toolbar.
 
 ## Next steps
 
