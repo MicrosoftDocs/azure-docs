@@ -49,7 +49,7 @@ If you are creating a new VM for the image, use a first party Azure Marketplace 
 
 ### Create a VM snapshot
 
-A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS or data disks, you can use the Azure portal or command-line tools. For steps and options to create a snapshot, see the guidance for Linux or Windows [VMs](../virtual-machines/windows/snapshot-copy-managed-disk.md).
+A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VMs OS or data disks, you can use the Azure portal or command-line tools. For steps and options to create a snapshot, see the guidance for [VMs](../virtual-machines/snapshot-copy-managed-disk.md).
 
 ### Create an image from one or more snapshots
 
