@@ -156,6 +156,8 @@ Inbound NAT rules are used to route connections to a specific VM in the backend 
 
 In this section, you'll learn how to add and remove an outbound rule. In this example, you'll used a standard public load balancer. Outbound rules are only supported on standard public load balancers.
 
+### Add outbound rule
+
 
 
 
