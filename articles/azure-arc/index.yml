@@ -64,7 +64,7 @@ conceptualContent:
           text: Admission control policy definitions using Azure Policy
         - url: /sql/sql-server/azure-arc/overview
           itemType: overview
-          text: Connect Arc-enabled SQL Server
+          text: Connect SQL Server
       # footerLink (optional)
       footerLink:
         url: ./servers/index.yml
@@ -125,7 +125,7 @@ conceptualContent:
           itemType: overview
           text: Azure Automation overview
     # Card
-    - title: Azure Arc-enabled SQL Server
+    - title: SQL Server on Azure Arc-enabled servers
       links:
         - url: /sql/sql-server/azure-arc/assess
           itemType: how-to-guide
