@@ -158,7 +158,7 @@ Use [Synapse workspace deployment](https://marketplace.visualstudio.com/items?it
 
 1. Select the connection, resource group, and name of the target workspace. 
 
-1. Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target workspace including connection strings and account keys that are used in your linked services. [Click here for more info] (https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)
+1. Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target workspace including connection strings and account keys that are used in your linked services. For more information, see [CI/CD in Azure Synapse Analytics](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434).
 
     ![Synapse workspace deploy](media/create-release-artifacts-deployment.png)
 
