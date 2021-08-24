@@ -38,6 +38,30 @@ az monitor metrics list --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxx
 
 If you need to dynamically determine whether to adjust workloads to handle message volume, you can query approximate message count on each queue and then respond with the appropriate action. Use the [Get Queue Metadata](/rest/api/storageservices/get-queue-metadata) REST operation or use any of the supported Blob storage SDKs to get the approximate message count. 
 
+The following example uses the Azure Storage .NET v12 library to get the approximate message count.
+
+```csharp
+        static async Task<string> RetrieveNextMessageAsync(QueueClient theQueue)
+        {
+            if (await theQueue.ExistsAsync())
+            {
+                QueueProperties properties = await theQueue.GetPropertiesAsync();
+
+                if (properties.ApproximateMessagesCount > 0)
+                {
+                    QueueMessage[] retrievedMessage = await theQueue.ReceiveMessagesAsync(1);
+                    string theMessage = retrievedMessage[0].MessageText;
+                    await theQueue.DeleteMessageAsync(retrievedMessage[0].MessageId, retrievedMessage[0].PopReceipt);
+                    return theMessage;
+                }
+
+                return null;
+            }
+
+            return null;
+        }
+```
+
 Also consider using Service Bus which supports message per entity. To learn more, see [Monitoring Azure Service Bus data reference](../../service-bus-messaging/monitor-service-bus-reference.md). 
 
 ## Audit account activity
