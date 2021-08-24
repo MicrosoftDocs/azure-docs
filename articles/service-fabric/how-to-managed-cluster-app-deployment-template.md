@@ -159,6 +159,8 @@ You might upgrade an application that's already deployed to a Service Fabric clu
     },
     ```
 ## Delete Service Fabric application resources
+> [!NOTE]
+> Applications should not be deleted via ARM template as there is no declarative way to cleanup individual resources
 
 To delete a service fabric application that was deployed by using the application resource model in Resource Manager:
 
