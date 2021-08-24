@@ -16,7 +16,7 @@ ms.author: cherylmc
 This article helps you connect your virtual network to your virtual hub. Repeat these steps for each VNet that you want to connect.
 
 > [!NOTE]
-> A virtual network can only be connected to one single virtual hub at a time.
+> A virtual network can only be connected to one virtual hub at a time.
 > 
 
 ## Add a connection
