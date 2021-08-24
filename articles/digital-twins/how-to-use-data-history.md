@@ -19,6 +19,8 @@ ms.service: digital-twins
 
 The walkthrough below sets up the required Data History resources (an Azure Digital Twins instance, an Event Hub and namespace, an Azure Data Explorer cluster and database), configures a connection between them, and demonstrates how property updates to a digital twin are historized to Azure Data Explorer. As part of this exercise, you will create a twin graph of a dairy operation, continuously update the twin graph with telemetry data, historize the twin updates to Azure Data Explorer, and run Azure Data Explorer queries to analyze selected operations in the dairy process.
 
+To run the Data History commands in the CLI, you'll need to install a pre-release version of the [azure-iot](/cli/azure/iot?view=azure-cli-latest&preserve-view=true) CLI extension. If you already have these resources available in your account, you can connect them using the Azure CLI.
+
 In each CLI command below, replace `<username>` with your Azure username (use Find/Replace in your own copy to make things go faster).  These commands use the region West Central US.  For private preview, your Azure Digital Twins instance must reside in this region or in or one of the other preview regions (westcentralus, westeurope, or australiaeast). 
 
 ## Prerequisites
