@@ -1,8 +1,8 @@
 ---
 title: How scans detect deleted assets
 description: This article explains how an Azure Purview account detects deleted assets during scans.
-author: yaronyg
-ms.author: yarong
+author: whhender
+ms.author: whhender
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
