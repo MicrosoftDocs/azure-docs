@@ -10,7 +10,7 @@ metadata:
   ms.author: wiassaf
   ms.reviewer: mathoma
   ms.custom: 
-  ms.date: 03/23/2021
+  ms.date: 08/24/2021
 
 title: Maintenance window FAQ
 summary: This article answers frequently asked questions about the maintenance window for [Azure SQL database](sql-database-paas-overview.md) and [SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md).
@@ -100,6 +100,10 @@ sections:
       - question: Can I configure a maintenance window during database restore, recovery, copy, import, or GeoDR scenarios?
         answer: |
           Not at this moment. The maintenance window can be configured once database is created.
+
+      - question: I have the default maintenance window selected. Can I enable advance notifications for that maintenance?
+        answer: |
+          No, advance notifications cannot be configured for the default maintenance window option. When choosing a maintenance window, choose an option other than **System default** to configure and enable advance notifications.
 
 additionalContent: |
  ## See Also
