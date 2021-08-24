@@ -41,22 +41,22 @@ Moving Azure Synapse workspace from region to another region is a multi-step pro
 1. Restore dedicated SQL pool to target region using restore points or Geo-Backups.
 1. Recreate all required logins on the new logical SQL Server.
 1. Creating serverless SQL pool and Spark Pools databases and objects.
-1. Adding Azure DevOps Service Principal to Synapse RBAC "Synapse Artifact Publisher" role if you are using Azure DevOps release pipeline to deploy the artifacts.
+1. Adding an Azure DevOps Service Principal to the Synapse role-based access control (RBAC) 'Synapse Artifact Publisher' role if you're using an Azure DevOps release pipeline to deploy the artifacts.
 1. Deploying code artifact (SQL Scripts, Notebooks), linked services, pipelines, datasets, Spark Job definitions triggers, credentials from Azure DevOps release pipelines to target region Synapse workspace.
-1. Adding Microsoft Azure Active Directory users or groups to Synapse RBAC roles. Granting Storage Blob Contributor access to SA-MI(System Assigned Managed Identity) on Azure Storage and Azure Key Vault if you are authenticating using Managed Identity.
+1. Adding Microsoft Azure Active Directory users or groups to Synapse RBAC roles. Granting Storage Blob Contributor access to SA-MI(System Assigned Managed Identity) on Azure Storage and Azure Key Vault if you're authenticating using Managed Identity.
 1. Granting  Storage Blob Reader or Storage Blob Contributor roles to required Azure AD users on default attached storage or on Storage Account that has data to be queried using serverless SQL pool.
 1. Recreating Self-Hosted Integration runtime. 
-1. Manually upload all required libraries, jars in target Synapse workspace.
+1. Manually upload all required libraries and jars in target Synapse workspace.
 1. Creating all managed private endpoints if workspace is deployed in a managed VNet.
 1. Test the new workspace on target region and update any DNS entries, which are pointing to source region workspace.
-1. If there is a private endpoint connection created on the source workspace, then create one on the target region workspace.
+1. If there's a private endpoint connection created on the source workspace, then create one on the target region workspace.
 1. You can delete the workspace in source region after testing thoroughly and routing all the connections to the target region workspace.
 
 
 
 ## Step 1: Creating a Synapse workspace in a target region
 
-In this section you will be creating the Synapse workspace using AZ PowerShell, AZ CLI,  and Azure portal. We are creating a Resource Group along with Microsoft Azure Data Lake Storage Gen2 account that will be used as the default storage for Workspace as part of the PowerShell script and CLI script. You can invoke these PowerShell or CLI scripts from the DevOps release pipeline if you want to automate the process of deployment.
+In this section you'll be creating the Synapse workspace using AZ PowerShell, AZ CLI, and Azure portal. You'll be creating a resource group along with a Microsoft Azure Data Lake Storage Gen2 account that will be used as the default storage for the workspace as part of the PowerShell script and CLI script. You can invoke these PowerShell or CLI scripts from the DevOps release pipeline if you want to automate the process of deployment.
 
 ### Azure portal
 You can follow along the steps mentioned in the link below to create a workspace from Azure portal.
@@ -112,7 +112,7 @@ New-AzSynapseWorkspace -ResourceGroupName $resourceGroupName `
                         -SqlAdministratorLoginCredential $creds 
 ```
 
-If you want to create the workspace with a Managed Virtual Network, you will need to add the extra parameter "ManagedVirtualNetwork" to the script. You can refer the link [Managed Virtual Network Config](/powershell/module/az.synapse/new-azsynapsemanagedvirtualnetworkconfig?view=azps-6.3.0&preserve-view=true) to learn more about the options available.
+If you want to create the workspace with a Managed Virtual Network, you'll need to add the extra parameter "ManagedVirtualNetwork" to the script. You can refer the link [Managed Virtual Network Config](/powershell/module/az.synapse/new-azsynapsemanagedvirtualnetworkconfig?view=azps-6.3.0&preserve-view=true) to learn more about the options available.
 
 
 ```powershell
@@ -192,7 +192,7 @@ az synapse workspace create `
   --sql-admin-login-password $sqlPassword `
   --location $regionName
 ```
-To enable managed virtual network, include the parameter --enable-managed-virtual-network in the above script.You can refer the link [workspace managed virtual network](/cli/azure/synapse/workspace?view=azure-cli-latest&preserve-view=true) to know more options.
+To enable managed virtual network, include the parameter `--enable-managed-virtual-network` in the above script.You can refer the link [workspace managed virtual network](/cli/azure/synapse/workspace?view=azure-cli-latest&preserve-view=true) to know more options.
 
 ```azurecli
 az synapse workspace create `
@@ -299,18 +299,18 @@ To restore the dedicated SQL pools from geo-backup using Azure portal and PowerS
 
 ### Restore using restore points from source region workspace dedicated SQL pool
 
-Restore the dedicated SQL pool to the target region workspace using the restore point of the source region workspace dedicated SQL pool. You can use Azure portal, Synapse Studio, or PowerShell to restore from restore points. If the source region is not accessible due to any reason, then you cannot restore using this option.
+Restore the dedicated SQL pool to the target region workspace using the restore point of the source region workspace dedicated SQL pool. You can use Azure portal, Synapse Studio, or PowerShell to restore from restore points. If the source region isn't accessible, then you can't restore using this option.
 
 ***Synapse Studio*** 
 
-From Synapse studio, you can restore the dedicated SQL pool from any workspace in the subscription using the *Restore Points*. While creating the dedicated SQL pool, under **Additional settings**, select **Restore point** and select the workspace as shown in the following screenshot. If you have created a user-defined restore point, you can use that to restore the SQL pool, otherwise you can select the latest automatic restore point.
+From Synapse studio, you can restore the dedicated SQL pool from any workspace in the subscription using the *Restore Points*. While creating the dedicated SQL pool, under **Additional settings**, select **Restore point** and select the workspace as shown in the following screenshot. If you've created a user-defined restore point, you can use that to restore the SQL pool, otherwise you can select the latest automatic restore point.
 
 :::image type="content" source="media/how-to-move-workspace-from-one-region-to-another/restore-sql-pool.png" alt-text="Restoring SQL pool":::
 
 
 ***Azure PowerShell***
 
-You can run the following PowerShell script to restore the workspace. This script uses the latest restore point from the source workspace dedicated SQL pool to restore the SQL pool on the target workspace. You should update the performance level from DW100c to the required value. 
+You can run the following PowerShell script to restore the workspace. This script uses the latest restore point from the source workspace dedicated SQL pool to restore the SQL pool on the target workspace. Before running the script, update the performance level from DW100c to the required value. 
 
 > [!IMPORTANT]
 > The dedicated SQL pool name should be same on both the workspaces.
@@ -354,8 +354,8 @@ Once the dedicated SQL pool is restored, you need to create all the SQL logins i
 
 ## Step 5: Creating serverless SQL pool, Spark pool and objects
 
-As of today, you cannot back up and restore serverless SQL pool databases and Spark pools. As a possible workaround you could:
-1.	Create notebook(s) and SQL script(s), which have the code to recreate all the required Spark pool, serverless SQL pool databases, tables, role, and users with all the role assignments. Check-in these artifacts to Azure DevOps or GitHub.
+You can't back up and restore serverless SQL pool databases and Spark pools. As a possible workaround you could:
+1.	Create notebook(s) and SQL script(s), which have the code to recreate all the required Spark pool, serverless SQL pool databases, tables, role, and users with all the role assignments. Check in these artifacts to Azure DevOps or GitHub.
 2.	If Storage Account name is changed, then make sure the code artifacts are pointing to the correct storage account name.
 3.	Create pipeline(s), which invokes these code artifacts in a specific sequence. When these pipelines are executed on the target region workspace, the Spark SQL databases, serverless SQL pool databases, external data sources, views, roles, and users and permissions will be created on the target region workspace.
 4.	When you integrate the source region workspace with Azure DevOps, these code artifacts will be part of the repo. Later you can deploy these code artifacts to target region workspace using DevOps Release pipeline as mentioned in Step 6.  
@@ -366,18 +366,18 @@ As of today, you cannot back up and restore serverless SQL pool databases and Sp
 
  You can follow the steps mentioned in link [Continuous integration and delivery for Azure Synapse workspace](cicd/continuous-integration-deployment.md) to learn how to integrate Synapse workspace with the Azure DevOps or GitHub and how to deploy the artifacts to target region workspace. 
 
-After the workspace is integrated with Azure DevOps, you will find a branch with a name workspace_publish. This branch contains the workspace template that includes definitions for the artifacts like Notebooks, SQL Scripts, Datasets, Linked Services, Pipelines, Triggers, Spark job definition etc.
+After the workspace is integrated with Azure DevOps, you'll find a branch with a name workspace_publish. This branch contains the workspace template that includes definitions for the artifacts like Notebooks, SQL Scripts, Datasets, Linked Services, Pipelines, Triggers, Spark job definition, and so on.
 
 This screenshot from the Azure DevOps Repro, shows the workspace template files for the artifacts and other components.
 
 :::image type="content" source="media/how-to-move-workspace-from-one-region-to-another/devops-repo-workspace-publish.png" alt-text="workspace-publish":::
 
-You can use the workspace template to deploy the artifacts, pipelines etc., to a workspace using Azure DevOps release pipeline as shown in the following screenshot.
+You can use the workspace template to deploy the artifacts, pipelines, and so on, to a workspace using Azure DevOps release pipeline as shown in the following screenshot.
 
 :::image type="content" source="media/how-to-move-workspace-from-one-region-to-another/release-pipeline.png" alt-text="synapse-release-pipeline":::
 
 
-If the workspace is not integrated with GitHub or Azure DevOps, then you will have to manually recreate or write custom PowerShell or Azure CLI scripts to deploy all the artifacts, pipelines, linked services, credentials, triggers, and Spark definitions on the target region workspace.
+If the workspace isn't integrated with GitHub or Azure DevOps, then you'll have to manually recreate or write custom PowerShell or Azure CLI scripts to deploy all the artifacts, pipelines, linked services, credentials, triggers, and Spark definitions on the target region workspace.
 
 
 
@@ -389,7 +389,7 @@ You can follow along the steps mentioned in the link [Create and configure a sel
 
 ## Step 8: Assigning an Azure role to Managed Identity
 
- Assign `Storage Blob Contributor` access to the Managed Identity of the new workspace on the default attached Data Lake Storage Gen2 account. You should assign access on other storage accounts as well where SA-MI is used for authentication. Assign `Storage Blob Contributor` or `Storage Blob Reader` access to Azure AD users and group to all the required storage accounts.
+ Assign `Storage Blob Contributor` access to the Managed Identity of the new workspace on the default attached Data Lake Storage Gen2 account. Also assign access on other storage accounts where SA-MI is used for authentication. Assign `Storage Blob Contributor` or `Storage Blob Reader` access to Azure AD users and group to all the required storage accounts.
 
 ### Azure portal
 You can follow the steps mentioned in the link [Grant permissions to workspace managed identity](security/how-to-grant-workspace-managed-identity-permissions.md) to assign Storage Blob Data Contributor role to managed identity of the workspace.
@@ -435,12 +435,12 @@ You can get all the Synapse RBAC role names from the below link.
  [Synapse RBAC Roles](security/synapse-workspace-synapse-rbac-roles.md).
 
 ### Synapse Studio
-Use the steps mentioned in the link [How to manage Synapse RBAC role assignments in Synapse Studio](security/how-to-manage-synapse-rbac-role-assignments.md) to add or delete Synapse RBAC assignments from Synapse Studio.
+Follow the steps in [How to manage Synapse RBAC role assignments in Synapse Studio](security/how-to-manage-synapse-rbac-role-assignments.md) to add or delete Synapse RBAC assignments from Synapse Studio.
 
 
 ### Azure PowerShell
 
-Below PowerShell script is adding Synapse Administrator role assignment to a Azure AD user or group. You can use -RoleDefinitionId instead of -RoleDefinitionName to the below command to add the users to the workspace.
+Below PowerShell script is adding Synapse Administrator role assignment to an Azure AD user or group. You can use -RoleDefinitionId instead of -RoleDefinitionName to the below command to add the users to the workspace.
 
 ```powershell
 # Add Synapse RBAC assignment. Use the objectId of the Azure AD user or group you want to assign.
@@ -471,7 +471,7 @@ az synapse role assignment create `
 
 ```
 
-To learn more about avialable options see [Synapse RBAC - CLI](/cli/azure/synapse/role/assignment?view=azure-cli-latest&preserve-view=true). 
+To learn more about available options, see [Synapse RBAC - CLI](/cli/azure/synapse/role/assignment?view=azure-cli-latest&preserve-view=true). 
 
 ## Step 10: Upload workspace packages
 
@@ -484,8 +484,7 @@ To set up the access control for the target region Synapse workspace, follow the
 
 ## Step 12: Create managed private endpoints
 
-Recreate the managed private endpoints from the source region workspace in your target region workspace. 
-See [Create a Managed private endpoint to your data source](security/how-to-create-managed-private-endpoints.md) to create the managed private endpoint.
+To Recreate the managed private endpoints from the source region workspace in your target region workspace see [Create a Managed private endpoint to your data source](security/how-to-create-managed-private-endpoints.md. 
 
 
 ## Next steps
