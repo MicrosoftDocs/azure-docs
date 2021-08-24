@@ -79,7 +79,7 @@ API Management now allows *standalone* subscriptions. You no longer need to asso
 
 API publishers can now [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal:
 
-    ![Flexible subscriptions](./media/api-management-subscriptions/flexible-subscription.png)
+![Flexible subscriptions](./media/api-management-subscriptions/flexible-subscription.png)
 
 ## Next steps
 Get more information on API Management:
