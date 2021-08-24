@@ -1,5 +1,5 @@
 ---
-title: Azure Sentinel data connectors reference | Microsoft Docs
+title: Find your Azure Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Azure Sentinel data connectors.
 services: sentinel
 documentationcenter: na
@@ -249,6 +249,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Connect Azure Active Directory data to Azure Sentinel](connect-azure-active-directory.md)** |
+| **License prerequisites/<br>Cost information** | <li>Azure Active Directory P1 or P2 license for sign-in logs<li>Any Azure AD license (Free/O365/P1/P2) for other log types<br>Other charges may apply
 | **Log Analytics table(s)** | SigninLogs<br>AuditLogs<br>AADNonInteractiveUserSignInLogs<br>AADServicePrincipalSignInLogs<br>AADManagedIdentitySignInLogs<br>AADProvisioningLogs<br>ADFSSignInLogs |
 | **Supported by** | Microsoft |
 | | |
@@ -258,6 +259,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -269,6 +271,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | AzureActivity |
 | **Supported by** | Microsoft |
 | | |
@@ -278,8 +281,9 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | AzureDiagnostics |
-| **Diagnostics** | DDoSProtectionNotifications<br>DDoSMitigationFlowLogs<br>DDoSMitigationReports |
+| **Recommended diagnostics** | DDoSProtectionNotifications<br>DDoSMitigationFlowLogs<br>DDoSMitigationReports |
 | **Supported by** | Microsoft |
 | | |
 
@@ -288,6 +292,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -297,6 +302,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -306,8 +312,9 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | AzureDiagnostics |
-| **Diagnostics** | AzureFirewallApplicationRule<br>AzureFirewallNetworkRule |
+| **Recommended diagnostics** | AzureFirewallApplicationRule<br>AzureFirewallNetworkRule<br>AzureFirewallDnsProxy |
 | **Supported by** | Microsoft |
 | | |
 
@@ -316,6 +323,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | [**Azure service-to-service integration**](connect-azure-windows-microsoft-services.md) |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | InformationProtectionLogs_CL |
 | **Supported by** | Microsoft |
 | | |
@@ -329,6 +337,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | KeyVaultData |
 | **Supported by** | Microsoft |
 | | |
@@ -340,6 +349,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
+| **License prerequisites/<br>Cost information** | <li><li><br>Other charges may apply
 | **Log Analytics table(s)** | kube-apiserver<br>kube-audit<br>kube-audit-admin<br>kube-controller-manager<br>kube-scheduler<br>cluster-autoscaler<br>guard |
 | **Supported by** | Microsoft |
 | | |
@@ -361,10 +371,13 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)**<br><br>[Notes about storage account diagnostic settings configuration](#notes-about-storage-account-diagnostic-settings-configuration) |
 | **Log Analytics table(s)** | StorageBlobLogs<br>StorageQueueLogs<br>StorageTableLogs<br>StorageFileLogs |
+| **Recommended diagnostics** | **Blob/Queue/Table/File**<br><li>Read<li>Write<li>Delete |
 | **Supported by** | Microsoft |
 | | |
+
+### Notes about storage account diagnostic settings configuration
 
 ## Azure Web Application Firewall (WAF)
 
@@ -372,6 +385,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)** |
 | **Log Analytics table(s)** | AzureDiagnostics |
+| **Recommended diagnostics** | **Application Gateway**<br><li>ApplicationGatewayAccessLog<li>ApplicationGatewayFirewallLog<br>**Front Door**<li>FrontdoorAccessLog<li>FrontdoorWebApplicationFirewallLog<br>**CDN WAF policy**<li>WebApplicationFirewallLogs |
 | **Supported by** | Microsoft |
 | | |
 

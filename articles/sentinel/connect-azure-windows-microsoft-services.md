@@ -51,20 +51,19 @@ This section's following instructions apply to the following connectors:
 
 ### Instructions
 
+1. From the Azure Sentinel navigation menu, select **Data connectors**.
+
+1. Select your service from the data connectors gallery, and then select **Open Connector Page** on the preview pane.
+
+1. Select **Connect** to start streaming events and/or alerts from your service into Azure Sentinel.
+
+1. If on the connector page there is a section titled **Create incidents - recommended!**, select **Enable** if you want to automatically create incidents from alerts.
+
+You can find and query the data for each service using the table names that appear in the section for the service's connector in the [Data connectors reference](data-connectors-reference.md) page.
+
 ## Diagnostic settings-based connections
 
-This section's following instructions apply to the following connectors:
-
-- [Azure Activity *](data-connectors-reference.md#azure-activity)
-- [Azure DDoS Protection](data-connectors-reference.md#azure-ddos-protection)
-- [Azure Firewall](data-connectors-reference.md#azure-firewall)
-- [Azure Key Vault *](data-connectors-reference.md#azure-key-vault)
-- [Azure Kubernetes Service (AKS) *](data-connectors-reference.md#azure-kubernetes-service-aks)
-- [Azure SQL Databases *](data-connectors-reference.md#azure-sql-databases)
-- [Azure Storage Account](data-connectors-reference.md#azure-storage-account)
-- [Azure Web Application Firewall](data-connectors-reference.md#azure-web-application-firewall-waf)
-
-\* This connector's configuration is managed by Azure Policy. Select the **Azure Policy** tab below for instructions. For the other connectors of this type, select the **Standalone** tab.
+The configuration of some connectors of this type is managed by Azure Policy. Select the **Azure Policy** tab below for instructions. For the other connectors of this type, select the **Standalone** tab.
 
 # [Standalone](#tab/SA)
 
@@ -93,8 +92,6 @@ Mark the **Send to Log Analytics** check box. Two new fields will be displayed b
 1. Mark the check boxes of the types of logs and metrics you want to collect. See our recommended choices for each resource type in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page.
 
 1. Select **Save** at the top of the screen.
-
-You can find and query the data for each resource type using the table name that appears in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page.
 
 # [Azure Policy](#tab/AP)
 
@@ -130,13 +127,13 @@ Connectors of this type use Azure Policy to apply a single diagnostic settings c
 
     1. In the **Review + create** tab, click **Create**. Your policy is now assigned to the scope you chose.
 
+---
+
 > [!NOTE]
 >
 > With this type of data connector, the connectivity status indicators (a color stripe in the data connectors gallery and connection icons next to the data type names) will show as *connected* (green) only if data has been ingested at some point in the past 14 days. Once 14 days have passed with no data ingestion, the connector will show as being disconnected. The moment more data comes through, the *connected* status will return.
 
 You can find and query the data for each resource type using the table name that appears in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page.
-
----
 
 ## Log Analytics agent-based connections
 

@@ -111,6 +111,19 @@
     items:
     - name: Connect your data source
       href: data-connectors-reference.md
+    - name: Top connectors
+      items:
+      expanded: true
+      - name: Amazon Web Services CloudTrail
+        href: connect-aws.md
+      - name: Azure Active Directory
+        href: connect-azure-active-directory.md
+      - name: Azure Defender
+        href: connect-azure-security-center.md
+      - name: Microsoft 365 Defender
+        href: connect-microsoft-365-defender.md
+      - name: Windows security events
+        href: connect-windows-security-events.md
     - name: Azure, Windows, Microsoft, and Amazon instructions
       href: connect-azure-windows-microsoft-services.md
     - name: REST-API connection instructions
