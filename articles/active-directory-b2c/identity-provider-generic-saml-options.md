@@ -218,11 +218,11 @@ The following example demonstrates an authorization request with **AllowCreate**
 
 ### Force authentication
 
-You can force the external SAML IDP to prompt the user for authentication by passing the `ForceAuthn` property in the SAML authentication request. Your identity provider must also support this property.
+You can force the external SAML IDP to prompt the user for authentication by passing the `ForceAuthN` property in the SAML authentication request. Your identity provider must also support this property.
 
-The `ForceAuthn` property is a Boolean `true` or `false` value. By default, Azure AD B2C sets the ForceAuthn value to `false`. You can change this behavior by setting ForceAuthn to `true` so that when there is a valid session, the initiating request forces authentication (for example, by sending `prompt=login` in the OpenID Connect request).
+The `ForceAuthN` property is a Boolean `true` or `false` value. By default, Azure AD B2C sets the ForceAuthN value to `false`. You can change this behavior by setting ForceAuthN to `true` so that when there is a valid session, the initiating request forces authentication (for example, by sending `prompt=login` in the OpenID Connect request).
 
-The following example shows the `ForceAuthn` property set to `true`:
+The following example shows the `ForceAuthN` property set to `true`:
 
 ```xml
 <Metadata>
@@ -232,12 +232,12 @@ The following example shows the `ForceAuthn` property set to `true`:
 </Metadata>
 ```
 
-The following example shows the `ForceAuthn` property in an authorization request:
+The following example shows the `ForceAuthN` property in an authorization request:
 
 
 ```xml
 <samlp:AuthnRequest AssertionConsumerServiceURL="https://..."  ...
-                    ForceAuthn="true">
+                    ForceAuthN="true">
   ...
 </samlp:AuthnRequest>
 ```
