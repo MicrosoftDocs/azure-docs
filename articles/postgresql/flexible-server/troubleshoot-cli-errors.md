@@ -4,8 +4,8 @@ description: This topic gives guidenace on troubleshooting common issues with Az
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.topic: troubleshoot
-ms.date: 08/21/2021
+ms.topic: how-to
+ms.date: 08/24/2021
 ---
 
 # Troubleshoot Azure Database for PostgreSQL Flexible Server CLI errors
@@ -65,4 +65,6 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 
 ## Next steps
 
-If you are still experiencing issues, report the issue on [Azure CLI Github Issues](https://github.com/Azure/azure-cli/issues).
+- If you are still experiencing issues, you can report the issue on [Azure CLI Github Issues](https://github.com/Azure/azure-cli/issues). 
+- If you have questions, visit our Stack Overflow page: aka.ms/azcli/questions . 
+- Let us know how we are doing with this short survey https://aka.ms/azureclihats. 
