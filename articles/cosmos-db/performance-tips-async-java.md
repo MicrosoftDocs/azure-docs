@@ -28,6 +28,15 @@ ms.custom: devx-track-java, contperf-fy21q2
 > The performance tips in this article are for Azure Cosmos DB Async Java SDK v2 only. See the Azure Cosmos DB Async Java SDK v2 [Release notes](sql-api-sdk-async-java.md), [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb), and Azure Cosmos DB Async Java SDK v2 [troubleshooting guide](troubleshoot-java-async-sdk.md) for more information.
 >
 
+> [!IMPORTANT]  
+> On August 31, 2024 the Azure Cosmos DB Async Java SDK v2.x
+> will be retired; the SDK and all applications using the SDK
+> **will continue to function**; Azure Cosmos DB will simply cease
+> to provide further maintenance and support for this SDK.
+> We recommend following the instructions above to migrate to
+> Azure Cosmos DB Java SDK v4.
+>
+
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using the [Azure Cosmos DB Async Java SDK v2](sql-api-sdk-async-java.md).
 
 So if you're asking "How can I improve my database performance?" consider the following options:
