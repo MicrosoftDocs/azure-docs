@@ -282,7 +282,15 @@ For Management and governance services availability in Azure Government, see [Pr
 - By default, all data and saved queries are encrypted at rest using Microsoft-managed keys. Configure encryption at rest of your data in Azure Monitor [using customer-managed keys in Azure Key Vault](../azure-monitor/logs/customer-managed-keys.md).
 
 > [!IMPORTANT]
-> See additional guidance below for **Log Analytics**, which is a feature of Azure Monitor.
+> See additional guidance for **[Log Analytics](#log-analytics)**, which is a feature of Azure Monitor.
+
+### [Azure Policy](https://azure.microsoft.com/services/azure-policy/)
+
+Azure Policy supports Impact Level 5 workloads in Azure Government with no extra configuration required.
+
+### [Azure Policy's guest configuration](../governance/policy/concepts/guest-configuration.md)
+
+Azure Policy's guest configuration supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
 #### [Log Analytics](../azure-monitor/logs/data-platform-logs.md)
 

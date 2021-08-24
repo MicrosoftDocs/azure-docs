@@ -2753,7 +2753,6 @@
       "redirect_url": "/azure/app-service/",
       "redirect_document_id": false
     },
-
     {
       "source_path_from_root": "/articles/app-service-web/app-service-best-practices.md",
       "redirect_url": "/azure/app-service/app-service-best-practices",
@@ -12519,7 +12518,6 @@
       "redirect_url": "/azure/applied-ai-services/form-recognizer",
       "redirect_document_id": false
     },
-
     {
       "source_path_from_root": "/articles/sql-database/sql-database-security-controls.md",
       "redirect_url": "/azure/azure-sql/database/security-controls",
@@ -13729,7 +13727,7 @@
       "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
       "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
       "redirect_document_id": false
-    },   
+    },
     {
       "source_path_from_root": "/articles/azure-vmware/tutorial-deploy-vmware-hcx.md",
       "redirect_url": "/azure/azure-vmware/configure-vmware-hcx",
@@ -56244,11 +56242,16 @@
       "source_path_from_root": "/articles/cognitive-services/translator/translator-info-overview.md",
       "redirect_url": "/azure/cognitive-services/translator/translator-overview",
       "redirect_document_id": false
-   },
-   {
-    "source_path_from_root": "/articles/virtual-machines/network-overview.md",
-    "redirect_url": "/azure/virtual-network/network-overview",
-    "redirect_document_id": false
-   }
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/network-overview.md",
+      "redirect_url": "/azure/virtual-network/network-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/policy/how-to/guestconfiguration-create-linux.md",
+      "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
+      "redirect_document_id": false
+    }
   ]
 }
