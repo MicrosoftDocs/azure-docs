@@ -5330,6 +5330,12 @@ Lets you manage SQL servers and databases, but not access to them, and not their
 > | --- | --- |
 > |Microsoft.AzureArcData/sqlServerInstances/read| Read Azure resource information. |
 > |Microsoft.AzureArcData/sqlServerInstances/write| Write Azure resource information.  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  | 
 
 ```json
 {
