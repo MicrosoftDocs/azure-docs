@@ -12,7 +12,7 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/23/2021
+ms.date: 08/24/2021
 ms.author: apimpm
 ---
 
@@ -27,7 +27,7 @@ When you create an Azure API Management service instance, Azure assigns it a `az
 >* Any of the configured custom domain names
 
 > [!WARNING]
-> If you wish to improve the security of your applications with certificate pinning, you must use a custom domain name and certificate that you manage, not the default certificate. Pinning the default certificate takes a hard dependency on the properties of the uncontrolled certificate, which we do not recommend.
+> If you wish to improve the security of your applications with certificate pinning, you must use a custom domain name and certificate that you manage, not the default certificate. Pinning the default certificate takes a hard dependency on the properties of the certificate you don't manage, which we do not recommend.
 
 ## Prerequisites
 
