@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Database for MySQL Flexible Server CLI errors
-description: This topic gives guidenace on troubleshooting common issues with Azure CLI when using MySQL Flexible Server.
+description: This topic gives guidance on troubleshooting common issues with Azure CLI when using MySQL Flexible Server.
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
@@ -54,7 +54,7 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 | Error code | Mitigation |
 | ---------- | ---------- | 
 |MissingSubscriptionRegistration|Register your subscription with the resource provider. Run the command ```az provider register --namespace Microsoft.DBMySQL``` to resolve the issue.|
-|InternalServerError| This is a generic error.  Try to view the activity logs for your server to see if there is more information. Run the command ```az monitor activity-log list --correlation-id <enter correlation-id>```. You can try the same CLI command after a few minutes. If the issues persists, then reach out to  [Azure CLI Github Issues](https://github.com/Azure/azure-cli/issues) or Microsoft support.|
+|InternalServerError| This is a generic error.  Try to view the activity logs for your server to see if there is more information. Run the command ```az monitor activity-log list --correlation-id <enter correlation-id>```. You can try the same CLI command after a few minutes. If the issues persists, please [report it](https://github.com/Azure/azure-cli/issues) or reach out to Microsoft support.|
 |ResourceNotFound| Resource being reference cannot be found.  You can check resource properties, or check if resource is deleted or check if the resource is another subscription. |
 |LocationNotAvailableForResourceType| -Check availability of Azure Database for Postgres Flexible Server in [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). <br>- Check if Azure DB for PostgreSQL Resource types is registered with your subscription. |
 |ResourceGroupBeingDeleted| Resource group is being deleted. Wait for deletion to complete.|
@@ -66,8 +66,8 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 |InvalidLocation - An invalid location was specified. |
 |InvalidServerName| Identified an invalid server name. Please check the sever name. Run the command [az mysql flexible-server list](cli/azure/mysql/flexible-server?view=azure-cli-latest#az_mysql_flexible_server_list) to see all the list of Flexible servers available. |
 |InvalidResourceIdSegment| This is usually a syntax error in your Azure Resource Manager template. Use an JSON formatter tool to validate the JSON to identify the syntax error.|
-|InvalidUserName| Enter a valid username. The admin login name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_.|
-|BlockedUserName| The admin login name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_. Avoid using these patterns in the admin name.|
+|InvalidUserName| Enter a valid username. The admin user name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_.|
+|BlockedUserName| The admin user name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_. Avoid using these patterns in the admin name.|
 
 ## Next steps
 
