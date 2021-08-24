@@ -17,57 +17,50 @@ ms.custom: how-to, devplatv2
 
 In this article you will learn how to deploy an AutoML-trained machine learning model to an online endpoint. Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of developing a machine learning model. For more, see (What is automated machine learning (AutoML)?)[concept-automated-ml.md]
 
-> ![IMPORTANT]
-[IMPORTANT]: While both Azure Machine Learning Managed Online Endpoint and Automated ML are generally available, the ability to deploy a model from AutoML to Managed Online Endpoint is in preview. 
+In this article you will know how to deploy AutoML trained machine learning model to online endpoints using: 
 
-In this article you will know how to deploy AutoML trained machine learning model to online endpoint using: 
+- Azure Machine Learning Studio
+- Azure Machine Learning CLI 2.0
 
-Azure Machine Learning Studio 
+[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Azure Machine Learning CLI 2.0  
+## Prerequisites
 
-Prerequisites: 
+An AutoML-trained machine learning model. For more, see [Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio]- (tutorial-first-experiment-automated-ml.md) or [Tutorial: Forecase demand with automated machine learning](tutorial-automated-ml-forecast.md).
 
-AutoML trained machine learning model. Learn how to train a machine learning model in AutoML. 
+## Deploy from Azure Machine Learning studio 
 
-Run tutorial to generate a trained model. Tutorial: Demand forecasting & AutoML - Azure Machine Learning | Microsoft Docs 
+There are two paths you can choose to deploy an AutoML-trained model from Azure Machine Learning studio. 
 
-Using Azure Machine Learning Studio 
+### Option 1: Deploy from the Automated ML page 
 
-1. Deploy from Automated ML page 
+Deploying an AutoML-trained model from this page is a no-code experience. That is, you don't need to prepare a scoring script and environment, both are auto generated. 
 
-Deploying an AutoML trained model gives no-code experience. That is, you don't need to prepare a scoring script and environment, both are auto generated. 
+1. Go to your Automated ML experiment in your machine learning workspace. 
+2. Choose the Models tab.
 
-Go to Automated ML experiment in your machine learning workspace. 
+{>> Add sequence numbers to model-option.png <<}
+{>> Nuke PII throughout <<} 
 
-:::image type="content" source="media/how-to-deploy-automl-endpoint/automl-experiment.jpeg" alt-text="{alt-text}":::
+:::image type="content" source="media/how-to-deploy-automl-endpoint/model-option.png" alt-text="Screenshot of studio showing an AutoML experiment and the Details page":::
 
-Click on Models option. 
+3. Select the model you want to deploy to online endpoint. Once you select a model, the Deploy button will light up with a drop-down menu. 
 
-:::image type="content" source="media/how-to-deploy-automl-endpoint/model-option.png" alt-text="{alt-text}":::
+:::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-button.png" alt-text="Screenshot showing the Deploy button's drop-down menu":::
 
+4. Select *Deploy to real-time endpoint (preview)* option. 
 
-Select the model you want to deploy to online endpoint. Once you select a model, the Deploy button will light up with a drop-down menu. 
+The system will generate the Model and Environment needed for the deployment. 
 
-:::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-button.png" alt-text="{alt-text}":::
+:::image type="content" source="media/how-to-deploy-automl-endpoint/model.png" alt-text="Screenshot showing the generated Model":::
 
+:::image type="content" source="media/how-to-deploy-automl-endpoint/environment.png" alt-text="Screenshot showing the generated Environment":::
 
-Select Deploy to real-time endpoint option. 
+5. Complete the wizard to deploy the model to a real-time endpoint. 
 
-Model and Environment will be automatically populated. 
+ :::image type="content" source="media/how-to-deploy-automl-endpoint/complete-wizard.jpeg" alt-text="Screenshot showing the review-and-create page":::
 
-:::image type="content" source="media/how-to-deploy-automl-endpoint/model.png" alt-text="{alt-text}":::
-
-:::image type="content" source="media/how-to-deploy-automl-endpoint/environment.png" alt-text="{alt-text}":::
-
-
-Complete the wizard to deploy model to endpoint successfully. 
-
- :::image type="content" source="media/how-to-deploy-automl-endpoint/complete-wizard.jpeg" alt-text="{alt-text}":::
-
- 
-
-2. Deploy from Models page 
+### Option 2: Deploy from the Models page 
 
 This section provides guidance on how to deploy Automated ML trained model from Azure Machine Learning Models Page. 
 
