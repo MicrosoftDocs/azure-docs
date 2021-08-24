@@ -97,12 +97,12 @@ For example:
 
 ![Screenshot that shows how to display quota information.](../media/azure-netapp-files/quota-display.png) 
 
-You can [submit a support request](#request-limit-increase) for an increase of a regional capacity quota without incurring additional cost. The support request you submit will be sent to the Azure capacity management team for processing. You will receive a response typically within 2 business days. The Azure capacity management team might contact you in case of large requests.  
+You can [submit a support request](#request-limit-increase) for an increase of a regional capacity quota without incurring extra cost. The support request you submit will be sent to the Azure capacity management team for processing. You will receive a response typically within two business days. The Azure capacity management team might contact you if you have a large request.  
 
 A regional capacity quota increase does not incur a billing increase. Billing is still based on the provisioned capacity pools.
 For example, if you currently have 25 TiB of provisioned capacity, you can request a quota increase to 35 TiB.  Within two business days, your quota increase will be applied to the requested region. When the quota increase is applied, you still pay for only the current provisioned capacity (25 TiB). But when you actually provision the additional 10 TiB, you will be billed for 35 TiB.
 
-Note that the current [resource limits](#resource-limits) for Azure NetApp Files are not changing. You will still be able to provision a 500 TiB capacity pool. But before doing so, the regional capacity quota needs to be increased to 500 TiB.
+The current [resource limits](#resource-limits) for Azure NetApp Files are not changing. You will still be able to provision a 500-TiB capacity pool. But before doing so, the regional capacity quota needs to be increased to 500 TiB.
 
 ## Request limit increase
 
