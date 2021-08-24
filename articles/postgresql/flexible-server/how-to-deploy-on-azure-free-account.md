@@ -150,9 +150,9 @@ You're not charged for Azure Database for PostgreSQL - Flexible Server services 
     - Usage/Limit: Current month's usage and limit for the meter.
     - Status: Usage status of the service. Based on your usage, you can have one of the following statutes:
     - Not in use: You haven't used the meter or the usage for the meter hasn't reached the billing system.
-    - Exceeded on <Date>: You've exceeded the limit for the meter on <Date>.
+    - Exceeded on \<Date\>: You've exceeded the limit for the meter on \<Date\>.
     - Unlikely to Exceed: You're unlikely to exceed the limit for the meter.
-    - Exceeds on <Date>: You're likely to exceed the limit for the meter on <Date>.
+    - Exceeds on \<Date\>: You're likely to exceed the limit for the meter on \<Date\>.
 
     >[!IMPORTANT]
     >With an Azure free account, you also get $200 in credit to use in 30 days. During this time, any usage beyond the free monthly amounts of services will be deducted from this credit.
