@@ -60,7 +60,7 @@ If a connector does not exist for your specific security solution, use the follo
 
 1. To search for CEF events in Log Analytics, enter `CommonSecurityLog` in the query window.
 
-1. Continue to STEP 3: [validate connectivity](connect-cef-verify.md).
+1. Continue to STEP 3: [validate connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity).
 
 > [!NOTE]
 > **Changing the source of the TimeGenerated field**
