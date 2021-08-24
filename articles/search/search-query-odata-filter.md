@@ -243,7 +243,7 @@ Find hotels where the terms "hotel" and "airport" are no more than five words ap
 Find documents that have a word that starts with the letters "lux" in the description. This query uses [prefix search](query-simple-syntax.md#prefix-queries) in combination with `search.ismatch`.
 
 ```odata-filter-expr
-    search.ismatch('lux*', 'Description')
+    $filter=search.ismatch('lux*', 'Description')
 ```
 
 ## Next steps  
