@@ -22,9 +22,6 @@ ms.collection: M365-identity-device-management
 
 Privileged Identity Management (PIM) lets you know when important events occur in your Azure Active Directory (Azure AD) organization, such as when a role is assigned or activated. Privileged Identity Management keeps you informed by sending you and other participants email notifications. These emails might also include links to relevant tasks, such activating or renewing a role. This article describes what these emails look like, when they are sent, and who receives them.
 
->[!Note]
->When the owner of a privileged access group assigns membership to a user, or when a user activates their group membership in Privileged Identity Management, the owner is notified but not the Azure AD admins.
-
 ## Sender email address and subject line
 
 Emails sent from Privileged Identity Management for both Azure AD and Azure resource roles have the following sender email address:
@@ -44,7 +41,7 @@ Privileged Identity Management sends emails when the following events occur for 
 - When a privileged role activation request is completed
 - When Azure AD Privileged Identity Management is enabled
 
-Who receives these emails for Azure AD roles depends on your role, the event, and the notifications setting.
+Who receives these emails for Azure AD roles depends on your role, the event, and the notifications setting. When the owner of a privileged access group assigns membership to a user, or when a user activates their group membership in Privileged Identity Management, the owner is notified but not the Azure AD admins.
 
 | User | Role activation is pending approval | Role activation request is completed | PIM is enabled |
 | --- | --- | --- | --- |
