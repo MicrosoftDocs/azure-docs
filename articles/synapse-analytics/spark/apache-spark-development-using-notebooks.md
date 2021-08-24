@@ -61,7 +61,7 @@ We provide rich operations to develop notebooks:
 + [Code Snippets](#code-snippets)
 + [Format text cell with toolbar buttons](#format-text-cell-with-toolbar-buttons)
 + [Undo cell operation](#undo-cell-operation)
-+ [Comment cell operation](#comment-cell-operation)
++ [Code cell commenting](#Code-cell-commenting)
 + [Move a cell](#move-a-cell)
 + [Delete a cell](#delete-a-cell)
 + [Collapse a cell input](#collapse-a-cell-input)
@@ -213,12 +213,12 @@ Supported undo cell operations:
 + Convert between Code cell and Markdown cell.
 
 > [!NOTE]
-> In-cell text operations and comment operations are not undoable.
+> In-cell text operations and code cell commenting operations are not undoable.
 
 
 ---
 
-<h3 id="comment-cell-operation">Comment cell operation</h3>
+<h3 id="Code-cell-commenting">Code cell commenting</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -226,7 +226,7 @@ Not supported.
 
 # [Preview Notebook](#tab/preview)
 
-We support comment on code cell in Preview Notebook for now.
+We support commenting on code cell in Preview Notebook for now.
 
 1. Select **Comments** button on the notebook toolbar to open **Comments** pane.
 
