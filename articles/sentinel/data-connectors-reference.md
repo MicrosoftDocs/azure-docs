@@ -266,11 +266,9 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 ## Azure Activity
 
-**Configurable by Azure Policy**. Use the **Azure Policy Assignment wizard** in the data connector page to select and configure your Azure Policy. For more information, see [Azure Policy documentation.](/azure/governance/policy/overview)
-
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)**<br><br>[Upgrade to the new Azure Activity connector](#upgrade-to-the-new-azure-activity-connector) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections, managed by Azure Policy](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)**<br><br>[Upgrade to the new Azure Activity connector](#upgrade-to-the-new-azure-activity-connector) |
 | **Log Analytics table(s)** | AzureActivity |
 | **Supported by** | Microsoft |
 | | |

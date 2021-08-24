@@ -127,12 +127,6 @@ You can find and query the data for each resource type using the table name that
 
 ## Log Analytics agent-based connections
 
-This section's following instructions apply to the following connectors:
-
-- [Domain Name Server](data-connectors-reference.md#domain-name-server)
-- [Security Events](connect-windows-security-events.md)
-- [Windows Firewall](data-connectors-reference.md#windows-firewall)
-
 ### Prerequisites
 
 - You must have read and write permissions on the Log Analytics workspace, and any workspace that contains machines you want to collect logs from.
@@ -140,9 +134,26 @@ This section's following instructions apply to the following connectors:
 
 ### Instructions
 
+1. From the Azure Sentinel navigation menu, select **Data connectors**.
+
+1. Select your service (**DNS** or **Windows Firewall**) and then select **Open connector page**.
+
+1. Install and onboard the agent on the device that generates the logs.
+
+    | Machine type  | Instructions  |
+    | --------- | --------- |
+    | **For an Azure Windows VM** | 1. Under **Choose where to install the agent**, expand **Install agent on Azure Windows virtual machine**. <br><br>2. Select the **Download & install agent for Azure Windows Virtual machines >** link. <br><br>3. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect. |
+    | **For any other Windows machine** | 1. Under **Choose where to install the agent**, expand **Install agent on non-Azure Windows Machine** <br><br>2. Select the **Download & install agent for non-Azure Windows machines >** link.  <br><br>3. In the **Agents management** blade, on the **Windows servers** tab, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate.      |
+
+1. Select the **Install solution** button for either DNS or Windows Firewall.
+
+You can find and query the data for DNS and Windows Firewall using the **DnsEvents**, **DnsInventory**, and **WindowsFirewall** table names, respectively. You can see this and other information about these two service connectors in their sections in the [Data connectors reference](data-connectors-reference.md) page.
+
+
 ## Next steps
 
-In this document, you learned how to use Azure Policy to connect Azure Key Vault to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-
+In this document, you learned how to connect Azure, Microsoft, and Windows services, as well as Amazon Web Services, to Azure Sentinel. 
+- Learn about [Azure Sentinel data connectors](connect-data-sources.md) in general.
+- [Find your Azure Sentinel data connector](data-connectors-reference.md).
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
