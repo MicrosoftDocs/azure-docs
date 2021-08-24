@@ -198,7 +198,7 @@ Here are some planned maintenance scenarios:
 | ------------ | ----------- |
 | <b>Compute scale up/down | When the user performs compute scale up/down operation, a new database server is provisioned using the scaled compute configuration. In the old database server, active checkpoints are allowed to complete, client connections are drained, any uncommitted transactions are canceled, and then it is shut down. The storage is then detached from the old database server and attached to the new database server. It will be up and running to accept any connections.|
 | <b>Scaling Up Storage | Scaling up the storage is currently an offline operation which involves a short downtime.|
-| <b>New Software Deployment (Azure) | New features rollout or bug fixes automatically happen as part of service’s planned maintenance. For more information, refer to the [documentation](./concepts-monitoring.md#planned-maintenance-notification), and also check your [portal](https://aka.ms/servicehealthpm).|
+| <b>New Software Deployment (Azure) | New features rollout or bug fixes automatically happen as part of service’s planned maintenance. For more information, refer to the [documentation](./concepts-maintenance.md), and also check your [portal](https://aka.ms/servicehealthpm).|
 | <b>Minor version upgrades | Azure Database for PostgreSQL automatically patches database servers to the minor version determined by Azure. It happens as part of service's planned maintenance. This would incur a short downtime in terms of seconds, and the database server is automatically restarted with the new minor version. For more information, refer to the [documentation](./concepts-maintenance.md), and also check your [portal](https://aka.ms/servicehealthpm).|
 
 
@@ -217,12 +217,15 @@ Here are some failure scenarios that require user action to recover:
 
 | **Scenario** | **Recovery plan** |
 | ---------- | ---------- |
-| <b> Availability zone faiure | If the region supports multiple availability zones, then the backups are automatically stored in zone-redundant backup storage. In the event of a zone failure, you can restore from the backup to another availability zone. This provides zone-level resiliency. However, this incurs time to restore and recovery. <br> <br> If you prefer to have a short downtime and high uptime, we recommend you to configure your server with zone-redundant high availability. |
+| <b> Availability zone faiure | If the region supports multiple availability zones, then the backups are automatically stored in zone-redundant backup storage. In the event of a zone failure, you can restore from the backup to another availability zone. This provides zone-level resiliency. However, this incurs time to restore and recovery. There could be some data loss as not all WAL records may have been copied to the backup storage. <br> <br> If you prefer to have a short downtime and high uptime, we recommend you to configure your server with zone-redundant high availability. |
 | <b> Logical/user errors | Recovery from user errors, such as accidentally dropped tables or incorrectly updated data, involves performing a [point-in-time recovery](./concepts-backup-restore.md) (PITR), by restoring and recovering the data until the time just before the error had occurred.<br> <br>  If you want to restore only a subset of databases or specific tables rather than all databases in the database server, you can restore the database server in a new instance, export the table(s) via [pg_dump](https://www.postgresql.org/docs/13/app-pgdump.html), and then use [pg_restore](https://www.postgresql.org/docs/13/app-pgrestore.html) to restore those tables into your database. |
 
 ## Frequently asked questions
 
 ### HA configuration questions
+
+* **Do I need to have zone redundant HA to protect my server from unplanned outages?** <br>
+    No. Flexible server offers local redundant storage with 3 copies of data, zone-redundant backup (in regions where it is supported), and also built-in server resiliency to automatically restart a crashed server and even relocate server to another physical node. Zone redundant HA will provide higher uptime by performing automatic failover to another running (standby) server in another zone and thus provides zone-resilient high availability with zero data loss.
 
 * **Is zone redundant HA available in all regions?** <br>
     Zone-redundant HA is available in regions that support multiple AZs in the region. For the latest region support, please see [this documentation](overview.md#azure-regions). We are continuously adding more regions and enabling multiple AZs. 
