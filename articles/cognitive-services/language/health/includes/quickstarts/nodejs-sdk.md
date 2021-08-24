@@ -43,7 +43,7 @@ npm init
 Install the `@azure/ai-tbd` NPM packages:
 
 ```console
-npm install --save @azure/ai-tbd@1.0.0
+npm install --save @azure/ai-text-analytics@5.2.0-beta.1
 ```
 
 ## Code example
@@ -56,5 +56,81 @@ Open the file and copy the below code. Remember to replace the `key` variable wi
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
 ```javascript
+"use strict";
 
+const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
+const key = '<paste-your-key-here>';
+const endpoint = '<paste-your-endpoint-here>';
+// Authenticate the client with your key and endpoint
+const textAnalyticsClient = new TextAnalyticsClient(endpoint, new AzureKeyCredential(key));
+
+// Example method for extracting information from healthcare-related text 
+async function healthExample(client) {
+    console.log("== Recognize Healthcare Entities Sample ==");
+
+    const documents = [
+        "Prescribed 100mg ibuprofen, taken twice daily."
+    ];
+    const poller = await client.beginAnalyzeHealthcareEntities(documents, "en", {
+        includeStatistics: true
+    });
+
+    poller.onProgress(() => {
+        console.log(
+            `Last time the operation was updated was on: ${poller.getOperationState().lastModifiedOn}`
+        );
+    });
+    console.log(
+        `The analyze healthcare entities operation was created on ${poller.getOperationState().createdOn
+        }`
+    );
+    console.log(
+        `The analyze healthcare entities operation results will expire on ${poller.getOperationState().expiresOn
+        }`
+    );
+
+    const results = await poller.pollUntilDone();
+
+    for await (const result of results) {
+        console.log(`- Document ${result.id}`);
+        if (!result.error) {
+            console.log("\tRecognized Entities:");
+            for (const entity of result.entities) {
+                console.log(`\t- Entity "${entity.text}" of type ${entity.category}`);
+            }
+            if (result.entityRelations && (result.entityRelations.length > 0)) {
+                console.log(`\tRecognized relations between entities:`);
+                for (const relation of result.entityRelations) {
+                    console.log(
+                        `\t\t- Relation of type ${relation.relationType} found between the following entities:`
+                    );
+                    for (const role of relation.roles) {
+                        console.log(`\t\t\t- "${role.entity.text}" with the role ${role.name}`);
+                    }
+                }
+            }
+        } else console.error("\tError:", result.error);
+    }
+}
+
+healthExample(textAnalyticsClient).catch((err) => {
+    console.error("The sample encountered an error:", err);
+});
+```
+
+### Output
+
+```console
+- Document 0
+    Recognized Entities:
+    - Entity "100mg" of type Dosage
+    - Entity "ibuprofen" of type MedicationName
+    - Entity "twice daily" of type Frequency
+    Recognized relations between entities:
+        - Relation of type DosageOfMedication found between the following entities:   
+                - "100mg" with the role Dosage
+                - "ibuprofen" with the role Medication
+        - Relation of type FrequencyOfMedication found between the following entities:
+                - "ibuprofen" with the role Medication
+                - "twice daily" with the role Frequency
 ```

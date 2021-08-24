@@ -30,8 +30,8 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
-        <artifactId>tbd</artifactId>
-        <version>x.y.z</version>
+        <artifactId>azure-ai-textanalytics</artifactId>
+        <version>5.1.0</version>
     </dependency>
 </dependencies>
 ```
@@ -48,5 +48,45 @@ Create a Java file named `EntityLinking.java`. Open the file and copy the below 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
 ```java
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.ai.textanalytics.models.*;
+import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
+import com.azure.ai.textanalytics.TextAnalyticsClient;
 
+public class Example {
+
+    private static String KEY = "replace-with-your-key-here";
+    private static String ENDPOINT = "replace-with-your-endpoint-here";
+
+    public static void main(String[] args) {
+        TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
+        detectLanguageExample(client);
+    }
+    // Method to authenticate the client object with your key and endpoint
+    static TextAnalyticsClient authenticateClient(String key, String endpoint) {
+        return new TextAnalyticsClientBuilder()
+                .credential(new AzureKeyCredential(key))
+                .endpoint(endpoint)
+                .buildClient();
+    }
+    // Example method for detecting the language of text
+    static void detectLanguageExample(TextAnalyticsClient client)
+    {
+        // The text to be analyzed.
+        String text = "Ce document est rédigé en Français.";
+
+        DetectedLanguage detectedLanguage = client.detectLanguage(text);
+        System.out.printf("Detected primary language: %s, ISO 6391 name: %s, score: %.2f.%n",
+                detectedLanguage.getName(),
+                detectedLanguage.getIso6391Name(),
+                detectedLanguage.getConfidenceScore());
+    }
+}
+
+```
+
+### Output
+
+```console
+Detected primary language: French, ISO 6391 name: fr, score: 1.00.
 ```
