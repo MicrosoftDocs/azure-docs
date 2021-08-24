@@ -144,17 +144,18 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * The deletion of all documents in a collection doesn't reset the analytical store schema.
   * There is not schema versioning. The last version inferred from transactional store is what you will see in analytical store.
 
-* Currently we don't support Azure Synapse Spark reading properties that contain some special characters in their names. If this is your case, please contact the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com) for more information. The unsupported characters are:
-  * :
-  * `
-  * ,
-  * ;
+* Currently Azure Synapse Spark can't read properties that contain some special characters in their names, listed bellow. If this is your case, please contact the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com) for more information.
+  * : (Colon)
+  * ` (Grave accent)
+  * , (Comma)
+  * ; (Semicolon)
   * {}
   * ()
   * \n
   * \t
-  * =
-  * " 
+  * = (Equal sign)
+  * " (Quotation mark)
+ 
 
 ### Schema representation
 
