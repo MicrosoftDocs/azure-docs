@@ -130,7 +130,7 @@ _Non-compliant_ **Component** and **Component ID**.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot of Component Compliance tab and compliance details for a Resource Provider mode assignment." border="false":::
 
-## Compliance details for Guest Configuration
+## Compliance details for guest configuration
 
 For _auditIfNotExists_ policies in the _Guest Configuration_ category, there could be multiple
 settings evaluated inside the virtual machine and you'll need to view per-setting details. For
