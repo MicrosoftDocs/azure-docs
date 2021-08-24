@@ -187,51 +187,51 @@ Please note timezone labels don't account for day light savings. For instance,  
 
 ### Create a schedule with a Resource Manager template
 
-You can schedule the automatic start and stop of a compute instance by using a Resource Manager template.  In a Resource Manager template, use either cron or LogicApps expressions to define a schedule to start or stop the instance.  
-
+You can schedule the automatic start and stop of a compute instance by using a Resource Manager template.  In a Resource Manager template, use either cron or LogicApps expressions to define a schedule to start or stop the instance.  Here is how ARM template would look like
 ```json
-"schedules": {
-  "computeStartStop": [
-      {
-      "triggerType": "Cron",
-      "cron": {
-          "startTime": "2021-03-10T21:21:07",
-          "timeZone": "Pacific Standard Time",
-          "expression": "0 18 * * *"
-      },
-      "action": "Stop",
-      "status": "Enabled"
-      },
-      {
-      "triggerType": "Cron",
-      "cron": {
-          "startTime": "2021-03-10T21:21:07",
-          "timeZone": "Pacific Standard Time",
-          "expression": "0 8 * * *"
-      },
-      "action": "Start",
-      "status": "Enabled"
-      },
-      { 
-      "triggerType": "Recurrence", 
-      "recurrence": { 
-          "frequency": "Day", 
-          "interval": 1,
-          "timeZone": "Pacific Standard Time", 
-        "schedule": { 
-          "hours": [18], 
-          "minutes": [0], 
-          "weekDays": [ 
-              "Saturday", 
-              "Sunday"
-          ] 
+"schedules": "[parameters('schedules')]"
+```
+
+Here is how the parameter file would look like
+```json
+        "schedules": {
+        "value": {
+        "computeStartStop": [
+          {
+            "triggerType": "Cron",
+            "cron": {              
+              "timeZone": "UTC",
+              "expression": "0 18 * * *"
+            },
+            "action": "Stop",
+            "status": "Enabled"
+          },
+          {
+            "triggerType": "Cron",
+            "cron": {              
+              "timeZone": "UTC",
+              "expression": "0 8 * * *"
+            },
+            "action": "Start",
+            "status": "Enabled"
+          },
+          { 
+            "triggerType": "Recurrence", 
+            "recurrence": { 
+              "frequency": "Day", 
+              "interval": 1, 
+              "timeZone": "UTC", 
+              "schedule": { 
+                "hours": [17], 
+                "minutes": [0]
+              } 
+            }, 
+            "action": "Stop", 
+            "status": "Enabled" 
           } 
-      }, 
-      "action": "Stop", 
-      "status": "Enabled" 
-      } 
-  ]
-}
+        ]
+      }
+    }
 ```
 
 * Action can have value of “Start” or “Stop”.
