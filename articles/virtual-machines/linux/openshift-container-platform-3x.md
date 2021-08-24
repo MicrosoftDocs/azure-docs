@@ -14,6 +14,8 @@ ms.author: haroldw
 
 # Deploy OpenShift Container Platform 3.11 in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 You can use one of several methods to deploy OpenShift Container Platform 3.11 in Azure:
 
 - You can manually deploy the necessary Azure infrastructure components and then follow the [OpenShift Container Platform documentation](https://docs.openshift.com/container-platform).

@@ -25,15 +25,17 @@ In this tutorial, you learn how to:
 
 - This setup requires version 2.22.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-## Create a resource group
+## Create an Azure Web PubSub instance
+
+### Create a resource group
 
 [!INCLUDE [Create a resource group](includes/cli-rg-creation.md)]
 
-## Create a Web PubSub instance
+### Create a Web PubSub instance
 
 [!INCLUDE [Create a Web PubSub instance](includes/cli-awps-creation.md)]
 
-## Get the ConnectionString for future use
+### Get the ConnectionString for future use
 
 [!INCLUDE [Get the connection string](includes/cli-awps-connstr.md)]
 
@@ -53,9 +55,9 @@ Copy the fetched **ConnectionString** and it will be used later in this tutorial
 
 ---
 
-### Create the application
+## Create the application
 
-In Azure Web PubSub, there are two roles, server and client. This concept is similar to the sever and client roles in a web application. Server is responsible for managing the clients, listen and respond to client messages, while client's role is to send user's messages to server, and receive messages from server and visualize them to end user.
+In Azure Web PubSub, there are two roles, server and client. This concept is similar to the server and client roles in a web application. Server is responsible for managing the clients, listen, and respond to client messages, while client's role is to send user's messages to server, and receive messages from server and visualize them to end user.
 
 In this tutorial, we'll build a real-time chat web application. In a real web application, server's responsibility also includes authenticating clients and serving static web pages for the application UI. 
 
@@ -112,7 +114,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     ```bash
     dotnet add package Microsoft.Extensions.Azure
     ```
-2. DI the service client inside `ConfigureServices` and don't forget to replace `<connection_string>` with the one of your service.
+2. DI the service client inside `ConfigureServices` and don't forget to replace `<connection_string>` with the one of your services.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -143,7 +145,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     });
     ```
 
-    This token generation code is very similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
+    This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
 
     You can test this API by running `dotnet run` and accessing `http://localhost:5000/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
 
@@ -161,14 +163,14 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     </script>
     ```
 
-    You can test it by open the home page, input your user name, then you'll see `connected` being printed out in browser console.
+    You can test it by opening the home page, input your user name, then you'll see `connected` being printed in browser console.
 
 
 # [JavaScript](#tab/javascript)
 
 We'll use [express.js](https://expressjs.com/), a popular web framework for node.js to achieve this job.
 
-First let's create an empty express app.
+First create an empty express app.
 
 1.  Install express.js
 
@@ -237,7 +239,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     app.listen(8080, () => console.log('server started'));
     ```
 
-    This token generation code is very similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
+    This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
 
     You can test this API by running `node server "<connection-string>"` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
 
@@ -255,20 +257,20 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     </script>
     ```
 
-    You can test it by open the home page, input your user name, then you'll see `connected` being printed out in browser console.
+    You can test it by opening the home page, input your user name, then you'll see `connected` being printed in browser console.
 
 ---
 
-### Handle events
+## Handle events
 
-In Azure Web PubSub, when there are certain activities happening at client side (for example a client is connected or disconnected), service will send notifications to sever so it can react to these events.
+In Azure Web PubSub, when there are certain activities happening at client side (for example a client is connected or disconnected), service will send notifications to server so it can react to these events.
 
 Events are delivered to server in the form of Webhook. Webhook is served and exposed by the application server and registered at the Azure Web PubSub service side. The service invokes the webhooks whenever an event happens.
 
 Azure Web PubSub follows [CloudEvents](./reference-cloud-events.md) to describe the event data. 
 
 # [C#](#tab/csharp)
-For now, you need to implement the event handler by your own in C#, the steps are pretty straight forward following [the protocol spec](./reference-cloud-events.md) as well as illustrated below.
+For now, you need to implement the event handler by your own in C#, the steps are straight forward following [the protocol spec](./reference-cloud-events.md) and illustrated below.
 
 1. Add event handlers inside `UseEndpoints`. Specify the endpoint path for the events, let's say `/eventhandler`. 
 
@@ -292,7 +294,7 @@ For now, you need to implement the event handler by your own in C#, the steps ar
     });
     ```
 
-3. Then we'd like to check if the incoming requests are the events we expects. Let's say we now cares about the system `connected` event, which should contains the header `ce-type` as `azure.webpubsub.sys.connected`. We add the logic after abuse protection:
+3. Then we'd like to check if the incoming requests are the events we expect. Let's say we now care about the system `connected` event, which should contain the header `ce-type` as `azure.webpubsub.sys.connected`. We add the logic after abuse protection:
     ```csharp
     app.UseEndpoints(endpoints =>
     {
@@ -319,7 +321,7 @@ For now, you need to implement the event handler by your own in C#, the steps ar
     });
     ```
 
-In the above code we simply print a message to console when a client is connected. You can see we use `context.Request.Headers["ce-userId"]` so we can see the identity of the connected client.
+In the above code, we simply print a message to console when a client is connected. You can see we use `context.Request.Headers["ce-userId"]` so we can see the identity of the connected client.
 
 # [JavaScript](#tab/javascript)
 
@@ -344,13 +346,13 @@ let handler = new WebPubSubEventHandler(hubName, ['*'], {
 app.use(handler.getMiddleware());
 ```
 
-In the above code we simply print a message to console when a client is connected. You can see we use `req.context.userId` so we can see the identity of the connected client.
+In the above code, we simply print a message to console when a client is connected. You can see we use `req.context.userId` so we can see the identity of the connected client.
 
 ---
 
-### Set up the event handler
+## Set up the event handler
 
-#### Expose localhost
+### Expose localhost
 
 Then we need to set the Webhook URL in the service so it can know where to call when there is a new event. But there is a problem that our server is running on localhost so does not have an internet accessible endpoint. Here we use [ngrok](https://ngrok.com/) to expose our localhost to internet.
 
@@ -360,23 +362,23 @@ Then we need to set the Webhook URL in the service so it can know where to call 
     ngrok http 8080
     ```
 
-ngrok will print out an URL (`https://<domain-name>.ngrok.io`) that can be accessed from internet.
+ngrok will print a URL (`https://<domain-name>.ngrok.io`) that can be accessed from internet.
 
-#### Set event handler
+### Set event handler
 
 Then we update the service event handler and set the Webhook URL.
 
 [!INCLUDE [update event handler](includes/cli-awps-update-event-handler.md)]
 
-After the update is completed, open the home page http://localhost:5000/index.html, input your user name, you’ll see the connected message printed out in the server console.
+After the update is completed, open the home page http://localhost:5000/index.html, input your user name, you’ll see the connected message printed in the server console.
 
-### Message events
+## Handle Message events
 
 Besides system events like `connected` or `disconnected`, client can also send messages through the WebSocket connection and these messages will be delivered to server as a special type of event called `message` event. We can use this event to receive messages from one client and broadcast them to all clients so they can talk to each other.
 
 # [C#](#tab/csharp)
 
-The `ce-type` of `message` event is always `azure.webpubsub.user.message`, details please see [Event message](./reference-cloud-events.md#message).
+The `ce-type` of `message` event is always `azure.webpubsub.user.message`, details see [Event message](./reference-cloud-events.md#message).
 
 1. Handle message event
 
@@ -451,7 +453,7 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
 
     You can see in the above code we use `WebSocket.send()` to send message and `WebSocket.onmessage` to listen to message from service.
 
-3.  Finally let's also update the `onConnected` handler to broadcast the connected event to all clients so they can see who joined the chat room.
+3.  Finally update the `onConnected` handler to broadcast the connected event to all clients so they can see who joined the chat room.
 
     ```csharp
     app.UseEndpoints(endpoints =>
@@ -506,7 +508,7 @@ The complete code sample of this tutorial can be found [here][code].
 
     This event handler uses `WebPubSubServiceClient.sendToAll()` to broadcast the received message to all clients.
 
-    You can see `handleUserEvent` also has a `res` object where you can send message back to the event sender. Here we simply call `res.success()` to make the WebHook return 200 (please note this is required even you don't want to return anything back to client, otherwise the WebHook will never return and client connection will be closed).
+    You can see `handleUserEvent` also has a `res` object where you can send message back to the event sender. Here we simply call `res.success()` to make the WebHook return 200 (note this call is required even you don't want to return anything back to client, otherwise the WebHook never returns and client connection will be closed).
 
 2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
 
@@ -543,7 +545,7 @@ The complete code sample of this tutorial can be found [here][code].
 
     You can see in the above code we use `WebSocket.send()` to send message and `WebSocket.onmessage` to listen to message from service.
 
-3. `sendToAll` accepts object as an input and send JSON text to the clients. In real scenarios, we probably need complex object to carry more information about the message. Finally let's also update the handlers to broadcast JSON objects to all clients:
+3. `sendToAll` accepts object as an input and send JSON text to the clients. In real scenarios, we probably need complex object to carry more information about the message. Finally update the handlers to broadcast JSON objects to all clients:
 
     ```javascript
     let handler = new WebPubSubEventHandler(hubName, ['*'], {
