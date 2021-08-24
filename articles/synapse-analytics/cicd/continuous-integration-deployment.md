@@ -41,7 +41,8 @@ These prerequisites and configurations must be in place to automate the deployme
 
 ### Azure Active Directory
 
-- In Azure AD, create a service principal to use for deployment. The Synapse Workspace Deployment task doesn't support using a managed identity in verion 1* and earlier.
+- In Azure AD, create a service principal to use for deployment if you are using a service principal. 
+- For using a managed identity, you need to  enable the system assigned managed identity in your VM in Azure as the agent or runner,  and add it to your Synapse studio as Synapse Admin .
 - Azure AD Admin rights are required for this action.
 
 ### Azure Synapse Analytics
@@ -201,7 +202,6 @@ The secrets are environment variables that are encrypted. Anyone with collaborat
 Go to **Actions** of your GitHub repository. 
 
 1. Select **Set up your workflow yourself**. 
-
 1. Delete everything after the `on:` section of your workflow file. For example, your remaining workflow may look like this. 
 
     ```yaml
@@ -262,7 +262,6 @@ Go to **Actions** of your GitHub repository.
 ### Review your deployment
 
 1. Go to Actions of your GitHub repository.
-
 1. Open the first result to see detailed logs of your workflow's run
 
     ![Review the deployment](media/review-deploy-status.png)    
