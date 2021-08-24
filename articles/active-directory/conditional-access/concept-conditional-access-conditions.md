@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/18/2021
+ms.date: 07/08/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -114,7 +114,9 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
 | Windows Server 2008 R2 | Internet Explorer |
-| macOS | Chrome, Safari |
+| macOS | Microsoft Edge, Chrome, Safari |
+
+These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode or if cookies are disabled.
 
 > [!NOTE]
 > Edge 85+ requires the user to be signed in to the browser to properly pass device identity. Otherwise, it behaves like Chrome without the accounts extension. This sign-in might not occur automatically in a Hybrid Azure AD Join scenario. 
@@ -141,8 +143,6 @@ For Chrome support in **Windows 8.1 and 7**, create the following registry key:
 - Name 1
 - Type REG_SZ (String)
 - Data {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}
-
-These browsers support device authentication, allowing the device to be identified and validated against a policy. The device check fails if the browser is running in private mode.
 
 ### Supported mobile applications and desktop clients
 

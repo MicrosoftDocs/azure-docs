@@ -7,8 +7,8 @@ documentationcenter: API Management
 author: mikebudzynski
 
 ms.service: api-management
-ms.topic: article
-ms.date: 04/15/2021
+ms.topic: troubleshooting
+ms.date: 07/30/2021
 ms.author: apimpm 
 ms.custom: devx-track-azurepowershell
 ---
@@ -145,6 +145,27 @@ The call failure may also be caused by an TLS/SSL certificate, which is assigned
 
 If your local version of the developer portal cannot save or retrieve information from the storage account or API Management instance, the SAS tokens may have expired. You can fix that by generating new tokens. For instructions, refer to the tutorial to [self-host the developer portal](developer-portal-self-host.md#step-2-configure-json-files-static-website-and-cors-settings).
 
+## How do I disable sign-up in the developer portal?
+
+If you don't need the sign-up functionality enabled by default in the developer portal, you can disable it with these steps:
+
+1. In the Azure portal, navigate to your API Management instance.
+1. Under **Developer portal** in the menu, select **Identities**.
+1. Delete each identity provider that appears in the list. Select each provider, select the context menu (**...**), and select **Delete**.
+ 
+   :::image type="content" source="media/developer-portal-faq/delete-identity-providers.png" alt-text="Delete identity providers":::
+ 
+1. Navigate to the developer portal administrative interface.
+1. Remove **Sign up** links and navigation items in the portal content. For information about customizing portal content, see [Tutorial: Access and customize the developer portal](api-management-howto-developer-portal-customize.md).
+ 
+   :::image type="content" source="media/developer-portal-faq/delete-navigation-item.png" alt-text="Delete navigation item":::
+ 
+1. Modify the **Sign up** page content to remove fields used to enter identity data, in case users navigate directly to it.
+   
+   Optionally, delete the **Sign up** page. Currently, you use the [contentItem](/rest/api/apimanagement/2021-01-01-preview/content-item) REST APIs to list and delete this page.
+ 
+1. Save your changes, and [republish the portal](api-management-howto-developer-portal-customize.md#publish).
+
 ## How can I remove the developer portal content provisioned to my API Management service?
 
 Provide the required parameters in the `scripts.v3/cleanup.bat` script in the developer portal [GitHub repository](https://github.com/Azure/api-management-developer-portal), and run the script
@@ -163,10 +184,11 @@ Among other authentication methods, the developer portal supports single sign-on
 https://contoso.com/signin-sso?token=[user-specific token]
 ```
 ### Generate user tokens
-You can generate *user-specific tokens* (including admin tokens) using the [Get Shared Access Token](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) operation of the [API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
+You can generate *user-specific tokens* (including admin tokens) using the [Get Shared Access Token](/rest/api/apimanagement/2020-12-01/user/get-shared-access-token) operation of the [API Management REST API](/rest/api/apimanagement/apimanagementrest/api-management-rest).
 
 > [!NOTE]
 > The token must be URL-encoded.
+
 
 ## Next steps
 

@@ -49,7 +49,7 @@ When you migrate from the deprecated portal, keep in mind the following changes:
 - If you changed the default e-mail notification templates to include an explicitly defined deprecated portal URL, change them to either use the portal URL parameter or point to the new portal URL. If the templates use the     built-in portal URL parameter instead, no changes are required.
 - *Issues* and *Applications* aren't supported in the new developer portal.
 - Direct integration with Facebook, Microsoft, Twitter, and Google as identity providers isn't supported in the new developer portal. You can integrate with those providers via Azure AD B2C.
-- If you use delegation, change the return URL in your applications and use the [*Get Shared Access Token* API endpoint](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) instead of the *Generate SSO URL* endpoint.
+- If you use delegation, change the return URL in your applications and use the [*Get Shared Access Token* API endpoint](/rest/api/apimanagement/2020-12-01/user/get-shared-access-token) instead of the *Generate SSO URL* endpoint.
 - If you use Azure AD as an identity provider:
 
     - Change the return URL in your application to point to the new developer portal domain.

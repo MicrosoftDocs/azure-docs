@@ -99,6 +99,8 @@ The **Usage Charges** section of your invoice shows the total value (cost) for e
 
 In your CSV usage file, filter by *MeterName* for the corresponding Resource shown on you invoice. Then, sum the *Cost* value for items in the column. Here's an example that focuses on the meter name (P10 disks) that corresponds to the same line item on the invoice.
 
+To reconcile your reservation purchase charges, in your CSV usage file, filter by *ChargeType* as Purchase, it will show all the reservation purchases charges for the month. You can compare these charges by looking at *MeterName* and *MeterSubCategory* in the usage file to Resource and Type in your invoice respectively.
+
 ![Usage file summed value for MeterName](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 
 The summed *Cost* value should match precisely to the *usage charges* cost for the individual resource charged on your invoice.

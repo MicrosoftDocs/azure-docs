@@ -105,8 +105,3 @@ Articles
 * [PaaS recommendations](../security/fundamentals/paas-deployments.md)
 * [Compliance](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
 * [Log analytics customers can now use Azure Security Center to protect their hybrid cloud workloads](/archive/blogs/msoms/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads)
-
-## Community Resources
-
-* [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Q&A page for Security Center](/answers/topics/azure-security-center.html)

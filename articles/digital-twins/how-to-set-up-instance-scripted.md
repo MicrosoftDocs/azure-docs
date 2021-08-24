@@ -23,8 +23,8 @@ ms.custom: contperf-fy21q3
 This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you will have an Azure Digital Twins instance ready to start programming against.
 
 This version of this article completes these steps by running an [automated deployment script sample](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) that streamlines the process. 
-* To view the manual CLI steps that the script runs through behind the scenes, see the CLI version of this article: [How-to: Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md).
-* To view the manual steps according to the Azure portal, see the portal version of this article: [How-to: Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md).
+* To view the manual CLI steps that the script runs through behind the scenes, see the CLI version of this article in [Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md).
+* To view the manual steps according to the Azure portal, see the portal version of this article in [Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -128,7 +128,7 @@ If verification was unsuccessful, you can also redo your own role assignment usi
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
 * [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
-* [Concepts: Azure Digital Twins CLI command set](concepts-cli.md)
+* [Azure Digital Twins CLI command set](concepts-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:
-* [How-to: Write app authentication code](how-to-authenticate-client.md)
+* [Write app authentication code](how-to-authenticate-client.md)

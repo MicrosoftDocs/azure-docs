@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 07/12/2021
 ms.author: tamram
-ms.reviewer: sohamnc 
+ms.reviewer: dineshm 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 Every secure request to an Azure Storage account must be authorized. By default, requests can be authorized with either Azure Active Directory (Azure AD) credentials, or by using the account access key for Shared Key authorization. Of these two types of authorization, Azure AD provides superior security and ease of use over Shared Key, and is recommended by Microsoft. To require clients to use Azure AD to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key.
 
-When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with the account access keys. Only secured requests that are authorized with Azure AD will succeed. For more information about using Azure AD, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
+When you disallow Shared Key authorization for a storage account, Azure Storage rejects all subsequent requests to that account that are authorized with the account access keys. Only secured requests that are authorized with Azure AD will succeed. For more information about using Azure AD, see [Authorize access to data in Azure Storage](authorize-data-access.md).
 
 This article describes how to detect requests sent with Shared Key authorization and how to remediate Shared Key authorization for your storage account.
 
@@ -103,7 +103,7 @@ You can also configure an alert rule based on this query to notify you about req
 
 ## Remediate authorization via Shared Key
 
-After you have analyzed how requests to your storage account are being authorized, you can take action to prevent access via Shared Key. But first, you need to update any applications that are using Shared Key authorization to use Azure AD instead. You can monitor logs and metrics as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to track the transition. For more information about using Azure AD with blob and queue data, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
+After you have analyzed how requests to your storage account are being authorized, you can take action to prevent access via Shared Key. But first, you need to update any applications that are using Shared Key authorization to use Azure AD instead. You can monitor logs and metrics as described in [Detect the type of authorization used by client applications](#detect-the-type-of-authorization-used-by-client-applications) to track the transition. For more information about using Azure AD to access data in a storage account, see [Authorize access to data in Azure Storage](authorize-data-access.md).
 
 When you are confident that you can safely reject requests that are authorized with Shared Key, you can set the **AllowSharedKeyAccess** property for the storage account to **false**.
 
@@ -243,6 +243,6 @@ Disallowing Shared Key access for a storage account does not affect SMB connecti
 
 ## Next steps
 
-- [Authorizing access to data in Azure Storage](storage-auth.md)
-- [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md)
+- [Authorize access to data in Azure Storage](./authorize-data-access.md)
+- [Authorize access to blobs and queues using Azure Active Directory](authorize-data-access.md)
 - [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key)

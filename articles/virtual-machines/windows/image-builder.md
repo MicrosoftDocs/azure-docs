@@ -3,6 +3,7 @@ title: Create a Windows VM with Azure Image Builder
 description: Create a Windows VM with the Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 04/23/2021
 ms.topic: how-to
 ms.service: virtual-machines
@@ -10,6 +11,8 @@ ms.subervice: image-builder
 ms.colletion: windows
 ---
 # Create a Windows VM with Azure Image Builder
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 This article is to show you how you can create a customized Windows image using the Azure VM Image Builder. The example in this article uses [customizers](../linux/image-builder-json.md#properties-customize) for customizing the image:
 - PowerShell (ScriptUri) - download and run a [PowerShell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
@@ -22,7 +25,7 @@ This article is to show you how you can create a customized Windows image using 
 - identity - providing an identity for Azure Image Builder to use during the build
 
 
-You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and you can increase a build time to allow for longer running builds.
+You can also specify a `buildTimeoutInMinutes`. The default is 240 minutes, and you can increase a build time to allow for longer running builds. The minimum allowed value is 6 minutes; shorter values will cause errors.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateWin.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json). 
 
@@ -149,7 +152,7 @@ vi helloImageTemplateWin.json
 
 > [!NOTE]
 > For the source image, you must always [specify a version](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version), you cannot use `latest`.
-> If you add or change the resource group where the image is distributed to, you must make the [permissions are set](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) on the resource group.
+> If you add or change the resource group where the image is distributed to, you must make sure the [permissions are set](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) on the resource group.
  
 ## Create the image
 

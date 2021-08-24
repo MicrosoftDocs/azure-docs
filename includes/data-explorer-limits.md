@@ -13,7 +13,7 @@ The following table describes the maximum limits for Azure Data Explorer cluster
 | Clusters per region per subscription | 20 |
 | Instances per cluster | 1000 | 
 | Number of databases in a cluster | 10,000 |
-| Number of attached database configurations in a cluster | 70 |
+| Number of follower clusters (data share consumers) per leader cluster (data share producer) | 70 |
 
 The following table describes the limits on management operations performed on Azure Data Explorer clusters.
 

@@ -54,7 +54,7 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 ## Use Azure premium fileshare
 
- Use [Azure premium fileshare](../storage/files/storage-how-to-create-premium-fileshare.md?tabs=azure-portal) for persistent storage that can be used by one or many pods, and can be dynamically or statically provisioned. Azure premium fileshare gives you best performance for your application if you expect large number of I/O operations on the file storage. To learn more , see [how to enable Azure Files](../aks/azure-files-dynamic-pv.md).
+ Use [Azure premium fileshare](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal) for persistent storage that can be used by one or many pods, and can be dynamically or statically provisioned. Azure premium fileshare gives you best performance for your application if you expect large number of I/O operations on the file storage. To learn more , see [how to enable Azure Files](../aks/azure-files-dynamic-pv.md).
 
 ## Next steps
 

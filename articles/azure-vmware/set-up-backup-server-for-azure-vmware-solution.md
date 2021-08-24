@@ -26,7 +26,7 @@ This article helps you prepare your Azure VMware Solution environment to back up
 
 ## Supported VMware features
 
-- **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter or ESXi server to back up the VM. Instead, just provide the IP address or fully qualified domain name (FQDN) and the sign in credentials used to authenticate the VMware server with Azure Backup Server.
+- **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter or ESXi server to back up the VM. Instead, provide the IP address or fully qualified domain name (FQDN) and the sign-in credentials used to authenticate the VMware server with Azure Backup Server.
 - **Cloud-integrated backup:** Azure Backup Server protects workloads to disk and the cloud. The backup and recovery workflow of Azure Backup Server helps you manage long-term retention and offsite backup.
 - **Detect and protect VMs managed by vCenter:** Azure Backup Server detects and protects VMs deployed on a vCenter or ESXi server. Azure Backup Server also detects VMs managed by vCenter so that you can protect large deployments.
 - **Folder-level auto protection:** vCenter lets you organize your VMs in VM folders. Azure Backup Server detects these folders. You can use it to protect VMs at the folder level, including all subfolders. When protecting folders, Azure Backup Server protects the VMs in that folder and protects VMs added later. Azure Backup Server detects new VMs daily, protecting them automatically. As you organize your VMs in recursive folders, Azure Backup Server automatically detects and protects the new VMs deployed in the recursive folders.
@@ -193,7 +193,7 @@ Follow the steps in this section to download, extract, and install the software 
 
    1. From the **Where is your workload running?** menu, select **On-Premises**.
 
-      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-on-premises-workload.png" alt-text="Screenshot showing the options for where your workload runs and what to backup.":::
+      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-on-premises-workload.png" alt-text="Screenshot showing the options for where your workload runs and what to back up.":::
 
    1. From the **What do you want to back up?** menu, select the workloads you want to protect by using Azure Backup Server.
 

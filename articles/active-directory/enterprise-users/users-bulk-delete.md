@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 12/02/2020
+ms.date: 07/09/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -14,44 +14,33 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
-
 # Bulk delete users in Azure Active Directory
 
-Using Azure Active Directory (Azure AD) portal, you can remove a large number of members to a group by using a comma-separated values (CSV) file to bulk delete users.
+Using the Azure Active Directory (Azure AD) portal, you can remove a large number of members to a group by using a comma-separated values (CSV) file to bulk delete users.
 
-## Understand the CSV template
+## CSV template structure
 
-Download and fill in the CSV template to help you successfully delete Azure AD users in bulk. The CSV template you download might look like this example:
-
-![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/users-bulk-delete/understand-template.png)
-
-### CSV template structure
+![The CSV file contains names and IDs of the users to delete](./media/users-bulk-delete/delete-csv-file.png)
 
 The rows in a downloaded CSV template are as follows:
 
 - **Version number**: The first row containing the version number must be included in the upload CSV.
-- **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `User name [userPrincipalName] Required`. Some older versions of the template might have slight variations.
-- **Examples row**: We have included in the template a row of examples of acceptable values for each column. You must remove the examples row and replace it with your own entries.
+- **Column headings**: `User name [userPrincipalName] Required`. Older versions of the template might vary.
+- **Examples row**: We have included in the template an example of an acceptable value. `Example: chris@contoso.com` You must remove the example row and replace it with your own entries.
 
 ### Additional guidance
 
-- The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
+- The first two rows of the template must not be removed or modified, or the template can't be processed.
 - The required columns are listed first.
-- We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
-- We recommend that you download the latest version of the CSV template as often as possible.
+- Don't add new columns to the template. Any additional columns you add are ignored and not processed.
+- Download the latest version of the CSV template before making new changes.
 
 ## To bulk delete users
 
 1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with an account that is a User administrator in the organization.
-1. In Azure AD, select **Users** > **Bulk delete**.
-1. On the **Bulk delete user** page, select **Download** to receive a valid CSV file of user properties.
-
-   ![Select a local CSV file in which you list the users you want to delete](./media/users-bulk-delete/bulk-delete.png)
-
-1. Open the CSV file and add a line for each user you want to delete. The only required value is **User principal name**. Then save the file.
-
-   ![The CSV file contains names and IDs of the users to delete](./media/users-bulk-delete/delete-csv-file.png)
-
+1. In Azure AD, select **Users** > **Bulk operations** > **Bulk delete**.
+1. On the **Bulk delete user** page, select **Download** to download the latest version of the CSV template.
+1. Open the CSV file and add a line for each user you want to delete. The only required value is **User principal name**. Save the file.
 1. On the **Bulk delete user** page, under **Upload your csv file**, browse to the file. When you select the file and click submit, validation of the CSV file starts.
 1. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
 1. When your file passes validation, select **Submit** to start the Azure bulk operation that deletes the users.

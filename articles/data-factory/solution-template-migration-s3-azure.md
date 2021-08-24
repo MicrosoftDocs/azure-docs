@@ -4,6 +4,7 @@ description: Learn how to use a solution template to migrate data from Amazon S3
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019

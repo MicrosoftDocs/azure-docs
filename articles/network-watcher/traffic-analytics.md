@@ -417,6 +417,22 @@ Do you have malicious traffic in your environment? Where is it originating from?
 
 ![Malicious traffic flows detail in log search](./media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
 
+### View information about public IPs interacting with your deployment
+
+**Look for**
+
+- Which public IPs are conversing with my network? What is the WHOIS data and geographic location of all public IPs?
+- Which malicious IPs are sending traffic to my deployments? What is the threat type and threat description for malicious IPs?
+	- The Public IP Information section, gives a summary of all types of public IPs present in your network traffic. 
+	  Select the public IP type of interest to view details. This [schema document](./traffic-analytics-schema.md#public-ip-details-schema) defines the data fields presented.
+	  
+	  :::image type="content" source="./media/traffic-analytics/public-ip-information.png" alt-text="Public IP information" lightbox="./media/traffic-analytics/public-ip-information.png":::
+	  
+	- On the traffic analytics dashboard, click on any IP to view its information	
+	
+	  :::image type="content" source="./media/traffic-analytics/external-public-ip-details.png" alt-text="external IP information in tool tip" lightbox="./media/traffic-analytics/external-public-ip-details.png":::
+	  
+	  :::image type="content" source="./media/traffic-analytics/malicious-ip-details.png" alt-text="malicious IP information in tool tip" lightbox="./media/traffic-analytics/malicious-ip-details.png":::
 
 ### Visualize the trends in NSG/NSG rules hits
 

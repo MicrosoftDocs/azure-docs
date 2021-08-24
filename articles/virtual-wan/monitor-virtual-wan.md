@@ -49,7 +49,7 @@ The following metrics are available for Azure point-to-site VPN gateways:
 | Metric | Description|
 | --- | --- |
 | **Gateway P2S Bandwidth** | Average point-to-site aggregate bandwidth of a gateway in bytes per second. |
-| **P2S Connection Count** |Point-to-site connection count of a gateway. |
+| **P2S Connection Count** |Point-to-site connection count of a gateway. Point-to-site connection count of a gateway. To ensure you are viewing accurate Metrics in Azure Monitor, please select the **Aggregation Type** for **P2S Connection Count** as **Sum**. You may also select **Max** if you also Split By **Instance**. |
 
 ### Azure ExpressRoute gateways
 

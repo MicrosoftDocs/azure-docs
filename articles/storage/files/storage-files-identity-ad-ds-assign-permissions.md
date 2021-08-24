@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/23/2021
+ms.date: 07/13/2021
 ms.author: rogarana 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 ---
@@ -114,9 +114,9 @@ You can use the following script to configure default share-level permissions on
 Before running the following script, make sure your Az.Storage module is version 3.7.0 or newer.
 
 ```azurepowershell
-$defaultPermission = None|StorageFileDataSmbShareContributor|StorageFileDataSmbShareReader|StorageFileDataSmbShareElevatedContributor # Set the default permission of your choice
+$defaultPermission = "None|StorageFileDataSmbShareContributor|StorageFileDataSmbShareReader|StorageFileDataSmbShareElevatedContributor" # Set the default permission of your choice
 
-$account = Set-AzStorageAccount -ResourceGroupName "<resource-group-name-here>" -AccountName "<storage-account-name-here>" -DefaultSharePermission $defaultPermission -EnableAzureActiveDirectoryDomainServicesForFile $true
+$account = Set-AzStorageAccount -ResourceGroupName "<resource-group-name-here>" -AccountName "<storage-account-name-here>" -DefaultSharePermission $defaultPermission
 
 $account.AzureFilesIdentityBasedAuth
 ```

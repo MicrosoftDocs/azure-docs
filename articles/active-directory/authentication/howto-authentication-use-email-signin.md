@@ -6,10 +6,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 5/3/2021
+ms.date: 07/07/2021
 
 ms.author: justinha
-author: justinha
+author: calui
 manager: daveba
 ms.reviewer: calui
 
@@ -47,40 +47,40 @@ Here's what you need to know about email as an alternate login ID:
 
 In the current preview state, the following limitations apply to email as an alternate login ID:
 
-* **User experience -** Users may see their UPN, even when they signed-in with their non-UPN email. The following example behavior may be seen:
+* **User experience** - Users may see their UPN, even when they signed-in with their non-UPN email. The following example behavior may be seen:
     * User is prompted to sign in with UPN when directed to Azure AD sign-in with `login_hint=<non-UPN email>`.
     * When a user signs-in with a non-UPN email and enters an incorrect password, the *"Enter your password"* page changes to display the UPN.
     * On some Microsoft sites and apps, such as Microsoft Office, the *Account Manager* control typically displayed in the upper right may display the user's UPN instead of the non-UPN email used to sign in.
 
-* **Unsupported flows -** Some flows are currently not compatible with non-UPN emails, such as the following:
+* **Unsupported flows** - Some flows are currently not compatible with non-UPN emails, such as the following:
     * Identity Protection doesn't match non-UPN emails with *Leaked Credentials* risk detection. This risk detection uses the UPN to match credentials that have been leaked. For more information, see [Azure AD Identity Protection risk detection and remediation][identity-protection].
     * B2B invites sent to a non-UPN email are not fully supported. After accepting an invite sent to a non-UPN email, sign-in with the non-UPN email may not work for the guest user on the resource tenant endpoint.
     * When a user is signed-in with a non-UPN email, they cannot change their password. Azure AD self-service password reset (SSPR) should work as expected. During SSPR, the user may see their UPN if they verify their identity via alternate email.
 
-* **Unsupported scenarios -** The following scenarios are not supported. Sign-in with non-UPN email for:
-    * Hybrid Azure AD joined devices
-    * Azure AD joined devices
-    * Azure AD registered devices
-    * Seamless SSO
-    * Applications using Resource Owner Password Credentials (ROPC)
+* **Unsupported scenarios** - The following scenarios are not supported. Sign-in with non-UPN email for:
+    * [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md)
+    * [Azure AD joined devices](../devices/concept-azure-ad-join.md)
+    * [Azure AD registered devices](../devices/concept-azure-ad-register.md)
+    * [Seamless SSO](../hybrid/how-to-connect-sso.md)
+    * [Applications using Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
     * Applications using legacy authentication such as POP3 and SMTP
     * Skype for Business
     * Microsoft Office on macOS
     * Microsoft Teams on web
     * OneDrive, when the sign-in flow does not involve Multi-Factor Authentication
 
-* **Unsupported apps -** Some third-party applications may not work as expected if they assume that the `unique_name` or `preferred_username` claims are immutable or will always match a specific user attribute (e.g. UPN).
+* **Unsupported apps** - Some third-party applications may not work as expected if they assume that the `unique_name` or `preferred_username` claims are immutable or will always match a specific user attribute, such as UPN.
 
-* **Logging -** Changes made to the feature's configuration in HRD policy are not explicitly shown in the audit logs. In addition, the *Sign-in identifier type* field in the sign-in logs may not be always accurate and should not be used to determine whether the feature has been used for sign-in.
+* **Logging** - Changes made to the feature's configuration in HRD policy are not explicitly shown in the audit logs. In addition, the *Sign-in identifier type* field in the sign-in logs may not be always accurate and should not be used to determine whether the feature has been used for sign-in.
 
-* **Staged rollout policy -** The following limitations apply only when the feature is enabled using staged rollout policy:
+* **Staged rollout policy** - The following limitations apply only when the feature is enabled using staged rollout policy:
     * The feature does not work as expected for users that are included in other staged rollout policies.
     * Staged rollout policy supports a maximum of 10 groups per feature.
     * Staged rollout policy does not support nested groups.
     * Staged rollout policy does not support dynamic groups.
     * Contact objects inside the group will block the group from being added to a staged rollout policy.
 
-* **Duplicate values -** Within a tenant, a cloud-only user's UPN can be the same value as another user's proxy address synced from the on-premises directory. In this scenario, with the feature enabled, the cloud-only user will not be able to sign in with their UPN. More on this issue in the [Troubleshoot](#troubleshoot) section.
+* **Duplicate values** - Within a tenant, a cloud-only user's UPN can be the same value as another user's proxy address synced from the on-premises directory. In this scenario, with the feature enabled, the cloud-only user will not be able to sign in with their UPN. More on this issue in the [Troubleshoot](#troubleshoot) section.
 
 ## Overview of alternate login ID options
 To sign in to Azure AD, users enter a value that uniquely identifies their account. Historically, you could only use the Azure AD UPN as the sign-in identifier.

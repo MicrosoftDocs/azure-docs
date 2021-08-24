@@ -19,6 +19,10 @@ Azure Communication Services is committed to helping our customers meet their pr
 
 When creating an Communication Services resource, you specify a **geography** (not an Azure data center). All chat messages, and resource data stored by Communication Services at rest will be retained in that geography, in a data center selected internally by Communication Services. Data may transit or be processed in other geographies. These global endpoints are necessary to provide a high-performance, low-latency experience to end-users no matter their location.
 
+## Data collection
+
+Azure Communication Services only collects diagnostic data required to deliver the service. 
+
 ## Data residency and events
 
 Any Event Grid system topic configured with Azure Communication Services will be created in a global location. To support reliable delivery, a global Event Grid system topic may store the event data in any Microsoft data center. When you configure Event Grid with Azure Communication Services, you're delivering your event data to Event Grid, which is an Azure resource under your control. While Azure Communication Services may be configured to utilize Azure Event Grid, you're responsible for managing your Event Grid resource and the data stored within it.
@@ -72,6 +76,10 @@ Audio and video communication is ephemerally processed by the service and no dat
 ### Internet voice and video calling
 
 Audio and video communication is ephemerally processed by the service and no data is retained in your resource other than Azure Monitor logs.
+
+### Call Recording
+
+Call recordings are stored temporarily in the same geography that was selected for ```Data Location``` during resource creation for 48 hours. After this the recording is deleted and you are responsible for storing the recording in a secure and compliant location.
 
 ## Azure Monitor and Log Analytics
 

@@ -4,7 +4,7 @@ description: App Service Environment networking details
 author: ccompy
 ms.assetid: 6f262f63-aef5-4598-88d2-2f2c2f2bfc24
 ms.topic: article
-ms.date: 06/21/2021
+ms.date: 06/30/2021
 ms.author: ccompy
 ms.custom: seodec18
 ---
@@ -12,8 +12,9 @@ ms.custom: seodec18
 # App Service Environment networking
 
 > [!NOTE]
-> This article is about the App Service Environment v3 (preview)
+> This article is about the App Service Environment v3 which is used with Isolated v2 App Service plans
 > 
+
 
 The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that hosts web apps, api apps, and function apps. When you install an ASE, you pick the Azure Virtual Network (VNet) that you want it to be deployed in. All of the inbound and outbound traffic application will be inside the VNet you specify. The ASE is deployed into a single subnet in your VNet. Nothing else can be deployed into that same subnet. The subnet needs to be delegated to Microsoft.Web/HostingEnvironments
 
@@ -38,7 +39,11 @@ As you scale your App Service plans in your ASE, you'll use more addresses out o
 
 ## Ports
 
-The ASE receives application traffic on ports 80 and 443. If those ports are blocked, you can't reach your apps. Port 80 needs to be open from the load balancer to the ASE subnet as this port is used for keep alive traffic. 
+The ASE receives application traffic on ports 80 and 443. If those ports are blocked, you can't reach your apps. 
+
+> [!NOTE]
+> Port 80 must be allowed from AzureLoadBalancer to the ASE subnet for keep alive traffic between the load balancer and the ASE infrastructure. You can still control port 80 traffic to your ASE virtual IP.
+> 
 
 ## Extra configurations
 
@@ -60,7 +65,7 @@ If you want to use your own DNS server, you need to add the following records:
 
 To configure DNS in Azure DNS Private zones:
 
-1. create an Azure DNS private zone named <ASE name>.appserviceenvironment.net
+1. create an Azure DNS private zone named `<ASE-name>.appserviceenvironment.net`
 1. create an A record in that zone that points * to the inbound IP address
 1. create an A record in that zone that points @ to the inbound IP address
 1. create an A record in that zone that points *.scm to the inbound IP address
@@ -78,3 +83,6 @@ While the ASE does deploy into a customer VNet, there are a few networking featu
 * send SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25
 * Use of Network Watcher or NSG Flow to monitor outbound traffic
 
+## More resources
+
+- [Environment variables and app settings reference](../reference-app-settings.md)
