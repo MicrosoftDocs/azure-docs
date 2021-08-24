@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/26/2021
+ms.date: 08/09/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -65,7 +65,10 @@ To add an account by scanning a QR Code, do the following:
 1. Open the Microsoft Authenticator app, select the plus icon ![Select the plus icon on either iOS or Android devices](media/user-help-auth-app-add-work-school-account/plus-icon.png) and select **Add account**, and then select **Work or school account,** followed by **Scan a QR Code**.
    If you don't have an account set up in the Authenticator app, you'll see a large blue button that says **Add account**.
 
-If you aren't prompted to use your camera to scan a QR Code, in your phone's settings, ensure that the Authenticator app has access to the phone camera.
+If you aren't prompted to use your camera to scan a QR Code, in your phone's settings, ensure that the Authenticator app has access to the phone camera. After you add your account using a QR code, you can set up phone sign-in. If you receive the message "You might be signing in from a location that is restricted by your admin," your admin hasn't enabled this feature for you and probably set up a Security Information Registration Conditional Access policy. Contact the administrator for your work or school account to use this authentication method. If you *are* allowed by your admin to use phone sign-in using the Authenticator app, you'll be able to go through device registration to get set up for passwordless phone sign-in and Azure AD Multi-Factor Authentication.
+
+>[!Note]
+> For US government organizations, the only way that you can add a phone sign-in account is by adding it using the [Sign in with your credentials](#sign-in-with-your-credentials) option, instead of upgrading from a QR-code based account.
 
 ## Sign in on a remote computer
 

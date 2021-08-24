@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/04/2021
+ms.date: 08/20/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -55,7 +55,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||    Custom Vision|See [Training](https://go.microsoft.com/fwlink/?linkid=865445) and [Prediction](https://go.microsoft.com/fwlink/?linkid=865446) API references|\*.cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
 ||Content Moderator|See [Content Moderator docs](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)|\*.cognitiveservices.azure.us||
 ||Face|See [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)|\*.cognitiveservices.azure.us||
-||Form Recognizer|See [Form Recognizer docs](../cognitive-services/form-recognizer/quickstarts/client-library.md#prerequisites)|\*.cognitiveservices.azure.us||
+||Form Recognizer|See [Form Recognizer docs](../applied-ai-services/form-recognizer/quickstarts/client-library.md#prerequisites)|\*.cognitiveservices.azure.us||
 ||Language Understanding|See [LUIS REST API docs](../cognitive-services/luis/developer-reference-resource.md)|\*.cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)||
 ||Personalizer|See [Personalizer docs](../cognitive-services/personalizer/quickstart-personalizer-sdk.md#prerequisites)|\*.cognitiveservices.azure.us||
 ||QnA Maker|See [QnA Maker docs](../cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure.md)|\*.cognitiveservices.azure.us||
@@ -123,28 +123,15 @@ This section outlines variations and considerations when using **Azure Bot Servi
 
 ### [Azure Bot Service](/azure/bot-service/)
 
-The following Azure Bot Service **features are not currently available** in Azure Government:
+The following Azure Bot Service **features are not currently available** in Azure Government (updated 8/16/2021):
 
-- BotBuilder V3 Bot Templates
-- Channels
-    - Cortana channel
-    - Skype for Business Channel
+- Bot Framework Composer integration
+- Channels (due to availability of dependent services)
     - Teams Channel
-    - Slack Channel
-    - Office 365 Email Channel
-    - Facebook Messenger Channel
-    - Telegram Channel
-    - Kik Messenger Channel
-    - GroupMe Channel
-    - Skype Channel
-- Application Insights related capabilities including the Analytics Tab
-- Speech Priming Feature
-- Payment Card Feature
-
-Commonly used services in bot applications that are not currently available in Azure Government:
-
-- Application Insights
-- Speech Service
+    - Direct Line Speech Channel
+    - Telephony Channel (Preview)
+    - Microsoft Search Channel (Preview)
+    - Kik Channel (deprecated)
 
 For more information, see [How do I create a bot that uses US Government data center](/azure/bot-service/bot-service-resources-faq-ecosystem#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
 
@@ -190,10 +177,6 @@ This section outlines variations and considerations when using Analytics service
 The following Data Factory **features are not currently available** in Azure Government:
 
 - Mapping data flows
-
-### [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
-
-For access to Azure Databricks in an Azure Government environment, contact your Microsoft or Databricks account representative.
 
 ### [HDInsight](../hdinsight/hadoop/apache-hadoop-introduction.md)
 

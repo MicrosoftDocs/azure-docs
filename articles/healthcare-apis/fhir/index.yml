@@ -42,7 +42,7 @@ landingContent:
             url: fhir-service-access-token-validation.md
       - linkListType: learn
         links:
-          - text: Access FHIR service using Postman
+          - text: Access using Postman
             url: using-postman.md
       
 

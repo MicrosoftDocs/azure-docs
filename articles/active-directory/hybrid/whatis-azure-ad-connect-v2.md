@@ -10,7 +10,7 @@ ms.topic: overview
 ms.date: 06/24/2021
 ms.subservice: hybrid
 ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management, has-adal-ref
 ---
 
 # Introduction to Azure AD Connect V2.0 
@@ -85,6 +85,9 @@ You should upgrade to Azure AD Connect V2.0 as soon as you can. For the time bei
 
 **I use an external SQL database and do not use SQL 2012 LocalDb – do I still have to upgrade?** </br>
 Yes, you still need to upgrade to remain in a supported state even if you do not use SQL Server 2012, due to the TLS1.0/1.1 and ADAL deprecation. 
+
+**After the upgrade of my Azure AD Connect instance to V2.0, will the SQL 2012 components automatically get uninstalled?** </br>
+No, the upgrade to SQL 2019 does not remove any SQL 2012 components from your server. If you no longer need these components then you should follow [the SQL Server uninstallation instructions](https://docs.microsoft.com/sql/sql-server/install/uninstall-an-existing-instance-of-sql-server-setup).
 
 **What happens if I do not upgrade?** </br>
 Until one of the components that are being retired are actually deprecated, you will not see any impact. Azure AD Connect will keep on working. 
