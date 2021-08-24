@@ -27,12 +27,11 @@ You will need:
 
 ## Create an MySQL Flexible server 
 
-Run the following command to create a MySQL flexible server and a new database. 
+Run the following command to create a MySQL flexible server and a new database.
 
 ```azurecli
 az mysql flexible-server create --name demoserver --database-name demodb --public-access all
 ```
-
 
 ## Create a Sample script 
 Create a new file called `data.sql` and copy the schema and script below.  Upload this file to your Github repository. 
@@ -95,16 +94,22 @@ The workflow generated with CLI commands or if using custom workflows you need t
 
 ## Run your workflow
 
-Run the ```deploy setup``` command to which will generate the workflow file for your server 
+Go to your local clone of the github repository folder. Run the ```deploy setup``` command to which will generate the workflow file for your server . See [reference docs](/cli/azure/mysql/flexible-server/deploy?view=azure-cli-latest#az_mysql_flexible_server_deploy_setup) to learn more about the command.
 
 ```azurecli 
-az mysql deploy setup 
+c:\mygithubproject>az mysql flexible-server deploy setup --admin-password "<your_password>" --admin-user <your-username> --repo <repo-url> --sql-file data.sql --server-name servername> -- database-name <dbname>
+```
+Example:
+
+```azurecli
+C:\demo-github-action>az mysql flexible-server deploy setup --admin-password "password" --admin-user dbuser --repo https://github.com/user/demo-github-action --sql-file data.sql --server-name demoserver -- database-name demodb
 ```
 
 
 ## Run custom Github Action workflows 
 
-You may have custom github actions that your database. To run any such workflows you can execute the ```deploy  run``` command against those workflows. 
+You may have custom github actions that your database. To run any such workflows you can execute the ```deploy  run``` command against those workflows. See [reference docs](/cli/azure/mysql/flexible-server/deploy?view=azure-cli-latest#az_mysql_flexible_server_deploy_run) to learn more about the command.
+
 
 ```azurecli 
 az mysql deploy run
