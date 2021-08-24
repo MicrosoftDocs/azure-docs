@@ -8,8 +8,8 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: synapse
-ms.date: 07/20/2021
+ms.custom: seo-lt-2019
+ms.date: 08/24/2021
 ---
 
 # Sink transformation in mapping data flow
@@ -31,6 +31,15 @@ Inline datasets are recommended when you use flexible schemas, one-off sink inst
 To use an inline dataset, select the format you want in the **Sink type** selector. Instead of selecting a sink dataset, you select the linked service you want to connect to.
 
 ![Screenshot that shows Inline selected.](media/data-flow/inline-selector.png "Screenshot that shows Inline selected.")
+
+## Workspace DB (Synapse workspaces only)
+
+When using data flows in Azure Synapse workspaces, you will have an additional option to sink your data directly into a database type that is inside your Synapse workspace. This will alleviate the need to add linked services or datasets for those databases.
+
+> [!NOTE]
+> The Azure Synapse Workspace DB connector is currently in public preview and can only work with Spark Lake databases at this time
+
+![Screenshot that shows workspace db selected.](media/data-flow/syms-sink.png "Screenshot that shows Inline selected.")
 
 ##  <a name="supported-sinks"></a> Supported sink types
 
@@ -85,7 +94,7 @@ In the sink settings, you can optionally specify the key columns of the cache si
 For example, if I specify a single key column of `column1` in a cache sink called `cacheExample`, calling `cacheExample#lookup()` would have one parameter specifies which row in the cache sink to match on. The function outputs a single complex column with subcolumns for each column mapped.
 
 > [!NOTE]
-> A cache sink must be in a completely independent data stream from any transformation referencing it via a cache lookup. A cache sink also must the first sink written. 
+> A cache sink must be in a completely independent data stream from any transformation referencing it via a cache lookup. A cache sink also must be the first sink written. 
 
 **Write to activity output** The cached sink can optionally write your output data to the input of the next pipeline activity. This will allow you to quickly and easily pass data out of your data flow activity without needing to persist the data in a data store.
 

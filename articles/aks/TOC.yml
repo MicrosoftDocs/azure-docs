@@ -223,7 +223,7 @@
           href: internal-lb.md
         - name: Use a Standard Load Balancer
           href: load-balancer-standard.md
-        - name: Use a static IP address
+        - name: Use a static IP address and DNS label
           href: static-ip.md
         - name: Ingress
           items:

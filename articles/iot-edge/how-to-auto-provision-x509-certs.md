@@ -2,7 +2,7 @@
 title: Automatically provision devices with DPS using X.509 certificates - Azure IoT Edge | Microsoft Docs 
 description: Use X.509 certificates to test automatic device provisioning for Azure IoT Edge with Device Provisioning Service
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 06/18/2021
 ms.topic: conceptual

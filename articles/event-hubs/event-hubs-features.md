@@ -20,7 +20,7 @@ This article builds on the information in the [overview article](./event-hubs-ab
 
 
 ## Namespace
-An Event Hubs namespace is a management container for event hubs (or topics, in Kafka parlance). It provides DNS integrated network endpoints and a range of access control and network integration management features such as [IP filtering](event-hubs-ip-filtering.md), [virtual network service endpoint](event-hubs-service-endpoints.md), and [Private Link](private-link-service.md) and 
+An Event Hubs namespace is a management container for event hubs (or topics, in Kafka parlance). It provides DNS integrated network endpoints and a range of access control and network integration management features such as [IP filtering](event-hubs-ip-filtering.md), [virtual network service endpoint](event-hubs-service-endpoints.md), and [Private Link](private-link-service.md).
 
 :::image type="content" source="./media/event-hubs-features/namespace.png" alt-text="Image showing an Event Hubs namespace":::
 

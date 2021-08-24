@@ -14,6 +14,8 @@ ms.reviewer: cynthn
 ---
 # Shared Image Galleries overview
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Shared Image Gallery is a service that helps you build structure and organization around your images. Shared Image Galleries provide:
 
 - Global replication of images.

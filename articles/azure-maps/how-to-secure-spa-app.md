@@ -8,7 +8,7 @@ ms.date: 06/21/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: devx-track-js, subject-rbac-steps
 ---
 

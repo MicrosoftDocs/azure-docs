@@ -55,7 +55,7 @@ To get its logs into Azure Sentinel, configure your Thycotic Secret Server to se
         - Log format – CEF
         - Log types – all available
 
-    1. Under **3. Validate connection** - Verify data ingestion by copying the command on the connector page and running it on your log forwarder. See [STEP 3: Validate connectivity](connect-cef-verify.md) in the Azure Sentinel documentation for more detailed instructions and explanation.
+    1. Under **3. Validate connection** - Verify data ingestion by copying the command on the connector page and running it on your log forwarder. See [Validate CEF connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity) in the Azure Sentinel documentation for more detailed instructions and explanation.
 
         It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
