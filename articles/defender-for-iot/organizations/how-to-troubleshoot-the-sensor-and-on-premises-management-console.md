@@ -1,16 +1,16 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 05/10/2021
+ms.date: 08/24/2021
 ms.topic: article
 ---
 # Troubleshoot the sensor and on-premises management console
 
 This article describes basic troubleshooting tools for the sensor and the on-premises management console. In addition to the items described here, you can check the health of your system in the following ways:
 
-**Alerts**: An alert is created when the sensor interface that monitors the traffic is down. 
+**Alerts**: An alert is created when the sensor interface that monitors the traffic is down.
 
-**SNMP**: Sensor health is monitored through SNMP. Azure Defender for IoT responds to SNMP queries sent from an authorized monitoring server. 
+**SNMP**: Sensor health is monitored through SNMP. Azure Defender for IoT responds to SNMP queries sent from an authorized monitoring server.
 
 **System notifications**: When a management console controls the sensor, you can forward alerts about failed sensor backups and disconnected sensors.
 
@@ -34,7 +34,7 @@ To recover your password:
 
 1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Enter the unique identifier and then select recover.":::    
+    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Enter the unique identifier and then select recover.":::
 
     > [!NOTE]
     > Don't alter the password recovery file. It's a signed file and won't work if you tamper with it.
@@ -53,12 +53,12 @@ To recover your password:
 An indicator appears at the top of the console when the sensor recognizes that there's no traffic on one of the configured ports. This indicator is visible to all users.
 
 :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/no-traffic-detected.png" alt-text="Screenshot of the alert that no traffic was detected.":::
- 
+
 When this message appears, you can investigate where there's no traffic. Make sure the span cable is connected and there was no change in the span architecture.  
 
 For support and troubleshooting information, contact [Microsoft Support](https://support.serviceshub.microsoft.com/supportforbusiness/create?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
-### Check system performance 
+### Check system performance
 
 When a new sensor is deployed or, for example, the sensor is working slowly or not showing any alerts, you can check system performance.
 
@@ -66,7 +66,7 @@ To check system performance:
 
 1. In the dashboard, make sure that `PPS > 0`.
 
-   :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Screenshot of a sample dashboard."::: 
+   :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/dashboard-view-v2.png" alt-text="Screenshot of a sample dashboard.":::
 
 1. From the side menu, select **Devices**.
 
@@ -100,14 +100,13 @@ To check system performance:
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alerts-created.png" alt-text="Ensure that alerts were created.":::
 
-
-### Investigate a lack of expected alerts
+### Investigate a lack of expected alerts on the sensor
 
 If the **Alerts** window doesn't show an alert that you expected, verify the following:
 
 - Check if the same alert already appears in the **Alerts** window as a reaction to a different security instance. If yes, and this alert has not been handled yet, the sensor console does not show a new alert.
 
-- Make sure you did not exclude this alert by using the **Alert Exclusion** rules in the management console. 
+- Make sure you did not exclude this alert by using the **Alert Exclusion** rules in the management console.
 
 ### Investigate widgets that show no data
 
@@ -115,7 +114,7 @@ When the widgets in the **Trends & Statistics** window show no data, do the foll
 
 - [Check system performance](#check-system-performance).
 
-- Make sure the time and region settings are properly configured and not set to a future time. 
+- Make sure the time and region settings are properly configured and not set to a future time.
 
 ### Investigate a device map that shows only broadcasting devices
 
@@ -139,7 +138,7 @@ You can configure a standalone sensor and a management console, with the sensors
 
 To connect a standalone sensor to NTP:
 
-- [Contact the Support team for assistance](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
+- [Contact the Support team for assistance](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c88f35-1b8e-f274-ec11-c6efdd6dd099).
 
 To connect a sensor controlled by the management console to NTP:
 
@@ -167,11 +166,11 @@ To save your network resources, you can limit the interface bandwidth that the s
 
 To limit the interface bandwidth, use the `cyberx-xsense-limit-interface` CLI tool that needs to be run with sudo permissions. The tool gets the following arguments:
 
-  - `* -i`: interfaces (example: eth0).
+- `* -i`: interfaces (example: eth0).
 
-  - `* -l`: limit (example: 30 kbit / 1 mbit). You can use the following bandwidth units: kbps, mbps, kbit, mbit, or bps.
+- `* -l`: limit (example: 30 kbit / 1 mbit). You can use the following bandwidth units: kbps, mbps, kbit, mbit, or bps.
 
-  - `* -c`: clear (to clear the interface bandwidth limitation).
+- `* -c`: clear (to clear the interface bandwidth limitation).
 
 To tweak the quality of service:
 
@@ -186,7 +185,7 @@ To tweak the quality of service:
 
 ## On-premises management console troubleshooting tools
 
-### Investigate a lack of expected alerts
+### Investigate a lack of expected alerts on the management console
 
 If an expected alert is not shown in the **Alerts** window, verify the following:
 
@@ -204,7 +203,7 @@ To limit the number of alerts, use the `notifications.max_number_to_report` prop
 
 To tweak the quality of service:
 
-1. Sign in as a Defender for IoT user. 
+1. Sign in as a Defender for IoT user.
 
 1. Verify the default values:
 
@@ -236,9 +235,9 @@ To tweak the quality of service:
 
 ## Export information for troubleshooting
 
-In addition to tools for monitoring and analyzing your network, you can send information to the support team for further investigation. When you export logs, the sensor will automatically generate a one-time password (OTP), unique for the exported logs, in a separate text file. 
+In addition to tools for monitoring and analyzing your network, you can send information to the support team for further investigation. When you export logs, the sensor will automatically generate a one-time password (OTP), unique for the exported logs, in a separate text file.
 
-To export logs:
+**To export logs**:
 
 1. On the left pane, select **System Settings**.
 
