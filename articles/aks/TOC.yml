@@ -67,6 +67,8 @@
       href: concepts-scale.md
     - name: Node auto-repair
       href: node-auto-repair.md
+    - name: Multi-instance GPU Node pool (preview)
+      href: gpu-multi-instance.md
     - name: Best practices
       items:
         - name: Overview
