@@ -48,193 +48,193 @@ The following steps show how to prepare the workspace and resources for the move
 7. Click **Edit parameters** in the toolbar to open the **parameters.json** file in the online editor
 8. To edit the parameters, change the **value** property under **parameters**
 
-Example parameters file:
+    Example parameters file:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "workspaces_name": {
-      "value": "my-workspace-name"
-    },
-    "workspaceResourceId": {
-      "value": "/subscriptions/resource-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/workspaces/workspace-name"
-    },
-    "alertName": {
-      "value": "my-alert-name"
-    },
-    "querypacks_name": {
-      "value": "my-default-query-pack-name"
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "workspaces_name": {
+          "value": "my-workspace-name"
+        },
+        "workspaceResourceId": {
+          "value": "/subscriptions/resource-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/workspaces/workspace-name"
+        },
+        "alertName": {
+          "value": "my-alert-name"
+        },
+        "querypacks_name": {
+          "value": "my-default-query-pack-name"
+        }
+      }
     }
-  }
-}
-```
+    ```
 
 9. Click **Save** in the editor
 10. Click **Edit template** in the toolbar to open the **template.json** file in the online editor
 11. To edit the target region where Log Analytics workspace will be deployed, change the **location** property under **resources** in the online editor. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/). The code for a region is the region name with no spaces, **Central US** = **centralus**
 12. Remove linked services resources `microsoft.operationalinsights/workspaces/linkedservices` if present in template. These should be reconfigured manually in target workspace
 
-Example template including the workspace, saved search, solutions, alert and query pack:
+    Example template including the workspace, saved search, solutions, alert and query pack:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "workspaces_name": {
-      "type": "String"
-    },
-    "workspaceResourceId": {
-      "type": "String"
-    },
-    "alertName": {
-      "type": "String"
-    },
-    "querypacks_name": {
-      "type": "String"
-    }
-  },
-  "variables": {},
-  "resources": [
+    ```json
     {
-      "type": "microsoft.operationalinsights/workspaces",
-      "apiVersion": "2020-08-01",
-      "name": "[parameters('workspaces_name')]",
-      "location": "france central",
-      "properties": {
-        "sku": {
-          "name": "pergb2018"
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "workspaces_name": {
+          "type": "String"
         },
-        "retentionInDays": 30,
-        "features": {
-          "enableLogAccessUsingOnlyResourcePermissions": true
+        "workspaceResourceId": {
+          "type": "String"
         },
-        "workspaceCapping": {
-          "dailyQuotaGb": -1
+        "alertName": {
+          "type": "String"
         },
-        "publicNetworkAccessForIngestion": "Enabled",
-        "publicNetworkAccessForQuery": "Enabled"
-      }
-    },
-    {
-      "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-      "apiVersion": "2020-08-01",
-      "name": "[concat(parameters('workspaces_name'), '/2b5112ec-5ad0-5eda-80e9-ad98b51d4aba')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaces_name'))]"
-      ],
-      "properties": {
-        "category": "VM Monitoring",
-        "displayName": "List all versions of curl in use",
-        "query": "VMProcess\n| where ExecutableName == \"curl\"\n| distinct ProductVersion",
-        "tags": [],
-        "version": 2
-      }
-    },
-    {
-      "type": "Microsoft.OperationsManagement/solutions",
-      "apiVersion": "2015-11-01-preview",
-      "name": "[concat('Updates(', parameters('workspaces_name'))]",
-      "location": "france central",
-      "dependsOn": [
-        "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaces_name'))]"
-      ],
-      "plan": {
-        "name": "[concat('Updates(', parameters('workspaces_name'))]",
-        "promotionCode": "",
-        "product": "OMSGallery/Updates",
-        "publisher": "Microsoft"
-      },
-      "properties": {
-        "workspaceResourceId": "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaces_name'))]",
-        "containedResources": [
-          "[concat(resourceId('microsoft.operationalinsights/workspaces', parameters('workspaces_name')), '/views/Updates(', parameters('workspaces_name'), ')')]"
-        ]
-      }
-    }
-    {
-      "type": "Microsoft.OperationsManagement/solutions",
-      "apiVersion": "2015-11-01-preview",
-      "name": "[concat('VMInsights(', parameters('workspaces_name'))]",
-      "location": "france central",
-      "plan": {
-        "name": "[concat('VMInsights(', parameters('workspaces_name'))]",
-        "promotionCode": "",
-        "product": "OMSGallery/VMInsights",
-        "publisher": "Microsoft"
-      },
-      "properties": {
-        "workspaceResourceId": "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaces_name'))]",
-        "containedResources": [
-          "[concat(resourceId('microsoft.operationalinsights/workspaces', parameters('workspaces_name')), '/views/VMInsights(', parameters('workspaces_name'), ')')]"
-        ]
-      }
-    },
-    {
-      "type": "microsoft.insights/scheduledqueryrules",
-      "apiVersion": "2021-02-01-preview",
-      "name": "[parameters('alertName')]",
-      "location": "france central",
-      "properties": {
-        "displayName": "[parameters('alertName')]",
-        "severity": 3,
-        "enabled": true,
-        "evaluationFrequency": "PT5M",
-        "scopes": [
-          "[parameters('workspaceResourceId')]"
-        ],
-        "windowSize": "PT15M",
-        "criteria": {
-          "allOf": [
-            {
-              "query": "Heartbeat | where computer == 'my computer name'",
-              "timeAggregation": "Count",
-              "operator": "LessThan",
-              "threshold": 14,
-              "failingPeriods": {
-                "numberOfEvaluationPeriods": 1,
-                "minFailingPeriodsToAlert": 1
-              }
-            }
-          ]
-        },
-        "autoMitigate": true,
-        "actions": {}
-      }
-    },
-    {
-      "type": "Microsoft.OperationalInsights/querypacks",
-      "apiVersion": "2019-09-01-preview",
-      "name": "[parameters('querypacks_name')]",
-      "location": "francecentral",
-      "properties": {}
-    },
-    {
-      "type": "Microsoft.OperationalInsights/querypacks/queries",
-      "apiVersion": "2019-09-01-preview",
-      "name": "[concat(parameters('querypacks_name'), '/00000000-0000-0000-0000-000000000000')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.OperationalInsights/querypacks', parameters('querypacks_name'))]"
-      ],
-      "properties": {
-        "displayName": "my-query-name",
-        "body": "my-query-text",
-        "related": {
-          "categories": [],
-          "resourceTypes": [
-              "microsoft.operationalinsights/workspaces"
-          ]
-        },
-        "tags": {
-          "labels": []
+        "querypacks_name": {
+          "type": "String"
         }
-      }
+      },
+      "variables": {},
+      "resources": [
+        {
+          "type": "microsoft.operationalinsights/workspaces",
+          "apiVersion": "2020-08-01",
+          "name": "[parameters('workspaces_name')]",
+          "location": "france central",
+          "properties": {
+            "sku": {
+              "name": "pergb2018"
+            },
+            "retentionInDays": 30,
+            "features": {
+              "enableLogAccessUsingOnlyResourcePermissions": true
+            },
+            "workspaceCapping": {
+              "dailyQuotaGb": -1
+            },
+            "publicNetworkAccessForIngestion": "Enabled",
+            "publicNetworkAccessForQuery": "Enabled"
+          }
+        },
+        {
+          "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
+          "apiVersion": "2020-08-01",
+          "name": "[concat(parameters('workspaces_name'), '/2b5112ec-5ad0-5eda-80e9-ad98b51d4aba')]",
+          "dependsOn": [
+            "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspaces_name'))]"
+          ],
+          "properties": {
+            "category": "VM Monitoring",
+            "displayName": "List all versions of curl in use",
+            "query": "VMProcess\n| where ExecutableName == \"curl\"\n| distinct ProductVersion",
+            "tags": [],
+            "version": 2
+          }
+        },
+        {
+          "type": "Microsoft.OperationsManagement/solutions",
+          "apiVersion": "2015-11-01-preview",
+          "name": "[concat('Updates(', parameters('workspaces_name'))]",
+          "location": "france central",
+          "dependsOn": [
+            "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaces_name'))]"
+          ],
+          "plan": {
+            "name": "[concat('Updates(', parameters('workspaces_name'))]",
+            "promotionCode": "",
+            "product": "OMSGallery/Updates",
+            "publisher": "Microsoft"
+          },
+          "properties": {
+            "workspaceResourceId": "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaces_name'))]",
+            "containedResources": [
+              "[concat(resourceId('microsoft.operationalinsights/workspaces', parameters('workspaces_name')), '/views/Updates(', parameters('workspaces_name'), ')')]"
+            ]
+          }
+        }
+        {
+          "type": "Microsoft.OperationsManagement/solutions",
+          "apiVersion": "2015-11-01-preview",
+          "name": "[concat('VMInsights(', parameters('workspaces_name'))]",
+          "location": "france central",
+          "plan": {
+            "name": "[concat('VMInsights(', parameters('workspaces_name'))]",
+            "promotionCode": "",
+            "product": "OMSGallery/VMInsights",
+            "publisher": "Microsoft"
+          },
+          "properties": {
+            "workspaceResourceId": "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspaces_name'))]",
+            "containedResources": [
+              "[concat(resourceId('microsoft.operationalinsights/workspaces', parameters('workspaces_name')), '/views/VMInsights(', parameters('workspaces_name'), ')')]"
+            ]
+          }
+        },
+        {
+          "type": "microsoft.insights/scheduledqueryrules",
+          "apiVersion": "2021-02-01-preview",
+          "name": "[parameters('alertName')]",
+          "location": "france central",
+          "properties": {
+            "displayName": "[parameters('alertName')]",
+            "severity": 3,
+            "enabled": true,
+            "evaluationFrequency": "PT5M",
+            "scopes": [
+              "[parameters('workspaceResourceId')]"
+            ],
+            "windowSize": "PT15M",
+            "criteria": {
+              "allOf": [
+                {
+                  "query": "Heartbeat | where computer == 'my computer name'",
+                  "timeAggregation": "Count",
+                  "operator": "LessThan",
+                  "threshold": 14,
+                  "failingPeriods": {
+                    "numberOfEvaluationPeriods": 1,
+                    "minFailingPeriodsToAlert": 1
+                  }
+                }
+              ]
+            },
+            "autoMitigate": true,
+            "actions": {}
+          }
+        },
+        {
+          "type": "Microsoft.OperationalInsights/querypacks",
+          "apiVersion": "2019-09-01-preview",
+          "name": "[parameters('querypacks_name')]",
+          "location": "francecentral",
+          "properties": {}
+        },
+        {
+          "type": "Microsoft.OperationalInsights/querypacks/queries",
+          "apiVersion": "2019-09-01-preview",
+          "name": "[concat(parameters('querypacks_name'), '/00000000-0000-0000-0000-000000000000')]",
+          "dependsOn": [
+            "[resourceId('Microsoft.OperationalInsights/querypacks', parameters('querypacks_name'))]"
+          ],
+          "properties": {
+            "displayName": "my-query-name",
+            "body": "my-query-text",
+            "related": {
+              "categories": [],
+              "resourceTypes": [
+                  "microsoft.operationalinsights/workspaces"
+              ]
+            },
+            "tags": {
+              "labels": []
+            }
+          }
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
 13. Click **Save** in the online editor
 14. Click **Subscription** to choose the subscription where the target workspace will be deployed
@@ -247,6 +247,25 @@ Example template including the workspace, saved search, solutions, alert and que
     - Install solutions -- Some solutions such as [Azure Sentinel](../../sentinel/quickstart-onboard.md) require certain onboarding procedure and weren't included in the template. You should onboard them separately to the new workspace
     - Data collector API -- Configure data collector API instances to send data to target workspace
     - Alert rules -- When alerts aren't exported in template, you need to configure them manually in target workspace
+21. Very that new data isn't ingested to original workspace. Run this query in your original workspace and observe that there is no ingestion post migration time
+
+    ```kusto
+    search *
+    | summarize max(TimeGenerated) by Type
+    ```
+
+Ingested data after data sources connection to target workspace is stored in target workspace while older data remains in original workspace. You can perform [cross workspace query](./cross-workspace-query.md#performing-a-query-across-multiple-resources) and if both were assigned with the same name, use qualified name (*subscriptionName/resourceGroup/componentName*) in workspace reference.
+
+Example for query across two workspaces having the same name:
+
+```kusto
+union 
+  workspace('subscription-name1/<resource-group-name1/<original-workspace-name>')Update, 
+  workspace('subscription-name2/<resource-group-name2/<target-workspace-name>').Update, 
+| where TimeGenerated >= ago(1h)
+| where UpdateState == "Needed"
+| summarize dcount(Computer) by Classification
+```
 
 ## Discard
 
@@ -254,7 +273,7 @@ If you wish to discard the source workspace, delete the exported resources or re
 
 ## Clean up
 
-It's recommended to remain the original resource group including workspace during the verification period until target workspace functionality is reached. If you want to discard resources in original location, select the original resource group in Azure portal, then select the resources that you want to remove and click **Delete** in toolbar.
+While new data is being ingested to your new workspace, older data in original workspace remain available for query and subjected to the retention policy defined in workspace. It's recommended to remain the original workspace for the duration older data is needed to allow you to [query across](./cross-workspace-query.md#performing-a-query-across-multiple-resources) workspaces. If you no longer need access to older data in original workspace, select the original resource group in Azure portal, then select any resources that you want to remove and click **Delete** in toolbar.
 
 ## Next steps
 

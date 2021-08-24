@@ -1,21 +1,25 @@
 ---
-title: Troubleshoot issues on your Azure Data Box, Azure Data Box Heavy
-description: Describes how to troubleshoot issues seen in Azure Data Box and Azure Data Box Heavy when copying data to these devices.
+title: Troubleshoot issues during data copies to your Azure Data Box, Azure Data Box Heavy
+description: Describes how to troubleshoot issues when copying data to Azure Data Box and Azure Data Box Heavy devices.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/14/2021
+ms.date: 08/11/2021
 ms.author: alkohli
 ---
 
-# Troubleshoot issues related to Azure Data Box and Azure Data Box Heavy
+# Troubleshoot data copy issues on Azure Data Box and Azure Data Box Heavy
 
-This article details information on how to troubleshoot issues you may see when using the Azure Data Box or Azure Data Box Heavy for import orders. The article includes the list of possible errors seen when data is copied to the Data Box or when data is uploaded from Data Box for an import order.
+This article describes how to troubleshoot issues when performing data copies or data uploads for an Azure Data Box or Azure Data Box Heavy import order. The article includes the list of possible errors seen when data is copied to the Data Box or uploaded from Data Box.
 
-The information in this article does not apply to export orders created for Data Box.
+For help troubleshooting issues with accessing the shares on your device, see [Troubleshoot share connection failure during data copy](data-box-troubleshoot-share-access.md).
+
+
+> [!NOTE]
+> The information in this article applies to import orders only.
 
 ## Error classes
 
