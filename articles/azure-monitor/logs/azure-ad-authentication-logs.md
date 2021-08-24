@@ -8,30 +8,28 @@ ms.date: 08/23/2021
 
 # Azure AD authentication for Logs
 
-[Log data can be collected from multiple sources](data-platform-logs.md#data-collection), specifically, agents, Data Collector REST API, Application Insights SDK and more.
+Azure Monitor can [collect data in Logs from multiple sources](data-platform-logs.md#data-collection) including agents on virtual machines, Application insights, diagnostic settings for Azure resources, and data collector API.
 
-Log Analytics agents are using workspace key as an enrollment key to verify initial access and provision a certificate further used to establish a secure connection between the agent and Azure Monitor service. To learn more, see [send data from agents](data-security.md#2-send-data-from-agents). Data Collector API is using the same workspace key to [authorize access](data-collector-api.md#authorization).
+Log Analytics agents use a workspace key as an enrollment key to verify initial access and provision a certificate further used to establish a secure connection between the agent and Azure Monitor. To learn more, see [send data from agents](data-security.md#2-send-data-from-agents). Data Collector API uses the same workspace key to [authorize access](data-collector-api.md#authorization).
 
-These options may be cumbersome and pose risk since it’s difficult to manage credentials (specifically, workspace keys) at a large scale. You can now choose to opt-out of local authentication and ensure only telemetry that is exclusively authenticated using Managed Identities and Azure Active Directory is ingested into Azure Monitor. This feature is a step to enhance the security and reliability of the telemetry used to make both critical operational (alerting/autoscale etc.) and business decisions.
+These options may be cumbersome and pose risk since it’s difficult to manage credentials specifically, workspace keys at a large scale. You can choose to opt-out of local authentication and ensure only telemetry that is exclusively authenticated using Managed Identities and Azure Active Directory is ingested into Azure Monitor. This feature enhances the security and reliability of the telemetry used to make both critical operational and business decisions.
 
-Azure Monitor Agent (AMA) does not require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-overview.md#security).
+Use the following steps to enable Azure Active Directory integration for Azure Monitor Logs and remove reliance on these shared secrets.
 
-To avoid reliance on shared secrets (for example, workspace keys, Application Insights API keys) you should perform:
-
-1. [Migrate from Log Analytics Agent to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md).
-2. Disable local authentication for Log Analytics Workspaces (see instructions in the next section).
-3. [Enforce Azure AD authentication for Application Insights resources](../app/azure-ad-authentication.md).
+1. Azure Monitor Agent (AMA) doesn't require any keys but instead [requires a system-managed identity](../agents/azure-monitor-agent-overview.md#security). [Migrate to Azure Monitor Agent](../agents/azure-monitor-agent-migration.md) from the Log Analytics agents.
+2. [Disable local authentication for Log Analytics Workspaces](#disable-local-authentication-for-log-analytics).
+3. Ensure that only authenticated telemetry is ingested in your Application Insights resources with [Azure AD authentication for Application Insights (Preview)](../app/azure-ad-authentication.md).
 
 ## Disable local authentication for Log Analytics
 
-After the Azure AD authentication is enabled, you can choose to disable local authentication for Log Analytics workspaces. This will allow you to ingest and query telemetry authenticated exclusively by Azure AD.
+After you removed your reliance on Log Analytics agent, you can choose to disable local authentication for Log Analytics workspaces. This will allow you to ingest and query telemetry authenticated exclusively by Azure AD.
 
 Disabling local authentication may limit some functionality available, specifically:
 
-- Existing Log Analytics Agents will stop functioning, only Azure Monitor Agent (AMA) is supported. AMA is missing some capabilities that are available through Log Analytics agent (for example, custom log collection, IIS log collection).
-- Data Collector API (preview) does not support Azure AD authentication and will not be available to ingest data.
+- Existing Log Analytics Agents will stop functioning, only Azure Monitor Agent (AMA) is supported. Azure Monitor Agent is missing some capabilities that are available through Log Analytics agent (for example, custom log collection, IIS log collection).
+- Data Collector API (preview) doesn't support Azure AD authentication and won't be available to ingest data.
 
-You can disable local authentication by using the Azure Policy, or programmatically through  Azure Resource Manager Template, PowerShell, or CLI.
+You can disable local authentication by using the Azure Policy, or programmatically through Azure Resource Manager Template, PowerShell, or CLI.
 
 ### Azure Policy
 
@@ -89,7 +87,7 @@ Below is the policy template definition:
 }
 ```
 
-### Disable through Azure Resource Manager
+### Azure Resource Manager
 
 Property `DisableLocalAuth` is used to disable any local authentication on your Log Analytics Workspace. When set to true, this property enforces that Azure AD authentication must be used for all access. 
 
@@ -97,7 +95,7 @@ Below is an example Azure Resource Manager template that you can use to disable 
 
 ```json
 {
-    "$schema": https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#,
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaces_name": {
@@ -133,15 +131,21 @@ Below is an example Azure Resource Manager template that you can use to disable 
 ```
 
 
-### CLI and PowerShell 
+### CLI
 
 Property `DisableLocalAuth` is used to disable any local authentication on your Log Analytics Workspace. When set to true, this property enforces that Azure AD authentication must be used for all access. 
 
-Below is an example of CLI and PowerShell commands that you can use to disable local auth:
+Below is an example of CLI commands that you can use to disable local authentication:
 
 ```azurecli
     az resource update --ids "/subscriptions/[Your subscription ID]/resourcegroups/[You resource group]/providers/microsoft.operationalinsights/workspaces/[Your workspace name]--api-version "2021-06-01" --set properties.features.disableLocalAuth=True
 ```
+
+### PowerShell
+
+Property `DisableLocalAuth` is used to disable any local authentication on your Log Analytics Workspace. When set to true, this property enforces that Azure AD authentication must be used for all access. 
+
+Below is an example of PowerShell commands that you can use to disable local authentication:
 
 ```powershell
     $workspaceSubscriptionId = "[You subscription ID]"
