@@ -27,11 +27,13 @@ There are four types of rules:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An Azure Load Balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
+- An standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
+
+- A standard internal load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a internal load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-internal-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
 
 ## Load-balancing rules
 
-In this section, you'll learn how to add and remove a load-balancing rule.
+In this section, you'll learn how to add and remove a load-balancing rule. A public standard load balancer is used in the examples.
 
 ### Add a load-balancing rule
 
@@ -59,7 +61,8 @@ In this example, you'll create a rule to load balance port 80.
     | Protocol | Leave the default of **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Backend pool | Select the backend pool of the load balancer. </br> In this example, it's **myBackendPool**.| Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest at the defaults or tailor to your requirements. </br> Select **OK**. |
+    | Backend pool | Select the backend pool of the load balancer. </br> In this example, it's **myBackendPool**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest at the defaults or tailor to your requirements. </br> Select **OK**. |
     | Session persistence | Select **None** or your required persistence. </br> For more informatoin about distribution modes, see [Azure Load Balancer distribution modes](load-balancer-distribution-mode.md). | Idle timeout (minutes) | Leave the default of **4** or move the slider to your required idle timeout. |
     | TCP reset | Select **Enabled**. </br> For more information on TCP reset, see [Load Balancer TCP Reset and Idle Timeout](load-balancer-tcp-reset.md.) |
     | Floating IP | Leave the default of **Disabled** or enable if your deployment requires floating IP. </br> For information on floating IP, see [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md). |
@@ -88,15 +91,74 @@ In this example, you'll remove a load-balancing rule.
     :::image type="content" source="./media/manage-rules-how-to/remove-load-balancing-rule.png" alt-text="Screenshot of removing a load-balancing rule." border="true":::
 
 ## High availability ports
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
 
-<!-- 5. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+In this section, you'll learn how add and remove a high availability ports rule. In this example, you'll use an internal standard load balancer. HA ports rules are only supported on a standard internal load balancer.
+
+### Add high availability ports rule
+
+In this example, you'll create a high availability ports rule.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+
+3. Select **myLoadBalancer** or your load balancer.
+
+4. In the load balancer page, select **Load balancing rules** in **Settings**.
+
+5. Select **+ Add** in **Load balancing rules** to add a rule.
+
+    :::image type="content" source="./media/manage-rules-how-to/load-balancing-rules.png" alt-text="Screenshot of the load-balancing rules page in a standard load balancer." border="true":::
+
+6. Enter or select the following information in **Add load balancing rule**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myHARule**. |
+    | IP Version | Select **IPv4** or **IPv6**. |
+    | Frontend IP address | Select the frontend IP address of the load balancer. <br> In this example, it's **myFrontendIP**. </br> Select the box next to **HA Ports**. |
+    | Backend pool | Select the backend pool of the load balancer. </br> In this example, it's **myBackendPool**. |
+    | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **TCP** in **Protocol**. </br> Enter a TCP port in **Port**. In this example it's port **80**. Enter a port that meets your requirements. </br> Leave the rest at the defaults or tailor to your requirements. </br> Select **OK**. |
+    | Session persistence | Select **None** or your required persistence. </br> For more informatoin about distribution modes, see [Azure Load Balancer distribution modes](load-balancer-distribution-mode.md). | Idle timeout (minutes) | Leave the default of **4** or move the slider to your required idle timeout. |
+    | TCP reset | Select **Enabled**. </br> For more information on TCP reset, see [Load Balancer TCP Reset and Idle Timeout](load-balancer-tcp-reset.md.) |
+    | Floating IP | Leave the default of **Disabled** or enable if your deployment requires floating IP. </br> For information on floating IP, see [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md). |
+
+    For more information on HA ports rule configuration, see **[High availability ports overview](load-balancer-ha-ports-overview.md)**.
+
+7. Select **Add**.
+
+    :::image type="content" source="./media/manage-rules-how-to/add-ha-ports-load-balancing-rule.png" alt-text="Screenshot of the add load balancer HA ports rule page." border="true":::
+
+### Remove a high availability ports rule
+
+In this example, you'll remove a load-balancing rule.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+
+3. Select **myLoadBalancer** or your load balancer.
+
+4. In the load balancer page, select **Load balancing rules** in **Settings**.
+
+5. Select the three dots next to the rule you want to remove.
+
+6. Select **Delete**.
+
+    :::image type="content" source="./media/manage-rules-how-to/remove-ha-ports-load-balancing-rule.png" alt-text="Screenshot of removing a HA ports load-balancing rule." border="true":::
+
+
+## Inbound NAT rule
+
+Inbound NAT rules are used to route connections to a specific VM in the backend pool. For more information and a detailed tutorial on configuring and testing inbound NAT rules, see [Tutorial: Configure port forwarding in Azure Load Balancer using the portal](tutorial-load-balancer-port-forwarding-portal.md).
+
+## Outbound rule
+
+In this section, you'll learn how to add and remove an outbound rule. In this example, you'll used a standard public load balancer. Outbound rules are only supported on standard public load balancers.
+
+
+
+
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
