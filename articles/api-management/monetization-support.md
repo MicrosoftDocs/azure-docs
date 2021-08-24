@@ -26,7 +26,7 @@ In this document, we focus on API Management features that enable the implementa
 
 The diagram below introduces these key API Management features:
 
-:::image type="content" source="media/monetization-support/architecture-overview.png" alt-text="Monetization features overview":::
+:::image type="content" source="media/monetization-support/architecture-overview.png" alt-text="Diagram of the key API Management monetization features":::
 
 ## API discovery
 

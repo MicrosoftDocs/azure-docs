@@ -26,7 +26,7 @@ Organizations publishing their first API face a complex set of decisions. While 
 
 *Monetization* is the process of converting something into money - in this case, the API value. API interactions typically involve three distinct parties in the value chain:
 
-:::image type="content" source="media/monetization-overview/illustration1.png" alt-text="Monetization features overview":::
+:::image type="content" source="media/monetization-overview/values-overview.png" alt-text="Diagram of the monetization value chain":::
 
 Categories of API monetization strategy include:
 
@@ -44,7 +44,7 @@ Since a wide range of factors influence the design, API monetization doesn't com
 
 The following steps explain how to implement a monetization strategy for your API.
 
-:::image type="content" source="media/monetization-overview/illustration2.png" alt-text="implementing monetization strategy steps":::
+:::image type="content" source="media/monetization-overview/implementing-strategy.png" alt-text="Diagram of the steps for implementing your monetization strategy":::
 
 ### Step 1 - Understand your customer
 
@@ -170,8 +170,6 @@ Choose an appropriate solution to collect payment for usage of your APIs.  Provi
 Use Azure API Management to accelerate and de-risk the implementation by using built-in capabilities provided in API Management. For more information about the specific features in API Management, see [how API Management supports monetization](monetization-support.md).
 
 Implement a solution that builds flexibility into how you codify your monetization strategy in the underlying systems using the same approach as the sample project. With flexible coding, you can respond dynamically and minimize the risk and cost of making changes.
-
-For a description of how the sample project works from an API consumer perspective see [how the sample project works in practice].
 
 Follow the [monetization GitHub repo documentation](https://github.com/microsoft/azure-api-management-monetization) to implement the sample project in your own Azure subscription.
 
