@@ -56220,7 +56220,7 @@
     },
     {
       "source_path_from_root": "/articles/governance/policy/how-to/guestconfiguration-create-linux.md",
-      "redirect_url": "/articles/governance/policy/how-to/guest-configuration-create",
+      "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
       "redirect_document_id": false
     }
   ]
