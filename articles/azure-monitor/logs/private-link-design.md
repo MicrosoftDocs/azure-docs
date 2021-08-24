@@ -42,17 +42,27 @@ As a local bypass to the All or Nothing behavior, you can select not to update y
 That approach isn't recommended for production environments.
 
 ## Control how Private Links apply to your networks
-To help control how Private Links affect your network traffic, we're introducing Private Link access modes (starting August 2021). These settings can apply to your AMPLS object (to affect all connected networks) or to specific network connections in it.
+Private Link access modes (introduced on August 2021) allow you to control how Private Links affect your network traffic. These settings can apply to your AMPLS object (to affect all connected networks) or to specific networks connected to it.
 
-Choosing the proper access mode has detrimental effects on your network traffic:
+Choosing the proper access mode has detrimental effects on your network traffic. Each of these modes can be set for ingestion and queries, separately:
 
-* Private Only - allow ingestion/queries only to Private Link resources (meaning resources in the AMPLS). That's the most secure mode of work, it prevents data exfiltration but on the other hand also requires that you add all your Azure Monitor resources to the AMPLS (others will not be accessible).
-* Open - allow ingestion/queries to both Private Link resources and resources not in the AMPLS (only to resources that accept traffic from public networks). While this doesn't prevent data exfiltration, it allows for a gradual onboarding process, so you can use Private Links for some resources but not all.
+* Private Only - allows the VNet to reach only Private Link resources (resources in the AMPLS). That's the most secure mode of work, preventing data exfiltration. To achieve that, traffic to Azure Monitor resources out of the AMPLS is blocked.
+![Diagram of AMPLS limits](./media/private-link-security/ampls-private-only-access-mode.png)
+* Open - allows the VNet to reach both Private Link resources and resources not in the AMPLS (if they [accept traffic from public networks](./private-link-design.md#control-network-access-to-your-resources)). While the Open access mode doesn't prevent data exfiltration, traffic to Private Link resources is sent through private endpoints and validated. The Open mode allows for a gradual onboarding process, or a mixed mode of work, combining Private Link access to some resources and public access to others.
 
-You can select to use Private Only for ingestion and use the Open mode for queries, or the other way around. You can also choose to apply these settings to all networks connected to the AMPLS, or apply different settings for specific networks.
+    ![Diagram of AMPLS limits](./media/private-link-security/ampls-open-access-mode.png)
+
+Access modes are set separately for ingestion and queries. For example, you can set the Private Only mode for ingestion and the Open mode for queries.
 
 > [!NOTE]
-> If you can't map and add all Azure Monitor resources to your AMPLS on day one, our reccomendation would be to start with the Open mode, use Private Links for some resources and eventually add all Azure Monitor resources to your AMPLS and switch to the Private Only mode. While the Open mode allows you to onboard gradually, the Private Only mode is more secure as it provides protection from data exfiltration.
+> Apply caution when selecting your access mode: Using the Private Only access mode will block traffic to resources not in the AMPLS across all networks that share the same DNS, regardless of subscription or tenant. If you can't add all Azure Monitor resources to the AMPLS, we recommend that you use the Open mode and add select resources to your AMPLS. Only after adding all Azure Monitor resources to your AMPLS, switch to the Private Only mode.
+
+### Setting access modes for specific networks
+The access modes set on the AMPLS resource affect all networks, but you can override these settings for specific networks.
+
+In the following diagram, VNet1 uses the Open mode and VNet2 uses the Private Only mode. As a result, requests from VNet1 can reach Workspace1 and Component2 over a Private Link, and Component3 not over a Private Link (if it [accepts traffic from public networks](./private-link-design.md#control-network-access-to-your-resources)). However, VNet2 requests won't be able to reach Component3. 
+![Diagram of AMPLS limits](./media/private-link-security/ampls-mixed-access-modes.png)
+
 
 ## Consider AMPLS limits
 The AMPLS object has the following limits:
@@ -75,9 +85,9 @@ Your Log Analytics workspaces or Application Insights components can be set to:
 * Accept or block ingestion from public networks (networks not connected to the resource AMPLS).
 * Accept or block queries from public networks (networks not connected to the resource AMPLS).
 
-That granularity allows you to set access according to your needs, per workspace. For example, you may accept ingestion only through Private Link connected networks (i.e. specific VNets), but still choose to accept queries from all networks, public and private. 
+That granularity allows you to set access according to your needs, per workspace. For example, you may accept ingestion only through Private Link connected networks (meaning specific VNets), but still choose to accept queries from all networks, public and private. 
 
-Note that blocking queries from public networks means, clients (machines, SDKs etc.) outside of the connected AMPLSs can't query data in the resource. That data includes access to logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal and that query Log Analytics data are also affected by that setting.
+Blocking queries from public networks means clients (machines, SDKs etc.) outside of the connected AMPLSs can't query data in the resource. That data includes access to logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal and that query Log Analytics data are also affected by that setting.
 
 ### Exceptions
 

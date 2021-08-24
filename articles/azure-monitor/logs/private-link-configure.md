@@ -16,7 +16,7 @@ Configuring a Private Link requires a few steps:
 This article reviews how it's done through the Azure portal and provides an example Azure Resource Manager (ARM) template to automate the process. 
 
 ## Create a Private Link connection through the Azure Portal
-In this section, we review the process of setting up a Private Link through the Azure Portal, step by step. See [Use APIs and command line](#use-apis-and-command-line) to learn how to create and manage a Private Link using the command line or an Azure Resource Manager template (ARM template).
+In this section, we review the process of setting up a Private Link through the Azure Portal, step by step. See [Use APIs and command line](#use-apis-and-command-line) to create and manage a Private Link using the command line or an Azure Resource Manager template (ARM template).
 
 ### Create an Azure Monitor Private Link Scope
 
@@ -117,6 +117,66 @@ You can automate the process described earlier using Azure Resource Manager temp
 
 ### Create and manage Azure Monitor Private Link Scopes (AMPLS)
 To create and manage private link scopes, use the [REST API](/rest/api/monitor/privatelinkscopes(preview)/private%20link%20scoped%20resources%20(preview)) or [Azure CLI (az monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
+
+#### Example Azure Resource Manager template (ARM template)
+The below Azure Resource Manager template creates:
+* A private link scope (AMPLS) named "my-scope"
+* A Log Analytics workspace named "my-workspace"
+* Add a scoped resource to the "my-scope" AMPLS, named "my-workspace-connection"
+> [!NOTE]
+> The below ARM template uses an API version "2019-04-01" that doesn't support setting the AMPLS access modes. When using the below template, the resulting AMPLS is set with QueryAccessMode="Open" and IngestionAccessMode="PrivateOnly", meaning it allows queries to run on resources both in and out of the AMPLS, but limits ingestion to reach only Private Link resources.
+
+```
+{
+    "$schema": https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#,
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "private_link_scope_name": {
+            "defaultValue": "my-scope",
+            "type": "String"
+        },
+        "workspace_name": {
+            "defaultValue": "my-workspace",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "microsoft.insights/privatelinkscopes",
+            "apiVersion": "2019-10-17-preview",
+            "name": "[parameters('private_link_scope_name')]",
+            "location": "global",
+            "properties": {}
+        },
+        {
+            "type": "microsoft.operationalinsights/workspaces",
+            "apiVersion": "2020-10-01",
+            "name": "[parameters('workspace_name')]",
+            "location": "westeurope",
+            "properties": {
+                "sku": {
+                    "name": "pergb2018"
+                },
+                "publicNetworkAccessForIngestion": "Enabled",
+                "publicNetworkAccessForQuery": "Enabled"
+            }
+        },
+        {
+            "type": "microsoft.insights/privatelinkscopes/scopedresources",
+            "apiVersion": "2019-10-17-preview",
+            "name": "[concat(parameters('private_link_scope_name'), '/', concat(parameters('workspace_name'), '-connection'))]",
+            "dependsOn": [
+                "[resourceId('microsoft.insights/privatelinkscopes', parameters('private_link_scope_name'))]",
+                "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspace_name'))]"
+            ],
+            "properties": {
+                "linkedResourceId": "[resourceId('microsoft.operationalinsights/workspaces', parameters('workspace_name'))]"
+            }
+        }
+    ]
+}
+```
 
 ### Set AMPLS access flags
 To set the access mode flags on your AMPLS, you can use the following PowerShell script. This below script sets the flags to Open. To use the Private Only mode, use the value "PrivateOnly".
