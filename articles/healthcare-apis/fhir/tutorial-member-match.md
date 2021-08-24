@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 08/03/2021
+ms.date: 08/06/2021
 ---
 
 # $member-match operation in FHIR service
@@ -26,7 +26,7 @@ The $member-match operation was created to help with the payer-to-payer data exc
 * The old coverage information
 * The new coverage information (not required based on our implementation)
 
-After the data is passed in, the FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) validates that it can find a patient that exactly matches the demographics passed in with the old coverage information passed in. If a result is found, the response will be a bundle with the original patient data plus a new identifier added in from the old payer, and the old coverage information.
+After the data is passed in, the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) validates that it can find a patient that exactly matches the demographics passed in with the old coverage information passed in. If a result is found, the response will be a bundle with the original patient data plus a new identifier added in from the old payer, and the old coverage information.
 
 > [!NOTE]
 > The specification describes passing in and back the new coverage information. We've decided to omit that data to keep the results smaller.
@@ -41,7 +41,7 @@ You'll need to include a parameters resource in the body that includes the patie
 
 If a single match is found, you'll receive a 200 response with another identifier added:
 
-:::image type="content" source="media/cms-tutorials/two-hundred-response.png" alt-text="200 hundred response code.":::
+:::image type="content" source="media/centers-medicare-services-tutorials/two-hundred-response.png" alt-text="200 hundred response code.":::
 
 If the $member-match can't find a unique match, you'll receive a 422 response with an error code.
 

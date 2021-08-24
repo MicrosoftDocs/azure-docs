@@ -179,8 +179,8 @@ For users of Commvault backup products, a second option is Commvault IntelliSnap
 
 
 ### Back up the snapshot using Azure blob storage
-Back up to Azure blob storage is a cost effective and fast method to save ANF-based HANA database storage snapshot backups. To save the snapshots to Azure Blob storage, the azcopy tool is preferred. Download the latest version of this tool and install it, for example, in the bin directory where the python script from GitHub is installed.
-Download the latest azcopy tool:
+Back up to Azure blob storage is a cost effective and fast method to save ANF-based HANA database storage snapshot backups. To save the snapshots to Azure Blob storage, the AzCopy tool is preferred. Download the latest version of this tool and install it, for example, in the bin directory where the python script from GitHub is installed.
+Download the latest AzCopy tool:
 
 ```
 root # wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1

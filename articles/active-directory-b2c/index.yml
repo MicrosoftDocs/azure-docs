@@ -91,7 +91,7 @@ landingContent:
           - text: Request an access token
             url: access-tokens.md
           - text: Register and secure your API 
-            url: tutorial-web-api-dotnet.md
+            url: enable-authentication-web-api.md
           - text: 'Samples: Web apps and APIs'
             url: integrate-with-app-code-samples.md#web-apps-and-apis
           - text: Integrate with API gateway

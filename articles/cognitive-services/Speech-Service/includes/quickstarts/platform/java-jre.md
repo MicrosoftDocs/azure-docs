@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.custom: devx-track-java
-ms.author: erhopf
+ms.author: lajanuar
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for 64-bit Java 8 JRE. If you just want the package name to get started on your own, the Java SDK is not available in the Maven central repository. Whether you're using Gradle or a `pom.xml` dependency file, you need to add a custom repository pointing to `https://csspeechstorage.blob.core.windows.net/maven/` (see below for package name).
@@ -39,7 +39,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 ## Gradle config
 
-Gradle configs require both a custom repository, and an explicit reference to the dependency extension `.jar`. 
+Gradle configs require both a custom repository, and an explicit reference to the dependency extension `.jar`.
 
 ```groovy
 // build.gradle
@@ -51,7 +51,7 @@ repositories {
 }
 
 dependencies {
-    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.17.0", ext: "jar"
+    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.18.0", ext: "jar"
 }
 ```
 

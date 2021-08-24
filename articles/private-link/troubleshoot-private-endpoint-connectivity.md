@@ -36,7 +36,7 @@ Review these steps to make sure all the usual configurations are as expected to 
 
 1. Review Private Endpoint configuration by browsing the resource.
 
-    a. Go to **Private Link Center**.
+    a. Go to [Private Link Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/overview).
 
       ![Private Link Center](./media/private-endpoint-tsg/private-link-center.png)
 
