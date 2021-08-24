@@ -20,6 +20,15 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 > [!IMPORTANT]
 > This article covers how to find the fully qualified domain names (FQDN) and IP addresses for these entries if you would like to manually register DNS records in your DNS solution. Additionally this article provides architecture recommendations for how to configure your custom DNS solution to automatically resolve FQDNs to the correct IP addresses. This article does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
 
+> [!TIP]
+> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+>
+> * [Virtual network overview](how-to-network-security-overview.md)
+> * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+> * [Secure the training environment](how-to-secure-training-vnet.md)
+> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 ## Prerequisites
 
 - An Azure Virtual Network that uses [your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
@@ -505,7 +514,14 @@ If after running through the above steps you are unable to access the workspace 
 
 ## Next steps
 
-For information on using Azure Machine Learning with a virtual network, see the [virtual network overview](how-to-network-security-overview.md).
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+
+* [Virtual network overview](how-to-network-security-overview.md)
+* [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
 
 For information on integrating Private Endpoints into your DNS configuration, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 

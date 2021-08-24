@@ -35,6 +35,10 @@
         href: container-registry-tutorial-deploy-app.md
       - name: 3 - Update web application
         href: container-registry-tutorial-deploy-update.md
+  - name: Samples
+    items:
+    - name: Azure Resource Graph queries
+      href: ./resource-graph-samples.md
   - name: Concepts
     expanded: false
     items:

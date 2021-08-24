@@ -4,7 +4,7 @@ description: Learn about Azure disk pools (preview).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 07/23/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -41,6 +41,7 @@ Disk pools are currently available in the following regions:
 - Japan East
 - North Europe
 - West Europe
+- Southeast Asia
 - UK South
 
 

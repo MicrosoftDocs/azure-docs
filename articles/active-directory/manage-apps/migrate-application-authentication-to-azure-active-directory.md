@@ -596,7 +596,7 @@ Azure AD provides a centralized access location to manage your migrated apps. Go
 
 You can also use the [Azure portal](https://portal.azure.com/) to audit all your apps from a centralized location,
 
-- **Audit your app** using **Enterprise Applications, Audit, or access the same information from the [Azure AD Reporting API](../reports-monitoring/concept-reporting-api.md) to integrate into your favorite tools.
+- **Audit your app** using **Enterprise Applications, Audit**, or access the same information from the [Azure AD Reporting API](../reports-monitoring/concept-reporting-api.md) to integrate into your favorite tools.
 
 - **View the permissions for an app** using **Enterprise Applications, Permissions** for apps using OAuth / OpenID Connect.
 

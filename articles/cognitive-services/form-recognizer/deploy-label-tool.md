@@ -65,7 +65,6 @@ Follow these steps to create a new resource using the Azure portal:
 
 6. Now let's configure your Docker container. All fields are required unless otherwise noted:
 <!-- markdownlint-disable MD025 -->
-# [v2.1](#tab/v2-1)
 
 * Options - Select **Single Container**
 * Image Source - Select **Private Registry**
@@ -90,18 +89,6 @@ After you have created your web app, you can enable the continuous deployment op
 
 :::image type="content" source="media/label-tool/continuous-deployment.png" alt-text="Screenshot: enlargement of container settings for continuous deployment." lightbox="media/label-tool/continuous-deployment-bigger.png":::
 
-# [v2.0](#tab/v2-0)
-
-* Options - Select **Single Container**
-* Image Source - Select **Private Registry**
-* Server URL - Set to `https://mcr.microsoft.com`
-* Username (Optional) - Create a username.
-* Password (Optional) - Create a secure password that you'll remember.
-* Image and tag - Set to `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-* Startup command - Set to `./run.sh eula=accept`
-
- ---
-
 > [!NOTE]
 > When creating your web app, you can also configure authorization/authentication. This is not necessary to get started.
 
@@ -122,7 +109,6 @@ There's a few things you need know about this command:
 From the Azure CLI, run this command to create a web app resource for the sample labeling tool:
 
 <!-- markdownlint-disable MD024 -->
-# [v2.1](#tab/v2-1)
 
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
@@ -139,26 +125,6 @@ az container create \
   --command-line "./run.sh eula=accept"
 
 ```
-
-# [v2.0](#tab/v2-0)
-
-```azurecli
-DNS_NAME_LABEL=aci-demo-$RANDOM
-
-az container create \
-  --resource-group <resource_group_name> \
-  --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest \
-  --ports 3000 \
-  --dns-name-label $DNS_NAME_LABEL \
-  --location <region name> \
-  --cpu 2 \
-  --memory 8 \
-  --command-line "./run.sh eula=accept"
-```
-
-
----
 
 ### Connect to Azure AD for authorization
 

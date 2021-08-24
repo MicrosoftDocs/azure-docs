@@ -76,6 +76,9 @@ To verify if your Azure account is an “owner” or “contributor” within th
 
 1. Select your Wi-Fi network from the list of available networks and click **connect**. Enter your network password when prompted.
 
+    > [!NOTE]
+    > **Mac users** - When going through the setup experience on a Mac, it initially opens in a window rather than a web browser. The window isn't persisted once the connection switches from the device's access point to Wi-Fi. Open a web browser and go to https://10.1.1.1, which will allow you to complete the setup experience.
+
 1. Once your dev kit has successfully connected to your network of choice, the page will show the IPv4 address assigned to your dev kit. **Write down the IPv4 address displayed on the page.** You will need the IP address when connecting to your dev kit over SSH for troubleshooting and device updates.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-04-success-wi-fi.png" alt-text="Copy IP address.":::

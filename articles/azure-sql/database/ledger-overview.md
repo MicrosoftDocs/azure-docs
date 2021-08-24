@@ -1,8 +1,8 @@
 ---
 title: "Azure SQL Database ledger overview"
 description: Learn the basics of the Azure SQL Database ledger feature.
-ms.custom: ""
-ms.date: "05/25/2021"
+ms.custom: references_regions
+ms.date: "07/23/2021"
 ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
@@ -16,7 +16,7 @@ ms.author: janders
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview and available in West Central US.
+> Azure SQL Database ledger is currently in public preview and available in West Europe, Brazil South, and West Central US.
 
 Establishing trust around the integrity of data stored in database systems has been a longstanding problem for all organizations that manage financial, medical, or other sensitive data. The ledger feature of [Azure SQL Database](sql-database-paas-overview.md) provides tamper-evidence capabilities in your database. You can cryptographically attest to other parties, such as auditors or other business parties, that your data hasn't been tampered with.
 

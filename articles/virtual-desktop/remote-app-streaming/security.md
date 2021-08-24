@@ -15,7 +15,7 @@ When you host or stream apps on Azure Virtual Desktop, you reach a wide variety 
 
 ## Shared responsibility
 
-Before Azure Virtual Desktop, on-premises virtualization solutions like Azure Virtual Desktop require granting users access to roles like Gateway, Broker, Web Access, and so on. These roles had to be fully redundant and able to handle peak capacity. Admins would install these roles as part of the Windows Server OS, and they had to be domain-joined with specific ports accessible to public connections. To keep deployments secure, admins had to constantly make sure everything in the infrastructure was maintained and up-to-date.
+Before Azure Virtual Desktop, on-premises virtualization solutions like Remote Desktop Services require granting users access to roles like Gateway, Broker, Web Access, and so on. These roles had to be fully redundant and able to handle peak capacity. Admins would install these roles as part of the Windows Server OS, and they had to be domain-joined with specific ports accessible to public connections. To keep deployments secure, admins had to constantly make sure everything in the infrastructure was maintained and up-to-date.
 
 Meanwhile, Azure Virtual Desktop manages portions of the services on the customer's behalf. Specifically, Microsoft hosts and manages the infrastructure parts as part of the service. Partners and customers no longer have to manually manage the required infrastructure to let users access session host virtual machines (VMs). The service also has built-in advanced security capabilities like reverse connect, which reduces the risk involved with allowing users to access their remote desktops from anywhere.
 

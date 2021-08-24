@@ -4,7 +4,7 @@ titleSuffix: Azure Automation
 description: This quickstart shows how to create an Automation account by using the Azure Resource Manager template.
 services: automation
 ms.author: magoedte
-ms.date: 01/07/2021
+ms.date: 07/20/2021
 ms.topic: quickstart
 ms.workload: infrastructure-services
 ms.custom:
@@ -91,6 +91,18 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 2. Enter the values.
+
+    When you attempt to run the ARM template from PowerShell, CLI, or the Templates feature in the portal, if the `_artifactsLocation` parameter is not properly set, you will receive an error message similar to the following:
+
+    `"message": "Deployment template validation failed: 'The template resource '_artifactsLocation' at line '96' and column '31' is not valid: The language expression property 'templateLink' doesn't exist, available properties are 'template, templateHash, parameters, mode, debugSetting, provisioningState'.. Please see https://aka.ms/arm-template-expressions for usage details.'."`
+
+    To prevent this, when running from the Templates feature in the portal, specify the following for the `_artifactsLocation` parameter - `https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+    When you run from PowerShell, include the parameter and its value `-TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+    When you run from Azure CLI, include the parameter and its value - `--template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.automation/101-automation/azuredeploy.json`.
+
+    For reference about PowerShell/CLI, see the following - [Create Azure Automation account (microsoft.com)](https://azure.microsoft.com/resources/templates/101-automation/) under the **Use the template** section.
 
 3. The deployment can take a few minutes to finish. When completed, the output is similar to the following:
 

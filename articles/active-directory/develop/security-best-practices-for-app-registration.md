@@ -73,7 +73,7 @@ While it's convenient to use password secrets as a credential, we strongly recom
 | Use [certificate credentials](./active-directory-certificate-credentials.md)              | Use Password credentials          |
 | Use Key Vault with [Managed identities](../managed-identities-azure-resources/overview.md) | Share credentials across apps     |
 | Rollover frequently                                                    | Have many credentials on one app  |
-|     -----                                                              | Let stale credentials hang around |
+|     -----                                                              | Leave stale credentials available |
 |     -----                                                              | Commit credentials in code        |
 
 ## AppId URI configuration

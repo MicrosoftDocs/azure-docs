@@ -42,11 +42,15 @@ In this article, you learn how to:
 > - Access the studio from a resource inside of a virtual network.
 > - Understand how the studio impacts storage security.
 
-This article is part five of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through the previous parts to set up a virtual network environment.
-
-See the other articles in this series:
-
-[1. VNet overview](how-to-network-security-overview.md) > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > **5. Enable studio functionality**
+> [!TIP]
+> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+>
+> * [Virtual network overview](how-to-network-security-overview.md)
+> * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+> * [Secure the training environment](how-to-secure-training-vnet.md)
+> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+> * [Use custom DNS](how-to-custom-dns.md)
+> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 
 
 ## Prerequisites
@@ -157,11 +161,11 @@ Some storage services, such as Azure Storage Account, have firewall settings tha
 > Azure Machine Learning studio is supported when using the Azure Firewall service. For more information, see [Use your workspace behind a firewall](how-to-access-azureml-behind-firewall.md).
 ## Next steps
 
-This article is part five of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-* [Part 1: Virtual network overview](how-to-network-security-overview.md)
-* [Part 2: Secure the workspace resources](how-to-secure-workspace-vnet.md)
-* [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
-* [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
-
-Also see the article on using [custom DNS](how-to-custom-dns.md) for name resolution.
+* [Virtual network overview](how-to-network-security-overview.md)
+* [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)

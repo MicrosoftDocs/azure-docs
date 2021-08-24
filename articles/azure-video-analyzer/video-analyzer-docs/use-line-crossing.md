@@ -2,7 +2,7 @@
 title: Detect when objects cross a virtual line in a live video with Azure Video Analyzer
 description: This quickstart shows you how to use Azure Video Analyzer to detect when objects cross a line in a live video feed from a (simulated) IP camera.
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 06/01/2021
 ---
 
 # Tutorial: Detect when objects cross a virtual line in a live video

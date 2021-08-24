@@ -3,7 +3,7 @@ title: Using the Azure Video Analyzer player widget
 description: This reference article explains how to add a Video Analyzer player widget to your application.
 ms.service: azure-video-analyzer
 ms.topic: reference
-ms.date: 05/11/2021
+ms.date: 06/01/2021
 
 ---
 

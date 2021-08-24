@@ -137,6 +137,11 @@ except ComputeTargetException:
 print(compute_target.get_status().serialize())
 ```
 
+
+>[!IMPORTANT]
+>Use CPU SKUs for any image build on compute. 
+
+
 ## Configure your training job
 
 For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/python-sdk/workflows/train/fastai/pets/src/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.

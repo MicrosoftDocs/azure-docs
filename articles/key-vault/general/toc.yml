@@ -43,6 +43,8 @@
   items:
   - name: Key Vault Code Samples
     href: /samples/browse/?expanded=azure&products=azure-key-vault
+  - name: Azure Resource Graph queries
+    href: ../resource-graph-samples.md
 
 - name: Concepts 
   items:

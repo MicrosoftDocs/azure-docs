@@ -18,11 +18,17 @@ ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
 
 In this article, you learn how to secure an Azure Machine Learning workspace and its associated resources in a virtual network.
 
-This article is part two of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
-
-See the other articles in this series:
-
-[1. VNet overview](how-to-network-security-overview.md) > **2. Secure the workspace** > [3. Secure the training environment](how-to-secure-training-vnet.md) > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md) > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
+> [!TIP]
+> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+>
+> * [Virtual network overview](how-to-network-security-overview.md)
+> * [Secure the training environment](how-to-secure-training-vnet.md)
+> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+> * [Use custom DNS](how-to-custom-dns.md)
+> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+>
+> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md).
 
 In this article you learn how to enable the following workspaces resources in a virtual network:
 > [!div class="checklist"]
@@ -31,9 +37,6 @@ In this article you learn how to enable the following workspaces resources in a 
 > - Azure Machine Learning datastores and datasets
 > - Azure Key Vault
 > - Azure Container Registry
-
-> [!TIP]
-> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md).
 
 ## Prerequisites
 
@@ -263,11 +266,11 @@ The following methods can be used to connect to the secure workspace:
 
 ## Next steps
 
-This article is part two of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-* [Part 1: Virtual network overview](how-to-network-security-overview.md)
-* [Part 3: Secure the training environment](how-to-secure-training-vnet.md)
-* [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
-* [Part 5: Enable studio functionality](how-to-enable-studio-virtual-network.md)
-
-Also see the article on using [custom DNS](how-to-custom-dns.md) for name resolution.
+* [Virtual network overview](how-to-network-security-overview.md)
+* [Secure the training environment](how-to-secure-training-vnet.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)

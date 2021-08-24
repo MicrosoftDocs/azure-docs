@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 07/21/2021
 ms.author: jeedes
 
 ---
@@ -62,6 +62,16 @@ To configure and test Azure AD SSO with cloudtamer.io, perform the following ste
     1. **[Create cloudtamer.io test user](#create-cloudtamerio-test-user)** - to have a counterpart of B.Simon in cloudtamer.io that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
+### Begin cloudtamer.io SSO Configuration
+
+1. Log in to cloudtamer.io website as an administrator.
+
+1. Click on **+** plus icon at the top right corner and select **IDMS**.
+
+    ![Screenshot for IDMS create.](./media/cloudtamer-io-tutorial/idms-creation.png)
+
+1. Leave this screen open and copy values from this screen into the Azure AD configuration.
+
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
@@ -74,11 +84,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<CUSTOMERDOMAIN>.<EXTENSION>/api/v1/saml/auth/<id>`
+    a. In the **Identifier** text box, paste the **IDENTITY PROVIDER ISSUER (ENTITY ID)** from cloudtamer.io into this box.
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<CUSTOMERDOMAIN>.<EXTENSION>/api/v1/saml/callback`
+    b. In the **Reply URL** text box, paste the **SERVICE PROVIDER ACS URL** from cloudtamer.io into this box.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -86,7 +94,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<CUSTOMERDOMAIN>.<EXTENSION>/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [cloudtamer.io Client support team](mailto:support@cloudtamer.io) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-on URL. You can refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -95,6 +103,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up cloudtamer.io** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -120,12 +129,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure cloudtamer.io SSO
-
-1. Log in to cloudtamer.io website as an administrator.
-
-1. Click on **+** plus icon at the top right corner and select **IDMS**.
-
-    ![Screenshot for IDMS create.](./media/cloudtamer-io-tutorial/idms-creation.png)
 
 1. Perform the following steps in the **Add IDMS** page:
 

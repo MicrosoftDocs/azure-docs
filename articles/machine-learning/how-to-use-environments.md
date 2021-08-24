@@ -367,6 +367,9 @@ run = exp.submit(src)
 > [!NOTE]
 > To disable the run history or run snapshots, use the setting under `src.run_config.history`.
 
+>[!IMPORTANT]
+> Use CPU SKUs for any image build on compute. 
+
 If you don't specify the environment in your run configuration, then the service creates a default environment when you submit your run.
 
 ## Use environments for web service deployment

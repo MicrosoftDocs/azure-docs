@@ -2,7 +2,7 @@
 title: Deploy to an IoT Edge for Linux on Windows - Azure
 description: This article provides guidance on how to deploy to an IoT Edge for Linux on Windows device.
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 06/01/2021
 
 ---
 

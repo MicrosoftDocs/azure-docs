@@ -36,7 +36,7 @@ Before you can use Application Insights, you first need to create an instance of
     :::image type="content" source="media/api-management-howto-app-insights/apim-app-insights-logger-2.png" alt-text="Screenshot that shows where to view the newly created Application Insights logger with instrumentation key":::
 
 > [!NOTE]
-> Behind the scene, a [Logger](/rest/api/apimanagement/2019-12-01/logger/createorupdate) entity is created in your API Management instance, containing the Instrumentation Key of the Application Insights instance.
+> Behind the scene, a [Logger](/rest/api/apimanagement/2020-12-01/logger/create-or-update) entity is created in your API Management instance, containing the Instrumentation Key of the Application Insights instance.
 
 ## Enable Application Insights logging for your API
 
@@ -55,7 +55,7 @@ Before you can use Application Insights, you first need to create an instance of
 > Overriding the default value **0** in the **Number of payload bytes to log** setting may significantly decrease the performance of your APIs.
 
 > [!NOTE]
-> Behind the scene, a [Diagnostic](/rest/api/apimanagement/2019-12-01/diagnostic/createorupdate) entity named 'applicationinsights' is created at the API level.
+> Behind the scene, a [Diagnostic](/rest/api/apimanagement/2020-12-01/diagnostic/create-or-update) entity named 'applicationinsights' is created at the API level.
 
 | Setting name                        | Value type                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

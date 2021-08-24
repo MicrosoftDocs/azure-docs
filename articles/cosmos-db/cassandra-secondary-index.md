@@ -17,7 +17,7 @@ The Cassandra API in Azure Cosmos DB leverages the underlying indexing infrastru
 
 In general, it's not advised to execute filter queries on the columns that aren't partitioned. You must use ALLOW FILTERING syntax explicitly, which results in an operation that may not perform well. In Azure Cosmos DB you can run such queries on low cardinality attributes because they fan out across partitions to retrieve the results.
 
-It's not advised to create an index on a frequently updated column. It is prudent to create an index when you define the table. This ensures that data and indexes are in a consistent state. In case you create a new index on the existing data, currently, you can't track the index progress change for the table. If you need to track the progress for this operation, you have to request the progress change via a [support ticket]( https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+It's not advised to create an index on a frequently updated column. It is prudent to create an index when you define the table. This ensures that data and indexes are in a consistent state. In case you create a new index on the existing data, currently, you can't track the index progress change for the table. If you need to track the progress for this operation, you have to request the progress change via a [support ticket](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 
 > [!NOTE]
