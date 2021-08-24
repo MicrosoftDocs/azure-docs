@@ -28,13 +28,9 @@ In this article you will know how to deploy AutoML trained machine learning mode
 
 An AutoML-trained machine learning model. For more, see [Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio]- (tutorial-first-experiment-automated-ml.md) or [Tutorial: Forecase demand with automated machine learning](tutorial-automated-ml-forecast.md).
 
-## Deploy from Azure Machine Learning studio 
+## Deploy from Azure Machine Learning studio and no code
 
-There are two paths you can choose to deploy an AutoML-trained model from Azure Machine Learning studio. 
-
-### Option 1: Deploy from the Automated ML page 
-
-Deploying an AutoML-trained model from this page is a no-code experience. That is, you don't need to prepare a scoring script and environment, both are auto generated. 
+Deploying an AutoML-trained model from the Automated ML page is a no-code experience. That is, you don't need to prepare a scoring script and environment, both are auto generated. 
 
 1. Go to your Automated ML experiment in your machine learning workspace. 
 2. Choose the Models tab.
@@ -59,6 +55,11 @@ The system will generate the Model and Environment needed for the deployment.
 5. Complete the wizard to deploy the model to a real-time endpoint. 
 
  :::image type="content" source="media/how-to-deploy-automl-endpoint/complete-wizard.jpeg" alt-text="Screenshot showing the review-and-create page":::
+
+
+## Deploy manually from the studio or command line
+
+
 
 ### Option 2: Deploy from the Models page 
 
