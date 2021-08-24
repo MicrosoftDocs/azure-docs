@@ -1,0 +1,9 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/media-services/video-indexer/index.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_document_id": false
+    }
+  ]
+}
