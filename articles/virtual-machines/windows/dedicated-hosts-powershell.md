@@ -16,7 +16,9 @@ ms.custom: devx-track-azurepowershell
 
 # Deploy VMs to dedicated hosts using the Azure PowerShell
 
-This article guides you through how to create an Azure [dedicated host](../dedicated-hosts.md) to host your virtual machines (VMs).
+**Applies to:** :heavy_check_mark: Windows VMs 
+
+This article guides you through how to create an Azure [dedicated host](../dedicated-hosts.md) to host your virtual machines (VMs). 
 
 Make sure that you have installed Azure PowerShell version 2.8.0 or later, and you are signed in to an Azure account in with `Connect-AzAccount`.
 
