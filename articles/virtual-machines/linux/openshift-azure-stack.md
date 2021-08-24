@@ -14,6 +14,8 @@ ms.author: haroldw
 
 # Deploy OpenShift Container Platform or OKD in Azure Stack
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 OpenShift can be deployed in Azure Stack. There are some key differences between Azure and Azure Stack so deployment will differ slightly and capabilities will also differ slightly.
 
 Currently, the Azure Cloud Provider doesn't work in Azure Stack. For this reason, you won't be able to use disk attach for persistent storage in Azure Stack. Instead, you can configure other storage options such as NFS, iSCSI, GlusterFS, etc. As an alternative, you can enable CNS and use GlusterFS for persistent storage. If CNS is enabled, three additional nodes will be deployed with additional storage for GlusterFS usage.

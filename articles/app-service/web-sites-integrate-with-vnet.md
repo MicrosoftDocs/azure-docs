@@ -118,9 +118,7 @@ You can also configure Route All using CLI (*Note*: minimum `az version` require
 az webapp config set --resource-group myRG --name myWebApp --vnet-route-all-enabled [true|false]
 ```
 
-The Route All configuration setting replaces and takes precedence over the legacy `WEBSITE_VNET_ROUTE_ALL` app setting.
-
-:::image type="content" source="./media/web-sites-integrate-with-vnet/vnetint-route-all-appsetting.png" alt-text="Route All App Setting":::
+The Route All configuration setting is the recommended way of enabling routing of all traffic. Using the configuration setting will allow you to audit the behavior with [a built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef). The existing `WEBSITE_VNET_ROUTE_ALL` App Setting can still be used and you can enable all traffic routing with either setting.
 
 #### Network routing
 

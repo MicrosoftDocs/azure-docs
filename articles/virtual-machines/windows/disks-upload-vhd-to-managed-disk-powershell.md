@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 
 # Upload a VHD to Azure or copy a managed disk to another region - Azure PowerShell
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
 ## Prerequisites
@@ -99,7 +101,7 @@ The follow script will do this for you, the process is similar to the steps desc
 Replace the `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` and `<yourTargetLocationHere>` (an example of a location value would be uswest2) with your values, then run the following script in order to copy a managed disk.
 
 > [!TIP]
-> If you are creating an OS disk, add -HyperVGeneration '<yourGeneration>' to `New-AzDiskConfig`.
+> If you are creating an OS disk, add `-HyperVGeneration '<yourGeneration>'` to `New-AzDiskConfig`.
 
 ```powershell
 
