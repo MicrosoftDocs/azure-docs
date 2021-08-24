@@ -152,7 +152,8 @@ Language specific configuration guides, such as the [Linux Node.js configuration
 
 ## Renew certificate binding
 
->[!NOTE] To renew an [App Service certificate you purchased](configure-ssl-certificate.md#import-an-app-service-certificate), see [Export (an App Service) certificate](configure-ssl-certificate.md#export-certificate). App Service certificates can be automatically renewed and the binding can be automatically synced.
+> [!NOTE]
+> To renew an [App Service certificate you purchased](configure-ssl-certificate.md#import-an-app-service-certificate), see [Export (an App Service) certificate](configure-ssl-certificate.md#export-certificate). App Service certificates can be automatically renewed and the binding can be automatically synced.
 
 To replace an expiring certificate, how you update the certificate binding with the new certificate can adversely affect user experience. For example, your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, and to avoid downtime for your app, follow these steps in order:
 
