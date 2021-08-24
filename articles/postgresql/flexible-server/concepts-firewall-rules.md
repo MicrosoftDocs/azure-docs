@@ -23,7 +23,7 @@ The following diagram shows how connection attempts from the internet and Azure 
 ## Connect from the internet
 If the source IP address of the request is within one of the ranges specified in the server-level firewall rules, the connection is granted. Otherwise, it's rejected. 
 
-For example, if your application connects with a JDBC driver for PostgreSQL, you might encounter this error because the firewall is blocking the connection:
+For example, if your application connects with a Java Database Connectivity (JDBC) driver for PostgreSQL, you might encounter this error because the firewall is blocking the connection:
 
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException:
 > org.postgresql.util.PSQLException: FATAL: no pg\_hba.conf entry for host "123.45.67.890", user "adminuser", database "postgresql", SSL
