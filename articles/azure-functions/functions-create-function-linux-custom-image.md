@@ -628,11 +628,11 @@ SSH enables secure communication between a container and a client. With SSH enab
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java"
 
-## Write to an Azure Storage queue
+## Write to Azure Queue Storage
 
 Azure Functions lets you connect your functions to other Azure services and resources without having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A *trigger* is a special type of input binding. Although a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-This section shows you how to integrate your function with an Azure Storage queue. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
+This section shows you how to integrate your function with an Azure Queue Storage. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
 
 [!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
 ::: zone-end
@@ -656,7 +656,7 @@ This section shows you how to integrate your function with an Azure Storage queu
 
 ## Add code to use the output binding
 
-With the queue binding defined, you can now update your function to receive the `msg` output parameter and write messages to the queue.
+With the queue binding defined, you can now update your function to write messages to the queue using the binding parameter.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"     
