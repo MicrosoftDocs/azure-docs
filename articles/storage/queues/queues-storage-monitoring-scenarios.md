@@ -6,7 +6,7 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 08/05/2021
+ms.date: 08/24/2021
 ms.custom: "monitoring"
 ---
 
@@ -18,7 +18,7 @@ This article features a collection of common Queue Storage monitoring scenarios,
 
 You can monitor the message count for all queues in a storage account by using the `QueueMessageCount` metric. This metric is refreshed daily.
 
-If you need to dynamically determine whether to adjust workloads to handle message volume, you can query approximate message on each queue and then respond with the appropriate action. Use the [Get Queue Metadata](/rest/api/storageservices/get-queue-metadata) REST operation or use any of the supported Blob storage SDKs to get teh approximate message count. 
+### [PowerShell](#tab/azure-powershell)
 
 If you're using PowerShell, you could use a command similar to the following:  
 
@@ -26,11 +26,17 @@ If you're using PowerShell, you could use a command similar to the following:
 (Get-AzMetric -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosogroup/providers/Microsoft.Storage/storageAccounts/contoso/queueServices/default -MetricName "QueueMessageCount").data.Average
 ```
 
-This example gets the `QueueMessageCount` metric by using the Azure CLI:
+### [Azure CLI](#tab/azure-cli)
+
+If you're using the Azure CLI, you could use a command similar to the following: 
 
 ```azurecli
 az monitor metrics list --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosogroup/providers/Microsoft.Storage/storageAccounts/contoso/ --metric "QueueMessageCount" --interval PT1H --query value[0].timeseries[0].data[0].average
 ```
+
+---
+
+If you need to dynamically determine whether to adjust workloads to handle message volume, you can query approximate message count on each queue and then respond with the appropriate action. Use the [Get Queue Metadata](/rest/api/storageservices/get-queue-metadata) REST operation or use any of the supported Blob storage SDKs to get the approximate message count. 
 
 Also consider using Service Bus which supports message per entity. To learn more, see [Monitoring Azure Service Bus data reference](../../service-bus-messaging/monitor-service-bus-reference.md). 
 
@@ -105,8 +111,6 @@ Shared Key and SAS authentication provide no means of auditing individual identi
 
 ## Optimize cost for infrequent queries
 
-If you maintain large amounts of log data but plan to query them only occasionally (For example, to meet compliance and security obligations), consider archiving your logs to a storage account instead of using Log Analytics. For a massive number of transactions, the cost of using Log Analytics might be high relative to just archiving to storage and using other query techniques. Log Analytics makes sense in cases where you want to use the rich capabilities of Log Analytics. You can reduce the cost of querying data by archiving logs to a storage account, and then querying those logs in a Synapse workspace.
-
 You can export logs to Log Analytics for rich native query capabilities. When you have massive transactions on your storage account, the cost of using logs with Log Analytics might be high. See [Azure Log Analytics Pricing](https://azure.microsoft.com/pricing/details/monitor/). If you only plan to query logs occasionally (for example, query logs for compliance auditing), you can consider reducing the total cost by exporting logs to storage account, and then using a serverless query solution on top of log data, for example, Azure Synapse.
 
 With Azure Synapse, you can create server-less SQL pool to query log data when you need. This could save costs significantly. 
@@ -140,6 +144,7 @@ With Azure Synapse, you can create server-less SQL pool to query log data when y
 ## See also
 
 - [Monitoring Azure Queue Storage](monitor-queue-storage.md).
+- [Azure Queue Storage monitoring data reference](monitor-queue-storage-reference.md)
 - [Tutorial: Use Kusto queries in Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 - [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 
