@@ -25,7 +25,7 @@ Version: 21.08.11
 
 Main changes:
 
-- Voulnerabilities - Sarat message
+- Vulnerabilities mitigated - KB4583458
 - Update of Nvidia CuDNN to 8.1.0
 - Update of Jupyter Lab -to 3.0.16
 - Added MLFLow for experiment tracking
@@ -41,7 +41,7 @@ Main changes:
 
 - Updated to PyTorch 1.9.0
 - Updated Azure CLI to 2.26.1
-- Updated Azure CLI Azure Machine Learnign extension to 1.29.0
+- Updated Azure CLI Azure Machine Learning extension to 1.29.0
 - Update VS Code version 1.58.1
 - Improvement of stability and minor bug fixes 
 
