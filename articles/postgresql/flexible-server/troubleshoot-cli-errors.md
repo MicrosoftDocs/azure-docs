@@ -63,13 +63,13 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 |SubscriptionNotFound| The requested subscription was not found. Run ```az account list all``` to see all your current subscriptions.|
 |InvalidParameterValue| An invalid value was given to a parameter.Check the [CLI reference docs](/cli/azure/postgres/flexible-server) to see what is the correct values supported for the arguments.|
 |InvalidLocation - An invalid location was specified. |
-|InvalidServerName| Invalid server name specified.Please check the sever name. |
-|InvalidResourceIdSegment| This is usually a syntax error in your Azure resource manager template. Use an JSON formatter tool to validate the JSON to identify the syntax error.|
+|InvalidServerName|Identified an invalid server name. Please check the sever name. Run the command [az mysql flexible-server list](cli/azure/mysql/flexible-server?view=azure-cli-latest#az_mysql_flexible_server_list) to see all the list of Flexible servers available.|
+|InvalidResourceIdSegment| This is usually a syntax error in your Azure Resource Manager template. Use a JSON formatter tool to validate the JSON to identify the syntax error.|
 |InvalidUserName| Enter a valid username. The admin login name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_.|
-|BlockedUserName| Enter a valid username. The admin login name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_.|
+|BlockedUserName| The admin login name can't be azure_superuser, azure_pg_admin, admin, administrator, root, guest, or public. It can't start with pg_. Avoid using these patterns in the admin name.|
 
 ## Next steps
 
-- If you are still experiencing issues, you can report the issue on [Azure CLI Github Issues](https://github.com/Azure/azure-cli/issues). 
+- If you are still experiencing issues, please [report the issue](https://github.com/Azure/azure-cli/issues). 
 - If you have questions, visit our Stack Overflow page: aka.ms/azcli/questions . 
 - Let us know how we are doing with this short survey https://aka.ms/azureclihats. 
