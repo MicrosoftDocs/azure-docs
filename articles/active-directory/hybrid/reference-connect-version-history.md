@@ -29,7 +29,7 @@ Required permissions | For permissions required to apply an update, see [account
 
 
 >[!IMPORTANT]
-> **On 31 August 2022, all 1.x versions of Azure Active Directory (Azure AD) Connect will be re-tired because they include SQL Server 2012 components that will no longer be supported.** Either upgrade to the most recent version of Azure AD Connect (2.x version) by that date, or [evaluate and switch to Cloud Sync](https://docs.microsoft.com/azure/active-directory/cloud-sync/what-is-cloud-sync).
+> **On 31 August 2022, all 1.x versions of Azure Active Directory (Azure AD) Connect will be retired because they include SQL Server 2012 components that will no longer be supported.** Either upgrade to the most recent version of Azure AD Connect (2.x version) by that date, or [evaluate and switch to Cloud Sync](https://docs.microsoft.com/azure/active-directory/cloud-sync/what-is-cloud-sync).
 > 
 > You need to make sure you are running a recent version of Azure AD Connect to receive an optimal support experience. 
 > 
