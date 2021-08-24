@@ -64,7 +64,7 @@ A User VPN configuration defines the parameters for connecting remote clients. I
     * **Tunnel type** - Select OpenVPN from the dropdown menu.
 1. Click **Azure Active Directory** to open the page.
 
-   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/aad-values.png" alt-text="Screenshot of the Azure Active Directory page.":::
+   :::image type="content" source="./media/virtual-wan-point-to-site-azure-ad/values.png" alt-text="Screenshot of the Azure Active Directory page.":::
 
     Toggle **Azure Active Directory** to **Yes** and supply the following values based on your tenant details. You can view the necessary values on the Azure Active Directory page for Enterprise applications in the portal.
    * **Authentication method** - Select Azure Active Directory.
