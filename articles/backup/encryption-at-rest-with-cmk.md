@@ -111,7 +111,7 @@ Type        : SystemAssigned
 ### Assign user-assigned managed identity to the vault (in preview)
 
 >[!Note]
->- Vaults using user-assigned managed identities for CMK encryption don't support the use of private endpoints for backup.
+>- Vaults using user-assigned managed identities for CMK encryption don't support the use of private endpoints for Backup.
 >- Azure Key Vaults limiting access to specific networks aren't yet supported for use along with user-assigned managed identities for CMK encryption.
 
 To assign the user-assigned managed identity for your Recovery Services vault, perform the following steps:
