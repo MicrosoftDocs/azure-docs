@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/11/2021
+ms.date: 06/28/2021
 
 ms.author: justinha
 author: justinha
@@ -107,21 +107,23 @@ The following process is used when a user signs in with a FIDO2 security key:
 
 While there are many keys that are FIDO2 certified by the FIDO Alliance, Microsoft requires some optional extensions of the FIDO2 Client-to-Authenticator Protocol (CTAP) specification to be implemented by the vendor to ensure maximum security and the best experience.
 
-A security key **must** implement the following features and extensions from the FIDO2 CTAP protocol to be Microsoft-compatible. Authenticator vendor must implement both FIDO_2_0 and FIDO_2_1 version of the spec. For more information, see the [Client to Authenticator Protocol](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html).
+A security key MUST implement the following features and extensions from the FIDO2 CTAP protocol to be Microsoft-compatible. Authenticator vendor must implement both FIDO_2_0 and FIDO_2_1 version of the spec. For more information, see the [Client to Authenticator Protocol](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html).
 
 | # | Feature / Extension trust | Why is this feature or extension required? |
 | --- | --- | --- |
 | 1 | Resident/Discoverable key | This feature enables the security key to be portable, where your credential is stored on the security key and is discoverable which makes usernameless flows possible. |
-| 2 | Client pin | This feature enables you to protect your credentials with a second factor and applies to security keys that do not have a user interface.<br>Both [PIN protocol 1](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#pinProto1) and [PIN protocol 2](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#pinProto2) **must** be implemented. |
+| 2 | Client pin | This feature enables you to protect your credentials with a second factor and applies to security keys that do not have a user interface.<br>Both [PIN protocol 1](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#pinProto1) and [PIN protocol 2](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#pinProto2) MUST be implemented. |
 | 3 | hmac-secret | This extension ensures you can sign in to your device when it's off-line or in airplane mode. |
 | 4 | Multiple accounts per RP | This feature ensures you can use the same security key across multiple services like Microsoft Account and Azure Active Directory. |
-| 5 | Credential Management    | This feature allows users to manage their credentials on security keys on platforms and applies to security keys that do not have this capability built-in.  |
-| 6 | Bio Enrollment           | This feature allows users to enroll their biometrics on their authenticators and applies to security keys that do not have this capability built in.<br> Authenticator **must** implement [authenicatorBioEnrollment](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#authenticatorBioEnrollment) command for this feature. Authenticator vendors are highly encouraged to implement [userVerificationMgmtPreview](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#prototypeAuthenticatorBioEnrollment) command also so that users can enroll bio templates it on all previous OS versions. |
+| 5 | Credential Management    | This feature allows users to manage their credentials on security keys on platforms and applies to security keys that do not have this capability built-in.<br>Authenticator MUST implement [authenticatorCredentialManagement](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#authenticatorCredentialManagement) and [credentialMgmtPreview](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#prototypeAuthenticatorCredentialManagement) commands for this feature.  |
+| 6 | Bio Enrollment           | This feature allows users to enroll their biometrics on their authenticators and applies to security keys that do not have this capability built in.<br> Authenticator MUST implement [authenicatorBioEnrollment](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#authenticatorBioEnrollment) and [userVerificationMgmtPreview](https://fidoalliance.org/specs/fido-v2.1-ps-20210615/fido-client-to-authenticator-protocol-v2.1-ps-20210615.html#prototypeAuthenticatorBioEnrollment) commands for this feature. |
 | 7 | pinUvAuthToken           | This feature allows platform to have auth tokens using PIN or BIO match which helps in better user experience when multiple credentials are present on the authenticator.  |
 | 8 | forcePinChange           | This feature allows enterprises to ask users to change their PIN in remote deployments.  |
-| 9 | setMinPINLength          | This feature allows enterprises to have custom minimum PIN length for their users. Authenticator MUST implement minPinLength extension also.  |
-| 10 | alwaysUV                | This feature allows enterprises or users to always require user verification to use this security key. Authenticator MUST implement toggleAlwaysUv subcommand.  |
-| 11 | credBlob                | This extension allows websites to store small information along with the security key.  |
+| 9 | setMinPINLength          | This feature allows enterprises to have custom minimum PIN length for their users. Authenticator MUST implement minPinLength extension and have maxRPIDsForSetMinPINLength of value at least 1.  |
+| 10 | alwaysUV                | This feature allows enterprises or users to always require user verification to use this security key. Authenticator MUST implement toggleAlwaysUv subcommand. It is up to vendor to decide the default value of alwaysUV. At this point due to nature of various RPs adoption and OS versions, recommended value for biometric based authenticators is true and non-biometric based authenticators is false.  |
+| 11 | credBlob                | This extension allows websites to store small information in the security key. maxCredBlobLength MUST be atleast 32 bytes.  |
+| 12 | largeBlob               | This extension allows websites to store larger information like certificates in the security key. maxSerializedLargeBlobArray MUST be atleast 1024 bytes.  |
+
 
 ### FIDO2 security key providers
 
@@ -132,16 +134,17 @@ The following providers offer FIDO2 security keys of different form factors that
 | AuthenTrend               | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://authentrend.com/about-us/#pg-35-3                                                           |
 | Ensurity                  | ![y]              | ![y]| ![n]| ![n]| ![n]           | https://www.ensurity.com/contact                                                                    |
 | Excelsecu                 | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://www.excelsecu.com/productdetail/esecufido2secu.html                                         |
-| Feitian                   | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://shop.ftsafe.us/pages/microsoft                                                                   |
-| Gemalto (Thales Group)    | ![n]              | ![y]| ![y]| ![n]| ![n]           | https://safenet.gemalto.com/access-management/authenticators/fido-devices                           |
+| Feitian                   | ![y]              | ![y]| ![y]| ![y]| ![y]           | https://shop.ftsafe.us/pages/microsoft                                                              |
 | GoTrustID Inc.            | ![n]              | ![y]| ![y]| ![y]| ![n]           | https://www.gotrustid.com/idem-key                                                                  |
 | HID                       | ![n]              | ![y]| ![y]| ![n]| ![n]           | https://www.hidglobal.com/contact-us                                                                |
 | Hypersecu                 | ![n]              | ![y]| ![n]| ![n]| ![n]           | https://www.hypersecu.com/hyperfido                                                                 |
 | IDmelon Technologies Inc. | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://www.idmelon.com/#idmelon                                                                    |
 | Kensington                | ![y]              | ![y]| ![n]| ![n]| ![n]           | https://www.kensington.com/solutions/product-category/why-biometrics/                               |
 | KONA I                    | ![y]              | ![n]| ![y]| ![y]| ![n]           | https://konai.com/business/security/fido                                                            |
-| Nymi                      | ![y]              | ![n]| ![y]| ![y]| ![n]           | https://www.nymi.com/product                                                                        | 
+| Nymi                      | ![y]              | ![n]| ![y]| ![n]| ![n]           | https://www.nymi.com/product                                                                      | 
 | OneSpan Inc.              | ![y]              | ![n]| ![n]| ![y]| ![n]           | https://www.onespan.com/products/fido                                                               |
+| Thales Group              | ![n]              | ![y]| ![y]| ![n]| ![n]           | https://cpl.thalesgroup.com/access-management/authenticators/fido-devices                           |
+| Thetis                    | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://thetis.io/collections/fido2                                                                 |
 | Token2 Switzerland        | ![y]              | ![y]| ![y]| ![n]| ![n]           | https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key               |
 | TrustKey Solutions        | ![y]              | ![y]| ![n]| ![n]| ![n]           | https://www.trustkeysolutions.com/security-keys/                                                    |
 | VinCSS                    | ![n]              | ![y]| ![n]| ![n]| ![n]           | https://passwordless.vincss.net                                                                     |
@@ -155,7 +158,7 @@ The following providers offer FIDO2 security keys of different form factors that
 > [!NOTE]
 > If you purchase and plan to use NFC-based security keys, you need a supported NFC reader for the security key. The NFC reader isn't an Azure requirement or limitation. Check with the vendor for your NFC-based security key for a list of supported NFC readers.
 
-If you're a vendor and want to get your device on this list of supported devices, check out our guidance on how to [become a Microsoft-compatible FIDO2 security key vendor](/security/zero-trust/isv/fido2-hardware-vendor).
+If you're a vendor and want to get your device on this list of supported devices, check out our guidance on how to [become a Microsoft-compatible FIDO2 security key vendor](concept-fido2-hardware-vendor.md).
 
 To get started with FIDO2 security keys, complete the following how-to:
 

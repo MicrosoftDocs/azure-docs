@@ -3,8 +3,8 @@ title: 'Register and scan Azure Data Lake Storage (ADLS) Gen1'
 description: This tutorial describes how to scan data from Azure Data Lake Storage Gen1 into Azure Purview. 
 author: shsandeep123
 ms.author: sandeepshah
-ms.service: data-catalog
-ms.subservice: data-catalog-gen2
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 05/08/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data from Azure Data Lake Storage Gen1 into the catalog.
@@ -23,6 +23,12 @@ The Azure Data Lake Storage Gen1 data source supports the following functionalit
 - **Full and incremental scans** to capture metadata and classification in Azure Data Lake Storage Gen1
 
 - **Lineage** between data assets for ADF copy/dataflow activities
+
+For file types such as csv, tsv, psv, ssv, the schema is extracted when the following logics are in place:
+
+1. First row values are non-empty
+2. First row values are unique
+3. First row values are neither a date and nor a number
 
 ## Prerequisites
 
@@ -138,10 +144,10 @@ To use a service principal, you must first create one following these steps:
 To register a new ADLS Gen1 account in your data catalog, do the following:
 
 1. Navigate to your Purview Data Catalog.
-2. Select **Sources** on the left navigation.
+2. Select **Data Map** on the left navigation.
 3. Select **Register**
 4. On **Register sources**, select **Azure Data Lake Storage Gen1**. 
-5. Select **Continue**.
+5. Select **Continue**
 
 On the Register sources (Azure Data Lake Storage Gen1) screen, do the following:
 

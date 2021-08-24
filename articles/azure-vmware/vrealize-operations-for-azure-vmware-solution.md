@@ -32,7 +32,7 @@ Thoroughly review [Before you begin](#before-you-begin) and [Prerequisites](#pre
 ## On-premises vRealize Operations managing Azure VMware Solution deployment
 Most customers have an existing on-premise deployment of vRealize Operations to manage one or more on-premise vCenters domains. When they provision an Azure VMware Solution private cloud, they connect their on-premises environment with their private cloud using an Azure ExpressRoute or a Layer 3 VPN solution.  
 
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="On-premises vRealize Operations managing Azure VMware Solution deployment" border="false":::
+:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-1.png" alt-text="Diagram showing the on-premises vRealize Operations managing Azure VMware Solution deployment." border="false":::
 
 To extend the vRealize Operations capabilities to the Azure VMware Solution private cloud, you create an adapter [instance for the private cloud resources](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.config.doc/GUID-640AD750-301E-4D36-8293-1BFEB67E2600.html). It collects data from the Azure VMware Solution private cloud and brings it into on-premises vRealize Operations. The on-premises vRealize Operations Manager instance can directly connect to the vCenter and NSX-T manager on Azure VMware Solution. Optionally, you can deploy a vRealize Operations Remote Collector on the Azure VMware Solution private cloud. The collector compresses and encrypts the data collected from the private cloud before it's sent over the ExpressRoute or VPN network to the vRealize Operations Manager running on-premise. 
 
@@ -48,7 +48,7 @@ Another option is to deploy an instance of vRealize Operations Manager on a vSph
 >[!IMPORTANT]
 >This option isn't currently supported by VMware.
 
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-2.png" alt-text="vRealize Operations running on Azure VMware Solution" border="false":::
+:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-2.png" alt-text="Diagram showing the vRealize Operations running on Azure VMware Solution." border="false":::
 
 Once the instance has been deployed, you can configure vRealize Operations to collect data from vCenter, ESXi, NSX-T, vSAN, and HCX. 
 
@@ -64,11 +64,11 @@ Once the instance has been deployed, you can configure vRealize Operations to co
 
 When you connect the Azure VMware Solution vCenter to vRealize Operations Manager using a vCenter Server Cloud Account, you'll see a warning:
 
-:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Warning adapter instance creation succeeded":::
+:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Screenshot showing a Warning message that states the adapter instance was created successfully.":::
 
 The warning occurs because the **cloudadmin\@vsphere.local** user in Azure VMware Solution doesn't have sufficient privileges to do all vCenter Server actions required for registration. However, the privileges are sufficient for the adapter instance to do data collection, as seen below:
 
-:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Adapter instance to perform data collection":::
+:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Screenshot showing the adapter instance to collect data.":::
 
 For more information, see [Privileges Required for Configuring a vCenter Adapter Instance](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.core.doc/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html).
 

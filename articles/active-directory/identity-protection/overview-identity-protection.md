@@ -10,7 +10,7 @@ ms.date: 06/15/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 
 ms.custom: contperf-fy21q1
@@ -23,7 +23,7 @@ Identity Protection is a tool that allows organizations to accomplish three key 
 
 - [Automate the detection and remediation of identity-based risks](howto-identity-protection-configure-risk-policies.md).
 - [Investigate risks](howto-identity-protection-investigate-risk.md) using data in the portal.
-- [Export risk detection data to your SEIM](../../sentinel/connect-azure-ad-identity-protection.md).
+- [Export risk detection data to your SIEM](../../sentinel/connect-azure-ad-identity-protection.md).
 
 Identity Protection uses the learnings Microsoft has acquired from their position in organizations with Azure AD, the consumer space with Microsoft Accounts, and in gaming with Xbox to protect your users. Microsoft analyses 6.5 trillion signals per day to identify and protect customers from threats.
 

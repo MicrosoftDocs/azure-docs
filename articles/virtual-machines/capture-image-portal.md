@@ -30,7 +30,7 @@ For images stored in a Shared Image Gallery, you can use VMs that already have a
 
 5. For **Resource group**, either select **Create new** and enter a name, or select a resource group to use from the drop-down list. If you want to use an existing gallery, select the resource group for the gallery you want to use.
 
-1. To create the image in a gallery, select **Yes, share it to a gallery as an image version".
+1. To create the image in a gallery, select **Yes, share it to a gallery as an image version**.
     
    To only create a managed image, select **No, capture only a managed image**. The VM must have been generalized to create a managed image. The only other required information is a name for the image.
 

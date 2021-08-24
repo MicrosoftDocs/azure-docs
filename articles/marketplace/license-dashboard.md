@@ -4,15 +4,13 @@ description: Learn how to access information about your licenses using the Licen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 06/10/2021
 author: smannepalle
-ms.author: subhaset
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 06/10/2021
 ---
 
 # License dashboard in commercial marketplace analytics
-
-> [!IMPORTANT]
-> This capability is currently in Public Preview.
 
 This article provides information about the License dashboard in the commercial marketplace program in Partner Center. The License dashboard shows the following information:
 

@@ -1,5 +1,5 @@
 ---
-title: Managing privileged Azure AD groups in Privileged Identity Management (PIM) | Microsoft Docs
+title: Managing Privileged Access groups in Privileged Identity Management (PIM) | Microsoft Docs
 description: How to manage members and owners of privileged access groups in Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
@@ -22,9 +22,9 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a dev or IT admin, I want to manage group assignments in PIM, so that I can grant eligibility for elevation to a role assigned via group membership
 ---
 
-# Management capabilities for privileged access Azure AD groups (preview)
+# Management capabilities for Privileged Access groups (preview)
 
-In Privileged Identity Management (PIM), you can now assign eligibility for membership or ownership of privileged access groups. Starting with this preview, you can assign Azure Active Directory (Azure AD) built-in roles to cloud groups and use PIM to manage group member and owner eligibility and activation. For more information about role-assignable groups in Azure AD, see [Use cloud groups to manage role assignments in Azure Active Directory (preview)](../roles/groups-concept.md).
+In Privileged Identity Management (PIM), you can now assign eligibility for membership or ownership of privileged access groups. Starting with this preview, you can assign Azure Active Directory (Azure AD) built-in roles to cloud groups and use PIM to manage group member and owner eligibility and activation. For more information about role-assignable groups in Azure AD, see [Use Azure AD groups to manage role assignments](../roles/groups-concept.md).
 
 >[!Important]
 > To assign a privileged access group to a role for administrative access to Exchange, Security and Compliance center, or SharePoint, use the Azure AD portal **Roles and Administrators** experience and not in the Privileged Access Groups experience to make the user or group eligible for activation into the group.

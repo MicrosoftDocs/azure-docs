@@ -35,7 +35,7 @@ First you'll deprovision the VM by using the Azure VM agent to delete machine-sp
 4. After the command completes, enter **exit** to close the SSH client.  The VM will still be running at this point.
 
 
-The the VM needs to be marked as generalized on the platform. 
+Then the VM needs to be marked as generalized on the platform. 
 
 ```azurecli-interactive
 az vm generalize \

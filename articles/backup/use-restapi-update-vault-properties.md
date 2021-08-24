@@ -19,7 +19,7 @@ So you need to carefully choose whether or not to disable soft-delete for a part
 
 ### Fetch soft delete state using REST API
 
-By default, the soft-delete state will be enabled for any newly created Recovery Services vault. To fetch/update the state of soft-delete for a vault, use the backup vault's config related [REST API document](/rest/api/backup/2021-02-10/backup-resource-vault-configs)
+By default, the soft-delete state will be enabled for any newly created Recovery Services vault. To fetch/update the state of soft-delete for a vault, use the backup vault's config related [REST API document](/rest/api/backup/backup-resource-vault-configs)
 
 To fetch the current state of soft-delete for a vault, use the following *GET* operation
 
@@ -39,7 +39,7 @@ The successful response for the 'GET' operation is shown below:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/2021-02-10/backup-resource-vault-configs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backup-resource-vault-configs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### Example response
 
@@ -73,9 +73,9 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 #### Create the request body
 
-THe following common definitions are used to create a request body
+The following common definitions are used to create a request body
 
-For more details, refer to [the REST API documentation](/rest/api/backup/2021-02-10/backup-resource-vault-configs/update#request-body)
+For more details, refer to [the REST API documentation](/rest/api/backup/backup-resource-vault-configs/update#request-body)
 
 |Name  |Required  |Type  |Description  |
 |---------|---------|---------|---------|
@@ -103,7 +103,7 @@ The successful response for the 'PATCH' operation is shown below:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/2021-02-10/backup-resource-vault-configs/get#backupresourcevaultconfigresource)      | OK        |
+|200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backup-resource-vault-configs/get#backupresourcevaultconfigresource)      | OK        |
 
 ##### Example response for the PATCH operation
 

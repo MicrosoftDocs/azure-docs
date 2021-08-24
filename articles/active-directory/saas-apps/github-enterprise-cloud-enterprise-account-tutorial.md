@@ -72,15 +72,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://github.com/orgs/<ENTERPRISE-SLUG>`
+    `https://github.com/enterprises/<ENTERPRISE-SLUG>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://github.com/orgs/<ENTERPRISE-SLUG>/saml/consume`
+    `https://github.com/enterprises/<ENTERPRISE-SLUG>/saml/consume`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
      In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://github.com/orgs/<ENTERPRISE-SLUG>/sso`
+    `https://github.com/enterprises/<ENTERPRISE-SLUG>/sso`
 
 	> [!NOTE]
 	> Replace `<ENTERPRISE-SLUG>` with the actual name of your GitHub Enterprise Account.
@@ -136,7 +136,7 @@ After you enable SAML SSO for your GitHub Enterprise Account, SAML SSO is enable
 
 ## Test SSO with another enterprise account owner or organization member account
 
-After the SAML integration is set up for the GitHub enterprise account (which also applies to the GitHub organizations in the enterprise account), other enterprise account owners who are assigned to the app in Azure AD should be able to navigate to the GitHub enterprise account URL (`https://github.com/orgs/<enterprise account>`), authenticate via SAML, and access the policies and settings under the GitHub enterprise account. 
+After the SAML integration is set up for the GitHub enterprise account (which also applies to the GitHub organizations in the enterprise account), other enterprise account owners who are assigned to the app in Azure AD should be able to navigate to the GitHub enterprise account URL (`https://github.com/enterprises/<enterprise account>`), authenticate via SAML, and access the policies and settings under the GitHub enterprise account. 
 
 An organization owner for an organization in an enterprise account should be able to [invite a user to join their GitHub organization](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/inviting-users-to-join-your-organization). Sign in to GitHub.com with an organization owner account and follow the steps in the article to invite `B.Simon` to the organization. A GitHub user account will need to be created for `B.Simon` if one does not already exist. 
 

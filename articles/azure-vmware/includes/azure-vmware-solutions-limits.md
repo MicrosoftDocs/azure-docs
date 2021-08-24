@@ -3,6 +3,9 @@ title: Azure VMware Solution limits
 description: Azure VMware Solution limitations.
 ms.topic: include
 ms.date: 03/24/2021
+author: shortpatti
+ms.author: v-patsho
+ms.service: azure-vmware
 ---
 
 <!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md and concepts-networking.md -->
@@ -22,4 +25,4 @@ The following table describes the maximum limits for Azure VMware Solution.
 | Public IPs exposed via vWAN | 100 |
 | vSAN capacity limits | 75% of total usable (keep 25% available for SLA)  |
 
-For other VMware specific limits please use the [VMware configuration maximum tool!](https://configmax.vmware.com/).
+For other VMware-specific limits, use the [VMware configuration maximum tool!](https://configmax.vmware.com/).

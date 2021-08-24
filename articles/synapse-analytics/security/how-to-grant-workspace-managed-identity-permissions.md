@@ -1,13 +1,14 @@
 ---
 title: Grant permissions to managed identity in Synapse workspace 
 description: An article that explains how to configure permissions for managed identity in Azure Synapse workspace. 
-author: RonyMSFT 
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security 
 ms.date: 04/15/2020 
-ms.author: ronytho 
+ms.author: mesrivas
 ms.reviewer: jrasnick
+ms.custom: subject-rbac-steps
 ---
 
 
@@ -68,41 +69,26 @@ The managed identity should have data access to the container (file system) that
 Select that same container or file system to grant the *Storage Blob Data Contributor* role to the managed identity.
 ![Screenshot that shows the container or file system that you should select.](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-6.png)
 
-#### Step 3: Navigate to Access control
+#### Step 3: Open Access control and add role assignment
 
-Select **Access Control (IAM)**.
+1. Select **Access control (IAM)**.
 
-![Access control(IAM)](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-8.png)
+1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-#### Step 4: Add a new role assignment
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Blob Contributor |
+    | Assign access to | MANAGEDIDENTITY |
+    | Members | managed identity name  |
 
-Select **+ Add**.
+    > [!NOTE]
+    > The managed identity name is also the workspace name.
 
-![Add new role assignment](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-#### Step 5: Select the Azure role
-
-Select the **Storage Blob Data Contributor** role.
-
-![Select the Azure role](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
-
-#### Step 6: Select the Azure AD security principal
-
-Select **Azure AD user, group, or service principal** from the **Assign access to** drop down.
-
-![Select AAD security principal](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-11.png)
-
-#### Step 7: Search for the managed identity
-
-The managed identity's name is also the workspace name. Search for your managed identity by entering you Azure Synapse workspace name in **Select**. You should see the managed identity listed.
-
-![Find the managed identity](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-12.png)
-
-#### Step 8: Select the managed identity
-
-Select the managed identity to the **Selected members**. Select **Save** to add the role assignment.
-
-![Select the managed identity](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-13.png)
+1. Select **Save** to add the role assignment.
 
 #### Step 9: Verify that the Storage Blob Data Contributor role is assigned to the managed identity
 

@@ -4,6 +4,7 @@ description: Migrate on-premises SSIS workloads to SSIS in ADF.
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 9/3/2019
 ---

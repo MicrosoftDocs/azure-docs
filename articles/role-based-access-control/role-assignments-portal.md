@@ -141,7 +141,7 @@ Azure RBAC has a new experience for assigning Azure roles in the Azure portal th
 
     ![Screenshot of Add > Add role assignment menu for preview experience.](./media/shared/add-role-assignment-menu-preview.png)
 
-    The Assign a role page opens.
+    The Add role assignment page opens.
 
 ## Step 3: Select the appropriate role (preview)
 

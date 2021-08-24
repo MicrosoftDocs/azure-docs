@@ -11,6 +11,10 @@ ms.custom: seodec18
 ---
 # Networking considerations for an App Service Environment #
 
+> [!NOTE]
+> This article is about the App Service Environment v2 which is used with Isolated App Service plans
+> 
+
 ## Overview ##
 
  Azure [App Service Environment][Intro] is a deployment of Azure App Service into a subnet in your Azure virtual network (VNet). There are two deployment types for an App Service environment (ASE):

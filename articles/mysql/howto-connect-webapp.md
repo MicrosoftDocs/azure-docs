@@ -9,6 +9,8 @@ ms.date: 3/18/2020
 ---
 
 # Connect an existing Azure App Service to Azure Database for MySQL server
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 This topic explains how to connect an existing Azure App Service to your Azure Database for MySQL server.
 
 ## Before you begin

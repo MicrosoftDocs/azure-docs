@@ -13,7 +13,7 @@ zone_pivot_groups: azure-maps-android
 
 # Add a heat map layer (Android SDK)
 
-Heat maps, also known as point density maps, are a type of data visualization. They're used to represent the density of data using a range of colors and show the data "hot spots" on a map. Heat maps are a great way to render datasets with large number of points. 
+Heat maps, also known as point density maps, are a type of data visualization. They're used to represent the density of data using a range of colors and show the data "hot spots" on a map. Heat maps are a great way to render datasets with large number of points.
 
 Rendering tens of thousands of points as symbols can cover most of the map area. This case likely results in many symbols overlapping. Making it difficult to gain a better understanding of the data. However, visualizing this same dataset as a heat map makes it easy to see the density and the relative density of each data point.
 
@@ -45,6 +45,11 @@ The following code sample loads a GeoJSON feed of earthquakes from the past week
 ```java
 //Create a data source and add it to the map.
 DataSource source = new DataSource();
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson");
+
+//Add data source to the map.
 map.sources.add(source);
 
 //Create a heat map layer.
@@ -55,27 +60,6 @@ HeatMapLayer layer = new HeatMapLayer(source,
 
 //Add the layer to the map, below the labels.
 map.layers.add(layer, "labels");
-
-//Import the geojson data and add it to the data source.
-Utils.importData("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson",
-    this,
-    (String result) -> {
-        //Parse the data as a GeoJSON Feature Collection.
-        FeatureCollection fc = FeatureCollection.fromJson(result);
-
-        //Add the feature collection to the data source.
-        source.add(fc);
-
-        //Optionally, update the maps camera to focus in on the data.
-
-        //Calculate the bounding box of all the data in the Feature Collection.
-        BoundingBox bbox = MapMath.fromData(fc);
-
-        //Update the maps camera so it is focused on the data.
-        map.setCamera(
-            bounds(bbox),
-            padding(20));
-    });
 ```
 
 ::: zone-end
@@ -85,6 +69,11 @@ Utils.importData("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_
 ```kotlin
 //Create a data source and add it to the map.
 val source = DataSource()
+
+//Import the geojson data and add it to the data source.
+source.importDataFromUrl("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson")
+
+//Add data source to the map.
 map.sources.add(source)
 
 //Create a heat map layer.
@@ -96,27 +85,6 @@ val layer = HeatMapLayer(
 
 //Add the layer to the map, below the labels.
 map.layers.add(layer, "labels")
-
-//Import the geojson data and add it to the data source.
-Utils.importData("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson",
-    this
-) { result: String? ->
-    //Parse the data as a GeoJSON Feature Collection.
-    val fc = FeatureCollection.fromJson(result!!)
-
-    //Add the feature collection to the data source.
-    source.add(fc)
-
-    //Optionally, update the maps camera to focus in on the data.
-    //Calculate the bounding box of all the data in the Feature Collection.
-    val bbox = MapMath.fromData(fc)
-
-    //Update the maps camera so it is focused on the data.
-    map.setCamera(
-        bounds(bbox),
-        padding(20)
-    )
-}
 ```
 
 ::: zone-end
@@ -132,7 +100,7 @@ The previous example customized the heat map by setting the radius and opacity o
 - `heatmapRadius`: Defines a pixel radius in which to render each data point. You can set the radius as a fixed number or as an expression. By using an expression, you can scale the radius based on the zoom level, and represent a consistent spatial area on the map (for example, a 5-mile radius).
 - `heatmapColor`: Specifies how the heat map is colorized. A color gradient is a common feature of heat maps. You can achieve the effect with an `interpolate` expression. You can also use a `step` expression for colorizing the heat map, breaking up the density visually into ranges that resemble a contour or radar style map. These color palettes define the colors from the minimum to the maximum density value.
 
-  You specify color values for heat maps as an expression on the `heatmapDensity` value. The color of area where there's no data is defined at index 0 of the "Interpolation" expression, or the default color of a "Stepped" expression. You can use this value to define a background color. Often, this value is set to transparent, or a semi-transparent black. 
+  You specify color values for heat maps as an expression on the `heatmapDensity` value. The color of area where there's no data is defined at index 0 of the "Interpolation" expression, or the default color of a "Stepped" expression. You can use this value to define a background color. Often, this value is set to transparent, or a semi-transparent black.
 
   Here are examples of color expressions:
 
@@ -285,6 +253,56 @@ val layer = HeatMapLayer(source,
 The following video shows a map running the above code, which scales the radius while the map is being zoomed to create a consistent heat map rendering across zoom levels.
 
 ![Animation showing a map zooming with a heat map layer showing a consistent geospatial size](media/map-add-heat-map-layer-android/android-consistent-zoomable-heat-map-layer.gif)
+
+The `zoom` expression can only be used in `step` and `interpolate` expressions. The following expression can be used to approximate a radius in meters. This expression uses a placeholder `radiusMeters` which you should replace with your desired radius. This expression calculates the approximate pixel radius for a zoom level at the equator for zoom levels 0 and 24, and uses an `exponential interpolation` expression to scale between these values the same way the tiling system in the map works.
+
+::: zone pivot="programming-language-java-android"
+
+```java
+interpolate(
+    exponential(2),
+    zoom(),
+    stop(1, product(radiusMeters, 0.000012776039596366526)),
+    stop(24, product(radiusMeters, 214.34637593279402))
+)
+```
+
+> [!TIP]
+> When you enable clustering on the data source, points that are close to one another are grouped together as a clustered point. You can use the point count of each cluster as the weight expression for the heat map. This can significantly reduce the number of points to be rendered. The point count of a cluster is stored in a `point_count` property of the point feature:
+>
+> ```java
+> HeatMapLayer layer = new HeatMapLayer(dataSource,
+>    heatmapWeight(get("point_count"))
+> );
+> ```
+>
+> If the clustering radius is only a few pixels, there would be a small visual difference in the rendering. A larger radius groups more points into each cluster, and improves the performance of the heatmap.
+
+::: zone-end
+
+::: zone pivot="programming-language-kotlin"
+
+```kotlin
+interpolate(
+    exponential(2),
+    zoom(),
+    stop(1, product(radiusMeters, 0.000012776039596366526)),
+    stop(24, product(radiusMeters, 214.34637593279402))
+)
+```
+
+> [!TIP]
+> When you enable clustering on the data source, points that are close to one another are grouped together as a clustered point. You can use the point count of each cluster as the weight expression for the heat map. This can significantly reduce the number of points to be rendered. The point count of a cluster is stored in a `point_count` property of the point feature:
+>
+> ```kotlin
+> var layer = new HeatMapLayer(dataSource,
+>    heatmapWeight(get("point_count"))
+> )
+> ```
+>
+> If the clustering radius is only a few pixels, there would be a small visual difference in the rendering. A larger radius groups more points into each cluster, and improves the performance of the heatmap.
+
+::: zone-end
 
 ## Next steps
 

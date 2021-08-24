@@ -9,6 +9,7 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
+ms.custom: subject-rbac-steps
 
 ---
 # Tutorial: Build a machine learning app with Apache Spark MLlib and Azure Synapse Analytics
@@ -190,9 +191,7 @@ train_data_df, test_data_df = encoded_final_df.randomSplit([trainingFraction, te
 Now that there are two DataFrames, the next task is to create the model formula and run it against the training DataFrame. Then you can validate against the testing DataFrame. Experiment with different versions of the model formula to see the impact of different combinations.
 
 > [!Note]
-> To save the model, you'll need the *Storage Blob Data Contributor* Azure role. Under your storage account, go to **Access Control (IAM)** and select **Add role assignment**. Assign the Storage Blob Data Contributor role to your Azure SQL Database server. Only members with owner privileges can perform this step. 
->
->For various Azure built-in roles, see [this guide](../../role-based-access-control/built-in-roles.md).
+> To save the model, assign the *Storage Blob Data Contributor* role to the Azure SQL Database server resource scope. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md). Only members with owner privileges can perform this step.
 
 ```python
 ## Create a new logistic regression object for the model

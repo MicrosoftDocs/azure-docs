@@ -41,6 +41,8 @@ For this article you need,
 
     * [Understand Cross Validation in machine learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
 
+[!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
+
 ## Default data splits and cross-validation in machine learning
 
 Use the [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object to define your experiment and training settings. In the following code snippet, notice that only the required parameters are defined, that is the parameters for `n_cross_validations` or `validation_data` are **not** included.
@@ -70,7 +72,7 @@ If you do not explicitly specify either a `validation_data` or `n_cross_validati
 In this case, you can either start with a single data file and split it into training data and validation data sets or you can provide a separate data file for the validation set. Either way, the `validation_data` parameter in your `AutoMLConfig` object assigns which data to use as your validation set. This parameter only accepts data sets in the form of an [Azure Machine Learning dataset](how-to-create-register-datasets.md) or pandas dataframe.   
 
 > [!NOTE]
-> The `validation_size` parameter is not supported in forecasting scenarios.
+> The `validation_data` parameter requires the `training_data` and `label_column_name` parameters to be set as well. You can only set one validation parameter, that is you can only specifiy either `validation_data` or `n_cross_validations`, not both.
 
 The following code example explicitly defines which portion of the provided data in `dataset` to use for training and validation.
 

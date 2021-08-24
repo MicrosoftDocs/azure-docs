@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 06/25/2021
+ms.date: 06/28/2021
 
 ms.author: justinha
 author: justinha
@@ -46,6 +46,16 @@ For more information, see [Getting started with Azure AD Connect](../hybrid/how-
 ## SSPR reporting
 
 If you have problems with SSPR reporting in the Azure portal, review the following troubleshooting steps:
+
+### I see an authentication method that I have disabled in the Add method option in combined registration.
+
+The combined registration takes into account three policies to determine what methods are shown in **Add method**: 
+
+- [Self-service password reset](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+- [MFA](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)
+- [Authentication methods](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthenticationMethodsMenuBlade/AdminAuthMethods)
+
+If you disable app notifications in SSPR but enable it in MFA policy, that option appears in combined registration. For another example, if a user disables **Office phone** in SSPR, it is still displayed as an option if the user has the **Phone/Office** phone property set. 
 
 ### I don't see any password management activity types in the **Self-Service Password Management** audit event category.
 

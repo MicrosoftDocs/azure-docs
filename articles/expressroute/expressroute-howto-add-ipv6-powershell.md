@@ -19,23 +19,6 @@ This article describes how to add IPv6 support to connect via ExpressRoute to yo
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-## Register for Public Preview
-Before adding IPv6 support, you must first enroll your subscription. To enroll, please do the following via Azure PowerShell:
-1.  Sign in to Azure and select the subscription. You must do this for the subscription containing your ExpressRoute circuit, as well as the subscription containing your Azure deployments (if they are different).
-
-    ```azurepowershell-interactive
-    Connect-AzAccount 
-
-    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
-    ```
-
-2. Request to register your subscription for Public Preview using the following command:
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -FeatureName AllowIpv6PrivatePeering -ProviderNamespace Microsoft.Network
-    ```
-
-Your request will then be approved by the ExpressRoute team within 2-3 business days.
-
 ## Add IPv6 Private Peering to your ExpressRoute circuit
 
 1. [Create an ExpressRoute circuit](./expressroute-howto-circuit-arm.md) or use an existing circuit. Retrieve the circuit by running the **Get-AzExpressRouteCircuit** command:
