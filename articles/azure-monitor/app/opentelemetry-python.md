@@ -82,32 +82,68 @@ Microsoft has tested and validated that the following instrumentation libraries 
 > The **preview** offering only includes instrumentations that handle HTTP and Database requests. In the future, we plan to support other request types. See [OpenTelemetry Semantic Conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/trace/semantic_conventions) to learn more.
 
 ## Modify Telemetry
-### Filter Telemetry
-You may use a Span Processor to filter out telemetry before leaving your application.
-
-```python
-Placeholder
-```
-
-For more information, see [GitHub Repo](link).
-
-### Set Cloud Role Name
-You may use the Resource API to set Cloud Role Name.
-
-```python
-Placeholder
-```
-
-For more information, see [GitHub Repo](link).
-
 ### Add Span Attributes
-You may use X to add attributes such as business-specific dimensions.
+You may use X to add attributes to spans. This may include adding a custom business dimension to your telemetry or setting optional fields in the Application Insights Schema such as User ID or Client IP. We provide three common examples below.
+
+#### Add Custom Dimension
+Adding one or more custom dimensions will populate the _customDimensions_ field in the requests, dependencies, and/or exceptions table.
+
+```python
+Placeholder
+```
+
+#### Set User ID
+Setting user id will populate the _user_Id_ field in the requests, dependencies, and/or exceptions table.
+
+```python
+Placeholder
+```
+
+#### Set User IP
+Setting the user IP populate the _client_IP_ field in the requests, dependencies, and/or exceptions table.
 
 ```python
 Placeholder
 ```
 
 For more information, see [GitHub Repo](link).
+
+### Override Span Name
+You may use X to override span name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
+
+```python
+Placeholder
+```
+
+For more information, see [GitHub Repo](link).
+
+### Set or Override Cloud Role Name
+You may use the Resource API to set or override Cloud Role Name. This updates Cloud Role Name from its default value to something that makes sense to your team. It will surface on the Application Map as the name underneath a node.
+
+```python
+Placeholder
+```
+
+For more information, see [GitHub Repo](link).
+
+### Filter Telemetry
+You may use a Span Processor to filter out telemetry before leaving your application. This may be done to mask telemetry for privacy reasons or block unneeded telemetry to reduce ingestion costs.
+
+```python
+Placeholder
+```
+
+For more information, see [GitHub Repo](link).
+
+### Get Trace ID or Span ID
+You may use X or Y to get trace ID or span ID. This may be done to add these identifiers to existing logging telemetry to improve correlation when debugging and diagnosing issues.
+
+```python
+Placeholder
+```
+
+For more information, see [GitHub Repo](link).
+
 
 ## Troubleshooting
 ### Enable Diagnostic Logging
