@@ -43,7 +43,7 @@ You can omit the key and the Cognitive Services section for skillsets that consi
   As noted, [Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) is a special case in that it requires a key, but is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
 
 > [!TIP]
-> To lower the cost of skillset processing, enable [incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) to cache and reuse any enrichments that are unaffected by changes made to a skillset. Caching requires Azure Storage (see [pricing](/pricing/details/storage/blobs/) but the cumulative cost of skillset execution is lower if existing enrichments can be reused, especially for skillsets that use image extraction and analysis.
+> To lower the cost of skillset processing, enable [incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) to cache and reuse any enrichments that are unaffected by changes made to a skillset. Caching requires Azure Storage (see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) but the cumulative cost of skillset execution is lower if existing enrichments can be reused, especially for skillsets that use image extraction and analysis.
 
 ## Same-region requirement
 

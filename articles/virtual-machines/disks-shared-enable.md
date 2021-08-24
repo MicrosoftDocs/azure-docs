@@ -12,6 +12,8 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Enable shared disk
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 This article covers how to enable the shared disks feature for Azure managed disks. Azure shared disks is a new feature for Azure managed disks that enables you to attach a managed disk to multiple virtual machines (VMs) simultaneously. Attaching a managed disk to multiple VMs allows you to either deploy new or migrate existing clustered applications to Azure. 
 
 If you are looking for conceptual information on managed disks that have shared disks enabled, see [Azure shared disks](disks-shared.md).
