@@ -38,7 +38,7 @@ To complete this tutorial, you need:
 
 1. To create a MySQL Flexible Server database, search for and select **Azure Database for MySQL servers**:
     
-    :::image type="content" source="./media/how-to-deploy-on-azure-free-account/select-azure-database-for-mysql.png" alt-text="Screenshot that shows how to search and select Azure Database for MySQL.":::
+    :::image type="content" source="./media/how-to-deploy-on-azure-free-account/search-select-azure-database-for-mysql.png" alt-text="Screenshot that shows how to search and select Azure Database for MySQL on Azure portal.":::
 
 
     Alternatively, you can search for and navigate to **Free Services**, and then select **Azure Database for MySQL** tile from the list:
