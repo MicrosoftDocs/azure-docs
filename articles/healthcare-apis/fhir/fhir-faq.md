@@ -16,7 +16,7 @@ ms.custom: references_regions
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This section covers some of the frequently asked questions about the Azure Healthcare APIs FHIR service (hear by called the FHIR service).
+This section covers some of the frequently asked questions about the Azure Healthcare APIs FHIR service (hereby called the FHIR service).
 
 ## FHIR service: The Basics
 

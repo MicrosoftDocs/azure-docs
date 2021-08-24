@@ -13,7 +13,7 @@ ms.author: ginle
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you will learn how to deploy the FHIR service within the Azure Healthcare APIs using the Azure portal.
+In this article, you will learn how to deploy the FHIR service within the Azure Healthcare APIs (hereby called the FHIR service) using the Azure portal.
 
 ## Prerequisite
 

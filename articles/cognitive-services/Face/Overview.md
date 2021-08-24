@@ -18,7 +18,7 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 # What is the Azure Face service?
 
 > [!WARNING]
-> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States.
+> On June 11, 2020, Microsoft announced that it will not sell facial recognition technology to police departments in the United States until strong regulation, grounded in human rights, has been enacted. As such, customers may not use facial recognition features or functionality included in Azure Services, such as Face or Video Indexer, if a customer is, or is allowing use of such services by or for, a police department in the United States. When you create a new Face resource, you must acknowledge and agree in Azure Portal that you will not use the service by or for a police department in the United States and that you have reviewed the [Responsible AI (RAI) documentation](https://go.microsoft.com/fwlink/?linkid=2164191) and will use this service in accordance with it.
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
