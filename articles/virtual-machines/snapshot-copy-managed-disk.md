@@ -27,7 +27,7 @@ To create a snapshot using the Azure portal, complete these steps.
 1. Enter a **Name**, **Region**, and **Snapshot type** for the new snapshot.
 
     > [!NOTE]
-    > If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../availability-zones/az-overview.md) and include the **--sku Standard_ZRS** parameter.  A list of [availability zones](../availability-zones/az-region#azure-regions-with-availability-zones) can be found here.
+    > If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../availability-zones/az-overview.md) and include the **--sku Standard_ZRS** parameter.  A list of [availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones) can be found here.
 
 1. For **Source subscription**, select the subscription that contains the managed disk to be backed up.
 1. For **Source disk**, select the managed disk to snapshot.
@@ -65,7 +65,7 @@ Follow these steps to copy the VHD and create the snapshot configuration using P
    ```
 
    > [!NOTE]
-   > If you would like to store your snapshot in zone-resilient storage, create it in a region that supports [availability zones](../availability-zones/az-overview.md) and include the `-SkuName Standard_ZRS` parameter. A list of [availability zones](../availability-zones/az-region#azure-regions-with-availability-zones) can be found here.
+   > If you would like to store your snapshot in zone-resilient storage, create it in a region that supports [availability zones](../availability-zones/az-overview.md) and include the `-SkuName Standard_ZRS` parameter. A list of [availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones) can be found here.
 
 1. Take the snapshot.
 
@@ -102,7 +102,7 @@ az snapshot create \
 ```
 
 > [!NOTE]
-> If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../availability-zones/az-overview.md) and include the **--sku Standard_ZRS** parameter.  A list of [availability zones](../availability-zones/az-region#azure-regions-with-availability-zones) can be found here.
+> If you would like to store your snapshot in zone-resilient storage, you need to create it in a region that supports [availability zones](../availability-zones/az-overview.md) and include the **--sku Standard_ZRS** parameter.  A list of [availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones) can be found here.
 
 You can see a list of the snapshots using [az snapshot list](/cli/azure/snapshot#az_snapshot_list).
 
