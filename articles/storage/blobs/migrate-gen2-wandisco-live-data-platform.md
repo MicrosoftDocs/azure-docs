@@ -1,5 +1,5 @@
 ---
-title: Data Lake Storage and WANdisco LiveData Platform for Azure (preview)
+title: Data Lake Storage and WANdisco LiveData Platform for Azure
 description: Migrate on-premises Hadoop data to Azure Data Lake Storage Gen2 by using WANdisco LiveData Platform for Azure.
 author: normesta
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
 ---
 
-# Meet demanding migration requirements with WANdisco LiveData Platform for Azure (preview)
+# Migrate on-premises Hadoop data to Azure Data Lake Storage Gen2 with WANdisco LiveData Platform for Azure
 
 [WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) migrates petabytes of on-premises Hadoop data to Azure Data Lake Storage Gen2 file systems without interrupting data operations or requiring downtime. The platform's continuous checks prevent data from being lost while keeping it consistent at both ends of transference even while it undergoes modification.
 
