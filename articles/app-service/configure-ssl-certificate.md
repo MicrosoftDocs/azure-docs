@@ -336,6 +336,8 @@ Once the rekey operation is complete, click **Sync**. The sync operation automat
 
 ### Renew certificate
 
+>[!NOTE] To renew a [certificate you uploaded](#upload-a-private-certificate), see [Export certificate binding](configure-ssl-bindings.md#renew-certificate-binding). 
+
 > [!NOTE]
 > The renewal process requires that [the well-known service principal for App Service has the required permissions on your key vault](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). This permission is configured for you when you import an App Service Certificate through the portal, and should not be removed from your key vault.
 
