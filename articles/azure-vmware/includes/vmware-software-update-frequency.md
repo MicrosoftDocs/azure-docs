@@ -10,6 +10,8 @@ ms.service: azure-vmware
 
 <!-- Used in faq.md and concepts-private-clouds-clusters.md -->
 
+One benefit of Azure VMware Solution private clouds is the platform is maintained for you.  Microsoft is responsible for the lifecycle management of VMware software (ESXi, vCenter, and vSAN). Microsoft is also responsible for the lifecycle management of NSX-T appliances, bootstrapping the network configuration, such as creating the Tier-0 gateway and enabling North-South routing. You're responsible for NSX-T SDN configuration: network segments, distributed firewall rules, Tier 1 gateways, and load balancers. 
+
 Microsoft is responsible for applying any patches, updates, or upgrades to ESXi, vCenter, vSAN, and NSX-T in your private cloud. The impact of patches, updates, and upgrades on ESXi, vCenter, and NSX-T is different. 
 
 - **ESXi** - There's no impact to workloads running in your private cloud. Access to vCenter and NSX-T isn't blocked during this time.  It's recommended that, during this time, you don't plan any other activities like scaling up private cloud, and so on, in your private cloud.
