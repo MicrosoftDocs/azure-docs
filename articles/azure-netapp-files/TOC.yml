@@ -153,22 +153,22 @@
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
     - name: Dynamically change the service level of a volume
       href: dynamic-change-volume-service-level.md
-  - name: Protect data 
+- name: Manage data protection  
+  items:
+  - name: Manage volume snapshots
     items:
     - name: Manage volume snapshots
-      items:
-      - name: Manage volume snapshots
-        href: azure-netapp-files-manage-snapshots.md
-    - name: Manage cross-region replication
-      items:
-      - name: Create volume replication
-        href: cross-region-replication-create-peering.md
-      - name: Display health status of replication relationship
-        href: cross-region-replication-display-health-status.md
-      - name: Manage disaster recovery
-        href: cross-region-replication-manage-disaster-recovery.md
-      - name: Delete volume replications or volumes
-        href: cross-region-replication-delete.md
+      href: azure-netapp-files-manage-snapshots.md
+  - name: Manage cross-region replication
+    items:
+    - name: Create volume replication
+      href: cross-region-replication-create-peering.md
+    - name: Display health status of replication relationship
+      href: cross-region-replication-display-health-status.md
+    - name: Manage disaster recovery
+      href: cross-region-replication-manage-disaster-recovery.md
+    - name: Delete volume replications or volumes
+      href: cross-region-replication-delete.md
 - name: Develop
   items:
   - name: REST API
