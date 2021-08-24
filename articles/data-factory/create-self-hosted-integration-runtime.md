@@ -358,7 +358,11 @@ If you select the **Use system proxy** option for the HTTP proxy, the self-hoste
 > [!IMPORTANT]
 > Don't forget to update both diahost.exe.config and diawp.exe.config.
 
-You also need to make sure that Microsoft Azure is in your company's allowlist. You can download the list of valid Azure IP addresses from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+You also need to make sure that Microsoft Azure is in your company's allowlist. You can download the list of valid Azure IP addresses. IP Ranges for each cloud, broken down by region and by the tagged services in that cloud are now available on MS Download: 
+   - Public: https://www.microsoft.com/download/details.aspx?id=56519
+   - US Gov: https://www.microsoft.com/download/details.aspx?id=57063 
+   - Germany: https://www.microsoft.com/download/details.aspx?id=57064 
+   - China: https://www.microsoft.com/download/details.aspx?id=57062 
 
 ### Possible symptoms for issues related to the firewall and proxy server
 

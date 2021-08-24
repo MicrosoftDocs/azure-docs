@@ -50,7 +50,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
     | Endpoint | Port |
     |----------------|-------|
     |`*.servicebus.windows.net` | 443 |
-    |`*.guestnotificationservice.azure.com` | 443 |
+    |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
 
 ## Usage
 

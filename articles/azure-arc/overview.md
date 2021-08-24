@@ -51,7 +51,7 @@ Key features of Azure Arc include:
 
 The following are pricing details for the features available today with Azure Arc.
 
-### Arc enabled servers
+### Arc-enabled servers
 
 The following Azure Arc control plane functionality is offered at no extra cost:
 
@@ -65,7 +65,7 @@ The following Azure Arc control plane functionality is offered at no ex
 
 * Update management.
 
-Any Azure service that is used on Arc enabled servers, for example Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information, see the [Azure pricing page](https://azure.microsoft.com/pricing/).
+Any Azure service that is used on Arc-enabled servers, for example Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information, see the [Azure pricing page](https://azure.microsoft.com/pricing/).
 
 ### Azure Arc enabled Kubernetes
 
@@ -77,7 +77,7 @@ In the current preview phase, Azure Arc enabled data services are offered at no 
 
 ## Next steps
 
-* To learn more about Arc enabled servers, see the following [overview](./servers/overview.md)
+* To learn more about Arc-enabled servers, see the following [overview](./servers/overview.md)
 
 * To learn more about Arc enabled Kubernetes, see the following [overview](./kubernetes/overview.md)
 
