@@ -12,7 +12,7 @@ ms.custom: references_regions
 ---
 
 # Enable notebooks for Azure Cosmos DB accounts (preview)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
 > Built-in notebooks for Azure Cosmos DB are currently available in [29 regions](#supported-regions). To use notebooks, [create a new Cosmos account](#create-a-new-cosmos-account) or [enable notebooks on an existing account](#enable-notebooks-in-an-existing-cosmos-account) in one of these regions. 

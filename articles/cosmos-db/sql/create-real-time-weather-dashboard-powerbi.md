@@ -12,7 +12,7 @@ ms.reviewer: sngun
 ---
 
 # Create a real-time dashboard using Azure Cosmos DB and Power BI
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 This article describes the steps required to create a live weather dashboard in Power BI using Azure Cosmos DB OLTP connector and Azure Analysis Services. The Power BI dashboard will display charts to show near real-time information about temperature and rainfall in a region.
 
