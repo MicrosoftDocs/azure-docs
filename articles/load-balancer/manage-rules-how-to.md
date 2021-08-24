@@ -1,7 +1,6 @@
 ---
-title: Manage load-balancing rules
-titleSuffix: Azure Load Balancer
-description: In this how-to, learn how managed load-balancing rules for Azure Load Balancer.
+title: Manage rules for Azure Load Balancer - Azure portal
+description: In this how-to, learn how to manage rules for Azure Load Balancer using the Azure portal
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
@@ -10,37 +9,85 @@ ms.date: 08/23/2021
 ms.custom: template-how-to
 ---
 
-# Manage load-balancing rules for Azure Load Balancer
+# Manage rules for Azure Load Balancer using the Azure portal
 
-[Add your introductory paragraph]
+Azure Load Balancer supports rules to configure inbound and outbound traffic to the backend instances of the load balancer.  In this article, you'll learn how to view, add, and remove the rules from an Azure Load Balancer.
 
+There are four types of rules:
 
+* **Load-balancing rules** - A load balancer rule is used to define how incoming traffic is distributed to the **all** the instances within the backend pool. A load-balancing rule maps a given frontend IP configuration and port to multiple backend IP addresses and ports. An example would be a rule created on port 80 to load balance web traffic.
+
+* **High availability ports** - A load balancer rule configured with **protocol - all** and **port - 0**. These rules enable a single rule to load-balance all TCP and UDP traffic that arrive on all ports of an internal standard load balancer. The HA ports load-balancing rules help you with scenarios, such as high availability and scale for network virtual appliances (NVAs) inside virtual networks. The feature can help when a large number of ports must be load-balanced.
+
+* **Inbound NAT rule** - An inbound NAT rule forwards incoming traffic sent to frontend IP address and port combination. The traffic is sent to a **specific** virtual machine or instance in the backend pool. Port forwarding is done by the same hash-based distribution as load balancing.
+
+* **Outbound rule** - An outbound rule configures outbound Network Address Translation (NAT) for **all** virtual machines or instances identified by the backend pool. This rule enables instances in the backend to communicate (outbound) to the internet or other endpoints.
 
 ## Prerequisites
 
-- <!-- prerequisite 1 -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
-<!-- remove this section if prerequisites are not needed -->
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-<!-- 4. H2s 
-Required. A how-to article explains how to do a task. The bulk of each H2 should be 
-a procedure.
--->
+- An Azure Load Balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
 
-## [Section 1 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+## Load-balancing rules
 
-## [Section 2 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+In this section, you'll learn how to add and remove a load-balancing rule.
 
-## [Section n heading]
+### Add a load-balancing rule
+
+In this example, you'll create a rule to load balance port 80.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+
+3. Select **myLoadBalancer** or your load balancer.
+
+4. In the load balancer page, select **Load balancing rules** in **Settings**.
+
+5. Select **+ Add** in **Load balancing rules** to add a rule.
+
+    :::image type="content" source="./media/manage-rules-how-to/load-balancing-rules.png" alt-text="Screenshot of the load-balancing rules page in a standard load balancer." border="true":::
+
+6. Enter or select the following information in **Add load balancing rule**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | **myHTTPRule** |
+    | IP Version | Select **IPv4** or **IPv6**. |
+    | Frontend IP address | Select the frontend IP address of the load balancer. <br> In this example, it's **myFrontendIP**. |
+    | Protocol | Leave the default of **TCP**. |
+    | Port | Enter **80**. |
+    | Backend port | Enter **80**. |
+    | Backend pool | Select the backend pool of the load balancer. </br> In this example, it's **myBackendPool**.| Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest at the defaults or tailor to your requirements. </br> Select **OK**. |
+    | Session persistence | Select **None** or your required persistence. </br> For more informatoin about distribution modes, see [Azure Load Balancer distribution modes](load-balancer-distribution-mode.md). | Idle timeout (minutes) | Leave the default of **4** or move the slider to your required idle timeout. |
+    | TCP reset | Select **Enabled**. </br> For more information on TCP reset, see [Load Balancer TCP Reset and Idle Timeout](load-balancer-tcp-reset.md.) |
+    | Floating IP | Leave the default of **Disabled** or enable if your deployment requires floating IP. </br> For information on floating IP, see [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md). |
+    | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** </br> For more information on outbound rules and (SNAT), see [Outbound rules Azure Load Balancer](outbound-rules.md) and [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md). |
+
+7. Select **Add**.
+
+    :::image type="content" source="./media/manage-rules-how-to/add-load-balancing-rule.png" alt-text="Screenshot of the add load balancer rule page." border="true":::
+
+### Remove a load-balancing rule
+
+In this example, you'll remove a load-balancing rule.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+
+3. Select **myLoadBalancer** or your load balancer.
+
+4. In the load balancer page, select **Load balancing rules** in **Settings**.
+
+5. Select the three dots next to the rule you want to remove.
+
+6. Select **Delete**.
+
+    :::image type="content" source="./media/manage-rules-how-to/remove-load-balancing-rule.png" alt-text="Screenshot of removing a load-balancing rule." border="true":::
+
+## High availability ports
 <!-- Introduction paragraph -->
 1. <!-- Step 1 -->
 1. <!-- Step 2 -->
