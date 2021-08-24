@@ -41,7 +41,7 @@ Local deployment is deploying a model to a local Docker environment. Local deplo
 Local deployment supports creation, update, and deletion of a local endpoint. It also allows you to invoke and get logs from the endpoint. To use local deployment, add `--local` to the appropriate CLI command:
 
 ```azurecli
-az ml endpoint create -n <endpoint-name> -f <spec_file.yaml> --local
+az ml online-deployment create --endpoint-name <endpoint-name> -n <deployment-name> -f <spec_file.yaml> --local
 ```
 As a part of local deployment the following steps take place:
 
@@ -57,13 +57,13 @@ You can't get direct access to the VM where the model is deployed. However, you 
 To see log output from container, use the following CLI command:
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> -d <deployment-name> -l 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 or
 
 ```azurecli
-    az ml endpoint get-logs --name <endpoint-name> --deployment <deployment-name> --lines 100
+    az ml online-deployment get-logs --endpoint-name <endpoint-name> --name <deployment-name> --lines 100
 ```
 
 Add `--resource-group` and `--workspace-name` to the commands above if you have not already set these parameters via `az configure`.
@@ -71,7 +71,7 @@ Add `--resource-group` and `--workspace-name` to the commands above if you have 
 To see information about how to set these parameters, and if current values are already set, run:
 
 ```azurecli
-az ml endpoint get-logs -h
+az ml online-deployment get-logs -h
 ```
 
 By default the logs are pulled from the inference server. Logs include the console log from the inference server, which contains print/log statements from your `score.py' code.
@@ -118,7 +118,7 @@ For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed0
 To get more details about this error, run:
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --tail 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### ERR_1300: Unable to download user model\code artifacts
@@ -149,7 +149,7 @@ After provisioning the compute resource, during deployment creation, Azure tries
 To get more details about this error, run:
 
 ```azurecli
-az ml endpoint get-logs -n <endpoint-name> --deployment <deployment-name> --lines 100
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### ERR_1350: Unable to download user model, not enough space on the disk
@@ -165,7 +165,7 @@ This error means that this container couldn't start, which means scoring could n
 To get the exact reason for an error, run: 
 
 ```azurecli
-az ml endpoint get-logs
+az ml online-deployment get-logs -e <endpoint-name> -n <deployment-name> -l 100
 ```
 
 ### ERR_2200: User container has crashed\terminated
