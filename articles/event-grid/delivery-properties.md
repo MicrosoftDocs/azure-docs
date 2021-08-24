@@ -69,27 +69,28 @@ Authorization: BEARER SlAV32hkKG...
 ### Service Bus example
 Azure Service Bus supports the use of following message properties when sending single messages. 
 
-| Header name | Header type | Header value | 
-| :-- | :-- | :-- |
-| `MessageId` | Dynamic |  By default, it's the internal ID of the Event Grid event. You can override it. For example, `data.field`. |
-| `PartitionKey` | | | 
-| `SessionId` | | | 
-| `CorrelationId` | | | 
-| `Label` | | | 
-| `ReplyTo` | Static | A static header value. <br/>Example: `foo@contoso.com` | 
-| `ReplyToSessionId` | | | 
-| `To` | | | 
-| `ViaPartitionKey` | | | 
+| Header name | Header type |
+| :-- | :-- |
+| `MessageId` | Dynamic |  
+| `PartitionKey` | Static or dynamic |
+| `SessionId` | Static or dynamic |
+| `CorrelationId` | Static or dynamic |
+| `Label` | Static or dynamic |
+| `ReplyTo` | Static or dynamic | 
+| `ReplyToSessionId` | Static or dynamic |
+| `To` |Static or dynamic |
+| `ViaPartitionKey` | Static or dynamic |
 
-
+> [!NOTE]
+> The default value of `MessageId` is the internal ID of the Event Grid event. You can override it. For example, `data.field`.
 
 ### Event Hubs example
 
 If you need to publish events to a specific partition within an event hub, set the `ParitionKey` property on your event subscription to specify the partition key that identifies the target event hub partition.
 
-| Header name | Header type | Header value                                  |
+| Header name | Header type |                                |
 | :-- | :-- | :-- |
-|`PartitionKey` | Static | A partition key. |
+|`PartitionKey` | Static |
 
 
 ### Configure time to live on outgoing events to Azure Storage Queues
