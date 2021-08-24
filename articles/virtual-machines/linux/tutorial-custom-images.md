@@ -16,6 +16,8 @@ ms.reviewer: mimckitt
 
 # Tutorial: Create a custom image of an Azure VM with the Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. In this tutorial, you create your own custom image of an Azure virtual machine. You learn how to:
 
 > [!div class="checklist"]
