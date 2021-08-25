@@ -4,7 +4,7 @@ description: This article gives answers to frequently asked questions about Azur
 services: automation
 ms.subservice: 
 ms.topic: conceptual
-ms.date: 06/04/2021
+ms.date: 08/25/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -44,13 +44,9 @@ $sched = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountN
 New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName <automationAccountName> -Schedule $sched -Windows -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-## Process automation - Python runbooks
+## Which Python 3 version is supported in Azure Automation?
 
-### Which Python 3 version is supported in Azure Automation?
-
-For cloud jobs, Python 3.8 is supported. Scripts and packages from any 3.x version might work if the code is compatible across different versions.
-
-For hybrid jobs on Windows Hybrid Runbook Workers, you can choose to install any 3.x version you want to use. For hybrid jobs on Linux Hybrid Runbook Workers, we depend on Python 3 version installed on the machine to run DSC OMSConfig and the Linux Hybrid Worker. We recommend installing version 3.6; however, different versions should also work if there are no breaking changes in method signatures or contracts between versions of Python 3.
+See [Python runbooks](automation-runbook-types.md#python-runbooks).
 
 ### Can Python 2 and Python 3 runbooks run in same Automation account?
 
@@ -72,13 +68,9 @@ Python 2 and Python 3 have different execution environments. While a Python 2 ru
 
 Python 3 is a new runbook definition, which distinguishes between Python 2 and Python 3 runbooks. Similarly, another package kind is introduced for Python 3 packages.
 
-### How does a Hybrid Runbook Worker know which version of Python to run when both Python2 and Python3 are installed?
+## How does a Hybrid Runbook Worker know which version of Python to run when both Python2 and Python3 are installed?
 
-For a Windows Runbook Worker, when running a Python 2 runbook it looks for the environment variable `PYTHON_2_PATH` first and validates whether it points to a valid executable file. For example, if the installation folder is `C:\Python2`, it would check if `C:\Python2\python.exe` is a valid path. If not found, then it looks for the `PATH` environment variable to do a similar check.
-
-For Python 3, it looks for the `PYTHON_3_PATH` env variable first and then falls back to the `PATH` environment variable.
-
-When using only one version of Python, you can add the installation path to the `PATH` variable. If you want to use both versions on the Runbook Worker, set `PYTHON_2_PATH` and `PYTHON_3_PATH` to the location of the module for those versions.
+See [Multiple Python versions](automation-runbook-types.md#multiple-python-versions).
 
 ### How does a Hybrid Runbook Worker locate the Python interpreter?
 
@@ -88,21 +80,9 @@ Locating the Python module is controlled by environment variables as explained e
 
 No. Source Control isn't currently supported for Python 3. By default, Python runbooks are synced as Python 2 runbooks.
 
-### How can a runbook author know what Python packages are available in an Azure sandbox?
+## How can a runbook author know what Python packages are available in an Azure sandbox?
 
-Use the following code to list the default installed modules:
-
-```python
-#!/usr/bin/env python3
-
-import pkg_resources
-installed_packages = pkg_resources.working_set
-installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
-   for i in installed_packages])
-
-for package in installed_packages_list:
-    print(package)
-```
+See [Identify available packages in sandbox](python-3-packages.md#identify-available-packages-in-sandbox).
 
 ### How can a runbook author set which version of a package module to be used if there are multiple modules?
 
