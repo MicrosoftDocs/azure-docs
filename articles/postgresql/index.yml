@@ -60,6 +60,8 @@ landingContent:
             url: flexible-server/overview.md
           - text: View all Flexible server documentation
             url: flexible-server/index.yml
+          - text: Try Flexible Server for free
+            url: flexible-server/how-to-deploy-on-azure-free-account.md
       - linkListType: concept
         links:
           - text: Server concepts

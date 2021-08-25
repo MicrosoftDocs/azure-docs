@@ -115,6 +115,8 @@
     href: instance-metadata-service-load-balancer.md
 - name: How-to
   items:
+  - name: Manage load balancer rules
+    href: manage-rules-how-to.md
   - name: Virtual machine scale sets
     items:
     - name: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
@@ -166,6 +168,8 @@
       href: move-across-regions-internal-load-balancer-powershell.md
   - name: Retrieve metadata using the Azure IMDS
     href: howto-load-balancer-imds.md
+  - name: Outbound only load balancer configuration
+    href: egress-only.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer

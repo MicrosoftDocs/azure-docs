@@ -12,6 +12,8 @@ ms.colletion: windows
 ---
 # Create a Windows VM with Azure Image Builder
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 This article is to show you how you can create a customized Windows image using the Azure VM Image Builder. The example in this article uses [customizers](../linux/image-builder-json.md#properties-customize) for customizing the image:
 - PowerShell (ScriptUri) - download and run a [PowerShell script](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
 - Windows Restart - restarts the VM.
@@ -76,10 +78,10 @@ runOutputName=aibWindows
 imageName=aibWinImage
 ```
 
-Create a variable for your subscription ID. You can get this using `az account show | grep id`.
+Create a variable for your subscription ID.
 
 ```azurecli-interactive
-subscriptionID=<Your subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 ```
 ## Create a resource group
 This resource group is used to store the image configuration template artifact and the image.
@@ -99,7 +101,7 @@ idenityName=aibBuiUserId$(date +'%s')
 az identity create -g $imageResourceGroup -n $idenityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
