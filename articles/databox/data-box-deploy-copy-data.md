@@ -68,15 +68,13 @@ The following table shows the UNC path to the shares on your Data Box and Azure 
 
 If using a Windows Server host computer, follow these steps to connect to the Data Box.
 
-<!--1. The first step is to authenticate and start a session. Go to **Connect and copy**. Select **SMB** to get the access credentials for the shares associated with your storage account. 
+1. The first step is to authenticate and start a session. Go to **Connect and copy**. Select **SMB** to get the access credentials for the shares associated with your storage account. 
 
     ![Get share credentials for SMB shares](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
 2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Then select **OK**.
     
-    ![Get user name and password for a share](media/data-box-deploy-copy-data/get-share-credentials2.png)-->
-
-[!INCLUDE [data-box-get-share-credentials](../../includes/data-box-get-share-credentials.md)]
+    ![Get user name and password for a share](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 1. To access the shares associated with your storage account (*utsac1* in the following example) from your host computer, open a command window. At the command prompt, type:
 
