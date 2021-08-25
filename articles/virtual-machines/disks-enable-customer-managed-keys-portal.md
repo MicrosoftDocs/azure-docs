@@ -3,7 +3,7 @@ title: Azure portal - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks through the Azure portal.
 author: roygara
 
-ms.date: 06/29/2021
+ms.date: 08/25/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
@@ -77,6 +77,12 @@ The VM deployment process is similar to the standard deployment process, the onl
 
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with the managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
+
+### Enable automatic key rotation on an existing disk encryption set
+
+1. Navigate to the disk encryption set that you want to enable [automatic key rotation](disk-encryption.md#automatic-key-rotation-of-customer-managed-keys) on.
+1. Under **Settings**, select **Key**.
+1. Select **Auto key rotation** and select **Save**.
 
 ## Next steps
 

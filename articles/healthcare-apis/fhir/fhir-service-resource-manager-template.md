@@ -13,7 +13,7 @@ ms.date: 08/06/2021
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you will learn how to deploy the FHIR service within the Azure Healthcare APIs using the Azure Resource Manager template (ARM template). We provide you two options, using PowerShell or using CLI.
+In this article, you will learn how to deploy the FHIR service within the Azure Healthcare APIs (hereby called the FHIR service) using the Azure Resource Manager template (ARM template). We provide you two options, using PowerShell or using CLI.
 
 An [ARM template](../../azure-resource-manager/templates/overview.md) is a JSON file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
 
