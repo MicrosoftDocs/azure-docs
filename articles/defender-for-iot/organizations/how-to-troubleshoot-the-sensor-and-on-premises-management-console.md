@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 08/24/2021
+ms.date: 08/25/2021
 ms.topic: article
 ---
 # Troubleshoot the sensor and on-premises management console
@@ -241,11 +241,11 @@ In addition to tools for monitoring and analyzing your network, you can send inf
 
 1. On the left pane, select **System Settings**.
 
-1. Select **Export Logs**.
+1. Select **Export**.
 
-    :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Export a log to system support.":::
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-a-log.png" alt-text="Export a log to system support.":::
 
-1. In the **File Name** box, enter the file name that you want to use for the log export. The default is the current date.
+1. In the **File Name** field, enter the file name that you want to use for the log export. The default is the current date.
 
 1. To define what data you want to export, select the data categories:  
 
@@ -253,28 +253,61 @@ In addition to tools for monitoring and analyzing your network, you can send inf
     |--|--|
     | **Operating System Logs** | Select this option to get information about the operating system state. |
     | **Installation/Upgrade logs** | Select this option for investigation of the installation and upgrade configuration parameters. |
+    | **High Availability Logs**| Select this option to check high availability. |
     | **System Sanity Output** | Select this option to check system performance. |
-    | **Dissection Logs** | Select this option to allow advanced inspection of protocol dissection. |
     | **OS Kernel Dumps** | Select this option to export your kernel memory dump. A kernel memory dump contains all the memory that the kernel is using at the time of the problem that occurred in this kernel. The size of the dump file is smaller than the complete memory dump. Typically, the dump file is around one-third the size of the physical memory on the system. |
     | **Forwarding logs** | Select this option for investigation of the forwarding rules. |
     | **SNMP Logs** | Select this option to receive SNMP health check information. |
     | **Core Application Logs** | Select this option to export data about the core application configuration and operation. |
-    | **Communication with CM logs** | Select this option if there are continuous problems or interruptions of connection with the management console. |
+    | **Communication with Sensors logs** | Select this option if there are continuous problems or interruptions of connection with the sensors. |
     | **Web Application Logs** | Select this option to get information about all the requests sent from the application's web interface. |
+    |Audit Logs| Select this option to export a log of all Learn, password changes, sign ins, created users, reset passwords, exclusion rules created, exclusion rules edited, exclusion rules deleted, management console upgrades, sensor upgrade retry, uploading threat intelligence package. |
     | **System Backup** | Select this option to export a backup of all the system data for investigating the exact state of the system. |
-    | **Dissection Statistics** | Select this option to allow advanced inspection of protocol statistics. |
+    | **** | Select this option to  |
     | **Database Logs** | Select this option to export logs from the system database. Investigating system logs helps identify system problems. |
     | **Configuration** | Select this option to export information about all the configurable parameters to make sure everything was configured correctly. |
 
 1. To select all the options, select **Select All** next to **Choose Categories**.
 
-1. Select **Export Logs**.
+1. Select **Export**.
 
 The exported logs are added to the **Archived Logs** list. Send the OTP to the support team in a separate message and medium from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
 
 The list of archived logs can contain up to five items. If the number of items in the list goes beyond that number, the earliest item is deleted.
 
-## See also
+### Export audit log
+
+Audit logs can be obtained only through the management console. Audit logs contain key information that is recorded at the time of occurrence. The following information is recorded in the audit logs:
+
+| Action | Information logged |
+|--|--|
+| Learn, and remediation of alerts | Alert ID |
+| password changes | User, User ID |
+| Login | User |
+| User creation | User, User role |
+| Password reset | User name |
+| Exclusion rules: </br></br>- Creation </br></br>- Editing </br></br>- Deletion | </br></br>Rule summary </br></br>Rule ID, Rule Summary </br></br>Rule ID |
+| Management Console Upgrade | The upgrade file used |
+| Sensor upgrade retry | Sensor ID |
+| Uploaded TI package | No additional information recorded. |
+
+**To export the audit log**:
+
+1. In the management console, in the left pane, select **System Settings**.
+
+1. Select **Export**.
+
+1. In the **File Name** field, enter the file name that you want to use for the log export. The default is the current date.
+
+1. Select **Audit Logs**.
+
+1. Select **Export**.
+
+    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/audit-logs-export.png" alt-text="Select Audit Logs and then select Export to create your file":::
+
+The exported log is added to the **Archived Logs** list. Select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: to view the OTP, and send the OTP string to the support team in a separate message from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
+
+## Next steps
 
 - [View alerts](how-to-view-alerts.md)
 
