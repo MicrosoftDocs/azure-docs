@@ -547,6 +547,6 @@ To configure bring your own load balancer:
 <!--Image references-->
 [Inbound-NAT-Rules]: ./media/how-to-managed-cluster-networking/inbound-nat-rules.png
 [sfmc-rdp-connect]: ./media/how-to-managed-cluster-networking/sfmc-rdp-connect.png
-[sfmc-byolb-example-1]: ./media/how-to-managed-cluster-networking/sfmc-byolb-example-1.PNG
-[sfmc-byolb-example-2]: ./media/how-to-managed-cluster-networking/sfmc-byolb-example-2.PNG
+[sfmc-byolb-example-1]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-1.png
+[sfmc-byolb-example-2]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-2.png
 
