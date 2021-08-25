@@ -23,13 +23,16 @@ This article describes how to deploy data connectors in Azure Sentinel, listing 
 
     | Data ingestion method | Linked article with instructions |
     | --- | --- |
-    | **Azure service-to-service integration** * | [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md) |
+    | **Azure service-to-service integration** | [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md) |
     | **Common Event Format (CEF) over Syslog** | [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md) |
     | **Azure Sentinel Data Collector API** | [Connect your data source to Azure Sentinel's Data Collector API to ingest data](connect-rest-api-template.md) |
     | **Azure Functions and the REST API** | [Use Azure Functions to connect Azure Sentinel to your data source](connect-azure-functions-template.md) |
     | **Syslog** | [Collect data from Linux-based sources using Syslog](connect-syslog.md) |
     | **Custom logs** | [Collect data in custom log formats to Azure Sentinel with the Log Analytics agent](connect-custom-logs.md) |
     |
+
+    > [!NOTE]
+    > The **Azure service-to-service integration** data ingestion method links to three different sections of its article, depending on the connector type. Each connector's section below specifies the section within that article that it links to.
 
 1. When deploying a specific connector, choose the appropriate article linked to its **data ingestion method**, and use the information and additional guidance in the relevant section below to supplement the information in that article.
 
