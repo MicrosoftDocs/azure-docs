@@ -125,11 +125,11 @@ To add larger assemblies, you can upload your assembly to an Azure blob containe
 
    * If your blob container has at least public access, select **Cancel**, and follow these steps later on this page: [Upload to containers with public access](#public-access-assemblies)
 
-     ![Public access](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
+     ![Public access](media/logic-apps-enterprise-integration-maps/azure-blob-container-public-access.png)
 
    * If your blob container doesn't have public access, select **Cancel**, and follow these steps later on this page: [Upload to containers without public access](#no-public-access-assemblies)
 
-     ![No public access](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
+     ![No public access](media/logic-apps-enterprise-integration-maps/azure-blob-container-no-public-access.png)
 
 <a name="public-access-assemblies"></a>
 

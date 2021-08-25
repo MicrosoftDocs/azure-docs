@@ -133,13 +133,13 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 #### Upload to containers without public access
 
-1. Upload the schema to your storage account. In the right-hand window, choose **Upload**.
+1. Upload the schema to your storage account. In the right-hand window, select **Upload**.
 
 1. After you finish uploading, generate a shared access signature (SAS) for your schema. From your schema's shortcut menu, select **Get Shared Access Signature**.
 
-1. In the **Shared Access Signature** pane, select **Generate container-level shared access signature URI** > **Create**. After the SAS URL gets generated, next to the **URL** box, choose **Copy**.
+1. In the **Shared Access Signature** pane, select **Generate container-level shared access signature URI** > **Create**. After the SAS URL gets generated, next to the **URL** box, select **Copy**.
 
-1. Return to the Azure portal where the **Add Schema** pane is open. Choose **Large file**.
+1. Return to the Azure portal where the **Add Schema** pane is open. Select **Large file**.
 
    The **Content URI** box now appears, rather than the **Schema** box.
 
