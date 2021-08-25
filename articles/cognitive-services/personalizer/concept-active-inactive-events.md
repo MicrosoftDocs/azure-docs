@@ -1,6 +1,9 @@
 ---
 title: Active and inactive events - Personalizer
 description: This article discusses the use of active and inactive events within the Personalizer service.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
