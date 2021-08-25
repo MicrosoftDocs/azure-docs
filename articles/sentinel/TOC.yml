@@ -124,24 +124,24 @@
         href: connect-microsoft-365-defender.md
       - name: Windows security events
         href: connect-windows-security-events.md
-    - name: Azure, Windows, Microsoft, and Amazon instructions
-      href: connect-azure-windows-microsoft-services.md
-    - name: REST-API connection instructions
-      href: connect-rest-api-template.md
-    - name: Log Analytics agent connection instructions
+    - name: Connection instructions by type
       items:
-      - name: Connect CEF log sources
+      - name: Azure, Windows, and Microsoft connectors
+        href: connect-azure-windows-microsoft-services.md
+      - name: CEF over Syslog sources
         href: connect-common-event-format.md
-      - name: Deploy a log forwarder
-        href: connect-log-forwarder.md
-      - name: Troubleshoot CEF/Syslog data collection
-        href: troubleshooting-cef-syslog.md
-      - name: Connect Syslog sources
+      - name: Syslog (raw) sources
         href: connect-syslog.md
-      - name: Connect custom log sources
+      - name: Azure Sentinel Data Collector API
+        href: connect-rest-api-template.md
+      - name: Azure Functions API connection
+        href: connect-azure-functions-template.md
+      - name: Custom log sources
         href: connect-custom-logs.md
-    - name: Azure Functions connection instructions
-      href: connect-azure-functions-template.md
+    - name: Deploy a log forwarder
+      href: connect-log-forwarder.md
+    - name: Troubleshoot CEF/Syslog data collection
+      href: troubleshooting-cef-syslog.md
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Connect Azure Stack VMs
