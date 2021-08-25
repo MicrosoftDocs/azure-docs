@@ -44,7 +44,7 @@ Microsoft would service each dev kit release with OTA packages. However, as ther
 
 **Option 1:**
 
-1. Sign in to the [Azure Percept Studio](https://docs.microsoft.com/azure/azure-percept/overview-azure-percept-studio).
+1. Sign in to the [Azure Percept Studio](./overview-azure-percept-studio.md).
 1. In **Devices**, choose your dev kit device.
 1. In the **General** tab, look for the **Model** and **SW Version** information.
 
