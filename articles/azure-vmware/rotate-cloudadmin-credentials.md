@@ -12,6 +12,9 @@ ms.date: 08/27/2021
 
 In this article, you'll rotate the cloudadmin credentials (vCenter Server *CloudAdmin* credentials) for your Azure VMware Solution private cloud.  Although the password for this accounts don't expire, you can generate a new one at any time. After generating a new password, you must update VMware HCX Connector with the latest password.
 
+>[!IMPORTANT]
+>Currently, rotating your NSX-T credentials isn't supported.
+
 
 ## Prerequisites
 
