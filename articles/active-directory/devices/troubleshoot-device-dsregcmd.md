@@ -91,7 +91,7 @@ The state is displayed only when the device is Azure AD-joined or hybrid Azure A
 The tenant details are displayed only when the device is Azure AD-joined or hybrid Azure AD-joined, not Azure AD-registered. This section lists the common tenant details that are displayed when a device is joined to Azure AD.
 
 > [!NOTE]
-> If the mobile device management (MDM) URL fields in this section are empty, it indicates that the MDM was either not configured or the current user isn't in scope of MDM enrollment. Check the Mobility settings in Azure AD to review your MDM configuration.
+> If the mobile device management (MDM) URL fields in this section are empty, it indicates either that the MDM was not configured or that the current user isn't in scope of MDM enrollment. Check the Mobility settings in Azure AD to review your MDM configuration.
 
 > [!NOTE]
 > Even if you see MDM URLs, this does not mean that the device is managed by an MDM. The information is displayed if the tenant has MDM configuration for auto-enrollment even if the device itself isn't managed.
@@ -140,8 +140,8 @@ This section lists the statuses of various attributes for users who are currentl
 - **Possible values**: DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error.
 - **WorkplaceJoined**: Set the state to *YES* if Azure AD-registered accounts have been added to the device in the current NTUSER context.
 - **WamDefaultSet**: Set the state to *YES* if a Web Account Manager (WAM) default WebAccount is created for the logged-in user. This field could display an error if `dsregcmd /status` is run from an elevated command prompt.
-- **WamDefaultAuthority**: Set the state to "organizations" for Azure AD.
-- **WamDefaultId**: Always use "https://login.microsoft.com" for Azure AD.
+- **WamDefaultAuthority**: Set the state to *organizations* for Azure AD.
+- **WamDefaultId**: Always use *https://login.microsoft.com* for Azure AD.
 - **WamDefaultGUID**: The WAM provider's (Azure AD/Microsoft account) GUID for the default WAM WebAccount.
 
 ### Sample user state output
