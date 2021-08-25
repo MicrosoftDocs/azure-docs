@@ -76,9 +76,6 @@ items:
       href: fhir-service-access-token-validation.md
     - name: Get access token using CLI
       href: get-healthcare-apis-access-token-cli.md
-  
-  - name: Access using Postman
-    href: using-postman.md
 
   - name: Diagnostic logging
     expanded: true
