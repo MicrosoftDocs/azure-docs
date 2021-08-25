@@ -110,7 +110,7 @@ First let's create an empty ASP.NET Core app.
     </html>
     ```
 
-You can test the server by running `dotnet run` and access http://localhost:5000/index.html in browser.
+You can test the server by running `dotnet run --urls http://localhost:8080` and access http://localhost:8080/index.html in browser.
 
 You may remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md) the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This is usually not safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
 
@@ -152,20 +152,26 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 
     This token generation code is similar to the one we used in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md), except we pass one more argument (`userId`) when generating the token. User ID can be used to identify the identity of client so when you receive a message you know where the message is coming from.
 
-    You can test this API by running `dotnet run` and accessing `http://localhost:5000/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
+    You can test this API by running `dotnet run --urls http://localhost:8080` and accessing `http://localhost:8080/negotiate?id=<user-id>` and it will give you the full url of the Azure Web PubSub with an access token.
 
-3.  Then update `index.html` with the following script to get the token from server and connect to service
+3.  Then update `index.html` to include the following script to get the token from server and connect to service
  
     ```html
-    <script>
-      (async function () {
-        let id = prompt('Please input your user name');
-        let res = await fetch(`/negotiate?id=${id}`);
-        let url = await res.text();
-        let ws = new WebSocket(url);
-        ws.onopen = () => console.log('connected');
-      })();
-    </script>
+    <html>
+      <body>
+        <h1>Azure Web PubSub Chat</h1>
+      </body>
+  
+      <script>
+        (async function () {
+          let id = prompt('Please input your user name');
+          let res = await fetch(`/negotiate?id=${id}`);
+          let url = await res.text();
+          let ws = new WebSocket(url);
+          ws.onopen = () => console.log('connected');
+        })();
+      </script>
+    </html>
     ```
 
     If you are using Chrome, you can test it by opening the home page, input your user name. press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
@@ -251,22 +257,29 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 3.  Then update `index.html` with the following script to get the token from server and connect to service
  
     ```html
-    <script>
-      (async function () {
-        let id = prompt('Please input your user name');
-        let res = await fetch(`/negotiate?id=${id}`);
-        let data = await res.json();
-        let ws = new WebSocket(data.url);
-        ws.onopen = () => console.log('connected');
-      })();
-    </script>
+
+    <html>
+      <body>
+        <h1>Azure Web PubSub Chat</h1>
+      </body>
+  
+      <script>
+        (async function () {
+          let id = prompt('Please input your user name');
+          let res = await fetch(`/negotiate?id=${id}`);
+          let data = await res.json();
+          let ws = new WebSocket(data.url);
+          ws.onopen = () => console.log('connected');
+        })();
+      </script>
+    </html>
     ```
 
     If you are using Chrome, you can test it by opening the home page, input your user name. press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
 
 # [Java](#tab/java)
 
-We will use the simple web framework [javalin](https://javalin.io/) to host the web pages and handle incoming requests.
+We will use the [Javalin](https://javalin.io/) web framework to host the web pages and handle incoming requests.
 
 1. First let's use Maven to create a new app `webpubsub-tutorial-chat` and switch into the *webpubsub-tutorial-chat* folder:
 
@@ -312,7 +325,7 @@ We will use the simple web framework [javalin](https://javalin.io/) to host the 
     }
     ```
 
-    Depending on your setup, you might need to explicitly set the language level to Java 8. This can be done in the in the pom.xml. Add the following snippet:
+    Depending on your setup, you might need to explicitly set the language level to Java 8. This can be done in the pom.xml. Add the following snippet:
     ```xml
     <build>
         <plugins>
@@ -418,15 +431,21 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
 3. Then update `index.html` with the following script to get the token from the server and connect to the service.
 
     ```html
-    <script>
-      (async function () {
-        let id = prompt('Please input your user name');
-        let res = await fetch(`/negotiate?id=${id}`);
-        let url = await res.text();
-        let ws = new WebSocket(url);
-        ws.onopen = () => console.log('connected');
-      })();
-    </script>
+    <html>
+      <body>
+        <h1>Azure Web PubSub Chat</h1>
+      </body>
+  
+      <script>
+        (async function () {
+          let id = prompt('Please input your user name');
+          let res = await fetch(`/negotiate?id=${id}`);
+          let url = await res.text();
+          let ws = new WebSocket(url);
+          ws.onopen = () => console.log('connected');
+        })();
+      </script>
+    </html>
     ```
 
     If you are using Chrome, you can test it by opening the home page, input your user name. press F12 to open the Developer Tools window, switch to **Console** table and you'll see `connected` being printed in browser console.
@@ -475,7 +494,12 @@ For now, you need to implement the event handler by your own in C#, the steps ar
         {
             if (context.Request.Method == "OPTIONS")
             {
-                ...
+                if (context.Request.Headers["WebHook-Request-Origin"].Count > 0)
+                {
+                    context.Response.Headers["WebHook-Allowed-Origin"] = "*";
+                    context.Response.StatusCode = 200;
+                    return;
+                }
             }
             else if (context.Request.Method == "POST")
             {
@@ -565,6 +589,7 @@ Then we need to set the Webhook URL in the service so it can know where to call 
 
 1.  First download ngrok from https://ngrok.com/download, extract the executable to your local folder or your system bin folder.
 2.  Start ngrok
+    
     ```bash
     ngrok http 8080
     ```
@@ -575,9 +600,18 @@ ngrok will print a URL (`https://<domain-name>.ngrok.io`) that can be accessed f
 
 Then we update the service event handler and set the Webhook URL.
 
-[!INCLUDE [update event handler](includes/cli-awps-update-event-handler.md)]
+Use the Azure CLI [az webpubsub event-handler hub](/cli/azure/webpubsub/event-handler/hub) command to update the event handler settings:
 
-After the update is completed, open the home page http://localhost:5000/index.html, input your user name, you’ll see the connected message printed in the server console.
+  > [!Important]
+  > Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub resource created from the previous steps.
+  > Replace &lt;domain-name&lt; with the name ngrok printed.
+
+```azurecli-interactive
+az webpubsub event-handler hub update -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name chat --template url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event-pattern="connected"
+```
+
+
+After the update is completed, open the home page http://localhost:8080/index.html, input your user name, you’ll see the connected message printed in the server console.
 
 ## Handle Message events
 
@@ -598,7 +632,12 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
             var serviceClient = context.RequestServices.GetRequiredService<WebPubSubServiceClient>();
             if (context.Request.Method == "OPTIONS")
             {
-                ...
+                if (context.Request.Headers["WebHook-Request-Origin"].Count > 0)
+                {
+                    context.Response.Headers["WebHook-Allowed-Origin"] = "*";
+                    context.Response.StatusCode = 200;
+                    return;
+                }
             }
             else if (context.Request.Method == "POST")
             {
@@ -636,7 +675,11 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
       <div id="messages"></div>
       <script>
         (async function () {
-          ...
+          let id = prompt('Please input your user name');
+          let res = await fetch(`/negotiate?id=${id}`);
+          let url = await res.text();
+          let ws = new WebSocket(url);
+          ws.onopen = () => console.log('connected');
 
           let messages = document.querySelector('#messages');
           ws.onmessage = event => {
@@ -670,7 +713,12 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
         {
             if (context.Request.Method == "OPTIONS")
             {
-                ...
+                if (context.Request.Headers["WebHook-Request-Origin"].Count > 0)
+                {
+                    context.Response.Headers["WebHook-Allowed-Origin"] = "*";
+                    context.Response.StatusCode = 200;
+                    return;
+                }
             }
             else if (context.Request.Method == "POST")
             {
@@ -689,7 +737,7 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
     });
     ```
 
-Now run the server and open multiple browser instances, then you can chat with each other.
+Now run the server using `dotnet run --urls http://localhost:8080` and open multiple browser instances to access http://localhost:8080/index.html, then you can chat with each other.
 
 The complete code sample of this tutorial can be found [here][code].
 
@@ -703,7 +751,7 @@ The complete code sample of this tutorial can be found [here][code].
     let handler = new WebPubSubEventHandler(hubName, ['*'], {
       path: '/eventhandler',
       onConnected: async req => {
-        ...
+        console.log(`${req.context.userId} connected`);
       },
       handleUserEvent: async (req, res) => {
         if (req.context.eventName === 'message') 
@@ -722,32 +770,36 @@ The complete code sample of this tutorial can be found [here][code].
     ```html
     <html>
 
-    <body>
-      <h1>Azure Web PubSub Chat</h1>
-      <input id="message" placeholder="Type to chat...">
-      <div id="messages"></div>
-      <script>
-        (async function () {
-          ...
-
-          let messages = document.querySelector('#messages');
-          ws.onmessage = event => {
-            let m = document.createElement('p');
-            m.innerText = event.data;
-            messages.appendChild(m);
-          };
-
-          let message = document.querySelector('#message');
-          message.addEventListener('keypress', e => {
-            if (e.charCode !== 13) return;
-            ws.send(message.value);
-            message.value = '';
-          });
-        })();
-      </script>
-    </body>
-
-    </html>
+      <body>
+        <h1>Azure Web PubSub Chat</h1>
+        <input id="message" placeholder="Type to chat...">
+        <div id="messages"></div>
+        <script>
+          (async function () {
+            let id = prompt('Please input your user name');
+            let res = await fetch(`/negotiate?id=${id}`);
+            let data = await res.json();
+            let ws = new WebSocket(data.url);
+            ws.onopen = () => console.log('connected');
+  
+            let messages = document.querySelector('#messages');
+            ws.onmessage = event => {
+              let m = document.createElement('p');
+              m.innerText = event.data;
+              messages.appendChild(m);
+            };
+  
+            let message = document.querySelector('#message');
+            message.addEventListener('keypress', e => {
+              if (e.charCode !== 13) return;
+              ws.send(message.value);
+              message.value = '';
+            });
+          })();
+        </script>
+      </body>
+  
+      </html>
     ```
 
     You can see in the above code we use `WebSocket.send()` to send message and `WebSocket.onmessage` to listen to message from service.
@@ -777,13 +829,41 @@ The complete code sample of this tutorial can be found [here][code].
     ```
 
 4. And update the client to parse JSON data:
-    ```javascript
-    ws.onmessage = event => {
-      let m = document.createElement('p');
-      let data = JSON.parse(event.data);
-      m.innerText = `[${data.type || ''}${data.from || ''}] ${data.message}`;
-      messages.appendChild(m);
-    };
+    ```html
+    <html>
+
+      <body>
+        <h1>Azure Web PubSub Chat</h1>
+        <input id="message" placeholder="Type to chat...">
+        <div id="messages"></div>
+        <script>
+          (async function () {
+            let id = prompt('Please input your user name');
+            let res = await fetch(`/negotiate?id=${id}`);
+            let data = await res.json();
+            let ws = new WebSocket(data.url);
+            ws.onopen = () => console.log('connected');
+  
+            let messages = document.querySelector('#messages');
+            
+            ws.onmessage = event => {
+              let m = document.createElement('p');
+              let data = JSON.parse(event.data);
+              m.innerText = `[${data.type || ''}${data.from || ''}] ${data.message}`;
+              messages.appendChild(m);
+            };
+  
+            let message = document.querySelector('#message');
+            message.addEventListener('keypress', e => {
+              if (e.charCode !== 13) return;
+              ws.send(message.value);
+              message.value = '';
+            });
+          })();
+        </script>
+      </body>
+  
+    </html>
     ```
 
 Now run the server and open multiple browser instances, then you can chat with each other.
@@ -827,7 +907,11 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
       <div id="messages"></div>
       <script>
         (async function () {
-          ...
+          let id = prompt('Please input your user name');
+          let res = await fetch(`/negotiate?id=${id}`);
+          let url = await res.text();
+          let ws = new WebSocket(url);
+          ws.onopen = () => console.log('connected');
 
           let messages = document.querySelector('#messages');
           ws.onmessage = event => {
