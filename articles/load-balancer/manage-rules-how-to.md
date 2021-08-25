@@ -63,10 +63,11 @@ In this example, you'll create a rule to load balance port 80.
     | Backend port | Enter **80**. |
     | Backend pool | Select the backend pool of the load balancer. </br> In this example, it's **myBackendPool**. |
     | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **HTTP** in **Protocol**. </br> Leave the rest at the defaults or tailor to your requirements. </br> Select **OK**. |
-    | Session persistence | Select **None** or your required persistence. </br> For more information about distribution modes, see [Azure Load Balancer distribution modes](load-balancer-distribution-mode.md). | Idle timeout (minutes) | Leave the default of **4** or move the slider to your required idle timeout. |
-    | TCP reset | Select **Enabled**. </br> For more information on TCP reset, see [Load Balancer TCP Reset and Idle Timeout](load-balancer-tcp-reset.md.) |
+    | Session persistence | Select **None** or your required persistence. </br> For more information about distribution modes, see [Azure Load Balancer distribution modes](load-balancer-distribution-mode.md). | 
+    | Idle timeout (minutes) | Leave the default of **4** or move the slider to your required idle timeout. |
+    | TCP reset | Select **Enabled**. </br> For more information on TCP reset, see [Load Balancer TCP Reset and Idle Timeout](load-balancer-tcp-reset.md.). |
     | Floating IP | Leave the default of **Disabled** or enable if your deployment requires floating IP. </br> For information on floating IP, see [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md). |
-    | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** </br> For more information on outbound rules and (SNAT), see [Outbound rules Azure Load Balancer](outbound-rules.md) and [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md). |
+    | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** </br> For more information on outbound rules and (SNAT), see [Outbound rules Azure Load Balancer](outbound-rules.md) and [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md).|
 
 7. Select **Add**.
 
@@ -121,8 +122,9 @@ In this example, you'll create a high availability ports rule.
     | Frontend IP address | Select the frontend IP address of the load balancer. <br> In this example, it's **myFrontendIP**. </br> Select the box next to **HA Ports**. |
     | Backend pool | Select the backend pool of the load balancer. </br> In this example, it's **myBackendPool**. |
     | Health probe | Select **Create new**. </br> In **Name**, enter **myHealthProbe**. </br> Select **TCP** in **Protocol**. </br> Enter a TCP port in **Port**. In this example, it's port **80**. Enter a port that meets your requirements. </br> Leave the rest at the defaults or tailor to your requirements. </br> Select **OK**. |
-    | Session persistence | Select **None** or your required persistence. </br> For more information about distribution modes, see [Azure Load Balancer distribution modes](load-balancer-distribution-mode.md). | Idle timeout (minutes) | Leave the default of **4** or move the slider to your required idle timeout. |
-    | TCP reset | Select **Enabled**. </br> For more information on TCP reset, see [Load Balancer TCP Reset and Idle Timeout](load-balancer-tcp-reset.md.) |
+    | Session persistence | Select **None** or your required persistence. </br> For more information about distribution modes, see [Azure Load Balancer distribution modes](load-balancer-distribution-mode.md). | 
+    | Idle timeout (minutes) | Leave the default of **4** or move the slider to your required idle timeout. |
+    | TCP reset | Select **Enabled**. </br> For more information on TCP reset, see [Load Balancer TCP Reset and Idle Timeout](load-balancer-tcp-reset.md.). |
     | Floating IP | Leave the default of **Disabled** or enable if your deployment requires floating IP. </br> For information on floating IP, see [Azure Load Balancer Floating IP configuration](load-balancer-floating-ip.md). |
 
     For more information on HA ports rule configuration, see **[High availability ports overview](load-balancer-ha-ports-overview.md)**.
