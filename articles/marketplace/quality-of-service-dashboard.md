@@ -113,7 +113,7 @@ About this graph:
 
 This graph shows metrics and trends of the offer deployments basis error codes and resources. The tabular section can be pivoted on error codes and resources. The first subtab provides analytics basis error codes, description, and error counts. The second provides analytics basis for the deployment resources. The line chart provides the total error count basis error codes and resources.
 
-For more information about error codes, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](/azure/azure-resource-manager/templates/common-deployment-errors) and [Resource providers for Azure services](/azure/azure-resource-manager/management/azure-services-resource-providers)
+For more information about error codes, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](/azure/azure-resource-manager/templates/common-deployment-errors) and [Resource providers for Azure services](/azure/azure-resource-manager/management/azure-services-resource-providers).
 
 :::image type="content" source="media/quality-of-service/deployment-error-codes-1.png" alt-text="Shows a deployment error codes graph, sample 1.":::
 :::image type="content" source="media/quality-of-service/deployment-error-codes-2.png" alt-text="Shows a deployment error codes graph, sample 2.":::
