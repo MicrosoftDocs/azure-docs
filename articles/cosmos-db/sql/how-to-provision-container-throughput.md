@@ -15,7 +15,7 @@ ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 
 This article explains how to provision standard (manual) throughput on a container in Azure Cosmos DB SQL API. You can provision throughput on a single container, or [provision throughput on a database](how-to-provision-database-throughput.md) and share it among the containers within the database. You can provision throughput on a container using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
 
-If you are using a different API, see [API for MongoDB](mongodb/how-to-provision-throughput-mongodb.md), [Cassandra API](cassandra/how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) articles to provision the throughput.
+If you are using a different API, see [API for MongoDB](../mongodb/how-to-provision-throughput-mongodb.md), [Cassandra API](../cassandra/how-to-provision-throughput-cassandra.md), [Gremlin API](../graph/how-to-provision-throughput-gremlin.md) articles to provision the throughput.
 
 ## Azure portal
 
@@ -31,7 +31,7 @@ If you are using a different API, see [API for MongoDB](mongodb/how-to-provision
    * Select **Autoscale** or **Manual** throughput and enter the required **Container throughput** (for example, 1000 RU/s). Enter a throughput that you want to provision (for example, 1000 RUs).
    * Select **OK**.
 
-    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Screenshot of Data Explorer, with New Collection highlighted":::
+    :::image type="content" source="../media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Screenshot of Data Explorer, with New Collection highlighted":::
 
 ## Azure CLI or PowerShell
 
@@ -100,4 +100,4 @@ See the following articles to learn about throughput provisioning in Azure Cosmo
 
 * [How to provision standard (manual) throughput on a database](how-to-provision-database-throughput.md)
 * [How to provision autoscale throughput on a database](how-to-provision-autoscale-throughput.md)
-* [Request units and throughput in Azure Cosmos DB](request-units.md)
+* [Request units and throughput in Azure Cosmos DB](../request-units.md)

@@ -65,7 +65,7 @@ Let's get started with the ODBC driver.
 1. Click the **Test** button to make sure you can connect to your Azure Cosmos DB account. 
 
 1.	Click **Advanced Options** and set the following values:
-    *  **REST API Version**: Select the [REST API version](/rest/api/cosmos-db/) for your operations. The default 2015-12-16. If you have containers with [large partition keys](large-partition-keys.md) and require REST API version 2018-12-31:
+    *  **REST API Version**: Select the [REST API version](/rest/api/cosmos-db/) for your operations. The default 2015-12-16. If you have containers with [large partition keys](../large-partition-keys.md) and require REST API version 2018-12-31:
         - Type in **2018-12-31** for REST API version
         - In the **Start** menu, type "regedit" to find and open the **Registry Editor** application.
         - In Registry Editor, navigate to the path: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
@@ -75,7 +75,7 @@ Let's get started with the ODBC driver.
             - Value Name: **IgnoreSessionToken**
             - Value data: **1**
             :::image type="content" source="./media/odbc-driver/cosmos-odbc-edit-registry.png" alt-text="Registry Editor settings":::
-    - **Query Consistency**: Select the [consistency level](consistency-levels.md) for your operations. The default is Session.
+    - **Query Consistency**: Select the [consistency level](../consistency-levels.md) for your operations. The default is Session.
     - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service rate limiting.
     - **Schema File**: You have a number of options here.
         - By default, leaving this entry as is (blank), the driver scans the first page of data for all containers to determine the schema of each container. This is known as Container Mapping. Without a schema file defined, the driver has to perform the scan for each driver session and could result in a higher startup time of an application using the DSN. We recommend that you always associate a schema file for a DSN.
@@ -249,4 +249,4 @@ If you receive the following error, ensure the **Host** and **Access Key** value
 
 ## Next steps
 
-To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](introduction.md).
+To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](../introduction.md).

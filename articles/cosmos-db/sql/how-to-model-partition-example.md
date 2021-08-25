@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 # How to model and partition data on Azure Cosmos DB using a real-world example
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article builds on several Azure Cosmos DB concepts like [data modeling](modeling-data.md), [partitioning](partitioning-overview.md), and [provisioned throughput](request-units.md) to demonstrate how to tackle a real-world data design exercise.
+This article builds on several Azure Cosmos DB concepts like [data modeling](../modeling-data.md), [partitioning](partitioning-overview.md), and [provisioned throughput](../request-units.md) to demonstrate how to tackle a real-world data design exercise.
 
 If you usually work with relational databases, you have probably built habits and intuitions on how to design a data model. Because of the specific constraints, but also the unique strengths of Azure Cosmos DB, most of these best practices don't translate well and may drag you into suboptimal solutions. The goal of this article is to guide you through the complete process of modeling a real-world use-case on Azure Cosmos DB, from item modeling to entity colocation and container partitioning.
 
@@ -332,7 +332,7 @@ We obviously call a similar stored procedure when adding new likes to increment 
 
 ### Denormalizing usernames
 
-Usernames require a different approach as users not only sit in different partitions, but in a different container. When we have to denormalize data across partitions and containers, we can use the source container's [change feed](change-feed.md).
+Usernames require a different approach as users not only sit in different partitions, but in a different container. When we have to denormalize data across partitions and containers, we can use the source container's [change feed](../change-feed.md).
 
 In our example, we use the change feed of the `users` container to react whenever users update their usernames. When that happens, we propagate the change by calling another stored procedure on the `posts` container:
 
@@ -585,6 +585,6 @@ The change feed that we use to distribute updates to other containers store all 
 
 After this introduction to practical data modeling and partitioning, you may want to check the following articles to review the concepts we have covered:
 
-- [Work with databases, containers, and items](account-databases-containers-items.md)
-- [Partitioning in Azure Cosmos DB](partitioning-overview.md)
-- [Change feed in Azure Cosmos DB](change-feed.md)
+- [Work with databases, containers, and items](../account-databases-containers-items.md)
+- [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
+- [Change feed in Azure Cosmos DB](../change-feed.md)

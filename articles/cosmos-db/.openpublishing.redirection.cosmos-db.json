@@ -2856,11 +2856,6 @@
     "redirect_document_id": true
   },
   {
-    "source_path_from_root": "/articles/cosmos-db/bulk-executor-overview.md",
-    "redirect_url": "/azure/cosmos-db/sql/bulk-executor-overview",
-    "redirect_document_id": true
-  },
-  {
     "source_path_from_root": "/articles/cosmos-db/certificate-based-authentication.md",
     "redirect_url": "/azure/cosmos-db/sql/certificate-based-authentication",
     "redirect_document_id": true
@@ -2976,11 +2971,6 @@
     "redirect_document_id": true
   },
   {
-    "source_path_from_root": "/articles/cosmos-db/dedicated-gateway.md",
-    "redirect_url": "/azure/cosmos-db/sql/dedicated-gateway",
-    "redirect_document_id": true
-  },
-  {
     "source_path_from_root": "/articles/cosmos-db/cosmos-db-advanced-queries.md",
     "redirect_url": "/azure/cosmos-db/sql/diagnostic-queries-sql",
     "redirect_document_id": true
@@ -3006,11 +2996,6 @@
     "redirect_document_id": true
   },
   {
-    "source_path_from_root": "/articles/cosmos-db/how-to-always-encrypted.md",
-    "redirect_url": "/azure/cosmos-db/sql/how-to-always-encrypted",
-    "redirect_document_id": true
-  },
-  {
     "source_path_from_root": "/articles/cosmos-db/how-to-configure-cosmos-db-trigger.md",
     "redirect_url": "/azure/cosmos-db/sql/how-to-configure-cosmos-db-trigger",
     "redirect_document_id": true
@@ -3018,11 +3003,6 @@
   {
     "source_path_from_root": "/articles/cosmos-db/how-to-configure-cross-origin-resource-sharing.md",
     "redirect_url": "/azure/cosmos-db/sql/how-to-configure-cross-origin-resource-sharing",
-    "redirect_document_id": true
-  },
-  {
-    "source_path_from_root": "/articles/cosmos-db/how-to-configure-integrated-cache.md",
-    "redirect_url": "/azure/cosmos-db/sql/how-to-configure-integrated-cache",
     "redirect_document_id": true
   },
   {
@@ -3038,11 +3018,6 @@
   {
     "source_path_from_root": "/articles/cosmos-db/how-to-create-multiple-cosmos-db-triggers.md",
     "redirect_url": "/azure/cosmos-db/sql/how-to-create-multiple-cosmos-db-triggers",
-    "redirect_document_id": true
-  },
-  {
-    "source_path_from_root": "/articles/cosmos-db/how-to-define-unique-keys.md",
-    "redirect_url": "/azure/cosmos-db/sql/how-to-define-unique-keys",
     "redirect_document_id": true
   },
   {
@@ -3098,11 +3073,6 @@
   {
     "source_path_from_root": "/articles/cosmos-db/how-to-query-container.md",
     "redirect_url": "/azure/cosmos-db/sql/how-to-query-container",
-    "redirect_document_id": true
-  },
-  {
-    "source_path_from_root": "/articles/cosmos-db/how-to-setup-rbac.md",
-    "redirect_url": "/azure/cosmos-db/sql/how-to-setup-rbac",
     "redirect_document_id": true
   },
   {

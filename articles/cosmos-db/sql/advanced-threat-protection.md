@@ -23,7 +23,7 @@ Security alerts are triggered when anomalies in activity occur. These security a
 > * Advanced Threat Protection for Azure Cosmos DB is currently available only for the SQL API.
 > * Advanced Threat Protection for Azure Cosmos DB is currently not available in Azure government and sovereign cloud regions.
 
-For a full investigation experience of the security alerts, we recommended enabling [diagnostic logging in Azure Cosmos DB](./monitor-cosmos-db.md), which logs operations on the database itself, including CRUD operations on all documents, containers, and databases.
+For a full investigation experience of the security alerts, we recommended enabling [diagnostic logging in Azure Cosmos DB](../monitor-cosmos-db.md), which logs operations on the database itself, including CRUD operations on all documents, containers, and databases.
 
 ## Threat types
 
@@ -100,19 +100,19 @@ Use an Azure Policy to enable Advanced Threat Protection for Cosmos DB.
 
 When Azure Cosmos DB activity anomalies occur, a security alert is triggered with information about the suspicious security event. 
 
- From Azure Security Center, you can review and manage your current [security alerts](../security-center/security-center-alerts-overview.md).  Click on a specific alert in [Security Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0) to view possible causes and recommended actions to investigate and mitigate the potential threat. The following image shows an example of alert details provided in Security Center.
+ From Azure Security Center, you can review and manage your current [security alerts](../../security-center/security-center-alerts-overview.md).  Click on a specific alert in [Security Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0) to view possible causes and recommended actions to investigate and mitigate the potential threat. The following image shows an example of alert details provided in Security Center.
 
  :::image type="content" source="./media/advanced-threat-protection/cosmos-db-alert-details.png" alt-text="Threat details":::
 
 An email notification is also sent with the alert details and recommended actions. The following image shows an example of an alert email.
 
- :::image type="content" source="./media/cosmos-db-advanced-threat-protection/alert.png" alt-text="Alert details":::
+ :::image type="content" source="./media/advanced-threat-protection/alert.png" alt-text="Alert details":::
 
 ## Cosmos DB ATP alerts
 
- To see a list of the alerts generated when monitoring Azure Cosmos DB accounts, see the [Cosmos DB alerts](../security-center/alerts-reference.md#alerts-azurecosmos) section in the Azure Security Center documentation.
+ To see a list of the alerts generated when monitoring Azure Cosmos DB accounts, see the [Cosmos DB alerts](../../security-center/alerts-reference.md#alerts-azurecosmos) section in the Azure Security Center documentation.
 
 ## Next steps
 
-* Learn more about [Diagnostic logging in Azure Cosmos DB](cosmosdb-monitor-resource-logs.md)
-* Learn more about [Azure Security Center](../security-center/security-center-introduction.md)
+* Learn more about [Diagnostic logging in Azure Cosmos DB](../cosmosdb-monitor-resource-logs.md)
+* Learn more about [Azure Security Center](../../security-center/security-center-introduction.md)

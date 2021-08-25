@@ -12,7 +12,7 @@ ms.author: mansha
 # Migrate your application from Amazon DynamoDB to Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB is a scalable, globally distributed, fully managed database. It provides guaranteed low latency access to your data. To learn more about Azure Cosmos DB, see the [overview](introduction.md) article. This article describes how to migrate your .NET application from DynamoDB to Azure Cosmos DB with minimal code changes.
+Azure Cosmos DB is a scalable, globally distributed, fully managed database. It provides guaranteed low latency access to your data. To learn more about Azure Cosmos DB, see the [overview](../introduction.md) article. This article describes how to migrate your .NET application from DynamoDB to Azure Cosmos DB with minimal code changes.
 
 ## Conceptual differences
 
@@ -88,7 +88,7 @@ The following JSON object represents the data format in Azure Cosmos DB
 
 ## Migrate your data
 
-There are various options available to migrate your data to Azure Cosmos DB. To learn more, see the [Options to migrate your on-premises or cloud data to Azure Cosmos DB](cosmosdb-migrationchoices.md) article.
+There are various options available to migrate your data to Azure Cosmos DB. To learn more, see the [Options to migrate your on-premises or cloud data to Azure Cosmos DB](../cosmosdb-migrationchoices.md) article.
 
 ## Migrate your code
 
@@ -143,9 +143,9 @@ With Azure Cosmos DB, you can use the following options to optimize your connect
 
 * **ConnectionMode** - Use direct connection mode to connect to the data nodes in the Azure Cosmos DB service. Use gateway mode only to initialize and cache the logical addresses and refresh on updates. See the [connectivity modes](sql-sdk-connection-modes.md) article for more details.
 
-* **ApplicationRegion** - This option is used to set the preferred geo-replicated region that is used to interact with Azure Cosmos DB. To learn more see the [global distribution](distribute-data-globally.md) article.
+* **ApplicationRegion** - This option is used to set the preferred geo-replicated region that is used to interact with Azure Cosmos DB. To learn more see the [global distribution](../distribute-data-globally.md) article.
 
-* **ConsistencyLevel** - This option is used to override default consistency level. To learn more, see the [Consistency levels](consistency-levels.md) article.
+* **ConsistencyLevel** - This option is used to override default consistency level. To learn more, see the [Consistency levels](../consistency-levels.md) article.
 
 * **BulkExecutionMode** - This option is used to execute bulk operations by setting the *AllowBulkExecution* property to true. To learn more see the [Bulk import](tutorial-sql-api-dotnet-bulk-import.md) article.
 
@@ -219,7 +219,7 @@ request = new CreateTableRequest
 
 **Azure Cosmos DB**:
 
-In Amazon DynamoDB, you need to provision the read compute units & write compute units. Whereas in Azure Cosmos DB you specify the throughput as [Request Units (RU/s)](request-units.md), which can be used for any operations dynamically. The data is organized as database --> container--> item. You can specify the throughput at database level or at collection level or both.
+In Amazon DynamoDB, you need to provision the read compute units & write compute units. Whereas in Azure Cosmos DB you specify the throughput as [Request Units (RU/s)](../request-units.md), which can be used for any operations dynamically. The data is organized as database --> container--> item. You can specify the throughput at database level or at collection level or both.
 
 To create a database:
 
@@ -518,6 +518,6 @@ As you can see, Azure Cosmos DB supports natural queries (SQL), operations are a
 ### Next Steps
 
 - Learn about [performance optimization](performance-tips.md).
-- Learn about [optimize reads and writes](key-value-store-cost.md)
-- Learn about [Monitoring in Cosmos DB](monitor-cosmos-db.md)
+- Learn about [optimize reads and writes](../key-value-store-cost.md)
+- Learn about [Monitoring in Cosmos DB](../monitor-cosmos-db.md)
 

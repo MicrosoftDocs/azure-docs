@@ -148,7 +148,7 @@ Before you continue building the application, let's look into the hierarchy of r
 * Containers 
 * Items
 
-To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](account-databases-containers-items.md) article. You'll use the following .NET classes to interact with these resources:
+To learn more about the hierarchy of entities, see the [Azure Cosmos DB resource model](../account-databases-containers-items.md) article. You'll use the following .NET classes to interact with these resources:
 
 * `CosmosClient`. This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
 * `CreateDatabaseIfNotExistsAsync`. This method creates (if it doesn't exist) or gets (if it already exists) a database resource as an asynchronous operation. 
@@ -271,4 +271,4 @@ az group delete -g "myResourceGroup"
 In this quickstart, you learned how to create an Azure Cosmos account, create a database, and create a container by using a .NET Core app. You can now import more data to your Azure Cosmos account by using the instructions in the following article: 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB](import-data.md)
+> [Import data into Azure Cosmos DB](../import-data.md)

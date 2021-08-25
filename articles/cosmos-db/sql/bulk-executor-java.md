@@ -17,13 +17,13 @@ ms.custom: devx-track-java
 
 This tutorial provides instructions on using the Azure Cosmos DB's bulk executor Java library to import, and update Azure Cosmos DB documents. To learn about bulk executor library and how it helps you leverage massive throughput and storage, see [bulk executor Library overview](bulk-executor-overview.md) article. In this tutorial, you build a Java application that generates random documents and they are bulk imported into an Azure Cosmos container. After importing, you will bulk update some properties of a document. 
 
-Currently, the bulk executor library is supported only by Azure Cosmos DB SQL API and Gremlin API accounts. This article describes how to use bulk executor Java library with SQL API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md). The bulk executor library described is available is only available for the [Azure Cosmos DB Java sync SDK v2](sql-api-sdk-java.md) and it is the current recommended solution for Java bulk support. It is currently not available for the 3.x, 4.x or other higher SDK versions.
+Currently, the bulk executor library is supported only by Azure Cosmos DB SQL API and Gremlin API accounts. This article describes how to use bulk executor Java library with SQL API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](../graph/bulk-executor-graph-dotnet.md). The bulk executor library described is available is only available for the [Azure Cosmos DB Java sync SDK v2](sql-api-sdk-java.md) and it is the current recommended solution for Java bulk support. It is currently not available for the 3.x, 4.x or other higher SDK versions.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.  
 
-* You can [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](./local-emulator.md) with  the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](local-emulator.md#authenticate-requests).  
+* You can [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](../local-emulator.md) with  the `https://localhost:8081` endpoint. The Primary Key is provided in [Authenticating requests](../local-emulator.md#authenticate-requests).  
 
 * [Java Development Kit (JDK) 1.7+](/java/azure/jdk/)  
   - On Ubuntu, run `apt-get install default-jdk` to install the JDK.  

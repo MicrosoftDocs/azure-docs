@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB SQL API. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database.
 
-If you are using a different API, see [API for MongoDB](mongodb/how-to-provision-throughput-mongodb.md), [Cassandra API](cassandra/how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) articles to provision the throughput.
+If you are using a different API, see [API for MongoDB](../mongodb/how-to-provision-throughput-mongodb.md), [Cassandra API](../cassandra/how-to-provision-throughput-cassandra.md), [Gremlin API](../graph/how-to-provision-throughput-gremlin.md) articles to provision the throughput.
 
 ## Azure portal
 
@@ -25,7 +25,7 @@ If you are using a different API, see [API for MongoDB](mongodb/how-to-provision
 
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 
-1. Select **New Container.** Enter a name for your database, container, and a partition key. Under database or container throughput, select the **Autoscale** option, and set the [maximum throughput (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) that you want the database or container to scale to.
+1. Select **New Container.** Enter a name for your database, container, and a partition key. Under database or container throughput, select the **Autoscale** option, and set the [maximum throughput (RU/s)](../provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) that you want the database or container to scale to.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Creating a container and configuring autoscale provisioned throughput":::
 
@@ -46,7 +46,7 @@ To provision autoscale on shared throughput database, select the **Provision dat
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Enabling autoscale on an existing container":::
 
 > [!NOTE]
-> When you enable autoscale on an existing database or container, the starting value for max RU/s is determined by the system, based on your current manual provisioned throughput settings and storage. After the operation completes, you can change the max RU/s if needed. [Learn more.](autoscale-faq.yml#how-does-the-migration-between-autoscale-and-standard--manual--provisioned-throughput-work-) 
+> When you enable autoscale on an existing database or container, the starting value for max RU/s is determined by the system, based on your current manual provisioned throughput settings and storage. After the operation completes, you can change the max RU/s if needed. [Learn more.](../autoscale-faq.yml#how-does-the-migration-between-autoscale-and-standard--manual--provisioned-throughput-work-) 
 
 ## Azure Cosmos DB .NET V3 SDK
 
@@ -252,6 +252,6 @@ Azure PowerShell can be used to provision autoscale throughput on a new database
 
 ## Next steps
 
-* Learn about the [benefits of provisioned throughput with autoscale](provision-throughput-autoscale.md#benefits-of-autoscale).
-* Learn how to [choose between manual and autoscale throughput](how-to-choose-offer.md).
-* Review the [autoscale FAQ](autoscale-faq.yml).
+* Learn about the [benefits of provisioned throughput with autoscale](../provision-throughput-autoscale.md#benefits-of-autoscale).
+* Learn how to [choose between manual and autoscale throughput](../how-to-choose-offer.md).
+* Review the [autoscale FAQ](../autoscale-faq.yml).

@@ -11,7 +11,7 @@ ms.date: 07/17/2020
 # How to request quota increase for Azure Cosmos DB resources
 [!INCLUDE[appliesto-all-apis](../includes/appliesto-all-apis.md)]
 
-The resources in Azure Cosmos DB have [default quotas/limits](concepts-limits.md). However, there may be a case where your workload needs more quota than the default value. In such case, you must reach out to the Azure Cosmos DB team to request a quota increase. This article explains how to request a quota increase for Azure Cosmos DB resources. You will also learn how to enable a subscription to access a region.
+The resources in Azure Cosmos DB have [default quotas/limits](../concepts-limits.md). However, there may be a case where your workload needs more quota than the default value. In such case, you must reach out to the Azure Cosmos DB team to request a quota increase. This article explains how to request a quota increase for Azure Cosmos DB resources. You will also learn how to enable a subscription to access a region.
 
 ## Create a new support request
 
@@ -51,7 +51,7 @@ To request a quota increase, you must create a new support request with your wor
        * Subscription ID
        * New database account limit
 
-   * **File upload**: Upload the diagnostic files or any other files that you think are relevant to the support request. To learn more on the file upload guidance, see the [Azure support]( ../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files) article.
+   * **File upload**: Upload the diagnostic files or any other files that you think are relevant to the support request. To learn more on the file upload guidance, see the [Azure support](../../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files) article.
 
    * **Severity**: Choose one of the available severity levels based on the business impact.
 
@@ -65,4 +65,4 @@ Within 24 hours, the Azure Cosmos DB support team will evaluate your request and
 
 ## Next steps
 
-* See the [Azure Cosmos DB default service quotas](concepts-limits.md)
+* See the [Azure Cosmos DB default service quotas](../concepts-limits.md)

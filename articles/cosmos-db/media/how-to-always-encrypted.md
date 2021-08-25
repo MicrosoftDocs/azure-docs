@@ -9,7 +9,7 @@ author: ThomasWeiss
 ---
 
 # Use client-side encryption with Always Encrypted for Azure Cosmos DB (Preview)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure Cosmos DB. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the database.
 

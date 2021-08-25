@@ -109,6 +109,6 @@ else
 Read the following articles:
 
 * [Use session tokens to manage consistency in Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-* [Choose the right consistency level in Azure Cosmos DB](./consistency-levels.md)
-* [Consistency, availability, and performance tradeoffs in Azure Cosmos DB](./consistency-levels.md)
-* [Availability and performance tradeoffs for various consistency levels](./consistency-levels.md)
+* [Choose the right consistency level in Azure Cosmos DB](../consistency-levels.md)
+* [Consistency, availability, and performance tradeoffs in Azure Cosmos DB](../consistency-levels.md)
+* [Availability and performance tradeoffs for various consistency levels](../consistency-levels.md)

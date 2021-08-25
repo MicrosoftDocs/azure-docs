@@ -10,7 +10,7 @@ ms.author: tisande
 ---
 
 # Azure Cosmos DB dedicated gateway - Overview (Preview)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A dedicated gateway is server-side compute that is a front-end to your Azure Cosmos DB account. When you connect to the dedicated gateway, it both routes requests and caches data. Like provisioned throughput, the dedicated gateway is billed hourly.
 
@@ -94,9 +94,9 @@ Like nodes within a cluster, dedicated gateway nodes across regions are independ
 The dedicated gateway has the following limitations during the public preview:
 
 - Dedicated gateways are only supported on SQL API accounts.
-- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [IP firewalls](how-to-configure-firewall.md) or [Private Link](how-to-configure-private-endpoints.md) configured.
+- You can't provision a dedicated gateway in Azure Cosmos DB accounts with [IP firewalls](how-to-configure-firewall.md) or [Private Link](../how-to-configure-private-endpoints.md) configured.
 - You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](high-availability.md#availability-zone-support) enabled.
-- You can't use [role-based access control (RBAC)](how-to-setup-rbac.md) to authenticate data plane requests routed through the dedicated gateway
+- You can't use [role-based access control (RBAC)](sql/how-to-setup-rbac.md) to authenticate data plane requests routed through the dedicated gateway
 
 ## Next steps
 

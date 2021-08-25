@@ -79,12 +79,12 @@ module.exports = {
 ```
  
 Here is a [code sample](https://github.com/christopheranderson/cosmos-browser-sample) that uses TypeScript and Webpack with the Azure Cosmos DB JavaScript SDK library to build a Todo app that sends real time updates when new items are created.
-As a best practice, do not use the primary key to communicate with Azure Cosmos DB from the browser. Instead, use resource tokens to communicate. For more information about resource tokens, see [Securing access to Azure Cosmos DB](secure-access-to-data.md#resource-tokens) article.
+As a best practice, do not use the primary key to communicate with Azure Cosmos DB from the browser. Instead, use resource tokens to communicate. For more information about resource tokens, see [Securing access to Azure Cosmos DB](../secure-access-to-data.md#resource-tokens) article.
 
 ## Next steps
 
 To learn about other ways to secure your Azure Cosmos account, see the following articles:
 
-* [Configure a firewall for Azure Cosmos DB](how-to-configure-firewall.md) article.
+* [Configure a firewall for Azure Cosmos DB](../how-to-configure-firewall.md) article.
 
-* [Configure virtual network and subnet-based access for your Azure Cosmos DB account](how-to-configure-vnet-service-endpoint.md)
+* [Configure virtual network and subnet-based access for your Azure Cosmos DB account](../how-to-configure-vnet-service-endpoint.md)

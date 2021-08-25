@@ -17,7 +17,7 @@ This article describes how you can monitor the progress of your [change feed pro
 
 ## Why is monitoring progress important?
 
-The change feed processor acts as a pointer that moves forward across your [change feed](./change-feed.md) and delivers the changes to a delegate implementation.
+The change feed processor acts as a pointer that moves forward across your [change feed](../change-feed.md) and delivers the changes to a delegate implementation.
 
 Your change feed processor deployment can process changes at a particular rate based on its available resources like CPU, memory, network, and so on.
 

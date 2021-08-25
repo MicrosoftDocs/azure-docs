@@ -13,14 +13,14 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 # Manage indexing policies in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-In Azure Cosmos DB, data is indexed following [indexing policies](index-policy.md) that are defined for each container. The default indexing policy for newly created containers enforces range indexes for any string or number. This policy can be overridden with your own custom indexing policy.
+In Azure Cosmos DB, data is indexed following [indexing policies](../index-policy.md) that are defined for each container. The default indexing policy for newly created containers enforces range indexes for any string or number. This policy can be overridden with your own custom indexing policy.
 
 > [!NOTE]
-> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API. Learn about indexing in [Azure Cosmos DB's API for MongoDB](mongodb/mongodb-indexing.md) and [Secondary indexing in Azure Cosmos DB Cassandra API.](cassandra/secondary-indexing.md)
+> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's SQL (Core) API. Learn about indexing in [Azure Cosmos DB's API for MongoDB](../mongodb/mongodb-indexing.md) and [Secondary indexing in Azure Cosmos DB Cassandra API.](../cassandra/secondary-indexing.md)
 
 ## Indexing policy examples
 
-Here are some examples of indexing policies shown in [their JSON format](index-policy.md#include-exclude-paths), which is how they are exposed on the Azure portal. The same parameters can be set through the Azure CLI or any SDK.
+Here are some examples of indexing policies shown in [their JSON format](../index-policy.md#include-exclude-paths), which is how they are exposed on the Azure portal. The same parameters can be set through the Azure CLI or any SDK.
 
 ### <a id="range-index"></a>Opt-out policy to selectively exclude some property paths
 
@@ -175,7 +175,7 @@ This indexing policy is equivalent to the one below which manually sets ```kind`
 
 ## <a id="composite-index"></a>Composite indexing policy examples
 
-In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](index-policy.md#composite-indexes) on those properties is required. Additionally, composite indexes will have a performance benefit for queries that have a multiple filters or both a filter and an ORDER BY clause.
+In addition to including or excluding paths for individual properties, you can also specify a composite index. If you would like to perform a query that has an `ORDER BY` clause for multiple properties, a [composite index](../index-policy.md#composite-indexes) on those properties is required. Additionally, composite indexes will have a performance benefit for queries that have a multiple filters or both a filter and an ORDER BY clause.
 
 > [!NOTE]
 > Composite paths have an implicit `/?` since only the scalar value at that path is indexed. The `/*` wildcard is not supported in composite paths. You shouldn't specify `/?` or `/*` in a composite path.
@@ -343,10 +343,10 @@ In Azure Cosmos DB, the indexing policy can be updated using any of the below me
 - using PowerShell
 - using one of the SDKs
 
-An [indexing policy update](index-policy.md#modifying-the-indexing-policy) triggers an index transformation. The progress of this transformation can also be tracked from the SDKs.
+An [indexing policy update](../index-policy.md#modifying-the-indexing-policy) triggers an index transformation. The progress of this transformation can also be tracked from the SDKs.
 
 > [!NOTE]
-> When updating indexing policy, writes to Azure Cosmos DB will be uninterrupted. Learn more about [indexing transformations](index-policy.md#modifying-the-indexing-policy)
+> When updating indexing policy, writes to Azure Cosmos DB will be uninterrupted. Learn more about [indexing transformations](../index-policy.md#modifying-the-indexing-policy)
 
 ## Use the Azure portal
 
@@ -760,5 +760,5 @@ container_client.read(populate_quota_info = True,
 
 Read more about the indexing in the following articles:
 
-- [Indexing overview](index-overview.md)
-- [Indexing policy](index-policy.md)
+- [Indexing overview](../index-overview.md)
+- [Indexing policy](../index-policy.md)

@@ -21,7 +21,7 @@ Azure Cosmos DB is well-suited for IoT, gaming, retail, and operational logging 
 
 The change feed in Azure Cosmos DB enables you to build efficient and scalable solutions for each of these patterns, as shown in the following image:
 
-:::image type="content" source="./media/change-feed/changefeedoverview.png" alt-text="Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios" border="false":::
+:::image type="content" source="../media/change-feed/changefeedoverview.png" alt-text="Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios" border="false":::
 
 ## Event computing and notifications
 
@@ -32,9 +32,9 @@ You can also selectively trigger a notification or send a call to an API based o
 ## Real-time stream processing
 
 The Azure Cosmos DB change feed can be used for real-time stream processing for IoT or real-time analytics processing on operational data.
-For example, you might receive and store event data from devices, sensors, infrastructure and applications, and process these events in real time, using [Spark](../hdinsight/spark/apache-spark-overview.md). The following image shows how you can implement a lambda architecture using the Azure Cosmos DB via change feed:
+For example, you might receive and store event data from devices, sensors, infrastructure and applications, and process these events in real time, using [Spark](../../hdinsight/spark/apache-spark-overview.md). The following image shows how you can implement a lambda architecture using the Azure Cosmos DB via change feed:
 
-:::image type="content" source="./media/change-feed/lambda.png" alt-text="Azure Cosmos DB-based lambda pipeline for ingestion and query" border="false":::
+:::image type="content" source="../media/change-feed/lambda.png" alt-text="Azure Cosmos DB-based lambda pipeline for ingestion and query" border="false":::
 
 In many cases, stream processing implementations first receive a high volume of incoming data into a temporary message queue such as Azure Event Hub or Apache Kafka. The change feed is a great alternative due to Azure Cosmos DB's ability to support a sustained high rate of data ingestion with guaranteed low read and write latency. The advantages of the Azure Cosmos DB change feed over a message queue include:
 
@@ -48,7 +48,7 @@ In addition to reading from a Cosmos container's change feed, you can also run S
 
 ### High availability
 
-Azure Cosmos DB offers up to 99.999% read and write availability. Unlike many message queues, Azure Cosmos DB data can be easily globally distributed and configured with an [RTO (Recovery Time Objective)](./consistency-levels.md#rto) of zero.
+Azure Cosmos DB offers up to 99.999% read and write availability. Unlike many message queues, Azure Cosmos DB data can be easily globally distributed and configured with an [RTO (Recovery Time Objective)](../consistency-levels.md#rto) of zero.
 
 After processing items in the change feed, you can build a materialized view and persist aggregated values back in Azure Cosmos DB. If you're using Azure Cosmos DB to build a game, you can, for example, use change feed to implement real-time leaderboards based on scores from completed games.
 
@@ -62,7 +62,7 @@ For example, the change feed helps you perform the following tasks efficiently:
 
 * Perform zero down-time migrations to another Azure Cosmos account or another Azure Cosmos container with a different logical partition key.
 
-* Implement an application-level data tiering and archival. For example, you can store "hot data" in Azure Cosmos DB and age out "cold data" to other storage systems such as [Azure Blob Storage](../storage/common/storage-introduction.md).
+* Implement an application-level data tiering and archival. For example, you can store "hot data" in Azure Cosmos DB and age out "cold data" to other storage systems such as [Azure Blob Storage](../../storage/common/storage-introduction.md).
 
 When you have to [denormalize data across partitions and containers](how-to-model-partition-example.md#v2-introducing-denormalization-to-optimize-read-queries
 ), you can read from your container's change feed as a source for this data replication. Real-time data replication with the change feed can only guarantee eventual consistency. You can [monitor how far the Change Feed Processor lags behind](how-to-use-change-feed-estimator.md) in processing changes in your Cosmos container.
@@ -110,6 +110,6 @@ Here are some real-world change feed code examples that extend beyond the scope 
 
 ## Next steps
 
-* [Change feed overview](change-feed.md)
+* [Change feed overview](../change-feed.md)
 * [Options to read change feed](read-change-feed.md)
 * [Using change feed with Azure Functions](change-feed-functions.md)

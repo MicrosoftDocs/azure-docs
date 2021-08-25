@@ -148,7 +148,7 @@ While change feed processor can run in short lived environments, because the lea
 
 You can now proceed to learn more about change feed processor in the following articles:
 
-* [Overview of change feed](change-feed.md)
+* [Overview of change feed](../change-feed.md)
 * [Change feed pull model](change-feed-pull-model.md)
 * [How to migrate from the change feed processor library](how-to-migrate-from-change-feed-library.md)
 * [Using the change feed estimator](how-to-use-change-feed-estimator.md)

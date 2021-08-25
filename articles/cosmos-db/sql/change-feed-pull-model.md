@@ -130,7 +130,7 @@ Here's an example showing how to obtain a list of ranges for your container:
 IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 ```
 
-When you obtain of list of FeedRanges for your container, you'll get one `FeedRange` per [physical partition](partitioning-overview.md#physical-partitions).
+When you obtain of list of FeedRanges for your container, you'll get one `FeedRange` per [physical partition](../partitioning-overview.md#physical-partitions).
 
 Using a `FeedRange`, you can then create a `FeedIterator` to parallelize the processing of the change feed across multiple machines or threads. Unlike the previous example that showed how to obtain a `FeedIterator` for the entire container or a single partition key, you can use FeedRanges to obtain multiple FeedIterators, which can process the change feed in parallel.
 
@@ -224,6 +224,6 @@ As long as the Cosmos container still exists, a FeedIterator's continuation toke
 
 ## Next steps
 
-* [Overview of change feed](change-feed.md)
+* [Overview of change feed](../change-feed.md)
 * [Using the change feed processor](change-feed-processor.md)
 * [Trigger Azure Functions](change-feed-functions.md)

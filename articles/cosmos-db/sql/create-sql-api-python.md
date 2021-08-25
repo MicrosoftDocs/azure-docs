@@ -91,7 +91,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Keys** from the left navigation. Use the copy buttons on the right side of the screen to copy the **URI** and **Primary Key** into the *cosmos_get_started.py* file in the next step.
 
-    :::image type="content" source="../media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Get an access key and URI in the Keys settings in the Azure portal":::
+    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Get an access key and URI in the Keys settings in the Azure portal":::
 
 2. In Visual Studio Code, open the *cosmos_get_started.py* file in *\git-samples\azure-cosmos-db-python-getting-started*.
 

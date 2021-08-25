@@ -16,7 +16,7 @@ This article explains how to query a container (collection, graph, or table) in 
 
 ## In-partition query
 
-When you query data from containers, if the query has a partition key filter specified, Azure Cosmos DB automatically optimizes the query. It routes the query to the [physical partitions](partitioning-overview.md#physical-partitions) corresponding to the partition key values specified in the filter.
+When you query data from containers, if the query has a partition key filter specified, Azure Cosmos DB automatically optimizes the query. It routes the query to the [physical partitions](../partitioning-overview.md#physical-partitions) corresponding to the partition key values specified in the filter.
 
 For example, consider the below query with an equality filter on `DeviceId`. If we run this query on a container partitioned on `DeviceId`, this query will filter to a single physical partition.
 
@@ -58,7 +58,7 @@ You can manage parallel query execution by tuning the following parameters:
 
 - **MaxBufferedItemCount**: Trades query latency versus client-side memory utilization. If this option is omitted or to set to -1, the SDK manages the number of items buffered during parallel query execution.
 
-Because of the Azure Cosmos DB's ability to parallelize cross-partition queries, query latency will generally scale well as the system adds [physical partitions](partitioning-overview.md#physical-partitions). However, RU charge will increase significantly as the total number of physical partitions increases.
+Because of the Azure Cosmos DB's ability to parallelize cross-partition queries, query latency will generally scale well as the system adds [physical partitions](../partitioning-overview.md#physical-partitions). However, RU charge will increase significantly as the total number of physical partitions increases.
 
 When you run a cross-partition query, you are essentially doing a separate query per individual physical partition. While cross-partition queries queries will use the index, if available, they are still not nearly as efficient as in-partition queries.
 
@@ -86,7 +86,7 @@ If the delivery driver knows that all package recipients live within a certain f
 
 For most containers, it's inevitable that you will have some cross-partition queries. Having some cross-partition queries is ok! Nearly all query operations are supported across partitions (both logical partition keys and physical partitions). Azure Cosmos DB also has many optimizations in the query engine and client SDKs to parallelize query execution across physical partitions.
 
-For most read-heavy scenarios, we recommend simply selecting the most common property in your query filters. You should also make sure your partition key adheres to other [partition key selection best practices](partitioning-overview.md#choose-partitionkey).
+For most read-heavy scenarios, we recommend simply selecting the most common property in your query filters. You should also make sure your partition key adheres to other [partition key selection best practices](../partitioning-overview.md#choose-partitionkey).
 
 Avoiding cross-partition queries typically only matters with large containers. You are charged a minimum of about 2.5 RU's each time you check a physical partition's index for results, even if no items in the physical partition match the query's filter. As such, if you have only one (or just a few) physical partitions, cross-partition queries will not consume significantly more RU's than in-partition queries.
 
@@ -100,5 +100,5 @@ You should try to avoid cross-partition queries if your workload meets the crite
 
 See the following articles to learn about partitioning in Azure Cosmos DB:
 
-- [Partitioning in Azure Cosmos DB](partitioning-overview.md)
+- [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
 - [Synthetic partition keys in Azure Cosmos DB](synthetic-partition-keys.md)

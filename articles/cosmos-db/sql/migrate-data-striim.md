@@ -19,7 +19,7 @@ This article shows how to use Striim to migrate data from an **Oracle database**
 
 ## Prerequisites
 
-* If you don't have an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 * An Oracle database running on-premises with some data in it.
 
@@ -194,6 +194,6 @@ By using the Striim solution in Azure, you can continuously migrate data to Azur
 
 ## Next steps
 
-* If you are migrating data to Azure Cosmos DB SQL API, see [how to migrate data to Cassandra API account using Striim](cassandra/migrate-data-striim.md)
+* If you are migrating data to Azure Cosmos DB SQL API, see [how to migrate data to Cassandra API account using Striim](../cassandra/migrate-data-striim.md)
 
-* [Monitor and debug your data with Azure Cosmos DB metrics](use-metrics.md)
+* [Monitor and debug your data with Azure Cosmos DB metrics](../use-metrics.md)

@@ -34,7 +34,7 @@ Starting February 10, 2021, new Azure Cosmos accounts created in one of the [sup
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page.
 
-   :::image type="content" source="includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="The Azure Cosmos DB account page":::
+   :::image type="content" source="../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="The Azure Cosmos DB account page":::
 
 1. Navigate to the **Data Explorer** pane. You should now see your notebooks workspace.
 
@@ -106,7 +106,7 @@ Built-in notebooks for Azure Cosmos DB are currently available in 29 Azure regio
 
 ## Next steps
 
-* Learn about the benefits of [Azure Cosmos DB Jupyter Notebooks](cosmosdb-jupyter-notebooks.md)
+* Learn about the benefits of [Azure Cosmos DB Jupyter Notebooks](../cosmosdb-jupyter-notebooks.md)
 * [Explore notebook samples gallery](https://cosmos.azure.com/gallery.html)
 * [Publish notebooks to the Azure Cosmos DB notebook gallery](publish-notebook-gallery.md)
 * [Use Python notebook features and commands](use-python-notebook-features-and-commands.md)

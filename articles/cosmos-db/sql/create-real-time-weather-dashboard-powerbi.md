@@ -16,7 +16,7 @@ ms.reviewer: sngun
 
 This article describes the steps required to create a live weather dashboard in Power BI using Azure Cosmos DB OLTP connector and Azure Analysis Services. The Power BI dashboard will display charts to show near real-time information about temperature and rainfall in a region.
 
-Another option is to create near real-time reports using [Azure Synapse Link for Azure Cosmos DB](synapse-link.md). With Azure Synapse Link, you can connect Power BI to analyze your Azure Cosmos DB data, with no performance or cost impact to your transactional workloads, and no ETL pipelines. You can use either [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. For more information, click [here](synapse-link-power-bi.md).
+Another option is to create near real-time reports using [Azure Synapse Link for Azure Cosmos DB](../synapse-link.md). With Azure Synapse Link, you can connect Power BI to analyze your Azure Cosmos DB data, with no performance or cost impact to your transactional workloads, and no ETL pipelines. You can use either [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. For more information, click [here](../synapse-link-power-bi.md).
 
 
 ## Reporting scenarios
@@ -26,8 +26,8 @@ There are multiple ways to set up reporting dashboards on data stored in Azure C
 
 |Scenario |Setup |
 |---------|---------|
-|1. Generating real time reports on large data sets with aggregates     | **Option 1:** [Power BI and Azure Synapse Link with DirectQuery](./synapse-link-power-bi.md)<br />  **Option 2:** [Power BI and Spark connector with DirectQuery + Azure Databricks + Azure Cosmos DB Spark connector.](https://github.com/Azure/azure-cosmosdb-spark/wiki/Connecting-Cosmos-DB-with-PowerBI-using-spark-and-databricks-premium)<br />  **Option 3:** Power BI and Azure Analysis Services connector with DirectQuery + Azure Analysis Services + Azure Databricks + Cosmos DB Spark connector.     |
-|2. Generating real time reports on large data sets (>= 10 GB)    |  **Option 1:** [Power BI and Azure Synapse Link with DirectQuery](./synapse-link-power-bi.md)<br />  **Option 2:** [Power BI and Azure Analysis Services connector with DirectQuery + Azure Analysis Services](create-real-time-weather-dashboard-powerbi.md)       |
+|1. Generating real time reports on large data sets with aggregates     | **Option 1:** [Power BI and Azure Synapse Link with DirectQuery](../synapse-link-power-bi.md)<br />  **Option 2:** [Power BI and Spark connector with DirectQuery + Azure Databricks + Azure Cosmos DB Spark connector.](https://github.com/Azure/azure-cosmosdb-spark/wiki/Connecting-Cosmos-DB-with-PowerBI-using-spark-and-databricks-premium)<br />  **Option 3:** Power BI and Azure Analysis Services connector with DirectQuery + Azure Analysis Services + Azure Databricks + Cosmos DB Spark connector.     |
+|2. Generating real time reports on large data sets (>= 10 GB)    |  **Option 1:** [Power BI and Azure Synapse Link with DirectQuery](../synapse-link-power-bi.md)<br />  **Option 2:** [Power BI and Azure Analysis Services connector with DirectQuery + Azure Analysis Services](create-real-time-weather-dashboard-powerbi.md)       |
 |3. Generating ad-hoc reports on large data sets (< 10 GB)     |  [Power BI Azure Cosmos DB connector with import mode and incremental refresh](create-real-time-weather-dashboard-powerbi.md)       |
 |4. Generating ad-hoc reports with periodic refresh   |  [Power BI Azure Cosmos DB connector with import mode (Scheduled periodic refresh)](powerbi-visualize.md)       |
 |5. Generating ad-hoc reports (no refresh)    |  [Power BI Azure Cosmos DB connector with import mode](powerbi-visualize.md)       |
@@ -47,7 +47,7 @@ Azure Analysis Services provides a fully managed platform as a service that host
 
 ### Ingest weather data into Azure Cosmos DB
 
-Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dataset?groups=climate5434&#topic=climate_navigation) to Azure Cosmos DB. You can set up an [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) job to periodically load the latest weather data into Azure Cosmos DB using the HTTP Source and Cosmos DB sink.
+Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dataset?groups=climate5434&#topic=climate_navigation) to Azure Cosmos DB. You can set up an [Azure Data Factory (ADF)](../../data-factory/connector-azure-cosmos-db.md) job to periodically load the latest weather data into Azure Cosmos DB using the HTTP Source and Cosmos DB sink.
 
 
 ### Connect Power BI to Azure Cosmos DB
@@ -97,7 +97,7 @@ Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dat
 
 ### Connect Azure Analysis Services to Azure Cosmos account
 
-1. **Create a new Azure Analysis Services cluster** - [Create an instance of Azure Analysis services](../analysis-services/analysis-services-create-server.md) in the same region as the Azure Cosmos account and the Databricks cluster.
+1. **Create a new Azure Analysis Services cluster** - [Create an instance of Azure Analysis services](../../analysis-services/analysis-services-create-server.md) in the same region as the Azure Cosmos account and the Databricks cluster.
 
 1. **Create a new Analysis Services Tabular Project in Visual Studio** -  [Install the SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt) and create an Analysis Services Tabular project in Visual Studio.
 
@@ -154,7 +154,7 @@ Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dat
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/analysis-services-deploy-model.png" alt-text="Deploy Azure Analysis Services model":::
 
-1. **Configure partition refreshes and merges** - Azure Analysis Services allows independent processing of partitions. Since we want the **Latest Month** partition to be constantly updated with the most recent data, set the refresh interval to 5 minutes. You can refresh the data by using the [REST API](../analysis-services/analysis-services-async-refresh.md), [Azure automation](../analysis-services/analysis-services-refresh-azure-automation.md), or with a [Logic App](../analysis-services/analysis-services-refresh-logic-app.md). It's not required to refresh the data in historical partition. Additionally, you need to write some code to consolidate the latest month partition to the historical partition and create a new latest month partition.
+1. **Configure partition refreshes and merges** - Azure Analysis Services allows independent processing of partitions. Since we want the **Latest Month** partition to be constantly updated with the most recent data, set the refresh interval to 5 minutes. You can refresh the data by using the [REST API](../../analysis-services/analysis-services-async-refresh.md), [Azure automation](../../analysis-services/analysis-services-refresh-azure-automation.md), or with a [Logic App](../../analysis-services/analysis-services-refresh-logic-app.md). It's not required to refresh the data in historical partition. Additionally, you need to write some code to consolidate the latest month partition to the historical partition and create a new latest month partition.
 
 ## Connect Power BI to Analysis Services
 
@@ -170,4 +170,4 @@ Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dat
 
 * To learn more about Power BI, see [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 
-* [Connect Qlik Sense to Azure Cosmos DB and visualize your data](visualize-qlik-sense.md)
+* [Connect Qlik Sense to Azure Cosmos DB and visualize your data](../visualize-qlik-sense.md)

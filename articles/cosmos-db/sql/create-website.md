@@ -33,7 +33,7 @@ The resulting deployment has a fully functional web application that can connect
 
 First, select the **Deploy to Azure** button below to open the Azure portal to create a custom deployment. You can also view the Azure Resource Manager template from the [Azure Quickstart Templates Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.documentdb/cosmosdb-webapp)
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-webapp%2Fazuredeploy.json)
+[:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-webapp%2Fazuredeploy.json)
 
 Once in the Azure portal, select the subscription to deploy into and select or create a new resource group. Then fill in the following values.
 
@@ -99,7 +99,7 @@ First, the application needs to request the Cosmos DB endpoint and key in the `S
 
 ### Using special Azure Resource Management functions
 
-For these values to be available to the application when deployed, the Azure Resource Manager template can ask for those values from the Cosmos DB account using special Azure Resource Management functions including [reference](../azure-resource-manager/templates/template-functions-resource.md#reference) and [listKeys](../azure-resource-manager/templates/template-functions-resource.md#listkeys) which grab the values from the Cosmos DB account and insert them into the application settings values with key names that match what is used in the application above in a '{section:key}' format. For example, `CosmosDb:Account`.
+For these values to be available to the application when deployed, the Azure Resource Manager template can ask for those values from the Cosmos DB account using special Azure Resource Management functions including [reference](../../azure-resource-manager/templates/template-functions-resource.md#reference) and [listKeys](../../azure-resource-manager/templates/template-functions-resource.md#listkeys) which grab the values from the Cosmos DB account and insert them into the application settings values with key names that match what is used in the application above in a '{section:key}' format. For example, `CosmosDb:Account`.
 
 :::image type="content" source="./media/create-website/template-keys.png" alt-text="Template Keys":::
 
