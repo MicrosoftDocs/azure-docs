@@ -4,7 +4,7 @@ description: Learn how to manage your Azure Cache for Redis memory effectively.
 author: shpathak-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 08/25/2021
 ms.author: shpathak
 ---
 # Memory management

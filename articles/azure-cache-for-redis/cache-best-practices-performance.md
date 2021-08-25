@@ -4,7 +4,7 @@ description: Learn how to test the performance of Azure Cache for Redis.
 author: shpathak-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 08/25/2021
 ms.author: shpathak
 ---
 

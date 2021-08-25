@@ -4,7 +4,7 @@ description: Learn how to use and monitor your server load for  Azure Cache for 
 author: shpathak-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 08/25/2021
 ms.author: shpathak
 ---
 
