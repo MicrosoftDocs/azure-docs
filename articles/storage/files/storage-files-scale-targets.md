@@ -73,8 +73,8 @@ Azure supports multiple types of storage accounts for different storage scenario
 |-|-|-|
 | Maximum file size | 4 TiB | 4 TiB |
 | Maximum concurrent request rate | 1,000 IOPS | Up to 8,000<sup>1</sup> |
-| Maximum ingress for a file | 60 MiB/sec | 200 MiB/sec (Up to 1 GiB/s with SMB Multichannel preview)<sup>2</sup>|
-| Maximum egress for a file | 60 MiB/sec | 300 MiB/sec (Up to 1 GiB/s with SMB Multichannel preview)<sup>2</sup> |
+| Maximum ingress for a file | 60 MiB/sec | 200 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup>|
+| Maximum egress for a file | 60 MiB/sec | 300 MiB/sec (Up to 1 GiB/s with SMB Multichannel)<sup>2</sup> |
 | Maximum concurrent handles | 2,000 handles | 2,000 handles  |
 
 <sup>1 Applies to read and write IOs (typically smaller IO sizes less than or equal to 64 KiB). Metadata operations, other than reads and writes, may be lower.</sup>
