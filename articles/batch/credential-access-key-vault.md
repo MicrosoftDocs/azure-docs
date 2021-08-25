@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell
 
 # Use certificates and securely access Azure Key Vault with Batch
 
-In this article, you'll learn how to set up Batch nodes to securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md). 
+In this article, you'll learn how to set up Batch nodes to securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md).
 
 To authenticate to Azure Key Vault from a Batch node, you need:
 
@@ -18,7 +18,7 @@ To authenticate to Azure Key Vault from a Batch node, you need:
 - A Batch pool with at least one node
 
 > [!IMPORTANT]
-> Batch now offers an improved option for accessing credentials stores in Azure Key Vault. By creating your pool with a user-assigned managed identity that can access the certificate in Azure Key Vault, you don't need to send the certificate content to the Batch Service. We recommend using automatic certificate rotation instead of the method described in this topic. For more information, see [Enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).
+> Batch now offers an improved option for accessing credentials stored in Azure Key Vault. By creating your pool with a user-assigned managed identity that can access the certificate in Azure Key Vault, you don't need to send the certificate content to the Batch Service, which enhances security. We recommend using automatic certificate rotation instead of the method described in this topic. For more information, see [Enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).
 
 ## Obtain a certificate
 
