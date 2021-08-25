@@ -20,7 +20,7 @@ In this article, you'll rotate the cloudadmin credentials (vCenter Server *Cloud
 
 If you use your cloudadmin credentials for connected services like HCX, vRealize Orchestrator, vRealize Operations Manager, or VMware Horizon, your connections stop working once you update your password.  So stop these services before initiating the password rotation. Otherwise, you'll experience temporary locks on your vCenter CloudAdmin account, as these services continuously call your old credentials.  For more information about setting up separate accounts for connected services, see [Access and Identity Concepts](./concepts-identity.md).
 
-## Reset your vCenter Server CloudAdmin credentials
+## Reset your vCenter credentials
 
 1. From the Azure portal, open an Azure Cloud Shell session.
 
@@ -30,7 +30,7 @@ If you use your cloudadmin credentials for connected services like HCX, vRealize
    az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
    ```
  
-## Update HCX Connector with the latest credentials
+## Update HCX Connector 
 
 1. Go to the on-premises HCX Connector at https://{ip of the HCX connector appliance}:443 and sign in using the new credentials.
 
