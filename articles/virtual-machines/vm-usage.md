@@ -13,6 +13,9 @@ ms.date: 07/28/2020
 ---
 
 # Understanding Azure virtual machine usage
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 By analyzing your Azure usage data, powerful consumption insights can be gained – insights that can enable better cost management and allocation throughout your organization. This document provides a deep dive into your Azure Compute consumption details. For more details on general Azure usage, navigate to [Understanding your bill](../cost-management-billing/understand/review-individual-bill.md).
 
 ## Download your usage details
