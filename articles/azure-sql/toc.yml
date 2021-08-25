@@ -288,7 +288,7 @@
     - name: What is SQL Database? 
       href: database/sql-database-paas-overview.md
     - name: What's new?
-      href: database/doc-changes-updates-release-notes.md?&tabs=single-database
+      href: database/doc-changes-updates-release-notes-whats-new.md
     - name: Single databases
       href: database/single-database-overview.md
     - name: Elastic pools
@@ -307,7 +307,7 @@
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
       - name: Hyperscale replicas
-        href: database/service-tier-hyperscale-replicas.md        
+        href: database/service-tier-hyperscale-replicas.md
       - name: Hyperscale replicas FAQ
         href: database/service-tier-hyperscale-named-replicas-faq.yml
       - name: vCore
@@ -791,7 +791,7 @@
     - name: What is SQL Managed Instance? 
       href: managed-instance/sql-managed-instance-paas-overview.md
     - name: What's new?
-      href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
+      href: managed-instance/doc-changes-updates-release-notes-whats-new.md
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
     - name: Frequently asked questions
@@ -1478,6 +1478,12 @@
     href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/sql-azure
+  - name: Known issues
+    items:
+    - name: Azure SQL Database
+      href: database/doc-changes-updates-known-issues.md
+    - name: Azure SQL Managed Instance
+      href: managed-instance/doc-changes-updates-known-issues.md
   - name: Troubleshoot
     items:
     - name: Connectivity errors
