@@ -6,7 +6,7 @@ author: jiayali-ms
 manager: femila
 ms.service: media-services
 ms.topic: how-to
-ms.date: 08/25/22021
+ms.date: 08/25/2021
 ms.author: inhenkel
 ---
 # How to scale media reserved units (legacy)
