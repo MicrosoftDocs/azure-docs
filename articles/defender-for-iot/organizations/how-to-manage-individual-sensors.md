@@ -103,11 +103,11 @@ If the upload fails, contact your security or IT administrator, or review the in
 
 **To change the certificate validation setting:**
 
-1. Enable or Disable the **Enable Certificate Validation** toggle.
+1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication relevant components is halted and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for more information.
 
 1. Select **Save**.
 
-If the option is enabled and validation fails, communication relevant components is halted and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for more information.
+
 
 
 For more information about first-time certificate upload see, 
