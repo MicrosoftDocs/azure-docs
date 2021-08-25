@@ -25,10 +25,10 @@ This page is updated monthly, so revisit it regularly.
 <br>
 <table>
 <tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
-<tr><td><b>Data Movement</b></td><td>Azure Cosmos DB's API for MongoDB connector supports version 3.6 & 4.0 in Azure Data Factory</td><td>Azure Data Factory Cosmos DB’s API for MongoDB connector now supports server version 3.6 & 4.0.<br><a href="connector-azure-cosmos-db-mongodb-api">Learn more</a></td></tr>
+<tr><td><b>Data Movement</b></td><td>Azure Cosmos DB's API for MongoDB connector supports version 3.6 & 4.0 in Azure Data Factory</td><td>Azure Data Factory Cosmos DB’s API for MongoDB connector now supports server version 3.6 & 4.0.<br><a href="connector-azure-cosmos-db-mongodb-api.md">Learn more</a></td></tr>
 <tr><td><b>Data Flow</b></td><td>REST endpoints are available as source and sink in Data Flow</td><td>Data flows in Azure Data Factory and Azure Synapse Analytics now support REST endpoints as both a source and sink with full support for both JSON and XML payloads.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/rest-source-and-sink-now-available-for-data-flows/ba-p/2596484">Learn more</a></td></tr>
 <tr><td><b>Integration Runtime</b></td><td>Diagnostic tool is available for self-hosted integration runtime</td><td>A diagnostic tool for self-hosted integration runtime is designed for providing a better user experience and help users to find potential issues. The tool runs a series of test scenarios on the self-hosted integration runtime machine and every scenario has typical health check cases for common issues.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory/diagnostic-tool-for-self-hosted-integration-runtime/ba-p/2634905">Learn more</a></td></tr>
-<tr><td><b>Orchestration</b></td><td>Custom Event Trigger with Advanced Filtering Option is GA</td><td>You can now create a trigger that responds to a Custom Topic posted to Event Grid. Additionally, you can leverage Advanced Filtering to get fine-grain control over what events to respond to.<br><a href="how-to-create-custom-event-trigger">Learn more</a></td></tr>
+<tr><td><b>Orchestration</b></td><td>Custom Event Trigger with Advanced Filtering Option is GA</td><td>You can now create a trigger that responds to a Custom Topic posted to Event Grid. Additionally, you can leverage Advanced Filtering to get fine-grain control over what events to respond to.<br><a href="how-to-create-custom-event-trigger.md">Learn more</a></td></tr>
 </table>
 
 ## July 2021
