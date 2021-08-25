@@ -47,7 +47,9 @@ SMB Multichannel only works when the feature is enabled on both client-side (you
 
 On Windows clients, SMB Multichannel is enabled by default. You can verify your configuration by running the following PowerShell command: 
 
-`Get-SmbClientConfiguration | Select-Object -Property EnableMultichannel`.
+```PowerShell
+Get-SmbClientConfiguration | Select-Object -Property EnableMultichannel
+```
  
 On your Azure storage account, you will need to enable SMB Multichannel. See [Enable SMB Multichannel](files-smb-protocol.md#smb-multichannel).
 
