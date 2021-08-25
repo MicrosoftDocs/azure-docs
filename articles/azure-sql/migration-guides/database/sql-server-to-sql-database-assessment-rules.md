@@ -97,7 +97,7 @@ Databases on this server use cross-database queries, which are not supported in 
 
 **Recommendation**   
 Azure SQL Database does not support cross-database queries. The following actions are recommended: 
-- Migrate the dependent database(s) to Azure SQL Database and use Elastic Database Query (Currently in preview) functionality to query across Azure SQL Databases. 
+- Migrate the dependent database(s) to Azure SQL Database and use Elastic Database Query (Currently in preview) functionality to query across Azure SQL databases. 
 - Move the dependent datasets from other databases into the database that is being migrated. 
 - Migrate to Azure SQL Managed Instance.
 - Migrate to SQL Server on Azure Virtual Machine. 
