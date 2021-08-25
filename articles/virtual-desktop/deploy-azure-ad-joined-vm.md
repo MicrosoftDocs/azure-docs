@@ -29,7 +29,7 @@ The following configurations are currently supported with Azure AD-joined VMs:
 
 User accounts can be cloud-only or hybrid users from the same Azure AD tenant.
 
-## Known Limitations
+## Known limitations
 > [!NOTE]
 > There are some known limitations that may be a deciding factor when chosing an Azure AD-joined Only solution for your VMs.
 
