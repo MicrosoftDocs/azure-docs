@@ -17,11 +17,11 @@ Video Analyzer supports the following pipeline extension processors:
 * [gRPC extension processor](pipeline.md#grpc-extension-processor)
 * [Cognitive Services extension processor](pipeline.md#cognitive-services-extension-processor) 
 	
-The pipeline extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](inference-metadata-schema.md)
+<!--REDIRECTThe pipeline extension node expects the analytics extension plugin to return the results in JSON format. Ideally the results should follow the [inference metadata schema object model](inference-metadata-schema.md)-->
 
 ## HTTP extension processor
 
-HTTP extension processor enables extensibility scenarios using the [HTTP protocol](http-extension-protocol.md), where performance and/or optimal resource utilization is not the primary concern. You can expose your own AI to a pipeline via an HTTP REST endpoint.
+<!--REDIRECTHTTP extension processor enables extensibility scenarios using the [HTTP protocol](http-extension-protocol.md), where performance and/or optimal resource utilization is not the primary concern. You can expose your own AI to a pipeline via an HTTP REST endpoint.-->
 
 Use HTTP extension processor node when:
 
@@ -31,7 +31,7 @@ Use HTTP extension processor node when:
 
 ## gRPC extension processor
 
-gRPC extension processor enables extensibility scenarios using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). It is ideal for scenarios where performance and/or optimal resource utilization is a priority. The gRPC extension processor enables you to get the full benefit of the structured data definitions. gRPC offers high content transfer performance using:
+<!--REDIRECTgRPC extension processor enables extensibility scenarios using gRPC based, highly performant [structured protocol](grpc-extension-protocol.md). It is ideal for scenarios where performance and/or optimal resource utilization is a priority. The gRPC extension processor enables you to get the full benefit of the structured data definitions. gRPC offers high content transfer performance using:-->
 
 * [in-box shared memory](https://en.wikipedia.org/wiki/Shared_memory) or
 * directly embedding the content into the body of gRPC messages.
@@ -64,7 +64,7 @@ The diagram below depicts the high-level data flow:
  
 ## Samples
 
-You can get started with one of our quickstarts that illustrate Video Analyzer with pre-built extension service at low frame rates with [HTTP extension processor](pipeline.md#http-extension-processor) or at high frame rates with [gRPC extension processor](pipeline.md#grpc-extension-processor).
+<!--REDIRECTYou can get started with one of our quickstarts that illustrate Video Analyzer with pre-built extension service at low frame rates with [HTTP extension processor](pipeline.md#http-extension-processor) or at high frame rates with [gRPC extension processor](pipeline.md#grpc-extension-processor).-->
 
 
 ## Next steps 
