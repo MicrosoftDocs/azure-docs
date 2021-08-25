@@ -6,7 +6,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 08/23/2021
+ms.date: 08/25/2021
 ms.custom: devx-track-java, subject-rbac-steps
 ---
 
