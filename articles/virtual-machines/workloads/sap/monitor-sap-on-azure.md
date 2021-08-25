@@ -15,7 +15,7 @@ ms.author: v-hborys
 
 When you have critical applications and business processes relying on Azure resources, you want to monitor those resources for their availability, performance, and operation. 
 
-This article describes how to monitor SAP running on Azure using Azure Monitor for SAP solutions. Azure Monitor for SAP solutions uses specific parts of the [Azure Monitor](../../../azure-monitor/overview) infrastructure.
+This article describes how to monitor SAP running on Azure using Azure Monitor for SAP solutions. Azure Monitor for SAP solutions uses specific parts of the [Azure Monitor](../../../azure-monitor/overview.md) infrastructure.
 
 ## Overview
 
@@ -143,12 +143,12 @@ Azure Monitor for SAP Solutions doesn't support resource logs or activity logs. 
 
 You can use Kusto queries to help you monitor your Monitor SAP on Azure resources. Here's a sample query that gives you data from a custom log for a specified time range. You specify the number of rows; for instance, in this example, you'll get five rows of data. 
 
-    ```Kusto
-    custom log name 
-    | take 5
+```Kusto
+custom log name 
+| take 5
 
-    ```
-For more information on the many other Kusto queries you can use, see [Use Kusto queries in Azure Data Explorer and Azure Monitor](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+```
+For more information on the many other Kusto queries you can use, see [Use Kusto queries in Azure Data Explorer and Azure Monitor](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial).
 
 ## Alerts
 
@@ -165,10 +165,10 @@ You have several options to deploy Azure Monitor for SAP Solutions and configure
 
 ## Pricing
 Azure Monitor for SAP Solutions is a free product (no license fee). You're responsible for paying the cost of the underlying components in the managed resource group. You're also responsible for consumption costs associated with data use and retention. For more information, see standard Azure pricing documents:
-- [Azure VM pricing] (https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/)
-- [Azure Key vault pricing] (https://azure.microsoft.com/en-us/pricing/details/key-vault/)
-- [Azure storage account pricing] (https://azure.microsoft.com/en-us/pricing/details/storage/queues/)
-- [Azure Log Analytics and alerts pricing] (https://azure.microsoft.com/en-us/pricing/details/monitor/)
+- [Azure VM pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
+- [Azure Key vault pricing](https://azure.microsoft.com/pricing/details/key-vault/)
+- [Azure storage account pricing](https://azure.microsoft.com/pricing/details/storage/queues/)
+- [Azure Log Analytics and alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)
 
 ## Next steps
 
