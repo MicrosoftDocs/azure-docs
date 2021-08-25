@@ -36,7 +36,7 @@ When monitoring data flow performance, there are four possible bottlenecks to lo
 
 ![Data Flow Monitoring](media/data-flow/monitoring-performance.png "Data Flow Monitor 3")
 
-Cluster start-up time is the time it takes to spin up an Apache Spark cluster. This value is located in the top-right corner of the monitoring screen. Data flows run on a just-in-time model where each job uses an isolated cluster. This start-up time generally takes 3-5 minutes. For sequential jobs, this can be reduced by enabling a time to live value. For more information, refer to [Azure Integration Runtime performance](concepts-integration-runtime-performance.md).
+Cluster start-up time is the time it takes to spin up an Apache Spark cluster. This value is located in the top-right corner of the monitoring screen. Data flows run on a just-in-time model where each job uses an isolated cluster. This start-up time generally takes 3-5 minutes. For sequential jobs, this can be reduced by enabling a time to live value. For more information, refer to [Integration Runtime performance](concepts-integration-runtime-performance.md).
 
 Data flows utilize a Spark optimizer that reorders and runs your business logic in 'stages' to perform as quickly as possible. For each sink that your data flow writes to, the monitoring output lists the duration of each transformation stage, along with the time it takes to write data into the sink. The time that is the largest is likely the bottleneck of your data flow. If the transformation stage that takes the largest contains a source, then you may want to look at further optimizing your read time. If a transformation is taking a long time, then you may need to repartition or increase the size of your integration runtime. If the sink processing time is large, you may need to scale up your database or verify you are not outputting to a single file.
 
@@ -273,4 +273,4 @@ See other Data Flow articles related to performance:
 
 - [Data Flow activity](control-flow-execute-data-flow-activity.md)
 - [Monitor Data Flow performance](concepts-data-flow-monitoring.md)
-- [Azure Integration Runtime performance](concepts-integration-runtime-performance.md)
+- [Integration Runtime performance](concepts-integration-runtime-performance.md)

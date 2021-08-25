@@ -701,7 +701,7 @@ Specific scenarios that can cause internal server errors are shown as follows.
 
   Successful execution of data flows depends on many factors, including the compute size/type, numbers of source/sinks to process, the partition specification, transformations involved, sizes of datasets, the data skewness and so on.<br/>
   
-  For more guidance, see [Azure Integration Runtime performance](concepts-integration-runtime-performance.md).
+  For more guidance, see [Integration Runtime performance](concepts-integration-runtime-performance.md).
 
 #### Scenario 2: Using debug sessions with parallel activities
 

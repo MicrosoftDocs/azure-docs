@@ -1,5 +1,5 @@
 ---
-title: Azure Integration Runtime Performance
+title: Integration Runtime Performance
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to optimize and improve performance of the Azure Integration Runtime in Azure Data Factory and Azure Synapse Analytics.
 author: kromerm
