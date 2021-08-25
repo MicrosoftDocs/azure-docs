@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 07/28/2021
+ms.date: 08/26/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -106,6 +106,11 @@ You can also export that log data to Azure Monitor, Azure Event Hubs, and Azure 
 **A:** You can download up to 5000 records from the Azure portal. The records are sorted by *most recent* and by default, you get the most recent 5000 records.
 
 ---
+
+## Sign-in logs
+
+**Q: Why is there no value for client app in the Basic info?**
+**A:** This is possible in the case of cross tenant scenarios.  Due to privacy commitments, client app and other  fields are not exposed to the home tenant.
 
 ## Risky sign-ins
 
