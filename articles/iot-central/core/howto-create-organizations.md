@@ -34,7 +34,7 @@ The following screenshot shows an organization hierarchy definition in IoT Centr
 
 To start using organizations, you need to define your organization hierarchy. Each organization in the hierarchy acts as a logical container where you place devices, save dashboards and device groups, and invite users. To create your organizations, go to the **Administration** section in your IoT Central application, select the **Organizations** tab, and select either **+ New** or use the context menu for an existing organization. To create one or many organizations at a time, select **+ Add another organization**:
 
-:::image type="content" source="media/howto-create-organization/create-organizations-hierarchy.png" alt-text="Screenshot that shows the options for creating an orgnaization hierarchy.":::
+:::image type="content" source="media/howto-create-organization/create-organizations-hierarchy.png" alt-text="Screenshot that shows the options for creating an organization hierarchy.":::
 
 > [!TIP]
 > The initial setup of organizations must be done by a member of the **App Administrator** role.
