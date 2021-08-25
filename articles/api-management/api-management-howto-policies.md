@@ -1,6 +1,6 @@
 ---
 title: Policies in Azure API Management | Microsoft Docs
-description: Learn how to create, edit, and configure policies in API Management. See code examples and view additional available resources.
+description: Learn how to create, edit, and configure policies in API Management. See code examples and other available resources.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -20,7 +20,7 @@ ms.author: apimpm
 In Azure API Management, API publishers can change API behavior through configuration using policies. Policies are a collection of statements executed sequentially on the request or response of an API. Popular statements include:
 
 * Format conversion from XML to JSON.
-* Call rate limiting to restrict the amount of incoming calls from a developer. 
+* Call rate limiting to restrict the number of incoming calls from a developer. 
 
 Many more policies are available out of the box.
 
