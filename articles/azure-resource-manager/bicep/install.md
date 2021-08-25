@@ -91,6 +91,10 @@ bicep --version
 
 The following methods install the Bicep CLI and add it to your PATH. You must manually install for any use other than Azure CLI.
 
+- [Linux](#linus)
+- [macOS](#macos)
+- [Windows](#windows)
+
 #### Linux
 
 ```sh
