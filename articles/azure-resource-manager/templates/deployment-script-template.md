@@ -40,9 +40,7 @@ The deployment script resource is only available in the regions where Azure Cont
 
 For deployment script API version 2020-10-01 or later, there are two principals involved in deployment script execution:
 
-- Deployment principal (the principal used to deploy the template): this principal is used to create underlying resources required for the deployment script resource to execute — a storage account and an Azure container instance.
-
-    To configure the least-privilege permissions, you need to assign a custom role with the following properties to the deployment principal:
+- **Deployment principal** (the principal used to deploy the template): this principal is used to create underlying resources required for the deployment script resource to execute — a storage account and an Azure container instance. To configure the least-privilege permissions, assign a custom role with the following properties to the deployment principal:
 
     ```json
     {
@@ -68,7 +66,9 @@ For deployment script API version 2020-10-01 or later, there are two principals 
 
     If the Azure Storage and the Azure Container Instance resource providers haven't been registered, you also need to add `Microsoft.Storage/register/action` and `Microsoft.ContainerInstance/register/action`.
 
-- Deployment script principal: This principal is only required if the deployment script needs to authenticate to Azure and perform Azure-specific actions. It is recommended to specify a user-assigned managed identity in the `identity` property (see [Sample templates](#sample-templates)). When the identity property is specified, the script service calls `Connect-AzAccount -Identity` before invoking the deployment script. The managed identity must have the required access to complete the operation in the script. If a managed identity is used, the deployment principal needs the **Managed Identity Operator** role (a built-in role) assigned to the managed identity resource. Currently, only user-assigned managed identity is supported for the `identity` property. To login with a different identity, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index?view=azure-cli-latest#az_login&preserve-view=true) in the deployment script.
+- **Deployment script principal**: This principal is only required if the deployment script needs to authenticate to Azure and call Azure CLI/PowerShell. It is recommended to specify a user-assigned managed identity in the `identity` property (see [Sample templates](#sample-templates)). When specified, the script service calls `Connect-AzAccount -Identity` before invoking the deployment script. The managed identity must have the required access to complete the operation in the script. Currently, only user-assigned managed identity is supported for the `identity` property. To login with a different identity, you can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index?view=azure-cli-latest#az_login&preserve-view=true) in the deployment script.
+
+  If a managed identity is used, the deployment principal needs the **Managed Identity Operator** role (a built-in role) assigned to the managed identity resource.
 
 ## Sample templates
 
