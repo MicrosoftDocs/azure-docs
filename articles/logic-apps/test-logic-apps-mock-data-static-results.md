@@ -171,11 +171,11 @@ using your previous values.
 1. Find the action where you want to disable static outputs. 
 In the action's upper-right corner, choose the test beaker icon (![Icon for static results](./media/test-logic-apps-mock-data-static-results/static-results-test-beaker-icon.png)).
 
-   ![Disable static results](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
+   ![Screenshot shows an H T T P action where you can select the test beaker icon.](./media/test-logic-apps-mock-data-static-results/disable-static-results.png)
 
 1. Choose **Disable Static Result** > **Done**.
 
-   ![Disable static results](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
+   ![Screenshot shows the Disable Static Result option that you can select.](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
 ## Reference
 

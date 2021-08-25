@@ -9,7 +9,7 @@ ms.author: billmath
 ---
 
 ## Steps to enable Single Sign-on
-Cloud provisioning works with Single Sign-on.  Currently their is not an option to enable SSO when the agent is installed, however you can use the steps below to enable SSO and use it. 
+Cloud provisioning works with Single Sign-on.  Currently there is not an option to enable SSO when the agent is installed, however you can use the steps below to enable SSO and use it. 
 
 ### Step 1: Download and extract Azure AD Connect files
 1.  First, download the latest version of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
@@ -19,7 +19,7 @@ Cloud provisioning works with Single Sign-on.  Currently their is not an option 
 
 ### Step 2: Import the Seamless SSO PowerShell module
 
-1. Download, and install [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Download, and install [Azure AD PowerShell](/powershell/azure/active-directory/overview).
 2. Browse to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
 3. Import the Seamless SSO PowerShell module by using this command: `Import-Module .\AzureADSSO.psd1`.
 

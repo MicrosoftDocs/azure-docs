@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 9/25/2019
+ms.date: 07/29/2020
 ---
 
 # Create an Azure Cosmos Table API account and table using Azure CLI
+[!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0.73 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+- This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Sample script
 
@@ -33,10 +34,10 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
-| [az cosmosdb table create](/cli/azure/cosmosdb/table#az-cosmosdb-table-create) | Creates an Azure Cosmos Table API table. |
-| [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) | Creates an Azure Cosmos DB account. |
+| [az cosmosdb table create](/cli/azure/cosmosdb/table#az_cosmosdb_table_create) | Creates an Azure Cosmos Table API table. |
+| [az group delete](/cli/azure/resource#az_resource_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

@@ -5,12 +5,12 @@ description: Learn how to simulate risk detections in Identity Protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -37,7 +37,7 @@ More information about each risk detection can be found in the article, [What is
 Completing the following procedure requires you to use:
 
 - The [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) to simulate anonymous IP addresses. You might need to use a virtual machine if your organization restricts using the Tor browser.
-- A test account that is not yet registered for Azure Multi-Factor Authentication.
+- A test account that is not yet registered for Azure AD Multi-Factor Authentication.
 
 **To simulate a sign-in from an anonymous IP, perform the following steps**:
 
@@ -58,7 +58,7 @@ The procedure below uses a newly created:
 Completing the following procedure requires you to use a user account that has:
 
 - At least a 30-day sign-in history.
-- Azure Multi-Factor Authentication enabled.
+- Azure AD Multi-Factor Authentication enabled.
 
 **To simulate a sign-in from an unfamiliar location, perform the following steps**:
 

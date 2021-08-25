@@ -1,5 +1,5 @@
 ---
-title: Push notifications to specific Android devices using Azure Notification Hubs and Google Firebase Cloud Messaging | Microsoft Docs
+title: Send push notifications to specific devices using Azure Notification Hubs and Google Firebase Cloud Messaging | Microsoft Docs
 description: Learn how to use Notification Hubs to push notifications to specific Android devices by using Azure Notification Hubs and Google Firebase Cloud Messaging (FCM).
 services: notification-hubs
 documentationcenter: android
@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ms.date: 04/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/30/2019
 ---
 
-# Tutorial: Push notifications to specific Android devices using Azure Notification Hubs and Google Firebase Cloud Messaging (FCM)
+# Tutorial: Send notifications to specific devices using Notification Hubs and Google Firebase Cloud Messaging
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -113,7 +113,7 @@ The first step is to add the UI elements to your existing main activity that ena
 
     Your `main_activity.xml` graphical layout should look like in the following image:
 
-    ![][A1]
+    ![Screenshot of an emulator displaying what the main activity X M L graphical layout will look like.][A1]
 3. Create a class `Notifications` in the same package as your `MainActivity` class.
 
     ```java
@@ -336,10 +336,10 @@ In this tutorial, you sent broadcast notifications to specific Android devices t
 [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: https://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
+[Notification Hubs How-To for Windows Store]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253
 [Azure portal]: https://portal.azure.com
-[wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
+[wns object]: /previous-versions/azure/reference/jj860484(v=azure.100)

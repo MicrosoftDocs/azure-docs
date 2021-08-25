@@ -9,7 +9,7 @@ ms.reviewer: librown
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
 ms.custom: user-help
@@ -86,9 +86,9 @@ If for some reason you're unable to use your primary sign-in method, you can use
 
 ## Next steps
 
-- Learn about security info in the [Security info (preview) overview](user-help-security-info-overview.md) article.
+- Learn about security info in the [Security info (preview) overview](./security-info-setup-signin.md) article.
 
-- Learn about two-step verification in the [Two-step verification overview](user-help-two-step-verification-overview.md) article.
+- Learn about two-step verification in the [Two-step verification overview](./multi-factor-authentication-end-user-first-time.md) article.
 
 - Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/)
 

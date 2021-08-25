@@ -1,23 +1,24 @@
 ---
 title: Resource not found errors
-description: Describes how to resolve errors when a resource can't be found when deploying with an Azure Resource Manager template.
+description: Describes how to resolve errors when a resource can't be found. The error can occur when deploying an Azure Resource Manager template or when taking management actions.
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 03/23/2021 
+ms.custom: devx-track-azurepowershell
 ---
-# Resolve not found errors for Azure resources
+# Resolve resource not found errors
 
-This article describes the errors you may see when a resource can't be found during deployment.
+This article describes the error you see when a resource can't be found during an operation. Typically, you see this error when deploying resources. You also see this error when doing management tasks and Azure Resource Manager can't find the required resource. For example, if you try to add tags to a resource that doesn't exist, you receive this error.
 
 ## Symptom
 
-When your template includes the name of a resource that can't be resolved, you receive an error similar to:
+There are two error codes that indicate the resource can't be found. The **NotFound** error returns a result similar to:
 
 ```
 Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-If you use the [reference](template-functions-resource.md#reference) or [listKeys](template-functions-resource.md#listkeys) functions with a resource that can't be resolved, you receive the following error:
+The **ResourceNotFound** error returns a result similar to:
 
 ```
 Code=ResourceNotFound;
@@ -27,11 +28,23 @@ group {resource group name} was not found.
 
 ## Cause
 
-Resource Manager needs to retrieve the properties for a resource, but can't identify the resource in your subscription.
+Resource Manager needs to retrieve the properties for a resource, but can't find the resource in your subscriptions.
 
-## Solution 1 - set dependencies
+## Solution 1 - check resource properties
 
-If you're trying to deploy the missing resource in the template, check whether you need to add a dependency. Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your template. For example, when deploying a web app, the App Service plan must exist. If you haven't specified that the web app depends on the App Service plan, Resource Manager creates both resources at the same time. You get an error stating that the App Service plan resource can't be found, because it doesn't exist yet when attempting to set a property on the web app. You prevent this error by setting the dependency in the web app.
+When you receive this error while doing a management task, check the values you provide for the resource. The three values to check are:
+
+* Resource name
+* Resource group name
+* Subscription
+
+If you're using PowerShell or Azure CLI, check whether you're running the command in the subscription that contains the resource. You can change the subscription with [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) or [az account set](/cli/azure/account#az_account_set). Many commands also provide a subscription parameter that lets you specify a different subscription than the current context.
+
+If you're having trouble verifying the properties, sign in to the [portal](https://portal.azure.com). Find the resource you're trying to use and examine the resource name, resource group, and subscription.
+
+## Solution 2 - set dependencies
+
+If you get this error when deploying a template, you may need to add a dependency. Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your template. For example, when deploying a web app, the App Service plan must exist. If you haven't specified that the web app depends on the App Service plan, Resource Manager creates both resources at the same time. You get an error stating that the App Service plan resource can't be found, because it doesn't exist yet when attempting to set a property on the web app. You prevent this error by setting the dependency in the web app.
 
 ```json
 {
@@ -64,9 +77,13 @@ When you see dependency problems, you need to gain insight into the order of res
 
    ![sequential deployment](./media/error-not-found/deployment-events-sequence.png)
 
-## Solution 2 - get resource from different resource group
+## Solution 3 - get external resource
 
-When the resource exists in a different resource group than the one being deployed to, use the [resourceId function](template-functions-resource.md#resourceid) to get the fully qualified name of the resource.
+When deploying a template and you need to get a resource that exists in a different subscription or resource group, use the [resourceId function](template-functions-resource.md#resourceid). This function returns to get the fully qualified name of the resource.
+
+The subscription and resource group parameters in the resourceId function are optional. If you don't provide them, they default to the current subscription and resource group. When working with a resource in a different resource group or subscription, make sure you provide those values.
+
+The following example gets the resource ID for a resource that exists in a different resource group.
 
 ```json
 "properties": {
@@ -75,22 +92,45 @@ When the resource exists in a different resource group than the one being deploy
 }
 ```
 
-## Solution 3 - check reference function
-
-Look for an expression that includes the [reference](template-functions-resource.md#reference) function. The values you provide vary based on whether the resource is in the same template, resource group, and subscription. Double check that you're providing the required parameter values for your scenario. If the resource is in a different resource group, provide the full resource ID. For example, to reference a storage account in another resource group, use:
-
-```json
-"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
-```
-
 ## Solution 4 - get managed identity from resource
 
 If you're deploying a resource that implicitly creates a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you must wait until that resource is deployed before retrieving values on the managed identity. If you pass the managed identity name to the [reference](template-functions-resource.md#reference) function, Resource Manager attempts to resolve the reference before the resource and identity are deployed. Instead, pass the name of the resource that the identity is applied to. This approach ensures the resource and the managed identity are deployed before Resource Manager resolves the reference function.
 
 In the reference function, use `Full` to get all of the properties including the managed identity.
 
-For example, to get the tenant ID for a managed identity that is applied to a virtual machine scale set, use:
+The pattern is:
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>), <API-version>, 'Full').Identity.propertyName]"`
+
+> [!IMPORTANT]
+> Don't use the pattern:
+>
+> `"[reference(concat(resourceId(<resource-provider-namespace>, <resource-name>),'/providers/Microsoft.ManagedIdentity/Identities/default'),<API-version>).principalId]"`
+>
+> Your template will fail.
+
+For example, to get the principal ID for a managed identity that is applied to a virtual machine, use:
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
 ```
+
+Or, to get the tenant ID for a managed identity that is applied to a virtual machine scale set, use:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
+```
+
+## Solution 5 - check functions
+
+When deploying a template, look for expressions that use the [reference](template-functions-resource.md#reference) or [listKeys](template-functions-resource.md#listkeys) functions. The values you provide vary based on whether the resource is in the same template, resource group, and subscription. Check that you're providing the required parameter values for your scenario. If the resource is in a different resource group, provide the full resource ID. For example, to reference a storage account in another resource group, use:
+
+```json
+"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
+```
+
+## Solution 6 - after deleting resource
+
+When you delete a resource, there may be a short amount of time when the resource still appears in the portal but isn't actually available. If you select the resource, you'll get an error that says the resource isn't found. Refresh the portal to get the latest view.
+
+If the problem continues after a short wait, [contact support](https://azure.microsoft.com/support/options/).

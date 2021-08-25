@@ -3,7 +3,7 @@ title: Singletons for Durable Functions - Azure
 description: How to use singletons in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 09/10/2020
 ms.author: azfuncdf
 ---
 
@@ -26,11 +26,14 @@ public static async Task<HttpResponseMessage> RunSingle(
     string instanceId,
     ILogger log)
 {
-    // Check if an instance with the specified ID already exists.
+    // Check if an instance with the specified ID already exists or an existing one stopped running(completed/failed/terminated).
     var existingInstance = await starter.GetStatusAsync(instanceId);
-    if (existingInstance == null)
+    if (existingInstance == null 
+    || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Completed 
+    || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Failed 
+    || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Terminated)
     {
-        // An instance with the specified ID doesn't exist, create one.
+        // An instance with the specified ID doesn't exist or an existing one stopped running, create one.
         dynamic eventData = await req.Content.ReadAsAsync<object>();
         await starter.StartNewAsync(functionName, instanceId, eventData);
         log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
@@ -38,10 +41,11 @@ public static async Task<HttpResponseMessage> RunSingle(
     }
     else
     {
-        // An instance with the specified ID exists, don't create one.
-        return req.CreateErrorResponse(
-            HttpStatusCode.Conflict,
-            $"An instance with ID '{instanceId}' already exists.");
+        // An instance with the specified ID exists or an existing one still running, don't create one.
+        return new HttpResponseMessage(HttpStatusCode.Conflict)
+        {
+            Content = new StringContent($"An instance with ID '{instanceId}' already exists."),
+        };
     }
 }
 ```
@@ -89,16 +93,19 @@ module.exports = async function(context, req) {
     const instanceId = req.params.instanceId;
     const functionName = req.params.functionName;
 
-    // Check if an instance with the specified ID already exists.
+    // Check if an instance with the specified ID already exists or an existing one stopped running(completed/failed/terminated).
     const existingInstance = await client.getStatus(instanceId);
-    if (!existingInstance) {
-        // An instance with the specified ID doesn't exist, create one.
+    if (!existingInstance 
+        || existingInstance.runtimeStatus == "Completed" 
+        || existingInstance.runtimeStatus == "Failed" 
+        || existingInstance.runtimeStatus == "Terminated") {
+        // An instance with the specified ID doesn't exist or an existing one stopped running, create one.
         const eventData = req.body;
         await client.startNew(functionName, instanceId, eventData);
         context.log(`Started orchestration with ID = '${instanceId}'.`);
         return client.createCheckStatusResponse(req, instanceId);
     } else {
-        // An instance with the specified ID exists, don't create one.
+        // An instance with the specified ID exists or an existing one still running, don't create one.
         return {
             status: 409,
             body: `An instance with ID '${instanceId}' already exists.`,
@@ -107,9 +114,65 @@ module.exports = async function(context, req) {
 };
 ```
 
+# [Python](#tab/python)
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}/{instanceId}",
+      "methods": ["post"]
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+**__init__.py**
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    instance_id = req.route_params['instanceId']
+    function_name = req.route_params['functionName']
+
+    existing_instance = await client.get_status(instance_id)
+
+    if existing_instance is None or existing_instance.runtime_status in [df.OrchestrationRuntimeStatus.Completed, df.OrchestrationRuntimeStatus.Failed, df.OrchestrationRuntimeStatus.Terminated]:
+        event_data = req.get_body()
+        instance_id = await client.start_new(function_name, instance_id, event_data)
+        logging.info(f"Started orchestration with ID = '{instance_id}'.")
+        return client.create_check_status_response(req, instance_id)
+    else:
+        return {
+            'status': 409,
+            'body': f"An instance with ID '${existing_instance.instance_id}' already exists"
+        }
+
+```
+
 ---
 
-By default, instance IDs are randomly generated GUIDs. In the previous example, however, the instance ID is passed in route data from the URL. The code calls `GetStatusAsync`(C#) or `getStatus` (JavaScript) to check if an instance having the specified ID is already running. If no such instance is running, a new instance is created with that ID.
+By default, instance IDs are randomly generated GUIDs. In the previous example, however, the instance ID is passed in route data from the URL. The code calls `GetStatusAsync`(C#), `getStatus` (JavaScript), or `get_status` (Python) to check if an instance having the specified ID is already running. If no such instance is running, a new instance is created with that ID.
 
 > [!NOTE]
 > There is a potential race condition in this sample. If two instances of **HttpStartSingle** execute concurrently, both function calls will report success, but only one orchestration instance will actually start. Depending on your requirements, this may have undesirable side effects. For this reason, it is important to ensure that no two requests can execute this trigger function concurrently.

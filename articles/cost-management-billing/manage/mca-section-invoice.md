@@ -1,11 +1,12 @@
 ---
 title: Organize your invoice based on your needs - Azure
-description: Learn how to organize cost on your invoice.
+description: Learn how to organize costs on your invoice. You can customize your billing account by creating billing profiles and invoice sections.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -14,6 +15,10 @@ ms.author: banders
 Your billing account for Microsoft Customer Agreement provides you flexibility to organize your costs based on your needs whether it's by department, project, or development environment.
 
 This article describes how you can use the Azure portal to organize your costs. It applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
+
+Watch the [Organize costs by customizing your Microsoft Customer Agreement billing account](https://www.youtube.com/watch?v=7RxTfShGHwU) video to learn how to organize costs for your billing account.
+
+>[!VIDEO https://www.youtube.com/embed/7RxTfShGHwU]
 
 ## Structure your account with billing profiles and invoice sections
 
@@ -47,19 +52,19 @@ This section describes common scenarios for organizing costs and corresponding b
 |---------|---------|
 |Jack signs-up for Azure and needs a single monthly invoice. | A billing profile and an invoice section. This structure is automatically set up for Jack when he signs up for Azure and doesn't require any additional steps. |
 
-![Info graphic for a simple billing scenario](./media/mca-section-invoice/organize-billing-scenario1.png)
+![Info graphic for a single billing scenario.](./media/mca-section-invoice/organize-billing-scenario1.png)
 
 |Scenario  |Structure  |
 |---------|---------|
 |Contoso is a small organization that needs a single monthly invoice but group costs by their departments - marketing and engineering.  | A billing profile for Contoso and an invoice section each for marketing and engineering departments. |
 
-![Info graphic for a simple billing scenario](./media/mca-section-invoice/organize-billing-scenario2.png)
+![Info graphic for a multiple billing scenario.](./media/mca-section-invoice/organize-billing-scenario2.png)
 
 |Scenario  |Structure  |
 |---------|---------|
 |Fabrikam is a mid-size organization that needs separate invoices for their engineering and marketing departments. For engineering department, they want to group costs by environments - production and development.  | A billing profile each for marketing and engineering departments. For engineering department, an invoice section each for production and development environment. |
 
-![Info graphic for a simple billing scenario](./media/mca-section-invoice/organize-billing-scenario3.png)
+![Info graphic for a multiple billing scenario, with separate billing for production and development environments.](./media/mca-section-invoice/organize-billing-scenario3.png)
 
 ## Create a new invoice section
 
@@ -73,7 +78,7 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
 3. Select **Billing profiles** from the left-hand pane. From the list, select a billing profile. The new section will be displayed on the selected billing profile's invoice.
 
-   [![Screenshot that shows billing profile list](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
+   [![Screenshot that shows billing profile list.](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
 4. Select **Invoice sections** from the left-hand pane and then select **Add** from the top of the page.
 
@@ -101,7 +106,7 @@ To create a billing profile, you need to be a **billing account owner** or a **b
 
 3. Select **Billing profiles** from the left-hand pane and then select **Add** from the top of the page.
 
-   [![Screenshot that shows billing profile list](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
+   [![Screenshot that shows billing profile list with Add selected.](./media/mca-section-invoice/mca-list-profiles.png)](./media/mca-section-invoice/mca-list-profiles-zoomed-in.png#lightbox)
 
     > [!Note]
     >
@@ -115,7 +120,7 @@ To create a billing profile, you need to be a **billing account owner** or a **b
     |---------|---------|
     |Name     | A display name that helps you easily identify the billing profile in the Azure portal.  |
     |PO number    | An optional purchase order number. The PO number will be displayed on the invoices generated for the billing profile. |
-    |Billing address   | The billing address will be displayed on the invoices generated for the billing profile. |
+    |Bill to  | The bill to will be displayed on the invoices generated for the billing profile. |
     |Email invoice   | Check the email invoice box to receive the invoices for this billing profile by email. If you don't opt in, you can view and download the invoices in the Azure portal.|
 
 5. Select **Create**.
@@ -130,15 +135,15 @@ Once you have customized your billing account based on your needs, you can link 
 
 2. Search for **Subscriptions**.
 
-   [![Screenshot that shows search in portal for subscription](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
+   [![Screenshot that shows search for subscription in the Azure portal.](./media/mca-section-invoice/search-subscriptions.png)](./media/mca-section-invoice/search-subscriptions.png#lightbox)
 
 3. Select **Add** from the top of the page.
 
-   ![Screenshot that shows the Add button in Subscriptions view](./media/mca-section-invoice/subscription-add.png)
+   ![Screenshot that shows the Add button in Subscriptions view for a new subscription.](./media/mca-section-invoice/subscription-add.png)
 
 4. If you have access to multiple billing accounts, select your Microsoft Customer Agreement billing account.
 
-   ![Screenshot that shows the Add button in Subscriptions view](./media/mca-section-invoice/mca-create-azure-subscription.png)
+   ![Screenshot that shows the Create subscription pane.](./media/mca-section-invoice/mca-create-azure-subscription.png)
 
 5. Select the billing profile that will be billed for the subscription's usage. The charges for Azure usage and other purchases for this subscription will be billed to the selected billing profile's invoice.
 
@@ -152,23 +157,19 @@ Once you have customized your billing account based on your needs, you can link 
 
 If you have existing Azure subscriptions or other products such as Azure Marketplace and App source resources, you can move them from their existing invoice section to another invoice section to reorganize your costs.
 
-> [!IMPORTANT]
->
-> Subscriptions and other products can only be moved between invoice sections that belong to the same billing profile. Moving subscriptions and products across invoice sections in different billing profiles is not supported.
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows search in portal for subscription](./media/mca-section-invoice/search-cmb.png)
+   ![Screenshot that shows search in the Azure portal for Cost Management + Billing.](./media/mca-section-invoice/search-cmb.png)
 
 3. To link a subscription to a new invoice section, select **Azure subscriptions** from the left-side of the screen. For other products such as Azure Marketplace and App source resources, select **Recurring charges**.
 
-   [![Screenshot that shows the option to change invoice section](./media/mca-section-invoice/mca-select-change-invoice-section.png)](./media/mca-section-invoice/mca-select-change-invoice-section.png#lightbox)
+   [![Screenshot that shows the option to change invoice section](./media/mca-section-invoice/mca-select-change-invoice-section.png)](./media/mca-section-invoice/mca-select-change-invoice-section-zoomed-in.png#lightbox)
 
 4. In the page, click on ellipsis (three dots) for the subscription or product that you want to link to a new invoice section. Select **Change invoice section**.
 
-5. Select the new invoice section from the dropdown. The dropdown will only show invoice sections that are associated with the same billing profile as the existing invoice section.
+5. Select the new billing profile and the invoice section from the dropdown.
 
     [![Screenshot that shows selecting a new invoice section](./media/mca-section-invoice/mca-select-new-invoice-section.png)](./media/mca-section-invoice/mca-select-new-invoice-section-zoomed-in.png#lightbox)
 

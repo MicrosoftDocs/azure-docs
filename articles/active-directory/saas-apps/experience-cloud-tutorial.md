@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Experience Cloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Experience Cloud.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 011e98ba-c452-40e1-983c-936f6a77ae2e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Experience Cloud
@@ -27,7 +21,7 @@ In this tutorial, you'll learn how to integrate Experience Cloud with Azure Acti
 * Enable your users to be automatically signed-in to Experience Cloud with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -41,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Experience Cloud supports **SP and IDP** initiated SSO
-* Once you configure the Experience Cloud you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure the Experience Cloud you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 
 ## Adding Experience Cloud from the gallery
@@ -83,33 +77,32 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Identifier** text box, type a URL using the following patterns:
     
-    |||
-    |-|-|
-    | `https://<cluster>.medallia.com/sso/<company>`|
-    | `https://<cluster>.medallia.ca/sso/<company>`|
-    | `https://<cluster>.medallia.eu/sso/<company>`|
-    | `https://<cluster>.medallia.au/sso/<company>`|
+    ```http
+    https://<cluster>.medallia.com/sso/<company>
+    https://<cluster>.medallia.ca/sso/<company>
+    https://<cluster>.medallia.eu/sso/<company>
+    https://<cluster>.medallia.au/sso/<company>
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following patterns:
 
-    |||
-    |-|-|
-    | `https://<cluster>.medallia.com/sso/<company>/logonSubmit.do`|
-    | `https://<cluster>.medallia.ca/sso/<company>/logonSubmit.do`|
-    | `https://<cluster>.medallia.eu/sso/<company>/logonSubmit.do`|
-    | `https://<cluster>.medallia.au/sso/<company>/logonSubmit.do`|
-
+    ```http
+    https://<cluster>.medallia.com/sso/<company>/logonSubmit.do
+    https://<cluster>.medallia.ca/sso/<company>/logonSubmit.do
+    https://<cluster>.medallia.eu/sso/<company>/logonSubmit.do
+    https://<cluster>.medallia.au/sso/<company>/logonSubmit.do
+    ```
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following patterns:
 
-    |||
-    |-|-|
-    | `https://<cluster>.medallia.com/sso/<company>`|
-    | `https://<cluster>.medallia.ca/sso/<company>`|
-    | `https://<cluster>.medallia.eu/sso/<company>`|
-    | `https://<cluster>.medallia.au/sso/<company>`|
+    ```http
+    https://<cluster>.medallia.com/sso/<company>
+    https://<cluster>.medallia.ca/sso/<company>
+    https://<cluster>.medallia.eu/sso/<company>
+    https://<cluster>.medallia.au/sso/<company>
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Experience Cloud Client support team](mailto:support@medallia.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -164,16 +157,16 @@ In this section, you create a user called B.Simon in Experience Cloud. Work with
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Experience Cloud tile in the Access Panel, you should be automatically signed in to the Experience Cloud for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Experience Cloud tile in the Access Panel, you should be automatically signed in to the Experience Cloud for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [What is application access and single sign-on with Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Try Experience Cloud with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

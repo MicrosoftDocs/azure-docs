@@ -1,27 +1,30 @@
 ---
- title: NV-series - Azure Virtual Machines
- description: Specifications for the NV-series VMs.
- services: virtual-machines
- author: vikancha
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/03/2020
- ms.author: lahugh
+title: NV-series - Azure Virtual Machines
+description: Specifications for the NV-series VMs.
+author: vikancha-MSFT
+ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
+ms.topic: conceptual
+ms.date: 02/03/2020
+ms.author: jushiman
 ---
 
 # NV-series
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 The NV-series virtual machines are powered by [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPUs and NVIDIA GRID technology for desktop accelerated applications and virtual desktops where customers are able to visualize their data or simulations. Users are able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. NV-series VMs are also powered by Intel Xeon E5-2690 v3 (Haswell) CPUs.
 
 Each GPU in NV instances comes with a GRID license. This license gives you the flexibility to use an NV instance as a virtual workstation for a single user, or 25 concurrent users can connect to the VM for a virtual application scenario.
 
-Premium Storage:  Not Supported
-
-Premium Storage caching:  Not Supported
-
-Live Migration: Not Supported
-
-Memory Preserving Updates: Not Supported
+[Premium Storage](premium-storage-performance.md): Not Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Not Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
+[VM Generation Support](generation-2.md): Generation 1<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+<br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs | Virtual Workstations | Virtual Applications |
 |---|---|---|---|---|---|---|---|---|---|

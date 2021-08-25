@@ -1,18 +1,18 @@
 ---
 title: TLS configuration - Azure portal - Azure Database for MariaDB
 description: Learn how to set TLS configuration using Azure portal for your Azure Database for MariaDB 
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
-ms.topic: conceptual
-ms.date: 03/10/2020
+ms.topic: how-to
+ms.date: 06/02/2020
 ---
 
 # Configuring TLS settings in Azure Database for MariaDB using Azure portal
 
-This article describes how you can configure an Azure Database for MariaDB server to enforce connections for a minimum TLS version to go through and deny all connections with lower TLS version thereby enhancing the network security.
+This article describes how you can configure an Azure Database for MariaDB server to enforce minimum TLS version for connections to go through and deny all connections with lower TLS version than configured minimum TLS version thereby enhancing the network security.
 
-Customers now have the ability to enforce TLS version for connecting to their Azure Database for MariaDB by setting the minimal TLS version for their database server. For example, setting the minimum TLS setting version to TLS 1.0 means your server will allow connections from clients using TLS 1.0, 1.1, and 1.2+. Alternatively, setting this to 1.2 means that you only allow connections from clients using TLS 1.2 and all connections with TLS 1.0 and TLS 1.1 will be rejected.
+You can enforce TLS version for connecting to their Azure Database for MariaDB by setting the minimum TLS version for their database server. For example, setting the minimum TLS setting version to TLS 1.0 means your server will allow connections from clients using TLS 1.0, 1.1, and 1.2+. Alternatively, setting this to 1.2 means that you only allow connections from clients using TLS 1.2+ and all connections with TLS 1.0 and TLS 1.1 will be rejected.
 
 ## Prerequisites
 
@@ -40,4 +40,4 @@ Follow these steps to set MariaDB server minimum TLS version:
 
 ## Next steps
 
-Learn about [how to create alerts on metrics](howto-alert-metric.md).
+Learn about [how to create alerts on metrics](howto-alert-metric.md)

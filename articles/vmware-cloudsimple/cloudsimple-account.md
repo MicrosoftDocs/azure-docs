@@ -1,6 +1,6 @@
 ---
 title: CloudSimple account management - Azure 
-description: Learn about managing CloudSimple accounts 
+description: Learn about managing a CloudSimple account, which is created along with your CloudSimple service and is associated with your Azure subscription.
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 04/10/2019 

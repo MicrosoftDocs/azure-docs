@@ -2,37 +2,53 @@
 title: Troubleshoot common Azure Kubernetes Service problems
 description: Learn how to troubleshoot and resolve common problems when using Azure Kubernetes Service (AKS)
 services: container-service
-author: sauryadas
 ms.topic: troubleshooting
-ms.date: 12/13/2019
-ms.author: saudas
+ms.date: 06/20/2020
 ---
 
 # AKS troubleshooting
 
-When you create or manage Azure Kubernetes Service (AKS) clusters, you might occasionally encounter problems. This article details some common problems and troubleshooting steps.
+When you create or manage Azure Kubernetes Service (AKS) clusters, you might occasionally come across problems. This article details some common problems and troubleshooting steps.
 
 ## In general, where do I find information about debugging Kubernetes problems?
 
 Try the [official guide to troubleshooting Kubernetes clusters](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
 There's also a [troubleshooting guide](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md), published by a Microsoft engineer for troubleshooting pods, nodes, clusters, and other features.
 
-## I'm getting a "quota exceeded" error during creation or upgrade. What should I do? 
+## I'm getting a `quota exceeded` error during creation or upgrade. What should I do? 
 
-You need to [request cores](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [Request more cores](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-## What is the maximum pods-per-node setting for AKS?
+## I'm getting an `insufficientSubnetSize` error while deploying an AKS cluster with advanced networking. What should I do?
 
-The maximum pods-per-node setting is 30 by default if you deploy an AKS cluster in the Azure portal.
-The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster in the Azure CLI. (Make sure you're using the latest version of the Azure CLI). This default setting can be changed by using the `–-max-pods` flag in the `az aks create` command.
+This error indicates a subnet in use for a cluster no longer has available IPs within its CIDR for successful resource assignment. For Kubenet clusters, the requirement is sufficient IP space for each node in the cluster. For Azure CNI clusters, the requirement is sufficient IP space for each node and pod in the cluster.
+Read more about the [design of Azure CNI to assign IPs to pods](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
+These errors are also surfaced in [AKS Diagnostics](concepts-diagnostics.md), which proactively surfaces issues such as an insufficient subnet size.
 
-If Azure CNI (advanced networking) is used, AKS allocates IP addresses based on the "max-pods" per node configured. Based on the configured max pods per node, the subnet size must be greater than the product of the number of nodes and the max pod per node setting. The following equation outlines this:
+The following three (3) cases cause an insufficient subnet size error:
 
-Subnet size > number of nodes in the cluster (taking into consideration the future scaling requirements) * max pods per node set.
+1. AKS Scale or AKS Node pool scale
+   1. If using Kubenet, when the `number of free IPs in the subnet` is **less than** the `number of new nodes requested`.
+   1. If using Azure CNI, when the `number of free IPs in the subnet` is **less than** the `number of nodes requested times (*) the node pool's --max-pod value`.
 
-For more information, see [Plan IP addressing for your cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
+1. AKS Upgrade or AKS Node pool upgrade
+   1. If using Kubenet, when the `number of free IPs in the subnet` is **less than** the `number of buffer nodes needed to upgrade`.
+   1. If using Azure CNI, when the `number of free IPs in the subnet` is **less than** the `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value`.
+   
+   By default AKS clusters set a max surge (upgrade buffer) value of one (1), but this upgrade behavior can be customized by setting the [max surge value of a node pool, which will increase the number of available IPs needed to complete an upgrade.
+
+1. AKS create or AKS Node pool add
+   1. If using Kubenet, when the `number of free IPs in the subnet` is **less than** the `number of nodes requested for the node pool`.
+   1. If using Azure CNI, when the `number of free IPs in the subnet` is **less than** the `number of nodes requested times (*) the node pool's --max-pod value`.
+
+The following mitigation can be taken by creating new subnets. The permission to create a new subnet is required for mitigation due to the inability to update an existing subnet's CIDR range.
+
+1. Rebuild a new subnet with a larger CIDR range sufficient for operation goals:
+   1. Create a new subnet with a new desired non-overlapping range.
+   1. Create a new node pool on the new subnet.
+   1. Drain pods from the old node pool residing in the old subnet to be replaced.
+   1. Delete the old subnet and old node pool.
 
 ## My pod is stuck in CrashLoopBackOff mode. What should I do?
 
@@ -41,29 +57,40 @@ There might be various reasons for the pod being stuck in that mode. You might l
 * The pod itself, by using `kubectl describe pod <pod-name>`.
 * The logs, by using `kubectl logs <pod-name>`.
 
-For more information on how to troubleshoot pod problems, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
+For more information about how to troubleshoot pod problems, see [Debugging Pods](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods) in the Kubernetes documentation.
 
-## I'm trying to enable RBAC on an existing cluster. How can I do that?
+## I'm receiving `TCP timeouts` when using `kubectl` or other third-party tools connecting to the API server
+AKS has HA control planes that scale vertically according to the number of cores to ensure its Service Level Objectives (SLOs) and Service Level Agreements (SLAs). If you're experiencing connections timing out, check the below:
 
-Unfortunately, enabling role-based access control (RBAC) on existing clusters isn't supported at this time. You must explicitly create new clusters. If you use the CLI, RBAC is enabled by default. If you use the AKS portal, a toggle button to enable RBAC is available in the creation workflow.
+- **Are all your API commands timing out consistently or only a few?** If it's only a few, your `tunnelfront` pod or `aks-link` pod, responsible for node -> control plane communication, might not be in a running state. Make sure the nodes hosting this pod aren't over-utilized or under stress. Consider moving them to their own [`system` node pool](use-system-pools.md).
+- **Have you opened all required ports, FQDNs, and IPs noted on the [AKS restrict egress traffic docs](limit-egress-traffic.md)?** Otherwise several commands calls can fail.
+- **Is your current IP covered by [API IP Authorized Ranges](api-server-authorized-ip-ranges.md)?** If you're using this feature and your IP is not included in the ranges your calls will be blocked. 
+- **Do you have a client or application leaking calls to the API server?** Make sure to use watches instead of frequent get calls and that your third-party applications aren't leaking such calls. For example, a bug in the Istio mixer causes a new API Server watch connection to be created every time a secret is read internally. Because this behavior happens at a regular interval, watch connections quickly accumulate, and eventually cause the API Server to become overloaded no matter the scaling pattern. https://github.com/istio/istio/issues/19481
+- **Do you have many releases in your helm deployments?** This scenario can cause both tiller to use too much memory on the nodes, as well as a large amount of `configmaps`, which can cause unnecessary spikes on the API server. Consider configuring `--history-max` at `helm init` and leverage the new Helm 3. More details on the following issues: 
+    - https://github.com/helm/helm/issues/4821
+    - https://github.com/helm/helm/issues/3500
+    - https://github.com/helm/helm/issues/4543
+- **[Is internal traffic between nodes being blocked?](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)**
 
-## I created a cluster with RBAC enabled by using either the Azure CLI with defaults or the Azure portal, and now I see many warnings on the Kubernetes dashboard. The dashboard used to work without any warnings. What should I do?
+## I'm receiving `TCP timeouts`, such as `dial tcp <Node_IP>:10250: i/o timeout`
 
-The reason for the warnings on the dashboard is that the cluster is now enabled with RBAC and access to it has been disabled by default. In general, this approach is good practice because the default exposure of the dashboard to all users of the cluster can lead to security threats. If you still want to enable the dashboard, follow the steps in [this blog post](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+These timeouts may be related to internal traffic between nodes being blocked. Verify that this traffic is not being blocked, such as by [network security groups](concepts-security.md#azure-network-security-groups) on the subnet for your cluster's nodes.
 
-## I can't connect to the dashboard. What should I do?
+## I'm trying to enable Kubernetes role-based access control (Kubernetes RBAC) on an existing cluster. How can I do that?
 
-The easiest way to access your service outside the cluster is to run `kubectl proxy`, which proxies requests sent to your localhost port 8001 to the Kubernetes API server. From there, the API server can proxy to your service: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
-
-If you don't see the Kubernetes dashboard, check whether the `kube-proxy` pod is running in the `kube-system` namespace. If it isn't in a running state, delete the pod and it will restart.
+Enabling Kubernetes role-based access control (Kubernetes RBAC) on existing clusters isn't supported at this time, it must be set when creating new clusters. Kubernetes RBAC is enabled by default when using CLI, Portal, or an API version later than `2020-03-01`.
 
 ## I can't get logs by using kubectl logs or I can't connect to the API server. I'm getting "Error from server: error dialing backend: dial tcp…". What should I do?
 
-Make sure that the default network security group isn't modified and that both port 22 and 9000 are open for connection to the API server. Check whether the `tunnelfront` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
+Ensure ports 22, 9000 and 1194 are open to connect to the API server. Check whether the `tunnelfront` or `aks-link` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
 
-## I'm trying to upgrade or scale and am getting a "message: Changing property 'imageReference' is not allowed" error. How do I fix this problem?
+## I'm getting `"tls: client offered only unsupported versions"` from my client when connecting to AKS API. What should I do?
 
-You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* group in the AKS cluster breaks the service-level objective (SLO).
+The minimum supported TLS version in AKS is TLS 1.2.
+
+## I'm trying to upgrade or scale and am getting a `"Changing property 'imageReference' is not allowed"` error. How do I fix this problem?
+
+You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modify or delete tags and other properties of resources in the MC_* resource group can lead to unexpected results. Altering the resources under the MC_* group in the AKS cluster breaks the service-level objective (SLO).
 
 ## I'm receiving errors that my cluster is in failed state and upgrading or scaling will not work until it is fixed
 
@@ -76,30 +103,30 @@ This error occurs when clusters enter a failed state for multiple reasons. Follo
     * Scaling a cluster with advanced networking and **insufficient subnet (networking) resources**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow [these steps to request a resource quota increase](../azure-resource-manager/templates/error-resource-quota.md#solution) before trying to scale up again beyond initial quota limits.
 2. Once the underlying cause for upgrade failure is resolved, your cluster should be in a succeeded state. Once a succeeded state is verified, retry the original operation.
 
-## I'm receiving errors when trying to upgrade or scale that state my cluster is being currently being upgraded or has failed upgrade
+## I'm receiving errors when trying to upgrade or scale that state my cluster is being upgraded or has failed upgrade
 
 *This troubleshooting assistance is directed from https://aka.ms/aks-pending-upgrade*
 
-Upgrade and scale operations on a cluster with a single node pool or a cluster with [multiple node pools](use-multiple-node-pools.md) are mutually exclusive. You cannot have a cluster or node pool simultaneously upgrade and scale. Instead, each operation type must complete on the target resource prior to the next request on that same resource. As a result, operations are limited when active upgrade or scale operations are occurring or attempted and subsequently failed. 
+ You can't have a cluster or node pool simultaneously upgrade and scale. Instead, each operation type must complete on the target resource before the next request on that same resource. As a result, operations are limited when active upgrade or scale operations are occurring or attempted. 
 
 To help diagnose the issue run `az aks show -g myResourceGroup -n myAKSCluster -o table` to retrieve detailed status on your cluster. Based on the result:
 
-* If cluster is actively upgrading, wait until the operation terminates. If it succeeded, retry the previously failed operation again.
+* If cluster is actively upgrading, wait until the operation finishes. If it succeeded, retry the previously failed operation again.
 * If cluster has failed upgrade, follow steps outlined in previous section.
 
 ## Can I move my cluster to a different subscription or my subscription with my cluster to a new tenant?
 
-If you have moved your AKS cluster to a different subscription or the cluster owning subscription to a new tenant, the cluster will lose functionality due to losing role assignments and service principals rights. **AKS does not support moving clusters across subscriptions or tenants** due to the this constraint.
+If you've moved your AKS cluster to a different subscription or the cluster's subscription to a new tenant, the cluster won't function because of missing cluster identity permissions. **AKS doesn't support moving clusters across subscriptions or tenants** because of this constraint.
 
 ## I'm receiving errors trying to use features that require virtual machine scale sets
 
 *This troubleshooting assistance is directed from aka.ms/aks-vmss-enablement*
 
-You may receive errors that indicate your AKS cluster is not on a virtual machine scale set, such as the following example:
+You may receive errors that indicate your AKS cluster isn't on a virtual machine scale set, such as the following example:
 
-**AgentPool 'agentpool' has set auto scaling as enabled but is not on Virtual Machine Scale Sets**
+**AgentPool `<agentpoolname>` has set auto scaling as enabled but isn't on Virtual Machine Scale Sets**
 
-To use features such as the cluster autoscaler or multiple node pools, AKS clusters must be created that use virtual machine scale sets. Errors are returned if you try to use features that depend on virtual machine scale sets and you target a regular, non-virtual machine scale set AKS cluster.
+Features such as the cluster autoscaler or multiple node pools require virtual machine scale sets as the `vm-set-type`.
 
 Follow the *Before you begin* steps in the appropriate doc to correctly create an AKS cluster:
 
@@ -112,9 +139,11 @@ Follow the *Before you begin* steps in the appropriate doc to correctly create a
 
 Naming restrictions are implemented by both the Azure platform and AKS. If a resource name or parameter breaks one of these restrictions, an error is returned that asks you provide a different input. The following common naming guidelines apply:
 
-* Cluster names must be 1-63 characters. The only allowed characters are letters, numbers, dashes, and underscores. The first and last character must be a letter or a number.
-* The AKS *MC_* resource group name combines resource group name and resource name. The auto-generated syntax of `MC_resourceGroupName_resourceName_AzureRegion` must be no greater than 80 chars. If needed, reduce the length of your resource group name or AKS cluster name.
+* Cluster names must be 1-63 characters. The only allowed characters are letters, numbers, dashes, and underscore. The first and last character must be a letter or a number.
+* The AKS Node/*MC_* resource group name combines resource group name and resource name. The autogenerated syntax of `MC_resourceGroupName_resourceName_AzureRegion` must be no greater than 80 chars. If needed, reduce the length of your resource group name or AKS cluster name. You may also [customize your node resource group name](cluster-configuration.md#custom-resource-group-name)
 * The *dnsPrefix* must start and end with alphanumeric values and must be between 1-54 characters. Valid characters include alphanumeric values and hyphens (-). The *dnsPrefix* can't include special characters such as a period (.).
+* AKS Node Pool names must be all lowercase and be 1-11 characters for linux node pools and 1-6 characters for windows node pools. The name must start with a letter and the only allowed characters are letters and numbers.
+* The *admin-username*, which sets the administrator username for Linux nodes, must start with a letter, may only contain letters, numbers, hyphens, and underscores, and has a maximum length of 64 characters.
 
 ## I'm receiving errors when trying to create, update, scale, delete or upgrade cluster, that operation is not allowed as another operation is in progress.
 
@@ -124,72 +153,70 @@ Cluster operations are limited when a previous operation is still in progress. T
 
 Based on the output of the cluster status:
 
-* If the cluster is in any provisioning state other than *Succeeded* or *Failed*, wait until the operation (*Upgrading / Updating / Creating / Scaling / Deleting / Migrating*) terminates. When the previous operation has completed, re-try your latest cluster operation.
+* If the cluster is in any provisioning state other than *Succeeded* or *Failed*, wait until the operation (*Upgrading / Updating / Creating / Scaling / Deleting / Migrating*) finishes. When the previous operation has completed, retry your latest cluster operation.
 
 * If the cluster has a failed upgrade, follow the steps outlined [I'm receiving errors that my cluster is in failed state and upgrading or scaling will not work until it is fixed](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
-## I'm receiving errors that my service principal was not found when I try to create a new cluster without passing in an existing one.
+## Received an error saying my service principal wasn't found or is invalid when I try to create a new cluster.
 
-When creating an AKS cluster it requires a service principal to create resources on your behalf. AKS offers the ability to have a new one created at cluster creation time, but this requires Azure Active Directory to fully propagate the new service principal in a reasonable time in order to have the cluster succeed in creation. When this propagation takes too long, the cluster will fail validation to create as it cannot find an available service principal to do so. 
+When creating an AKS cluster, it requires a service principal or managed identity to create resources on your behalf. AKS can automatically create a new service principal at cluster creation time or receive an existing one. When using an automatically created one, Azure Active Directory needs to propagate it to every region so the creation succeeds. When the propagation takes too long, the cluster will fail validation to create as it can't find an available service principal to do so. 
 
-Use the following workarounds for this:
-1. Use an existing service principal which has already propagated across regions and exists to pass into AKS at cluster create time.
-2. If using automation scripts, add time delays between service principal creation and AKS cluster creation.
-3. If using Azure portal, return to the cluster settings during create and retry the validation page after a few minutes.
+Use the following workarounds for this issue:
+* Use an existing service principal, which has already propagated across regions and exists to pass into AKS at cluster create time.
+* If using automation scripts, add time delays between service principal creation and AKS cluster creation.
+* If using Azure portal, return to the cluster settings during create and retry the validation page after a few minutes.
 
-## I'm receiving errors after restricting my egress traffic
+## I'm getting `"AADSTS7000215: Invalid client secret is provided."` when using AKS API. What should I do?
 
-When restricting egress traffic from an AKS cluster, there are [required and optional recommended](limit-egress-traffic.md) outbound ports / network rules and FQDN / application rules for AKS. If your settings are in conflict with any of these rules, you may not be able to run certain `kubectl` commands. You may also see errors when creating an AKS cluster.
+This issue is due to the expiration of service principal credentials. [Update the credentials for an AKS cluster.](update-credentials.md)
 
-Verify that your settings are not conflicting with any of the required or optional recommended outbound ports / network rules and FQDN / application rules.
+## I can't access my cluster API from my automation/dev machine/tooling when using API server authorized IP ranges. How do I fix this problem?
+
+To resolve this issue, ensure `--api-server-authorized-ip-ranges` includes the IP(s) or IP range(s) of automation/dev/tooling systems being used. Refer section 'How to find my IP' in [Secure access to the API server using authorized IP address ranges](api-server-authorized-ip-ranges.md).
+
+## I'm unable to view resources in Kubernetes resource viewer in Azure portal for my cluster configured with API server authorized IP ranges. How do I fix this problem?
+
+The [Kubernetes resource viewer](kubernetes-portal.md) requires `--api-server-authorized-ip-ranges` to include access for the local client computer or IP address range (from which the portal is being browsed). Refer section 'How to find my IP' in [Secure access to the API server using authorized IP address ranges](api-server-authorized-ip-ranges.md).
+
+## I'm receiving errors after restricting egress traffic
+
+When restricting egress traffic from an AKS cluster, there are [required and optional recommended](limit-egress-traffic.md) outbound ports / network rules and FQDN / application rules for AKS. If your settings are in conflict with any of these rules, certain `kubectl` commands won't work correctly. You may also see errors when creating an AKS cluster.
+
+Verify that your settings aren't conflicting with any of the required or optional recommended outbound ports / network rules and FQDN / application rules.
+
+## I'm receiving "429 - Too Many Requests" errors
+
+When a kubernetes cluster on Azure (AKS or no) does a frequent scale up/down or uses the cluster autoscaler (CA), those operations can result in a large number of HTTP calls that in turn exceed the assigned subscription quota leading to failure. The errors will look like
+
+```
+Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
+```
+
+These throttling errors are described in detail [here](../azure-resource-manager/management/request-limits-and-throttling.md) and [here](/troubleshoot/azure/virtual-machines/troubleshooting-throttling-errors)
+
+The recommendation from AKS Engineering Team is to ensure you are running version at least 1.18.x, which contains many improvements. More details can be found on these improvements [here](https://github.com/Azure/AKS/issues/1413) and [here](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
+
+Given these throttling errors are measured at the subscription level, they might still happen if:
+- There are 3rd party applications making GET requests (for example, monitoring applications, and so on). The recommendation is to reduce the frequency of these calls.
+- There are numerous AKS clusters / node pools using virtual machine scale sets. Try to split your number of clusters into different subscriptions, in particular if you expect them to be very active (for example, an active cluster autoscaler) or have multiple clients (for example, rancher, terraform, and so on).
+
+## My cluster's provisioning status changed from Ready to Failed with or without me performing an operation. What should I do?
+
+If your cluster's provisioning status changes from *Ready* to *Failed* with or without you performing any operations, but the applications on your cluster are continuing to run, this issue may be resolved automatically by the service and your applications should not be affected.
+
+If your cluster's provisioning status remains as *Failed* or the applications on your cluster stop working, [submit a support request](https://azure.microsoft.com/support/options/#submit).
+
+## My watch is stale or Azure AD Pod Identity NMI is returning status 500
+
+If you're using Azure Firewall like on this [example](limit-egress-traffic.md#restrict-egress-traffic-using-azure-firewall), you may encounter this issue as the long lived TCP connections via firewall using Application Rules currently have a bug (to be resolved in Q1CY21) that causes the Go `keepalives` to be terminated on the firewall. Until this issue is resolved, you can mitigate by adding a Network rule (instead of application rule) to the AKS API server IP.
+
+## When resuming my cluster after a stop operation, why is my node count not in the autoscaler min and max range?
+
+If you are using cluster autoscaler, when you start your cluster back up your current node count may not be between the min and max range values you set. This behavior is expected. The cluster starts with the number of nodes it needs to run its workloads, which isn't impacted by your autoscaler settings. When your cluster performs scaling operations, the min and max values will impact your current node count and your cluster will eventually enter and remain in that desired range until you stop your cluster.
 
 ## Azure Storage and AKS Troubleshooting
 
-### What are the recommended stable versions of Kubernetes for Azure disk? 
-
-| Kubernetes version | Recommended version |
-| -- | :--: |
-| 1.12 | 1.12.9 or later |
-| 1.13 | 1.13.6 or later |
-| 1.14 | 1.14.2 or later |
-
-
-### What versions of Kubernetes have Azure Disk support on the Sovereign Cloud?
-
-| Kubernetes version | Recommended version |
-| -- | :--: |
-| 1.12 | 1.12.0 or later |
-| 1.13 | 1.13.0 or later |
-| 1.14 | 1.14.0 or later |
-
-
-### WaitForAttach failed for Azure Disk: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax
-
-In Kubernetes version 1.10, MountVolume.WaitForAttach may fail with an the Azure Disk remount.
-
-On Linux, you may see an incorrect DevicePath format error. For example:
-
-```console
-MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
-  Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
-```
-
-On Windows, you may see a wrong DevicePath(LUN) number error. For example:
-
-```console
-Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
-1102-dynamic-pvc-6c526c51-4a18-11e8-ab5c-000d3af7b38e) lun:(4)
-```
-
-This issue has been fixed in the following versions of Kubernetes:
-
-| Kubernetes version | Fixed version |
-| -- | :--: |
-| 1.10 | 1.10.2 or later |
-| 1.11 | 1.11.0 or later |
-| 1.12 and later | N/A |
-
-### Failure when setting uid and gid in mountOptions for Azure Disk
+### Failure when setting uid and `GID` in mountOptions for Azure Disk
 
 Azure Disk uses the ext4,xfs filesystem by default and mountOptions such as uid=x,gid=x can't be set at mount time. For example if you tried to set mountOptions uid=999,gid=999, would see an error like:
 
@@ -202,7 +229,7 @@ mount: wrong fs type, bad option, bad superblock on /dev/sde,
        missing codepage or helper program, or other error
 ```
 
-You can mitigate the issue by doing one the following:
+You can mitigate the issue by doing one the  options:
 
 * [Configure the security context for a pod](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) by setting uid in runAsUser and gid in fsGroup. For example, the following setting will set pod run as root, make it accessible to any file:
 
@@ -220,112 +247,36 @@ spec:
   >[!NOTE]
   > Since gid and uid are mounted as root or 0 by default. If gid or uid are set as non-root, for example 1000, Kubernetes will use `chown` to change all directories and files under that disk. This operation can be time consuming and may make mounting the disk very slow.
 
-* Use `chown` in initContainers to set gid and uid. For example:
+* Use `chown` in initContainers to set `GID` and `UID`. For example:
 
 ```yaml
 initContainers:
 - name: volume-mount
-  image: busybox
+  image: mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
   command: ["sh", "-c", "chown -R 100:100 /data"]
   volumeMounts:
   - name: <your data volume>
     mountPath: /data
 ```
 
-### Error when deleting Azure Disk PersistentVolumeClaim in use by a pod
-
-If you try to delete an Azure Disk PersistentVolumeClaim that is being used by a pod, you may see an error. For example:
-
-```console
-$ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
-...
-Message:         disk.DisksClient#Delete: Failure responding to request: StatusCode=409 -- Original Error: autorest/azure: Service returned an error. Status=409 Code="OperationNotAllowed" Message="Disk kubernetes-dynamic-pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06 is attached to VM /subscriptions/{subs-id}/resourceGroups/MC_markito-aks-pvc_markito-aks-pvc_westus/providers/Microsoft.Compute/virtualMachines/aks-agentpool-25259074-0."
-```
-
-In Kubernetes version 1.10 and later, there is a PersistentVolumeClaim protection feature enabled by default to prevent this error. If you are using a version of Kubernetes that does not have the fix for this issue, you can mitigate this issue by deleting the pod using the PersistentVolumeClaim before deleting the PersistentVolumeClaim.
-
-
-### Error "Cannot find Lun for disk" when attaching a disk to a node
-
-When attaching a disk to a node, you may see the following error:
-
-```console
-MountVolume.WaitForAttach failed for volume "pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6" : Cannot find Lun for disk kubernetes-dynamic-pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6
-```
-
-This issue has been fixed in the following versions of Kubernetes:
-
-| Kubernetes version | Fixed version |
-| -- | :--: |
-| 1.10 | 1.10.10 or later |
-| 1.11 | 1.11.5 or later |
-| 1.12 | 1.12.3 or later |
-| 1.13 | 1.13.0 or later |
-| 1.14 and later | N/A |
-
-If you are using a version of Kubernetes that does not have the fix for this issue, you can mitigate the issue by waiting several minutes and retrying.
-
-### Azure Disk attach/detach failure, mount issues, or I/O errors during multiple attach/detach operations
-
-Starting in Kubernetes version 1.9.2, when running multiple attach/detach operations in parallel, you may see the following disk issues due to a dirty VM cache:
-
-* Disk attach/detach failures
-* Disk I/O errors
-* Unexpected disk detachment from VM
-* VM running into failed state due to attaching non-existing disk
-
-This issue has been fixed in the following versions of Kubernetes:
-
-| Kubernetes version | Fixed version |
-| -- | :--: |
-| 1.10 | 1.10.12 or later |
-| 1.11 | 1.11.6 or later |
-| 1.12 | 1.12.4 or later |
-| 1.13 | 1.13.0 or later |
-| 1.14 and later | N/A |
-
-If you are using a version of Kubernetes that does not have the fix for this issue, you can mitigate the issue by trying the below:
-
-* If there a disk is waiting to detach for a long period of time, try detaching the disk manually
-
-### Azure Disk waiting to detach indefinitely
-
-In some cases, if an Azure Disk detach operation fails on the first attempt, it will not retry the detach operation and will remain attached to the original node VM. This error can occur when moving a disk from one node to another. For example:
-
-```console
-[Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
-```
-
-This issue has been fixed in the following versions of Kubernetes:
-
-| Kubernetes version | Fixed version |
-| -- | :--: |
-| 1.11 | 1.11.9 or later |
-| 1.12 | 1.12.7 or later |
-| 1.13 | 1.13.4 or later |
-| 1.14 and later | N/A |
-
-If you are using a version of Kubernetes that does not have the fix for this issue, you can mitigate the issue by manually detaching the disk.
-
 ### Azure Disk detach failure leading to potential race condition issue and invalid data disk list
 
-When an Azure Disk fails to detach, it will retry up to six times to detach the disk using exponential back off. It will also hold a node-level lock on the data disk list for about 3 minutes. If the disk list is updated manually during that period of time, such as a manual attach or detach operation, this will cause the disk list held by the node-level lock to be obsolete and cause instability on the node VM.
+When an Azure Disk fails to detach, it will retry up to six times to detach the disk using exponential back off. It will also hold a node-level lock on the data disk list for about 3 minutes. If the disk list is updated manually during that time, it will cause the disk list held by the node-level lock to be obsolete and cause instability on the node.
 
 This issue has been fixed in the following versions of Kubernetes:
 
 | Kubernetes version | Fixed version |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.9 or later |
 | 1.13 | 1.13.6 or later |
 | 1.14 | 1.14.2 or later |
 | 1.15 and later | N/A |
 
-If you are using a version of Kubernetes that does not have the fix for this issue and your node VM has an obsolete disk list, you can mitigate the issue by detaching all non-existing disks from the VM as a single, bulk operation. **Individually detaching non-existing disks may fail.**
-
+If you're using a version of Kubernetes that doesn't have the fix for this issue and your node has an obsolete disk list, you can mitigate by detaching all non-existing disks from the VM as a bulk operation. **Individually detaching non-existing disks may fail.**
 
 ### Large number of Azure Disks causes slow attach/detach
 
-When the number of Azure Disks attached to a node VM is larger than 10, attach and detach operations may be slow. This issue is a known issue and there are no workarounds at this time.
+When the numbers of Azure Disk attach/detach operations targeting a single node VM is larger than 10, or larger than 3 when targeting single virtual machine scale set pool they may be slower than expected as they are done sequentially. This issue is a known limitation and there are no workarounds at this time. [User voice item to support parallel attach/detach beyond  number.](https://feedback.azure.com/forums/216843-virtual-machines/suggestions/40444528-vmss-support-for-parallel-disk-attach-detach-for).
 
 ### Azure Disk detach failure leading to potential node VM in failed state
 
@@ -334,13 +285,13 @@ In some edge cases, an Azure Disk detach may partially fail and leave the node V
 This issue has been fixed in the following versions of Kubernetes:
 
 | Kubernetes version | Fixed version |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.10 or later |
 | 1.13 | 1.13.8 or later |
 | 1.14 | 1.14.4 or later |
 | 1.15 and later | N/A |
 
-If you are using a version of Kubernetes that does not have the fix for this issue and your node VM is in a failed state, you can mitigate the issue by manually updating the VM status using one of the below:
+If you're using a version of Kubernetes that doesn't have the fix for this issue and your node is in a failed state, you can mitigate by manually updating the VM status using one of the below:
 
 * For an availability set-based cluster:
     ```azurecli
@@ -357,17 +308,9 @@ If you are using a version of Kubernetes that does not have the fix for this iss
 ### What are the recommended stable versions of Kubernetes for Azure files?
  
 | Kubernetes version | Recommended version |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.6 or later |
 | 1.13 | 1.13.4 or later |
-| 1.14 | 1.14.0 or later |
-
-### What versions of Kubernetes have Azure Files support on the Sovereign Cloud?
-
-| Kubernetes version | Recommended version |
-| -- | :--: |
-| 1.12 | 1.12.0 or later |
-| 1.13 | 1.13.0 or later |
 | 1.14 | 1.14.0 or later |
 
 ### What are the default mountOptions when using Azure Files?
@@ -375,11 +318,11 @@ If you are using a version of Kubernetes that does not have the fix for this iss
 Recommended settings:
 
 | Kubernetes version | fileMode and dirMode value|
-| -- | :--: |
+|--|:--:|
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 and later | 0777 |
 
-If using a cluster with Kubernetes version 1.8.5 or greater and dynamically creating the persistent volume with a storage class, mount options can be specified on the storage class object. The following example sets *0777*:
+Mount options can be specified on the storage class object. The following example sets *0777*:
 
 ```yaml
 kind: StorageClass
@@ -401,8 +344,8 @@ parameters:
 
 Some additional useful *mountOptions* settings:
 
-* *mfsymlinks* will make Azure Files mount  (cifs) support symbolic links
-* *nobrl* will prevent sending byte range lock requests to the server. This setting is necessary for certain applications that break with cifs style mandatory byte range locks. Most cifs servers do not yet support requesting advisory byte range locks. If not using *nobrl*, applications that break with cifs style mandatory byte range locks may cause error messages similar to:
+* `mfsymlinks` will make Azure Files mount  (cifs) support symbolic links
+* `nobrl` will prevent sending byte range lock requests to the server. This setting is necessary for certain applications that break with cifs style mandatory byte range locks. Most cifs servers don't yet support requesting advisory byte range locks. If not using *nobrl*, applications that break with cifs style mandatory byte range locks may cause error messages similar to:
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -418,7 +361,7 @@ fixing permissions on existing directory /var/lib/postgresql/data
 
 This error is caused by the Azure Files plugin using the cifs/SMB protocol. When using the cifs/SMB protocol, the file and directory permissions couldn't be changed after mounting.
 
-To resolve this issue, use *subPath* together with the Azure Disk plugin. 
+To resolve this issue, use `subPath` together with the Azure Disk plugin. 
 
 > [!NOTE] 
 > For ext3/4 disk type, there is a lost+found directory after the disk is formatted.
@@ -429,7 +372,7 @@ In some case, such as handling many small files, you may experience high latency
 
 ### Error when enabling "Allow access allow access from selected network" setting on storage account
 
-If you enable *allow access from selected network* on a storage account that is used for dynamic provisioning in AKS, you will get an error when AKS creates a file share:
+If you enable *allow access from selected network* on a storage account that's used for dynamic provisioning in AKS, you'll get an error when AKS creates a file share:
 
 ```console
 persistentvolume-controller (combined from similar events): Failed to provision volume with StorageClass "azurefile": failed to create share kubernetes-dynamic-pvc-xxx in account xxx: failed to create file share, err: storage: service returned error: StatusCode=403, ErrorCode=AuthorizationFailure, ErrorMessage=This request is not authorized to perform this operation.
@@ -452,16 +395,16 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 This issue has been fixed in the following versions of Kubernetes:
 
 | Kubernetes version | Fixed version |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.6 or later |
 | 1.13 | 1.13.4 or later |
 | 1.14 and later | N/A |
 
-### Azure Files mount fails due to storage account key changed
+### Azure Files mount fails because of storage account key changed
 
 If your storage account key has changed, you may see Azure Files mount failures.
 
-You can mitigate the issue by doing manually updating the *azurestorageaccountkey* field manually in Azure file secret with your base64-encoded storage account key.
+You can mitigate by manually updating the `azurestorageaccountkey` field manually in an Azure file secret with your base64-encoded storage account key.
 
 To encode your storage account key in base64, you can use `base64`. For example:
 
@@ -475,22 +418,38 @@ To update your Azure secret file, use `kubectl edit secret`. For example:
 kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
-After a few minutes, the agent node will retry the azure file mount with the updated storage key.
+After a few minutes, the agent node will retry the Azure File mount with the updated storage key.
+
 
 ### Cluster autoscaler fails to scale with error failed to fix node group sizes
 
-If your cluster autoscaler is not scaling up/down and you see an error like the below on the [cluster autoscaler logs][view-master-logs].
+If your cluster autoscaler isn't scaling up/down and you see an error like the below on the [cluster autoscaler logs][view-master-logs].
 
 ```console
 E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
 ```
 
-This error is due to an upstream cluster autoscaler race condition where the cluster autoscaler ends with a different value than the one that is actually in the cluster. To get out of this state, simply disable and re-enable the [cluster autoscaler][cluster-autoscaler].
+This error is because of an upstream cluster autoscaler race condition. In such a case, cluster autoscaler ends with a different value than the one that is actually in the cluster. To get out of this state, disable and re-enable the [cluster autoscaler][cluster-autoscaler].
 
-### Slow disk attachment, GetAzureDiskLun takes 10 to 15 minutes and you receive an error
+### Slow disk attachment, `GetAzureDiskLun` takes 10 to 15 minutes and you receive an error
 
-On Kubernetes versions **older than 1.15.0** you may receive an error such as **Error WaitForAttach Cannot find Lun for disk**.  The workaround for this is to wait approximately 15 minutes and retry.
+On Kubernetes versions **older than 1.15.0**, you may receive an error such as **Error WaitForAttach Cannot find Lun for disk**.  The workaround for this issue is to wait approximately 15 minutes and retry.
+
+
+### Why do upgrades to Kubernetes 1.16 fail when using node labels with a kubernetes.io prefix
+
+As of Kubernetes 1.16 [only a defined subset of labels with the kubernetes.io prefix](https://v1-18.docs.kubernetes.io/docs/concepts/overview/working-with-objects/labels/) can be applied by the kubelet to nodes. AKS cannot remove active labels on your behalf without consent, as it may cause downtime to impacted workloads.
+
+As a result, to mitigate this issue you can:
+
+1. Upgrade your cluster control plane to 1.16 or higher
+2. Add a new nodepoool on 1.16 or higher without the unsupported kubernetes.io labels
+3. Delete the older node pool
+
+AKS is investigating the capability to mutate active labels on a node pool to improve this mitigation.
+
+
 
 <!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
+[view-master-logs]: monitor-aks-reference.md#resource-logs
 [cluster-autoscaler]: cluster-autoscaler.md

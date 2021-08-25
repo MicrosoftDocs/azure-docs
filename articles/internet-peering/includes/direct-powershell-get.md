@@ -7,17 +7,18 @@ author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
-ms.author: prmitiki
+ms.author: prmitiki 
+ms.custom: devx-track-azurepowershell
 ---
 
 
-To get the list of peerings, run the `Get-AzPeering` command:
+To get the list of peerings, run the **Get-AzPeering** command.
 
 ```powershell
 $directPeering = Get-AzPeering -ResourceGroupName "PeeringResourceGroup" -Name "SeattleDirectPeering"
 ```
 
-Below is an example response when the end-to-end provisioning was successfully completed:
+The following example shows the response when end-to-end provisioning was successfully completed.
 
 ```powershell
     Name                 : SeattleDirectPeering

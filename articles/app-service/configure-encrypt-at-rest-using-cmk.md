@@ -1,6 +1,6 @@
 ---
 title: Encrypt your application source at rest
-description: Encrypt your application data in Azure Storage and deploy it as a package file.
+description: Learn how to encrypt your application data in Azure Storage and deploy it as a package file.
 ms.topic: article
 ms.date: 03/06/2020
 ---
@@ -17,7 +17,7 @@ Encrypting your web app's application data at rest requires an Azure Storage Acc
 
 ### Create an Azure Storage account
 
-First, [create an Azure Storage account](../storage/common/storage-account-create.md) and [encrypt it with customer-managed keys](../storage/common/encryption-customer-managed-keys.md). Once the storage account is created, use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files.
+First, [create an Azure Storage account](../storage/common/storage-account-create.md) and [encrypt it with customer-managed keys](../storage/common/customer-managed-keys-overview.md). Once the storage account is created, use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files.
 
 Next, use the Storage Explorer to [generate an SAS](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer). 
 
@@ -38,7 +38,7 @@ Adding this application setting causes your web app to restart. After the app ha
 
 Now you can replace the value of the `WEBSITE_RUN_FROM_PACKAGE` application setting with a Key Vault reference to the SAS-encoded URL. This keeps the SAS URL encrypted in Key Vault, which provides an extra layer of security.
 
-1. Use the following [`az keyvault create`](/cli/azure/keyvault#az-keyvault-create) command to create a Key Vault instance.       
+1. Use the following [`az keyvault create`](/cli/azure/keyvault#az_keyvault_create) command to create a Key Vault instance.       
 
     ```azurecli    
     az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus    
@@ -46,13 +46,13 @@ Now you can replace the value of the `WEBSITE_RUN_FROM_PACKAGE` application sett
 
 1. Follow [these instructions to grant your app access](app-service-key-vault-references.md#granting-your-app-access-to-key-vault) to your key vault:
 
-1. Use the following [`az keyvault secret set`](/cli/azure/keyvault/secret#az-keyvault-secret-set) command to add your external URL as a secret in your key vault:   
+1. Use the following [`az keyvault secret set`](/cli/azure/keyvault/secret#az_keyvault_secret_set) command to add your external URL as a secret in your key vault:   
 
     ```azurecli    
     az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<SAS-URL>"    
     ```    
 
-1.  Use the following [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command to create the `WEBSITE_RUN_FROM_PACKAGE` application setting with the value as a Key Vault reference to the external URL:
+1.  Use the following [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command to create the `WEBSITE_RUN_FROM_PACKAGE` application setting with the value as a Key Vault reference to the external URL:
 
     ```azurecli    
     az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"    

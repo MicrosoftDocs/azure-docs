@@ -1,17 +1,18 @@
 ---
 title: Analyze network security - Security Group View - Azure REST API
 titleSuffix: Azure Network Watcher
-description: This article will describe how to use PowerShell to analyze a virtual machines security with Security Group View.
+description: This article will describe how to the Azure REST API to analyze a virtual machines security with Security Group View.
 services: network-watcher
 documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: damendo
+ms.author: damendo 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Analyze your Virtual Machine security with Security Group View using REST API
@@ -20,6 +21,9 @@ ms.author: damendo
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
+
+> [!NOTE]
+> The Security Group View API is no longer being maintained and will be deprecated soon. Please use the [Effective Security Rules feature](./network-watcher-security-group-view-overview.md) which provides the same functionality. 
 
 Security group view returns configured and effective network security rules that are applied to a virtual machine. This capability is useful to audit and diagnose Network Security Groups and rules that are configured on a VM to ensure traffic is being correctly allowed or denied. In this article, we show you how to retrieve the effective and applied security rules to a virtual machine using REST API
 
@@ -178,5 +182,3 @@ The following sample is the response returned from the preceding command. The re
 ## Next steps
 
 Visit [Auditing Network Security Groups (NSG) with Network Watcher](network-watcher-security-group-view-powershell.md) to learn how to automate validation of Network Security Groups.
-
-

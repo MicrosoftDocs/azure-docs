@@ -2,13 +2,14 @@
 title: Schedule jobs with Azure IoT Hub (Java) | Microsoft Docs
 description: How to schedule an Azure IoT Hub job to invoke a direct method and set a desired property on multiple devices. You use the Azure IoT device SDK for Java to implement the simulated device apps and the Azure IoT service SDK for Java to implement a service app to run the job.
 author: wesmc7777
-manager: philmea
+
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/16/2019
+ms.custom: mqtt, devx-track-java
 ---
 
 # Schedule and broadcast jobs (Java)
@@ -27,7 +28,7 @@ To learn more about each of these capabilities, see:
 
 * Device twin and properties: [Get started with device twins](iot-hub-java-java-twin-getstarted.md)
 
-* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Tutorial: Use direct methods](quickstart-control-device-java.md)
+* Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Quickstart: Use direct methods](./quickstart-control-device.md?pivots=programming-language-java)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -48,7 +49,7 @@ At the end of this tutorial, you have a java console device app and a java conso
 
 ## Prerequisites
 
-* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
+* [Java SE Development Kit 8](/java/azure/jdk/). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -514,6 +515,6 @@ In this tutorial, you used a job to schedule a direct method to a device and the
 
 Use the following resources to learn how to:
 
-* Send telemetry from devices with the [Get started with IoT Hub](quickstart-send-telemetry-java.md) tutorial.
+* Send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-java) tutorial.
 
-* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](quickstart-control-device-java.md) tutorial.s
+* Control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-java) quickstart.

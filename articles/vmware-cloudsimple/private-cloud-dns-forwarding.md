@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution - DNS forwarding from private cloud to on-premises
 description: Describes how to enable your CloudSimple Private Cloud DNS server to forward lookup of on-premises resources
-author: sharaths-cs
-ms.author: b-shsury 
+author: shortpatti
+ms.author: v-patsho
 ms.date: 02/29/2020 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -27,7 +27,7 @@ Forwarding DNS lookup for your on-premises DNS server allows you to use your Pri
 A network connection must be present from your Private Cloud network to your on-premises network for DNS forwarding to work.  You can set up network connection using:
 
 * [Connect from on-premises to CloudSimple using ExpressRoute](on-premises-connection.md)
-* [Set up a Site-to-Site VPN gateway](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway#set-up-a-site-to-site-vpn-gateway)
+* [Set up a Site-to-Site VPN gateway](./vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)
 
 Firewall ports must be opened on this connection for DNS forwarding to work.  Ports used are TCP port 53 or UDP port 53.
 

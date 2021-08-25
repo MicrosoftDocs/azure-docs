@@ -1,25 +1,36 @@
 ---
 title: Quickstart- Use Node.js to query from Azure Cosmos DB SQL API account
 description: How to use Node.js to create an app that connects to Azure Cosmos DB SQL API account and queries data.
-author: deborahc
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 02/26/2020
-ms.author: dech
+ms.date: 03/07/2021
+ms.author: anfeldma
+ms.custom: devx-track-js
 ---
+
 # Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > - [.NET V3](create-sql-api-dotnet.md)
 > - [.NET V4](create-sql-api-dotnet-V4.md)
-> - [Java](create-sql-api-java.md)
+> - [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
+> * [Spark v3 connector](create-sql-api-spark.md)
 > - [Node.js](create-sql-api-nodejs.md)
 > - [Python](create-sql-api-python.md)
 > - [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal, and by using a Node.js app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+
+## Walkthrough video
+
+Watch this video for a complete walkthrough of the content in this article.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Quickstart-Use-Nodejs-to-connect-and-query-data-from-Azure-Cosmos-DB-SQL-API-account/player]
 
 ## Prerequisites
 
@@ -41,34 +52,15 @@ The "try Azure Cosmos DB for free" option doesn't require an Azure subscription 
 
 ## Add a container
 
-You can now use the Data Explorer tool in the Azure portal to create a database and container.
-
-1. Select **Data Explorer** > **New Container**.
-
-   The **Add Container** area is displayed on the far right, you may need to scroll right to see it.
-
-   ![The Azure portal Data Explorer, Add Container pane](./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png)
-
-2. In the **Add container** page, enter the settings for the new container.
-
-   | Setting           | Suggested value | Description                                                                                                                                                                                                                                                                                                                                                                           |
-   | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **Database ID**   | Tasks           | Enter _Tasks_ as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space. Check the **Provision database throughput** option, it allows you to share the throughput provisioned to the database across all the containers within the database. This option also helps with cost savings. |
-   | **Throughput**    | 400             | Leave the throughput at 400 request units per second (RU/s). If you want to reduce latency, you can scale up the throughput later.                                                                                                                                                                                                                                                    |
-   | **Container ID**  | Items           | Enter _Items_ as the name for your new container. Container IDs have the same character requirements as database names.                                                                                                                                                                                                                                                               |
-   | **Partition key** | /category       | The sample described in this article uses _/category_ as the partition key.                                                                                                                                                                                                                                                                                                           |
-
-   In addition to the preceding settings, you can optionally add **Unique keys** for the container. Let's leave the field empty in this example. Unique keys provide developers with the ability to add a layer of data integrity to the database. By creating a unique key policy while creating a container, you ensure the uniqueness of one or more values per partition key. To learn more, refer to the [Unique keys in Azure Cosmos DB](unique-keys.md) article.
-
-   Select **OK**. The Data Explorer displays the new database and container.
+[!INCLUDE [cosmos-db-create-collection](includes/cosmos-db-create-collection.md)]
 
 ## Add sample data
 
-[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## Query your data
 
-[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
+[!INCLUDE [cosmos-db-create-sql-api-query-data](includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## Clone the sample application
 
@@ -109,13 +101,13 @@ The following snippets are all taken from the _app.js_ file.
 - Select the "Tasks" database.
 
   ```javascript
-  const database = await client.databases(databaseId);
+  const database = client.database(databaseId);
   ```
 
 - Select the "Items" container/collection.
 
   ```javascript
-  const container = await database.container(containerId);
+  const container = database.container(containerId);
   ```
 
 - Select all the items in the "Items" container.
@@ -126,7 +118,7 @@ The following snippets are all taken from the _app.js_ file.
     query: "SELECT * from c"
   };
 
-  const { resources: results } = await container.items
+  const { resources: items } = await container.items
     .query(querySpec)
     .fetchAll();
   ```
@@ -143,15 +135,15 @@ The following snippets are all taken from the _app.js_ file.
   const { id, category } = createdItem;
 
   createdItem.isComplete = true;
-  const { resource: itemToUpdate } = await container
+  const { resource: updatedItem } = await container
     .item(id, category)
-    .replace(itemToUpdate);
+    .replace(createdItem);
   ```
 
 - Delete an item
 
   ```javascript
-  const { resource: result } = await this.container.item(id, category).delete();
+  const { resource: result } = await container.item(id, category).delete();
   ```
 
 > [!NOTE]
@@ -163,7 +155,7 @@ Now go back to the Azure portal to get the connection string details of your Azu
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Keys** from the left navigation, and then select **Read-write Keys**. Use the copy buttons on the right side of the screen to copy the URI and Primary Key into the _app.js_ file in the next step.
 
-   ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
+   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="View and copy an access key in the Azure portal, Keys blade":::
 
 2. In Open the _config.js_ file.
 
@@ -187,7 +179,7 @@ You can continue to experiment with this sample application or go back to Data E
 
 ## Review SLAs in the Azure portal
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## Next steps
 

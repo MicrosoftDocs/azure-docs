@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: justinha
+author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 
@@ -61,7 +61,7 @@ Azure AD Password Protection has a critical dependency on the encryption and dec
 
    If the KDS service start mode has been configured to Disabled, this configuration must be fixed before Azure AD Password Protection will work properly.
 
-   A simple test for this issue is to manually start the KDS service, either via the Service management MMC console, or using other management tools (for example, run "net start kdssvc" from a command prompt console). The KDS service is expected to start successfully and stay running.
+   A simple test for this issue is to manually start the KDS service, either via the Service Management MMC console, or using other management tools (for example, run "net start kdssvc" from a command prompt console). The KDS service is expected to start successfully and stay running.
 
    The most common root cause for the KDS service being unable to start is that the Active Directory domain controller object is located outside of the default Domain Controllers OU. This configuration is not supported by the KDS service and is not a limitation imposed by Azure AD Password Protection. The fix for this condition is to move the domain controller object to a location under the default Domain Controllers OU.
 
@@ -69,7 +69,20 @@ Azure AD Password Protection has a critical dependency on the encryption and dec
 
    A KDS security fix was introduced in Windows Server 2016 that modifies the format of KDS encrypted buffers; these buffers will sometimes fail to decrypt on Windows Server 2012 and Windows Server 2012 R2. The reverse direction is okay - buffers that are KDS-encrypted on Windows Server 2012 and Windows Server 2012 R2 will always successfully decrypt on Windows Server 2016 and later. If the domain controllers in your Active Directory domains are running a mix of these operating systems, occasional Azure AD Password Protection decryption failures may be reported. It is not possible to accurately predict the timing or symptoms of these failures given the nature of the security fix, and given that it is non-deterministic which Azure AD Password Protection DC Agent on which domain controller will encrypt data at a given time.
 
-   Microsoft is investigating a fix for this issue but no ETA is available yet. In the meantime, there is no workaround for this issue other than to not run a mix of these incompatible operating systems in your Active Directory domain(s). In other words, you should run only Windows Server 2012 and Windows Server 2012 R2 domain controllers, OR you should only run Windows Server 2016 and above domain controllers.
+   There is no workaround for this issue other than to not run a mix of these incompatible operating systems in your Active Directory domain(s). In other words, you should run only Windows Server 2012 and Windows Server 2012 R2 domain controllers, OR you should only run Windows Server 2016 and above domain controllers.
+
+## DC agent thinks the forest has not been registered
+
+The symptom of this issue is 30016 events getting logged in the DC Agent\Admin channel that says in part:
+
+```text
+The forest has not been registered with Azure. Password policies cannot be downloaded from Azure unless this is corrected.
+```
+
+There are two possible causes for this issue.
+
+1. The forest has indeed not been registered. To resolve the problem, please run the Register-AzureADPasswordProtectionForest command as described in the [deployment requirements](howto-password-ban-bad-on-premises-deploy.md).
+1. The forest has been registered, but the DC agent is unable to decrypt the forest registration data. This case has the same root cause as issue #2 listed above under [DC agent is unable to encrypt or decrypt password policy files](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). An easy way to confirm this theory is that you will see this error only on DC agents running on Windows Server 2012 or Windows Server 2012R2 domain controllers, while DC agents running on Windows Server 2016 and later domain controllers are fine. The workaround is the same: upgrade all domain controllers to Windows Server 2016 or later.
 
 ## Weak passwords are being accepted but should not be
 
@@ -244,8 +257,148 @@ If it is decided to uninstall the Azure AD password protection software and clea
 
    This path is different if the sysvol share has been configured in a non-default location.
 
+## Health testing with PowerShell cmdlets
+
+The AzureADPasswordProtection PowerShell module includes two health-related cmdlets that perform basic verification that the software is installed and working. It is a good idea to run these cmdlets after setting up a new deployment, periodically thereafter, and when a problem is being investigated.
+
+Each individual health test returns a basic Passed or Failed result, plus an optional message on failure. In cases where the cause of a failure is not clear, look for error event log messages that may explain the failure. Enabling text-log messages may also be useful. For more details please see [Monitor Azure AD Password Protection](howto-password-ban-bad-on-premises-monitor.md).
+
+## Proxy health testing
+
+The Test-AzureADPasswordProtectionProxyHealth cmdlet supports two health tests that can be run individually. A third mode allows for the running of all tests that do not require any parameter input.
+
+### Proxy registration verification
+
+This test verifies that the Proxy agent is properly registered with Azure and is able to authenticate to Azure. A successful run will look like this:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -VerifyProxyRegistration
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyRegistration Passed
+```
+
+If an error is detected, the test will return a Failed result and an optional error message. Here is an example of one possible failure:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -VerifyProxyRegistration
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyRegistration Failed No proxy certificates were found - please run the Register-AzureADPasswordProtectionProxy cmdlet to register the proxy.
+```
+
+### Proxy verification of end-to-end Azure connectivity
+
+This test is a superset of the -VerifyProxyRegistration test. It requires that the Proxy agent is properly registered with Azure, is able to authenticate to Azure, and finally adds a check that a message can be successfully sent to Azure thus verifying full end-to-end communication is working.
+
+A successful run will look like this:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -VerifyAzureConnectivity
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyAzureConnectivity Passed
+```
+
+### Proxy verification of all tests
+
+This mode allows for the bulk running of all tests supported by the cmdlet that do not require parameter input. A successful run will look like this:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionProxyHealth -TestAll
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyTLSConfiguration  Passed
+VerifyProxyRegistration Passed
+VerifyAzureConnectivity Passed
+```
+
+## DC Agent health testing
+
+The Test-AzureADPasswordProtectionDCAgentHealth cmdlet supports several health tests that can be run individually. A third mode allows for the running of all tests that do not require any parameter input.
+
+### Basic DC agent health tests
+
+The following tests can all be run individually and do not accept parameters. A brief description of each test is listed in the following table.
+
+|DC agent health test|Description|
+| --- | :---: |
+|-VerifyPasswordFilterDll|Verifies that the password filter dll is currently loaded and is able to call the DC agent service|
+|-VerifyForestRegistration|Verifies that the forest is currently registered|
+|-VerifyEncryptionDecryption|Verifies that basic encryption and decryption is working using the Microsoft KDS service|
+|-VerifyDomainIsUsingDFSR|Verifies that the current domain is using DFSR for sysvol replication|
+|-VerifyAzureConnectivity|Verifies end-to-end communication with Azure is working using any available proxy|
+
+Here is an example of the -VerifyPasswordFilterDll test passing; the other tests will look similar on success:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyPasswordFilterDll
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyPasswordFilterDll Passed
+```
+
+### DC agent verification of all tests
+
+This mode allows for the bulk running of all tests supported by the cmdlet that do not require parameter input. A successful run will look like this:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -TestAll
+
+DiagnosticName             Result AdditionalInfo
+--------------             ------ --------------
+VerifyPasswordFilterDll    Passed
+VerifyForestRegistration   Passed
+VerifyEncryptionDecryption Passed
+VerifyDomainIsUsingDFSR    Passed
+VerifyAzureConnectivity    Passed
+```
+
+### Connectivity testing using specific proxy servers
+
+Many troubleshooting situations involve investigating network connectivity between DC agents and proxies. There are two health tests available to focus on such issues specifically. These tests require that a particular proxy server be specified.
+
+#### Verifying connectivity between a DC agent and a specific proxy
+
+This test validates connectivity over the first communication leg from the DC agent to the proxy. It verifies that the proxy receives the call, however no communication with Azure is involved. A successful run looks like this:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyProxyConnectivity bpl2.bpl.com
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyConnectivity Passed
+```
+
+Here is an example failure condition where the proxy service running on the target server has been stopped:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyProxyConnectivity bpl2.bpl.com
+
+DiagnosticName          Result AdditionalInfo
+--------------          ------ --------------
+VerifyProxyConnectivity Failed The RPC endpoint mapper on the specified proxy returned no results; please check that the proxy service is running on that server.
+```
+
+#### Verifying connectivity between a DC agent and Azure (using a specific proxy)
+
+This test validates full end-to-end connectivity between a DC agent and Azure using a specific proxy. A successful run looks like this:
+
+```powershell
+PS C:\> Test-AzureADPasswordProtectionDCAgentHealth -VerifyAzureConnectivityViaSpecificProxy bpl2.bpl.com
+
+DiagnosticName                          Result AdditionalInfo
+--------------                          ------ --------------
+VerifyAzureConnectivityViaSpecificProxy Passed
+```
+
 ## Next steps
 
-[Frequently asked questions for Azure AD Password Protection](howto-password-ban-bad-on-premises-faq.md)
+[Frequently asked questions for Azure AD Password Protection](howto-password-ban-bad-on-premises-faq.yml)
 
 For more information on the global and custom banned password lists, see the article [Ban bad passwords](concept-password-ban-bad.md)

@@ -1,11 +1,8 @@
 ---
 title: Use Grafana on Azure HDInsight
 description: Learn how to access the Grafana dashboard with Apache Hadoop clusters in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/27/2019
 ---
 
@@ -29,7 +26,7 @@ See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-c
 
 1. The Grafana dashboard appears and looks like this example:
 
-    ![HDInsight Grafana web dashboard](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana dashboard")
+    :::image type="content" source="./media/hdinsight-grafana/hdinsight-grafana-dashboard.png " alt-text="HDInsight Grafana web dashboard" border="true":::
 
 ## Clean up resources
 

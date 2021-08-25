@@ -1,13 +1,14 @@
 ---
 title: Azure Storage samples using JavaScript | Microsoft Docs
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the JavaScript/Node.js storage client libraries.
-author: mhopkins-msft
+author: twooley
 
-ms.author: mhopkins
-ms.date: 02/19/2020
+ms.author: twooley
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
+ms.custom: devx-track-js
 ---
 
 # Azure Storage samples using v12 JavaScript client libraries
@@ -401,10 +402,10 @@ The following tables provide an overview of our samples repository and the scena
 
 To view the complete JavaScript sample libraries, go to:
 
-* [Azure blob code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
+* [Azure Blob code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/javascript)
 * [Azure Data Lake code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples/javascript)
 * [Azure Files code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-share/samples/javascript)
-* [Azure queue code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)
+* [Azure Queue code samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples/javascript)
 
 You can browse and clone the GitHub repository for each library.
 
@@ -423,4 +424,5 @@ For information on samples for other languages:
 * .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md)
 * Java: [Azure Storage samples using Java](storage-samples-java.md)
 * Python: [Azure Storage samples using Python](storage-samples-python.md)
+* C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
 * All other languages: [Azure Storage samples](storage-samples.md)

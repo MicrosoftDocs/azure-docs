@@ -1,14 +1,14 @@
 ---
 title: Authenticate blob output with Managed Identity Azure Stream Analytics
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Blob storage output.
-author: cedarbaum
-ms.author: sacedarb
+author: enkrumah
+ms.author: ebnkruma
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 03/11/2020
+ms.topic: how-to
+ms.date: 07/07/2021
 ---
 
-# Use Managed Identity to authenticate your Azure Stream Analytics job to Azure Blob Storage output
+# Use Managed Identity to authenticate your Azure Stream Analytics job to Azure Blob Storage
 
 [Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for output to Azure Blob storage gives Stream Analytics jobs direct access to a storage account instead of using a connection string. In addition to improved security, this feature also enables you to write data to a storage account in a Virtual Network (VNET) within Azure.
 
@@ -16,19 +16,26 @@ This article shows you how to enable Managed Identity for the Blob output(s) of 
 
 ## Create the Stream Analytics job using the Azure portal
 
-1. Create a new Stream Analytics job or open an existing job in the Azure portal. From the menu bar located on the left side of the screen, select **Managed Identity** located under **Configure**. Ensure that "Use System-assigned Managed Identity" is selected and then click the **Save** button on the bottom of the screen.
+First, you create a managed identity for your Azure Stream Analytics job.  
 
-   ![Configure Stream Analytics managed identity](./media/common/stream-analytics-enable-managed-identity.png)
+1. In the Azure portal, open your Azure Stream Analytics job.  
 
-2. In the output properties window of the Azure Blob storage output sink, select the Authentication mode drop-down and choose **Managed Identity**. For information regarding the other output properties, see [Understand outputs from Azure Stream Analytics](./stream-analytics-define-outputs.md). When you are finished, click **Save**.
+2. From the left navigation menu, select **Managed Identity** located under *Configure*. Then, check the box next to **Use System-assigned Managed Identity** and select **Save**.
 
-   ![Configure Azure Blob storage output](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
+   :::image type="content" source="media/event-hubs-managed-identity/system-assigned-managed-identity.png" alt-text="System assigned managed identity":::  
 
-3. Now that the job is created, see the [Give the Stream Analytics job access to your storage account](#give-the-stream-analytics-job-access-to-your-storage-account) section of this article.
+3. A service principal for the Stream Analytics job's identity is created in Azure Active Directory. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.  
+
+   When you save the configuration, the Object ID (OID) of the service principal is listed as the Principal ID as shown below:  
+
+   :::image type="content" source="media/event-hubs-managed-identity/principal-id.png" alt-text="Principal ID":::
+
+   The service principal has the same name as the Stream Analytics job. For example, if the name of your job is `MyASAJob`, the name of the service principal is also `MyASAJob`. 
+
 
 ## Azure Resource Manager deployment
 
-Using Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). The below examples use the Azure CLI.
+Using Azure Resource Manager allows you to fully automate the deployment of your Stream Analytics job. You can deploy Resource Manager templates using either Azure PowerShell or the [Azure CLI](/cli/azure/). The below examples use the Azure CLI.
 
 
 1. You can create a **Microsoft.StreamAnalytics/streamingjobs** resource with a Managed Identity by including the following property in the resource section of your Resource Manager template:
@@ -93,7 +100,7 @@ Using Azure Resource Manager allows you to fully automate the deployment of your
     The above job can be deployed to the Resource group **ExampleGroup** using the below Azure CLI command:
 
     ```azurecli
-    az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
+    az deployment group create --resource-group ExampleGroup -template-file StreamingJob.json
     ```
 
 2. After the job is created, you can use Azure Resource Manager to retrieve the job's full definition.
@@ -155,6 +162,9 @@ There are two levels of access you can choose to give your Stream Analytics job:
 
 Unless you need the job to create containers on your behalf, you should choose **Container level access** since this option will grant the job the minimum level of access required. Both options are explained below for the Azure portal and the command-line.
 
+> [!NOTE]
+> Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 8 minutes.
+
 ### Grant access via the Azure portal
 
 #### Container level access
@@ -208,16 +218,29 @@ To give access to the entire account, run the following command using the Azure 
    ```azurecli
    az role assignment create --role "Storage Blob Data Contributor" --assignee <principal-id> --scope /subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
    ```
+   
+## Create a blob input or output  
+
+Now that your managed identity is configured, you're ready to add the blob resource as an input or output to your Stream Analytics job.
+
+1. In the output properties window of the Azure Blob storage output sink, select the Authentication mode drop-down and choose **Managed Identity**. For information regarding the other output properties, see [Understand outputs from Azure Stream Analytics](./stream-analytics-define-outputs.md). When you are finished, click **Save**.
+
+   ![Configure Azure Blob storage output](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
+
 
 ## Enable VNET access
 
 When configuring your storage account's **Firewalls and virtual networks**, you can optionally allow in network traffic from other trusted Microsoft services. When Stream Analytics authenticates using Managed Identity, it provides proof that the request is originating from a trusted service. Below are instructions to enable this VNET access exception.
 
-1.	Navigate to the “Firewalls and virtual networks” pane within the storage account’s configuration pane.
-2.	Ensure the “Allow trusted Microsoft services to access this storage account” option is enabled.
-3.	If you enabled it, click **Save**.
+1.    Navigate to the "Firewalls and virtual networks" pane within the storage account's configuration pane.
+2.    Ensure the "Allow trusted Microsoft services to access this storage account" option is enabled.
+3.    If you enabled it, click **Save**.
 
    ![Enable VNET access](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
+
+## Remove Managed Identity
+
+The Managed Identity created for a Stream Analytics job is deleted only when the job is deleted. There is no way to delete the Managed Identity without deleting the job. If you no longer want to use the Managed Identity, you can change the authentication method for the output. The Managed Identity will continue to exist until the job is deleted, and will be used if you decide to used Managed Identity authentication again.
 
 ## Limitations
 Below are the current limitations of this feature:

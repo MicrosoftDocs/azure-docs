@@ -2,7 +2,8 @@
 title: Build image with Cloud Native Buildpack
 description: Use the az acr pack build command to build a container image from an app and push to Azure Container Registry, without using a Dockerfile.
 ms.topic: article
-ms.date: 10/24/2019
+ms.date: 06/24/2021
+ms.custom: devx-track-js
 ---
 
 # Build and push an image from an app using a Cloud Native Buildpack
@@ -23,19 +24,19 @@ At a minimum, specify the following when you run `az acr pack build`:
 * An Azure container registry where you run the command
 * An image name and tag for the resulting image
 * One of the [supported context locations](container-registry-tasks-overview.md#context-locations) for ACR Tasks, such as a local directory, a GitHub repo, or a remote tarball
-* The name of a Buildpack builder image suitable for your application. Azure Container Registry caches builder images such as `cloudfoundry/cnb:0.0.34-cflinuxfs3` for faster builds.  
+* The name of a Buildpack builder image suitable for your application. If not cached by Azure Container Registry, the builder image must be pulled using the `--pull` parameter.  
 
 `az acr pack build` supports other features of ACR Tasks commands including [run variables](container-registry-tasks-reference-yaml.md#run-variables) and [task run logs](container-registry-tasks-logs.md) that are streamed and also saved for later retrieval.
 
 ## Example: Build Node.js image with Cloud Foundry builder
 
-The following example builds a container image from a Node.js app in the [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, using the `cloudfoundry/cnb:0.0.34-cflinuxfs3` builder. This builder is cached by Azure Container Registry, so a `--pull` parameter isn't required:
+The following example builds a container image from a Node.js app in the [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world) repo, using the `cloudfoundry/cnb:cflinuxfs3` builder.
 
 ```azurecli
 az acr pack build \
     --registry myregistry \
-    --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:0.0.34-cflinuxfs3 \
+    --image node-app:1.0 \
+    --pull --builder cloudfoundry/cnb:cflinuxfs3 \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
@@ -59,7 +60,7 @@ Browse to `localhost:1337` in your favorite browser to see the sample web app. P
 
 ## Example: Build Java image with Heroku builder
 
-The following example builds a container image from the Java app in the [buildpack/sample-java-app](https://github.com/buildpack/sample-java-app) repo, using the `heroku/buildpacks:18` builder. The `--pull` parameter specifies that the command should pull the latest builder image. 
+The following example builds a container image from the Java app in the [buildpack/sample-java-app](https://github.com/buildpack/sample-java-app) repo, using the `heroku/buildpacks:18` builder. 
 
 ```azurecli
 az acr pack build \
@@ -90,7 +91,7 @@ Browse to `localhost:8080` in your favorite browser to see the sample web app. P
 
 ## Next steps
 
-After you build and push a container image with `az acr pack build`, you can deploy it like any image to a target of your choice. Azure deployment options include running it in [App Service](../app-service/containers/tutorial-custom-docker-image.md) or [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), among others.
+After you build and push a container image with `az acr pack build`, you can deploy it like any image to a target of your choice. Azure deployment options include running it in [App Service](../app-service/tutorial-custom-container.md) or [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), among others.
 
 For more information about ACR Tasks features, see [Automate container image builds and maintenance with ACR Tasks](container-registry-tasks-overview.md).
 
@@ -101,4 +102,4 @@ For more information about ACR Tasks features, see [Automate container image bui
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr/task
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build

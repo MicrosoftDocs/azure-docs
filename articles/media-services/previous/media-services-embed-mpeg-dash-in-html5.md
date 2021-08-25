@@ -1,23 +1,23 @@
 ---
 title: Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js | Microsoft Docs
 description: This topic demonstrates how to embed an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-
 ms.assetid: 5aa0e7b6-f5c3-4cc1-aa33-ed16ea4780c2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
 ---
-# Embedding an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js  
+# Embedding an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 ## Overview
 MPEG-DASH is an ISO standard for the adaptive streaming of video content, which offers significant benefits for developers wanting to deliver high-quality, adaptive video streaming output. With MPEG-DASH, the video stream adjusts automatically to a lower definition when the network becomes congested. This reduces the likelihood of the viewer seeing a "paused" video while the player downloads the next few seconds to play (that is, it reduces the likelihood of buffering). As network congestion reduces, the video player will in turn return to a higher-quality stream. This ability to adapt the bandwidth required also results in a faster start time for video. That means that the first few seconds can be played in a fast-to-download lower quality segment and then step up to a higher quality once sufficient content has been buffered.

@@ -1,12 +1,13 @@
 ---
-title: 'Azure VPN Gateway: Generate & export certificates for P2S: MakeCert'
-description: Create a self-signed root certificate, export the public key, and generate client certificates using MakeCert.
+title: 'Generate & export certificates for P2S: MakeCert'
+titleSuffix: Azure VPN Gateway
+description: Learn how to create a self-signed root certificate, export a public key, and generate client certificates using MakeCert.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 09/05/2018
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: cherylmc
 
 ---
@@ -22,7 +23,7 @@ While we recommend using the [Windows 10 PowerShell steps](vpn-gateway-certifica
 
 The following steps show you how to create a self-signed certificate using MakeCert. These steps are not deployment-model specific. They are valid for both Resource Manager and classic.
 
-1. Download and install [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
+1. Download and install [MakeCert](/windows/win32/seccrypto/makecert).
 2. After installation, you can typically find the makecert.exe utility under this path: 'C:\Program Files (x86)\Windows Kits\10\bin\<arch>'. Although, it's possible that it was installed to another location. Open a command prompt as administrator and navigate to the location of the MakeCert utility. You can use the following example, adjusting for the proper location:
 
    ```cmd

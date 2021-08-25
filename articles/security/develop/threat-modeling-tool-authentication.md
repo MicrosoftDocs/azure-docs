@@ -1,6 +1,6 @@
 ---
 title: Authentication - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about authentication mitigation in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,17 +16,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-
+ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 ---
 
-# Security Frame: Authentication | Mitigations 
+# Security Frame: Authentication | Mitigations
 
 | Product/Service | Article |
 | --------------- | ------- |
 | **Web Application**    | <ul><li>[Consider using a standard authentication mechanism to authenticate to Web Application](#standard-authn-web-app)</li><li>[Applications must handle failed authentication scenarios securely](#handle-failed-authn)</li><li>[Enable step up or adaptive authentication](#step-up-adaptive-authn)</li><li>[Ensure that administrative interfaces are appropriately locked down](#admin-interface-lockdown)</li><li>[Implement forgot password functionalities securely](#forgot-pword-fxn)</li><li>[Ensure that password and account policy are implemented](#pword-account-policy)</li><li>[Implement controls to prevent username enumeration](#controls-username-enum)</li></ul> |
 | **Database** | <ul><li>[When possible, use Windows Authentication for connecting to SQL Server](#win-authn-sql)</li><li>[When possible use Azure Active Directory Authentication for Connecting to SQL Database](#aad-authn-sql)</li><li>[When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server](#authn-account-pword)</li><li>[Do not use SQL Authentication in contained databases](#autn-contained-db)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Use per device authentication credentials using SaS tokens](#authn-sas-tokens)</li></ul> |
-| **Azure Trust Boundary** | <ul><li>[Enable Azure Multi-Factor Authentication for Azure Administrators](#multi-factor-azure-admin)</li></ul> |
+| **Azure Trust Boundary** | <ul><li>[Enable Azure AD Multi-Factor Authentication for Azure Administrators](#multi-factor-azure-admin)</li></ul> |
 | **Service Fabric Trust Boundary** | <ul><li>[Restrict anonymous access to Service Fabric Cluster](#anon-access-cluster)</li><li>[Ensure that Service Fabric client-to-node certificate is different from node-to-node certificate](#fabric-cn-nn)</li><li>[Use AAD to authenticate clients to service fabric clusters](#aad-client-fabric)</li><li>[Ensure that service fabric certificates are obtained from an approved Certificate Authority (CA)](#fabric-cert-ca)</li></ul> |
 | **Identity Server** | <ul><li>[Use standard authentication scenarios supported by Identity Server](#standard-authn-id)</li><li>[Override the default Identity Server token cache with a scalable alternative](#override-token)</li></ul> |
 | **Machine Trust Boundary** | <ul><li>[Ensure that deployed application's binaries are digitally signed](#binaries-signed)</li></ul> |
@@ -41,8 +41,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -52,8 +52,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -63,8 +63,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -74,8 +74,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -85,8 +85,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -96,8 +96,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -107,8 +107,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -118,118 +118,118 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Database | 
-| **SDL Phase**               | Build |  
+| **Component**               | Database |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | OnPrem |
 | **Attributes**              | SQL Version - All |
-| **References**              | [SQL Server - Choose an Authentication Mode](https://msdn.microsoft.com/library/ms144284.aspx) |
+| **References**              | [SQL Server - Choose an Authentication Mode](/sql/relational-databases/security/choose-an-authentication-mode) |
 | **Steps** | Windows Authentication uses Kerberos security protocol, provides password policy enforcement with regard to complexity validation for strong passwords, provides support for account lockout, and supports password expiration.|
 
 ## <a id="aad-authn-sql"></a>When possible use Azure Active Directory Authentication for Connecting to SQL Database
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Database | 
-| **SDL Phase**               | Build |  
+| **Component**               | Database |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | SQL Azure |
 | **Attributes**              | SQL Version - V12 |
-| **References**              | [Connecting to SQL Database By Using Azure Active Directory Authentication](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
+| **References**              | [Connecting to SQL Database By Using Azure Active Directory Authentication](../../azure-sql/database/authentication-aad-overview.md) |
 | **Steps** | **Minimum version:** Azure SQL Database V12 required to allow Azure SQL Database to use AAD Authentication against the Microsoft Directory |
 
 ## <a id="authn-account-pword"></a>When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Database | 
-| **SDL Phase**               | Build |  
+| **Component**               | Database |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [SQL Server password policy](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
+| **References**              | [SQL Server password policy](/previous-versions/sql/sql-server-2012/ms161959(v=sql.110)) |
 | **Steps** | When using SQL Server Authentication, logins are created in SQL Server that are not based on Windows user accounts. Both the user name and the password are created by using SQL Server and stored in SQL Server. SQL Server can use Windows password policy mechanisms. It can apply the same complexity and expiration policies used in Windows to passwords used inside SQL Server. |
 
 ## <a id="autn-contained-db"></a>Do not use SQL Authentication in contained databases
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Database | 
-| **SDL Phase**               | Build |  
+| **Component**               | Database |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | OnPrem, SQL Azure |
 | **Attributes**              | SQL Version - MSSQL2012, SQL Version - V12 |
-| **References**              | [Security Best Practices with Contained Databases](https://msdn.microsoft.com/library/ff929055.aspx) |
+| **References**              | [Security Best Practices with Contained Databases](/sql/relational-databases/databases/security-best-practices-with-contained-databases) |
 | **Steps** | The absence of an enforced password policy may increase the likelihood of a weak credential being established in a contained database. Leverage Windows Authentication. |
 
 ## <a id="authn-sas-tokens"></a>Use per device authentication credentials using SaS tokens
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Event Hub | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure Event Hub |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Event Hubs authentication and security model overview](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
+| **References**              | [Event Hubs authentication and security model overview](../../event-hubs/authenticate-shared-access-signature.md) |
 | **Steps** | <p>The Event Hubs security model is based on a combination of Shared Access Signature (SAS) tokens and event publishers. The publisher name represents the DeviceID that receives the token. This would help associate the tokens generated with the respective devices.</p><p>All messages are tagged with originator on service side allowing detection of in-payload origin spoofing attempts. When authenticating devices, generate a per device SaS token scoped to a unique publisher.</p>|
 
-## <a id="multi-factor-azure-admin"></a>Enable Azure Multi-Factor Authentication for Azure Administrators
+## <a id="multi-factor-azure-admin"></a>Enable Azure AD Multi-Factor Authentication for Azure Administrators
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Trust Boundary | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Azure Trust Boundary |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [What is Azure Multi-Factor Authentication?](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
+| **References**              | [What is Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md) |
 | **Steps** | <p>Multi-factor authentication (MFA) is a method of authentication that requires more than one verification method and adds a critical second layer of security to user sign-ins and transactions. It works by requiring any two or more of the following verification methods:</p><ul><li>Something you know (typically a password)</li><li>Something you have (a trusted device that is not easily duplicated, like a phone)</li><li>Something you are (biometrics)</li><ul>|
 
 ## <a id="anon-access-cluster"></a>Restrict anonymous access to Service Fabric Cluster
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Service Fabric Trust Boundary | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Service Fabric Trust Boundary |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure  |
-| **References**              | [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
+| **References**              | [Service Fabric cluster security scenarios](../../service-fabric/service-fabric-cluster-security.md) |
 | **Steps** | <p>Clusters should always be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it.</p><p>While creating a service fabric cluster, ensure that the security mode is set to "secure" and configure the required X.509 server certificate. Creating an "insecure" cluster will allow any anonymous user to connect to it if it exposes management endpoints to the public Internet.</p>|
 
 ## <a id="fabric-cn-nn"></a>Ensure that Service Fabric client-to-node certificate is different from node-to-node certificate
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Service Fabric Trust Boundary | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Service Fabric Trust Boundary |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure, Environment - Stand alone |
-| **References**              | [Service Fabric Client-to-node certificate security](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#_client-to-node-certificate-security), [Connect to a secure cluster using client certificate](https://azure.microsoft.com/documentation/articles/service-fabric-connect-to-secure-cluster/) |
+| **References**              | [Service Fabric Client-to-node certificate security](../../service-fabric/service-fabric-cluster-security.md#client-to-node-certificate-security), [Connect to a secure cluster using client certificate](../../service-fabric/service-fabric-connect-to-secure-cluster.md) |
 | **Steps** | <p>Client-to-node certificate security is configured while creating the cluster either through the Azure portal, Resource Manager templates or a standalone JSON template by specifying an admin client certificate and/or a user client certificate.</p><p>The admin client and user client certificates you specify should be different than the primary and secondary certificates you specify for Node-to-node security.</p>|
 
 ## <a id="aad-client-fabric"></a>Use AAD to authenticate clients to service fabric clusters
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Service Fabric Trust Boundary | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Service Fabric Trust Boundary |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure |
-| **References**              | [Cluster security scenarios - Security Recommendations](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#security-recommendations) |
+| **References**              | [Cluster security scenarios - Security Recommendations](../../service-fabric/service-fabric-cluster-security.md#security-recommendations) |
 | **Steps** | Clusters running on Azure can also secure access to the management endpoints using Azure Active Directory (AAD), apart from client certificates. For Azure clusters, it is recommended that you use AAD security to authenticate clients and certificates for node-to-node security.|
 
 ## <a id="fabric-cert-ca"></a>Ensure that service fabric certificates are obtained from an approved Certificate Authority (CA)
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Service Fabric Trust Boundary | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Service Fabric Trust Boundary |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure |
-| **References**              | [X.509 certificates and Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#x509-certificates-and-service-fabric) |
+| **References**              | [X.509 certificates and Service Fabric](../../service-fabric/service-fabric-cluster-security.md#x509-certificates-and-service-fabric) |
 | **Steps** | <p>Service Fabric uses X.509 server certificates for authenticating nodes and clients.</p><p>Some important things to consider while using certificates in service fabrics:</p><ul><li>Certificates used in clusters running production workloads should be created by using a correctly configured Windows Server certificate service or obtained from an approved Certificate Authority (CA). The CA can be an approved external CA or a properly managed internal Public Key Infrastructure (PKI)</li><li>Never use any temporary or test certificates in production that are created with tools such as MakeCert.exe</li><li>You can use a self-signed certificate, but should only do so for test clusters and not in production</li></ul>|
 
 ## <a id="standard-authn-id"></a>Use standard authentication scenarios supported by Identity Server
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Identity Server | 
-| **SDL Phase**               | Build |  
+| **Component**               | Identity Server |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [IdentityServer3 - The Big Picture](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
@@ -239,8 +239,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Identity Server | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Identity Server |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Identity Server Deployment - Caching](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
@@ -250,8 +250,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Machine Trust Boundary | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Machine Trust Boundary |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -261,11 +261,11 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | WCF | 
-| **SDL Phase**               | Build |  
+| **Component**               | WCF |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic, NET Framework 3 |
 | **Attributes**              | N/A |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
+| **References**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)) |
 | **Steps** | Program fails to enable authentication when connecting to MSMQ queues, an attacker can anonymously submit messages to the queue for processing. If authentication is not used to connect to an MSMQ queue used to deliver a message to another program, an attacker could submit an anonymous message that is malicious.|
 
 ### Example
@@ -301,11 +301,11 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | WCF | 
-| **SDL Phase**               | Build |  
+| **Component**               | WCF |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | Client Credential Type - None |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
+| **References**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **Steps** | The absence of authentication means everyone is able to access this service. A service that does not authenticate its clients allows access to all users. Configure the application to authenticate against client credentials. This can be done by setting the message clientCredentialType to Windows or Certificate. |
 
 ### Example
@@ -317,11 +317,11 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | WCF | 
-| **SDL Phase**               | Build |  
+| **Component**               | WCF |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic, .NET Framework 3 |
 | **Attributes**              | Client Credential Type - None |
-| **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
+| **References**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **Steps** | The absence of authentication means everyone is able to access this service. A service that does not authenticate its clients allows all users to access its functionality. Configure the application to authenticate against client credentials. This can be done by setting the transport clientCredentialType to Windows or Certificate. |
 
 ### Example
@@ -333,8 +333,8 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web API | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web API |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Authentication and Authorization in ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [External Authentication Services with ASP.NET Web API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
@@ -344,33 +344,33 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure AD |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Authentication Scenarios for Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [Azure Active Directory Code Samples](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [Azure Active Directory developer's guide](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
+| **References**              | [Authentication Scenarios for Azure AD](../../active-directory/develop/authentication-vs-authorization.md), [Azure Active Directory Code Samples](../../active-directory/azuread-dev/sample-v1-code.md), [Azure Active Directory developer's guide](../../active-directory/develop/index.yml) |
 | **Steps** | <p>Azure Active Directory (Azure AD) simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect. Below are the five primary application scenarios supported by Azure AD:</p><ul><li>Web Browser to Web Application: A user needs to sign in to a web application that is secured by Azure AD</li><li>Single Page Application (SPA): A user needs to sign in to a single page application that is secured by Azure AD</li><li>Native Application to Web API: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Azure AD</li><li>Web Application to Web API: A web application needs to get resources from a web API secured by Azure AD</li><li>Daemon or Server Application to Web API: A daemon application or a server application with no web user interface needs to get resources from a web API secured by Azure AD</li></ul><p>Please refer to the links in the references section for low-level implementation details</p>|
 
 ## <a id="adal-scalable"></a>Override the default ADAL token cache with a scalable alternative
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure AD |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Modern Authentication with Azure Active Directory for Web Applications](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [Using Redis as ADAL token cache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
+| **References**              | [Modern Authentication with Azure Active Directory for Web Applications](/archive/blogs/microsoft_press/new-book-modern-authentication-with-azure-active-directory-for-web-applications), [Using Redis as ADAL token cache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
 | **Steps** | <p>The default cache that ADAL (Active Directory Authentication Library) uses is an in-memory cache that relies on a static store, available process-wide. While this works for native applications, it does not scale for mid tier and backend applications for the following reasons:</p><ul><li>These applications are accessed by many users at once. Saving all access tokens in the same store creates isolation issues and presents challenges when operating at scale: many users, each with as many tokens as the resources the app accesses on their behalf, can mean huge numbers and very expensive lookup operations</li><li>These applications are typically deployed on distributed topologies, where multiple nodes must have access to the same cache</li><li>Cached tokens must survive process recycles and deactivations</li></ul><p>For all the above reasons, while implementing web apps, it is recommended to override the default ADAL token cache with a scalable alternative such as Azure Cache for Redis.</p>|
 
 ## <a id="tokenreplaycache-adal"></a>Ensure that TokenReplayCache is used to prevent the replay of ADAL authentication tokens
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure AD |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Modern Authentication with Azure Active Directory for Web Applications](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) |
+| **References**              | [Modern Authentication with Azure Active Directory for Web Applications](/archive/blogs/microsoft_press/new-book-modern-authentication-with-azure-active-directory-for-web-applications) |
 | **Steps** | <p>The TokenReplayCache property allows developers to define a token replay cache, a store that can be used for saving tokens for the purpose of verifying that no token can be used more than once.</p><p>This is a measure against a common attack, the aptly called token replay attack: an attacker intercepting the token sent at sign-in might try to send it to the app again (“replay” it) for establishing a new session. E.g., In OIDC code-grant flow, after successful user authentication, a request to "/signin-oidc" endpoint of the relying party is made with "id_token", "code" and "state" parameters.</p><p>The relying party validates this request and establishes a new session. If an adversary captures this request and replays it, he/she can establish a successful session and spoof the user. The presence of the nonce in OpenID Connect can limit but not fully eliminate the circumstances in which the attack can be successfully enacted. To protect their applications, developers can provide an implementation of ITokenReplayCache and assign an instance to TokenReplayCache.</p>|
 
 ### Example
@@ -427,19 +427,19 @@ Please note that to test the effectiveness of this configuration, login into you
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure AD |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
+| **References**              | [ADAL](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) |
 | **Steps** | <p>The Azure AD authentication Library (ADAL) enables client application developers to easily authenticate users to cloud or on-premises Active Directory (AD), and then obtain access tokens for securing API calls.</p><p>ADAL has many features that make authentication easier for developers, such as asynchronous support, a configurable token cache that stores access tokens and refresh tokens, automatic token refresh when an access token expires and a refresh token is available, and more.</p><p>By handling most of the complexity, ADAL can help a developer focus on business logic in their application and easily secure resources without being an expert on security. Separate libraries are available for .NET, JavaScript (client and Node.js), Python, iOS, Android and Java.</p>|
 
 ## <a id="authn-devices-field"></a>Authenticate devices connecting to the Field Gateway
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | IoT Field Gateway | 
-| **SDL Phase**               | Build |  
+| **Component**               | IoT Field Gateway |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -449,11 +449,11 @@ Please note that to test the effectiveness of this configuration, login into you
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | IoT Cloud Gateway | 
-| **SDL Phase**               | Build |  
+| **Component**               | IoT Cloud Gateway |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic, C#, Node.JS,  |
 | **Attributes**              | N/A, Gateway choice - Azure IoT Hub |
-| **References**              | N/A, [Azure IoT hub with .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Getting Started with IoT hub and Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Securing IoT with SAS and certificates](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git repository](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
+| **References**              | N/A, [Azure IoT hub with .NET](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp), [Getting Started with IoT hub and Node JS](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs), [Securing IoT with SAS and certificates](../../iot-hub/iot-hub-dev-guide-sas.md), [Git repository](https://github.com/Azure/azure-iot-sdks/) |
 | **Steps** | <ul><li>**Generic:** Authenticate the device using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, Oauth.</li><li>**C#:** When creating a DeviceClient instance, by default, the Create method creates a DeviceClient instance that uses the AMQP protocol to communicate with IoT Hub. To use the HTTPS protocol, use the override of the Create method that enables you to specify the protocol. If you use the HTTPS protocol, you should also add the `Microsoft.AspNet.WebApi.Client` NuGet package to your project to include the `System.Net.Http.Formatting` namespace.</li></ul>|
 
 ### Example
@@ -474,7 +474,7 @@ await deviceClient.SendEventAsync(message);
 ### Example
 **Node.JS: Authentication**
 #### Symmetric key
-* Create an IoT hub on azure
+* Create an IoT hub on Azure
 * Create an entry in the device identity registry
     ```javascript
     var device = new iothub.Device(null);
@@ -509,9 +509,9 @@ await deviceClient.SendEventAsync(message);
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
-* Connect using sas token: 
+* Connect using sas token:
     ```javascript
-    Client.fromSharedAccessSignature(sas, Http); 
+    Client.fromSharedAccessSignature(sas, Http);
     ```
   #### Certificates
 * Generate a self signed X509 certificate using any tool such as OpenSSL to generate a .cert and .key files to store the certificate and the key respectively
@@ -538,7 +538,7 @@ await deviceClient.SendEventAsync(message);
     var options = {
         key: fs.readFileSync('./key.pem', 'utf8'),
         cert: fs.readFileSync('./server.crt', 'utf8')
-    }; 
+    };
     // Calling setOptions with the x509 certificate and key (and optionally, passphrase) will configure the client //transport to use x509 when connecting to IoT Hub
     client.setOptions(options);
     //call fn to execute after the connection is set up
@@ -549,31 +549,31 @@ await deviceClient.SendEventAsync(message);
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | IoT Cloud Gateway  | 
-| **SDL Phase**               | Build |  
+| **Component**               | IoT Cloud Gateway  |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Gateway choice - Azure IoT Hub |
-| **References**              | [Azure IoT Hub Security Tokens](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
+| **References**              | [Azure IoT Hub Security Tokens](../../iot-hub/iot-hub-dev-guide-sas.md) |
 | **Steps** | Use per device authentication credentials using SaS tokens based on Device key or Client Certificate, instead of IoT Hub-level shared access policies. This prevents the reuse of authentication tokens of one device or field gateway by another |
 
 ## <a id="req-containers-anon"></a>Ensure that only the required containers and blobs are given anonymous read access
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Storage | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure Storage |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | StorageType - Blob |
-| **References**              | [Manage anonymous read access to containers and blobs](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [Shared Access Signatures, Part 1: Understanding the SAS model](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
+| **References**              | [Manage anonymous read access to containers and blobs](../../storage/blobs/anonymous-read-access-configure.md), [Shared Access Signatures, Part 1: Understanding the SAS model](../../storage/common/storage-sas-overview.md) |
 | **Steps** | <p>By default, a container and any blobs within it may be accessed only by the owner of the storage account. To give anonymous users read permissions to a container and its blobs, one can set the container permissions to allow public access. Anonymous users can read blobs within a publicly accessible container without authenticating the request.</p><p>Containers provide the following options for managing container access:</p><ul><li>Full public read access: Container and blob data can be read via anonymous request. Clients can enumerate blobs within the container via anonymous request, but cannot enumerate containers within the storage account.</li><li>Public read access for blobs only: Blob data within this container can be read via anonymous request, but container data is not available. Clients cannot enumerate blobs within the container via anonymous request</li><li>No public read access: Container and blob data can be read by the account owner only</li></ul><p>Anonymous access is best for scenarios where certain blobs should always be available for anonymous read access. For finer-grained control, one can create a shared access signature, which enables to delegate restricted access using different permissions and over a specified time interval. Ensure that containers and blobs, which may potentially contain sensitive data, are not given anonymous access accidentally</p>|
 
 ## <a id="limited-access-sas"></a>Grant limited access to objects in Azure storage using SAS or SAP
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Storage | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure Storage |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A |
-| **References**              | [Shared Access Signatures, Part 1: Understanding the SAS model](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [Shared Access Signatures, Part 2: Create and use a SAS with Blob storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [How to delegate access to objects in your account using Shared Access Signatures and Stored Access Policies](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |
+| **References**              | [Shared Access Signatures, Part 1: Understanding the SAS model](../../storage/common/storage-sas-overview.md), [Shared Access Signatures, Part 2: Create and use a SAS with Blob storage](../../storage/common/storage-sas-overview.md), [How to delegate access to objects in your account using Shared Access Signatures and Stored Access Policies](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
 | **Steps** | <p>Using a shared access signature (SAS) is a powerful way to grant limited access to objects in a storage account to other clients, without having to expose account access key. The SAS is a URI that encompasses in its query parameters all of the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to pass in the SAS to the appropriate constructor or method.</p><p>You can use a SAS when you want to provide access to resources in your storage account to a client that can't be trusted with the account key. Your storage account keys include both a primary and secondary key, both of which grant administrative access to your account and all of the resources in it. Exposing either of your account keys opens your account to the possibility of malicious or negligent use. Shared access signatures provide a safe alternative that allows other clients to read, write, and delete data in your storage account according to the permissions you've granted, and without need for the account key.</p><p>If you have a logical set of parameters that are similar each time, using a Stored Access Policy (SAP) is a better idea. Because using a SAS derived from a Stored Access Policy gives you the ability to revoke that SAS immediately, it is the recommended best practice to always use Stored Access Policies when possible.</p>|

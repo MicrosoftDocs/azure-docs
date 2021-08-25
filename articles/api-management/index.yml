@@ -9,9 +9,9 @@ metadata:
   services: api-management
   ms.service: api-management
   ms.topic: landing-page
-  author: georgewallace
-  ms.author: gwallace
-  ms.date: 03/08/2020
+  author: dlepow
+  ms.author: danlep
+  ms.date: 05/13/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -23,18 +23,27 @@ landingContent:
         links:
           - text: What is API Management?
             url: api-management-key-concepts.md
-          - text: Features availability
+          - text: Service tiers and features
             url: api-management-features.md
-
+      - linkListType: architecture
+        links:
+          - text: Basic enterprise integration
+            url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
   # Card (optional)
   - title: Create an instance
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Azure CLI
+            url: get-started-create-service-instance-cli.md
           - text: Azure portal
             url: get-started-create-service-instance.md
           - text: Azure PowerShell
             url: powershell-create-service-instance.md
+          - text: Visual Studio Code 
+            url: vscode-create-service-instance.md
+          - text: ARM template
+            url: quickstart-arm-template.md
 
   # Card
   - title: Manage API Management
@@ -58,22 +67,33 @@ landingContent:
           - text: 8. Publish multiple versions of your API
             url: api-management-get-started-publish-versions.md
           - text: 9. Customize the style of the Developer portal pages
-            url: api-management-customize-styles.md
+            url: api-management-howto-developer-portal-customize.md
+          - text: 10. Manage APIs in Visual Studio Code
+            url: visual-studio-code-tutorial.md
 
   # Card
   - title: Samples
     linkLists:
       - linkListType: sample
         links:
-          - text: Policy
-            url: policy-samples.md
+          - text: Policies
+            url: ./policies/index.md
           - text: Azure PowerShell
             url: powershell-samples.md
+          - text: Azure Policy built-ins
+            url: ./policy-reference.md
 
-  # Card
-  - title: Architecture
+# Card
+  - title: Enable hybrid and multi-cloud management
     linkLists:
-      - linkListType: architecture
+      - linkListType: overview
         links:
-          - text: Basic enterprise integration
-            url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
+          - text: Self-hosted gateway overview
+            url: self-hosted-gateway-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Host gateway on Azure Arc
+            url: how-to-deploy-self-hosted-gateway-azure-arc.md
+          - text: Host gateway on Kubernetes
+            url: how-to-deploy-self-hosted-gateway-kubernetes.md
+  

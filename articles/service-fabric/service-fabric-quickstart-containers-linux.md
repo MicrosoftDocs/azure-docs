@@ -4,8 +4,7 @@ description: In this quickstart, you will build a Docker image with your applica
 
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.author: suhuruli
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ---
 # Quickstart: Deploy Linux containers to Service Fabric
 
@@ -21,7 +20,7 @@ To complete this quickstart:
 
 1. Create a [free Azure account](https://azure.microsoft.com/free/) before you begin if you don't have a subscription.
 
-2. Install the [Azure CLI](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+2. Install the [Azure CLI](/cli/azure/install-azure-cli-apt)
 
 3. Install the [Service Fabric SDK and CLI](service-fabric-get-started-linux.md#installation-methods)
 
@@ -48,14 +47,14 @@ To deploy the application to Azure, you need a Service Fabric cluster to run the
 #!/bin/bash
 
 # Variables
-ResourceGroupName="containertestcluster" 
-ClusterName="containertestcluster" 
-Location="eastus" 
-Password="q6D7nN%6ck@6" 
-Subject="containertestcluster.eastus.cloudapp.azure.com" 
-VaultName="containertestvault" 
-VmPassword="Mypa$$word!321"
-VmUserName="sfadminuser"
+ResourceGroupName='containertestcluster' 
+ClusterName='containertestcluster' 
+Location='eastus' 
+Password='q6D7nN%6ck@6' 
+Subject='containertestcluster.eastus.cloudapp.azure.com' 
+VaultName='containertestvault' 
+VmPassword='Mypa$$word!321'
+VmUserName='sfadminuser'
 
 # Login to Azure and set the subscription
 az login
@@ -66,7 +65,7 @@ az account set --subscription <mySubscriptionID>
 az group create --name $ResourceGroupName --location $Location 
 
 # Create secure five node Linux cluster. Creates a key vault in a resource group
-# and creates a certficate in the key vault. The certificate's subject name must match 
+# and creates a certificate in the key vault. The certificate's subject name must match 
 # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
 az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```
@@ -164,7 +163,7 @@ Use the uninstall script (uninstall.sh) provided in the template to delete the a
 
 The simplest way to delete the cluster and all the resources it consumes is to delete the resource group.
 
-Sign in to Azure and select the subscription ID with which you want to remove the cluster. You can find your subscription ID by logging in to the Azure portal. Delete the resource group and all the cluster resources using the [az group delete command](/cli/azure/group?view=azure-cli-latest).
+Sign in to Azure and select the subscription ID with which you want to remove the cluster. You can find your subscription ID by logging in to the Azure portal. Delete the resource group and all the cluster resources using the [az group delete command](/cli/azure/group).
 
 ```azurecli
 az login
@@ -174,7 +173,7 @@ az group delete --name $ResourceGroupName
 ```
 
 If you are finished working with your cluster, you can remove the certificate from your certificate store. For example:
-- On Windows: Use the [Certificates MMC snap-in](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Be sure to select **My user account** when adding the snap-in. Navigate to `Certificates - Current User\Personal\Certificates` and remove the certificate.
+- On Windows: Use the [Certificates MMC snap-in](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Be sure to select **My user account** when adding the snap-in. Navigate to `Certificates - Current User\Personal\Certificates` and remove the certificate.
 - On Mac: Use the Keychain app.
 - On Ubuntu: Follow the steps you used to view certificates and remove the certificate.
 

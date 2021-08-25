@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Create a Unity Android app'
 description: In this quickstart, you learn how to build an Android app with Unity using Spatial Anchors.
-author: craigktreasure
-manager: vriveras
+author: msftradford
+manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: crtreasu
-ms.date: 02/24/2019
+ms.author: parkerra
+ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ---
@@ -29,11 +29,11 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A Windows or macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 or 2019.2</a> including the Android Build Support and Android SDK & NDK Tools modules.
+- A Windows or macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity (LTS)</a>, including the **Android Build Support** with **Android SDK & NDK Tools** and **OpenJDK** modules. Use **Unity 2020 LTS** with ASA SDK version 2.9 or later (which uses the [Unity XR Plug-in Framework](https://docs.unity3d.com/Manual/XRPluginArchitecture.html)) or **Unity 2019 LTS** with ASA SDK version 2.8 or earlier.
   - If running on Windows, you'll also need <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> and <a href="https://git-lfs.github.com/">Git LFS</a>.
   - If running on macOS, get Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git` and `brew install git-lfs`.
 - A <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">developer enabled</a> and <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
-  - Additional device drivers may be required for your computer to communicate with your Android device. See [here](https://developer.android.com/studio/run/device.html) for additional information and instructions.
+  - Additional device drivers may be required for your computer to communicate with your Android device. For more additional information and instructions, see [here](https://developer.android.com/studio/run/device.html).
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -41,23 +41,25 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
+Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-packages) to download and import the ASA SDK packages required for the Android platform.
+
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
 [!INCLUDE [Android Unity Build Settings](../../../includes/spatial-anchors-unity-android-build-settings.md)]
 
-## Configure account identifier and key
-
-In the **Project** pane, navigate to `Assets/AzureSpatialAnchors.Examples/Scenes` and open the `AzureSpatialAnchorsBasicDemo.unity` scene file.
-
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
-
-Save the scene by selecting **File** -> **Save**.
 
 ## Export the Android Studio project
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Select your device in **Run Device** and click **Build And Run**. You'll be asked to save an `.apk` file which you can pick any name for.
+Select your device in **Run Device** and then select **Build And Run**. You'll be asked to save an `.apk` file, which you can pick any name for.
+
+In the app, select **BasicDemo** using the arrows, then press the **Go!** button to run the demo. Follow the instructions to place and recall an anchor.
+
+![Screenshot 1](./media/get-started-unity-android/screenshot-1.jpg)
+![Screenshot 2](./media/get-started-unity-android/screenshot-2.jpg)
+![Screenshot 3](./media/get-started-unity-android/screenshot-3.jpg)
 
 Follow the instructions in the app to place and recall an anchor.
 
@@ -65,11 +67,7 @@ Follow the instructions in the app to place and recall an anchor.
 
 ### Rendering issues
 
-When running the app, if you don't see the camera as the background (for instance you instead see a blank, blue or other textures) then you likely need to re-import assets in Unity. Stop the app. From the top menu in Unity, choose **Assets -> Reimport all**. Then, run the app again.
-
-### Unity 2019.3
-
-Due to breaking changes, Unity 2019.3 is not currently supported. Please use Unity 2019.1 or 2019.2.
+When running the app, if you don't see the camera as the background (for instance you instead see a blank, blue, or other texture) then you likely need to reimport assets in Unity. Stop the app. From the top menu in Unity, choose **Assets -> Reimport all**. Then, run the app again.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
@@ -77,3 +75,6 @@ Due to breaking changes, Unity 2019.3 is not currently supported. Please use Uni
 
 > [!div class="nextstepaction"]
 > [Tutorial: Share Spatial Anchors across devices](../tutorials/tutorial-share-anchors-across-devices.md)
+
+> [!div class="nextstepaction"]
+> [How To: Configure Azure Spatial Anchors in a Unity project](../how-tos/setup-unity-project.md)

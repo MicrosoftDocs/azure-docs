@@ -1,24 +1,24 @@
 ---
 title: 'Migrate from on-prem HDFS store to Azure Storage with Azure Data Box'
-description: Migrate data from an on-premises HDFS store to Azure Storage
+description: Migrate data from an on-premises HDFS store into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device.
 author: normesta
 ms.service: storage
 ms.date: 02/14/2019
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
 ---
 
 # Migrate from on-prem HDFS store to Azure Storage with Azure Data Box
 
-You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from an 80-TB Data Box or a 770-TB Data Box Heavy.
+You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from Data Box Disk, an 80-TB Data Box or a 770-TB Data Box Heavy.
 
 This article helps you complete these tasks:
 
 > [!div class="checklist"]
 > * Prepare to migrate your data.
-> * Copy your data to a Data Box or a Data Box Heavy device.
+> * Copy your data to a Data Box Disk, Data Box or a Data Box Heavy device.
 > * Ship the device back to Microsoft.
 > * Apply access permissions to files and directories (Data Lake Storage Gen2 only)
 
@@ -32,9 +32,9 @@ You need these things to complete the migration.
 
 * An [Azure Data Box device](https://azure.microsoft.com/services/storage/databox/).
 
-  * [Order your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) or [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered). 
+  * [Order your Data Box](../../databox/data-box-deploy-ordered.md) or [Data Box Heavy](../../databox/data-box-heavy-deploy-ordered.md). 
 
-  * Cable and connect your [Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) or [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) to an on-premises network.
+  * Cable and connect your [Data Box](../../databox/data-box-deploy-set-up.md) or [Data Box Heavy](../../databox/data-box-heavy-deploy-set-up.md) to an on-premises network.
 
 If you are ready, let's start.
 
@@ -54,7 +54,7 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
 
 2. In the Access storage account and upload data dialog, copy the **Blob service endpoint** and the **Storage account key**. From the blob service endpoint, omit the `https://` and the trailing slash.
 
-    In this case, the endpoint is: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. The host portion of the URI that you'll use is: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. For an example, see how to [Connect to REST over http](/azure/databox/data-box-deploy-copy-data-via-rest). 
+    In this case, the endpoint is: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. The host portion of the URI that you'll use is: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. For an example, see how to [Connect to REST over http](../../databox/data-box-deploy-copy-data-via-rest.md). 
 
      !["Access storage account and upload data" dialog](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
@@ -157,7 +157,7 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
 
 Follow these steps to prepare and ship the Data Box device to Microsoft.
 
-1. First,  [Prepare to ship on your Data Box or Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest).
+1. First,  [Prepare to ship on your Data Box or Data Box Heavy](../../databox/data-box-deploy-copy-data-via-rest.md).
 
 2. After the device preparation is complete, download the BOM files. You will use these BOM or manifest files later to verify the data uploaded to Azure.
 
@@ -165,9 +165,9 @@ Follow these steps to prepare and ship the Data Box device to Microsoft.
 
 4. Schedule a pickup with UPS.
 
-    * For Data Box devices, see [Ship your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+    * For Data Box devices, see [Ship your Data Box](../../databox/data-box-deploy-picked-up.md).
 
-    * For Data Box Heavy devices, see [Ship your Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up).
+    * For Data Box Heavy devices, see [Ship your Data Box Heavy](../../databox/data-box-heavy-deploy-picked-up.md).
 
 5. After Microsoft receives your device, it is connected to the data center network and the data is uploaded to the storage account you specified when you placed the device order. Verify against the BOM files that all your data is uploaded to Azure. 
 
@@ -180,11 +180,11 @@ You already have the data into your Azure Storage account. Now you will apply ac
 
 ### Create a service principal for your Azure Data Lake Storage Gen2 account
 
-To create a service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+To create a service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-* When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
+* When performing the steps in the [Assign the application to a role](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
-* When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, save application ID, and client secret values into a text file. You'll need those soon.
+* When performing the steps in the [Get values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) section of the article, save application ID, and client secret values into a text file. You'll need those soon.
 
 ### Generate a list of copied files with their permissions
 
@@ -235,7 +235,7 @@ Run this command to apply permissions to the data that you copied into the Data 
 
 Before you move your data onto a Data Box device, you'll need to download some helper scripts, ensure that your data is organized to fit onto a Data Box device, and exclude any unnecessary files.
 
-<a id="download-helper-scripts" />
+<a id="download-helper-scripts"></a>
 
 ### Download helper scripts and set up your edge node to run them
 

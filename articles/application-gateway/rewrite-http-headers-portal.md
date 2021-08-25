@@ -4,20 +4,20 @@ description: Learn how to use the Azure portal to configure an Azure Application
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
 ---
 # Rewrite HTTP request and response headers with Azure Application Gateway - Azure portal
 
-This article describes how to use the Azure portal to configure an [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) instance to rewrite the HTTP headers in requests and responses.
+This article describes how to use the Azure portal to configure an [Application Gateway v2 SKU](./application-gateway-autoscaling-zone-redundant.md) instance to rewrite the HTTP headers in requests and responses.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Before you begin
 
-You need to have an Application Gateway v2 SKU instance to complete the steps in this article. Rewriting headers isn't supported in the v1 SKU. If you don't have the v2 SKU, create an [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) instance before you begin.
+You need to have an Application Gateway v2 SKU instance to complete the steps in this article. Rewriting headers isn't supported in the v1 SKU. If you don't have the v2 SKU, create an [Application Gateway v2 SKU](./tutorial-autoscale-ps.md) instance before you begin.
 
 ## Create required objects
 
@@ -93,7 +93,7 @@ In this example, we'll modify a redirection URL by rewriting the location header
 
    - In the **Operator** list, select **equal (=)**.
 
-   - Enter a regular expression pattern. In this example, we'll use the pattern  `(https?):\/\/.*azurewebsites\.net(.*)$`.
+   - Enter a regular expression pattern. In this example, we'll use the pattern `(https?)://.*azurewebsites.net(.*)$`.
 
    - Select **OK**.
 
@@ -125,4 +125,4 @@ In this example, we'll modify a redirection URL by rewriting the location header
 
 ## Next steps
 
-To learn more about how to set up some common use cases, see [common header rewrite scenarios](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+To learn more about how to set up some common use cases, see [common header rewrite scenarios](./rewrite-http-headers-url.md).

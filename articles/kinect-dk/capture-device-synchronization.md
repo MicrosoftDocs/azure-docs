@@ -1,8 +1,8 @@
 ---
 title: Capture Azure Kinect device synchronization 
 description: Learn how to synchronize Azure Kinect capture devices using the Azure Kinect Sensor SDK.
-author: xthexder
-ms.author: jawirth
+author: martinekuan
+ms.author: martinek
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
@@ -11,7 +11,7 @@ keywords: kinect, azure, sensor, sdk, depth, rgb, internal, external, synchroniz
 
 # Capture Azure Kinect device synchronization
 
-The Azure Kinect hardware can align the capture time of color and depth images. Alignment between the cameras on the same device is **internal synchronization**. Capture time alignment across multiple connected devices is **external synchronization**.
+The Azure Kinect hardware can align the capture time of color and depth images. Alignment between the cameras on the same device is **internal synchronization**. Capture time alignment across multiple connected devices is **external synchronization**. The microphone array operates independently of the color and depth cameras.
 
 ## Device internal synchronization
 

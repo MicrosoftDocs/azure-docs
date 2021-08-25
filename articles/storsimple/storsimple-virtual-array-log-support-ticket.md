@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: a0c394df-957b-49b3-a283-38824f8847fd
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
@@ -30,7 +30,7 @@ Depending upon your [support plan](https://azure.microsoft.com/support/plans/), 
 
 1. Go to your StorSimple Device Manager service. In the service summary blade settings, go to **SUPPORT + TROUBLESHOOTING** section and then click **New support request**.
    
-    ![New support request](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
+    ![Screenshot shows the Basics pane for a new support request.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
 2. In the **Basics** blade, do the following:
 
@@ -44,11 +44,11 @@ Depending upon your [support plan](https://azure.microsoft.com/support/plans/), 
 
 3. In **Step 2**, choose the **Severity** and specify if the issue is related to the array or the StorSimple Device Manager service. Also, choose a **Category** for this issue and provide more **Details** about the issue.
    
-    ![New support request](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
+    ![Screenshot shows the Problem pane where you can enter the Problem type, Category, and Details for your support request.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
 4. In **Step 3**, provide your contact information. Microsoft Support will use this information to reach out to you for further information, diagnosis, and resolution.
    
-    ![New support request](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
+    ![Screenshot shows the Contact information pane.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 
 ## Manage a support request
 

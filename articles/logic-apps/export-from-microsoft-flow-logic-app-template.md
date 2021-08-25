@@ -3,36 +3,40 @@ title: Export flows from Power Automate to Azure Logic Apps
 description: Migrate flows from Power Automate to Azure Logic Apps by exporting as Azure Resource Manager templates
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 02/22/2021
 ---
 
 # Export flows from Power Automate and deploy to Azure Logic Apps
 
 To extend and expand your flow's capabilities, you can migrate that flow from [Power Automate](https://flow.microsoft.com) to [Azure Logic Apps](../logic-apps/logic-apps-overview.md). You can export your flow as an Azure Resource Manager template for a logic app, deploy that logic app template to an Azure resource group, and then open that logic app in the Logic App Designer.
 
-> [!NOTE]
-> Not all Power Automate connectors are available in Azure Logic Apps. 
-> You can import flows that have [equivalent connectors](../connectors/apis-list.md) 
-> in Azure Logic Apps. For example, the Button trigger, the Approval connector, 
-> and Notification connector are specific to Power Automate.
->
-> OpenAPI-based flows exported from Power Automate are currently not supported for deployment as logic app templates. 
+> [!IMPORTANT]
+> Export to Logic Apps is unavailable for Power Automate flows created after August 2020. In October 2020, Power Automate 
+> standardized new flow creation on the [OpenAPI 2.0 protocol](https://swagger.io/specification/v2/). New flows based on 
+> this protocol are incompatible with Logic Apps workflows, so exporting these flows to Logic Apps was disabled. Instead, 
+> you must manually [create logic apps](quickstart-create-first-logic-app-workflow.md) for these flows.
+
+Not all Power Automate connectors are available in Azure Logic Apps. You can migrate only Power Automate flows that have the equivalent connectors in Azure Logic Apps. For example, the Button trigger, the Approval connector, and Notification connector are specific to Power Automate. 
+
+* To find which Power Automate connectors don't have Logic Apps equivalents, see [Power Automate connectors](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+
+* To find which Logic Apps connectors don't have Power Automate equivalents, see [Logic Apps connectors](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * The flow that you want to export from Power Automate
 
-## Export a flow
+## Export your flow
 
-1. Sign in to [Power Automate](https://flow.microsoft.com), and select **My flows**. Find and select your flow. On the toolbar, select the ellipses (**...**) button. Select **Export** > **Logic Apps template (.json)**.
+1. Sign in to [Power Automate](https://flow.microsoft.com), and select **My flows**. Find and select your flow. On the toolbar, select the ellipses (**...**) button > **Export** > **Logic Apps template (.json)**.
 
-   ![Export flow](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
+   ![Export flow from Power Automate](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
-1. Save your template to the location that you want.
+1. Save your template's .json file to the location that you want.
 
 For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.com/blog/grow-up-to-logic-apps/).
 
@@ -40,42 +44,51 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
 1. Sign in the [Azure portal](https://portal.azure.com) with your Azure account.
 
-1. On the main Azure menu, select **Create a resource**. In the search box, enter "template deployment". Select **Template deployment (deploy using custom templates)**, and then select **Create**.
+1. On the Azure home page, in the search box, enter `custom template`. From the results, select **Deploy a custom template** > **Create**.
 
-   ![Select "Template deployment"](./media/export-from-microsoft-flow-logic-app-template/select-template-deployment.png)
+   ![Find and select "Template deployment"](./media/export-from-microsoft-flow-logic-app-template/select-template-deployment.png)
 
 1. Under **Custom deployment**, select **Build your own template in the editor**.
 
    ![Select "Build your own template in the editor"](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 
-1. From the **Edit template** toolbar, select **Load file**. Find and select the JSON template that you exported from Power Automate, and select **Open**.
+1. On the **Edit template** toolbar, select **Load file**.
 
    ![Select "Load file"](./media/export-from-microsoft-flow-logic-app-template/load-file.png)
 
+1. Browse to the location where you saved the JSON template file that you exported from Power Automate. Select the template file > **Open**.
+
 1. After the editor shows the JSON, parameters, and resources in your template, select **Save**.
-  
+
    ![Save template](./media/export-from-microsoft-flow-logic-app-template/save-template.png)
 
-1. Now specify these input parameters for the template:
+1. Now provide more information your logic app.
 
-   * Azure subscription to use for billing
-   * Azure resource group
-   * Location for the Azure resource group
-   * Name for the logic app resource
-   * Location for the logic app resource, if different from the Azure resource group
-   * The name for any previously created connections that the logic app can reuse
+   1. Select or specify the input parameter values for your template.
 
-      If you're creating your first logic app, all connections are created as new, so you can accept the default names. Otherwise, you can specify the names for previously created connections, which you can use across multiple logic apps.
+      | Property | Description |
+      |----------|-------------|
+      | **Subscription** | The Azure subscription to use for billing |
+      | **Resource group** | The Azure resource group to use for your logic app. You can use an existing group or create a new group. |
+      | **Location** | The Azure region to use if you create a new resource group |
+      | **Logic App Name** | The name to use for your logic app resource |
+      | **Logic App Location** | The Azure region where you want to create the logic app resource, if different from the Azure resource group |
+      | <*connection-name*> | One or multiple names for any previously created connections that the logic app can reuse <p><p>**Note**: If this logic app is your first, all connections are created as new, so you can accept the default names. Otherwise, you can specify the names for previously created connections, which you can use across multiple logic apps. |
+      |||
 
-   After you provide this information for the template, review and agree to the Azure Marketplace Terms and Conditions for creating the necessary Azure resources and billing your Azure subscription accordingly, and then select **Purchase**.
-  
-   ![Specify input parameters for template](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
+      For example:
 
-   Azure deploys your template as a logic app to your specified resource group. All logic apps that you migrate from Power Automate are deployed in a disabled state.
+      ![Specify input parameters for template](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
-1. Before you activate your logic app, authorize any new connections by following these steps:
+   1. When you're done, review the **Terms and Conditions** about creating the necessary Azure resources and billing your Azure subscription accordingly.
 
-   1. Open the logic app that you created. On the logic app's menu, select **Logic app designer**.
+   1. When you're ready, select **I agree to the terms and conditions stated above** > **Purchase**.
+
+      Azure deploys your template as a logic app to your specified resource group.
+
+1. All logic apps that you migrate from Power Automate are deployed in a disabled state. Before you enable your logic app, authorize any new connections by following these steps:
+
+   1. In the Azure portal, open the logic app that you created. On the logic app's menu, select **Logic app designer**.
 
       Each connection that requires authorization shows a warning icon:
 
@@ -83,11 +96,13 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
    1. For each step that requires an authorized connection, expand that step, and select **Add new**.
 
-      ![Add new connection](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
+      ![Screenshot that shows the "Add new" button selected on the Outlook "Connections" window.](./media/export-from-microsoft-flow-logic-app-template/add-new-connection.png)
 
    1. Sign in to each service or provide the necessary credentials to authorize the connection.
 
-1. Save your logic app. When you're ready to activate your logic app, on the logic app's menu, select **Overview**, and then select **Enable**.
+   1. After you update your connections, on the designer toolbar, select **Save**.
+
+1. When you're ready to activate your logic app, on the logic app's menu, select **Overview**, and then select **Enable**.
 
    ![Enable logic app](./media/export-from-microsoft-flow-logic-app-template/enable-logic-app.png)
 
@@ -95,17 +110,19 @@ For more information, see [Grow up to Azure Logic Apps](https://flow.microsoft.c
 
 ## Deploy template by using Visual Studio
 
-If you've set up Visual Studio with the [prerequisites](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) for creating logic apps, you can deploy your exported template from Visual Studio to Azure Logic Apps.
+If you've set up Visual Studio with the [prerequisites](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) for creating logic apps, you can deploy your exported template to Azure Logic Apps by using Visual Studio.
 
-1. In Visual Studio, open the template file that you exported from Power Automate.
+1. In Visual Studio, browse to and open the .json file for the logic app template that you exported from Power Automate.
 
-1. In Visual Studio, create an Azure Resource Group project and select the **Logic App** template by following the steps in [Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md), for example:
+1. In Visual Studio, create an **Azure Resource Group** project that uses the **Logic App** template by following the steps in [Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+
+   This example creates a Visual Studio solution named "ImportedLogicApp".
 
    ![Create Azure resource group project](./media/export-from-microsoft-flow-logic-app-template/create-azure-resource-group-project.png)
 
-1. From Solution Explorer, open the **LogicApp.json** file, if the file isn't already open.
+1. After the solution is created, in Solution Explorer, open the **LogicApp.json** file, if the file isn't already open.
 
-1. Copy the contents from the exported template and overwrite the contents in the **LogicApp.json** file.
+1. Copy the contents from the exported template, and overwrite the contents in the **LogicApp.json** file.
 
 1. Before you deploy your logic app, authorize any new connections by following these steps:
 

@@ -4,7 +4,7 @@ description: Learn how to configure an Azure Analysis Services server to use a g
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -17,7 +17,7 @@ This article describes the Azure Analysis Services **AlwaysUseGateway** server p
 
 If your data sources are accessed through a VNet, your Azure Analysis Services server must connect to those data sources as if they are on-premises, in your own environment. You can configure the **AlwaysUseGateway** server property to specify the server to access all data sources through an [On-premises gateway](analysis-services-gateway.md). 
 
-Azure SQL Database Managed Instance data sources run within Azure VNet with a private IP address. If public endpoint is enabled on the instance, a gateway is not required. If public endpoint is not enabled, an On-premises Data Gateway is required and the AlwaysUseGateway property must be set to true.
+Azure SQL Managed Instance data sources run within Azure VNet with a private IP address. If public endpoint is enabled on the instance, a gateway is not required. If public endpoint is not enabled, an On-premises Data Gateway is required and the AlwaysUseGateway property must be set to true.
 
 > [!NOTE]
 > This property is effective only when an [On-premises Data Gateway](analysis-services-gateway.md) is installed and configured. The gateway can be on the VNet.

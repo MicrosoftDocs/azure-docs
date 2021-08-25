@@ -75,15 +75,15 @@ To create a basic schedule with the
 follow these steps:
 
 1. Register your Azure subscription with a resource provider 
-by using the [Register operation - Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/providers). 
+by using the [Register operation - Resource Manager REST API](/rest/api/resources/providers). 
 The provider name for the Azure Scheduler service is **Microsoft.Scheduler**. 
 
 1. Create a job collection by using the 
-[Create or Update operation for job collections](https://docs.microsoft.com/rest/api/scheduler/jobcollections) 
+[Create or Update operation for job collections](/rest/api/scheduler/jobcollections) 
 in the Scheduler REST API. 
 
 1. Create a job by using the 
-[Create or Update operation for jobs](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
+[Create or Update operation for jobs](/rest/api/scheduler/jobs/createorupdate). 
 
 ## Job schema elements
 

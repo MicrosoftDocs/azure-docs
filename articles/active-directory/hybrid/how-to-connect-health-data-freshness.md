@@ -3,15 +3,15 @@ title: Azure AD Connect Health - Health service data is not up to date alert | M
 description: This document describes the cause of "Health service data is not up to date" alert and how to troubleshoot it.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
-manager: SamuelD
+author: billmath
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -66,4 +66,4 @@ The steps required to diagnose the issue is given below. The first is a set of b
 If any of the above steps identified an issue, fix it and wait for the alert to resolve. The alert background process runs every 2 hours, so it will take up to 2 hours to resolve the alert. 
 
 * [Azure AD Connect Health data retention policy](reference-connect-health-user-privacy.md#data-retention-policy)
-* [Azure AD Connect Health FAQ](reference-connect-health-faq.md)
+* [Azure AD Connect Health FAQ](reference-connect-health-faq.yml)

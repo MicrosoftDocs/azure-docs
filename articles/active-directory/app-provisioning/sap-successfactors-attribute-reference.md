@@ -1,27 +1,33 @@
 ---
-title: 'SAP SuccessFactors Attribute Reference | Microsoft Docs'
-description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning 
+title: SAP SuccessFactors attribute reference for Azure Active Directory
+description: Learn which attributes from SuccessFactors are supported by SuccessFactors-HR driven provisioning in Azure Active Directory.
 services: active-directory
-author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: reference
 ms.workload: identity
-ms.date: 12/06/2019
-ms.author: chmutali
+ms.date: 05/11/2021
+ms.author: kenwith
+ms.reviewer: chmutali
 ---
-# SAP SuccessFactors Attribute Reference
 
-## Supported SuccessFactors Entities and Attributes
+# SAP SuccessFactors attribute reference for Azure Active Directory
 
-The table below captures the list of SuccessFactors attributes supported by the following two provisioning apps: 
-* [SuccessFactors to Active Directory User Provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
-* [SuccessFactors to Azure AD User Provisioning](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) 
+In this article, you'll find information on:
+
+- [SuccessFactors entities and attributes](#supported-successfactors-entities-and-attributes)
+- [Default attribute mapping](#default-attribute-mapping)
+
+## Supported SuccessFactors entities and attributes
+
+The table below captures the list of SuccessFactors attributes included by default in the following two provisioning apps:
+
+- [SuccessFactors to Active Directory User Provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
+- [SuccessFactors to Azure AD User Provisioning](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
+
+Please refer to the [SAP SuccessFactors integration reference](./sap-successfactors-integration-reference.md#retrieving-additional-attributes) to extend the schema for additional attributes. 
 
 | \# | SuccessFactors Entity                  | SuccessFactors Attribute     | Operation Type |
 |----|----------------------------------------|------------------------------|----------------|
@@ -105,7 +111,6 @@ The table below captures the list of SuccessFactors attributes supported by the 
 | 77 | EmpEmploymentTermination               | activeEmploymentsCount       | Read           |
 | 78 | EmpEmploymentTermination               | latestTerminationDate        | Read           |
 
-
 ## Default attribute mapping
 
 The table below provides the default attribute mapping between SuccessFactors attributes listed above and AD/Azure AD attributes. In the Azure AD provisioning app "Mapping" blade, you can modify this default mapping to include attributes from the list above. 
@@ -132,4 +137,3 @@ The table below provides the default attribute mapping between SuccessFactors at
 | 18 | EmpJob\.Location                       | officeLocationAddress    | streetAddress                           | NA                                                                                           |
 | 19 | EmpJob\.Location                       | officeLocationZipCode    | postalCode                              | NA                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | if activeEmploymentsCount=0, disable the account\.                                           |
-

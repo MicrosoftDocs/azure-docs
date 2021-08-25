@@ -1,15 +1,11 @@
 ---
 title: Disaster recovery for custom topics in Azure Event Grid
 description: This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a region.
-services: event-grid
-author: banisadr
-
-ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/21/2020
-ms.author: babanisa
-
+ms.date: 04/22/2021
+ms.custom: devx-track-csharp
 ---
+
 # Build your own disaster recovery for custom topics in Event Grid
 Disaster recovery focuses on recovering from a severe loss of application functionality. This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a particular region.
 
@@ -26,7 +22,7 @@ To simplify testing, deploy a [pre-built web app](https://github.com/Azure-Sampl
 
 1. Select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 
 1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
 `https://<your-site-name>.azurewebsites.net`
@@ -73,7 +69,7 @@ First, create two Event Grid topics. These topics will act as your primary and s
    * Select Endpoint Type Web Hook.
    * Set the endpoint to your event receiver's event URL, which should look something like: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-     ![Event Grid Primary Event Subscription](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Screenshot that shows the "Create Event Subscription - Basic" page with the "Name", "Endpoint Type", and "Endpoint" values highlighted.](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Repeat the same flow to create your secondary topic and subscription. This time, replace the "-primary" suffix with "-secondary" for easier tracking. Finally, make sure you put it in a different Azure Region. While you can put it anywhere you want, it's recommended that you use the [Azure Paired Regions](../best-practices-availability-paired-regions.md). Putting the secondary topic and subscription in a different region ensures that your new events will flow even if the primary region goes down.
 
@@ -93,26 +89,28 @@ Now that you have a regionally redundant pair of topics and subscriptions setup,
 
 The following sample code is a simple .NET publisher that will always attempt to publish to your primary topic first. If it doesn't succeed, it will then failover the secondary topic. In either case, it also checks the health api of the other topic by doing a GET on `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. A healthy topic should always respond with **200 OK** when a GET is made on the **/api/health** endpoint.
 
+> [!NOTE]
+> The following sample code is only for demonstration purposes and is not intended for production use. 
+
 ```csharp
 using System;
 using System.Net.Http;
 using System.Collections.Generic;
-using Microsoft.Azure.EventGrid;
-using Microsoft.Azure.EventGrid.Models;
-using Newtonsoft.Json;
+using System.Threading.Tasks;
+using Azure;
+using Azure.Messaging.EventGrid;
 
 namespace EventGridFailoverPublisher
 {
     // This captures the "Data" portion of an EventGridEvent on a custom topic
     class FailoverEventData
     {
-        [JsonProperty(PropertyName = "teststatus")]
         public string TestStatus { get; set; }
     }
 
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             // TODO: Enter the endpoint each topic. You can find this topic endpoint value
             // in the "Overview" section in the "Event Grid Topics" blade in Azure Portal..
@@ -124,35 +122,33 @@ namespace EventGridFailoverPublisher
             string primaryTopicKey = "<your-primary-topic-key>";
             string secondaryTopicKey = "<your-secondary-topic-key>";
 
-            string primaryTopicHostname = new Uri( primaryTopic).Host;
-            string secondaryTopicHostname = new Uri(secondaryTopic).Host;
+            Uri primaryTopicUri = new Uri(primaryTopic);
+            Uri secondaryTopicUri = new Uri(secondaryTopic);
 
-            Uri primaryTopicHealthProbe = new Uri("https://" + primaryTopicHostname + "/api/health");
-            Uri secondaryTopicHealthProbe = new Uri("https://" + secondaryTopicHostname + "/api/health");
+            Uri primaryTopicHealthProbe = new Uri($"https://{primaryTopicUri.Host}/api/health");
+            Uri secondaryTopicHealthProbe = new Uri($"https://{secondaryTopicUri.Host}/api/health");
 
             var httpClient = new HttpClient();
 
             try
             {
-                TopicCredentials topicCredentials = new TopicCredentials(primaryTopicKey);
-                EventGridClient client = new EventGridClient(topicCredentials);
+                var client = new EventGridPublisherClient(primaryTopicUri, new AzureKeyCredential(primaryTopicKey));
 
-                client.PublishEventsAsync(primaryTopicHostname, GetEventsList()).GetAwaiter().GetResult();
+                await client.SendEventsAsync(GetEventsList());
                 Console.Write("Published events to primary Event Grid topic.");
 
                 HttpResponseMessage health = httpClient.GetAsync(secondaryTopicHealthProbe).Result;
                 Console.Write("\n\nSecondary Topic health " + health);
             }
-            catch (Microsoft.Rest.Azure.CloudException e)
+            catch (RequestFailedException ex)
             {
-                TopicCredentials topicCredentials = new TopicCredentials(secondaryTopicKey);
-                EventGridClient client = new EventGridClient(topicCredentials);
+                var client = new EventGridPublisherClient(secondaryTopicUri, new AzureKeyCredential(secondaryTopicKey));
 
-                client.PublishEventsAsync(secondaryTopicHostname, GetEventsList()).GetAwaiter().GetResult();
-                Console.Write("Published events to secondary Event Grid topic. Reason for primary topic failure:\n\n" + e);
+                await client.SendEventsAsync(GetEventsList());
+                Console.Write("Published events to secondary Event Grid topic. Reason for primary topic failure:\n\n" + ex);
 
-                HttpResponseMessage health = httpClient.GetAsync(primaryTopicHealthProbe).Result;
-                Console.Write("\n\nPrimary Topic health " + health);
+                HttpResponseMessage health = await httpClient.GetAsync(primaryTopicHealthProbe);
+                Console.WriteLine($"Primary Topic health {health}");
             }
 
             Console.ReadLine();
@@ -164,18 +160,14 @@ namespace EventGridFailoverPublisher
 
             for (int i = 0; i < 5; i++)
             {
-                eventsList.Add(new EventGridEvent()
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    EventType = "Contoso.Failover.Test",
-                    Data = new FailoverEventData()
+                eventsList.Add(new EventGridEvent(
+                    subject: "test" + i,
+                    eventType: "Contoso.Failover.Test",
+                    dataVersion: "2.0",
+                    data: new FailoverEventData
                     {
                         TestStatus = "success"
-                    },
-                    EventTime = DateTime.Now,
-                    Subject = "test" + i,
-                    DataVersion = "2.0"
-                });
+                    }));
             }
 
             return eventsList;
@@ -209,4 +201,4 @@ Similarly, you may want to implement failback logic based on your specific needs
 
 - Learn how to [receive events at an http endpoint](./receive-events.md)
 - Discover how to [route events to Hybrid Connections](./custom-event-to-hybrid-connection.md)
-- Learn about [disaster recovery using Azure DNS and Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager)
+- Learn about [disaster recovery using Azure DNS and Traffic Manager](../networking/disaster-recovery-dns-traffic-manager.md)

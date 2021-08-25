@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page # Required
   author: cherylmc #Required; your GitHub user alias, with correct capitalization.
   ms.author: cherylmc #Required; microsoft alias of author; optional team alias.
-  ms.date: 08/28/2019 #Required; mm/dd/yyyy format.
+  ms.date: 07/07/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -35,23 +35,23 @@ landingContent:
             url: about-zone-redundant-vnet-gateways.md
           - text: VPN Gateway FAQ
             url: vpn-gateway-vpn-faq.md
+      - linkListType: learn
+        links:
+          - text: Connect your on-premises network to Azure with VPN Gateway
+            url:  /learn/modules/connect-on-premises-network-with-vpn-gateway/
   # Card
   - title: Get started
     linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Create a VPN gateway
-            url: create-routebased-vpn-gateway-portal.md
-          - text: Create a site-to-site connection
-            url: vpn-gateway-howto-site-to-site-resource-manager-portal.md
-          - text: Create a point-to-site connection
-            url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
       - linkListType: tutorial
         links:
           - text: Create and manage a VPN gateway
-            url: vpn-gateway-tutorial-create-gateway-powershell.md
-          - text: Create and manage a site-to-site connection
-            url: vpn-gateway-tutorial-vpnconnection-powershell.md
+            url: tutorial-create-gateway-portal.md
+          - text: Create a site-to-site VPN connection
+            url: tutorial-site-to-site-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create a point-to-site VPN connection
+            url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
   # Card
   - title: VPN devices
     linkLists:
@@ -72,10 +72,10 @@ landingContent:
         links:
           - text: Gateway configuration settings
             url: vpn-gateway-about-vpn-gateway-settings.md
-          - text: Point-to-site routing
-            url: vpn-gateway-about-point-to-site-routing.md
           - text: Gateway SKUs
             url: vpn-gateway-about-vpn-gateway-settings.md#gwsku
+          - text: Point-to-site routing
+            url: vpn-gateway-about-point-to-site-routing.md
       - linkListType: how-to-guide
         links:
           - text: Verify a VPN gateway
@@ -90,7 +90,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Security controls
-            url: vpn-gateway-security-controls.md
+            url: ./security-baseline.md
       - linkListType: how-to-guide
         links:
           - text: Monitoring and alerts

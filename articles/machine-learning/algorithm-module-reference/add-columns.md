@@ -1,7 +1,7 @@
 ---
 title:  "Add Columns: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Add Columns module in Azure Machine Learning to concatenate two datasets.
+description: Learn how to use the Add Columns module in the drag-and-drop Azure Machine Learning designer to concatenate two datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 10/22/2019
 
 # Add Columns module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to concatenate two datasets. You combine all columns from the two datasets that you specify as inputs to create a single dataset. If you need to concatenate more than two datasets, use several instances of **Add Columns**.
 
@@ -29,7 +29,7 @@ Use this module to concatenate two datasets. You combine all columns from the tw
 
     - You cannot choose individual columns to add. All the columns from each dataset are concatenated when you use **Add Columns**. Therefore, if you want to add only a subset of the columns, use Select Columns in Dataset to create a dataset with the columns you want.
 
-3. Run the pipeline.
+3. Submit the pipeline.
 
 ### Results
 After the pipeline has run:

@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure StorSimple and Cloud Solutions Program Overview | Microsoft Docs
-description: An overview about the StorSimple and CSP for StorSimple partners.
+description: Learn introductory information about StorSimple and Cloud Solutions Program (CSP) for StorSimple partners.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -26,9 +26,9 @@ Microsoft Azure StorSimple is a unique approach to enterprise storage with true 
 
 StorSimple Virtual Array for Cloud Solutions Provider (CSP) enables partners to capitalize on this opportunity. The partners own the end-to-end customer lifecycle with direct provisioning, billing, and support of Microsoft’s cloud services. In short, the partners can now transact the StorSimple along with their services to customers.
 
-For more information about StorSimple for CSP, visit the [Azure CSP overview](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) page.
+For more information about StorSimple for CSP, visit the [Azure CSP overview](/azure/cloud-solution-provider/overview/azure-csp-overview) page.
 
-For more information on billing, pricing, incentives, and getting support in CSP, go to [StorSimple in CSP: FAQ](storsimple-partner-csp-faq.md). 
+For more information on billing, pricing, incentives, and getting support in CSP, go to [StorSimple in CSP: FAQ](storsimple-partner-csp-faq.yml). 
 
 ## Deploy and manage StorSimple for CSP
 
@@ -38,5 +38,5 @@ For more information, go to [Deploy and manage your StorSimple Virtual Array for
 
 ## Next steps
 
-- If you have more questions regarding the StorSimple in CSP, go to [StorSimple for CSP: Frequently asked questions](storsimple-partner-csp-faq.md).
+- If you have more questions regarding the StorSimple in CSP, go to [StorSimple for CSP: Frequently asked questions](storsimple-partner-csp-faq.yml).
 - If you are ready to deploy your StorSimple, go to [Deploy your StorSimple for CSP](storsimple-partner-csp-deploy.md).

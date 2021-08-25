@@ -83,7 +83,7 @@ An Account Administrator can export the alert details by:
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
   ```
 
-For more information, see [Get Security Alerts (GET Collection)](https://msdn.microsoft.com/library/mt704050.aspx).
+For more information, see [Get Security Alerts (GET Collection)](/previous-versions/azure/reference/mt704050(v=azure.100)).
 
 ## Restricting the use of personal data for profiling or marketing without consent
 A Security Center user can choose to opt out by deleting their [security contact data](security-center-provide-security-contact-details.md).
@@ -93,7 +93,4 @@ A Security Center user can choose to opt out by deleting their [security contact
 [Alert data](security-center-managing-and-responding-alerts.md) is considered security data and is retained for a period of two years.
 
 ## Auditing and reporting
-Audit logs of security contact, just-in-time, and alert updates are maintained in [Azure Activity Logs](../azure-monitor/platform/platform-logs-overview.md).
-
-## Next steps
-For more information about managing user data, see [Manage user data found in an Azure Security Center investigation](security-center-investigation-user-data.md).
+Audit logs of security contact, just-in-time, and alert updates are maintained in [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md).

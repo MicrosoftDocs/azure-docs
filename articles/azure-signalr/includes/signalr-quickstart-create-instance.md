@@ -14,7 +14,7 @@ Your application will connect to a SignalR Service instance in Azure.
 
 1. Select the New button found on the upper left-hand corner of the Azure portal. In the New screen, type *SignalR Service* in the search box and press enter.
 
-    ![Search for SignalR Service](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-new.png)
+    ![Screenshot shows search for SignalR Service in the Azure portal.](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-new.png)
 
 1. Select **SignalR Service** from the search results, then select **Create**.
 
@@ -30,7 +30,7 @@ Your application will connect to a SignalR Service instance in Azure.
     | **Unit count** |  Not applicable | Unit count specifies how many connections your SignalR Service instance can accept. It is only configurable in the Standard tier. |
     | **Service mode** |  Serverless | For use with Azure Functions or REST API. |
 
-    ![Create SignalR Service](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
+    ![Screenshot shows SignalR Basics tab with values.](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 
 1. Select **Create** to start deploying the SignalR Service instance.
 

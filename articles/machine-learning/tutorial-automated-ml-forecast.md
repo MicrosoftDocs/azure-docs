@@ -1,7 +1,7 @@
 ---
-title: Forecast bike sharing demand with automated ML experiment
+title: 'Tutorial: Demand forecasting & AutoML'
 titleSuffix: Azure Machine Learning
-description: Learn how to train and deploy a demand forecasting model with automated machine learning in Azure Machine Learning studio.
+description: Train and deploy a demand forecasting model without writing code, using Azure Machine Learning's automated machine learning (automated ML) interface.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,33 +9,38 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 01/27/2020
-
+ms.date: 12/21/2020
+ms.custom: automl
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
 
-# Tutorial: Forecast bike sharing demand with automated machine learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# Tutorial: Forecast demand with automated machine learning
 
-In this tutorial, you use automated machine learning, or automated ML, in the Azure Machine Learning studio to create a time series forecasting model to predict rental demand for a bike sharing service.
+Learn how to create a [time-series forecasting model](concept-automated-ml.md#time-series-forecasting) without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This model will predict rental demand for a bike sharing service.  
 
-In this tutorial, you learn how to do the following tasks:
+You won't write any code in this tutorial, you'll use the studio interface to perform training.  You'll learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create and load a dataset.
 > * Configure and run an automated ML experiment.
+> * Specify forecasting settings.
 > * Explore the experiment results.
 > * Deploy the best model.
 
+Also try automated machine learning for these other model types:
+
+* For a no-code example of a classification model, see [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
+* For a code first example of a regression model, see the [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md).
+
 ## Prerequisites
 
-* An Enterprise edition Azure Machine Learning workspace. If you don't have a workspace, [create an Enterprise edition workspace](how-to-manage-workspace.md). 
-    * Automated machine learning in the Azure Machine Learning studio is only available for Enterprise edition workspaces. 
+* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
+
 * Download the [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv) data file
 
-## Get started in Azure Machine Learning studio
+## Sign in to the studio
 
-For this tutorial, you create your automated ML experiment run in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
+For this tutorial, you create your automated ML experiment run in Azure Machine Learning studio, a consolidated web interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
@@ -93,7 +98,7 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. Select  **Next**.
 
-## Configure experiment run
+## Configure run
 
 After you load and configure your data, set up your remote compute target and select which column in your data you want to predict.
 
@@ -104,11 +109,22 @@ After you load and configure your data, set up your remote compute target and se
 
     1. Select **Create a new compute** and configure your compute target. Automated ML only supports Azure Machine Learning compute. 
 
-        Field | Description | Value for tutorial
-        ----|---|---
-        Compute name |A unique name that identifies your compute context.|bike-compute
-        Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute.|Standard_DS12_V2
-        Min / Max nodes (in Advanced Settings)| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
+        1. Populate the **Virtual Machine** form to set up your compute.
+
+            Field | Description | Value for tutorial
+            ----|---|---
+            Virtual&nbsp;machine&nbsp;priority |Select what priority your experiment should have| Dedicated
+            Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
+            Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute. A list of recommended sizes is provided based on your data and experiment type. |Standard_DS12_V2
+        
+        1. Select **Next** to populate the **Configure settings form**.
+        
+             Field | Description | Value for tutorial
+            ----|---|---
+            Compute name |	A unique name that identifies your compute context. | bike-compute
+            Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
+            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
+            Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None 
   
         1. Select **Create** to get the compute target. 
 
@@ -118,37 +134,37 @@ After you load and configure your data, set up your remote compute target and se
 
     1. Select **Next**.
 
-## Select task type and settings
+## Select forecast settings
 
 Complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
 
 1. On the **Task type and settings** form, select **Time series forecasting** as the machine learning task type.
 
-1. Select **date** as your **Time column** and leave **Group by column(s)** blank. 
+1. Select **date** as your **Time column** and leave **Time series identifiers** blank. 
 
-    1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job. Otherwise, defaults are applied based on experiment selection and data.
+1. The **forecast horizon** is the length of time into the future you want to predict.  Deselect Autodetect and type 14 in the field. 
 
-  
-        Additional&nbsp;configurations|Description|Value&nbsp;for&nbsp;tutorial
-        ------|---------|---
-        Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|Normalized root mean squared error
-        Automatic featurization| Enables preprocessing. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
-        Explain best model (preview)| Automatically shows explainability on the best model created by automated ML.| Enable
-        Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
-        Additional forecasting settings| These settings help improve the accuracy of your model <br><br> _**Forecast horizon**_: length of time into the future you want to predict <br> _**Forecast target lags:**_ how far back you want to construct the lags of a the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. |Forecast horizon: 14 <br> Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
-        Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 3 <br> Metric&nbsp;score&nbsp;threshold: None
-        Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 5
-        Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
-        
-        Select **Save**.
+1. Select **View additional configuration settings** and populate the fields as follows. These settings are to better control the training job and specify settings for your forecast. Otherwise, defaults are applied based on experiment selection and data.
+
+    Additional&nbsp;configurations|Description|Value&nbsp;for&nbsp;tutorial
+    ------|---------|---
+    Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|Normalized root mean squared error
+    Explain best model| Automatically shows explainability on the best model created by automated ML.| Enable
+    Blocked algorithms | Algorithms you want to exclude from the training job| Extreme Random Trees
+    Additional forecasting settings| These settings help improve the accuracy of your model. <br><br> _**Forecast target lags:**_ how far back you want to construct the lags of the target variable <br> _**Target rolling window**_: specifies the size of the rolling window over which features, such as the *max, min* and *sum*, will be generated. | <br><br>Forecast&nbsp;target&nbsp;lags: None <br> Target&nbsp;rolling&nbsp;window&nbsp;size: None
+    Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 3 <br> Metric&nbsp;score&nbsp;threshold: None
+    Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 5
+    Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 6
+    
+    Select **Save**.
 
 ## Run experiment
 
-To run your experiment, select **Finish**. The **Run details**  screen opens with the **Run status** at the top next to the run number. This status updates as the experiment progresses.
+To run your experiment, select **Finish**. The **Run details**  screen opens with the **Run status** at the top next to the run number. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio, to inform you of the status of your experiment.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
-> Once running, it takes **2-3 minutes more for each iteration**.  <br> <br>
+> Once running, it takes **2-3 minutes more for each iteration**.<br> <br>
 > In production, you'd likely walk away for a bit as this process takes time. While you wait, we suggest you start exploring the tested algorithms on the **Models** tab as they complete. 
 
 ##  Explore models
@@ -157,9 +173,9 @@ Navigate to the **Models** tab to see the algorithms (models) tested. By default
 
 While you wait for all of the experiment models to finish, select the **Algorithm name** of a completed model to explore its performance details. 
 
-The following example navigates through the **Model details** and the **Visualizations** tabs to view the selected model's properties, metrics and performance charts. 
+The following example navigates through the **Details** and the **Metrics** tabs to view the selected model's properties, metrics and performance charts. 
 
-![Run detail](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
+![Run detail](./media/tutorial-automated-ml-forecast/explore-models.gif)
 
 ## Deploy the model
 
@@ -167,11 +183,15 @@ Automated machine learning in Azure Machine Learning studio allows you to deploy
 
 For this experiment, deployment to a web service means that the bike share company now has an iterative and scalable web solution for forecasting bike share rental demand. 
 
-Once the run is complete, navigate back to the **Run detail** page and select the **Models** tab.
+Once the run is complete, navigate back to parent run page by selecting **Run 1** at the top of your screen.
 
-In this experiment context, **StackEnsemble** is considered the best model, based on the **Normalized root mean squared error** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
+In the **Best model summary** section, **StackEnsemble** is considered the best model in the context of this experiment, based on the **Normalized root mean squared error** metric.  
 
-1. Select the **Deploy best model** button in the bottom-left corner.
+We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
+
+1. Select **StackEnsemble** to open the model-specific page.
+
+1. Select the **Deploy** button located in the top-left area of the screen.
 
 1. Populate the **Deploy a model** pane as follows:
 
@@ -187,8 +207,7 @@ In this experiment context, **StackEnsemble** is considered the best model, base
 
 1. Select **Deploy**.  
 
-    A green success message appears at the top of the **Run** screen stated that the deployment was started successfully. The progress of the deployment can be found  
-    in the **Recommended model** pane under **Deploy status**.
+    A green success message appears at the top of the **Run** screen stating that the deployment was started successfully. The progress of the deployment can be found in the **Model summary** pane under **Deploy status**.
     
 Once deployment succeeds, you have an operational web service to generate predictions. 
 
@@ -219,8 +238,12 @@ In this tutorial, you used automated ML in the Azure Machine Learning studio to 
 See this article for steps on how to create a Power BI supported schema to facilitate consumption of your newly deployed web service:
 
 > [!div class="nextstepaction"]
-> [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
+> [Consume a web service](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
++ Learn more about [automated machine learning](concept-automated-ml.md).
++ For more information on classification metrics and charts, see the [Understand automated machine learning results](how-to-understand-automated-ml.md) article.
++ Learn more about [featurization](how-to-configure-auto-features.md#featurization).
++ Learn more about [data profiling](how-to-connect-data-ui.md#profile).
 
 >[!NOTE]
 > This bike share dataset has been modified for this tutorial. This dataset was made available as part of a [Kaggle competition](https://www.kaggle.com/c/bike-sharing-demand/data) and was originally available via [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). It can also be found within the [UCI Machine Learning Database](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

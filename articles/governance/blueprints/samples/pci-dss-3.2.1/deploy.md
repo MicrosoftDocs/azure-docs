@@ -1,7 +1,7 @@
 ---
 title: Deploy PCI-DSS v3.2.1 blueprint sample
 description: Deploy steps for the Payment Card Industry Data Security Standard v3.2.1 blueprint sample including blueprint artifact parameter details.
-ms.date: 01/29/2020
+ms.date: 04/02/2021
 ms.topic: sample
 ---
 # Deploy the PCI-DSS v3.2.1 blueprint sample
@@ -90,7 +90,8 @@ provided to make each deployment of the copy of the blueprint sample unique.
 
    - Lock Assignment
 
-     Select the blueprint lock setting for your environment. For more information, see [blueprints resource locking](../../concepts/resource-locking.md).
+     Select the blueprint lock setting for your environment. For more information, see
+     [blueprints resource locking](../../concepts/resource-locking.md).
 
    - Managed Identity
 
@@ -109,8 +110,9 @@ provided to make each deployment of the copy of the blueprint sample unique.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure
-> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-> to estimate the cost of running resources deployed by this blueprint sample.
+> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the
+> [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of
+> running resources deployed by this blueprint sample.
 
 ## Artifact parameters table
 
@@ -118,11 +120,11 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|\[Preview\] Audit PCI v3.2.1:2018 controls and deploy specific VM Extensions to support audit requirements|Policy Assignment|List of Resource Types | Audit diagnostic setting for selected resource types. Default value is all resources are selected| 
-|Allowed locations|Policy Assignment|List Of Allowed Locations|List of data center locations allowed for any resource to be deployed into. This list is customizable to the desired Azure locations globally. Select locations you wish to allow.| 
-|Allowed Locations for resource groups|Policy Assignment |Allowed Location |This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.| 
-|Deploy Auditing on SQL servers|Policy Assignment|Retention days|Data retention in number of days. Default value is 180 but PCI requires 365.| 
-|Deploy Auditing on SQL servers|Policy Assignment|Resource group name for storage account|Auditing writes database events to an audit log in your Azure Storage account (a storage account will be created in each region where a SQL Server is created that will be shared by all servers in that region).| 
+|PCI v3.2.1:2018|Policy Assignment|List of Resource Types | Audit diagnostic setting for selected resource types. Default value is all resources are selected|
+|Allowed locations|Policy Assignment|List Of Allowed Locations|List of data center locations allowed for any resource to be deployed into. This list is customizable to the desired Azure locations globally. Select locations you wish to allow.|
+|Allowed Locations for resource groups|Policy Assignment |Allowed Location |This policy enables you to restrict the locations your organization can create resource groups in. Use to enforce your geo-compliance requirements.|
+|Deploy Auditing on SQL servers|Policy Assignment|Retention days|Data retention in number of days. Default value is 180 but PCI requires 365.|
+|Deploy Auditing on SQL servers|Policy Assignment|Resource group name for storage account|Auditing writes database events to an audit log in your Azure Storage account (a storage account will be created in each region where a SQL Server is created that will be shared by all servers in that region).|
 
 ## Next steps
 

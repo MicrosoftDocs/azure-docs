@@ -21,7 +21,7 @@ The following table lists the limits that apply to IoT Hub resources.
 
 | Resource | Limit |
 | --- | --- |
-| Maximum paid IoT hubs per Azure subscription |100 |
+| Maximum paid IoT hubs per Azure subscription |50 |
 | Maximum free IoT hubs per Azure subscription |1 |
 | Maximum number of characters in a device ID | 128 |
 | Maximum number of device identities<br/> returned in a single call |1,000 |
@@ -48,7 +48,7 @@ The following table lists the limits that apply to IoT Hub resources.
 | Maximum device stream data transfer | 300 MB per day (for S1, S2, S3, and F1 only) |
 
 > [!NOTE]
-> If you need more than 100 paid IoT hubs in an Azure subscription, contact Microsoft Support.
+> If you need more than 50 paid IoT hubs in an Azure subscription, contact Microsoft Support.
 
 > [!NOTE]
 > Currently, the total number of devices plus modules that can be registered to a single IoT hub is capped at 1,000,000. If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).

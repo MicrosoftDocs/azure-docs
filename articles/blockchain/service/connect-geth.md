@@ -1,15 +1,17 @@
 ---
 title: Use Geth to attach to Azure Blockchain Service
 description: Attach to a Geth instance on Azure Blockchain Service transaction node
-ms.date: 11/20/2019
+ms.date: 05/26/2020
 ms.topic: quickstart
-ms.reviewer: janders
+ms.reviewer: maheshna
 #Customer intent: As a developer, I want to connect to my blockchain member transaction node so that I can perform actions on a blockchain.
 ---
 
 # Quickstart: Use Geth to attach to an Azure Blockchain Service transaction node
 
-In this quickstart, you use the Geth client to attach to a Geth instance on an Azure Blockchain Service transaction node. Once attached, you use the Geth JavaScript console to call a web3 JavaScript Dapp API.
+In this quickstart, you use the Geth client to attach to a Geth instance on an Azure Blockchain Service transaction node. Once attached, you use the Geth console to call an Ethereum JavaScript API.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,7 +43,7 @@ You can get the Geth connection string for an Azure Blockchain Service transacti
     geth attach <connection string>
     ```
 
-1. Once connected to the transaction node's Ethereum console, you can call the web3 JavaScript Dapp API or the admin API.
+1. Once connected to the transaction node's Ethereum console, you can use the Ethereum JavaScript API.
 
     For example, use the following API to find out the chainId.
 

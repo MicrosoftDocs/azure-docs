@@ -2,23 +2,27 @@
 title: Azure Application Insights for Console Applications | Microsoft Docs
 description: Monitor web applications for availability, performance and usage.
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/21/2020
+ms.custom: devx-track-csharp
 
 ms.reviewer: lmolkova
 ---
 
 # Application Insights for .NET console applications
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) lets you monitor your web application for availability, performance, and usage.
+[Application Insights](./app-insights-overview.md) lets you monitor your web application for availability, performance, and usage.
 
 You need a subscription with [Microsoft Azure](https://azure.com). Sign in with a Microsoft account, which you might have for Windows, Xbox Live, or other Microsoft cloud services. Your team might have an organizational subscription to Azure: ask the owner to add you to it using your Microsoft account.
 
 > [!NOTE]
-> There is a new Application Insights SDK called [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) which can used to enable Application Insights for any Console Applications. It is recommended to use this package and associated instructions from [here](../../azure-monitor/app/worker-service.md). This package targets [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard), and hence can be used in .NET Core 2.0 or higher, and .NET Framework 4.7.2 or higher.
+> It is *highly recommended* to use the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package and associated instructions from [here](./worker-service.md) for any Console Applications. This package targets [`NetStandard2.0`](/dotnet/standard/net-standard), and hence can be used in .NET Core 2.1 or higher, and .NET Framework 4.7.2 or higher.
 
 ## Getting started
 
-* In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](../../azure-monitor/app/create-new-resource.md). For application type, choose **General**.
+> [!IMPORTANT]
+> [Connection Strings](./sdk-connection-string.md?tabs=net) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+
+* In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](./create-new-resource.md). For application type, choose **General**.
 * Take a copy of the Instrumentation Key. Find the key in the **Essentials** drop-down of the new resource you created.
 * Install latest [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) package.
 * Set the instrumentation key in your code before tracking any telemetry (or set APPINSIGHTS_INSTRUMENTATIONKEY environment variable). After that, you should be able to manually track telemetry and see it on the Azure portal
@@ -32,7 +36,7 @@ telemetryClient.TrackTrace("Hello World!");
 ```
 
 > [!NOTE]
-> Telemetry is not sent instantly. Telemetry items are batched and sent by the ApplicationInsights SDK. In Console apps, which exits right after calling `Track()` methods, telemetry may not be sent unless `Flush()` and `Sleep` is done before the app exits as shown in [full example](#full-example) later in this article.
+> Telemetry is not sent instantly. Telemetry items are batched and sent by the ApplicationInsights SDK. In Console apps, which exits right after calling `Track()` methods, telemetry may not be sent unless `Flush()` and `Sleep`/`Delay` is done before the app exits as shown in [full example](#full-example) later in this article. `Sleep` is not required if you are using `InMemoryChannel`. There is an active issue regarding the need for `Sleep` which is tracked here: [ApplicationInsights-dotnet/issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
 
 
 * Install latest version of [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL, or some other external dependency calls.
@@ -92,7 +96,7 @@ You may get a full example of the config file by installing latest version of [M
 
 ### Configuring telemetry collection from code
 > [!NOTE]
-> Reading config file is not supported on .NET Core. You may consider using [Application Insights SDK for ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
+> Reading config file is not supported on .NET Core. You may consider using [Application Insights SDK for ASP.NET Core](./asp-net-core.md)
 
 * During application start-up create and configure `DependencyTrackingTelemetryModule` instance - it must be singleton and must be preserved for application lifetime.
 
@@ -127,7 +131,7 @@ If you created configuration with plain `TelemetryConfiguration()` constructor, 
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
 ```
 
-* You may also want to install and initialize Performance Counter collector module as described [here](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)
+* You may also want to install and initialize Performance Counter collector module as described [here](https://apmtips.com/posts/2017-02-13-enable-application-insights-live-metrics-from-code/)
 
 
 #### Full example
@@ -168,7 +172,8 @@ namespace ConsoleApp
             // before exit, flush the remaining data
             telemetryClient.Flush();
 
-            // flush is not blocking so wait a bit
+            // flush is not blocking when not using InMemoryChannel so wait a bit. There is an active issue regarding the need for `Sleep`/`Delay`
+            // which is tracked here: https://github.com/microsoft/ApplicationInsights-dotnet/issues/407
             Task.Delay(5000).Wait();
 
         }
@@ -202,5 +207,6 @@ namespace ConsoleApp
 ```
 
 ## Next steps
-* [Monitor dependencies](../../azure-monitor/app/asp-net-dependencies.md) to see if REST, SQL, or other external resources are slowing you down.
-* [Use the API](../../azure-monitor/app/api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
+* [Monitor dependencies](./asp-net-dependencies.md) to see if REST, SQL, or other external resources are slowing you down.
+* [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a more detailed view of your app's performance and usage.
+

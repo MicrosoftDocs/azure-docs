@@ -3,26 +3,26 @@ title: Use Azure Queue storage to monitor Media Services job notifications with 
 description: Learn how to use Azure Queue storage to monitor Media Services job notifications. The code sample is written in C# and uses the Media Services SDK for .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: f535d0b5-f86c-465f-81c6-177f4f490987
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
-
+ms.date: 03/10/2021
+ms.author: inhenkel
+ms.custom: devx-track-csharp
 ---
-# Use Azure Queue storage to monitor Media Services job notifications with .NET 
+# Use Azure Queue storage to monitor Media Services job notifications with .NET
 
-> [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-When you run encoding jobs, you often require a way to track job progress. You can configure Media Services to deliver notifications to [Azure Queue storage](../../storage/storage-dotnet-how-to-use-queues.md). You can monitor job progress by getting notifications from the Queue storage. 
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
+
+When you run encoding jobs, you often require a way to track job progress. You can configure Media Services to deliver notifications to [Azure Queue storage](../../storage/queues/storage-dotnet-how-to-use-queues.md). You can monitor job progress by getting notifications from the Queue storage. 
 
 Messages delivered to Queue storage can be accessed from anywhere in the world. The Queue storage messaging architecture is reliable and highly scalable. Polling Queue storage for messages is recommended over using other methods.
 
@@ -33,10 +33,10 @@ This article shows how to get notification messages from Queue storage.
 ## Considerations
 Consider the following when developing Media Services applications that use Queue storage:
 
-* Queue storage does not provide a guarantee of first-in-first-out (FIFO) ordered delivery. For more information, see [Azure Queues and Azure Service Bus Queues Compared and Contrasted](https://msdn.microsoft.com/library/azure/hh767287.aspx).
+* Queue storage does not provide a guarantee of first-in-first-out (FIFO) ordered delivery. For more information, see [Azure Queues and Azure Service Bus Queues Compared and Contrasted](/previous-versions/azure/hh767287(v=azure.100)).
 * Queue storage is not a push service. You have to poll the queue.
-* You can have any number of queues. For more information, see [Queue Service REST API](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
-* Queue storage has some limitations and specifics to be aware of. These are described in [Azure Queues and Azure Service Bus Queues Compared and Contrasted](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
+* You can have any number of queues. For more information, see [Queue Service REST API](/rest/api/storageservices/queue-service-rest-api).
+* Queue storage has some limitations and specifics to be aware of. These are described in [Azure Queues and Azure Service Bus Queues Compared and Contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
 ## .NET code example
 
@@ -49,7 +49,10 @@ The code example in this section does the following:
 5. Attaches the notification end point to the job and submits the encoding job. You can have multiple notification end points attached to a job.
 6. Passes **NotificationJobState.FinalStatesOnly** to the **AddNew** method. (In this example, we are only interested in final states of the job processing.)
 
-        job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
+    ```csharp
+    job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
+    ```
+
 7. If you pass **NotificationJobState.All**, you get all of the following state change notifications: queued, scheduled, processing, and finished. However, as noted earlier, Queue storage does not guarantee ordered delivery. To order messages, use the **Timestamp** property (defined on the **EncodingJobMessage** type in the example below). Duplicate messages are possible. To check for duplicates, use the **ETag property** (defined on the **EncodingJobMessage** type). It is also possible that some state change notifications get skipped.
 8. Waits for the job to get to the finished state by checking the queue every 10 seconds. Deletes messages after they have been processed.
 9. Deletes the queue and the notification end point.
@@ -340,31 +343,32 @@ namespace JobNotification
 
 The preceding example produced the following output: Your values will vary.
 
-    Created assetFile BigBuckBunny.mp4
-    Upload BigBuckBunny.mp4
-    Done uploading of BigBuckBunny.mp4
+```output
+Created assetFile BigBuckBunny.mp4
+Upload BigBuckBunny.mp4
+Done uploading of BigBuckBunny.mp4
 
-    EventType: NotificationEndPointRegistration
-    MessageVersion: 1.0
-    ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
-    TimeStamp: 2013-05-14T20:22:37
-        NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
-        State: Registered
-        Name: dde957b2-006e-41f2-9869-a978870ac620
-        Created: 2013-05-14T20:22:35
+EventType: NotificationEndPointRegistration
+MessageVersion: 1.0
+ETag: e0238957a9b25bdf3351a88e57978d6a81a84527fad03bc23861dbe28ab293f6
+TimeStamp: 2013-05-14T20:22:37
+    NotificationEndPointId: nb:nepid:UUID:d6af9412-2488-45b2-ba1f-6e0ade6dbc27
+    State: Registered
+    Name: dde957b2-006e-41f2-9869-a978870ac620
+    Created: 2013-05-14T20:22:35
 
-    EventType: JobStateChange
-    MessageVersion: 1.0
-    ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
-    TimeStamp: 2013-05-14T20:24:40
-        JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
-        JobName: My MP4 to Smooth Streaming encoding job
-        NewState: Finished
-        OldState: Processing
-        AccountName: westeuropewamsaccount
-    job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
-    State: Finished
-
+EventType: JobStateChange
+MessageVersion: 1.0
+ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
+TimeStamp: 2013-05-14T20:24:40
+    JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
+    JobName: My MP4 to Smooth Streaming encoding job
+    NewState: Finished
+    OldState: Processing
+    AccountName: westeuropewamsaccount
+job with Id: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54 reached expected
+State: Finished
+```
 
 ## Next step
 Review Media Services learning paths.

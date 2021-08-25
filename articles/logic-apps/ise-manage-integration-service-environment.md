@@ -3,17 +3,19 @@ title: Manage integration service environments in Azure Logic Apps
 description: Check network health and manage logic apps, connections, custom connectors, and integration accounts in your integration service environment (ISE) for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 10/25/2020
 ---
 
 # Manage your integration service environment (ISE) in Azure Logic Apps
 
 This article shows how to perform management tasks for your [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), for example:
 
-* Manage the resources such as logic apps, connections, integration accounts, and connectors in your ISE.
+* Manage the resources such as multi-tenant based logic apps, connections, integration accounts, and connectors in your ISE.
+
 * Check your ISE's network health.
+
 * Add capacity, restart your ISE, or delete your ISE, follow the steps in this topic. To add these artifacts to your ISE, see [Add artifacts to your integration service environment](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
 ## View your ISE
@@ -38,6 +40,17 @@ On your ISE menu, under **Settings**, select **Network health**. This pane shows
 
 ![Check network health](./media/ise-manage-integration-service-environment/ise-check-network-health.png)
 
+> [!CAUTION]
+> If your ISE's network becomes unhealthy, the internal App Service Environment (ASE) that's used by your ISE can also become unhealthy. 
+> If the ASE is unhealthy for more than seven days, the ASE is suspended. To resolve this state, check your virtual network setup. 
+> Resolve any problems that you find, and then restart your ISE. Otherwise, after 90 days, the suspended ASE is deleted, and your 
+> ISE becomes unusable. So, make sure that you keep your ISE healthy to permit the necessary traffic.
+> 
+> For more information, see these topics:
+>
+> * [Azure App Service diagnostics overview](../app-service/overview-diagnostics.md)
+> * [Message logging for Azure App Service Environment](../app-service/environment/using-an-ase.md#logging)
+
 <a name="find-logic-apps"></a>
 
 ## Manage your logic apps
@@ -49,6 +62,10 @@ You can view and manage the logic apps that are in your ISE.
    ![View logic apps](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
 1. To remove logic apps that you no longer need in your ISE, select those logic apps, and then select **Delete**. To confirm that you want to delete, select **Yes**.
+
+> [!NOTE]
+> If you delete and recreate a child logic app, you must resave the parent logic app. The recreated child app will have different metadata.
+> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
 
 <a name="find-api-connections"></a>
 
@@ -113,7 +130,7 @@ The Premium ISE base unit has fixed capacity, so if you need more throughput, yo
    * [**Manual scale**](#manual-scale): Scale based on the number of processing units that you want to use.
    * [**Custom autoscale**](#custom-autoscale): Scale based on performance metrics by selecting from various criteria and specifying the threshold conditions for meeting that criteria.
 
-   ![Select the scaling type that you want](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
+   ![Screenshot that shows the "Scale out" page with "Manual scale" selected.](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
 
 <a name="manual-scale"></a>
 

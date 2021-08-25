@@ -1,13 +1,10 @@
 ---
 title: Understand and resolve WebHCat errors on HDInsight - Azure 
 description: Learn how to about common errors returned by WebHCat on HDInsight and how to resolve them.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.date: 01/01/2020
+ms.date: 04/14/2020
 ---
 
 # Understand and resolve errors received from WebHCat on HDInsight
@@ -55,7 +52,7 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | Cause | Resolution |
 | --- | --- |
 | Job details have been cleaned up by the job history cleaner |The default retention period for job history is 7 days. The default retention period can be changed by modifying `mapreduce.jobhistory.max-age-ms`. For more information, see [Modifying configuration](#modifying-configuration) |
-| Job has been killed due to a failover |Retry job submission for up to two minutes |
+| Job has been killed because of a failover |Retry job submission for up to two minutes |
 | An Invalid job ID was used |Check if the job ID is correct |
 
 ## Bad gateway
@@ -69,6 +66,10 @@ If the following default values are exceeded, it can degrade WebHCat performance
 | Attempting to retrieve all jobs through the [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) call while `Fields` is set to `*` |Don't retrieve *all* job details. Instead use `jobid` to retrieve details for jobs only greater than certain job ID. Or, don't use `Fields` |
 | The WebHCat service is down during HeadNode failover |Wait for two minutes and retry the operation |
 | There are more than 500 pending jobs submitted through WebHCat |Wait until currently pending jobs have completed before submitting more jobs |
+
+## Next steps
+
+[!INCLUDE [troubleshooting next steps](includes/hdinsight-troubleshooting-next-steps.md)]
 
 [maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration

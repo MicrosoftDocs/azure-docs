@@ -12,8 +12,14 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 02/27/2020
 ms.author: aahi
+ms.custom: "devx-track-python, devx-track-csharp"
 ---
 # Quickstart: Use the Bing Custom Search client library
+
+> [!WARNING]
+> Bing Search APIs are moving from Cognitive Services to Bing Search Services. Starting **October 30, 2020**, any new instances of Bing Search need to be provisioned following the process documented [here](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Bing Search APIs provisioned using Cognitive Services will be supported for the next three years or until the end of your Enterprise Agreement, whichever happens first.
+> For migration instructions, see [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
 ::: zone pivot="programming-language-csharp"
 

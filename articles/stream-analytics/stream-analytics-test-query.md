@@ -1,11 +1,10 @@
 ---
 title: Test an Azure Stream Analytics job with sample data
 description: This article describes how to use the Azure portal to test an Azure Stream Analytics job, sample input, and upload sample data.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: ajetasin
+ms.author: ajetasi
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
 ---
@@ -74,11 +73,11 @@ Instead of using live data, you can use sample data from a local file to test yo
 
 4. To test your query with a local file, select **Upload sample input** on the **Input preview** tab. 
 
-   ![Azure Stream Analytics upload sample file](./media/stream-analytics-test-query/asa-upload-sample-file.png)
+   ![Screenshot shows the Upload sample input option.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
 5. Upload your local file to test the query. You can only upload files with the JSON, CSV, or AVRO formats. Select **OK**.
 
-   ![Azure Stream Analytics upload sample file](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
+   ![Screenshot shows the Upload sample data dialog box where you can select a file.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
 6. As soon as you upload the file, you can also see the file contents in the form as a table or in it's raw format. If you select **Reset**, the sample data will return to the incoming input data explained in the previous section. You can upload any other file to test the query at any time.
 
@@ -92,10 +91,39 @@ Instead of using live data, you can use sample data from a local file to test yo
 
 10. After you verify the results shown in the browser, you can **Start** the job.
 
-## Next steps
-* [Build an IoT solution by using Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics): this tutorial will guide you to build an end-to-end solution with a data generator that will simulate traffic at a toll booth.
+## Limitations
 
-* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+1.	Time policy is not supported in portal testing:
+
+    * Out-of-order: all incoming events will be ordered.
+    * Late arrival: There will not be late arrival event since Stream Analytics can only use existing data for testing.
+   
+2.	C# UDF is not supported.
+
+3.	All testing will be run with a job that has one Streaming Unit.
+
+4.	The timeout size is one minute. So any query with a window size greater than one minute cannot get any data.
+
+5.	Machine learning is not supported.
+
+6. The sample data API is throttled after five requests in a 15-minute window. After the end of the 15-minute window, you can do more sample data requests. This limitation is applied at the subscription level.
+
+## Troubleshooting
+
+1.	If you get this error “There was a network connectivity issue when fetching the results. Please check your network and firewall settings.”, follow the steps below:
+
+  * To check the connection to the service, open [https://queryruntime.azurestreamanalytics.com/api/home/index](https://queryruntime.azurestreamanalytics.com/api/home/index) in a browser. If you cannot open this link, then update your firewall settings.
+  
+2. If you get this error "The request size is too big. Please reduce the input data size and try again.", follow the steps below:
+
+  * Reduce input size – Test your query with smaller size sample file or with a smaller time range.
+  * Reduce query size – To test a selection of query, select a portion of query then click **Test selected query**.
+
+
+## Next steps
+* [Build an IoT solution by using Stream Analytics](./stream-analytics-build-an-iot-solution-using-stream-analytics.md): this tutorial will guide you to build an end-to-end solution with a data generator that will simulate traffic at a toll booth.
+
+* [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
 
 * [Query examples for common Stream Analytics usage patterns](stream-analytics-stream-analytics-query-patterns.md)
 

@@ -31,13 +31,6 @@ productDirectory:
           text: What is Azure Blockchain Workbench?
         - url: ./workbench/index.yml
           text: See more >
-    - title: Azure Blockchain Tokens
-      imageSrc: ./media/index/blockchain-tokens.svg
-      links:
-        - url: ./tokens/overview.md
-          text: What is Azure Blockchain Tokens?
-        - url: ./tokens/index.yml
-          text: See more >
 conceptualContent:
   title: Get started
   items:
@@ -49,6 +42,9 @@ conceptualContent:
         - url: ./service/send-transaction.md
           itemType: tutorial
           text: Follow a tutorial and write a smart contract
+        - url: /learn/paths/ethereum-blockchain-development
+          itemType: learn
+          text: Follow the Microsoft Learn blockchain path
         - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
           itemType: video
           text: Watch how to deploy and configure your network
@@ -69,17 +65,6 @@ conceptualContent:
         - url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
           itemType: video
           text: Watch how to build your first application
-    - title: Create and manage tokens
-      links:
-        - url: ./tokens/templates.md
-          itemType: concept
-          text: Define your token using a pre-built template
-        - url: ./tokens/account-management.md
-          itemType: concept
-          text: Manage tokens using Azure Blockchain Tokens
-        - url: https://aka.ms/ABTokensPartI
-          itemType: video
-          text: Watch an introduction to Azure Blockchain Tokens
     - title: Publish blockchain data using Blockchain Data Manager
       links:
         - url: ./service/data-manager.md
@@ -109,7 +94,7 @@ additionalContent:
           url: https://marketplace.visualstudio.com/items?itemName=azblockchain.azure-blockchain
         - title: Ethereum Blockchain connector
           summary: Use Azure Logic Apps, Microsoft Flow, and Microsoft PowerApps to perform smart contract actions such as submitting transactions, reading contract state, and triggering flows on contract updates.
-          url: https://docs.microsoft.com/connectors/blockchainethereum/
+          url: /connectors/blockchainethereum/
         - title: Code samples
           summary: GitHub repository with code samples to get you started.
           url: https://github.com/Azure-Samples/blockchain

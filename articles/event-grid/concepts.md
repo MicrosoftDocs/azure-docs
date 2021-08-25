@@ -1,13 +1,8 @@
 ---
 title: Azure Event Grid concepts
 description: Describes Azure Event Grid and its concepts. Defines several key components of Event Grid.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/03/2018
-ms.author: spelluru
+ms.date: 01/21/2021
 ---
 
 # Concepts in Azure Event Grid
@@ -18,10 +13,7 @@ This article describes the main concepts in Azure Event Grid.
 
 An event is the smallest amount of information that fully describes something that happened in the system. Every event has common information like: source of the event, time the event took place, and unique identifier. Every event also has specific information that is only relevant to the specific type of event. For example, an event about a new file being created in Azure Storage has details about the file, such as the `lastTimeModified` value. Or, an Event Hubs event has the URL of the Capture file. 
 
-An event of size up to 64 KB is covered by General Availability (GA) Service Level Agreement (SLA). The support for an event of size up to 1 MB is currently in preview. Events over 64 KB are charged in 64-KB increments. 
-
-
-For the properties that are sent in an event, see [Azure Event Grid event schema](event-schema.md).
+The maximum allowed size for an event is 1 MB. Events over 64 KB are charged in 64-KB increments. For the properties that are sent in an event, see [Azure Event Grid event schema](event-schema.md).
 
 ## Publishers
 
@@ -31,17 +23,17 @@ A publisher is the user or organization that decides to send events to Event Gri
 
 An event source is where the event happens. Each event source is related to one or more event types. For example, Azure Storage is the event source for blob created events. IoT Hub is the event source for device created events. Your application is the event source for custom events that you define. Event sources are responsible for sending events to Event Grid.
 
-For information about implementing any of the supported Event Grid sources, see [Event sources in Azure Event Grid](event-sources.md).
+For information about implementing any of the supported Event Grid sources, see [Event sources in Azure Event Grid](overview.md#event-sources).
 
 ## Topics
 
 The event grid topic provides an endpoint where the source sends events. The publisher creates the event grid topic, and decides whether an event source needs one topic or more than one topic. A topic is used for a collection of related events. To respond to certain types of events, subscribers decide which topics to subscribe to.
 
-System topics are built-in topics provided by Azure services. You don't see system topics in your Azure subscription because the publisher owns the topics, but you can subscribe to them. To subscribe, you provide information about the resource you want to receive events from. As long as you have access to the resource, you can subscribe to its events.
+**System topics** are built-in topics provided by Azure services such as Azure Storage, Azure Event Hubs, and Azure Service Bus. You can  create system topics in your Azure subscription and subscribe to them. For more information, see [Overview of system topics](system-topics.md). 
 
-Custom topics are application and third-party topics. When you create or are assigned access to a custom topic, you see that custom topic in your subscription.
+**Custom topics** are application and third-party topics. When you create or are assigned access to a custom topic, you see that custom topic in your subscription. For more information, see [Custom topics](custom-topics.md). When designing your application, you have flexibility when deciding how many topics to create. For large solutions, create a custom topic for each category of related events. For example, consider an application that sends events related to modifying user accounts and processing orders. It's unlikely any event handler wants both categories of events. Create two custom topics and let event handlers subscribe to the one that interests them. For small solutions, you might prefer to send all events to a single topic. Event subscribers can filter for the event types they want.
 
-When designing your application, you have flexibility when deciding how many topics to create. For large solutions, create a custom topic for each category of related events. For example, consider an application that sends events related to modifying user accounts and processing orders. It's unlikely any event handler wants both categories of events. Create two custom topics and let event handlers subscribe to the one that interests them. For small solutions, you might prefer to send all events to a single topic. Event subscribers can filter for the event types they want.
+There is another type of topic: **partner topic**. The [Partner Events](partner-events-overview.md) feature allows a third-party SaaS provider to publish events from its services to make them available to consumers who can subscribe to those events. The SaaS provider exposes a topic type, a **partner topic**, that subscribers use to consume events. It also offers a clean pub-sub model by separating concerns and ownership of resources that are used by event publishers and subscribers.
 
 ## Event subscriptions
 
@@ -76,10 +68,7 @@ If Event Grid can't confirm that an event has been received by the subscriber's 
 
 ## Batching
 
-When using a custom topic, events must always be published in an array. This can be a batch of one for low-throughput scenarios, however, for high volume use cases, it's recommended that you batch several events together per publish to achieve higher efficiency. Batches can be up to 1 MB. Each event should still not be greater than 64 KB (General Availability) or 1 MB (preview).
-
-> [!NOTE]
-> An event of size up to 64 KB is covered by General Availability (GA) Service Level Agreement (SLA). The support for an event of size up to 1 MB is currently in preview. Events over 64 KB are charged in 64 KB increments. 
+When using a custom topic, events must always be published in an array. This can be a batch of one for low-throughput scenarios, however, for high volume use cases, it's recommended that you batch several events together per publish to achieve higher efficiency. Batches can be up to 1 MB and the maximum size of an event is 1 MB. 
 
 ## Next steps
 

@@ -14,4 +14,4 @@
 |--------------------|----|----|-----|-----|-----|-----|-----|-----|------|------|------|
 | Disk size in GiB | 32 | 64 | 128 | 256 | 512 | 1,024 | 2,048 | 4,096 | 8,192 | 16,384 | 32,767 |
 | IOPS per disk | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 500 | Up to 1,300 | Up to 2,000 | Up to 2,000 |
-| Throughput per disk | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec| Up to 300 MiB/sec | Up to 500 MiB/sec | Up to 500 MiB/sec |
+| Throughput per disk | Up to 60 MB/sec | Up to 60 MB/sec | Up to 60 MB/sec | Up to 60 MB/sec | Up to 60 MB/sec | Up to 60 MB/sec | Up to 60 MB/sec | Up to 60 MB/sec| Up to 300 MB/sec | Up to 500 MB/sec | Up to 500 MB/sec |

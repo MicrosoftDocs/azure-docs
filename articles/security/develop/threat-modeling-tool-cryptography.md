@@ -1,6 +1,6 @@
 ---
 title: Cryptography - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about cryptography mitigation for threats exposed in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib
@@ -106,7 +106,7 @@ ms.author: jegeib
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | <p>Products must use the SHA-2 family of hash algorithms (SHA256, SHA384, and SHA512). If a shorter hash is needed, such as a 128-bit output length in order to fit a data structure designed with the shorter MD5 hash in mind, product teams may truncate one of the SHA2 hashes (typically SHA256). Note that SHA384 is a truncated version of SHA512. Truncation of cryptographic hashes for security purposes to less than 128 bits is not permitted. New code must not use the MD2, MD4, MD5, SHA-0, SHA-1, or RIPEMD hash algorithms. Hash collisions are computationally feasible for these algorithms, which effectively breaks them.</p><p>Allowed .NET hash algorithms for managed crypto agility (in order of preference):</p><ul><li>SHA512Cng (FIPS compliant)</li><li>SHA384Cng (FIPS compliant)</li><li>SHA256Cng (FIPS compliant)</li><li>SHA512Managed (non-FIPS-compliant) (use SHA512 as algorithm name in calls to HashAlgorithm.Create or CryptoConfig.CreateFromName)</li><li>SHA384Managed (non-FIPS-compliant) (use SHA384 as algorithm name in calls to HashAlgorithm.Create or CryptoConfig.CreateFromName)</li><li>SHA256Managed (non-FIPS-compliant) (use SHA256 as algorithm name in calls to HashAlgorithm.Create or CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (FIPS compliant)</li><li>SHA256CryptoServiceProvider (FIPS compliant)</li><li>SHA384CryptoServiceProvider (FIPS compliant)</li></ul>| 
+| **Steps** | <p>Products must use the SHA-2 family of hash algorithms (SHA256, SHA384, and SHA512). If a shorter hash is needed, such as a 128-bit output length in order to fit a data structure designed with the shorter MD5 hash in mind, product teams may truncate one of the SHA2 hashes (typically SHA256). Note that SHA384 is a truncated version of SHA512. Truncation of cryptographic hashes for security purposes to less than 128 bits is not permitted. New code must not use the MD2, MD4, MD5, SHA-0, SHA-1, or RIPEMD hash algorithms. Hash collisions are computationally feasible for these algorithms, which effectively breaks them.</p><p>Allowed .NET hash algorithms for managed crypto agility (in order of preference):</p><ul><li>SHA512Cng (FIPS compliant)</li><li>SHA384Cng (FIPS compliant)</li><li>SHA256Cng (FIPS compliant)</li><li>SHA512Managed (non-FIPS-compliant) (use SHA512 as algorithm name in calls to HashAlgorithm.Create or CryptoConfig.CreateFromName)</li><li>SHA384Managed (non-FIPS-compliant) (use SHA384 as algorithm name in calls to HashAlgorithm.Create or CryptoConfig.CreateFromName)</li><li>SHA256Managed (non-FIPS-compliant) (use SHA256 as algorithm name in calls to HashAlgorithm.Create or CryptoConfig.CreateFromName)</li><li>SHA512CryptoServiceProvider (FIPS compliant)</li><li>SHA256CryptoServiceProvider (FIPS compliant)</li><li>SHA384CryptoServiceProvider (FIPS compliant)</li></ul>| 
 
 ## <a id="strong-db"></a>Use strong encryption algorithms to encrypt data in the database
 
@@ -116,7 +116,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Choosing an encryption algorithm](https://technet.microsoft.com/library/ms345262(v=sql.130).aspx) |
+| **References**              | [Choosing an encryption algorithm](/sql/relational-databases/security/encryption/choose-an-encryption-algorithm) |
 | **Steps** | Encryption algorithms define data transformations that cannot be easily reversed by unauthorized users. SQL Server allows administrators and developers to choose from among several algorithms, including DES, Triple DES, TRIPLE_DES_3KEY, RC2, RC4, 128-bit RC4, DESX, 128-bit AES, 192-bit AES, and 256-bit AES |
 
 ## <a id="ssis-signed"></a>SSIS packages should be encrypted and digitally signed
@@ -127,7 +127,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Identify the Source of Packages with Digital Signatures](https://msdn.microsoft.com/library/ms141174.aspx), [Threat and Vulnerability Mitigation (Integration Services)](https://msdn.microsoft.com/library/bb522559.aspx) |
+| **References**              | [Identify the Source of Packages with Digital Signatures](/sql/integration-services/security/identify-the-source-of-packages-with-digital-signatures), [Threat and Vulnerability Mitigation (Integration Services)](/sql/integration-services/security/security-overview-integration-services) |
 | **Steps** | The source of a package is the individual or organization that created the package. Running a package from an unknown or untrusted source might be risky. To prevent unauthorized tampering of SSIS packages, digital signatures should be used. Also, to ensure the confidentiality of the packages during storage/transit, SSIS packages have to be encrypted |
 
 ## <a id="securables-db"></a>Add digital signature to critical database securables
@@ -138,7 +138,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [ADD SIGNATURE (Transact-SQL)](https://msdn.microsoft.com/library/ms181700) |
+| **References**              | [ADD SIGNATURE (Transact-SQL)](/sql/t-sql/statements/add-signature-transact-sql) |
 | **Steps** | In cases where the integrity of a critical database securable has to be verified, digital signatures should be used. Database securables such as a stored procedure, function, assembly, or trigger can be digitally signed. Below is an example of when this can be useful: Let us say an ISV (Independent Software Vendor) has provided support to a software delivered to one of their customers. Before providing support, the ISV would want to ensure that a database securable in the software was not tampered either by mistake or by a malicious attempt. If the securable is digitally signed, the ISV can verify its digital signature and validate its integrity.| 
 
 ## <a id="ekm-keys"></a>Use SQL server EKM to protect encryption keys
@@ -149,7 +149,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [SQL Server Extensible Key Management (EKM)](https://msdn.microsoft.com/library/bb895340), [Extensible Key Management Using Azure Key Vault (SQL Server)](https://msdn.microsoft.com/library/dn198405) |
+| **References**              | [SQL Server Extensible Key Management (EKM)](/sql/relational-databases/security/encryption/extensible-key-management-ekm), [Extensible Key Management Using Azure Key Vault (SQL Server)](/sql/relational-databases/security/encryption/extensible-key-management-using-azure-key-vault-sql-server) |
 | **Steps** | SQL Server Extensible Key Management enables the encryption keys that protect the database files to be stored in an off-box device such as a smartcard, USB device, or EKM/HSM module. This also enables data protection from database administrators (except members of the sysadmin group). Data can be encrypted by using encryption keys that only the database user has access to on the external EKM/HSM module. |
 
 ## <a id="keys-engine"></a>Use AlwaysEncrypted feature if encryption keys should not be revealed to Database engine
@@ -160,7 +160,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | SQL Azure, OnPrem |
 | **Attributes**              | SQL Version - V12, MsSQL2016 |
-| **References**              | [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865) |
+| **References**              | [Always Encrypted (Database Engine)](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |
 | **Steps** | Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (e.g. U.S. social security numbers), stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server). As a result, Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access) |
 
 ## <a id="keys-iot"></a>Store Cryptographic Keys securely on IoT Device
@@ -171,7 +171,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Device OS - Windows IoT Core, Device Connectivity - Azure IoT device SDKs |
-| **References**              | [TPM on Windows IoT Core](https://developer.microsoft.com/windows/iot/docs/tpm), [Set up TPM on Windows IoT Core](https://docs.microsoft.com/windows/iot-core/secure-your-device/setuptpm), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
+| **References**              | [TPM on Windows IoT Core](/windows/iot-core/secure-your-device/TPM), [Set up TPM on Windows IoT Core](/windows/iot-core/secure-your-device/setuptpm), [Azure IoT Device SDK TPM](https://github.com/Azure/azure-iot-hub-vs-cs/wiki/Device-Provisioning-with-TPM) |
 | **Steps** | Symmetric or Certificate Private keys securely in a hardware protected storage like TPM or Smart Card chips. Windows 10 IoT Core supports the user of a TPM and there are several compatible TPMs that can be used: https://docs.microsoft.com/windows/iot-core/secure-your-device/tpm#discrete-tpm-dtpm. It is recommended to use a Firmware or Discrete TPM. A Software TPM should only be used for development and testing purposes. Once a TPM is available and the keys are provisioned in it, the code that generates the token should be written without hard coding any sensitive information in it. | 
 
 ### Example

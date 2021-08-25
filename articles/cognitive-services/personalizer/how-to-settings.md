@@ -1,8 +1,13 @@
 ---
 title: Configure Personalizer
 description: Service configuration includes how the service treats rewards, how often the service explores, how often the model is retrained, and how much data is stored.
-ms.topic: conceptual
-ms.date: 02/19/2020
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
+ms.service: cognitive-services
+ms.subservice: personalizer
+ms.topic: how-to
+ms.date: 04/29/2020
 ---
 
 # Configure Personalizer learning loop
@@ -13,6 +18,23 @@ Configure the learning loop on the **Configuration** page, in the Azure portal f
 
 <a name="configure-service-settings-in-the-azure-portal"></a>
 <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
+
+## Planning configuration changes
+
+Because some configuration changes [reset your model](#settings-that-include-resetting-the-model), you should plan your configuration changes.
+
+If you plan to use [Apprentice mode](concept-apprentice-mode.md), make sure to review your Personalizer configuration before switching to Apprentice mode.
+
+<a name="clear-data-for-your-learning-loop"></a>
+
+## Settings that include resetting the model
+
+The following actions trigger a retraining of the model using data available upto the last 2 days.
+
+* Reward
+* Exploration
+
+To [clear](how-to-manage-model.md) all your data, use the **Model and learning settings** page.
 
 ## Configure rewards for the feedback loop
 
@@ -61,16 +83,7 @@ After changing this value, make sure to select **Save**.
 
 After changing this value, make sure to select **Save**.
 
-<a name="clear-data-for-your-learning-loop"></a>
 
-## Settings that include resetting the model
-
-The following actions include an immediate retraining of the model with the last 2 days of data.
-
-* Reward
-* Exploration
-
-To [clear](how-to-manage-model.md) all your data, use the **Model and learning settings ** page.
 
 ## Next steps
 

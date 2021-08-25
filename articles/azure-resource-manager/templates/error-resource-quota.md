@@ -2,7 +2,8 @@
 title: Quota errors
 description: Describes how to resolve resource quota errors when deploying resources with Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 03/09/2018 
+ms.custom: devx-track-azurepowershell
 ---
 # Resolve errors for resource quotas
 
@@ -89,7 +90,7 @@ To request a quota increase, go to the portal and file a support issue. In the s
 
 1. Select **Subscriptions**.
 
-   ![Subscriptions](./media/error-resource-quota/subscriptions.png)
+   ![Screen capture shows the Azure Portal menu with Subscriptions selected.](./media/error-resource-quota/subscriptions.png)
 
 2. Select the subscription that needs an increased quota.
 

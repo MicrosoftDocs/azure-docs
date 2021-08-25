@@ -1,10 +1,12 @@
 ---
 title: Deploy Ethereum Proof-of-Authority consortium solution template on Azure
 description: Use the Ethereum Proof-of-Authority consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
-ms.date: 12/18/2019
-ms.topic: article
-ms.reviewer: coborn
+ms.date: 03/01/2021
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
+
 # Deploy Ethereum proof-of-authority consortium solution template on Azure
 
 You can use [the Ethereum Proof-of-Authority Consortium preview Azure solution template](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-blockchain.azure-blockchain-ethereum) to deploy, configure, and govern a multi-member consortium proof-of-authority Ethereum network with minimal Azure and Ethereum knowledge.
@@ -12,15 +14,20 @@ You can use [the Ethereum Proof-of-Authority Consortium preview Azure solution t
 The solution template can be used by each consortium member to provision a blockchain network footprint using
 Microsoft Azure compute, networking, and storage services. Each consortium member's network footprint consists of a set of load-balanced validator nodes that an application or user can interact with to submit Ethereum transactions.
 
+[!INCLUDE [Preview note](./includes/preview.md)]
+
 ## Choose an Azure Blockchain solution
 
 Before choosing to use the Ethereum proof-of-authority consortium solution template, compare your scenario with the common use cases of available Azure Blockchain options.
 
+> [!IMPORTANT]
+> Consider using [Azure Blockchain Service](../service/overview.md) rather than the Ethereum on Azure solution template. Azure Blockchain Service is a supported managed Azure Service. Parity Ethereum transitioned to community driven development and maintenance. For more information, see [Transitioning Parity Ethereum to OpenEthereum DAO](https://www.parity.io/parity-ethereum-openethereum-dao/).
+
 Option | Service model | Common use case
 -------|---------------|-----------------
-Solution templates | IaaS | Solution templates are Azure Resource Manager templates you can use to provision a fully configured blockchain network topology. The templates deploy and configure Microsoft Azure compute, networking, and storage services for a given blockchain network type.
+Solution templates | IaaS | Solution templates are Azure Resource Manager templates you can use to provision a fully configured blockchain network topology. The templates deploy and configure Microsoft Azure compute, networking, and storage services for a given blockchain network type. Solution templates are provided without a service level agreement. Use the [Microsoft Q&A question page](/answers/topics/azure-blockchain-workbench.html) for support.
 [Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service Preview simplifies the formation, management, and governance of consortium blockchain networks. Use Azure Blockchain Service for solutions requiring PaaS, consortium management, or contract and transaction privacy.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS and PaaS | Azure Blockchain Workbench Preview is a collection of Azure services and capabilities designed to help you create and deploy blockchain applications to share business processes and data with other organizations. Use Azure Blockchain Workbench for prototyping a blockchain solution or a blockchain application proof of concept.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS and PaaS | Azure Blockchain Workbench Preview is a collection of Azure services and capabilities designed to help you create and deploy blockchain applications to share business processes and data with other organizations. Use Azure Blockchain Workbench for prototyping a blockchain solution or a blockchain application proof of concept. Azure Blockchain Workbench is provided without a service level agreement. Use the [Microsoft Q&A question page](/answers/topics/azure-blockchain-workbench.html) for support.
 
 ## Solution architecture
 
@@ -37,8 +44,7 @@ Each consortium member deployment includes:
 * Azure Monitor for aggregating logs and performance statistics
 * VNet Gateway (optional) for allowing VPN connections across private VNets
 
-By default, the RPC and peering endpoints are accessible over public IP to enable simplified connectivity across
-subscriptions and clouds. For application level access-controls, you can use [Parity's permissioning contracts](https://wiki.parity.io/Permissioning). Networks deployed behind VPNs, which leverage VNet gateways for cross-subscription connectivity are supported. Since VPN and VNet deployments are more complex, you may want to start with a public IP model when prototyping a solution.
+By default, the RPC and peering endpoints are accessible over public IP to enable simplified connectivity across subscriptions and clouds. For application level access-controls, you can use [Parity's permissioning contracts](https://openethereum.github.io/Permissioning.html). Networks deployed behind VPNs, which leverage VNet gateways for cross-subscription connectivity are supported. Since VPN and VNet deployments are more complex, you may want to start with a public IP model when prototyping a solution.
 
 Docker containers are used for reliability and modularity. Azure Container Registry is used to host and serve versioned images as part of each deployment. The container images consist of:
 
@@ -138,7 +144,7 @@ Under *Ethereum Settings*, specify Ethereum-related configuration settings.
 
 Parameter | Description | Example value
 ----------|-------------|--------------
-Consortium Member ID | The ID associated with each member participating in the consortium network. It's used to configure IP address spaces to avoid collision. For a private network, Member ID should be unique across different organizations in the same network.  A unique member ID is needed even when the same organization deploys to multiple regions. Make note of the value of this parameter since you need to share it with other joining members to ensure there’s no collision. The valid range is 0 through 255. | 0
+Consortium Member ID | The ID associated with each member participating in the consortium network. It's used to configure IP address spaces to avoid collision. For a private network, Member ID should be unique across different organizations in the same network.  A unique member ID is needed even when the same organization deploys to multiple regions. Make note of the value of this parameter since you need to share it with other joining members to ensure there's no collision. The valid range is 0 through 255. | 0
 Network ID | The network ID for the consortium Ethereum network being deployed. Each Ethereum network has its own Network ID, with 1 being the ID for the public network. The valid range is 5 through 999,999,999 | 10101010
 Admin Ethereum Address | The Ethereum account address used for participating in PoA governance. You can use MetaMask to generate an Ethereum address. |
 Advanced Options | Advanced options for Ethereum settings | Enable
@@ -161,8 +167,8 @@ Parameter | Description | Example value
 Monitoring | Option to enable monitoring | Enable
 Connect to existing Azure Monitor logs | Option to create a new Azure Monitor logs instance or join an existing instance | Create new
 Location | The region where the new instance is deployed | East US
-Existing log analytics workspace ID (Connect to existing Azure Monitor logs = Join Existing)|Workspace ID of the existing Azure Monitor logs instance||NA
-Existing log analytics primary key (Connect to existing Azure Monitor logs = Join Existing)|The primary key used to connect to the existing Azure Monitor logs instance||NA
+Existing log analytics workspace ID (Connect to existing Azure Monitor logs = Join Existing)|Workspace ID of the existing Azure Monitor logs instance|NA
+Existing log analytics primary key (Connect to existing Azure Monitor logs = Join Existing)|The primary key used to connect to the existing Azure Monitor logs instance|NA
 
 Select **OK**.
 
@@ -233,7 +239,7 @@ The existing member must run the following PowerShell script to complete the con
 
 ![cloud shell](./media/ethereum-poa-deployment/cloud-shell.png)
 
-```Powershell
+```powershell
 $MyGatewayResourceId = "<EXISTING_MEMBER_RESOURCEID>"
 $OtherGatewayResourceId = "<NEW_MEMBER_RESOURCEID]"
 $ConnectionName = "Leader2Member"
@@ -263,233 +269,6 @@ $MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName
 New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
-## Service monitoring
-
-You can locate your Azure Monitor portal either by following the link in the deployment email or locating the parameter in the deployment output [OMS_PORTAL_URL].
-
-The portal will first display high-level network statistics and node overview.
-
-![Monitor categories](./media/ethereum-poa-deployment/monitor-categories.png)
-
-Selecting **Node Overview**  shows you per-node infrastructure statistics.
-
-![Node stats](./media/ethereum-poa-deployment/node-stats.png)
-
-Selecting **Network Stats** shows you Ethereum network statistics.
-
-![Network stats](./media/ethereum-poa-deployment/network-stats.png)
-
-### Sample Kusto queries
-
-You can query the monitoring logs to investigate failures or setup threshold alerting. The following queries are examples you can run in the *Log Search* tool:
-
-List blocks that have been reported by more than one validator query can be useful to help find chain forks.
-
-```sql
-MinedBlock_CL
-| summarize DistinctMiners = dcount(BlockMiner_s) by BlockNumber_d, BlockMiner_s
-| where DistinctMiners > 1
-```
-
-Get average peer count for a specified validator node averaged over 5-minute buckets.
-
-```sql
-let PeerCountRegex = @"Syncing with peers: (\d+) active, (\d+) confirmed, (\d+)";
-ParityLog_CL
-| where Computer == "vl-devn3lgdm-reg1000001"
-| project RawData, TimeGenerated
-| where RawData matches regex PeerCountRegex
-| extend ActivePeers = extract(PeerCountRegex, 1, RawData, typeof(int))
-| summarize avg(ActivePeers) by bin(TimeGenerated, 5m)
-```
-
-## SSH access
-
-For security reasons, the SSH port access is denied by a network group security rule by default. To access the virtual machine instances in the PoA network, you need to change the following security is rule to *Allow*.
-
-1. Go to the **Overview** section of the deployed resource group in the Azure portal.
-
-    ![ssh overview](./media/ethereum-poa-deployment/ssh-overview.png)
-
-1. Select the **Network Security Group** for the region of the VM you are want to access.
-
-    ![ssh nsg](./media/ethereum-poa-deployment/ssh-nsg.png)
-
-1. Select the **allow-ssh** rule.
-
-    ![ssh-allow](./media/ethereum-poa-deployment/ssh-allow.png)
-
-1. Change **Action** to **Allow**
-
-    ![ssh enable allow](./media/ethereum-poa-deployment/ssh-enable-allow.png)
-
-1. Select **Save**. Changes may take a few minutes to apply.
-
-You can remotely connect to the virtual machines for the validator nodes via SSH with your provided admin username and password/SSH key. The SSH command to access the first validator node is listed in the template deployment output. For example:
-
-``` bash
-ssh -p 4000 poaadmin\@leader4vb.eastus.cloudapp.azure.com.
-```
-
-To get to additional transaction nodes, increment the port number by one.
-
-If you deployed to more than one region, change the command to the DNS name or IP address of the load balancer in that region. To find the DNS name or IP address of the other regions, find the resource with the naming convention **\*\*\*\*\*-lbpip-reg\#** and view its DNS name and IP address properties.
-
-## Azure Traffic Manager load balancing
-
-Azure Traffic Manager can help reduce downtime and improve responsiveness of the PoA network by routing incoming traffic across multiple deployments in different regions. Built-in health checks and automatic rerouting help ensure high availability of the RPC endpoints and the Governance DApp. This feature is useful if you have deployed to multiple regions and are production ready.
-
-Use Traffic Manager to improve PoA network availability with automatic failover. You can also use Traffic Manager to increase your networks responsiveness by routing end users to the Azure location with lowest network latency.
-
-If you decide to create a Traffic Manager profile, you can use the DNS name of the profile to access your network. Once
-other consortium members have been added to the network, the Traffic Manager can also be used to load balance across their deployed validators.
-
-### Creating a Traffic Manager profile
-
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** in the upper left-hand corner.
-1. Search for **Traffic Manager profile**.
-
-    ![Search for Azure Traffic Manager](./media/ethereum-poa-deployment/traffic-manager-search.png)
-
-    Give the profile a unique name and select the Resource Group that was used for the PoA deployment.
-
-1. Select **Create** to deploy.
-
-    ![Create Traffic Manager](./media/ethereum-poa-deployment/traffic-manager-create.png)
-
-1. Once deployed, select the instance in the resource group. The DNS name to access the traffic manager can be found in the Overview tab.
-
-    ![Locate traffic manager DNS](./media/ethereum-poa-deployment/traffic-manager-dns.png)
-
-1. Choose the **Endpoints** tab and select the **Add** button.
-1. Give the endpoint a unique name.
-1. For **Target resource type**, choose **Public IP address**.
-1. Choose the public IP address of the first region's load balancer.
-
-    ![Routing traffic manager](./media/ethereum-poa-deployment/traffic-manager-routing.png)
-
-Repeat for each region in the deployed network. Once the endpoints are in the **enabled** status, they are automatically load and region balanced at the DNS name of the traffic manager. You can now use this DNS name in place of the [CONSORTIUM_DATA_URL] parameter in other steps of the article.
-
-## Data API
-
-Each consortium member hosts the necessary information for others to connect to the network. To enable the ease of connectivity, each member hosts a set of connection information at the data API endpoint.
-
-The existing member provides the [CONSORTIUM_DATA_URL] before the member's deployment. Upon deployment, a joining member will retrieve information from the JSON interface at the following endpoint:
-
-`<CONSORTIUM_DATA_URL>/networkinfo`
-
-The response contains information useful for joining members (Genesis block, Validator Set contract ABI, bootnodes) and
-information useful to the existing member (validator addresses). You can use this standardization to extend the consortium across cloud providers. This API returns a JSON formatted response with the following structure:
-
-```json
-{
-  "$id": "",
-  "type": "object",
-  "definitions": {},
-  "$schema": "https://json-schema.org/draft-07/schema#",
-  "properties": {
-    "majorVersion": {
-      "$id": "/properties/majorVersion",
-      "type": "integer",
-      "title": "This schema’s major version",
-      "default": 0,
-      "examples": [
-        0
-      ]
-    },
-    "minorVersion": {
-      "$id": "/properties/minorVersion",
-      "type": "integer",
-      "title": "This schema’s minor version",
-      "default": 0,
-      "examples": [
-        0
-      ]
-    },
-    "bootnodes": {
-      "$id": "/properties/bootnodes",
-      "type": "array",
-      "items": {
-        "$id": "/properties/bootnodes/items",
-        "type": "string",
-        "title": "This member’s bootnodes",
-        "default": "",
-        "examples": [
-          "enode://a348586f0fb0516c19de75bf54ca930a08f1594b7202020810b72c5f8d90635189d72d8b96f306f08761d576836a6bfce112cfb6ae6a3330588260f79a3d0ecb@10.1.17.5:30300",
-          "enode://2d8474289af0bb38e3600a7a481734b2ab19d4eaf719f698fe885fb239f5d33faf217a860b170e2763b67c2f18d91c41272de37ac67386f80d1de57a3d58ddf2@10.1.17.4:30300"
-        ]
-      }
-    },
-    "valSetContract": {
-      "$id": "/properties/valSetContract",
-      "type": "string",
-      "title": "The ValidatorSet Contract Source",
-      "default": "",
-      "examples": [
-        "pragma solidity 0.4.21;\n\nimport \"./SafeMath.sol\";\nimport \"./Utils.sol\";\n\ncontract ValidatorSet …"
-      ]
-    },
-    "adminContract": {
-      "$id": "/properties/adminContract",
-      "type": "string",
-      "title": "The AdminSet Contract Source",
-      "default": "",
-      "examples": [
-        "pragma solidity 0.4.21;\nimport \"./SafeMath.sol\";\nimport \"./SimpleValidatorSet.sol\";\nimport \"./Admin.sol\";\n\ncontract AdminValidatorSet is SimpleValidatorSet { …"
-      ]
-    },
-    "adminContractABI": {
-      "$id": "/properties/adminContractABI",
-      "type": "string",
-      "title": "The Admin Contract ABI",
-      "default": "",
-      "examples": [
-        "[{\"constant\":false,\"inputs\":[{\"name\":\"proposedAdminAddress\",\"type\":\"address\"},…"
-      ]
-    },
-    "paritySpec": {
-      "$id": "/properties/paritySpec",
-      "type": "string",
-      "title": "The Parity client spec file",
-      "default": "",
-      "examples": [
-        "\n{\n \"name\": \"PoA\",\n \"engine\": {\n \"authorityRound\": {\n \"params\": {\n \"stepDuration\": \"2\",\n \"validators\" : {\n \"safeContract\": \"0x0000000000000000000000000000000000000006\"\n },\n \"gasLimitBoundDivisor\": \"0x400\",\n \"maximumExtraDataSize\": \"0x2A\",\n \"minGasLimit\": \"0x2FAF080\",\n \"networkID\" : \"0x9a2112\"\n }\n }\n },\n \"params\": {\n \"gasLimitBoundDivisor\": \"0x400\",\n \"maximumExtraDataSize\": \"0x2A\",\n \"minGasLimit\": \"0x2FAF080\",\n \"networkID\" : \"0x9a2112\",\n \"wasmActivationTransition\": \"0x0\"\n },\n \"genesis\": {\n \"seal\": {\n \"authorityRound\": {\n \"step\": \"0x0\",\n \"signature\": \"0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000\"\n }\n },\n \"difficulty\": \"0x20000\",\n \"gasLimit\": \"0x2FAF080\"\n },\n \"accounts\": {\n \"0x0000000000000000000000000000000000000001\": { \"balance\": \"1\", \"builtin\": { \"name\": \"ecrecover\", \"pricing\": { \"linear\": { \"base\": 3000, \"word\": 0 } } } },\n \"0x0000000000000000000000000000000000000002\": { \"balance\": \"1\", \"builtin\": { \"name\": \"sha256\", \"pricing\": { \"linear\": { \"base\": 60, \"word\": 12 } } } },\n \"0x0000000000000000000000000000000000000003\": { \"balance\": \"1\", \"builtin\": { \"name\": \"ripemd160\", \"pricing\": { \"linear\": { \"base\": 600, \"word\": 120 } } } },\n \"0x0000000000000000000000000000000000000004\": { \"balance\": \"1\", \"builtin\": { \"name\": \"identity\", \"pricing\": { \"linear\": { \"base\": 15, \"word\": 3 } } } },\n \"0x0000000000000000000000000000000000000006\": { \"balance\": \"0\", \"constructor\" : \"…\" }\n }\n}"
-      ]
-    },
-    "errorMessage": {
-      "$id": "/properties/errorMessage",
-      "type": "string",
-      "title": "Error message",
-      "default": "",
-      "examples": [
-        ""
-      ]
-    },
-    "addressList": {
-      "$id": "/properties/addressList",
-      "type": "object",
-      "properties": {
-        "addresses": {
-          "$id": "/properties/addressList/properties/addresses",
-          "type": "array",
-          "items": {
-            "$id": "/properties/addressList/properties/addresses/items",
-            "type": "string",
-            "title": "This member’s validator addresses",
-            "default": "",
-            "examples": [
-              "0x00a3cff0dccc0ecb6ae0461045e0e467cff4805f",
-              "0x009ce13a7b2532cbd89b2d28cecd75f7cc8c0727"
-            ]
-          }
-        }
-      }
-    }
-  }
-}
-
-```
-
 ## Governance DApp
 
 At the heart of proof-of-authority is decentralized governance. Since proof-of-authority relies upon a permitted list of network authorities to keep the network healthy, it's important to provide a fair mechanism to make modifications to this permission list. Each deployment comes with a set of smart-contracts and portal for on-chain governance of this permitted list. Once a proposed change reaches a majority vote by consortium members, the change is enacted. Voting allows new consensus participants to be added or compromised participants to be removed in a transparent way that encourages an honest network.
@@ -507,7 +286,7 @@ Admins have the power to delegate consensus participation to a set of validator 
 
 To perform any kind of transactions through the Governance DApp, you need to use an Ethereum wallet. The most straightforward approach is to use an in-browser wallet such as [MetaMask](https://metamask.io); however, because these smart contracts are deployed on the network you may also automate your interactions to the Governance contract.
 
-After installing MetaMask, navigate to the Governance DApp in the browser.  You can locate the URL through Azure portal in the deployment output.  If you don't have an in-browser wallet installed you won't be able to perform any actions; however, you can view the administrator state.  
+After installing MetaMask, navigate to the Governance DApp in the browser.  You can locate the URL through Azure portal in the deployment output.  If you don't have an in-browser wallet installed you won't be able to perform any actions; however, you can view the administrator state.
 
 ### Becoming an admin
 
@@ -545,180 +324,20 @@ On the top-right, is your Ethereum account alias and identicon.  If you're an ad
 
 ![Account](./media/ethereum-poa-deployment/governance-dapp-account.png)
 
-## Ethereum development<a id="tutorials"></a>
+## Support and feedback<a id="tutorials"></a>
 
-To compile, deploy, and test smart contracts, here are a few options you can consider for Ethereum development:
-* [Truffle Suite](https://www.trufflesuite.com/docs/truffle/overview) - Client-based Ethereum development environment
-* [Ethereum Remix](https://remix-ide.readthedocs.io/en/latest/index.html ) - Browser-based and local Ethereum development environment
+For Azure Blockchain news, visit the [Azure Blockchain blog](https://azure.microsoft.com/blog/topics/blockchain/) to stay up to date on blockchain service offerings and information from the Azure Blockchain engineering team.
 
-### Compile, deploy, and execute smart contract
+To provide product feedback or to request new features, post or vote for an idea via the [Azure feedback forum for blockchain](https://aka.ms/blockchainuservoice).
 
-In the following example, you create a simple smart contract. You use Truffle to compile and deploy the smart contract to your blockchain network. Once deployed, you call a smart contract function via a transaction.
+### Community support
 
-#### Prerequisites
+Engage with Microsoft engineers and Azure Blockchain community experts.
 
-* Install [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is needed for Truffle and Web3. Select the install option to include Python in your path.
-* Install Truffle v5.0.5 `npm install -g truffle@v5.0.5`. Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/). For more information, see [Truffle documentation](https://github.com/trufflesuite/truffle).
-
-### Create Truffle project
-
-Before you can compile and deploy a smart contract, you need to create a Truffle project.
-
-1. Open a command prompt or shell.
-1. Create a folder named `HelloWorld`.
-1. Change directory to the new `HelloWorld` folder.
-1. Initialize a new Truffle project using the command `truffle init`.
-
-    ![Create a new Truffle project](./media/ethereum-poa-deployment/create-truffle-project.png)
-
-### Add a smart contract
-
-Create your smart contracts in the **contracts** subdirectory of your Truffle project.
-
-1. Create a file in the named `postBox.sol` in the **contracts** subdirectory of your Truffle project.
-1. Add the following Solidity code to **postBox.sol**.
-
-    ```javascript
-    pragma solidity ^0.5.0;
-    
-    contract postBox {
-        string message;
-        function postMsg(string memory text) public {
-            message = text;
-        }
-        function getMsg() public view returns (string memory) {
-            return message;
-        }
-    }
-    ```
-
-### Deploy smart contract using Truffle
-
-Truffle projects contain a configuration file for blockchain network connection details. Modify the configuration file to include the connection information for your network.
-
-> [!WARNING]
-> Never send your Ethereum private key over the network. Ensure that each transaction is signed locally first and the signed transaction is sent over the network.
-
-1. You need the mnemonic phrase for the [Ethereum admin account used when deploying your blockchain network](#ethereum-settings). If you used MetaMask to create the account, you can retrieve the mnemonic from MetaMask. Select the administrator account icon on the top right of the MetaMask extension and select **Settings > Security & Privacy > Reveal Seed Words**.
-1. Replace the contents of `truffle-config.js` in your Truffle project with the following content. Replace the placeholder endpoint and mnemonic values.
-
-    ```javascript
-    const HDWalletProvider = require("truffle-hdwallet-provider");
-    const rpc_endpoint = "<Ethereum RPC endpoint>";
-    const mnemonic = "Twelve words you can find in MetaMask > Security & Privacy > Reveal Seed Words";
-
-    module.exports = {
-      networks: {
-        development: {
-          host: "localhost",
-          port: 8545,
-          network_id: "*" // Match any network id
-        },
-        poa: {
-          provider: new HDWalletProvider(mnemonic, rpc_endpoint),
-          network_id: 10101010,
-          gasPrice : 0
-        }
-      }
-    };
-    ```
-
-1. Since we are using the Truffle HD Wallet provider, install the module in your project using the command `npm install truffle-hdwallet-provider --save`.
-
-Truffle uses migration scripts to deploy smart contracts to a blockchain network. You need a migration script to deploy your new smart contract.
-
-1. Add a new migration to deploy the new contract. Create file `2_deploy_contracts.js` in the **migrations** subdirectory of the Truffle project.
-
-    ``` javascript
-    var postBox = artifacts.require("postBox");
-    
-    module.exports = deployer => {
-        deployer.deploy(postBox);
-    };
-    ```
-
-1. Deploy to the PoA network using the Truffle migrate command. At the command prompt in the Truffle project directory, run:
-
-    ```javascript
-    truffle migrate --network poa
-    ```
-
-### Call a smart contract function
-
-Now that your smart contract is deployed, you can send a transaction to call a function.
-
-1. In the Truffle project directory, create a new file named `sendtransaction.js`.
-1. Add the following contents to **sendtransaction.js**.
-
-    ``` javascript
-    var postBox = artifacts.require("postBox");
-    
-    module.exports = function(done) {
-      console.log("Getting the deployed version of the postBox smart contract")
-      postBox.deployed().then(function(instance) {
-        console.log("Calling postMsg function for contract ", instance.address);
-        return instance.postMsg("Hello, blockchain!");
-      }).then(function(result) {
-        console.log("Transaction hash: ", result.tx);
-        console.log("Request complete");
-        done();
-      }).catch(function(e) {
-        console.log(e);
-        done();
-      });
-    };
-    ```
-
-1. Execute the script using the Truffle execute command.
-
-    ```javascript
-    truffle exec sendtransaction.js --network poa
-    ```
-
-    ![Execute script to call function via transaction](./media/ethereum-poa-deployment/send-transaction.png)
-
-## WebAssembly (WASM) support
-
-WebAssembly support is already enabled for you on newly deployed PoA networks. It allows for smart-contract development in any language that transpiles to Web-Assembly (Rust, C, C++). For more information, see: [Parity Overview of WebAssembly](https://wiki.parity.io/WebAssembly-Home) and [Tutorial from Parity Tech](https://github.com/paritytech/pwasm-tutorial)
-
-## FAQ
-
-### I notice there are many transactions on the network that I didn't send. Where are these coming from?
-
-It is insecure to unlock the [personal API](https://web3js.readthedocs.io/en/v1.2.0/web3-eth-personal.html). Bots listen for unlocked Ethereum accounts and attempt to drain the funds. The bot assumes these accounts contain real-ether and attempt to be the first to siphon the balance. Do not enable the personal API on the network. Instead pre-sign the transactions either manually using a wallet like MetaMask or programmatically.
-
-### How to SSH onto a VM?
-
-The SSH port is not exposed for security reasons. Follow [this guide to enable the SSH port](#ssh-access).
-
-### How do I set up an audit member or transaction nodes?
-
-Transaction nodes are a set of parity clients that are peered with the network but are not participating in consensus. These nodes can still be used to submit Ethereum transactions and read the smart contract state. This mechanism works for providing auditability to non-authority consortium members on the network. To achieve this, follow the steps in [Growing the Consortium](#growing-the-consortium).
-
-### Why are MetaMask transactions taking a long time?
-
-To ensure transactions are received in the correct order, each Ethereum transaction comes with an incrementing nonce. If you've used an account in MetaMask on a different network, you need to reset the nonce value. Click on the settings icon (three-bars), Settings, Reset Account. The transaction history will be cleared and now you can resubmit the transaction.
-
-### Do I need to specify gas fee in MetaMask?
-
-Ether doesn't serve a purpose in proof-of-authority consortium. Hence, there is no need to specify gas fee when submitting transactions in MetaMask.
-
-### What should I do if my deployment fails due to failure to provision Azure OMS?
-
-Monitoring is an optional feature. In some rare cases where your deployment fails because of inability to successfully provision Azure Monitor resource, you can redeploy without Azure Monitor.
-
-### Are public IP deployments compatible with private network deployments?
-
-No. Peering requires two-way communication so the entire network must either be public or private.
-
-### What is the expected transaction throughput of Proof-of-Authority?
-
-The transaction throughput will be highly dependent upon the types of transactions and the network topology. Using simple transactions, we've benchmarked an average of 400 transactions per second with a network deployed across multiple regions.
-
-### How do I subscribe to smart contract events?
-
-Ethereum Proof-of-Authority now supports web-sockets.  Check your deployment output to locate the web-socket URL and port.
+* [Microsoft Q&A question page](/answers/topics/azure-blockchain-workbench.html). Engineering support for blockchain templates is limited to deployment issues.
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## Next steps
 
-For more Azure Blockchain solutions, see the [Azure Blockchain documentation](https://docs.microsoft.com/azure/blockchain/).
+For more Azure Blockchain solutions, see the [Azure Blockchain documentation](../index.yml).

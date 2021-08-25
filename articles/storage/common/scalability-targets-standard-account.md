@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/22/2021
 ms.author: tamram
 ms.subservice: common
 ---

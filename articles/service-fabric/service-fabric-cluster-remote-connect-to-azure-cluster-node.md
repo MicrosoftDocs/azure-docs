@@ -16,11 +16,11 @@ To find an IP address and port that you can use to remotely connect to a specifi
     
     On the page for your load balancer in Azure portal, select **Settings** > **Inbound NAT rules**: 
 
-    ![Load balancer Inbound NAT rules](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
+    ![Screenshot of a load balancer page in the Azure portal. In the left-hand menu, under SETTINGS, Inbound NAT rules is selected.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
     The following screenshot shows the inbound NAT rules for a node type named FrontEnd: 
 
-    ![Load balancer Inbound NAT rules](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
+    ![Screenshot showing the inbound NAT rules for a load balancer. The Name, IP Version, Destination, Target and Service are listed for each rule.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
     For each node, the IP address appears in the **DESTINATION** column, the **TARGET** column gives the scale set instance, and the **SERVICE** column provides the port number. For remote connection, ports are allocated to each node in ascending order beginning with port 3389.
 

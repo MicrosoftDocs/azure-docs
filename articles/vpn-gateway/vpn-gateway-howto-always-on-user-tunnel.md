@@ -1,13 +1,13 @@
 ---
 title: 'Configure an Always-On VPN user tunnel'
 titleSuffix: Azure VPN Gateway
-description: This article describes how to configure an Always On VPN user tunnel for your VPN gateway
+description: Learn how to configure an Always On VPN user tunnel for your VPN gateway.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 03/12/2020
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.author: cherylmc
 
 ---
@@ -18,6 +18,8 @@ ms.author: cherylmc
 ## Configure the gateway
 
  Use the instructions in the [Configure a Point-to-Site VPN connection](vpn-gateway-howto-point-to-site-resource-manager-portal.md) article to configure the VPN gateway to use IKEv2 and certificate-based authentication.
+
+## Configure a user tunnel
 
 [!INCLUDE [user configuration](../../includes/vpn-gateway-vwan-always-on-user.md)]
 

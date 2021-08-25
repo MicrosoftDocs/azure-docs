@@ -7,10 +7,10 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
+ms.date: 10/02/2020
 ---
 
-# Receive and send B2B messages by using Azure Logic Apps and Enterprise Integration Pack
+# Receive and confirm  B2B AS2 messages by using Azure Logic Apps and Enterprise Integration Pack
 
 When you have an integration account that defines trading partners and agreements, you can create an automated business to business (B2B) workflow that exchanges messages between trading partners by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) with the [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). Azure Logic Apps works with connectors that support AS2, X12, EDIFACT, and RosettaNet industry-standard protocols. You can also combine these connectors with other [connectors available in Logic Apps](../connectors/apis-list.md), for example, Salesforce and Office 365 Outlook.
 
@@ -30,11 +30,11 @@ This article shows how to create a logic app that receives an HTTP request by us
 
   If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* An [integration account](../logic-apps/logic-apps-enterprise-integration-accounts.md) that's associated with your Azure subscription and linked to your logic app. Both your logic app and integration account must exist in the same location or Azure region.
+* An [integration account](./logic-apps-enterprise-integration-create-integration-account.md) that's associated with your Azure subscription and linked to your logic app. Both your logic app and integration account must exist in the same location or Azure region.
 
 * At least two [trading partners](../logic-apps/logic-apps-enterprise-integration-partners.md) that you've already defined in your integration account along with [AS2 and X12 agreements](logic-apps-enterprise-integration-agreements.md) for those partners.
 
-## Add Request trigger
+## Add the Request trigger
 
 This example uses the Logic App Designer in the Azure portal, but you can follow similar steps for the Logic App Designer in Visual Studio.
 
@@ -54,7 +54,7 @@ This example uses the Logic App Designer in the Azure portal, but you can follow
 
    ![URL generated for Request trigger to receive calls](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
 
-## Add AS2 decode action
+## Add the AS2 decode action
 
 Now add the B2B actions that you want to use. This example uses AS2 and X12 actions.
 
@@ -86,13 +86,21 @@ Now add the B2B actions that you want to use. This example uses AS2 and X12 acti
 
 1. For the **Message headers** property, enter any headers required for the AS2 action, which are described by the `headers` content that's received by the HTTP request trigger.
 
-   To enter an expression that references the trigger's `headers` output, click inside the **Message headers** box. After the dynamic content list appears, select **Expression**. In the expression editor, enter the expression here, and select **OK**:
+   1. To enter an expression that references the trigger's `headers` output, select **Switch Message headers to text mode**.
 
-   `triggerOutputs()['Headers']`
+      ![Screenshot that shows "Switch Message headers to text mode" selected.](./media/logic-apps-enterprise-integration-b2b/as2-decode-switch-text-mode.png)
 
-   To get this expression to resolve as this token, switch between the designer and code view, for example:
+   1. Click inside the **Message headers** box. After the dynamic content list appears, select **Expression**. In the expression editor, enter the expression here, and select **OK**:
 
-   ![Resolved headers output from trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
+      `triggerOutputs()['Headers']`
+
+      In the AS2 Decode action, the expression now appears as a token:
+
+      ![Screenshot that shows the "@triggerOutputs()['Headers']" token in the "Message headers" box.](./media/logic-apps-enterprise-integration-b2b/as2-decode-message-header-expression.png)
+
+   1. To get the expression token to resolve into the **Headers** token, switch between the designer and code view. After this step, the AS2 Decode action looks like this example:
+
+      ![Resolved headers output from trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
 
 ## Add Response action for message receipt notification
 
@@ -106,7 +114,7 @@ To notify the trading partner that the message was received, you can return a re
 
    Now the condition shape appears, including the paths for whether the condition is met or not.
 
-   ![Condition shape with decision paths](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
+   ![Screenshot shows the condition shape with empty paths.](./media/logic-apps-enterprise-integration-b2b/added-condition-action.png)
 
 1. Now specify the condition to evaluate. In the **Choose a value** box, enter this expression:
 
@@ -114,7 +122,7 @@ To notify the trading partner that the message was received, you can return a re
 
    In the middle box, make sure the comparison operation is set to `is equal to`. In the right-side box, enter the value `Expected`. To get the expression to resolve as this token, switch between the designer and code view.
 
-   ![Condition shape with decision paths](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
+   ![Screenshot shows the condition shape with a condition added.](./media/logic-apps-enterprise-integration-b2b/expression-for-evaluating-condition.png)
 
 1. Now specify the responses to return whether the **AS2 Decode** action succeeds or not.
 

@@ -2,12 +2,9 @@
 title: Use Apache Pig
 titleSuffix: Azure HDInsight
 description: Learn how to use Pig with Apache Hadoop on HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/28/2020
 ---
 # Use Apache Pig with Apache Hadoop on HDInsight
@@ -42,7 +39,9 @@ HDInsight provides various example data sets, which are stored in the `/example/
 
 Each log inside the file consists of a line of fields that contains a `[LOG LEVEL]` field to show the type and the severity, for example:
 
-    2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
+```output
+2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
+```
 
 In the previous example, the log level is ERROR.
 
@@ -53,19 +52,19 @@ In the previous example, the log level is ERROR.
 
 The following Pig Latin job loads the `sample.log` file from the default storage for your HDInsight cluster. Then it performs a series of transformations that result in a count of how many times each log level occurred in the input data. The results are written to STDOUT.
 
-    ```
-    LOGS = LOAD 'wasb:///example/data/sample.log';
-    LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
-    FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
-    GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
-    FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
-    RESULT = order FREQUENCIES by COUNT desc;
-    DUMP RESULT;
-    ```
+```output
+LOGS = LOAD 'wasb:///example/data/sample.log';
+LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
+FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;
+GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;
+FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
+RESULT = order FREQUENCIES by COUNT desc;
+DUMP RESULT;
+```
 
 The following image shows a summary of what each transformation does to the data.
 
-![Graphical representation of the transformations][image-hdi-pig-data-transformation]
+:::image type="content" source="./media/use-pig/hdi-data-transformation.gif" alt-text="Graphical representation of the transformations" border="false":::
 
 ## <a id="run"></a>Run the Pig Latin job
 
@@ -87,15 +86,15 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 
 * [Upload data to HDInsight](hdinsight-upload-data.md)
 * [Use Apache Hive with HDInsight](./hadoop/hdinsight-use-hive.md)
-* [Use Apache Sqoop with HDInsight](hdinsight-use-sqoop.md)
+* [Use Apache Sqoop with HDInsight](./hadoop/hdinsight-use-sqoop.md)
 * [Use MapReduce jobs with HDInsight](./hadoop/hdinsight-use-mapreduce.md)
 
 [apachepig-home]: https://pig.apache.org/
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: https://curl.haxx.se/
-[pigtask]: https://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
-[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[pigtask]: /sql/integration-services/control-flow/azure-hdinsight-pig-task?viewFallbackFrom=sql-server-2014
+[connectionmanager]: /sql/integration-services/connection-manager/azure-subscription-connection-manager?viewFallbackFrom=sql-server-2014
+[ssispack]: /sql/integration-services/azure-feature-pack-for-integration-services-ssis?viewFallbackFrom=sql-server-2014
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md
@@ -103,9 +102,8 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md#mapreduce-sdk
 
-[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
+[Powershell-install-configure]: /powershell/azure/
 
 [powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 
 
-[image-hdi-pig-data-transformation]: ./media/use-pig/hdi-data-transformation.gif

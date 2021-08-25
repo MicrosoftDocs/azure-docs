@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/29/2020
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -17,9 +17,11 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-A claims provider contains a set of [technical profiles](technicalprofiles.md). Every claims provider must have one or more technical profiles that determine the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles. For example, multiple technical profiles may be defined because the claims provider supports multiple protocols, various endpoints with different capabilities, or releases different claims at different assurance levels. It may be acceptable to release sensitive claims in one user journey, but not in another.
+A claims provide is an interface to communicate with different types of parties via its [technical profiles](technicalprofiles.md). Every claims provider must have one or more technical profiles that determine the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles. For example, multiple technical profiles may be defined because the claims provider supports multiple protocols, various endpoints with different capabilities, or releases different claims at different assurance levels. It may be acceptable to release sensitive claims in one user journey, but not in another.
 
-```XML
+A user journey combines calling technical profiles via orchestration steps to define your business logic. 
+
+```xml
 <ClaimsProviders>
   <ClaimsProvider>
     <Domain>Domain name</Domain>
@@ -53,7 +55,7 @@ The **ClaimsProvider** element contains the following child elements:
 
 **ClaimsProvider** organizes how your technical profiles relate to the claims provider. The following example shows the Azure Active Directory claims provider with the Azure Active Directory technical profiles:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Azure Active Directory</DisplayName>
   <TechnicalProfiles>
@@ -91,7 +93,7 @@ The **ClaimsProvider** element contains the following child elements:
 
 The following example shows the Facebook claims provider with the **Facebook-OAUTH** technical profile.
 
-```XML
+```xml
 <ClaimsProvider>
   <Domain>facebook.com</Domain>
   <DisplayName>Facebook</DisplayName>

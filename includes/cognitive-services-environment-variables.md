@@ -36,6 +36,6 @@ Edit your .bash_profile, and add the environment variable:
 export COGNITIVE_SERVICE_KEY=your-key
 ```
 
-After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
+After you add the environment variable, run `source ~/.bash_profile` from your console window to make the changes effective.
 
 ***

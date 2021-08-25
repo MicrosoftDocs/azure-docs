@@ -1,16 +1,10 @@
 ---
 title: Review user utterance - LUIS
-titleSuffix: Azure Cognitive Services
 description:  With active learning, your review endpoint utterances for correct intent and entity. LUIS chooses endpoint utterances it is unsure of.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.author: diberry
+ms.date: 04/01/2020
 ---
 # Concepts for enabling active learning by reviewing endpoint utterances
 Active learning is one of three strategies to improve prediction accuracy and the easiest to implement. With active learning, your review endpoint utterances for correct intent and entity. LUIS chooses endpoint utterances it is unsure of.
@@ -24,8 +18,10 @@ LUIS adds utterances to the review list when the top firing intent has a low sco
 ## Single pool for utterances per app
 The **Review endpoint utterances** list doesn't change based on the version. There is a single pool of utterances to review, regardless of which version the utterance you are actively editing or which version of the app was published at the endpoint.
 
+In the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/58b6f32139e2bb139ce823c9), the version name is required and has to exist in the application but isn't used beyond that validation. The review utterances apply to an entire application. If you remove utterances from one _version_, all versions are affected.
+
 ## Where are the utterances from
-Endpoint utterances are taken from end-user queries on the application’s HTTP endpoint. If your app is not published or has not received hits yet, you do not have any utterances to review. If no endpoint hits are received for a specific intent or entity, you do not have utterances to review that contain them.
+Endpoint utterances are taken from end-user queries on the application's HTTP endpoint. If your app is not published or has not received hits yet, you do not have any utterances to review. If no endpoint hits are received for a specific intent or entity, you do not have utterances to review that contain them.
 
 ## Schedule review periodically
 Reviewing suggested utterances doesn't need to be done every day but should be part of your regular maintenance of LUIS.

@@ -9,7 +9,7 @@ ms.author: jobreen
 
 # Azure Custom Resource Providers Overview
 
-Azure Custom Resource Providers is an extensibility platform to Azure. It allows you define to custom APIs that can be used to enrich the default Azure experience. This documentation describes:
+Azure Custom Resource Providers is an extensibility platform to Azure. It allows you to define custom APIs that can be used to enrich the default Azure experience. This documentation describes:
 
 - How to build and deploy an Azure Custom Resource Provider.
 - How to utilize Azure Custom Resource Providers to extend existing workflows.

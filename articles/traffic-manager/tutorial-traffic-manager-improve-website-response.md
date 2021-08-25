@@ -2,15 +2,15 @@
 title: Tutorial - Improve website response with Azure Traffic Manager
 description: This tutorial article describes how to create a Traffic Manager profile to build a highly responsive website.
 services: traffic-manager
-author: rohinkoul
-Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
+author: duongau
+# Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/23/2018
-ms.author: rohink
+ms.date: 10/19/2020
+ms.author: duau
 ---
 
 # Tutorial: Improve website response using Traffic Manager
@@ -58,7 +58,7 @@ In this section, you create two VMs *myIISVMEastUS* and *myIISVMWestEurope* in t
    - **Instance Details** > **Virtual machine name**: Type *myIISVMEastUS*.
    - **Instance Details** > **Region**:  Select **East US**.
    - **Administrator Account** > **Username**:  Enter a user name of your choosing.
-   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** and **HTTP** in the pull down box.
 
@@ -117,7 +117,7 @@ In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azu
    - **Instance Details** > **Virtual machine name**: Type *myVMEastUS*.
    - **Instance Details** > **Region**:  Select **East US**.
    - **Administrator Account** > **Username**:  Enter a user name of your choosing.
-   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** in the pull down box.
 
@@ -198,13 +198,13 @@ In this section, you can see the Traffic Manager is action.
 5. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection.
 1. In a web browser on the VM *myVMEastUS*, type the DNS name of your Traffic Manager profile to view your website. Since the VM located in **East US**, you are routed to the nearest website hosted on the nearest IIS server *myIISVMEastUS* that is located in **East US**.
 
-   ![Test Traffic Manager profile](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
+   ![Screenshot that shows the "Traffic Manager" profile in a web browser.](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
 2. Next, connect to the VM *myVMWestEurope* located in **West Europe** using steps 1-5 and browse to the Traffic Manager profile domain name from this VM. Since the VM located in **West Europe**, you are now routed to the website hosted on nearest the IIS server *myIISVMWestEurope* that is located in **West Europe**.
 
    ![Test Traffic Manager profile](./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png)
 
-## Delete the Traffic Manager profile
+## Clean up resources
 
 When no longer needed, delete the resource groups (**ResourceGroupTM1** and **ResourceGroupTM2**). To do so, select the resource group (**ResourceGroupTM1** or **ResourceGroupTM2**), and then select **Delete**.
 

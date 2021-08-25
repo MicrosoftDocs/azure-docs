@@ -12,15 +12,15 @@ ms.reviewer: sachins
 
 # Best practices for using Azure Data Lake Storage Gen2
 
-In this article, you learn about best practices and considerations for working with Azure Data Lake Storage Gen2. This article provides information around security, performance, resiliency, and monitoring for Data Lake Storage Gen2. Before Data Lake Storage Gen2, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. Data Lake Storage Gen2 supports individual file sizes as high as 5TB and most of the hard limits for performance have been removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Storage Gen2.
+In this article, you learn about best practices and considerations for working with Azure Data Lake Storage Gen2. This article provides information around security, performance, resiliency, and monitoring for Data Lake Storage Gen2. Before Data Lake Storage Gen2, working with truly big data in services like Azure HDInsight was complex. You had to shard data across multiple Blob storage accounts so that petabyte storage and optimal performance at that scale could be achieved. Data Lake Storage Gen2 supports individual file sizes as high as 190.7 TiB and most of the hard limits for performance have been removed. However, there are still some considerations that this article covers so that you can get the best performance with Data Lake Storage Gen2.
 
 ## Security considerations
 
-Azure Data Lake Storage Gen2 offers POSIX access controls for Azure Active Directory (Azure AD) users, groups, and service principals. These access controls can be set to existing files and directories. The access controls can also be used to create default permissions that can be automatically applied to new files or directories. More details on Data Lake Storage Gen2 ACLs are available at [Access control in Azure Data Lake Storage Gen2](storage-data-lake-storage-access-control.md).
+Azure Data Lake Storage Gen2 offers POSIX access controls for Azure Active Directory (Azure AD) users, groups, and service principals. These access controls can be set to existing files and directories. The access controls can also be used to create default permissions that can be automatically applied to new files or directories. More details on Data Lake Storage Gen2 ACLs are available at [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
 ### Use security groups versus individual users
 
-When working with big data in Data Lake Storage Gen2, it is likely that a service principal is used to allow services such as Azure HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In all cases, strongly consider using Azure Active Directory [security groups](../common/storage-auth-aad.md) instead of assigning individual users to directories and files.
+When working with big data in Data Lake Storage Gen2, it is likely that a service principal is used to allow services such as Azure HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In all cases, strongly consider using Azure Active Directory [security groups](../common/authorize-data-access.md) instead of assigning individual users to directories and files.
 
 Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen2. This also helps ensure you don't exceed the maximum number of access control entries per access control list (ACL). Currently, that number is 32, (including the four POSIX-style ACLs that are always associated with every file and directory): the owning user, the owning group, the mask, and other. Each directory can have two types of ACL, the access ACL and the default ACL, for a total of 64 access control entries. For more information about these ACLs, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
@@ -36,7 +36,7 @@ Azure Active Directory service principals are typically used by services like Az
 
 Data Lake Storage Gen2 supports the option of turning on a firewall and limiting access only to Azure services, which is recommended to limit the vector of external attacks. Firewall can be enabled on a storage account in the Azure portal via the **Firewall** > **Enable Firewall (ON)** > **Allow access to Azure services** options.
 
-To access your storage account from Azure Databricks, deploy Azure Databricks to your virtual network, and then add that virtual network to your firewall. See [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+To access your storage account from Azure Databricks, deploy Azure Databricks to your virtual network, and then add that virtual network to your firewall. See [Configure Azure Storage firewalls and virtual networks](../common/storage-network-security.md).
 
 ## Resiliency considerations
 
@@ -44,7 +44,7 @@ When architecting a system with Data Lake Storage Gen2 or any cloud service, you
 
 ### High availability and disaster recovery
 
-High availability (HA) and disaster recovery (DR) can sometimes be combined together, although each has a slightly different strategy, especially when it comes to data. Data Lake Storage Gen2 already handles 3x replication under the hood to guard against localized hardware failures. Additionally, other replication options, such as ZRS or GZRS (preview), improve HA, while GRS & RA-GRS improve DR. When building a plan for HA, in the event of a service interruption the workload needs access to the latest data as quickly as possible by switching over to a separately replicated instance locally or in a new region.
+High availability (HA) and disaster recovery (DR) can sometimes be combined together, although each has a slightly different strategy, especially when it comes to data. Data Lake Storage Gen2 already handles 3x replication under the hood to guard against localized hardware failures. Additionally, other replication options, such as ZRS or GZRS, improve HA, while GRS & RA-GRS improve DR. When building a plan for HA, in the event of a service interruption the workload needs access to the latest data as quickly as possible by switching over to a separately replicated instance locally or in a new region.
 
 In a DR strategy, to prepare for the unlikely event of a catastrophic failure of a region, it is also important to have data replicated to a different region using GRS or RA-GRS replication. You must also consider your requirements for edge cases such as data corruption where you may want to create periodic snapshots to fall back to. Depending on the importance and size of the data, consider rolling delta snapshots of 1-, 6-, and 24-hour periods, according to risk tolerances.
 
@@ -72,11 +72,11 @@ When landing data into a data lake, it’s important to pre-plan the structure o
 
 In IoT workloads, there can be a great deal of data being landed in the data store that spans across numerous products, devices, organizations, and customers. It’s important to pre-plan the directory layout for organization, security, and efficient processing of the data for down-stream consumers. A general template to consider might be the following layout:
 
-    {Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter(s)}/{yyyy}/{mm}/{dd}/{hh}/*
 
 For example, landing telemetry for an airplane engine within the UK might look like the following structure:
 
-    UK/Planes/BA1293/Engine1/2017/08/11/12/
+*UK/Planes/BA1293/Engine1/2017/08/11/12/*
 
 There's an important reason to put the date at the end of the directory structure. If you want to lock down certain regions or subject matters to users/groups, then you can easily do so with the POSIX permissions. Otherwise, if there was a need to restrict a certain security group to viewing just the UK data or certain planes, with the date structure in front a separate permission would be required for numerous directories under every hour directory. Additionally, having the date structure in front would exponentially increase the number of directories as time went on.
 
@@ -86,13 +86,13 @@ From a high-level, a commonly used approach in batch processing is to land data 
 
 Sometimes file processing is unsuccessful due to data corruption or unexpected formats. In such cases, directory structure might benefit from a **/bad** folder to move the files to for further inspection. The batch job might also handle the reporting or notification of these *bad* files for manual intervention. Consider the following template structure:
 
-    {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/
-    {Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/
+*{Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/*\
+*{Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/*\
+*{Region}/{SubjectMatter(s)}/Bad/{yyyy}/{mm}/{dd}/{hh}/*
 
 For example, a marketing firm receives daily data extracts of customer updates from their clients in North America. It might look like the following snippet before and after being processed:
 
-    NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
-    NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
+*NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv*\
+*NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv*
 
 In the common case of batch data being processed directly into databases such as Hive or traditional SQL databases, there isn’t a need for an **/in** or **/out** folder since the output already goes into a separate folder for the Hive table or external database. For example, daily extracts from customers would land into their respective folders, and orchestration by something like Azure Data Factory, Apache Oozie, or Apache Airflow would trigger a daily Hive or Spark job to process and write the data into a Hive table.

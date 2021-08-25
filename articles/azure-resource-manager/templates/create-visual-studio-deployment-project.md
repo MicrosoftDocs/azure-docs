@@ -2,13 +2,13 @@
 title: Create & deploy Visual Studio resource group projects
 description: Use Visual Studio to create an Azure resource group project and deploy the resources to Azure.
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 04/12/2021
 ---
 # Creating and deploying Azure resource groups through Visual Studio
 
 With Visual Studio, you can create a project that deploys your infrastructure and code to Azure. For example, you can deploy the web host, website, and code for the website. Visual Studio provides many different starter templates for deploying common scenarios. In this article, you deploy a web app.
 
-This article shows how to use [Visual Studio 2019 or later with the Azure development and ASP.NET workloads installed](/visualstudio/install/install-visual-studio?view=vs-2019). If you use Visual Studio 2017, your experience is largely the same.
+This article shows how to use [Visual Studio 2019 or later with the Azure development and ASP.NET workloads installed](/visualstudio/install/install-visual-studio). If you use Visual Studio 2017, your experience is largely the same.
 
 ## Create Azure Resource Group project
 
@@ -17,7 +17,7 @@ In this section, you create an Azure Resource Group project with a **Web app** t
 1. In Visual Studio, choose **File**>**New**>**Project**.
 1. Select the **Azure Resource Group** project template and **Next**.
 
-    ![Create project](./media/create-visual-studio-deployment-project/create-project.png)
+    ![Screenshot shows the Create a new project window with Azure Resource Group and the Next button highlighted.](./media/create-visual-studio-deployment-project/create-project.png)
 
 1. Give your project a name. The other default settings are probably fine, but review them to make they work for your environment. When done, select **Create**.
 
@@ -39,13 +39,13 @@ In this section, you create an Azure Resource Group project with a **Web app** t
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |A PowerShell script that runs PowerShell commands to deploy to Azure Resource Manager. Visual Studio uses this PowerShell script to deploy your template. |
    | WebSite.json |The Resource Manager template that defines the infrastructure you want deploy to Azure, and the parameters you can provide during deployment. It also defines the dependencies between the resources so Resource Manager deploys the resources in the correct order. |
-   | WebSite.parameters.json |A parameters file that has values needed by the template. You pass in parameter values to customize each deployment. |
+   | WebSite.parameters.json |A parameters file that has values needed by the template. You pass in parameter values to customize each deployment. Notice that **Build Action** is set to **Content**. If you add more parameter files, make sure the build action is set to **Content**. |
 
-    All resource group deployment projects have these basic files. Other projects may have additional files to support other functionality.
+    All resource group deployment projects have these basic files. Other projects may have more files to support other functionality.
 
 ## Customize Resource Manager template
 
-You can customize a deployment project by modifying the Resource Manager template that describes the resources you want to deploy. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
+You can customize a deployment project by modifying the Resource Manager template that describes the resources you want to deploy. To learn about the elements of the Resource Manager template, see [Authoring Azure Resource Manager templates](./syntax.md).
 
 1. To work on your template, open **WebSite.json**.
 
@@ -59,7 +59,7 @@ You can customize a deployment project by modifying the Resource Manager templat
 
 1. You can add a resource by either selecting the **Add Resource** button at the top of the JSON Outline window, or by right-clicking **resources** and selecting **Add New Resource**.
 
-   ![Add resource](./media/create-visual-studio-deployment-project/add-resource.png)
+   ![Screenshot shows the JSON Outline window with the Add New Resource option highlighted.](./media/create-visual-studio-deployment-project/add-resource.png)
 
 1. Select **Storage Account** and give it a name. Provide a name that is no more than 11 characters, and only contains numbers and lower-case letters.
 
@@ -183,7 +183,7 @@ At this point, you've deployed the infrastructure for your app, but there's no a
 
 1. Now, you need to make sure your resource group project is aware of the new project. Go back to your resource group project (ExampleAppDeploy). Right-click **References** and select **Add Reference**.
 
-    ![Add reference](./media/create-visual-studio-deployment-project/add-new-reference.png)
+    ![Screenshot shows the ExampleAppDeploy menu with the Add Reference option highlighted.](./media/create-visual-studio-deployment-project/add-new-reference.png)
 
 1. Select the web app project that you created.
 
@@ -239,7 +239,7 @@ It should look like:
 "packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
 ```
 
-Notice in the preceding example there is no `'/',` between **parameters('_artifactsLocation')** and **parameters('ExampleAppPackageFolder')**.
+Notice in the preceding example there's no `'/',` between **parameters('_artifactsLocation')** and **parameters('ExampleAppPackageFolder')**.
 
 Rebuild the project. Building the project makes sure the files you need to deploy are added to the staging folder.
 
@@ -358,13 +358,13 @@ You aren't limited to only the resources that are available through the Visual S
 
 1. After deployment has finished, view your dashboard in the portal. Select **Dashboard** and pick the one you deployed.
 
-   ![Custom Dashboard](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
+   ![Screenshot shows the Dashboard page with an example custom dashboard highlighted.](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
 
 1. You see the customized dashboard.
 
    ![Custom Dashboard](./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png)
 
-You can manage access to the dashboard by using RBAC groups. You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is reset to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+You can manage access to the dashboard by using Azure role-based access control (Azure RBAC). You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is reset to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
 ## Clean up resources
 

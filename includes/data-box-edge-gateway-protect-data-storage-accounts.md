@@ -8,7 +8,7 @@ ms.author: alkohli
 
 Your device is associated with a storage account that's used as a destination for your data in Azure. Access to the storage account is controlled by the subscription and two 512-bit storage access keys associated with that storage account.
 
-One of the keys is used for authentication when the Data Box Edge device accesses the storage account. The other key is held in reserve, so you can rotate the keys periodically.
+One of the keys is used for authentication when the Azure Stack Edge device accesses the storage account. The other key is held in reserve, so you can rotate the keys periodically.
 
 For security reasons, many datacenters require key rotation. We recommend that you follow these best practices for key rotation:
 

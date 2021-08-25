@@ -25,11 +25,20 @@ First, create an SSH connection with the node on which you need to view *kubelet
 
 ## Get kubelet logs
 
-Once you have connected to the node, run the following command to pull the *kubelet* logs:
+Once you have connected to the node via `kubectl debug`, run the following command to pull the *kubelet* logs:
 
 ```console
-sudo journalctl -u kubelet -o cat
+chroot /host
+journalctl -u kubelet -o cat
 ```
+> [!NOTE]
+> You don't need to use `sudo journalctl` since you are already `root` on the node.
+
+> [!NOTE]
+> For Windows nodes, the log data is in `C:\k` and can be viewed using the *more* command:
+> ```
+> more C:\k\kubelet.log
+> ```
 
 The following sample output shows the *kubelet* log data:
 
@@ -63,8 +72,8 @@ If you need additional troubleshooting information from the Kubernetes master, s
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
-[aks-master-logs]: view-master-logs.md
+[aks-master-logs]: monitor-aks-reference.md#resource-logs
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[aks-master-logs]: view-master-logs.md
-[azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md
+[aks-master-logs]: monitor-aks-reference.md#resource-logs
+[azure-container-logs]: ../azure-monitor/containers/container-insights-overview.md

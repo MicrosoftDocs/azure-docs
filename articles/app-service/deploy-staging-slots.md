@@ -4,14 +4,14 @@ description: Learn how to deploy apps to a non-production slot and autoswap into
 
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 03/04/2020
-ms.custom: fasttrack-edit
+ms.date: 04/30/2020
+ms.custom: fasttrack-edit, devx-track-azurepowershell
 
 ---
 # Set up staging environments in Azure App Service
 <a name="Overview"></a>
 
-When you deploy your web app, web app on Linux, mobile back end, or API app to [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714), you can use a separate deployment slot instead of the default production slot when you're running in the **Standard**, **Premium**, or **Isolated** App Service plan tier. Deployment slots are live apps with their own host names. App content and configurations elements can be swapped between two deployment slots, including the production slot. 
+When you deploy your web app, web app on Linux, mobile back end, or API app to [Azure App Service](./overview.md), you can use a separate deployment slot instead of the default production slot when you're running in the **Standard**, **Premium**, or **Isolated** App Service plan tier. Deployment slots are live apps with their own host names. App content and configurations elements can be swapped between two deployment slots, including the production slot. 
 
 Deploying your application to a non-production slot has the following benefits:
 
@@ -54,11 +54,13 @@ The app must be running in the **Standard**, **Premium**, or **Isolated** tier i
    
     ![Deployment slot title](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    The staging slot has a management page just like any other App Service app. You can change the slot's configuration. The name of the slot is shown at the top of the page to remind you that you're viewing the deployment slot.
+    The staging slot has a management page just like any other App Service app. You can change the slot's configuration. To remind you that you're viewing the deployment slot, the app name is shown as **\<app-name>/\<slot-name>**, and the app type is **App Service (Slot)**. You can also see the slot as a separate app in your resource group, with the same designations.
 
 6. Select the app URL on the slot's resource page. The deployment slot has its own host name and is also a live app. To limit public access to the deployment slot, see [Azure App Service IP restrictions](app-service-ip-restrictions.md).
 
-The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](app-service-deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository. 
+The new deployment slot has no content, even if you clone the settings from a different slot. For example, you can [publish to this slot with Git](./deploy-local-git.md). You can deploy to the slot from a different repository branch or a different repository.
+
+The slot's URL will be of the format `http://sitename-slotname.azurewebsites.net`. To keep the URL length within necessary DNS limits, the site name will be truncated at 40 characters, the slot name will be truncated at 19 characters, and an additional 4 random characters will be appended to ensure the resulting domain name is unique. 
 
 <a name="AboutConfiguration"></a>
 
@@ -79,7 +81,7 @@ When you swap two slots (usually from a staging slot into the production slot), 
 
 1. If [local cache](overview-local-cache.md) is enabled, trigger local cache initialization by making an HTTP request to the application root ("/") on each instance of the source slot. Wait until each instance returns any HTTP response. Local cache initialization causes another restart on each instance.
 
-1. If [auto swap](#Auto-Swap) is enabled with [custom warm-up](#Warm-up), trigger [Application Initiation](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) by making an HTTP request to the application root ("/") on each instance of the source slot.
+1. If [auto swap](#Auto-Swap) is enabled with [custom warm-up](#Warm-up), trigger [Application Initiation](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) by making an HTTP request to the application root ("/") on each instance of the source slot.
 
     If `applicationInitialization` isn't specified, trigger an HTTP request to the application root of the source slot on each instance. 
     
@@ -90,6 +92,9 @@ When you swap two slots (usually from a staging slot into the production slot), 
 1. Now that the source slot has the pre-swap app previously in the target slot, perform the same operation by applying all settings and restarting the instances.
 
 At any point of the swap operation, all work of initializing the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared and warmed up, regardless of where the swap succeeds or fails. To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, the swap operation doesn't affect your production app.
+
+> [!NOTE]
+> The instances in your former production instances (those that will be swapped into staging after this swap operation) will be recycled quickly in the last step of the swap process. In case you have any long running operations in your application, they will be abandoned, when the workers recycle. This also applies to function apps. Therefore your application code should be written in a fault tolerant way. 
 
 ### Which settings are swapped?
 
@@ -169,7 +174,7 @@ If any errors occur in the target slot (for example, the production slot) after 
 ## Configure auto swap
 
 > [!NOTE]
-> Auto swap isn't supported in web apps on Linux.
+> Auto swap isn't supported in web apps on Linux and Web App for Containers.
 
 Auto swap streamlines Azure DevOps scenarios where you want to deploy your app continuously with zero cold starts and zero downtime for customers of the app. When auto swap is enabled from a slot into production, every time you push your code changes to that slot, App Service automatically [swaps the app into production](#swap-operation-steps) after it's warmed up in the source slot.
 
@@ -195,12 +200,14 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 Some apps might require custom warm-up actions before the swap. The `applicationInitialization` configuration element in web.config lets you specify custom initialization actions. The [swap operation](#AboutConfiguration) waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.
 
-    <system.webServer>
-        <applicationInitialization>
-            <add initializationPage="/" hostName="[app hostname]" />
-            <add initializationPage="/Home/About" hostName="[app hostname]" />
-        </applicationInitialization>
-    </system.webServer>
+```xml
+<system.webServer>
+    <applicationInitialization>
+        <add initializationPage="/" hostName="[app hostname]" />
+        <add initializationPage="/Home/About" hostName="[app hostname]" />
+    </applicationInitialization>
+</system.webServer>
+```
 
 For more information on customizing the `applicationInitialization` element, see [Most common deployment slot swap failures and how to fix them](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
@@ -208,6 +215,7 @@ You can also customize the warm-up behavior with one or both of the following [a
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: The path to ping to warm up your site. Add this app setting by specifying a custom path that begins with a slash as the value. An example is `/statuscheck`. The default value is `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Valid HTTP response codes for the warm-up operation. Add this app setting with a comma-separated list of HTTP codes. An example is `200,202` . If the returned status code isn't in the list, the warmup and swap operations are stopped. By default, all response codes are valid.
+- `WEBSITE_WARMUP_PATH`: A relative path on the site that should be pinged whenever the site restarts (not only during slot swaps). Example values include `/statuscheck` or the root path, `/`.
 
 > [!NOTE]
 > The `<applicationInitialization>` configuration element is part of each app start-up, whereas the two warm-up behavior app settings apply only to slot swaps.
@@ -216,7 +224,7 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 ## Monitor a swap
 
-If the [swap operation](#AboutConfiguration) takes a long time to complete, you can get information on the swap operation in the [activity log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+If the [swap operation](#AboutConfiguration) takes a long time to complete, you can get information on the swap operation in the [activity log](../azure-monitor/essentials/platform-logs-overview.md).
 
 On your app's resource page in the portal, in the left pane, select **Activity log**.
 
@@ -241,8 +249,7 @@ After the setting is saved, the specified percentage of clients is randomly rout
 After a client is automatically routed to a specific slot, it's "pinned" to that slot for the life of that client session. On the client browser, you can see which slot your session is pinned to by looking at the `x-ms-routing-name` cookie in your HTTP headers. A request that's routed to the "staging" slot has the cookie `x-ms-routing-name=staging`. A request that's routed to the production slot has the cookie `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > Next to the Azure portal, you can also use the [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) command in the Azure CLI to set the routing percentages from CI/CD tools like DevOps pipelines or other automation systems.
-   > 
+   > You can also use the [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az_webapp_traffic_routing_set) command in the Azure CLI to set the routing percentages from CI/CD tools like GitHub Actions, DevOps pipelines, or other automation systems.
 
 ### Route production traffic manually
 
@@ -250,7 +257,7 @@ In addition to automatic traffic routing, App Service can route requests to a sp
 
 To let users opt out of your beta app, for example, you can put this link on your webpage:
 
-```HTML
+```html
 <a href="<webappname>.azurewebsites.net/?x-ms-routing-name=self">Go back to production app</a>
 ```
 
@@ -264,11 +271,14 @@ To let users opt in to your beta app, set the same query parameter to the name o
 
 By default, new slots are given a routing rule of `0%`, shown in grey. When you explicitly set this value to `0%` (shown in black text), your users can access the staging slot manually by using the `x-ms-routing-name` query parameter. But they won't be routed to the slot automatically because the routing percentage is set to 0. This is an advanced scenario where you can "hide" your staging slot from the public while allowing internal teams to test changes on the slot.
 
+> [!NOTE]
+> There is a known limitation affecting Private Endpoints and traffic routing with slots. As of April 2021, automatic and manual request routing between slots will result in a "403 Access Denied". This limitation will be removed in a future release. 
+
 <a name="Delete"></a>
 
 ## Delete a slot
 
-Search for and select your app. Select **Deployment slots** > *\<slot to delete>* > **Overview**. Select **Delete** on the command bar.  
+Search for and select your app. Select **Deployment slots** > *\<slot to delete>* > **Overview**. The app type is shown as **App Service (Slot)** to remind you that you're viewing a deployment slot. Select **Delete** on the command bar.  
 
 ![Delete a deployment slot](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -282,7 +292,7 @@ Search for and select your app. Select **Deployment slots** > *\<slot to delete>
 
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing deployment slots in Azure App Service.
 
-For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azure/overview).  
+For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azure/).  
 
 ---
 ### Create a web app
@@ -329,7 +339,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## Automate with Resource Manager templates
 
-[Azure Resource Manager templates](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) are declarative JSON files used to automate the deployment and configuration of Azure resources. To swap slots by using Resource Manager templates, you will set two properties on the *Microsoft.Web/sites/slots* and *Microsoft.Web/sites* resources:
+[Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) are declarative JSON files used to automate the deployment and configuration of Azure resources. To swap slots by using Resource Manager templates, you will set two properties on the *Microsoft.Web/sites/slots* and *Microsoft.Web/sites* resources:
 
 - `buildVersion`: this is a string property which represents the current version of the app deployed in the slot. For example: "v1", "1.0.0.1", or "2019-09-20T11:53:25.2887393-07:00".
 - `targetBuildVersion`: this is a string property that specifies what `buildVersion` the slot should have. If the targetBuildVersion does not equal the current `buildVersion`, then this will trigger the swap operation by finding the slot which has the specified `buildVersion`.
@@ -417,7 +427,6 @@ Here are some common swap errors:
       ...
     </conditions>
     ```
-- Some [IP restriction rules](app-service-ip-restrictions.md) might prevent the swap operation from sending HTTP requests to your app. IPv4 address ranges that start with `10.` and `100.` are internal to your deployment. You should allow them to connect to your app.
 
 - After slot swaps, the app may experience unexpected restarts. This is because after a swap, the hostname binding configuration goes out of sync, which by itself doesn't cause restarts. However, certain underlying storage events (such as storage volume failovers) may detect these discrepancies and force all worker processes to restart. To minimize these types of restarts, set the [`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` app setting](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) on *all slots*. However, this app setting does *not* work with Windows Communication Foundation (WCF) apps.
 

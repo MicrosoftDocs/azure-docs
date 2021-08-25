@@ -6,7 +6,6 @@ keywords: iot monitoring, iot notifications, iot temperature monitoring
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
 #I think this is out of date. I changed 'click' to select. --RobinShahan
@@ -18,13 +17,9 @@ ms.author: robinsh
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) can help you orchestrate workflows across on-premises and cloud services, one or more enterprises, and across various protocols. A logic app begins with a trigger, which is then followed by one or more actions that can be sequenced using built-in controls, such as conditions and iterators. This flexibility makes Logic Apps an ideal IoT solution for IoT monitoring scenarios. For example, the arrival of telemetry data from a device at an IoT Hub endpoint can initiate logic app workflows to warehouse the data in an Azure Storage blob, send email alerts to warn of data anomalies, schedule a technician visit if a device reports a failure, and so on.
+[Azure Logic Apps](../logic-apps/index.yml) can help you orchestrate workflows across on-premises and cloud services, one or more enterprises, and across various protocols. A logic app begins with a trigger, which is then followed by one or more actions that can be sequenced using built-in controls, such as conditions and iterators. This flexibility makes Logic Apps an ideal IoT solution for IoT monitoring scenarios. For example, the arrival of telemetry data from a device at an IoT Hub endpoint can initiate logic app workflows to warehouse the data in an Azure Storage blob, send email alerts to warn of data anomalies, schedule a technician visit if a device reports a failure, and so on.
 
-## What you learn
-
-You learn how to create a logic app that connects your IoT hub and your mailbox for temperature monitoring and notifications.
-
-The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above 30 C, it sets this property to `true`; otherwise, it sets the property to `false`.
+In this article, you learn how to create a logic app that connects your IoT hub and your mailbox for temperature monitoring and notifications. The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above 30 C, it sets this property to `true`; otherwise, it sets the property to `false`.
 
 Messages arriving at your IoT hub look similar to the following, with the telemetry data contained in the body and the `temperatureAlert` property contained in the application properties (system properties are not shown):
 
@@ -46,15 +41,9 @@ To learn more about IoT Hub message format, see [Create and read IoT Hub message
 
 In this topic, you set up routing on your IoT hub to send messages in which the `temperatureAlert` property is `true` to a Service Bus endpoint. You then set up a logic app that triggers on the messages arriving at the Service Bus endpoint and sends you an email notification.
 
-## What you do
+## Prerequisites
 
-* Create a Service Bus namespace and add a Service Bus queue to it.
-* Add a custom endpoint and a routing rule to your IoT hub to route messages that contain a temperature alert to the Service Bus queue.
-* Create, configure, and test a logic app to consume messages from your Service Bus queue and send notification emails to a desired recipient.
-
-## What you need
-
-* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These cover the following requirements:
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials. For example, you can go to [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md) or to one of the [Send telemetry](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstarts. These articles cover the following requirements:
 
   * An active Azure subscription.
   * An Azure IoT hub under your subscription.
@@ -100,7 +89,7 @@ Create a Service Bus namespace and queue. Later in this topic, you create a rout
 
 ## Add a custom endpoint and routing rule to your IoT hub
 
-Add a custom endpoint for the Service Bus queue to your IoT hub and create a message routing rule to direct messages that contain a temperature alert to that endpoint, where they will be picked up by your logic app. The routing rule uses a routing query, `temperatureAlert = "true"`, to forward messages based on the value of the `temperatureAlert` application property set by the client code running on the device. To learn more, see [Message routing query based on message properties](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Add a custom endpoint for the Service Bus queue to your IoT hub and create a message routing rule to direct messages that contain a temperature alert to that endpoint, where they will be picked up by your logic app. The routing rule uses a routing query, `temperatureAlert = "true"`, to forward messages based on the value of the `temperatureAlert` application property set by the client code running on the device. To learn more, see [Message routing query based on message properties](./iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties).
 
 ### Add a custom endpoint
 
@@ -108,7 +97,7 @@ Add a custom endpoint for the Service Bus queue to your IoT hub and create a mes
 
 1. Under **Messaging**, select **Message routing**. On the **Message routing** pane, select the **Custom endpoints** tab and then select **+ Add**. From the drop-down list, select **Service bus queue**.
 
-   ![Add an endpoint to your IoT hub in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
+   ![Screenshot that highlights the Service bus queue option.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
 1. On the **Add a service bus endpoint** pane, enter the following information:
 
@@ -179,7 +168,7 @@ In the preceding section, you set up your IoT hub to route messages containing a
 1. Create a service bus connection.
    1. Enter a connection name and select your Service Bus namespace from the list. The next screen opens.
 
-      ![Create a service bus connection for your logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
+      ![Screenshot that highlights the When one or more messages arrive in a queue (auto-complete) option.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
    1. Select the service bus policy (RootManageSharedAccessKey). Then select  **Create**.
 
@@ -208,7 +197,7 @@ In the preceding section, you set up your IoT hub to route messages containing a
       Get the SMTP information for [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en), and [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
 
       > [!NOTE]
-      > You may need to disable SSL to establish the connection. If this is the case and you want to re-enable SSL after the connection has been established, see the optional step at the end of this section.
+      > You may need to disable TLS/SSL to establish the connection. If this is the case and you want to re-enable TLS after the connection has been established, see the optional step at the end of this section.
 
    1. From the **Add new parameter** drop-down on the **Send Email** step, select **From**, **To**, **Subject** and **Body**. Click or tap anywhere on the screen to close the selection box.
 
@@ -220,7 +209,7 @@ In the preceding section, you set up your IoT hub to route messages containing a
 
    1. Select **Save** to save the SMTP connection.
 
-1. (Optional) If you had to disable SSL to establish a connection with your email provider and want to re-enable it, follow these steps:
+1. (Optional) If you had to disable TLS to establish a connection with your email provider and want to re-enable it, follow these steps:
 
    1. On the **Logic app** pane, under **Development Tools**, select **API connections**.
 

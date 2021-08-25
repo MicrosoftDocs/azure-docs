@@ -43,9 +43,9 @@ Azure AD supports the following authentication methods:
    * **Pass-through authentication (PTA)** - This option is similar to password hash sync, but provides a simple password validation using on-premises software agents for organizations with strong security and compliance policies.
 * **Federated authentication** - When you choose this authentication method Azure AD will hand off the authentication process to a separate trusted authentication system, such as AD FS or a third-party federation system, to validate the user's sign-in. 
 
-For most organizations that just want to enable user sign-in to Office 365, SaaS applications, and other Azure AD-based resources, we recommend the default password hash synchronization option.
+For most organizations that just want to enable user sign-in to Microsoft 365, SaaS applications, and other Azure AD-based resources, we recommend the default password hash synchronization option.
  
-For detailed information on choosing an authentication method, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../../security/fundamentals/choose-ad-authn.md)
+For detailed information on choosing an authentication method, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](./choose-ad-authn.md)
 
 ### Password hash synchronization
 With password hash synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new password hashes are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password hash synchronization together with password write-back to enable self-service password reset in Azure AD.
@@ -81,7 +81,7 @@ If you're deploying a new farm, you need:
 
 * A Windows Server 2012 R2 server for the federation server.
 * A Windows Server 2012 R2 server for the Web Application Proxy.
-* A .pfx file with one SSL certificate for your intended federation service name. For example: fs.contoso.com.
+* A .pfx file with one TLS/SSL certificate for your intended federation service name. For example: fs.contoso.com.
 
 If you're deploying a new farm or using an existing farm, you need:
 
@@ -135,12 +135,12 @@ The Azure AD sign-in page lists the UPN suffixes that are defined for on-premise
 You can click the refresh button to re-fetch the latest status of the custom domains from Azure AD.
 
 ### Selecting the attribute for the user principal name in Azure AD
-The attribute userPrincipalName is the attribute that users use when they sign in to Azure AD and Office 365. You should verify the domains (also known as UPN suffixes) that are used in Azure AD before the users are synchronized.
+The attribute userPrincipalName is the attribute that users use when they sign in to Azure AD and Microsoft 365. You should verify the domains (also known as UPN suffixes) that are used in Azure AD before the users are synchronized.
 
 We strongly recommend that you keep the default attribute userPrincipalName. If this attribute is nonroutable and can't be verified, then it's possible to select another attribute (email, for example) as the attribute that holds the sign-in ID. This is known as the Alternate ID. The Alternate ID attribute value must follow the RFC 822 standard. You can use an Alternate ID with both password SSO and federation SSO as the sign-in solution.
 
 > [!NOTE]
-> Using an Alternate ID isn't compatible with all Office 365 workloads. For more information, see [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx).
+> Using an Alternate ID isn't compatible with all Microsoft 365 workloads. For more information, see [Configuring Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 >
 >
 
@@ -175,7 +175,7 @@ You can change the user sign-in method from federation, password hash synchroniz
 
 On the next page, you're asked to provide the credentials for Azure AD.
 
-![Connect to Azure AD](./media/plan-connect-user-signin/changeusersignin2.png)
+![Screenshot that shows where you should type the credentials for Azure AD.](./media/plan-connect-user-signin/changeusersignin2.png)
 
 On the **User sign-in** page, select the desired user sign-in.
 

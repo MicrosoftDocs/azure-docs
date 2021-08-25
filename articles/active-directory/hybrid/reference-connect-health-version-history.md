@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 03/20/2019
+ms.date: 08/10/2020
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
@@ -26,8 +26,35 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 > Connect Health agents are updated automatically when new version is released. Please ensure the auto-upgrade settings is enabled from Azure portal.
 >
 
-Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](./reference-connect-version-history.md)
 For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+
+## May 2021
+**Agent Update**
+- Azure AD Connect Health agent for AD FS (version 3.1.99.0)
+  - Fix for low unique user count value in AD FS application activity report
+  - Fix for sign-ins with empty or default GUID CorrelationId
+
+## March 2021
+**Agent Update**
+
+- Azure AD Connect Health agent for AD FS (version 3.1.95.0)
+
+  - Fix to resolve NT4 formatted username to a UPN during sign-in events.
+  - Fix to identify incorrect application identifier scenarios with a dedicated error code.
+  - Changes to add a new property for OAuth client identifier.
+  - Fix to display correct values in the **Protocol** and **Authentication Type** fields in Azure AD Sign-In Report for certain sign-in scenarios.
+  - Fix to display IP addresses in Azure AD Sign-In Report's IP chain field in order of the request.
+  - Changes to introduce a new field to differentiate if secondary authentication was requested during a sign-in.
+  - Fix for AD FS application identifier property to display in Azure AD Sign-In Report.
+
+## April 2020
+**Agent Update**
+
+- Azure AD Connect Health agent for AD FS (version 3.1.77.0)
+
+   - Bug fix for “Invalid Service Principal Name (SPN) for AD FS service” alert, for which the alert was reporting incorrectly.
+
 
 ## July 2019
 **Agent Update**
@@ -214,7 +241,7 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 ## November 2015
 **New features:**
 
-* Support for [Role Based Access Control](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
+* Support for [Azure role-based access control (Azure RBAC)](how-to-connect-health-operations.md#manage-access-with-azure-rbac)
 
 **New preview features:**
 
@@ -249,5 +276,4 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 * Simpler Agent Deployment using Azure AD Global Admin credentials.  
 
 ## Next steps
-Learn more about [Monitor your on-premises identity infrastructure and synchronization services in the cloud](whatis-hybrid-identity-health.md).
-
+Learn more about [Monitor your on-premises identity infrastructure and synchronization services in the cloud](./whatis-azure-ad-connect.md).

@@ -1,13 +1,13 @@
 ---
 title: Container Public Preview Prerequisites
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 description: The common prerequisite for public preview containers 
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 7/5/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ## Prerequisites
@@ -17,5 +17,5 @@ ms.author: dapine
 * [Docker engine][docker-engine] and validate that the Docker CLI works in a console window.
 
 [free-account]: https://azure.microsoft.com/free
-[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli
 [docker-engine]: https://www.docker.com/products/docker-engine

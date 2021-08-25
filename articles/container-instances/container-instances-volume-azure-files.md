@@ -2,19 +2,26 @@
 title: Mount Azure Files volume to container group
 description: Learn how to mount an Azure Files volume to persist state with Azure Container Instances
 ms.topic: article
-ms.date: 12/30/2019
-ms.custom: mvc
+ms.date: 03/24/2021
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Mount an Azure file share in Azure Container Instances
 
-By default, Azure Container Instances are stateless. If the container crashes or stops, all of its state is lost. To persist state beyond the lifetime of the container, you must mount a volume from an external store. As shown in this article, Azure Container Instances can mount an Azure file share created with [Azure Files](../storage/files/storage-files-introduction.md). Azure Files offers fully managed file shares hosted in Azure Storage that are accessible via the industry standard Server Message Block (SMB) protocol. Using an Azure file share with Azure Container Instances provides file-sharing features similar to using an Azure file share with Azure virtual machines.
+By default, Azure Container Instances are stateless. If the container is restarted, crashes, or stops, all of its state is lost. To persist state beyond the lifetime of the container, you must mount a volume from an external store. As shown in this article, Azure Container Instances can mount an Azure file share created with [Azure Files](../storage/files/storage-files-introduction.md). Azure Files offers fully managed file shares hosted in Azure Storage that are accessible via the industry standard Server Message Block (SMB) protocol. Using an Azure file share with Azure Container Instances provides file-sharing features similar to using an Azure file share with Azure virtual machines.
+
+## Limitations
+
+* You can only mount Azure Files shares to Linux containers. Review more about the differences in feature support  for Linux and Windows container groups in the [overview](container-instances-overview.md#linux-and-windows-containers).
+* Azure file share volume mount requires the Linux container run as *root* .
+* Azure File share volume mounts are limited to CIFS support.
 
 > [!NOTE]
-> Mounting an Azure Files share is currently restricted to Linux containers. Find current platform differences in the [overview](container-instances-overview.md#linux-and-windows-containers).
+> Mounting an Azure Files share to a container instance is similar to a Docker [bind mount](https://docs.docker.com/storage/bind-mounts/). If you mount a share into a container directory in which files or directories exist, the mount obscures files or directories, making them inaccessible while the container runs.
 >
-> Mounting an Azure Files share to a container instance is similar to a Docker [bind mount](https://docs.docker.com/storage/bind-mounts/). Be aware that if you mount a share into a container directory in which files or directories exist, these files or directories are obscured by the mount and are not accessible while the container runs.
->
+
+> [!IMPORTANT]
+> If you are deploying container groups into an Azure Virtual Network, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to your Azure Storage Account.
 
 ## Create an Azure file share
 
@@ -98,7 +105,7 @@ The following YAML template defines a container group with one container created
 As in the CLI example, the `dnsNameLabel` value must be unique within the Azure region where you create the container instance. Update the value in the YAML file if needed.
 
 ```yaml
-apiVersion: '2018-10-01'
+apiVersion: '2019-12-01'
 location: eastus
 name: file-share-demo
 properties:
@@ -163,7 +170,7 @@ As in the previous examples, the `dnsNameLabel` value must be unique within the 
     {
       "name": "file-share-demo",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2018-10-01",
+      "apiVersion": "2019-12-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
@@ -218,11 +225,11 @@ As in the previous examples, the `dnsNameLabel` value must be unique within the 
 }
 ```
 
-To deploy with the Resource Manager template, save the preceding JSON to a file named `deploy-aci.json`, then execute the [az group deployment create][az-group-deployment-create] command with the `--template-file` parameter:
+To deploy with the Resource Manager template, save the preceding JSON to a file named `deploy-aci.json`, then execute the [az deployment group create][az-deployment-group-create] command with the `--template-file` parameter:
 
 ```azurecli
 # Deploy with Resource Manager template
-az group deployment create --resource-group myResourceGroup --template-file deploy-aci.json
+az deployment group create --resource-group myResourceGroup --template-file deploy-aci.json
 ```
 
 
@@ -278,6 +285,6 @@ Learn how to mount other volume types in Azure Container Instances:
 [storage-explorer]: https://storageexplorer.com
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az-container-create
-[az-container-show]: /cli/azure/container#az-container-show
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-container-create]: /cli/azure/container#az_container_create
+[az-container-show]: /cli/azure/container#az_container_show
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create

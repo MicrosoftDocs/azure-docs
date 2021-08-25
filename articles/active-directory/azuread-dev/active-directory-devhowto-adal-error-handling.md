@@ -8,10 +8,10 @@ ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.custom: aaddev 
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/27/2017
-ms.author: ryanwi
+ROBOTS: NOINDEX
 ---
 
 # Error handling best practices for Azure Active Directory Authentication Library (ADAL) clients
@@ -184,7 +184,7 @@ The operating system can also generate a set of errors, which require error hand
 
 ### Error cases and actionable steps: Native client applications
 
-If you're building a native client application, there are a few error handling cases to consider which relate to network issues, transient failures, and other platform-specific errors. In most cases, an application shouldn’t perform immediate retries, but rather wait for end-user interaction that prompts a sign-in. 
+If you're building a native client application, there are a few error handling cases to consider which relate to network issues, transient failures, and other platform-specific errors. In most cases, an application shouldn't perform immediate retries, but rather wait for end-user interaction that prompts a sign-in. 
 
 There are a few special cases in which a single retry may resolve the issue. For example, when a user needs to enable data on a device, or completed the Azure AD broker download after the initial failure. 
 
@@ -192,7 +192,7 @@ In cases of failure, an application can present UI to allow the end user to perf
 
 Error handling in native applications can be defined by two cases:
 
-|  |  |
+| Case | Description  |
 |------|-------------|
 | **Case 1**:<br>Non-Retryable Error (most cases) | 1. Do not attempt immediate retry. Present the end-user UI based on the specific error that invokes a retry (for example, "Try to Sign in again" or "Download Azure AD broker application"). |
 | **Case 2**:<br>Retryable Error | 1. Perform a single retry as the end user may have entered a state that results in a success.<br><br>2. If retry fails, present the end-user UI based on the specific error that invokes a retry ("Try to Sign in again", "Download Azure AD broker app", etc.). |
@@ -366,7 +366,7 @@ If you're building a single-page application using adal.js with AcquireToken, th
 
 A failed AcquireToken has the following cases:
 
-|  |  |
+| Case | Description  |
 |------|-------------|
 | **Case 1**:<br>Resolvable with an interactive request | 1. If login() fails, do not perform immediate retry. Only retry after user action prompts a retry.|
 | **Case 2**:<br>Not Resolvable with an interactive request. Error is retryable. | 1. Perform a single retry as the end user major have entered a state that results in a success.<br><br>2. If retry fails, present the end user with an action based on the specific error that can invoke a retry ("Try to Sign in again"). |
@@ -538,7 +538,7 @@ To explore specific ADAL errors, the source code in the [azure-activedirectory-l
 
 #### Operating system errors
 
-iOS errors may arise during sign-in when users use web views, and the nature of authentication. This can be caused by conditions such as SSL errors, timeouts, or network errors:
+iOS errors may arise during sign-in when users use web views, and the nature of authentication. This can be caused by conditions such as TLS errors, timeouts, or network errors:
 
 - For Entitlement Sharing, logins are not persistent and the cache appears empty. You can resolve by adding the following line of code to the keychain:
   `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`

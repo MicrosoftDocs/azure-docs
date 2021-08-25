@@ -5,15 +5,16 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 10/16/2019
+ ms.date: 03/25/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
 
-| Resource | Default limit |
+| Workload Type* | Limit** |
 | --- | --- |
-| Concurrent RDP connections |25* |
-| Concurrent SSH connections |More than 50** |
+| Light |100 |
+| Medium |50 |
+| Heavy |5 |
 
-*May vary due to other on-going RDP sessions or other on-going SSH sessions.<br>
-**May vary if there are existing RDP connections or usage from other on-going SSH sessions.
+*These workload types are defined here: [Remote Desktop workloads](/windows-server/remote/remote-desktop-services/remote-desktop-workloads)<br>
+**These limits are based on RDP performance tests for Azure Bastion. The numbers may vary due to other on-going RDP sessions or other on-going SSH sessions.

@@ -1,11 +1,10 @@
 ---
 title: Azure Functions on Kubernetes with KEDA
 description: Understand how to run Azure Functions in Kubernetes in the cloud or on-premises using KEDA, Kubernetes-based event driven autoscaling.
-author: jeffhollan
-
+author: eamonoreilly
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.author: jehollan
+ms.author: eamono
 ---
 
 # Azure Functions on Kubernetes with KEDA
@@ -20,32 +19,37 @@ Kubernetes-based Functions provides the Functions runtime in a [Docker container
 
 ## Managing KEDA and functions in Kubernetes
 
-To run Functions on your Kubernetes cluster, you must install the KEDA component. You can install this component using [Azure Functions Core Tools](functions-run-local.md).
+To run Functions on your Kubernetes cluster, you must install the KEDA component. You can install this component in one of the following ways:
 
-### Installing with Helm
++ Azure Functions Core Tools: using the [`func kubernetes install` command](functions-core-tools-reference.md#func-kubernetes-install).
 
-There are various ways to install KEDA in any Kubernetes cluster including Helm.  Deployment options are documented on the [KEDA site](https://keda.sh/deploy/).
++ Helm: there are various ways to install KEDA in any Kubernetes cluster, including Helm.  Deployment options are documented on the [KEDA site](https://keda.sh/docs/deploy/).
 
 ## Deploying a function app to Kubernetes
 
-You can deploy any function app to a Kubernetes cluster running KEDA.  Since your functions run in a Docker container, your project needs a `Dockerfile`.  If it doesn't already have one, you can add a Dockerfile by running the following command at the root of your Functions project:
+You can deploy any function app to a Kubernetes cluster running KEDA.  Since your functions run in a Docker container, your project needs a Dockerfile.  You can create a Dockerfile by using the [`--docker` option][func init] when calling `func init` to create the project. If you forgot to do this, you can always call `func init` again from the root of your Functions project, this time using the [`--docker-only` option][func init], as shown in the following example. 
 
-```cli
+```command
 func init --docker-only
 ```
 
+To learn more about Dockerfile generation, see the [`func init`][func init] reference. 
+
 To build an image and deploy your functions to Kubernetes, run the following command:
 
-> [!NOTE]
-> The Core Tools will leverage the docker CLI to build and publish the image. Be sure to have docker installed already and connected to your account with `docker login`.
-
-```cli
+```command
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
 ```
 
-> Replace `<name-of-function-deployment>` with the name of your function app.
+In this example, replace `<name-of-function-deployment>` with the name of your function app.
 
-This creates a Kubernetes `Deployment` resource, a `ScaledObject` resource, and `Secrets`, which includes environment variables imported from your `local.settings.json` file.
+The deploy command does the following:
+
+1. The Dockerfile created earlier is used to build a local image for the function app.
+1. The local image is tagged and pushed to the container registry where the user is logged in.
+1. A manifest is created and applied to the cluster that defines a Kubernetes `Deployment` resource, a `ScaledObject` resource, and `Secrets`, which includes environment variables imported from your `local.settings.json` file.
+
+To learn more, see the [`func kubernetes deploy` command](functions-core-tools-reference.md#func-kubernetes-deploy).
 
 ### Deploying a function app from a private registry
 
@@ -55,7 +59,7 @@ The above flow works for private registries as well.  If you are pulling your co
 
 After deploying you can remove a function by removing the associated `Deployment`, `ScaledObject`, an `Secrets` created.
 
-```cli
+```command
 kubectl delete deploy <name-of-function-deployment>
 kubectl delete ScaledObject <name-of-function-deployment>
 kubectl delete secret <name-of-function-deployment>
@@ -63,7 +67,11 @@ kubectl delete secret <name-of-function-deployment>
 
 ## Uninstalling KEDA from Kubernetes
 
-Steps to uninstall KEDA are documented [on the KEDA site](https://keda.sh/deploy/).
+You can remove KEDA from your cluster in one of the following ways:
+
++ Azure Functions Core Tools: using the [`func kubernetes remove` command](functions-core-tools-reference.md#func-kubernetes-remove).
+
++ Helm: see the uninstall steps [on the KEDA site](https://keda.sh/docs/deploy/).
 
 ## Supported triggers in KEDA
 
@@ -85,3 +93,5 @@ For more information, see the following resources:
 * [Create a function using a custom image](functions-create-function-linux-custom-image.md)
 * [Code and test Azure Functions locally](functions-develop-local.md)
 * [How the Azure Function Consumption plan works](functions-scale.md)
+
+[func init]: functions-core-tools-reference.md#func-init

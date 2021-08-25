@@ -2,12 +2,13 @@
 title: Understand Azure IoT Hub jobs | Microsoft Docs
 description: Developer guide - scheduling jobs to run on multiple devices connected to your IoT hub. Jobs can update tags and desired properties and invoke direct methods on multiple devices.
 author: robinsh
-manager: philmea
+
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2019
+ms.custom: mqtt
 ---
 
 # Schedule jobs on multiple devices

@@ -10,39 +10,39 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ---
 
-1. On the **Create a Peering** page, under **Configuration** tab, fill out the fields as shown below.
+1. On the **Create a Peering** page, on the **Configuration** tab, fill in the boxes as shown here.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering Configuration - Direct](../media/setup-direct-conf-tab.png)
+    > ![Create a Peering page Configuration tab](../media/setup-direct-conf-tab.png)
 
-    * For **Peering type**, select *Direct*.
-    * For **Microsoft network**, choose *AS8075*. Do not select ASN 8069. It is reserved for special applications and only used by [Microsoft peering](mailto:peering@microsoft.com).
-    * Select **SKU** as *Basic Free*. Do not select *Premium Free* since it is reserved for special applications.
-    * Choose the **Metro** location for where you want to convert peering to Azure resource. If you have peering connections with Microsoft in the selected **Metro** location that are not converted to Azure resource, then such connections will be listed in the **Peering connections** section as shown below. You can now convert these peering connections to Azure resource.
+    * For **Peering type**, select **Direct**.
+    * For **Microsoft network**, select **AS8075**. Don't select ASN 8069. It's reserved for special applications and only used by [Microsoft peering](mailto:peering@microsoft.com).
+    * Select **SKU** as **Basic Free**. Don't select Premium Free because it's reserved for special applications.
+    * Select the **Metro** location where you want to convert peering to an Azure resource. If you have peering connections with Microsoft in the selected **Metro** location that aren't converted to an Azure resource, these connections will be listed in the **Peering connections** section as shown. You can now convert these peering connections to an Azure resource.
 
         > [!div class="mx-imgBorder"]
-        > ![Peering Configuration - Direct - Legacy Connections](../media/setup-directlegacy-conf-tab.png)
+        > ![Peering connections list](../media/setup-directlegacy-conf-tab.png)
 
-1. If you need to update bandwidth click the edit button for a line, as highlighted below, to modify connection settings.
+1. If you need to update bandwidth, select the edit button for a line to modify connection settings.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering Configuration - Direct Edit](../media/setup-directlegacy-conf-tab-edit.png)
+    > ![Edit button](../media/setup-directlegacy-conf-tab-edit.png)
 
     > [!NOTE]
-    > If you want to add additional peering connections with Microsoft in the selected **Metro** location you may do so by clicking **Create new** button. See [Create or modify a Direct peering using the portal](../howto-direct-portal.md) for more info.
+    > If you want to add additional peering connections with Microsoft in the selected **Metro** location, select **Create new**. For more information, see [Create or modify a Direct peering by using the portal](../howto-direct-portal.md).
     >
 
-1. Click on **Review + create**. Observe that portal runs basic validation of the information you entered. This is displayed in a ribbon on the top, as *Running final validation...*.
+1. Select **Review + create**. Notice that the portal runs basic validation of the information you entered. A ribbon at the top displays the message *Running final validation...*.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering Validation Tab](../media/setup-direct-review-tab-validation.png)
+    > ![Peering Validation tab](../media/setup-direct-review-tab-validation.png)
 
-1. After it turns to *Validation Passed*, verify your information and submit the request by clicking **Create**. If you need to modify your request, click on **Previous** and repeat the steps above.
-
-    > [!div class="mx-imgBorder"]
-    > ![Peering Submit](../media/setup-direct-review-tab-submit.png)
-
-1. Once you submit the request, wait for it to complete deployment. If deployment fails, contact [Microsoft peering](mailto:peering@microsoft.com). A successful deployment will appear as below.
+1. After the message changes to *Validation passed*, verify your information. Submit the request by selecting **Create**. To modify your request, select **Previous** and repeat the steps.
 
     > [!div class="mx-imgBorder"]
-    > ![Peering Success](../media/setup-direct-success.png)
+    > ![Peering submission](../media/setup-direct-review-tab-submit.png)
+
+1. After you submit the request, wait for the deployment to finish. If deployment fails, contact [Microsoft peering](mailto:peering@microsoft.com). A successful deployment appears as shown here.
+
+    > [!div class="mx-imgBorder"]
+    > ![Peering success](../media/setup-direct-success.png)

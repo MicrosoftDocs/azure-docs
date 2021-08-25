@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: python
-ms.custom: mvc
+ms.custom: mvc, devx-track-python
 ---
 
 # Quickstart: Create and provision a simulated TPM device using Python device SDK for IoT Hub Device Provisioning Service
@@ -19,7 +19,7 @@ In this quickstart, you create a simulated IoT device on a Windows computer. The
 
 ## Prerequisites
 
-- Review of [Auto-provisioning concepts](concepts-auto-provisioning.md).
+- Familiar with [provisioning](about-iot-dps.md#provisioning-process) concepts.
 - Completion of [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Visual Studio 2015+](https://visualstudio.microsoft.com/vs/) with Desktop development with C++.
@@ -59,7 +59,7 @@ In this quickstart, you create a simulated IoT device on a Windows computer. The
     cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
     ```
 
-1. In a separate command prompt, navigate to the TPM simulator folder and run the [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) simulator to be the [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) for the simulated device. Click **Allow Access**. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this quickstart guide. 
+1. In a separate command prompt, navigate to the TPM simulator folder and run the [TPM](/windows/device-security/tpm/trusted-platform-module-overview) simulator to be the [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) for the simulated device. Click **Allow Access**. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running until the end of this quickstart guide. 
 
     ```cmd/sh
     .\azure-iot-sdk-python\c\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe

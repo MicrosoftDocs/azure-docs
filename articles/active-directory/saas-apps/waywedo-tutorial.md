@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Way We Do | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Way We Do.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 84fc4f36-ecd1-42c6-8a70-cb0f3dc15655
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Way We Do with Azure Active Directory
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate Way We Do with Azure Active Dire
 * Enable your users to be automatically signed-in to Way We Do with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -111,36 +104,36 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click the **person icon** in the top right corner of any page in Way We Do, then click **Account** in the dropdown menu.
 
-	![Way We Do account](./media/waywedo-tutorial/tutorial_waywedo_account.png)
+    ![Way We Do account](./media/waywedo-tutorial/tutorial_waywedo_account.png)
 
 1. Click the **menu icon** to open the push navigation menu and Click **Single Sign On**.
 
-	![Way We Do single](./media/waywedo-tutorial/tutorial_waywedo_single.png)
+    ![Way We Do single](./media/waywedo-tutorial/tutorial_waywedo_single.png)
 
 1. On the **Single sign-on setup** page, perform the following steps:
 
-	![Way We Do save](./media/waywedo-tutorial/tutorial_waywedo_save.png)
+    ![Way We Do save](./media/waywedo-tutorial/tutorial_waywedo_save.png)
 
-	a. Click the **Turn on single sign-on** toggle to **Yes** to enable Single Sign-On.
+    1. Click the **Turn on single sign-on** toggle to **Yes** to enable Single Sign-On.
 
-	b. In the **Single sign-on name** textbox, enter your name.
+	1. In the **Single sign-on name** textbox, enter your name.
 
-	c. In the **Entity ID** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal.
+	1. In the **Entity ID** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal.
 
-	d. In the **SAML SSO URL** textbox, paste the value of **Login URL**, which you have copied from the Azure portal.
+	1. In the **SAML SSO URL** textbox, paste the value of **Login URL**, which you have copied from the Azure portal.
 
-	e. Upload the certificate by clicking the **select** button next to **Certificate**.
+	1. Upload the certificate by clicking the **select** button next to **Certificate**.
 
-	f. **Optional Settings** -
-	
-	* Enable Passwords - When this option is disabled, the regular password functions for Way We Do so that users can only use single sign-on.
+	1. **Optional Settings** -
 
-	* Enable Auto-provisioning - When this is enabled, the email address used to sign-on will be automatically compared to the list of users in Way We Do. If the email address does not match an active user in Way We Do, it automatically adds a new user account for the person signing in, requesting any missing information.
+	    * Enable Passwords - When this option is disabled, the regular password functions for Way We Do so that users can only use single sign-on.
 
-	  > [!NOTE]
-	  > Users added through single sign-on are added as general users and are not assigned a role in the system. An Administrator is able to go in and modify their security role as an editor or administrator and can also assign one or several Org Chart roles.
+        * Enable Auto-provisioning - When this is enabled, the email address used to sign-on will be automatically compared to the list of users in Way We Do. If the email address does not match an active user in Way We Do, it automatically adds a new user account for the person signing in, requesting any missing information.
 
-	g. Click **Save** to persist your settings.
+          > [!NOTE]
+          > Users added through single sign-on are added as general users and are not assigned a role in the system. An Administrator is able to go in and modify their security role as an editor or administrator and can also assign one or several Org Chart roles.
+
+    1. Click **Save** to persist your settings.
 
 ### Create an Azure AD test user
 
@@ -181,12 +174,12 @@ In this section, a user called Britta Simon is created in Way We Do. Way We Do s
 
 ### Test SSO
 
-When you select the Way We Do tile in the Access Panel, you should be automatically signed in to the Way We Do for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the Way We Do tile in the Access Panel, you should be automatically signed in to the Way We Do for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](./tutorial-list.md)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)

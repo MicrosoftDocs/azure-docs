@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/22/2019 #Required; mm/dd/yyyy format.
+  ms.date: 06/23/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -38,7 +38,7 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Reference architecture for queues and events
-            url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/queues-events
+            url: /azure/architecture/reference-architectures/enterprise-integration/queues-events
 
   # Card
   - title: Create a Service Bus queue
@@ -74,13 +74,11 @@ landingContent:
           - text: Java
             url: service-bus-java-how-to-use-queues.md
           - text: Node.js
-            url: service-bus-nodejs-how-to-use-queues-new-package.md
+            url: service-bus-nodejs-how-to-use-queues.md
           - text: Python
             url: service-bus-python-how-to-use-queues.md
           - text: PHP
             url: service-bus-php-how-to-use-queues.md
-          - text: Ruby
-            url: service-bus-ruby-how-to-use-queues.md
   # Card
   - title: Publish and subscribe for messages
     linkLists:
@@ -91,13 +89,11 @@ landingContent:
           - text: Java
             url: service-bus-java-how-to-use-topics-subscriptions.md
           - text: Node.js
-            url: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
+            url: service-bus-nodejs-how-to-use-topics-subscriptions.md
           - text: Python
             url: service-bus-python-how-to-use-topics-subscriptions.md
           - text: PHP
             url: service-bus-php-how-to-use-topics-subscriptions.md
-          - text: Ruby
-            url: service-bus-ruby-how-to-use-topics-subscriptions.md                                    
 
   # Card
   - title: Monitor and manage
@@ -107,9 +103,7 @@ landingContent:
           - text: Use PowerShell to provision entities
             url: service-bus-manage-with-ps.md        
           - text: Monitor Service Bus using Azure Monitor
-            url: service-bus-metrics-azure-monitor.md
-          - text: Set up diagnostic logs
-            url: service-bus-diagnostic-logs.md
+            url: monitor-service-bus-reference.md
           - text: Suspend and reactivate messaging entities
             url: entity-suspend.md
           - text: Use Azure Resource Manager templates
@@ -130,4 +124,3 @@ landingContent:
             url: service-bus-managed-service-identity.md            
           - text: Authenticate an application with Azure Active Directory
             url: authenticate-application.md
-            

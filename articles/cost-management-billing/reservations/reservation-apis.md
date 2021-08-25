@@ -5,6 +5,7 @@ author: yashesvi
 ms.reviewer: yashesvi
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
@@ -56,9 +57,9 @@ Request body:
 You can also buy a reservation in the Azure portal. For more information, see the following articles:
 
 Service plans:
-- [Virtual machine](../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)
+- [Virtual machine](../../virtual-machines/prepay-reserved-vm-instances.md?toc=%2fazure%2fbilling%2fTOC.json)
 -  [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json)
-- [SQL Database](../../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json)
+- [SQL Database](../../azure-sql/database/reserved-capacity-overview.md?toc=/azure/billing/TOC.json)
 
 Software plans:
 - [SUSE Linux software](../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json)
@@ -83,9 +84,9 @@ If you find that your organization's reservations are being under-used:
 
 Get the list of all reservations that a user has access to by using the [Reservation - Operation - List API](/rest/api/reserved-vm-instances/reservationorder/list). To give access to a reservation programmatically, see one of the following articles:
 
-- [Manage access using RBAC and the REST API](../../role-based-access-control/role-assignments-rest.md)
-- [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Add or remove Azure role assignments using the REST API](../../role-based-access-control/role-assignments-rest.md)
+- [Add or remove Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
 
 ## Split or merge reservation
 
@@ -110,4 +111,4 @@ To change the scope programmatically, use the API [Reservation - Update](/rest/a
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with reservations](reserved-instance-windows-software-costs.md)
-- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](/partner-center/azure-reservations)

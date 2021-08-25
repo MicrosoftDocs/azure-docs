@@ -1,15 +1,15 @@
 ---
 title: Error code reference
 titleSuffix: Azure AD B2C
-description: A list of the error codes that can returned by the Azure Active Directory B2C service.
+description: A list of the error codes that can be returned by the Azure Active Directory B2C service.
 services: B2C
 author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: troubleshooting
-ms.date: 01/10/2020
+ms.topic: reference
+ms.date: 06/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -57,6 +57,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90055` | The scope '{0}' provided in request must specify a resource, such as 'https://example.com/calendar.read'. |
 | `AADB2C90057` | The provided application is not configured to allow the OAuth Implicit flow. |
 | `AADB2C90058` | The provided application is not configured to allow public clients. |
+| `AADB2C99059` | The supplied request must present a code_challenge. Required for single-page apps using the authorization code flow.| 
 | `AADB2C90067` | The post logout redirect URI '{0}' has an invalid format. Specify an https based URL such as 'https://example.com/return' or for native clients use the IETF native client URI 'urn:ietf:wg:oauth:2.0:oob'. |
 | `AADB2C90068` | The provided application with ID '{0}' is not valid against this service. Please use an application created via the B2C portal and try again. |
 | `AADB2C90075` | The claims exchange '{0}' specified in step '{1}' returned HTTP error response with Code '{2}' and Reason '{3}'. |
@@ -70,6 +71,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90086` | The supplied grant_type [{0}] is not supported. |
 | `AADB2C90087` | The provided grant has not been issued for this version of the protocol endpoint. |
 | `AADB2C90088` | The provided grant has not been issued for this endpoint. Actual Value : {0} and Expected Value : {1} |
+| `AADB2C90091` | User cancellation. |
 | `AADB2C90092` | The provided application with ID '{0}' is disabled for the tenant '{1}'. Please enable the application and try again. |
 | `AADB2C90107` | The application with ID '{0}' cannot get an ID token either because the openid scope was not provided in the request or the application is not authorized for it. |
 | `AADB2C90108` | The orchestration step '{0}' does not specify a CpimIssuerTechnicalProfileReferenceId when one was expected. |
@@ -138,6 +140,7 @@ The following errors can be returned by the Azure Active Directory B2C service.
 | `AADB2C90284` | The application with identifier '{0}' has not been granted consent and is unable to be used for local accounts. |
 | `AADB2C90285` | The application with identifier '{0}' was not found. |
 | `AADB2C90288` | UserJourney with id '{0}' referenced in TechnicalProfile '{1}' for refresh token redemption for tenant '{2}' does not exist in policy '{3}' or any of its base policies. |
+| `AADB2C90287` | The request contains invalid redirect URI '{0}'.|
 | `AADB2C90289` | We encountered an error connecting to the identity provider. Please try again later. |
 | `AADB2C90296` | Application has not been configured correctly. Please contact administrator of the site you are trying to access. |
 | `AADB2C99005` | The request contains an invalid scope parameter which includes an illegal character '{0}'. |

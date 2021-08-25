@@ -3,9 +3,9 @@ title: Debug Azure Stream Analytics queries locally using job diagram in Visual 
 description: This article describes how to debug queries locally using job diagram in Azure Stream Analytics Tools for Visual Studio.
 author: su-jie
 ms.author: sujie
-ms.reviewer: mamccrea
+
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2020
 ---
 
@@ -82,7 +82,7 @@ In this section, you explore the metrics available for each part of the diagram.
   
 #### Output sinks (Live output)
 
-![Job diagram local output sinks](./media/debug-locally-using-job-diagram/live-output.png)
+![Job diagram that shows the local output sinks.](./media/debug-locally-using-job-diagram/live-output.png)
 
 |Metric|Description|
 |-|-|
@@ -114,7 +114,7 @@ Other job level metrics shows up in the pop up console. Press **Ctrl+C** in the 
 
 * Power BI and Azure Data Lake Storage Gen1 output sinks are not supported due to authentication model limitations.
 
-* Only cloud input options have [time policies](stream-analytics-out-of-order-and-late-events.md) support, while local input options do not.
+* Only cloud input options have [time policies](./stream-analytics-time-handling.md) support, while local input options do not.
 
 ## Next steps
 

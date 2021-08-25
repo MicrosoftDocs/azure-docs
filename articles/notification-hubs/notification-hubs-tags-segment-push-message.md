@@ -17,6 +17,7 @@ ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 12/04/2019
+ms.custom: devx-track-csharp
 ---
 
 # Routing and tag expressions
@@ -35,7 +36,7 @@ The only way to target specific notification registrations is to associate tags 
 
 ## Tags
 
-A tag can be any string, up to 120 characters, containing alphanumeric and the following non-alphanumeric characters: ‘`_`’, ‘`@`’, ‘`#`’, ‘`.`’, ‘`:`’, ‘`-`’. The following example shows an application from which you can receive toast notifications about specific music groups. In this scenario, a simple way to route notifications is to label registrations with tags that represent the different bands, as in the following figure:
+A tag can be any string, up to 120 characters, containing alphanumeric and the following non-alphanumeric characters: '`_`', '`@`', '`#`', '`.`', '`:`', '`-`'. The following example shows an application from which you can receive toast notifications about specific music groups. In this scenario, a simple way to route notifications is to label registrations with tags that represent the different bands, as in the following figure:
 
 ![Tags overview](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
@@ -63,7 +64,7 @@ Tags must not be pre-provisioned, and can refer to multiple app-specific concept
 
 ![Tags friends](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
 
-In this example, Alice is interested in updates for the Beatles, and Bob is interested in updates for the Wailers. Bob is also interested in Charlie’s comments, and Charlie is interested in the Wailers. When a notification is sent for Charlie’s comment on the Beatles, Notification Hubs sends it to both Alice and Bob.
+In this example, Alice is interested in updates for the Beatles, and Bob is interested in updates for the Wailers. Bob is also interested in Charlie's comments, and Charlie is interested in the Wailers. When a notification is sent for Charlie's comment on the Beatles, Notification Hubs sends it to both Alice and Bob.
 
 While you can encode multiple concerns in tags (for example, `band_Beatles` or `follows_Charlie`), tags are simple strings and not properties with values. A registration matches only on the presence or absence of a specific tag.
 
@@ -92,7 +93,7 @@ Consider a sports application that sends a reminder to everyone in Boston about 
 
 ![Tag expressions](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
-Tag expressions support common Boolean operators such as `AND` (`&&`), `OR` (`||`), and `NOT` (`!`); they can also contain parentheses. Tag expressions using only `OR` operators can reference 20 tags; otherwise tag expressions are limited to 6 tags.
+Tag expressions support common Boolean operators such as `AND` (`&&`), `OR` (`||`), and `NOT` (`!`); they can also contain parentheses. Tag expressions using only `OR` operators can reference 20 tags; expression with `AND` operators but no `OR` operators can reference 10 tags; otherwise, tag expressions are limited to 6 tags.
 
 Here's an example for sending notifications with tag expressions using the SDK:
 

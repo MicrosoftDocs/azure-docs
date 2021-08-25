@@ -12,7 +12,7 @@ Azure Backup service triggers jobs that run in background in various scenarios s
 
 ## Fetch Job information from operations
 
-An operation such as triggering backup will always return a jobID. For example: The final response of a [trigger backup REST API operation](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) is as follows:
+An operation such as triggering backup will always return a jobID. For example: The final response of a [trigger backup REST API operation](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup) is as follows:
 
 ```http
 {
@@ -28,7 +28,7 @@ An operation such as triggering backup will always return a jobID. For example: 
 }
 ```
 
-The Azure VM backup job is identified by "jobId" field and can be tracked as mentioned [here](https://docs.microsoft.com/rest/api/backup/jobdetails/) using a simple *GET* request.
+The Azure VM backup job is identified by "jobId" field and can be tracked as mentioned [here](/rest/api/backup/job-details) using a simple *GET* request.
 
 ## Tracking the job
 
@@ -36,13 +36,13 @@ The Azure VM backup job is identified by "jobId" field and can be tracked as men
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with the "status" field indicating the current status of the job. Once it is "Completed" or "CompletedWithWarnings", the 'extendedInfo' section reveals more details about the job.
+The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with the "status" field indicating the current status of the job. Once it's "Completed" or "CompletedWithWarnings", the 'extendedInfo' section reveals more details about the job.
 
 ### Response
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
+|200 OK     | [JobResource](/rest/api/backup/job-details/get#jobresource)        | OK        |
 
 #### Example response
 

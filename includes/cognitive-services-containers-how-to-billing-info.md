@@ -1,7 +1,7 @@
 ---
-author: IEvangelist
-ms.author: dapine
-ms.date: 02/19/2020
+author: aahill
+ms.author: aahi
+ms.date: 03/02/2021
 ms.service: cognitive-services
 ms.topic: include
 ---
@@ -12,7 +12,7 @@ Azure Cognitive Services containers aren't licensed to run without being connect
 
 ### Connect to Azure
 
-The container needs the billing argument values to run. These values allow the container to connect to the billing endpoint. The container reports usage about every 10 to 15 minutes. If the container doesn't connect to Azure within the allowed time window, the container continues to run but doesn't serve queries until the billing endpoint is restored. The connection is attempted 10 times at the same time interval of 10 to 15 minutes. If it can't connect to the billing endpoint within the 10 tries, the container stops serving requests.
+The container needs the billing argument values to run. These values allow the container to connect to the billing endpoint. The container reports usage about every 10 to 15 minutes. If the container doesn't connect to Azure within the allowed time window, the container continues to run but doesn't serve queries until the billing endpoint is restored. The connection is attempted 10 times at the same time interval of 10 to 15 minutes. If it can't connect to the billing endpoint within the 10 tries, the container stops serving requests. See the [Cognitive Services container FAQ](../articles/cognitive-services/containers/container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.
 
 ### Billing arguments
 

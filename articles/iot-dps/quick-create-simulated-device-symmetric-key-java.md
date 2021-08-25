@@ -8,17 +8,17 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 manager: eliotgra
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 #Customer intent: As a new IoT developer, I want simulate a device using Java so that I can learn how secure provisioning works with symmetric keys.
 ---
 
-# Quickstart: Provision a simulated device with symmetric keys
+# Quickstart: Provision a simulated device to IoT Hub with symmetric keys
 
 In this quickstart, you will learn how to create and run a device simulator on a Windows development machine. You will configure this simulated device to use a symmetric key to authenticate with a Device Provisioning Service (DPS) instance and be assigned to an IoT hub. Sample code from the [Microsoft Azure IoT SDKs for Java](https://github.com/Azure/azure-iot-sdk-java) will be used to simulate a boot sequence for the device that initiates provisioning. The device will be recognized based on an individual enrollment with a DPS service instance and assigned to an IoT hub.
 
 Although this article demonstrates provisioning with an individual enrollment, you can use enrollment groups. There are some differences when using enrollment groups. For example, you must use a derived device key with a unique registration ID for the device. Although symmetric key enrollment groups are not limited to legacy devices, [How to provision legacy devices using Symmetric key attestation](how-to-legacy-device-symm-key.md) provides an enrollment group example. For more information, see [Group Enrollments for Symmetric Key Attestation](concepts-symmetric-key-attestation.md#group-enrollments).
 
-If you're unfamiliar with the process of auto-provisioning, review [Auto-provisioning concepts](concepts-auto-provisioning.md). 
+If you're unfamiliar with the process of auto-provisioning, review the [provisioning](about-iot-dps.md#provisioning-process) overview. 
 
 Also, make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing with this quickstart. This quickstart requires you to have already created your Device Provisioning Service instance.
 
@@ -30,7 +30,7 @@ This article is oriented toward a Windows-based workstation. However, you can pe
 
 ## Prerequisites
 
-* Make sure you have [Java SE Development Kit 8](https://aka.ms/azure-jdks) or later installed on your machine.
+* Make sure you have [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure) or later installed on your machine.
 
 * Download and install [Maven](https://maven.apache.org/install.html).
 

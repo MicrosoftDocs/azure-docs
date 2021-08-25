@@ -2,20 +2,15 @@
 title: 'Tutorial: Configure Looop for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Looop.
 services: active-directory
-documentationcenter: ''
-author: zchia
-writer: zchia
-manager: beatrizd
-
-ms.assetid: 0efe2262-43c3-4e0c-97fa-9344385638e2
+author: twimmers
+writer: twimmers
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2019
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Looop for automatic user provisioning
@@ -45,7 +40,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ### Important tips for assigning users to Looop
 
-* It is recommended that a single Azure AD user is assigned to Looop to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Azure AD user is assigned to Looop to test the automatic user provisioning configuration. More users and/or groups may be assigned later.
 
 * When assigning a user to Looop, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
@@ -53,13 +48,13 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Looop for automatic user provisioning with Azure AD, you will need to retrieve some provisioning information from Looop.
 
-1. Sign in to your [Looop Admin Console](https://app.looop.co/#/login) and select **Account**. Under **Account Settings** select **Authentication**.
+1. Sign in to your [Looop Admin Console](https://app.looop.co/#/login) and select **Account**. Under **Account Settings**,  select **Authentication**.
 
-	![Looop Add SCIM](media/looop-provisioning-tutorial/admin.png)
+	![Looop Admin](media/looop-provisioning-tutorial/admin.png)
 
 2. Generate a new token by clicking **Reset Token** under **SCIM Integration**.
 
-	![Looop Add SCIM](media/looop-provisioning-tutorial/resettoken.png)
+	![Looop Token](media/looop-provisioning-tutorial/resettoken.png)
 
 3. Copy the **SCIM Endpoint** and the **Token**. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Looop application in the Azure portal. 
 
@@ -85,11 +80,11 @@ To configure Looop for automatic user provisioning with Azure AD, you need to ad
 
 	![Looop in the results list](common/search-new-app.png)
 
-5. Select the **Sign-up for Looop** button which will redirect you to Looop's login page. 
+5. Select the **Sign-up for Looop** button, which will redirect you to Looop's login page. 
 
 	![Looop OIDC Add](media/looop-provisioning-tutorial/signup.png)
 
-6. As Looop is an OpenIDConnect app, choose to login to Looop using your Microsoft work account.
+6. As Looop is an OpenIDConnect app, choose to log in to Looop using your Microsoft work account.
 
 	![Looop OIDC login](media/looop-provisioning-tutorial/msftlogin.png)
 
@@ -113,13 +108,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://<organisation_domain>.looop.co/scim/v2` in **Tenant URL**. For example `https://demo.looop.co/scim/v2`. Input the value that you retrieved and saved earlier from Looop in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Looop. If the connection fails, ensure your Looop account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input `https://<organisation_domain>.looop.co/scim/v2` in **Tenant URL**. For example, `https://demo.looop.co/scim/v2`. Input the value that you retrieved and saved earlier from Looop in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Looop. If the connection fails, ensure your Looop account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -135,7 +130,24 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Looop in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Looop for update operations. Select the **Save** button to commit any changes.
 
-	![Looop User Attributes](media/looop-provisioning-tutorial/userattributes.png)
+   |Attribute|Type|Supported for filtering|
+   |---|---|---|
+   |userName|String|&check;|
+   |active|Boolean|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |externalId|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:area|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_1|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_2|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:custom_3|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:location|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:position|String|
+   |urn:ietf:params:scim:schemas:extension:Looop:2.0:User:startAt|String|
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Meta Networks Connector**.
 
@@ -143,7 +155,12 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 11. Review the group attributes that are synchronized from Azure AD to Meta Networks Connector in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in Meta Networks Connector for update operations. Select the **Save** button to commit any changes.
 
-	![Looop Group Attributes](media/looop-provisioning-tutorial/groupattributes.png)
+	|Attribute|Type|Supported for filtering|
+    |---|---|---|
+    |displayName|String|&check;|
+    |members|Reference|
+    |externalId|String|
+
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -163,7 +180,12 @@ This operation starts the initial synchronization of all users and/or groups def
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
-## Additional resources
+## Change log
+
+* 07/15/2021 - Enterprise extension user attributes **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department**, **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber** and **urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager** have been added.
+* 07/15/2021 - Custom extension user attributes **urn:ietf:params:scim:schemas:extension:Looop:2.0:User:department** and **urn:ietf:params:scim:schemas:extension:Looop:2.0:User:employee_id** have been removed.
+
+## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

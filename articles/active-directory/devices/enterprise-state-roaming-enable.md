@@ -5,14 +5,14 @@ description: Frequently asked questions about Enterprise State Roaming settings 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
-
+ms.custom: references_regions
 ms.collection: M365-identity-device-management
 ---
 # Enable Enterprise State Roaming in Azure Active Directory
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 Enterprise State Roaming is available to any organization with an Azure AD Premium or Enterprise Mobility + Security
 (EMS) license. For more information on how to get an Azure AD subscription, see the [Azure AD product page](https://azure.microsoft.com/services/active-directory).
 
-When you enable Enterprise State Roaming, your organization is automatically granted a free, limited-use license for Azure Rights Management protection from Azure Information Protection. This free subscription is limited to encrypting and decrypting enterprise settings and application data synced by Enterprise State Roaming. You must have [a paid subscription](https://azure.microsoft.com/pricing/details/information-protection/) to use the full capabilities of the Azure Rights Management service.
+When you enable Enterprise State Roaming, your organization is automatically granted a free, limited-use license for Azure Rights Management protection from Azure Information Protection. This free subscription is limited to encrypting and decrypting enterprise settings and application data synced by Enterprise State Roaming. You must have [a paid subscription](https://azure.microsoft.com/services/information-protection/) to use the full capabilities of the Azure Rights Management service.
 
 > [!NOTE]
 > This article applies to the Microsoft Edge Legacy HTML-based browser launched with Windows 10 in July 2015. The article does not apply to the new Microsoft Edge Chromium-based browser released on January 15, 2020. For more information on the Sync behavior for the new Microsoft Edge, see the article [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
@@ -28,12 +28,12 @@ When you enable Enterprise State Roaming, your organization is automatically gra
 ## To enable Enterprise State Roaming
 
 1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
-1. Select **Azure Active Directory** &gt; **Devices** &gt; **Enterprise State Roaming**.
-1. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](/azure/active-directory/device-management-azure-portal).
+1. Select **Azure Active Directory** > **Devices** > **Enterprise State Roaming**.
+1. Select **Users may sync settings and app data across devices**. For more information, see [how to configure device settings](./device-management-azure-portal.md).
   
    ![image of device setting labeled Users may sync settings and app data across devices](./media/enterprise-state-roaming-enable/device-settings.png)
   
-For a Windows 10 device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no additional configuration is required. For devices that use on-premises Active Directory, the IT admin must [Configure hybrid Azure Active Directory joined devices](hybrid-azuread-join-manual-steps.md). 
+For a Windows 10 device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no additional configuration is required. For devices that use on-premises Active Directory, the IT admin must [Configure hybrid Azure Active Directory joined devices](./hybrid-azuread-join-plan.md). 
 
 ## Data storage
 
@@ -53,7 +53,7 @@ The country/region value is set as part of the Azure AD directory creation proce
 Follow these steps to view a per-user device sync status report.
 
 1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
-1. Select **Azure Active Directory** &gt; **Users** &gt; **All users**.
+1. Select **Azure Active Directory** > **Users** > **All users**.
 1. Select the user, and then select **Devices**.
 1. Under **Show**, select **Devices syncing settings and app data** to show sync status.
   
@@ -90,7 +90,7 @@ The data retention policy is not configurable. Once the data is permanently dele
 ## Next steps
 
 * [Enterprise State Roaming overview](enterprise-state-roaming-overview.md)
-* [Settings and data roaming FAQ](enterprise-state-roaming-faqs.md)
+* [Settings and data roaming FAQ](enterprise-state-roaming-faqs.yml)
 * [Group Policy and MDM settings for settings sync](enterprise-state-roaming-group-policy-settings.md)
 * [Windows 10 roaming settings reference](enterprise-state-roaming-windows-settings-reference.md)
 * [Troubleshooting](enterprise-state-roaming-troubleshooting.md)

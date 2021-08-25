@@ -4,48 +4,102 @@ description: Learn to register an Azure Functions binding extension based on you
 author: craigshoemaker
 
 ms.topic: reference
-ms.date: 07/08/2019
+ms.date: 08/16/2020
 ms.author: cshoe
 ---
 
 # Register Azure Functions binding extensions
 
-In Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow other functions access to all bindings through a configuration setting.
+Starting with Azure Functions version 2.x, the functions runtime only includes HTTP and timer triggers by default. Other [triggers and bindings](./functions-triggers-bindings.md) are available as separate packages.
 
-Consider the following items related to binding extensions:
-
-- Binding extensions aren't explicitly registered in Functions 1.x except when [creating a C# class library using Visual Studio](#local-csharp).
-
-- HTTP and timer triggers are supported by default and don't require an extension.
+.NET class library functions apps use bindings that are installed in the project as NuGet packages. Extension bundles allows non-.NET functions apps to use the same bindings without having to deal with the .NET infrastructure.
 
 The following table indicates when and how you register bindings.
 
-| Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 2.x  |
+| Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 3.x/2.x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure portal|Automatic|Automatic|
-|Non-.NET languages or local Azure Core Tools development|Automatic|[Use Azure Functions Core Tools and extension bundles](#extension-bundles)|
+|Azure portal|Automatic|Automatic<sup>*</sup>|
+|Non-.NET languages|Automatic|Use [extension bundles](#extension-bundles) (recommended) or [explicitly install extensions](#explicitly-install-extensions)|
 |C# class library using Visual Studio|[Use NuGet tools](#vs)|[Use NuGet tools](#vs)|
 |C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](#vs-code)|
 
-## <a name="extension-bundles"></a>Extension bundles for local development
+<sup>*</sup> Portal uses extension bundles.
 
-Extension bundles is a deployment technology that lets you add a compatible set of Functions binding extensions to your function app. A predefined set of extensions are added when you build your app. Extension packages defined in a bundle are compatible with each other, which helps you avoid conflicts between packages. You enable extension bundles in the app's host.json file.  
+## Access extensions in non-.NET languages
 
-You can use extension bundles with version 2.x and later versions of the Functions runtime. When developing locally, make sure you are using the latest version of [Azure Functions Core Tools](functions-run-local.md#v2).
+For Java, JavaScript, PowerShell, Python, and Custom Handler function apps, we recommended using extension bundles to access bindings. In cases where extension bundles cannot be used, you can explicitly install binding extensions.
 
-Use extension bundles for local development using Azure Functions Core Tools, Visual Studio Code, and when you build remotely.
+### <a name="extension-bundles"></a>Extension bundles
 
-If you don't use extension bundles, you must install the .NET Core 2.x SDK on your local computer before you install any binding extensions. Extension bundles removes this requirement for local development. 
+Extension bundles is a way to add a compatible set of binding extensions to your function app. You enable extension bundles in the app's *host.json* file.
 
-To use extension bundles, update the *host.json* file to include the following entry for `extensionBundle`:
- 
+You can use extension bundles with version 2.x and later versions of the Functions runtime.
+
+Extension bundles are versioned. Each version contains a specific set of binding extensions that are verified to work together. Select a bundle version based on the extensions that you need in your app.
+
+To add an extension bundle to your function app, add the `extensionBundle` section to *host.json*. In many cases, Visual Studio Code and Azure Functions Core Tools will automatically add it for you.
+
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-<a name="local-csharp"></a>
+The following table lists the currently available versions of the default *Microsoft.Azure.Functions.ExtensionBundle* bundle and links to the extensions they include.
 
-## <a name="vs"></a> C\# class library with Visual Studio
+| Bundle version | Version in host.json | Included extensions |
+| --- | --- | --- |
+| 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
+| 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v2.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
 
-In **Visual Studio**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
+> [!NOTE]
+> While you can a specify custom version range in host.json, we recommend you use a version value from this table.
+
+### Explicitly install extensions
+
+If you aren't able to use extension bundles, you can use Azure Functions Core Tools locally to install the specific extension packages required by your project.
+
+> [!IMPORTANT]
+> You can't explicitly install extensions in a function app that is using extension bundles. Remove the `extensionBundle` section in *host.json* before explicitly installing extensions.
+
+The following items describe some reasons you might need to install extensions manually:
+
+* You need to access a specific version of an extension not available in a bundle.
+* You need to access a custom extension not available in a bundle.
+* You need to access a specific combination of extensions not available in a single bundle.
+
+> [!NOTE]
+> To manually install extensions by using Core Tools, you must have the [.NET Core 2.x SDK](https://dotnet.microsoft.com/download) installed. The .NET Core SDK is used by Azure Functions Core Tools to install extensions from NuGet. You don't need to know .NET to use Azure Functions extensions.
+
+When you explicitly install extensions, a .NET project file named extensions.csproj is added to the root of your project. This file defines the set of NuGet packages required by your functions. While you can work with the [NuGet package references](/nuget/consume-packages/package-references-in-project-files) in this file, Core Tools lets you install extensions without having to manually edit the file.
+
+There are several ways to use Core Tools to install the required extensions in your local project. 
+
+#### Install all extensions 
+
+Use the following command to automatically add all extension packages used by the bindings in your local project:
+
+```command
+func extensions install
+```
+
+The command reads the *function.json* file to see which packages you need, installs them, and rebuilds the extensions project (extensions.csproj). It adds any new bindings at the current version but does not update existing bindings. Use the `--force` option to update existing bindings to the latest version when installing new ones. To learn more, see the [`func extensions install` command](functions-core-tools-reference.md#func-extensions-install).
+
+If your function app uses bindings that Core Tools does not recognize, you must manually install the specific extension.
+
+#### Install a specific extension
+
+Use the following command to install a specific extension package at a specific version, in this case the Storage extension:
+
+```command
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 4.0.2
+```
+
+To learn more, see the [`func extensions install` command](functions-core-tools-reference.md#func-extensions-install).
+
+## <a name="local-csharp"></a>Install extensions from NuGet in .NET languages
+
+For a C# class library-based functions project, you should install extensions directly. Extension bundles is designed specifically for projects that aren't C# class library-based.
+
+### <a name="vs"></a> C\# class library with Visual Studio
+
+In **Visual Studio**, you can install packages from the Package Manager Console using the [Install-Package](/nuget/tools/ps-ref-install-package) command, as shown in the following example:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
@@ -57,9 +111,9 @@ Replace `<TARGET_VERSION>` in the example with a specific version of the package
 
 If you use `Install-Package` to reference a binding, you don't need to use [extension bundles](#extension-bundles). This approach is specific for class libraries built in Visual Studio.
 
-## <a name="vs-code"></a> C# class library with Visual Studio Code
+### <a name="vs-code"></a> C# class library with Visual Studio Code
 
-In **Visual Studio Code**, install packages for a C# class library project from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI. The following example demonstrates how you add a  binding:
+In **Visual Studio Code**, install packages for a C# class library project from the command prompt using the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI. The following example demonstrates how you add a  binding:
 
 ```terminal
 dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>

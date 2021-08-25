@@ -12,10 +12,8 @@
 
 The following configuration was used for the steps below:
 
-  | | |
-  |---|---|
-  |Computer| Ubuntu Server 18.04|
-  |Dependencies| strongSwan |
+- Computer: Ubuntu Server 18.04
+- Dependencies: strongSwan
 
 
 Use the following commands to install the required strongSwan configuration:
@@ -38,4 +36,4 @@ Use the following command to install the Azure command-line interface:
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
-[Additional instructions on how to install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+[Additional instructions on how to install the Azure CLI](/cli/azure/install-azure-cli-apt)

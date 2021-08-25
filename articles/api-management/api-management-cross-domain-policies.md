@@ -12,11 +12,11 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 03/01/2021
 ms.author: apimpm
 ---
 # API Management cross domain policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).
 
 ## <a name="CrossDomainPolicies"></a> Cross domain policies
 
@@ -40,9 +40,7 @@ Use the `cross-domain` policy to make the API accessible from Adobe Flash and Mi
 
 ```xml
 <cross-domain>
-    <cross-domain>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain>
 </cross-domain>
 ```
 
@@ -53,20 +51,25 @@ Use the `cross-domain` policy to make the API accessible from Adobe Flash and Mi
 |cross-domain|Root element. Child elements must conform to the [Adobe cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Yes|
 
 ### Usage
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 - **Policy sections:** inbound
 - **Policy scopes:** all scopes
 
 ## <a name="CORS"></a> CORS
-The `cors` policy adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
+The `cors` policy adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients. 
+
+> [!NOTE]
+> If request matches an operation with an OPTIONS method defined in the API, pre-flight request processing logic associated with CORS policies will not be executed. Therefore, such operations can be used to implement custom pre-flight processing logic.
 
 CORS allows a browser and a server to interact and determine whether or not to allow specific cross-origin requests (i.e. XMLHttpRequests calls made from JavaScript on a web page to other domains). This allows for more flexibility than only allowing same-origin requests, but is more secure than allowing all cross-origin requests.
+
+You need to apply the CORS policy to enable the interactive console in the developer portal. Refer to the [developer portal documentation](./developer-portal-faq.md#cors) for details.
 
 ### Policy statement
 
 ```xml
-<cors allow-credentials="false|true">
+<cors allow-credentials="false|true" terminate-unmatched-request="true|false">
     <allowed-origins>
         <origin>origin uri</origin>
     </allowed-origins>
@@ -133,10 +136,11 @@ This example demonstrates how to support pre-flight requests, such as those with
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|The `Access-Control-Allow-Credentials` header in the preflight response will be set to the value of this attribute and affect the client's ability to submit credentials in cross-domain requests.|No|false|
+|terminate-unmatched-request|This attribute controls the processing of cross-origin requests that don't match the CORS policy settings. When OPTIONS request is processed as a pre-flight request and doesn't match CORS policy settings: If the attribute is set to `true`, immediately terminate the request with an empty 200 OK response; If the attribute is set to `false`, check inbound for other in-scope CORS policies that are direct children of the inbound element and apply them.  If no CORS policies are found, terminate the request with an empty 200 OK response. When GET or HEAD request includes the Origin header (and therefore is processed as a cross-origin request) and doesn't match CORS policy settings: If the attribute is set to `true`, immediately terminate the request with an empty 200 OK response; If the attribute is set to `false`, allow the request to proceed normally and don't add CORS headers to the response.|No|true|
 |preflight-result-max-age|The `Access-Control-Max-Age` header in the preflight response will be set to the value of this attribute and affect the user agent's ability to cache pre-flight response.|No|0|
 
 ### Usage
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 - **Policy sections:** inbound
 - **Policy scopes:** all scopes
@@ -173,7 +177,7 @@ If you add the callback parameter `?cb=XXX` it will return a JSONP result, wrapp
 |callback-parameter-name|The cross-domain JavaScript function call prefixed with the fully qualified domain name where the function resides.|Yes|N/A|
 
 ### Usage
-This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 - **Policy sections:** outbound
 - **Policy scopes:** all scopes
@@ -184,5 +188,5 @@ For more information working with policies, see:
 
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)
++ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
++ [Policy samples](./policy-reference.md)

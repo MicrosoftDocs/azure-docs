@@ -39,13 +39,13 @@ Conditional Access App Control enables user app access and sessions to be monito
 - Prevent data exfiltration: You can block the download, cut, copy, and print of sensitive documents on, for example, unmanaged devices.
 - Protect on download: Instead of blocking the download of sensitive documents, you can require documents to be labeled and protected with Azure Information Protection. This action ensures the document is protected and user access is restricted in a potentially risky session.
 - Prevent upload of unlabeled files: Before a sensitive file is uploaded, distributed, and used by others, it’s important to make sure that the file has the right label and protection. You can ensure that unlabeled files with sensitive content are blocked from being uploaded until the user classifies the content.
-- Monitor user sessions for compliance: Risky users are monitored when they sign into apps and their actions are logged from within the session. You can investigate and analyze user behavior to understand where, and under what conditions, session policies should be applied in the future.
-- Block access: You can granularly block access for specific apps and users depending on several risk factors. For example, you can block them if they are using client certificates as a form of device management.
+- Monitor user sessions for compliance (Preview): Risky users are monitored when they sign into apps and their actions are logged from within the session. You can investigate and analyze user behavior to understand where, and under what conditions, session policies should be applied in the future.
+- Block access (Preview): You can granularly block access for specific apps and users depending on several risk factors. For example, you can block them if they are using client certificates as a form of device management.
 - Block custom activities: Some apps have unique scenarios that carry risk, for example, sending messages with sensitive content in apps like Microsoft Teams or Slack. In these kinds of scenarios, you can scan messages for sensitive content and block them in real time.
 
 For more information, see the article [Deploy Conditional Access App Control for featured apps](/cloud-app-security/proxy-deployment-aad).
 
-## Sign-in frequency (Preview)
+## Sign-in frequency
 
 Sign-in frequency defines the time period before a user is asked to sign in again when attempting to access a resource.
 
@@ -54,7 +54,7 @@ Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC p
 - Word, Excel, PowerPoint Online
 - OneNote Online
 - Office.com
-- O365 Admin portal
+- Microsoft 365 Admin portal
 - Exchange Online
 - SharePoint and OneDrive
 - Teams web client
@@ -63,7 +63,7 @@ Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC p
 
 For more information, see the article [Configure authentication session management with Conditional Access](howto-conditional-access-session-lifetime.md#user-sign-in-frequency).
 
-## Persistent browser session (Preview)
+## Persistent browser session
 
 A persistent browser session allows users to remain signed in after closing and reopening their browser window.
 

@@ -1,6 +1,6 @@
 ---
-title: Set up a mobile device as your two-factor verification method - Azure Active Directory | Microsoft Docs
-description: Learn how to set up a mobile device as your two-factor verification method.
+title: Set up a mobile device as your two-step verification method - Azure Active Directory | Microsoft Docs
+description: Learn how to set up a mobile device as your two-step verification method.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,14 +8,14 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ---
 
-# Set up a mobile device as your two-factor verification method
+# Set up a mobile device as your two-step verification method
 
-You can set up your mobile device to act as your two-factor verification method. Your mobile phone can either receive a text message with a verification code or a phone call.
+You can set up your mobile device to act as your two-step verification method. Your mobile phone can either receive a text message with a verification code or a phone call.
 
 >[!Note]
 > If the authentication phone option is greyed out, it's possible that your organization doesn't allow you to use a phone number or text message for verification. In this case, you'll need to select another method or contact your administrator for more help.
@@ -26,7 +26,7 @@ You can set up your mobile device to act as your two-factor verification method.
 
 2. Select **Send me a code by text message** from the **Method** area, and then select **Next**.
 
-    ![Additional security verification page, with authentication phone and text message](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
+    ![Screenshot that shows the "Additional security verification" page, with "Authentication phone" and "Send me a code by text message" selected.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
 
 3. Type the verification code from the text message sent from Microsoft into the **Step 2: We've sent a text message to your phone** area, and then select **Verify**.
 
@@ -37,7 +37,7 @@ You can set up your mobile device to act as your two-factor verification method.
     ![App passwords area of the Additional security verification page](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
     >[!Note]
-    >For information about how to use the app password with your older apps, see [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md). You only need to use app passwords if you're continuing to use older apps that don't support two-factor verification.
+    >For information about how to use the app password with your older apps, see [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md). You only need to use app passwords if you're continuing to use older apps that don't support two-step verification.
 
 5. Select **Done**.
 
@@ -58,18 +58,18 @@ You can set up your mobile device to act as your two-factor verification method.
     ![App passwords area of the Additional security verification page](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
     >[!Note]
-    >For information about how to use the app password with your older apps, see [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md). You only need to use app passwords if you're continuing to use older apps that don't support two-factor verification.
+    >For information about how to use the app password with your older apps, see [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md). You only need to use app passwords if you're continuing to use older apps that don't support two-step verification.
 
 5. Select **Done**.
 
 ## Next steps
 
-After you've set up your two-factor verification method, you can add additional methods, manage your settings and app passwords, sign-in, or get help with some common two-factor verification-related problems.
+After you've set up your two-step verification method, you can add additional methods, manage your settings and app passwords, sign-in, or get help with some common two-step verification-related problems.
 
-- [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md)
+- [Manage your two-step verification method settings](multi-factor-authentication-end-user-manage-settings.md)
 
 - [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md)
 
-- [Sign-in using two-factor verification](multi-factor-authentication-end-user-signin.md)
+- [Sign-in using two-step verification](multi-factor-authentication-end-user-signin.md)
 
-- [Get help with two-factor verification](multi-factor-authentication-end-user-troubleshoot.md)
+- [Get help with two-step verification](multi-factor-authentication-end-user-troubleshoot.md)
