@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix request rate too large exceptions.
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/13/2020
+ms.date: 08/25/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -91,7 +91,7 @@ This sample output shows that in a particular minute, the logical partition key 
 Review the guidance on [how to chose a good partition key](./partitioning-overview.md#choose-partitionkey).
 
 If there is high percent of rate limited requests and no hot partition:
-- You can [increase the RU/s](set-throughput.md) on the database or container using the client SDKs, Azure portal, PowerShell, CLI or ARM template.  
+- You can [increase the RU/s](set-throughput.md) on the database or container using the client SDKs, Azure portal, PowerShell, CLI or ARM template. Follow [best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md) to determine the right RU/s to set.
 
 If there is high percent of rate limited requests and there is an underlying hot partition:
 -  Long-term, for best cost and performance, consider **changing the partition key**. The partition key cannot be updated in place, so this requires migrating the data to a new container with a different partition key. Azure Cosmos DB supports a [live data migration tool](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/) for this purpose.
