@@ -84,6 +84,7 @@ Based on your sources, you may also need to allow the domains of other Azure or 
 | `<storage account>.core.windows.net`          | 443            | Optional, to connect to an Azure Storage account. |
 | `*.database.windows.net`      | 1433           | Optional, to connect to Azure SQL Database or Azure Synapse Analytics. |
 | `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | Optional, to connect to Azure Data Lake Store Gen 1. |
+| `<datastoragename>.dfs.core.windows.net`    | 443            | Optional, to connect to Azure Data Lake Store Gen 2. |
 | `<your Key Vault Name>.vault.azure.net` | 443           | Required if any credentials are stored in Azure Key Vault. |
 | Various Domains | Dependant          | Domains for any other sources the SHIR will connect to. |
   
