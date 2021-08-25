@@ -72,7 +72,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
     ![Deployed Modules](./media/vscode-common-screenshots/avaedge-module.png)
     
     > [!WARNING] 
-    > To run memory-intensive AI models like YOLO, you may have to increase the resources allotted to the EFLOW VM. First, exit the EFLOW VM and return to the Windows PowerShell terminal. Then, run the command `Set-EflowVM` on PowerShell with elevated privilege. After running command, input your desired parameters by following the prompts in PowerShell, for example `cpuCount: 1`, `memoryInMB: 2048`. Afterwards, re-activate the live pipeline to view inferences.
+    > To run memory-intensive AI models like YOLO, you may have to increase the resources allotted to the EFLOW VM. First, exit the EFLOW VM and return to the Windows PowerShell terminal by typing `exit`. Then, run the command `Set-EflowVM` on PowerShell with elevated privilege. After running the command, input your desired [parameters](../../iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvm) by following the prompts in PowerShell, for example `cpuCount: 1`, `memoryInMB: 2048`. After a few minutes, re-activate the live pipeline to view inferences. If you are encountering connection issues (such as Error 137 or 255 listed on IoT Hub), you may have to re-run this step. 
 
 1. With the modules deployed and set up, you are ready to run your first AVA pipeline on EFLOW. You can run a simple motion detection pipeline as below and visualize the results by executing the following steps:
 
