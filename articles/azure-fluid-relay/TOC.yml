@@ -1,0 +1,20 @@
+- name: Azure Fluid Relay Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Fluid Relay?
+    href: overview/overview.md
+- name: Quickstarts
+  items:
+  - name: Azure Fluid Relay quickstart
+    href: quickstarts/fluid-quickstart.md
+- name: Concepts
+  items:
+  - name: Architecture
+    href: concepts/architecture.md
+  - name: Container Runtime
+    href: concepts/containers-runtime.md
+- name: Resources
+  items:
+  - name: Fluid Framework homepage
+    href: https://fluidframework.com
