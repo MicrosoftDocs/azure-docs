@@ -42,7 +42,7 @@ If you use your cloudadmin credentials for connected services like HCX, vRealize
  
 3. Select the correct connection to Azure VMware Solution and select **Edit Connection**.
  
-4. Provide the new vCenter Server CloudAdmin user credentials and select **Edit**, which saves the credentials. Save should show successful.
+4. Provide the new vCenter user credentials and select **Edit**, which saves the credentials. Save should show successful.
 
 
 ## Next steps
