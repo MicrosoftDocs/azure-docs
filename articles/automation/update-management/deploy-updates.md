@@ -3,7 +3,7 @@ title: How to create update deployments for Azure Automation Update Management
 description: This article describes how to schedule update deployments and review their status.
 services: automation
 ms.subservice: update-management
-ms.date: 06/24/2021
+ms.date: 08/25/2021
 ms.topic: conceptual
 ---
 
@@ -164,6 +164,36 @@ Select **All logs** to see all log entries that the deployment has created.
 Select **Output** to see the job stream of the runbook responsible for managing the update deployment on the target VMs.
 
 Select **Errors** to see detailed information about any errors from the deployment.
+
+## Deploy updates across Azure tenants
+
+If you have machines that need patching in another Azure tenant reporting to Update Management, you must use a following workaround to get them scheduled. You can use the [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) cmdlet with the `ForUpdateConfiguration` parameter specified to create a schedule. You can use the [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) cmdlet and pass the machines in the other tenant to the `NonAzureComputer` parameter. The following example shows how to do this.
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$sched = New-AzAutomationSchedule `
+    -ResourceGroupName mygroup `
+    -AutomationAccountName myaccount `
+    -Name myupdateconfig `
+    -Description test-OneTime `
+    -OneTime `
+    -StartTime $startTime `
+    -ForUpdateConfiguration
+
+New-AzAutomationSoftwareUpdateConfiguration  `
+    -ResourceGroupName $rg `
+    -AutomationAccountName <automationAccountName> `
+    -Schedule $sched `
+    -Windows `
+    -NonAzureComputer $nonAzurecomputers `
+    -Duration (New-TimeSpan -Hours 2) `
+    -IncludedUpdateClassification Security,UpdateRollup `
+    -ExcludedKbNumber KB01,KB02 `
+    -IncludedKbNumber KB100
+```
 
 ## Next steps
 
