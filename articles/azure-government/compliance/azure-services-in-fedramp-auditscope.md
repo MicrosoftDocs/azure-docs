@@ -4,7 +4,7 @@ description: This article tracks FedRAMP, DoD, and ICD 503 compliance scope for 
 ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
-ms.date: 08/12/2021
+ms.date: 08/20/2021
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -389,7 +389,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Power BI](https://powerbi.microsoft.com/) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Power Data Integrator](/power-platform/admin/data-integrator) (formerly Dynamics 365 Integrator App) | &#x2705; | &#x2705; | &#x2705; | | |
-| [Power Query Online](/powerquery.microsoft.com/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Power Query Online](https://powerquery.microsoft.com/) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Power Virtual Agents](/power-virtual-agents/fundamentals-what-is-power-virtual-agents) | &#x2705; | | | | |
 | [Private Link](https://azure.microsoft.com/services/private-link/) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Service Bus](https://azure.microsoft.com/services/service-bus/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

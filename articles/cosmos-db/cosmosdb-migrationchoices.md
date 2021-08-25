@@ -36,6 +36,9 @@ The following factors determine the choice of the migration tool:
 
 ## Azure Cosmos DB SQL API
 
+If you need help with capacity planning, consider reading our [guide to estimating RU/s using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md). 
+* If you are migrating from a vCores- or server-based platform and you need guidance on estimating request units, consider reading our [guide to estimating RU/s based on vCores](estimate-ru-with-capacity-planner.md).
+
 |Migration type|Solution|Supported sources|Supported targets|Considerations|
 |---------|---------|---------|---------|---------|
 |Offline|[Data Migration Tool](import-data.md)| &bull;JSON/CSV Files<br/>&bull;Azure Cosmos DB SQL API<br/>&bull;MongoDB<br/>&bull;SQL Server<br/>&bull;Table Storage<br/>&bull;AWS DynamoDB<br/>&bull;Azure Blob Storage|&bull;Azure Cosmos DB SQL API<br/>&bull;Azure Cosmos DB Tables API<br/>&bull;JSON Files |&bull; Easy to set up and supports multiple sources. <br/>&bull; Not suitable for large datasets.|
@@ -48,6 +51,20 @@ The following factors determine the choice of the migration tool:
 
 ## Azure Cosmos DB Mongo API
 
+Follow the [pre-migration guide](mongodb/pre-migration-steps.md) to plan your migration. 
+* If you need help with capacity planning, consider reading our [guide to estimating RU/s using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md). 
+* If you are migrating from a vCores- or server-based platform and you need guidance on estimating request units, consider reading our [guide to estimating RU/s based on vCores](convert-vcore-to-request-unit.md).
+
+When you are ready to migrate, you can find detailed guidance on migration tools below
+* [Offline migration using MongoDB native tools](mongodb/tutorial-mongotools-cosmos-db.md)
+* [Offline migration using Azure database migration service (DMS)](../dms/tutorial-mongodb-cosmos-db.md)
+* [Online migration using Azure database migration service (DMS)](../dms/tutorial-mongodb-cosmos-db-online.md)
+* [Offline/online migration using Azure Databricks and Spark](mongodb/migrate-databricks.md)
+
+Then, follow our [post-migration guide](mongodb/post-migration-optimization.md) to optimize your Azure Cosmos DB data estate once you have migrated.
+
+A summary of migration pathways from your current solution to Azure Cosmos DB API for MongoDB is provided below:
+
 |Migration type|Solution|Supported sources|Supported targets|Considerations|
 |---------|---------|---------|---------|---------|
 |Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)| MongoDB|Azure Cosmos DB API for MongoDB |&bull; Makes use of the Azure Cosmos DB bulk executor library. <br/>&bull; Suitable for large datasets and takes care of replicating live changes. <br/>&bull; Works only with other MongoDB sources.|
@@ -56,6 +73,8 @@ The following factors determine the choice of the migration tool:
 |Offline|[Existing Mongo Tools (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|MongoDB | Azure Cosmos DB API for MongoDB| &bull; Easy to set up and integration. <br/>&bull; Needs custom handling for throttles.|
 
 ## Azure Cosmos DB Cassandra API
+
+If you need help with capacity planning, consider reading our [guide to estimating RU/s using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md). 
 
 |Migration type|Solution|Supported sources|Supported targets|Considerations|
 |---------|---------|---------|---------|---------|
