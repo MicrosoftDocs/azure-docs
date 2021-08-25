@@ -68,7 +68,8 @@ At Microsoft, we want to put admins in control by providing the right insights a
     - Use applications that have been publisher verified. [Publisher verification](../develop/publisher-verification-overview.md) helps admins and end users understand the authenticity of application developers through a Microsoft supported vetting process.
     - [Configure user consent settings](./configure-user-consent.md?tabs=azure-portal) to allow users to only consent to specific applications you trust, such as application developed by your organization or from verified publishers.
     - Create proactive [app governance](/microsoft-365/compliance/app-governance-manage-app-governance?view=o365-worldwide&preserve-view=true) policies to monitor third-party app behavior on the Microsoft 365 platform to address common suspicious app behaviors.
-
+* Know how to spot and block common consent phishing tactics
+    - Check for poor spelling and grammar. If an email message or the application’s consent screen has spelling and grammatical errors, it’s likely a suspicious application. In that case, you can report it directly on the [consent prompt](../develop/application-consent-experience.md#building-blocks-of-the-consent-prompt) with the “*Report it here*” link and Microsoft will investigate if it is a malicious application and disable it, if confirmed.
 
 ## Next steps
 
