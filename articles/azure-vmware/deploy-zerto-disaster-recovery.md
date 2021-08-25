@@ -10,7 +10,7 @@ ms.date: 08/31/2021
 
 # Deploy Zerto Disaster Recovery on Azure VMware Solution (Initial Availability)
 
-This article explains how to implement disaster recovery (DR) for on-premises VMware or Azure VMware Solution-based virtual machines (VMs).  The solution in this article uses [Zerto Disaster Recovery](https://www.zerto.com/solutions/use-cases/disaster-recovery/). Instances of Zerto are deployed at both the protected and the recovery sites. 
+This article explains how to implement disaster recovery (DR) for on-premises VMware or Azure VMware Solution-based virtual machines (VMs). The solution in this article uses [Zerto Disaster Recovery](https://www.zerto.com/solutions/use-cases/disaster-recovery/). Instances of Zerto are deployed at both the protected and the recovery sites. 
 
 Zerto is a disaster recovery solution designed to minimize downtime of the VMs if there was a disaster. Zerto's platform is built on the foundation of Continuous Data Protection (CDP), which enables minimal or close to no data loss. It provides the level of protection wanted for many business-critical and mission-critical enterprise applications. Zerto also automates and orchestrates failover and failback, ensuring minimal downtime in a disaster. Overall, Zerto simplifies management through automation and ensures fast and highly predictable recovery times.
 
@@ -23,7 +23,7 @@ Zerto is a disaster recovery solution designed to minimize downtime of the VMs i
 | **Zerto Virtual Manager (ZVM)**   | Management application for Zerto implemented as a Windows service installed on a Windows VM. The private cloud administrator installs and manages the Windows VM. The ZVM enables Day 0 and Day 2 DR configuration. For example, configuring primary and disaster recovery sites, protecting VMs, recovering VMs, and so on. However, it doesn't handle the replication data of the protected customer VMs.     |
 | **Virtual Replication appliance (vRA)**   | Linux VM to handle data replication from the source to the replication target. One instance of vRA is installed per ESXi host, delivering a true scale architecture that grows and shrinks along with the Private Cloud's hosts. The VRA manages data replication to and from protected VMs to its local or remote target, storing the data in the journal.    |
 | **Zerto ESXi host driver**   | Installed on each VMware ESXi host configured for Zerto DR. The host driver intercepts a vSphere VM's IO and sends the replication data to the chosen vRA for that host. The vRA is then responsible for replicating the VM's data to one or more DR targets.    |
-| **Zerto Cloud Appliance (ZCA)**   | Windows VM only used when Zerto is used to recover vSphere VMs as Azure Native IaaS VMs. The ZCA is composed of:<ul><li>**ZVM:** A Windows service that hosts the UI and integrates with the native APIs of Azure for management and orchestration.</li><li>**VRA:** A Windows service that replicates the data from or to Azure.</li></ul>The ZCA integrates natively with the platform it's deployed on, allowing you to use Azure Blob storage within a storage account on Microsoft Azure. It ensures the most cost-efficient deployment on each of these platforms.   |
+| **Zerto Cloud Appliance (ZCA)**   | Windows VM only used when Zerto is used to recover vSphere VMs as Azure Native IaaS VMs. The ZCA is composed of:<ul><li>**ZVM:** A Windows service that hosts the UI and integrates with the native APIs of Azure for management and orchestration.</li><li>**VRA:** A Windows service that replicates the data from or to Azure.</li></ul>The ZCA integrates natively with the platform it's deployed on, allowing you to use Azure Blob storage within a storage account on Microsoft Azure. As a result, it ensures the most cost-efficient deployment on each of these platforms.   |
 | **Virtual Protection Group (VPG)**   | Logical group of VMs created on the ZVM. Zerto allows configuring DR, Backup, and Mobility policies on a VPG. This mechanism enables a consistent set of policies to be applied to a group of VMs.  |
 
 
@@ -110,7 +110,7 @@ To configure Zerto for the On-premise VMware to Azure VMware Solution DR and Azu
 
 To configure the Azure VMware Solution Iaas VMs cloud DR scenario, see [tbd]().
 
-For more information, see the [Zerto technical documentation](https://www.zerto.com/myzerto/technical-documentation/). Alternatively, you can download all the Zerto guides that are part of the [v8.5 Search Tool for Zerto Software PDFs documentation bundle](https://s3.amazonaws.com/zertodownload_docs/8.5_Latest/SEARCH_TOOL.zip?cb=1629311409).
+For more information, see the [Zerto technical documentation](https://www.zerto.com/myzerto/technical-documentation/). Alternatively, you can download all the Zerto guides part of the [v8.5 Search Tool for Zerto Software PDFs documentation bundle](https://s3.amazonaws.com/zertodownload_docs/8.5_Latest/SEARCH_TOOL.zip?cb=1629311409).
 
 
 
