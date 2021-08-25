@@ -62,7 +62,7 @@ After the secondary is created and seeded, data begins replicating from the prim
 
     :::image type="content" source="./media/active-geo-replication-configure-portal/azure-cli-create-geo-replica.png" alt-text="Configure geo-replication":::
 
-3. Select or create the server for the secondary database, and configure the **Compute + storage** options if necessary. You can select any region for your secondary server other than the region hosting the primary database, but we recommend the [paired region](../../best-practices-availability-paired-regions.md).
+3. Select or create the server for the secondary database, and configure the **Compute + storage** options if necessary. You can select any region for your secondary server, but we recommend the [paired region](../../best-practices-availability-paired-regions.md).
 
     :::image type="content" source="./media/active-geo-replication-configure-portal/azure-portal-create-and-configure-replica.png" alt-text="{alt-text}":::
 
@@ -90,9 +90,9 @@ Select the database you want to set up for geo-replication. You'll need the foll
 - The name of the server to create the new replica in.
 
 > [!NOTE]
-> The secondary database must have the same edition as the primary.
+> The secondary database must have the same service tier as the primary.
 
-For the replica server region, you can select any region other than the region hosting the primary database, but we recommend the [paired region](../../best-practices-availability-paired-regions.md).
+You can select any region for your secondary server, but we recommend the [paired region](../../best-practices-availability-paired-regions.md).
 
 Run the [az sql db replica create](/cli/azure/sql/db/replica#az_sql_db_replica_create) command.
 
