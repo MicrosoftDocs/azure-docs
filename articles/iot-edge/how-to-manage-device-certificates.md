@@ -63,7 +63,7 @@ Install your certificate chain on the IoT Edge device and configure the IoT Edge
 
 Copy the three certificate and key files onto your IoT Edge device. 
 
-If you used the sample scripts to [Create demo certificates](how-to-create-test-certificates.md), the three certificate and key files are located at the following paths:
+If you used the sample scripts to [create demo certificates](how-to-create-test-certificates.md), the three certificate and key files are located at the following paths:
 
 * Device CA certificate: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
 * Device CA private key: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
