@@ -38,11 +38,10 @@ Before you begin the tutorial, you need to [Complete prerequisites for creating 
 
 The following table lists the prerequisites that you need to complete before starting this tutorial:
 
-| Requirement |Description |
-|----- |----- |----- |
+| Requirement | Description |
+|----- |----- |
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial-multi-subnet/square.png" border="false":::   **Two SQL Server instances** | - In an Azure availability zone or availability set <br/> - In separate subnet within an Azure Virtual Network <br/> - With secondary IPs assigned <br/> - In a single domain <br/> - With Failover Clustering feature installed <br/> |
-|:::image type="icon" source="./media/availability-group-manually-configure-tutorial-multi-subnet/square.png" border="false":::   **SQL Server service account** | Domain account |
-|:::image type="icon" source="./media/availability-group-manually-configure-tutorial-multi-subnet/square.png" border="false":::   **SQL Server Agent service account** | Domain account |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial-multi-subnet/square.png" border="false":::   **SQL Server service account** | Domain account | 
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial-multi-subnet/square.png" border="false":::   **Firewall ports open** | - SQL Server: **1433** for default instance <br/> - Database mirroring endpoint: **5022** or any available port <br/> |
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial-multi-subnet/square.png" border="false":::   **Add Failover Clustering Feature** | Both SQL Server instances require this feature |
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial-multi-subnet/square.png" border="false":::   **Installation domain account** | - Local administrator on each SQL Server <br/> - Member of SQL Server sysadmin fixed server role for each instance of SQL Server  |
@@ -53,132 +52,102 @@ The following table lists the prerequisites that you need to complete before sta
 
 ## Create the cluster
 
-After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Severs and a witness server.
+After the prerequisites are completed, the first step is to create a Windows Server Failover Cluster that includes two SQL Server VMs and a cloud witness.
 
-1. Use Remote Desktop Protocol (RDP) to connect to the first SQL Server. Use a domain account that is an administrator on both SQL Servers and the witness server.
+1. Use Remote Desktop Protocol (RDP) to connect to the first SQL Server VM **SQL-VM-1**. Use a domain account that is an administrator on both the SQL Server VMs. 
 
    >[!TIP]
-   >If you followed the [prerequisites document](availability-group-manually-configure-prerequisites-tutorial.md), you created an account called **CORP\Install**. Use this account.
+   >If you followed the [prerequisites document](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md), you created an account called **CORP\Install**. Use this account.
 
 2. In the **Server Manager** dashboard, select **Tools**, and then select **Failover Cluster Manager**.
 3. In the left pane, right-click **Failover Cluster Manager**, and then select **Create a Cluster**.
 
-   ![Create Cluster](./media/availability-group-manually-configure-tutorial-multi-subnet/40-createcluster.png)
+   ![Create Cluster](./media/availability-group-manually-configure-tutorial-multi-subnet/01-createcluster.png)
 
-4. In the Create Cluster Wizard, create a one-node cluster by stepping through the pages with the settings in the following table:
+4. In the Create Cluster Wizard, create a two-node cluster by stepping through the pages with the settings in the following table:
 
    | Page | Settings |
    | --- | --- |
    | Before You Begin |Use defaults |
-   | Select Servers |Type the first SQL Server name in **Enter server name** and select **Add**. |
-   | Validation Warning |Select **No. I do not require support from Microsoft for this cluster, and therefore do not want to run the validation tests. When I select Next, continue Creating the cluster**. |
+   | Select Servers |Type the first SQL Server name **SQL-VM-1** in **Enter server name** and select **Add**.<br/>Type the second SQL Server name **SQL-VM-2** in **Enter server name** and select **Add**. |
+   | Validation Warning |Select **Yes. When I click Next, run configuration validation tests, and then return to the process of creating the cluster**. |
+   | Before you Begin | Select Next |
+   | Testing Options | Run only the tests I select |
+   | Test Selection | Uncheck Storage. Ensure **Inventory**, **Network** and **System Configuration** are selected. 
+   | Confirmation | Select Next.<br/>Wait for the validation to complete.<br/>Select **View Report** to review the report. You can safely ignore the warning regarding VMs being reacheable on only one network interface. Azure infrastructure has physical redundancy and therefore it is not required to add additional network interfaces.<br/> Select **Finish**|
    | Access Point for Administering the Cluster |Type a cluster name, for example **SQLAGCluster1** in **Cluster Name**.|
-   | Confirmation |Use defaults unless you are using Storage Spaces. See the note following this table. |
+   | Confirmation | Uncheck **Add all eligible storage to the cluster** and select **Next**. |
+   | Summary | Select **Finish** | 
+   >[!WARNING]
+   >If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they don't appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)).
+   > 
+   
 
 ### Set the Windows server failover cluster IP address
 
   > [!NOTE]
   > On Windows Server 2019, the cluster creates a **Distributed Server Name** instead of the **Cluster Network Name**. If you're using Windows Server 2019, skip any steps that refer to the cluster core name in this tutorial. You can create a cluster network name using [PowerShell](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-failover-cluster). Review the blog [Failover Cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) for more information. 
 
-1. In **Failover Cluster Manager**, scroll down to **Cluster Core Resources** and expand the cluster details. You should see both the **Name** and the **IP Address** resources in the **Failed** state. The IP address resource cannot be brought online because the cluster is assigned the same IP address as the machine itself, therefore it is a duplicate address.
+1. In **Failover Cluster Manager**, scroll down to **Cluster Core Resources** and expand the cluster details. You should see the **Name** and the two **IP Address** resources from each subnet in the **Failed** state. The IP address resource cannot be brought online because the cluster is assigned the same IP addresses as the VMs itself, therefore it is a duplicate address.
 
-2. Right-click the failed **IP Address** resource, and then select **Properties**.
+2. If you followed the [prerequisites document](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md), you added following secondary IPs to the two SQL Server VMs to be used for Windows Server Failover Cluster. 
+   
+   | VM Name | Subnet name | Subnet address range | Secondary IP name | Secondary IP address |
+   | --- | --- | --- | --- | --- |
+   | SQL-VM-1 | SQL-subnet-1 | 10.38.1.0/24 | windows-cluster-ip | 10.38.1.10 |
+   | SQL-VM-2 | SQL-subnet-2 | 10.38.2.0/24 | windows-cluster-ip | 10.38.2.10
 
-   ![Cluster Properties](./media/availability-group-manually-configure-tutorial-multi-subnet/42_IPProperties.png)
+3. Right-click the first failed **IP Address** resource, and then select **Properties**.
 
-3. Select **Static IP Address** and specify an available address from the same subnet as your virtual machines.
+   ![Cluster Properties](./media/availability-group-manually-configure-tutorial-multi-subnet/02-failed-ip-address.png)
 
-4. In the **Cluster Core Resources** section, right-click cluster name and select **Bring Online**. Wait until both resources are online. When the cluster name resource comes online, it updates the domain controller (DC) server with a new Active Directory (AD) computer account. Use this AD account to run the availability group clustered service later.
+4. Select **Static IP Address** and specify the secondary IP that was dedicated for windows cluster from the same subnet and select **Ok** 
+   
+    ![Static IP](./media/availability-group-manually-configure-tutorial-multi-subnet/03-first-static-ipaddress.png)
 
-### <a name="addNode"></a>Add the other SQL Server to cluster
+5. Repeat the steps for the second failed **IP Address** resource. 
 
-Add the other SQL Server to the cluster.
+    ![Static IP](./media/availability-group-manually-configure-tutorial-multi-subnet/04-second-static-ipaddress.png)
 
-1. In the browser tree, right-click the cluster and select **Add Node**.
+6. In the **Cluster Core Resources** section, right-click cluster name and select **Bring Online**. Wait until the name and one of the IP address resource are online. Since the VMs are in different subnets the cluster created will have an OR dependency on the two IP addresses and thus eliminates the need to have an IP address from Azure Load Balancer. When the cluster name resource comes online, it updates the domain controller (DC) server with a new Active Directory (AD) computer account. 
 
-    ![Add Node to the Cluster](./media/availability-group-manually-configure-tutorial-multi-subnet/44-addnode.png)
+### View and copy access keys for cloud witness Azure Storage Account
 
-1. In the **Add Node Wizard**, select **Next**. In the **Select Servers** page, add the second SQL Server. Type the server name in **Enter server name** and then select **Add**. When you are done, select **Next**.
+When you create a Microsoft Azure Storage Account, it is associated with two Access Keys that are automatically generated - Primary Access key and Secondary Access key. For a first-time creation of Cloud Witness, use the Primary Access Key. There is no restriction regarding which key to use for Cloud Witness.
 
-1. In the **Validation Warning** page, select **No** (in a production scenario you should perform the validation tests). Then, select **Next**.
+To view and copy storage access keys for the Azure Storage Account created in [prerequisites document](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md)
 
-8. In the **Confirmation** page if you are using Storage Spaces, clear the checkbox labeled **Add all eligible storage to the cluster.**
+1. In the portal, open the **SQL-HA-RG** resource group and select the storage account you created. 
+2. Under **Security + networking** select **Access Keys**
+3. Select **Show Keys** and copy the key
 
-   ![Add Node Confirmation](./media/availability-group-manually-configure-tutorial-multi-subnet/46-addnodeconfirmation.png)
-
-   >[!WARNING]
-   >If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they don't appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)).
-   >
-
-1. Select **Next**.
-
-1. Select **Finish**.
-
-   Failover Cluster Manager shows that your cluster has a new node and lists it in the **Nodes** container.
-
-10. Log out of the remote desktop session.
-
-### Add a cluster quorum file share
-
-In this example, the Windows cluster uses a file share to create a cluster quorum. This tutorial uses a Node and File Share Majority quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731739(v=ws.11)).
-
-1. Connect to the file share witness member server with a remote desktop session.
-
-1. On **Server Manager**, select **Tools**. Open **Computer Management**.
-
-1. Select **Shared Folders**.
-
-1. Right-click **Shares**, and select **New Share...**.
-
-   ![Right-click shares and select new share](./media/availability-group-manually-configure-tutorial-multi-subnet/48-newshare.png)
-
-   Use **Create a Shared Folder Wizard** to create a share.
-
-1. On **Folder Path**, select **Browse** and locate or create a path for the shared folder. Select **Next**.
-
-1. In **Name, Description, and Settings** verify the share name and path. Select **Next**.
-
-1. On **Shared Folder Permissions** set **Customize permissions**. Select **Custom...**.
-
-1. On **Customize Permissions**, select **Add...**.
-
-1. Make sure that the account used to create the cluster has full control.
-
-   ![Make sure the account used to create the cluster has full control](./media/availability-group-manually-configure-tutorial-multi-subnet/50-filesharepermissions.png)
-
-1. Select **OK**.
-
-1. In **Shared Folder Permissions**, select **Finish**. Select **Finish** again.  
-
-1. Log out of the server
+    ![Storage access key](./media/availability-group-manually-configure-tutorial-multi-subnet/05-storage-account-keys.png)
 
 ### Configure the cluster quorum
 
 Next, set the cluster quorum.
 
-1. Connect to the first cluster node with remote desktop.
+1. Connect to the first SQL Server VM **SQL-VM-1** with remote desktop.
 
-1. In **Failover Cluster Manager**, right-click the cluster, point to **More Actions**, and select **Configure Cluster Quorum Settings...**.
+2. In **Failover Cluster Manager**, right-click the cluster, point to **More Actions**, and select **Configure Cluster Quorum Settings...**.
 
-   ![Select configure cluster quorum settings](./media/availability-group-manually-configure-tutorial-multi-subnet/52-configurequorum.png)
+   ![Select configure cluster quorum settings](./media/availability-group-manually-configure-tutorial-multi-subnet/06-configurequorum.png)
 
-1. In **Configure Cluster Quorum Wizard**, select **Next**.
+3. In **Configure Cluster Quorum Wizard**, select **Next**.
 
-1. In **Select Quorum Configuration Option**, choose **Select the quorum witness**, and select **Next**.
+4. In **Select Quorum Configuration Option**, choose **Select the quorum witness**, and select **Next**.
 
-1. On **Select Quorum Witness**, select **Configure a file share witness**.
+5. On **Select Quorum Witness**, select **Configure a cloud witness**.
+  
+6. On **Configure cloud Witness**, type the **Azure storage account name** and the **Azure storage account key** you copied earlier. Select **Next**.
 
-   >[!TIP]
-   >Windows Server 2016 supports a cloud witness. If you choose this type of witness, you do not need a file share witness. For more information, see [Deploy a cloud witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness). This tutorial uses a file share witness, which is supported by previous operating systems.
-   >
+7. Verify the settings on **Confirmation**. Select **Next**.
 
-1. On **Configure File Share Witness**, type the path for the share you created. Select **Next**.
+8. Select **Finish**.
 
-1. Verify the settings on **Confirmation**. Select **Next**.
+RSETLEM - Had to set minimum TLS version for the storage account to 1.0. Need to review this
 
-1. Select **Finish**.
-
-The cluster core resources are configured with a file share witness.
+The cluster core resources are configured with a cloud witness.
 
 ## Enable availability groups
 

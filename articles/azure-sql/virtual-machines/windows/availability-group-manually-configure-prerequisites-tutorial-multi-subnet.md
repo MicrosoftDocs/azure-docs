@@ -79,7 +79,7 @@ To create the virtual network in the Azure portal:
    ![New item](./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/02-ceate-resource-rg.png)
 2. Search for **virtual network**.   
 3. Select **Virtual network** and select **Create**.
-4. In **Create virtual network** enter this informaiton in the **Basics** tab.    
+4. In **Create virtual network** enter this information in the **Basics** tab.
 
    | **Field** | Value |
    | --- | --- |
@@ -149,7 +149,7 @@ The following table shows the settings for these two machines:
 | **Region** |*Your Region* |
 | **Availability options** |Availability zone |
 | **Availability zone** |Specify 1 for DC-VM-1. </br> Specify 2 for DC-VM-2 |
-| **Size** |DS1_V2 |
+| **Size** |D2s_v3 (2 vCPUs, 8 GB RAM) |
 | **User name** |DomainAdmin |
 | **Password** |Contoso!0000 |
 | **Public inbound ports** | *Allow selected ports*
@@ -355,7 +355,7 @@ Next, create two SQL Server VMs. To create each of the VMs, go back to the **SQL
 | --- | --- | --- |
 | Select the appropriate gallery item |**SQL Server 2016 SP2 Enterprise on Windows Server 2016** |**SQL Server 2016 SP2 Enterprise on Windows Server 2016** |
 | Virtual machine configuration **Basics** |**Name** = SQL-VM-1<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your Azure location |**Name** = SQL-VM-2<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your Azure location |
-| Virtual machine configuration **Size** |**SIZE** = DS2\_V2 (2 vCPUs, 7 GB)</br> |**SIZE** = DS2\_V2 (2 vCPUs, 7 GB) |
+| Virtual machine configuration **Size** |**SIZE** = E2ds_v4 (2 vCPUs, 16 GB RAM)</br> |**SIZE** = E2ds_v4 (2 vCPUs, 16 GB RAM) |
 | Virtual machine configuration **Settings** |**Availability options** = Availability zone<br/>**Availability zone** = 1<br/>**Public inbound ports** = Allow selected ports<br/>**Select inbound ports** = RDP (3389)<br/>**OS disk type** = Premium SSD (locally-redundant storage)<br/>**Virtual network** = SQLHAVNET<br/>**Subnet** = SQL-subnet-1(10.38.1.0/24)<br/>**Public IP address** = Automatically generated.<br/>**NIC network security group** = Basic<br/>**Public inbound ports** = Allow selected ports <br/> **Select inbound ports** = RDP (3389)<br/>**Boot Diagnostics** = Enable with managed storage account (recommended)<br/>|**Availability options** = Availability zone<br/>**Availability zone** = 2<br/>**Public inbound ports** = Allow selected ports<br/>**Select inbound ports** = RDP (3389)<br/>**OS disk type** = Premium SSD (locally-redundant storage)<br/>**Virtual network** = SQLHAVNET<br/>**Subnet** = SQL-subnet-2(10.38.2.0/24)<br/>**Public IP address** = Automatically generated.<br/>**NIC network security group** = Basic<br/>**Public inbound ports** = Allow selected ports <br/> **Select inbound ports** = RDP (3389)<br/>**Boot Diagnostics** = Enable with managed storage account (recommended)<br/> |
 | Virtual machine configuration **SQL Server settings** |**SQL connectivity** = Private (within Virtual Network)<br/>**Port** = 1433<br/>**SQL Authentication** = Disable<br/>**Azure Key Vault integration** = Disable <br/>**Storage optimization** = Transactional processing<br/>**SQL Data** = 1024 GiB, 5000 IOPS, 200 MB/s<br/>**SQL Log** = 1024 GiB, 5000 IOPS, 200 MB/s<br/>**SQL TempDb** = Use local SSD drive<br/>**Automated patching** = Sunday at 2:00<br/>**Automated backup** = Disable |**SQL connectivity** = Private (within Virtual Network)<br/>**Port** = 1433<br/>**SQL Authentication** = Disable<br/>**Azure Key Vault integration** = Disable <br/>**Storage optimization** = Transactional processing<br/>**SQL Data** = 1024 GiB, 5000 IOPS, 200 MB/s<br/>**SQL Log** = 1024 GiB, 5000 IOPS, 200 MB/s<br/>**SQL TempDb** = Use local SSD drive<br/>**Automated patching** = Sunday at 2:00<br/>**Automated backup** = Disable |
 
@@ -508,6 +508,32 @@ On each SQL Server VM, set the SQL Server service account. Use the accounts that
 4. Repeat these steps on the other SQL Server VM.  
 
 For SQL Server availability groups, each SQL Server VM needs to run as a domain account.
+
+## Create an Azure Storage Account to use as a Cloud Witness
+You need an Azure Storage Account to be used for cloud witness. For details on this, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
+
+To create the Azure Storage Account in the portal:
+
+1. In the portal, open the **SQL-HA-RG** resource group and select **+ Create**
+2. Search for **storage account**.   
+3. Select **Storage account** and select **Create**.
+4. In **Create a storage network**, do the following
+
+    a. Select your subscription and select the resource group **SQL=HA-RG.**
+
+    b. Enter a **Storage Account Name** for your storage account.
+       Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. The storage account name must also be unique within Azure.
+    
+    c. Select your **Region.**
+
+    d. For **Performance**, select **Standard: Recommended for most scenarios (general-pupose v2 account)**
+       You can't use Azure Premium Storage for a Cloud Witness.
+
+    e. For **Redundancy**, select **Locally-redundant storage (LRS).**
+       Failover Clustering uses the blob file as the arbitration point, which requires some consistency guarantees when reading the data. Therefore you must select Locally-redundant storage for Replication type.
+    
+    f. Select **Review + create**
+
 
 ## Add Failover Clustering features to both SQL Server VMs
 
