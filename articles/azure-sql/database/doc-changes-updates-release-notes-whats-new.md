@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 06/22/2021
 ---
 # What's new in Azure SQL Database
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 This article summarizes the documentation changes associated with new features and improvements in the recent releases of [Azure SQL Database](https://azure.microsoft.com/en-us/products/azure-sql/database/). To learn more about Azure SQL Database, see the [overview](sql-database-paas-overview.md). 
 

@@ -1,7 +1,7 @@
 ---
-title: What's new? 
-titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Learn about the new features and documentation improvements for Azure SQL Database & SQL Managed Instance.
+title: Known issues 
+titleSuffix: Azure SQL Database 
+description: Learn about the currently known issues with Azure SQL Database, and their possible workarounds or resolutions. 
 services: sql-database
 author: MashaMSFT
 ms.author: mathoma
@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: conceptual
 ms.date: 06/22/2021
 ---
-# What's new in Azure SQL Database & SQL Managed Instance?
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+# Known issues with Azure SQL Datbase
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb.md)]
 
 
-This article lists the known issues with [Azure SQL Database](https://azure.microsoft.com/updates/?product=sql-database). To learn more about Azure SQL Database, see the [overview](sql-database-paas-overview.md), and [what's new](docs-changes-updates-release-notes-whats-new.md)
+This article lists the known issues with [Azure SQL Database](https://azure.microsoft.com/updates/?product=sql-database), as well as their resolution date or possible workaround. To learn more about Azure SQL Database, see the [overview](sql-database-paas-overview.md), and [what's new](docs-changes-updates-release-notes-whats-new.md)
 
 
 ## Known issues
