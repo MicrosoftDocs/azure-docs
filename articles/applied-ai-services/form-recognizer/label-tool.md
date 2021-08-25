@@ -195,12 +195,14 @@ The following value types and variations are currently supported:
 
 * `number`
   * default, `currency`
+  * Formatted as a Floating point value. Example:1234.98
 
 * `date`
   * default, `dmy`, `mdy`, `ymd`
 
 * `time`
 * `integer`
+  * Formatted as a Integer value. Example:123498
 * `selectionMark`
 
 > [!NOTE]
