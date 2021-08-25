@@ -35,7 +35,7 @@ User accounts can be cloud-only or hybrid users from the same Azure AD tenant.
 
 The following known issues may impact access to your on-premises or Active Directory domain-joined resources. These issues may impact your decision about whether Azure AD-joined VMs are right for your environment. We currently recommend Azure AD-joined VMs for scenarios where users only need access to cloud-based resources or Azure AD-based authentication. 
 - Azure Virtual Desktop (classic) doesn't currently support Azure AD-joined VMs. 
-- External users aren't supported at this time.
+- Azure AD-joined VMs don't currently support external users, only local user profiles.
 - Only supports local user profiles at this time.
 - Azure AD-joined VMs will not be able to access Azure File Shares for FSLogix or MSIX App attach. (Require Kerberos authentication)
 - Connecting to Azure AD-joined VMs isn't currently supported using the Windows Store client.
