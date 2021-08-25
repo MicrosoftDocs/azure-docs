@@ -145,7 +145,7 @@ The error usually appears for servers running Windows Server 2008 or lower.
 ### Remediation
 Install the required PowerShell version (2.0 or later) at this location on the server: ($SYSTEMROOT)\System32\WindowsPowershell\v1.0\powershell.exe. [Learn more](/powershell/scripting/windows-powershell/install/installing-windows-powershell) about how to install PowerShell in Windows Server.
 
-After you install the required PowerShell version, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-using-vmware-powercli).
+After you install the required PowerShell version, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-by-using-vmware-powercli).
 
 ## Error 9022: GetWMIObjectAccessDenied
 
@@ -164,7 +164,7 @@ Make sure that the user account provided in the appliance has access to WMI Name
 1. Ensure you grant execute permissions, and select **This namespace and subnamespaces** in the **Applies to** dropdown list.
 1. Select **Apply** to save the settings and close all dialog boxes.
 
-After you get the required access, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-using-vmware-powercli).
+After you get the required access, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-by-using-vmware-powercli).
 
 ## Error 9032: InvalidRequest
 
@@ -173,7 +173,7 @@ There can be multiple reasons for this issue. One reason is when the username pr
 
 ### Remediation
 - Make sure the username of the server credentials doesn't have invalid XML characters and is in the username@domain.com format. This format is popularly known as the UPN format.
-- After you edit the credentials on the appliance, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-using-vmware-powercli).
+- After you edit the credentials on the appliance, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-by-using-vmware-powercli).
 
 
 ## Error 10002: ScriptExecutionTimedOutOnVm
@@ -205,7 +205,7 @@ There can be multiple reasons for this issue. One reason is when the username pr
 - Ensure that you can sign in to the affected server by using the same credential provided in the appliance.
 - You can try using another user account (for the same domain, in case the server is domain joined) for that server instead of the administrator account.
 - The issue can happen when Global Catalog <-> Domain Controller communication is broken. Check for this problem by creating a new user account in the domain controller and providing the same in the appliance. You might also need to restart the domain controller.
-- After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-using-vmware-powercli).
+- After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-by-using-vmware-powercli).
 
 ## Error 10012: CredentialNotProvided
 
@@ -214,7 +214,7 @@ This error occurs when you've provided a domain credential with the wrong domain
 
 ### Remediation
 - Go to the appliance configuration manager to add a server credential or edit an existing one as explained in the cause.
-- After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-using-vmware-powercli).
+- After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-dependencies.md#mitigation-verification-by-using-vmware-powercli).
 
 ## Mitigation verification by using VMware PowerCLI
 
