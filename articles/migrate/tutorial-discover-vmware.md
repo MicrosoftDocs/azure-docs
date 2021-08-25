@@ -134,7 +134,7 @@ The Azure Migrate: Discovery and assessment tool uses a lightweight Azure Migrat
 
 > [!NOTE]
 > If you can't set up the appliance by using the OVA template, you can set it up by running a PowerShell script on an existing server running Windows Server 2016. Learn how to [use PowerShell to set up an Azure Migrate appliance](deploy-appliance-script.md#set-up-the-appliance-for-vmware). <br/>
-> The option to deploy an appliance using an OVA template isn't supported in Azure Government cloud. [Learn more](https://docs.microsoft.com/en-us/azure/migrate/deploy-appliance-script-government) on how to deploy an appliance for Azure Government cloud.
+> The option to deploy an appliance using an OVA template isn't supported in Azure Government cloud. [Learn more](/azure/migrate/deploy-appliance-script-government) on how to deploy an appliance for Azure Government cloud.
 
 ### Deploy by using an OVA template
 
