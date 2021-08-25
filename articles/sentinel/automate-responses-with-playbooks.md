@@ -97,11 +97,11 @@ You can get playbook templates from the following sources:
 
     When a new version of the template is published, the active playbooks created from that template (in the **Playbooks** tab) will be labeled with a notification that an update is available.
 
-- Playbook templates can also be obtained as part of an [**Azure Sentinel Solution**](sentinel-solutions) in the context of a specific product. The deployment of the solution produces active playbooks.
+- Playbook templates can also be obtained as part of an [**Azure Sentinel Solution**](sentinel-solutions.md) in the context of a specific product. The deployment of the solution produces active playbooks.
 
 - The [**Azure Sentinel GitHub repository**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contains many playbook templates. They can be deployed to an Azure subscription by selecting the **Deploy to Azure** button. 
 
-Technically, a playbook template is an [ARM template](../azure-resource-manager/templates) which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved. 
+Technically, a playbook template is an [ARM template](../azure-resource-manager/templates.md) which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved. 
 
 ## Steps for creating a playbook
 
