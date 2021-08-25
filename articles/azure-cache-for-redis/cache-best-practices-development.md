@@ -16,7 +16,7 @@ When developing client applications, be sure to consider the relevant best pract
 
 ## Consider more keys and smaller values
 
-Redis works best with smaller values. Consider dividing bigger chunks of data in to smaller chunks to spread over multiple keys. For more information on ideal key size, see this [article](<https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/>).
+Redis works best with smaller values. Consider dividing bigger chunks of data in to smaller chunks to spread the data over multiple keys. For more information on ideal value size, see this [article](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/).
 
 In this Redis discussion, some considerations are listed for you to consider carefully. For an example problem that can be caused by large values, see [Large request or response Size](cache-troubleshoot-client.md#large-request-or-response-size).
 

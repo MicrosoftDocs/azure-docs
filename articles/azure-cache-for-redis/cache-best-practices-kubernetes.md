@@ -12,7 +12,7 @@ ms.author: shpathak
 
 ## Multiple pods
 
-When you have multiple pods connecting to a Redis server, ensure that the new connections from the pods are created in a staggered manner. If multiple pods start up in a short duration of time, it would cause a sudden spike in the number of client connections created. The high number of connections leads to high load on the Redis server and might cause timeouts.
+When you have multiple pods connecting to a Redis server, ensure that the new connections from the pods are created in a staggered manner. If multiple pods start up in a short time without staggering, it causes a sudden spike in the number of client connections created. The high number of connections leads to high load on the Redis server and might cause timeouts.
 
 Avoid the same scenario when shutting down multiple pods at the same time. Failing to stagger shutdown might cause a steep dip in the number of connections that leads to CPU pressure.
 

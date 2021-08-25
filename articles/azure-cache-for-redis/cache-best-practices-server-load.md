@@ -36,7 +36,7 @@ Redis server is a single-threaded system. Long running commands can cause late
 
 ## Monitor Server Load
 
-Add monitoring on Server load to ensure you get notifications when high server load occurs. Monitoring can help you understand your application constraint. Then, you can work proactively to mitigate issues. We recommend trying to keep server load under 80% to avoid negative performance effects.
+Add monitoring on Server load to ensure you get notifications when high server load occurs. Monitoring can help you understand your application constraints. Then, you can work proactively to mitigate issues. We recommend trying to keep server load under 80% to avoid negative performance effects.
 
 ## Plan for server maintenance
 

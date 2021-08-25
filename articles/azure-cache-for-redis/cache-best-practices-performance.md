@@ -10,13 +10,13 @@ ms.author: shpathak
 
 # Performance testing
 
-1. Start by using `redis-benchmark.exe` to get a feel for possible throughput/latency before writing your own perf tests. For more information, see [Redis-Benchmark](#redis-benchmark-utility).
+1. Start by using `redis-benchmark.exe` to check the general throughput and latency characteristics of your cache before writing your own performance tests. For more information, see [Redis-Benchmark](#redis-benchmark-utility).
 
-1. The client VM used for testing should be **in the same region** as your Redis cache instance.
+1. The client VM used for testing should be *in the same region* as your Redis cache instance.
 
-1. Make sure the client VM you use has **at least as much compute and bandwidth** as the cache being tested.
+1. Make sure the client VM you use has *at least as much compute and bandwidth* as the cache being tested.
 
-1. It's important that you don't test the performance of your cache only under steady state conditions. **Test under failover conditions, too**, and measure the CPU/Server Load on your cache during that time. You can start a failover by [rebooting the primary node](cache-administration.md#reboot). Testing under failover conditions allows you to see the throughput and latency of your application behaves during failover conditions. Failover can happen during updates or during an unplanned event. Ideally you don't want to see CPU/Server Load peak to more than say 80% even during a failover as that can affect performance.
+1. It's important that you don't test the performance of your cache only under steady state conditions. *Test under failover conditions too*, and measure the CPU/Server Load on your cache during that time. You can start a failover by [rebooting the primary node](cache-administration.md#reboot). Testing under failover conditions allows you to see the throughput and latency of your application during failover conditions. Failover can happen during updates or during an unplanned event. Ideally you don't want to see CPU/Server Load peak to more than say 80% even during a failover as that can affect performance.
 
 1. Consider using Premium tier Azure Cache for Redis instances. These cache sizes have better network latency and throughput because they're running on better hardware for both CPU and network.
 

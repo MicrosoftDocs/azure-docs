@@ -16,7 +16,7 @@ Configure your client connections to retry commands with exponential backoff. Fo
 
 ## Test resiliency
 
-Test your system's resiliency to connection breaks using a [Reboot](cache-administration.md#reboot) to simulate a patch. For more information on testing your performance, see [Performance Testing](cache-best-practices-performance.md).
+Test your system's resiliency to connection breaks using a [Reboot](cache-administration.md#reboot) to simulate a patch. For more information on testing your performance, see [Performance testing](cache-best-practices-performance.md).
 
 ## Configure appropriate timeouts
 
@@ -38,12 +38,12 @@ Avoid creating many connections at the same time when reconnecting after a conne
 
 If you're reconnecting many client instances, consider staggering the new connections to avoid a steep spike in the number of connected clients.
 
+> [!NOTE]
+> When you use the `StackExchange.Redis` client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [StackExchange.Redis best practices](/cache-management-faq.md#stackexchangeredis-best-practices).
+
 ## Avoid leftover connections
 
 Caches have limits on the number of client connections per cache tier. Ensure that when your client application recreates connections that it closes and removes the old connections.
-
-> [!NOTE]
-> When you use the `StackExchange.Redis` client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [StackExchange.Redis best practices](/cache-management-faq.md#stackexchangeredis-best-practices).
 
 ## Advance maintenance notification
 
@@ -59,4 +59,4 @@ Apply design patterns for resiliency. For more information, see [recommended des
 
 ## Idle timeout
 
-Azure Cache for Redis currently has 10-minute idle timeout for connections, so the idle timeout setting in your client application should be less than 10 minutes. Most common client libraries have a configuration setting that allows client libraries to send Redis `PING` commands to a Redis server automatically and periodically. However, when using client libraries without this type of setting, customer applications themselves are responsible for keeping the connection alive.
+Azure Cache for Redis currently has a 10-minute idle timeout for connections, so the idle timeout setting in your client application should be less than 10 minutes. Most common client libraries have a configuration setting that allows client libraries to send Redis `PING` commands to a Redis server automatically and periodically. However, when using client libraries without this type of setting, customer applications themselves are responsible for keeping the connection alive.
