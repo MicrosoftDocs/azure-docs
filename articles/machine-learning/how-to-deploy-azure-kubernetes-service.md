@@ -57,7 +57,7 @@ When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is
     - If you want to deploy models to GPU nodes or FPGA nodes (or any specific SKU), then you must create a cluster with the specific SKU. There is no support for creating a secondary node pool in an existing cluster and deploying models in the secondary node pool.
 
 > [!IMPORTANT]
-> Currently, Azure machine learning does not support deploying models to Azure Kubernetes Service **1.21.x**
+> Currently, Azure machine learning does not support deploying models to AKS version **1.21.x**
 
 ## Understand the deployment processes
 

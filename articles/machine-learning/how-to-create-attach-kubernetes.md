@@ -82,7 +82,7 @@ These methods of creating an AKS cluster use the __default__ version of the clus
 When **attaching** an existing AKS cluster, we support all currently supported AKS versions.
 
 > [!IMPORTANT]
-> Currently, Azure machine learning does not support deploying models to Azure Kubernetes Service **1.21.x**
+> Currently, Azure machine learning does not support deploying models to AKS version **1.21.x**
 
 > [!IMPORTANT]
 > Azure Kubernetes Service uses [Blobfuse FlexVolume driver](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) for the versions <=1.16 and [Blob CSI driver](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md) for the versions >=1.17. 
