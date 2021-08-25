@@ -75,7 +75,7 @@ For more information, see [GitHub Repo](link).
 OpenTelemetry SDKs provide built-in sampling as a way to control data volume and ingestion costs. To learn how to enable built-in sampling, see [OpenTelemetry Python SDK on trace sampling](https://opentelemetry-python.readthedocs.io/en/latest/sdk/trace.sampling.html).
 
 > [!WARNING]
-> We do not recommend enabling sampling in the preview release because it will result in broken traces if used alongside the existing Application Insights SDKs and it will make standard and log-based metrics extremely inaccurate which will adversely impact all application insights experiences.
+> We do not recommend enabling sampling in the preview release because it will result in broken traces if used alongside the existing Application Insights SDKs and it will make standard and log-based metrics extremely inaccurate which will adversely impact all Application Insights experiences.
 
 ## Instrumentation Libraries
 Microsoft has tested and validated that the following instrumentation libraries will work with the **Preview** Release.
