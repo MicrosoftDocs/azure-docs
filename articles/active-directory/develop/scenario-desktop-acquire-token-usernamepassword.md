@@ -16,7 +16,7 @@ ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
-# Desktop app signs in a user using Username and Password
+# Desktop app that calls web APIs: Acquire a token using Username and Password
 
 You can also acquire a token by providing the username and password. This flow is limited and not recommended, but there are still use cases where it's necessary.
 

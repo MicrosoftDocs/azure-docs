@@ -16,7 +16,7 @@ ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
-# Desktop app signs in a user using Integrated Windows Authentication
+# # Desktop app that calls web APIs: Acquire a token using Integrated Windows Authentication
 
 To sign in a domain user on a domain or Azure AD joined machine, use Integrated Windows Authentication (IWA).
 

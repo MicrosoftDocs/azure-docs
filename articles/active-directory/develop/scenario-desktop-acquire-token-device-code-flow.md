@@ -16,7 +16,7 @@ ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
 
-# Command-line tool without a web browser
+# Desktop app that calls web APIs: Acquire a token using Device Code flow 
 
 If you're writing a command-line tool that doesn't have web controls, and you can't or don't want to use the previous flows, use the device code flow.
 
