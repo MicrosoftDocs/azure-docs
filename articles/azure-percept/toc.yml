@@ -128,7 +128,7 @@
 
 - name: Reference
   items:
-    - Releases
+    - name: Releases
       items:
         - name: Azure Percept DK software releases for OTA update
           href: azure-percept-devkit-software-releases-for-ota-update.md
