@@ -15,16 +15,23 @@ ms.author: bagol
 
 This article describes how to deploy data connectors in Azure Sentinel, listing all supported, built-in data connectors, together with links to generic deployment procedures and extra steps required for specific connectors.
 
-Connect your data sources to Azure Sentinel using the following generic procedures:
+## How to use this guide
 
-- [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md)
-- [Use Azure Functions to connect your data source to Azure Sentinel](connect-azure-functions-template.md)
-- [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md)
-- [Collect data from Linux-based sources using Syslog](connect-syslog.md)
-- [Collect data in custom log formats to Azure Sentinel with the Log Analytics agent](connect-custom-logs.md)
-- [Connect your data source to Azure Sentinel's REST-API to ingest data](connect-rest-api-template.md)
+1. First, locate and select the connector for your product, service, or device in the headings menu to the right.
 
-Check the sections below for additional guidance when deploying a specific connector.
+    The first piece of information you'll see for each connector is its **data ingestion method**. The method that appears there will be a link to one of the following generic deployment procedures, which contain most of the information you'll need to connect your data sources to Azure Sentinel:
+
+    | Data ingestion method | Linked article with instructions |
+    | --- | --- |
+    | **Azure service-to-service integration** * | [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md) |
+    | **Common Event Format (CEF) over Syslog** | [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md) |
+    | **Azure Sentinel Data Collector API** | [Connect your data source to Azure Sentinel's Data Collector API to ingest data](connect-rest-api-template.md) |
+    | **Azure Functions and the REST API** | [Use Azure Functions to connect Azure Sentinel to your data source](connect-azure-functions-template.md) |
+    | **Syslog** | [Collect data from Linux-based sources using Syslog](connect-syslog.md) |
+    | **Custom logs** | [Collect data in custom log formats to Azure Sentinel with the Log Analytics agent](connect-custom-logs.md) |
+    |
+
+1. When deploying a specific connector, choose the appropriate article linked to its **data ingestion method**, and use the information and additional guidance in the relevant section below to supplement the information in that article.
 
 > [!TIP]
 > - Many data connectors can also be deployed as part of an [Azure Sentinel solution](sentinel-solutions.md), together with related analytics rules, workbooks and playbooks. For more information, see the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
@@ -137,7 +144,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | alcide_kaudit_activity_1_CL - Alcide kAudit activity logs<br>alcide_kaudit_detections_1_CL - Alcide kAudit detections<br>alcide_kaudit_selections_count_1_CL - Alcide kAudit activity counts<br>alcide_kaudit_selections_details_1_CL - Alcide kAudit activity details |
 | **Vendor documentation/<br>installation instructions** | [Alcide kAudit installation guide](https://awesomeopensource.com/project/alcideio/kaudit?categoryPage=29#before-installing-alcide-kaudit) |
 | **Supported by** | [Alcide](https://www.alcide.io/company/contact-us/) |
@@ -426,7 +433,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | BetterMTDDeviceLog_CL<br>BetterMTDIncidentLog_CL<br>BetterMTDAppLog_CL<br>BetterMTDNetflowLog_CL |
 | **Vendor documentation/<br>installation instructions** | [BETTER MTD Documentation](https://mtd-docs.bmobi.net/integrations/azure-sentinel/setup-integration)<br><br>Threat Policy setup, which defines the incidents that are reported to Azure Sentinel:<br><ol><li>In **Better MTD Console**, select  **Policies** on the side bar.<li>Select the **Edit** button of the Policy that you are using.<li>For each Incident type that you want to be logged, go to **Send to Integrations** field and select **Sentinel**. |
 | **Supported by** | [Better Mobile](mailto:support@better.mobi) |
@@ -437,7 +444,7 @@ For more information, see the [Azure Information Protection documentation](/azur
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | beSECURE_ScanResults_CL<br>beSECURE_ScanEvents_CL<br>beSECURE_Audit_CL |
 | **Vendor documentation/<br>installation instructions** | Access the **Integration** menu:<br><ol><li>Select the **More** menu option.<li>Select **Server**<li>Select **Integration**<li>Enable Azure Sentinel<li>Paste the **Workspace ID** and **Primary Key** values in the beSECURE configuration.<li>Select **Modify**. |
 | **Supported by** | [Beyond Security](https://beyondsecurity.freshdesk.com/support/home) |
@@ -559,7 +566,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | CitrixAnalytics_SAlerts_CL​ |
 | **Vendor documentation/<br>installation instructions** | [Connect Citrix to Azure Sentinel](https://aka.ms/Sentinel-Citrix-Connector) |
 | **Supported by** | [Citrix Systems](https://www.citrix.com/support/) |
@@ -579,7 +586,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | CognniIncidents_CL |
 | **Vendor documentation/<br>installation instructions** | **Connect to Cognni**<br><ol><li>Go to [Cognni integrations page](https://intelligence.cognni.ai/integrations).<li>Select **Connect** on the Azure Sentinel box.<li>Paste **workspaceId** and **sharedKey** (Primary Key) to the fields on Cognni's integrations screen.<li>Select the **Connect** botton to complete the configuration. |
 | **Supported by** | [Cognni](https://cognni.ai/contact-support/)
@@ -600,7 +607,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This should 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | CyberpionActionItems_CL |
 | **Vendor documentation/<br>installation instructions** | [Get a Cyberpion subscription](https://azuremarketplace.microsoft.com/en/marketplace/apps/cyberpion1597832716616.cyberpion)<br>[Integrate Cyberpion security alerts into Azure Sentinel](https://www.cyberpion.com/resource-center/integrations/azure-sentinel/) |
 | **Supported by** | [Cyberpion](https://www.cyberpion.com/) |
@@ -786,7 +793,7 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | F5Telemetry_LTM_CL<br>F5Telemetry_system_CL<br>F5Telemetry_ASM_CL |
 | **Vendor documentation/<br>installation instructions** | [Integrating the F5 BIG-IP with Azure Sentinel](https://aka.ms/F5BigIp-Integrate) |
 | **Supported by** | [F5 Networks](https://support.f5.com/csp/home) |
@@ -825,7 +832,7 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | ForcepointDLPEvents_CL |
 | **Vendor documentation/<br>installation instructions** | [Forcepoint Data Loss Prevention and Azure Sentinel](https://forcepoint.github.io/docs/dlp_and_azure_sentinel/) |
 | **Supported by** | [Forcepoint](https://support.forcepoint.com/) |
@@ -1050,7 +1057,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | BSMmacOS_CL |
 | **Vendor documentation/<br>installation instructions** | [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
 | **Supported by** | [NXLog](https://nxlog.co/community-forum) |
@@ -1061,7 +1068,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | DNS_Logs_CL |
 | **Vendor documentation/<br>installation instructions** | [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
 | **Supported by** | [NXLog](https://nxlog.co/community-forum) |
@@ -1072,7 +1079,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | LinuxAudit_CL |
 | **Vendor documentation/<br>installation instructions** |  [NXLog Azure Sentinel User Guide](https://nxlog.co/documentation/nxlog-user-guide/sentinel.html) |
 | **Supported by** | [NXLog](https://nxlog.co/community-forum) |
@@ -1140,7 +1147,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | OrcaAlerts_CL |
 | **Vendor documentation/<br>installation instructions** | [Azure Sentinel integration](https://orcasecurity.zendesk.com/hc/en-us/articles/360043941992-Azure-Sentinel-configuration) |
 | **Supported by** | [Orca Security](http://support.orca.security/) |
@@ -1175,7 +1182,7 @@ Refer to the Onapsis in-product help to set up log forwarding to the Log Analyti
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | Perimeter81_CL |
 | **Vendor documentation/<br>installation instructions** | [Perimeter 81 documentation](https://support.perimeter81.com/docs/360012680780) |
 | **Supported by** | [Perimeter 81](https://support.perimeter81.com/) |
@@ -1361,7 +1368,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | SophosCloudOptix_CL |
 | **Vendor documentation/<br>installation instructions** | [Integrate with Azure Sentinel](https://docs.sophos.com/pcg/optix/help/en-us/pcg/optix/tasks/IntegrateAzureSentinel.html), skipping the first step.<br>[Sophos query samples](https://docs.sophos.com/pcg/optix/help/en-us/pcg/optix/concepts/ExampleAzureSentinelQueries.html) |
 | **Supported by** | [Sophos](https://secure2.sophos.com/en-us/support.aspx) |
@@ -1384,7 +1391,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | secRMM_CL |
 | **Vendor documentation/<br>installation instructions** | [secRMM Azure Sentinel Administrator Guide](https://www.squadratechnologies.com/StaticContent/ProductDownload/secRMM/9.9.0.0/secRMMAzureSentinelAdministratorGuide.pdf) |
 | **Supported by** | [Squadra Technologies](https://www.squadratechnologies.com/Contact.aspx) |
@@ -1407,7 +1414,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | SymantecICDx_CL |
 | **Vendor documentation/<br>installation instructions** | [Configuring Microsoft Azure Sentinel (Log Analytics) Forwarders](https://techdocs.broadcom.com/us/en/symantec-security-software/integrated-cyber-defense/integrated-cyber-defense-exchange/1-4-3/Forwarders/configuring-forwarders-v131944722-d2707e17438.html) |
 | **Supported by** | [Broadcom Symantec](https://support.broadcom.com/security) |
@@ -1592,7 +1599,7 @@ For more information about connecting to Azure Sentinel, see [Connect Zimperium 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**REST-API**](connect-rest-api-template.md)<br><br>[Configure and connect Zimperium MTD](#configure-and-connect-zimperium-mtd) |
+| **Data ingestion method** | [**Azure Sentinel Data Collector API**](connect-rest-api-template.md)<br><br>[Configure and connect Zimperium MTD](#configure-and-connect-zimperium-mtd) |
 | **Log Analytics table(s)** | ZimperiumThreatLog_CL<br>ZimperiumMitigationLog_CL |
 | **Vendor documentation/<br>installation instructions** | [Zimperium customer support portal](https://support.zimperium.com/) (login required) |
 | **Supported by** | [Zimperium](https://www.zimperium.com/support) |

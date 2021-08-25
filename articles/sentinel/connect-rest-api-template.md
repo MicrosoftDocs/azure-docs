@@ -1,5 +1,5 @@
 ---
-title: Connect your data source to Azure Sentinel's REST-API to ingest data | Microsoft Docs
+title: Connect your data source to Azure Sentinel's Data Collector API to ingest data | Microsoft Docs
 description: Learn how to connect external systems to Azure Sentinel's Data Collector API to ingest their log data to custom logs in your workspace.
 services: sentinel
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.date: 08/17/2021
 ms.author: yelevin
 
 ---
-# Connect your data source to Azure Sentinel's REST-API to ingest data
+# Connect your data source to Azure Sentinel's Data Collector API to ingest data
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
