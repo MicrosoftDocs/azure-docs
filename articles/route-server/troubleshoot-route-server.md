@@ -40,6 +40,10 @@ When you deploy Azure Route Server to a virtual network, we need to update the c
 
 The cause of the flapping could be because of the BGP timer setting. By default, the Keep-alive timer on Azure Route Server is set to 60 seconds and the Hold-down timer is 180 seconds.
 
+### Why does my on-premises network connected to Azure VPN gateway not receive the default route advertised by Azure Route Server?
+
+Although Azure VPN gateway can receive the default route from its BGP peers including Azure Route Server, it [doesn't advertise the default route](../vpn-gateway/vpn-gateway-vpn-faq.md#what-address-prefixes-will-azure-vpn-gateways-advertise-to-me) to other peers. 
+
 ### Why does my NVA not receive routes from Azure Route Server even though the BGP peering is up?
 
 The ASN that Azure Route Server uses is 65515. Make sure you configure a different ASN for your NVA so that an “eBGP” session can be established between your NVA and Azure Route Server so route propagation can happen automatically. Make sure you enable "multi-hop" in your BGP configuration because your NVA and Azure Route Server are in different subnets in the virtual network.

@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 08/24/2021
 
 ms.author: mimart
 author: msmimart
@@ -67,6 +67,7 @@ The following are known scenarios that will impact Gmail users:
 
 This change does not affect:
 - Web apps
+- Microsoft 365 services that are accessed through a website (for example, SharePoint Online, Office web apps, and Teams web app)
 - Mobile apps using system web-views for authentication ([SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) on iOS, [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/overview/) on Android).  
 - Google Workspace identities, for example when you’re using [SAML-based federation](direct-federation.md) with Google Workspace
 

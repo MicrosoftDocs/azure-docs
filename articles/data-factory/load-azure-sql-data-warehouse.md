@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/28/2021
+ms.date: 08/24/2021
 ---
 
 # Load data into Azure Synapse Analytics using Azure Data Factory or a Synapse pipeline
