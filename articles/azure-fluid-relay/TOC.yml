@@ -4,10 +4,6 @@
   items:
   - name: What is Azure Fluid Relay?
     href: overview/overview.md
-- name: Quickstarts
-  items:
-  - name: Azure Fluid Relay quickstart
-    href: quickstarts/fluid-quickstart.md
 - name: Concepts
   items:
   - name: Architecture
