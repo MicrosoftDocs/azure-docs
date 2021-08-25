@@ -7,10 +7,10 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how=to
-ms.date: 10/21/2019
+ms.date: 08/25/2021
 ---
 
-# Validate XML in Azure Logic Apps using schemas and the Enterprise Integration Pack
+# Validate XML for workflows in Azure Logic Apps
 
 Often in B2B scenarios, the trading partners in an agreement need to make sure that the messages they exchange are valid before any data processing can start. You can validate documents against a predefined schema by using the XML validation action, which is available with the Enterprise Integration Pack.
 
@@ -29,6 +29,8 @@ Often in B2B scenarios, the trading partners in an agreement need to make sure t
   * [Quickstart: Create your first logic app workflow](quickstart-create-first-logic-app-workflow.md)
 
   * [Create single-tenant logic app workflows](create-single-tenant-workflows-azure-portal.md)
+
+  * [Usage metering, billing, and pricing models for Azure Logic Apps](logic-apps-pricing.md)
 
 * If you're using the **Logic App (Consumption)** resource type, you need to have an [integration account](logic-apps-enterprise-integration-create-integration-account.md) that meets the following requirements:
 
