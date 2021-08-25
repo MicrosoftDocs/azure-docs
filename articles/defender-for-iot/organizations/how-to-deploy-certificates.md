@@ -41,24 +41,24 @@ Validation is evaluated against:
 - The certificate expiration date  
 - The certificate trust chain
 
-Validation is carried out twice: 
+Validation is carried out twice:
 
 1. When uploading the CA-signed certificate to sensors and on-premises management consoles. If validation fails, the certificate cannot be uploaded.
 1. When initiating encrypted communication between:
 
-- Defender for IoT system components, for example, a sensor and on-premises management console. 
+- Defender for IoT system components, for example, a sensor and on-premises management console.
 
-- Defender for IoT and certain 3rd party servers defined in Forwarding rules.  See Forwarding Rules for more information.  
+- Defender for IoT and certain 3rd party servers defined in Forwarding rules.  See [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information) for more information.  
 
 If validation fails, communication between the relevant components is halted and a validation error is presented in the console.
 
-If you are working with a locally signed certificate validation does nor take place. 
+If you are working with a locally signed certificate validation does nor take place.
 
 ## About certificate upload to Defender for IoT
 
-Following sensor and on-premises management console installation, a local self-signed certificate is generated and used to access the sensor and on-premises management console web application. 
+Following sensor and on-premises management console installation, a local self-signed certificate is generated and used to access the sensor and on-premises management console web application.
 
-When signing into the sensor and on-premises management console for the first time, Admin users are prompted to upload an SSL/TLS certificate. Using SSL/TLS certificates is highly recommended. 
+When signing into the sensor and on-premises management console for the first time, Admin users are prompted to upload an SSL/TLS certificate. Using SSL/TLS certificates is highly recommended.
 
 If the certificate is not created properly by the certificate lead or there are connection issues to it, the certificate cannot be uploaded and users will be forced to work with a locally signed certificate.  
 
