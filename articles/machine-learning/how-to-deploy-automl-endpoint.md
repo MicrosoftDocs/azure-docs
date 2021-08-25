@@ -59,60 +59,46 @@ The system will generate the Model and Environment needed for the deployment.
 
 ## Deploy manually from the studio or command line
 
+If you wish to have more control over the deployment, you can download the training artifacts and deploy them. 
 
+To download the components you'll need for deployment:
 
-### Option 2: Deploy from the Models page 
+1. Go to your Automated ML experiment in your machine learning workspace.
+1. Choose the Models tab.
+1. Select the model you wish to use. Once you select a model, the *Download* button will become enabled.
+1. Choose *Download* .
 
-This section provides guidance on how to deploy Automated ML trained model from Azure Machine Learning Models Page. 
+:::image type="content" source="{source}" alt-text="{alt-text}":::
 
-1. Follow the steps above to download conda yaml file, scoring script and model pickle file. 
+You will receive a zip file containing:
+* A conda environment specification file named `conda_env_{version}.yml`.
+* A Python scoring file named `scoring_file_{version}.py`.
+* The model itself, in a Python .pkl file named `model.pkl`.
 
-2. Go to the Models page in Azure machine learning studio. 
+To deploy these, you can use either studio or the Azure command line interface.
 
-3. Click on + Register Model option. 
+# [Studio](#tab/Studio)
 
-4. Register the model you downloaded from Automated ML run. 
+1. Go to the Models page in Azure machine learning studio. 
 
-5. Go to Environments page, select Custom environment and select + Create option to create an environment for your deployment. Use the downloaded conda yaml to create a custom environment.  
+1. Click on + Register Model option. 
 
-6. Select the model, and from the Deploy drop-down option, select Deploy to real-time endpoint. 
+1. Register the model you downloaded from Automated ML run. 
 
-7. Complete all the steps in wizard to create an online endpoint and deployment. 
+1. Go to Environments page, select Custom environment and select + Create option to create an environment for your deployment. Use the downloaded conda yaml to create a custom environment.  
 
- 
+1. Select the model, and from the Deploy drop-down option, select Deploy to real-time endpoint. 
 
-3. Deploy from Endpoints page 
-
-This section provides guidance on how to deploy Automated ML trained model from Azure Machine Learning Endpoints page.  
-
-1. Follow the steps above to download conda yaml file, scoring script and model pickle file. 
-
-2. Go to Environments page, select Custom environment and select + Create option to create an environment for your deployment. Use the downloaded conda yaml to create a custom environment. 
-
-3. Click on + Create option on the endpoints page. 
-
-4. Complete all the steps in wizard to create an online endpoint and deployment. 
+1. Complete all the steps in wizard to create an online endpoint and deployment. 
 
  
+# [CLI](#tab/CLI)
 
-Using Azure Machine Learning CLI 2.0 
-
-This section provides guidance on how to download Automated ML trained model, scoring script and environment (conda.yaml), then use CLI 2.0 to deploy the model to online endpoint. 
-
-1. Go to Automated ML page in Azure machine learning studio, select the Run 
-
-2. Click on Models 
-
-3. From the list of Models, select the one you want to deploy to an online endpoint. 
-
-4. After you have select the mode, click on Output + Logs option. 
-
-:::image type="content" source="media/how-to-deploy-automl-endpoint/output-and-logs.png" alt-text="{alt-text}":::
-
-5. From the outputs folder, download model pickle file, conda yaml file and scoring script. 
-
-6. Follow the sample here: azureml-examples/1-create-endpoint-with-blue.yml at main · Azure/azureml-examples (github.com), replace scoring script, model and conda yaml file downloaded from step above.  
+1. Follow the sample here: azureml-examples/1-create-endpoint-with-blue.yml at main · Azure/azureml-examples (github.com), replace scoring script, model and conda yaml file downloaded from step above.  
 
 7. az ml endpoint create -n $ENDPOINT_NAME -f  
 
- 
+---
+
+Next steps:
+
