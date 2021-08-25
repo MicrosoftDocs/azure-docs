@@ -130,7 +130,7 @@ Applications running on a device without a browser can still call an API on beha
 
 ![Device code flow](media/scenarios/device-code-flow-app.svg)
 
-Though we don't recommend that you use it, the [username/password flow](scenario-desktop-acquire-token.md#username-and-password) is available in public client applications. This flow is still needed in some scenarios like DevOps.
+Though we don't recommend that you use it, the [username/password flow](scenario-desktop-acquire-token-usernamepassword.md) is available in public client applications. This flow is still needed in some scenarios like DevOps.
 
 Using the username/password flow constrains your applications. For instance, applications can't sign in a user who needs to use multifactor authentication or the Conditional Access tool in Azure AD. Your applications also don't benefit from single sign-on. Authentication with the username/password flow goes against the principles of modern authentication and is provided only for legacy reasons.
 
@@ -221,7 +221,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
  </tr>
 
   <tr>
-   <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt=Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
+   <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt="Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
    <td rowspan="4"><a href="scenario-desktop-overview.md">Desktop app that calls web APIs</a></td>
    <td>Interactive by using <a href="v2-oauth2-auth-code-flow.md">authorization code</a> with PKCE</td>
    <td>Work or school accounts, personal accounts, and Azure AD B2C</td>
@@ -238,7 +238,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
  </tr>
 
   <tr>
-   <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
+   <td><a href="scenario-desktop-acquire-token-device-code-flow.md"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Device code</a></td>
    <td>Work or school accounts, personal accounts, but not Azure AD B2C</td>
  </tr>
