@@ -147,7 +147,6 @@ In this example, you'll remove a load-balancing rule.
 
     :::image type="content" source="./media/manage-rules-how-to/remove-ha-ports-load-balancing-rule.png" alt-text="Screenshot of removing a HA ports load-balancing rule." border="true":::
 
-
 ## Inbound NAT rule
 
 Inbound NAT rules are used to route connections to a specific VM in the backend pool. For more information and a detailed tutorial on configuring and testing inbound NAT rules, see [Tutorial: Configure port forwarding in Azure Load Balancer using the portal](tutorial-load-balancer-port-forwarding-portal.md).
@@ -158,16 +157,62 @@ In this section, you'll learn how to add and remove an outbound rule. In this ex
 
 ### Add outbound rule
 
+In this example, you'll create a outbound rule.
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
+2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
+3. Select **myLoadBalancer** or your load balancer.
+
+4. In the load balancer page, select **Outbound rules** in **Settings**.
+
+5. Select **+ Add** in **Outbound rules** to add a rule.
+
+    :::image type="content" source="./media/manage-rules-how-to/outbound-rules.png" alt-text="Screenshot of the outbound rules page in a standard load balancer." border="true":::
+
+6. Enter or select the following information in **Add outbound rule**.
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myOutboundRule**. |
+    | Frontend IP address | Select the frontend IP address of the load balancer. <br> In this example, it's **myFrontendIP**. | 
+    | Protocol | Leave the default of **All**. |
+    | Idle timeout (minutes) | Leave the default of **4** or move the slider to meet your requirements. |
+    | TCP Reset | Leave the default of **Enabled**. |
+    | Backend pool | Select the backend pool of the load balancer. </br> In this example, it's **myBackendPool**. |
+    | **Port allocation** |   |
+    | Port allocation | Select **Manually choose number of outbound ports**. |
+    | **Outbound ports** |  |
+    | Choose by | Select **Ports per instance**. |
+    | Ports per instance | Enter **10000**. |
+
+7. Select **Add**.
+
+    :::image type="content" source="./media/manage-rules-how-to/add-outbound-rule.png" alt-text="Screenshot of the add outbound rule page." border="true":::
+
+### Remove a outbound rule
+
+In this example, you'll remove a outbound rule.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
+
+3. Select **myLoadBalancer** or your load balancer.
+
+4. In the load balancer page, select **Outbound rules** in **Settings**.
+
+5. Select the three dots next to the rule you want to remove.
+
+6. Select **Delete**.
+
+    :::image type="content" source="./media/manage-rules-how-to/remove-outbound-rule.png" alt-text="Screenshot of removing a outbound rule." border="true":::
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+In this article you learned how to managed load-balancing rules for an Azure Load Balancer.
+
+For more information about Azure Load Balancer, see:
+- [What is Azure Load Balancer?](load-balancer-overview.md)
+- [Frequently asked questions - Azure Load Balancer](load-balancer-faqs.yml)
