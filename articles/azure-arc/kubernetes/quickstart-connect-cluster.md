@@ -235,42 +235,7 @@ eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 
 ---
 
-## 4. Verify cluster connection
-
-Run the following command:
-
-### [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az connectedk8s list --resource-group AzureArcTest --output table
-```
-
-Output:
-<pre>
-Name           Location    ResourceGroup
--------------  ----------  ---------------
-AzureArcTest1  eastus      AzureArcTest
-</pre>
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Get-AzConnectedKubernetes -ResourceGroupName AzureArcTest
-```
-
-Output:
-<pre>
-Location Name          Type
--------- ----          ----
-eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
-</pre>
-
----
-
-> [!NOTE]
-> After onboarding the cluster, it takes around 5 to 10 minutes for the cluster metadata (cluster version, agent version, number of nodes, etc.) to surface on the overview page of the Azure Arc enabled Kubernetes resource in Azure portal.
-
-## 5. Connect using an outbound proxy server
+## 4a. Connect using an outbound proxy server
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -325,6 +290,41 @@ If your cluster is behind an outbound proxy server, Azure PowerShell and the Azu
     ```
 
 ---
+
+## 5. Verify cluster connection
+
+Run the following command:
+
+### [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az connectedk8s list --resource-group AzureArcTest --output table
+```
+
+Output:
+<pre>
+Name           Location    ResourceGroup
+-------------  ----------  ---------------
+AzureArcTest1  eastus      AzureArcTest
+</pre>
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Get-AzConnectedKubernetes -ResourceGroupName AzureArcTest
+```
+
+Output:
+<pre>
+Location Name          Type
+-------- ----          ----
+eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
+</pre>
+
+---
+
+> [!NOTE]
+> After onboarding the cluster, it takes around 5 to 10 minutes for the cluster metadata (cluster version, agent version, number of nodes, etc.) to surface on the overview page of the Azure Arc enabled Kubernetes resource in Azure portal.
 
 ## 6. View Azure Arc agents for Kubernetes
 
