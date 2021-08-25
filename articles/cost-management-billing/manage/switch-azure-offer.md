@@ -64,7 +64,7 @@ To convert your subscription:
     :::image type="content" source="./media/switch-azure-offer/select-offer-pay-as-you-go.png" alt-text="Screenshot showing the Switch Offer option." lightbox="./media/switch-azure-offer/select-offer-pay-as-you-go.png" :::
 1. On the Select payment method tab, select **Select a payment method**, enter your payment method information, and then select **Next**.  
 1. On the Review + convert page, you can optionally change the subscription name. Review the agreement information, select the **I agree** option, and then at the bottom of the page, select **Switch Offer**.  
-    :::image type="content" source="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" alt-text="Screenshot showing the Review + convert tab with subscription name and agreement acknowledgement." lightbox="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" :::
+    :::image type="content" source="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" alt-text="Screenshot showing the Review + convert tab with subscription name and agreement acceptance." lightbox="./media/switch-azure-offer/switch-offer-visual-studio-agreement.png" :::
 
 View your new converted subscription by navigating to **Subscriptions**.
 
