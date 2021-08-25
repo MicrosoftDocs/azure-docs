@@ -95,6 +95,45 @@ You may need to store a property with multiple fields. These properties are repr
 
 For instance, if you're representing a property with three fields for roll, pitch, and yaw, Data History will store the following JSON object as the `Value`: `{"roll": 20, "pitch": 15, "yaw": 45}`.
 
+## End-to-end ingestion latency
+
+Azure Digital Twins Data History builds on the existing ingestion mechanism provided by Azure Data Explorer. Azure Digital Twins will ensure that property updates are made available to Azure Data Explorer within less than two seconds. Additional latency may be introduced by Azure Data Explorer ingesting the data. 
+
+There are two methods in Azure Data Explorer for ingesting data: [batch ingestion](#batch-ingestion-default) and [streaming ingestion](#streaming-ingestion). These can be configured for individual tables by a customer according to their needs and the specific data ingestion scenario.
+
+Streaming ingestion has the lowest latency. However, due to processing overhead, this mode should only be used if less than 4GB of data is ingested every hour. Batch ingestion works best if high ingestion data rates are expected. Azure Data Explorer uses batch ingestion by default. The following table summarizes the expected worst-case end-to-end latency: 
+
+| Azure Data Explorer configuration | Expected end-to-end latency | Recommended data rate |
+| --- | --- | --- |
+| Streaming ingestion | <12 sec (<3 sec typical) | <4 GB / hr |
+| Batch ingestion | Varies (12 sec-15 m, depending on configuration) | >4 GB / hr
+
+The rest of this section contains details for enabling each type of ingestion.
+
+### Batch ingestion (default)
+
+If not configured otherwise, Azure Data Explorer will use **batch ingestion**. The default settings may lead to data being available for query only 5-10 minutes after an update to a digital twin was performed. The ingestion policy can be altered, such that the batch processing occurs at most every 10 seconds (at minimum; or 15 minutes at maximum). To alter the ingestion policy, the following command must be issued in the Azure Data Explorer query view: 
+
+```kusto
+.alter table <table_name> policy ingestionbatching @'{"MaximumBatchingTimeSpan":"00:00:10", "MaximumNumberOfItems": 500, "MaximumRawDataSizeMB": 1024}' 
+```
+
+Ensure that `<table_name>` is replaced with the name of the table that was set up for you. MaximumBatchingTimeSpan should be set to the preferred batching interval. Please note that it may take 5-10 minutes for the policy to take effect. You can read more about ingestion batching at the following link: [Kusto IngestionBatching policy management command](/azure/data-explorer/kusto/management/batching-policy). 
+
+### Streaming ingestion 
+
+Enabling **streaming ingestion** is a 2-step process: 
+1. Enable streaming ingestion for your cluster. This only has to be done once. (Warning: This will have an impact on the amount of storage available for hot cache, and may introduce additional limitations). 
+2. Add a streaming ingestion policy for the desired table. You can read more about enabling streaming ingestion for your cluster in the Azure Data Explorer documentation: [Kusto IngestionBatching policy management command](/azure/data-explorer/kusto/management/batching-policy). 
+
+To enable streaming ingestion for your Azure Digital Twins data history table, the following command must be issued in the Azure Data Explorer query pane: 
+
+```kusto
+.alter table <table_name> policy streamingingestion enable 
+```
+
+Ensure that `<table_name>` is replaced with the name of the table that was set up for you. Please note that it may take 5-10 minutes for the policy to take effect. 
+
 ## Next steps
 
 Once twin data has been historized to Azure Data Explorer, you can use the Azure Digital Twins query plugin for Azure Data Explorer to run queries across the data. Read more about the plugin here: [Querying historized data](concepts-data-explorer-plugin.md).
