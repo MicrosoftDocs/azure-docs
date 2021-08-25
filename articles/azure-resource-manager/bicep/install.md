@@ -75,7 +75,7 @@ For more commands, see [Bicep CLI](bicep-cli.md).
 > [!IMPORTANT]
 > Azure CLI installs a self-contained instance of the Bicep CLI. This instance doesn't conflict with any versions you may have manually installed. Azure CLI doesn't add Bicep CLI to your PATH.
 
-### PowerShell
+### Azure PowerShell
 
 You must have Azure PowerShell version 5.6.0 or later installed. To update or install, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -96,7 +96,7 @@ bicep --version
 
 The following methods install the Bicep CLI and add it to your PATH. You must manually install for any use other than Azure CLI.
 
-- [Linux](#linus)
+- [Linux](#linux)
 - [macOS](#macos)
 - [Windows](#windows)
 
@@ -188,18 +188,18 @@ To install Bicep in an air-gapped environment, you need to download the Bicep CL
 
 - **Linux**
 
-1. Download **bicep-linux-x64** from the [Bicep release page](/Azure/bicep/releases/) in a non-air-gapped environment.
-1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine.
+    1. Download **bicep-linux-x64** from the [Bicep release page](/Azure/bicep/releases/) in a non-air-gapped environment.
+    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine.
 
 - **macOS**
 
-1. Download **bicep-osx-x64** from the [Bicep release page](/Azure/bicep/releases/) in a non-air-gapped environment.
-1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine.
+    1. Download **bicep-osx-x64** from the [Bicep release page](/Azure/bicep/releases/) in a non-air-gapped environment.
+    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine.
 
 - **Windows**
 
-1. Download **bicep-win-x64.exe** from the [Bicep release page](/Azure/bicep/releases/) in a non-air-gapped environment.
-1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine.
+    1. Download **bicep-win-x64.exe** from the [Bicep release page](/Azure/bicep/releases/) in a non-air-gapped environment.
+    1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine.
 
 Note `bicep install` and `bicep upgrade` commands don't not work in an air-gapped environment.
 
