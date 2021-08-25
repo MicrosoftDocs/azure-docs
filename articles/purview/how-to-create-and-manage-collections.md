@@ -159,6 +159,9 @@ Once you restrict inheritance, you will need to add users directly to the restri
 
 Assets and sources are also associated with collections. During a scan, if the scan was associated with a collection the assets will be automatically added to that collection, but can also be manually added.
 
+> [!NOTE]
+> Assets can only be added to the collection the source belongs to or its subcollections.
+
 1. Check the collection information in asset details. You can find collection information in the **Collection path** section on right-top corner of the asset details page.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/collection-path.png" alt-text="Screenshot of Purview studio asset window, with the collection path highlighted." border="true":::
@@ -184,7 +187,7 @@ Assets and sources are also associated with collections. During a scan, if the s
     :::image type="content" source="./media/how-to-create-and-manage-collections/move-asset.png" alt-text="Screenshot of Purview studio asset window with the collection path highlighted and the ellipsis button next to collection path selected." border="true":::
 
 1. Select the **Move to another collection** button.
-1. In the right side panel, choose the target collection you want move to. Note that you can only see the collections where you have write permissions.
+1. In the right side panel, choose the target collection you want move to. Note that you can only see the collections where you have write permissions. The asset can also only be added to the subcollections of the data source collection.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/move-select-collection.png" alt-text="Screenshot of Purview studio pop-up window with the select a collection dropdown menu highlighted." border="true":::
 
