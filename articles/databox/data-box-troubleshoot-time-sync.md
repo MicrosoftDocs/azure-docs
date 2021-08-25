@@ -13,33 +13,47 @@ ms.author: alkohli
 
 # Troubleshoot time sync issues for Azure Data Box and Azure Data Box Heavy devices
 
-This article describes how to troubleshoot time sync issues of Azure Data Box or Azure Data Box Heavy devices.
+This article describes how to diagnose that your Data Box is out of sync and then change the time on your Data Box device. The information in this article applies to both Data Box and Data Box Heavy devices.
 
 > [!NOTE]
 > The information in this article applies to import orders only. <!-- verify this is actually the case-->
 
-## Connect to the PowerShell interface
 
-When data is uploaded to Azure from your device, some file uploads might occasionally fail because of configuration errors that can't be resolved through a retry. In that case, you receive a notification to give you a chance to review and fix the errors for a later upload.
+## About synchronizing device time
 
-You'll see the following notification in the Azure portal. The errors are listed in the data copy log, which you can open using the **DATA COPY PATH**. For guidance on resolving the errors, see [Summary of non-retryable upload errors](#summary-of-non-retryable-upload-errors).
+Data Box automatically synchronizes time when it is connected to the internet using the default Windows time server `time.windows.com`. However, if Data Box is not connected to the internet, the device time may be out of sync. This situation may affect the data copy from the source data to Data Box specifically if the copy is via the REST API or certain tools that have time constraints. 
 
-![Notification of errors during upload](media/data-box-troubleshoot-data-upload/copy-completed-with-errors-notification-01.png)
+If you see any time difference between the time on Data Box and other local devices on your site, you can sync the time on your Data Box by accessing its PowerShell interface. 
 
 
 ## Connect to the PowerShell interface
 
 To troubleshoot time sync issues, you'll first need to connect to the PowerShell interface of your device.
 
-[!INCLUDE [data-box-connect-powershell-interface](../../includes/data-box-review-nonretryable-errors.md)]
+!INCLUDE[data-box-connect-powershell-interface](../../includes/data-box-review-nonretryable-errors.md)
 
 
-## Summary of non-retryable upload errors
+### Change device time
 
-The following non-retryable errors result in a notification:
+To change the device time, follow these steps.
 
-|Error category                    |Error code |Error message                                                                             |
-|----------------------------------|-----------|------------------------------------------------------------------------------------------|
+Use the Get-Date cmdlet to view the date and time on your Data Box
+
+    `Get-Date`
+
+Use the Set-Date cmdlet to change the time on your Data Box.
+
+    `Set-Date -Adjust <time change in hours:mins:secs format> -DisplayHint Time
+
+Here is an example output:
+
+```powershell
+PS C:\WINDOWS\system32> Get-Date
+Wednesday, August 18, 2021 4:32:42 PM
+PS C:\WINDOWS\system32> Set-Date -Adjust 0:2:0 -DisplayHint Time
+4:35:09 PM
+PS C:\WINDOWS\system32>
+```
 
 
 > [!NOTE]
