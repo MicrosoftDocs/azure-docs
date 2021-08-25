@@ -33,7 +33,7 @@ User accounts can be cloud-only or hybrid users from the same Azure AD tenant.
 > [!NOTE]
 > There are some known limitations that may be a deciding factor when chosing an Azure AD-joined Only solution for your VMs.
 
-Currently Azure AD-joined VMs have the below list of known limitations that impact access to your on-prem or Active Directory domain joined resources. This solution is currently ideal for scenarios in which users will only need access to cloud based resources or those that support Azure AD based authentication. 
+The following known issues may impact access to your on-premises or Active Directory domain-joined resources. These issues may impact your decision about whether Azure AD-joined VMs are right for your environment. We currently recommend Azure AD-joined VMs for scenarios where users only need access to cloud-based resources or Azure AD-based authentication. 
 - Azure Virtual Desktop (Classic) doesn't support this feature. 
 - External users aren't supported at this time.
 - Only supports local user profiles at this time.
