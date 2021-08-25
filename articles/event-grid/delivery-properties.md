@@ -82,14 +82,15 @@ Azure Service Bus supports the use of following message properties when sending 
 | `ViaPartitionKey` | Static or dynamic |
 
 > [!NOTE]
-> The default value of `MessageId` is the internal ID of the Event Grid event. You can override it. For example, `data.field`.
+> - The default value of `MessageId` is the internal ID of the Event Grid event. You can override it. For example, `data.field`.
+> - You can only set either `SessionId` or `MessageId`. 
 
 ### Event Hubs example
 
 If you need to publish events to a specific partition within an event hub, set the `ParitionKey` property on your event subscription to specify the partition key that identifies the target event hub partition.
 
-| Header name | Header type |                                |
-| :-- | :-- | :-- |
+| Header name | Header type |
+| :-- | :-- |
 |`PartitionKey` | Static |
 
 
