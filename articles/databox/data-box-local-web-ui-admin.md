@@ -100,7 +100,13 @@ When you order your device, you can choose to use default system-generated passw
 
 To get the credentials for a share:
 
-[!INCLUDE [data-box-get-share-credentials](../../includes/data-box-get-share-credentials.md)]
+1. In the local web UI, go to **Connect and copy**. Select **SMB** to get access credentials for the shares associated with your storage account.
+
+   ![Screenshot showing the Connect And Copy page in the local Web UI for a Data Box. The Connect And Copy menu item and the SMB option are highlighted.](media/data-box-local-web-ui-admin/get-share-credentials-01.png)
+
+1. In the **Access share and copy data** dialog box, copy the **Username** and **Password** corresponding to the share. Then select **OK**.
+
+   ![Screenshot showing the Access Share And Copy Data dialog box in the local Web UI for an SMB share on the Data Box. The Copy icon for the Storage Account and Password options, and the OK button, are highlighted.](media/data-box-local-web-ui-admin/get-share-credentials-02.png)
 
 > [!NOTE]
 > After several failed share connection attempts using an incorrect password, the user account will be locked out of the share. The account lock will clear after a few minutes, and you can connect to the shares again.  
