@@ -29,15 +29,15 @@ Suppose the user attempts to use an unsupported client to connect to the protect
 5. To confirm the files copied correctly, open the Group Policy Editor and navigate to **Computer Configuration** -> **Administrative Templates** -> **Windows Components** -> **Remote Desktop Services** -> **Remote Desktop Session Host** -> **Azure Virtual Desktop**
 6. You should see one or more Azure Virtual Desktop policies, as shown below.
 
-:::image type="content" source="media/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the group policy editor":::
+   :::image type="content" source="media/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the group policy editor" lightbox="media/azure-virtual-desktop-gpo.png":::
 
-> [!TIP]
-> You can also install administrative templates to the group policy Central Store in your Active Directory domain.
-> For more information about Central Store for Group Policy Administrative Templates, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
+   > [!TIP]
+   > You can also install administrative templates to the group policy Central Store in your Active Directory domain.
+   > For more information about Central Store for Group Policy Administrative Templates, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](/troubleshoot/windows-client/group-policy/create-and-manage-central-store).
 
 7. Open the **"Enable screen capture protection"** policy and set it to **"Enabled"**.
 
-## Limitations and Known issues
+## Limitations and known issues
 
 - This feature protects the Remote Desktop window from being captured through a specific set of public operating system features and APIs. However, there's no guarantee that this feature will strictly protect content, for example, where someone takes photography of the screen.
 - Customers should use the feature together with disabling clipboard, drive, and printer redirection. Disabling redirection will help to prevent the user from copying the captured screen content from the remote session.
