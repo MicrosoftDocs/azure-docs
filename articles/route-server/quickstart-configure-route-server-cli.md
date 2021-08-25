@@ -172,21 +172,21 @@ If you have an ExpressRoute and an Azure VPN gateway in the same virtual network
 
 1. To enable route exchange between Azure Route Server and the gateway(s) use [az network routerserver update](/cli/azure/network/routeserver#az_network_routeserver_update) with the `--allow-b2b-traffic`` flag set to **true**:
 
-```azurecli-interactive 
-az network routeserver update \
-    --name myRouteServer \
-    --resource-group myRouteServerRG \
-    --allow-b2b-traffic true 
-``` 
+   ```azurecli-interactive 
+   az network routeserver update \
+       --name myRouteServer \
+       --resource-group myRouteServerRG \
+       --allow-b2b-traffic true 
+   ``` 
 
 2. To disable route exchange between Azure Route Server and the gateway(s), use [az network routerserver update](/cli/azure/network/routeserver#az_network_routeserver_update) with the `--allow-b2b-traffic`` flag set to **false**:
 
-```azurecli-interactive
-az network routeserver update \
-    --name myRouteServer \
-    --resource-group myRouteServerRG \
-    --allow-b2b-traffic false 
-``` 
+   ```azurecli-interactive
+   az network routeserver update \
+       --name myRouteServer \
+       --resource-group myRouteServerRG \
+       --allow-b2b-traffic false 
+   ``` 
 
 ## Troubleshooting 
 
