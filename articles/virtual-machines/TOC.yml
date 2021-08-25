@@ -522,7 +522,7 @@
       - name: Windows
         displayName: Azure Key Vault, key vault, encryption
         href: ./extensions/key-vault-windows.md
-    - name: Azure Policy Guest Configuration
+    - name: Azure Policy guest configuration
       href: ./extensions/guest-configuration.md
     - name: Custom Script
       items:
