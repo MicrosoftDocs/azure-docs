@@ -20,6 +20,19 @@ ms.collection: M365-identity-device-management
 
 You can delegate the management of custom security attributes to others in your organization at the tenant level or at the attribute set level.
 
+## Prerequisites
+
+To manage access to custom security attributes, you must have:
+
+- Azure AD Premium P1 or P2 license
+- An Azure AD role with the following permissions, such as Attribute Assignment Administrator:
+
+    - `microsoft.directory/attributeSets/allProperties/read`
+    - `microsoft.directory/customSecurityAttributeDefinitions/allProperties/read`
+
+    > [!IMPORTANT]
+    > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+
 ## Example scenarios
 
 The following are example scenarios to read, manage, and assign custom security attributes and attribute sets.
@@ -34,16 +47,6 @@ The following are example scenarios to read, manage, and assign custom security 
 | Read all custom security attribute assignments for users, service principals, and devices | Tenant | Attribute Assignment Reader |
 | Assign custom security attributes to users, service principals, and devices from a particular attribute set | Attribute set | Attribute Assignment Administrator |
 | Assign all custom security attributes to users, service principals, and devices | Tenant | Attribute Assignment Administrator |
-
-## Prerequisites
-
-To manage access to custom security attributes, you must have:
-
-- Azure AD Premium P1 or P2 license
-- An Azure AD role with the following permissions, such as Attribute Assignment Administrator:
-
-    - `microsoft.directory/attributeSets/allProperties/read`
-    - `microsoft.directory/customSecurityAttributeDefinitions/allProperties/read`
 
 ## Grant access at the attribute set scope
 

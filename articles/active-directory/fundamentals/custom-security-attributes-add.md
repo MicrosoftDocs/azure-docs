@@ -28,6 +28,9 @@ To add or deactivate custom security attributes, you must have:
     - `microsoft.directory/attributeSets/allProperties/allTasks`
     - `microsoft.directory/customSecurityAttributeDefinitions/allProperties/allTasks`
 
+    > [!IMPORTANT]
+    > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+    
 ## Add a new custom security attribute
 
 1. Sign in to the Azure portal.

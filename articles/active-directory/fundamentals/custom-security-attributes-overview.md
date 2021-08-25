@@ -128,7 +128,7 @@ Azure AD provides built-in roles to work with custom security attributes. The At
 > | Attribute Assignment Administrator | 58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d | Read attribute set in the catalog<br/>Read security attribute definitions<br/>Read security attributes values for devices<br/>Manage security attributes values for devices<br/>Read security attributes values for service principals<br/>Manage security attributes values for service principals<br/>Read security attributes values for users<br/>Manage security attributes values for users |
 
 > [!IMPORTANT]
-> [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) do not have permissions to read or manage custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+> [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
 
 ## License requirements
 

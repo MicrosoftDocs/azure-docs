@@ -157,14 +157,14 @@ Depending on the selected actions, the attribute might be found in different pla
 
 To use principal attributes, you must have **all** of the following:
 
-- Azure AD Premium P1 or P2 license for your tenant
+- Azure AD Premium P1 or P2 license
 - Azure AD permissions for signed-in user, such as the Attribute Assignment Administrator role
 - Custom security attributes defined in Azure AD
 
 For more information about custom security attributes, see:
 
 - [Principal does not appear in Attribute source when adding a condition](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition)
-- [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
+- [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md)
 
 For a list of the storage blob attributes you can use in conditions, see:
 

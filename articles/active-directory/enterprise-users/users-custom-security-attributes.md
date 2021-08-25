@@ -34,6 +34,9 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
     - `microsoft.directory/users/customSecurityAttributes/read`
     - `microsoft.directory/users/customSecurityAttributes/update`
 
+    > [!IMPORTANT]
+    > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+    
 ## Assign custom security attributes to a user
 
 1. Sign in to the Azure portal.
