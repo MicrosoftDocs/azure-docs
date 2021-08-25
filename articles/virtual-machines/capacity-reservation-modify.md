@@ -348,4 +348,4 @@ Update `myCapacityReservation` to the old quantity reserved. Once updated, the r
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about adding code to articles](availability.md)
+> [Learn how to remove VMs from a Capacity Reservation](capacity-reservation-remove-vm.md)
