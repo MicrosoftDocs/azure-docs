@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 08/24/2021
+ms.date: 08/25/2021
 ms.author: ginle
 ---
 
@@ -46,7 +46,7 @@ If you change the default value to "Yes", the application registration is a **pu
 
 For tools that require a redirect URL, select **Add a platform** to configure the platform.
 
-[ ![Screenshot of add a platform.](media/register-application-five-alpa.png) ](media/register-application-five-alpha.png#lightbox)
+[ ![Screenshot of add a platform.](media/register-application-five-alpha.png) ](media/register-application-five-alpha.png#lightbox)
 
 For Postman, select **Mobile and desktop applications**. Enter “https://www.getpostman.com/oauth2/callback” in the **Custom redirect URIs** section. Select the **Configure** button to save the setting.
 
