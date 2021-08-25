@@ -75,16 +75,8 @@ Now start up your application and go to your Application Insights resource in th
 > [!NOTE]
 > It may take a couple minutes for data to show up in the Portal.
 
-## Enable OTLP Exporter
-You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
-
-Add the code to xyz.file in your application.
-```Java
-Placeholder
-```
-
-> [!NOTE]
-> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the OpenTelemetry community for OpenTelemetry issues outside the Azure Support Boundary.
+> [!IMPORTANT]
+> If you have two or more micro-services using the same connection string, you are required to set cloud role names to represent them properly on the Application Map.
 
 ## Configuration options
 
@@ -437,6 +429,17 @@ try {
     telemetryClient.trackException(e);
 }
 ```
+
+## Enable OTLP Exporter
+You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
+
+Add the code to xyz.file in your application.
+```Java
+Placeholder
+```
+
+> [!NOTE]
+> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the OpenTelemetry community for OpenTelemetry issues outside the Azure Support Boundary.
 
 ## Troubleshooting
 See [Troubleshooting](./java-standalone-troubleshoot.md).
