@@ -100,7 +100,15 @@ If you need to find out a share password, you'll find the access credentials for
 
 To get the password for a share:
 
-[!INCLUDE [data-box-get-device-password](../../includes/data-box-get-share-password.md)]<!--Not sure the include file will be useful. Two screens, and thus two steps, are needed for this procedure. They won't fit into the "Connect to Data Box" procedure in the Connect & copy tutorial. And Data Box and Data Box Heavy share this topic.-->
+[!INCLUDE [data-box-get-device-password](../../includes/data-box-get-share-password.md)]
+
+1. In the local web UI, go to **Connect and copy**. Select **SMB** by the share of interest to get its password.
+
+   ![Screenshot showing the Connect And Copy page in the local Web UI for a Data Box. The Connect And Copy menu item and the SMB option are highlighted.](media/data-box-get-share-password/get-share-password-01.png)
+
+1. In the **Access share and copy data** dialog box, copy the **Password** corresponding to the share. Then select **OK**.
+
+   ![Screenshot showing the Access Share And Copy Data dialog box in the local Web UI for an SMB share on the Data Box. The Copy icon for the Password and the OK button are highlighted.](media/data-box-get-share-password/get-share-password-02.png)<!--Remove box from the copy icon for Storage Account and User Name.-->
 
 > [!NOTE]
 > After several failed share connection attempts using an incorrect password, the user account will be locked out of the share. The account lock will clear after a few minutes, and you can connect to the shares again.  
