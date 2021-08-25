@@ -96,7 +96,7 @@ A challenge in previous versions of DSC has been correcting drift at scale
 without a lot of custom code and reliance on WinRM remote connections. Guest
 configuration solves this problem. Users of guest configuration have control
 over drift correction through
-[Remediation On Demand](/guest-configuration-policy-effects#remediation-on-demand-applyandmonitor).
+[Remediation On Demand](/guest-configuration-policy-effects.md#remediation-on-demand-applyandmonitor).
 
 ## Special requirements for Get
 
