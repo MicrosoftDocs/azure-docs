@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 08/24/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
@@ -117,7 +117,11 @@ $ctx = (Get-AzStorageAccount `
 
 # Change the blob’s access tier to hot with standard priority.
 $blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
-$blob.ICloudBlob.SetStandardBlobTier("Hot", "Standard")
+$blobRequestConditions = New-Object -TypeName "Azure.Storage.Blobs.Models.BlobRequestConditions"
+$cancellationToken = New-Object -TypeName "System.Threading.CancellationToken"
+$targetTier = [Azure.Storage.Blobs.Models.AccessTier]::Cool
+$rehydratePriority = [Azure.Storage.Blobs.Models.RehydratePriority]::High
+$blob.BlobClient.SetAccessTier($targetTier, $blobRequestConditions, $rehydratePriority, $cancellationToken)
 ```
 
 ### [Azure CLI](#tab/azure-cli)
@@ -135,6 +139,8 @@ az storage blob set-tier /
 ```
 
 ---
+
+To learn how to call [Set Blob Tier](/rest/api/storageservices/set-blob-tier) as a bulk operation on a set of blobs, see the code example for [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
 
 ## Check the status of a rehydration operation
 
@@ -154,12 +160,12 @@ When the rehydration is complete, you can see in the Azure portal that the fully
 
 ### [PowerShell](#tab/powershell)
 
-To check the status and priority of a pending rehydration operation with PowerShell, call the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) command, and check the **RehydrationStatus** and **RehydratePriority** properties of the blob. If the rehydration is a copy operation, check these properties on the destination blob. Remember to replace placeholders in angle brackets with your own values:
+To check the status and priority of a pending rehydration operation with PowerShell, call the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) command, and check the **ArchiveStatus** and **RehydratePriority** properties of the blob. If the rehydration is a copy operation, check these properties on the destination blob. Remember to replace placeholders in angle brackets with your own values:
 
 ```powershell
 $rehydratingBlob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
+$rehydratingBlob.BlobProperties.ArchiveStatus
 $rehydratingBlob.BlobProperties.RehydratePriority
-$rehydratingBlob.ICloudBlob.Properties.RehydrationStatus
 ```
 
 ### [Azure CLI](#tab/azure-cli)
