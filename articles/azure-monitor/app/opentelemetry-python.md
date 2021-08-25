@@ -2,7 +2,7 @@
 title: Azure Monitor OpenTelemetry for Python | Microsoft Docs
 description: Provides guidance on how to enable Azure Monitor on Python Applications using OpenTelemetry
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 08/24/2021
 author: mattmccleary
 ms.author: mmcc
 ---
@@ -12,7 +12,21 @@ ms.author: mmcc
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. When you complete the instructions in this article, you’ll be able to use Azure Monitor Application Insights to monitor your application.
 
 > [!WARNING]
-> Please consider carefully whether this preview is right for you. It enables distributed tracing only and excludes custom metrics, live metrics, logs, profiler, snapshot debugger, offline disk storage, and AAD Authentication. Enabling sampling will result in broken traces if used alongside the existing Application Insights SDKs, and it will make standard and log-based metrics inaccurate. Dependency collection support is limited to select libraries listed below. This release is for early adopters who want to use OpenTelemetry’s vendor-neutral instrumentation to power basic experiences including the Application Map, Failures Blade, and Performance Blade. However, those who require a full-feature experience should use the existing Application Insights SDKs until the OpenTelemetry-based offering matures. 
+> Please consider carefully whether this preview is right for you. It enables distributed tracing only and excludes:
+> - custom metrics
+> - [Pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics)
+> - [Live Metrics](live-stream.md)
+> - logging (e.g., console logs)
+> - [Profiler](profiler-overview.md)
+> - [Snapshot Debugger](snapshot-debugger.md)
+> - offline disk storage
+> - [AAD Authentication](azure-ad-authentication.md)
+> - Azure Monitor compatible sampling
+>
+> Those who require a full-feature experience should use the existing Application Insights SDKs until the OpenTelemetry-based offering matures.
+
+> [!WARNING]
+> Enabling sampling will result in broken traces if used alongside the existing Application Insights SDKs, and it will make standard and log-based metrics extremely inaccurate which will adversely impact all Application Insights experiences.
 
 ## Get Started
 ### Prerequisites
@@ -64,7 +78,7 @@ Placeholder
 OpenTelemetry SDKs provide built-in sampling as a way to control data volume and ingestion costs. To learn how to enable built-in sampling, see [OpenTelemetry Python SDK on trace sampling](https://opentelemetry-python.readthedocs.io/en/latest/sdk/trace.sampling.html).
 
 > [!WARNING]
-> We do not recommend enabling sampling in the preview release because it will result in broken traces if used alongside the existing Application Insights SDKs and it will make standard and log-based metrics inaccurate.
+> We do not recommend enabling sampling in the preview release because it will result in broken traces if used alongside the existing Application Insights SDKs and it will make standard and log-based metrics extremely inaccurate which will adversely impact all application insights experiences.
 
 ## Instrumentation Libraries
 Microsoft has tested and validated that the following instrumentation libraries will work with the **Preview** Release.
@@ -92,7 +106,7 @@ Adding one or more custom dimensions will populate the _customDimensions_ field 
 Placeholder
 ```
 
-#### Set User ID
+#### Set User ID or Authenticated User ID
 Setting user id will populate the _user_Id_ field in the requests, dependencies, and/or exceptions table.
 
 ```python
