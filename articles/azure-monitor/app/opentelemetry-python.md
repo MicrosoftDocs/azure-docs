@@ -12,16 +12,15 @@ ms.author: mmcc
 This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. When you complete the instructions in this article, you’ll be able to use Azure Monitor Application Insights to monitor your application.
 
 > [!WARNING]
-> Please consider carefully whether this preview is right for you. It enables distributed tracing only and excludes:
-> - custom metrics
-> - [Pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics)
+> Please consider carefully whether this preview is right for you. It enables distributed tracing only and _excludes_ the following:
+> - Metrics API (custom metrics, [Pre-aggregated metrics](pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics))
 > - [Live Metrics](live-stream.md)
-> - logging (e.g., console logs)
+> - Logging API (console logs, logging libraries, etc.)
+> - Auto-capture of unhandled exceptions
 > - [Profiler](profiler-overview.md)
 > - [Snapshot Debugger](snapshot-debugger.md)
 > - offline disk storage
 > - [AAD Authentication](azure-ad-authentication.md)
-> - Azure Monitor compatible sampling
 >
 > Those who require a full-feature experience should use the existing Application Insights SDKs until the OpenTelemetry-based offering matures.
 
@@ -95,7 +94,7 @@ Microsoft has tested and validated that the following instrumentation libraries 
 
 ## Modify Telemetry
 ### Add Span Attributes
-You may use X to add attributes to spans. This may include adding a custom business dimension to your telemetry or setting optional fields in the Application Insights Schema such as User ID or Client IP. We provide three common examples below.
+You may use X to add attributes to spans. This may include adding a custom business dimension to your telemetry or setting optional fields in the Application Insights Schema such as User ID or Client IP. Here are three examples that show common scenarios.
 
 For more information, see [GitHub Repo](link).
 
@@ -129,7 +128,7 @@ Populate the _client_IP_ field in the requests, dependencies, and/or exceptions 
 Placeholder
 ```
 
-### Override Trace Name
+### Override Span Name
 You may use X to override trace name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
 
 ```python
@@ -149,6 +148,9 @@ For more information, see [GitHub Repo](link).
 
 ### Get Trace ID or Span ID
 You may use X or Y to get trace ID or span ID. This may be done to add these identifiers to existing logging telemetry to improve correlation when debugging and diagnosing issues.
+
+> [!NOTE]
+> If you are manually creating spans for log-based metrics and alerting, you will need to update them to use the metrics API (after it is released) to ensure accuracy.
 
 ```python
 Placeholder
@@ -177,11 +179,10 @@ Placeholder
 - For Azure support issues, file an Azure SDK GitHub issue or open a CSS Ticket.
 - For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
 
-## Feedback
+## OpenTelemetry Feedback
 - Fill out the OpenTelemetry community’s [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
 - Tell Microsoft a bit about yourself by joining our [OpenTelemetry Early Adopter Community](https://aka.ms/AzMonOTel/).
 - Add your feature requests to the [Azure Monitor Application Insights UserVoice](https://feedback.azure.com/forums/357324-azure-monitor-application-insights).
-- Open a GitHub issue against this official documentation page.
 
 ## Next Steps
 - [Azure Monitor Exporter GitHub Repository](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/README.md)
