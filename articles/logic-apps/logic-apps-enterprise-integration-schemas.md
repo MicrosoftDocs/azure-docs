@@ -67,7 +67,7 @@ If you're new to logic apps, review the following documentation:
 
 ## Add schemas
 
-### [Consumption resource](#tab/consumption)
+### [Consumption resource](#tab/consumption-1)
 
 1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account credentials.
 
@@ -147,7 +147,7 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 After your schema finishes uploading, the schema appears in the **Schemas** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded schema appears.
 
-### [Standard resource](#tab/standard)
+### [Standard resource](#tab/standard-1)
 
 #### Azure portal
 
@@ -173,7 +173,7 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 To update an existing schema, you have to upload a new schema file that has the changes you want. However, you can first download the existing schema for editing.
 
-### [Consumption resource](#tab/consumption)
+### [Consumption resource](#tab/consumption-2)
 
 1. In the [Azure portal](https://portal.azure.com), open your integration account, if not already open.
 
@@ -187,7 +187,7 @@ To update an existing schema, you have to upload a new schema file that has the 
 
    After your schema file finishes uploading, the updated schema appears in the **Schemas** list.
 
-### [Standard resource](#tab/standard)
+### [Standard resource](#tab/standard-2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, if not already open.
 
@@ -207,7 +207,7 @@ To update an existing schema, you have to upload a new schema file that has the 
 
 ## Delete schemas
 
-### [Consumption resource](#tab/consumption)
+### [Consumption resource](#tab/consumption-3)
 
 1. In the [Azure portal](https://portal.azure.com), open your integration account, if not already open.
 
@@ -217,7 +217,7 @@ To update an existing schema, you have to upload a new schema file that has the 
 
 1. To confirm you want to delete the schema, select **Yes**.
 
-### [Standard resource](#tab/standard)
+### [Standard resource](#tab/standard-3)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, if not already open.
 

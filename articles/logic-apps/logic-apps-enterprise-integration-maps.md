@@ -171,7 +171,7 @@ To create an Extensible Stylesheet Language Transformation (XSLT) document that 
 
 ## Add maps
 
-### [Consumption resource](#tab/consumption)
+### [Consumption resource](#tab/consumption-1)
 
 After you upload any assemblies that your map references, you can now upload your map.
 
@@ -207,7 +207,7 @@ After you upload any assemblies that your map references, you can now upload you
 
 Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate).
 
-### [Standard resource](#tab/standard)
+### [Standard resource](#tab/standard-1)
 
 #### Azure portal
 
@@ -233,7 +233,7 @@ Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](/rest/
 
 To update an existing map, you have to upload a new map file that has the changes you want. However, you can first download the existing map for editing.
 
-### [Consumption resource](#tab/consumption)
+### [Consumption resource](#tab/consumption-2)
 
 1. In the [Azure portal](https://portal.azure.com), open your integration account, if not already open.
 
@@ -247,7 +247,7 @@ To update an existing map, you have to upload a new map file that has the change
 
    After your map file finishes uploading, the updated map appears in the **Maps** list.
 
-### [Standard resource](#tab/standard)
+### [Standard resource](#tab/standard-2)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, if not already open.
 
@@ -267,7 +267,7 @@ To update an existing map, you have to upload a new map file that has the change
 
 ## Delete maps
 
-### [Consumption resource](#tab/consumption)
+### [Consumption resource](#tab/consumption-3)
 
 1. In the [Azure portal](https://portal.azure.com), open your integration account, if not already open.
 
@@ -277,7 +277,7 @@ To update an existing map, you have to upload a new map file that has the change
 
 1. To confirm you want to delete the map, select **Yes**.
 
-### [Standard resource](#tab/standard)
+### [Standard resource](#tab/standard-3)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, if not already open.
 
