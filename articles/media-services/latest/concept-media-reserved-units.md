@@ -33,5 +33,4 @@ For accounts created in with the **2020-05-01** version of the API (i.e. the v3 
 ## See also
 
 * [Migrate from Media Services v2 to v3](migrate-v-2-v-3-migration-introduction.md)
-* [Quotas and limits](limits-quotas-constraints-reference.md)
 * [Scale Media Reserved Units with CLI](media-reserved-units-cli-how-to.md)
