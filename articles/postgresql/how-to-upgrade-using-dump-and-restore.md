@@ -53,7 +53,7 @@ To step through this how-to-guide, you need:
 - Create corresponding databases in the target database server.
 - You can skip upgrading `azure_maintenance` or template databases.
 - Refer to the tables above to determine the database is suitable for this mode of migration.
-- If you want to use Azure Cloud Shell, please note that the session times out after 20 minutes. If your database size is < 10 GB, you may be able to complete the upgrade without the session timing out. Otherwise, you may have to keep the session open by other means, such as pressing <Enter> key once in 10-15 minutes. 
+- If you want to use Azure Cloud Shell, please note that the session times out after 20 minutes. If your database size is < 10 GB, you may be able to complete the upgrade without the session timing out. Otherwise, you may have to keep the session open by other means, such as pressing any key once in 10-15 minutes. 
 
 
 ## Example database used in this guide
@@ -71,7 +71,7 @@ In this guide, the following source and target servers and database names are us
  | Target user name | pg@pg-11 |
 
 >[!NOTE]
-> Flexible server supports PostgreSQL version 11 onwards. Also, flexible server user name does not require @<servername>.
+> Flexible server supports PostgreSQL version 11 onwards. Also, flexible server user name does not require @<dbservername>.
 
 ## Upgrade your databases using offline migration methods
 You may choose to use one of the methods described in this section for your upgrades. You can use the following tips while performing the tasks.
