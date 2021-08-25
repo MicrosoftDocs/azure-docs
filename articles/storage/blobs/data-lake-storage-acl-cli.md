@@ -83,7 +83,7 @@ This example gets the ACL of a directory, and then prints the ACL to the console
 az storage fs access show -p my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-Get the access permissions of a **file** by using the [az storage fs access show](cli/azure/storage/fs#az_storage_fs_show) command. 
+Get the access permissions of a **file** by using the [az storage fs access show](/cli/azure/storage/fs#az_storage_fs_show) command. 
 
 This example gets the ACL of a file and then prints the ACL to the console.
 
