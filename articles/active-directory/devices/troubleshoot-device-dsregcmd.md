@@ -193,7 +193,7 @@ Active Directory Federation Services (ADFS). For hybrid Azure AD-joined devices,
 - **Previous Prt Attempt**: The local time, in UTC, at which the failed PRT attempt occurred.  
 - **Attempt Status**: The client error code that's returned (HRESULT).
 - **User Identity**: The UPN of the user for whom the PRT attempt happened.
-- **Credential Type**: The credential that's used to acquire or refresh the PRT. Common credential types are Password and Next Generation Credential (NGC) (for Windows Hello for Business).
+- **Credential Type**: The credential that's used to acquire or refresh the PRT. Common credential types are Password and Next Generation Credential (NGC) (for Windows Hello).
 - **Correlation ID**: The correlation ID that's sent by the server for the failed PRT attempt.
 - **Endpoint URI**: The last endpoint accessed before the failure.
 - **HTTP Method**: The HTTP method that's used to access the endpoint.
