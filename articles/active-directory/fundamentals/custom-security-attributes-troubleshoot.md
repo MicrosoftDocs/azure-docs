@@ -74,17 +74,9 @@ You can delegate the management of custom security attributes at the tenant leve
 
 **Cause 3**
 
-There are no custom security attributes assigned yet for your tenant.
-
-**Solution 3**
-
-Assign custom security attributes to users or enterprise applications. For more information, see [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md) or [Assign or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
-
-**Cause 4**
-
 There are no custom security attributes defined and assigned yet for your tenant.
 
-**Solution 4**
+**Solution 3**
 
 Add and assign custom security attributes to users or enterprise applications. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md), [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md), or [Assign or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
 
