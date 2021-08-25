@@ -317,7 +317,7 @@
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "Juliako",
-        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Juliako"
+        "articles/azure-video-analyzer/video-analyzer-docs/**/*.md": "Juliako"
       },
       "featureFlags": {
         "articles/**/*.md": [
@@ -663,7 +663,7 @@
         "articles/virtual-machines/linux/*.md": "cynthn",
         "articles/virtual-machines/windows/*.md": "cynthn",
         "articles/virtual-machines-scale-sets/*.md": "jushiman",
-        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "juliako",
+        "articles/azure-video-analyzer/video-analyzer-docs/**/*.md": "juliako",
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "Juliako"
       },
       "ms.collection": {
@@ -768,7 +768,7 @@
         "articles/virtual-desktop/**/*.md": "virtual-desktop",
         "articles/virtual-machines/*.md": "virtual-machines",
         "articles/virtual-machine-scale-sets/*.md": "virtual-machine-scale-sets",
-        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "azure-video-analyzer",
+        "articles/azure-video-analyzer/video-analyzer-docs/**/*.md": "azure-video-analyzer",
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer"
       },
       "ms.subservice": {
@@ -820,7 +820,7 @@
         "articles/media-services/previous/*.md": "rest-v2",
         "articles/media-services/video-indexer/*.md": "video-indexer",
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "azure-video-analyzer-media",
-        "articles/azure-video-analyzer/video-analyzer-docs/*.md": "video-analyzer-subservice",
+        "articles/azure-video-analyzer/video-analyzer-docs/**/*.md": "video-analyzer-subservice",
         "articles/cosmos-db/mongodb/*.md": "cosmosdb-mongo",
         "articles/cosmos-db/cassandra/*.md": "cosmosdb-cassandra",
         "articles/cosmos-db/graph/*.md": "cosmosdb-graph",
@@ -832,7 +832,7 @@
       },
       "recommendations": {
         "articles/cognitive-services/Translator/**/*.md": false,
-        "articles/azure-video-analyzer/video-analyzer-docs/*.md": false
+        "articles/azure-video-analyzer/video-analyzer-docs/**/*.md": false
       },
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",

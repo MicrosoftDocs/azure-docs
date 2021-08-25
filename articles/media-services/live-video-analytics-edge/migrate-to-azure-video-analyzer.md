@@ -412,7 +412,7 @@ After you convert the Media Graph topology (Live Video Analytics) over to the Pi
 
 ## Direct methods
 
-Both Live Video Analytics and Azure Video Analyzer use direct method calls.  As part of the migration also note that the direct methods have been updated, and requires review for any workflows that might use them in Live Video Analytics solutions.  The following table shows the differences between [Live Video Analytics direct method calls](direct-methods.md) and [Azure Video Analyzer direct method calls](../../azure-video-analyzer/video-analyzer-docs/direct-methods.md).
+Both Live Video Analytics and Azure Video Analyzer use direct method calls.  As part of the migration also note that the direct methods have been updated, and requires review for any workflows that might use them in Live Video Analytics solutions.  The following table shows the differences between [Live Video Analytics direct method calls](direct-methods.md) and [Azure Video Analyzer direct method calls](../../azure-video-analyzer/video-analyzer-docs/edge/direct-methods.md).
 
 | Live Video Analytics | Azure Video Analyzer |
 | ------------------------ | ------------------------ |

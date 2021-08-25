@@ -82,11 +82,11 @@ landingContent:
         - text: FAQs
           url: faq-edge.yml 
         - text: SDKs
-          url: sdk.md
+          url: edge/sdk.md
         - text: Pipeline extension
           url: pipeline-extension.md
         - text: Direct methods
-          url: direct-methods.md
+          url: edge/direct-methods.md
         - text: Quotas and limitations
           url: quotas-limitations.md           
 
