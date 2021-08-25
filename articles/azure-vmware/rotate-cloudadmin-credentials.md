@@ -38,7 +38,7 @@ If you use your cloudadmin credentials for connected services like HCX, vRealize
 
 2. On the VMware HCX Dashboard, select **Site Pairing**.
     
-   :::image type="content" source="media/rotate-cloudadmin-credentials/hcx-site-pairing.png" alt-text="Screenshot of VMware HCX Dashboard with Site Pairing highlighted.":::
+   :::image type="content" source="media/tutorial-vmware-hcx/site-pairing-complete.png" alt-text="Screenshot of VMware HCX Dashboard with Site Pairing highlighted.":::
  
 3. Select the correct connection to Azure VMware Solution and select **Edit Connection**.
  
