@@ -64,10 +64,14 @@ Learn more about the [JMS 2.0 entities](java-message-service-20-entities.md) and
 
 ## Next steps
 
-For more information and examples of using Service Bus messaging, see the following advanced topics:
+Try the samples in the language of your choice to explore Azure Service Bus features. 
 
-* [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Quickstart: Send and receive messages using the Azure portal and .NET](service-bus-quickstart-portal.md)
-* [Tutorial: Update inventory using Azure portal and topics/subscriptions](service-bus-tutorial-topics-subscriptions-portal.md)
+- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+- [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 
-
+Find samples for the older .NET and Java client libraries below:
+- [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
