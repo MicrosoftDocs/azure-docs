@@ -307,6 +307,8 @@ Audit logs can be obtained only through the management console. Audit logs conta
 
 The exported log is added to the **Archived Logs** list. Select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the OTP, and send the OTP string to the support team in a separate message from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
 
+:::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/archived-files.png" alt-text="You can see the file you created in the archived files section of the Export Trouleshooting Information window.":::
+
 ## Next steps
 
 - [View alerts](how-to-view-alerts.md)
