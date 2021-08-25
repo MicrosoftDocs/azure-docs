@@ -10,7 +10,7 @@ ms.custom: has-adal-ref
 
 # Manage Python 3 packages (preview) in Azure Automation
 
-Azure Automation allows you to run Python 3 runbooks (preview) on Azure Sandbox environment and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). This article describes how to manage and use Python 3 packages (preview) in Azure Automation.
+Azure Automation allows you to run Python 3 runbooks (preview) on Azure Sandbox environment and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. Azure package 4.0.0 is installed by default in Python 3 Automation environment. The default version can be overridden by importing the Python packages in the Automation account. Preference is given to the imported version in the Automation account. To import a single package, see [Import a package](#import-a-package). To import a package with multiple packages, see [Import a package with dependencies](#import-a-package-with-dependencies). This article describes how to manage and use Python 3 packages (preview) in Azure Automation.
 
 ## Packages as source files
 

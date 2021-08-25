@@ -56,9 +56,9 @@ Yes, there's no limitation for using Python 2 and Python 3 runbooks in same Auto
 
 Azure Automation doesn't plan to migrate Python 2 runbooks and packages to Python 3. You'll have to do this migration yourself. Existing and new Python 2 runbooks and packages will continue to work.
 
-### What are the packages supported by default in Python 3 environment?
+## What are the packages supported by default in Python 3 environment?
 
-Azure package 4.0.0 is installed by default in Python 3 Automation environment. You can manually import a higher version of Azure package to override the default version.
+Azure package 4.0.0. For more information, see [Manage Python 3 packages](python-3-packages.md).
 
 ### What if I run a Python 3 runbook that references a Python 2 package or the other way around?
 
@@ -84,9 +84,9 @@ No. Source Control isn't currently supported for Python 3. By default, Python ru
 
 See [Identify available packages in sandbox](python-3-packages.md#identify-available-packages-in-sandbox).
 
-### How can a runbook author set which version of a package module to be used if there are multiple modules?
+## How can a runbook author set which version of a package module to be used if there are multiple modules?
 
-The default version can be overridden by importing the Python packages in the Automation account. Preference is given to the imported version in the Automation account.
+See [Manage Python 3 packages](python-3-packages.md).
 
 ## Next steps
 
