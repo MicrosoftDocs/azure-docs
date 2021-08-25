@@ -157,8 +157,6 @@ items:
           href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
         - name: Node.js
           href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
-  - name: SDKs
-    items:
     - name: v3.1
       items:
         - name: .NET
