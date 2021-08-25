@@ -189,9 +189,8 @@ to enable this preview feature and auto-collect the telemetry emitted by these A
 [//]: # "console.log(str)"
 
 ## Modify Telemetry
-
 ### Add Span Attributes
-You may use X to add attributes to spans. This may include adding a custom business dimension to your telemetry or setting optional fields in the Application Insights Schema such as User ID.
+You may use X to add attributes to spans. These attributes may include adding a custom business dimension to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP. Below are three examples that show common scenarios.
 
 For more information, see [GitHub Repo](link).
 
