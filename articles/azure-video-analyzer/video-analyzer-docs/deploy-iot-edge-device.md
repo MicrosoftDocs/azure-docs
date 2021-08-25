@@ -79,7 +79,7 @@ Status code: 200 –OK means that [the IoT Edge runtime](../../iot-edge/iot-edge
 
 #### Invoke a direct method
 
-Next, lets test the sample by invoking a direct method. Read [direct methods for Azure Video Analyzer ](direct-methods.md) to understand all the direct methods provided by our avaEdge module.
+Next, lets test the sample by invoking a direct method. <!--REDIRECT Read [direct methods for Azure Video Analyzer ](direct-methods.md) to understand all the direct methods provided by our avaEdge module.-->
 
 1. Clicking on the edge module you created, will take you to its configuration page.  
 

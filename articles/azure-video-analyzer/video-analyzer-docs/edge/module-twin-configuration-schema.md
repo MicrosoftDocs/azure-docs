@@ -50,4 +50,4 @@ Dynamic properties can be updated without the restarting the module.
 
 ## Next steps
 
-[Direct methods](direct-methods.md)
+<!--REDIRECT[Direct methods](direct-methods.md)-->
