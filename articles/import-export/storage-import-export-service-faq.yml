@@ -131,7 +131,7 @@ sections:
       - question: |
           Why is my order status still Shipping when my device has already been delivered?
         answer: |
-          After the carrier delivers a physical device, it takes 1 to 3 days for the delivery to be processed in Azure Import/Export. When processing completes, the order's status will change to Received.
+          After the carrier delivers a physical device, it takes 1 to 3 business days for the delivery to be processed in Azure Import/Export. When processing completes, the order's status will change to Received.
 
 
   - name: Miscellaneous
