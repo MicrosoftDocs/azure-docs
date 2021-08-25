@@ -34,9 +34,7 @@ To access the Quality-of-Service dashboard in the Partner Center, select **Comme
 
 This feature is currently applicable to all partners performing deployment of Public Azure applications using Azure Resource Manager (ARM) templates. This report will not show data for other marketplace offers.
 
-### Month range
-
-There is a month range selection at the top-right corner of each page. Customize the output of the **Quality-of-Service** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (selection period) is six months.
+**Month range**: There is a month range selection at the top-right corner of each page. Customize the output of the **Quality-of-Service** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (selection period) is six months.
 
 ## Quality by offers
 
@@ -117,9 +115,10 @@ This graph shows metrics and trends of the offer deployments basis error codes a
 
 For more information about error codes, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](/azure/azure-resource-manager/templates/common-deployment-errors) and [Resource providers for Azure services](/azure/azure-resource-manager/management/azure-services-resource-providers)
 
-:::image type="content" source="media/quality-of-service/deployment-error-codes.png" alt-text="Shows a deployment error codes graph.":::
+:::image type="content" source="media/quality-of-service/deployment-error-codes-1.png" alt-text="Shows a deployment error codes graph, sample 1.":::
+:::image type="content" source="media/quality-of-service/deployment-error-codes-2.png" alt-text="Shows a deployment error codes graph, sample 2.":::
 
-About this graph:
+About these graphs:
 
 - Select specific errors or resources in the legend to be displayed.
 - The trend widget displays error count on a month-by-month basis.
@@ -194,4 +193,13 @@ About this table:
 
 ## Next steps
 
-- ???
+- For information about deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](/azure/azure-resource-manager/templates/common-deployment-errors).
+- For information about resource providers, see [Resource providers for Azure services](/azure/azure-resource-manager/management/azure-services-resource-providers).
+- For graphs, trends, and values of aggregate data that summarize marketplace activity for your offer, see [Summary dashboard in commercial marketplace analytics](/azure/marketplace/summary-dashboard).
+- For information about your orders in a graphical and downloadable format, see [Orders dashboard in commercial marketplace analytics](/azure/marketplace/orders-dashboard).
+- For virtual machine (VM) offers usage and metered billing metrics, see [Usage dashboard in commercial marketplace analytics](/azure/marketplace/usage-dashboard).
+- For detailed information about your customers, including growth trends, see [Customers dashboard in commercial marketplace analytics](/azure/marketplace/customer-dashboard).
+- For information about your licenses, see [License dashboard in commercial marketplace analytics](/azure/marketplace/license-dashboard).
+- For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](/azure/marketplace/downloads-dashboard).
+- To see a consolidated view of customer feedback for offers on Microsoft AppSource and Azure Marketplace, see [Ratings and reviews analytics dashboard in Partner Center](/azure/marketplace/ratings-reviews).
+- For FAQs about commercial marketplace analytics and a comprehensive dictionary of data terms, see [Commercial marketplace analytics common questions](/azure/marketplace/analytics-faq).
