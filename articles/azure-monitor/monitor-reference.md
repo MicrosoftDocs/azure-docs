@@ -122,7 +122,7 @@ The following table lists Azure services and the data they collect into Azure Mo
 |Maps  | No | No | No |  |
 |Media Services | Yes | Yes | No |  |
 |Microsoft Managed Desktop | No | No | No |  |
-|Microsoft PowerApps | No | No | No |  |
+|Microsoft Power Apps | No | No | No |  |
 |Microsoft Social Engagement | No | No | No |  |
 |Microsoft Stream | Yes | Yes | No |  |
 |Migrate | No | No | No |  |
