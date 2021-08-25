@@ -24,7 +24,7 @@ If you use your cloudadmin credentials for connected services like HCX, vRealize
 
 1. From the Azure portal, open an Azure Cloud Shell session.
 
-2. Replace **{SubscriptionID}**, **{ResourceGroup}**, and **{PrivateCloudName}** with your private cloud information. 
+2. Update your vCenter *CloudAdmin* credentials.  Remember to replace **{SubscriptionID}**, **{ResourceGroup}**, and **{PrivateCloudName}** with your private cloud information. 
 
    ```azurecli-interactive
    az resource invoke-action --action rotateVcenterPassword --ids "/subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroup}/providers/Microsoft.AVS/privateClouds/{PrivateCloudName}" --api-version "2020-07-17-preview"
