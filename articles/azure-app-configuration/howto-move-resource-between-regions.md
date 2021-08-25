@@ -13,7 +13,7 @@ ms.date: 8/23/2021
 
 # Move an App Configuration store to another region 
 
-App Configuration stores are region-specific and can't be moved across regions automatically. You must create a new App Configuration store in the target region, then move your content from the source store to the new target store. You might move your configuration to another region for a number of reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, or to meet internal policy and governance requirements. 
+App Configuration stores are region-specific and can't be moved across regions automatically. You must create a new App Configuration store in the target region, then move your content from the source store to the new target store. You might move your configuration to another region for a number of reasons. For example, to take advantage of a new Azure region with Availability Zone support, to deploy features or services available in specific regions only, or to meet internal policy and governance requirements. 
 
 The following steps walk you through the process of creating a new target store and exporting your current store to the new region. 
 
@@ -68,7 +68,7 @@ To create a new App Configuration store in the CLI, follow these steps:
 1. The deployment might take a few minutes. Once it is complete, recreate the access policies and network configuration settings of our source store. These will not be transferred with the configuration values. This can include using manage identities, virtual networks, and public network access. For more information, reference the [CLI documentation](./cli-samples.md).
 ---
 
-## Transfer your configuration values  
+## Transfer your configuration key-values  
 
 ### [Portal](#tab/portal)
 Follow these steps to export your configuration to the target store using the Portal:
@@ -79,6 +79,8 @@ Follow these steps to export your configuration to the target store using the Po
 1. Select **Apply** to verify your target configuration store. 
 1. Leave the from label, time, and Label fields as their default values and select **Apply**. 
 1. To verify that your configurations have been successfully transferred from your source to your target store, navigate to your target configuration store in the portal. Select **Configuration Explorer** under **Operations** and verify that this contains the same key value pairs as those in your original store. 
+    > [!NOTE]
+    > This process only allows for configuration key-values to be exported by one label at a time. To export multiple, repeat steps 2-5 for each label. 
 
 ### [Azure CLI](#tab/azcli)
 Follow these steps to export your configuration to the target store using the Azure:
@@ -93,6 +95,8 @@ Follow these steps to export your configuration to the target store using the Az
 ---
 ## Delete your source configuration store 
 
+If the configuration has been transferred to the target store, you can choose to delete your source configuration store. 
+
 ### [Portal](#tab/portal)
 Follow these steps to delete your source configuration store in the Portal:
 1. Sign in to the [Azure portal](https://portal.azure.com), and select **Resource groups**.
@@ -101,7 +105,7 @@ Follow these steps to delete your source configuration store in the Portal:
 1. Select your source configuration store, and on the **Overview** blade, select **Delete**. 
 1. You're asked to confirm the deletion of the configuration store, select **Yes**.
 
-After a few moments, the source configuration store has been deleted.
+After a few moments, the source configuration store will have been deleted.
 
 ### [Azure CLI](#tab/azcli)
 Follow these steps to delete your source configuration store in the Azure CLI:
@@ -114,6 +118,8 @@ Follow these steps to delete your source configuration store in the Azure CLI:
     ```azurecli
     az appconfig list -g MyResourceGroup
     ```
+    After a few moments, the source configuration store will have been deleted.
+
 ---
 ## Next steps
 
