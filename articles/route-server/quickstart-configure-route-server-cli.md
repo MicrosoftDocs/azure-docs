@@ -214,20 +214,20 @@ If you no longer need the Azure Route Server, use the first command to remove th
 
 1. Remove the BGP peering between Azure Route Server and an NVA with [az network routeserver peering delete](/cli/azure/network/routeserver/peering#az_network_routeserver_peering_delete):
 
-```azurecli-interactive
-az network routeserver peering delete \
-    --name myNVA \
-    --routeserver myRouteServer \
-    --resource-group myRouteServerRG
-``` 
+    ```azurecli-interactive
+    az network routeserver peering delete \
+        --name myNVA \
+        --routeserver myRouteServer \
+        --resource-group myRouteServerRG
+    ``` 
 
 2. Remove the Azure Route Server with [az network routeserver delete](/cli/azure/network/routeserver#az_network_routeserver_delete): 
 
-```azurecli-interactive 
-az network routeserver delete \
-    --name myRouteServer \
-    --resource-group myRouteServerRG
-``` 
+    ```azurecli-interactive 
+    az network routeserver delete \
+        --name myRouteServer \
+        --resource-group myRouteServerRG
+    ``` 
 
 ## Next steps
 
