@@ -57,8 +57,8 @@ Copy the fetched **ConnectionString** and it will be used later in this tutorial
 * [Python](https://www.python.org/)
 
 # [Java](#tab/java)
-- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
-- [Apache Maven](https://maven.apache.org/download.cgi).
+- [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above
+- [Apache Maven](https://maven.apache.org/download.cgi)
 
 ---
 
