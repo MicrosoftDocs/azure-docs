@@ -21,6 +21,14 @@ The Azure Data Factory service is improved on an ongoing basis. To stay up to da
 
 This page is updated monthly, so revisit it regularly. 
 
+## August 2021
+|Service Category|Service improvements|Details|
+|----------------|--------------------|-------|
+|**Data Movement**|Azure Cosmos DB's API for MongoDB connector supports version 3.6 & 4.0 in Azure Data Factory|Azure Data Factory Cosmos DB’s API for MongoDB connector now supports server version 3.6 & 4.0.<br>[Learn more](connector-azure-cosmos-db-mongodb-api.md)|
+|**Data Flow**|REST endpoints are available as source and sink in Data Flow|Data flows in Azure Data Factory and Azure Synapse Analytics now support REST endpoints as both a source and sink with full support for both JSON and XML payloads.<br>[Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory/rest-source-and-sink-now-available-for-data-flows/ba-p/2596484)|
+|**Integration Runtime**|Diagnostic tool is available for self-hosted integration runtime|A diagnostic tool for self-hosted integration runtime is designed for providing a better user experience and help users to find potential issues. The tool runs a series of test scenarios on the self-hosted integration runtime machine and every scenario has typical health check cases for common issues.<br>[Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory/diagnostic-tool-for-self-hosted-integration-runtime/ba-p/2634905)|
+|**Orchestration**|Custom Event Trigger with Advanced Filtering Option is GA|You can now create a trigger that responds to a Custom Topic posted to Event Grid. Additionally, you can leverage Advanced Filtering to get fine-grain control over what events to respond to.<br>[Learn more](how-to-create-custom-event-trigger.md)|
+
 ## July 2021
 <br>
 <table>
