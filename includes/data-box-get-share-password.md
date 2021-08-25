@@ -3,11 +3,11 @@ author: v-dalc
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 08/24/2021
+ms.date: 08/25/2021
 ms.author: alkohli
 ---
 
-1. Sign in to the local Web UI on your device. Go to **Connect and copy**. Select **SMB** to get the passwprd for the shares associated with your storage account.<!--Verify step 1 for the local web UI.-->
+1. In the local web UI, go to **Connect and copy**. Select **SMB** to get the password for the shares associated with your storage account.<!--Verify step 1 for the local web UI.-->
 
     ![Screenshot showing the Connect And Copy page in the local Web UI for a Data Box. The Connect And Copy menu item and the SMB option are highlighted.](media/data-box-get-share-password/get-share-credentials-01.png)
 
