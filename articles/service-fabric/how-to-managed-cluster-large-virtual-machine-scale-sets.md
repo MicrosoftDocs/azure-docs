@@ -45,7 +45,7 @@ To configure a secondary node type as a large scale set, set the **multiplePlace
 }
 ```
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Deploy an app to a Service Fabric managed cluster](./tutorial-managed-cluster-deploy-app.md)

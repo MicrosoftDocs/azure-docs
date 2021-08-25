@@ -132,7 +132,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ## Upgrade the Service Fabric application by using Resource Manager
 
 > [!IMPORTANT]
-> Any service being deployed via ARM JSON definition must be removed from the DefaultServices section of the corresponding ApplicationManifest.xml file.
+> Any service being deployed via Azure Resource Manager (ARM) template must be removed from the DefaultServices section of the corresponding ApplicationManifest.xml file.
 
 
 You might upgrade an application that's already deployed to a Service Fabric cluster for one of these reasons:
@@ -160,7 +160,7 @@ You might upgrade an application that's already deployed to a Service Fabric clu
     ```
 ## Delete Service Fabric application resources
 > [!NOTE]
-> Applications should not be deleted via ARM template as there is no declarative way to cleanup individual resources
+> Applications should not be deleted via Azure Resource Manager (ARM) template as there is no declarative way to cleanup individual resources
 
 To delete a service fabric application that was deployed by using the application resource model in Resource Manager:
 

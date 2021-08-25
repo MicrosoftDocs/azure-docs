@@ -1,6 +1,6 @@
 ---
 title: Configure and use applications with managed identity on a Service Fabric managed cluster
-description: Learn how to configure, and use an application with managed identity on an ARM template deployed Azure Service Fabric managed cluster.
+description: Learn how to configure, and use an application with managed identity on an Azure Resource Manager (ARM) template deployed Azure Service Fabric managed cluster.
 ms.topic: how-to
 ms.date: 8/23/2021
 ---
