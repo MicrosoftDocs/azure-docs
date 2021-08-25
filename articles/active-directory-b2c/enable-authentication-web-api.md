@@ -372,7 +372,7 @@ The authentication function also verifies that the web API is called with the ri
 
 ## Step 5: Configure the web server
 
-In a development environment, set the web API to listen on an incoming HTTP requests port number. In this example, use HTTP port 6000. The base URI of the web API is `http://localhost:6000`.
+In a development environment, set the web API to listen on incoming HTTP requests port number. In this example, use HTTP port 6000. The base URI of the web API will be: <'http://localhost:6000'>
 
 # [ASP.NET Core](#tab/csharpclient)
 

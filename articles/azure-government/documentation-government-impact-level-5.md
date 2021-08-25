@@ -211,7 +211,13 @@ For Databases services availability in Azure Government, see [Products available
 
 ### [Azure API for FHIR](https://azure.microsoft.com/services/azure-api-for-fhir/)
 
-- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](../healthcare-apis/fhir/customer-managed-key.md).
+Azure API for FHIR supports Impact Level 5 workloads in Azure Government with this configuration:
+
+- Configure encryption at rest of content in Azure API for FHIR [using customer-managed keys in Azure Key Vault](../healthcare-apis/azure-api-for-fhir/customer-managed-key.md)
+
+### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
+
+Azure Cache for Redis supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
 ### [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
@@ -276,7 +282,15 @@ For Management and governance services availability in Azure Government, see [Pr
 - By default, all data and saved queries are encrypted at rest using Microsoft-managed keys. Configure encryption at rest of your data in Azure Monitor [using customer-managed keys in Azure Key Vault](../azure-monitor/logs/customer-managed-keys.md).
 
 > [!IMPORTANT]
-> See additional guidance below for **Log Analytics**, which is a feature of Azure Monitor.
+> See additional guidance for **[Log Analytics](#log-analytics)**, which is a feature of Azure Monitor.
+
+### [Azure Policy](https://azure.microsoft.com/services/azure-policy/)
+
+Azure Policy supports Impact Level 5 workloads in Azure Government with no extra configuration required.
+
+### [Azure Policy's guest configuration](../governance/policy/concepts/guest-configuration.md)
+
+Azure Policy's guest configuration supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
 #### [Log Analytics](../azure-monitor/logs/data-platform-logs.md)
 

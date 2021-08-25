@@ -164,14 +164,20 @@
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true
-  - name: Orchestration modes (preview) 
-    href: virtual-machine-scale-sets-orchestration-modes.md
+  - name: Orchestration modes (preview)
+    items:
+    - name: Overview 
+      href: virtual-machine-scale-sets-orchestration-modes.md
+    - name: API comparison
+      href: orchestration-modes-api-comparison.md
+    - name: Flexible orchestration
+      href: ../virtual-machines/flexible-virtual-machine-scale-sets.md
   - name: Maintenance and updates
     items:
     - name: Overview
       href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
       maintainContext: true
-    - name: Automatic extension upgrade (preview) 
+    - name: Automatic extension upgrade 
       href: ../virtual-machines/automatic-extension-upgrade.md
       maintainContext: true
   - name: Disk storage

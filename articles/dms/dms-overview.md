@@ -36,5 +36,5 @@ For up-to-date info about Azure Database Migration Service pricing, see [Azure D
 * [Create an instance of Azure Database Migration Service by using the Azure portal](quickstart-create-data-migration-service-portal.md).
 * [Migrate SQL Server to Azure SQL Database](tutorial-sql-server-to-azure-sql.md).
 * [Overview of prerequisites for using Azure Database Migration Service](pre-reqs.md).
-* [FAQ about using Azure Database Migration Service](faq.md).
+* [FAQ about using Azure Database Migration Service](faq.yml).
 * [Services and tools available for data migration scenarios](dms-tools-matrix.md).

@@ -50,10 +50,18 @@ To change the size of an existing role, change the virtual machine size in the s
 
 To retrieve a list of available sizes see [Resource Skus - List](/rest/api/compute/resourceskus/list) and apply the following filters:
 
-
-`ResourceType = virtualMachines ` <br>
-`VMDeploymentTypes = PaaS `
-
+```powershell
+    # Update the location
+    $location = 'WestUS2'
+    # Get all Compute Resource Skus
+    $allSkus = Get-AzComputeResourceSku
+    # Filter virtualMachine skus for given location
+    $vmSkus = $allSkus.Where{$_.resourceType -eq 'virtualMachines' -and $_.LocationInfo.Location -like $location}
+    # From filtered virtualMachine skus, select PaaS Skus
+    $passVMSkus = $vmSkus.Where{$_.Capabilities.Where{$_.name -eq 'VMDeploymentTypes'}.Value.Contains("PaaS")}
+    # Optional step to format and sort the output by Family
+    $passVMSkus | Sort-Object Family, Name | Format-Table -Property Family, Name, Size
+```
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).

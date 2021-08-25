@@ -294,7 +294,7 @@ You're now ready to test the single-page application's scoped access to the API.
 
     ![Screenshot of the SPA sample app displayed in the browser window.](./media/configure-authentication-sample-spa-app/sample-app-sign-in.png)
 
-1. Sign in by using the email address and password you used in the [previous tutorial](tutorial-single-page-app.md). After you've logged in successfully, you should see the "User \<your username> logged in" message.
+1. Complete the sign-up or sign-in process. After you've logged in successfully, you should see the "User \<your username> logged in" message.
 1. Select the **Call API** button. The SPA sends the access token in a request to the protected web API, which returns the display name of the logged-in user:
 
     ![Screenshot of the SPA in a browser window, showing the username JSON result that's returned by the API.](./media/configure-authentication-sample-spa-app/sample-app-result.png)

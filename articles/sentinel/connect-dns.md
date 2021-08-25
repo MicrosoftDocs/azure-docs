@@ -44,7 +44,7 @@ The following table describes the connected sources that are supported by this s
 | **Connected source** | **Support** | **Description** |
 | --- | --- | --- |
 | [Windows agents](../azure-monitor/agents/agent-windows.md) | Yes | The solution collects DNS information from Windows agents. |
-| [Linux agents](../azure-monitor/vm/quick-collect-linux-computer.md) | No | The solution does not collect DNS information from direct Linux agents. |
+| [Linux agents](../azure-monitor/vm/monitor-virtual-machine.md) | No | The solution does not collect DNS information from direct Linux agents. |
 | [System Center Operations Manager management group](../azure-monitor/agents/om-agents.md) | Yes | The solution collects DNS information from agents in a connected Operations Manager management group. A direct connection from the Operations Manager agent to Azure Monitor is not required. Data is forwarded from the management group to the Log Analytics workspace. |
 | [Azure storage account](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage isn't used by the solution. |
 
@@ -85,5 +85,5 @@ If Lookup Queries do not show up in Azure Sentinel, follow these steps so the qu
 ## Next steps
 
 In this document, you learned how to connect DNS on-premises appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).

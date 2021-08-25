@@ -83,3 +83,4 @@
 * Maximum HTTP response header size from health probe URL - 4,096 bytes - Specified the maximum length of all the response headers of health probes. 
 * Maximum rules engine action header value character: 640 characters.
 * Maximum rules engine condition header value character: 256 characters.
+* Maximum ETag header size: 128 bytes

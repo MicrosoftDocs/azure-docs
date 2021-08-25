@@ -72,7 +72,7 @@ In Event Grid, you subscribe to a *topic* to tell it which events you want to tr
 
 Now that the sample app is up and running and you've subscribed to your API Management instance with Event Grid, you're ready to generate events.
 
-As an example, [create a product](/azure/api-management/api-management-howto-add-products) in your API Management instance. If your event subscription includes the **Microsoft.APIManagement.ProductCreated** event, creating the product triggers an event that is pushed to your web app endpoint. 
+As an example, [create a product](./api-management-howto-add-products.md) in your API Management instance. If your event subscription includes the **Microsoft.APIManagement.ProductCreated** event, creating the product triggers an event that is pushed to your web app endpoint. 
 
 Navigate to your Event Grid Viewer web app, and you should see the `ProductCreated` event. Select the button next to the event to show the details. 
 
@@ -88,4 +88,3 @@ API Management event data includes the `resourceUri`, which identifies the API M
 
 * [Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus](../event-grid/compare-messaging-services.md)
 * Learn more about [subscribing to events](../event-grid/subscribe-through-portal.md).
-

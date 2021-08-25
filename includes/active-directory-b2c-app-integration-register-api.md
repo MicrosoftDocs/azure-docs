@@ -3,11 +3,11 @@ author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 06/11/2021
+ms.date: 08/04/2021
 ms.author: mimart
 # Used by Azure AD B2C app integration articles under "App integration".
 ---
-To create the web API app registration, do the following:
+To create the web API app registration (App ID: 2), follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.

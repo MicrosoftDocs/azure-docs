@@ -1,5 +1,5 @@
 ---
-title: Azure Policy Guest Configuration extension
+title: Guest configuration extension
 description: Learn about the extension used to audit / configure settings inside virtual machines
 ms.topic: article
 ms.service: virtual-machines
@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 ---
 
-# Overview of the Azure Policy Guest Configuration extension
+# Overview of the guest configuration extension
 
 The Guest Configuration extension is a component Azure Policy that performs audit and configuration operations inside virtual machines.
 Policies such as security baseline definitions for 
@@ -64,7 +64,7 @@ new versions of the extension are released.
 To deploy the latest version of the extension at scale including identity requirements,
 [assign](../../governance/policy/assign-policy-portal.md) the Azure Policy:
 
-[Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_AzureBaseline.json).
+[Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Guest%20Configuration/GuestConfiguration_Prerequisites.json).
 
 ### Azure CLI
 
@@ -183,7 +183,7 @@ properties are each managed per-configuration rather than on the VM extension.
 
 ## Next steps
 
-* For more information about Azure Policy Guest Configuration, see [Understand Azure Policy's Guest Configuration](../../governance/policy/concepts/guest-configuration.md)
+* For more information about Azure Policy's guest configuration, see [Understand Azure Policy's Guest Configuration](../../governance/policy/concepts/guest-configuration.md)
 * For more information about how the Linux Agent and extensions work, see [Azure VM extensions and features for Linux](features-linux.md).
 * For more information about how the Windows Guest Agent and extensions work, see [Azure VM extensions and features for Windows](features-windows.md).  
 * To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent Overview](agent-windows.md).  

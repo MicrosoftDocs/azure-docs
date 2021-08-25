@@ -12,6 +12,9 @@ ms.custom: seodec18
 ms.date: 03/22/2019
 ---
 # Copy other people's work to do data science
+
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 ## Video 5: Data Science for Beginners series
 One of the trade secrets of data science is getting other people to do your work for you. Find a clustering algorithm example in Azure AI Gallery to use for your own machine learning experiment.
 
@@ -86,4 +89,4 @@ Be sure to check out the other videos in "Data Science for Beginners" from Machi
 
 ## Next steps
 * [Try your first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
-* [Get an introduction to Machine Learning on Microsoft Azure](../overview-what-is-azure-ml.md)
+* [Get an introduction to Azure Machine Learning](../overview-what-is-azure-machine-learning.md)
