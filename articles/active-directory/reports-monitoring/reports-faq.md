@@ -112,6 +112,11 @@ You can also export that log data to Azure Monitor, Azure Event Hubs, and Azure 
 **Q: Why is Client app not populated when a guest signs into my tenant?**
 **A:** When a guest user signs into your tenant, the client app information for that user is not displayed in your tenant's sign-in logs to maintain customer privacy. Your users' client apps will not be displayed to other tenants that your users attempt to access. 
 
+---
+
+**Q: In some interrupted sign-ins, why do I see an Object ID rather than a UPN for my user?** 
+**A:** When our service is unable to resolve the UPN of a user due to an interrupted or failed sign in, it may display an object ID instead. 
+
 ## Risky sign-ins
 
 **Q: There is a risk detection in Identity Protection but I’m not seeing corresponding sign-in in the sign-ins report. Is this expected?**
