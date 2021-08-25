@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/19/2021
+ms.date: 08/24/2021
 ms.author: alkohli
 ---
 
@@ -30,7 +30,7 @@ The following table gives a summary of each step in processing an import order a
 This article describes in detail the various mechanisms or tools available to track and audit Data Box or Data Box Heavy import order. The information in this article applies to both, Data Box and Data Box Heavy import orders. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
 
 > [!NOTE]
-> If the storage account for your Data Box is behind a firewall, you won't be able to view logs on the **Activity logs** pane and link to copy logs from the **Overview** pane in the Azure portal.<!--1) Is "behind a firewall" too broad? 2) I noted only these two places where logs were displayed or linked to. Didn't want to get any more specific about the types of event logged in Activity log view. 3) The issue is being able to access logs from the portal; the firewall would not prevent Azure from the logs?-->
+> [!INCLUDE [data-box-copy-logs-behind-firewall](../../includes/data-box-copy-logs-behind-firewall.md)]
 
 ## Set up access control on the order
 
@@ -209,6 +209,9 @@ By default, logs are written to a container named `copylog`. The logs are stored
 The copy log path is also displayed on the **Overview** blade for the portal.
 
 ![Path to copy log in Overview blade when completed](media/data-box-logs/copy-log-path-1.png)
+
+> [!NOTE]
+> [!INCLUDE [data-box-copy-logs-behind-firewall](../../includes/data-box-copy-logs-behind-firewall.md)]
 
 ### Upload completed successfully
 
