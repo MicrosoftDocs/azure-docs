@@ -29,6 +29,7 @@ AzAcSnap v5.0.2 (Build_20210825.376) is provided as a patch update to the v5.0 b
 
 - Ignore `ssh` 255 exit codes.  In some cases the `ssh` command, which is used to communicate with storage on Azure Large Instance, would emit an exit code of 255 when there were no errors or execution failures (refer `man ssh` "EXIT STATUS").   Where these are not critical, for example listing snapshots, `azacsnap` will now ignore 255 exit codes from `ssh`.
 - Fix installer hdbuserstore source path check.  The installer would check for the existence of an incorrect source directory for the hdbuserstore for the user running the install - this is fixed to check for `~/.hdb`.  This is applicable to systems (e.g. Azure Large Instance) where the hdbuserstore was pre-configured for the `root` user before installing `azacsnap`.
+- Installer now shows the version it will install/extract (if the installer is run without any arguments).
 
 Download the [latest release](https://aka.ms/azacsnapdownload) of the installer and review how to [get started](azacsnap-get-started.md).
 
