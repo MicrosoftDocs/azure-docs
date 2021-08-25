@@ -13,7 +13,7 @@ ms.custom: seodec18, devx-track-azurepowershell
 # Manage Azure Cosmos DB Core (SQL) API resources using PowerShell
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-The following guide describes how to use PowerShell to script and automate management of Azure Cosmos DB Core (SQL) API resources, including the Cosmos account, database, container, and throughput. For PowerShell cmdlets for other APIs see [PowerShell Samples for Cassandra](cassandra/powershell-samples.md), [PowerShell Samples for MongoDB API](mongodb/powershell-samples.md), [PowerShell Samples for Gremlin](powershell-samples-gremlin.md), [PowerShell Samples for Table](powershell-samples-table.md)
+The following guide describes how to use PowerShell to script and automate management of Azure Cosmos DB Core (SQL) API resources, including the Cosmos account, database, container, and throughput. For PowerShell cmdlets for other APIs see [PowerShell Samples for Cassandra](../cassandra/powershell-samples.md), [PowerShell Samples for MongoDB API](../mongodb/powershell-samples.md), [PowerShell Samples for Gremlin](../graph/powershell-samples.md), [PowerShell Samples for Table](../table/powershell-samples.md)
 
 > [!NOTE]
 > Samples in this article use [Az.CosmosDB](/powershell/module/az.cosmosdb) management cmdlets. See the [Az.CosmosDB](/powershell/module/az.cosmosdb) API reference page for the latest changes.
@@ -48,7 +48,7 @@ The following sections demonstrate how to manage the Azure Cosmos account, inclu
 
 ### <a id="create-account"></a> Create an Azure Cosmos account
 
-This command creates an Azure Cosmos DB database account with [multiple regions][distribute-data-globally], [automatic failover](how-to-manage-database-account.md#automatic-failover) and bounded-staleness [consistency policy](consistency-levels.md).
+This command creates an Azure Cosmos DB database account with [multiple regions][distribute-data-globally], [automatic failover](../how-to-manage-database-account.md#automatic-failover) and bounded-staleness [consistency policy](../consistency-levels.md).
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -78,7 +78,7 @@ New-AzCosmosDBAccount `
 * `$apiKind` The type of Cosmos account to create. For more information, see [APIs in Cosmos DB](introduction.md#simplified-application-development).
 * `$consistencyPolicy`, `$maxStalenessInterval`, and `$maxStalenessPrefix` The default consistency level and settings of the Azure Cosmos account. For more information, see [Consistency Levels in Azure Cosmos DB](consistency-levels.md).
 
-Azure Cosmos accounts can be configured with IP Firewall, Virtual Network service endpoints, and private endpoints. For information on how to configure the IP Firewall for Azure Cosmos DB, see [Configure IP Firewall](how-to-configure-firewall.md). For information on how to enable service endpoints for Azure Cosmos DB, see [Configure access from virtual Networks](how-to-configure-vnet-service-endpoint.md). For information on how to enable private endpoints for Azure Cosmos DB, see [Configure access from private endpoints](how-to-configure-private-endpoints.md).
+Azure Cosmos accounts can be configured with IP Firewall, Virtual Network service endpoints, and private endpoints. For information on how to configure the IP Firewall for Azure Cosmos DB, see [Configure IP Firewall](../how-to-configure-firewall.md). For information on how to enable service endpoints for Azure Cosmos DB, see [Configure access from virtual Networks](../how-to-configure-vnet-service-endpoint.md). For information on how to enable private endpoints for Azure Cosmos DB, see [Configure access from private endpoints](../how-to-configure-private-endpoints.md).
 
 ### <a id="list-accounts"></a> List all Azure Cosmos accounts in a Resource Group
 
@@ -823,15 +823,15 @@ Remove-AzResourceLock `
 ## Next steps
 
 * [All PowerShell Samples](powershell-samples.md)
-* [How to manage Azure Cosmos account](how-to-manage-database-account.md)
+* [How to manage Azure Cosmos account](../how-to-manage-database-account.md)
 * [Create an Azure Cosmos DB container](how-to-create-container.md)
 * [Configure time-to-live in Azure Cosmos DB](how-to-time-to-live.md)
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [powershell-install-configure]: /powershell/azure/
-[scaling-globally]: distribute-data-globally.md#EnableGlobalDistribution
-[distribute-data-globally]: distribute-data-globally.md
-[azure-resource-groups]: ../azure-resource-manager/management/overview.md#resource-groups
-[azure-resource-tags]: ../azure-resource-manager/management/tag-resources.md
+[scaling-globally]: ../distribute-data-globally.md#EnableGlobalDistribution
+[distribute-data-globally]: ../distribute-data-globally.md
+[azure-resource-groups]: ../../azure-resource-manager/management/overview.md#resource-groups
+[azure-resource-tags]: ../../azure-resource-manager/management/tag-resources.md
 [rp-rest-api]: /rest/api/cosmos-db-resource-provider/

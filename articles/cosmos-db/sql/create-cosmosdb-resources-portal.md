@@ -23,19 +23,19 @@ ms.date: 05/19/2021
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
-This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](./introduction.md) account, create a document database, and container, and add data to the container. 
+This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](../introduction.md) account, create a document database, and container, and add data to the container. 
 
 ## Prerequisites
 
 An Azure subscription or free Azure Cosmos DB trial account
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] 
 
-- [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]  
+- [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
 ## Create an Azure Cosmos DB account
 
-[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
 
 <a id="create-container-database"></a>
 ## Add a database and a container 
@@ -57,7 +57,7 @@ You can use the Data Explorer in the Azure portal to create a database and conta
     |**Container ID**|Items|Enter *Items* as the name for your new container. Container IDs have the same character requirements as database names.|
     |**Partition key**| /category| The sample described in this article uses */category* as the partition key.|
 
-    Don't add **Unique keys** or turn on **Analytical store** for this example. Unique keys let you add a layer of data integrity to the database by ensuring the uniqueness of one or more values per partition key. For more information, see [Unique keys in Azure Cosmos DB.](unique-keys.md) [Analytical store](analytical-store-introduction.md) is used to enable large-scale analytics against operational data without any impact to your transactional workloads.
+    Don't add **Unique keys** or turn on **Analytical store** for this example. Unique keys let you add a layer of data integrity to the database by ensuring the uniqueness of one or more values per partition key. For more information, see [Unique keys in Azure Cosmos DB.](../unique-keys.md) [Analytical store](../analytical-store-introduction.md) is used to enable large-scale analytics against operational data without any impact to your transactional workloads.
 
 1. Select **OK**. The Data Explorer displays the new database and the container that you created.
 
@@ -89,11 +89,11 @@ Add data to your new database using Data Explorer.
 
 ## Query your data
 
-[!INCLUDE [cosmos-db-create-sql-api-query-data](includes/cosmos-db-create-sql-api-query-data.md)] 
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../includes/cosmos-db-create-sql-api-query-data.md)] 
 
 ## Clean up resources
 
-[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
 
 If you wish to delete just the database and use the Azure Cosmos account in future, you can delete the database with the following steps:
 
@@ -106,4 +106,4 @@ If you wish to delete just the database and use the Azure Cosmos account in futu
 In this quickstart, you learned how to create an Azure Cosmos DB account, create a database and container using the Data Explorer. You can now import additional data to your Azure Cosmos DB account. 
 
 > [!div class="nextstepaction"]
-> [Import data into Azure Cosmos DB](import-data.md)
+> [Import data into Azure Cosmos DB](../import-data.md)

@@ -15,11 +15,11 @@ ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azu
 
 This article explains how to manage consistency levels in Azure Cosmos DB. You learn how to configure the default consistency level, override the default consistency, manually manage session tokens, and understand the Probabilistically Bounded Staleness (PBS) metric.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Configure the default consistency level
 
-The [default consistency level](consistency-levels.md) is the consistency level that clients use by default.
+The [default consistency level](../consistency-levels.md) is the consistency level that clients use by default.
 
 # [Azure portal](#tab/portal)
 
@@ -63,7 +63,7 @@ Clients can override the default consistency level that is set by the service. C
 > Consistency can only be **relaxed** at the SDK instance or request level. To move from weaker to stronger consistency, update the default consistency for the Cosmos account.
 
 > [!TIP]
-> Overriding the default consistency level only applies to reads within the SDK client. An account configured for strong consistency by default will still write and replicate data synchronously to every region in the account. When the SDK client instance or request overrides this with Session or weaker consistency, reads will be performed using a single replica. See [Consistency levels and throughput](consistency-levels.md#consistency-levels-and-throughput) for more details.
+> Overriding the default consistency level only applies to reads within the SDK client. An account configured for strong consistency by default will still write and replicate data synchronously to every region in the account. When the SDK client instance or request overrides this with Session or weaker consistency, reads will be performed using a single replica. See [Consistency levels and throughput](../consistency-levels.md#consistency-levels-and-throughput) for more details.
 
 ### <a id="override-default-consistency-dotnet"></a>.NET SDK
 
@@ -287,10 +287,10 @@ How eventual is eventual consistency? For the average case, can we offer stalene
 
 Learn more about how to manage data conflicts, or move on to the next key concept in Azure Cosmos DB. See the following articles:
 
-* [Consistency Levels in Azure Cosmos DB](consistency-levels.md)
-* [Partitioning and data distribution](./partitioning-overview.md)
+* [Consistency Levels in Azure Cosmos DB](../consistency-levels.md)
+* [Partitioning and data distribution](../partitioning-overview.md)
 * [Manage conflicts between regions](how-to-manage-conflicts.md)
-* [Partitioning and data distribution](partitioning-overview.md)
+* [Partitioning and data distribution](../partitioning-overview.md)
 * [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
-* [High availability](high-availability.md)
+* [High availability](../high-availability.md)
 * [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

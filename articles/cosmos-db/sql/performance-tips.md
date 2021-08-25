@@ -12,7 +12,7 @@ ms.custom: devx-track-dotnet, contperf-fy21q2
 ---
 
 # Performance tips for Azure Cosmos DB and .NET SDK v2
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)

@@ -10,7 +10,7 @@ ms.author: dech
 ---
 
 # Publish notebooks to the Azure Cosmos DB notebook gallery
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into your Azure Cosmos DB accounts in the Azure portal. Using these notebooks, you can analyze and visualize your data from the Azure portal. Built-in notebooks for Azure Cosmos DB are currently available in [many regions](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). To use notebooks, [create a new Cosmos account](create-cosmosdb-resources-portal.md) or [enable notebooks on an existing account](enable-notebooks.md) in one of these regions.
 
