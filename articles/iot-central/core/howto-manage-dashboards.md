@@ -43,9 +43,13 @@ You can have several personal dashboards and switch between them or choose from 
 
 :::image type="content" source="media/howto-manage-dashboards/switch-dashboards.png" alt-text="Screenshot that shows how to switch between dashboards.":::
 
-You can edit your personal dashboards and delete dashboards you don't need. If you have the correct [permissions]](howto-manage-users-roles.md#customizing-the-app), you can edit or delete organization dashboards as well.
+You can edit your personal dashboards and delete dashboards you don't need. If you have the correct [permissions](howto-manage-users-roles.md#customizing-the-app), you can edit or delete organization dashboards as well.
 
 :::image type="content" source="media/howto-manage-dashboards/delete-dashboards.png" alt-text="Screenshot that shows how to delete a dashboard.":::
+
+To rename a dashboard or see the organization it's assigned to, select **Dashboard settings**:
+
+:::image type="content" source="media/howto-manage-dashboards/rename-dashboards.png" alt-text="Screenshot that shows how to rename a dashboard.":::
 
 ## Add tiles
 

@@ -34,7 +34,7 @@ The following screenshot shows an organization hierarchy definition in IoT Centr
 
 To start using organizations, you need to define your organization hierarchy. Each organization in the hierarchy acts as a logical container where you place devices, save dashboards and device groups, and invite users. To create your organizations, go to the **Administration** section in your IoT Central application, select the **Organizations** tab, and select either **+ New** or use the context menu for an existing organization. To create one or many organizations at a time, select **+ Add another organization**:
 
-:::image type="content" source="media/howto-create-organization/create-organizations-hierarchy.png" alt-text="Screenshot that shows the options for creating an orgnaization hierarchy.":::
+:::image type="content" source="media/howto-create-organization/create-organizations-hierarchy.png" alt-text="Screenshot that shows the options for creating an organization hierarchy.":::
 
 > [!TIP]
 > The initial setup of organizations must be done by a member of the **App Administrator** role.
@@ -109,6 +109,15 @@ You can assign the same user to multiple organizations. The user can have a diff
 | ---- | ---- | ------------ |
 | user1@contoso.com | Org Administrator | Contoso Inc/Lamna Health |
 | user1@contoso.com | Org Viewer | Contoso Inc/Adatum Solar |
+
+## Use organizations
+
+After you've created your organization hierarchy you can use organizations in areas of your application such as:
+
+- [Organization dashboards](howto-manage-dashboards.md) that show information to users about devices in their organization.
+- [Device groups](tutorial-use-device-groups.md) for devices in specific organizations.
+- [Analytics](howto-create-analytics.md) for devices in specific organizations.
+- [Jobs](howto-manage-devices-in-bulk.md#create-and-run-a-job) that bulk manage devices in specific organizations.
 
 ## Default organization
 
