@@ -47,11 +47,9 @@ Placeholder
 
 Replace placeholder connection string with YOUR connection string.
 
-:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
-
 Find the connection string on your Application Insights Resource.
 
-//screenshot
+:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
 
 **3. Confirm Data is Flowing**
 
@@ -62,17 +60,17 @@ Generate requests in your application and open your Application Insights Resourc
 
 //screenshot
 
-## Enable OTLP Exporter
-You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
+> [!IMPORTANT]
+> If you have two or more micro-services using the same connection string, you are required to set cloud role names to represent them properly on the Application Map.
 
-Add the code to xyz.file in your application.
+## Set Cloud Role Name
+You may use the Resource API to set Cloud Role Name. This updates Cloud Role Name from its default value to something that makes sense to your team. It will surface on the Application Map as the name underneath a node.
 
 ```python
 Placeholder
 ```
 
-> [!NOTE]
-> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the OpenTelemetry community for OpenTelemetry issues outside the Azure Support Boundary.
+For more information, see [GitHub Repo](link).
 
 ## Sampling
 OpenTelemetry SDKs provide built-in sampling as a way to control data volume and ingestion costs. To learn how to enable built-in sampling, see [OpenTelemetry Python SDK on trace sampling](https://opentelemetry-python.readthedocs.io/en/latest/sdk/trace.sampling.html).
@@ -83,7 +81,7 @@ OpenTelemetry SDKs provide built-in sampling as a way to control data volume and
 ## Instrumentation Libraries
 Microsoft has tested and validated that the following instrumentation libraries will work with the **Preview** Release.
 
-> [!NOTE]
+> [!WARNING]
 > Instrumentation libraries are based on experimental OpenTelemetry specifications. Microsoft’s **preview** support commitment is to ensure the libraries listed below emit data to Azure Monitor Application Insights, but it’s possible that breaking changes or experimental mapping will block some data elements.
 
 ### HTTP
@@ -99,40 +97,40 @@ Microsoft has tested and validated that the following instrumentation libraries 
 ### Add Span Attributes
 You may use X to add attributes to spans. This may include adding a custom business dimension to your telemetry or setting optional fields in the Application Insights Schema such as User ID or Client IP. We provide three common examples below.
 
+For more information, see [GitHub Repo](link).
+
 #### Add Custom Dimension
-Adding one or more custom dimensions will populate the _customDimensions_ field in the requests, dependencies, and/or exceptions table.
+Populate the _customDimensions_ field in the requests, dependencies, and/or exceptions table.
 
 ```python
 Placeholder
 ```
 
 #### Set User ID or Authenticated User ID
-Setting user id will populate the _user_Id_ field in the requests, dependencies, and/or exceptions table.
+Populate the _user_Id_ or _user_Authenticatedid_ field in the requests, dependencies, and/or exceptions table. User ID is an anonymous user identifier and Authenticated User ID is a known user identifier.
+
+> [!TIP]
+> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User ID.
+
+> [!IMPORTANT]
+> Consult applicable privacy laws before setting Authenticated User ID.
 
 ```python
 Placeholder
 ```
 
 #### Set User IP
-Setting the user IP populate the _client_IP_ field in the requests, dependencies, and/or exceptions table.
+Populate the _client_IP_ field in the requests, dependencies, and/or exceptions table. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
+
+> [!TIP]
+> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User IP.
 
 ```python
 Placeholder
 ```
 
-For more information, see [GitHub Repo](link).
-
-### Override Span Name
-You may use X to override span name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
-
-```python
-Placeholder
-```
-
-For more information, see [GitHub Repo](link).
-
-### Set or Override Cloud Role Name
-You may use the Resource API to set or override Cloud Role Name. This updates Cloud Role Name from its default value to something that makes sense to your team. It will surface on the Application Map as the name underneath a node.
+### Override Trace Name
+You may use X to override trace name. This updates Operation Name from its default value to something that makes sense to your team. It will surface on the Failures and Performance Blade when you pivot by Operations.
 
 ```python
 Placeholder
@@ -158,6 +156,17 @@ Placeholder
 
 For more information, see [GitHub Repo](link).
 
+## Enable OTLP Exporter
+You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
+
+Add the code to xyz.file in your application.
+
+```python
+Placeholder
+```
+
+> [!NOTE]
+> OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the OpenTelemetry community for OpenTelemetry issues outside the Azure Support Boundary.
 
 ## Troubleshooting
 ### Enable Diagnostic Logging
@@ -179,4 +188,4 @@ Placeholder
 - [Azure Monitor Exporter  PyPI Package](https://pypi.org/project/azure-monitor-opentelemetry-exporter/)
 - [Azure Monitor Sample Application](https://github.com/Azure-Samples/azure-monitor-opentelemetry-python)
 - [OpenTelemetry Python GitHub Repository](https://github.com/open-telemetry/opentelemetry-python)
-- [Enable web/browser user monitoring](./javascript.md)
+- [Enable web/browser user monitoring](javascript.md)
