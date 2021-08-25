@@ -71,7 +71,7 @@ In this guide, the following source and target servers and database names are us
  | Target user name | pg@pg-11 |
 
 >[!NOTE]
-> Flexible server supports PostgreSQL version 11 onwards. Also, flexible server user name does not require @<dbservername>.
+> Flexible server supports PostgreSQL version 11 onwards. Also, flexible server user name does not require @dbservername.
 
 ## Upgrade your databases using offline migration methods
 You may choose to use one of the methods described in this section for your upgrades. You can use the following tips while performing the tasks.
