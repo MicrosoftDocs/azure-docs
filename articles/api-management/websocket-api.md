@@ -6,7 +6,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 08/25/2021
 ms.custom: template-how-to 
 ---
 
@@ -31,7 +31,7 @@ In this article, you will:
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- A [WebSocket API](https://www.websocket.org/echo.html).
+- A WebSocket API. 
 
 ## WebSocket passthrough
 
@@ -72,7 +72,9 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
     |----------------|-------|
     | Display name | The name by which your WebSocket API will be displayed. |
     | Name | Raw name of the WebSocket API. Automatically populates as you type the display name. |
-    | WebSocket URL | The base URL with your websocket name. For example: ws://example.com/your-socket-name |
+    | WebSocket URL | The base URL with your websocket name. For example: *ws://example.com/your-socket-name* |
+    | URL scheme | Accept the default |
+    | API URL suffix| Add a URL suffix to identify this specific API in this API Management instance. It has to be unique in this APIM instance. |
     | Products | Associate your WebSocket API with a product to publish it. |
     | Gateways | Associate your WebSocket API with existing gateways. |
  
@@ -97,9 +99,12 @@ Per the [WebSocket protocol](https://tools.ietf.org/html/rfc6455), when a client
 
 ## View metrics and logs
 
-Use standard API Management and Azure Monitor features to [monitor](api-management-howto-use-azure-monitor.md) WebSocket APIs. View API metrics in Azure Monitor, and optionally enable diagnostic settings to collect and view API Management gateway logs, which include WebSocket API operations.
+Use standard API Management and Azure Monitor features to [monitor](api-management-howto-use-azure-monitor.md) WebSocket APIs:
 
-For example, the following screenshot shows query results from the ApiManagementGatewayLogs table of recent WebSocket API responses with code 101. These results indicate the successful switch of the requests from TCP to the WebSocket protocol.
+* View API metrics in Azure Monitor
+* Optionally enable diagnostic settings to collect and view API Management gateway logs, which include WebSocket API operations
+
+For example, the following screenshot shows  recent WebSocket API responses with code `101` from the **ApiManagementGatewayLogs** table. These results indicate the successful switch of the requests from TCP to the WebSocket protocol.
 
 :::image type="content" source="./media/websocket-api/query-gateway-logs.png" alt-text="Query logs for WebSocket API requests":::
 
