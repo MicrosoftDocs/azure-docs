@@ -15,9 +15,9 @@ ms.custom: how-to, devplatv2
 
 # How to deploy an AutoML model to an online endpoint (preview)
 
-In this article you will learn how to deploy an AutoML-trained machine learning model to an online endpoint. Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of developing a machine learning model. For more, see (What is automated machine learning (AutoML)?)[concept-automated-ml.md]
+In this article, you'll learn how to deploy an AutoML-trained machine learning model to an online endpoint. Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of developing a machine learning model. For more, see (What is automated machine learning (AutoML)?)[concept-automated-ml.md]
 
-In this article you will know how to deploy AutoML trained machine learning model to online endpoints using: 
+In this article you'll know how to deploy AutoML trained machine learning model to online endpoints using: 
 
 - Azure Machine Learning Studio
 - Azure Machine Learning CLI 2.0
@@ -26,7 +26,7 @@ In this article you will know how to deploy AutoML trained machine learning mode
 
 ## Prerequisites
 
-An AutoML-trained machine learning model. For more, see [Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio]- (tutorial-first-experiment-automated-ml.md) or [Tutorial: Forecase demand with automated machine learning](tutorial-automated-ml-forecast.md).
+An AutoML-trained machine learning model. For more, see [Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio]- (tutorial-first-experiment-automated-ml.md) or [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md).
 
 ## Deploy from Azure Machine Learning studio and no code
 
@@ -57,7 +57,7 @@ The system will generate the Model and Environment needed for the deployment.
  :::image type="content" source="media/how-to-deploy-automl-endpoint/complete-wizard.jpeg" alt-text="Screenshot showing the review-and-create page":::
 
 
-## Deploy manually from the studio or command line
+## Deploy manually from the studio or command-line
 
 If you wish to have more control over the deployment, you can download the training artifacts and deploy them. 
 
@@ -66,16 +66,16 @@ To download the components you'll need for deployment:
 1. Go to your Automated ML experiment in your machine learning workspace
 1. Choose the Models tab
 1. Select the model you wish to use. Once you select a model, the *Download* button will become enabled
-1. Choose *Download* 
+1. Choose *Download*
 
 :::image type="content" source="{source}" alt-text="{alt-text}":::
 
-You will receive a zip file containing:
+you'll receive a zip file containing:
 * A conda environment specification file named `conda_env_<VERSION>.yml`
 * A Python scoring file named `scoring_file_<VERSION>.py`
-* The model itself, in a Python .pkl file named `model.pkl`
+* The model itself, in a Python `.pkl` file named `model.pkl`
 
-To deploy these, you can use either studio or the Azure command line interface.
+To deploy using these files, you can use either studio or the Azure command-line interface.
 
 # [Studio](#tab/Studio)
 
@@ -85,7 +85,7 @@ To deploy these, you can use either studio or the Azure command line interface.
 
 1. Register the model you downloaded from Automated ML run
 
-1. Go to Environments page, select Custom environment and select + Create option to create an environment for your deployment. Use the downloaded conda yaml to create a custom environment
+1. Go to Environments page, select Custom environment, and select + Create option to create an environment for your deployment. Use the downloaded conda yaml to create a custom environment
 
 1. Select the model, and from the Deploy drop-down option, select Deploy to real-time endpoint
 
@@ -98,9 +98,7 @@ To deploy these, you can use either studio or the Azure command line interface.
 
 To create a deployment from the CLI, you'll need the Azure CLI with the ML v2 extension. Run the following command to confirm that you have both:
 
-```azurecli
-az --version
-```
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_version":::
 
 If you receive an error message or you do not see `Extensions: ml` in the response, follow the steps at [Install and set up the CLI (v2)](how-to-configure-cli.md).
 
@@ -129,11 +127,11 @@ To create a managed online endpoint from the command-line, you'll need to create
 You'll need to modify this file to use the files you downloaded from the AutoML Models page.
 
 1. Create a file `automl_deployment.yml` and paste the contents of the above example.
+1. Change the value of the `name` of the deployment. This needs to be unique within the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters.
 1. Under the `deployments` path, change the value of the keys at the following paths:
 
 | Path | Change to |
 | --- | --- |
-| `name` | This needs to be unique within the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters.|
 | `model:local_path` | The path to the `model.pkl` file you downloaded |
 | `code_configuration:code:local_path` | The directory in which you placed the scoring file | 
 | `code_configuration:scoring_script` | The name of the Python scoring file (`scoring_file_<VERSION>.py`) |
@@ -144,9 +142,12 @@ You'll need to modify this file to use the files you downloaded from the AutoML 
 
 3. From the command line, run: 
 
-`az ml endpoint create -f automl_deployment.yml`
-
+```azurecli
+az ml endpoint create -f automl_deployment.yml
+```
 ---
+
+Once you have created a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](./how-to-deploy-managed-online-endpoints#invoke-the-endpoint-to-score-data-by-using-your-model).
 
 Next steps:
 
