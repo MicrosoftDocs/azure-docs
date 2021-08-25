@@ -38899,7 +38899,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "/articles/virtual-machines/workloads/sap/azure-monitor-overview.md",
+      "source_path": "articles/virtual-machines/workloads/sap/azure-monitor-overview.md",
       "redirect_url": "/azure/virtual-machines/workloads/sap/monitor-sap-on-azure",
       "redirect_document_id": false
     },
