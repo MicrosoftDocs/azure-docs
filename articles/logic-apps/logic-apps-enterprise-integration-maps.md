@@ -57,7 +57,7 @@ If you're new to logic apps, review the following documentation:
 
   * Exists in the same location or Azure region as your logic app resource where you plan to use the XML validation action.
 
-  * Is [linked](logic-apps-enterprise-integration-create-integration-account.md#link-to-account) to your logic app resource when you want to use maps.
+  * Is [linked](logic-apps-enterprise-integration-create-integration-account.md#link-account) to your logic app resource when you want to use maps.
 
     To create and add maps for use in Consumption logic app workflows, you don't need a logic app resource yet. However, when you're ready to use those maps in your workflows, your logic app resource requires a linked integration account that stores those maps.
 

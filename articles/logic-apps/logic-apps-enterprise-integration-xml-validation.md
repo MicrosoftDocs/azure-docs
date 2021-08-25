@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
-ms.topic: how=to
+ms.topic: how-to
 ms.date: 08/25/2021
 ---
 
@@ -38,7 +38,7 @@ Often in B2B scenarios, the trading partners in an agreement need to make sure t
 
   * Exists in the same location or Azure region as your logic app resource where you plan to use the XML validation action.
 
-  * Is [linked](logic-apps-enterprise-integration-create-integration-account.md#link-to-account) to the logic app resource.
+  * Is [linked](logic-apps-enterprise-integration-create-integration-account.md#link-account) to the logic app resource.
 
   * Contains the [schema](logic-apps-enterprise-integration-schemas.md) to use for validating XML content.
 
