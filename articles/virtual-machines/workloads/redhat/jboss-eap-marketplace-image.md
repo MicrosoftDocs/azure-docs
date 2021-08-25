@@ -24,7 +24,7 @@ The JBoss EAP on Azure Marketplace offer is a joint solution by Red Hat and Micr
 
 * JBoss EAP installation - You need to have a Red Hat Account with Red Hat Subscription Management (RHSM) entitlement for JBoss EAP. The entitlement will let you download the Red Hat tested and certified JBoss EAP version.  If you don't have EAP entitlement, sign up for a free developer subscription through the [Red Hat Developer Subscription for Individuals](https://developers.redhat.com/register). Once registered, you can find the necessary credentials (Pool IDs) at the [Red Hat Customer Portal](https://access.redhat.com/management/).
 
-* RHEL options - Choose between Pay-As-You-Go (PAYG) or Bring-Your-Own-Subscription (BYOS). With BYOS, you need to activate your [Red Hat Cloud Access](https://access.redhat.com/) [RHEL Gold Image](https://azure.microsoft.com/updates/red-hat-enterprise-linux-gold-images-now-available-on-azure/) before deploying the Marketplace  offer with solutions template. Follow [these instructions](https://access.redhat.com/documentation/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access) to enable RHEL Gold images for use on Microsoft Azure.
+* RHEL options - Choose between Pay-As-You-Go (PAYG) or Bring-Your-Own-Subscription (BYOS). With BYOS, you need to activate your [Red Hat Cloud Access](https://access.redhat.com/) [RHEL Gold Image](https://azure.microsoft.com/updates/red-hat-enterprise-linux-gold-images-now-available-on-azure/) before deploying the Marketplace  offer with solutions template. Follow [these instructions](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index) to enable RHEL Gold images for use on Microsoft Azure.
 
 * Azure Command-Line Interface (CLI).
 
@@ -54,11 +54,11 @@ Check out [Red Hat Enterprise Linux pricing](https://azure.microsoft.com/pricing
 To use RHEL as BYOS VMs/virtual machine scale sets, you're required to have a valid Red Hat subscription with entitlements to use RHEL in Azure. These JBoss EAP on RHEL BYOS plans are available as [Azure private offers](../../../marketplace/private-offers.md). You MUST complete the following prerequisites to deploy a RHEL BYOS offer plan from the Azure Marketplace. 
 
 1. Ensure you have RHEL OS and JBoss EAP entitlements attached to your Red Hat subscription.
-2. Authorize your Azure subscription ID to use RHEL BYOS images. Follow the [Red Hat Subscription Management (RHSM) documentation](https://access.redhat.com/documentation/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/enabling-and-maintaining-subs_cloud-access) to complete the process, which includes these steps:
+2. Authorize your Azure subscription ID to use RHEL BYOS images. Follow the [Red Hat Subscription Management (RHSM) documentation](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index) to complete the process, which includes these steps:
     1. Enable Microsoft Azure as a provider in your Red Hat Cloud Access Dashboard.
     2. Add your Azure subscription IDs.
     3. Enable new products for Cloud Access on Microsoft Azure.
-    4. Activate Red Hat Gold Images for your Azure Subscription. For more information, read the chapter on [Enabling and maintaining subscriptions for Cloud Access](https://access.redhat.com/documentation/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/cloud-access-gold-images_cloud-access#using-gold-images-on-azure_cloud-access) for more details. 
+    4. Activate Red Hat Gold Images for your Azure Subscription. For more information, read the chapter on [Enabling and maintaining subscriptions for Cloud Access](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/understanding-gold-images_cloud-access#using-gold-images-on-azure_cloud-access#using-gold-images-on-azure_cloud-access) for more details. 
     5. Wait for Red Hat Gold Images to be available in your Azure subscription. These Gold Images are typically available within 3 hours of submission or less as Azure Private offers.
 
 3. Accept the Azure Marketplace Terms and Conditions (T&C) for RHEL BYOS Images. To accept, run the [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands, as given below. For more information, see the [RHEL BYOS Gold Images in Azure](./byos.md) documentation for more details. It's important that you're running the latest Azure CLI version.
@@ -210,7 +210,7 @@ Refer to [Using the Azure Custom Script Extension Version 2 with Linux VMs](../.
 
 For any support-related questions, issues or customization requirements, contact [Red Hat Support](https://access.redhat.com/support) or [Microsoft Azure Support](https://ms.portal.azure.com/?quickstart=true#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-* Learn more about [JBoss EAP](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform)
+* Learn more about [JBoss EAP](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/)
 * [JBoss EAP on Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)
 * [JBoss EAP in Azure App Service](/azure/developer/java/ee/jboss-on-azure) 
 * [Azure Hybrid Benefits](../../windows/hybrid-use-benefit-licensing.md)

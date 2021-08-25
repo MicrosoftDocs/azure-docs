@@ -42,7 +42,7 @@ Configure Palo Alto Networks to forward Syslog messages in CEF format to your Az
 
 1. To use the relevant schema in Log Analytics for the Palo Alto Networks events, search for **CommonSecurityLog**.
 
-1. Continue to [STEP 3: Validate connectivity](connect-cef-verify.md).
+1. Continue to [Validate CEF connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity).
 
 
 
