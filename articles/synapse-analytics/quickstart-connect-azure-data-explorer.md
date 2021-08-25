@@ -53,7 +53,7 @@ From the Data Object Explorer, follow these steps to directly connect an Azure D
 
     ![Screenshot that shows browsing for clusters.](./media/quickstart-connect-azure-data-explorer/004-browse-clusters.png)
 
-1. The linked service needs to be published to the Workspace before it can be referenced in a notebook. Click **Publish** in the toolbar. Review the pending changes and click **OK**.
+1. Before you can interact with the linked service from a notebook, it must be published to the Workspace. Click **Publish** in the toolbar, review the pending changes and click **OK**.
 
     > [!NOTE]
     > In the current release, the database objects are populated based on your Azure AD account permissions on the Azure Data Explorer databases. When you run the Apache Spark notebooks or integration jobs, the credential in the link service will be used (for example, service principal).
