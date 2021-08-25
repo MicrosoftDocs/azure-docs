@@ -4,9 +4,9 @@ description: Types of test drives in the commercial marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
+ms.date: 08/27/2021
 ---
 
 # Azure Resource Manager test drive
@@ -303,40 +303,45 @@ The final section to complete is to be able to deploy the test drives automatica
 
    If you don't have a tenant ID, create a new one in Azure Active Directory. For help with setting up a tenant, see [Quickstart: Set up a tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
-3. **Azure AD App ID** – Create and register a new application. We will use this application to perform operations on your test drive instance.<br>**If you don’t have the PowerShell module**:
-    1. **Install the Azure Az PowerShell module**.
-
-        1. Open Powershell.
-        1. Run `Get-InstalledModule Az` to check if you already have the module installed. If not, install using **Install the Azure Az PowerShell module**. <font color=red> Is this a command? Link? </font>
-
-     1. **Add the Service Principal for Microsoft Test-Drive application**.
+3. Provision the Microsoft Test-Drive application to your tenant. We will use this application to perform operations on your test drive resources.
+    1. If you don't have it yet, install the [Azure Az PowerShell module](/powershell/azure/install-az-ps?view=azps-6.3.0).
+    1. Add the Service Principal for Microsoft Test-Drive application.
         1. Run `Connect-AzAccount` and provide credentials to sign in to your Azure account.
         1. Create a new service principal: `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive'`.
         1. Ensure the service principal has been created: `Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive'`.
       ![Shows the code to verify service principal](media/test-drive/commands-to-verify-service-principal.png)
 
-4. Select **Save**.
-5. Copy this Application ID, `d7e39695-0b24-441c-a140-047800a05ede`, and paste it in the test drive field.
-6. Since we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription:
-   1. Select the type of **Subscription** you are using for the test drive.
-   1. Select **Access control (IAM)**.<br>
-   If you are using Powershell:
+4. Copy this Application ID, `d7e39695-0b24-441c-a140-047800a05ede`, and paste it in the **Azure AD App ID** field.
+5. Since we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription, from the Azure portal or PowerShell:
+
+   1. From the Azure portal:
+
+       1. Select the **Subscription** being used for the test drive.
+       1. Select **Access control (IAM)**.<br>
+
+          ![Add a new Access Control (I A M) contributor](media/test-drive/access-control-principal.png)
+
+       1. Select the **Role assignments** tab, then **+ Add role assignment**.
+
+          ![On the Select Access Control (I A M) window, shows how to select the Role assignments tab, then + Add role assignment.](media/test-drive/access-control-principal-add-assignments.jpg)
+
+       1. Enter this Azure AD application name: `Microsoft TestDrive`. Select the application to which you want to assign the **Contributor** role.
+
+          ![Hows how to assign the contributor role](media/test-drive/access-control-permissions.jpg)
+
+       1. Select **Save**.
+   1. If using Powershell:
       1. Run this to get the ServicePrincipal object-id: `(Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive').id`.
       1. Run this with the ObjectId and Subscription Id: `New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName Contributor -Scope /subscriptions/<subscriptionId>`.
-   1. Select the **Role assignments** tab, then **+ Add role assignment**.
-
-      ![Add a new Access Control principal](media/test-drive/access-control-principal.jpg)
-
-   1. Enter this Azure AD application name: `Microsoft TestDrive`. Select the application to which you want to assign the **Contributor** role.
-
-      ![Add the permissions](media/test-drive/access-control-permissions.jpg)
-
-   1. Select **Save**.
 
 > [!NOTE]
-> Before deleting the old appID, go to the Azure portal, then **Resource groups**, and search for `CloudTry_`. Check the **Event initiated by** field. Don't delete the old appID unless at least one resource is set to **Microsoft TestDrive**.
+> Before deleting the old appID, go to the Azure portal, then **Resource groups**, and search for `CloudTry_`. Check the **Event initiated by** column.
 >
-> To delete the appID, in the left nav menu select **Azure Active Directory** > **App Registrations**, then the **All applications** tab. Choose your application and select **Delete**. A deletion can take up to a week to process.
+> :::image type="content" source="media/test-drive/event-initiated-by-field.png" lightbox="media/test-drive/event-initiated-by-field.png" alt-text="Shows the Event Initiated By field":::
+>
+> Don't delete the old appID unless at least one resource (**Operation name**) is set to **Microsoft TestDrive**.
+>
+> To delete the appID, in the left nav menu select **Azure Active Directory** > **App Registrations**, then the **All applications** tab. Choose your application and select **Delete**.
 
 ## Republish
 
