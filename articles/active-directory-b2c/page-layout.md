@@ -151,6 +151,7 @@ Azure AD B2C page layout uses the following versions of the [jQuery library](htt
 
 - Added support for multiple sign-up links.
 - Added support for user input validation according to the predicate rules defined in the policy.
+- Header is now displayed as "Sign in with your sign in name" and the field is displayed as "Sign in name". [More details](https://docs.microsoft.com/en-us/azure/active-directory-b2c/localization-string-ids#sign-up-or-sign-in-page-elements)
 
 **1.2.0**
 
