@@ -1,7 +1,7 @@
 ---
 title: Manage individual sensors
-description: Learn how to manage individual sensors, including managing activation files, performing backups, and updating a standalone sensor. 
-ms.date: 05/26/2021
+description: Learn how to manage individual sensors, including managing activation files, certificates, performing backups, and updating a standalone sensor. 
+ms.date: 08/25/2021
 ms.topic: how-to
 ---
 
@@ -81,36 +81,39 @@ You'll receive an error message if the activation file could not be uploaded. Th
 
 ## Manage certificates
 
-Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, Administrator users are prompted to provide an SSL/TLS certificate.  For more information about first-time setup, see [Sign in and activate a sensor](how-to-activate-and-set-up-your-sensor.md).
+Following sensor installation, a local self-signed certificate is generated and used to access the sensor web application. When logging in to the sensor for the first time, Administrator users are prompted to provide an SSL/TLS certificate. 
 
-This article provides information on how-to:
+Sensor Administrators may be required to update certificates that were uploaded after initial login. This may happen for example if a certificate expired.
 
-- Update a new CA-signed trusted certificate to your Sensor. You may need to do this because TBD. If you do, check with IT, etc.
-
-- Enable or disable validation of the certificate you uploaded as well as other certificates used by the system. This includes certificates used for integrations and forwarding rules, where the appliance is the client and initiator of the session.  You may need to do this when TBD.
-
-### Update certificates
-
-Sensor Administrator users can update certificates.
-
-**To update the certificate used:** 
+**To update a certificate:**
 
 1. Select **System Settings**.
 
 1. Select **SSL/TLS Certificates.**
-1. Delete or edit the certificate and add a new one.
+
+    :::image type="content" source="media/how-to-manage-individual-sensors/certificate-upload.png" alt-text="Upload a certificate":::
+
+1. In the SSL/TLS Certificates dialog box, delete the existing certificate and add a new one.
 
     - Add a certificate name.
-    - Upload a CRT file and key file and enter a passphrase.
+    - Upload a CRT file and key file.
     - Upload a PEM file if necessary.
 
-**To change the validation setting:**
+If the upload fails, contact your security or IT administrator, or review the information in [About Certificates](how-to-deploy-certificates.md).
+
+**To change the certificate validation setting:**
 
 1. Enable or Disable the **Enable Certificate Validation** toggle.
 
 1. Select **Save**.
 
-If the option is enabled and validation fails, communication between the management console and the sensor is halted and a validation error is presented in the console.
+If the option is enabled and validation fails, communication relevant components is halted and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for more information.
+
+
+For more information about first-time certificate upload see, 
+[First-time sign-in and activation checklist](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist)
+
+
 
 ## Connect a sensor to the management console
 

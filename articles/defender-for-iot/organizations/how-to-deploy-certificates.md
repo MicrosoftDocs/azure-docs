@@ -62,7 +62,6 @@ When signing into the sensor and on-premises management console for the first ti
 
 If the certificate is not created properly by the certificate lead or there are connection issues to it, the certificate cannot be uploaded and users will be forced to work with a locally signed certificate.  
 
-
 The option to validate the uploaded certificate and third-party certificates is automatically enabled, but can be disabled. When disabled, encrypted communications between components continues, even if a certificate is invalid.
 
 ## Certificate Deployment Tasks
@@ -71,10 +70,10 @@ This section describes the steps you need to take to ensure that certificate dep
 
 **To deploy certificates, verify that:**
 
-- A security, PKI or certificate specialist is creating or overseeing certificate creation. 
-- You create a unique certificate for each sensor, management console and HA machine.
-- You meet certificate creation prerequisites. See Certificate creation prerequisites.
-- Admin users logging in to each Defender for IoT sensor, and on-premises management console and HA machine have access to the certificate.
+1. A security, PKI or certificate specialist is creating or overseeing certificate creation. 
+1. You create a unique certificate for each sensor, management console and HA machine.
+1. You meet certificate creation prerequisites. See Certificate creation prerequisites.
+1. Admin users logging in to each Defender for IoT sensor, and on-premises management console and HA machine have access to the certificate.
 
 ## Certificate Creation Requirements
 
@@ -117,11 +116,11 @@ A key file is in the same format as a PEM file, but it has a different extension
 **.pem – certificate container file (optional)** 
 PEM is a text file that contains Base64 encoding of the certificate text, a plain-text header & a footer that marks the beginning and end of the certificate.
 
-**You may need to convert files types to supported types. See Convert existing files to supported files for det**ails.
+You may need to convert existing files types to supported types. See [Convert existing files to supported files](#convert-existing-files-to-supported-files) for details.
 
 ### Certificate file parameter requirements
 
-Verify that you have met the following parameter requirements before creating a certificate: 
+Verify that you have met the following parameter requirements before creating a certificate:
 
 - [CRT file requirements](#crt-file-requirements)
 - [Key file requirements](#key-file-requirements)
@@ -208,8 +207,8 @@ Admin users attempting to log in to the sensor or on-premises management console
 |--|--|
 | Passphrase does not match to the key | Validate that you typed the correct passphrase. If the problem continues, try recreating the certificate using the correct passphrase. |
 | Cannot validate chain of trust. The provided Certificate and Root CA do not match.  | Make sure the .pem file correlates to the  .crt file. If the problem continues, try recreating the certificate using the correct chain of trust (defined by the .pem file). |
-| This SSL certificate has expired and is not considered valid.  | Create a new certificate with valid dates.| 
-| This SSL certificate has expired and is not considered valid.  | Create a new certificate with valid dates.| 
+| This SSL certificate has expired and is not considered valid.  | Create a new certificate with valid dates.|
+| This SSL certificate has expired and is not considered valid.  | Create a new certificate with valid dates.|
 |This certificate has been revoked by the CRL and cannot be trusted for a secure connection | Create a new unrevoked certificate. |
 |The CRL (Certificate Revocation List) location is not reachable. Verify the URL can be accessed from this appliance | Make sure that your network configuration allows the appliance to reach the CRL Server defined in the certificate.You can use a proxy server if there are limitations in establishing a direct connection.  
 |Certificate validation failed  | This indicates a general error in the appliance. Contact [Microsoft Support](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).|
