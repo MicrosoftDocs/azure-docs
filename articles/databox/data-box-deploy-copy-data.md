@@ -68,15 +68,17 @@ The following table shows the UNC path to the shares on your Data Box and Azure 
 
 If using a Windows Server host computer, follow these steps to connect to the Data Box.
 
-1. The first step is to authenticate and start a session. Go to **Connect and copy**. Select **SMB** to get the access credentials for the shares associated with your storage account. 
+<!--1. The first step is to authenticate and start a session. Go to **Connect and copy**. Select **SMB** to get the access credentials for the shares associated with your storage account. 
 
     ![Get share credentials for SMB shares](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
 2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Then select **OK**.
     
-    ![Get user name and password for a share](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Get user name and password for a share](media/data-box-deploy-copy-data/get-share-credentials2.png)-->
 
-3. To access the shares associated with your storage account (*utsac1* in the following example) from your host computer, open a command window. At the command prompt, type:
+[!INCLUDE [data-box-get-device-password](../../includes/data-box-get-share-password.md)]
+
+1. To access the shares associated with your storage account (*utsac1* in the following example) from your host computer, open a command window. At the command prompt, type:
 
     `net use \\<IP address of the device>\<share name>  /u:<IP address of the device>\<user name for the share>`
 
@@ -85,7 +87,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     - Azure Page blob - `\\10.126.76.138\utSAC1_202006051000_PageBlob`
     - Azure Files - `\\10.126.76.138\utSAC1_202006051000_AzFile`
 
-4. Enter the password for the share when prompted. If the password has special characters, add double quotation marks before and after it. The following sample shows connecting to a share via the preceding command.
+1. Enter the password for the share when prompted. If the password has special characters, add double quotation marks before and after it. The following sample shows connecting to a share via the preceding command.
 
     ```
     C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:10.126.76.138\testuser1
@@ -93,7 +95,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     The command completed successfully.
     ```
 
-4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Select **OK** to open File Explorer.
+1. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Select **OK** to open File Explorer.
     
     ![Connect to share via File Explorer](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 

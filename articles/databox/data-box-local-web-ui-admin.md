@@ -92,13 +92,13 @@ To restart your Data Box, perform the following steps.
 
    The device shuts down and then restarts.
 
-## Get share password 
+## Get share credentials 
 
-When you order your device, you can choose to use default system-generated device passwords for the shares on your device or your own passwords. Either way, the share passwords are set at the factory and can't be changed. 
+If you need to find out the username and password to use to connect to a share on your device, you can find the share credentials in **Connect and copy** in the local web UI.
 
-If you need to find out a share password, you'll find the access credentials for all shares in **Connect and copy** in the local web UI.
+When you order your device, you can choose to use default system-generated passwords for the shares on your device or your own passwords. Either way, the share passwords are set at the factory and can't be changed. 
 
-To get the password for a share:
+To get the credentials for a share:
 
 [!INCLUDE [data-box-get-device-password](../../includes/data-box-get-share-password.md)]
 
