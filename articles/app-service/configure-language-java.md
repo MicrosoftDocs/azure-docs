@@ -121,7 +121,7 @@ All Java runtimes on App Service using the Azul JVMs come with the Zulu Flight R
 
 #### Timed Recording
 
-To take a timed recording you will need the PID (Process ID) of the Java application. To find the PID, open a browser to your web app's SCM site at https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID (Process ID).
+To take a timed recording you will need the PID (Process ID) of the Java application. To find the PID, open a browser to your web app's SCM site at `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID (Process ID).
 
 Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the process ID you copied earlier. This command will start a 30 second profiler recording of your Java application and generate a file named `timed_recording_example.jfr` in the `D:\home` directory.
 
@@ -553,6 +553,8 @@ You can use a startup script to perform actions before a web app starts. The sta
 2. Copy Tomcat locally.
 3. Make the required configuration changes.
 4. Indicate that configuration was successfully completed.
+
+For Windows sites, create a file named `startup.cmd` or `startup.ps1` in the `wwwroot` directory. This will automatically be executed before the Tomcat server starts.
 
 Here's a PowerShell script that completes these steps:
 
@@ -1044,4 +1046,5 @@ Product support for the [Azure-supported Azul Zulu JDK](https://www.azul.com/dow
 
 Visit the [Azure for Java Developers](/java/azure/) center to find Azure quickstarts, tutorials, and Java reference documentation.
 
-General questions about using App Service for Linux that aren't specific to the Java development are answered in the [App Service Linux FAQ](faq-app-service-linux.yml).
+- [App Service Linux FAQ](faq-app-service-linux.yml)
+- [Environment variables and app settings reference](reference-app-settings.md)

@@ -104,6 +104,23 @@ You can take fine-grained control over what commands run during the app or API b
 | `app_build_command` | Defines a custom command to build the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:azure` commands. |
 | `api_build_command` | Defines a custom command to build the Azure Functions API application. |
 
+The following example show how to define custom build commands inside a job's `with` section.
+
+```yml
+...
+with:
+  azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_MANGO_RIVER_0AFDB141E }}
+  repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
+  action: 'upload'
+  ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+  app_location: '/' # App source code path
+  api_location: 'api' # Api source code path - optional
+  output_location: 'dist' # Built app content directory - optional
+  app_build_command: 'npm run build-ui-prod'
+  api_build_command: 'npm run build-api-prod'
+  ###### End of Repository/Build Configurations ######
+```
+
 > [!NOTE]
 > Currently, you can only define custom build commands for Node.js builds. The build process always calls `npm install` before any custom command.
 

@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/30/2021
+ms.date: 08/19/2021
 ms.topic: conceptual
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
@@ -20,19 +20,22 @@ This article highlights capabilities, features, and enhancements recently releas
 
 This release is published July 30, 2021.
 
-The current release announces general availability for the following services:
-- Azure Arc-enabled SQL Managed Instance general purpose service tier.
+This release announces general availability for Azure Arc-enabled SQL Managed Instance [general purpose service tier](service-tiers.md) in indirectly connected mode.
 
    > [!NOTE]
-   > The services above are generally available in indirectly connected mode.
-   >
-   > These services are also available in directly connected mode, for preview.
-   >
-   > Azure SQL Managed Instance business critical service tier continues to be available in preview.
-   > 
-   > Azure Arc-enabled PostgreSQL Hyperscale continues to be available in preview.
+   > In addition, this release provides the following Azure Arc-enabled services in preview: 
+   > - SQL Managed Instance in directly connected mode
+   > - SQL Managed Instance [business critical service tier](service-tiers.md)
+   > - PostgreSQL Hyperscale
 
 ### Breaking changes
+
+#### Tools
+
+Use the following tools:
+- [Insiders build of Azure Data Studio](https://github.com/microsoft/azuredatastudio#try-out-the-latest-insiders-build-from-main).
+- [`arcdata` extension for Azure (`az`) CLI](install-arcdata-extension.md). 
+
 
 #### Data controller
 
@@ -70,7 +73,6 @@ The current release announces general availability for the following services:
 #### Azure Arc-enabled SQL Managed Instance
 
 - Automated backup and point-in-time restore is in preview.
-
 - Supports point-in-time restore from an existing database in an Azure Arc-enabled SQL managed instance to a new database within the same instance.
 - If the current datetime is given as point-in-time in UTC format, it resolves to the latest valid restore time and restores the given database until last valid transaction.
 - A database can be restored to any point-in-time where the transactions took place.
@@ -83,9 +85,6 @@ The current release announces general availability for the following services:
 
 - You can create a data controller, SQL managed instance, or PostgreSQL Hyperscale server group on a directly connected mode cluster with the Azure portal. Directly connected mode deployment is not supported with other Azure Arc-enabled data services tools. Specifically, you can't deploy a data controller in directly connect mode with any of the following tools during this release.
    - Azure Data Studio
-
-      [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
-
    - Kubernetes native tools (`kubectl`)
    - The `arcdata` extension for the Azure CLI (`az`)
 
@@ -104,6 +103,7 @@ The current release announces general availability for the following services:
 
 #### Azure Arc-enabled PostgreSQL Hyperscale
 
+- At this time, PosgreSQL Hyperscale can't be used on Kubernetes version 1.22 and higher. 
 - Backup and restore operations no longer work in the July 30 release. This is a temporary limitation. Use the June 2021 release for now if you need to do to back up or restore. This will be fixed in a future release.
 
 - It is not possible to enable and configure the `pg_cron` extension at the same time. You need to use two commands for this. One command to enable it and one command to configure it. For example:
@@ -130,7 +130,7 @@ The current release announces general availability for the following services:
 
 #### Azure Arc-enabled SQL Managed Instance
 
-##### - Can't see resources in portal
+##### Can't see resources in portal
 
 - Portal does not show Azure Arc-enabled SQL Managed Instance resources created in the June release. Delete the SQL Managed Instance resources from the resource group list view. You may need to delete the custom location resource first.
 
@@ -150,10 +150,13 @@ The current release announces general availability for the following services:
 -  System database `model` is not backed up in order to prevent interference with creation/deletion of database. The DB gets locked when admin operations are performed. 
 -  Currently only `master` and `msdb` system databases are backed up. Only full backups are performed every 12 hours.
 -  Only `ONLINE` user databases are backup up.
+-  Default recovery point objective (RPO): 5 minutes. Can not be modified in current release.
+-  Backups are retained indefinitely. To recover space, manually delete backups.
 
 ##### Other limitations
 - Transaction replication is currently not supported.
--  Log shipping is currently blocked
+- Log shipping is currently blocked.
+- Only SQL Server Authentication is supported.
 
 ## June 2021
 

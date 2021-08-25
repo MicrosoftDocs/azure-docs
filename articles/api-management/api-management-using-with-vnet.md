@@ -231,7 +231,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
   To address connectivity issues, review [Common network configuration issues](#network-configuration-issues) and fix required network settings.
 
 * **Incremental Updates:**  
-  When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2019-12-01/networkstatus) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
+  When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
 
 * **Resource Navigation Links:**  
   When deploying into a Resource Manager VNET subnet with API version 2020-12-01 and earlier, API Management reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.

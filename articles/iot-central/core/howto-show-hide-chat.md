@@ -7,7 +7,7 @@ ms.date: 08/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: philmea
+
 ---
 
 # Toggle live chat

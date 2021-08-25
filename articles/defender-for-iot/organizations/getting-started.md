@@ -27,9 +27,9 @@ The following table describes user access permissions to Azure Defender for IoT 
 | Permission | Security reader | Security administrator | Subscription contributor | Subscription owner |
 |--|--|--|--|--|
 | View details and access software, activation files and threat intelligence packages  | ✓ | ✓ | ✓ | ✓ |
-| Onboard a sensor  |  |  ✓ | ✓ | ✓ |
-| Update pricing  |  |  ✓ | ✓ | ✓ |
-| Recover password  | ✓  |  ✓ | ✓ | ✓ |
+| Onboard sensors  |  |  ✓ | ✓ | ✓ |
+| Onboard subscriptions and update committed devices  |  |  | ✓ | ✓ |
+| Recover passwords  | ✓  |  ✓ | ✓ | ✓ |
 
 ## Identify the solution infrastructure
 
@@ -48,7 +48,7 @@ For more information, see [About Azure Defender for IoT network setup](how-to-se
 
 Azure Defender for IoT supports both physical and virtual deployments. For the physical deployments, you can purchase various certified appliances. For more information, see [Identify required appliances](how-to-identify-required-appliances.md).
 
-We recommend that you calculate the approximate number of devices that will be monitored. Later, when you register your Azure subscription to the portal, you'll be asked to enter this number. Numbers can be added in intervals of 1,000 seconds. The numbers of monitored devices are called *committed devices*.
+We recommend that you calculate the approximate number of devices that will be monitored. Later, when you register your Azure subscription to the portal, you'll be asked to enter this number. Numbers can be added in intervals of 1,000,for example 1000, 2000, 3000. The numbers of monitored devices are called *committed devices*.
 
 ## Register with Azure Defender for IoT
 

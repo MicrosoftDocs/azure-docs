@@ -223,8 +223,6 @@
       items:
         - name: Monitor Azure Event Hubs
           href: monitor-event-hubs.md
-        - name: Set up diagnostic logs
-          href: event-hubs-diagnostic-logs.md
         - name: Stream Azure Diagnostics data using Event Hubs
           href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md
         - name: Automatically scale throughput units
@@ -239,7 +237,7 @@
           href: event-hubs-service-endpoints.md
         - name: Allow access via private endpoints
           href: private-link-service.md
-        - name: Configure customer-managed keys
+        - name: Encrypt data using customer-managed keys
           href: configure-customer-managed-key.md
     - name: Troubleshoot
       items:

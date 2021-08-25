@@ -18,6 +18,8 @@ ms.author: mathapli
 
 # Azure Hybrid Benefit for Linux virtual machine scale set
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Uniform scale sets
+
 **Azure Hybrid Benefit for Linux virtual machine scale set is in GA now**. AHB benefit can help you reduce the cost of running your RHEL and SLES [virtual machine scale sets](./overview.md).
 
 With this benefit, you pay for only the infrastructure cost of your scale set. The benefit is available for all RHEL and SLES Marketplace pay-as-you-go (PAYG) images.
@@ -68,7 +70,7 @@ To start using the benefit for SUSE:
 1. Register your VMs that are receiving the benefit with a separate source of updates.
 
 
-## Enable and disable the benefit on Azure Portal 
+## Enable and disable the benefit on Azure portal 
 ### Azure portal example to enable the benefit during creation:
 1. Visit [Microsoft Azure portal](https://portal.azure.com/)
 1. Go to 'Create a Virtual Machine scale set' page on the portal.
