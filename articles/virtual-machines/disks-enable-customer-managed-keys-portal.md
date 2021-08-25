@@ -3,7 +3,7 @@ title: Azure portal - Enable customer-managed keys with SSE - managed disks
 description: Enable customer-managed keys on your managed disks through the Azure portal.
 author: roygara
 
-ms.date: 06/29/2021
+ms.date: 08/25/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
@@ -80,7 +80,7 @@ The VM deployment process is similar to the standard deployment process, the onl
 
 ### Enable automatic key rotation on an existing disk encryption set
 
-1. Navigate to the disk encryption set that you want to enable automatic key rotation on.
+1. Navigate to the disk encryption set that you want to enable [automatic key rotation](disk-encryption.md#automatic-key-rotation-of-customer-managed-keys) on.
 1. Under **Settings**, select **Key**.
 1. Select **Auto key rotation** and select **Save**.
 
