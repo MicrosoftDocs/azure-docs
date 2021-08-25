@@ -126,7 +126,7 @@ header-based application should have SSO enabled with Azure AD. Open a browser a
 
 5. Your requested application should show up.
 
-## Next steps
+## Additional resources
 
 - [Configure Datawiza with Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/partner-datawiza)
 
