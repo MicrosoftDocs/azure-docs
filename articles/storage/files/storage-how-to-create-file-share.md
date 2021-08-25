@@ -226,7 +226,7 @@ Select **Create** to finishing creating the new share.
 # [PowerShell](#tab/azure-powershell)
 You can create an Azure file share with the [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. The following PowerShell commands assume you have set the variables `$resourceGroupName` and `$storageAccountName` as defined above in the creating a storage account with Azure PowerShell section. 
 
-The following example shows creating a file share with an explicit tier using the `-AccessTier` parameter. This requires using the preview Az.Storage module as indicated in the example. If a tier is not specified, either because you are using the GA Az.Storage module, or because you did not include this command, the default tier for standard file shares is transaction optimized.
+The following example shows creating a file share with an explicit tier using the `-AccessTier` parameter. If a tier is not specified, the default tier for standard file shares is transaction optimized.
 
 > [!Important]  
 > For premium file shares, the `-QuotaGiB` parameter refers to the provisioned size of the file share. The provisioned size of the file share is the amount you will be billed for, regardless of usage. Standard file shares are billed based on usage rather than provisioned size.
