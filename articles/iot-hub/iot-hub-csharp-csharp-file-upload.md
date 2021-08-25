@@ -16,7 +16,7 @@ ms.custom: "mqtt, devx-track-csharp"
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-This tutorial shows you how to use the file upload capabilities of IoT Hub by using the .NET file upload sample. 
+This tutorial shows you how to use the file upload capabilities of IoT Hub. 
 
 The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) quickstart and [Send cloud-to-device messages with IoT Hub](iot-hub-csharp-csharp-c2d.md) tutorial show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure Message Routing with IoT Hub](tutorial-routing.md) tutorial describes a way to reliably store device-to-cloud messages in Microsoft Azure Blob storage. However, in some scenarios you can't easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
@@ -30,14 +30,18 @@ The [Send telemetry from a device to an IoT hub](../iot-develop/quickstart-send-
 
 These files are typically batch processed in the cloud using tools such as [Azure Data Factory](../data-factory/introduction.md) or the [Hadoop](../hdinsight/index.yml) stack. When you need to upload files from a device, however, you can still use the security and reliability of IoT Hub. This tutorial shows you how.
 
+At the end of this tutorial you run two .NET console apps:
+
+* **FileUploadSample**. This device app uploads a file to storage using a SAS URI provided by your IoT hub. You'll run this app from the Azure IoT C# samples repository that you download in the prerequisites.
+
+* **ReadFileUploadNotification**. This service app receives file upload notifications from your IoT hub. You'll create this app in this article.
+
 > [!NOTE]
 > IoT Hub supports many device platforms and languages, including C, Java, Python, and JavaScript, through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## Prerequisites
-
-* Visual Studio Code
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
@@ -67,11 +71,11 @@ These files are typically batch processed in the cloud using tools such as [Azur
 
 ## Upload file from a device app
 
-In this article, you'll use a sample from the Azure IoT samples repository you downloaded earlier as the device app. You can open the files below using Visual Studio, Visual Studio Code, or a text editor of your choice.  
+In this article, you'll use a sample from the Azure IoT C# samples repository you downloaded earlier as the device app. You can open the files below using Visual Studio, Visual Studio Code, or a text editor of your choice.  
 
-The sample is located in the **azure-iot-samples-csharp-master\iot-hub\Samples\device\FileUploadSample** off the folder where you expanded the Azure IoT samples repository.
+The sample is located in the **azure-iot-samples-csharp-master\iot-hub\Samples\device\FileUploadSample** off the folder where you extracted the Azure IoT C# samples repository.
 
-Examine the code in **FileUpLoadSample.cs**, the file that contains the main sample logic. After creating a deviceClient, it follows the standard three-part procedure for uploading files from a device:
+Examine the code in **FileUpLoadSample.cs**, the file that contains the main sample logic. After creating an IoT Hub device client, it follows the standard three-part procedure for uploading files from a device:
 
 1. The code calls the **GetFileUploadSasUriAsync** method on the device client to get a SAS URI from the IoT hub:
 
@@ -94,7 +98,7 @@ Examine the code in **FileUpLoadSample.cs**, the file that contains the main sam
     await blockBlobClient.UploadAsync(fileStreamSource, new BlobUploadOptions());
     ```
 
-1. The code notifies the IoT hub that it has completed the upload. This tells the IoT hub that it can release resources associated with the upload (the SAS URI). If file upload notifications are configured, the IoT hub will send a notification message to backend services.
+1. The code notifies the IoT hub that it has completed the upload. This tells the IoT hub that it can release resources associated with the upload (the SAS URI). If file upload notifications are enabled, the IoT hub will send a notification message to backend services.
 
     ```csharp
     var successfulFileUploadCompletionNotification = new FileUploadCompletionNotification
@@ -117,7 +121,7 @@ Examine the code in **FileUpLoadSample.cs**, the file that contains the main sam
 
 If you examine the **parameter.cs** file, you'll see that:
 
-- The sample requires you to pass a parameter *p*, which contains the device connection string that you copied when you registered your device. 
+- The sample requires you to pass a parameter, *p*, which takes a device connection string. 
 
 - By default, the device sample uses the MQTT protocol to communicate with IoT Hub. You can use the parameter *t* to change this transport protocol. Be aware that, regardless of this selection, the Azure blob client always uses HTTPS as the protocol to upload the file Azure storage.
 
@@ -133,20 +137,20 @@ In this section, you create a C# console app that receives file upload notificat
 
 1. Open a command window and go to the folder where you want to create the project. Create a folder named **ReadFileUploadNotifications** and change directories to that folder.
 
-    ```cmd
+    ```cmd/sh
     mkdir ReadFileUploadNotification
     cd ReadFileUploadNotification
     ```
 
 1. Run the following command to create a project. This command creates a **Program.cs** file and a **ReadFileUploadNotification.csproj** file.
 
-    ```cmd
+    ```cmd/sh
     dotnet new console --language c#
     ```
 
 1. Run the following command to add the **Microsoft.Azure.Devices** package to the project file. This is the Azure IoT .NET service SDK.
 
-    ```cmd
+    ```cmd/sh
     dotnet add package Microsoft.Azure.Devices
     ```
 
@@ -198,14 +202,14 @@ In this section, you create a C# console app that receives file upload notificat
 
 Now you're ready to run the applications.
 
-First run the service app to receive file upload notifications from the IoT hub. At a command prompt in the **ReadFileUploadNotification** folder, run the following commands: 
+First run the service app to receive file upload notifications from the IoT hub. At your command prompt in the **ReadFileUploadNotification** folder, run the following commands: 
 
 ```cmd/sh
 dotnet restore
 dotnet run
 ```
 
-Next run the device app to upload the file to Azure storage. Open a new command prompt and change folders to the **azure-iot-samples-csharp-master\iot-hub\Samples\device\FileUploadSample** off the folder where you expanded the Azure IoT samples repository. Run the following commands, replacing the placeholder text in the second command with the device connection string you copied in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub):
+Next run the device app to upload the file to Azure storage. Open a new command prompt and change folders to the **azure-iot-samples-csharp-master\iot-hub\Samples\device\FileUploadSample** off the folder where you expanded the Azure IoT C# samples repository. Run the following commands, replacing the placeholder text in the second command with the device connection string you copied in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub):
 
 ```cmd/sh
 dotnet restore
@@ -224,7 +228,6 @@ The following output is from the device app after the upload has completed:
   Time to upload file: 00:00:01.5077954.
   Done.
 ```
-
 
 The following output is from the service app after the upload has completed:
 
