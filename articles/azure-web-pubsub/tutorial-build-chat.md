@@ -739,9 +739,7 @@ The `ce-type` of `message` event is always `azure.webpubsub.user.message`, detai
 
 Now run the server using `dotnet run --urls http://localhost:8080` and open multiple browser instances to access http://localhost:8080/index.html, then you can chat with each other.
 
-The complete code sample of this tutorial can be found [here][code].
-
-[code]: https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/chatapp/
+The complete code sample of this tutorial can be found [here][code-csharp].
 
 # [JavaScript](#tab/javascript)
 
@@ -868,9 +866,7 @@ The complete code sample of this tutorial can be found [here][code].
 
 Now run the server and open multiple browser instances, then you can chat with each other.
 
-The complete code sample of this tutorial can be found [here][code].
-
-[code]: https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp/
+The complete code sample of this tutorial can be found [here][code-js].
 
 # [Java](#tab/java)
 
@@ -961,9 +957,7 @@ Now run the server with the below command and open multiple browser instances, t
 mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.tutorial.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="'<connection_string>'"
 ```
 
-The complete code sample of this tutorial can be found [here][code].
-
-[code]: https://github.com/Azure/azure-webpubsub/tree/main/samples/java/chatapp/
+The complete code sample of this tutorial can be found [here][code-java].
 
 ---
 
@@ -975,3 +969,8 @@ Check other tutorials to further dive into how to use the service.
 
 > [!div class="nextstepaction"]
 > [Explore more Azure Web PubSub samples](https://aka.ms/awps/samples)
+
+
+[code-js]: https://github.com/Azure/azure-webpubsub/tree/main/samples/javascript/chatapp/
+[code-java]: https://github.com/Azure/azure-webpubsub/tree/main/samples/java/chatapp/
+[code-csharp]: https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp/chatapp/
