@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/18/2020
+ms.date: 08/24/2021
 ms.author: alkohli
 ---
 
@@ -91,6 +91,17 @@ To restart your Data Box, perform the following steps.
 3. When prompted for confirmation, select **OK** to continue.
 
    The device shuts down and then restarts.
+
+## Get access credentials for shares 
+
+To get the access credentials for shares associated with the storage account on a device from **Connect and copy** in the local web UI:
+
+[!INCLUDE [data-box-get-device-password](../../includes/data-box-get-share-password.md)]<!--Not sure the include file will be useful. Two screens, and thus two steps, are needed for this procedure. They won't fit into the "Connect to Data Box" procedure in the Connect & copy tutorial. And Data Box and Data Box Heavy share this topic.-->
+
+> [!NOTE]
+> After several failed share connection attempts using an incorrect password, the user account will be locked out of the share. The account lock will clear after a few minutes, and you can connect to the shares again.  
+> - Data Box 4.1 and later: The account is locked for 15 minutes after 5 failed login attempts. 
+> - Data Box 4.0 and earlier: The account is locked for 30 minutes after 3 failed login attempts.
 
 ## Download BOM or manifest files
 
