@@ -9,7 +9,7 @@ ms.author: denisgun
 ms.service: virtual-desktop
 ---
 
-# Screen Capture Protection
+# Screen capture protection
 
 The screen capture protection feature prevents sensitive information from being captured on the client endpoints. When you enable this feature, remote content will be automatically blocked or hidden in screenshots and screen shares. Also, the Remote Desktop client will hide content from malicious software that may be capturing the screen.
 
