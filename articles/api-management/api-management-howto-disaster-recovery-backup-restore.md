@@ -7,7 +7,7 @@ author: mikebudzynski
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 08/23/2021
+ms.date: 08/25/2021
 ms.author: apimpm 
 ms.custom: devx-track-azurepowershell
 ---
@@ -25,7 +25,7 @@ This guide shows how to automate backup and restore operations and how to ensure
 > [!IMPORTANT]
 > Restore operation doesn't change custom hostname configuration of the target service. We recommend to use the same custom hostname and TLS certificate for both active and standby services, so that, after restore operation completes, the traffic can be re-directed to the standby instance by a simple DNS CNAME change.
 >
-> Backup operation does not capture pre-aggregated log data used in reports shown on the Analytics blade in the Azure portal.
+> Backup operation does not capture pre-aggregated log data used in reports shown on the **Analytics** blade in the Azure portal.
 
 > [!WARNING]
 > Each backup expires after 30 days. If you attempt to restore a backup after the 30-day expiration period has expired, the restore will fail with a `Cannot restore: backup expired` message.
@@ -120,21 +120,22 @@ Replace `{tenant id}`, `{application id}`, and `{redirect uri}` using the follow
 
 ## Accessing Azure Storage
 
-API Management uses an Azure Storage account that you specify for backup and restore operations. When calling a backup or restore operation that uses the storage account, you need to provide an access mechanism. API Management supports two storage access mechanisms: an API Management managed identity, or an Azure Storage access key. Using an access key is the default access type.
+API Management uses an Azure Storage account that you specify for backup and restore operations. When running a backup or restore operation, you need to configure access to the storage account. API Management supports two storage access mechanisms: an Azure Storage access key (the default), or an API Management managed identity.
+
+### Configure storage account access key
+
+For steps, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md?tabs=azure-portal).
 
 ### Configure API Management managed identity
 
 > [!NOTE]
 > Using an API Management managed identity for storage operations during backup and restore requires API Management REST API version `2021-04-01-preview` or later.
 
-1. Create a system-assigned or user-assigned [managed identity for API Management](api-management-howto-use-managed-service-identity.md).
+1. Enable a system-assigned or user-assigned [managed identity for API Management](api-management-howto-use-managed-service-identity.md) in your API Management instance.
 
-    If you back up and restore to different API Management instances, create a managed identity in both the source and target instance.
+    * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
+    * If you will back up and restore to different API Management instances, enable a managed identity in both the source and target instances.
 1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
-
-### Configure storage account access key
-
-For steps, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md?tabs=azure-portal).
 
 ## Calling the backup and restore operations
 
@@ -166,6 +167,17 @@ where:
 
 In the body of the request, specify the target storage account name, blob container name, backup name, and the storage access type. If the storage container doesn't exist, the backup operation creates it.
 
+#### Access using storage access key
+
+```json
+{
+    "storageAccount": "{storage account name for the backup}",
+    "containerName": "{backup container name}",
+    "backupName": "{backup blob name}",
+    "accessKey": "{access key for the account}"
+}
+```
+
 #### Access using managed identity
 
 > [!NOTE]
@@ -194,20 +206,10 @@ In the body of the request, specify the target storage account name, blob contai
 }
 ```
 
-#### Access using storage access key
-
-```json
-{
-    "storageAccount": "{storage account name for the backup}",
-    "containerName": "{backup container name}",
-    "backupName": "{backup blob name}",
-    "accessKey": "{access key for the account}"
-}
-```
 
 Set the value of the `Content-Type` request header to `application/json`.
 
-Backup is a long running operation that may take more than a minute to complete. If the request succeeded and the backup process began, you receive a `202 Accepted` response status code with a `Location` header. Make `GET` requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress, you continue to receive a `202 Accepted` status code. A Response code of `200 OK` indicates successful completion of the backup operation.
+Backup is a long-running operation that may take more than a minute to complete. If the request succeeded and the backup process began, you receive a `202 Accepted` response status code with a `Location` header. Make `GET` requests to the URL in the `Location` header to find out the status of the operation. While the backup is in progress, you continue to receive a `202 Accepted` status code. A Response code of `200 OK` indicates successful completion of the backup operation.
 
 ### <a name="step2"> </a>Restore an API Management service
 
@@ -226,6 +228,17 @@ where:
 
 In the body of the request, specify the existing storage account name, blob container name, backup name, and the storage access type. 
 
+#### Access using storage access key
+
+```json
+{
+    "storageAccount": "{storage account name for the backup}",
+    "containerName": "{backup container name}",
+    "backupName": "{backup blob name}",
+    "accessKey": "{access key for the account}"
+}
+```
+
 #### Access using managed identity
 
 > [!NOTE]
@@ -254,20 +267,9 @@ In the body of the request, specify the existing storage account name, blob cont
 }
 ```
 
-#### Access using storage access key
-
-```json
-{
-    "storageAccount": "{storage account name for the backup}",
-    "containerName": "{backup container name}",
-    "backupName": "{backup blob name}",
-    "accessKey": "{access key for the account}"
-}
-```
-
 Set the value of the `Content-Type` request header to `application/json`.
 
-Restore is a long running operation that may take up to 30 or more minutes to complete. If the request succeeded and the restore process began, you receive a `202 Accepted` response status code with a `Location` header. Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the restore is in progress, you continue to receive a `202 Accepted` status code. A response code of `200 OK` indicates successful completion of the restore operation.
+Restore is a long-running operation that may take up to 30 or more minutes to complete. If the request succeeded and the restore process began, you receive a `202 Accepted` response status code with a `Location` header. Make 'GET' requests to the URL in the `Location` header to find out the status of the operation. While the restore is in progress, you continue to receive a `202 Accepted` status code. A response code of `200 OK` indicates successful completion of the restore operation.
 
 > [!IMPORTANT]
 > **The SKU** of the service being restored into **must match** the SKU of the backed-up service being restored.
@@ -279,9 +281,9 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 -   While backup is in progress, **avoid management changes in the service** such as SKU upgrade or downgrade, change in domain name, and more.
 -   Restore of a **backup is guaranteed only for 30 days** since the moment of its creation.
 -   **Changes** made to the service configuration (for example, APIs, policies, and developer portal appearance) while backup operation is in process **might be excluded from the backup and will be lost**.
--   If the Azure Storage account is [firewall][azure-storage-ip-firewall] enabled and a storage key is used for access, then the customer must **Allow** the set of [Azure API Management control plane IP addresses][control-plane-ip-address] on their storage account for backup or restore to work. The storage account can be in any Azure region except the one where the API Management service is located. For example, if the API Management service is in West US, then the Azure Storage account can be in West US 2 and the customer needs to open the control plane IP 13.64.39.16 (API Management control plane IP of West US) in the firewall. This is because the requests to Azure Storage are not SNATed to a public IP from compute (Azure API Management control plane) in the same Azure region. Cross-region storage requests will be SNATed to the public IP address.
+- If the storage account is **[firewall][azure-storage-ip-firewall] enabled** and a storage key is used for access, then the customer must **Allow** the set of [Azure API Management control plane IP addresses][control-plane-ip-address] on their storage account for backup or restore to work. The storage account can be in any Azure region except the one where the API Management service is located. For example, if the API Management service is in West US, then the Azure Storage account can be in West US 2 and the customer needs to open the control plane IP 13.64.39.16 (API Management control plane IP of West US) in the firewall. This is because the requests to Azure Storage are not SNATed to a public IP from compute (Azure API Management control plane) in the same Azure region. Cross-region storage requests will be SNATed to the public IP address.
 
-    If an API Management system-assigned managed identity is used for access to a firewall enabled storage account, ensure that the storage account [grants access to trusted Azure services](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
+    If an API Management system-assigned managed identity is used to access a firewall-enabled storage account, ensure that the storage account [grants access to trusted Azure services](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
 
 -   [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) should **not** be enabled on the Blob Service in the Azure Storage Account.
 -   **The SKU** of the service being restored into **must match** the SKU of the backed-up service being restored.
