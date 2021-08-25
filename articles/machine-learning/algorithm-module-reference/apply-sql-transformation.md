@@ -58,7 +58,7 @@ This section contains implementation details, tips, and answers to frequently as
   
 -   For column identifiers that contain a space or other special characters, always enclose the column identifier in square brackets or double quotation marks when referring to the column in the `SELECT` or `WHERE` clauses.  
 
--   If you have used **Edit Metadata** to specify the column attributes (Categorical or fields) before **Apply SQL Transformation**, the outputs of **Apply SQL Transformation** may not contain these attributes. You need to use **Edit Metadata** to edit the column after **Apply SQL Transformation**.
+-   If you have used **Edit Metadata** to specify the column metadata (categorical or fields) before **Apply SQL Transformation**, the outputs of **Apply SQL Transformation** will not contain these attributes. You need to use **Edit Metadata** to edit the column after **Apply SQL Transformation**.
   
 ### Unsupported statements  
 
