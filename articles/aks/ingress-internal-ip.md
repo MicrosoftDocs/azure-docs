@@ -414,4 +414,4 @@ You can also:
 [ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
 [aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
-[aks-container-best-practices]: operator-best-practices-container-image-management
+[aks-container-best-practices]: operator-best-practices-container-image-management.md
