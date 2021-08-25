@@ -233,7 +233,7 @@ To limit the number of alerts, use the `notifications.max_number_to_report` prop
 
 1. Save the changes. No restart is required.
 
-## Export information for troubleshooting
+## Export information from the sensor for troubleshooting
 
 In addition to tools for monitoring and analyzing your network, you can send information to the support team for further investigation. When you export logs, the sensor will automatically generate a one-time password (OTP), unique for the exported logs, in a separate text file.
 
@@ -241,9 +241,9 @@ In addition to tools for monitoring and analyzing your network, you can send inf
 
 1. On the left pane, select **System Settings**.
 
-1. Select **Export**.
+1. Select **Export Logs**.
 
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/export-a-log.png" alt-text="Export a log to system support.":::
+    :::image type="content" source="media/how-to-export-information-for-troubleshooting/export-a-log.png" alt-text="Export a log to system support.":::
 
 1. In the **File Name** field, enter the file name that you want to use for the log export. The default is the current date.
 
@@ -253,29 +253,28 @@ In addition to tools for monitoring and analyzing your network, you can send inf
     |--|--|
     | **Operating System Logs** | Select this option to get information about the operating system state. |
     | **Installation/Upgrade logs** | Select this option for investigation of the installation and upgrade configuration parameters. |
-    | **High Availability Logs**| Select this option to check high availability. |
     | **System Sanity Output** | Select this option to check system performance. |
+    | **Dissection Logs** | Select this option to allow advanced inspection of protocol dissection. |
     | **OS Kernel Dumps** | Select this option to export your kernel memory dump. A kernel memory dump contains all the memory that the kernel is using at the time of the problem that occurred in this kernel. The size of the dump file is smaller than the complete memory dump. Typically, the dump file is around one-third the size of the physical memory on the system. |
     | **Forwarding logs** | Select this option for investigation of the forwarding rules. |
     | **SNMP Logs** | Select this option to receive SNMP health check information. |
     | **Core Application Logs** | Select this option to export data about the core application configuration and operation. |
-    | **Communication with Sensors logs** | Select this option if there are continuous problems or interruptions of connection with the sensors. |
+    | **Communication with CM logs** | Select this option if there are continuous problems or interruptions of connection with the management console. |
     | **Web Application Logs** | Select this option to get information about all the requests sent from the application's web interface. |
-    |Audit Logs| Select this option to export a log of all Learn, password changes, sign ins, created users, reset passwords, exclusion rules created, exclusion rules edited, exclusion rules deleted, management console upgrades, sensor upgrade retry, uploading threat intelligence package. |
     | **System Backup** | Select this option to export a backup of all the system data for investigating the exact state of the system. |
-    | **Audit Logs** | Select this option to export logs regarding user actions within the management console.  |
+    | **Dissection Statistics** | Select this option to allow advanced inspection of protocol statistics. |
     | **Database Logs** | Select this option to export logs from the system database. Investigating system logs helps identify system problems. |
     | **Configuration** | Select this option to export information about all the configurable parameters to make sure everything was configured correctly. |
 
 1. To select all the options, select **Select All** next to **Choose Categories**.
 
-1. Select **Export**.
+1. Select **Export Logs**.
 
 The exported logs are added to the **Archived Logs** list. Send the OTP to the support team in a separate message and medium from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
 
 The list of archived logs can contain up to five items. If the number of items in the list goes beyond that number, the earliest item is deleted.
 
-### Export audit log
+## Export audit log from the management console
 
 Audit logs can be obtained only through the management console. Audit logs contain key information that is recorded at the time of occurrence that can assist you in figuring out what changes were made, and by who. The following information is recorded in the audit logs:
 
