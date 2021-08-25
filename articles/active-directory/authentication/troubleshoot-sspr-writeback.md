@@ -50,7 +50,7 @@ If you need more granularity, see the [list of Microsoft Azure Datacenter IP Ran
 To determine if access to a url and port are restricted in an environment, run the following cmdlet:
 
 ```powershell
-Test-NetConnection -ComputerName ssprdedicatedsbprodncu.servicebus.windows.net -Port 443
+Test-NetConnection -ComputerName ssprdedicatedsbprodscu.servicebus.windows.net -Port 443
 ```
 
 Or run the following:
