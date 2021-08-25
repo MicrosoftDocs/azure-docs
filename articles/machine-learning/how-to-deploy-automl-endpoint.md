@@ -54,7 +54,7 @@ The system will generate the Model and Environment needed for the deployment.
 
 5. Complete the wizard to deploy the model to a real-time endpoint
 
- :::image type="content" source="media/how-to-deploy-automl-endpoint/complete-wizard.jpeg" alt-text="Screenshot showing the review-and-create page":::
+ :::image type="content" source="media/how-to-deploy-automl-endpoint/complete-wizard.png" alt-text="Screenshot showing the review-and-create page":::
 
 
 ## Deploy manually from the studio or command-line
@@ -147,7 +147,7 @@ az ml endpoint create -f automl_deployment.yml
 ```
 ---
 
-Once you have created a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](./how-to-deploy-managed-online-endpoints#invoke-the-endpoint-to-score-data-by-using-your-model).
+Once you have created a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
 
 Next steps:
 
