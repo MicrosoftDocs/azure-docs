@@ -137,7 +137,7 @@ To set up peering with a different NVA or another instance of the same NVA for r
 
 ## Complete the configuration on the NVA 
 
-To complete the configuration on the NVA and enable the BGP sessions, you need the IP and the ASN of Azure Route Server. You can get this information by using [az network routeserver show](/cli/azure/network/routeserver?view=azure-cli-latest#az_network_routeserver_show):
+To complete the configuration on the NVA and enable the BGP sessions, you need the IP and the ASN of Azure Route Server. You can get this information by using [az network routeserver show](/cli/azure/network/routeserver#az_network_routeserver_show):
 
 ```azurecli-interactive 
 az network routeserver show \
