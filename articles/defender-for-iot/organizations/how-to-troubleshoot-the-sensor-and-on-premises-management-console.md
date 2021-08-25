@@ -16,13 +16,13 @@ This article describes basic troubleshooting tools for the sensor and the on-pre
 
 ## Sensor troubleshooting tools
 
-### Investigate password failure at initial sign-in
+### Investigate password failure at initial sign in
 
 When signing into a preconfigured Arrow sensor for the first time, you'll need to perform password recovery.
 
-To recover your password:
+**To recover your password**:
 
-1. On the Defender for IoT sign-in screen, select  **Password recovery**. The **Password recovery** screen opens.
+1. On the Defender for IoT sign in screen, select  **Password recovery**. The **Password recovery** screen opens.
 
 1. Select either **CyberX** or **Support**, and copy the unique identifier.
 
@@ -62,7 +62,7 @@ For support and troubleshooting information, contact [Microsoft Support](https:/
 
 When a new sensor is deployed or, for example, the sensor is working slowly or not showing any alerts, you can check system performance.
 
-To check system performance:
+**To check system performance**:
 
 1. In the dashboard, make sure that `PPS > 0`.
 
@@ -152,7 +152,7 @@ Another indication of the same problem is when multiple internet-related alerts 
 
 :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/alert-problems.png" alt-text="Multiple internet-related alerts.":::
 
-To fix the configuration:
+**To fix the configuration**:
 
 1. Right-click the cloud icon on the device map and select **Export IP Addresses**. Copy the public ranges that are private, and add them to the subnet list. For more information, see [Configure subnets](how-to-control-what-traffic-is-monitored.md#configure-subnets).
 
@@ -172,7 +172,7 @@ To limit the interface bandwidth, use the `cyberx-xsense-limit-interface` CLI to
 
 - `* -c`: clear (to clear the interface bandwidth limitation).
 
-To tweak the quality of service:
+**To tweak the Quality of Service (QoS)**:
 
 1. Sign in to the sensor CLI as a Defender for IoT user, and enter `sudo cyberx-xsense-limit-interface-I eth0 -l value`.
 
@@ -201,7 +201,7 @@ The default is 50. This means that in one communication session between an appli
 
 To limit the number of alerts, use the `notifications.max_number_to_report` property available in `/var/cyberx/properties/management.properties`. No restart is needed after you change this property.
 
-To tweak the quality of service:
+**To tweak the Quality of Service (QoS)**:
 
 1. Sign in as a Defender for IoT user.
 
@@ -305,7 +305,7 @@ Audit logs can be obtained only through the management console. Audit logs conta
 
     :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/audit-logs-export.png" alt-text="Select Audit Logs and then select Export to create your file":::
 
-The exported log is added to the **Archived Logs** list. Select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: to view the OTP, and send the OTP string to the support team in a separate message from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
+The exported log is added to the **Archived Logs** list. Select the :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/eye-icon.png" border="false"::: button to view the OTP, and send the OTP string to the support team in a separate message from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
 
 ## Next steps
 
