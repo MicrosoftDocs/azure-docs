@@ -10,7 +10,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 # Diagnose and troubleshoot the availability of Azure Cosmos SDKs in multiregional environments
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 This article describes the behavior of the latest version of Azure Cosmos SDKs when you see a connectivity issue to a particular region or when a region failover occurs.
 
@@ -37,7 +37,7 @@ If you **don't set a preferred region**, the SDK client defaults to the primary 
 | Multiple write regions | Primary region  | Primary region  |
 
 > [!NOTE]
-> Primary region refers to the first region in the [Azure Cosmos account region list](distribute-data-globally.md).
+> Primary region refers to the first region in the [Azure Cosmos account region list](../distribute-data-globally.md).
 > If the values specified as regional preference do not match with any existing Azure regions, they will be ignored. If they match an existing region but the account is not replicated to it, then the client will connect to the next preferred region that matches or to the primary region.
 
 > [!WARNING]
@@ -59,7 +59,7 @@ In these cases, the client using the Azure Cosmos SDK exposes logs and includes 
 
 When determining the next region in order of preference, the SDK client will use the account region list, prioritizing the preferred regions (if any).
 
-For a comprehensive detail on SLA guarantees during these events, see the [SLAs for availability](high-availability.md#slas-for-availability).
+For a comprehensive detail on SLA guarantees during these events, see the [SLAs for availability](../high-availability.md#slas-for-availability).
 
 ## <a id="remove-region"></a>Removing a region from the account
 
@@ -83,7 +83,7 @@ If the account is single write region and the regional outage occurs during a wr
 
 ## Session consistency guarantees
 
-When using [session consistency](consistency-levels.md#guarantees-associated-with-consistency-levels), the client needs to guarantee that it can read its own writes. In single write region accounts where the read region preference is different from the write region, there could be cases where the user issues a write and when doing a read from a local region, the local region has not yet received the data replication (speed of light constraint). In such cases, the SDK detects the specific failure on the read operation and retries the read on the primary region to ensure session consistency.
+When using [session consistency](../consistency-levels.md#guarantees-associated-with-consistency-levels), the client needs to guarantee that it can read its own writes. In single write region accounts where the read region preference is different from the write region, there could be cases where the user issues a write and when doing a read from a local region, the local region has not yet received the data replication (speed of light constraint). In such cases, the SDK detects the specific failure on the read operation and retries the read on the primary region to ensure session consistency.
 
 ## Transient connectivity issues on TCP protocol
 
@@ -93,7 +93,7 @@ If the user has configured a preferred region list with more than one region and
 
 ## Next steps
 
-* Review the [Availability SLAs](high-availability.md#slas-for-availability).
+* Review the [Availability SLAs](../high-availability.md#slas-for-availability).
 * Use the latest [.NET SDK](sql-api-sdk-dotnet-standard.md)
 * Use the latest [Java SDK](sql-api-sdk-java-v4.md)
 * Use the latest [Python SDK](sql-api-sdk-python.md)

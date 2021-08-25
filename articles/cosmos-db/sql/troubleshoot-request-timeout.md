@@ -11,7 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB request timeout exceptions
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB returned an HTTP 408 request timeout.
 
@@ -19,7 +19,7 @@ Azure Cosmos DB returned an HTTP 408 request timeout.
 The following list contains known causes and solutions for request timeout exceptions.
 
 ### Check the SLA
-Check [Azure Cosmos DB monitoring](monitor-cosmos-db.md) to see if the number of 408 exceptions violates the Azure Cosmos DB SLA.
+Check [Azure Cosmos DB monitoring](../monitor-cosmos-db.md) to see if the number of 408 exceptions violates the Azure Cosmos DB SLA.
 
 #### Solution 1: It didn't violate the Azure Cosmos DB SLA
 The application should handle this scenario and retry on these transient failures.
@@ -28,7 +28,7 @@ The application should handle this scenario and retry on these transient failure
 Contact [Azure Support](https://aka.ms/azure-support).
  
 ### Hot partition key
-Azure Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. When there's a hot partition, one or more logical partition keys on a physical partition are consuming all the physical partition's Request Units per second (RU/s). At the same time, the RU/s on other physical partitions are going unused. As a symptom, the total RU/s consumed will be less than the overall provisioned RU/s at the database or container. You'll still see throttling (429s) on the requests against the hot logical partition key. Use the [Normalized RU Consumption metric](monitor-normalized-request-units.md) to see if the workload is encountering a hot partition. 
+Azure Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. When there's a hot partition, one or more logical partition keys on a physical partition are consuming all the physical partition's Request Units per second (RU/s). At the same time, the RU/s on other physical partitions are going unused. As a symptom, the total RU/s consumed will be less than the overall provisioned RU/s at the database or container. You'll still see throttling (429s) on the requests against the hot logical partition key. Use the [Normalized RU Consumption metric](../monitor-normalized-request-units.md) to see if the workload is encountering a hot partition. 
 
 #### Solution:
 Choose a good partition key that evenly distributes request volume and storage. Learn how to [change your partition key](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/).

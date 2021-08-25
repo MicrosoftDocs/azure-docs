@@ -109,7 +109,7 @@ public class MyBusinessClass
 ```
 
 ## Troubleshooting and diagnosing
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Since the Cosmos DB provider uses the .NET SDK underneath, all the existing [performance guidelines](performance-tips-dotnet-sdk-v3-sql.md) and [troubleshooting guides](troubleshoot-dot-net-sdk.md) apply to understanding any potential issue. Note, there is a distinct way to get access to the Diagnostics from the underlying Cosmos DB operations because they cannot be exposed through the IDistributedCache APIs.
 

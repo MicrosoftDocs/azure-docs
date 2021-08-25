@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 
 ---
 # Tutorial: Build a .NET console app to manage data in Azure Cosmos DB SQL API account
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -45,15 +45,15 @@ Now let's get started!
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](includes/cosmos-db-emulator-vs.md)]
+* [!INCLUDE [cosmos-db-emulator-vs](../includes/cosmos-db-emulator-vs.md)]
 
 ## Step 1: Create an Azure Cosmos DB account
 
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, skip this section. To use the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator. Then skip ahead to [Step 2: Set up your Visual Studio project](#SetupVS).
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, skip this section. To use the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](../local-emulator.md) to set up the emulator. Then skip ahead to [Step 2: Set up your Visual Studio project](#SetupVS).
 
-[!INCLUDE [create-dbaccount-preview](includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [create-dbaccount-preview](../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>Step 2: Set up your Visual Studio project
 
@@ -113,7 +113,7 @@ Great! Now that we finished the setup, let's start writing some code. For the co
     ```
 
    > [!NOTE]
-   > If you're familiar with the previous version of the .NET SDK, you may be familiar with the terms *collection* and *document*. Because Azure Cosmos DB supports multiple API models, version 3.0 of the .NET SDK uses the generic terms *container* and *item*. A *container* can be a collection, graph, or table. An *item* can be a document, edge/vertex, or row, and is the content inside a container. For more information, see [Work with databases, containers, and items in Azure Cosmos DB](account-databases-containers-items.md).
+   > If you're familiar with the previous version of the .NET SDK, you may be familiar with the terms *collection* and *document*. Because Azure Cosmos DB supports multiple API models, version 3.0 of the .NET SDK uses the generic terms *container* and *item*. A *container* can be a collection, graph, or table. An *item* can be a document, edge/vertex, or row, and is the content inside a container. For more information, see [Work with databases, containers, and items in Azure Cosmos DB](../account-databases-containers-items.md).
 
 1. Open the [Azure portal](https://portal.azure.com). Find your Azure Cosmos DB account, and then select **Keys**.
 
@@ -493,7 +493,7 @@ That's it, build it, and you're on your way!
 
 * Want a more complex ASP.NET MVC tutorial? See [Tutorial: Develop an ASP.NET Core MVC web application with Azure Cosmos DB by using .NET SDK](sql-api-dotnet-application.md).
 * Want to do scale and performance testing with Azure Cosmos DB? See [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
-* To learn how to monitor Azure Cosmos DB requests, usage, and storage, see [Monitor performance and storage metrics in Azure Cosmos DB](./monitor-cosmos-db.md).
-* To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](./introduction.md).
+* To learn how to monitor Azure Cosmos DB requests, usage, and storage, see [Monitor performance and storage metrics in Azure Cosmos DB](../monitor-cosmos-db.md).
+* To learn more about Azure Cosmos DB, see [Welcome to Azure Cosmos DB](../introduction.md).
 
 [cosmos-db-create-account]: create-sql-api-java.md#create-a-database-account

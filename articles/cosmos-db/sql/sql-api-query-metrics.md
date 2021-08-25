@@ -11,7 +11,7 @@ ms.custom: devx-track-csharp
 
 ---
 # Tuning query performance with Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB provides a [SQL API for querying data](./sql-query-getting-started.md), without requiring schema or secondary indexes. This article provides the following information for developers:
 
@@ -22,7 +22,7 @@ Azure Cosmos DB provides a [SQL API for querying data](./sql-query-getting-start
 
 ## About SQL query execution
 
-In Azure Cosmos DB, you store data in containers, which can grow to any [storage size or request throughput](partitioning-overview.md). Azure Cosmos DB seamlessly scales data across physical partitions under the covers to handle data growth or increase in provisioned throughput. You can issue SQL queries to any container using the REST API or one of the supported [SQL SDKs](sql-api-sdk-dotnet.md).
+In Azure Cosmos DB, you store data in containers, which can grow to any [storage size or request throughput](../partitioning-overview.md). Azure Cosmos DB seamlessly scales data across physical partitions under the covers to handle data growth or increase in provisioned throughput. You can issue SQL queries to any container using the REST API or one of the supported [SQL SDKs](sql-api-sdk-dotnet.md).
 
 A brief overview of partitioning: you define a partition key like "city", which determines how data is split across physical partitions. Data belonging to a single partition key (for example, "city" == "Seattle") is stored within a physical partition, but typically a single physical partition has multiple partition keys. When a partition reaches its storage size, the service seamlessly splits the partition into two new partitions, and divides the partition key evenly across these partitions. Since partitions are transient, the APIs use an abstraction of a "partition key range", which denotes the ranges of partition key hashes. 
 
@@ -30,7 +30,7 @@ When you issue a query to Azure Cosmos DB, the SDK performs these logical steps:
 
 * Parse the SQL query to determine the query execution plan. 
 * If the query includes a filter against the partition key, like `SELECT * FROM c WHERE c.city = "Seattle"`, it is routed to a single partition. If the query does not have a filter on partition key, then it is executed in all partitions, and results are merged client side.
-* The query is executed within each partition in series or parallel, based on client configuration. Within each partition, the query might make one or more round trips depending on the query complexity, configured page size, and provisioned throughput of the collection. Each execution returns the number of [request units](request-units.md) consumed by query execution, and optionally, query execution statistics. 
+* The query is executed within each partition in series or parallel, based on client configuration. Within each partition, the query might make one or more round trips depending on the query complexity, configured page size, and provisioned throughput of the collection. Each execution returns the number of [request units](../request-units.md) consumed by query execution, and optionally, query execution statistics. 
 * The SDK performs a summarization of the query results across partitions. For example, if the query involves an ORDER BY across partitions, then results from individual partitions are merge-sorted to return results in globally sorted order. If the query is an aggregation like `COUNT`, the counts from individual partitions are summed to produce the overall count.
 
 The SDKs provide various options for query execution. For example, in .NET these options are available in the `FeedOptions` class. The following table describes these options and how they impact query execution time. 
@@ -126,7 +126,7 @@ The key response headers returned from the query include the following:
 | `x-ms-item-count` | The number of items returned in the response. This is dependent on the supplied `x-ms-max-item-count`, the number of items that can be fit within the maximum response payload size, the provisioned throughput, and query execution time. |  
 | `x-ms-continuation:` | The continuation token to resume execution of the query, if additional results are available. | 
 | `x-ms-documentdb-query-metrics` | The query statistics for the execution. This is a delimited string containing statistics of time spent in the various phases of query execution. Returned if `x-ms-documentdb-populatequerymetrics` is set to `True`. | 
-| `x-ms-request-charge` | The number of [request units](request-units.md) consumed by the query. | 
+| `x-ms-request-charge` | The number of [request units](../request-units.md) consumed by the query. | 
 
 For details on the REST API request headers and options, see [Querying resources using the REST API](/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
@@ -146,7 +146,7 @@ In Cosmos DB, you create containers of data, each with reserved throughput expre
 
 If you submit more than 200 queries/sec, the service starts rate-limiting incoming requests above 200/s. The SDKs automatically handle this case by performing a backoff/retry, therefore you might notice a higher latency for these queries. Increasing the provisioned throughput to the required value improves your query latency and throughput. 
 
-To learn more about request units, see [Request units](request-units.md).
+To learn more about request units, see [Request units](../request-units.md).
 
 ### Partitioning and partition keys
 With Azure Cosmos DB, typically queries perform in the following order from fastest/most efficient to slower/less efficient. 
@@ -158,7 +158,7 @@ With Azure Cosmos DB, typically queries perform in the following order from fast
 
 Queries that need to consult all partitions need higher latency, and can consume higher RUs. Since each partition has automatic indexing against all properties, the query can be served efficiently from the index in this case. You can make queries that span partitions faster by using the parallelism options.
 
-To learn more about partitioning and partition keys, see [Partitioning in Azure Cosmos DB](partitioning-overview.md).
+To learn more about partitioning and partition keys, see [Partitioning in Azure Cosmos DB](../partitioning-overview.md).
 
 ### SDK and query options
 See [Performance Tips](performance-tips.md) and [Performance testing](performance-testing.md) for how to get the best client-side performance from Azure Cosmos DB. This includes using the latest SDKs, configuring platform-specific configurations like default number of connections, frequency of garbage collection, and using lightweight connectivity options like Direct/TCP. 
@@ -210,7 +210,7 @@ See [Azure Cosmos DB global distribution](tutorial-global-distribution-sql-api.m
 The section on query execution metrics explains how to retrieve the server execution time of queries ( `totalExecutionTimeInMs`), so that you can differentiate between time spent in query execution and time spent in network transit.
 
 ### Indexing policy
-See [Configuring indexing policy](index-policy.md) for indexing paths, kinds, and modes, and how they impact query execution. By default, the indexing policy uses range indexing for strings, which is effective for equality queries. If you need range queries for strings, we recommend specifying the Range index type for all strings. 
+See [Configuring indexing policy](../index-policy.md) for indexing paths, kinds, and modes, and how they impact query execution. By default, the indexing policy uses range indexing for strings, which is effective for equality queries. If you need range queries for strings, we recommend specifying the Range index type for all strings. 
 
 By default, Azure Cosmos DB will apply automatic indexing to all data. For high performance insert scenarios, consider excluding paths as this will reduce the RU cost for each insert operation. 
 
@@ -269,5 +269,5 @@ Here are some sample queries, and how to interpret some of the metrics returned 
 
 ## Next steps
 * To learn about the supported SQL query operators and keywords, see [SQL query](sql-query-getting-started.md). 
-* To learn about request units, see [request units](request-units.md).
-* To learn about indexing policy, see [indexing policy](index-policy.md)
+* To learn about request units, see [request units](../request-units.md).
+* To learn about indexing policy, see [indexing policy](../index-policy.md)

@@ -12,7 +12,7 @@ ms.custom: devx-track-dotnet
 ---
 
 # Tutorial: Develop an ASP.NET Core MVC web application with Azure Cosmos DB by using .NET SDK
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -45,9 +45,9 @@ Before following the instructions in this article, make sure that you have the f
 
 * An active Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 
-* Visual Studio 2019. [!INCLUDE [cosmos-db-emulator-vs](includes/cosmos-db-emulator-vs.md)]  
+* Visual Studio 2019. [!INCLUDE [cosmos-db-emulator-vs](../includes/cosmos-db-emulator-vs.md)]  
 
 All the screenshots in this article are from Microsoft Visual Studio Community 2019. If you use a different version, your screens and options may not match entirely. The solution should work if you meet the prerequisites.
 
@@ -55,9 +55,9 @@ All the screenshots in this article are from Microsoft Visual Studio Community 2
 
 Let's start by creating an Azure Cosmos account. If you already have an Azure Cosmos DB SQL API account or if you're using the Azure Cosmos DB Emulator, skip to [Step 2: Create a new ASP.NET MVC application](#create-a-new-mvc-application).
 
-[!INCLUDE [create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
 
-[!INCLUDE [keys](includes/cosmos-db-keys.md)]
+[!INCLUDE [keys](../includes/cosmos-db-keys.md)]
 
 In the next section, you create a new ASP.NET Core MVC application.
 
@@ -328,7 +328,7 @@ In a few seconds, Visual Studio publishes your web application and launches a br
 
 In this tutorial, you've learned how to build an ASP.NET Core MVC web application. Your application can access data stored in Azure Cosmos DB. You can now continue with these resources:
 
-* [Partitioning in Azure Cosmos DB](./partitioning-overview.md)
+* [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
 * [Getting started with SQL queries](./sql-query-getting-started.md)
 * [How to model and partition data on Azure Cosmos DB using a real-world example](./how-to-model-partition-example.md)
 

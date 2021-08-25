@@ -11,7 +11,7 @@ ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
 # Bulk import data to Azure Cosmos DB SQL API account by using the .NET SDK
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 This tutorial shows how to build a .NET console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB. 
 In this article, you will read data from a sample data source and import it into an Azure Cosmos container.
@@ -31,13 +31,13 @@ Before following the instructions in this article, make sure that you have the f
 
 * An active Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [NET Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core). You can verify which version is available in your environment by running `dotnet --version`.
 
 ## Step 1: Create an Azure Cosmos DB account
 
-[Create an Azure Cosmos DB SQL API account](create-cosmosdb-resources-portal.md) from the Azure portal or you can create the account by using the [Azure Cosmos DB Emulator](local-emulator.md).
+[Create an Azure Cosmos DB SQL API account](create-cosmosdb-resources-portal.md) from the Azure portal or you can create the account by using the [Azure Cosmos DB Emulator](../local-emulator.md).
 
 ## Step 2: Set up your .NET project
 
@@ -83,7 +83,7 @@ The sample application needs to authenticate to your Azure Cosmos account. To au
 1.	Navigate to your Azure Cosmos account.
 1.	Open the **Keys** pane and copy the **URI** and **PRIMARY KEY** of your account.
 
-If you are using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](local-emulator.md#authenticate-requests).
+If you are using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](../local-emulator.md#authenticate-requests).
 
 ## Step 5: Initialize the CosmosClient object with bulk execution support
 

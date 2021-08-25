@@ -11,7 +11,7 @@ ms.author: anfeldma
 ---
 
 # .NET Change Feed Processor SDK: Download and release notes
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 >
@@ -30,7 +30,7 @@ ms.author: anfeldma
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api
 > * [REST Resource Provider](/rest/api
-> * [SQL](sql-api-query-reference.md)
+> * [SQL](sql-query-getting-started.md)
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -38,7 +38,7 @@ ms.author: anfeldma
 |---|---|
 |**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**API documentation**|[Change Feed Processor library API reference documentation](/dotnet/api/microsoft.azure.documents.changefeedprocessor)|
-|**Get started**|[Get started with the Change Feed Processor .NET SDK](change-feed.md)|
+|**Get started**|[Get started with the Change Feed Processor .NET SDK](../change-feed.md)|
 |**Current supported framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://dotnet.microsoft.com/download) |
 
 > [!NOTE]
@@ -220,7 +220,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 ## FAQ
 
-[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 

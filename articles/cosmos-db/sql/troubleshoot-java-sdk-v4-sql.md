@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 ---
 
 # Troubleshoot issues when you use Azure Cosmos DB Java SDK v4 with SQL API accounts
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
@@ -57,7 +57,7 @@ The application should be designed to retry on any exception unless it is a know
 | 409 | No | Conflict failure is when the ID provided for a resource on a write operation has been taken by an existing resource. Use another ID for the resource to resolve this issue as ID must be unique within all documents with the same partition key value. |
 | 410 | Yes | Gone exceptions (transient failure that should not violate SLA) |
 | 412 | No | Precondition failure is where the operation specified an eTag that is different from the version available at the server. It's an optimistic concurrency error. Retry the request after reading the latest version of the resource and updating the eTag on the request.
-| 413 | No | [Request Entity Too Large](concepts-limits.md#per-item-limits) |
+| 413 | No | [Request Entity Too Large](../concepts-limits.md#per-item-limits) |
 | 429 | Yes | It is safe to retry on a 429. This can be avoided by following the link for [too many requests](troubleshoot-request-rate-too-large.md).|
 | 449 | Yes | Transient error that only occurs on write operations, and is safe to retry. This can point to a design issue where too many concurrent operations are trying to update the same object in Cosmos DB. |
 | 500 | Yes | The operation failed due to an unexpected service error. Contact support by filing an [Azure support issue](https://aka.ms/azure-support). |
@@ -71,7 +71,7 @@ The application should be designed to retry on any exception unless it is a know
 For best performance:
 * Make sure the app is running on the same region as your Azure Cosmos DB account. 
 * Check the CPU usage on the host where the app is running. If CPU usage is 50 percent or more, run your app on a host with a higher configuration. Or you can distribute the load on more machines.
-    * If you are running your application on Azure Kubernetes Service, you can [use Azure Monitor to monitor CPU utilization](../azure-monitor/containers/container-insights-analyze.md).
+    * If you are running your application on Azure Kubernetes Service, you can [use Azure Monitor to monitor CPU utilization](../../azure-monitor/containers/container-insights-analyze.md).
 
 #### Connection throttling
 Connection throttling can happen because of either a [connection limit on a host machine] or [Azure SNAT (PAT) port exhaustion].
@@ -87,11 +87,11 @@ The number of max allowed open files, which are identified as "nofile," needs to
 
 ##### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
 
-If your app is deployed on Azure Virtual Machines without a public IP address, by default [Azure SNAT ports](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Azure Cosmos DB endpoint is limited by the [Azure SNAT configuration](../load-balancer/load-balancer-outbound-connections.md#preallocatedports).
+If your app is deployed on Azure Virtual Machines without a public IP address, by default [Azure SNAT ports](../../load-balancer/load-balancer-outbound-connections.md#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Azure Cosmos DB endpoint is limited by the [Azure SNAT configuration](../../load-balancer/load-balancer-outbound-connections.md#preallocatedports).
 
  Azure SNAT ports are used only when your VM has a private IP address and a process from the VM tries to connect to a public IP address. There are two workarounds to avoid Azure SNAT limitation:
 
-* Add your Azure Cosmos DB service endpoint to the subnet of your Azure Virtual Machines virtual network. For more information, see [Azure Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). 
+* Add your Azure Cosmos DB service endpoint to the subnet of your Azure Virtual Machines virtual network. For more information, see [Azure Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md). 
 
     When the service endpoint is enabled, the requests are no longer sent from a public IP to Azure Cosmos DB. Instead, the virtual network and subnet identity are sent. This change might result in firewall drops if only public IPs are allowed. If you use a firewall, when you enable the service endpoint, add a subnet to the firewall by using [Virtual Network ACLs](/previous-versions/azure/virtual-network/virtual-networks-acl).
 * Assign a public IP to your Azure VM.
@@ -146,7 +146,7 @@ This failure is a server-side failure. It indicates that you consumed your provi
 
 ### Failure connecting to Azure Cosmos DB Emulator
 
-The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB Emulator certificates](local-emulator-export-ssl-certificates.md).
+The Azure Cosmos DB Emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB Emulator certificates](../local-emulator-export-ssl-certificates.md).
 
 ### Dependency Conflict Issues
 

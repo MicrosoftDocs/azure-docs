@@ -11,13 +11,13 @@ ms.reviewer: sngun
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB request rate too large (429) exceptions
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article contains known causes and solutions for various 429 status code errors for the SQL API. If you are using the API for MongoDB, see the [Troubleshoot common issues in API for MongoDB](mongodb/error-codes-solutions.md) article for how to debug status code 16500.
+This article contains known causes and solutions for various 429 status code errors for the SQL API. If you are using the API for MongoDB, see the [Troubleshoot common issues in API for MongoDB](../mongodb/error-codes-solutions.md) article for how to debug status code 16500.
 
 A "Request rate too large" exception, also known as error code 429, indicates that your requests against Azure Cosmos DB are being rate limited.
 
-When you use provisioned throughput, you set the throughput measured in request units per second (RU/s) required for your workload. Database operations against the service such as reads, writes, and queries consume some amount of request units (RUs). Learn more about [request units](request-units.md).
+When you use provisioned throughput, you set the throughput measured in request units per second (RU/s) required for your workload. Database operations against the service such as reads, writes, and queries consume some amount of request units (RUs). Learn more about [request units](../request-units.md).
 
 In a given second, if the operations consume more than the provisioned request units, Azure Cosmos DB will return a 429 exception. Each second, the number of request units available to use is reset.
 
@@ -60,12 +60,12 @@ Here are some examples of partitioning strategies that lead to hot partitions:
 
 To verify if there is a hot partition, navigate to **Insights** > **Throughput** > **Normalized RU Consumption (%) By PartitionKeyRangeID**. Filter to a specific database and container. 
 
-Each PartitionKeyRangeId maps to a one physical partition. If there is one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. Learn more about the [Normalized RU Consumption metric](monitor-normalized-request-units.md).
+Each PartitionKeyRangeId maps to a one physical partition. If there is one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. Learn more about the [Normalized RU Consumption metric](../monitor-normalized-request-units.md).
 
 :::image type="content" source="media/troubleshoot-request-rate-too-large/split-norm-utilization-by-pkrange-hot-partition.png" alt-text="Normalized RU Consumption by PartitionKeyRangeId chart with a hot partition.":::
 
 To see which logical partition keys are consuming the most RU/s, 
-use [Azure Diagnostic Logs](cosmosdb-monitor-resource-logs.md). This sample query sums up the total request units consumed per second on each logical partition key. 
+use [Azure Diagnostic Logs](../cosmosdb-monitor-resource-logs.md). This sample query sums up the total request units consumed per second on each logical partition key. 
 
 > [!IMPORTANT]
 > Enabling diagnostic logs incurs a separate charge for the Log Analytics service, which is billed based on volume of data ingested. It is recommended you turn on diagnostic logs for a limited amount of time for debugging, and turn off when no longer required. See [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details.
@@ -88,10 +88,10 @@ This sample output shows that in a particular minute, the logical partition key 
 > In any workload, there will be natural variation in request volume across logical partitions. You should determine if the hot partition is caused by a fundamental skewness due to choice of partition key (which may require changing the key) or temporary spike due to natural variation in workload patterns.
 
 #### Recommended solution
-Review the guidance on [how to chose a good partition key](./partitioning-overview.md#choose-partitionkey).
+Review the guidance on [how to chose a good partition key](../partitioning-overview.md#choose-partitionkey).
 
 If there is high percent of rate limited requests and no hot partition:
-- You can [increase the RU/s](set-throughput.md) on the database or container using the client SDKs, Azure portal, PowerShell, CLI or ARM template.  
+- You can [increase the RU/s](../set-throughput.md) on the database or container using the client SDKs, Azure portal, PowerShell, CLI or ARM template.  
 
 If there is high percent of rate limited requests and there is an underlying hot partition:
 -  Long-term, for best cost and performance, consider **changing the partition key**. The partition key cannot be updated in place, so this requires migrating the data to a new container with a different partition key. Azure Cosmos DB supports a [live data migration tool](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/) for this purpose.
@@ -103,7 +103,7 @@ If there is high percent of rate limited requests and there is an underlying hot
 ### Step 3: Determine what requests are returning 429s
 
 #### How to investigate requests with 429s
-Use [Azure Diagnostic Logs](cosmosdb-monitor-resource-logs.md) to identify which requests are returning 429s and how many RUs they consumed. This sample query aggregates at the minute level. 
+Use [Azure Diagnostic Logs](../cosmosdb-monitor-resource-logs.md) to identify which requests are returning 429s and how many RUs they consumed. This sample query aggregates at the minute level. 
 
 > [!IMPORTANT]
 > Enabling diagnostic logs incurs a separate charge for the Log Analytics service, which is billed based on volume of data ingested. It is recommended you turn on diagnostic logs for a limited amount of time for debugging, and turn off when no longer required. See [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details.
@@ -122,7 +122,7 @@ For example, this sample output shows that each minute, 30% of Create Document r
 
 #### Recommended solution
 ##### 429s on create, replace, or upsert document requests
-- By default, in the SQL API, all properties are indexed by default. Tune the [indexing policy](index-policy.md) to only index the properties needed.
+- By default, in the SQL API, all properties are indexed by default. Tune the [indexing policy](../index-policy.md) to only index the properties needed.
 This will lower the Request Units required per create document operation, which will reduce the likelihood of seeing 429s or allow you to achieve higher operations per second for the same amount of provisioned RU/s. 
 
 ##### 429s on query document requests
@@ -138,7 +138,7 @@ Metadata rate limiting can occur when you are performing a high volume of metada
 - List databases or containers in a Cosmos account
 - Query for offers to see the current provisioned throughput 
 
-There is a system-reserved RU limit for these operations, so increasing the provisioned RU/s of the database or container will have no impact and is not recommended. See [limits on metadata operations](concepts-limits.md#metadata-request-limits).
+There is a system-reserved RU limit for these operations, so increasing the provisioned RU/s of the database or container will have no impact and is not recommended. See [limits on metadata operations](../concepts-limits.md#metadata-request-limits).
 
 #### How to investigate
 Navigate to **Insights** > **System** > **Metadata Requests By Status Code**. Filter to a specific database and container if desired. 
@@ -160,7 +160,7 @@ This 429 error is returned when the request encounters a transient service error
 Retry the request. If the error persists for several minutes, file a support ticket from the [Azure portal](https://portal.azure.com/).
 
 ## Next steps
-* [Monitor normalized RU/s consumption](monitor-normalized-request-units.md) of your database or container.
+* [Monitor normalized RU/s consumption](../monitor-normalized-request-units.md) of your database or container.
 * [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
 * Learn about performance guidelines for [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET v2](performance-tips.md).
 * [Diagnose and troubleshoot](troubleshoot-java-sdk-v4-sql.md) issues when you use the Azure Cosmos DB Java v4 SDK.

@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 ---
 
 # Tutorial: Build a Java web application using Azure Cosmos DB and the SQL API
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -40,11 +40,11 @@ Before you begin this application development tutorial, you must have the follow
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Java Development Kit (JDK) 7+](/java/azure/jdk/).
 * [Eclipse IDE for Java EE Developers.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
-* [An Azure Web Site with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](../app-service/quickstart-java.md)
+* [An Azure Web Site with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](../../app-service/quickstart-java.md)
 
 If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the quickstart section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](https://www.youtube.com/watch?v=jOdCfW7-ybI&t=2s) article.
 
@@ -52,9 +52,9 @@ If you're installing these tools for the first time, coreservlets.com provides a
 
 Let's start by creating an Azure Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create the Java JSP application](#CreateJSP).
 
-[!INCLUDE [create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
 
-[!INCLUDE [keys](includes/cosmos-db-keys.md)]
+[!INCLUDE [keys](../includes/cosmos-db-keys.md)]
 
 ## <a id="CreateJSP"></a>Create the Java JSP application
 
@@ -192,7 +192,7 @@ Azure Web Sites makes deploying Java applications as simple as exporting your ap
    * In the Destination box, choose a destination to save the WAR file.
    * Click **Finish**.
 
-1. Now that you have a WAR file in hand, you can simply upload it to your Azure Web Site's **webapps** directory. For instructions on uploading the file, see [Add a Java application to Azure App Service Web Apps](../app-service/quickstart-java.md). After the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
+1. Now that you have a WAR file in hand, you can simply upload it to your Azure Web Site's **webapps** directory. For instructions on uploading the file, see [Add a Java application to Azure App Service Web Apps](../../app-service/quickstart-java.md). After the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
 
 1. To view your finished product, navigate to `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-cosmos-java-sample/` and start adding your tasks!
 

@@ -12,7 +12,7 @@ ms.custom: devx-track-java
 ---
 
 # Azure Cosmos DB Java SDK for SQL API: Release notes and resources
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
@@ -29,7 +29,7 @@ ms.custom: devx-track-java
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](./sql-query-getting-started.md)
+> * [SQL](sql-query-getting-started.md)
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -252,7 +252,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 * Added time to live (TTL) support for documents.
 
 ### <a name="1.6.0"></a>1.6.0
-* Implemented [partitioned collections](partitioning-overview.md) and [user-defined performance levels](performance-levels.md).
+* Implemented [partitioned collections](../partitioning-overview.md) and [user-defined performance levels](../performance-levels.md).
 
 ### <a name="1.5.1"></a>1.5.1
 * Fixed a bug in HashPartitionResolver to generate hash values in little-endian to be consistent with other SDKs.
@@ -349,7 +349,7 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 | 0.9.0-prelease |December 10, 2014 |February 29, 2016 |
 
 ## FAQ
-[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

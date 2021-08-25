@@ -11,7 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB Java v4 SDK request timeout exceptions
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 The HTTP 408 error occurs if the SDK was unable to complete the request before the timeout limit occurred.
 
@@ -48,10 +48,10 @@ When running in Azure, clients using the Java SDK can hit Azure SNAT (PAT) port 
 If you're running on Azure VMs, follow the [SNAT port exhaustion guide](troubleshoot-java-sdk-v4-sql.md#snat).
 
 #### Solution 2:
-If you're running on Azure App Service, follow the [connection errors troubleshooting guide](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) and [use App Service diagnostics](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html).
+If you're running on Azure App Service, follow the [connection errors troubleshooting guide](../../app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) and [use App Service diagnostics](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html).
 
 #### Solution 3:
-If you're running on Azure Functions, verify you're following the [Azure Functions recommendation](../azure-functions/manage-connections.md#static-clients) of maintaining singleton or static clients for all of the involved services (including Azure Cosmos DB). Check the [service limits](../azure-functions/functions-scale.md#service-limits) based on the type and size of your Function App hosting.
+If you're running on Azure Functions, verify you're following the [Azure Functions recommendation](../../azure-functions/manage-connections.md#static-clients) of maintaining singleton or static clients for all of the involved services (including Azure Cosmos DB). Check the [service limits](../../azure-functions/functions-scale.md#service-limits) based on the type and size of your Function App hosting.
 
 #### Solution 4:
 If you use an HTTP proxy, make sure it can support the number of connections configured in the SDK `GatewayConnectionConfig`. Otherwise, you'll face connection issues.
@@ -67,7 +67,7 @@ If singleton CosmosClient is not possible to have in an application, we recommen
 When you have multiple instances of Cosmos Client in the same JVM interacting to multiple Cosmos accounts, enabling this allows connection sharing in Direct mode if possible between instances of Cosmos Client. Please note, when setting this option, the connection configuration (e.g., socket timeout config, idle timeout config) of the first instantiated client will be used for all other client instances.
 
 ### Hot partition key
-Azure Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. When there's a hot partition, one or more logical partition keys on a physical partition are consuming all the physical partition's Request Units per second (RU/s). At the same time, the RU/s on other physical partitions are going unused. As a symptom, the total RU/s consumed will be less than the overall provisioned RU/s at the database or container, but you'll still see throttling (429s) on the requests against the hot logical partition key. Use the [Normalized RU Consumption metric](monitor-normalized-request-units.md) to see if the workload is encountering a hot partition. 
+Azure Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. When there's a hot partition, one or more logical partition keys on a physical partition are consuming all the physical partition's Request Units per second (RU/s). At the same time, the RU/s on other physical partitions are going unused. As a symptom, the total RU/s consumed will be less than the overall provisioned RU/s at the database or container, but you'll still see throttling (429s) on the requests against the hot logical partition key. Use the [Normalized RU Consumption metric](../monitor-normalized-request-units.md) to see if the workload is encountering a hot partition. 
 
 #### Solution:
 Choose a good partition key that evenly distributes request volume and storage. Learn how to [change your partition key](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/).

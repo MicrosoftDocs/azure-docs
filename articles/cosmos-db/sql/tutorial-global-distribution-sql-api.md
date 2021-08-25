@@ -12,7 +12,7 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 
 ---
 # Tutorial: Set up Azure Cosmos DB global distribution using the SQL API
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 In this article, we show how to use the Azure portal to set up Azure Cosmos DB global distribution and then connect using the SQL API.
 
@@ -20,10 +20,10 @@ This article covers the following tasks:
 
 > [!div class="checklist"]
 > * Configure global distribution using the Azure portal
-> * Configure global distribution using the [SQL APIs](./introduction.md)
+> * Configure global distribution using the [SQL APIs](../introduction.md)
 
 <a id="portal"></a>
-[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](includes/cosmos-db-tutorial-global-distribution-portal.md)]
+[!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## <a id="preferred-locations"></a> Connecting to a preferred region using the SQL API
 
@@ -221,7 +221,7 @@ Write requests to read-only regions will fail with HTTP error code 403 ("Forbidd
 
 If the write region changes after the client's initial discovery phase, subsequent writes to the previous write region will fail with HTTP error code 403 ("Forbidden"). The client should then GET the list of regions again to get the updated write region.
 
-That's it, that completes this tutorial. You can learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](consistency-levels.md). And for more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
+That's it, that completes this tutorial. You can learn how to manage the consistency of your globally replicated account by reading [Consistency levels in Azure Cosmos DB](../consistency-levels.md). And for more information about how global database replication works in Azure Cosmos DB, see [Distribute data globally with Azure Cosmos DB](../distribute-data-globally.md).
 
 ## Next steps
 
@@ -234,6 +234,6 @@ In this tutorial, you've done the following:
 You can now proceed to the next tutorial to learn how to develop locally using the Azure Cosmos DB local emulator.
 
 > [!div class="nextstepaction"]
-> [Develop locally with the emulator](local-emulator.md)
+> [Develop locally with the emulator](../local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/

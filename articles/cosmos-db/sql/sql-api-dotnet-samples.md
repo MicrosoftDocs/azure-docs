@@ -11,7 +11,7 @@ ms.custom: devx-track-dotnet
 
 ---
 # Azure Cosmos DB: .NET examples for the SQL API
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
@@ -39,17 +39,17 @@ Visual Studio 2019 with the Azure development workflow installed
 The [Microsoft.Azure.DocumentDB NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 
 An Azure subscription or free Cosmos DB trial account
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] 
   
 - You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Your Visual Studio subscription gives you credits every month, which you can use for paid Azure services.
-- [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]  
+- [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]  
 
 > [!NOTE]
 > The samples are self-contained, and set up and clean up after themselves with multiple calls to [CreateDocumentCollectionAsync()](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync). Each occurrence bills your subscription for one hour of usage in your collection's performance tier. 
 > 
 
 ## Database examples
-The [RunDatabaseDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) method of the sample *DatabaseManagement* project shows how to do the following tasks. To learn about Azure Cosmos databases before you run the following samples, see [Work with databases, containers, and items](account-databases-containers-items.md). 
+The [RunDatabaseDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) method of the sample *DatabaseManagement* project shows how to do the following tasks. To learn about Azure Cosmos databases before you run the following samples, see [Work with databases, containers, and items](../account-databases-containers-items.md). 
 
 | Task | API reference |
 | --- | --- |
@@ -59,7 +59,7 @@ The [RunDatabaseDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/maste
 | [Delete a database](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/DatabaseManagement/Program.cs#L89) |[DocumentClient.DeleteDatabaseAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedatabaseasync) |
 
 ## Collection examples
-The [RunCollectionDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) method of the sample *CollectionManagement* project shows how to do the following tasks. To learn about Azure Cosmos collections before you run the following samples, see [Work with databases, containers, and items](account-databases-containers-items.md). 
+The [RunCollectionDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) method of the sample *CollectionManagement* project shows how to do the following tasks. To learn about Azure Cosmos collections before you run the following samples, see [Work with databases, containers, and items](../account-databases-containers-items.md). 
 
 | Task | API reference |
 | --- | --- |
@@ -70,7 +70,7 @@ The [RunCollectionDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/mas
 | [Delete a collection](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/CollectionManagement/Program.cs#L228) |[DocumentClient.DeleteDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync) |
 
 ## Document examples
-The [RunDocumentsDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) method of the sample *DocumentManagement* project shows how to do the following tasks. To learn about Azure Cosmos documents before you run the following samples, see [Work with databases, containers, and items](account-databases-containers-items.md). 
+The [RunDocumentsDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) method of the sample *DocumentManagement* project shows how to do the following tasks. To learn about Azure Cosmos documents before you run the following samples, see [Work with databases, containers, and items](../account-databases-containers-items.md). 
 
 | Task | API reference |
 | --- | --- |
@@ -86,7 +86,7 @@ The [RunDocumentsDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/mast
 | [Read document only if document has changed](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/DocumentManagement/Program.cs#L454-L500) |[DocumentClient.AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition)<br>[Documents.Client.AccessConditionType](/dotnet/api/microsoft.azure.documents.client.accessconditiontype) |
 
 ## Indexing examples
-The [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) method of the sample *IndexManagement* project shows how to do the following tasks. To learn about indexing in Azure Cosmos DB before you run the following samples, see [index policies](index-policy.md), [index types](index-overview.md#index-types), and [index paths](index-policy.md#include-exclude-paths). 
+The [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) method of the sample *IndexManagement* project shows how to do the following tasks. To learn about indexing in Azure Cosmos DB before you run the following samples, see [index policies](../index-policy.md), [index types](../index-overview.md#index-types), and [index paths](../index-policy.md#include-exclude-paths). 
 
 | Task | API reference |
 | --- | --- |

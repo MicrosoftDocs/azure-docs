@@ -11,7 +11,7 @@ ms.reviewer: sngun
 ---
 
 # Diagnose and troubleshoot Azure Cosmos DB unauthorized exceptions
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 HTTP 401: The MAC signature found in the HTTP request isn't the same as the computed signature.
 If you received the 401 error message "The MAC signature found in the HTTP request is not the same as the computed signature", it can be caused by the following scenarios.
@@ -25,7 +25,7 @@ The following list contains known causes and solutions for unauthorized exceptio
 The 401 MAC signature is seen shortly after a key rotation and eventually stops without any changes. 
 
 #### Solution:
-The key was rotated and didn't follow the [best practices](secure-access-to-data.md#key-rotation). The Azure Cosmos DB account key rotation can take anywhere from a few seconds to possibly days depending on the Azure Cosmos DB account size.
+The key was rotated and didn't follow the [best practices](../secure-access-to-data.md#key-rotation). The Azure Cosmos DB account key rotation can take anywhere from a few seconds to possibly days depending on the Azure Cosmos DB account size.
 
 ### The key is misconfigured 
 The 401 MAC signature issue will be consistent and happens for all calls using that key.
@@ -46,7 +46,7 @@ The 401 MAC signature issue is seen shortly after a container creation. This iss
 There's a race condition with container creation. An application instance is trying to access the container before the container creation is complete. The most common scenario for this race condition is if the application is running and the container is deleted and re-created with the same name. The SDK attempts to use the new container, but the container creation is still in progress so it doesn't have the keys.
 
 ### Bulk mode enabled 
-When using [Bulk mode enabled](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk/), read and write operations are optimized for best network performance and sent to the backend through a dedicated Bulk API. 401 errors while performing read operations with Bulk mode enabled often mean that the application is using the [read-only keys](secure-access-to-data.md#primary-keys).
+When using [Bulk mode enabled](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk/), read and write operations are optimized for best network performance and sent to the backend through a dedicated Bulk API. 401 errors while performing read operations with Bulk mode enabled often mean that the application is using the [read-only keys](../secure-access-to-data.md#primary-keys).
 
 #### Solution
 Use the read/write keys or authorization mechanism with write access when performing operations with Bulk mode enabled.

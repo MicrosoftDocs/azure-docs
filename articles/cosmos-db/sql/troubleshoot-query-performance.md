@@ -10,9 +10,9 @@ ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ---
 # Troubleshoot query issues when using Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput. If you are using Azure Cosmos DB's API for MongoDB, you should use [Azure Cosmos DB's API for MongoDB query troubleshooting guide](mongodb/troubleshoot-query-performance.md)
+This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in the Azure Cosmos DB core (SQL) API. You can also use [diagnostics logs](../cosmosdb-monitor-resource-logs.md) to identify queries that are slow or that consume significant amounts of throughput. If you are using Azure Cosmos DB's API for MongoDB, you should use [Azure Cosmos DB's API for MongoDB query troubleshooting guide](../mongodb/troubleshoot-query-performance.md)
 
 Query optimizations in Azure Cosmos DB are broadly categorized as follows:
 
@@ -259,7 +259,7 @@ FROM c
 WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
 ```
 
-You can improve query execution by adding `ORDER BY` and [a composite index](index-policy.md#composite-indexes) for (c.name, c.town):
+You can improve query execution by adding `ORDER BY` and [a composite index](../index-policy.md#composite-indexes) for (c.name, c.town):
 
 ```sql
 SELECT *
@@ -324,7 +324,7 @@ WHERE c.foodGroup = "Sausages and Luncheon Meats"
 GROUP BY c.description
 ```
 
-If you plan to frequently run the same aggregate queries, it may be more efficient to build a real-time materialized view with the [Azure Cosmos DB change feed](change-feed.md) than running individual queries.
+If you plan to frequently run the same aggregate queries, it may be more efficient to build a real-time materialized view with the [Azure Cosmos DB change feed](../change-feed.md) than running individual queries.
 
 ### Optimize queries that have both a filter and an ORDER BY clause
 
@@ -442,7 +442,7 @@ If the **Retrieved Document Count** is approximately equal to the **Output Docum
 
 ### Minimize cross partition queries
 
-Azure Cosmos DB uses [partitioning](partitioning-overview.md) to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container's partition key, you'll need to check only the relevant partition's index. This optimization reduces the total number of RUs that the query requires.
+Azure Cosmos DB uses [partitioning](../partitioning-overview.md) to scale individual containers as Request Unit and data storage needs increase. Each physical partition has a separate and independent index. If your query has an equality filter that matches your container's partition key, you'll need to check only the relevant partition's index. This optimization reduces the total number of RUs that the query requires.
 
 If you have a large number of provisioned RUs (more than 30,000) or a large amount of data stored (more than approximately 100 GB), you probably have a large enough container to see a significant reduction in query RU charges.
 
@@ -478,7 +478,7 @@ WHERE c.foodGroup > "Soups, Sauces, and Gravies" and c.description = "Mushroom, 
 
 ### Optimize queries that have filters on multiple properties
 
-Although queries that have filters on multiple properties will normally use a range index, they'll be more efficient if they can be served from a composite index. For small amounts of data, this optimization won't have a significant impact. It could be useful, however, for large amounts of data. You can only optimize, at most, one non-equality filter per composite index. If your query has multiple non-equality filters, pick one of them that will use the composite index. The rest will continue to use range indexes. The non-equality filter must be defined last in the composite index. [Learn more about composite indexes](index-policy.md#composite-indexes).
+Although queries that have filters on multiple properties will normally use a range index, they'll be more efficient if they can be served from a composite index. For small amounts of data, this optimization won't have a significant impact. It could be useful, however, for large amounts of data. You can only optimize, at most, one non-equality filter per composite index. If your query has multiple non-equality filters, pick one of them that will use the composite index. The rest will continue to use range indexes. The non-equality filter must be defined last in the composite index. [Learn more about composite indexes](../index-policy.md#composite-indexes).
 
 Here are some examples of queries that could be optimized with a composite index:
 
@@ -527,11 +527,11 @@ In many cases, the RU charge might be acceptable when query latency is still too
 
 ### Improve proximity
 
-Queries that are run from a different region than the Azure Cosmos DB account will have higher latency than if they were run inside the same region. For example, if you're running code on your desktop computer, you should expect latency to be tens or hundreds of milliseconds higher (or more) than if the query came from a virtual machine within the same Azure region as Azure Cosmos DB. It's simple to [globally distribute data in Azure Cosmos DB](distribute-data-globally.md) to ensure you can bring your data closer to your app.
+Queries that are run from a different region than the Azure Cosmos DB account will have higher latency than if they were run inside the same region. For example, if you're running code on your desktop computer, you should expect latency to be tens or hundreds of milliseconds higher (or more) than if the query came from a virtual machine within the same Azure region as Azure Cosmos DB. It's simple to [globally distribute data in Azure Cosmos DB](../distribute-data-globally.md) to ensure you can bring your data closer to your app.
 
 ### Increase provisioned throughput
 
-In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RUs). Imagine you have a query that consumes 5 RUs of throughput. For example, if you provision 1,000 RUs, you would be able to run that query 200 times per second. If you tried to run the query when there wasn't enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API SDKs will automatically retry this query after waiting for a short time. Throttled requests take longer, so increasing provisioned throughput can improve query latency. You can observe the [total number of throttled requests](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) on the **Metrics** blade of the Azure portal.
+In Azure Cosmos DB, your provisioned throughput is measured in Request Units (RUs). Imagine you have a query that consumes 5 RUs of throughput. For example, if you provision 1,000 RUs, you would be able to run that query 200 times per second. If you tried to run the query when there wasn't enough throughput available, Azure Cosmos DB would return an HTTP 429 error. Any of the current Core (SQL) API SDKs will automatically retry this query after waiting for a short time. Throttled requests take longer, so increasing provisioned throughput can improve query latency. You can observe the [total number of throttled requests](../use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) on the **Metrics** blade of the Azure portal.
 
 ### Increase MaxConcurrency
 

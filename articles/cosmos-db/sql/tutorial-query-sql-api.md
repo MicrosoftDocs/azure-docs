@@ -12,9 +12,9 @@ ms.reviewer: sngun
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the SQL API
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-The Azure Cosmos DB [SQL API](./introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
+The Azure Cosmos DB [SQL API](../introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
 
 This article covers the following tasks: 
 

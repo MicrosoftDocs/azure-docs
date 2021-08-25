@@ -20,7 +20,7 @@ The following guide describes how to use PowerShell to script and automate manag
 
 For cross-platform management of Azure Cosmos DB, you can use the `Az` and `Az.CosmosDB` cmdlets with [cross-platform PowerShell](/powershell/scripting/install/installing-powershell), as well as the [Azure CLI](manage-with-cli.md), the [REST API][rp-rest-api], or the [Azure portal](create-sql-api-dotnet.md#create-account).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Getting Started
 
@@ -75,8 +75,8 @@ New-AzCosmosDBAccount `
 * `$resourceGroupName` The Azure resource group into which to deploy the Cosmos account. It must already exist.
 * `$locations` The regions for the database account, the region with `FailoverPriority 0` is the write region.
 * `$accountName` The name for the Azure Cosmos account. Must be unique, lowercase, include only alphanumeric and '-' characters, and between 3 and 31 characters in length.
-* `$apiKind` The type of Cosmos account to create. For more information, see [APIs in Cosmos DB](introduction.md#simplified-application-development).
-* `$consistencyPolicy`, `$maxStalenessInterval`, and `$maxStalenessPrefix` The default consistency level and settings of the Azure Cosmos account. For more information, see [Consistency Levels in Azure Cosmos DB](consistency-levels.md).
+* `$apiKind` The type of Cosmos account to create. For more information, see [APIs in Cosmos DB](../introduction.md#simplified-application-development).
+* `$consistencyPolicy`, `$maxStalenessInterval`, and `$maxStalenessPrefix` The default consistency level and settings of the Azure Cosmos account. For more information, see [Consistency Levels in Azure Cosmos DB](../consistency-levels.md).
 
 Azure Cosmos accounts can be configured with IP Firewall, Virtual Network service endpoints, and private endpoints. For information on how to configure the IP Firewall for Azure Cosmos DB, see [Configure IP Firewall](../how-to-configure-firewall.md). For information on how to enable service endpoints for Azure Cosmos DB, see [Configure access from virtual Networks](../how-to-configure-vnet-service-endpoint.md). For information on how to enable private endpoints for Azure Cosmos DB, see [Configure access from private endpoints](../how-to-configure-private-endpoints.md).
 

@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 ---
 
 # Tutorial: Build a Node.js web app using the JavaScript SDK to manage a SQL API account in Azure Cosmos DB 
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -42,7 +42,7 @@ that you have the following resources:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Node.js][Node.js] version 6.10 or higher.
 * [Express generator](https://www.expressjs.com/starter/generator.html) (you can install Express via `npm install express-generator -g`)
@@ -51,9 +51,9 @@ that you have the following resources:
 ## <a name="create-account"></a>Create an Azure Cosmos DB account
 Let's start by creating an Azure Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create a new Node.js application](#create-new-app).
 
-[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
 
-[!INCLUDE [cosmos-db-keys](includes/cosmos-db-keys.md)]
+[!INCLUDE [cosmos-db-keys](../includes/cosmos-db-keys.md)]
 
 ## <a name="create-new-app"></a>Create a new Node.js application
 Now let's learn to create a basic Hello World Node.js project using the Express framework.
