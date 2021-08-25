@@ -314,7 +314,9 @@ You can also use the following environment variables in your script:
 3. CI_NAME
 4. CI_LOCAL_UBUNTU_USER. This points to azureuser
 
-You can use setup script in conjunction with Azure Policy to either enforce or default a setup script for every compute instance creation.
+You can use setup script in conjunction with **Azure Policy to either enforce or default a setup script for every compute instance creation**. 
+The default value for setup script timeout is 15 minutes. This can be changed through Studio UI or through ARM templates using the DURATION parameter.
+DURATION is a floating point number with an optional suffix: 's' for seconds (the default), 'm' for minutes, 'h' for hours or 'd' for days.
 
 ### Use the script in the studio
 
