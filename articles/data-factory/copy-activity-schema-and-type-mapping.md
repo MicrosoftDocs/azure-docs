@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 08/24/2021
 ms.author: jianleishen
 ---
 # Schema and data type mapping in copy activity
