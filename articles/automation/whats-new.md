@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice: 
 ms.topic: overview
-ms.date: 06/09/2021
+ms.date: 08/17/2021
 ms.custom: references_regions
 ---
 
@@ -17,6 +17,30 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 - Bug fixes
 
 This page is updated monthly, so revisit it regularly.
+
+## August 2021
+
+### Azure Policy Guest Configuration
+
+**Type:** Plan for change
+
+Customers should evaluate and plan for migration from Azure Automation State Configuration to Azure Policy guest configuration. For more information, see [Azure Policy guest configuration](../governance/policy/concepts/guest-configuration.md).
+
+## July 2021
+
+### Preview Support for User Assigned Managed Identities
+
+**Type:** New feature
+
+Azure Automation now supports [User Assigned Managed Identities](automation-secure-asset-encryption.md) for cloud jobs in Azure public , Gov & China regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-user-assigned-identities/) for more information.
+
+### General Availability of customer-managed keys for Azure Automation
+
+**Type:** New feature
+
+Customers can manage and secure encryption of Azure Automation assets using their own managed keys. With the introduction of customer-managed keys you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This additional encryption should help you meet your organization’s regulatory or compliance needs.
+
+For more information, see [Use of customer-managed keys](automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account).
 
 ## June 2021
 
@@ -58,11 +82,11 @@ Azure Automation now supports [System Assigned Managed Identities](./automation-
 
 ## March 2021
 
-### New Azure Automation built-in policies
+### New Azure Automation built-in policy definitions
 
 **Type:** New feature
 
-Azure Automation has added five new built-in policies:
+Azure Automation has added five new built-in policy definitions:
 
 - Automation accounts should disable public network access,
 - Azure Automation accounts should use customer-managed keys to encrypt data at rest
@@ -70,7 +94,7 @@ Azure Automation has added five new built-in policies:
 - Configure private endpoint connections on Azure Automation accounts
 - Private endpoint connections on Automation Accounts should be enabled.
 
-For more information, see [policy reference](./policy-reference.md).
+For more information, see [Azure Policy reference](./policy-reference.md).
 
 ### Support for Automation and State Configuration declared GA in South India
 
@@ -257,7 +281,7 @@ Start/Stop VM runbooks have been updated to use Az modules in place of Azure Res
 
 **Type:** New feature
 
-Use Azure Automation State Configuration to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the Azure Arc enabled servers DSC VM extension. For more information, read [Arc enabled servers VM extensions overview](../azure-arc/servers/manage-vm-extensions.md).
+Use Azure Automation State Configuration to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the Azure Arc-enabled servers DSC VM extension. For more information, read [Arc-enabled servers VM extensions overview](../azure-arc/servers/manage-vm-extensions.md).
 
 ### July 2020
 

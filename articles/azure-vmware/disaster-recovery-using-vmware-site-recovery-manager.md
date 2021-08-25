@@ -2,7 +2,7 @@
 title: Deploy disaster recovery with VMware Site Recovery Manager
 description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in your Azure VMware Solution private cloud.
 ms.topic: how-to
-ms.date: 07/15/2021
+ms.date: 08/18/2021
 ---
 
 # Deploy disaster recovery with VMware Site Recovery Manager
@@ -44,6 +44,7 @@ You can use SRM to implement different types of recovery, such as:
 >- VVOLs Protection Groups 
 >- SRM IP customization using SRM command-line tools
 >- One-to-Many and Many-to-One topology 
+>- Custom SRM plug-in identifier or extension ID
 
 
 ## Deployment workflow
@@ -81,7 +82,7 @@ The workflow diagram shows the Primary Azure VMware Solution to secondary workfl
 1. In your on-premises datacenter, install VMware SRM and vSphere.
 
    >[!NOTE]
-   >Use the [Two-site Topology with one vCenter Server instance per PSC](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.VMware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html) deployment model.  Also, make sure that the [required vSphere Replication Network ports](https://kb.VMware.com/s/article/2087769) are opened.
+   >Use the [Two-site Topology with one vCenter Server instance per PSC](https://docs.vmware.com/en/Site-Recovery-Manager/8.4/com.vmware.srm.install_config.doc/GUID-F474543A-88C5-4030-BB86-F7CC51DADE22.html) deployment model. Also, make sure that the [required vSphere Replication Network ports](https://kb.VMware.com/s/article/2087769) are opened.
 
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Add-ons** > **Disaster recovery**.
 
@@ -213,19 +214,19 @@ While Microsoft aims to simplify VMware SRM and vSphere Replication installation
 
 ## Scale limitations
 
+Scale limitations are per private cloud.
+
 | Configuration | Limit |
 | --- | --- |
 | Number of protected Virtual Machines  | 1000  |
 | Number of Virtual Machines per recovery plan  | 1000  |
 | Number of protection groups per recovery plan  | 250  |
-| RPO Values  | 5 min, 30 min, 60 min, 90 min, 120 min  |
-| Total number of virtual machines per protection group  | 4  |
+| RPO Values  | 5 min or higher*  |
+| Total number of virtual machines per protection group  | 500  |
 | Total number of recovery plans  | 250  |
-| Number of VMs with RPO of 5 minutes  | 100  |
-| Number of VMs with RPO of 30 minutes  | 300  |
-| Number of VMs with RPO of 60 minutes  | 300  |
-| Number of VMs with RPO of 90 minutes  | 200  |
-| Number of VMs with RPO of 120 minutes  | 100  |
+
+\* For information about Recovery Point Objective (RPO) lower than 15 minutes, see [How the 5 Minute Recovery Point Objective Works](https://docs.vmware.com/en/vSphere-Replication/8.3/com.vmware.vsphere.replication-admin.doc/GUID-9E17D567-A947-49CD-8A84-8EA2D676B55A.html) in the _vSphere Replication Administration guide_.
+
 
 
 ## SRM licenses
@@ -307,4 +308,3 @@ VMware and Microsoft support teams will engage each other as needed to troublesh
 - [Pre-requisites and Best Practices for SRM installation](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
 - [Network ports for SRM](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-499D3C83-B8FD-4D4C-AE3D-19F518A13C98.html)
 - [Network ports for vSphere Replication](https://kb.vmware.com/s/article/2087769)
-

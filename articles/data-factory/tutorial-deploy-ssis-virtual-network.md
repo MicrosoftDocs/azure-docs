@@ -4,6 +4,7 @@ description: Learn how to join an Azure-SSIS integration runtime to join an Azur
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 1/10/2020
 ---

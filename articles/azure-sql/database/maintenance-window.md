@@ -7,9 +7,9 @@ ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 05/02/2021
+ms.date: 07/22/2021
 ---
 
 # Maintenance window (Preview)
@@ -75,21 +75,28 @@ Choosing a maintenance window other than the default is currently available in t
 - Australia SouthEast
 - Brazil South
 - Canada Central
+- Canada East
+- Central India
 - Central US
 - East US
 - East US2
 - East Asia
+- France South
 - Germany West Central
 - Japan East
+- Korea Central*
 - NorthCentral US
 - North Europe
 - SouthCentral US
 - SouthEast Asia
 - UK South
 - UK West
+- West Central US
 - West Europe
 - West US
 - West US2
+
+*Available only for Azure SQL Managed Instance
 
 ## Gateway maintenance for Azure SQL Database
 

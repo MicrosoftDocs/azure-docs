@@ -4,7 +4,7 @@ metadata:
   description: This article answers frequently asked questions about Azure Video Analyzer.
   ms.service: azure-video-analyzer
   ms.topic: conceptual
-  ms.date: 07/19/2021
+  ms.date: 06/01/2021
     
 title: FAQ about Azure Video Analyzer
 summary: This article answers commonly asked questions about Azure Video Analyzer.
@@ -105,7 +105,7 @@ sections:
           
            First, be sure that your server can either handle more than one request at a time or work in parallel threads. 
           
-          For example, a default number of parallel channels has been set in the following [Azure Video Analyzer gRPC sample](https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/analyze-live-video-use-your-model-grpc): 
+          For example, a default number of parallel channels has been set in the following [Azure Video Analyzer gRPC sample](./analyze-live-video-use-your-model-grpc.md): 
           
           ```
           server = grpc.server(futures.ThreadPoolExecutor(max_workers=3)) 

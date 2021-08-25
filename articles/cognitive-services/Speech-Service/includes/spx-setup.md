@@ -39,7 +39,7 @@ The following Linux distributions are supported for x64 architectures using the 
 * CentOS 7/8
 * Debian 9/10 
 * Red Hat Enterprise Linux (RHEL) 7/8
-* Ubuntu 16.04/18.04/20.04
+* Ubuntu 16.04 (until September), Ubuntu 18.04/20.04
 
 > [!NOTE]
 > Additional architectures are supported by the Speech SDK (not the Speech CLI). For more information, see [About the Speech SDK](../speech-sdk.md).
@@ -65,8 +65,11 @@ Type `spx` to see help for the Speech CLI.
 
 #### [Docker Install (Windows, Linux, macOS)](#tab/dockerinstall)
 
-> [!WARNING]
+> [!IMPORTANT]
 > You cannot use your computer's microphone when you run Speech CLI within a Docker container. However, you can read from and save audio files in your local mounted directory. 
+
+> [!NOTE]
+> The following example pulls a public container image from Docker Hub. We recommend that you authenticate with your Docker Hub account (`docker login`) first instead of making an anonymous pull request. To improve reliability when using public content, import and manage the image in a private Azure container registry. [Learn more about working with public images](../../../container-registry/buffer-gate-public-content.md).
 
 Follow these steps to install the Speech CLI in a Docker container:
 

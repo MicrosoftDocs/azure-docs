@@ -38,8 +38,8 @@ Azure Sentinel comes with a number of connectors for Microsoft solutions, availa
 
 We recommend installing the Log Analytics agent for Windows or Linux using Azure Policy.
 
-After your Arc-enabled servers are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](../../sentinel/quickstart-get-visibility.md) and start building queries in Log Analytics to [investigate the data](../../sentinel/tutorial-investigate-cases.md).
+After your Arc-enabled servers are connected, your data starts streaming into Azure Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](/azure/sentinel/get-visibility) and start building queries in Log Analytics to [investigate the data](/azure/sentinel/investigate-cases).
 
 ## Next steps
 
-Get started [detecting threats with Azure Sentinel](../../sentinel/tutorial-detect-threats-built-in.md).
+Get started [detecting threats with Azure Sentinel](/azure/sentinel/detect-threats-built-in).

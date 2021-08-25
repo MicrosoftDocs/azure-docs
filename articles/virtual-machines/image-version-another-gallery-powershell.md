@@ -15,6 +15,8 @@ ms.custom: devx-track-azurepowershell
 
 # Copy an image from another gallery using PowerShell
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 If you have multiple galleries in your organization, you can create images from images stored in other galleries. For example, you might have a development and test gallery for creating and testing new images. When they are ready to be used in production, you can copy them into a production gallery using this example. You can also create an image from an image in another gallery using the [Azure CLI](image-version-another-gallery-cli.md).
 
 
@@ -124,7 +126,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 
 ## Create the image version
 
-Create an image version using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). You will need to pass in the ID of the source image in the `-Source` parameter for creating the image version in your destination gallery. 
+Create an image version using [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). You will need to pass in the ID of the source image in the `-SourceImageId` parameter for creating the image version in your destination gallery. 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
@@ -143,7 +145,7 @@ $job = $imageVersion = New-AzGalleryImageVersion `
    -ResourceGroupName myDestinationRG `
    -Location WestUS `
    -TargetRegion $targetRegions  `
-   -Source $sourceImgVer.Id.ToString() `
+   -SourceImageId $sourceImgVer.Id.ToString() `
    -PublishingProfileEndOfLifeDate '2020-12-01' `
    -asJob 
 ```

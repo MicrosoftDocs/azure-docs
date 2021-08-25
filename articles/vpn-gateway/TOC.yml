@@ -179,7 +179,7 @@
         items:
         - name: Windows
           href: openvpn-azure-ad-client.md
-        - name: macOS - Preview
+        - name: macOS
           href: openvpn-azure-ad-client-mac.md
       - name: Work with VPN client profile files
         href: about-vpn-profile-download.md 
@@ -252,7 +252,9 @@
     - name: PowerShell
       href: vpn-gateway-ipsecikepolicy-rm-powershell.md
   - name: Configure active-active gateways
-    items: 
+    items:
+    - name: Azure portal
+      href: active-active-portal.md 
     - name: PowerShell
       href: vpn-gateway-activeactive-rm-powershell.md
   - name: Configure zone redundant gateways
