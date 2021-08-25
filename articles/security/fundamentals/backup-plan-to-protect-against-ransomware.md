@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 08/23/2021
+ms.date: 08/26/2021
 ---
 
 # Backup and restore plan to protect against ransomware
@@ -27,9 +27,13 @@ While early ransomware mostly used malware that spread with phishing or between 
 
 - Encrypt your data
 - Exfiltrate your data
-- Tarnish your backups
+- Corrupt your backups
 
-The ransomware leverages the attackers’ knowledge of common system and security misconfigurations and vulnerabilities to infiltrate the organization, navigate the enterprise network, and adapt to the environment and its weaknesses as they go. Ransomware can be staged to exfiltrate your data first, over several weeks or months, before the ransomware actually executes on a specific date. If this exfiltration of data occurs without you noticing, then you can have tarnished backups that go back weeks or months.
+The ransomware leverages the attackers’ knowledge of common system and security misconfigurations and vulnerabilities to infiltrate the organization, navigate the enterprise network, and adapt to the environment and its weaknesses as they go.
+
+Ransomware can be staged to exfiltrate your data first, over several weeks or months, before the ransomware actually executes on a specific date.
+
+Ransomware can also be staged to slowly encrypt your data while keeping the key on the system. With the key still available, your data is usable to you and the ransomware is unnoticed. Your backups, though, are of the encrypted data. Once all of your data is encrypted and recent backups are also of encrypted data, the key is removed so your data is no longer readable.
 
 The real damage is often done when the attack exfiltrates files while leaving backdoors in the network for future malicious activity—and these risks persist whether or not the ransom is paid. These attacks can be catastrophic to business operations and difficult to clean up, requiring complete adversary eviction to protect against future attacks. Unlike early forms of ransomware that only required malware remediation, human-operated ransomware can continue to threaten your business operations after the initial encounter.
 
@@ -37,12 +41,12 @@ The real damage is often done when the attack exfiltrates files while leaving ba
 
 The impact of a ransomware attack on any organization is difficult to quantify accurately. Depending on the scope of the attack, the impact could include:
 
-- Loss of Data Access
-- Business Operation Disruption
-- Financial Loss
-- Intellectual Property Theft
-- Compromised Customer Trust/Tarnished Reputation
-- Legal expenses
+- Loss of data access
+- Business operation disruption
+- Financial loss
+- Intellectual property theft
+- Compromised customer trust or tarnished reputation
+- Legal expense
 
 ## How can you protect yourself?
 
@@ -70,6 +74,19 @@ Checks have been added to make sure only valid users can perform various operati
 
 Learn more about the [security features](/azure/backup/security-overview) built into Azure Backup.
 
+### Validate backups
+
+Validate that your backup is good as your backup is created and before you restore. We recommend that you use a [Recovery Services vault](/azure/backup/backup-azure-recovery-services-vault-overview), which is a storage entity in Azure that houses data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations. You can use Recovery Services vaults to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and Azure SQL databases as well as on-premises assets. Recovery Services vaults make it easy to organize your backup data and provide features such as:
+
+- Enhanced capabilities to ensure you can secure your backups, and safely recover data, even if production and backup servers are compromised. [Learn more](/azure/backup/backup-azure-security-feature).
+- Monitoring for your hybrid IT environment (Azure IaaS VMs and on-premises assets) from a central portal. [Learn more](/azure/backup/backup-azure-monitoring-built-in-monitor).
+- Compatibility with Azure role-based access control (Azure RBAC), which restricts backup and restore access to a defined set of user roles. Azure RBAC provides various built-in roles, and Azure Backup has three built-in roles to manage recovery points. [Learn more](/azure/backup/backup-rbac-rs-vault).
+- Soft delete protection, even if a malicious actor deletes a backup (or backup data is accidentally deleted). Backup data is retained for 14 additional days, allowing the recovery of a backup item with no data loss. [Learn more](/azure/backup/backup-azure-security-feature-cloud).
+- Cross Region Restore which allows you to restore Azure VMs in a secondary region, which is an Azure paired region. You can restore the replicated data in the secondary region any time. This enables you to restore the secondary region data for audit-compliance, and during outage scenarios, without waiting for Azure to declare a disaster (unlike the GRS settings of the vault). [Learn more](/azure/backup/backup-azure-arm-restore-vms#cross-region-restore).
+
+> [!NOTE]
+> There are two types of vaults in Azure Backup. In addition to the Recovery Services vaults, there are also [Backup vaults](/azure/backup/backup-vault-overview) that house data for newer workloads supported by Azure Backup.
+
 ## What to do before an attack
 
 As mentioned earlier, you should assume that at some point in time you will fall victim to a ransomware attack. Identifying your business-critical systems and applying best practices before an attack will get you back up and running as quickly as possible. 
@@ -95,12 +112,12 @@ Apply these best practices before an attack.
 | Task | Detail |
 | --- | --- |
 | Identify the important systems that you need to bring back online first (using top five types above) and immediately begin performing regular backups of those systems. | To get back up and running as quickly as possible after an attack, determine today what is most important to you. |
-| Migrate your organization to the cloud. <br><br>Consider purchasing a support plan that helps you as you move to the cloud. | Reduce your on-premises exposure by moving data to cloud services with automatic backup and self-service rollback. Microsoft Azure has a robust set of tools to help you backup your business-critical systems and restore your backups faster. <br><br>[Microsoft Unified Support](https://www.microsoft.com/msservices/unified-support-solutions) is a cloud services support model that is there to help you whenever you need it. Unified Support: <br><br>Provides a designated team that is available 24x7 with as-needed problem resolution and critical incident escalation <br><br>Helps you monitor the health of your IT environment and works proactively to make sure problems are prevented before they happen |
+| Migrate your organization to the cloud. <br><br>Consider purchasing a Microsoft Unified support plan or working with a Microsoft partner to help support your move to the cloud. | Reduce your on-premises exposure by moving data to cloud services with automatic backup and self-service rollback. Microsoft Azure has a robust set of tools to help you backup your business-critical systems and restore your backups faster. <br><br>[Microsoft Unified Support](https://www.microsoft.com/msservices/unified-support-solutions) is a cloud services support model that is there to help you whenever you need it. Unified Support: <br><br>Provides a designated team that is available 24x7 with as-needed problem resolution and critical incident escalation <br><br>Helps you monitor the health of your IT environment and works proactively to make sure problems are prevented before they happen |
 | Move user data to cloud solutions like OneDrive and SharePoint to take advantage of [versioning and recycle bin capabilities](/microsoft-365/enterprise/microsoft-365-malware-and-ransomware-protection.md#sharepoint-online-and-onedrive-for-business-protection-against-ransomware). <br><br>Educate users on how to recover their files by themselves to reduce delays and cost of recovery.   For example, if a user’s OneDrive files were infected by malware, they can [restore](https://support.microsoft.com/office/restore-your-onedrive-fa231298-759d-41cf-bcd0-25ac53eb8a15?ui=en-US&rs=en-US&ad=US) their entire OneDrive to a previous time. | User data in the Microsoft cloud can be protected by built-in security and data management features. <br><br>It's good to teach users how to restore their own files but you need to be careful that your users do not restore the malware used to carry out the attack. You need to: <br><br>1. Ensure your users don't restore their files until you are confident that the attacker has been evicted <br><br>2. Have a mitigation in place in case a user does restore some of the malware <br><br>Consider a defense strategy, such as [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender), before allowing users to restore their own files. Microsoft 365 Defender uses AI-powered automatic actions and playbooks to remediate impacted assets back to a secure state. Microsoft 365 Defender leverages automatic remediation capabilities of the suite products to ensure all impacted assets related to an incident are automatically remediated where possible. |
 | Implement [Azure Security Benchmark](/security/benchmark/azure/introduction). | Azure Security Benchmark is Azure’s own security control framework based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1. It provides organizations guidance on how to configure Azure and Azure Services and implement the security controls. See [Backup and Recovery](/security/benchmark/azure/security-controls-v2-backup-recovery). |
 | Regularly exercise your business continuity/disaster recovery (BC/DR) plan. <br><br>Simulate incident response scenarios. Exercises you perform in preparing for an attack should be planned and conducted around your prioritized backup and restore lists. <br><br>Regularly test ‘Recover from Zero’ scenario to ensure your BC/DR can rapidly bring critical business operations online from zero functionality (all systems down). | Ensures rapid recovery of business operations by treating a ransomware or extortion attack with the same importance as a natural disaster. <br><br>Conduct practice exercise(s) to validate cross-team processes and technical procedures, including out of band employee and customer communications (assume all email and chat is down). |
 | Consider creating a risk register to identify potential risks and address how you will mediate through preventative controls and actions. Add ransomware to risk register as high likelihood and high impact scenario. | A risk register can help you prioritize risks based on the likelihood of that risk occurring and the severity to your business should that risk occur. <br><br>Track mitigation status via [Enterprise Risk Management (ERM)](/compliance/assurance/assurance-risk-management) assessment cycle. |
-| Backup all critical business systems automatically on a regular schedule (including backup of critical dependencies like Active Directory). | Allows you to recover data up to the last backup. |
+| Backup all critical business systems automatically on a regular schedule (including backup of critical dependencies like Active Directory). <br><br>Validate that your backup is good as your backup is created. | Allows you to recover data up to the last backup. |
 | Protect (or print) supporting documents and systems required for recovery such as restoration procedure documents, CMDB, network diagrams, and SolarWinds instances. | Attackers deliberately target these resources because it impacts your ability to recover. |
 | Ensure you have well-documented procedures for engaging any third-party support, particularly support from threat intelligence providers, antimalware solution providers, and from the malware analysis provider. Protect (or print) these procedures. | Third-party contacts may be useful if the given ransomware variant has known weaknesses or decryption tools are available. |
 | Ensure backup and recovery strategy includes: <br><br>Ability to back up data to a specific point in time. <br><br>Multiple copies of backups are stored in isolated, offline (air-gapped) locations. <br><br>Recovery time objectives that establish how quickly backed up information can be retrieved and put into production environment. <br><br>Rapid restore of back up to a production environment/sandbox. | Backups are essential for resilience after an organization has been breached. Apply the 3-2-1 rule for maximum protection and availability: 3 copies (original + 2 backups), 2 storage types, and 1 offsite or cold copy. |
@@ -111,17 +128,7 @@ Apply these best practices before an attack.
 
 ## What to do during an attack
 
-If you are attacked, your prioritized back up list becomes your prioritized restore list.
-
-### Validate backups before restoring
-
-Validate that your backup is good before you restore it. We recommend that you use a [Recovery Services vault](/azure/backup/backup-azure-recovery-services-vault-overview), which is a storage entity in Azure that houses data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations. You can use Recovery Services vaults to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and Azure SQL databases as well as on-premises assets. Recovery Services vaults make it easy to organize your backup data and provide features such as:
-
-- Enhanced capabilities to ensure you can secure your backups, and safely recover data, even if production and backup servers are compromised. [Learn more](/azure/backup/backup-azure-security-feature).
-- Monitoring for your hybrid IT environment (Azure IaaS VMs and on-premises assets) from a central portal. [Learn more](/azure/backup/backup-azure-monitoring-built-in-monitor).
-- Compatibility with Azure role-based access control (Azure RBAC), which restricts backup and restore access to a defined set of user roles. Azure RBAC provides various built-in roles, and Azure Backup has three built-in roles to manage recovery points. [Learn more](/azure/backup/backup-rbac-rs-vault).
-- Soft delete protection, even if a malicious actor deletes a backup (or backup data is accidentally deleted). Backup data is retained for 14 additional days, allowing the recovery of a backup item with no data loss. [Learn more](/azure/backup/backup-azure-security-feature-cloud).
-- Cross Region Restore which allows you to restore Azure VMs in a secondary region, which is an Azure paired region. You can restore the replicated data in the secondary region any time. This enables you to restore the secondary region data for audit-compliance, and during outage scenarios, without waiting for Azure to declare a disaster (unlike the GRS settings of the vault). [Learn more](/azure/backup/backup-azure-arm-restore-vms#cross-region-restore).
+If you are attacked, your prioritized back up list becomes your prioritized restore list. Before you restore, validate again that your backup is good. You may be able to look for malware inside the backup.
 
 ### Steps to take during an attack
 
@@ -132,7 +139,7 @@ Apply these best practices during an attack.
 | Early in the attack, engage third-party support, particularly support from threat intelligence providers, antimalware solution providers and from the malware analysis provider. | These contacts may be useful if the given ransomware variant has a known weakness or decryption tools are available. <br><br>[Microsoft Detection and Response Team (DART)](https://www.microsoft.com/security/blog/2019/03/25/dart-the-microsoft-cybersecurity-team-we-hope-you-never-meet/) can help protect you from attacks. The DART engages with customers around the world, helping to protect and harden against attacks before they occur, as well as investigating and remediating when an attack has occurred. <br><br>Microsoft also provides Rapid Ransomware Recovery services. Services are exclusively delivered by the Microsoft Global [Compromise Recovery Security Practice (CRSP)](https://www.microsoft.com/security/blog/2021/06/09/crsp-the-emergency-team-fighting-cyber-attacks-beside-customers/). <br><br>DART and CRSP are part of Microsoft’s [Industry Solutions Delivery](https://www.microsoft.com/msservices/security) security service line. |
 | Contact your local or federal law enforcement agencies. | If you are in the United States, contact the FBI to report a ransomware breach using the [IC3 Complaint Referral Form](https://ransomware.ic3.gov/default.aspx). |
 | Take steps to remove malware or ransomware payload from your environment and stop the spread. <br><br>Run a full, current antivirus scan on all suspected computers and devices to detect and remove the payload that's associated with the ransomware. <br><br>Scan devices that are synchronizing data, or the targets of mapped network drives. | You can use [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) or (for older clients) [Microsoft Security Essentials](https://www.microsoft.com/download/details.aspx?id=5201). <br><br>An alternative that will also help you remove ransomware or malware is the [Malicious Software Removal Tool (MSRT)](https://www.microsoft.com/download/details.aspx?id=9905). <br><br>If these options don't work, you can try [Windows Defender Offline](https://support.microsoft.com/help/17466). |
-| Restore business-critical systems first. | At this point, you don’t need to restore everything. Focus on the top five business-critical systems from your restore list. |
+| Restore business-critical systems first. Remember to validate again that your backup is good before you restore.| At this point, you don’t need to restore everything. Focus on the top five business-critical systems from your restore list. |
 | If you have offline backups, you can probably restore the encrypted data **after** you've removed the ransomware payload (malware) from your environment. | To prevent future attacks, ensure ransomware or malware is not on your offline backup before restoring. |
 | Identify a safe point-in-time backup image that is known not to be infected. <br><br>If you use Recovery Services vault, carefully review the incident timeline to understand the right point-in-time to restore a backup. | To prevent future attacks, scan backup for ransomware or malware before restoring. |
 | Use a safety scanner and other tools for full operating system restore as well as data restore scenarios. | [Microsoft Safety Scanner](/windows/security/threat-protection/intelligence/safety-scanner-download) is a scan tool designed to find and remove malware from Windows computers. Simply download it and run a scan to find malware and try to reverse changes made by identified threats. |
@@ -151,7 +158,6 @@ After a ransomware attack or an incident response simulation, take the following
 ## Next steps
 
 In this article, you learned how to improve your backup and restore plan to protect against ransomware. For best practices on deploying ransomware protection, see [Rapidly protect against ransomware and extortion](/security/compass/protect-against-ransomware).
-
 
 Key industry information:
 
