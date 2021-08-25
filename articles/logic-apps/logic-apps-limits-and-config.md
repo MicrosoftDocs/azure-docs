@@ -10,7 +10,7 @@ ms.date: 08/25/2021
 
 # Limits and configuration reference for Azure Logic Apps
 
-> For Power Automate, see [Limits and configuration in Power Automate](/flow/limits-and-config).
+> For Power Automate, see [Limits and configuration in Power Automate](/power-automate/limits-and-config).
 
 This article describes the limits and configuration information for Azure Logic Apps and related resources. To create logic app workflows, you choose the **Logic App** resource type based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows.
 
@@ -478,7 +478,7 @@ If your environment has strict network requirements or firewalls that limit traf
 > [!NOTE]
 > If you're using [Power Automate](/power-automate/getting-started), some actions, such as **HTTP** and **HTTP + OpenAPI**, 
 > go directly through the Azure Logic Apps service and come from the IP addresses that are listed here. For more information 
-> about the IP addresses used by Power Automate, see [Limits and configuration for Power Automate](/flow/limits-and-config#ip-address-configuration).
+> about the IP addresses used by Power Automate, see [Limits and configuration for Power Automate](/power-automate/limits-and-config#ip-address-configuration).
 
 For example, suppose your logic apps are deployed in the West US region. To support calls that your logic apps send or receive through built-in triggers and actions, such as the [HTTP trigger or action](../connectors/connectors-native-http.md), your firewall needs to allow access for *all* the Azure Logic Apps service inbound IP addresses *and* outbound IP addresses that exist in the West US region.
 
