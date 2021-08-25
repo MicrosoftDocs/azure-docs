@@ -64,5 +64,6 @@ However, if most of your data flows execute in parallel, it is not recommended t
 
 See other Data Flow articles related to performance:
 
+- [Data Flow performance](concepts-data-flow-performance.md)
 - [Data Flow activity](control-flow-execute-data-flow-activity.md)
 - [Monitor Data Flow performance](concepts-data-flow-monitoring.md)
