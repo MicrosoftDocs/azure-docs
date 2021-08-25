@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Desktop Screen Capture Protection
+title: Azure Virtual Desktop screen capture protection
 titleSuffix: Azure
 description: How to set up screen capture protection for Azure Virtual Desktop.
 author: gundarev
