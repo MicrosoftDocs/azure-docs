@@ -18,7 +18,7 @@ Defender for IoT uses SSL/TLS certificates to secure communication between the f
 
 Defender for IoT Admin users can upload the certificates SSL/TLS to sensor consoles and their on-premises management console.
 
-:::image type="content" source="media/how-to-set-up-your-network/certificate-upload.png" alt-text="Certificate-upload dialog box.":::
+:::image type="content" source="media/how-to-deploy-certificates/certificate-upload.png" alt-text="Certificate-upload dialog box.":::
 
 ## About certificate generation methods 
 
@@ -172,7 +172,7 @@ You can also convert existing certificate files if you do not want to create new
 
 You can compare your certificate to the sample certificate below. Verify that the same fields exits and that the order of the fields is the same.
 
-:::image type="content" source="media/how-to-set-up-your-network/sample-certificate.png" alt-text="sample-certificate.":::
+:::image type="content" source="media/how-to-deploy-certificates/sample-certificate.png" alt-text="sample-certificate.":::
 
 ## Test certificates you create
 
@@ -218,7 +218,7 @@ Admin users attempting to log in to the sensor or on-premises management console
 
 Your file conversion may not create a valid certificate. For example, the file structure may be inaccurate.
 
-:::image type="content" source="media/how-to-set-up-your-network/certificate-conversion-bad-structure.png" alt-text="certificate-conversion-bad-structure-sample.":::
+:::image type="content" source="media/how-to-deploy-certificates/certificate-conversion-bad-structure.png" alt-text="certificate-conversion-bad-structure-sample.":::
 
 If the conversion fails:  
 
