@@ -83,13 +83,13 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
         > [!IMPORTANT]
         > Undeleted resources can still be active and incur Azure costs. Please ensure that you delete the resources you do not intend to use.
-        
-    > [!WARNING] 
-    > For advanced users who wish to run memory-intensive AI models like YOLO, you may have to increase the resources allotted to the EFLOW VM. First, exit the EFLOW VM and return to the Windows PowerShell terminal by typing `exit`. Then, run the command `Set-EflowVM` on PowerShell with elevated privilege. After running the command, input your desired [parameters](../../iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvm) by following the prompts in PowerShell, for example `cpuCount: 2`, `memoryInMB: 2048`. After a few minutes, redeploy the Edge module(s) and reactivate the live pipeline to view inferences. If you are encountering connection issues (e.g., error 137 or 255 listed on IoT Hub), you may have to re-run this step. 
    
 ## Next steps
 
-* Try motion detection along with recording relevant videos in the cloud. Follow the steps from the [detect motion and record video clips](detect-motion-record-video-edge-devices.md) quickstart.
-* Run [AI on Live Video](analyze-live-video-use-your-model-http.md#overview) (you can skip the prerequisite setup as it has already been done above)
+* Try motion detection along with recording relevant videos in the Cloud. Follow the steps from the [detect motion and record video clips](detect-motion-record-video-edge-devices.md) quickstart.
 * Use our [VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) to view additional pipelines.
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera)  that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.
+* Run [AI on Live Video](analyze-live-video-use-your-model-http.md#overview) (you can skip the prerequisite setup as it has already been done above).
+
+    > [!WARNING] 
+    > For advanced users who wish to run memory-intensive AI models like YOLO, you may have to increase the resources allotted to the EFLOW VM. First, exit the EFLOW VM and return to the Windows PowerShell terminal by typing `exit`. Then, run the command `Set-EflowVM` on PowerShell with elevated privilege. After running the command, input your desired [parameters](../../iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvm) by following the prompts in PowerShell, for example `cpuCount: 2`, `memoryInMB: 2048`. After a few minutes, redeploy the Edge module(s) and reactivate the live pipeline to view inferences. If you are encountering connection issues (e.g., error 137 or 255 listed on IoT Hub), you may have to rerun this step. 
