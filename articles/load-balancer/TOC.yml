@@ -115,6 +115,8 @@
     href: instance-metadata-service-load-balancer.md
 - name: How-to
   items:
+  - name: Manage load balancer rules
+    href: manage-rules-how-to.md
   - name: Virtual machine scale sets
     items:
     - name: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
