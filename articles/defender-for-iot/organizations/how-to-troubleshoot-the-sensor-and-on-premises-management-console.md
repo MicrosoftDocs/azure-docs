@@ -263,7 +263,7 @@ In addition to tools for monitoring and analyzing your network, you can send inf
     | **Web Application Logs** | Select this option to get information about all the requests sent from the application's web interface. |
     |Audit Logs| Select this option to export a log of all Learn, password changes, sign ins, created users, reset passwords, exclusion rules created, exclusion rules edited, exclusion rules deleted, management console upgrades, sensor upgrade retry, uploading threat intelligence package. |
     | **System Backup** | Select this option to export a backup of all the system data for investigating the exact state of the system. |
-    | **** | Select this option to  |
+    | **Audit Logs** | Select this option to export logs regarding user actions within the management console.  |
     | **Database Logs** | Select this option to export logs from the system database. Investigating system logs helps identify system problems. |
     | **Configuration** | Select this option to export information about all the configurable parameters to make sure everything was configured correctly. |
 
@@ -277,19 +277,19 @@ The list of archived logs can contain up to five items. If the number of items i
 
 ### Export audit log
 
-Audit logs can be obtained only through the management console. Audit logs contain key information that is recorded at the time of occurrence. The following information is recorded in the audit logs:
+Audit logs can be obtained only through the management console. Audit logs contain key information that is recorded at the time of occurrence that can assist you in figuring out what changes were made, and by who. The following information is recorded in the audit logs:
 
 | Action | Information logged |
 |--|--|
-| Learn, and remediation of alerts | Alert ID |
-| password changes | User, User ID |
-| Login | User |
-| User creation | User, User role |
-| Password reset | User name |
-| Exclusion rules: </br></br>- Creation </br></br>- Editing </br></br>- Deletion | </br></br>Rule summary </br></br>Rule ID, Rule Summary </br></br>Rule ID |
-| Management Console Upgrade | The upgrade file used |
-| Sensor upgrade retry | Sensor ID |
-| Uploaded TI package | No additional information recorded. |
+| **Learn, and remediation of alerts** | Alert ID |
+| **Password changes** | User, User ID |
+| **Login** | User |
+| **User creation** | User, User role |
+| **Password reset** | User name |
+| **Exclusion rules**: </br></br>- Creation </br></br>- Editing </br></br>- Deletion | </br></br>Rule summary </br></br>Rule ID, Rule Summary </br></br>Rule ID |
+| **Management Console Upgrade** | The upgrade file used |
+| **Sensor upgrade retry** | Sensor ID |
+| **Uploaded TI package** | No additional information recorded. |
 
 **To export the audit log**:
 
