@@ -412,12 +412,13 @@ In the following example, English (en) and Spanish (es) custom strings are added
 </ContentDefinitions>
 ```
 
-##  Upload and test your updated custom policy
+## Upload and test your updated custom policy
 
 ### Upload the custom policy
 
 1. Save the extensions file.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**.
