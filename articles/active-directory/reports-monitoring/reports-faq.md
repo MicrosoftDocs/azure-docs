@@ -114,6 +114,11 @@ You can also export that log data to Azure Monitor, Azure Event Hubs, and Azure 
 
 ---
 
+**Q: Why is Device ID not populated when a guest signs into my tenant?**
+**A:** When a user signs into your tenant using a device registered with another tenant, the Device ID for that device is not displayed in your tenant's sign-in logs to maintain customer privacy. Your Device IDs will not be displayed to other tenants that your users attempt to access. 
+
+---
+
 **Q: In some interrupted sign-ins, why do I see an Object ID rather than a UPN for my user?** 
 **A:** When our service is unable to resolve the UPN of a user due to an interrupted or failed sign in, it may display an object ID instead. 
 
