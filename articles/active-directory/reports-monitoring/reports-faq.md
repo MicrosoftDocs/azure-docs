@@ -109,8 +109,8 @@ You can also export that log data to Azure Monitor, Azure Event Hubs, and Azure 
 
 ## Sign-in logs
 
-**Q: Why is there no value for client app in the Basic info?**
-**A:** This is possible in the case of cross tenant scenarios.  Due to privacy commitments, client app and other  fields are not exposed to the home tenant.
+**Q: Why is Client app not populated when a guest signs into my tenant?**
+**A:** When a guest user signs into your tenant, the client app information for that user is not displayed in your tenant's sign-in logs to maintain customer privacy. Your users' client apps will not be displayed to other tenants that your users attempt to access. 
 
 ## Risky sign-ins
 
