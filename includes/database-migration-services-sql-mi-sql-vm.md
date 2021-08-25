@@ -16,6 +16,5 @@ ms.date: 07/30/2021
 > - The ability to run migrations in either online (for migrations that require minimal downtime) or offline (for migrations where downtime persists through the duration of the migration) modes to suit your business requirements.
 > - The flexibility to install self hosted integration runtime to provide your own compute for access to source SQL Server and backups in your on-premises environment.<br/>
 ><br/>
->To learn more about the extension, see [Azure SQL Migration extension in Azure Data Studio]().<br/>
->To learn more about the concepts for migrating databases using the new Azure SQL Migration extension in Azure Data Studio, see [Database migrations using Azure Data Studio]().
+>To learn more about the extension, see [Azure SQL Migration extension in Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension.md).<br/>
 

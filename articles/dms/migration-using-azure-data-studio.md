@@ -89,7 +89,7 @@ Azure Database Migration Service prerequisites that are common across all suppor
 - We recommend up to 10 concurrent database migrations per self-hosted integration runtime on a single machine. To increase the number of concurrent database migrations, scale out self-hosted runtime up to four nodes or create separate self-hosted integration runtime on different machines.
 - You can configure self-hosted integration runtime to auto-update to automatically apply any new features, bug fixes, and enhancements that are released. To learn more, see [Self-hosted Integration Runtime Auto-update](../data-factory/self-hosted-integration-runtime-auto-update.md).
 
-## Limitations
+## Known issues and limitations
 - Overwriting existing databases using DMS in your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine isn't supported.
 - Configuring high availability and disaster recovery on your target to match source topology is not supported by DMS.
 - The following server objects aren't supported:
