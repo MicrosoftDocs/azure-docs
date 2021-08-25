@@ -183,7 +183,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect AWS CloudTrail to Azure Sentinel](connect-aws.md)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect AWS CloudTrail to Azure Sentinel](connect-aws.md)** (Top connector article) |
 | **Log Analytics table(s)** | AWSCloudTrail |
 | **Supported by** | Microsoft |
 | | |
@@ -258,7 +258,7 @@ For more information, refer to Cognito Detect Syslog Guide which can be download
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect Azure Active Directory data to Azure Sentinel](connect-azure-active-directory.md)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect Azure Active Directory data to Azure Sentinel](connect-azure-active-directory.md)** (Top connector article) |
 | **License prerequisites/<br>Cost information** | <li>Azure Active Directory P1 or P2 license for sign-in logs<li>Any Azure AD license (Free/O365/P1/P2) for other log types<br>Other charges may apply |
 | **Log Analytics table(s)** | SigninLogs<br>AuditLogs<br>AADNonInteractiveUserSignInLogs<br>AADServicePrincipalSignInLogs<br>AADManagedIdentitySignInLogs<br>AADProvisioningLogs<br>ADFSSignInLogs |
 | **Supported by** | Microsoft |
@@ -325,7 +325,7 @@ Before setting up the new Azure Activity log connector, you must disconnect the 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect Azure Defender alerts from Azure Security Center](connect-azure-security-center.md)** |
+| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect Azure Defender alerts from Azure Security Center](connect-azure-security-center.md)** (Top connector article) |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |
@@ -961,7 +961,7 @@ Add http://localhost:8081/ under **Authorised redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect data from Microsoft 365 Defender to Azure Sentinel](connect-microsoft-365-defender.md)** |
+| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect data from Microsoft 365 Defender to Azure Sentinel](connect-microsoft-365-defender.md)** (Top connector article) |
 | **License prerequisites/<br>Cost information** | [Valid license for Microsoft 365 Defender](/microsoft-365/security/mtp/prerequisites)
 | **Log Analytics table(s)** | SecurityAlert<br>SecurityIncident<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo |
 | **Supported by** | Microsoft |
@@ -1320,7 +1320,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** (Top connector article) |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
@@ -1558,7 +1558,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** (Top connector article) |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
