@@ -47,7 +47,7 @@ If you use your cloudadmin credentials for connected services like HCX, vRealize
 
 ## Next steps
 
-Now that you've covered resetting vCenter Server and NSX-T Manager credentials for Azure VMware Solution, you may want to learn about:
+Now that you've covered resetting your vCenter credentials for Azure VMware Solution, you may want to learn about:
 
 - [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)
 - [Deploying disaster recovery for Azure VMware Solution workloads using VMware HCX](deploy-disaster-recovery-using-vmware-hcx.md)
