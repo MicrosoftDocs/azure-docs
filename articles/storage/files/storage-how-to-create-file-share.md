@@ -60,7 +60,7 @@ The first section to complete to create a storage account is labeled **Basics**.
 
 To create a FileStorage storage account, ensure the **Performance** radio button is set to *Premium* and **Fileshares** is selected in the **Premium account type** drop-down list.
 
-:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="A screenshot of the performance radio button with premium selected and account kind with filestorage selected.":::
+:::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="A screenshot of the performance radio button with premium selected and account kind with FileStorage selected.":::
 
 The other basics fields are independent from the choice of storage account:
 - **Storage account name**: The name of the storage account resource to be created. This name must be globally unique, but otherwise can any name you desire. The storage account name will be used as the server name when you mount an Azure file share via SMB.
@@ -175,7 +175,7 @@ Before you create an Azure file share on an existing account, you may want to en
 1. Select **Overview** and select **Refresh**.
 1. Select **Share capacity** then select **100 TiB** and **Save**.
 
-    :::image type="content" source="media/storage-files-how-to-create-large-file-share/files-enable-large-file-share-existing-account.png" alt-text="Screenshot of the azure storage account, file shares blade with 100 tib shares highlighted.":::
+    :::image type="content" source="media/storage-files-how-to-create-large-file-share/files-enable-large-file-share-existing-account.png" alt-text="Screenshot of the storage account, file shares blade with 100 TiB shares highlighted.":::
 
 # [PowerShell](#tab/azure-powershell)
 To enable large file shares on your existing account, use the following command. Replace `<yourStorageAccountName>` and `<yourResourceGroup>` with your information.
