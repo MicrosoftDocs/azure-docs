@@ -56,7 +56,7 @@ You can deploy Azure AD-joined VMs directly from the Azure portal when [creating
 After you've created the host pool, you must assign user access. Add users to the App Group to give them access to the resources. (Standard for all AVD Deployments)
 
 For Azure AD-joined VMs, you'll need to do three things in addition to the requirements for Active Directory or Azure Active Directory Domain Services based deployments:  
-- Grant users the **Virtual Machine User Login** role so they can sign in to the VMs.
+- Assign your users the **Virtual Machine User Login** role so they can sign in to the VMs.
 - Grant Administrators that need local administrative privileges the **Virtual Machine Administrator Login** role.
 - For access from client machines or endpoint devices NOT already Azure AD-joined to your tenant or not managed by your organization you will need to add the additional property in the Host Pool "RDP Properties" page under the "Advanced" Tab: **targetisaadjoined:i:1**  
 
