@@ -4,7 +4,6 @@ description: Learn how to implement Zerto Disaster Recovery for on-premises VMwa
 ms.topic: how-to 
 ms.date: 08/31/2021
 
-#customer intent: 
 
 ---
 
