@@ -3,7 +3,7 @@ title: Acquire a token to call a web API (desktop app) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a desktop app that calls web APIs to acquire a token for the app
 services: active-directory
-author: maliksahil
+author: sahmalik
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/25/2021
-ms.author: maliksahil
+ms.author: sahmalik
 ms.custom: aaddev, devx-track-python, has-adal-ref
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -209,10 +209,10 @@ if not result:
 
 There are various ways you can acquire tokens in a desktop application.
 
-- [Interactively](#scenario-desktop-acquire-token-interactive)
-- [Integrated Windows Auth](#scenario-desktop-acquire-token-iwa)
-- [Username Password](#scenario-desktop-acquire-token-usernamepassword)
-- [Device code flow](#scenario-desktop-acquire-token-device-code-flow)
+- [Interactively](#scenario-desktop-acquire-token-interactive.md)
+- [Integrated Windows Auth](#scenario-desktop-acquire-token-iwa.md)
+- [Username Password](#scenario-desktop-acquire-token-usernamepassword.md)
+- [Device code flow](#scenario-desktop-acquire-token-device-code-flow.md)
 
 ---
 ## Next steps

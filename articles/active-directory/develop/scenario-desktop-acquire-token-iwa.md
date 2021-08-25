@@ -1,9 +1,9 @@
 ---
-title: Acquire a token to call a web API (desktop app) | Azure
+title: Acquire a token to call a web API using integrated windows auth (desktop app) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn how to build a desktop app that calls web APIs to acquire a token for the app using integrated windows auth
 services: active-directory
-author: maliksahil
+author: sahmalik
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/25/2021
-ms.author: maliksahil
+ms.author: sahmalik
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
