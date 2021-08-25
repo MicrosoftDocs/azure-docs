@@ -45,7 +45,7 @@ npm init
 Install the `@azure/ai-tbd` NPM packages:
 
 ```console
-npm install --save @azure/ai-tbd@1.0.0
+npm install @azure/ai-text-analytics@5.2.0-beta.1
 ```
 
 ## Code example
@@ -58,5 +58,59 @@ Open the file and copy the below code. Remember to replace the `key` variable wi
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
 ```javascript
+"use strict";
 
+const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
+const key = '<paste-your-key-here>';
+const endpoint = '<paste-your-endpoint-here>';
+// Authenticate the client with your key and endpoint
+const textAnalyticsClient = new TextAnalyticsClient(endpoint,  new AzureKeyCredential(key));
+
+// Example method for recognizing entities and providing a link to an online data source
+async function linkedEntityRecognition(client){
+
+    const linkedEntityInput = [
+        "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800. During his career at Microsoft, Gates held the positions of chairman, chief executive officer, president and chief software architect, while also being the largest individual shareholder until May 2014."
+    ];
+    const entityResults = await client.recognizeLinkedEntities(linkedEntityInput);
+
+    entityResults.forEach(document => {
+        console.log(`Document ID: ${document.id}`);
+        document.entities.forEach(entity => {
+            console.log(`\tName: ${entity.name} \tID: ${entity.dataSourceEntityId} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
+            console.log(`\tMatches:`)
+            entity.matches.forEach(match => {
+                console.log(`\t\tText: ${match.text} \tScore: ${match.confidenceScore.toFixed(2)}`);
+        })
+        });
+    });
+}
+linkedEntityRecognition(textAnalyticsClient);
+
+```
+
+### Output
+
+```console
+Document ID: 0
+    Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
+    Matches:
+            Text: Altair 8800       Score: 0.88
+    Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
+    Matches:
+            Text: Bill Gates        Score: 0.63
+            Text: Gates     Score: 0.63
+    Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
+    Matches:
+            Text: Paul Allen        Score: 0.60
+    Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
+    Matches:
+            Text: Microsoft         Score: 0.55
+            Text: Microsoft         Score: 0.55
+    Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
+    Matches:
+            Text: April 4   Score: 0.32
+    Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
+    Matches:
+            Text: BASIC     Score: 0.33
 ```

@@ -43,7 +43,7 @@ npm init
 Install the `@azure/ai-tbd` NPM packages:
 
 ```console
-npm install --save @azure/ai-tbd@1.0.0
+npm install --save @azure/ai-text-analytics@5.2.0-beta.1
 ```
 
 ## Code example
@@ -56,5 +56,33 @@ Open the file and copy the below code. Remember to replace the `key` variable wi
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
 ```javascript
+"use strict";
 
+const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
+const key = '<paste-your-key-here>';
+const endpoint = '<paste-your-endpoint-here>';
+// Authenticate the client with your key and endpoint
+const textAnalyticsClient = new TextAnalyticsClient(endpoint, new AzureKeyCredential(key));
+
+// Example method for extracting key phrases from text
+async function keyPhraseExtraction(client){
+
+    const keyPhrasesInput = [
+        "My cat might need to see a veterinarian.",
+    ];
+    const keyPhraseResult = await client.extractKeyPhrases(keyPhrasesInput);
+    
+    keyPhraseResult.forEach(document => {
+        console.log(`ID: ${document.id}`);
+        console.log(`\tDocument Key Phrases: ${document.keyPhrases}`);
+    });
+}
+keyPhraseExtraction(textAnalyticsClient);
+```
+
+### Output
+
+```console
+ID: 0
+        Document Key Phrases: cat,veterinarian
 ```

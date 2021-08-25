@@ -30,8 +30,8 @@ Create a Maven project in your preferred IDE or development environment. Then ad
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
-        <artifactId>tbd</artifactId>
-        <version>x.y.z</version>
+        <artifactId>azure-ai-textanalytics</artifactId>
+        <version>5.1.0</version>
     </dependency>
 </dependencies>
 ```
@@ -48,5 +48,47 @@ Create a Java file named `EntityLinking.java`. Open the file and copy the below 
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
 ```java
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.ai.textanalytics.TextAnalyticsClientBuilder;
+import com.azure.ai.textanalytics.TextAnalyticsClient;
 
+
+public class Example {
+
+    private static String KEY = "replace-with-your-key-here";
+    private static String ENDPOINT = "replace-with-your-endpoint-here";
+
+    public static void main(String[] args) {
+        TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
+        extractKeyPhrasesExample(client);
+    }
+    // Method to authenticate the client object with your key and endpoint
+    static TextAnalyticsClient authenticateClient(String key, String endpoint) {
+        return new TextAnalyticsClientBuilder()
+                .credential(new AzureKeyCredential(key))
+                .endpoint(endpoint)
+                .buildClient();
+    }
+    // Example method for extracting key phrases from text
+    static void extractKeyPhrasesExample(TextAnalyticsClient client)
+    {
+        // The text to be analyzed
+        String text = "My cat might need to see a veterinarian.";
+
+        System.out.printf("Recognized phrases: %n");
+        for (String keyPhrase : client.extractKeyPhrases(text)) {
+            System.out.printf("%s%n", keyPhrase);
+        }
+    }
+}
+
+```
+
+## Output
+
+```console
+Recognized phrases: 
+
+cat
+veterinarian
 ```

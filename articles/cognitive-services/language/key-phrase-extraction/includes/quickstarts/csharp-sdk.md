@@ -38,5 +38,48 @@ Copy the following code into your *program.cs* file. Remember to replace the `ke
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
 ```csharp
+using Azure;
+using System;
+using Azure.AI.TextAnalytics;
 
+namespace KeyPhraseExtractionExample
+{
+    class Program
+    {
+        private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
+        private static readonly Uri endpoint = new Uri("replace-with-your-endpoint-here");
+
+        // Example method for extracting key phrases from text
+        static void KeyPhraseExtractionExample(TextAnalyticsClient client)
+        {
+            var response = client.ExtractKeyPhrases("My cat might need to see a veterinarian.");
+
+            // Printing key phrases
+            Console.WriteLine("Key phrases:");
+
+            foreach (string keyphrase in response.Value)
+            {
+                Console.WriteLine($"\t{keyphrase}");
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            var client = new TextAnalyticsClient(endpoint, credentials);
+            KeyPhraseExtractionExample(client);
+
+            Console.Write("Press any key to exit.");
+            Console.ReadKey();
+        }
+
+    }
+}
+```
+
+### Output
+
+```console
+Key phrases:
+        cat
+        veterinarian
 ```

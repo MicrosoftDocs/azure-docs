@@ -38,5 +38,42 @@ Copy the following code into your *program.cs* file. Remember to replace the `ke
 [!INCLUDE [find the key and endpoint for a resource](../../../includes/find-azure-resource-info.md)]
 
 ```csharp
+using Azure;
+using System;
+using Azure.AI.TextAnalytics;
 
+namespace LanguageDetectionExample
+{
+    class Program
+    {
+        private static readonly AzureKeyCredential credentials = new AzureKeyCredential("replace-with-your-key-here");
+        private static readonly Uri endpoint = new Uri("replace-with-your-endpoint-here");
+
+        // Example method for detecting the language of text
+        static void LanguageDetectionExample(TextAnalyticsClient client)
+        {
+            DetectedLanguage detectedLanguage = client.DetectLanguage("Ce document est rédigé en Français.");
+            Console.WriteLine("Language:");
+            Console.WriteLine($"\t{detectedLanguage.Name},\tISO-6391: {detectedLanguage.Iso6391Name}\n");
+        }
+
+        static void Main(string[] args)
+        {
+            var client = new TextAnalyticsClient(endpoint, credentials);
+            LanguageDetectionExample(client);
+
+            Console.Write("Press any key to exit.");
+            Console.ReadKey();
+        }
+
+    }
+}
+
+```
+
+### Output
+
+```console
+Language:
+        French, ISO-6391: fr
 ```
