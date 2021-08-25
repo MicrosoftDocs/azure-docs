@@ -30,8 +30,8 @@ This guide provides key concepts and instructions for containerization of Linux 
 
 For your custom Windows image, you must choose the right [parent image (base image)](https://docs.docker.com/develop/develop-images/baseimages/) for the framework you want:
 
-- To deploy .NET Framework apps, use a parent image based on the Windows Server Core [Long-Term Servicing Channel (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) release. 
-- To deploy .NET Core apps, use a parent image based on the Windows Server Nano [Semi-Annual Servicing Channel (SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) release. 
+- To deploy .NET Framework apps, use a parent image based on the Windows Server Core [Long-Term Servicing Channel (LTSC)](/windows-server/get-started/servicing-channels-comparison#long-term-servicing-channel-ltsc) release. 
+- To deploy .NET Core apps, use a parent image based on the Windows Server Nano [Semi-Annual Servicing Channel (SAC)](/windows-server/get-started/servicing-channels-comparison#semi-annual-channel) release. 
 
 It takes some time to download a parent image during app start-up. However, you can reduce start-up time by using one of the following parent images that are already cached in Azure App Service:
 
