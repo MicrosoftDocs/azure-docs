@@ -24,7 +24,7 @@ Configure your client library to use *connect timeout* of 10 to 15 seconds and a
 
 Some libraries have the *command timeout* set to 5 seconds by default. Consider setting it higher or lower depending on your scenario and the sizes of the values that are stored in your cache.
 
-If the *command timeout* is too small, the connection can look unstable. However, if the *command timeout* is too large, your application might have to wait for a long time to find out whether if the command is going to timeout or not.
+If the *command timeout* is too small, the connection can look unstable. However, if the *command timeout* is too large, your application might have to wait for a long time to find out whether the command is going to timeout or not.
 
 Configure your client library to use a *connect timeout* of at least 15 seconds, giving the system sufficient time to connect even under higher CPU conditions. A small *connection timeout* value doesn't guarantee a connection is established in that time frame.
 

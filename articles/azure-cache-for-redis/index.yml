@@ -88,11 +88,11 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-         - text: Connection Resilience
+         - text: Connection resilience
            url: cache-best-practices-connection.md
          - text: Server load management
            url: cache-best-practices-server-load.md
-         - text: Memory Management
+         - text: Memory management
            url: cache-best-practices-memory-management.md
          - text: Development
            url: cache-best-practices-development.md
@@ -100,7 +100,7 @@ landingContent:
            url: cache-best-practices-scale.md
          - text: Kubernetes-hosted client applications
            url: cache-best-practices-kubernetes.md
-         - text: Resilience and performance testing
+         - text:  Performance testing
            url: cache-best-practices-performance.md
   - title: Troubleshoot
     linkLists:

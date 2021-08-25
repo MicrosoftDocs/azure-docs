@@ -11,7 +11,7 @@ ms.author: shpathak
 
 ## Eviction policy
 
-Choose an [eviction policy](https://redis.io/topics/lru-cache) that works for your application. The default policy for Azure Redis is `volatile-lru`, which means that only keys that have a TTL value set are eligible for eviction.  If no keys have a TTL value, then the system won't evict any keys.  If you want the system to allow any key to be evicted if under memory pressure, then you may want to consider the `allkeys-lru` policy.
+Choose an [eviction policy](https://redis.io/topics/lru-cache) that works for your application. The default policy for Azure Cache for Redis is `volatile-lru`, which means that only keys that have a TTL value set are eligible for eviction.  If no keys have a TTL value, then the system won't evict any keys.  If you want the system to allow any key to be evicted if under memory pressure, then you may want to consider the `allkeys-lru` policy.
 
 ## Keys expiration
 
@@ -29,7 +29,7 @@ Add monitoring on memory usage to ensure that you don't run out of memory and ha
 
 Configure your [maxmemory-reserved setting](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) to improve system responsiveness:
 
-* A sufficient reservation setting is especially important for write-heavy workloads or if you're storing values of 100 KB or more in Redis. Start with 10% of the size of your cache and increase this percentage if you have write-heavy loads.
+* A sufficient reservation setting is especially important for write-heavy workloads or if you're storing values of 100 KB or more in your cache. Start with 10% of the size of your cache and increase this percentage if you have write-heavy loads.
 
 * The `maxmemory-reserved` setting configures the amount of memory, in MB per instance in a cluster, that is reserved for non-cache operations, such as replication during failover. Setting this value allows you to have a more consistent Redis server experience when your load varies. This value should be set higher for workloads that write large amounts of data. When memory is reserved for such operations, it's unavailable for storage of cached data.
 
