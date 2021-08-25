@@ -37,7 +37,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
     `bash -c "$(curl -sL https://aka.ms/ava-edge/prep_device)"`
 
-    Azure Video Analyzer module runs on the edge device with non-privileged local user accounts. Additionally, it needs certain local folders for storing application configuration data. Finally, for this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
+    The Azure Video Analyzer needs certain local folders for storing application configuration data. Finally, for this how-to guide we are leveraging a [RTSP simulator](https://github.com/Azure/video-analyzer/tree/main/edge-modules/sources/rtspsim-live555) that relays a video feed in real time to AVA module for analysis. This simulator takes as input pre-recorded video files from an input directory. 
 
     The prep-device script used above automates these tasks away, so you can run one command and have all relevant input and configuration folders, video input files, and user accounts with privileges created seamlessly. Once the command finishes successfully, you should see the following folders created on your edge device. 
 
@@ -71,9 +71,6 @@ The following depicts the overall flow of the document and in 5 simple steps you
     
     ![Deployed Modules](./media/vscode-common-screenshots/avaedge-module.png)
     
-    > [!WARNING] 
-    > To run memory-intensive AI models like YOLO, you may have to increase the resources allotted to the EFLOW VM. First, exit the EFLOW VM and return to the Windows PowerShell terminal by typing `exit`. Then, run the command `Set-EflowVM` on PowerShell with elevated privilege. After running the command, input your desired [parameters](../../iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvm) by following the prompts in PowerShell, for example `cpuCount: 1`, `memoryInMB: 2048`. After a few minutes, re-activate the live pipeline to view inferences. If you are encountering connection issues (such as Error 137 or 255 listed on IoT Hub), you may have to re-run this step. 
-
 1. With the modules deployed and set up, you are ready to run your first AVA pipeline on EFLOW. You can run a simple motion detection pipeline as below and visualize the results by executing the following steps:
 
     ![Video Analyzer based on motion detection](./media/get-started-detect-motion-emit-events/motion-detection.svg)
@@ -87,6 +84,9 @@ The following depicts the overall flow of the document and in 5 simple steps you
         > [!IMPORTANT]
         > Undeleted resources can still be active and incur Azure costs. Please ensure that you delete the resources you do not intend to use.
         
+    > [!WARNING] 
+    > For advanced users who wish to run memory-intensive AI models like YOLO, you may have to increase the resources allotted to the EFLOW VM. First, exit the EFLOW VM and return to the Windows PowerShell terminal by typing `exit`. Then, run the command `Set-EflowVM` on PowerShell with elevated privilege. After running the command, input your desired [parameters](../../iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvm) by following the prompts in PowerShell, for example `cpuCount: 2`, `memoryInMB: 2048`. After a few minutes, redeploy the Edge module(s) and reactivate the live pipeline to view inferences. If you are encountering connection issues (e.g., error 137 or 255 listed on IoT Hub), you may have to re-run this step. 
+   
 ## Next steps
 
 * Try motion detection along with recording relevant videos in the cloud. Follow the steps from the [detect motion and record video clips](detect-motion-record-video-edge-devices.md) quickstart.
