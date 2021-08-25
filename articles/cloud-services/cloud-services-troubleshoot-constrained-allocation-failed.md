@@ -12,6 +12,8 @@ ms.date: 02/22/2021
 
 # Troubleshoot ConstrainedAllocationFailed when deploying a Cloud service (classic) to Azure
 
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
 In this article, you'll troubleshoot allocation failures where Azure Cloud services (classic) can't deploy because of allocation constraints.
 
 When you deploy instances to a Cloud service (classic) or add new web or worker role instances, Microsoft Azure allocates compute resources.

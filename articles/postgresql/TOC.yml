@@ -12,10 +12,6 @@
       href: concepts-certificate-rotation.md
 - name: Shared documentation
   items:
-  - name: Database deployment
-    items:
-    - name: GitHub actions
-      href: how-to-deploy-github-action.md
   - name: Migration
     items:
       - name: Migrate data with pg_dump and pg_restore
@@ -415,7 +411,9 @@
   - name: Release notes
     href: flexible-server/release-notes.md   
   - name: Compare Single Server and Flexible Server
-    href: flexible-server/concepts-compare-single-server-flexible-server.md   
+    href: flexible-server/concepts-compare-single-server-flexible-server.md
+  - name: Try Flexible Server for free
+    href: flexible-server/how-to-deploy-on-azure-free-account.md   
   - name: Quickstarts
     expanded: true
     items:
@@ -520,6 +518,12 @@
         href: flexible-server/how-to-manage-server-cli.md
       - name: Connect and query guide
         href: flexible-server/how-to-connect-query-guide.md
+    - name: Database deployment
+      items:
+      - name: GitHub actions
+        href: how-to-deploy-github-action.md
+      - name: Azure pipelines
+        href: flexible-server/azure-pipelines-deploy-database-task.md
     - name: Scheduled maintenance
       items:
       - name: Azure portal
