@@ -10,7 +10,7 @@ ms.author: alkohli
 Depending on the software version, that your Data Box is running, you may need to take different steps to connect to the PowerShell interface of the device.
 
 
-### [v2.9 and earlier](#tab/a)
+<!--### [v2.9 and earlier](#tab/a)
 
 ### Step 1: Run Broadcast tool.
 
@@ -34,14 +34,14 @@ NEED MORE INFO, how does the customer get this tool and how does he run it
 
     $Cred = New-Object System.Management.Automation.PSCredential("~\PodSupportAdmin",$Pwd)
 
-1. Enter-PSSession -Computer <IPv4_address for your Data Box> -ConfigurationName Minishell -Credential $Cred
+1. Enter-PSSession -Computer <IPv4_address for your Data Box> -ConfigurationName Minishell -Credential $Cred -->
 
 
 ### [v3.0 to v4.0](#tab/b)
 
 1. Open an elevated PowerShell session.
 
-1. Initiate a PowerShell session. Type:
+1. Open a PowerShell session using **Run as administrator**. gitType:
 
     ```powershell
     Set-Item Wsman:\localhost\Client\TrustedHosts <IPv4_address for your Data Box> 
