@@ -137,7 +137,8 @@ In this section, configure where your application listens to the Azure AD B2C to
 Follow these steps to update the mobile app registration with your app redirect URI:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select the application you registered in [2.3 Register the mobile app](configure-authentication-sample-android-app.md#23-register-the-mobile-app).
 1. Select **Authentication**.
