@@ -6350,6 +6350,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-functions/dotnet-isolated-process-developer-howtos.md",
+      "redirect_url": "/azure/azure-functions/dotnet-isolated-process-guide",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/functions/functions-overview.md",
       "redirect_url": "/azure/azure-functions/functions-overview",
       "redirect_document_id": false
@@ -6375,7 +6380,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-functions/functions-java-refernece.md",
+      "source_path_from_root": "/articles/azure-functions/functions-java-reference.md",
       "redirect_url": "/azure/azure-functions/functions-reference-java",
       "redirect_document_id": false
     },
@@ -6392,11 +6397,6 @@
     {
       "source_path_from_root": "/articles/functions/functions-scale.md",
       "redirect_url": "/azure/azure-functions/functions-scale",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/functions/dotnet-isolated-process-developer-howtos.md",
-      "redirect_url": "/azure/azure-functions/dotnet-isolated-process-guide",
       "redirect_document_id": false
     },
     {
