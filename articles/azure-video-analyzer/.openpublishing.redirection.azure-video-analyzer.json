@@ -4,6 +4,46 @@
       "source_path_from_root": "/articles/media-services/video-indexer/index.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/azure/azure-video-analyzer/video-analyzer-docs/sdk.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/azure/azure-video-analyzer/video-analyzer-docs/direct-methods.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/direct-methods",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/azure/azure-video-analyzer/video-analyzer-docs/grpc-extension-protocol.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/grpc-extension-protocol",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/azure/azure-video-analyzer/video-analyzer-docs/http-extension-protocol.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/http-extension-protocol",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/azure/azure-video-analyzer/video-analyzer-docs/inference-metadata-schema.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/inference-metadata-schema",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/azure/azure-video-analyzer/video-analyzer-docs/module-twin-configuration-schema.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/module-twin-configuration-schema",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/azure/azure-video-analyzer/video-analyzer-docs/production-readiness.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/production-readiness",
+      "redirect_document_id": false
+    },
+    {
+      "redirect_document_id": false,
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/visual-studio-code-extension",
+      "source_path_from_root": "/azure/azure-video-analyzer/video-analyzer-docs/visual-studio-code-extension.md"
     }
   ]
 }

@@ -7,7 +7,7 @@ ms.date: 06/01/2021
 ---
 # Module twin configuration schema
 
-Device twins are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. For detailed explanation, see [Understand and use module twins in IoT Hub.](../../iot-hub/iot-hub-devguide-module-twins.md)
+Device twins are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. For detailed explanation, see [Understand and use module twins in IoT Hub.](../../../iot-hub/iot-hub-devguide-module-twins.md)
 
 This topic describes module twin JSON schema of Azure Video Analyzer.
 
@@ -29,7 +29,7 @@ Azure Video Analyzer exposes the following module twin properties.
 
 Dynamic properties can be updated without the restarting the module. 
 
-See the article on [Monitoring and logging](monitor-log-edge.md) for more information about the role of the optional diagnostics settings.
+<!--REDIRECTSee the article on [Monitoring and logging](monitor-log-edge.md) for more information about the role of the optional diagnostics settings.-->
 
 ```json
 {
