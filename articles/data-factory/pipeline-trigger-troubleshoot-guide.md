@@ -263,7 +263,7 @@ You have not optimized mapping data flow.
 For more troubleshooting help, try these resources:
 
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory feature requests](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
