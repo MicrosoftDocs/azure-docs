@@ -42,6 +42,18 @@ Azure Private Link enables you to connect to your workspace using a private endp
 * If you enable public access for a workspace secured with private private endpoint and use Azure Machine Learning studio over the public internet, some features such as the designer may fail to access your data. This problem happens when the data is stored on a service that is secured behind the VNet. For example, an Azure Storage Account.
 * You may encounter problems trying to access the private endpoint for your workspace if you are using Mozilla Firefox. This problem may be related to DNS over HTTPS in Mozilla. We recommend using Microsoft Edge or Google Chrome as a workaround.
 * Using a private endpoint does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal. Data plane operations, such as using Azure Machine Learning studio, APIs (including published pipelines), or the SDK use the private endpoint.
+* When using a workspace with a private endpoint, all compute instances and compute clusters must be in the same region as the workspace.
+
+## Multiple private endpoints (preview)
+
+As a preview feature, Azure Machine Learning supports multiple private endpoints for a workspace. Multiple private endpoints are often used when you want to keep different environments separate. The following are some scenarios that are enabled by using multiple private endpoints:
+
+* Client development environments in a separate VNet.
+* An Azure Kubernetes Service (AKS) cluster in a separate VNet.
+* Other Azure services in a separate VNet. For example, Azure Synapse in a separate VNet.
+
+In all these scenarios, the workspace has a private endpoint in the VNets for these scenarios as well as the 'workload' VNet that contains compute resources.
+
 
 ## Create a workspace that uses a private endpoint
 
