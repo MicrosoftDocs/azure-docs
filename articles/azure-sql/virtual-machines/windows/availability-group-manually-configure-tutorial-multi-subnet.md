@@ -157,7 +157,7 @@ Next, enable the **AlwaysOn availability groups** feature. Do these steps on bot
 2. In the browser tree, select **SQL Server Services**, then right-click the **SQL Server (MSSQLSERVER)** service and select **Properties**.
 3. Select the **AlwaysOn High Availability** tab, then select **Enable AlwaysOn availability groups**, as follows:
 
-    ![Enable AlwaysOn availability groups](./media/availability-group-manually-configure-tutorial-multi-subnet/54-enableAlwaysOn.png)
+    ![Enable AlwaysOn availability groups](./media/availability-group-manually-configure-tutorial-multi-subnet/08-enablealwayson.png)
 
 4. Select **Apply**. Select **OK** in the pop-up dialog.
 
@@ -165,70 +165,51 @@ Next, enable the **AlwaysOn availability groups** feature. Do these steps on bot
 
 Repeat these steps on the other SQL Server.
 
-<!-----------------
-## <a name="endpoint-firewall"></a>Open firewall for the database mirroring endpoint
-
-Each instance of SQL Server that participates in an availability group requires a database mirroring endpoint. This endpoint is a TCP port for the instance of SQL Server that is used to synchronize the database replicas in the availability groups on that instance.
-
-On both SQL Servers, open the firewall for the TCP port for the database mirroring endpoint.
-
-1. On the first SQL Server **Start** screen, launch **Windows Firewall with Advanced Security**.
-2. In the left pane, select **Inbound Rules**. On the right pane, select **New Rule**.
-3. For **Rule Type**, choose **Port**.
-1. For the port, specify TCP and choose an unused TCP port number. For example, type *5022* and select **Next**.
-
-   >[!NOTE]
-   >For this example, we're using TCP port 5022. You can use any available port.
-
-5. In the **Action** page, keep **Allow the connection** selected and select **Next**.
-6. In the **Profile** page, accept the default settings and select **Next**.
-7. In the **Name** page, specify a rule name, such as **Default Instance Mirroring Endpoint** in the **Name** text box, then select **Finish**.
-
-Repeat these steps on the second SQL Server.
--------------------------->
 
 ## Create a database on the first SQL Server
 
-1. Launch the RDP file to the first SQL Server with a domain account that is a member of sysadmin fixed server role.
-1. Open SQL Server Management Studio and connect to the first SQL Server.
-7. In **Object Explorer**, right-click **Databases** and select **New Database**.
-8. In **Database name**, type **MyDB1**, then select **OK**.
+1. Launch the RDP file to the first SQL Server VM **SQL-VM-1** with a domain account that is a member of sysadmin fixed server role.
+   >[!TIP]
+   >If you followed the [prerequisites document](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md), you created an account called **CORP\Install**. Use this account.
+2. Open SQL Server Management Studio and connect to the SQL Server instance.
+3. In **Object Explorer**, right-click **Databases** and select **New Database**.
+4. In **Database name**, type **MyDB1**, then select **OK**.
 
 ### <a name="backupshare"></a> Create a backup share
 
 1. On the first SQL Server in **Server Manager**, select **Tools**. Open **Computer Management**.
 
-1. Select **Shared Folders**.
+2. Select **Shared Folders**.
 
-1. Right-click **Shares**, and select **New Share...**.
+3. Right-click **Shares**, and select **New Share...**.
 
-   ![Select New Share](./media/availability-group-manually-configure-tutorial-multi-subnet/48-newshare.png)
+   ![Select New Share](./media/availability-group-manually-configure-tutorial-multi-subnet/09-newshare.png)
 
    Use **Create a Shared Folder Wizard** to create a share.
 
-1. On **Folder Path**, select **Browse** and locate or create a path for the database backup shared folder. Select **Next**.
+4. On **Folder Path**, select **Browse** and locate or create a path for the database backup shared folder. Select **Next**.
 
-1. In **Name, Description, and Settings** verify the share name and path. Select **Next**.
+5. In **Name, Description, and Settings** verify the share name and path. Select **Next**.
 
-1. On **Shared Folder Permissions** set **Customize permissions**. Select **Custom...**.
+6. On **Shared Folder Permissions** set **Customize permissions**. Select **Custom...**.
 
-1. On **Customize Permissions**, select **Add...**.
+7. On **Customize Permissions**, select **Add...**.
 
-1. Make sure that the SQL Server and SQL Server Agent service accounts for both servers have full control.
+8. Make sure that the SQL Server and SQL Server Agent service accounts for both servers have full control.
 
-   ![Make sure that the SQL Server and SQL Server Agent service accounts for both servers have full control.](./media/availability-group-manually-configure-tutorial-multi-subnet/68-backupsharepermission.png)
+   ![Make sure that the SQL Server and SQL Server Agent service accounts for both servers have full control.](./media/availability-group-manually-configure-tutorial-multi-subnet/10-backupsharepermission.png)
 
-1. Select **OK**.
+9. Select **OK**.
 
-1. In **Shared Folder Permissions**, select **Finish**. Select **Finish** again.  
+10. In **Shared Folder Permissions**, select **Finish**. Select **Finish** again.  
 
 ### Take a full backup of the database
 
 You need to back up the new database to initialize the log chain. If you do not take a backup of the new database, it cannot be included in an availability group.
 
-1. In **Object Explorer**, right-click the database, point to **Tasks...**, select **Back Up**.
+1. In **Object Explorer**, right-click the database, point to **Tasks**, select **Back Up...**.
 
-1. Select **OK** to take a full backup to the default backup location.
+2. Select **OK** to take a full backup to the default backup location.
 
 ## Create the availability group
 
@@ -241,13 +222,13 @@ You are now ready to configure an availability group using the following steps:
 
 ### Create the availability group:
 
-1. On remote desktop session to the first SQL Server. In **Object Explorer** in SSMS, right-click **AlwaysOn High Availability** and select **New availability group Wizard**.
+1. On remote desktop session to the first SQL Server VM **SQL-VM-1**. In **Object Explorer** in SSMS, right-click **Always On High Availability** and select **New availability group Wizard**.
 
-    ![Launch New availability group Wizard](./media/availability-group-manually-configure-tutorial-multi-subnet/56-newagwiz.png)
+    ![Launch New availability group Wizard](./media/availability-group-manually-configure-tutorial-multi-subnet/11-newagwiz.png)
 
 2. In the **Introduction** page, select **Next**. In the **Specify availability group Name** page, type a name for the availability group in **Availability group name**. For example, **AG1**. Select **Next**.
 
-    ![New availability group Wizard, Specify availability group Name](./media/availability-group-manually-configure-tutorial-multi-subnet/58-newagname.png)
+    ![New availability group Wizard, Specify availability group Name](./media/availability-group-manually-configure-tutorial-multi-subnet/12-newagname.png)
 
 3. In the **Select Databases** page, select your database, and then select **Next**.
 
@@ -255,21 +236,23 @@ You are now ready to configure an availability group using the following steps:
    >The database meets the prerequisites for an availability group because you have taken at least one full backup on the intended primary replica.
    >
 
-   ![New availability group Wizard, Select Databases](./media/availability-group-manually-configure-tutorial-multi-subnet/60-newagselectdatabase.png)
+   ![New availability group Wizard, Select Databases](./media/availability-group-manually-configure-tutorial-multi-subnet/13-newagselectdatabase.png)
 
 4. In the **Specify Replicas** page, select **Add Replica**.
 
-   ![New availability group Wizard, Specify Replicas](./media/availability-group-manually-configure-tutorial-multi-subnet/62-newagaddreplica.png)
+   ![New availability group Wizard, Specify Replicas](./media/availability-group-manually-configure-tutorial-multi-subnet/14-newagaddreplica.png)
 
 5. The **Connect to Server** dialog pops up. Type the name of the second server in **Server name**. Select **Connect**.
 
    Back in the **Specify Replicas** page, you should now see the second server listed in **Availability Replicas**. Configure the replicas as follows.
 
-   ![New availability group Wizard, Specify Replicas (Complete)](./media/availability-group-manually-configure-tutorial-multi-subnet/64-newagreplica.png)
+   ![New availability group Wizard, Specify Replicas (Complete)](./media/availability-group-manually-configure-tutorial-multi-subnet/15-newagreplica.png)
 
 6. Select **Endpoints** to see the database mirroring endpoint for this availability group. Use the same port that you used when you set the [firewall rule for database mirroring endpoints](availability-group-manually-configure-prerequisites-tutorial.md#endpoint-firewall).
 
-    ![New availability group Wizard, Select Initial Data Synchronization](./media/availability-group-manually-configure-tutorial-multi-subnet/66-endpoint.png)
+    ![New availability group Wizard, Select Initial Data Synchronization](./media/availability-group-manually-configure-tutorial-multi-subnet/16-endpoint.png)
+
+7. Select **Listener** and select **Create an availability group listener**
 
 8. In the **Select Initial Data Synchronization** page, select **Full** and specify a shared network location. For the location, use the [backup share that you created](#backupshare). In the example it was, **\\\\<First SQL Server\>\Backup\\**. Select **Next**.
 
@@ -277,14 +260,14 @@ You are now ready to configure an availability group using the following steps:
    >Full synchronization takes a full backup of the database on the first instance of SQL Server and restores it to the second instance. For large databases, full synchronization is not recommended because it may take a long time. You can reduce this time by manually taking a backup of the database and restoring it with `NO RECOVERY`. If the database is already restored with `NO RECOVERY` on the second SQL Server before configuring the availability group, choose **Join only**. If you want to take the backup after configuring the availability group, choose **Skip initial data synchronization**.
    >
 
-   ![Choose Skip initial data synchronization](./media/availability-group-manually-configure-tutorial-multi-subnet/70-datasynchronization.png)
+   ![Choose Skip initial data synchronization](./media/availability-group-manually-configure-tutorial-multi-subnet/17-datasynchronization.png)
 
 9. In the **Validation** page, select **Next**. This page should look similar to the following image:
 
     ![New availability group Wizard, Validation](./media/availability-group-manually-configure-tutorial-multi-subnet/72-validation.png)
 
     >[!NOTE]
-    >There is a warning for the listener configuration because you have not configured an availability group listener. You can ignore this warning because on Azure virtual machines you create the listener after creating the Azure load balancer.
+    >There is a warning for the listener configuration because you have not configured an availability group listener. You can ignore this warning because you will be doing right after .
 
 10. In the **Summary** page, select **Finish**, then wait while the wizard configures the new availability group. In the **Progress** page, you can select **More details** to view the detailed progress. Once the wizard is finished, inspect the **Results** page to verify that the availability group is successfully created.
 
