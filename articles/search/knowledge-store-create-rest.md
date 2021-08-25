@@ -1,22 +1,22 @@
 ---
 title: Create a knowledge store using REST
 titleSuffix: Azure Cognitive Search
-description: Use the REST API and Postman to create an Azure Cognitive Search knowledge store for persisting enrichments from an AI enrichment pipeline.
+description: Use the REST API and Postman to create an Azure Cognitive Search knowledge store for persisting AI enrichments from skillset.
 
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/18/2020
+ms.date: 08/10/2021
 ---
 # Create a knowledge store using REST and Postman
 
-A knowledge store contains output from an Azure Cognitive Search enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them by using Azure Cognitive Search, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves the results to a knowledge store in Azure Storage. You can use tools like Power BI or Storage Explorer in the Azure portal to explore the knowledge store.
+A knowledge store contains output from an Azure Cognitive Search enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves the output to a knowledge store in Azure Storage. You can use tools like Power BI or Storage Explorer in the Azure portal to explore the knowledge store.
 
-In this article, you use the REST API interface to ingest, index, and apply AI enrichments to a set of hotel reviews. The hotel reviews are imported into Azure Blob Storage. The results are saved as a knowledge store in Azure Table Storage.
+In this article, you use the REST API to ingest, enrich, and explore a set of customer reviews of hotel stays. To make the initial data set available, the hotel reviews are first imported into Azure Blob Storage. Post-processing, the results are saved as a knowledge store in Azure Table Storage.
 
-After you create the knowledge store, you can learn about how to access the knowledge store by using [Storage Explorer](knowledge-store-view-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md).
+After you create the knowledge store, explore its content using [Storage Explorer](knowledge-store-view-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -25,9 +25,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create services and load data
 
-This quickstart uses Azure Cognitive Search, Azure Blob Storage, and [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. 
+This exercise uses Azure Cognitive Search, Azure Blob Storage, and [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. 
 
-Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions daily. Because the data set is so small, you can skip creating or attaching a Cognitive Services resource.
+Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions daily. A small workload means that you can skip creating or attaching a Cognitive Services resource.
 
 1. [Download HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). This data is hotel review data saved in a CSV file (originates from Kaggle.com) and contains 19 pieces of customer feedback about a single hotel. 
 
@@ -85,10 +85,12 @@ To get the value for `admin-key`, go to the Azure Cognitive Search service and s
 
 ### Review the request collection in Postman
 
+Knowledge stores are defined in skillsets, which are in turn attached to indexers. Creating a knowledge store requires that you create all of the upstream objects, including an index, data source, skillset, and indexer. Although an index is unrelated to a knowledge store, an indexer requires it for execution, so you will create one as an indexer prerequisite.
+
 When you create a knowledge store, you must issue four HTTP requests: 
 
-- **PUT request to create the index**: This index holds the data that Azure Cognitive Search uses and returns.
-- **POST request to create the datasource**: This datasource connects your Azure Cognitive Search behavior to the data and knowledge store's storage account. 
+- **PUT request to create the index**: This index holds the data that Azure Cognitive Search uses and returns in query requests.
+- **POST request to create the datasource**: This datasource connects to your Azure Storage account. 
 - **PUT request to create the skillset**: The skillset specifies the enrichments that are applied to your data and the structure of the knowledge store.
 - **PUT request to create the indexer**: Running the indexer reads the data, applies the skillset, and stores the results. You must run this request last.
 
@@ -97,8 +99,7 @@ The [source code](https://github.com/Azure-Samples/azure-search-postman-samples/
 ![Screenshot showing Postman's interface for headers](media/knowledge-store-create-rest/postman-headers-ui.png)
 
 > [!Note]
-> You must set `api-key` and `Content-type` headers in all your requests. If Postman recognizes a variable, the variable appears in 
-> orange text, as with `{{admin-key}}` in the preceding screenshot. If the variable is misspelled, it appears in red text.
+> All of the requests in the collection set `api-key` and `Content-type` headers, which are required. If Postman recognizes a variable, the variable appears in orange text, as with `{{admin-key}}` in the preceding screenshot. If the variable is misspelled, it appears in red text.
 >
 
 ## Create an Azure Cognitive Search index
@@ -140,9 +141,11 @@ Set the structure of your Azure Cognitive Search index in the body of the reques
 
 ```
 
-This index definition is a combination of data that you'd like to present to the user (the name of the hotel, review content, the date), search metadata, and AI enhancement data (Sentiment, Keyphrases, and Language).
+This index definition is a combination of data that you'd like to present to the user (the name of the hotel, review content, the date), search metadata, and AI enhancement data (Sentiment, Key Phrases, and Language).
 
 Select **Send** to issue the PUT request. You should see the status `201 - Created`. If you see a different status, in the **Body** pane, look for a JSON response that contains an error message. 
+
+The index is created but not loaded. Importing documents occurs later when you run the indexer. 
 
 ## Create the datasource
 
@@ -302,7 +305,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
 
 The final step is to create the indexer. The indexer reads the data and activates the skillset. In Postman, select the **Create Indexer** request, and then review the body. The definition of the indexer refers to several other resources that you already created: the datasource, the index, and the skillset. 
 
-The `parameters/configuration` object controls how the indexer ingests the data. In this case, the input data is in a single document that has a header line and comma-separated values. The document key is a unique identifier for the document. Before encoding, the document key is the URL of the source document. Finally, the skillset output values, like language code, sentiment, and key phrases, are mapped to their locations in the document. Although there's a single value for `Language`, `Sentiment` is applied to each element in the array of `pages`. `Keyphrases` is an array that's also applied to each element in the `pages` array.
+The `parameters/configuration` object controls how the indexer ingests the data. In this case, the input data is in a single CSV file that has a header line and comma-separated values. The document key is a unique identifier for the document. Before encoding, the document key is the URL of the source document. Finally, the skillset output values, like language code, sentiment, and key phrases, are mapped to their locations in the document. Although there's a single value for `Language`, `Sentiment` is applied to each element in the array of `pages`. `Keyphrases` is an array that's also applied to each element in the `pages` array.
 
 After you set the `api-key` and `Content-type` headers and confirm that the body of the request is similar to the following source code, select **Send** in Postman. Postman sends a PUT request to `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`. Azure Cognitive Search creates and runs the indexer. 
 
@@ -338,6 +341,14 @@ After you set the `api-key` and `Content-type` headers and confirm that the body
 ## Run the indexer 
 
 In the Azure portal, go to the Azure Cognitive Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. If the indexer hasn't already run, select **Run**. The indexing task might raise some warnings related to language recognition. The data includes some reviews that are written in languages that aren't yet supported by the cognitive skills. 
+
+## Clean up
+
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit.
 
 ## Next steps
 

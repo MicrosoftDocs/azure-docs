@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/08/2021
+ms.date: 08/02/2021
 ms.reviewer: sngun
 ---
 
@@ -49,7 +49,9 @@ Here's some key differences between the change feed processor and pull model:
 
 You can create a `FeedIterator` to process the change feed using the pull model. When you initially create a `FeedIterator`, you must specify a required `ChangeFeedStartFrom` value, which consists of both the starting position for reading changes and the desired `FeedRange`. The `FeedRange` is a range of partition key values and specifies the items that will be read from the change feed using that specific `FeedIterator`.
 
-You can optionally specify `ChangeFeedRequestOptions` to set a `PageSizeHint`. The `PageSizeHint` is the maximum number of items that will be returned in a single page.
+You can optionally specify `ChangeFeedRequestOptions` to set a `PageSizeHint`. When set, this property sets the maximum number of items received per page. If operations in the monitored collection are performed
+through stored procedures, transaction scope is preserved when reading items from the Change Feed. As a result, the number of items received could be higher than the specified value so that the items changed by the same transaction are returned as part of
+one atomic batch.
 
 The `FeedIterator` comes in two flavors. In addition to the examples below that return entity objects, you can also obtain the response with `Stream` support. Streams allow you to read data without having it first deserialized, saving on client resources.
 

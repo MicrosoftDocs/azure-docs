@@ -38,7 +38,8 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 |Outline (Table of Content)| Not supported |&#9745;|
 |Variable explorer| Not supported |&#9745;|
 |Format text cell with toolbar buttons|&#9745;| Not available |
-|Undo cell operation| &#9745;| Not available |
+|Undo cell operation| &#9745;| &#9745;|
+|Code cell commenting| Not supported | &#9745;|
 
 
 ## Create a notebook
@@ -51,7 +52,23 @@ There are two ways to create a notebook. You can create a new notebook or import
 
 Notebooks consist of cells, which are individual blocks of code or text that can be run independently or as a group.
 
-### Add a cell
+We provide rich operations to develop notebooks:
++ [Add a cell](#add-a-cell)
++ [Set a primary language](#set-a-primary-language)
++ [Use multiple languages](#use-multiple-languages)
++ [Use temp tables to reference data across languages](#use-temp-tables-to-reference-data-across-languages)
++ [IDE-style IntelliSense](#ide-style-intellisense)
++ [Code Snippets](#code-snippets)
++ [Format text cell with toolbar buttons](#format-text-cell-with-toolbar-buttons)
++ [Undo cell operation](#undo-cell-operation)
++ [Code cell commenting](#Code-cell-commenting)
++ [Move a cell](#move-a-cell)
++ [Delete a cell](#delete-a-cell)
++ [Collapse a cell input](#collapse-a-cell-input)
++ [Collapse a cell output](#collapse-a-cell-output)
++ [Notebook outline](#notebook-outline)
+
+<h3 id="add-a-cell">Add a cell</h3>
 
 There are multiple ways to add a new cell to your notebook.
 
@@ -80,7 +97,7 @@ There are multiple ways to add a new cell to your notebook.
 
 ---
 
-### Set a primary language
+<h3 id="set-a-primary-language">Set a primary language</h3>
 
 Synapse notebooks support four Apache Spark languages:
 
@@ -93,7 +110,8 @@ You can set the primary language for new added cells from the dropdown list in t
 
    ![default-synapse-language](./media/apache-spark-development-using-notebooks/synapse-default-language.png)
 
-### Use multiple languages
+
+<h3 id="use-multiple-languages">Use multiple languages</h3>
 
 You can use multiple languages in one notebook by specifying the correct language magic command at the beginning of a cell. The following table lists the  magic commands to switch cell languages.
 
@@ -108,7 +126,8 @@ The following image is an example of how you can write a PySpark query using the
 
    ![Synapse spark magic commands](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
-### Use temp tables to reference data across languages
+
+<h3 id="use-temp-tables-to-reference-data-across-languages">Use temp tables to reference data across languages</h3>
 
 You cannot reference data or variables directly across different languages in a Synapse notebook. In Spark, a temporary table can be referenced across languages. Here is an example of how to read a `Scala` DataFrame in `PySpark` and `SparkSQL` using a Spark temp table as a workaround.
 
@@ -134,7 +153,7 @@ You cannot reference data or variables directly across different languages in a 
    myNewPythonDataFrame = spark.sql("SELECT * FROM mydataframetable")
    ```
 
-### IDE-style IntelliSense
+<h3 id="ide-style-intellisense">IDE-style IntelliSense</h3>
 
 Synapse notebooks are integrated with the Monaco editor to bring IDE-style IntelliSense to the cell editor. Syntax highlight, error marker, and automatic code completions help you to write code and identify issues quicker.
 
@@ -150,7 +169,7 @@ The IntelliSense features are at different levels of maturity for different lang
 >[!Note]
 > An active Spark session is required to benefit the Variable Code Completion, System Function Code Completion，User Function Code Completion for .NET for Spark (C#).
 
-### Code Snippets
+<h3 id="code-snippets">Code Snippets</h3>
 
 Synapse notebooks provide code snippets that make it easier to enter common used code patterns, such as configuring your Spark session, reading data as a Spark DataFrame, or drawing charts with matplotlib etc.
 
@@ -159,8 +178,7 @@ Snippets appear in [IntelliSense](#ide-style-intellisense) mixed with other sugg
 ![Synapse code snippets](./media/apache-spark-development-using-notebooks/synapse-code-snippets.gif#lightbox)
 
 
-
-### Format text cell with toolbar buttons
+<h3 id="format-text-cell-with-toolbar-buttons">Format text cell with toolbar buttons</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -174,20 +192,58 @@ Format button toolbar is not available for the preview notebook experience yet.
 
 ---
 
-### Undo cell operations
+<h3 id="undo-cell-operation">Undo cell operation</h3>
 
 # [Classical Notebook](#tab/classical)
 
-Select the **undo** button or press **Ctrl+Z** to revoke the most recent cell operation. Now you can undo up to the latest 20 historical cell actions. 
+Select the **Undo** button or press **Ctrl+Z** to revoke the most recent cell operations. Now you can undo up to the latest 20 historical cell operations. 
 
    ![Synapse undo cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
+
 # [Preview Notebook](#tab/preview)
 
-Undo cell operation is not available for the preview notebook experience yet. 
+Select the **Undo** button or press **Z** to revoke the most recent cell operations. Now you can undo up to the latest 10 historical cell operations.
+
+   ![Synapse undo cells of aznb](./media/apache-spark-development-using-notebooks/synapse-undo-cells-aznb.png)
+
+Supported undo cell operations:
++ Insert/Delete cell: You could revoke the delete operations by selecting **Undo**, the text content will be kept along with the cell.
++ Reorder cell.
++ Toggle parameter.
++ Convert between Code cell and Markdown cell.
+
+> [!NOTE]
+> In-cell text operations and code cell commenting operations are not undoable.
+
 
 ---
 
-### Move a cell
+<h3 id="Code-cell-commenting">Code cell commenting</h3>
+
+# [Classical Notebook](#tab/classical)
+
+Not supported.
+
+# [Preview Notebook](#tab/preview)
+
+We support commenting on code cell in Preview Notebook for now.
+
+1. Select **Comments** button on the notebook toolbar to open **Comments** pane.
+
+   ![Synapse comment button](./media/apache-spark-development-using-notebooks/synapse-comments-button.png)
+
+2. Select code in the code cell, click **New** in the **Comments** pane, add comments then click **Post comment** button to save.
+
+   ![Synapse new comment](./media/apache-spark-development-using-notebooks/synapse-new-comments.png)
+
+3. You could perform **Edit comment**, **Resolve thread**, or **Delete thread** by clicking the **More** button besides your comment. 
+
+   ![Synapse edit comment](./media/apache-spark-development-using-notebooks/synapse-edit-comments.png)
+
+---
+
+
+<h3 id="move-a-cell">Move a cell</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -204,7 +260,7 @@ Click on the left-hand side of a cell and drag it to the desired position.
 
 ---
 
-### Delete a cell
+<h3 id="delete-a-cell">Delete a cell</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -224,7 +280,7 @@ You can also use [shortcut keys under command mode](#shortcut-keys-under-command
 
 ---
 
-### Collapse a cell input
+<h3 id="collapse-a-cell-input">Collapse a cell input</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -240,7 +296,7 @@ Select the **More commands** ellipses (...) on the cell toolbar and **input** to
 
 ---
 
-### Collapse a cell output
+<h3 id="collapse-a-cell-output">Collapse a cell output</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -257,7 +313,7 @@ Select the **More commands** ellipses (...) on the cell toolbar and **output** t
 
 ---
 
-### Notebook outline
+<h3 id="notebook-outline">Notebook outline</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -456,6 +512,84 @@ df = spark.read.option("header", "true") \
 You can access data in the primary storage account directly. There's no need to provide the secret keys. In Data Explorer, right-click on a file and select **New notebook** to see a new notebook with data extractor autogenerated.
 
 ![data-to-cell](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
+
+
+## IPython Widgets
+
+
+# [Classical Notebook](#tab/classical)
+
+Not supported.
+
+# [Preview Notebook](#tab/preview)
+
+Widgets are eventful python objects that have a representation in the browser, often as a control like a slider, textbox etc. IPython Widgets only works in Python environment, it's not supported in other languages (e.g. Scala, SQL, C#) yet. 
+
+### To use IPython Widget
+1. You need to import `ipywidgets` module first to use the Jupyter Widget framework.
+   ```python
+   import ipywidgets as widgets
+   ```
+2. You can use top-level `display` function to render a widget, or leave a expression of **widget** type at the last line of code cell.
+   ```python
+   slider = widgets.IntSlider()
+   display(slider)
+   ```
+
+   ```python
+   slider = widgets.IntSlider()
+   slider
+   ```
+   
+3. Run the cell, the widget will display at the output area.
+
+   ![ipython widgets slider](./media/apache-spark-development-using-notebooks/ipython-widgets-slider.png)
+
+4. You can use multiple `display()` calls to render the same widget instance multiple times, but they will remain in sync with each other.
+
+   ```python
+   slider = widgets.IntSlider()
+   display(slider)
+   display(slider)
+   ```
+
+   ![ipython widgets sliders](./media/apache-spark-development-using-notebooks/ipython-widgets-multiple-sliders.png)
+
+5. To render two widgets independent of each other, create two widget instances:
+
+   ```python
+   slider1 = widgets.IntSlider()
+   slider2 = widgets.IntSlider()
+   display(slider1)
+   display(slider2)
+   ```
+
+
+### Supported widgets
+
+|Widgets Type|Widgets|
+|--|--|
+|Numeric widgets|IntSlider, FloatSlider, FloatLogSlider, IntRangeSlider, FloatRangeSlider, IntProgress, FloatProgress, BoundedIntText, BoundedFloatText, IntText, FloatText|
+|Boolean widgets|ToggleButton, Checkbox, Valid|
+|Selection widgets|Dropdown, RadioButtons, Select, SelectionSlider, SelectionRangeSlider, ToggleButtons, SelectMultiple|
+|String Widgets|Text, Text area, Combobox, Password, Label, HTML, HTML Math, Image, Button|
+|Play (Animation) widgets|Date picker, Color picker, Controller|
+|Container/Layout widgets|Box, HBox, VBox, GridBox, Accordion, Tabs, Stacked|
+
+
+### Know issue
+
+The following widgets are not supported yet, you could follow workaround as below:
+
+|Functionality|Workaround|
+|--|--|
+|`Output` widget|You can use `print()` function instead to write text into stdout.|
+|`widgets.jslink()`|You can use `widgets.link()` function to link two similar widgets.|
+|`FileUpload` widget| Not support yet.|
+
+
+---
+
 
 ## Save notebooks
 

@@ -2,15 +2,13 @@
 title: Post event to custom Azure Event Grid topic
 description: This article describes how to post an event to a custom topic. It shows the format of the post and event data.
 ms.topic: conceptual
-ms.date: 07/07/2020 
+ms.date: 08/19/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Post to custom topic for Azure Event Grid
+# Post to Azure Event Grid custom topics using access keys
 
-This article describes how to post an event to a custom topic. It shows the format of the post and event data. The [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) only applies to posts that match the expected format.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+This article describes how to post an event to a custom topic using an access key. It shows the format of the post and event data. The [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) only applies to posts that match the expected format.
 
 ## Endpoint
 

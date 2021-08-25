@@ -69,7 +69,11 @@ $catalog = New-MgEntitlementManagementAccessPackageCatalog -DisplayName "Marketi
 
 ## Add resources to a catalog
 
-To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites. The groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups. The applications can be Azure AD enterprise applications, including both SaaS applications and your own applications federated to Azure AD. The sites can be SharePoint Online sites or SharePoint Online site collections.
+To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites.
+
+* The groups can be cloud-created Microsoft 365 Groups or cloud-created Azure AD security groups.  Groups that originate in an on-premises Active Directory cannot be assigned as resources because their owner or member attributes cannot be changed in Azure AD.   Groups that originate in Exchange Online as Distribution groups cannot be modified in Azure AD either.
+* The applications can be Azure AD enterprise applications, including both SaaS applications and your own applications integrated with Azure AD. For more information on selecting appropriate resources for applications with multiple roles, see [add resource roles](entitlement-management-access-package-resources.md#add-resource-roles).
+* The sites can be SharePoint Online sites or SharePoint Online site collections.
 
 **Prerequisite role:** See [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 

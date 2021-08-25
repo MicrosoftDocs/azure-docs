@@ -80,7 +80,7 @@ Now that you've covered Azure VMware Solution private cloud concepts, you may wa
 
 - [Azure VMware Solution networking and interconnectivity concepts](concepts-networking.md)
 - [Azure VMware Solution storage concepts](concepts-storage.md)
-- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
+- [How to enable Azure VMware Solution resource](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md

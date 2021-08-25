@@ -19,6 +19,10 @@
   items:
   - name: Resource Manager templates
     href: resource-manager-template-samples.md
+- name: Tutorials
+  items:
+  - name: Configure Route Server with Quagga
+    href: tutorial-configure-route-server-with-quagga.md
 - name: Concepts
   items:
   - name: Route Server FAQ

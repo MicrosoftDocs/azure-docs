@@ -2,7 +2,6 @@
 title: Tutorial - Configure message routing for Azure IoT Hub using an Azure Resource Manager template
 description: Tutorial - Configure message routing for Azure IoT Hub using an Azure Resource Manager template
 author: robinsh
-manager: philmeagit st
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial

@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 08/12/2021
 
 ms.author: justinha
 author: justinha
@@ -95,7 +95,11 @@ To enable and configure fraud alerts, complete the following steps:
 
 ### View fraud reports
 
-Select **Azure Active Directory** > **Sign-ins** > **Authentication Details**. The fraud report is now part of the standard Azure AD Sign-ins report and it will show in the **"Result Detail"** as MFA denied, Fraud Code Entered.
+When a user reports fraud, the event shows up in the Sign-ins report (as a sign-in that was rejected by the user) and in the Audit logs.
+
+- To view fraud reports in the Sign-ins report, click **Azure Active Directory** > **Sign-ins** > **Authentication Details**. The fraud report is part of the standard Azure AD Sign-ins report and appears in the **Result Detail** as **MFA denied, Fraud Code Entered**.
+
+- To view fraud reports in the Audit logs, click **Azure Active Directory** > **Audit Logs**. The fraud report appears under Activity type **Fraud reported - user is blocked for MFA** or **Fraud reported - no action taken** based on the tenant-level settings for fraud report.
  
 ## Notifications
 
@@ -144,11 +148,9 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 If users receive phone calls for MFA prompts, you can configure their experience, such as caller ID or voice greeting they hear.
 
-In the United States, if you haven't configured MFA Caller ID, voice calls from Microsoft come from the following numbers. If using spam filters, make sure to exclude these numbers:
+In the United States, if you haven't configured MFA Caller ID, voice calls from Microsoft come from the following number. If using spam filters, make sure to exclude this number:
 
-* *+1 (866) 539 4191*
 * *+1 (855) 330 8653*
-* *+1 (877) 668 6536*
 
 > [!NOTE]
 > When Azure AD Multi-Factor Authentication calls are placed through the public telephone network, sometimes the calls are routed through a carrier that doesn't support caller ID. Because of this, caller ID isn't guaranteed, even though Azure AD Multi-Factor Authentication always sends it. This applies both to phone calls and to text messages provided by Azure AD Multi-Factor Authentication. If you need to validate that a text message is from Azure AD Multi-Factor Authentication, see [What SMS short codes are used for sending messages?](multi-factor-authentication-faq.yml#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users-)
@@ -331,7 +333,7 @@ To enable or disable verification methods, complete the following steps:
 
 ## Remember Multi-Factor Authentication
 
-The _remember Multi-Factor Authentication_ feature lets users can bypass subsequent verifications for a specified number of days, after they've successfully signed-in to a device by using Multi-Factor Authentication. To enhance usability and minimize the number of times a user has to perform MFA on the same device, select a duration of 90 days or more.
+The _remember Multi-Factor Authentication_ feature lets users bypass subsequent verifications for a specified number of days, after they've successfully signed-in to a device by using Multi-Factor Authentication. To enhance usability and minimize the number of times a user has to perform MFA on the same device, select a duration of 90 days or more.
 
 > [!IMPORTANT]
 > If an account or device is compromised, remembering Multi-Factor Authentication for trusted devices can affect security. If a corporate account becomes compromised or a trusted device is lost or stolen, you should [Revoke MFA Sessions](howto-mfa-userdevicesettings.md).

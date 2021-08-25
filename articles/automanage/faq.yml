@@ -86,9 +86,9 @@ sections:
           
           
       - question: |
-          Can I apply Automanage through Azure policy?
+          Can I apply Automanage through Azure Policy?
         answer: |
-          Yes, we have a built-in policy that will automatically apply Automanage to all VMs within your defined scope. You will also specify the environment configuration (DevTest or Production) along with your Automanage account. Learn more about enabling Automanage through Azure policy [here](virtual-machines-policy-enable.md).
+          Yes, we have a built-in policy that will automatically apply Automanage to all VMs within your defined scope. You will also specify the environment configuration (DevTest or Production) along with your Automanage account. Learn more about enabling Automanage through Azure Policy [here](virtual-machines-policy-enable.md).
           
           
       - question: |

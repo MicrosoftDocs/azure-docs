@@ -1,5 +1,5 @@
 ---
-title: Azure Percept Dev Tools Pack Installer overview 
+title: Install Azure Percept development tools
 description: Learn more about using the Dev Tools Pack Installer to accelerate advanced development with Azure Percept
 author: mimcco
 ms.author: mimcco
