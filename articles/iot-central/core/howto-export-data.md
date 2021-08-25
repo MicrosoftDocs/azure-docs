@@ -144,7 +144,7 @@ Now that you have a destination to export your data to, set up data export in yo
 <a name="DataExportEnrichmnents"></a>
     - **Custom string**: Adds a custom static string to each message. Enter any key, and enter any string value.
     - **Property**, which adds to each message:
-       - Device metadata such as device name, device template name, enabled, provisioned, and simulated
+       - Device metadata such as device name, device template name, enabled, organizations, provisioned, and simulated.
        - The current device reported property or cloud property value to each message. If the exported message is from a device that doesn't have the specified property, the exported message doesn't get the enrichment.
 
 1. Add a new destination or add a destination that you've already created. Select the **Create a new one** link and add the following information:

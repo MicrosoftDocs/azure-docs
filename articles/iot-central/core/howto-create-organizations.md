@@ -110,6 +110,15 @@ You can assign the same user to multiple organizations. The user can have a diff
 | user1@contoso.com | Org Administrator | Contoso Inc/Lamna Health |
 | user1@contoso.com | Org Viewer | Contoso Inc/Adatum Solar |
 
+## Use organizations
+
+After you've created your organization hierarchy you can use organizations in areas of your application such as:
+
+- [Organization dashboards](howto-manage-dashboards.md) that show information to users about devices in their organization.
+- [Device groups](tutorial-use-device-groups.md) for devices in specific organizations.
+- [Analytics](howto-create-analytics.md) for devices in specific organizations.
+- [Jobs](howto-manage-devices-in-bulk.md#create-and-run-a-job) that bulk manage devices in specific organizations.
+
 ## Default organization
 
 You can set an organization as the default organization to use in your application. The default organization becomes the default option whenever you choose an organization, such as when you add a new user to your IoT Central application.
