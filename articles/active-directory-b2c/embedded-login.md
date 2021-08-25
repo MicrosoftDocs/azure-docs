@@ -16,7 +16,7 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Embedded sing-up or sign-in experience
+# Embedded sign-up or sign-in experience
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
