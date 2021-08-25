@@ -94,7 +94,7 @@ Microsoft has tested and validated that the following instrumentation libraries 
 
 ## Modify Telemetry
 ### Add Span Attributes
-You may use X to add attributes to spans. This may include adding a custom business dimension to your telemetry or setting optional fields in the Application Insights Schema such as User ID or Client IP. Here are three examples that show common scenarios.
+You may use X to add attributes to spans. These attributes may include adding a custom business dimension to your telemetry. You may also use attributes to set optional fields in the Application Insights Schema such as User ID or Client IP. Below are three examples that show common scenarios.
 
 For more information, see [GitHub Repo](link).
 
@@ -138,7 +138,7 @@ Placeholder
 For more information, see [GitHub Repo](link).
 
 ### Filter Telemetry
-You may use a Span Processor to filter out telemetry before leaving your application. This may be done to mask telemetry for privacy reasons or block unneeded telemetry to reduce ingestion costs.
+You may use a Span Processor to filter out telemetry before leaving your application. Span Processors may be used to mask telemetry for privacy reasons or block unneeded telemetry to reduce ingestion costs.
 
 ```python
 Placeholder
@@ -147,7 +147,7 @@ Placeholder
 For more information, see [GitHub Repo](link).
 
 ### Get Trace ID or Span ID
-You may use X or Y to get trace ID or span ID. This may be done to add these identifiers to existing logging telemetry to improve correlation when debugging and diagnosing issues.
+You may use X or Y to get trace ID and/or span ID. Adding trace ID and/or span ID to existing logging telemetry enables better correlation when debugging and diagnosing issues.
 
 > [!NOTE]
 > If you are manually creating spans for log-based metrics and alerting, you will need to update them to use the metrics API (after it is released) to ensure accuracy.
