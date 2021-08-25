@@ -32,19 +32,14 @@ An AutoML-trained machine learning model. For more, see [Tutorial: Train a class
 
 Deploying an AutoML-trained model from the Automated ML page is a no-code experience. That is, you don't need to prepare a scoring script and environment, both are auto generated. 
 
-1. Go to your Automated ML experiment in your machine learning workspace
-2. Choose the Models tab
-
-{>> Add sequence numbers to model-option.png <<}
-{>> Nuke PII throughout <<} 
-
-:::image type="content" source="media/how-to-deploy-automl-endpoint/model-option.png" alt-text="Screenshot of studio showing an AutoML experiment and the Details page":::
-
-3. Select the model you want to deploy to online endpoint. Once you select a model, the Deploy button will light up with a drop-down menu
+1. Go to the Automated ML page in studio
+1. Select your experiment
+1. Choose the Models tab
+1. Select the model you want to deploy to online endpoint. 
+1. Once you select a model, the Deploy button will light up with a drop-down menu
+1. Select *Deploy to real-time endpoint (preview)* option
 
 :::image type="content" source="media/how-to-deploy-automl-endpoint/deploy-button.png" alt-text="Screenshot showing the Deploy button's drop-down menu":::
-
-4. Select *Deploy to real-time endpoint (preview)* option
 
 The system will generate the Model and Environment needed for the deployment. 
 
@@ -68,7 +63,7 @@ To download the components you'll need for deployment:
 1. Select the model you wish to use. Once you select a model, the *Download* button will become enabled
 1. Choose *Download*
 
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+:::image type="content" source="meia/how-to-deploy-automl-endpoint/model-download.png" alt-text="Screenshot showing the selection of the model and download button":::
 
 you'll receive a zip file containing:
 * A conda environment specification file named `conda_env_<VERSION>.yml`
