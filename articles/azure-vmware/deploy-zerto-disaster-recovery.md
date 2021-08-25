@@ -38,7 +38,7 @@ You can use Zerto with Azure VMware Solution for the following three scenarios.
 
 In this scenario, the primary site is an on-premise vSphere-based environment. And the Disaster Recovery site is an Azure VMware Solution Private Cloud. 
 
-:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-1.png" alt-text="Diagram showing scenario 1 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
+:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-1.png" alt-text="Diagram showing Scenario 1 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
 
 
 
@@ -53,7 +53,7 @@ In this scenario, the primary site is an Azure VMware Solution Private Cloud in 
 
 In this scenario, the primary site is an Azure VMware Solution Private Cloud in one Azure Region. And Azure Blobs and Azure IaaS (Hyper-V based) VMs are used in times of Disaster.
 
-:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-3.png" alt-text="Diagram showing scenario 3 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
+:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-3.png" alt-text="Diagram showing Scenario 3 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
 
 
 
@@ -76,7 +76,7 @@ For all scenarios, you must read and acknowledge the updated [Azure VMware Solut
 
 - Azure VMware Solution private cloud must be deployed in the primary and secondary region.
 
-   :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2a-prerequisite.png" alt-text="Diagram showing the first prerequisite for scenario 2 of the Zerto disaster recovery solution on Azure VMware Solution.":::
+   :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-2a-prerequisite.png" alt-text="Diagram showing the first prerequisite for Scenario 2 of the Zerto disaster recovery solution on Azure VMware Solution.":::
  
 - Connectivity, like ExpressRoute Global Reach, between the source and target Azure VMware Solution private cloud.
 
