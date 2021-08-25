@@ -76,7 +76,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     
     ![Get user name and password for a share](media/data-box-deploy-copy-data/get-share-credentials2.png)-->
 
-[!INCLUDE [data-box-get-device-password](../../includes/data-box-get-share-password.md)]
+[!INCLUDE [data-box-get-share-credentials](../../includes/data-box-get-share-credentials.md)]
 
 1. To access the shares associated with your storage account (*utsac1* in the following example) from your host computer, open a command window. At the command prompt, type:
 

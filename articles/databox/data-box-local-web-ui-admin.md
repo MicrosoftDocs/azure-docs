@@ -100,7 +100,7 @@ When you order your device, you can choose to use default system-generated passw
 
 To get the credentials for a share:
 
-[!INCLUDE [data-box-get-device-password](../../includes/data-box-get-share-password.md)]
+[!INCLUDE [data-box-get-share-credentials](../../includes/data-box-get-share-credentials.md)]
 
 > [!NOTE]
 > After several failed share connection attempts using an incorrect password, the user account will be locked out of the share. The account lock will clear after a few minutes, and you can connect to the shares again.  
