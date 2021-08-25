@@ -96,14 +96,14 @@ From the workspace overview, select the **Workspace web URL** to open Synapse St
 
 ## Clean up Data Explorer pool resources using Synapse Studio
 
-Use the following steps to delete the Data Explorer pool from the workspace using the Azure portal.
+Use the following steps to delete the Data Explorer pool from the workspace using the Synapse Studio.
 
 > [!WARNING]
 > Deleting a data-explorer pool will remove the analytics engine from the workspace. It will no longer be possible to connect to the pool, and all queries, pipelines, and notebooks that use the deleted pool will no longer work.
 
-If you want to delete the Data Explorer pool, do the following:
+### Delete the Data Explorer pool
 
-1. Navigate to the Data Explorer pools in the Management Hub in the Azure portal.
+1. Navigate to the Data Explorer pools in the workspace.
 1. To remove the Data Explorer pool (in this case, **contosodataexplorer**), select **More [...]** > **Delete**.
 
     ![Listing of Data Explorer pools, with the recently created pool selected.](media/create-data-explorer-pool-studio/list-data-explorer-pool-studio.png)
