@@ -29,7 +29,10 @@ We recommend keeping configuration information, such as rules, address wildcards
 
 ### Palo Alto starting configuration
 
-You should already have a Palo Alto deployment (you can provision [Palo Alto from Azure Marketplace](https://ms.portal.azure.com/#create/paloaltonetworks.vmseries-ngfwbundle2)). In the steps below, we'll assume you have two pre-configured network zones: `Azure_Inside`, containing the interface connected to a virtual network peered with the Azure Spring Cloud virtual network, and `Azure_Outside` containing the interface to the public internet.
+You should already have a Palo Alto deployment (you can provision [Palo Alto from Azure Marketplace](https://ms.portal.azure.com/#create/paloaltonetworks.vmseries-ngfwbundle2)). 
+The detailed steps to configure the Palo Alto VM Based Firewall can be found [here](https://docs.paloaltonetworks.com/vm-series/9-1/vm-series-deployment/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewall-on-azure-solution-template.html). The link helps you to provision a VM Series Firewall along with configuring both the `Trust`,  `Untrust` subnets and the associated Network interface cards. We reccomend that you create this Firewall in the address space of `Hub` virtual network in the referene architecture to stay consistent.
+The detailed design of [Reference Architecture Guide for Azure](https://www.paloaltonetworks.com/resources/guides/azure-architecture-guide) explores several technical design models for deploying the Firewall on Azure. 
+In the steps below, we'll assume you have two pre-configured network zones: `Trust`, containing the interface connected to a virtual network peered with the Azure Spring Cloud virtual network, and `Untrust` containing the interface to the public internet created earlier in the VM Series deployment guide.
 
 ### Prepare CSV files
 
@@ -255,12 +258,12 @@ Create a JSON file containing a security rule, e.g. `SecurityRule.json`. Note th
             "@vsys": "vsys1",
             "to": {
                 "member": [
-                    "Azure_Outside"
+                    "Untrust"
                 ]
             },
             "from": {
                 "member": [
-                    "Azure_Inside"
+                    "Trust"
                 ]
             },
             "source-user": {
