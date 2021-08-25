@@ -51,7 +51,7 @@ The container provides a `createDataStore` method to create new data stores. The
 
 ### Using a Fluid container: the Request API
 
-Interactions with Fluid containers are accomplished through requests. Developers can create powerful request handlers with custom logic, but [Aqueduct](../overivew/overview.md) creates a standard set of request handlers for each Fluid object by default. For example, the following request uses one of Aqueduct's default handlers to retrieve a container's default data store.
+Interactions with Fluid containers are accomplished through requests. Developers can create powerful request handlers with custom logic, but [Aqueduct](../overview/overview.md) creates a standard set of request handlers for each Fluid object by default. For example, the following request uses one of Aqueduct's default handlers to retrieve a container's default data store.
 
 ```ts
 container.request({url: "/"})
