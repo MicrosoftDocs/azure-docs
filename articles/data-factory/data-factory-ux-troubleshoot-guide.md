@@ -120,7 +120,7 @@ Solution is to fix JSON files at first and then reopen the pipeline using Author
 For more troubleshooting help, try these resources:
 
 * [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-* [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+* [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Azure videos](https://azure.microsoft.com/resources/videos/index/)
