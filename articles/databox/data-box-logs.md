@@ -78,7 +78,7 @@ During the data copy to Data Box or Data Box Heavy, an error file is generated i
 Make sure that the copy jobs have finished with no errors. If there are errors during the copy process, download the logs from the **Connect and copy** page.
 
 - If you copied a file that is not 512 bytes aligned to a managed disk folder on your Data Box, the file isn't uploaded as a page blob to your staging storage account. You will see an error in the logs. Remove the file, and copy a file that is 512 bytes aligned.
-- If you copied a VHDX, or a dynamic VHD, or a differencing VHD (these file types are not supported), you will see an error in the logs.
+- If you copied a VHDX, or a dynamic VHD, or a differencing VHD, you will see an error in the logs. Those file types are not supported.
 
 Here is a sample of the *error.xml* for different errors when copying to managed disks.
 
