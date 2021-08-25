@@ -36,7 +36,7 @@ You can use Zerto with Azure VMware Solution for the following three scenarios.
 
 ### Scenario 1: On-premises VMware to Azure VMware Solution DR
 
-In this scenario, the primary site is an on-premise vSphere-based environment. And the Disaster Recovery site is an Azure VMware Solution Private Cloud. 
+In this scenario, the primary site is an on-premises vSphere-based environment. And the Disaster Recovery site is an Azure VMware Solution Private Cloud. 
 
 :::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-1.png" alt-text="Diagram showing Scenario 1 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
 
@@ -94,9 +94,9 @@ For all scenarios, you must read and acknowledge the updated [Azure VMware Solut
 
 ## Install Zerto on Azure VMware Solution
 
-Currently, Zerto Disaster Recovery on Azure VMware Solution is in Initial Availability (IA) phase. In the IA phase, you must contact to Microsoft or Zerto to request and qualify for IA support.
+Currently, Zerto Disaster Recovery on Azure VMware Solution is in Initial Availability (IA) phase. In the IA phase, you must contact Microsoft to request and qualify for IA support.
 
-To request IA support for Zerto on Azure VMware Solution, send an email request to both email aliases: Microsoft and Zerto. In the IA phase, Azure VMware Solution only supports manual installation and onboarding of Zerto on Azure VMware Solution. Once you're qualified for Zerto on Azure VMware Solution IA, you can use the Azure portal to open a Support Ticket to have Zerto installed on your private cloud. Microsoft will work with you to ensure that you can manually install Zerto on your private cloud.
+To request IA support for Zerto on Azure VMware Solution, send an email request to zertoonavs@microsoft.com. In the IA phase, Azure VMware Solution only supports manual installation and onboarding of Zerto. However, Microsoft will work with you to ensure that you can manually install Zerto on your private cloud.
 
 >[!NOTE]
 >General Availability of Azure VMware Solution will enable self-service installation and Day 2 operations of Zerto on Azure VMware Solution.
@@ -108,7 +108,7 @@ To request IA support for Zerto on Azure VMware Solution, send an email request 
 
 To configure Zerto for the On-premise VMware to Azure VMware Solution DR and Azure VMware Solution to Azure VMware Solution Cloud DR scenarios, see the [Zerto Virtual Manager Administration Guide vSphere Environment](https://s3.amazonaws.com/zertodownload_docs/8.5_Latest/Zerto%20Virtual%20Manager%20vSphere%20Administration%20Guide.pdf?cb=1629311409).
 
-To configure the Azure VMware Solution Iaas VMs cloud DR scenario, see [tbd]().
+To configure the Azure VMware Solution to Azure Iaas VMs cloud DR scenario, see [tbd]().
 
 For more information, see the [Zerto technical documentation](https://www.zerto.com/myzerto/technical-documentation/). Alternatively, you can download all the Zerto guides part of the [v8.5 Search Tool for Zerto Software PDFs documentation bundle](https://s3.amazonaws.com/zertodownload_docs/8.5_Latest/SEARCH_TOOL.zip?cb=1629311409).
 
@@ -118,13 +118,13 @@ For more information, see the [Zerto technical documentation](https://www.zerto.
 
 ## Ongoing management of Zerto
 
-- As you scale your Azure VMware Solution private cloud operations, you might need to add new Azure VMware Solution hosts for Zerto protection or configure Zerto DR to new Azure VMware Solution vSphere Clusters. In both these scenarios, you'll be required to open a Support Request with the Azure VMware Solution team in the Initial Availability phase.
+- As you scale your Azure VMware Solution private cloud operations, you might need to add new Azure VMware Solution hosts for Zerto protection or configure Zerto DR to new Azure VMware Solution vSphere Clusters. In both these scenarios, you'll be required to open a Support Request with the Azure VMware Solution team in the Initial Availability phase. You can open the [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for these Day 2 configurations. 
+
+   :::image type="content" source="media/zerto-disaster-recovery/support-request-zerto-disaster-recovery.png" alt-text="Screenshot showing the support request for Day 2 Zerto DR configurations.":::
 
 - Due to the nature of Zerto-vSphere integration (using vSphere DRS hard affinity), cluster scale-down operations are expected to fail. Azure VMware Solution SRE teams will remediate these failures offline in the IA phase.
 
 - In the GA phase, all the above operations will be enabled in an automated self-service fashion.
-
-
 
 
 ## FAQs
@@ -139,10 +139,7 @@ You can reuse pre-existing Zerto product licenses for Azure VMware Solution envi
 
 ### How is Zerto supported?
 
-Zerto Disaster Recovery is a solution that is sold and supported by Zerto. For any support issue with Zerto Disaster Recovery, contact Zerto support.
+Zerto Disaster Recovery is a solution that is sold and supported by Zerto. For any support issue with Zerto Disaster Recovery, always contact Zerto support.
 
 Zerto and Microsoft support teams will engage each other as needed to troubleshoot Zerto Disaster Recovery issues on Azure VMware Solution.
 
-
-
-## Next steps
