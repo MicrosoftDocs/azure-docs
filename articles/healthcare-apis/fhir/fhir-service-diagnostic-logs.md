@@ -74,7 +74,7 @@ At this time, the FHIR service returns the following fields in the audit log:
 		
 ## Sample queries
 
-Here are a few basic Application Insights queries that you can use to explore your log data:
+You can use these basic Application Insights queries to explore your log data:
 
 - Run the following query to view the *100 most recent* logs:
 
