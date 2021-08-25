@@ -221,8 +221,14 @@ RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().g
 requestTelemetry.getProperties().put("mydimension", "myvalue");
 ```
 
-#### Set User ID
-Setting user id will populate the _user_Id_ field in the requests, dependencies, and/or exceptions table.
+#### Set User ID or Authenticated User ID
+Populate the _user_Id_ or _user_Authenticatedid_ field in the requests, dependencies, and/or exceptions table. User ID is an anonymous user identifier and Authenticated User ID is a known user identifier.
+
+> [!TIP]
+> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User ID.
+
+> [!IMPORTANT]
+> Consult applicable privacy laws before setting Authenticated User ID.
 
 > [!NOTE]
 > This feature is only in 3.0.2 and later
@@ -245,6 +251,16 @@ import com.microsoft.applicationinsights.web.internal.ThreadContext;
 
 RequestTelemetry requestTelemetry = ThreadContext.getRequestTelemetryContext().getHttpRequestTelemetry();
 requestTelemetry.getContext().getUser().setId("myuser");
+```
+
+#### Set User IP
+Populate the _client_IP_ field in the requests, dependencies, and/or exceptions table. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
+
+> [!TIP]
+> Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User IP.
+
+```java
+Placeholder
 ```
 
 ### Override Span Name
@@ -277,6 +293,9 @@ requestTelemetry.setName("myname");
 You may use X or Y to get trace ID or span ID. This may be done to add these identifiers to existing logging telemetry to improve correlation when debugging and diagnosing issues.
 
 > [!NOTE]
+> If you are manually creating spans for log-based metrics and alerting, you will need to update them to use the metrics API (after it is released) to ensure accuracy.
+
+> [!NOTE]
 > This feature is only in 3.0.3 and later
 
 Add `applicationinsights-web-2.6.3.jar` to your application
@@ -290,7 +309,7 @@ Add `applicationinsights-web-2.6.3.jar` to your application
 </dependency>
 ```
 
-and get the request telemetry Id and the operation Id in your code:
+and get the request telemetry ID and the operation ID in your code:
 
 ```java
 import com.microsoft.applicationinsights.web.internal.ThreadContext;
@@ -442,10 +461,10 @@ Placeholder
 > OTLP exporter is shown for convenience only. We do not officially support the OTLP Exporter or any components or third-party experiences downstream of it. We suggest you open an issue with the OpenTelemetry community for OpenTelemetry issues outside the Azure Support Boundary.
 
 ## Troubleshooting
-See [Troubleshooting](./java-standalone-troubleshoot.md).
+See [Troubleshooting](java-standalone-troubleshoot.md).
 
 ## Support
-- Review [Troubleshooting steps](./java-standalone-troubleshoot.md).
+- Review [Troubleshooting steps](java-standalone-troubleshoot.md).
 - For Azure support issues, file an Azure SDK GitHub issue or open a CSS Ticket.
 - For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
 
@@ -453,10 +472,9 @@ See [Troubleshooting](./java-standalone-troubleshoot.md).
 - Fill out the OpenTelemetry community’s [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
 - Tell Microsoft a bit about yourself by joining our [OpenTelemetry Early Adopter Community](https://aka.ms/AzMonOTel/).
 - Add your feature requests to the [Azure Monitor Application Insights UserVoice](https://feedback.azure.com/forums/357324-azure-monitor-application-insights).
-- Open a GitHub issue against this official documentation page.
 
 ## Next Steps
 - [Azure Monitor Java Auto-Instrumentation GitHub Repository](https://github.com/Microsoft/ApplicationInsights-Java)
 - [Azure Monitor Sample Application]()
 - [OpenTelemetry Community Language GitHub Repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation)
-- [Enable web/browser user monitoring](./javascript.md)
+- [Enable web/browser user monitoring](javascript.md)
