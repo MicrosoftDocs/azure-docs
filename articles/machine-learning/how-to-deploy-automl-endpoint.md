@@ -91,7 +91,7 @@ To deploy using these files, you can use either studio or the Azure command-line
 
 ## Configure the CLI 
 
-To create a deployment from the CLI, you'll need the Azure CLI with the ML v2 extension. Run the following command to confirm that you have both:
+To create a deployment from the CLI, you'll need the Azure CLI with the ML v2 extension. Run the following command to confirm that you've both:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_version":::
 
@@ -101,7 +101,7 @@ Login:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_login":::
 
-If you have access to multiple Azure subscriptions, you can set your active subscription:
+If you've access to multiple Azure subscriptions, you can set your active subscription:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_account_set":::
 
@@ -111,18 +111,18 @@ Set the default resource group and workspace to where you wish to create the dep
 
 ## Put the scoring file in its own directory
 
-Create a directory called `src/` and place the scoring file you downloaded into it. This directory is uploaded to Azure and contains all the source code necessary to perform inference. In the case of an AutoML model, there's just the single scoring file. 
+Create a directory called `src/` and place the scoring file you downloaded into it. This directory is uploaded to Azure and contains all the source code necessary to perform inference. For an AutoML model, there's just the single scoring file. 
 
 ## Create the deployment yaml file
 
-To create a managed online endpoint from the command-line, you'll need to create a *deployment.yml* file. The following, taken from the [Azure Machine Learning Examples repo](https://github.com/Azure/azureml-examples) shows the _endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml_ file, which captures all the required inputs:
+To create a managed online endpoint from the command-line, you'll need to create a *deployment.yml* file. The following code, taken from the [Azure Machine Learning Examples repo](https://github.com/Azure/azureml-examples) shows the _endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml_ file, which captures all the required inputs:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml":::
 
 You'll need to modify this file to use the files you downloaded from the AutoML Models page.
 
 1. Create a file `automl_deployment.yml` and paste the contents of the above example.
-1. Change the value of the `name` of the deployment. This needs to be unique within the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters.
+1. Change the value of the `name` of the deployment. The deployment name needs to be unique within the Azure region. The name for an endpoint must start with an upper- or lowercase letter and only consist of '-'s and alphanumeric characters.
 1. Under the `deployments` path, change the value of the keys at the following paths:
 
 | Path | Change to |
@@ -142,7 +142,7 @@ az ml endpoint create -f automl_deployment.yml
 ```
 ---
 
-Once you have created a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
+Once you've created a deployment, you can score it as described in [Invoke the endpoint to score data by using your model](how-to-deploy-managed-online-endpoints.md#invoke-the-endpoint-to-score-data-by-using-your-model).
 
 Next steps:
 
