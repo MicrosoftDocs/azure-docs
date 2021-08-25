@@ -26,15 +26,17 @@ In this tutorial, you learn how to:
 
 - This setup requires version 2.22.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-## Create a resource group
+## Create an Azure Web PubSub instance
+
+### Create a resource group
 
 [!INCLUDE [Create a resource group](includes/cli-rg-creation.md)]
 
-## Create a Web PubSub instance
+### Create a Web PubSub instance
 
 [!INCLUDE [Create a Web PubSub instance](includes/cli-awps-creation.md)]
 
-## Get the ConnectionString for future use
+### Get the ConnectionString for future use
 
 [!INCLUDE [Get the connection string](includes/cli-awps-connstr.md)]
 
@@ -60,7 +62,7 @@ Copy the fetched **ConnectionString** and it will be used later in this tutorial
 
 ---
 
-### Set up the subscriber
+## Set up the subscriber
 
 Clients connect to the Azure Web PubSub service through the standard WebSocket protocol using [JSON Web Token (JWT)](https://jwt.io/) authentication. The service SDK provides helper methods to generate the token. In this tutorial, the subscriber directly generates the token from *ConnectionString*. In real applications, we usually use a server-side application to handle the authentication/authorization workflow. Try the [Build a chat app](./tutorial-build-chat.md) tutorial to better understand the workflow.
 
@@ -359,7 +361,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
 ---
 
-### Publish messages using service SDK
+## Publish messages using service SDK
 
 Now let's use Azure Web PubSub SDK to publish a message to the connected client.
 

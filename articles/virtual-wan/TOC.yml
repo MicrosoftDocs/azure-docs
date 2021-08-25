@@ -129,7 +129,7 @@
       href: nat-rules-vpn-gateway.md
   - name: User VPN (point-to-site)
     items:
-    - name: Create User VPN - certificate authentication
+    - name: Create User VPN
       href: virtual-wan-point-to-site-portal.md
     - name: Create User VPN - Azure AD authentication
       href: virtual-wan-point-to-site-azure-ad.md
@@ -153,7 +153,7 @@
           items:
             - name: Windows 10
               href: openvpn-azure-ad-client.md
-            - name: macOS - Preview
+            - name: macOS
               href: openvpn-azure-ad-client-mac.md
     - name: Configure Always-On tunnels
       items:
