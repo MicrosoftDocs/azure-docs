@@ -51,16 +51,42 @@ Make sure that you are assigned the following Azure AD built-in role:
 
 ## Symptom - You cannot filter custom security attributes for users or enterprise applications
 
-**Cause**
+**Cause 1**
 
 To read and filter custom security attributes for users or enterprise applications, you must be assigned the Attribute Assignment Reader or Attribute Assignment Administrator role. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) roles cannot read, filter, or assign custom security attributes.
 
-**Solution**
+**Solution 1**
 
 Make sure that you are assigned one of the following Azure AD built-in roles:
 
 - Attribute Assignment Administrator
 - Attribute Assignment Reader
+    
+Make sure you have been assigned access to an attribute set at either the tenant level or attribute set level. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
+
+**Cause 2**
+
+You are assigned the Attribute Assignment Reader or Attribute Assignment Administrator role, but you have not been assigned access to an attribute set.
+
+**Solution 2**
+
+You can delegate the management of custom security attributes at the tenant level or at the attribute set level. Make sure you have been assigned access to an attribute set at either the tenant level or attribute set level. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
+
+**Cause 3**
+
+There are no custom security attributes assigned yet for your tenant.
+
+**Solution 3**
+
+Assign custom security attributes to users or enterprise applications. For more information, see [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md) or [Assign or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
+
+**Cause 4**
+
+There are no custom security attributes defined and assigned yet for your tenant.
+
+**Solution 4**
+
+Add and assign custom security attributes to users or enterprise applications. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md), [Assign or remove custom security attributes for a user](../enterprise-users/users-custom-security-attributes.md), or [Assign or remove custom security attributes for an application](../manage-apps/custom-security-attributes-apps.md).
 
 ## Symptom - Custom security attributes cannot be deleted
 
@@ -70,7 +96,7 @@ Currently, you can only activate and deactivate custom security attribute defini
 
 **Solution**
 
-Deactivate the custom security attributes you no longer need. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md)
+Deactivate the custom security attributes you no longer need. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md).
 
 ## Next steps
 
