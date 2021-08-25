@@ -109,6 +109,11 @@ You can also export that log data to Azure Monitor, Azure Event Hubs, and Azure 
 
 ## Sign-in logs
 
+**Q: What data is included in the CSV file I can download from the Azure AD Sign-in logs blade in the Azure Portal?**
+**A:** The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign in logs is not included in CSV downloads. For example, CA policies and report-only information are not included in the CSV download. If you need to export all the information contained in your sign-in logs, the Export Data Settings button in the Azure AD Sign-in logs blade will let you export all data.
+
+---
+ 
 **Q: Why is Client app not populated when a guest signs into my tenant?**
 **A:** When a guest user signs into your tenant, the client app information for that user is not displayed in your tenant's sign-in logs to maintain customer privacy. Your users' client apps will not be displayed to other tenants that your users attempt to access. 
 
