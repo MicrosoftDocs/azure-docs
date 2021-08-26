@@ -344,7 +344,7 @@
           displayName: github gitlab
           href: concept-train-model-git-integration.md
         - name: How to troubleshoot environments
-          displayName: troubleshoot, envrionment, debug, image
+          displayName: troubleshoot, environment, debug, image
           href: how-to-troubleshoot-environments.md          
     - name: Work with data
       items: 
