@@ -1,11 +1,11 @@
 ---
-title: Manage the agent based device inventory on the cloud
+title: Manage the device inventory on the cloud
 description: Learn how to manage your device inventory on the cloud.
 ms.date: 08/19/2021
 ms.topic: how-to
 ---
 
-# Manage the agent based device inventory on the cloud
+# Manage the device inventory on the cloud
 
 The device inventory can be used to view device systems, and network information. The search, filter, edit columns, and export tools can be used to manage this information.
 
@@ -66,7 +66,7 @@ The following table describes the different parameters in the device inventory.
 
     :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory.png" alt-text="Select device inventory from the left side menu under Defender for IoT.":::
 
-## Customize the device inventory table 
+## Customize the device inventory table
 
 In the device inventory table, you can add or remove columns. You can also change the column order by dragging and dropping a field.
 
@@ -146,4 +146,3 @@ You can export your device inventory to a CSV file. Any filters that you apply t
 Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/export-button.png" border="false"::: button to export your current device inventory to a CSV file.
 
 ## See next
-
