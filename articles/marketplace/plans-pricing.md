@@ -37,7 +37,7 @@ Plans are not supported for the following offer types:
 
 - Consulting service
 - Dynamics 365 Business Central
-- Dynamics 365 Customer Engagement & PowerApps
+- Dynamics 365 Customer Engagement & Power Apps
 - Dynamics 365 for Operations
 - Power BI app
 
@@ -141,7 +141,7 @@ You can enable a free trial on plans for transactable Azure virtual machine and 
 > - Azure virtual machine 
 > - SaaS 
 > - Dynamics 365 Business Central
-> - Dynamics 365 for Customer Engagement & PowerApps
+> - Dynamics 365 for Customer Engagement & Power Apps
 > - Dynamics 365 for Operations
 >
 > For more information about listing options, see [Determine your publishing option](determine-your-listing-type.md).
