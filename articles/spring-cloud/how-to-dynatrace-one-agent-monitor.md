@@ -144,11 +144,10 @@ The Dynatrace OneAgent will update or upgrade quarterly with the JDK. Agent upda
 * Applications created after update or upgrade will use the new version of Dynatrace OneAgent.
 
 ## VNet injection instance outbound traffic configuration
-
-For VNet injection instances of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for Dynatrace OneAgent. For details, see [Communication Endpoints of Dynatrace](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/?response-parameters%3C-%3Ejson-model=json-model).
+For a VNet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for Dynatrace OneAgent. For details, see [Networks of Dynatrace](https://docs.microsoft.com)(Note: The link is pending on Dynatrace Side now) and [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md).
 
 ## Dynatrace Support Model
-Refer to [Dynatrace OneAgent platform and capability support matrix](https://www.dynatrace.com/support/help/technology-support/oneagent-platform-and-capability-support-matrix/#cloud-application-platforms)
+Refer to [Dynatrace OneAgent platform and capability support matrix](https://www.dynatrace.com/support/help/technology-support/oneagent-platform-and-capability-support-matrix/#cloud-application-platforms) for limitations when deploy Dynatrace OneAgent in application-only mode.
 
 ## Next steps
 
