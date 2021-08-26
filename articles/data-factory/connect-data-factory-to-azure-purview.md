@@ -27,7 +27,7 @@ You have two options to connect data factory to Azure Purview:
 
 You need to have **Owner** or **Contributor** role on your data factory to connect to an Azure Purview account.
 
-To establish the connection using authoring UI:
+To establish the connection on Data Factory authoring UI:
 
 1. In the ADF authoring UI, go to **Manage** -> **Azure Purview**, and select **Connect to a Purview account**. 
 
@@ -55,23 +55,21 @@ The Purview connection information is stored in the data factory resource like t
 }
 ```
 
-### Authenticate lineage push operations
+### Set up authentication
 
 Data factory's managed identity is used to authenticate lineage push operations from data factory to Purview. 
 
 - For Purview account created **on or after August 18, 2021**, grant the data factory's managed identity **Data Curator** role on your Purview **root collection**. Learn more about [Access control in Azure Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-    When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection, this operation will be done successfully.
+    When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection, this operation is done successfully.
 
-- For Purview account created **before August 18, 2021**, grant the data factory's managed identity Azure built-in [**Purview Data Curator** role](../role-based-access-control/built-in-roles#purview-data-curator.md) on your Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../purview/catalog-permissions.md#legacy-permission-guide).
+- For Purview account created **before August 18, 2021**, grant the data factory's managed identity Azure built-in [**Purview Data Curator**](../role-based-access-control/built-in-roles.md#purview-data-curator.md) role on your Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../purview/catalog-permissions.md#legacy-permission-guide).
 
-    When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have Azure built-in **Owner** or **User Access Administrator** role on the Purview account, this operation will be done successfully.
+    When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have Azure built-in **Owner** or **User Access Administrator** role on the Purview account, this operation is done successfully.
 
-You may see below warning if the needed role is not granted and you have the privilege to read Purview role assignment information.
+You may see below warning if the needed role is not granted and you have the privilege to read Purview role assignment information. To make sure the connection is properly set for the pipeline lineage push, go to your Purview account and check if **Purview Data Curator** role is granted to the data factory's managed identity. If not, manually add the role assignment.
 
 :::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Screenshot for warning of registering a Purview account.":::
-
-To make sure the connection is properly set for the pipeline lineage push, go to your Purview account and check if **Purview Data Curator** role is granted to the data factory's managed identity. If not, manually add the role assignment.
 
 ### Register Data Factory in Azure Purview
 
@@ -79,11 +77,11 @@ For how to register Data Factory in Azure Purview, see [How to connect Azure Dat
 
 ## Report lineage data to Azure Purview
 
-Once you connect the data factory to a Purview account, when you run Copy, Data flow or Execute SSIS package activity, you can get the lineage between datasets created by data processes and have a high-level overview of whole workflow process among data sources and destination. For detailed supported capabilities, see [Supported Azure Data Factory activities](../purview/how-to-link-azure-data-factory.md#supported-azure-data-factory-activities). For an end to end walkthrough, refer to [Tutorial: Push Data Factory lineage data to Azure Purview](tutorial-push-lineage-to-purview.md).
+Once you connect the data factory to a Purview account, when you execute pipelines, Data Factory push lineage information to the Purview account. For detailed supported capabilities, see [Supported Azure Data Factory activities](../purview/how-to-link-azure-data-factory.md#supported-azure-data-factory-activities). For an end to end walkthrough, refer to [Tutorial: Push Data Factory lineage data to Azure Purview](tutorial-push-lineage-to-purview.md).
 
 ## Discover and explore data using Purview
 
-Once you connect the data factory to a Purview account, you can use the search bar at the top center of Azure Data Factory autoring UI to search for data and perform actions. Learn more from [Discover and explore data in ADF using Purview](how-to-discover-explore-purview-data.md).
+Once you connect the data factory to a Purview account, you can use the search bar at the top center of Data Factory authoring UI to search for data and perform actions. Learn more from [Discover and explore data in ADF using Purview](how-to-discover-explore-purview-data.md).
 
 ## Next steps
 

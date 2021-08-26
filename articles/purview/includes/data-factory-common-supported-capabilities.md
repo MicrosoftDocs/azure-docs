@@ -34,9 +34,6 @@ ms.date: 08/25/2021
 
 *\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
 
-> [!Note]
-> The lineage feature has certain performance overhead in copy activity. For those who setup connections in Purview, you may observe certain copy jobs taking longer to complete. Mostly the impact is none to negligible. Please contact support with time comparison if the copy jobs take significantly longer to finish than usual.
-
 #### Known limitations on copy activity lineage
 
 Currently, if you use the following copy activity features, the lineage is not yet supported:
