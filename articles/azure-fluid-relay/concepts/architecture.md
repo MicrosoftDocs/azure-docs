@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure Fluid Relay Architecture
+title: Overview of Azure Fluid Relay architecture
 description: Overview of Azure Fluid Relay Architecture
 services: azure-fluid
 author: hickeys
@@ -31,7 +31,7 @@ For convenience, the service stores and distributes both a history of old operat
 
 The **Fluid loader** is the part of an app or website that enables Fluid functionality. The loader connects to the Fluid service to download and load Fluid containers, and maintains the service connection to send and receive change ops in real-time. In this way, the Fluid loader 'mimics the web.'
 
-The Fluid loader resolves a URL using **container resolver**,, connects to the Fluid service using the **Fluid service driver**, and loads the correct app code using the **code loader.**
+The Fluid loader resolves a URL using **container resolver**, connects to the Fluid service using the **Fluid service driver**, and loads the correct app code using the **code loader.**
 
 The **container lookup & resolver** uses a URL to identify which service a container is bound to and where in that service it is located. The Fluid service driver consumes this information.
 
