@@ -2,7 +2,7 @@
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 08/26/2021
 ms.custom: references_regions 
 ---
 
@@ -128,7 +128,7 @@ The above steps should help ensure that your resources are being backed up in th
 
 ### Back up Azure File Share after moving across regions
 
-To move your Storage Accounts along with the file shares in them from one region to another, follow these steps:
+To move your Storage Accounts along with the file shares in them from one region to another, see [Move an Azure Storage account to another region](/azure/storage/common/storage-account-move).
 
 >[!Note]
 >When Azure File Share is copied across regions, its associated snapshots don’t move along with it. In order to move the snapshots data to the new region, you need to move the individual files and directories of the snapshots to the Storage Account in the new region using [AzCopy](/azure/storage/common/storage-use-azcopy-files#copy-all-file-shares-directories-and-files-to-another-storage-account).
@@ -137,9 +137,7 @@ Azure Backup offers [a snapshot management solution](/azure/backup/backup-afs#di
 
 1. Start protecting the Azure File Share copied into the new Storage Account in a new or existing Recovery Services vault in the new region.  
 
-1. Once the Azure File Share is copied to the new region, you can choose to stop protection and retain/delete the snapshots (and the corresponding recovery points) of the original Azure File Share as per your requirement. This can be done by selecting your file share on the [**lBackup Items** tab](/azure/backup/backup-azure-delete-vault#delete-protected-items-in-the-cloud) of the original vault’s dashboard.
-   
-   When the backup data for Azure File Share is stopped with retain data, the recovery points remain forever and don’t adhere to any policy.
+1. Once the Azure File Share is copied to the new region, you can choose to stop protection and retain/delete the snapshots (and the corresponding recovery points) of the original Azure File Share as per your requirement. This can be done by selecting your file share on the [Backup Items tab](/azure/backup/backup-azure-delete-vault#delete-protected-items-in-the-cloud) of the original vault’s dashboard. When the backup data for Azure File Share is stopped with retain data, the recovery points remain forever and don’t adhere to any policy.
    
    This ensures that you will always have your snapshots ready for restore from the older vault. 
  
@@ -147,7 +145,7 @@ Azure Backup offers [a snapshot management solution](/azure/backup/backup-afs#di
 
 When you move a VM running SQL or SAP HANA servers to another region, the SQL and SAP HANA databases in those VMs can no longer be backed up in the vault of the earlier region. To protect the SQL and SAP HANA servers running in Azure VM in the new region, you should follow these steps:
  
-1. Before moving VM running SQL Server/SAP HANA to a new region, select it on the Backup Items tab of the existing vault’s dashboard and select _the databases_ for which backup needs to be stopped. Select **Stop protection** followed by retain/delete data as per your requirement. When the backup data is stopped with retain data, the recovery points remain forever and don’t adhere to any policy. This ensures you always have your backup data ready for restore.
+1. Before moving VM running SQL Server/SAP HANA to a new region, select it in the [Backup Items tab](/azure/backup/backup-azure-delete-vault#delete-protected-items-in-the-cloud) of the existing vault’s dashboard and select _the databases_ for which backup needs to be stopped. Select **Stop protection** followed by retain/delete data as per your requirement. When the backup data is stopped with retain data, the recovery points remain forever and don’t adhere to any policy. This ensures you always have your backup data ready for restore.
 
    >[!Note]
    >Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using [Delete data option](/azure/backup/backup-azure-manage-vms#delete-backup-data).
