@@ -77,7 +77,7 @@ chat_client = ChatClient(
 ## Access your server call ID
 When troubleshooting issues with the Call Automation SDK, like call recording and call management problems, you will need to collect the Server Call ID. This ID can be collected using the ```getServerCallId``` method.
 
-# [JavaScript]
+# [JavaScript](#tab/javascript)
 ```
 callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
     e.added.forEach((addedCall) => {
