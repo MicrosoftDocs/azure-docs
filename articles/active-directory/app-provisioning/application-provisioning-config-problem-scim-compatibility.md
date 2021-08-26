@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/11/2021
+ms.date: 08/25/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -43,7 +43,7 @@ In the table below, any item marked as fixed means that the proper behavior can 
 ## Flags to alter the SCIM behavior
 Use the flags below in the tenant URL of your application in order to change the default SCIM client behavior.
 
-:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM flags to later behavior.":::
+:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.png" alt-text="SCIM flags to later behavior.":::
 
 Use the following URL to update PATCH behavior and ensure SCIM compliance. The flag will alter the following behaviors:                
 - Requests made to disable users
