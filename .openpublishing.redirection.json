@@ -56275,7 +56275,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-cache-for-redis/cache-best-practices.md",
-      "redirect_url": "/articles/azure-cache-for-redis/index",
+      "redirect_url": "/azure/azure-cache-for-redis/index",
       "redirect_document_id": false
     }
   ]
