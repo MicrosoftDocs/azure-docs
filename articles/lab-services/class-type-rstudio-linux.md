@@ -46,7 +46,7 @@ Some classes require files, such as large data files, to be stored externally.  
 
 If you choose to have a shared R Server for the students, the server should be set up before the lab is created.  For more information on how to set up a shared server, see [how to create a lab with a shared resource in Azure Lab Services](how-to-create-a-lab-with-shared-resource.md).  For instructions to create an RStudio Server, see [Download RStudio Server for Debian & Ubuntu](https://www.rstudio.com/products/rstudio/download-server/debian-ubuntu/) and [Accessing RStudio Server Open-Source](https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started).
 
-## Template Configuration
+## Template configuration
 
 After the template machine is created, start the machine, and connect to it to [install R](https://docs.rstudio.com/resources/install-r/), [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) and optionally [X2Go Server](https://wiki.x2go.org/doku.php/doc:installation:x2goserver).  
 
@@ -95,7 +95,7 @@ Now we can install R, running the following command:
 sudo apt install r-base
 ```
 
-### Install R Studio
+### Install RStudio
 
 Now that we have R installed locally, we can install the RStudio IDE.  We'll install the free version of RStudio Desktop.  For all available versions, see [RStudio downloads](https://www.rstudio.com/products/rstudio/download/).
 
@@ -119,7 +119,7 @@ Now that we have R installed locally, we can install the RStudio IDE.  We'll ins
     echo "y" | gdebi rstudio.deb –quiet
     ```
 
-### CRAN Packages
+### CRAN packages
 
 Now it’s time to install any [CRAN packages](https://cloud.r-project.org/web/packages/available_packages_by_name.html) you want.  First, add the [current R 4.0 or later ‘c2d4u’ repository](https://cran.rstudio.com/bin/linux/ubuntu/#get-5000-cran-packages).
 
