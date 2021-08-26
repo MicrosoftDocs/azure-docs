@@ -2,7 +2,7 @@
 title: Azure Lighthouse samples and templates
 description: These samples and Azure Resource Manager templates help you onboard customers and support Azure Lighthouse scenarios.
 ms.topic: sample
-ms.date: 05/11/2021
+ms.date: 08/13/2021
 ---
 # Azure Lighthouse samples
 

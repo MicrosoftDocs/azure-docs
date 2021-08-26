@@ -21,7 +21,7 @@ This article assumes that you have a Spring Boot 2.x application that can be suc
 
 ## Verify app through test endpoint
 
-1. Go to **Application dashboard** and click your app to enter the app overview page.
+1. Go to **Application dashboard** and select your app to enter the app overview page.
 
 1. In the **Overview** pane, you should see **Test Endpoint**.  Access this endpoint from command line or browser and observe the API response.
 
@@ -52,14 +52,14 @@ Actuator endpoints let you monitor and interact with your application. By defaul
 
 To observe the configuration and configurable environment, we need to enable `env` and `configgrops` endpoints as well.
 
-1. Go to app **Overview** pane, click **Configuration** in the setting menu, go to the **Environment variables** configuration page.
+1. Go to app **Overview** pane, select **Configuration** in the setting menu, go to the **Environment variables** configuration page.
 1. Add the following properties as in the "key:value" form. This environment will open the Spring Actuator endpoint "env", "health", "info".
 
    ```properties
    management.endpoints.web.exposure.include: env,health,info
    ```
 
-1. Click **Save** button, your application will restart automatically and load the new environment variables.
+1. Select the **Save** button, your application will restart automatically and load the new environment variables.
 
 You can now go back to the app overview pane and wait until the Provisioning Status changes to "Succeeded".  There will be more than one running instance.
 

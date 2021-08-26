@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/29/2020
+ms.date: 08/10/2021
 ---
 # Azure Purview Data Catalog lineage user guide
 
@@ -22,10 +22,10 @@ One of the platform features of Azure Purview is the ability to show the lineage
 ### Data processing system
 Data integration and ETL tools can push lineage in to Azure Purview at execution time. Tools such as Data Factory, Data Share, Synapse, Azure Databricks, and so on, belong to this category of data systems. The data processing systems reference datasets as source from different databases and storage solutions to create target datasets. The list of data processing systems currently integrated with Purview for lineage are listed in below table.
 
-
 | Data processing system | Supported scope |
 | ---------------------- | ------------|
-| Azure Data Factory | [Copy activity](how-to-link-azure-data-factory.md#data-factory-copy-activity-support) <br> [Data flow activity](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Execute SSIS package activity](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
+| Azure Data Factory | [Copy activity](how-to-link-azure-data-factory.md#copy-activity-support) <br> [Data flow activity](how-to-link-azure-data-factory.md#data-flow-support) <br> [Execute SSIS package activity](how-to-link-azure-data-factory.md#execute-ssis-package-support) |
+| Azure Synapse Analytics | [Copy activity](how-to-lineage-azure-synapse-analytics.md#copy-activity-support) |
 | Azure Data Share | [Share snapshot](how-to-link-azure-data-share.md) |
  
 ### Data storage systems

@@ -38,7 +38,7 @@ Add endpoints in traffic manager:
 
 1. Specify **Type** to be *External endpoint*.
 1. Input fully qualified domain name (FQDN) of each Azure spring cloud public endpoint.
-1. Click **OK**.
+1. Select **OK**.
 
     ![Traffic Manager 1](media/spring-cloud-load-balancers/traffic-manager-1.png)
     ![Traffic Manager 2](media/spring-cloud-load-balancers/traffic-manager-2.png)
@@ -46,6 +46,7 @@ Add endpoints in traffic manager:
 ### Configure Custom Domain
 
 To finish the configuration:
+
 1. Sign in to the website of your domain provider, and create a CNAME record mapping from your custom domain to traffic manager’s Azure default domain name.
 1. Follow instructions [How to add custom domain to Azure Spring Cloud](./tutorial-custom-domain.md).
 1. Add above custom domain binding to traffic manager to Azure spring cloud corresponding app service and upload SSL certificate there.

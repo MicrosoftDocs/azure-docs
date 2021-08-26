@@ -163,7 +163,7 @@ Public IP addresses have a nominal charge. To learn more about IP address pricin
 * Forward DNS for IPv6 is supported for Azure public DNS. Reverse DNS isn't supported.
 * Routing Preference and cross-region load-balancing isn't supported.
 
-For more information on IPv6 in Azure, see [here](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+For more information on IPv6 in Azure, see [here](./ipv6-overview.md).
 
 ## Next steps
 * Learn about [Private IP Addresses in Azure](private-ip-addresses.md)

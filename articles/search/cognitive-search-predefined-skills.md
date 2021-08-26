@@ -19,7 +19,7 @@ Built-in skills are based on pre-trained models from Microsoft, which means you 
 
 The following table enumerates and describes the built-in skills.
 
-| Type  | Description | Metered by |
+| OData type  | Description | Metered by |
 |-------|-------------|-------------|
 |[Microsoft.Skills.Text.CustomEntityLookupSkill](cognitive-search-skill-custom-entity-lookup.md) | Looks for text from a custom, user-defined list of words and phrases.| Azure Cognitive Search ([pricing](https://azure.microsoft.com/pricing/details/search/)) |
 | [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md) | This skill uses a pretrained model to detect important phrases based on term placement, linguistic rules, proximity to other terms, and how unusual the term is within the source data. | Cognitive Services ([pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)) | 

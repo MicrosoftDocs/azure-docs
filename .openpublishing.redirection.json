@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/storage/blobs/storage-c-plus-plus-how-to-use-blobs.md",
+      "redirect_url": "/azure/storage/blobs/quickstart-blobs-c-plus-plus",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "active-directory/authentication/concept-mfa-plan.md",
       "redirect_url": "active-directory/authentication/howto-mfa-getstarted",
       "redirect_document_id": false
@@ -2259,6 +2264,36 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-overview.md",
+      "redirect_url": "/azure/machine-learning/migrate-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-register-dataset.md",
+      "redirect_url": "/azure/machine-learning/migrate-register-dataset",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-rebuild-experiment.md",
+      "redirect_url": "/azure/machine-learning/migrate-rebuild-experiment",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-rebuild-web-service.md",
+      "redirect_url": "/azure/machine-learning/migrate-rebuild-web-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-rebuild-integrate-with-client-app.md",
+      "redirect_url": "/azure/machine-learning/migrate-rebuild-integrate-with-client-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/migrate-execute-r-script.md",
+      "redirect_url": "/azure/machine-learning/migrate-execute-r-script",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/resource-known-issues.md",
       "redirect_url": "/azure/machine-learning/how-to-configure-auto-train#troubleshooting",
       "redirect_document_id": false
@@ -2697,28 +2732,27 @@
       "source_path_from_root": "/articles/app-service/webjobs-create-ieux-conceptual.md",
       "redirect_url": "/azure/app-service/webjobs-create",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/app-service/webjobs-create-ieux-view-log.md",
       "redirect_url": "/azure/app-service/webjobs-create",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/app-service/webjobs-create-ieux.md",
       "redirect_url": "/azure/app-service/webjobs-create",
       "redirect_document_id": false
-    },     
+    },
     {
       "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-node_uiex.md",
       "redirect_url": "/azure/azure-functions/create-first-function-vs-code-node",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/app-service/containers/index.yml",
       "redirect_url": "/azure/app-service/",
       "redirect_document_id": false
     },
-
     {
       "source_path_from_root": "/articles/app-service-web/app-service-best-practices.md",
       "redirect_url": "/azure/app-service/app-service-best-practices",
@@ -6345,6 +6379,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-functions/dotnet-isolated-process-developer-howtos.md",
+      "redirect_url": "/azure/azure-functions/dotnet-isolated-process-guide",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/functions/functions-overview.md",
       "redirect_url": "/azure/azure-functions/functions-overview",
       "redirect_document_id": false
@@ -9571,8 +9610,13 @@
     },
     {
       "source_path_from_root": "/articles/azure-supportability/resource-manager-core-quotas-request.md",
-      "redirect_url": "/azure/azure-portal/supportability/resource-manager-core-quotas-request",
-      "redirect_document_id": true
+      "redirect_url": "/azure/azure-portal/supportability/regional-quota-requests",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/resource-manager-core-quotas-request.md",
+      "redirect_url": "/azure/azure-portal/supportability/regional-quota-requests",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/sku-series-unavailable.md",
@@ -12355,6 +12399,131 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/build-training-data-set.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/build-training-data-set",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/concept-business-cards.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-business-cards",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/concept-custom.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-custom",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/concept-identification-cards.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-identification-cards",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/concept-invoices.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-invoices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/concept-layout.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-layout",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/concept-receipts.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/concept-receipts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/deploy-label-tool.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/deploy-label-tool",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/disaster-recovery.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/disaster-recovery",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/encrypt-data-at-rest.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/encrypt-data-at-rest",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/label-tool.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/label-tool",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/language-support.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/language-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/managed-identity-byos.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/managed-identity-byos",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/overview.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/resource-customer-stories.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/resource-customer-stories",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/supervised-table-tags.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/supervised-table-tags",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/tutorial-ai-builder.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/tutorial-ai-builder",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/tutorial-azure-function.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/tutorial-azure-function",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/whats-new.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/whats-new",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/containers/form-recognizer-container-configuration.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/containers/form-recognizer-container-configuration",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/containers/form-recognizer-container-install-run.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/client-library.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/client-library",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/quickstarts/get-started-with-form-recognizer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/form-recognizer/index.yml",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sql-database/sql-database-security-controls.md",
       "redirect_url": "/azure/azure-sql/database/security-controls",
       "redirect_document_id": true
@@ -12720,7 +12889,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/azure/azure-sql/managed-instance/migrate-to-instance-from-sql-server.md",
+      "source_path_from_root": "/articles/azure-sql/managed-instance/migrate-to-instance-from-sql-server.md",
       "redirect_url": "/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide",
       "redirect_document_id": true
     },
@@ -13560,10 +13729,15 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/concepts-monitor-protection.md",
+      "redirect_url": "/azure/azure-vmware/integrate-azure-native-services",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/tutorial-deploy-vmware-hcx.md",
       "redirect_url": "/azure/azure-vmware/configure-vmware-hcx",
       "redirect_document_id": false
-    }, 
+    },
     {
       "source_path_from_root": "/articles/azure-vmware/production-ready-deployment-steps.md",
       "redirect_url": "/azure/azure-vmware/plan-private-cloud-deployment",
@@ -16290,6 +16464,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-cisco-ise-pxgrid.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/integration-forescout",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-servicenow.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-servicenow",
       "redirect_document_id": false
@@ -18960,207 +19139,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/iot-edge/how-iot-edge-works.md",
-      "redirect_url": "/azure/iot-edge/about-iot-edge",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-devops-plugins.md",
-      "redirect_url": "/azure/iot-edge/how-to-ci-cd",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-create-gateway-device.md",
-      "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-create-transparent-gateway-linux.md",
-      "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-create-transparent-gateway-windows.md",
-      "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-deploy-monitor.md",
-      "redirect_url": "/azure/iot-edge/how-to-deploy-at-scale",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-deploy-monitor-cli.md",
-      "redirect_url": "/azure/iot-edge/how-to-deploy-cli-at-scale",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-deploy-monitor-vscode.md",
-      "redirect_url": "/azure/iot-edge/how-to-deploy-vscode-at-scale",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-devops-project.md",
-      "redirect_url": "/azure/iot-edge/how-to-devops-starter",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-install-iot-core.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows-on-windows",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-install-iot-edge-linux.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-install-iot-edge-linux-arm.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-install-iot-edge-windows.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows-on-windows",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-install-iot-edge-windows-server-vm.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows-on-windows",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-install-iot-edge-windows-with-linux.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows-on-windows",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-install-iot-edge-windows-with-windows.md",
-      "redirect_url": "/azure/iot-edge/how-to-install-iot-edge-windows-on-windows",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-install-production-certificates.md",
-      "redirect_url": "/azure/iot-edge/how-to-manage-device-certificates",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/tutorial-create-deployment-with-cli-iot-extension.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-visual-studio-develop-csharp-module.md",
-      "redirect_url": "/azure/iot-edge/how-to-visual-studio-develop-module",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-debug-multiple-modules-vscode.md",
-      "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-develop-c-module.md",
-      "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-develop-csharp-function.md",
-      "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-develop-csharp-module.md",
-      "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-develop-java-module.md",
-      "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-develop-multiple-modules-vscode.md",
-      "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-develop-node-module.md",
-      "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-develop-python-module.md",
-      "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-vscode-debug-azure-function.md",
-      "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-vscode-debug-csharp-module.md",
-      "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-vscode-develop-azure-function.md",
-      "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-vscode-develop-csharp-module.md",
-      "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/tutorial-multiple-modules-in-vscode.md",
-      "redirect_url": "/azure/iot-edge/how-to-vs-code-develop-module",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/quickstart.experimental.md",
-      "redirect_url": "/azure/iot-edge/quickstart",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/tutorial-simulate-device-windows.md",
-      "redirect_url": "/azure/iot-edge/quickstart",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/tutorial-simulate-device-linux.md",
-      "redirect_url": "/azure/iot-edge/quickstart-linux",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/sql-storage.md",
-      "redirect_url": "/azure/iot-edge/tutorial-store-data-sql-server",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-manual-provision-symmetric-key.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/how-to-manual-provision-x509.md",
-      "redirect_url": "/azure/iot-edge/how-to-register-device",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/deploy-trusted-applications.md",
-      "redirect_url": "/azure/iot-edge/deploy-confidential-applications",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-introduction",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/iot-edge-what-is-azure-iot.md",
       "redirect_url": "/azure/iot-fundamentals/iot-introduction",
       "redirect_document_id": false
     },
@@ -19212,11 +19191,6 @@
     {
       "source_path_from_root": "/articles/iot-suite/iot-suite-options.md",
       "redirect_url": "/azure/iot-fundamentals/iot-services-and-technologies",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/iot-edge/iot-edge-glossary.md",
-      "redirect_url": "/azure/iot-fundamentals/iot-glossary/",
       "redirect_document_id": false
     },
     {
@@ -25905,6 +25879,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/connect-cef-verify.md",
+      "redirect_url": "/azure/sentinel/troubleshooting-cef-syslog",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sentinel/connect-fusion.md",
       "redirect_url": "/azure/sentinel/fusion",
       "redirect_document_id": false
@@ -27878,7 +27857,7 @@
       "source_path_from_root": "/articles/storage/blobs/storage-blob-immutability-policies-manage.md",
       "redirect_url": "/azure/storage/blobs/immutable-policy-configure-version-scope",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/storage/blobs/storage-blob-create-account-block-blob.md",
       "redirect_url": "/azure/storage/common/storage-account-create",
@@ -28210,6 +28189,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/storage-lifecycle-management-concepts.md",
+      "redirect_url": "/azure/storage/blobs/lifecycle-management-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/storage-manage-access-to-resources.md",
       "redirect_url": "/azure/storage/blobs/storage-manage-access-to-resources",
       "redirect_document_id": true
@@ -28432,6 +28416,11 @@
     {
       "source_path_from_root": "/articles/storage/common/storage-security-controls.md",
       "redirect_url": "/azure/storage/common/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/storage-blob-rehydration.md",
+      "redirect_url": "/azure/storage/blobs/archive-rehydrate-overview",
       "redirect_document_id": false
     },
     {
@@ -55014,7 +55003,7 @@
       "redirect_url": "/troubleshoot/azure/virtual-machines/troubleshoot-vm-by-use-nested-virtualization",
       "redirect_document_id": false
     },
-        {
+    {
       "source_path": "articles/virtual-machines/windows/nested-virtualization.md",
       "redirect_url": "/virtualization/hyper-v-on-windows/user-guide/nested-virtualization",
       "redirect_document_id": false
@@ -56250,6 +56239,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sip-interface-infrastructure.md",
       "redirect_url": "/azure/communication-services/concepts/telephony-sms/direct-routing-infrastructure",
       "redirect_document_id": false
@@ -56258,6 +56252,21 @@
       "source_path_from_root": "/articles/cognitive-services/translator/translator-info-overview.md",
       "redirect_url": "/azure/cognitive-services/translator/translator-overview",
       "redirect_document_id": false
-   }
+    },
+    {
+      "source_path_from_root": "/articles/virtual-machines/network-overview.md",
+      "redirect_url": "/azure/virtual-network/network-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/governance/policy/how-to/guestconfiguration-create-linux.md",
+      "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-files-enable-smb-multichannel.md",
+      "redirect_url": "/azure/storage/files/files-smb-protocol#smb-multichannel",
+      "redirect_document_id": false
+    }
   ]
 }

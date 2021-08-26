@@ -39,17 +39,17 @@ Application Insights provide many observable perspectives, including:
 Enable Java In-Process Agent preview feature using the following procedure.
 
 1. Go to service overview page of your service instance.
-2. Click **Application Insights** entry under monitoring blade.
-3. Click **Enable Application Insights** button to enable **Application Insights** integration.
+2. Select **Application Insights** entry under monitoring blade.
+3. Select **Enable Application Insights** button to enable **Application Insights** integration.
 4. Select an existing instance of Application Insights or create a new one.
-5. Chick **Enable Java in-process agent** to enable preview Java in-process agent feature. Here you can also customize sampling rate from 0 to 100.
-6. Click **Save** to save the change.
+5. Select **Enable Java in-process agent** to enable preview Java in-process agent feature. Here you can also customize sampling rate from 0 to 100.
+6. Select **Save** to save the change.
 
 ## Portal
 
 1. Go to the **service | Overview** page and select **Application Insights** in the **Monitoring** section.
-2. Click **Enable Application Insights** to enable Application Insights in Azure Spring Cloud.
-3. Click **Enable Java in-process agent** to enable Java IPA preview feature. When an IPA preview feature is enabled, you can configure one optional sampling rate (default 10.0%).
+2. Select **Enable Application Insights** to enable Application Insights in Azure Spring Cloud.
+3. Select **Enable Java in-process agent** to enable Java IPA preview feature. When an IPA preview feature is enabled, you can configure one optional sampling rate (default 10.0%).
 
    [ ![IPA 0](media/spring-cloud-application-insights/insights-process-agent-0.png)](media/spring-cloud-application-insights/insights-process-agent-0.png)
 
@@ -57,31 +57,31 @@ Enable Java In-Process Agent preview feature using the following procedure.
 
 When the **Application Insights** feature is enabled, you can:
 
-In the left navigation pane, click **Application Insights** to jump to the **Overview** page of Application Insights.
+In the left navigation pane, select **Application Insights** to jump to the **Overview** page of Application Insights.
 
-* Click **Application Map** to see the status of calls between applications.
+* Select **Application Map** to see the status of calls between applications.
 
    [ ![IPA 2](media/spring-cloud-application-insights/insights-process-agent-2-map.png)](media/spring-cloud-application-insights/insights-process-agent-2-map.png)
 
-* Click the link between customers-service and `petclinic` to see more details such as a query from SQL.
+* Select the link between customers-service and `petclinic` to see more details such as a query from SQL.
 
-* In the left navigation pane, click **Performance** to see the performance data of all applications' operations, as well as dependencies and roles.
+* In the left navigation pane, select **Performance** to see the performance data of all applications' operations, as well as dependencies and roles.
 
    [ ![IPA 4](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)
 
-* In the left navigation pane, click **Failures** to see if something unexpected from your applications.
+* In the left navigation pane, select **Failures** to see if something unexpected from your applications.
 
    [ ![IPA 6](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)
 
-* In the left navigation pane, click **Metrics** and select the namespace, you will see both Spring Boot metrics and custom metrics, if any.
+* In the left navigation pane, select **Metrics** and select the namespace, you will see both Spring Boot metrics and custom metrics, if any.
 
    [ ![IPA 7](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
 
-* In the left navigation pane, click **Live Metrics** to see the real time metrics for different dimensions.
+* In the left navigation pane, select **Live Metrics** to see the real time metrics for different dimensions.
 
    [ ![IPA 8](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
 
-* In the left navigation pane, click **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](../azure-monitor/app/monitor-web-app-availability.md).
+* In the left navigation pane, select **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](../azure-monitor/app/monitor-web-app-availability.md).
 
    [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 

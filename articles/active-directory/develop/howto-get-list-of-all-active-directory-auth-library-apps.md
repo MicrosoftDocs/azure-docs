@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/22/2021
 ms.author: shermanouko
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ms.reviewer: aiwang, marsma
 # Customer intent: As an application developer / IT admin, I need to know / identify which of my apps are using ADAL.
 ---

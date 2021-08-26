@@ -13,6 +13,7 @@ This article describes the steps to move App Service resources. There are specif
 
 When moving a Web App across subscriptions, the following guidance applies:
 
+- Moving a resource to a new resource group or subscription is a metadata change that shouldn't affect anything about how the resource functions. For example, the inbound IP address for an app service doesn't change when moving the app service.
 - The destination resource group must not have any existing App Service resources. App Service resources include:
     - Web Apps
     - App Service plans

@@ -6,7 +6,7 @@ ms.service: mysql
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 08/12/2021
+ms.date: 08/17/2021
 ---
 
 # What's new in Azure Database for MySQL - Flexible Server (Preview)?
@@ -21,17 +21,17 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 This release of Azure Database for MySQL - Flexible Server includes the following updates.
 
-- **High availability within a single zone using same-zone high availability**
+- **High availability within a single zone using Same-Zone High Availability**
 
   The service now provides customers with the flexibility to choose the preferred availability zone for their standby server when they enable high availability. With this feature, customers can place a standby server in the same zone as the primary server, which reduces the replication lag between primary and standby. This also provides for lower latencies between the application server and database server if placed within the same Azure zone. [Learn more](https://aka.ms/SameZone-HA).
 
-- **Standby zone selection using zone redundant high availability**
+- **Standby zone selection using Zone-Redundant High Availability**
 
   The service now provides customers with the ability to choose the standby server zone location. Using this feature, customers can place their standby server in the zone of their choice. Co-locating the standby database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](https://aka.ms/standby-selection).
 
 - **Private DNS zone integration**
 
-  The service now provides integration with an Azure private DNS zone. Integration with Azure private DNS zone allows seamless resolution of private DNS within the current VNet, or any peered VNet to which the private DNS Zone is linked to. [Learn more](./concepts-networking-vnet.md).
+  [Azure Private DNS](../../dns/private-dns-privatednszone.md) provides a reliable and secure DNS service (responsible for translating a service name to IP address) for your virtual network. Azure Private DNS manages and resolves domain names in the virtual network without the need to configure a custom DNS solution. This enables you to connect your application running on a virtual network to your flexible server running on a locally or globally peered virtual network. The Azure Database for MySQL - Flexible Server now provides integration with an Azure private DNS zone to allow seamless resolution of private DNS within the current VNet, or any peered VNet to which the private DNS zone is linked. With this integration, if the IP address of the backend flexible server changes during failover or any other event, your integrated private DNS zone will be updated automatically to ensure your application connectivity resumes automatically once the server is online. [Learn more](./concepts-networking-vnet.md).
 
 - **Point-In-Time Restore for a server in a specified virtual network**
 
@@ -41,9 +41,13 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
   The Point-In-Time Restore experience for the service now enables customers to configure availability zone, Co-locating the  database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](https://aka.ms/standby-selection).
 
+- **validate_password and caching_sha2_password plugin available in private preview**
+
+  Flexible Server now supports enabling validate_password and caching_sha2_password plugins in private preview. Please email us at AskAzureDBforMySQL@service.microsoft.com
+
 - **Availability in four additional Azure regions**
 
-  The service is now available in the following Azure regions:
+  The public preview of Azure Database for MySQL - Flexible Server is now available in the following Azure regions [Learn more](overview.md#azure-regions):
 
   - Australia Southeast
   - South Africa North
@@ -195,7 +199,7 @@ If you have questions about or suggestions for working with Azure Database for M
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+- To provide feedback or to request new features, Please email us at AskAzureDBforMySQL@service.microsoft.com.
 
 ## Next steps
 

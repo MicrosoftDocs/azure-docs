@@ -150,17 +150,6 @@
     - name: Overview
       displayName: Sizes, sizing, resize, ACU, compute
       href: sizes.md
-    - name: Change the VM size
-      items:
-      - name: CLI
-        displayName: Change, resize, update size
-        href: ./linux/change-vm-size.md
-      - name: Portal or PowerShell
-        displayName: Change, resize, update size
-        href: ./windows/resize-vm.md
-    - name: Generation 2 VMs
-      displayName: Gen2, generation, gen1
-      href: generation-2.md
     - name: General purpose
       items:
       - name: Overview
@@ -267,6 +256,13 @@
       - name: Setup AMD GPU drivers
         displayName: AMD GPU drivers, AMD, GPU drivers, GPU
         href: ./windows/n-series-amd-driver-setup.md
+      - name: GPU compute migration guide
+        displayName: GPU compute migration guide
+        href: ./n-series-migration.md
+      - name: NV-series retirement
+        href: nv-series-retirement.md
+      - name: NV-series migration guide
+        href: nv-series-migration-guide.md
     - name: FPGA - accelerated compute
       items:
       - name: Overview
@@ -291,6 +287,10 @@
         href: hbv3-series.md
       - name: HC-series
         href: hc-series.md
+      - name: H-series retirement
+        href: h-series-retirement.md
+      - name: HB-series retirement
+        href: hb-series-retirement.md
     - name: States and billing
       href: states-billing.md
     - name: vCPU quotas
@@ -308,9 +308,15 @@
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
+    - name: Generation 2 VMs
+      displayName: Gen2, generation, gen1
+      href: generation-2.md
     - name: Isolated sizes
       displayName: isolated VM, sole-tenant, sole
       href: isolation.md
+    - name: Previous generations
+      displayName: older, retired, expired, deprecated
+      href: sizes-previous-gen.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Benchmark scores
@@ -320,6 +326,30 @@
         href: ./linux/compute-benchmark-scores.md
       - name: Windows
         href: ./windows/compute-benchmark-scores.md
+    - name: vCPU quotas
+      items:
+      - name: CLI
+        displayName: vCPU, quota, limit
+        href: ./linux/quotas.md
+      - name: PowerShell
+        displayName: vCPU, quota, limit
+        href: ./windows/quotas.md
+    - name: Virtual machines selector tool
+      href: https://aka.ms/vm-selector
+    - name: Change the VM size
+      items:
+      - name: CLI
+        displayName: Change, resize, update size
+        href: ./linux/change-vm-size.md
+      - name: Portal or PowerShell
+        displayName: Change, resize, update size
+        href: ./windows/resize-vm.md
+    - name: States and billing
+      href: states-billing.md
+    - name: Azure VMs with no temp disk
+      href: azure-vms-no-temp-disk.yml
+    - name: Azure VM sizes naming conventions
+      href: vm-naming-conventions.md
   - name: Dedicated hosts
     displayName: sole-tenant, sole tenant, isolated, isolation
     items:
@@ -492,7 +522,7 @@
       - name: Windows
         displayName: Azure Key Vault, key vault, encryption
         href: ./extensions/key-vault-windows.md
-    - name: Azure Policy Guest Configuration
+    - name: Azure Policy guest configuration
       href: ./extensions/guest-configuration.md
     - name: Custom Script
       items:
@@ -975,16 +1005,31 @@
     - name: Portal
       displayName: proximity placement groups, ppg
       href: ./windows/proximity-placement-groups-portal.md
-  - name: Virtual Machine Scale Sets
+  - name: Virtual machine scale sets 
     items:
-    - name: Overview
-      displayName: virtual machine scale sets, VMSS, VM scale set, scale set
-      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+    - name: Flexible VM scale sets overview (preview) 
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets.md
+    - name: Portal (preview) 
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-portal.md 
+    - name: CLI (preview) 
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-cli.md 
+    - name: PowerShell (preview) 
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-powershell.md 
+    - name: ARM template (preview) 
+      displayName: Flexible orchestration mode for virtual machine scale sets 
+      href: flexible-virtual-machine-scale-sets-rest-api.md  
     - name: Autoscale
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-    - name: Orchestration modes
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context 
+    - name: Orchestration modes (preview) 
       displayName: VMSS, flex, scale set, scale, virtual machine sacle set
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+    - name: Uniform VM scale sets overview
+      displayName: virtual machine scale sets, VMSS, VM scale set, scale set
+      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
   - name: Understand VM reboots
     href: understand-vm-reboots.md
   - name: Azure Regions
@@ -1355,7 +1400,7 @@
   items:
   - name: Overview
     displayName: Networking Overview
-    href: network-overview.md?context=/azure/virtual-machines/context/context
+    href: ../virtual-network/network-overview.md?context=/azure/virtual-machines/context/context
   - name: Optimize network throughput
     href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
   - name: Best practices
