@@ -1,6 +1,6 @@
 ---
 title: Configure Azure ExpressRoute v1
-description: Network configuration for App Service Environment for PowerApps with Azure ExpressRoute. This doc is provided only for customers who use the legacy v1 ASE.
+description: Network configuration for App Service Environment for Power Apps with Azure ExpressRoute. This doc is provided only for customers who use the legacy v1 ASE.
 author: stefsch
 
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
@@ -10,7 +10,7 @@ ms.author: stefsch
 ms.custom: seodec18
 ---
 
-# Network configuration details for App Service Environment for PowerApps with Azure ExpressRoute
+# Network configuration details for App Service Environment for Power Apps with Azure ExpressRoute
 
 Customers can connect an [Azure ExpressRoute][ExpressRoute] circuit to their virtual network infrastructure to extend their on-premises network to Azure. App Service Environment is created in a subnet of the [virtual network][virtualnetwork] infrastructure. Apps that run on App Service Environment establish secure connections to back-end resources that are accessible only over the ExpressRoute connection.  
 
@@ -136,7 +136,7 @@ Now you're ready to deploy App Service Environment!
 
 ## Next steps
 
-To get started with App Service Environment for PowerApps, see [Introduction to App Service Environment][IntroToAppServiceEnvironment].
+To get started with App Service Environment for Power Apps, see [Introduction to App Service Environment][IntroToAppServiceEnvironment].
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/ 

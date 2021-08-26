@@ -16,11 +16,11 @@ This article features a collection of common storage monitoring scenarios, and p
 
 ## Identify storage accounts with no or low use
 
-Storage Insights is a dashboard on top of Azure Storage metrics and logs. You can use Storage Insights to examine the transaction volume and used capacity of all your accounts. That information can help you decide which accounts you might want to retire. To configure Storage Insights, see [Monitoring your storage service with Azure Monitor Storage insights](../../azure-monitor/insights/storage-insights-overview.md). 
+Storage Insights is a dashboard on top of Azure Storage metrics and logs. You can use Storage Insights to examine the transaction volume and used capacity of all your accounts. That information can help you decide which accounts you might want to retire. To configure Storage Insights, see [Monitoring your storage service with Azure Monitor Storage insights](../common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json). 
 
 ### Analyze transaction volume
 
-From the [Storage Insights view in Azure monitor](../../azure-monitor/insights/storage-insights-overview.md#view-from-azure-monitor), sort your accounts in ascending order by using the **Transactions** column. The following image shows an account with low transaction volume over the specified period. 
+From the [Storage Insights view in Azure monitor](../common/storage-insights-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json#view-from-azure-monitor), sort your accounts in ascending order by using the **Transactions** column. The following image shows an account with low transaction volume over the specified period. 
 
 > [!div class="mx-imgBorder"]
 > ![transaction volume in Storage Insights](./media/blob-storage-monitoring-scenarios/storage-insights-transaction-volume.png)
@@ -150,8 +150,6 @@ Shared Key and SAS authentication provide no means of auditing individual identi
 
 ## Optimize cost for infrequent queries
 
-If you maintain large amounts of log data but plan to query them only occasionally (For example, to meet compliance and security obligations), consider archiving your logs to a storage account instead of using Log Analytics. For a massive number of transactions, the cost of using Log Analytics might be high relative to just archiving to storage and using other query techniques. Log Analytics makes sense in cases where you want to use the rich capabilities of Log Analytics. You can reduce the cost of querying data by archiving logs to a storage account, and then querying those logs in a Synapse workspace.
-
 You can export logs to Log Analytics for rich native query capabilities. When you have massive transactions on your storage account, the cost of using logs with Log Analytics might be high. See [Azure Log Analytics Pricing](https://azure.microsoft.com/pricing/details/monitor/). If you only plan to query logs occasionally (for example, query logs for compliance auditing), you can consider reducing the total cost by exporting logs to storage account, and then using a serverless query solution on top of log data, for example, Azure Synapse.
 
 With Azure Synapse, you can create server-less SQL pool to query log data when you need. This could save costs significantly. 
@@ -185,8 +183,7 @@ With Azure Synapse, you can create server-less SQL pool to query log data when y
 ## See also
 
 - [Monitoring Azure Blob Storage](monitor-blob-storage.md).
+- [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md)
 - [Tutorial: Use Kusto queries in Azure Data Explorer and Azure Monitor](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 - [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
-
-  
 

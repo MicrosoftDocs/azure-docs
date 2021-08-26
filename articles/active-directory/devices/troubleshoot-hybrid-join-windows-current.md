@@ -172,7 +172,7 @@ Possible reasons for failure:
 - **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609)
    - Reason: Operation timed out while performing Discovery.
    - Resolution: Ensure that `https://enterpriseregistration.windows.net` is accessible in the SYSTEM context. For more information, see the section [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites).
-- **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
+- **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c003d/-2145648579)
    - Reason: Generic Realm Discovery failure. Failed to determine domain type (managed/federated) from STS.
    - Resolution: Find the suberror below to investigate further.
 
@@ -386,7 +386,7 @@ Use Event Viewer logs to locate the phase and errorcode for the join failures.
 
 | Server error code | Server error message | Possible reasons | Resolution |
 | --- | --- | --- | --- |
-| DirectoryError | AADSTS90002: Tenant <UUID> not found. This error may happen if there are no active subscriptions for the tenant. Check with your subscription administrator. | Tenant ID in SCP object is incorrect | Ensure SCP object is configured with the correct Azure AD tenant ID and active subscriptions and present in the tenant. |
+| DirectoryError | AADSTS90002: Tenant `UUID` not found. This error may happen if there are no active subscriptions for the tenant. Check with your subscription administrator. | Tenant ID in SCP object is incorrect | Ensure SCP object is configured with the correct Azure AD tenant ID and active subscriptions and present in the tenant. |
 | DirectoryError | The device object by the given ID is not found. | Expected error for sync join. The device object has not synced from AD to Azure AD | Wait for the Azure AD Connect sync to complete and the next join attempt after sync completion will resolve the issue |
 | AuthenticationError | The verification of the target computer's SID | The certificate on the Azure AD device doesn't match the certificate used to sign the blob during the sync join. This error typically means sync hasn’t completed yet. |  Wait for the Azure AD Connect sync to complete and the next join attempt after sync completion will resolve the issue |
 
@@ -615,7 +615,7 @@ Resolution :
 
 ---
 
-**AADSTS50034: The user account <Account> does not exist in the <tenant id> directory**
+**AADSTS50034: The user account `Account` does not exist in the `tenant id` directory**
 
 Reason: 
 -  AAD is unable to find the user account in the tenant.
@@ -669,7 +669,7 @@ Resolution:
 3. For Fiddler traces accept the certificate requests that will pop up.
 4. The wizard will prompt you for a password to safeguard your trace files. Provide a password.
 5. Finally, open the folder where all the logs collected are stored. It is typically in a folder like
-                %LOCALAPPDATA%\ElevatedDiagnostics\<numbers>
+                %LOCALAPPDATA%\ElevatedDiagnostics\numbers
 7. Contact support with contents of latest.cab, which contains all the collected logs.
 
 **Network traces**

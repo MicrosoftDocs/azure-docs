@@ -144,7 +144,19 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * The deletion of all documents in a collection doesn't reset the analytical store schema.
   * There is not schema versioning. The last version inferred from transactional store is what you will see in analytical store.
 
-* Currently we do not support Azure Synapse Spark reading properties that contain blanks (white spaces) in their names. You will need to use Spark functions like `cast` or `replace` to be able to load the data into a Spark DataFrame.
+* Currently Azure Synapse Spark can't read properties that contain some special characters in their names, listed bellow. If this is your case, please contact the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com) for more information.
+  * : (Colon)
+  * ` (Grave accent)
+  * , (Comma)
+  * ; (Semicolon)
+  * {}
+  * ()
+  * \n
+  * \t
+  * = (Equal sign)
+  * " (Quotation mark)
+ 
+* Azure Synapse Spark now supports properties with whitespaces in their names.
 
 ### Schema representation
 
@@ -293,7 +305,7 @@ If you have a globally distributed Azure Cosmos DB account, after you enable ana
 
 ## Security
 
-* Authentication with the analytical store is the same as the transactional store for a given database. You can use primary or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. Access to this Linked Service is available to anyone who has access into the workspace.
+* **Authentication with the analytical store** is the same as the transactional store for a given database. You can use primary or read-only keys for authentication. You can leverage linked service in Synapse Studio to prevent pasting the Azure Cosmos DB keys in the Spark notebooks. For Azure Synapse SQL serverless, you can use SQL credentials to also prevent pasting the Azure Cosmos DB keys in the SQL notebooks. The Access to this Linked Services or to this credentials are available to anyone who has access to the workspace.
 
 * **Network isolation using private endpoints** - You can control network access to the data in the transactional and analytical stores independently. Network isolation is done using separate managed private endpoints for each store, within managed virtual networks in Azure Synapse workspaces. To learn more, see how to [Configure private endpoints for analytical store](analytical-store-private-endpoints.md) article.
 

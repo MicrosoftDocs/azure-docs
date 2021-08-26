@@ -15,7 +15,7 @@ ms.custom: "b2c-support"
 
 # Configure authentication in a sample WPF desktop application using Azure Active Directory B2C
 
-This article uses a sample [WPF desktop](/visualstudio/designers/getting-started-with-wpf.md) application to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your desktop apps.
+This article uses a sample [WPF desktop](/visualstudio/designers/getting-started-with-wpf) application to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your desktop apps.
 
 ## Overview
 
@@ -149,7 +149,7 @@ public static string ApiEndpoint = "https://contoso.azurewebsites.net/hello";
 
 ## Step 6: Run and test the desktop app
 
-1. [Restore the NuGet packages](/nuget/consume-packages/package-restore.md).
+1. [Restore the NuGet packages](/nuget/consume-packages/package-restore).
 1. Press **F5** to build and run the sample.
 1. Select **Sign In**. Then sign up or sign in with your Azure AD B2C local or social account.
 

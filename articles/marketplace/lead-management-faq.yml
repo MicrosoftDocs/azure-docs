@@ -75,7 +75,7 @@ sections:
       - question: |
           I configured an Azure table as my lead destination. Can I get notified whenever a new commercial marketplace lead is sent?
         answer: |
-          Yes. Follow the instructions in [Configure lead management by using an Azure table](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) to set up a Microsoft flow that sends an email if a lead is added to the Azure table.
+          Yes. Follow the instructions in [Configure lead management by using an Azure table](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) to set up a new flow by using Power Automate that sends an email if a lead is added to the Azure table.
           
       - question: |
           I configured Salesforce as my lead destination, but why can't I find the leads?
