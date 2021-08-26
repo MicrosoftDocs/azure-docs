@@ -58,7 +58,7 @@ To view the status of SMB Multichannel, navigate to the storage account containi
 
 To enable or disable SMB Multichannel, select the current status (**Enabled** or **Disabled** depending on the status). The resulting dialog provides a toggle to enable or disable SMB Multichannel. Select the desired state and select **Save**.
 
-![A screenshot of the dialog to enable/disable the SMB Multichannel feature](./media/files-smb-protocol/2-smb-multichannel-enable.png)
+:::image type="content" source="media/files-smb-protocol/2-smb-multichannel-enable.png" alt-text="A screenshot of the dialog to enable/disable the SMB Multichannel feature":::
 
 # [PowerShell](#tab/azure-powershell)
 To get the status of SMB Multichannel, use the `Get-AzStorageFileServiceProperty` cmdlet. Remember to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment before running these PowerShell commands.
