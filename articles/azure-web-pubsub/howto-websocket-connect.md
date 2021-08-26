@@ -195,7 +195,7 @@ public final class SimpleClient {
 
 ---
 
-#### PubSub WebSocket Client
+## PubSub WebSocket Client
 
 # [In Browser](#tab/browser)
 
