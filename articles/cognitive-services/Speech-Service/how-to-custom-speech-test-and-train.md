@@ -210,4 +210,3 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 
 * [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 * [Train custom model](how-to-custom-speech-train-model.md)
 * [Deploy model](./how-to-custom-speech-train-model.md)
-x
