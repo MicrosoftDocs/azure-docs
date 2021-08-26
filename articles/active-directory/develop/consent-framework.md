@@ -13,6 +13,7 @@ ms.workload: identity
 ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
+ms.custom: has-adal-ref
 ---
 
 # Azure Active Directory consent framework

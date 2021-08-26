@@ -46,8 +46,6 @@ This article describes how to create one or more access reviews for privileged A
 
 5. Under Manage, select **Access reviews**, and then select **New** to create a new access review.
 
-    <kbd> ![Azure AD roles - Access reviews list showing the status of all reviews](./media/pim-how-to-start-security-review/access-reviews.png) </kbd>
-
 6. Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
 
     <kbd> ![Create an access review - Review name and description](./media/pim-how-to-start-security-review/name-description.png) </kbd>
