@@ -246,6 +246,8 @@ Install-Package Azure.Data.Tables
 dotnet add package Azure.Data.Tables
 ```
 
+---
+
 ## 5 - Configure the tables client in Startup.cs
 
 The Azure SDK communicates with Azure using client objects to execute different operations against Azure.  The [TableClient](/dotnet/api/azure.data.tables.tableclient) object is the object used to communicate with the Azure Cosmos DB table API.
