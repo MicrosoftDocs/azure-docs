@@ -153,7 +153,7 @@
           items:
             - name: Windows 10
               href: openvpn-azure-ad-client.md
-            - name: macOS - Preview
+            - name: macOS
               href: openvpn-azure-ad-client-mac.md
     - name: Configure Always-On tunnels
       items:
