@@ -19,7 +19,7 @@ ms.author: rolyon
 > Custom security attributes are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure role-based access control (Azure RBAC) currently supports 2,000 role assignments in a subscription. If you need to create hundreds or even thousands of Azure role assignments, you might encounter this limit. Managing hundreds or thousands of role assignments can difficult. Depending on your scenario, you might be able to reduce the number of role assignments and make it easier to manage access. This article describes a solution to reduce the number of role assignments by using Azure attribute-based access control (Azure ABAC) conditions and Azure AD custom security attributes for principals.
+Azure role-based access control (Azure RBAC) currently supports 2,000 role assignments in a subscription. If you need to create hundreds or even thousands of Azure role assignments, you might encounter this limit. Managing hundreds or thousands of role assignments can difficult. Depending on your scenario, you might be able to reduce the number of role assignments and make it easier to manage access. This article describes a solution to reduce the number of role assignments by using [Azure attribute-based access control (Azure ABAC)](conditions-overview.md) conditions and [Azure AD custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md) for principals.
 
 ## Example scenario
 
@@ -45,7 +45,7 @@ Here is the expression in the condition that makes the solution work:
 ```
   @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name]
   StringEquals
-  @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:customer_name]
+  @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Contosocustomer_name]
 ```
 
 The full condition would be similar to the following:
@@ -79,7 +79,7 @@ The full condition would be similar to the following:
  )
  OR 
  (
-  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:customer_name]
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Contosocustomer_name]
  )
 )
 ```
@@ -89,10 +89,202 @@ The full condition would be similar to the following:
 Manually setting up this configuration would be difficult. A better way would be to use a programmatic approach. Here is a PowerShell script to set up this configuration.
 
 ```powershell
+# Utility function to pause the script
+function Pause{
 
+    param(
+        $step
+    )
+
+    Write-Host "Finished step: $($step)";
+    Write-Host -NoNewLine 'Press any key to continue ...';
+    $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
+}
+
+###############################################################
+#
+#  Variables
+#
+###############################################################
+# Sign in vars
+$tenant = "00000000-0000-0000-0000-000000000000"
+$subscription = "11111111-1111-1111-1111-111111111111"
+$resourceGroupName = "contosorg"
+
+# Azure AD Group vars
+$AADGroupName = "Contosocustomergroup"
+$AADGroupRD = "Storage Blob Data Owner"
+$AADGroupCondition = "(
+ (
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/manageOwnership/action'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/action'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/permanentDelete/action'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read'})
+  AND
+  !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write'})
+ )
+ OR 
+ (
+  @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Contosocustomer_name]
+ )
+)"
+
+# Service principal vars
+$SPName_prefix = "Contosocustomer"
+$SPName_suffix = ""
+
+# Key vault vars
+$KVName = "contosoKV10"
+# Location of Contoso resource group
+$KVLocation = "West US"
+
+# Storage vars
+$storageLocation = "South Central US"
+$storageAccountNameBase = "ContosoCustomerSA"
+$nameList = "Alice","Bob","Chandra","Daniel","Elizabeth" 
+
+###############################################################
+#
+#  Config
+#
+###############################################################
+
+# Connect to Azure with admin credentials
+# Tenant and subscription parameters are optional in most cases, but can help if PowerShell is having trouble with contexts
+$userCredentials = Get-Credential -UserName <user>@<domain>.com
+Connect-AzAccount -Tenant $tenant -Subscription $subscription -Credential $userCredentials
+
+###############################################################
+#
+#  Key vault operations
+#  Used to help log back in as the different service principals
+#
+###############################################################
+
+# Create a key vault to store service principal passwords
+New-AzKeyVault -Name $KVName -ResourceGroupName $resourceGroupName -Location $KVLocation
+
+# Give yourself CRUD permissions to store secrets in key vault
+Set-AzKeyVaultAccessPolicy -VaultName $KVName -UserPrincipalName "<user>@<domain>.com" -PermissionsToSecrets get,set,delete,list,recover,purge
+
+Pause -step "Create key vault"
+
+###############################################################
+#
+#  Create storage accounts and containers
+#  Add test blobs
+#
+###############################################################
+
+# Create 2 storage accounts with 5 containers each (1 for each customer)
+for ($i=1; $i -le 2 ; $i++){
+    $storageAccountName = "$($storageAccountNameBase.ToLower())$($i)"
+    # Create storage account
+    New-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName -Location $storageLocation -SkuName Standard_RAGRS -Kind StorageV2
+    # Wait 5 minutes for account to be accessible, but typically not necessary
+    Start-Sleep -s 600
+    # Retrieve context for storage related operations
+    $context = New-AzStorageContext -StorageAccountName $storageAccountName
+    foreach($name in $nameList) {
+        $containerName = "$($name.ToLower())"
+        # Create container
+        New-AzStorageContainer -Name "$($containerName)" -Permission blob -Context $context
+        # Waiting 5 minutes for container to be accessible
+        Start-Sleep -s 600
+        # Add blob for testing
+        Set-AzStorageBlobContent -File "C:\\testdoc.txt" -Container $containerName -Blob "$($containerName).txt" -Context $context
+    }
+}
+
+Pause -step "Create storage"
+
+###############################################################
+#
+#  Create Azure AD group or fetch existing group and add permissions
+#
+###############################################################
+
+# Uncomment relevant lines as necessary
+
+# Create group
+# $AADGroup = New-AzureADMSGroup -DisplayName $AADGroupName -MailEnabled $false -MailNickname $AADGroupName -SecurityEnabled $true -IsAssignableToRole $true
+# Use existing group
+#$AADGroup = Get-AzADGroup -SearchString $AADGroupName
+
+# Create role assignment for the group
+$ra = New-AzRoleAssignment -PrincipalId $AADGroup.Id -RoleDefinitionName $AADGroupRD -Scope "/subscriptions/$($subscription)/resourceGroups/$($resourceGroupName)" -Condition $AADGroupCondition -ConditionVersion "2.0"
+
+Pause -step "Create Azure AD group"
+
+###############################################################
+#
+# Create service principals and add them to Azure AD group
+#
+###############################################################
+
+for ($i=1; $i -le 5 ; $i++){
+    # Name builders can be more complex, but this is a simple prefix-suffix example
+    $SPName = "$($SPName_prefix)$($i)$($SPName_suffix)"
+    # Create service principal
+    $sp = New-AzADServicePrincipal -DisplayName $SPName -SkipAssignment
+    # Save password
+    Set-AzKeyVaultSecret -VaultName $KVName -Name "$($SPName)-password" -SecretValue $sp.secret
+    # Add service principal to group
+    Add-AzADGroupMember -TargetGroupObjectId $($AADGroup.Id) -MemberObjectId $($sp.Id)
+}
+
+Pause -step "Create service principals and add to group"
+
+###############################################################
+#
+# Example of access with each service principal
+#
+###############################################################
+
+for ($i=1; $i -le 5 ; $i++){
+    # Name builders can be more complex, but this is a simple prefix-suffix example
+    $SPName = "$($SPName_prefix)$($i)$($SPName_suffix)"
+    # Get service principal object
+    $sp = Get-AzADServicePrincipal -DisplayName $SPName
+    # Retrieve password for sign in
+    $spSecret = Get-AzKeyVaultSecret -VaultName $KVName -Name "$($SPName)-password" -AsPlainText
+    $spSecret = ConvertTo-SecureString -String $spSecret -AsPlainText -Force
+    # Build credential for sign in
+    $pscredential = New-Object -TypeName System.Management.Automation.PSCredential($sp.ApplicationId, $spSecret)
+    # Sign in
+    $account = Connect-AzAccount -Tenant $tenant -Subscription $subscription -Credential $pscredential -ServicePrincipal
+    
+    foreach($name in $nameList) {
+        $containerName = "$($name.ToLower())"
+        Write-Host "Service principal: $($SPName) Container: $($containerName)"
+        # Get blob for testing
+        Get-AzStorageBlobContent -Container $containerName -Blob "$($containerName).txt" -Context $context
+    }
+
+    Disconenct-AzAccount $account
+    Connect-AzAccount -Tenant $tenant -Subscription $subscription -Credential $userCredentials
+    Pause -step "Demo with service principal: $($SPName)"
+}
 ```
 
-## Steps to use this solution
+## Can you use this solution?
 
 If you have a similar scenario, follow these steps to see if you could potentially use this solution.
 
