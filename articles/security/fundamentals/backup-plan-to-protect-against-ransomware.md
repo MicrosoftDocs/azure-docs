@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 08/26/2021
+ms.date: 08/27/2021
 ---
 
 # Backup and restore plan to protect against ransomware
@@ -97,9 +97,9 @@ Ransomware can attack while you are planning for an attack so your first priorit
 
 In our experience, the five most important applications to customers fall into the following categories in this priority order:
 
-1. Identity Systems – required for users to access any systems (including all others described below) such as Active Directory, [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect), AD domain controllers
+1. Identity systems – required for users to access any systems (including all others described below) such as Active Directory, [Azure AD Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect), AD domain controllers
 2. Human life – any system that supports human life or could put it at risk such as medical or life support systems, safety systems (ambulance, dispatch systems, traffic light control), large machinery, chemical/biological systems, production of food or personal products, and others
-3. Financial Systems – systems that process monetary transactions and keep the business operating, such as payment systems and related databases, financial system for quarterly reporting
+3. Financial systems – systems that process monetary transactions and keep the business operating, such as payment systems and related databases, financial system for quarterly reporting
 4. Product or service enablement – any systems that are required to provide the business services or produce/deliver physical products that your customers pay you for, factory control systems, product delivery/dispatch systems, and similar
 5. Security (minimum) – You should also prioritize the security systems required to monitor for attacks and provide minimum security services. This should be focused on ensuring that the current attacks (or easy opportunistic ones) are not immediately able to gain (or regain) access to your restored systems
 
@@ -165,7 +165,6 @@ Key industry information:
 
 Microsoft Azure:
 
-- Azure defenses for ransomware attack (white paper)
 - [Help protect from ransomware with Microsoft Azure Backup](https://www.youtube.com/watch?v=VhLOr2_1MCg) (26 minute video)
 - [Recovering from systemic identity compromise](/azure/security/fundamentals/recover-from-identity-compromise)
 - [Advanced multistage attack detection in Azure Sentinel](/azure/sentinel/fusion#ransomware)
@@ -183,7 +182,7 @@ Microsoft 365 Defender:
 
 Microsoft Security team blog posts:
 
-- [Becoming resilient by understanding cybersecurity risks: Part 4—navigating current threats (May 2021)](https://www.microsoft.com/security/blog/2021/05/26/becoming-resilient-by-understanding-cybersecurity-risks-part-4-navigating-current-threats/). See the Ransomware section.
-- [Human-operated ransomware attacks: A preventable disaster (March 2020)](https://www.microsoft.com/security/blog/2020/03/05/human-operated-ransomware-attacks-a-preventable-disaster/). Includes attack chain analysis of actual human-operated ransomware attacks.
-- [Ransomware response—to pay or not to pay? (December 2019)](https://www.microsoft.com/security/blog/2019/12/16/ransomware-response-to-pay-or-not-to-pay/)
+- [Becoming resilient by understanding cybersecurity risks: Part 4, navigating current threats (May 2021)](https://www.microsoft.com/security/blog/2021/05/26/becoming-resilient-by-understanding-cybersecurity-risks-part-4-navigating-current-threats/). See the Ransomware section
+- [Human-operated ransomware attacks: A preventable disaster (March 2020)](https://www.microsoft.com/security/blog/2020/03/05/human-operated-ransomware-attacks-a-preventable-disaster/). Includes attack chain analysis of actual human-operated ransomware attacks
+- [Ransomware response — to pay or not to pay? (December 2019)](https://www.microsoft.com/security/blog/2019/12/16/ransomware-response-to-pay-or-not-to-pay/)
 - [Norsk Hydro responds to ransomware attack with transparency (December 2019)](https://www.microsoft.com/security/blog/2019/12/17/norsk-hydro-ransomware-attack-transparency/)
