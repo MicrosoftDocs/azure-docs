@@ -76,6 +76,12 @@ With the discovery and assessment steps complete, you are done with the MongoDB 
 
 More detail is provided in the following sections.
 
+### Capacity planning
+
+Trying to do capacity planning for a migration to Azure Cosmos DB?
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
+
 ### Considerations when using Azure Cosmos DB's API for MongoDB
 
 Before you plan your Azure Cosmos DB data estate, make sure you understand the following Azure Cosmos DB concepts:
@@ -200,7 +206,6 @@ In the pre-migration phase, spend some time to plan what steps you will take tow
    * [Offline migration using Azure database migration service (DMS)](../../dms/tutorial-mongodb-cosmos-db.md)
    * [Online migration using Azure database migration service (DMS)](../../dms/tutorial-mongodb-cosmos-db-online.md)
    * [Offline/online migration using Azure Databricks and Spark](migrate-databricks.md)
-   * [Migrate your MongoDB data using Azure database migration service (DMS).](../../dms/tutorial-mongodb-cosmos-db.md) 
 * [Post-migration guide](post-migration-optimization.md) - optimize steps once you have migrated to Azure Cosmos DB API for MongoDB
 * [Provision throughput on Azure Cosmos containers and databases](../set-throughput.md)
 * [Partitioning in Azure Cosmos DB](../partitioning-overview.md)
