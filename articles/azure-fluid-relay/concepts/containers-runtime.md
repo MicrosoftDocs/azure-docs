@@ -51,7 +51,7 @@ Interactions with Fluid containers are accomplished through requests. Developers
 container.request({url: "/"})
 ```
 
-## Container vs Runtime
+## Container vs runtime
 
 A Fluid container is the instantiated container JavaScript object, but it's also the definition of the container. We interchangeably use "container" to refer to the class, which can create new objects, and the instantiated object itself.
 

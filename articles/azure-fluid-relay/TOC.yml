@@ -1,4 +1,4 @@
-- name: Azure Fluid Relay Documentation
+- name: Azure Fluid Relay documentation
   href: index.yml
 - name: Overview
   items:
@@ -8,7 +8,7 @@
   items:
   - name: Architecture
     href: concepts/architecture.md
-  - name: Container Runtime
+  - name: Container runtime
     href: concepts/containers-runtime.md
 - name: Resources
   items:
