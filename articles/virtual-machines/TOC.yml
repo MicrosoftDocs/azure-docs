@@ -363,10 +363,10 @@
       href: capacity-reservation-remove-vm.md
     - name: Associate a VM scale set (preview)
       displayName: on-demand capacity reservation
-      href: capacity-reservation-associate-vm-scale-set.md
+      href: capacity-reservation-associate-virtual-machine-scale-set.md
     - name: Remove a VM scale set (preview)
       displayName: on-demand capacity reservation
-      href: capacity-reservation-remove-vm-scale-set.md
+      href: capacity-reservation-remove-virtual-machine-scale-set.md
   - name: Create Virtual Machines
     items:
     - name: Linux

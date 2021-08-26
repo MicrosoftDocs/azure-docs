@@ -1,5 +1,5 @@
 ---
-title: Modifying a Capacity Reservation in Azure (preview)
+title: Modify a Capacity Reservation in Azure (preview)
 description: Learn how to modify a Capacity Reservation.
 author: vargupt
 ms.author: vargupt
@@ -10,7 +10,7 @@ ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
 ---
 
-# Modifying a Capacity Reservation (preview)
+# Modify a Capacity Reservation (preview)
 
 After creating a Capacity Reservation Group and Capacity Reservation, you may want to modify your reservations. This article explains how to do the following using API, Azure portal, and PowerShell. 
 
@@ -83,7 +83,7 @@ To learn more, go to Azure PowerShell command [New-AzCapacityReservation](/power
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
 
-## Resizing VMs associated with a Capacity Reservation Group 
+## Resize VMs associated with a Capacity Reservation Group 
 
 If the virtual machine being resized is currently attached to a capacity reservation group and that group doesn’t have a reservation for the target size, then create a new reservation for that size or remove the virtual machine from the reservation group before resizing. 
 
@@ -195,7 +195,7 @@ To learn more, go to Azure PowerShell commands [Get-AzCapacityReservationGroup](
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
 
-## Deleting a Capacity Reservation Group and Capacity Reservation 
+## Delete a Capacity Reservation Group and Capacity Reservation 
 
 Azure allows a Capacity Reservation Group to be deleted when all the member Capacity Reservations have been deleted and no virtual machines are associated to the group.  
 
@@ -337,10 +337,10 @@ To resolve this failure, take the following steps to locate the old quantity res
 
 1. Go to [Application Change Analysis](https://ms.portal.azure.com/#blade/Microsoft_Azure_ChangeAnalysis/ChangeAnalysisBaseBlade) in the Azure portal 
 1. Select the applicable **Subscription**, **Resource group**, and **Time range** in the filters
-    1. You can only go back up to 14 days in the past in the **Time range** filter 
+    - You can only go back up to 14 days in the past in the **Time range** filter 
 1. Search for the name of the capacity reservation
 1. Look for the change in `sku.capacity` property for that reservation 
-    1. The old quantity reserved will be the value under the **Old Value** column 
+    - The old quantity reserved will be the value under the **Old Value** column 
 
 Update `myCapacityReservation` to the old quantity reserved. Once updated, the reservation will be available immediately for use with your virtual machines. 
 

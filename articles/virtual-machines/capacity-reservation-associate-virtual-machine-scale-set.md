@@ -14,8 +14,8 @@ ms.custom: template-how-to
 
 Virtual Machine Scale Sets have two modes: 
 
-1. **Uniform Orchestration Mode:** In this mode, virtual machine scale sets use a VM profile or a template to scale up to the desired capacity. While there's some ability to manage or customize individual VM instances, Uniform uses identical VM instances. These instances are exposed through the virtual machine scale sets VM APIs and aren't compatible with the standard Azure IaaS VM API commands. Since the scale set performs all the actual VM operations, reservations are associated with the virtual machine scale set directly. Once the scale set is associated with the reservation, all the subsequent VM allocations will be done against the reservation. 
-1. **Flexible Orchestration Mode:** In this mode, you get more flexibility managing the individual virtual machine scale set VM instances as they can use the standard Azure IaaS VM APIs instead of using the scale set interface. This mode won't work with Capacity Reservation during public preview.
+- **Uniform Orchestration Mode:** In this mode, virtual machine scale sets use a VM profile or a template to scale up to the desired capacity. While there's some ability to manage or customize individual VM instances, Uniform uses identical VM instances. These instances are exposed through the virtual machine scale sets VM APIs and aren't compatible with the standard Azure IaaS VM API commands. Since the scale set performs all the actual VM operations, reservations are associated with the virtual machine scale set directly. Once the scale set is associated with the reservation, all the subsequent VM allocations will be done against the reservation. 
+- **Flexible Orchestration Mode:** In this mode, you get more flexibility managing the individual virtual machine scale set VM instances as they can use the standard Azure IaaS VM APIs instead of using the scale set interface. This mode won't work with Capacity Reservation during public preview.
 
 To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration Modes](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md). The rest of this article will cover how to associate a Uniform virtual machine scale set to a Capacity Reservation Group. 
 
@@ -28,13 +28,16 @@ To learn more about these modes, go to [Virtual Machine Scale Sets Orchestration
 
 Before you can use the Capacity Reservation feature, you must [register your subscription for the preview](capacity-reservation-overview.md#register-for-capacity-reservation). The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
 
+> [!NOTE]
+> On-demand Capacity Reservation is available for virtual machine scale sets in Uniform orchestration mode only in select regions. To check if your region is supported, go to [Uniform virtual machine scale set deployment tracker](https://aka.ms/vmssuniformdeploymenttracker).
+
+
 ## Limitations of scale sets in Uniform Orchestration 
 
 - For Virtual Machine Scale Sets in Uniform orchestration to be compatible with Capacity Reservation, the `singlePlacementGroup` property must be set to *False*. 
 - The **Static Fixed Spreading** availability option for multi-zone Uniform scale sets is not supported with Capacity Reservation. This option requires use of 5 Fault Domains while the reservations only support up to 3 Fault Domains for general purpose sizes. The recommended approach is to use the **Max Spreading** option that spreads VMs across as many FDs as possible within each zone. If needed, configure a custom Fault Domain configuration of 3 or less. 
 
 There are some other restrictions while using Capacity Reservation. For the complete list, refer the [Capacity Reservations overview](capacity-reservation-overview.md).  
-
 
 ## Associate a new virtual machine scale set to a Capacity Reservation Group
 
@@ -289,4 +292,4 @@ Since the reservations can be overallocated, the scale set can continue to scale
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to remove a scale set association from a Capacity Reservation](capacity-reservation-remove-vm-scale-set.md)
+> [Learn how to remove a scale set association from a Capacity Reservation](capacity-reservation-remove-virtual-machine-scale-set.md)

@@ -17,8 +17,8 @@ This article walks you through the steps of removing a VM association to a Capac
 Because both the VM and the underlying Capacity Reservation logically occupy capacity, Azure imposes some constraints on this process to avoid ambiguous allocation states and unexpected errors.  
 
 There are two ways to change an association: 
-1. Option 1: Deallocate the Virtual Machine, change the Capacity Reservation Group property, and optionally restart the virtual machine
-1. Option 2: Update the reserved quantity to zero and then change the Capacity Reservation Group property
+- Option 1: Deallocate the Virtual Machine, change the Capacity Reservation Group property, and optionally restart the virtual machine
+- Option 2: Update the reserved quantity to zero and then change the Capacity Reservation Group property
 
 > [!IMPORTANT]
 > Capacity Reservation is currently in public preview.
@@ -73,7 +73,7 @@ The first option is to deallocate the Virtual Machine, change the Capacity Reser
     1. At this point in the process, the VM is still associated with the Capacity Reservation Group, which is reflected in the `virtualMachinesAssociated` property of the Capacity Reservation 
 1. Select **Configuration**
 1. Set the **Capacity Reservation Group** value to *None*
-    1. The VM is no longer associated with the Capacity Reservation Group 
+    - The VM is no longer associated with the Capacity Reservation Group 
 
 ### [PowerShell](#tab/powershell1)
 
@@ -168,7 +168,7 @@ This option works well when the virtual machine can’t be deallocated and when 
     1. Select **Save** 
 1. Go to your Virtual Machine and select **Configuration**
 1. Set the **Capacity Reservation Group** value to *None*
-    1. Note that the VM is no longer associated with the Capacity Reservation Group
+    - Note that the VM is no longer associated with the Capacity Reservation Group
 
 ### [PowerShell](#tab/powershell2)
 
@@ -211,4 +211,4 @@ To learn more, go to Azure PowerShell commands [New-AzCapacityReservation](/powe
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to associate a scale set to a capacity reservation group](capacity-reservation-associate-vm-scale-set.md)
+> [Learn how to associate a scale set to a capacity reservation group](capacity-reservation-associate-virtual-machine-scale-set.md)

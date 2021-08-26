@@ -118,7 +118,7 @@ If you then deploy a D2s_v3 VM and specify reservation as its property, the capa
 Both used and unused capacity reservation are eligible for Reserved Instances term commitment discounts. In the above example, if you have Reserved Instances for 2 D2s_v3 VM in the same Azure region, the billing for 2 resources (either VM or unused capacity reservation) will be zeroed out and you'll only pay for the rest of the 8 resources (that is, 5 unused capacity reservations and 3 D2s_v3 VMs). In this case, the term commitment discounts could be applied on either the VM or the unused Capacity Reservation, both of which are charged at the same PAYG rate. 
 
 
-## Working with Capacity Reservation 
+## Work with Capacity Reservation 
 
 Capacity reservation can be created for a specific VM size in an Azure region or an Availability Zone. All reservations are created and managed as part of a Capacity Reservation group, which allows creation of a group to manage different VM sizes in a single multi-tier application. Each reservation is for one VM size and a group can have only one reservation per VM size.  
 
