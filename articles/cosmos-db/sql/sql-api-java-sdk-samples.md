@@ -6,7 +6,7 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 06/08/2021
+ms.date: 08/26/2021
 ms.custom: devx-track-java
 ms.author: anfeldma
 
@@ -225,3 +225,9 @@ The User Management Sample file shows how to do the following tasks:
 | Create a user | - |
 | Set permissions on a collection or document | - |
 | Get a list of a user's permissions |- |
+
+## Next steps
+
+Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 08/26/2021
 ms.author: tisande
 ms.reviewer: sngun
 
@@ -106,3 +106,7 @@ Learn how to write and use stored procedures, triggers, and user-defined functio
 * [How to use stored procedures, triggers, and user-defined functions](how-to-use-stored-procedures-triggers-udfs.md)
 
 * [Working with JavaScript language integrated query API](javascript-query-api.md)
+
+Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

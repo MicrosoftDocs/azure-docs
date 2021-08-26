@@ -7,7 +7,7 @@ tags: azure-resource-manager
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: quickstart
-ms.date: 06/01/2020
+ms.date: 08/26/2021
 ms.custom: subject-armqs, devx-track-azurepowershell
 
 #Customer intent: As a database admin who is new to Azure, I want to use Azure Cosmos DB to store and manage my data.
@@ -137,3 +137,6 @@ In this quickstart, you created an Azure Cosmos account, a database and a contai
 - Read an [Overview of Azure Cosmos DB](../introduction.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - Get other [Azure Cosmos DB Resource Manager templates](./templates-samples-sql.md)
+- Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

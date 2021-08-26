@@ -6,7 +6,7 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 08/26/2021
 ms.reviewer: sngun
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 
@@ -235,5 +235,9 @@ You can now proceed to the next tutorial to learn how to develop locally using t
 
 > [!div class="nextstepaction"]
 > [Develop locally with the emulator](../local-emulator.md)
+
+Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 [regions]: https://azure.microsoft.com/regions/

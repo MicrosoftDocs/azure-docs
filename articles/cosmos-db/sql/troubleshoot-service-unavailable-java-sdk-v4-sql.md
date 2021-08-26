@@ -20,6 +20,18 @@ The following list contains known causes and solutions for service unavailable e
 ### The required ports are being blocked
 Verify that all the [required ports](sql-sdk-connection-modes.md#service-port-ranges) are enabled.
 
+### Client initialization failure
+The following exception is hit if the SDK is not able to talk to the Cosmos DB instance. This normally points to some security protocol like a firewall rule is blocking the requests.
+
+```java
+ java.lang.RuntimeException: Client initialization failed. Check if the endpoint is reachable and if your auth token is valid
+```
+
+To validate the SDK can communicate to the Cosmos DB account execute the following command from where the application is hosted. If it fails this points to a firewall rule or other security feature blocking the request. If it succeeds the SDK should be able to communicate to the Cosmos DB account.
+```
+telnet myCosmosDbAccountName.documents.azure.com 443
+```
+
 ### Client-side transient connectivity issues
 Service unavailable exceptions can surface when there are transient connectivity problems that are causing timeouts. Typically, the stack trace related to this scenario will contain a `ServiceUnavailableException` error with diagnostic details. For example:
 
