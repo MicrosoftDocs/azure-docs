@@ -1,6 +1,6 @@
 ---
-title: Connect an Azure Purview account  
-description: Connect an Azure Purview account to a Synapse workspace.
+title: Connect Synapse workspace to Azure Purview  
+description: Connect a Synapse workspace to an Azure Purview account.
 author: Jejiang
 ms.service: synapse-analytics
 ms.subservice: purview
@@ -10,7 +10,7 @@ ms.author: jejiang
 ms.reviewer: jrasnick
 ---
 
-# QuickStart: Connect an Azure Purview Account to a Synapse workspace 
+# QuickStart: Connect a Synapse workspace to an Azure Purview account
 
 In this quickstart, you will register an Azure Purview Account to a Synapse workspace. That connection allows you to discover Azure Purview assets, interact with them through Synapse capabilities, and push lineage information to Purview.
 
@@ -62,11 +62,11 @@ Synapse workspace's managed identity is used to authenticate lineage push operat
 
 - For Purview account created **on or after August 18, 2021**, grant the Synapse workspace's managed identity **Data Curator** role on your Purview **root collection**. Learn more about [Access control in Azure Purview](../../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-    When connecting Synapse workspace to Purview in Synapse Studio, ADF tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection, this operation is done successfully.
+    When connecting Synapse workspace to Purview in Synapse Studio, Synapse tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection, this operation is done successfully.
 
 - For Purview account created **before August 18, 2021**, grant the Synapse workspace's managed identity Azure built-in [**Purview Data Curator**](../../role-based-access-control/built-in-roles.md#purview-data-curator) role on your Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../../purview/catalog-permissions.md#legacy-permission-guide).
 
-    When connecting Synapse workspace to Purview in Synapse Studio, ADF tries to add such role assignment automatically. If you have Azure built-in **Owner** or **User Access Administrator** role on the Purview account, this operation is done successfully.
+    When connecting Synapse workspace to Purview in Synapse Studio, Synapse tries to add such role assignment automatically. If you have Azure built-in **Owner** or **User Access Administrator** role on the Purview account, this operation is done successfully.
 
 You may see below warning if you have the privilege to read Purview role assignment information and the needed role is not granted. To make sure the connection is properly set for the pipeline lineage push, go to your Purview account and check if **Purview Data Curator** role is granted to the Synapse workspace's managed identity. If not, manually add the role assignment.
 
