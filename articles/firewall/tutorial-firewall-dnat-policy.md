@@ -223,7 +223,5 @@ You can keep your firewall resources for the next tutorial, or if no longer need
 
 ## Next steps
 
-Next, you can monitor the Azure Firewall logs.
-
 > [!div class="nextstepaction"]
 > [Deploy and configure Azure Firewall Premium](premium-deploy.md)
