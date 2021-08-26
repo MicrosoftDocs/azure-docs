@@ -200,7 +200,7 @@ Do the following steps in the Azure portal to order a device.
 
 17. In **Contact details**, select **+ Add Address**.
 
-    ![Screenshot of Contact Details tab for a Data Box order. The Contact Details tab and the Plus Add Address option are highlighted.](media/data-box-order-portal/select-data-box-import-08-a.png)
+    ![Screenshot of Contact Details tab for a Data Box order. The Contact Details tab and the Plus Add Address option are highlighted.](media/data-box-order-portal/contact-details-01.png)<!--Stopped here renaming Contact Details screens.-->
 
 18. On the **Add address** screen, provide your first and last name, the name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the address for service availability and notifies you if service is available for that address.
 
