@@ -123,14 +123,14 @@ The "Error Phase" field denotes the phase of the join failure, and "Client Error
 
 Use Event Viewer logs to locate the phase and error code for the join failures.
 
-1. In Event Viewer, open the **User Device Registration** event logs. They're stored under **Applications and Services Log.** > **Microsoft** > **Windows** > **User Device Registration**.
+1. In Event Viewer, open the **User Device Registration** event logs. They're stored under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**.
 1. Look for events with the following eventIDs: 304, 305, and 307.
 
 :::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/1.png" alt-text="Screenshot of Event Viewer, with eventID 304 selected, its information displayed, and its error code and phase highlighted." border="false":::
 
 :::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="Screenshot of Event Viewer, with eventID 305 selected, its information displayed, and its error code highlighted." border="false":::
 
-### Step 4: Check for possible causes and resolutions from the lists below
+### Step 4: Check for possible causes and resolutions
 
 #### Pre-check phase
 
@@ -145,12 +145,12 @@ Possible reasons for failure:
 
 -  The service connection point object is misconfigured or can't be read from the domain controller.
    - A valid service connection point object is required in the AD forest, to which the device belongs, that points to a verified domain name in Azure AD.
-   - Details can be found in the section [Configure a service connection point](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
-- Failure to connect and fetch the discovery metadata from the discovery endpoint.
+   - For more information, see the "Configure a service connection point" section of [Tutorial: Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
+- Failure to connect to and fetch the discovery metadata from the discovery endpoint.
    - The device should be able to access `https://enterpriseregistration.windows.net`, in the system context, to discover the registration and authorization endpoints.
    - If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device is able to discover and silently authenticate to the outbound proxy.
-- Failure to connect to user realm endpoint and perform realm discovery. (Windows&nbsp;10 version 1809 and later only)
-   - The device should be able to access `https://login.microsoftonline.com`, in the system context, to perform realm discovery for the verified domain and determine the domain type (managed/federated).
+- Failure to connect to the user realm endpoint and perform realm discovery (Windows&nbsp;10 version 1809 and later only).
+   - The device should be able to access `https://login.microsoftonline.com`, in the system context, to perform realm discovery for the verified domain and determine the domain type (managed or federated).
    - If the on-premises environment requires an outbound proxy, the IT admin must ensure that the system context on the device is able to discover and silently authenticate to the outbound proxy.
 
 **Common error codes:**
@@ -158,9 +158,9 @@ Possible reasons for failure:
 | Error code | Reason | Resolution |
 | --- | --- | --- |
 | **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611) | Unable to read the service connection point object and get the Azure AD tenant information. | Refer to the section [Configure a service connection point](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join). |
-| **DSREG_AUTOJOIN_DISC_FAILED** (0x801c0021/-2145648607) | Generic Discovery failure. Failed to get the discovery metadata from the data replication service (DRS). | Find the sub-error below to investigate further. |
-| **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609) | Operation timed out while performing Discovery. | Ensure that `https://enterpriseregistration.windows.net` is accessible in the system context. For more information, see the section [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites). |
-| **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611) | Generic Realm Discovery failure. Failed to determine domain type (managed/federated) from STS. | Find the sub-error below to investigate further. |
+| **DSREG_AUTOJOIN_DISC_FAILED** (0x801c0021/-2145648607) | Generic discovery failure. Failed to get the discovery metadata from the data replication service (DRS). | To investigate further, find the sub-error in the next sections. |
+| **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609) | Operation timed out while performing Discovery. | Ensure that `https://enterpriseregistration.windows.net` is accessible in the system context. For more information, see the [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites) section. |
+| **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611) | Generic realm discovery failure. Failed to determine domain type (managed/federated) from STS. | To investigate further, find the sub-error in the next sections. |
 | | |
 
 **Common sub-error codes:**
@@ -169,7 +169,7 @@ To find the sub-error code for the discovery error code, use one of the followin
 
 ##### Windows&nbsp;10 version 1803 or later
 
-Look for "DRS Discovery Test" in the "Diagnostic Data" section of the join status output. This section is displayed only if the device is domain-joined and is unable to hybrid Azure AD-join.
+Look for "DRS Discovery Test" in the "Diagnostic Data" section of the join status output. This section is displayed only if the device is domain-joined and unable to hybrid Azure AD-join.
 
 ```
 +----------------------------------------------------------------------+
@@ -191,10 +191,10 @@ Look for "DRS Discovery Test" in the "Diagnostic Data" section of the join statu
 
 ##### Earlier Windows&nbsp;10 versions
 
-Use Event Viewer logs to locate the phase and error code for the join failures.
+Use Event Viewer logs to look for the phase and error code for the join failures.
 
 1. In Event Viewer, open the **User Device Registration** event logs. They're stored under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**.
-1. Look for events with the following eventID: 201.
+1. Look for eventID 201.
 
 :::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="Screenshot of Event Viewer, with eventID 201 selected, its information displayed, and its error code highlighted." border="false":::
 
@@ -212,7 +212,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 
 | Error code | Reason | Resolution |
 | --- | --- | --- |
-| **DSREG_DISCOVERY_TENANT_NOT_FOUND** (0x801c003a/-2145648582) | The service connection point object is configured with the wrong tenant ID, or no active subscriptions were found in the tenant. | Ensure that the service connection point object is configured with the correct Azure AD tenant ID and active subscriptions or that it's present in the tenant. |
+| **DSREG_DISCOVERY_TENANT_NOT_FOUND** (0x801c003a/-2145648582) | The service connection point object is configured with the wrong tenant ID, or no active subscriptions were found in the tenant. | Ensure that the service connection point object is configured with the correct Azure AD tenant ID and active subscriptions or that the service is present in the tenant. |
 | **DSREG_SERVER_BUSY** (0x801c0025/-2145648603) | HTTP 503 from DRS server. | The server is currently unavailable. Future join attempts will likely succeed after the server is back online. |
 | | |
 
@@ -258,8 +258,8 @@ Use Event Viewer logs to locate the error code, sub-error code, server error cod
 | Error code | Reason | Resolution |
 | --- | --- | --- |
 | **ERROR_ADAL_INTERNET_TIMEOUT** (0xcaa82ee2/-894947614) | General network timeout. | Ensure that `https://login.microsoftonline.com` is accessible in the system context. Ensure that the on-premises identity provider is accessible in the system context. For more information, see [Network connectivity requirements](hybrid-azuread-join-managed-domains.md#prerequisites). |
-| **ERROR_ADAL_INTERNET_CONNECTION_ABORTED** (0xcaa82efe/-894947586) | Connection with the authorization endpoint was aborted. | Retry after some time, or try joining from another stable network location. |
-| **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441) | The Transport Layer Security (TLS) certificate (previously known as the Secure Sockets Layer [SSL] certificate) sent by the server couldn't be validated. | Check the client time skew. Retry after a while, or try joining from another stable network location. |
+| **ERROR_ADAL_INTERNET_CONNECTION_ABORTED** (0xcaa82efe/-894947586) | Connection with the authorization endpoint was aborted. | Retry the join after a while, or try joining from another stable network location. |
+| **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441) | The Transport Layer Security (TLS) certificate (previously known as the Secure Sockets Layer [SSL] certificate) sent by the server couldn't be validated. | Check the client time skew. Retry the join after a while, or try joining from another stable network location. |
 | **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587) | The attempt to connect to `https://login.microsoftonline.com` failed. | Check the network connection to `https://login.microsoftonline.com`. |
 | | |
 
@@ -336,7 +336,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 | --- | --- | --- |
 | **WININET_E_TIMEOUT** (0x80072ee2/-2147012894) | General network time out trying to register the device at DRS. | Check network connectivity to `https://enterpriseregistration.windows.net`. |
 | **WININET_E_NAME_NOT_RESOLVED** (0x80072ee7/-2147012889) | The server name or address couldn't be resolved. | Check network connectivity to `https://enterpriseregistration.windows.net`. |
-| **WININET_E_CONNECTION_ABORTED** (0x80072efe/-2147012866) | The connection with the server was terminated abnormally. | Retry after a while or try joining from another stable network location. |
+| **WININET_E_CONNECTION_ABORTED** (0x80072efe/-2147012866) | The connection with the server was terminated abnormally. | Retry the join after a while, or try joining from another stable network location. |
 | | |
 
 
@@ -344,7 +344,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 
 | Error code | Reason | Resolution |
 | --- | --- | --- |
-| **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611) | EventID 220 is present in User Device Registration event logs. Windows can't access the computer object in Active Directory. A Windows error code might be included in the event. Error codes ERROR_NO_SUCH_LOGON_SESSION (1312) and ERROR_NO_SUCH_USER (1317) are related to replication issues in on-premises Active Directory. | Troubleshoot replication issues in Active Directory. Replication issues might be transient and might go way after a while. |
+| **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611) | EventID 220 is present in User Device Registration event logs. Windows can't access the computer object in Active Directory. A Windows error code might be included in the event. Error codes ERROR_NO_SUCH_LOGON_SESSION (1312) and ERROR_NO_SUCH_USER (1317) are related to replication issues in on-premises Active Directory. | Troubleshoot replication issues in Active Directory. These replication issues might be transient, and they might go away after a while. |
 | | |
 
 
@@ -352,16 +352,16 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 
 | Server error code | Server error message | Possible reasons | Resolution |
 | --- | --- | --- | --- |
-| DirectoryError | Your request is throttled temporarily. Please try after 300 seconds. | Expected error, possibly because multiple registration requests were made in quick succession. | Retry join after the cool-down period |
+| DirectoryError | Your request is throttled temporarily. Please try after 300 seconds. | This is an expected error, possibly because multiple registration requests were made in quick succession. | Retry the join after the cool-down period |
 | | |
 
-**Sync join server errors**:
+**Sync-join server errors**:
 
 | Server error code | Server error message | Possible reasons | Resolution |
 | --- | --- | --- | --- |
-| DirectoryError | AADSTS90002: Tenant `UUID` not found. This error might happen if there are no active subscriptions for the tenant. Check with your subscription administrator. | The tenant ID in the service connection point object is incorrect. | Ensure that the service connection point object is configured with the correct Azure AD tenant ID and active subscriptions and that it's present in the tenant. |
-| DirectoryError | The device object by the given ID is not found. | This is an expected error for sync join. The device object has not synced from AD to Azure AD | Wait for the Azure AD Connect sync to finish, and the next join attempt after sync completion will resolve the issue. |
-| AuthenticationError | The verification of the target computer's SID | The certificate on the Azure AD device doesn't match the certificate that's used to sign in the blob during the sync join. This error ordinarily means that sync hasn’t finished yet. |  Wait for the Azure AD Connect sync to finish, and the next join attempt after sync completion will resolve the issue. |
+| DirectoryError | AADSTS90002: Tenant `UUID` not found. This error might happen if there are no active subscriptions for the tenant. Check with your subscription administrator. | The tenant ID in the service connection point object is incorrect. | Ensure that the service connection point object is configured with the correct Azure AD tenant ID and active subscriptions or that the service is present in the tenant. |
+| DirectoryError | The device object by the given ID is not found. | This is an expected error for sync-join. The device object has not synced from AD to Azure AD | Wait for the Azure AD Connect sync to finish, and the next join attempt after sync completion will resolve the issue. |
+| AuthenticationError | The verification of the target computer's SID | The certificate on the Azure AD device doesn't match the certificate that's used to sign in the blob during the sync-join. This error ordinarily means that sync hasn’t finished yet. |  Wait for the Azure AD Connect sync to finish, and the next join attempt after the sync completion will resolve the issue. |
 
 ### Step 5: Collect logs and contact Microsoft Support
 
@@ -387,7 +387,7 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 
    The “SSO state” section provides the current PRT status. 
 
-   If the AzureAdPrt field is set to “NO”, there was an error acquiring the PRT status from Azure AD. 
+   If the AzureAdPrt field is set to *NO*, there was an error acquiring the PRT status from Azure AD. 
 
 1. If the AzureAdPrtUpdateTime is more than four hours, there's likely an issue with refreshing the PRT. Lock and unlock the device to force the PRT refresh, and then check to see whether the time has been updated.
 
@@ -410,12 +410,12 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 
 ### Step 2: Find the error code 
 
-**From the `dsregcmd` output**:
+**From the `dsregcmd` output**
 
 > [!NOTE]
 >  The output is available from the Windows&nbsp;10 May 2021 update (version 21H1).
 
-"Attempt Status" field under AzureAdPrt Field will provide the status of previous PRT attempt, along with other required debug information. For earlier Windows versions, extract the information from the Azure AD analytics and operational logs.
+The "Attempt Status" field under the "AzureAdPrt" field will provide the status of the previous PRT attempt, along with other required debug information. For earlier Windows versions, extract the information from the Azure AD analytics and operational logs.
 
 ```
 +----------------------------------------------------------------------+
@@ -442,12 +442,12 @@ Use Event Viewer logs to locate the phase and error code for the join failures.
 
 Use Event Viewer to look for the log entries that are logged by the Azure AD CloudAP plug-in during PRT acquisition. 
 
-1. In Event Viewer, open the Azure AD event logs. They're stored under **Applications and Services Log.** > **Microsoft** > **Windows** > **User Device Registration**. 
+1. In Event Viewer, open the Azure AD event logs. They're stored under **Applications and Services Log** > **Microsoft** > **Windows** > **User Device Registration**. 
 
    > [!NOTE]
    > The CloudAP plug-in logs error events in the operational logs, and it logs the info events in the analytics logs. The analytics and operational log events are both required to troubleshoot issues. 
 
-1. Event 1006 in the analytics logs denotes the start of the PRT acquisition flow, and event 1007 in the analytics logs denotes the end of the PRT acquisition flow. All events in Azure AD logs (analytics and operational) that are logged between events 1006 and 1007 were logged as part of the PRT acquisition flow. 
+1. Event 1006 in the analytics logs denotes the start of the PRT acquisition flow, and event 1007 in the analytics logs denotes the end of the PRT acquisition flow. All events in the Azure AD logs (analytics and operational) that are logged between events 1006 and 1007 were logged as part of the PRT acquisition flow. 
 
 1. Event 1007 logs the final error code.
 
@@ -461,11 +461,11 @@ Use Event Viewer to look for the log entries that are logged by the Azure AD Clo
 | **STATUS_REQUEST_NOT_ACCEPTED** (-1073741616/ 0xc00000d0) | Received an error response (HTTP 400) from the Azure AD authentication service or WS-Trust endpoint.<br>**Note**: WS-Trust is required for federated authentication. | Events 1081 and 1088 (Azure AD operational logs) would contain the server error code and error description for errors originating from Azure AD authentication service and WS-Trust endpoint, respectively. Common server error codes and their resolutions are listed in the next section. The first instance of event 1022 (Azure AD analytics logs), preceding events 1081 or 1088, will contain the URL that's being accessed. |
 | **STATUS_NETWORK_UNREACHABLE** (-1073741252/ 0xc000023c)<br>**STATUS_BAD_NETWORK_PATH** (-1073741634/ 0xc00000be)<br>**STATUS_UNEXPECTED_NETWORK_ERROR** (-1073741628/ 0xc00000c4) | <li>Received an error response (HTTP > 400) from the Azure AD authentication service or WS-Trust endpoint.<br>**Note**: WS-Trust is required for federated authentication.<li>Network connectivity issue to a required endpoint. | <li>For server errors, events 1081 and 1088 (Azure AD operational logs) would contain the error code from the Azure AD authentication service and the error description from the WS-Trust endpoint. Common server error codes and their resolutions are listed in the next section.<li>For connectivity issues, event 1022 (Azure AD analytics logs) will contain the URL that's being accessed, and event 1084 (Azure AD operational logs) will contain the sub-error code from the network stack. |
 | **STATUS_NO_SUCH_LOGON_SESSION**    (-1073741729/ 0xc000005f) | User realm discovery failed because the Azure AD authentication service was unable to find the user’s domain. | <li>The domain of the user’s UPN must be added as a custom domain in Azure AD. Event 1144 (Azure AD analytics logs) will contain the UPN provided.<li>If the on-premises domain name is non-routable (jdoe@contoso.local), configure an Alternate Login ID (AltID). References: [Prerequisites](hybrid-azuread-join-plan.md); [Configure Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id). |
-| **AAD_CLOUDAP_E_OAUTH_USERNAME_IS_MALFORMED**   (-1073445812/ 0xc004844c) | The user’s UPN isn't in the expected format.<br>**Notes**:<li>For Azure AD-joined devices, the UPN is the text that's entered by the user in the LoginUI. <li>For Hybrid Azure AD-joined devices, the UPN is returned from the domain controller during the login process. | <li>User’s UPN should be in the internet-style login name, based on the internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). Event 1144 (Azure AD analytics logs) will contain the UPN provided.<li>For hybrid-joined devices, ensure that the domain controller is configured to return the UPN in the correct format. In the domain controller, `whoami /upn` should display the configured UPN.<li>If the on-premises domain name is non-routable (jdoe@contoso.local), configure Alternate Login ID (AltID). References: [Prerequisites](hybrid-azuread-join-plan.md); [Configure Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id). |
+| **AAD_CLOUDAP_E_OAUTH_USERNAME_IS_MALFORMED**   (-1073445812/ 0xc004844c) | The user’s UPN isn't in the expected format.<br>**Notes**:<li>For Azure AD-joined devices, the UPN is the text that's entered by the user in the LoginUI. <li>For hybrid Azure AD-joined devices, the UPN is returned from the domain controller during the login process. | <li>User’s UPN should be in the internet-style login name, based on the internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). Event 1144 (Azure AD analytics logs) will contain the UPN provided.<li>For hybrid-joined devices, ensure that the domain controller is configured to return the UPN in the correct format. In the domain controller, `whoami /upn` should display the configured UPN.<li>If the on-premises domain name is non-routable (jdoe@contoso.local), configure Alternate Login ID (AltID). References: [Prerequisites](hybrid-azuread-join-plan.md); [Configure Alternate Login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id). |
 | **AAD_CLOUDAP_E_OAUTH_USER_SID_IS_EMPTY** (-1073445822/ 0xc0048442) | The user SID is missing in the ID token that's returned by the Azure AD authentication service. | Ensure that the network proxy isn't interfering with and modifying the server response. |
 | **AAD_CLOUDAP_E_WSTRUST_SAML_TOKENS_ARE_EMPTY** (--1073445695/ 0xc00484c1) | Received an error from the WS-Trust endpoint.<br>**Note**: WS-Trust is required for federated authentication. | <li>Ensure that the network proxy isn't interfering with and modifying the WS-Trust response.<li>Event 1088 (Azure AD operational logs) would contain the server error code and error description from the WS-Trust endpoint. Common server error codes and their resolutions are listed in the next section. |
 | **AAD_CLOUDAP_E_HTTP_PASSWORD_URI_IS_EMPTY** (-1073445749/ 0xc004848b) | The MEX endpoint is incorrectly configured. The MEX response doesn't contain any password URLs. | <li>Ensure that the network proxy isn't interfering with and modifying the server response.<li>Fix the MEX configuration to return valid URLs in response. |
-| **WC_E_DTDPROHIBITED** (-1072894385/ 0xc00cee4f) | The XML response, from the WS-Trust endpoint, included a Document Type Definition (DTD). A DTD isn't expected in the XML responses, and parsing the response will fail if a DTD is included.<br>**Note**: WS-Trust is required for federated authentication. | <li>Fix the configuration in the identity provider to avoid sending a DTD in the XML response.<li>Event 1022 (Azure AD analytics logs) will contain the URL being accessed that's returning an XML response with a DTD. |
+| **WC_E_DTDPROHIBITED** (-1072894385/ 0xc00cee4f) | The XML response, from the WS-Trust endpoint, included a Document Type Definition (DTD). A DTD isn't expected in XML responses, and parsing the response will fail if a DTD is included.<br>**Note**: WS-Trust is required for federated authentication. | <li>Fix the configuration in the identity provider to avoid sending a DTD in the XML response.<li>Event 1022 (Azure AD analytics logs) will contain the URL that's being accessed that's returning an XML response with a DTD. |
 | | |
 
 
@@ -473,9 +473,9 @@ Use Event Viewer to look for the log entries that are logged by the Azure AD Clo
 
 | Error code | Reason | Resolution |
 | --- | --- | --- |
-| **AADSTS50155: Device authentication failed** | <li>Azure AD is unable to authenticate the device to issue a PRT.<li>Confirm that the device has not been deleted or disabled in the Azure portal. For more information about this issue, see [Azure Active Directory device management FAQ](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices). | Follow the instructions for this issue in [Azure Active Directory device management FAQ](faq.yml#i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell--but-the-local-state-on-the-device-says-it-s-still-registered--what-should-i-do) to re-register the device based on the device join type. |
-| **AADSTS50034: The user account `Account` does not exist in the `tenant id` directory** | Azure AD is unable to find the user account in the tenant. | <li>Ensure that the user is typing the correct UPN.<li>Ensure that the on-premises user account is being synced to Azure AD.<li>Event 1144 (Azure AD analytics logs) will contain the UPN provided. |
-| **AADSTS50126: Error validating credentials due to invalid username or password.** | <li>The username and password entered by the user in the windows LoginUI are incorrect.<li>If the tenant has password hash sync enabled, the device is hybrid-joined, and the user just changed the password, it's likely that the new password hasn’t synced to Azure AD. | Wait for the Azure AD password sync to finish to acquire a fresh PRT with the new credentials. |
+| **AADSTS50155: Device authentication failed** | <li>Azure AD is unable to authenticate the device to issue a PRT.<li>Confirm that the device hasn't been deleted or disabled in the Azure portal. For more information about this issue, see [Azure Active Directory device management FAQ](faq.yml#why-do-my-users-see-an-error-message-saying--your-organization-has-deleted-the-device--or--your-organization-has-disabled-the-device--on-their-windows-10-devices). | Follow the instructions for this issue in [Azure Active Directory device management FAQ](faq.yml#i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell--but-the-local-state-on-the-device-says-it-s-still-registered--what-should-i-do) to re-register the device based on the device join type. |
+| **AADSTS50034: The user account `Account` does not exist in the `tenant id` directory** | Azure AD is unable to find the user account in the tenant. | <li>Ensure that the user is typing the correct UPN.<li>Ensure that the on-premises user account is being synced with Azure AD.<li>Event 1144 (Azure AD analytics logs) will contain the UPN provided. |
+| **AADSTS50126: Error validating credentials due to invalid username or password.** | <li>The username and password entered by the user in the Windows LoginUI are incorrect.<li>If the tenant has password hash sync enabled, the device is hybrid-joined, and the user just changed the password, it's likely that the new password hasn’t synced with Azure AD. | To acquire a fresh PRT with the new credentials, wait for the Azure AD password sync to finish. |
 | | |
 
 
@@ -483,7 +483,7 @@ Use Event Viewer to look for the log entries that are logged by the Azure AD Clo
 
 | Error code | Reason | Resolution |
 | --- | --- | --- |
-| **ERROR_WINHTTP_TIMEOUT** (12002)<br>**ERROR_WINHTTP_NAME_NOT_RESOLVED** (12007)<br>**ERROR_WINHTTP_CANNOT_CONNECT** (12029)<br>**ERROR_WINHTTP_CONNECTION_ERROR** (12030) | Common general network-related issues. | <li>Events 1022 (Azure AD analytics logs) and 1084 (Azure AD operational logs) will contain the URL being accessed.<li>If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device is able to discover and silently authenticate to the outbound proxy.<br><br>Get additional [network error codes](/windows/win32/winhttp/error-messages). |
+| **ERROR_WINHTTP_TIMEOUT** (12002)<br>**ERROR_WINHTTP_NAME_NOT_RESOLVED** (12007)<br>**ERROR_WINHTTP_CANNOT_CONNECT** (12029)<br>**ERROR_WINHTTP_CONNECTION_ERROR** (12030) | Common general network-related issues. | <li>Events 1022 (Azure AD analytics logs) and 1084 (Azure AD operational logs) will contain the URL that's being accessed.<li>If the on-premises environment requires an outbound proxy, the IT admin must ensure that the computer account of the device is able to discover and silently authenticate to the outbound proxy.<br><br>Get additional [network error codes](/windows/win32/winhttp/error-messages). |
 | | |
 
 
