@@ -523,11 +523,11 @@ The add-on checks in with Azure Policy service for changes in policy assignments
 During this refresh cycle, the add-on checks for changes. These changes trigger creates, updates, or
 deletes of the constraint templates and constraints.
 
-In a Kubernetes cluster, if a namespace has either of the following labels, the admission requests
+In a Kubernetes cluster, if a namespace has the cluster-appropriate label, the admission requests
 with violations aren't denied. Compliance assessment results are still available.
 
-- `control-plane`
-- `admission.policy.azure.com/ignore`
+- Azure Arc-enabled Kubernetes cluster: `admission.policy.azure.com/ignore`
+- Azure Kubernetes Service cluster: `control-plane`
 
 > [!NOTE]
 > While a cluster admin may have permission to create and update constraint templates and
