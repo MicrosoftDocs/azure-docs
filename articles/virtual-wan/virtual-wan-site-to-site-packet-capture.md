@@ -2,7 +2,7 @@
 title: 'Tutorial: Perform packet capture on Azure Virtual WAN site-to-site connections'
 description: In this tutorial, learn how to perform packet capture on the Virtual WAN Site-to-site VPN Gateway.
 services: virtual-wan
-author: wellee
+author: wtnlee
 ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 04/13/2021
@@ -117,7 +117,7 @@ Start-AzVpnGatewayPacketCapture -ResourceGroupName $rg -Name "<name of the Gatew
 ## Stopping the packet capture
 It is recommended you let the packet capture run for at least 600 seconds. Because of sync issues among multiple components on the path, shorter packet captures might not provide complete data. Once you are ready to stop the packet capture, run the following command.
 
-The parameters are similar to the ones in the Starting a Packet Capture Section. The SAS URL was generated in the [Create a Storage Account](#createstorage) section. If the SASurl parameter isn't configured correctly, the trace might fail with Storage errors. 
+The parameters are similar to the ones in the Starting a Packet Capture Section. The SAS URL was generated in the [Create a Storage Account](#createstorage) section. If the `SASurl` parameter isn't configured correctly, the trace might fail with Storage errors.
 
 ### Gateway-level packet capture
 

@@ -39,6 +39,16 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 > This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide. 
 >
 
+> [!IMPORTANT]  
+> On February 29, 2024 the Azure Cosmos DB Sync Java SDK v2.x
+> will be retired; the SDK and all applications using the SDK
+> **will continue to function**; Azure Cosmos DB will simply cease
+> to provide further maintenance and support for this SDK.
+> We recommend following the instructions above to migrate to
+> Azure Cosmos DB Java SDK v4.
+>
+
+
 | | Links |
 |---|---|
 |**SDK Download**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
@@ -280,26 +290,26 @@ Microsoft will provide notification at least **12 months** in advance of retirin
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [2.6.1](#2.6.1) |Dec 17, 2020 |--- |
-| [2.6.0](#2.6.0) |July 16, 2020 |--- |
-| [2.5.1](#2.5.1) |June 03, 2020 |--- |
-| [2.5.0](#2.5.0) |May 12, 2020 |--- |
-| [2.4.7](#2.4.7) |Feb 20, 2020 |--- |
-| [2.4.6](#2.4.6) |Jan 24, 2020 |--- |
-| [2.4.5](#2.4.5) |Nov 10, 2019 |--- |
-| [2.4.4](#2.4.4) |Oct 24, 2019 |--- |
-| [2.4.2](#2.4.2) |Sep 26, 2019 |--- |
-| [2.4.1](#2.4.1) |Jul 18, 2019 |--- |
-| [2.4.0](#2.4.0) |May 04, 2019 |--- |
-| [2.3.0](#2.3.0) |Apr 24, 2019 |--- |
-| [2.2.3](#2.2.3) |Apr 16, 2019 |--- |
-| [2.2.2](#2.2.2) |Apr 05, 2019 |--- |
-| [2.2.0](#2.2.0) |Mar 27, 2019 |--- |
-| [2.1.3](#2.1.3) |Mar 13, 2019 |--- |
-| [2.1.2](#2.1.2) |Mar 09, 2019 |--- |
-| [2.1.1](#2.1.1) |Dec 13, 2018 |--- |
-| [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
-| [2.0.0](#2.0.0) |Sept 21, 2018 |--- |
+| [2.6.1](#2.6.1) |Dec 17, 2020 |Feb 29, 2024|
+| [2.6.0](#2.6.0) |July 16, 2020 |Feb 29, 2024|
+| [2.5.1](#2.5.1) |June 03, 2020 |Feb 29, 2024|
+| [2.5.0](#2.5.0) |May 12, 2020 |Feb 29, 2024|
+| [2.4.7](#2.4.7) |Feb 20, 2020 |Feb 29, 2024|
+| [2.4.6](#2.4.6) |Jan 24, 2020 |Feb 29, 2024|
+| [2.4.5](#2.4.5) |Nov 10, 2019 |Feb 29, 2024|
+| [2.4.4](#2.4.4) |Oct 24, 2019 |Feb 29, 2024|
+| [2.4.2](#2.4.2) |Sep 26, 2019 |Feb 29, 2024|
+| [2.4.1](#2.4.1) |Jul 18, 2019 |Feb 29, 2024|
+| [2.4.0](#2.4.0) |May 04, 2019 |Feb 29, 2024|
+| [2.3.0](#2.3.0) |Apr 24, 2019 |Feb 29, 2024|
+| [2.2.3](#2.2.3) |Apr 16, 2019 |Feb 29, 2024|
+| [2.2.2](#2.2.2) |Apr 05, 2019 |Feb 29, 2024|
+| [2.2.0](#2.2.0) |Mar 27, 2019 |Feb 29, 2024|
+| [2.1.3](#2.1.3) |Mar 13, 2019 |Feb 29, 2024|
+| [2.1.2](#2.1.2) |Mar 09, 2019 |Feb 29, 2024|
+| [2.1.1](#2.1.1) |Dec 13, 2018 |Feb 29, 2024|
+| [2.1.0](#2.1.0) |Nov 20, 2018 |Feb 29, 2024|
+| [2.0.0](#2.0.0) |Sept 21, 2018 |Feb 29, 2024|
 | [1.16.4](#1.16.4) |Sept 10, 2018 |May 30, 2020 |
 | [1.16.3](#1.16.3) |Sept 09, 2018 |May 30, 2020 |
 | [1.16.2](#1.16.2) |June 29, 2018 |May 30, 2020 |
