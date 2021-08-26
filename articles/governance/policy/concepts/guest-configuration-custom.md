@@ -98,6 +98,11 @@ configuration solves this problem. Users of guest configuration have control
 over drift correction through
 [Remediation On Demand](/guest-configuration-policy-effects.md#remediation-on-demand-applyandmonitor).
 
+## Maximum size of custom configuration package
+
+Previously, DSC configurations were limited to 1MB in total size. Guest configuration
+supports a total package size of 100MB (before compression).
+
 ## Special requirements for Get
 
 The function `Get` method has special requirements for Azure Policy guest
