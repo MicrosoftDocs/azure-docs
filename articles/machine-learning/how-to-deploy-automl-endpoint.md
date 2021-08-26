@@ -26,16 +26,16 @@ In this article you'll know how to deploy AutoML trained machine learning model 
 
 ## Prerequisites
 
-An AutoML-trained machine learning model. For more, see [Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio]- (tutorial-first-experiment-automated-ml.md) or [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md).
+An AutoML-trained machine learning model. For more, see [Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio](tutorial-first-experiment-automated-ml.md) or [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md).
 
 ## Deploy from Azure Machine Learning studio and no code
 
 Deploying an AutoML-trained model from the Automated ML page is a no-code experience. That is, you don't need to prepare a scoring script and environment, both are auto generated. 
 
 1. Go to the Automated ML page in studio
-1. Select your experiment
+1. Select your experiment and run
 1. Choose the Models tab
-1. Select the model you want to deploy to online endpoint. 
+1. Select the model you want to deploy 
 1. Once you select a model, the Deploy button will light up with a drop-down menu
 1. Select *Deploy to real-time endpoint (preview)* option
 
@@ -58,14 +58,14 @@ If you wish to have more control over the deployment, you can download the train
 
 To download the components you'll need for deployment:
 
-1. Go to your Automated ML experiment in your machine learning workspace
+1. Go to your Automated ML experiment and run in your machine learning workspace
 1. Choose the Models tab
 1. Select the model you wish to use. Once you select a model, the *Download* button will become enabled
 1. Choose *Download*
 
 :::image type="content" source="media/how-to-deploy-automl-endpoint/download-model.png" alt-text="Screenshot showing the selection of the model and download button":::
 
-you'll receive a zip file containing:
+You'll receive a zip file containing:
 * A conda environment specification file named `conda_env_<VERSION>.yml`
 * A Python scoring file named `scoring_file_<VERSION>.py`
 * The model itself, in a Python `.pkl` file named `model.pkl`
