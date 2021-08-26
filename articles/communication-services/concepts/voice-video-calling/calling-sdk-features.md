@@ -2,11 +2,11 @@
 title: Azure Communication Services Calling SDK overview
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the Calling SDK.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
