@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 08/26/2021
 ms.author: tamram
 ms.subservice: blobs 
 ---
@@ -54,11 +54,29 @@ To create a container that supports version-level immutability in the Azure port
 
 #### [PowerShell](#tab/azure-powershell)
 
-To create a container that supports version-level immutability with PowerShell,
+To create a container that supports version-level immutability with PowerShell, first install the [Az.Storage module](https://www.powershellgallery.com/packages/Az.Storage/3.10.1-preview), version 3.10.1-preview.
 
+Next, call the **New-AzRmStorageContainer** command with the `-EnableImmutableStorageWithVersioning` parameter, as shown in the following example. Remember to replace placeholders in angle brackets with your own values:
+
+```powershell
+New-AzRmStorageContainer -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -Name <container> `
+    -EnableImmutableStorageWithVersioning
+```
 #### [Azure CLI](#tab/azure-cli)
 
-To create a container that supports version-level immutability with Azure CLI,
+To create a container that supports version-level immutability with Azure CLI, first install Azure CLI version 2.27 or later. For more information about installing Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
+Next, call the [az storage container-rm create](/cli/azure/storage/container-rm#az_storage_container_rm_create) command, specifying the `--enable-vlw` parameter. Remember to replace placeholders in angle brackets with your own values:
+
+```azurecli
+az storage container-rm create \
+    --name <container> \
+    --storage-account <storage-account> \
+    --resource-group <resource-group> \
+    --enable-vlw
+```
 
 ---
 
