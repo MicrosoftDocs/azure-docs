@@ -25,6 +25,7 @@ To enable auto registration, select the checkbox for "Enable auto registration" 
 * DNS records are created automatically only for the primary virtual machine NIC. If your virtual machines have more than one NIC, you can manually create the DNS records for other network interfaces.
 * DNS records are created automatically only if the primary virtual machine NIC is using DHCP. If you're using static IPs, such a configuration with [multiple IP addresses in Azure](../virtual-network/virtual-network-multiple-ip-addresses-portal.md#os-config)), auto registration won't create records for that virtual machine.
 * Autoregistration for IPv6 (AAAA records) isn't supported.
+* Auto Registration for Private DNS Zone is limited to single VNET.
 
 ## Next steps
 
