@@ -44,14 +44,14 @@ This table lists accepted data types, when each data type should be used, and th
 | Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
 | [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/A |
-| [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
-| [Plain text](#guidelines-to-create-a-sentences-file) | No | N/a | Yes | 1-200 MB of related text |
-| [Pronunciation](#guidelines-to-create-a-pronunciation-file) | No | N/a | Yes | 1 KB - 1 MB of pronunciation text |
+| [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-trainingtesting) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
+| [Plain text](#plain-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
+| [Pronunciation](#pronunciation-data-for-training) | No | N/a | Yes | 1 KB - 1 MB of pronunciation text |
 
 Files should be grouped by type into a dataset and uploaded as a .zip file. Each dataset can only contain a single data type.
 
 > [!TIP]
-> When you train a new model, start with [text](#related-text-data-for-training). This data will already improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes vs. days).
+> When you train a new model, start with plain text. This data will already improve the recognition of special terms and phrases. Training with text is much faster than training with audio (minutes vs. days).
 
 > [!NOTE]
 > Not all base models support training with audio. If a base model does not support it, the Speech service will only use the text from the transcripts and ignore the audio. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data. Even if a base model supports training with audio data, the service might use only part of the audio. Still it will use all the transcripts.
@@ -178,7 +178,7 @@ Use the following table to ensure that your related data file for pronunciations
 
 ## Audio data for testing
 
-Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind, audio data is used to inspect the accuracy of speech with regard to a specific model's performance. If you want to quantify the accuracy of a model, use [audio + human-labeled transcription data](#audio--human-labeled-transcript-data-for-testingtraining).
+Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind, audio data is used to inspect the accuracy of speech with regard to a specific model's performance. If you want to quantify the accuracy of a model, use [audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-trainingtesting).
 
 Custom Speech requires audio files with these properties:
 
@@ -210,3 +210,4 @@ Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX</a> 
 * [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 * [Train custom model](how-to-custom-speech-train-model.md)
 * [Deploy model](./how-to-custom-speech-train-model.md)
+x
