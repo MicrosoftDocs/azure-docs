@@ -19,7 +19,7 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 > - Auto-capture of unhandled exceptions
 > - [Profiler](profiler-overview.md)
 > - [Snapshot Debugger](snapshot-debugger.md)
-> - offline disk storage
+> - Offline disk storage
 > - [AAD Authentication](azure-ad-authentication.md)
 >
 > Those who require a full-feature experience should use the existing Application Insights SDKs until the OpenTelemetry-based offering matures.
@@ -48,7 +48,7 @@ Replace placeholder connection string with YOUR connection string.
 
 Find the connection string on your Application Insights Resource.
 
-:::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights Connection String":::
+:::image type="content" source="media/opentelemetry-python/connection-string.png" alt-text="Screenshot of Application Insights Connection String.":::
 
 **3. Confirm Data is Flowing**
 
@@ -57,7 +57,8 @@ Generate requests in your application and open your Application Insights Resourc
 > [!NOTE]
 > It may take a couple minutes for data to show up in the Portal.
 
-//screenshot
+:::image type="content" source="media/opentelemetry-python/server-requests.png" alt-text="Screenshot of Application Insights Overview tab with server requests and server response time highlighted.":::
+
 
 > [!IMPORTANT]
 > If you have two or more micro-services using the same connection string, you are required to set cloud role names to represent them properly on the Application Map.
