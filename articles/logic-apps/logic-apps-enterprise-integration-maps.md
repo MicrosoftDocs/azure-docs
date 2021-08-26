@@ -16,6 +16,8 @@ To transfer XML data between formats for enterprise integration scenarios in Azu
 
 For example, suppose you regularly receive B2B orders or invoices from a customer who uses the YYYMMDD date format. However, your organization uses the MMDDYYY date format. You can define and use a map that transforms the YYYMMDD date format to the MMDDYYY format before storing the order or invoice details in your customer activity database.
 
+With a map, you can define a simple transformation, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations.
+
 > [!NOTE]
 > Azure Logic Apps allocates finite memory for processing XML transformations. If you create logic apps based on the 
 > **Logic App (Consumption)** resource type, and your map or payload transformations have high memory consumption, 
@@ -55,17 +57,17 @@ If you're new to logic apps, review the following documentation:
 
   * Is associated with the same Azure subscription as your logic app resource.
 
-  * Exists in the same location or Azure region as your logic app resource where you plan to use the XML validation action.
+  * Exists in the same location or Azure region as your logic app resource where you plan to use the **Transform XML** action.
 
-  * Is [linked](logic-apps-enterprise-integration-create-integration-account.md#link-account) to your logic app resource when you want to use maps.
+  * Is [linked](logic-apps-enterprise-integration-create-integration-account.md#link-account) to your logic app resource where you want to use maps.
 
     To create and add maps for use in Consumption logic app workflows, you don't need a logic app resource yet. However, when you're ready to use those maps in your workflows, your logic app resource requires a linked integration account that stores those maps.
 
-* While **Logic App (Consumption)** supports referencing external assemblies from maps, **Logic App (Standard)** currently doesn't support this capability.
+* While **Logic App (Consumption)** supports referencing external assemblies from maps, **Logic App (Standard)** currently doesn't support this capability. Referencing an assembly enables direct calls from XSLT maps to custom .NET code.
 
-  When you're using **Logic App (Consumption)**, and your map references an external assembly, you need a 64-bit assembly. The transform service runs a 64-bit process, so 32-bit assemblies aren't supported. If you have the source code for a 32-bit assembly, recompile the code into a 64-bit assembly. If you don't have the source code, but you obtained the binary from a third-party provider, get the 64-bit version from that provider. For example, some vendors provide assemblies in packages that have both 32-bit and 64-bit versions. If you have the option, use the 64-bit version instead.
+  * You need a 64-bit assembly. The transform service runs a 64-bit process, so 32-bit assemblies aren't supported. If you have the source code for a 32-bit assembly, recompile the code into a 64-bit assembly. If you don't have the source code, but you obtained the binary from a third-party provider, get the 64-bit version from that provider. For example, some vendors provide assemblies in packages that have both 32-bit and 64-bit versions. If you have the option, use the 64-bit version instead.
 
-  * You have to upload *both the assembly and the map* to your integration account. Make sure you [*upload your assembly first*](#add-assembly), and then upload the map that references the assembly.
+  * You have to upload *both the assembly and the map* in a specific order to your integration account. Make sure you [*upload your assembly first*](#add-assembly), and then upload the map that references the assembly.
 
   * If your assembly is [2 MB or smaller](#smaller-map), you can add your assembly and map to your integration account *directly* from the Azure portal. However, if your assembly or map is bigger than 2 MB but not bigger than the [size limit for assemblies or maps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), you can use an Azure blob container where you can upload your assembly and that container's location. That way, you can provide that location later when you add the assembly to your integration account. For this task, you need these items:
 
@@ -165,9 +167,52 @@ To add larger assemblies, you can upload your assembly to an Azure blob containe
 
 After your assembly finishes uploading, the assembly appears in the **Schemas** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded assembly also appears.
 
+<a name="create-maps"></a>
+
 ## Create maps
 
-To create an Extensible Stylesheet Language Transformation (XSLT) document that you can use as a map, you can use Visual Studio 2015 or 2019 to create an integration project by using the [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md). In this project, you can build an integration map file, which lets you visually map items between two XML schema files. After you build this project, you get an XSLT document. For limits on map quantities in integration accounts, review [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
+To create an Extensible Stylesheet Language Transformation (XSLT) document that you can use as a map, you can use Visual Studio 2015 or 2019 to create an integration project by using the [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas). In this project, you can build an integration map file, which lets you visually map items between two XML schema files. After you build this project, you get an XSLT document. For limits on map quantities in integration accounts, review [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#artifact-number-limits).
+
+Your map must have the following attributes and a `CDATA` section that contains the call to the assembly code:
+
+* `name` is the custom assembly name.
+
+* `namespace` is the namespace in your assembly that includes the custom code.
+
+The following example shows a map that references an assembly named `XslUtilitiesLib` and calls the `circumference` method from the assembly.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
+<msxsl:script language="C#" implements-prefix="user">
+    <msxsl:assembly name="XsltHelperLib"/>
+    <msxsl:using namespace="XsltHelpers"/>
+    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
+</msxsl:script>
+<xsl:template match="data">
+<circles>
+    <xsl:for-each select="circle">
+        <circle>
+            <xsl:copy-of select="node()"/>
+                <circumference>
+                    <xsl:value-of select="user:circumference(radius)"/>
+                </circumference>
+        </circle>
+    </xsl:for-each>
+</circles>
+</xsl:template>
+</xsl:stylesheet>
+```
+
+## Tools and capabilities for maps
+
+* When you create a map using Visual Studio and the [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas), you work with a graphical representation of the map, which shows all the relationships and links you create.
+
+* You can make a direct data copy between schemas. The [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas) for Visual Studio includes a mapper that makes this task as simple as drawing a line that connects the elements in the source XML schema with their counterparts in the target XML schema.
+
+* Operations or functions for multiple maps are available, including string functions, date time functions, and so on.  
+
+* To add a sample XML message, you can use the map testing capability. With just one click, you can test the map you created, and review the generated output.
 
 ## Add maps
 
@@ -295,6 +340,5 @@ To update an existing map, you have to upload a new map file that has the change
 
 ## Next steps
 
-* [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)  
-* [Learn more about schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md)
-* [Learn more about transforms](../logic-apps/logic-apps-enterprise-integration-transform.md)
+* [Transform XML for workflows in Azure Logic Apps](logic-apps-enterprise-integration-transform.md)
+* [Validate XML for workflows in Azure Logic Apps](logic-apps-enterprise-integration-xml-validation.md)

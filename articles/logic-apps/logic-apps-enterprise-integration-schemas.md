@@ -235,6 +235,5 @@ To update an existing schema, you have to upload a new schema file that has the 
 
 ## Next steps
 
-* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
-* [Learn more about maps](../logic-apps/logic-apps-enterprise-integration-maps.md)
-* [Learn more about transforms](../logic-apps/logic-apps-enterprise-integration-transform.md)
+* [Validate XML for workflows in Azure Logic Apps](logic-apps-enterprise-integration-xml-validation.md)
+* [Transform XML for workflows in Azure Logic Apps](logic-apps-enterprise-integration-transform.md)
