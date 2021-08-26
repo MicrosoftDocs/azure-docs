@@ -19,6 +19,7 @@ The OTA update is built for users who tend to always keep the dev kit up to date
 
 >[!IMPORTANT]
 >Be sure to check the following document before you decide to go with either OTA or USB cable update.
+>
 >[How to determine your update strategy](./how-to-determine-your-update-strategy.md)
 
 ## Hard-Stop Version of OTA

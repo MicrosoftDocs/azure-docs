@@ -12,6 +12,7 @@ ms.custom: template-how-to
 # Update the Azure Percept DK over a USB-C cable connection
 
 This guide will show you how to successfully update your dev kit's operating system and firmware over a USB connection. Here's an overview of what you will be doing during this procedure.
+
 1. Download the update package to a host computer
 1. Run the command that transfers the update package to the dev kit
 1. Set the dev kit into USB mode using SSH or DIP switches
@@ -22,7 +23,6 @@ This guide will show you how to successfully update your dev kit's operating sys
 > Updating your dev kit over USB will delete all existing data on the device, including AI models and containers.
 >
 > Follow all instructions in order. Skipping steps could put your dev kit in an unusable state.
-
 
 ## Prerequisites
 
