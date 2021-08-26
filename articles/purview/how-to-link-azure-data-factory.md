@@ -96,22 +96,6 @@ The integration between Data Factory and Purview supports only a subset of the d
 
 [!INCLUDE[data-factory-supported-lineage-capabilities](includes/data-factory-common-supported-capabilities.md)]
 
-### Data Flow support
-
-| Data store | Supported |
-| ------------------- | ------------------- | 
-| Azure Blob Storage | Yes |
-| Azure Cosmos DB (SQL API) \* | Yes | 
-| Azure Data Lake Storage Gen1 | Yes |
-| Azure Data Lake Storage Gen2 | Yes |
-| Azure Database for MySQL \* | Yes | 
-| Azure Database for PostgreSQL \* | Yes |
-| Azure SQL Database \* | Yes |
-| Azure SQL Managed Instance \* | Yes | 
-| Azure Synapse Analytics \* | Yes |
-
-*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
-
 ### Execute SSIS Package support
 
 Refer to [supported data stores](how-to-lineage-sql-server-integration-services.md#supported-data-stores).

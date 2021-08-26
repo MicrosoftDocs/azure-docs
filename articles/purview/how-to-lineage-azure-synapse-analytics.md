@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 08/25/2021
 ---
 # How to get lineage from Azure Synapse Analytics into Azure Purview
 
@@ -17,6 +17,7 @@ This document explains the steps required for connecting an Azure Synapse worksp
 Currently, Azure Purview captures runtime lineage from the following Azure Synapse pipeline activities:
 
 - [Copy Data](../data-factory/copy-activity-overview.md)
+- [Data Flow](../data-factory/concepts-data-flow-overview.md)
 
 > [!IMPORTANT]
 > Azure Purview drops lineage if the source or destination uses an unsupported data storage system.

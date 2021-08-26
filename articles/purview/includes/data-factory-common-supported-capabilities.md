@@ -4,7 +4,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
-ms.date: 08/10/2021
+ms.date: 08/25/2021
 ---
 
 ### Copy activity support
@@ -53,3 +53,19 @@ In additional to lineage, the data asset schema (shown in Asset -> Schema tab) i
 
 - CSV and Parquet files on Azure Blob, Azure File Storage, ADLS Gen1, ADLS Gen2, and Amazon S3
 - Azure Data Explorer, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, Teradata
+
+### Data Flow support
+
+| Data store | Supported |
+| ------------------- | ------------------- | 
+| Azure Blob Storage | Yes |
+| Azure Cosmos DB (SQL API) \* | Yes | 
+| Azure Data Lake Storage Gen1 | Yes |
+| Azure Data Lake Storage Gen2 | Yes |
+| Azure Database for MySQL \* | Yes | 
+| Azure Database for PostgreSQL \* | Yes |
+| Azure SQL Database \* | Yes |
+| Azure SQL Managed Instance \* | Yes | 
+| Azure Synapse Analytics \* | Yes |
+
+*\* Azure Purview currently doesn't support query or stored procedure for lineage or scanning. Lineage is limited to table and view sources only.*
