@@ -14,17 +14,17 @@ ms.custom: devx-track-csharp
 ---
 # Quickstart: Build a Table API app with .NET SDK and Azure Cosmos DB
 
-[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
+[!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
 
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](./table-storage-how-to-use-python.md)
+> * [Python](./how-to-use-python.md)
 >  
 
-This quickstart shows how to access the Azure Cosmos DB [Table API](table-introduction.md) from a .NET application.  The Azure Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud.  Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table.
+This quickstart shows how to access the Azure Cosmos DB [Table API](introduction.md) from a .NET application.  The Azure Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud.  Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table.
 
 .NET applications can access the Azure Cosmos DB Table API using the [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) NuGet package.  The [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) package is a [.NET Standard 2.0](/dotnet/standard/net-standard) library that works with both .NET Framework (4.6.1 and later) and .NET Core (2.0 and later) applications.
 
@@ -32,7 +32,7 @@ This quickstart shows how to access the Azure Cosmos DB [Table API](table-introd
 
 The sample application is written in [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet/3.1), though the principles apply to both .NET Framework and .NET Core applications.  You can use either [Visual Studio](https://www.visualstudio.com/downloads/) or [Visual Studio Code](https://code.visualstudio.com/) as an IDE.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample application
 
@@ -128,7 +128,7 @@ In the [Azure portal](https://portal.azure.com/), complete the following steps t
 | Instructions    | Screenshot |
 |:----------------|-----------:|
 | [!INCLUDE [Create cosmos db table step 1](<./includes/create-table-dotnet/create-cosmos-table-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find your Azure Cosmos DB account." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-1.png":::           |
-| [!INCLUDE [Create cosmos db table step 2](<./includes/create-table-dotnet/create-cosmos-table-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-2-240px.png" alt-text="A screenshot showing the location of the Add Table button." lightbox="./media/azportal-create-cosmos-db-table-api-2.png":::           |
+| [!INCLUDE [Create cosmos db table step 2](<./includes/create-table-dotnet/create-cosmos-table-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-2-240px.png" alt-text="A screenshot showing the location of the Add Table button." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-2.png":::           |
 | [!INCLUDE [Create cosmos db table step 3](<./includes/create-table-dotnet/create-cosmos-table-3.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-3-240px.png" alt-text="A screenshot showing how to New Table dialog box for an Azure Cosmos DB table." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-3.png":::           |
 
 ### [Azure CLI](#tab/azure-cli)
@@ -250,7 +250,7 @@ dotnet add package Azure.Data.Tables
 
 The Azure SDK communicates with Azure using client objects to execute different operations against Azure.  The [TableClient](/dotnet/api/azure.data.tables.tableclient) object is the object used to communicate with the Azure Cosmos DB table API.
 
-An application will typically create a single [TableClient](/dotnet/api/azure.data.tables.tableclient) object per table to be used throughout the application.  It is recommended to use dependency injection and register the [TableClient](/dotnet/api/azure.data.tables.tableclient) object as a singleton to accomplish this.  For more information about using DI with the Azure SDK, see [Dependency injection with the Azure SDK for .NET](../sdk/dependency-injection.md).
+An application will typically create a single [TableClient](/dotnet/api/azure.data.tables.tableclient) object per table to be used throughout the application.  It is recommended to use dependency injection and register the [TableClient](/dotnet/api/azure.data.tables.tableclient) object as a singleton to accomplish this.  For more information about using DI with the Azure SDK, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection.md).
 
 In the Startup.cs file of the application, edit the ConfigureServices() method to match the following code snippet.
 
@@ -728,7 +728,7 @@ Selecting the *Insert using Table Entity* button brings up a dialog allowing you
 
 Selecting the *Insert using Expandable Data* button brings up a dialog that enables you to insert an object with custom properties, demonstrating how the Cosmos DB Table API automatically adds properties (columns) to the table when needed.  Use the *Add Custom Field* button to add one or more new properties and demonstrate this capability.
 
-:::image type="content" source="./media/create-table-dotnet/table-api-app-insert-expandable-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using an object with custom fields" lightbox="./media/create-table-dotnet/table-api-app-insert-expandable-entity-entity.png":::
+:::image type="content" source="./media/create-table-dotnet/table-api-app-insert-expandable-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using an object with custom fields" lightbox="./media/create-table-dotnet/table-api-app-insert-expandable-entity.png":::
 
 Use the *Insert Bulk Data* button to demonstrate the bulk load capability of the API.  This is also a good way to insert some sample data into your database to work with.
 

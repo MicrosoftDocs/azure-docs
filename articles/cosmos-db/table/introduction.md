@@ -42,11 +42,7 @@ If you currently use Azure Table Storage, you gain the following benefits by mov
 
 ## Get started
 
-Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com). Then get started with our [Quick Start for Table API by using .NET](create-table-dotnet.md). 
-
-> [!IMPORTANT]
-> If you created a Table API account during the preview, please create a [new Table API account](create-table-dotnet.md#create-a-database-account) to work with the generally available Table API SDKs.
->
+Create an Azure Cosmos DB account in the [Azure portal](https://portal.azure.com). Then get started with our [Quick Start for Table API by using .NET](create-table-dotnet.md).
 
 ## Next steps
 
