@@ -447,9 +447,9 @@ To perform cross-region restore, you will require an access token to authorize y
 
 #### Step 1: Use the [AAD Properties API](/rest/api/backup/aad-properties/get) to get AAD properties for the secondary region (*westus* in the below example):
 
-    ```http
-    GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/westus/backupAadProperties?api-version=2018-12-20
-    ```
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/westus/backupAadProperties?api-version=2018-12-20
+```
 
 ##### Response example
 
@@ -535,9 +535,9 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Micro
 
 The request body should have 2 parts:
 
-1. *crossRegionRestoreAccessDetails*: Paste the *properties* block of the response from the Get Access Token API request performed in the previous step to fill this segment of the request body.
+1. ***crossRegionRestoreAccessDetails***: Paste the *properties* block of the response from the Get Access Token API request performed in the previous step to fill this segment of the request body.
 
-2. *restoreRequest*: To fill the *restoreRequest* segment of the request body, you will need to pass the recovery point id obtained earlier, along with the ARM id of the source VM, as well as the details of the storage account in the secondary region to be used as a staging location. To perform disk restore, specify *RestoreDisks* as the recovery type.
+1. ***restoreRequest***: To fill the *restoreRequest* segment of the request body, you will need to pass the recovery point id obtained earlier, along with the ARM id of the source VM, as well as the details of the storage account in the secondary region to be used as a staging location. To perform disk restore, specify *RestoreDisks* as the recovery type.
 
 Below is a sample request body to restore the disks of a VM to the secondary region:
 
