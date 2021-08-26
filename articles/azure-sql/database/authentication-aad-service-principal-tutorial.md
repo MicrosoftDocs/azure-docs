@@ -7,7 +7,8 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 05/10/2021
+ms.date: 05/10/2021 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Create Azure AD users using Azure AD applications

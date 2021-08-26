@@ -9,7 +9,8 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.author: sebansal
+ms.author: sebansal 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Integrating Key Vault with DigiCert certificate authority

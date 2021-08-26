@@ -2,7 +2,8 @@
 title: Restore Azure Files with PowerShell
 description: In this article, learn how to restore Azure Files using the Azure Backup service and PowerShell. 
 ms.topic: conceptual
-ms.date: 1/27/2020
+ms.date: 1/27/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Restore Azure Files with PowerShell

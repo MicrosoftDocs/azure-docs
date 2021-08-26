@@ -254,7 +254,7 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
     3. Update your dependencies block. Add a new implementation dependency line for the latest Azure Maps Android SDK:
 
         ```gradel
-        implementation "com.microsoft.azure.maps:mapcontrol:0.7"
+        implementation "com.azure.android:azure-maps-control:1.0.0"
         ```
 
         > [!Note]
@@ -273,7 +273,7 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
         android:layout_height="match_parent"
         >
 
-        <com.microsoft.azure.maps.mapcontrol.MapControl
+        <com.azure.android.maps.control.MapControl
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -308,11 +308,11 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
     package com.example.myapplication;
     
     import androidx.appcompat.app.AppCompatActivity;
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-    import com.microsoft.azure.maps.mapcontrol.options.MapStyle;
-    import com.microsoft.azure.maps.mapcontrol.source.DataSource;
+    import com.azure.android.maps.control.AzureMaps;
+    import com.azure.android.maps.control.MapControl;
+    import com.azure.android.maps.control.layer.SymbolLayer;
+    import com.azure.android.maps.control.options.MapStyle;
+    import com.azure.android.maps.control.source.DataSource;
     
     public class MainActivity extends AppCompatActivity {
     
@@ -414,10 +414,10 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
 
     import androidx.appcompat.app.AppCompatActivity
     import android.os.Bundle
-    import com.microsoft.azure.maps.mapcontrol.AzureMap
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps
-    import com.microsoft.azure.maps.mapcontrol.MapControl
-    import com.microsoft.azure.maps.mapcontrol.events.OnReady
+    import com.azure.android.maps.control.AzureMap
+    import com.azure.android.maps.control.AzureMaps
+    import com.azure.android.maps.control.MapControl
+    import com.azure.android.maps.control.events.OnReady
     
     class MainActivity : AppCompatActivity() {
     
@@ -581,12 +581,12 @@ companion object {
 The second option is to pass the language and view information to the map control XML code.
 
 ```xml
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/myMap"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_language="fr-FR"
-    app:mapcontrol_view="Auto"
+    app:azure_maps_language="fr-FR"
+    app:azure_maps_view="Auto"
     />
 ```
 
@@ -671,14 +671,14 @@ As noted previously, to achieve the same viewable area in Azure Maps subtract th
 The initial map view can be set in XML attributes on the map control.
 
 ```xml
-<com.microsoft.azure.maps.mapcontrol.MapControl
+<com.azure.android.maps.control.MapControl
     android:id="@+id/myMap"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:mapcontrol_cameraLat="35.0272"
-    app:mapcontrol_cameraLng="-111.0225"
-    app:mapcontrol_zoom="14"
-    app:mapcontrol_style="satellite"
+    app:azure_maps_cameraLat="35.0272"
+    app:azure_maps_cameraLng="-111.0225"
+    app:azure_maps_zoom="14"
+    app:azure_maps_style="satellite"
     />
 ```
 
@@ -1324,7 +1324,7 @@ No resources to be cleaned up.
 
 ## Next steps
 
-Learn more about migrating Azure Maps:
+Learn more about the Azure Maps Android SDK:
 
 > [!div class="nextstepaction"]
-> [Migrate an Android app](migrate-from-google-maps-android-app.md)
+> [Getting started with Azure Maps Android SDK](how-to-use-android-map-control-library.md)

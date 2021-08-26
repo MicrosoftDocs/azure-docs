@@ -15,6 +15,8 @@ ms.collection: linux
 
 # Quickstart: WildFly on CentOS 8
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This Quickstart shows you how to deploy the standalone node of WildFly of CentOS 8 VM. It is ideal for development and testing of enterprise Java applications on Azure. Application server subscription isn't required to deploy this quickstart.
 
 ## Prerequisites
@@ -29,7 +31,7 @@ You can use WildFly in either Standalone or Cluster mode per your use case. You 
 
 ## Configuration choice
 
-WildFly can be booted in **Standalone Server** mode - A standalone server instance is an independent process, much like a JBoss Application Server (AS) 3, 4, 5, or 6 instance. Standalone instances can be launched via the standalone.sh or standalone.bat launch scripts. For more than one standalone instance, it is the user’s responsibility to coordinate multi-server management across the servers.
+WildFly can be booted in **Standalone Server** mode - A standalone server instance is an independent process, much like a JBoss Application Server (AS) 3, 4, 5, or 6 instance. Standalone instances can be launched via the standalone.sh or standalone.bat launch scripts. For more than one standalone instance, it is the user's responsibility to coordinate multi-server management across the servers.
 
 You can also start WildFly instance with alternate configuration by using configuration files available in configuration folder.
 
@@ -68,7 +70,7 @@ You can deploy the template in the following three ways:
     ```
 
     ```
-    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/wildfly/wildfly-standalone-centos8/azuredeploy.json
     ```
     
 - Use Azure CLI - Deploy the template by running the following commands: (Check out [Azure Cross-Platform Command Line](/cli/azure/install-azure-cli) for details on installing and configuring the Azure Cross-Platform Command-Line Interface).
@@ -78,14 +80,14 @@ You can deploy the template in the following three ways:
     ```
 
     ```
-    az deployment group create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    az deployment group create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/wildfly/wildfly-standalone-centos8/azuredeploy.json
     ```
 
-- Use Azure portal - Deploy the template by clicking <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwildfly-standalone-centos8%2Fazuredeploy.json" target="_blank">here</a> and log into your Azure portal.
+- Use Azure portal - Deploy the template by clicking <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fwildfly%2Fwildfly-standalone-centos8%2Fazuredeploy.json" target="_blank">here</a> and log into your Azure portal.
 
 ## ARM template
 
-<a href="https://github.com/Azure/azure-quickstart-templates/tree/master/wildfly-standalone-centos8" target="_blank"> WildFly 18 on CentOS 8 (stand-alone VM)</a> - This is a Quickstart template that creates a standalone node of WildFly 18.0.1.Final on CentOS 8 VM in your Resource Group (RG) which includes a Private IP for the VM, Virtual Network, and Diagnostics Storage Account. It also deploys a sample Java application named JBoss-EAP on Azure on WildFly.
+<a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wildfly/wildfly-standalone-centos8" target="_blank"> WildFly 18 on CentOS 8 (stand-alone VM)</a> - This is a Quickstart template that creates a standalone node of WildFly 18.0.1.Final on CentOS 8 VM in your Resource Group (RG) which includes a Private IP for the VM, Virtual Network, and Diagnostics Storage Account. It also deploys a sample Java application named JBoss-EAP on Azure on WildFly.
 
 ## Resource links
 
@@ -99,12 +101,12 @@ For production environment, check out the Red Hat JBoss EAP Azure Quickstart ARM
 
 Stand-alone RHEL virtual machine with sample application:
 
-*  <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-standalone-rhel" target="_blank"> JBoss EAP on RHEL (stand-alone VM)</a>
+*  <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/jboss/jboss-eap-standalone-rhel" target="_blank"> JBoss EAP on RHEL (stand-alone VM)</a>
 
 Clustered RHEL virtual machines with sample application:
 
-* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-clustered-multivm-rhel" target="_blank"> JBoss EAP on RHEL (clustered VMs)</a>
+* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/jboss/jboss-eap-clustered-multivm-rhel" target="_blank"> JBoss EAP on RHEL (clustered VMs)</a>
 
 Clustered RHEL Virtual Machine Scale Set with sample application:
 
-* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/jboss-eap-clustered-vmss-rhel" target="_blank"> JBoss EAP on RHEL (clustered Virtual Machine Scale Set)</a>
+* <a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/jboss/jboss-eap-clustered-vmss-rhel" target="_blank"> JBoss EAP on RHEL (clustered Virtual Machine Scale Set)</a>

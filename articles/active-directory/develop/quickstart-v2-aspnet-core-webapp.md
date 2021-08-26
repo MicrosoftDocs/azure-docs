@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app | Azure"
+title: "Quickstart: Add sign-in with Microsoft Identity to an ASP.NET Core web app | Azure"
 titleSuffix: Microsoft identity platform
 description: In this quickstart, you learn how an app implements Microsoft sign-in on an ASP.NET Core web app by using OpenID Connect
 services: active-directory
@@ -96,7 +96,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > 1. Open the *appsettings.json* file and modify the following code:
 >
 >    ```json
->    "Domain": "Enter the domain of your tenant, e.g. contoso.onmicrosoft.com",
+>    "Domain": "[Enter the domain of your tenant, e.g. contoso.onmicrosoft.com]",
 >    "ClientId": "Enter_the_Application_Id_here",
 >    "TenantId": "common",
 >    ```
@@ -135,21 +135,21 @@ This section gives an overview of the code required to sign in users. This overv
 The *Microsoft.AspNetCore.Authentication* middleware uses a `Startup` class that's run when the hosting process starts:
 
 ```csharp
-  public void ConfigureServices(IServiceCollection services)
-  {
-      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-          .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+        .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"));
 
-      services.AddControllersWithViews(options =>
-      {
-          var policy = new AuthorizationPolicyBuilder()
-              .RequireAuthenticatedUser()
-              .Build();
-          options.Filters.Add(new AuthorizeFilter(policy));
-      });
-      services.AddRazorPages()
-          .AddMicrosoftIdentityUI();
-  }
+    services.AddControllersWithViews(options =>
+    {
+        var policy = new AuthorizationPolicyBuilder()
+            .RequireAuthenticatedUser()
+            .Build();
+        options.Filters.Add(new AuthorizeFilter(policy));
+    });
+   services.AddRazorPages()
+        .AddMicrosoftIdentityUI();
+}
 ```
 
 The `AddAuthentication()` method configures the service to add cookie-based authentication. This authentication is used in browser scenarios and to set the challenge to OpenID Connect.
@@ -170,14 +170,11 @@ app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
 {
-
     endpoints.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}");
     endpoints.MapRazorPages();
 });
-
-// endpoints.MapControllers(); // REQUIRED if MapControllerRoute() isn't called.
 ```
 
 ### Attribute for protecting a controller or methods

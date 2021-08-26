@@ -32,6 +32,9 @@ Application Gateway currently supports software-validated certificates only. Har
 > [!NOTE]
 > The Azure portal only supports KeyVault Certificates, not secrets. Application Gateway still supports referencing secrets from KeyVault, but only through non-Portal resources like PowerShell, CLI, API, ARM templates, etc. 
 
+> [!WARNING]
+> Azure Application Gateway currently only supports Key Vault accounts in the same subscription as the Application Gateway resource. Choosing a Key Vault under a different subscription than your Application Gateway will result in a failure.
+
 ## How integration works
 
 Application Gateway integration with Key Vault requires a three-step configuration process:

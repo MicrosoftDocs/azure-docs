@@ -3,13 +3,13 @@ title: In-memory technologies
 description: In-memory technologies greatly improve the performance of transactional and analytics workloads in Azure SQL Database and Azure SQL Managed Instance. 
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: 
+ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: mathoma
 ms.date: 03/19/2019
 ---
 # Optimize performance by using in-memory technologies in Azure SQL Database and Azure SQL Managed Instance

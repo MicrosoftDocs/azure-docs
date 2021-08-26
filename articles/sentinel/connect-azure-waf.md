@@ -15,6 +15,8 @@ ms.author: yelevin
 Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. Azure Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and threats, such as code injection and cross-site scripting. Azure WAF can be deployed on the [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md) service, the [Azure Front Door](../web-application-firewall/afds/afds-overview.md) service, and through an [Azure Content Delivery Network (CDN)](../web-application-firewall/cdn/cdn-overview.md) WAF policy (the latter currently in public preview).
 You can connect Azure WAF logs to Azure Sentinel, enabling you to view log data in workbooks, use it to create custom alerts, and incorporate it to improve your investigation.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 ## Prerequisites
 
 - You must have read and write permissions on the Azure Sentinel workspace.
@@ -60,5 +62,5 @@ You can connect Azure WAF logs to Azure Sentinel, enabling you to view log data 
 
 ## Next steps
 In this document, you learned how to connect Azure WAF logs to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).

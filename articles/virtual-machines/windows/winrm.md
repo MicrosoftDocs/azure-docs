@@ -7,10 +7,13 @@ ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/16/2016
-ms.author: mimckitt
+ms.author: mimckitt 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Setting up WinRM access for Virtual Machines in Azure Resource Manager
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 
 Here are the steps you need to take to set up a VM with WinRM connectivity
 
@@ -123,7 +126,7 @@ While creating a VM through templates, the certificate gets referenced in the se
     },
 ```
 
-A sample template for the above can be found here at [vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/demos/vm-winrm-keyvault-windows)
+A sample template for the above can be found here at [vm-winrm-keyvault-windows](https://azure.microsoft.com/resources/templates/vm-winrm-keyvault-windows/)
 
 Source code for this template can be found on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows)
 

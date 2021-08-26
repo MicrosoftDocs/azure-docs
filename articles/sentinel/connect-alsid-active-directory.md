@@ -21,6 +21,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Alsid for Active Directory connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 This article explains how to connect your Alsid for AD solution to Azure Sentinel. The Alsid for Active Directory data connector allows you to easily connect your Alsid for AD logs with Azure Sentinel, so that you can view the data in workbooks, query it to create custom alerts, and incorporate it to improve investigation. Integration between Alsid for AD and Azure Sentinel makes use of a Syslog server with the Log Analytics agent installed. It also uses a custom-built log parser based on a Kusto function.
 
 > [!NOTE]
@@ -189,6 +191,6 @@ See the **Next steps** tab in the connector page for more query samples.
 
 In this document, you learned how to connect Alsid for AD to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.

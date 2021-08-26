@@ -40,6 +40,15 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 > This is *not* the latest Java SDK for Azure Cosmos DB! Consider using [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide. 
 >
 
+> [!IMPORTANT]  
+> On August 31, 2024 the Azure Cosmos DB Async Java SDK v2.x
+> will be retired; the SDK and all applications using the SDK
+> **will continue to function**; Azure Cosmos DB will simply cease
+> to provide further maintenance and support for this SDK.
+> We recommend following the instructions above to migrate to
+> Azure Cosmos DB Java SDK v4.
+>
+
 | | Links |
 |---|---|
 | **SDK Download** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) |
@@ -52,7 +61,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 
 [!INCLUDE [Release notes](~/azure-cosmosdb-java-v2/changelog/README.md)]
 ## FAQ
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

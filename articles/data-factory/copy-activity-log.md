@@ -3,6 +3,7 @@ title: Session log in copy activity
 description: 'Learn about how to enable session log in copy activity in Azure Data Factory.'
 author: dearandyxu
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
@@ -14,6 +15,11 @@ ms.author: yexu
 You can log your copied file names in copy activity, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copied files in copy activity session logs.  
 
 When you enable fault tolerance setting in copy activity to skip faulty data, the skipped files and skipped rows can also be logged.  You can get more details from [fault tolerance in copy activity](copy-activity-fault-tolerance.md). 
+
+Given you have the opportunity to get all the file names copied by ADF copy activity via enabling session log, it will be helpful for you in the following scenarios:
+-   After you use ADF copy activities to copy the files from one storage to another, you see some files are shown up in destination store which should not. You can scan the copy activity session logs to see which copy activity actually copied those files and when to copy those files. By those, you can easily find the root cause and fix your configurations in ADF.   
+-   After you use ADF copy activities to copy the files from one storage to another, you feel the files copied to the destination are not the same as the ones from the source store. You can scan the copy activity session logs to get the timestamp of copy jobs as well as the metadata of files when ADF copy activities read them from the source store.  By those, you can know if those files had been updated by other applications on source store after being copied by ADF.  
+
 
 ## Configuration
 The following example provides a JSON definition to enable session log in Copy Activity: 

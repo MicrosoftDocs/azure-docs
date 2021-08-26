@@ -13,7 +13,8 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.author: mathoma
-ms.reviewer: jroth
+ms.reviewer: jroth 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Register multiple SQL VMs in Azure with the SQL IaaS Agent extension
@@ -238,6 +239,6 @@ Copy the full script and save it as `RegisterSqLVMs.psm1`.
 For more information, see the following articles: 
 
 * [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.md)
+* [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
 * [Release notes for SQL Server on a Windows VM](../../database/doc-changes-updates-release-notes.md)

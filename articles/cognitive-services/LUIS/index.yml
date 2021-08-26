@@ -82,7 +82,7 @@ landingContent:
           - text: Versioning
             url: ./luis-concept-app-iteration.md
           - text: Interactive testing
-            url: luis-concept-test.md
+            url: ./luis-interactive-test.md
           - text: Batch testing
             url: ./luis-how-to-batch-test.md
 
@@ -144,4 +144,4 @@ landingContent:
         - text: Support and help options
           url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
         - text: Troubleshooting
-          url: troubleshooting.md
+          url: troubleshooting.yml

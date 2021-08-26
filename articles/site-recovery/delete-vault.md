@@ -6,7 +6,8 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
-ms.author: sideeksh
+ms.author: sideeksh 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Delete a Site Recovery Services vault

@@ -59,6 +59,8 @@ landingContent:
             url: management-monitoring-overview.md
           - text: Threat protection
             url: threat-detection.md
+          - text: Recover from identity compromise
+            url: recover-from-identity-compromise.md
 
   # Card
   - title: Best practices for securing your cloud solutions

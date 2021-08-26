@@ -14,8 +14,9 @@ ms.author: cynthn
 
 # Deploy VMs and scale sets to dedicated hosts using the portal
 
-This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs).
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
+This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs). 
 
 ## Limitations
 
@@ -27,7 +28,7 @@ A **host group** is a resource that represents a collection of dedicated hosts. 
 - Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
 - Span across multiple fault domains which are mapped to physical racks.
 
-In either case, you are need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1.
+In either case, you need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1.
 
 You can also decide to use both availability zones and fault domains.
 
@@ -97,7 +98,7 @@ When you deploy a scale set, you specify the host group.
 
 ## Add an existing VM
 
-You can add an exiting VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
+You can add an existing VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
 
 - The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it could not be a Standard_A4_v2.
 - The VM needs to be located in same region as the dedicated host.
@@ -119,6 +120,6 @@ Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 
 - For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
-- There is sample template, found [here](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+- There is sample template, available at [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
 
 - You can also deploy a dedicated host using the [Azure CLI](./linux/dedicated-hosts-cli.md) or [PowerShell](./windows/dedicated-hosts-powershell.md).

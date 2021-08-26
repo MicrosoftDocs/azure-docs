@@ -5,7 +5,8 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.author: jingwang
+ms.author: jingwang 
+ms.custom: devx-track-azurepowershell
 robots: noindex
 ---
 # Move data From ODBC data stores using Azure Data Factory

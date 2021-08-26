@@ -233,7 +233,7 @@ The error message displayed is: "A verified publisher cannot be added to this ap
 
 First, verify you've met the [publisher verification requirements](publisher-verification-overview.md#requirements).
 
-When a request to add a verified publisher is made, an number of signals are used to make a security risk assessment. If the request is determined to be risky an error will be returned. For security reasons, Microsoft does not disclose the specific criteria used to determine whether a request is risky or not.
+When a request to add a verified publisher is made, a number of signals are used to make a security risk assessment. If the request is determined to be risky an error will be returned. For security reasons, Microsoft does not disclose the specific criteria used to determine whether a request is risky or not.
 
 ## Next steps
 

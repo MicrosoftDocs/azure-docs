@@ -14,6 +14,8 @@ ms.custom: devx-track-azurecli
 
 # Create a VM using a specialized image version with the Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
+
 Create a VM from a [specialized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM from a generalized image version](vm-generalized-image-version-cli.md).
 
 Replace resource names as needed in this example. 
@@ -41,7 +43,7 @@ az group create --name myResourceGroup --location eastus
 az vm create --resource-group myResourceGroup \
     --name myVM \
     --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
-	--specialized
+    --specialized
 ```
 
 
@@ -50,7 +52,6 @@ az vm create --resource-group myResourceGroup \
 
 You can also create Shared Image Gallery resource using templates. There are several Azure Quickstart Templates available: 
 
-- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
+- [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)

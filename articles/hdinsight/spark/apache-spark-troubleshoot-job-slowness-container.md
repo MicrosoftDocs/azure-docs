@@ -34,4 +34,4 @@ For every Nth micro batch where N % 100 == 0 (100 is just an example), move exis
 
 ## Next steps
 
-[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]
+[!INCLUDE [troubleshooting next steps](../includes/hdinsight-troubleshooting-next-steps.md)]

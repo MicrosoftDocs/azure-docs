@@ -4,7 +4,8 @@ titleSuffix: Azure HDInsight
 description: This article describes the two layers of encryption available for data at rest on Azure HDInsight clusters.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/10/2020 
+ms.custom: devx-track-azurepowershell
 ---
 # Azure HDInsight double encryption for data at rest
 

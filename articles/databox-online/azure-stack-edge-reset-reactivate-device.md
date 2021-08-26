@@ -1,6 +1,6 @@
 ---
-title: Reset and reactivate your Azure Stack Edge Pro device | Microsoft Docs 
-description: Learn how to wipe the data from and then reactivate your Azure Stack Edge Pro device.
+title: Azure Stack Edge device reset and reactivation 
+description: Learn how to wipe the data from and then reactivate your Azure Stack Edge device.
 services: databox
 author: v-dalc
 
@@ -11,11 +11,11 @@ ms.date: 05/05/2021
 ms.author: alkohli
 ---
 
-# Reset and reactivate your Azure Stack Edge Pro device
+# Reset and reactivate your Azure Stack Edge device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to reset, reconfigure, and reactivate an Azure Stack Edge Pro device if you're having issues with the device or need to start fresh for some other reason.
+This article describes how to reset, reconfigure, and reactivate an Azure Stack Edge device if you're having issues with the device or need to start fresh for some other reason.
 
 After you reset the device to remove the data, you'll need to reactivate the device as a new resource. Resetting a device removes the device configuration, so you'll need to reconfigure the device via the local web UI.
 
@@ -61,4 +61,4 @@ To reactivate your existing device, follow these steps:
 
 ## Next steps
 
-- Learn how to [Connect to an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-connect.md).
+- Learn how to [Connect to an Azure Stack Edge device](azure-stack-edge-gpu-deploy-connect.md).

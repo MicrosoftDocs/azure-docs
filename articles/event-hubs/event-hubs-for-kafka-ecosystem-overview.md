@@ -7,7 +7,6 @@ ms.date: 09/25/2020
 # Use Azure Event Hubs from Apache Kafka applications
 Event Hubs provides an endpoint compatible with the Apache Kafka® producer and consumer APIs that can be used by most existing Apache Kafka client applications as an alternative to running your own Apache Kafka cluster. Event Hubs supports Apache Kafka's producer and consumer APIs clients at version 1.0 and above.
 
-> [!VIDEO https://www.youtube.com/embed/UE1WgB96_fc]
 
 ## What does Event Hubs for Kafka provide?
 
@@ -33,7 +32,7 @@ While [Apache Kafka](https://kafka.apache.org/) is software you typically need t
 
 For more information about Event Hubs and namespaces, see [Event Hubs features](event-hubs-features.md#namespace). As a cloud service, Event Hubs uses a single stable virtual IP address as the endpoint, so clients don't need to know about the brokers or machines within a cluster. Even though Event Hubs implements the same protocol, this difference means that all Kafka traffic for all partitions is predictably routed through this one endpoint rather than requiring firewall access for all brokers of a cluster.   
 
-Scale in Event Hubs is controlled by how many throughput units you purchase, with each throughput unit entitling you to 1 Megabyte per second, or 1000 events per second of ingress and twice that volume in egress. Event Hubs can automatically scale up throughput units when you reach the throughput limit if you use the [Auto-Inflate](event-hubs-auto-inflate.md) feature; this feature work also works with the Apache Kafka protocol support.  
+Scale in Event Hubs is controlled by how many [throughput units (TUs)](event-hubs-scalability.md#throughput-units) or [processing units](event-hubs-scalability.md#processing-units) you purchase. If you enable the [Auto-Inflate](event-hubs-auto-inflate.md) feature for a standard tier namespace, Event Hubs automatically scales up TUs when you reach the throughput limit. This feature work also works with the Apache Kafka protocol support. For a premier tier namespace, you can increase the number of processing units assigned to the namespace. 
 
 ### Is Apache Kafka the right solution for your workload?
 

@@ -14,7 +14,23 @@ This is the FAQ of Azure Web PubSub service.
 
 ## Is Azure Web PubSub service ready for production use?
 
-The Azure Web PubSub service is in public preview state and not committed SLA. 
+The Azure Web PubSub service is in public preview state and doesn't have a committed SLA. 
+
+## How do I choose between Azure SignalR Service and Azure Web PubSub service?
+
+Both [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service) and [Azure Web PubSub service](https://azure.microsoft.com/services/web-pubsub) help customers build real-time web applications easily with large scale and high availability and enable customers to focus on their business logic instead of managing the messaging infrastructure. In general, you may choose Azure SignalR Service if you already use SignalR library to build real-time application. Instead, if you're looking for a generic solution to build real-time application based on WebSocket and publish-subscribe pattern, you may choose Azure Web PubSub service. The Azure Web PubSub service is **not** a replacement for Azure SignalR Service. They're targeting different scenarios.
+
+Azure SignalR Service is more suitable if:  
+
+- You're already using ASP.NET or ASP.NET Core SignalR, primarily using .NET or need to integrate with .NET ecosystem (like Blazor).
+- There's a SignalR client available for your platform. 
+- You need an established protocol that supports a wide variety of calling patterns (RPC and streaming), transports (WebSocket, server sent events, and long polling) and with a client that manages the connection lifetime on your behalf. 
+
+Azure Web PubSub service is more suitable for situations where:  
+
+- You need to build real-time applications based on WebSocket technology or publish-subscribe over WebSocket.
+- You want to build your own subprotocol or use existing advanced protocols over WebSocket (for example, MQTT, AMQP over WebSocket). 
+- You're looking for a lightweight server, for example, sending messages to client without going through the configured backend.  
 
 ##  Where does my data reside?
 

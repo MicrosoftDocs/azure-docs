@@ -43,7 +43,7 @@ Before you begin, have the following prerequisites in place:
 
 ## Set up your data
 
-This section creates the sample data set in Azure blob storage so that the indexer and skillset have content to work with.
+This section creates the sample data set in Azure Blob Storage so that the indexer and skillset have content to work with.
 
 1. [Download sample data (clinical-trials-pdf-19)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19), consisting of 19 files.
 
@@ -104,7 +104,7 @@ The sample code intentionally creates a buggy index as a consequence of problems
 1. Enter this query string: `$select=metadata_storage_path, organizations, locations&$count=true` to return fields for specific documents (identified by the unique `metadata_storage_path` field).
 1. Click **Search** to run the query, returning all 19 documents, showing empty values for "organizations" and "locations".
 
-These fields should have been populated through the skillset's [Entity Recognition skill](cognitive-search-skill-entity-recognition.md), used to find organizations and locations anywhere within the blob's content. In the next exercise, you'll use Debug session to determine what went wrong.
+These fields should have been populated through the skillset's [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md), used to find organizations and locations anywhere within the blob's content. In the next exercise, you'll use Debug session to determine what went wrong.
 
 Another way to investigate errors and warnings is through the Azure portal.
 

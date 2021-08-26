@@ -12,7 +12,9 @@ ms.author: yelevin
 ---
 # Connect data from Azure Active Directory (Azure AD) Identity Protection
 
-You can stream logs from [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) into Azure Sentinel to stream alerts into Azure Sentinel to view dashboards, create custom alerts, and improve investigation. Azure Active Directory Identity Protection provides a consolidated view at risk users, risk detections and vulnerabilities, with the ability to remediate risk immediately, and set policies to auto-remediate future events. The service is built on Microsoft’s experience protecting consumer identities and gains tremendous accuracy from the signal from over 13 billion log-ins a day. 
+You can stream logs from [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) into Azure Sentinel to stream alerts into Azure Sentinel to view dashboards, create custom alerts, and improve investigation. Azure Active Directory Identity Protection provides a consolidated view at risk users, risk detections and vulnerabilities, with the ability to remediate risk immediately, and set policies to auto-remediate future events. The service is built on Microsoft’s experience protecting consumer identities and gains tremendous accuracy from the signal from over 13 billion log-ins a day.
+
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## Prerequisites
 
@@ -34,5 +36,5 @@ If you want to test the connector, you can [simulate detections](../active-direc
 ## Next steps
 
 In this document, you learned how to connect Azure AD Identity Protection to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).

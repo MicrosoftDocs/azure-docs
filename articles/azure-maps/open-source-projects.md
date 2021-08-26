@@ -54,7 +54,7 @@ The following is a list of open-source projects that extend the capabilities of 
 |-|-|
 | [Azure Maps Code Samples](https://github.com/Azure-Samples/AzureMapsCodeSamples) | A collection of code samples for using Azure Maps in web-based apps. |
 | [Azure Maps Gov Cloud Code Samples](https://github.com/Azure-Samples/AzureMapsCodeSamples) | A collection of code samples for using Azure Maps through Azure Government Cloud. |
-| [Azure Maps & Azure Active Directory Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | A collection of samples that show how to use Azure Active Directory with Azure Maps. | 
+| [Azure Maps & Azure Active Directory Samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | A collection of samples that show how to use Azure Active Directory with Azure Maps. |
 | [LiveMaps](https://github.com/Azure-Samples/LiveMaps) | Sample application to provide live indoor maps visualization of IoT data on top of Azure Maps using Azure Maps Creator |
 | [Azure Maps Jupyter Notebook samples](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | A collection of python samples using the Azure Maps REST services. |
 | [Azure Maps .NET UWP IoT Remote Control](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | This is a sample application that shows how to build a remotely controlled map using Azure Maps and IoT hub services. |
@@ -65,16 +65,16 @@ The following is a list of open-source projects that extend the capabilities of 
 
 | Project Name | Description |
 |-|-|
-| [Azure Maps Cesium plugin](https://github.com/azure-samples/azure-maps-cesium) | A [Cesium JS](https://cesium.com/cesiumjs/) plugin that makes it easy to integrate Azure Maps services such as [tile layers](/rest/api/maps/renderv2/getmaptilepreview) and [geocoding services](/rest/api/maps/search). |
-| [Azure Maps Leaflet plugin](https://github.com/azure-samples/azure-maps-leaflet) | A [leaflet](https://leafletjs.com/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](/rest/api/maps/renderv2/getmaptilepreview). |
- | [Azure Maps OpenLayers plugin](https://github.com/azure-samples/azure-maps-openlayers) | A [OpenLayers](https://www.openlayers.org/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](/rest/api/maps/renderv2/getmaptilepreview). |
+| [Azure Maps Cesium plugin](https://github.com/azure-samples/azure-maps-cesium) | A [Cesium JS](https://cesium.com/cesiumjs/) plugin that makes it easy to integrate Azure Maps services such as [tile layers](/rest/api/maps/render-v2/get-map-tile) and [geocoding services](/rest/api/maps/search). |
+| [Azure Maps Leaflet plugin](https://github.com/azure-samples/azure-maps-leaflet) | A [leaflet](https://leafletjs.com/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](/rest/api/maps/render-v2/get-map-tile). |
+ | [Azure Maps OpenLayers plugin](https://github.com/azure-samples/azure-maps-openlayers) | A [OpenLayers](https://www.openlayers.org/) JavaScript plugin that makes it easy to overlay tile layers from the [Azure Maps tile services](/rest/api/maps/render-v2/get-map-tile). |
 
 **Tools and resources**
 
 | Project Name | Description |
 |-|-|
 | [Azure Maps Docs](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Source for all Azure Location Based Services documentation. |
-| [Azure Maps Creator (Preview) Tools](https://github.com/Azure-Samples/AzureMapsCreator) | Python tools for Azure Maps Creator (Preview) Tools. |
+| [Azure Maps Creator Tools](https://github.com/Azure-Samples/AzureMapsCreator) | Python tools for Azure Maps Creator Tools. |
 
 A longer list of open-source projects for Azure Maps that includes community created projects is available [here](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
 

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/21/2021
+ms.date: 06/22/2021
 ms.author: v-jansk
 ---
 
@@ -36,7 +36,7 @@ When both $top and $skip are included, the server should first apply $skip and t
 
 Send a `GET` request to:
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches
 ```
 
 Learn how to find your [custom domain name](../get-started-with-document-translation.md#find-your-custom-domain-name).
@@ -111,7 +111,7 @@ The following information is returned in a successful response.
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
 |target|string|Gets the source of the error. For example, it would be "documents" or "document ID" if there was an invalid document.|
-|innerError|InnerTranslationError|New Inner Error format thath conforms to Cognitive Services API Guidelines. This contains required properties ErrorCode, message, and optional properties target, details (key value pair), inner error (this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Cognitive Services API Guidelines. This contains required properties ErrorCode, message, and optional properties target, details (key value pair), inner error (this can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
 |innerError.target|string|Gets the source of the error. For example, it would be "documents" or "document ID" if there was an invalid document.|
@@ -124,24 +124,56 @@ The following is an example of a successful response.
 
 ```JSON
 {
-  "value": [
-    {
-      "id": "273622bd-835c-4946-9798-fd8f19f6bbf2",
-      "createdDateTimeUtc": "2021-03-23T07:03:30.013631Z",
-      "lastActionDateTimeUtc": "2021-03-26T01:00:00Z",
-      "status": "Succeeded",
-      "summary": {
-        "total": 10,
-        "failed": 1,
-        "success": 9,
-        "inProgress": 0,
-        "notYetStarted": 0,
-        "cancelled": 0,
-        "totalCharacterCharged": 1000
-      }
-    }
-  ]
+    "value": [
+        {
+            "id": "36724748-f7a0-4db7-b7fd-f041ddc75033",
+            "createdDateTimeUtc": "2021-06-18T03:35:30.153374Z",
+            "lastActionDateTimeUtc": "2021-06-18T03:36:44.6155316Z",
+            "status": "Succeeded",
+            "summary": {
+                "total": 3,
+                "failed": 2,
+                "success": 1,
+                "inProgress": 0,
+                "notYetStarted": 0,
+                "cancelled": 0,
+                "totalCharacterCharged": 0
+            }
+        },
+        {
+            "id": "1c7399a7-6913-4f20-bb43-e2fe2ba1a67d",
+            "createdDateTimeUtc": "2021-05-24T17:57:43.8356624Z",
+            "lastActionDateTimeUtc": "2021-05-24T17:57:47.128391Z",
+            "status": "Failed",
+            "summary": {
+                "total": 1,
+                "failed": 1,
+                "success": 0,
+                "inProgress": 0,
+                "notYetStarted": 0,
+                "cancelled": 0,
+                "totalCharacterCharged": 0
+            }
+        },
+        {
+            "id": "daa2a646-4237-4f5f-9a48-d515c2d9af3c",
+            "createdDateTimeUtc": "2021-04-14T19:49:26.988272Z",
+            "lastActionDateTimeUtc": "2021-04-14T19:49:43.9818634Z",
+            "status": "Succeeded",
+            "summary": {
+                "total": 2,
+                "failed": 0,
+                "success": 2,
+                "inProgress": 0,
+                "notYetStarted": 0,
+                "cancelled": 0,
+                "totalCharacterCharged": 21899
+            }
+        }
+    ],
+    ""@nextLink": "https://westus.cognitiveservices.azure.com/translator/text/batch/v1.0/operations/727BF148-F327-47A0-9481-ABAE6362F11E/documents?$top=5&$skip=15"
 }
+
 ```
 
 ### Example error response

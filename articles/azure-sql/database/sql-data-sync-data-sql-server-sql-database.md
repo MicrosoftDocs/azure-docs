@@ -3,13 +3,13 @@ title: What is SQL Data Sync for Azure?
 description: This overview introduces SQL Data Sync for Azure, which allows you to sync data across multiple cloud and on-premises databases. 
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: data sync, sqldbrb=1, fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: MaraSteiu 
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 08/20/2019
 ---
 # What is SQL Data Sync for Azure?
@@ -137,7 +137,6 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 ### General limitations
 
 - A table can't have an identity column that isn't the primary key.
-- A table must have a clustered index to use data sync.
 - A primary key can't have the following data types: sql_variant, binary, varbinary, image, xml.
 - Be cautious when you use the following data types as a primary key, because the supported precision is only to the second: time, datetime, datetime2, datetimeoffset.
 - The names of objects (databases, tables, and columns) can't contain the printable characters period (.), left square bracket ([), or right square bracket (]).
@@ -148,6 +147,8 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - Moving servers between different subscriptions isn't supported. 
 - If two primary keys are only different in case (e.g. Foo and foo), Data Sync won't support this scenario.
 - Truncating tables is not an operation supported by Data Sync (changes won't be tracked).
+- Hyperscale databases are not supported. 
+- Memory-optimized tables are not supported.
 
 #### Unsupported data types
 
@@ -192,6 +193,10 @@ Once the sync group is created and provisioned, you can then disable these setti
 
 > [!NOTE]
 > If you change the sync group's schema settings, you will need to allow the Data Sync service to access the server again so that the hub database can be re-provisioned.
+
+### Region data residency 
+
+If you synchronize data within the same region, SQL Data Sync doesn't store/process customer data outside that region in which the service instance is deployed. If you synchronize data across different regions, SQL Data Sync will replicate customer data to the paired regions.
 
 ## FAQ about SQL Data Sync
 

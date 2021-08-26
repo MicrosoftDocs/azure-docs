@@ -5,16 +5,17 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 06/13/2021
 ms.author: mjbrown
 ---
 
 # Manage Azure Cosmos DB Core (SQL) API resources with Azure Resource Manager templates
+
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 In this article, you learn how to use Azure Resource Manager templates to help deploy and manage your Azure Cosmos DB accounts, databases, and containers.
 
-This article only shows Azure Resource Manager template examples for Core (SQL) API accounts. You can also find template examples for [Cassandra](templates-samples-cassandra.md), [Gremlin](templates-samples-gremlin.md), [MongoDB](templates-samples-mongodb.md), and [Table](templates-samples-table.md) APIs.
+This article only shows Azure Resource Manager template examples for Core (SQL) API accounts. You can also find template examples for [Cassandra](cassandra/templates-samples.md), [Gremlin](templates-samples-gremlin.md), [MongoDB](mongodb/resource-manager-template-samples.md), and [Table](table/resource-manager-templates.md) APIs.
 
 > [!IMPORTANT]
 >
@@ -22,6 +23,7 @@ This article only shows Azure Resource Manager template examples for Core (SQL) 
 > * To change the throughput values, redeploy the template with updated RU/s.
 > * When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties. These operations must be done separately.
 > * Azure Cosmos DB resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
+> * To provision throughput at the database level and share across all containers, apply the throughput values to the database options property.
 
 To create any of the Azure Cosmos DB resources below, copy the following example template into a new json file. You can optionally create a parameters json file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Resource Manager templates including, [Azure portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
 
@@ -71,9 +73,9 @@ This template creates an Azure Cosmos account, database and container with with 
 
 This template will create a SQL Cosmos account, a natively maintained Role Definition, and a natively maintained Role Assignment for an AAD identity. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-rbac%2Fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-sql-rbac%2Fazuredeploy.json)
 
-:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-rbac/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-sql-rbac/azuredeploy.json":::
 
 <a id="free-tier"></a>
 

@@ -1,12 +1,12 @@
 ---
 title: 'View effective routes of a virtual hub: Azure Virtual WAN | Microsoft Docs'
-description: How to view effective routes for a virtual hub in Azure Virtual WAN
+description: Learn how to view effective routes for a virtual hub in Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 05/26/2021
 ms.author: cherylmc
 ---
 
@@ -47,7 +47,7 @@ Use the scroll bar at the bottom of the table to view the "AS Path".
 
 * When viewing effective routes on a VM NIC, if you see the next hop as 'Virtual Network Gateway', that implies the Virtual hub router when the VM is in a spoke connected to a Virtual WAN hub.
 
-* View Effective routes for a virtual hub route table is populated only if the virtual hub has at least one type of connection (VPN/ER/VNET) connected to it.
+* **View Effective routes** for a virtual hub route table is populated only if the virtual hub has at least one type of connection (VPN/ER/VNET) connected to it.
 
 ## Next steps
 

@@ -23,11 +23,9 @@ Azure Media Services v3 API includes a Face Detector preset that offers scalable
 
 This article gives details about **Face Detector Preset** and shows how to use it with Azure Media Services SDK for .NET.
 
-[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
-
 ## Compliance, privacy, and security
- 
-As an important reminder, you must comply with all applicable laws in your use of analytics in Azure Media Services. You must not use Azure Media Services or any other Azure service in a manner that violates the rights of others. Before uploading any videos, including any biometric data, to the Azure Media Services service for processing and storage, you must have all the proper rights, including all appropriate consents, from the individuals in the video. To learn about compliance, privacy and security in Azure Media Services, the Azure [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). More privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../video-indexer/faq.md). By using Azure Media Services, you agree to be bound by the Cognitive Services Terms, the OST, DPA, and the Privacy Statement
+
+As an important reminder, you must comply with all applicable laws in your use of analytics in Azure Media Services. You must not use Azure Media Services or any other Azure service in a manner that violates the rights of others. Before uploading any videos, including any biometric data, to the Azure Media Services service for processing and storage, you must have all the proper rights, including all appropriate consents, from the individuals in the video. To learn about compliance, privacy and security in Azure Media Services, the Azure [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). More privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md). By using Azure Media Services, you agree to be bound by the Cognitive Services Terms, the OST, DPA, and the Privacy Statement
 
 ## Face redaction modes
 
@@ -49,7 +47,7 @@ This produces a redacted MP4 video file in a single pass without any manual edit
 
 ### Analyze mode
 
-The **Analyze** pass of the two-pass workflow takes a video input and produces a JSON file with a list of the face locations, Face ID's and jpg images of each detected face. 
+The **Analyze** pass of the two-pass workflow takes a video input and produces a JSON file with a list of the face locations, Face ID's and jpg images of each detected face.
 
 | Stage | File Name | Notes |
 | --- | --- | --- |
@@ -143,7 +141,6 @@ In the **Combined** or **Redact** mode, there are five different blur modes you 
 
 You can find samples of the blur types below.
 
-
 #### Low
 
 ![Low resolution blur setting example.](./media/media-services-face-redaction/blur-1.png)
@@ -208,4 +205,3 @@ This code sample shows how the preset is passed into a Transform object during c
 ## Provide feedback
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

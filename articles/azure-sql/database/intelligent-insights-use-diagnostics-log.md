@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: AlainDormehlMSFT
+ms.author: aldorme
+ms.reviewer: mathoma, wiassaf
 ms.date: 06/12/2020
 ---
 
@@ -133,7 +133,7 @@ The last part of the Intelligent Insights performance log pertains to the automa
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-You can use the Intelligent Insights performance log with [Azure Monitor logs]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) or a third-party solution for custom DevOps alerting and reporting capabilities.
+You can use the Intelligent Insights performance log with [Azure Monitor logs](../../azure-monitor/insights/azure-sql.md) or a third-party solution for custom DevOps alerting and reporting capabilities.
 
 ## Next steps
 

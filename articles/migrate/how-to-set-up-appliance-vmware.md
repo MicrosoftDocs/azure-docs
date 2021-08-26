@@ -5,7 +5,7 @@ author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 04/16/2020
+ms.date: 07/27/2021
 ---
 
 # Set up an appliance for servers in a VMware environment
@@ -120,7 +120,7 @@ To set up the appliance for the first time:
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
 
-1. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
+1. In a new tab in your browser, paste the device code and sign-in by using your Azure username and password. Signing in with a PIN isn't supported.
 
     If you close the login tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and **Copy code & Login** button.
 1. After you successfully log in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to log in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
@@ -147,7 +147,7 @@ The appliance must connect to vCenter Server to discover the configuration and p
 
 ### Provide server credentials
 
-In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases**, you can provide multiple server credentials. If you don't want to use any of these appliance features, you can skip this step and proceed with vCenter Server discovery. You can change this option at any time.
+In **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of ASP.NET web apps in your VMware environment.**, you can provide multiple server credentials. If you don't want to use any of these appliance features, you can skip this step and proceed with vCenter Server discovery. You can change this option at any time.
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory, dependency analysis, and s q l server discovery.":::
 
@@ -166,7 +166,7 @@ To add server credentials:
     Select **Save**.
 
     If you choose to use domain credentials, you also must enter the FQDN for the domain. The FQDN is required to validate the authenticity of the credentials with the Active Directory instance in that domain.
-1. Review the [required permissions](add-server-credentials.md#required-permissions) on the account for discovery of installed applications, agentless dependency analysis, and discovery of SQL Server instances and databases.
+1. Review the [required permissions](add-server-credentials.md#required-permissions) on the account for Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of ASP.NET web apps.
 1. To add multiple credentials at once, select **Add more** to save credentials, and then add more credentials.
     When you select **Save** or **Add more**, the appliance validates the domain credentials with the domain's Active Directory instance for authentication. Validation is made after each addition to avoid account lockouts as the appliance iterates to map credentials to respective servers.
 
@@ -180,16 +180,17 @@ If validation fails, you can select a **Failed** status to see the validation er
 
 ### Start discovery
 
-To start vCenter Server discovery, in **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis and discovery of SQL Server instances and databases**, select **Start discovery**. After the discovery is successfully initiated, you can check the discovery status by looking at the vCenter Server IP address or FQDN in the sources table.
+To start vCenter Server discovery, in **Step 3: Provide server credentials to perform software inventory, agentless dependency analysis, discovery of SQL Server instances and databases and discovery of ASP.NET web apps in your VMware environment.**, select **Start discovery**. After the discovery is successfully initiated, you can check the discovery status by looking at the vCenter Server IP address or FQDN in the sources table.
 
 ## How discovery works
 
 * It takes approximately 15 minutes for the inventory of discovered servers to appear in the Azure portal.
 * If you provided server credentials, software inventory (discovery of installed applications) is automatically initiated when the discovery of servers running vCenter Server is finished. Software inventory occurs once every 12 hours.
 * [Software inventory](how-to-discover-applications.md) identifies the SQL Server instances that are running on the servers. Using the information it collects, the appliance attempts to connect to the SQL Server instances through the Windows authentication credentials or the SQL Server authentication credentials that are provided on the appliance. Then, it gathers data on SQL Server databases and their properties. The SQL Server discovery is performed once every 24 hours.
+* [Software inventory](how-to-discover-applications.md) identifies the web server role on the servers. Using the information it collects, the appliance attempts to connect to the IIS web server through the Windows authentication credentials that are provided on the appliance. Then, it gathers data on web apps. The web app discovery is performed once every 24 hours.
 * Discovery of installed applications might take longer than 15 minutes. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable agentless dependency analysis.
-* SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
+* SQL Server instances and databases data and web apps data begin to appear in the portal within 24 hours after you start discovery.
 
 ## Next steps
 

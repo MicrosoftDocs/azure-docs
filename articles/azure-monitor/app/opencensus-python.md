@@ -510,6 +510,13 @@ Each exporter accepts the same arguments for configuration, passed through the c
 - `proxies`: Specifies a sequence of proxies to use for sending data to Azure Monitor. For more information, see [proxies](https://requests.readthedocs.io/en/master/user/advanced/#proxies).
 - `storage_path`: A path to where the local storage folder exists (unsent telemetry). As of `opencensus-ext-azure` v1.0.3, the default path is the OS temp directory + `opencensus-python` + `your-ikey`. Prior to v1.0.3, the default path is $USER + `.opencensus` + `.azure` + `python-file-name`.
 
+## Authentication (preview)
+> [!NOTE]
+> Authentication feature is available starting from `opencensus-ext-azure` v1.1b0
+
+Each of the Azure Monitor exporters supports configuration of securely sending telemetry payloads via OAuth authentication with Azure Active Directory (AAD).
+For more information, check out the [Authentication](./azure-ad-authentication.md) documentation.
+
 ## View your data with queries
 
 You can view the telemetry data that was sent from your application through the **Logs (Analytics)** tab.

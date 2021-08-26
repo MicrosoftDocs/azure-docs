@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 02/10/2021
+ms.date: 08/26/2021
 ms.author: anfeldma
 ms.custom: devx-track-java
 ---
@@ -40,7 +40,7 @@ Before you begin this application development tutorial, you must have the follow
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Java Development Kit (JDK) 7+](/java/azure/jdk/).
 * [Eclipse IDE for Java EE Developers.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
@@ -52,9 +52,9 @@ If you're installing these tools for the first time, coreservlets.com provides a
 
 Let's start by creating an Azure Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create the Java JSP application](#CreateJSP).
 
-[!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
-[!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
+[!INCLUDE [keys](includes/cosmos-db-keys.md)]
 
 ## <a id="CreateJSP"></a>Create the Java JSP application
 
@@ -245,6 +245,10 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 1. To deploy your project to an Azure web site, see [Step 6. Deploy your application to Azure Web Sites](#Deploy).
 
 ## Next steps
+
+Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
 > [Build a node.js application with Azure Cosmos DB](sql-api-nodejs-application.md)

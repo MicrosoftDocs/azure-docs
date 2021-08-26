@@ -12,7 +12,8 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2021
+ms.custom: subject-rbac-steps
+ms.date: 07/26/2021
 ms.author: radeltch
 
 ---
@@ -86,7 +87,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
-   By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. More information is available [here](../redhat/byos.md).  
+   By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. For more information, see [Red Hat Enterprise Linux bring-your-own-subscription Azure images](../redhat/byos.md).
 
 1. **[A]** Enable RHEL for SAP repos. This step is not required, if using RHEL SAP HA-enabled images.  
 
@@ -267,19 +268,9 @@ Use the following content for the input file. You need to adapt the content to y
 
 ### **[A]** Assign the custom role to the Service Principal
 
-Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore!
-
-1. Go to https://portal.azure.com
-1. Open the All resources blade
-1. Select the virtual machine of the first cluster node
-1. Click Access control (IAM)
-1. Click Add role assignment
-1. Select the role "Linux Fence Agent Role"
-1. Enter the name of the application you created above
-1. Click Save
-
-Repeat the steps above for the second cluster node.
-
+Assign the custom role "Linux Fence Agent Role" that was created in the last chapter to the Service Principal. Do not use the Owner role anymore! For detailed steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).   
+Make sure to assign the role for both cluster nodes.    
+      
 ### **[1]** Create the STONITH devices
 
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
@@ -294,15 +285,19 @@ sudo pcs property set stonith-timeout=900
 
 For RHEL **7.X**, use the following command to configure the fence device:    
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm login="<b>login ID</b>" passwd="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
-power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
 
 For RHEL **8.X**, use the following command to configure the fence device:  
 <pre><code>sudo pcs stonith create rsc_st_azure fence_azure_arm username="<b>login ID</b>" password="<b>password</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" subscriptionId="<b>subscription id</b>" <b>pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name"</b> \
-power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
 op monitor interval=3600
 </code></pre>
+
+> [!TIP]
+> Only configure the `pcmk_delay_max` attribute in two node Pacemaker clusters. For more information on preventing fence races in a two node Pacemaker cluster see [Delaying fencing in a two node cluster to prevent fence races of "fence death" scenarios](https://access.redhat.com/solutions/54829). 
+ 
 
 > [!IMPORTANT]
 > The monitoring and fencing operations are de-serialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.  
@@ -315,6 +310,101 @@ op monitor interval=3600
 > [!TIP]
 >Azure Fence Agent requires outbound connectivity to public end points as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
+
+## Optional STONITH configuration  
+
+> [!TIP]
+> This section is only applicable, if it is desired to configure special fencing device `fence_kdump`.  
+
+If there is a need to collect diagnostic information within the VM , it may be useful to configure additional STONITH device, based on fence agent `fence_kdump`. The `fence_kdump` agent can detect that a node entered kdump crash recovery and can allow the crash recovery service to complete, before other fencing methods are invoked. Note that `fence_kdump` is not a replacement for traditional fence mechanisms, like Azure Fence Agent when using Azure VMs.   
+
+> [!IMPORTANT]
+> Be aware that when `fence_kdump` is configured as a first level stonith, it will introduce delays in the fencing operations and respectively delays in the application resources failover.  
+> 
+> If a crash dump is successfully detected, the fencing will be delayed until the crash recovery service completes. If the failed node is unreachable or if it doesn't respond, the fencing will be delayed by time determined by the configured number of iterations and the `fence_kdump` timeout. For more details see [How do I configure fence_kdump in a Red Hat Pacemaker cluster](https://access.redhat.com/solutions/2876971).  
+> The proposed fence_kdump timeout may need to be adapted to the specific environment.
+>     
+> We recommend to configure `fence_kdump` stonith only when necessary to collect diagnostics within the VM and always in combination with traditional fence method as Azure Fence Agent.   
+
+The following Red Hat KBs contain important information about configuring `fence_kdump` stonith:
+
+* [How do I configure fence_kdump in a Red Hat Pacemaker cluster](https://access.redhat.com/solutions/2876971)
+* [How to configure/manage STONITH levels in RHEL cluster with Pacemaker](https://access.redhat.com/solutions/891323)
+* [fence_kdump fails with "timeout after X seconds" in a RHEL 6 0r 7 HA cluster with kexec-tools older than 2.0.14](https://access.redhat.com/solutions/2388711)
+* For information how to change change the default timeout see [How do I configure kdump for use with the RHEL 6,7,8 HA Add-On](https://access.redhat.com/articles/67570)
+* For information on how to reduce failover delay, when using `fence_kdump` see [Can I reduce the expected delay of failover when adding fence_kdump configuration](https://access.redhat.com/solutions/5512331)
+   
+Execute the following optional steps to add `fence_kdump` as a first level STONITH configuration, in addition to the Azure Fence Agent configuration. 
+
+
+1. **[A]** Verify that kdump is active and configured.  
+    ```
+    systemctl is-active kdump
+    # Expected result
+    # active
+    ```
+2. **[A]** Install the `fence_kdump` fence agent.  
+    ```
+    yum install fence-agents-kdump
+    ```
+3. **[1]** Create `fence_kdump` stonith device in the cluster.   
+    <pre><code>
+    pcs stonith create rsc_st_kdump fence_kdump pcmk_reboot_action="off" <b>pcmk_host_list="prod-cl1-0 prod-cl1-1</b>" timeout=30
+    </code></pre>
+
+4. **[1]** Configure stonith levels, so that `fence_kdump` fencing mechanism is engaged first.  
+    <pre><code>
+    pcs stonith create rsc_st_kdump fence_kdump pcmk_reboot_action="off" <b>pcmk_host_list="prod-cl1-0 prod-cl1-1</b>"
+    pcs stonith level add 1 <b>prod-cl1-0</b> rsc_st_kdump
+    pcs stonith level add 1 <b>prod-cl1-1</b> rsc_st_kdump
+    pcs stonith level add 2 <b>prod-cl1-0</b> rsc_st_azure
+    pcs stonith level add 2 <b>prod-cl1-1</b> rsc_st_azure
+    # Check the stonith level configuration 
+    pcs stonith level
+    # Example output
+    # Target: <b>prod-cl1-0</b>
+    # Level 1 - rsc_st_kdump
+    # Level 2 - rsc_st_azure
+    # Target: <b>prod-cl1-1</b>
+    # Level 1 - rsc_st_kdump
+    # Level 2 - rsc_st_azure
+    </code></pre>
+
+5. **[A]** Allow the required ports for `fence_kdump` through the firewall
+    ```
+    firewall-cmd --add-port=7410/udp
+    firewall-cmd --add-port=7410/udp --permanent
+    ```
+
+6. **[A]** Ensure that `initramfs` image file contains `fence_kdump` and `hosts` files. For details see [How do I configure fence_kdump in a Red Hat Pacemaker cluster](https://access.redhat.com/solutions/2876971).   
+    ```
+    lsinitrd /boot/initramfs-$(uname -r)kdump.img | egrep "fence|hosts"
+    # Example output 
+    # -rw-r--r--   1 root     root          208 Jun  7 21:42 etc/hosts
+    # -rwxr-xr-x   1 root     root        15560 Jun 17 14:59 usr/libexec/fence_kdump_send
+    ```
+
+7. **[A]** Perform the `fence_kdump_nodes` configuration in `/etc/kdump.conf` to avoid  `fence_kdump` failing with a timeout for some `kexec-tools` versions. For details see [fence_kdump times out when fence_kdump_nodes is not specified with kexec-tools version 2.0.15 or later](https://access.redhat.com/solutions/4498151) and [fence_kdump fails with "timeout after X seconds" in a RHEL 6 or 7 High Availability cluster with kexec-tools versions older than 2.0.14](https://access.redhat.com/solutions/2388711). The example configuration for a two node cluster is presented below. After making a change in `/etc/kdump.conf`, the kdump image must be regenerated. That can be achieved by restarting the `kdump` service.  
+
+    <pre><code>
+    vi /etc/kdump.conf
+    # On node <b>prod-cl1-0</b> make sure the following line is added
+    fence_kdump_nodes  <b>prod-cl1-1</b>
+    # On node <b>prod-cl1-1</b> make sure the following line is added
+    fence_kdump_nodes  <b>prod-cl1-0</b>
+
+    # Restart the service on each node
+    systemctl restart kdump
+    </code></pre>
+
+8. Test the configuration by crashing a node. For details see [How do I configure fence_kdump in a Red Hat Pacemaker cluster](https://access.redhat.com/solutions/2876971).  
+
+    > [!IMPORTANT]
+    > If the cluster is already in productive use, plan the test accordingly as crashing a node will have an impact on the application.   
+
+    ```
+    echo c > /proc/sysrq-trigger
+    ```
 ## Next steps
 
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]

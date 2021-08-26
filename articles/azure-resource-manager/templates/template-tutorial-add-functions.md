@@ -10,7 +10,7 @@ ms.custom:
 
 # Tutorial: Add template functions to your ARM template
 
-In this tutorial, you learn how to add [template functions](template-functions.md) to your Azure Resource Manager template (ARM template). You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./template-user-defined-functions.md). This tutorial takes **7 minutes** to complete.
+In this tutorial, you learn how to add [template functions](template-functions.md) to your Azure Resource Manager template (ARM template). You use functions to dynamically construct values. In addition to these system-provided template functions, you can also create [user-defined functions](./user-defined-functions.md). This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 

@@ -98,15 +98,10 @@ Articles
 ## Additional resources
 * [Security Center Documentation Page](./index.yml)
 * [Security Center REST API Documentation Page](/previous-versions/azure/reference/mt704034(v=azure.100))
-* [Azure Security Center frequently asked questions (FAQ)](./faq-general.md)
+* [Azure Security Center frequently asked questions (FAQ)](./faq-general.yml)
 * [Security Center Pricing Page](https://azure.microsoft.com/pricing/details/security-center/)
 * [Identity security best practices](../security/fundamentals/identity-management-best-practices.md)
 * [Network security best practices](../security/fundamentals/network-best-practices.md)
 * [PaaS recommendations](../security/fundamentals/paas-deployments.md)
 * [Compliance](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
 * [Log analytics customers can now use Azure Security Center to protect their hybrid cloud workloads](/archive/blogs/msoms/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads)
-
-## Community Resources
-
-* [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Q&A page for Security Center](/answers/topics/azure-security-center.html)

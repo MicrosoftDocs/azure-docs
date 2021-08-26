@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 08/26/2021
 ms.author: sngun
 ms.custom: devx-track-dotnet
 ---
@@ -45,9 +45,9 @@ Before following the instructions in this article, make sure that you have the f
 
 * An active Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-  [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+  [!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 
-* Visual Studio 2019. [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
+* Visual Studio 2019. [!INCLUDE [cosmos-db-emulator-vs](includes/cosmos-db-emulator-vs.md)]  
 
 All the screenshots in this article are from Microsoft Visual Studio Community 2019. If you use a different version, your screens and options may not match entirely. The solution should work if you meet the prerequisites.
 
@@ -55,9 +55,9 @@ All the screenshots in this article are from Microsoft Visual Studio Community 2
 
 Let's start by creating an Azure Cosmos account. If you already have an Azure Cosmos DB SQL API account or if you're using the Azure Cosmos DB Emulator, skip to [Step 2: Create a new ASP.NET MVC application](#create-a-new-mvc-application).
 
-[!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
-[!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
+[!INCLUDE [keys](includes/cosmos-db-keys.md)]
 
 In the next section, you create a new ASP.NET Core MVC application.
 
@@ -331,6 +331,9 @@ In this tutorial, you've learned how to build an ASP.NET Core MVC web applicatio
 * [Partitioning in Azure Cosmos DB](./partitioning-overview.md)
 * [Getting started with SQL queries](./sql-query-getting-started.md)
 * [How to model and partition data on Azure Cosmos DB using a real-world example](./how-to-model-partition-example.md)
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx

@@ -5,7 +5,7 @@ services: static-web-apps
 author: burkeholland
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 08/04/2021
 ms.author: buhollan
 ---
 
@@ -169,13 +169,13 @@ You'll need to configure a TXT record with your domain provider. Azure DNS is re
 
 1. Create a new **TXT** record set with the following values.
 
-   | Setting  | Value                                       |
-   | -------- | ------------------------------------------- |
-   | Name     | `@` for root domain, or enter the subdomain |
-   | Type     | TXT                                         |
-   | TTL      | Leave as default value                      |
-   | TTL Unit | Leave as default value                      |
-   | Value    | Paste the code from your clipboard          |
+   | Setting  | Value                                                                           |
+   | -------- | ------------------------------------------------------------------------------- |
+   | Name     | `@` for root domain, or enter `_dnsauth.<YOUR_SUBDOMAIN>` for subdomain         |
+   | Type     | TXT                                                                             |
+   | TTL      | Leave as default value                                                          |
+   | TTL Unit | Leave as default value                                                          |
+   | Value    | Paste the code from your clipboard                                              |
 
 1. Select **OK**.
 
@@ -206,15 +206,15 @@ You'll need to configure a TXT record with your domain provider. Azure DNS is re
 
 1. Create a new **TXT** record with the following values...
 
-   | Setting             | Value                                       |
-   | ------------------- | ------------------------------------------- |
-   | Type                | TXT                                         |
-   | Host                | `@` for root domain, or enter the subdomain |
-   | Value               | Paste the code from your clipboard          |
-   | TTL (if applicable) | Leave as default value                      |
+   | Setting             | Value                                                                        |
+   | ------------------- | ---------------------------------------------------------------------------- |
+   | Type                | TXT                                                                          |
+   | Host                | `@` for root domain, or enter `_dnsauth.<YOUR_SUBDOMAIN>` for subdomain      |
+   | Value               | Paste the code from your clipboard                                           |
+   | TTL (if applicable) | Leave as default value                                                       |
 
 > [!NOTE]
-> Some DNS providers will change the "@" to your root domain (i.e. mydomain.com) automatically. This is expected and the validation process will still work.
+> Some DNS providers use a different convention than "@" to indicate a root domain or they change the "@" to your root domain (i.e. mydomain.com) automatically. This is expected and the validation process will still work.
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-validate-txt.md)]
 
@@ -224,10 +224,10 @@ You'll need to configure a TXT record with your domain provider. Azure DNS is re
 
 An ALIAS record maps one domain to another. It is used specifically for root domains (i.e. `mydomain.com`). In this section, you will create an ALIAS record that maps your root domain to the auto-generated URL of your static web app.
 
-> [!IMPORTANT]
-> Your domain provider must support [ALIAS records](../dns/dns-alias.md) or CNAME flattening.
-
 # [Azure DNS](#tab/azure-dns)
+
+> [!IMPORTANT]
+> Your Azure DNS Zone should be in the same subscription as your static web app.
 
 1. Open your domain's Azure DNS Zone in the Azure portal.
 
@@ -254,6 +254,9 @@ Now that the root domain is configured, it may take several hours for the DNS pr
 
 # [Other DNS](#tab/other-dns)
 
+> [!IMPORTANT]
+> Your domain provider must support [ALIAS](../dns/dns-alias.md) or ANAME records, or CNAME flattening.
+
 1. Open your static web app in the [Azure portal](https://portal.azure.com).
 
 1. Select **Custom domain** in the menu.
@@ -273,17 +276,49 @@ Now that the root domain is configured, it may take several hours for the DNS pr
 
    | Setting             | Value                                                          |
    | ------------------- | -------------------------------------------------------------- |
-   | Type                | ALIAS (use CNAME if ALIAS is not available)                    |
+   | Type                | ALIAS or ANAME (use CNAME if ALIAS is not available)                    |
    | Host                | @                                                              |
    | Value               | Paste the domain name from your clipboard                      |
    | TTL (if applicable) | Leave as default value                                         |
 
 > [!IMPORTANT]
-> If your domain provider doesn't offer an ALIAS record type, use a CNAME type instead. Many providers offer the same functionality as the ALIAS record type via the CNAME record type and a feature called "CNAME Flattening".
+> If your domain provider doesn't offer an ALIAS or ANAME record type, use a CNAME type instead. Many providers offer the same functionality as the ALIAS record type via the CNAME record type and a feature called "CNAME Flattening".
 
 Now that the root domain is configured, it may take several hours for the DNS provider to propagate the changes worldwide.
 
 ---
+
+## Redirect requests to a default domain
+
+Your static web app can be accessed using its automatically generated domain and any custom domains that you have configured. Optionally, you can configure your app to redirect all traffic to a default domain.
+
+### Set a default domain
+
+When you designate a custom domain as your app's default domain, requests to other domains are automatically redirected to the default domain. Only one custom domain can be set as the default.
+
+Follow the below steps to set a custom domain as default.
+
+1. With your static web app opened in the Azure portal, select **Custom domains** in the menu.
+
+1. Select the custom domain you want to configure as the default domain.
+
+1. Select **Set default**.
+
+   :::image type="content" source="media/custom-domain/set-default.png" alt-text="Set a custom domain as the default":::
+
+1. After the operation completes, refresh the table to confirm your domain is marked as "default".
+
+### Unset a default domain
+
+To stop domains redirecting to a default domain, follow the below steps.
+
+1. With your static web app opened in the Azure portal, select **Custom domains** in the menu.
+
+1. Select the custom domain you configured as the default.
+
+1. Select **Unset default**.
+
+1. After the operation completes, refresh the table to confirm that no domains are marked as "default".
 
 ## Next steps
 

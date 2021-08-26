@@ -35,11 +35,15 @@ If AKS identifies an unhealthy node that remains unhealthy for 10 minutes, AKS t
 
 1. Reboot the node.
 1. If the reboot is unsuccessful, reimage the node.
-1. If the reimage is unsuccessful, create and reimage a new node.
 
 Alternative remediations are investigated by AKS engineers if auto-repair is unsuccessful. 
 
 If AKS finds multiple unhealthy nodes during a health check, each node is repaired individually before another repair begins.
+
+
+## Limitations
+
+In many cases, AKS can determine if a node is unhealthy and attempt to repair the issue, but there are cases where AKS either can't repair the issue or can't detect that there is an issue. For example, AKS can't detect issues if a node status is not being reported due to error in network configuration.
 
 ## Next steps
 

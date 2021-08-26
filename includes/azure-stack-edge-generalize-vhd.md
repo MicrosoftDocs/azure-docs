@@ -3,10 +3,8 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 03/30/2021
+ms.date: 06/18/2021
 ---
-
-Use the *sysprep* utility to generalize the VHD. 
 
 1. Inside the VM, open a command prompt.
 

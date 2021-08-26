@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 04/28/2020
+ms.date: 06/30/2021
 ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
@@ -49,7 +49,7 @@ Who receives these emails for Azure AD roles depends on your role, the event, an
 | Security Administrator</br>(Activated/Eligible) | No | Yes* | Yes |
 | Global Administrator</br>(Activated/Eligible) | No | Yes* | Yes |
 
-\* If the [**Notifications** setting](pim-how-to-change-default-settings.md#notifications) is set to **Enable**.
+\* If the [**Notifications** setting](pim-how-to-change-default-settings.md) is set to **Enable**.
 
 The following shows an example email that is sent when a user activates an Azure AD role for the fictional Contoso organization.
 
@@ -61,16 +61,16 @@ A weekly Privileged Identity Management summary email for Azure AD roles is sent
 
 ![Weekly Privileged Identity Management digest email for Azure AD roles](./media/pim-email-notifications/email-directory-weekly.png)
 
-The email includes four tiles:
+The email includes:
 
 | Tile | Description |
 | --- | --- |
 | **Users activated** | Number of times users activated their eligible role inside the organization. |
 | **Users made permanent** | Number of times users with an eligible assignment is made permanent. |
 | **Role assignments in Privileged Identity Management** | Number of times users are assigned an eligible role inside Privileged Identity Management. |
-| **Role assignments outside of PIM** | Number of times users are assigned a permanent role outside of Privileged Identity Management (inside Azure AD). |
+| **Role assignments outside of PIM** | Number of times users are assigned a permanent role outside of Privileged Identity Management (inside Azure AD). This alert and the accompanying email can be enabled or disabled by opening the alert settings. |
 
-The **Overview of your top roles** section lists the top five roles in your organization based on total number of permanent and eligible administrators for each role. The **Take action** link opens the [PIM wizard](pim-security-wizard.md) where you can convert permanent administrators to eligible administrators in batches.
+The **Overview of your top roles** section lists the top five roles in your organization based on total number of permanent and eligible administrators for each role. The **Take action** link opens [Discovery & Insights](pim-security-wizard.md) where you can convert permanent administrators to eligible administrators in batches.
 
 ## Email timing for activation approvals
 
@@ -79,7 +79,7 @@ When users activate their role and the role setting requires approval, approvers
 - Request to approve or deny the user's activation request (sent by the request approval engine)
 - The user's request is approved (sent by the request approval engine)
 
-Also, Global administrators and Privileged Role administrators receive an email for each approval:
+Also, Global Administrators and Privileged Role Administrators receive an email for each approval:
 
 - The user's role is activated (sent by Privileged Identity Management)
 

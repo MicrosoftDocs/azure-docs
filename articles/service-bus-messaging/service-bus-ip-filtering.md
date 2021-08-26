@@ -50,7 +50,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
     > [!NOTE]
     > To restrict access to specific virtual networks, see [Allow access from specific networks](service-bus-service-endpoints.md).
 
-[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+[!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
 ## Use Resource Manager template
 This section has a sample Azure Resource Manager template that adds a virtual network and a firewall rule to an existing Service Bus namespace.

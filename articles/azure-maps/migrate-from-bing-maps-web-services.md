@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Migrate web services from Bing Maps | Microsoft Azure Maps'
+title: 'Tutorial: Migrate web services from Bing Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate web services from Bing Maps to Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
@@ -39,7 +39,7 @@ The following table provides the Azure Maps service APIs that provide similar fu
 | Spatial Data Services (SDS)           | [Search](/rest/api/maps/search) + [Route](/rest/api/maps/route) + other Azure Services |
 | Time Zone                             | [Time Zone](/rest/api/maps/timezone)  |
 | Traffic Incidents                     | [Traffic Incident Details](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
-| Elevation                             | [Elevation (Preview)](/rest/api/maps/elevation)
+| Elevation                             | [Elevation](/rest/api/maps/elevation)
 
 The following service APIs are not currently available in Azure Maps:
 
@@ -48,7 +48,7 @@ The following service APIs are not currently available in Azure Maps:
 
 Azure Maps has several additional REST web services that may be of interest;
 
--   [Azure Maps Creator (Preview) ](./creator-indoor-maps.md) – Create a custom private digital twin of buildings and spaces.
+-   [Azure Maps Creator ](./creator-indoor-maps.md) – Create a custom private digital twin of buildings and spaces.
 -   [Spatial operations](/rest/api/maps/spatial) – Offload complex spatial calculations and operations, such as geofencing, to a service.
 -   [Map Tiles](/rest/api/maps/render/getmaptile) – Access road and imagery tiles from Azure Maps as raster and vector tiles.
 -   [Batch routing](/rest/api/maps/route/postroutedirectionsbatchpreview) – Allows up to 1,000 route requests to be made in a single batch over a period of time. Routes are calculated in parallel on the server for faster processing.
@@ -194,7 +194,6 @@ The Azure Maps routing service provides the following APIs for calculating route
 
 -   [Calculate route](/rest/api/maps/route/getroutedirections): Calculate a route and have the request processed immediately. This API supports both GET and POST requests. POST requests are recommended when specifying a large number of waypoints or when using lots of the route options to ensure that the URL request doesn’t become too long and cause issues.
 -   [Batch route](/rest/api/maps/route/postroutedirectionsbatchpreview): Create a request containing up to 1,000 route request and have them processed over a period of time. All the data will be processed in parallel on the server and when completed the full result set can be downloaded.
--   [Mobility services (Preview) ](/rest/api/maps/mobility): Calculate routes and directions using public transit.
 
 The following table cross-references the Bing Maps API parameters with the comparable API parameters in Azure Maps.
 
@@ -446,7 +445,7 @@ In Azure Maps, lines and polygons can also be added to a static map image by spe
 
 > `&path=pathStyles||pathLocation1|pathLocation2|...`
 
-When it comes to path locations, Azure Maps requires the coordinates to be in `longitude latitude` format whereas Bing Maps uses `latitude,longitude` format. Also note that **there is a space, not a comma separating** longitude and latitude in Azure Maps. Azure Maps does not support encoded paths currently. Larger data sets can be uploaded as a GeoJSON fills into the Azure Maps Data Storage API as documented [here](./how-to-render-custom-data.md#get-data-from-azure-maps-data-storage).
+When it comes to path locations, Azure Maps requires the coordinates to be in `longitude latitude` format whereas Bing Maps uses `latitude,longitude` format. Also note that **there is a space, not a comma separating** longitude and latitude in Azure Maps. Azure Maps does not support encoded paths currently. Larger data sets can be uploaded as a GeoJSON fills into the Azure Maps Data Storage API as documented [here](./how-to-render-custom-data.md#upload-pins-and-path-data).
 
 Path styles in Azure Maps are added with the format `optionNameValue`, with multiple styles separated by pipe (`|`) characters like this `optionName1Value1|optionName2Value2`. Note the option names and values are not separated. The following style option names can be used to style paths in Azure Maps:
 

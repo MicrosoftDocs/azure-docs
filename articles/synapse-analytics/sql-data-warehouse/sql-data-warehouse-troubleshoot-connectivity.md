@@ -2,13 +2,13 @@
 title: Troubleshooting connectivity
 description: Troubleshooting connectivity in dedicated SQL pool (formerly SQL DW).
 services: synapse-analytics
-author: anumjs
+author: rothja
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 03/27/2019
-ms.author: anjangsh
+ms.author: jroth
 ms.reviewer: igorstan
 ms.custom: "seo-lt-2019, azure-synapse, devx-track-csharp"
 ---

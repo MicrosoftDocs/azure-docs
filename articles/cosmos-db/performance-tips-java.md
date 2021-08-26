@@ -28,6 +28,15 @@ ms.custom: devx-track-java
 > These performance tips are for Azure Cosmos DB Sync Java SDK v2 only. Please view the Azure Cosmos DB Sync Java SDK v2 [Release notes](sql-api-sdk-java.md) and [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) for more information.
 >
 
+> [!IMPORTANT]  
+> On February 29, 2024 the Azure Cosmos DB Sync Java SDK v2.x
+> will be retired; the SDK and all applications using the SDK
+> **will continue to function**; Azure Cosmos DB will simply cease
+> to provide further maintenance and support for this SDK.
+> We recommend following the instructions above to migrate to
+> Azure Cosmos DB Java SDK v4.
+>
+
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using [Azure Cosmos DB Sync Java SDK v2](./sql-api-sdk-java.md).
 
 So if you're asking "How can I improve my database performance?" consider the following options:
@@ -82,7 +91,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
    <a id="max-connection"></a>
 3. **Increase MaxPoolSize per host when using Gateway mode**
 
-    Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxPoolSize to a higher value (200-1000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the Azure Cosmos DB Sync Java SDK v2, the default value for [ConnectionPolicy.getMaxPoolSize](/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) is 100. Use [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) to change the value.
+    Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxPoolSize to a higher value (200-1000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the Azure Cosmos DB Sync Java SDK v2, the default value for [ConnectionPolicy.getMaxPoolSize](/java/api/com.microsoft.azure.documentdb.connectionpolicy.getmaxpoolsize) is 100. Use [setMaxPoolSize](/java/api/com.microsoft.azure.documentdb.connectionpolicy.setmaxpoolsize) to change the value.
 
 4. **Tuning parallel queries for partitioned collections**
 

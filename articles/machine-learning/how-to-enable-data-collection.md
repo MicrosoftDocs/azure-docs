@@ -53,7 +53,7 @@ The path to the output data in the blob follows this syntax:
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a
- [free account](https://aka.ms/AMLFree) before you begin.
+ [free account](https://azure.microsoft.com/free/) before you begin.
 
 - An Azure Machine Learning workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python must be installed. To learn how to install them, see [How to configure a development environment](how-to-configure-environment.md).
 
@@ -95,7 +95,7 @@ To enable data collection, you need to:
     data = np.array(data)
     result = model.predict(data)
     inputs_dc.collect(data) #this call is saving our input data into Azure Blob
-    prediction_dc.collect(result) #this call is saving our input data into Azure Blob
+    prediction_dc.collect(result) #this call is saving our prediction data into Azure Blob
     ```
 
 1. Data collection is *not* automatically set to **true** when you deploy a service in AKS. Update your configuration file, as in the following example:

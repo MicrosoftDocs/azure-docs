@@ -38,6 +38,8 @@ If you have a hybrid environment, with both Azure AD and on-premises AD, it is l
 
 >[!NOTE]
 > Windows Hello for Business requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
+>
+> FIDO2 security key based passwordless authentication with Windows 10 requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md). 
 
 During an access attempt to a resource requesting Kerberos or NTLM in the user's on-premises environment, the device:
 
@@ -70,4 +72,4 @@ You can't share files with other users on an Azure AD-joined device.
 
 ## Next steps
 
-For more information, see [What is device management in Azure Active Directory?](overview.md) 
+For more information, see [What is device management in Azure Active Directory?](overview.md)

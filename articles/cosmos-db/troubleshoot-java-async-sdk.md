@@ -27,6 +27,15 @@ ms.custom: devx-track-java
 > This article covers troubleshooting for Azure Cosmos DB Async Java SDK v2 only. See the Azure Cosmos DB Async Java SDK v2 [Release Notes](sql-api-sdk-async-java.md), [Maven repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) and [performance tips](performance-tips-async-java.md) for more information.
 >
 
+> [!IMPORTANT]  
+> On August 31, 2024 the Azure Cosmos DB Async Java SDK v2.x
+> will be retired; the SDK and all applications using the SDK
+> **will continue to function**; Azure Cosmos DB will simply cease
+> to provide further maintenance and support for this SDK.
+> We recommend following the instructions above to migrate to
+> Azure Cosmos DB Java SDK v4.
+>
+
 This article covers common issues, workarounds, diagnostic steps, and tools when you use the [Java Async SDK](sql-api-sdk-async-java.md) with Azure Cosmos DB SQL API accounts.
 The Java Async SDK provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
 
@@ -195,7 +204,7 @@ To identify which library brings in RxJava-1.2.2 run the following command next 
 ```bash
 mvn dependency:tree
 ```
-For more information, see the [maven dependency tree guide](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
+For more information, see the [maven dependency tree guide](https://maven.apache.org/plugins-archives/maven-dependency-plugin-2.10/examples/resolving-conflicts-using-the-dependency-tree.html).
 
 Once you identify  RxJava-1.2.2 is transitive dependency of which other dependency of your project, you can modify the dependency on that lib in your pom file and exclude RxJava transitive dependency it:
 

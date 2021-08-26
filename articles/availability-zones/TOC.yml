@@ -3,11 +3,9 @@
   - name: Azure Resiliency feature page
     href: https://azure.microsoft.com/features/resiliency
   - name: Design resilient applications for Azure
-    href: /azure/architecture/resiliency/
+    href: /azure/architecture/framework/resiliency/app-design
 - name: High Availability
   items:
-  - name: High availability for Azure applications
-    href: /azure/architecture/resiliency/high-availability-azure-applications
   - name: Regions and Availability Zones
     href: az-overview.md
   - name: Availability Zones Documentation
@@ -93,10 +91,6 @@
       items:
       - name: Create an Azure Active Directory Domain Services instance
         href: ../active-directory-domain-services/tutorial-create-instance.md
-  - name: Edge Zones Documentation
-    items:
-    - name: What are Edge Zones?
-      href: ../networking/edge-zones-overview.md
   - name: Azure Orbital Documentation
     items:
     - name: What is Azure Orbital?

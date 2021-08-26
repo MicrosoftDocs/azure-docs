@@ -24,6 +24,9 @@ ms.author: yelevin
 > This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+
 This article describes how to stream security alerts from [Microsoft Defender for Identity](/azure-advanced-threat-protection/what-is-atp) into Azure Sentinel. 
 
 To forward health alerts in addition to security alerts, integrate Microsoft Defender for Identity with a Syslog server. For more information, see the [Microsoft Defender for Identity documentation](/defender-for-identity/setting-syslog). 
@@ -54,5 +57,5 @@ If Microsoft Defender for Identity is deployed and ingesting your data, the susp
 
 ## Next steps
 In this document, you learned how to connect Microsoft Defender for Identity to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).

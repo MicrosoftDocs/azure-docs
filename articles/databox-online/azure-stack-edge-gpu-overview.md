@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 08/12/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro GPU is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -48,6 +48,8 @@ Azure Stack Edge Pro GPU has the following capabilities:
 |Data refresh     | Ability to refresh local files with the latest from cloud.|
 |Encryption    | BitLocker support to locally encrypt data and secure data transfer to cloud over *https*.|
 |Bandwidth throttling| Throttle to limit bandwidth usage during peak hours.|
+|Easy ordering| Bulk ordering and tracking of the device via Azure Edge Hardware Center (Preview).|
+|Specialized network functions|Use the Marketplace experience from Azure Network Function Manager to rapidly deploy network functions such as mobile packet core, SD-WAN edge, and VPN services to an Azure Stack Edge device running in your on-premises environment. For more information, see [What is Azure Network Function Manager? (Preview)](../network-function-manager/overview.md).|
 
 <!--|ExpressRoute | Added security through ExpressRoute. Use peering configuration where traffic from local devices to the cloud storage endpoints travels over the ExpressRoute. For more information, see [ExpressRoute overview](../expressroute/expressroute-introduction.md).|-->
 
@@ -56,10 +58,13 @@ Azure Stack Edge Pro GPU has the following capabilities:
 The Azure Stack Edge Pro GPU solution comprises of Azure Stack Edge resource, Azure Stack Edge Pro GPU physical device, and a local web UI.
 
 * **Azure Stack Edge Pro GPU physical device** - A 1U rack-mounted server supplied by Microsoft that can be configured to send data to Azure.
-    
-* **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage an Azure Stack Edge Pro GPU device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
+
+    [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]    
 
     For more information, go to [Create an order for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
+    
+* **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage an Azure Stack Edge Pro GPU device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
+   
 
 * **Azure Stack Edge Pro GPU local web UI** - A browser-based local user interface on your Azure Stack Edge Pro GPU device primarily intended for the initial configuration of the device. Use the local web UI also to run diagnostics, shut down and restart the Azure Stack Edge Pro GPU device, view copy logs, and contact Microsoft Support to file a service request.
 
@@ -79,9 +84,12 @@ Azure Stack Edge Pro GPU physical device, Azure resource, and target storage acc
 
 Azure Stack Edge service is a non-regional service. For more information, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md). Azure Stack Edge service does not have dependency on a specific Azure region, making it resilient to zone-wide outages and region-wide outages.
 
+For a discussion of considerations for choosing a region for the Azure Stack Edge service, device, and data storage, see [Choosing a region for Azure Stack Edge](azure-stack-edge-gpu-regions.md).
+
 ## Next steps
 
 - Review the [Azure Stack Edge Pro GPU system requirements](azure-stack-edge-gpu-system-requirements.md).
 
 - Understand the [Azure Stack Edge Pro GPU limits](azure-stack-edge-limits.md).
+
 - Deploy [Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md) in Azure portal.

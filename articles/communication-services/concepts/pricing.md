@@ -7,7 +7,7 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: nmurav
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ---
@@ -21,7 +21,7 @@ Azure Communication Services allow for adding voice/video calling and screen sha
 
 ### Pricing
 
-Calling and screen-sharing services are charged on a per minute per participant basis at $0.004 per participant per minute for group calls. To understand the various call flows that are possible, refer to [this page](./call-flows.md).
+Calling and screen-sharing services are charged on a per minute per participant basis at $0.004 per participant per minute for group calls. Azure Communication Services does not charge for data egress. To understand the various call flows that are possible, refer to [this page](./call-flows.md).
 
 Each participant of the call will count in billing for each minute they're connected to the call. This holds true regardless of whether the user is video calling, voice calling, or screen-sharing.
 
@@ -53,12 +53,31 @@ Alice makes a PSTN Call from an app to Bob on his US phone number beginning with
 - 1 participant on the VoIP leg (Alice) from App to Communication Services servers x 10 minutes x $0.004 per participant leg per minute = $0.04
 - 1 participant on the PSTN outbound leg (Bob) from Communication Services servers to a US telephone number x 10 minutes x $0.013 per participant leg per minute = $0.13.
 
-Note: USA mixed rates to `+1-425` is $0.013. Refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+> [!Note]
+> USA mixed rates to `+1-425` is $0.013. Refer to the following link for details: https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)
+
 
 **Total cost for the call**: $0.04 + $0.13 = $0.17
 
+### Pricing example: Outbound Call from app using JS SDK via Azure Communication Services direct routing
 
-### Pricing example: Group audio call using JS SDK and 1 PSTN leg
+Alice makes an outbound call from an Azure Communication Services app to a telephone number (Bob) via Azure Communication Services direct routing.
+- Alice used the JS SDK to build the app.
+- Call goes to a Session Border Controller (SBC) connected via Communication Services direct routing
+- The call lasts a total of 10 minutes. 
+
+**Cost calculations**
+
+- 1 participant on the VoIP leg (Alice) from App to Communication Services servers x 10 minutes x $0.004 per participant leg per minute = $0.04
+- 1 participant on the Communication Services direct routing outbound leg (Bob) from Communication Services servers to an SBC x 10 minutes x $0.004 per participant leg per minute = $0.04.
+
+**Total cost for the call**: $0.04 + $0.04 = $0.08
+
+> [!Note]
+> Azure Communication Services direct routing leg is not charged until 08/01/2021.
+
+
+### Pricing example: Group audio call using JS SDK and one PSTN leg
 
 Alice and Bob are on a VOIP Call. Bob escalated the call to Charlie on Charlie's PSTN number, a US phone number beginning with `+1-425`.
 
@@ -149,7 +168,7 @@ Traditional telephone calling (calling that occurs over the public switched tele
 
 #### United States calling prices
 
-The following prices include required communications taxes and fees until June 30th, 2021:
+The following prices include required communications taxes and fees:
 
 |Number type   |To make calls   |To receive calls|
 |--------------|-----------|------------|
@@ -158,7 +177,7 @@ The following prices include required communications taxes and fees until June 3
 
 #### Other calling destinations
 
-The following prices include required communications taxes and fees until June 30th, 2021:
+The following prices include required communications taxes and fees:
 
 |Make calls to   |Price per minute|
 |-----------|------------|
@@ -172,7 +191,7 @@ The following prices include required communications taxes and fees until June 3
 
 SMS offers pay-as-you-go pricing. The price is a per-message charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States. Note that local (geographic) phone numbers can't be used to send SMS messages.
 
-The following prices include required communications taxes and fees until June 30th, 2021:
+The following prices include required communications taxes and fees:
 
 |Country   |Send messages|Receive messages|
 |-----------|------------|------------|

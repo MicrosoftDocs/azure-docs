@@ -162,4 +162,4 @@ This article lists all YAML configuration options available in each of the build
 
 ## Next steps
 
-If you have further questions about the Security Code Analysis extension and the tools offered, check out [our FAQ page](security-code-analysis-faq.md).
+If you have further questions about the Security Code Analysis extension and the tools offered, check out [our FAQ page](security-code-analysis-faq.yml).

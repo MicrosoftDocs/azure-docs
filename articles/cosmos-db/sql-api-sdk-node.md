@@ -38,7 +38,7 @@ ms.custom: devx-track-js
 |Download SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |API Documentation  |  [JavaScript SDK reference documentation](/javascript/api/%40azure/cosmos/)
 |SDK installation instructions  |  [Installation instructions](https://github.com/Azure/azure-sdk-for-js)
-|Contribute to SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+|Contribute to SDK | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main)
 | Samples | [Node.js code samples](sql-api-nodejs-samples.md)
 | Getting started tutorial | [Get started with the JavaScript SDK](sql-api-nodejs-get-started.md)
 | Web app tutorial | [Build a Node.js web application using Azure Cosmos DB](sql-api-nodejs-application.md)
@@ -469,7 +469,7 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 | [1.0.0](#1.0.0) |April 08, 2015 |August 30, 2020 |
 
 ## FAQ
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## See also
 To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.

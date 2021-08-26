@@ -2,13 +2,13 @@
 title: "Quickstart: Recognize speech from a microphone, C# - Speech service"
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/02/2020
-ms.author: erhopf
+ms.author: lajanuar
 ms.custom: devx-track-csharp
 ---
 

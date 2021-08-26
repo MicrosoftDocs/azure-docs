@@ -22,8 +22,7 @@ Learn how to change the access keys for Azure Storage accounts used by Azure Mac
 For security purposes, you may need to change the access keys for an Azure Storage account. When you regenerate the access key, Azure Machine Learning must be updated to use the new key. Azure Machine Learning may be using the storage account for both model storage and as a datastore.
 
 > [!IMPORTANT]
-
-> Credentials registered with datastores are saved in your Azure Key Vault associated with the workspace. If you have [soft-delete](../key-vault/general/soft-delete-overview.md) enabled for your Key Vault, this article provides instructions for updating credentials. If you unregister the datastore and try to re-register it under the same name, this action will fail. See [Turn on Soft Delete for an existing key vault]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) for how to enable soft delete in this scenario.
+> Credentials registered with datastores are saved in your Azure Key Vault associated with the workspace. If you have [soft-delete](../key-vault/general/soft-delete-overview.md) enabled for your Key Vault, this article provides instructions for updating credentials. If you unregister the datastore and try to re-register it under the same name, this action will fail. See [Turn on Soft Delete for an existing key vault](../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault) for how to enable soft delete in this scenario.
 
 ## Prerequisites
 

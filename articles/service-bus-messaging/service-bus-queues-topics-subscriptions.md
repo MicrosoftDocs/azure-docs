@@ -18,7 +18,7 @@ A related benefit is **load-leveling**, which enables producers and consumers to
 Using queues to intermediate between message producers and consumers provides an inherent loose coupling between the components. Because producers and consumers aren't aware of each other, a consumer can be upgraded without having any effect on the producer.
 
 ### Create queues
-You can create queues using the [Azure portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), or [Resource Manager templates](service-bus-resource-manager-namespace-queue.md). Then, send and receive messages using clients written in [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md), [PHP](service-bus-php-how-to-use-queues.md), and [Ruby](service-bus-ruby-how-to-use-queues.md). 
+You can create queues using the [Azure portal](service-bus-quickstart-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-quickstart-cli.md), or [Resource Manager templates](service-bus-resource-manager-namespace-queue.md). Then, send and receive messages using clients written in [C#](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [Python](service-bus-python-how-to-use-queues.md), [JavaScript](service-bus-nodejs-how-to-use-queues.md), and [PHP](service-bus-php-how-to-use-queues.md). 
 
 ### Receive modes
 You can specify two different modes in which Service Bus receives messages.
@@ -41,12 +41,12 @@ A queue allows processing of a message by a single consumer. In contrast to queu
 The message-sending functionality of a queue maps directly to a topic and its message-receiving functionality maps to a subscription. Among other things, this feature means that subscriptions support the same patterns described earlier in this section with regard to queues: competing consumer, temporal decoupling, load leveling, and load balancing.
 
 ### Create topics and subscriptions
-Creating a topic is similar to creating a queue, as described in the previous section. You can create topics and subscriptions using the [Azure portal](service-bus-quickstart-topics-subscriptions-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-tutorial-topics-subscriptions-cli.md), or [Resource Manager templates](service-bus-resource-manager-namespace-topic.md). Then, send messages to a topic and receive messages from subscriptions using clients written in [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java](service-bus-java-how-to-use-topics-subscriptions.md), [Python](service-bus-python-how-to-use-topics-subscriptions.md), [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md), [PHP](service-bus-php-how-to-use-topics-subscriptions.md), and [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md). 
+Creating a topic is similar to creating a queue, as described in the previous section. You can create topics and subscriptions using the [Azure portal](service-bus-quickstart-topics-subscriptions-portal.md), [PowerShell](service-bus-quickstart-powershell.md), [CLI](service-bus-tutorial-topics-subscriptions-cli.md), or [Resource Manager templates](service-bus-resource-manager-namespace-topic.md). Then, send messages to a topic and receive messages from subscriptions using clients written in [C#](service-bus-dotnet-how-to-use-topics-subscriptions.md), [Java](service-bus-java-how-to-use-topics-subscriptions.md), [Python](service-bus-python-how-to-use-topics-subscriptions.md), [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md), and [PHP](service-bus-php-how-to-use-topics-subscriptions.md). 
 
 ### Rules and actions
 In many scenarios, messages that have specific characteristics must be processed in different ways. To enable this processing, you can configure subscriptions to find messages that have desired properties and then perform certain modifications to those properties. While Service Bus subscriptions see all messages sent to the topic, you can only copy a subset of those messages to the virtual subscription queue. This filtering is accomplished using subscription filters. Such modifications are called **filter actions**. When a subscription is created, you can supply a filter expression that operates on the properties of the message. The properties can be both the system properties (for example, **Label**) and custom application properties (for example, **StoreName**.) The SQL filter expression is optional in this case. Without a SQL filter expression, any filter action defined on a subscription will be done on all the messages for that subscription.
 
-For a full working example, see the [TopicSubscriptionWithRuleOperationsSample sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) on GitHub.
+For a full working example, see the [TopicFilters sample](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples/TopicFilters) on GitHub.
 
 For more information about filters, see [Topic filters and actions](topic-filters.md).
 
@@ -64,10 +64,14 @@ Learn more about the [JMS 2.0 entities](java-message-service-20-entities.md) and
 
 ## Next steps
 
-For more information and examples of using Service Bus messaging, see the following advanced topics:
+Try the samples in the language of your choice to explore Azure Service Bus features. 
 
-* [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Quickstart: Send and receive messages using the Azure portal and .NET](service-bus-quickstart-portal.md)
-* [Tutorial: Update inventory using Azure portal and topics/subscriptions](service-bus-tutorial-topics-subscriptions-portal.md)
+- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+- [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 
-
+Find samples for the older .NET and Java client libraries below:
+- [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)

@@ -36,7 +36,7 @@ The following table shows the configuration settings for a command capability:
 
 | Field             |Description|
 |-------------------|-----------|
-|Display Name       |The command value used on dashboards and forms.|
+|Display Name       |The command value used on dashboard tiles and device forms.|
 | Name            | The name of the command. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. The device code uses this **Name** value.|
 | Capability Type | Command.|
 | Queue if offline | Whether to make this command an *offline* command. |

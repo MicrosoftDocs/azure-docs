@@ -140,7 +140,7 @@ Security Center helps you optimize and monitor the security of your virtual mach
 Learn more:
 
 * [Introduction to Azure Security Center](../../security-center/security-center-introduction.md)
-* [Azure Security Center frequently asked questions](../../security-center/faq-general.md)
+* [Azure Security Center frequently asked questions](../../security-center/faq-general.yml)
 * [Azure Security Center planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## Compliance

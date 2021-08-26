@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/07/2020
+ms.date: 07/14/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -88,6 +88,26 @@ Before you configure and set up your Azure Stack Edge Pro device with GPU, make 
 The device activation is complete. You can now add shares on your device.
 
 If you encounter any issues during activation, go to [Troubleshoot activation and Azure Key Vault errors](azure-stack-edge-gpu-troubleshoot-activation.md#activation-errors).
+
+
+
+## Deploy workloads
+
+After you have activated the device, the next step is to deploy workloads.
+
+- To deploy VM workloads, see [What are VMs on Azure Stack Edge?](azure-stack-edge-gpu-virtual-machine-overview.md) and the associated VM deployment documentation.
+- To deploy network functions as managed applications:
+    - Make sure that you create a Device resource for Azure Network Function Manager (NFM) that is linked to the Azure Stack Edge resource. The device resource aggregates all the network functions deployed on Azure Stack Edge device. For detailed instructions, see [Tutorial: Create a Network Function Manager Device resource (Preview)](../network-function-manager/create-device.md). 
+    - You can then deploy Network Function Manager as per the instructions in [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).
+- To deploy IoT Edge and Kubernetes workloads:
+    - You'll need to first configure compute as described in [Tutorial: Configure compute on Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-configure-compute.md). This step creates a Kubernetes cluster that acts as the hosting platform for IoT Edge on your device. 
+    - After a Kubernetes cluster is created on your Azure Stack Edge device, you can deploy application workloads on this cluster via any of the following methods:
+
+        - Native access via `kubectl`
+        - IoT Edge
+        - Azure Arc
+        
+        For more information on workload deployment, see [Kubernetes workload management on your Azure Stack Edge device](azure-stack-edge-gpu-kubernetes-workload-management.md).
 
 ## Next steps
 

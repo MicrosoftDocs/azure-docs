@@ -81,7 +81,7 @@ To see error messages from telegraf service run it manually with the following c
 
 ### mdsd service logs 
 
-Check [Current Limitations](../agents/azure-monitor-agent-overview.md#current-limitations) for the Azure Monitor agent. 
+Check [prerequisites](../agents/azure-monitor-agent-install.md#prerequisites) for the Azure Monitor agent. 
 
 
 Service logs:  

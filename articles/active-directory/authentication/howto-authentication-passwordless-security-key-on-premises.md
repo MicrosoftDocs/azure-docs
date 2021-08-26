@@ -85,6 +85,9 @@ $domain = "contoso.corp.com"
 # Enter an Azure Active Directory global administrator username and password.
 $cloudCred = Get-Credential
 
+If you have MFA enabled for Global administrator, Please remove "-Cloudcredential $cloudCred"
+you will see web-based popup and complete the U/P and MFA there
+
 # Enter a domain administrator username and password.
 $domainCred = Get-Credential
 
@@ -103,6 +106,12 @@ Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 
 This command outputs the properties of the Azure AD Kerberos Server. You can review the properties to verify that everything is in good order.
 
+> [!NOTE]
+
+Running against another domain by supplying the credential will connect over NTLM and then it would fails. if the users are part of "Protected Users" Security Group in AD
+Workaround: login with another domain user into ADConnect box and don’t supply -domainCredential . it would consume the kerebros ticket of the current logon user. 
+you can confirm by executing whoami /groups to validate if the user has required privelege in AD to execute the above command
+ 
 | Property | Description |
 | --- | --- |
 | ID | The unique ID of the AD DS DC object. This ID is sometimes referred to as it's "slot" or it's "branch ID". |

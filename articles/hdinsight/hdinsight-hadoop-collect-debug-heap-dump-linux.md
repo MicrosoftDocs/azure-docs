@@ -9,7 +9,7 @@ ms.date: 01/02/2020
 
 # Enable heap dumps for Apache Hadoop services on Linux-based HDInsight
 
-[!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
+[!INCLUDE [heapdump-selector](includes/hdinsight-selector-heap-dump.md)]
 
 Heap dumps contain a snapshot of the application's memory, including the values of variables at the time the dump was created. So they're useful for diagnosing problems that occur at run-time.
 

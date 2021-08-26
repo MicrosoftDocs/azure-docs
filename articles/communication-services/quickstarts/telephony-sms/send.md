@@ -2,12 +2,12 @@
 title: Quickstart - Send an SMS message
 titleSuffix: An Azure Communication Services quickstart
 description: Learn how to send an SMS message using Azure Communication Services.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
-ms.date: 03/10/2021
+ms.author: rifox
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js

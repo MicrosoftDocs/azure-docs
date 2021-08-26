@@ -32,3 +32,4 @@ ms.author: zhshang
 
 To request an update to your subscription's default limits, open a support ticket.
 
+For more information about how connections and messages are counted, see [Messages and connections in Azure SignalR Service](../articles/azure-signalr/signalr-concept-messages-and-connections.md).

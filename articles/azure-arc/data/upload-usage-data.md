@@ -1,25 +1,24 @@
 ---
-title: Upload usage data to Azure Monitor
-description: Upload usage Azure Arc enabled data services data to Azure Monitor
+title: Upload usage data to Azure
+description: Upload usage Azure Arc-enabled data services data to Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
-# Upload usage data to Azure Monitor
+# Upload usage data to Azure
 
 Periodically, you can export out usage information. The export and upload of this information creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
 > [!NOTE] 
-> During the preview period, there is no cost for using Azure Arc enabled data services.
+> During the preview period, there is no cost for using Azure Arc-enabled data services.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 
 > [!NOTE]
@@ -35,24 +34,21 @@ Before you proceed, make sure you have created the required service principal an
 
 Usage information such as inventory and resource usage can be uploaded to Azure in the following two-step way:
 
-1. Log in to the data controller. Enter the values at the prompt. 
+1. Export the usage data using `az arcdata dc export` command, as follows:
 
-   ```console
-   azdata login
-   ```
+> [!NOTE]
+> Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
 
-1. Export the usage data using `azdata arc dc export` command, as follows:
-
-   ```console
-   azdata arc dc export --type usage --path usage.json
+   ```azurecli
+   az arcdata dc export --type usage --path usage.json --k8s-namespace <namespace> --use-k8s
    ```
  
-   This command creates a `usage.json` file with all the Azure Arc enabled data resources such as SQL managed instances and PostgreSQL Hyperscale instances etc. that are created on the data controller.
+   This command creates a `usage.json` file with all the Azure Arc-enabled data resources such as SQL managed instances and PostgreSQL Hyperscale instances etc. that are created on the data controller.
 
-2. Upload the usage data using ```azdata upload``` command
+2. Upload the usage data using the `upload` command.
 
-   ```console
-   azdata arc dc upload --path usage.json
+   ```azurecli
+   az arcdata dc upload --path usage.json
    ```
 
 ## Automating uploads (optional)
@@ -61,9 +57,9 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as `.sh` (Linux/Mac) or `.cmd`, `.bat`, or `.ps1`.
 
-```console
-azdata arc dc export --type metrics --path metrics.json --force
-azdata arc dc upload --path metrics.json
+```azurecli
+az arcdata dc export --type usage --path usage.json --force --k8s-namespace <namespace> --use-k8s
+az arcdata dc upload --path usage.json
 ```
 
 Make the script file executable
@@ -72,7 +68,7 @@ Make the script file executable
 chmod +x myuploadscript.sh
 ```
 
-Run the script every 20 minutes:
+Run the script every day for usage:
 
 ```console
 watch -n 1200 ./myuploadscript.sh

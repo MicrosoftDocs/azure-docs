@@ -197,7 +197,7 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 * Bug fix and defect mitigation.
 
 ## FAQ
-[!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
+[!INCLUDE [cosmos-db-sdk-faq](includes/cosmos-db-sdk-faq.md)]
 
 ## Next steps
 Learn more about [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

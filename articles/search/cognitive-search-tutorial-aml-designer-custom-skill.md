@@ -2,9 +2,9 @@
 title: "Example: Create and deploy a custom skill with Azure Machine Learning designer"
 titleSuffix: Azure Cognitive Search
 description: This example demonstrates how to use Azure Machine Learning designer to build and deploy a custom AML skill for Azure Cognitive Search's AI enrichment pipeline.
-manager: luiscab
-author: vkurpad
-ms.author: vikurpad
+
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/16/2021
@@ -12,16 +12,16 @@ ms.date: 04/16/2021
 
 # Example: Build and deploy a custom skill with Azure Machine Learning designer
 
-[Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) is an easy to use interactive canvas to create machine learning models for tasks like regression and classification. Invoking the model created by the designer in a Cognitive Search enrichment pipeline requires a few additional steps. In this example, you will create a simple regression model to predict the price of an automobile and invoke the inferencing endpoint as an AML skill. 
+[Azure Machine Learning designer](../machine-learning/concept-designer.md) is an easy to use interactive canvas to create machine learning models for tasks like regression and classification. Invoking the model created by the designer in a Cognitive Search enrichment pipeline requires a few additional steps. In this example, you will create a simple regression model to predict the price of an automobile and invoke the inferencing endpoint as an AML skill. 
 
-Follow the [Regression - Automobile Price Prediction (Advanced)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) tutorial in the [examples pipelines & datasets](https://docs.microsoft.com/azure/machine-learning/samples-designer) documentation page to create a model that predicts the price of an automobile given the different features.
+Follow the [Regression - Automobile Price Prediction (Advanced)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) tutorial in the [examples pipelines & datasets](../machine-learning/concept-designer.md) documentation page to create a model that predicts the price of an automobile given the different features.
 
 > [!IMPORTANT] 
 > Deploying the model following the real time inferencing process will result in a valid endpoint, but not one that you can use with the AML skill in Cognitive Search. 
 
 ## Register model and download assets
 
-Once you have a model trained, [register the trained model](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-model-designer) and follow the steps to download all the files in the `trained_model_outputs` folder or download only the `score.py` and `conda_env.yml` files from the models artifacts page. You will edit the scoring script before the model is deployed as a real-time inferencing endpoint.
+Once you have a model trained, [register the trained model](../machine-learning/how-to-deploy-model-designer.md) and follow the steps to download all the files in the `trained_model_outputs` folder or download only the `score.py` and `conda_env.yml` files from the models artifacts page. You will edit the scoring script before the model is deployed as a real-time inferencing endpoint.
 
 
 ## Edit the scoring script for use with Cognitive Search 
@@ -206,7 +206,7 @@ Select the model and select on the `Deploy` action. The deployment step assumes 
 
 To integrate the newly created endpoint with Cognitive Search
 1. Add a JSON file containing a single automobile record to a blob container
-2. Configure a AI enrichment pipeline using the [import data workflow](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob). Be sure to select `JSON` as the `parsing mode`
+2. Configure a AI enrichment pipeline using the [import data workflow](cognitive-search-quickstart-blob.md). Be sure to select `JSON` as the `parsing mode`
 3. On the `Add Enrichments` tab, select a single skill `Extract people names` as a placeholder.
 4. Add a new field to the index called `predicted_price` of type `Edm.Double`, set the Retrievable property to true.
 5. Complete the import data process

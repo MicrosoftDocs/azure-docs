@@ -23,7 +23,7 @@ We refer to Azure Machine Learning datasets with labels as labeled datasets. The
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
+* An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or access to [Azure Machine Learning studio](https://ml.azure.com/).
     * Install the [azure-contrib-dataset](/python/api/azureml-contrib-dataset/) package
 * A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).

@@ -22,6 +22,8 @@ ms.author: yelevin
 
 Barracuda Web Application Firewall (WAF) connector allows you to easily connect your Barracuda logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities. Azure Sentinel takes advantage of the native integration between **Barracuda** and Log Analytics agent to provide seamless integration. 
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 > [!NOTE]
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
@@ -45,8 +47,6 @@ It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 ## Next steps
 In this document, you learned how to connect Barracuda appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
-
-
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.

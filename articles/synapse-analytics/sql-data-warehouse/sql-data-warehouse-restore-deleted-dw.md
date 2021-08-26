@@ -10,7 +10,7 @@ ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: joanpo
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 
 # Restore a deleted dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics

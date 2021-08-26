@@ -4,14 +4,14 @@ titleSuffix: Azure SQL Managed Instance
 description: Learn about Azure SQL Managed Instance management operations duration and best practices.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: 
 ms.devlang: 
 ms.topic: overview
 author: urosmil
 ms.author: urmilano
-ms.reviewer: sstein, MashaMSFT
-ms.date: 07/10/2020
+ms.reviewer: mathoma, MashaMSFT
+ms.date: 06/08/2021
 ---
 
 # Overview of Azure SQL Managed Instance management operations
@@ -120,7 +120,7 @@ Management operations consist of multiple steps. With [Operations API introduced
 |Old SQL instance cleanup |Removing old SQL process from the virtual cluster |
 
 > [!NOTE]
-> As a result of scaling instances, underlying virtual cluster will go through process of releasing unused capacity and possible capacity defragmentation, which could impact instances that did not participate in creation / scaling operations. 
+> Once instance scaling is completed, underlying virtual cluster will go through process of releasing unused capacity and possible capacity defragmentation, which could impact instances from the same subnet that did not participate in scaling operation, causing their failover. 
 
 
 ## Management operations cross-impact

@@ -2,7 +2,7 @@
 title: Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge
 description: This tutorial shows you how to create a hierarchical structure of IoT Edge devices using gateways.
 author: v-tcassi
-manager: philmea
+
 ms.author: v-tcassi
 ms.date: 2/26/2021
 ms.topic: tutorial
@@ -61,7 +61,7 @@ To create a hierarchy of IoT Edge devices, you will need:
 
    Replace the placeholder text in the following command and run it twice, once for each virtual machine. Each virtual machine needs a unique DNS prefix, which will also serve as its name. The DNS prefix must conform to the following regular expression: `[a-z][a-z0-9-]{1,61}[a-z0-9]`.
 
-   ```bash
+   ```azurecli
    az deployment group create \
     --resource-group <REPLACE_WITH_YOUR_RESOURCE_GROUP> \
     --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
@@ -273,7 +273,7 @@ If you'd like a look at how to create a deployment like this through the Azure p
 
 You can view the status of your modules using the command:
 
-   ```bash
+   ```azurecli
    az iot hub module-twin show --device-id <edge_device_id> --module-id '$edgeAgent' --hub-name <iot_hub_name> --query "properties.reported.[systemModules, modules]"
    ```
 

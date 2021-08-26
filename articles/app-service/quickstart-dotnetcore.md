@@ -3,7 +3,7 @@ title: "Quickstart: Deploy an ASP.NET web app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 03/30/2021
+ms.date: 06/08/2021
 ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1"
 zone_pivot_groups: app-service-ide
 adobe-target: true
@@ -33,9 +33,6 @@ target cross-platform with .NET Core 3.1 or .NET 5.0.
 # Quickstart: Deploy an ASP.NET web app
 
 In this quickstart, you'll learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
-
-> [!TIP]
-> .NET Core 3.1 is the current long-term support (LTS) release of .NET. For more information, see [.NET support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 ## Prerequisites
 
@@ -119,12 +116,15 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 
 ## Create an ASP.NET web app
 
+> [!TIP]
+> .NET Core 3.1 is the current long-term support (LTS) release of .NET. For more information, see [.NET support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+
 :::zone target="docs" pivot="development-environment-vs"
 
 ### [.NET Core 3.1](#tab/netcore31)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find, and choose **ASP.NET Web Core App**, then select **Next**.
+1. In **Create a new project**, find, and choose **ASP.NET Core Web App**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Configure ASP.NET Core 3.1 web app" border="true":::
@@ -141,7 +141,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 ### [.NET 5.0](#tab/net50)
 
 1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find, and choose **ASP.NET Web Core App**, then select **Next**.
+1. In **Create a new project**, find, and choose **ASP.NET Core Web App**, then select **Next**.
 1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Visual Studio - Configure ASP.NET 5.0 web app." border="true":::
@@ -628,15 +628,15 @@ You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
 To manage your web app, go to the [Azure portal](https://portal.azure.com), and search for and select **App Services**.
 
-:::image type="content" source="media/quickstart-dotnetcore/app-services.png" alt-text="Azure Portal - Select App Services option.":::
+:::image type="content" source="media/quickstart-dotnetcore/app-services.png" alt-text="Azure portal - Select App Services option.":::
 
 On the **App Services** page, select the name of your web app.
 
-:::image type="content" source="./media/quickstart-dotnetcore/select-app-service.png" alt-text="Azure Portal - App Services page with an example web app selected.":::
+:::image type="content" source="./media/quickstart-dotnetcore/select-app-service.png" alt-text="Azure portal - App Services page with an example web app selected.":::
 
 The **Overview** page for your web app, contains options for basic management like browse, stop, start, restart, and delete. The left menu provides further pages for configuring your app.
 
-:::image type="content" source="media/quickstart-dotnetcore/web-app-overview-page.png" alt-text="Azure Portal - App Service overview page.":::
+:::image type="content" source="media/quickstart-dotnetcore/web-app-overview-page.png" alt-text="Azure portal - App Service overview page.":::
 
 <!--
 ## Clean up resources - H2 added from the next three includes

@@ -1,19 +1,19 @@
 ---
 title: Save for Azure App Service with reserved capacity
-description: Learn how you can save costs for Azure App Service Premium v3 reserved instances and Isolated Stamp Fee.
+description: Learn how you can save costs for Azure App Service Premium v3 and Premium v2 reserved instances and Isolated Stamp Fees.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 05/13/2021
 ms.author: banders
 ms.custom: references_regions
 ---
 
 # Save costs with Azure App Service reserved instances
 
-This article explains how you can save with Azure App Service reserved instances for Premium v3 instances and Isolated Stamp Fees.
+This article explains how you can save with Azure App Service reserved instances for Premium v3 and Premium v2 instances and Isolated Stamp Fees.
 
 ## Save with Premium v3 reserved instances
 
@@ -37,7 +37,6 @@ You can use reservation recommendations to help determine the reservations you s
 Analyze your usage information to help determine which reservations you should purchase. Usage data is available in the usage file and APIs. Use them together to determine which reservation to purchase. Check for Premium v3 instances that have high usage on daily basis to determine the quantity of reservations to purchase.
 
 Your usage file shows your charges by billing period and daily usage. For information about downloading your usage file, see [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md). Then, by using the usage file information, you can [determine what reservation to purchase](determine-reservation-purchase.md).
-
 
 ## Buy a Premium v3 reserved instance
 
@@ -64,6 +63,32 @@ If you have an EA agreement, you can use the **Add more option** to quickly add 
 | Premium v3 reserved instance size | The size of the Premium v3 reserved instances. |
 | Term | One year or three years. There's also a 5-year term available only for HBv2 Premium v3 reserved instances. |
 | Quantity | The number of instances being purchased within the reservation. The quantity is the number of running Premium v3 reserved instances that can get the billing discount. For example, if you are running 10 Standard\_D2 Premium v3 reserved instances in the East US, then you would specify quantity as 10 to maximize the benefit for all running Premium v3 reserved instances. |
+
+## Buy an Isolated v2 reserved instance
+
+You can buy a reserved Isolated v2 reserved instance in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Pay for the reservation [up front or with monthly payments](prepare-buy-reservation.md). These requirements apply to buying a Isolated v2 reserved instance:
+
+- You must be in an Owner role for at least one EA subscription or a subscription with a pay-as-you-go rate.
+- For EA subscriptions, the **Add Reserved Instances** option must be enabled in the [EA portal](https://ea.azure.com/). Or, if that setting is disabled, you must be an EA Admin for the subscription.
+- For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can buy reservations.
+
+To buy an instance:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Select **All services** > **Reservations**.
+3. Select **Add** to purchase a new reservation and then click **Instance**.
+4. Enter required fields. Running Isolated v2 reserved instances that match the attributes you select qualify for the reservation discount. The actual number of your Isolated v2 reserved instances that get the discount depend on the scope and quantity selected.
+
+If you have an EA agreement, you can use the **Add more option** to quickly add additional instances. The option isn't available for other subscription types.
+
+| **Field** | **Description** |
+| --- | --- |
+| Subscription | The subscription used to pay for the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement or an individual subscription with pay-as-you-go rates (offer numbers: MS-AZR-0003P or MS-AZR-0023P). The charges are deducted from the monetary commitment balance, if available, or charged as overage. For a subscription with pay-as-you-go rates, the charges are billed to the credit card or invoice payment method on the subscription. |
+| Scope | The reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select:<UL><LI>**Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.</li><li>**Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.</li><li>**Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For EA customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.</li> |
+| Region | The Azure region that's covered by the reservation. |
+| Isolated v2 reserved instance size | The size of the Isolated v2 reserved instances. |
+| Term | One year or three years. There's also a 5-year term available only for HBv2 Isolated v2 reserved instances. |
+| Quantity | The number of instances being purchased within the reservation. The quantity is the number of running Isolated v2 reserved instances that can get the billing discount. For example, if you are running 10 Standard\_D2 Isolated v2 reserved instances in the East US, then you would specify quantity as 10 to maximize the benefit for all running Isolated v2 reserved instances. |
 
 ## Save with Isolated Stamp Fees
 

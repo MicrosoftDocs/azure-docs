@@ -7,7 +7,7 @@ manager: rinarish
 services: azure-communication-services
 
 ms.author: arturk
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android-windows
@@ -18,19 +18,19 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 Get started with Azure Communication Services by using the Communication Services Calling SDK to add voice and video calling to your app.
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Calling with JavaScript](./includes/calling-sdk-js.md)]
+[!INCLUDE [Calling with JavaScript](./includes/calling-client-samples/calling-samples-js.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Calling with Android](./includes/calling-sdk-android.md)]
+[!INCLUDE [Calling with Android](./includes/calling-client-samples/calling-samples-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Calling with iOS](./includes/calling-sdk-ios.md)]
+[!INCLUDE [Calling with iOS](./includes/calling-client-samples/calling-samples-ios.md)]
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Calling with Windows](./includes/calling-sdk-windows.md)]
+[!INCLUDE [Calling with Windows](./includes/calling-client-samples/calling-samples-windows.md)]
 ::: zone-end
 
 ## Clean up resources

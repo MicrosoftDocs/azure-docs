@@ -3,7 +3,7 @@ title: Media reserved units - Azure
 description: Media reserved units allow you to scale media process and determine the speed of your media processing tasks.
 services: media-services
 documentationcenter: ''
-author: IngridAtMicrosoft
+author: jiayali-ms
 manager: femila
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 08/25/2021
 ms.author: inhenkel
 
 ---
@@ -20,36 +20,17 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Azure Media Services enables you to scale media processing by managing Media Reserved Units (MRUs). An MRU provides additional computing capacity required for encoding media. The number of MRUs determine the speed with which your media tasks are processed and how many media tasks can be processed concurrently in an account. For example, if your account has five MRUs and there are tasks to be processed, then five media tasks can be running concurrently. Any remaining tasks will be queued up and can be picked up for processing sequentially when a running task finishes. Each MRU that you provision results in a capacity reservation but does not provide you with dedicated resource. During times of extremely high demand, all of your MRUs may not start processing immediately.
+Media Reserved Units (MRUs) were previously used in Azure Media Services v2 to control encoding concurrency and performance. You no longer need to manage MRUs or request quota increases for any media services account as the system will automatically scale up and down based on load. You will also see performance that is equal to or improved in comparison to using MRUs. 
 
-A task is an individual operation of work on an Asset e.g. adaptive streaming encoding. When you submit a job, Media Services will take care of breaking out the job into individual operations (i.e. tasks) that will then be associated with separate MRUs.
-
-## Choosing between different reserved unit types
-
-The following table helps you make a decision when choosing between different encoding speeds.  It shows the duration of encoding for a 7 minute, 1080p video depending on the MRU used.
-
-|RU type|Scenario|Example results for the 7 min 1080p video |
-|---|---|---|
-| **S1**|Single bitrate encoding. <br/>Files at SD or below resolutions, not time sensitive, low cost.|Encoding to single bitrate SD resolution MP4 file using “H264 Single Bitrate SD 16x9” takes around 7 minutes.|
-| **S2**|Single bitrate and multiple bitrate encoding.<br/>Normal usage for both SD and HD encoding.|Encoding with "H264 Single Bitrate 720p" preset takes around 6 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 720p" preset takes around 12 minutes.|
-| **S3**|Single bitrate and multiple bitrate encoding.<br/>Full HD and 4K resolution videos. Time sensitive, faster turnaround encoding.|Encoding with "H264 Single Bitrate 1080p" preset takes approximately 3 minutes.<br/><br/>Encoding with "H264 Multiple Bitrate 1080p" preset takes approximately 8 minutes.|
-
-> [!NOTE]
-> If you do not provision MRU’s for your account, your media tasks will be processed with the performance of an S1 MRU and tasks will be picked up sequentially. No processing capacity is reserved so the wait time between one task finishing and the next one starting will depend on the availability of resources in the system.
-
-## Considerations
-
-* For Audio Analysis and Video Analysis jobs that are triggered by Media Services v3 or Video Indexer, provisioning the account with ten S3 units is highly recommended. If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
-* For encoding tasks that don't have MRUs, there is no upper bound to the time your tasks can spend in queued state, and at most only one task will be running at a time.
+If you have an account that was created using a version prior to the 2020-05-01 API, you will still have access to API’s for managing MRUs, however none of the MRU configuration that you set will be used to control encoding concurrency or performance. If you don’t see the option to manage MRUs in the Azure portal, you have an account that was created with the 2020-05-01 API or later. 
 
 ## Billing
 
-You are charged based on number of minutes the Media Reserved Units are provisioned in your account, whether or not there are any jobs running. For a detailed explanation, see the FAQ section of the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.
+While there were previously charges for Media Reserved Units, as of April 17, 2021 there are no longer any charges for accounts that have configuration for Media Reserved Units. For more information on billing for encoding jobs, please see [Encoding video and audio with Media Services](encoding-concept.md)
 
-## Next step
-[Scale Media Reserved Units with CLI](media-reserved-units-cli-how-to.md)
-[Analyze videos](analyze-videos-tutorial.md)
+For accounts created in with the **2020-05-01** version of the API (i.e. the v3 version) or through the Azure portal, scaling and media reserved units are no longer required. Scaling is now automatically handled by the service internally. Media reserved units are no longer needed or supported for any Azure Media Services account. See [Media reserved units (legacy)](concept-media-reserved-units.md) for additional information.
 
 ## See also
 
-* [Quotas and limits](limits-quotas-constraints-reference.md)
+* [Migrate from Media Services v2 to v3](migrate-v-2-v-3-migration-introduction.md)
+* [Scale Media Reserved Units with CLI](media-reserved-units-cli-how-to.md)

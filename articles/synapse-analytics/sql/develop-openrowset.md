@@ -65,10 +65,10 @@ Caller must have `REFERENCES` permission on credential to use it to authenticate
 ## Syntax
 
 ```syntaxsql
---OPENROWSET syntax for reading Parquet files
+--OPENROWSET syntax for reading Parquet or Delta Lake (preview) files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ]
-    FORMAT='PARQUET' }  
+    FORMAT= ['PARQUET' | 'DELTA'] }  
 )  
 [WITH ( {'column_name' 'column_type' }) ]
 [AS] table_alias(column_alias,...n)
@@ -85,7 +85,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 <bulk_options> ::=  
 [ , FIELDTERMINATOR = 'char' ]    
 [ , ROWTERMINATOR = 'char' ] 
-[ , ESCAPE_CHAR = 'char' ] 
+[ , ESCAPECHAR = 'char' ] 
 [ , FIRSTROW = 'first_row' ]     
 [ , FIELDQUOTE = 'quote_characters' ]
 [ , DATA_COMPRESSION = 'data_compression_method' ]
@@ -102,6 +102,8 @@ You have two choices for input files that contain the target data for querying. 
 - 'CSV' - Includes any delimited text file with row/column separators. Any character can be used as a field separator, such as  TSV: FIELDTERMINATOR = tab.
 
 - 'PARQUET' - Binary file in Parquet format 
+
+- 'DELTA' - A set of Parquet files organized in Delta Lake (preview) format 
 
 **'unstructured_data_path'**
 
@@ -148,9 +150,9 @@ The WITH clause allows you to specify columns that you want to read from files.
     > [!TIP]
     > You can omit WITH clause for CSV files also. Data types will be automatically inferred from file content. You can use HEADER_ROW argument to specify existence of header row in which case column names will be read from header row. For details check [automatic schema discovery](#automatic-schema-discovery).
     
-- For Parquet data files, provide column names that match the column names in the originating data files. Columns will be bound by name and is case sensitive. If the WITH clause is omitted, all columns from Parquet files will be returned.
+- For Parquet or Delta Lake files, provide column names that match the column names in the originating data files. Columns will be bound by name and is case-sensitive. If the WITH clause is omitted, all columns from Parquet files will be returned.
     > [!IMPORTANT]
-    > Column names in Parquet files are case sensitive. If you specify column name with casing different from column name casing in Parquet file, NULL values will be returned for that column.
+    > Column names in Parquet and Delta Lake files are case sensitive. If you specify column name with casing different from column name casing in the files, the `NULL` values will be returned for that column.
 
 
 column_name = Name for the output column. If provided, this name overrides the column name in the source file and column name provided in JSON path if there is one. If json_path is not provided, it will be automatically added as '$.column_name'. Check json_path argument for behavior.
@@ -183,11 +185,14 @@ ROWTERMINATOR ='row_terminator'`
 
 Specifies the row terminator to be used. If row terminator is not specified, one of default terminators will be used. Default terminators for PARSER_VERSION = '1.0' are \r\n, \n and \r. Default terminators for PARSER_VERSION = '2.0' are \r\n and \n.
 
+> [!NOTE]
+> When you use PARSER_VERSION='1.0' and specify \n (newline) as the row terminator, it will be automatically prefixed with a \r (carriage return) character, which results in a row terminator of \r\n.
+
 ESCAPE_CHAR = 'char'
 
 Specifies the character in the file that is used to escape itself and all delimiter values in the file. If the escape character is followed by a value other than itself, or any of the delimiter values, the escape character is dropped when reading the value. 
 
-The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
+The ESCAPECHAR parameter will be applied regardless of whether the FIELDQUOTE is or isn't enabled. It won't be used to escape the quoting character. The quoting character must be escaped with another quoting character. Quoting character can appear within column value only if value is encapsulated with quoting characters.
 
 FIRSTROW = 'first_row' 
 
@@ -215,6 +220,8 @@ CSV parser version 1.0 is default and feature rich. Version 2.0 is built for per
 CSV parser version 1.0 specifics:
 
 - Following options aren't supported: HEADER_ROW.
+- Default terminators are \r\n, \n and \r. 
+- If you specify \n (newline) as the row terminator, it will be automatically prefixed with a \r (carriage return) character, which results in a row terminator of \r\n.
 
 CSV parser version 2.0 specifics:
 
@@ -227,6 +234,7 @@ CSV parser version 2.0 specifics:
 - Supported format for DATE data type: YYYY-MM-DD
 - Supported format for TIME data type: HH:MM:SS[.fractional seconds]
 - Supported format for DATETIME2 data type: YYYY-MM-DD HH:MM:SS[.fractional seconds]
+- Default terminators are \r\n and \n.
 
 HEADER_ROW = { TRUE | FALSE }
 
@@ -257,7 +265,7 @@ For CSV files column names can be read from header row. You can specify whether 
 
 ### Type mapping for Parquet
 
-Parquet files contain type descriptions for every column. The following table describes how Parquet types are mapped to SQL native types.
+Parquet and Delta Lake files contain type descriptions for every column. The following table describes how Parquet types are mapped to SQL native types.
 
 | Parquet type | Parquet logical type (annotation) | SQL data type |
 | --- | --- | --- |
@@ -336,6 +344,20 @@ FROM
     ) AS [r]
 ```
 
+### Read Delta Lake files without specifying schema
+
+The following example returns all columns of the first row from the census data set, in Delta Lake format, and without specifying column names and data types: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='DELTA'
+    ) AS [r]
+```
+
 ### Read specific columns from CSV file
 
 The following example returns only two columns with ordinal numbers 1 and 4 from the population*.csv files. Since there's no header row in the files, it starts reading from the first line:
@@ -400,4 +422,4 @@ AS [r]
 
 ## Next steps
 
-For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), and [JSON](query-json-files.md) file formats. Check [best practices](./best-practices-serverless-sql-pool.md) for achieving optimal performance. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).
+For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md), and [JSON](query-json-files.md) file formats. Check [best practices](./best-practices-serverless-sql-pool.md) for achieving optimal performance. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).

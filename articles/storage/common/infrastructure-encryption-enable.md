@@ -6,12 +6,12 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 05/11/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Enable infrastructure encryption for double encryption of data
@@ -136,6 +136,9 @@ The following JSON example creates a general-purpose v2 storage account that is 
 ```
 
 ---
+
+Azure Policy provides a built-in policy to require that infrastructure encryption be enabled for a storage account. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
+
 
 ## Create an encryption scope with infrastructure encryption enabled
 

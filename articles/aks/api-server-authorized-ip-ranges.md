@@ -59,7 +59,6 @@ az aks create \
 > You should add these ranges to an allow list:
 > - The firewall public IP address
 > - Any range that represents networks that you'll administer the cluster from
-> - If you are using Azure Dev Spaces on your AKS cluster, you have to allow [additional ranges based on your region][dev-spaces-ranges].
 >
 > The upper limit for the number of IP ranges you can specify is 200.
 >
@@ -136,7 +135,7 @@ To find IP ranges that have been authorized, use [az aks show][az-aks-show] and 
 az aks show \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --query apiServerAccessProfile.authorizedIpRanges'
+    --query apiServerAccessProfile.authorizedIpRanges
 ```
 
 ## Update, disable, and find authorized IP ranges using Azure portal
@@ -160,7 +159,7 @@ CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
 ```
 
->> [!NOTE]
+> [!NOTE]
 > The above example appends the API server authorized IP ranges on the cluster. To disable authorized IP ranges, use az aks update and specify an empty range "". 
 
 Another option is to use the below command on Windows systems to get the public IPv4 address, or you can use the steps in [Find your IP address](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address).
@@ -179,7 +178,7 @@ For more information, see [Security concepts for applications and clusters in AK
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[dev-spaces-ranges]: ../dev-spaces/configure-networking.md#aks-cluster-network-requirements
+[dev-spaces-ranges]: /previous-versions/azure/dev-spaces/#aks-cluster-network-requirements
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->

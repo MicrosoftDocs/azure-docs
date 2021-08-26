@@ -22,6 +22,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Proofpoint On Demand Email Security connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 This article explains how to connect your Proofpoint On Demand Email Security appliance to Azure Sentinel. The POD data connector allows you to easily connect your POD logs with Azure Sentinel, so that you can view the data in workbooks, use it to create custom alerts, and incorporate it to improve investigation.  Integration between Proofpoint On Demand Email Security and Azure Sentinel makes use of Websocket API.
 
 > [!NOTE]
@@ -63,6 +65,6 @@ It may take up to 60 minutes until your logs start to appear in Log Analytics.
 
 In this document, you learned how to connect Proofpoint On Demand Email Security to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.

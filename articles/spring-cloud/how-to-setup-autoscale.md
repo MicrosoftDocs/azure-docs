@@ -1,8 +1,8 @@
 ---
 title:  "Set up autoscale for microservice applications"
 description: This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/22/2020
@@ -33,7 +33,6 @@ To follow these procedures, you need:
 6. Go to the **Scale out** tab under **Settings** in the menu on the left navigation pane.
 7. Select the deployment you want to set up Autoscale. You should see options for Autoscale shown in the following section.
 
-
 ![Autoscale menu](./media/spring-cloud-autoscale/autoscale-menu.png)
 
 ## Set up Autoscale settings for your application in the Azure portal
@@ -48,20 +47,24 @@ In the Azure portal, choose how you want to scale.  The following figure shows t
 ![Custom autoscale](./media/spring-cloud-autoscale/custom-autoscale.png)
 
 ## Set up Autoscale settings for your application in Azure CLI
+
 You can also set Autoscale modes using the Azure CLI.  The following commands create an Autoscale setting and an Autoscale rule.
 
-* Create Autoscale setting
-  ```
-  az monitor autoscale create -g demo-rg --resource /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/demo-rg/providers/Microsoft.AppPlatform/Spring/autoscale/apps/demo/deployments/default --name demo-setting --min-count 1 --max-count 5 --count 1
-  ```
-* Create Autoscale rule
-  ```
-  az monitor autoscale rule create -g demo-rg --autoscale-name demo-setting --scale out 1 --cooldown 1 --condition "tomcat.global.request.total.count > 100 avg 1m where AppName == demo and Deployment == default"
-  ```
+* Create Autoscale setting:
+
+   ```azurecli
+   az monitor autoscale create -g demo-rg --resource /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/demo-rg/providers/Microsoft.AppPlatform/Spring/autoscale/apps/demo/deployments/default --name demo-setting --min-count 1 --max-count 5 --count 1
+   ```
+
+* Create Autoscale rule:
+
+   ```azurecli
+   az monitor autoscale rule create -g demo-rg --autoscale-name demo-setting --scale out 1 --cooldown 1 --condition "tomcat.global.request.total.count > 100 avg 1m where AppName == demo and Deployment == default"
+   ```
 
 ## Upgrade to the Standard tier
 
-If you are on the Basic tier and constrained by one or more of these limits, you can upgrade to the Standard tier. To do this, go to the **Pricing** tier menu by first selecting the *Standard* tier column and the clicking the **Upgrade** button.
+If you are on the Basic tier and constrained by one or more of these limits, you can upgrade to the Standard tier. To do this, go to the **Pricing** tier menu by first selecting the **Standard tier** column and then selecting the **Upgrade** button.
 
 ## Next steps
 

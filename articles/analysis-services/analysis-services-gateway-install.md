@@ -157,4 +157,4 @@ That's it. If you need to open ports or do any troubleshooting, be sure to check
 * [Connecting to on-premises data sources](analysis-services-gateway.md)   
 * [Data sources supported in Azure Analysis Services](analysis-services-datasource.md)   
 * [Use gateway for data sources on an Azure Virtual Network](analysis-services-vnet-gateway.md)   
-* [Frequently asked questions about Analysis Services network connectivity](analysis-services-network-faq.md) 
+* [Frequently asked questions about Analysis Services network connectivity](analysis-services-network-faq.yml) 
