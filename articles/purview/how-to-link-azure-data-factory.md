@@ -61,7 +61,7 @@ Follow the steps below to connect an existing data factory to your Purview accou
 >[!Note]
 >We now support adding no more than 10 data factories at once. If you want to add more than 10 data factories at once, please file a support ticket.
 
-### How does the authentication work
+### How authentication works
 
 Data factory's managed identity is used to authenticate lineage push operations from data factory to Purview. When connecting data factory to Purview on UI, it adds the role assignment automatically. 
 

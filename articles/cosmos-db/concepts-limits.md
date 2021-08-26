@@ -5,7 +5,7 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 08/26/2021
 ---
 
 # Azure Cosmos DB service quotas
@@ -279,6 +279,9 @@ Get started with Azure Cosmos DB with one of our quickstarts:
 * [Get started with Azure Cosmos DB Cassandra API](cassandra/manage-data-dotnet.md)
 * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
 * [Get started with Azure Cosmos DB Table API](table/create-table-dotnet.md)
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
 > [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)
