@@ -313,7 +313,7 @@ Blob index tags are currently available in all public regions.
 To get started, see [Use blob index tags to manage and find data](storage-blob-index-how-to.md).
 
 > [!IMPORTANT]
-> You must register your subscription before you can use the blob index on your storage accounts. See the [Conditions and known issues](#conditions-and-known-issues) section of this article.
+> See the [Conditions and known issues](#conditions-and-known-issues) section of this article.
 
 ## Conditions and known issues
 
