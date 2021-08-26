@@ -1,6 +1,6 @@
 ---
-title: View and enable audit logs in a FHIR service - Azure Healthcare APIs
-description: This article describes how to enable audit logs in the FHIR service and review some sample queries for these logs.
+title: View and enable diagnostic settings in the FHIR service - Azure Healthcare APIs
+description: This article describes how to enable diagnostic settings in the FHIR service and review some sample queries for audit logs.
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
@@ -9,14 +9,14 @@ ms.date: 08/20/2021
 ms.author: zxue
 ---
 
-# View and enable audit logs in a FHIR service
+# View and enable diagnostic settings in the FHIR service
+
+Access to diagnostic logs is essential for any healthcare service. Compliance with regulatory requirements like Health Insurance Portability and Accountability Act (HIPAA), is a must. In this article, you'll learn how to choose settings for diagnostic logs in the FHIR service within Azure Healthcare APIs. You'll also review some sample queries for these logs.
 
 > [!IMPORTANT]
-> The Azure Healthcare APIs service is currently in preview. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Azure Healthcare APIs service is currently in preview. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability.
 
-Access to diagnostic logs is essential for any healthcare service. Compliance with regulatory requirements like Health Insurance Portability and Accountability Act (HIPAA), is a must. In this article, you'll learn how to enable audit logs in a FHIR service in Azure Healthcare APIs. You'll also review some sample queries for these logs.
-
-## Steps to enable audit logs
+## Steps to enable diagnostic logs
 
 1. Select your FHIR service in the Azure portal.
 
@@ -28,27 +28,27 @@ Access to diagnostic logs is essential for any healthcare service. Compliance wi
 
 4. Enter a name for the setting.
 
-5. Select the method that you want to use to access your diagnostic logs:
+5. Select the method that you want to use to access your logs:
 
-   - **Send to Log Analytics workspace** is used for sending logs and metrics to a Log Analytics workspace in Azure Monitor. You need to create your Logs Analytics workspace before you can select this option.
+   - **Send to Log Analytics workspace** is for sending logs and metrics to a Log Analytics workspace in Azure Monitor. You need to create your Log Analytics workspace before you can select this option.
    
-   - **Archive to a storage account** is used for auditing or manual inspection. The storage account that you want to use needs to be already created.
+   - **Archive to a storage account** is for auditing or manual inspection. The storage account that you want to use needs to be already created.
 
-   - **Stream to an event hub** is used for ingestion by a third-party service or custom analytic solution. You need to create an event hub namespace and event hub policy before you can configure this step.
+   - **Stream to an event hub** is for ingestion by a third-party service or custom analytic solution. You need to create an event hub namespace and event hub policy before you can configure this option.
 
-   6. Select **AuditLogs**.
+6. Select **AuditLogs**.
 
-   [ ![Screenshot of the destination details and the checkbox used for enabling or disabling audit logs.](media/diagnostic-logs/fhir-diagnostic-settings-add.png) ](media/diagnostic-logs/fhir-diagnostic-settings-add.png#lightbox)
+   [ ![Screenshot of the destination details and the checkbox for enabling or disabling audit logs.](media/diagnostic-logs/fhir-diagnostic-settings-add.png) ](media/diagnostic-logs/fhir-diagnostic-settings-add.png#lightbox)
 
 7. Select **Save**.
 
 > [!NOTE]
-> It might take up to 15 minutes for the first logs to appear in the Log Analytics workspace. If the FHIR service is moved from one resource group or subscription to another, update the settings after the move is complete.
+> It might take up to 15 minutes for the first logs to appear in the Log Analytics workspace, if you selected that method. If the FHIR service is moved from one resource group or subscription to another, update the settings after the move is complete.
 
 
-## Audit log details
+## Diagnostic log details
 
-At this time, the FHIR service returns the following fields in the audit log:
+At this time, the FHIR service returns the following fields in a diagnostic log:
 
 |Field name|Type|Notes|
 |----------|----|-----|
@@ -58,18 +58,18 @@ At this time, the FHIR service returns the following fields in the audit log:
 |`CallerIPAddress` | String| The caller's IP address.|
 |`CorrelationId` | String| The correlation ID.|
 |`FhirResourceType` | String| The resource type for which the operation was executed.|
-|`LogCategory` | String| The log category. (We're currently returning `AuditLogs`.)|
-|`Location` | String| The location of the server that processed the request. For example: South Central US.|
+|`LogCategory` | String| The log category. (In this article, we're returning `AuditLogs`.)|
+|`Location` | String| The location of the server that processed the request. For example: `South Central US`.|
 |`OperationDuration` | Int| The time it took to complete this request, in seconds.|
 |`OperationName` | String| The type of operation. For example: `update` or `search-type`.|
 |`RequestUri` | String| The request URI.|
-|`ResultType` | String| The available values currently are `Started`, `Succeeded`, or `Failed`.|
+|`ResultType` | String| The status of the log. Available values are `Started`, `Succeeded`, or `Failed`.|
 |`StatusCode` | Int| The HTTP status code. For example: `200`.|
 |`TimeGenerated` | DateTime| The date and time of the event.|
 |`Properties` | String| The properties of `FhirResourceType`.|
-|`SourceSystem` | String| The source system, which is always Azure in this case.|
+|`SourceSystem` | String| The source system, which is always `Azure` in this case.|
 |`TenantId` | String | The tenant ID.|
-|`Type` | String| The typ of log, which is always `MicrosoftHealthcareApisAuditLog` in this case.|
+|`Type` | String| The type of log, which is always `MicrosoftHealthcareApisAuditLog` in this case.|
 |`_ResourceId` | String| Details about the resource.|		
 		
 ## Sample queries
@@ -96,7 +96,7 @@ You can use these basic Application Insights queries to explore your log data:
 
 ## Conclusion
 
-Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. In this article, you learned how to enable audit logs for the FHIR service. 
+Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. In this article, you learned how to enable these logs for the FHIR service. 
 
 > [!NOTE]
 > Metrics will be added when the Azure Healthcare APIs service is generally available.
