@@ -155,7 +155,7 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-        - text: Use Private Endpoints with Purview
+        - text: Use private endpoints with Purview
           url: catalog-private-link.md
         - text: Network configuration
           url: catalog-private-link-name-resolution.md
