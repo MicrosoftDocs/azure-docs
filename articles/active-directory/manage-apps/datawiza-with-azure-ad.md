@@ -81,25 +81,25 @@ Instead, if you want to use an existing web application in your Azure AD tenant,
 1. You can use either Docker or Kubernetes to run DAB. The docker image is needed for users to create a sample header-based application. [Configure DAB and SSO
 integration](https://docs.datawiza.com/step-by-step/step3.html). [Deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html). A sample docker image `docker-compose.yml` file is provided for you to download and use. [Log in to the container registry](https://docs.datawiza.com/step-by-step/step3.html#important-step) to download the images of DAB and the header-based application.
 
-  ```YML
-  services:\
-    datawiza-access-broker:\
-    image: registry.gitlab.com/datawiza/access-broker\
-    container\_name: datawiza-access-broker\
-    restart: always\
-    ports:\
-    - \"9772:9772\"\
-    environment:\
-    PROVISIONING\_KEY: \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\
-    PROVISIONING\_SECRET: \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\
-    \
-    header-based-app:\
-    image: registry.gitlab.com/datawiza/header-based-app\
-    container\_name: ab-demo-header-app\
-    restart: always\
-   ports:\
-   - \"3001:3001\"
-```
+   ```YML
+   services:\
+     datawiza-access-broker:\
+     image: registry.gitlab.com/datawiza/access-broker\
+     container\_name: datawiza-access-broker\
+     restart: always\
+     ports:\
+     - \"9772:9772\"\
+     environment:\
+     PROVISIONING\_KEY: \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\
+     PROVISIONING\_SECRET: \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\
+     \
+     header-based-app:\
+     image: registry.gitlab.com/datawiza/header-based-app\
+     container\_name: ab-demo-header-app\
+     restart: always\
+     ports:\
+     - \"3001:3001\"
+   ```
 
 2. After executing `docker-compose -f docker-compose.yml up`, the
 header-based application should have SSO enabled with Azure AD. Open a browser and type in `http://localhost:9772/`.
