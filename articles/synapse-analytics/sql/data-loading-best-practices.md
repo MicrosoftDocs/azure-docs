@@ -35,7 +35,7 @@ For fastest loading speed, run only one load job at a time. If that is not feasi
 
 To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class or workload group. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
 
-<!--### Create a loading user
+<!-- ### Create a loading user
 
 This example creates a loading user for the staticrc20 resource class. The first step is to **connect to master** and create a login.
 
@@ -57,7 +57,7 @@ To run a load with resources for the staticRC20 resource classes, sign in as Loa
 
 Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](resource-consumption-models.md). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
 
- 0r
+OR
 
 ### Example of creating a loading user
 
