@@ -45,7 +45,7 @@ To grant tenant-wide admin consent to an app listed in **Enterprise applications
 3. Select the application to which you want to grant tenant-wide admin consent.
 4. Select **Permissions** and then click **Grant admin consent**. In this example, we use 10,000ft Plans applications.
 
-  :::image type="content" source="media/grant-tenant-wide-admin-consent/grant-tenant-wide-admin-consent.png" alt-text="Screenshot shows how to grant tenant wide admin consent.":::
+   :::image type="content" source="media/grant-tenant-wide-admin-consent/grant-tenant-wide-admin-consent.png" alt-text="Screenshot shows how to grant tenant wide admin consent.":::
 
 5. Carefully review the permissions the application requires.
 6. If you agree with the permissions the application requires, grant consent. If not, click **Cancel** or close the window.
