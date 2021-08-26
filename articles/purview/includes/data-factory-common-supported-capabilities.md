@@ -47,7 +47,6 @@ Currently, if you use the following copy activity features, the lineage is not y
 - Source partition options for Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, SQL Server, and SAP Table.
 - Source partition discovery option for file-based stores.
 - Copy data to file-based sink with setting of max rows per file.
-- Add additional columns during copy.
 
 In additional to lineage, the data asset schema (shown in Asset -> Schema tab) is reported for the following connectors:
 
