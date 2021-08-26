@@ -109,7 +109,7 @@ landingContent:
   - title: Discover data 
     linkLists:
     - linkListType: tutorial
-       links:
+      links:
         - text: Browse and lineage
           url: tutorial-browse-and-view-lineage.md
     - linkListType: how-to-guide
