@@ -17,7 +17,7 @@ ms.date: 08/12/2021
 ms.author: b-juche
 ---
 
-# Manage snapshot policies in Azure NetApP Files
+# Manage snapshot policies in Azure NetApp Files
 
 You can schedule for volume snapshots to be taken automatically by using snapshot policies. You can also modify a snapshot policy as needed, or delete a snapshot policy that you no longer need.  
 
@@ -97,3 +97,7 @@ You can delete a snapshot policy that you no longer want to keep.
 3.	Click **Yes** to confirm that you want to delete the snapshot policy.   
 
     ![Snapshot policy delete confirmation](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
+
+## Next steps
+
+* [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
