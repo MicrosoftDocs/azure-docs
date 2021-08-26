@@ -97,7 +97,8 @@ To have a trust relationship between your application and Azure AD B2C, create a
 You need to store your certificate in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the Overview page, select **Identity Experience Framework**.
 1. Select **Policy Keys** and then select **Add**.
@@ -292,7 +293,8 @@ Replace `<tenant-name>` with the name of your Azure AD B2C tenant and `<policy-n
 For Azure AD B2C to trust your application, you create an Azure AD B2C application registration, which contains configuration information such as the application's metadata endpoint.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
+1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *SAMLApp1*.

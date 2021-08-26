@@ -86,7 +86,8 @@ You can configure the Azure AD B2C session behavior, including:
 To configure the session behavior:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **User flows**.
 1. Open the user flow that you previously created.
@@ -130,7 +131,8 @@ KMSI is configurable at the individual user flow level. Before enabling KMSI for
 To enable KMSI for your user flow:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **User flows (policies)**.
 5. Open the user flow that you previously created.
@@ -322,7 +324,8 @@ After logout, the user is redirected to the URI specified in the `post_logout_re
 To require an ID Token in logout requests:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **User flows**.
 1. Open the user flow that you previously created.
@@ -350,7 +353,8 @@ To require an ID Token in logout requests, add a **UserJourneyBehaviors** elemen
 To configure your application Logout URL:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select your application.
 1. Select **Authentication**.
