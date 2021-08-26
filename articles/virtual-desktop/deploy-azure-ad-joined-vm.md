@@ -57,7 +57,7 @@ After you've created the host pool, you must assign user access. Add users to th
 
 For Azure AD-joined VMs, you'll need to do three extra things on top of the requirements for Active Directory or Azure Active Directory Domain Services-based deployments:  
 - Assign your users the **Virtual Machine User Login** role so they can sign in to the VMs.
-- Grant Administrators that need local administrative privileges the **Virtual Machine Administrator Login** role.
+- Assign administrators who need local administrative privileges the **Virtual Machine Administrator Login** role.
 - For access from client machines or endpoint devices NOT already Azure AD-joined to your tenant or not managed by your organization you will need to add the additional property in the Host Pool "RDP Properties" page under the "Advanced" Tab: **targetisaadjoined:i:1**  
 
 Follow the instructions in [Manage app groups](manage-app-groups.md) to assign user access to apps and desktops. We recommend that you use user groups instead of individual users wherever possible.
