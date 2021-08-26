@@ -153,15 +153,14 @@ You can consider this method if you have few larger tables in your database and 
 
 1. For each database in your source server, create a corresponding database at the target server.
 
-   ```bash
+    ```bash
     psql "host=myTargetServer port=5432 dbname=postgres user=myuser password=###### sslmode=mySSLmode"
-    psql (12.3 (Ubuntu 12.3-1.pgdg18.04+1), server 13.3)
-    SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
-    Type "help" for help.
+    ```
 
-    postgres=>
+    ```SQL
     postgres> create database myDB;
    ```
+
    For example,
     ```bash
     psql "host=pg-11.postgres.database.azure.com port=5432 dbname=postgres user=pg@pg-11 password=###### sslmode=require"
