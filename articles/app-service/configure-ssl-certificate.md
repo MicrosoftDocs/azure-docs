@@ -293,9 +293,6 @@ When the operation completes, you see the certificate in the **Private Key Certi
 > [!IMPORTANT] 
 > To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
 
-> [!NOTE]
-> To renew a [certificate you uploaded](#upload-a-private-certificate), see [Export certificate binding](configure-ssl-bindings.md#renew-certificate-binding). App Service will not automatically sync your newly uploaded certificate with the bindings. The automated certificate syncing feature is only available for [imported Key Vault certificates](#import-a-certificate-from-key-vault) and [imported App Service Certificates](#import-an-app-service-certificate).
-
 ## Upload a public certificate
 
 Public certificates are supported in the *.cer* format. 
@@ -314,10 +311,11 @@ Once the certificate is uploaded, copy the certificate thumbprint and see [Make 
 
 ## Renew an expiring certificate
 
-Before a certificate expires, you should add the renewed certificate into App Service and update its [certificate binding](configure-ssl-certificate.md). The process depends on the certificate type:
+Before a certificate expires, you should add the renewed certificate into App Service and update any [TLS/SSL binding](configure-ssl-certificate.md). The process depends on the certificate type. For example, a [certificate imported from Key Vault](#import-a-certificate-from-key-vault), including an [App Service certificate](#import-an-app-service-certificate), automatically syncs with App Service and updates the TLS/SSL binding when you renew the certificate. For an [uploaded certificate](#upload-a-private-certificate), there's no automatic binding update. See one of the following sections depending on your scenario:
 
 - [Renew an uploaded certificate](#renew-an-uploaded-certificate)
 - [Renew an App Service certificate](#renew-an-app-service-certificate)
+- [Renew a certificate imported from Key Vault](#renew-a-certificate-imported-from-key-vault)
 
 ### Renew an uploaded certificate
 
@@ -344,6 +342,16 @@ Once the renew operation is complete, click **Sync**. The sync operation automat
 
 > [!NOTE]
 > If you don't click **Sync**, App Service automatically syncs your certificate within 24 hours.
+
+### Renew a certificate imported from Key Vault
+
+To renew a certificate you imported into App Service from Key Vault, see [Renew your Azure Key Vault certificate](../key-vault/certificates/overview-renew-certificate).
+
+Once the certificate is renewed in your key vault, App Service automatically syncs the new certificate and updates any applicable TLS/SSL binding within 24 hours. To sync manually:
+
+1. Go to your app's **TLS/SSL settings** page.
+1. Select the imported certificate under **Private Key Certificates**.
+1. Click **Sync**. 
 
 ## Manage App Service certificates
 
