@@ -82,12 +82,12 @@ Time series data for twin property updates is stored in Azure Data Explorer with
 
 Below is an example table of twin property updates stored to Azure Data Explorer.
 
-| TimeStamp | Id | ModelId | Key | Value | RelationshipTarget | RelationshipID |
+| `TimeStamp` | `Id` | `ModelId` | `Key` | `Value` | `RelationshipTarget` | `RelationshipID` |
 | --- | --- | --- | --- | --- | --- | --- |
-| 2021-06-30T20:23:29.8697482Z | solar_plant_3 | dtmi:example:grid:plants:solarPlant;1 | Output | 130 |  |  |
-| 2021-06-30T20:23:39.3235925Z| solar_plant_3 | dtmi:example:grid:plants:solarPlant;1 | Output | 140 |  |  |
-| 2021-06-30T20:23:47.078367Z | solar_plant_3 | dtmi:example:grid:plants:solarPlant;1 | Output | 130 |  |  |
-| 2021-06-30T20:23:57.3794198Z | solar_plant_3 | dtmi:example:grid:plants:solarPlant;1 | Output | 123 |  |  |
+| 2021-06-30T20:23:29.8697482Z | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 130 |  |  |
+| 2021-06-30T20:23:39.3235925Z| solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 140 |  |  |
+| 2021-06-30T20:23:47.078367Z | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 130 |  |  |
+| 2021-06-30T20:23:57.3794198Z | solar_plant_3 | `dtmi:example:grid:plants:solarPlant;1` | Output | 123 |  |  |
 
 ### Representing properties with multiple fields 
 
@@ -97,11 +97,11 @@ For instance, if you're representing a property with three fields for roll, pitc
 
 ## End-to-end ingestion latency
 
-Azure Digital Twins Data History builds on the existing ingestion mechanism provided by Azure Data Explorer. Azure Digital Twins will ensure that property updates are made available to Azure Data Explorer within less than two seconds. Additional latency may be introduced by Azure Data Explorer ingesting the data. 
+Azure Digital Twins Data History builds on the existing ingestion mechanism provided by Azure Data Explorer. Azure Digital Twins will ensure that property updates are made available to Azure Data Explorer within less than two seconds. Extra latency may be introduced by Azure Data Explorer ingesting the data. 
 
-There are two methods in Azure Data Explorer for ingesting data: [batch ingestion](#batch-ingestion-default) and [streaming ingestion](#streaming-ingestion). These can be configured for individual tables by a customer according to their needs and the specific data ingestion scenario.
+There are two methods in Azure Data Explorer for ingesting data: [batch ingestion](#batch-ingestion-default) and [streaming ingestion](#streaming-ingestion). These ingestion methods can be configured for individual tables by a customer according to their needs and the specific data ingestion scenario.
 
-Streaming ingestion has the lowest latency. However, due to processing overhead, this mode should only be used if less than 4GB of data is ingested every hour. Batch ingestion works best if high ingestion data rates are expected. Azure Data Explorer uses batch ingestion by default. The following table summarizes the expected worst-case end-to-end latency: 
+Streaming ingestion has the lowest latency. However, due to processing overhead, this mode should only be used if less than 4 GB of data is ingested every hour. Batch ingestion works best if high ingestion data rates are expected. Azure Data Explorer uses batch ingestion by default. The following table summarizes the expected worst-case end-to-end latency: 
 
 | Azure Data Explorer configuration | Expected end-to-end latency | Recommended data rate |
 | --- | --- | --- |
@@ -118,12 +118,12 @@ If not configured otherwise, Azure Data Explorer will use **batch ingestion**. T
 .alter table <table_name> policy ingestionbatching @'{"MaximumBatchingTimeSpan":"00:00:10", "MaximumNumberOfItems": 500, "MaximumRawDataSizeMB": 1024}' 
 ```
 
-Ensure that `<table_name>` is replaced with the name of the table that was set up for you. MaximumBatchingTimeSpan should be set to the preferred batching interval. Please note that it may take 5-10 minutes for the policy to take effect. You can read more about ingestion batching at the following link: [Kusto IngestionBatching policy management command](/azure/data-explorer/kusto/management/batching-policy). 
+Ensure that `<table_name>` is replaced with the name of the table that was set up for you. MaximumBatchingTimeSpan should be set to the preferred batching interval. It may take 5-10 minutes for the policy to take effect. You can read more about ingestion batching at the following link: [Kusto IngestionBatching policy management command](/azure/data-explorer/kusto/management/batching-policy). 
 
 ### Streaming ingestion 
 
 Enabling **streaming ingestion** is a 2-step process: 
-1. Enable streaming ingestion for your cluster. This only has to be done once. (Warning: This will have an impact on the amount of storage available for hot cache, and may introduce additional limitations). 
+1. Enable streaming ingestion for your cluster. This only has to be done once. (Warning: This will have an effect on the amount of storage available for hot cache, and may introduce extra limitations). 
 2. Add a streaming ingestion policy for the desired table. You can read more about enabling streaming ingestion for your cluster in the Azure Data Explorer documentation: [Kusto IngestionBatching policy management command](/azure/data-explorer/kusto/management/batching-policy). 
 
 To enable streaming ingestion for your Azure Digital Twins data history table, the following command must be issued in the Azure Data Explorer query pane: 
@@ -132,7 +132,7 @@ To enable streaming ingestion for your Azure Digital Twins data history table, t
 .alter table <table_name> policy streamingingestion enable 
 ```
 
-Ensure that `<table_name>` is replaced with the name of the table that was set up for you. Please note that it may take 5-10 minutes for the policy to take effect. 
+Ensure that `<table_name>` is replaced with the name of the table that was set up for you. It may take 5-10 minutes for the policy to take effect. 
 
 ## Next steps
 

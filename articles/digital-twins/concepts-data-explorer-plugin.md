@@ -126,9 +126,9 @@ Once the target table is created, you can use the Azure Digital Twins plugin to 
 
 Here is an example of a schema that might be used to represent shared data.
 
-| timestamp | twinId | modelId | name | value | relationshipTarget | relationshipID |
+| `timestamp` | `twinId` | `modelId` | `name` | `value` | `relationshipTarget` | `relationshipID` |
 | --- | --- | --- | --- | --- | --- | --- |
-| 2021-02-01 17:24 | ConfRoomTempSensor | dtmi:com:example:TemperatureSensor;1 | temperature | 301.0 |  |  |
+| 2021-02-01 17:24 | ConfRoomTempSensor | `dtmi:com:example:TemperatureSensor;1` | temperature | 301.0 |  |  |
 
 Digital twin properties are stored as key-value pairs (`name, value`). `name` and `value` are stored as dynamic data types. 
 
