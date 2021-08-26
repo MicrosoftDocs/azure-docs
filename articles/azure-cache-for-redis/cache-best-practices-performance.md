@@ -29,7 +29,7 @@ ms.author: shpathak
 
 The `redis-benchmark.exe` doesn't support TLS. You'll have to [enable the Non-TLS port through the Portal](cache-configure.md#access-ports) before you run the test. A windows compatible version of redis-benchmark.exe can be found [here](https://github.com/MSOpenTech/redis/releases).
 
-### Redis-benchmark examples
+## Redis-benchmark examples
 
 **Pre-test setup**:
 Prepare the cache instance with data required for the latency and throughput testing:

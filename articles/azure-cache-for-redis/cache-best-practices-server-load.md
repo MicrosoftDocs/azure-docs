@@ -1,5 +1,6 @@
 ---
 title: Best practices for Using and Monitoring the Server Load
+titleSuffix: Azure Cache for Redis
 description: Learn how to use and monitor your server load for  Azure Cache for Redis.
 author: shpathak-msft
 ms.service: cache
@@ -8,7 +9,7 @@ ms.date: 08/25/2021
 ms.author: shpathak
 ---
 
-# Manage Server Load
+# Manage Server Load for Azure Cache for Redis
 
 ## Value sizes
 
@@ -41,3 +42,11 @@ Add monitoring on Server load to ensure you get notifications when high server l
 ## Plan for server maintenance
 
 Ensure you have enough server capacity to handle your peak load while your cache servers are undergoing maintenance. Test your system by rebooting nodes while under peak load. For more information on how to simulate deployment of a patch, see [reboot](cache-administration.md#reboot).
+
+## Next steps
+
+- [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
+- [Connection resilience](cache-best-practices-connection.md)
+  - [Configure appropriate timeouts](cache-best-practices-connection.md#configure-appropriate-timeouts).
+- [Memory management](cache-best-practices-memory-management.md)
+  - [Configure your maxmemory-reserved setting](cache-best-practices-memory-management.md#configure-your-maxmemory-reserved-setting)
