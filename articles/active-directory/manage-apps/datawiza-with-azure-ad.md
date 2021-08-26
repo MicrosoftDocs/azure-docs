@@ -112,7 +112,7 @@ header-based application should have SSO enabled with Azure AD. Open a browser a
 
 2. After successfully configuring the user attributes, you should see the green check sign for each of the user attributes.
 
-![image shows datawiza application home page](./media/datawiza-with-azure-active-directory/datawiza-application-home-page.png)
+   ![image shows datawiza application home page](./media/datawiza-with-azure-active-directory/datawiza-application-home-page.png)
 
 ## Test the flow
 
