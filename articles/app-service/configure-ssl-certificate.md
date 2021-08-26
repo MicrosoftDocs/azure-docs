@@ -96,7 +96,7 @@ If you purchase an App Service Certificate from Azure, Azure manages the followi
 - Takes care of the purchase process from GoDaddy.
 - Performs domain verification of the certificate.
 - Maintains the certificate in [Azure Key Vault](../key-vault/general/overview.md).
-- Manages certificate renewal (see [Renew certificate](#renew-certificate)).
+- Manages certificate renewal (see [Renew certificate](#renew-an-app-service-certificate)).
 - Synchronize the certificate automatically with the imported copies in App Service apps.
 
 To purchase an App Service certificate, go to [Start certificate order](#start-certificate-order).
@@ -310,7 +310,7 @@ Click **Upload**.
 
 Once the certificate is uploaded, copy the certificate thumbprint and see [Make the certificate accessible](configure-ssl-certificate-in-code.md#make-the-certificate-accessible).
 
-## Renew expiring certificates
+## Renew an expiring certificate
 
 Before a certificate expires, you should add the renewed certificate into App Service and update its [certificate binding](configure-ssl-certificate.md). The process depends on the certificate type:
 
