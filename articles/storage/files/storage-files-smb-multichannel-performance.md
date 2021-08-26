@@ -39,7 +39,7 @@ This feature provides greater performance benefits to multi-threaded application
 
 ## Limitations
 SMB Multichannel for Azure file shares currently has the following restrictions:
-- Only supported on [Windows](storage-how-to-use-files-windows.md) and [Linux](storage-how-to-use-files-linux.md) clients that are using SMB 3.1.1
+- Only supported on [Windows](storage-how-to-use-files-windows.md) and [Linux](storage-how-to-use-files-linux.md) clients that are using SMB 3.1.1. Ensure SMB client operating systems are patched to recommended levels.
 - Maximum number of channels is four, for details see [here](storage-troubleshooting-files-performance.md#cause-4-number-of-smb-channels-exceeds-four).
 
 ## Configuration

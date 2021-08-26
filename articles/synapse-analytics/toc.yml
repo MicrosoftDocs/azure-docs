@@ -201,6 +201,8 @@ items:
         href: troubleshoot/workspaces-created-by-sdk.md
       - name: Troubleshoot reading UTF-8 text
         href: troubleshoot/reading-utf8-text.md
+    - name: Move workspace to new region
+      href: how-to-move-workspace-from-one-region-to-another.md
 - name: Migration guides
   items:
   - name: Migrate to a dedicated SQL pool
