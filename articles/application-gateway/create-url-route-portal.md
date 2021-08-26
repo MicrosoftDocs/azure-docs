@@ -174,7 +174,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 > You do not need to add a custom */** path rule to handle default cases. This is automatically handled by the default backend pool.
 
 > [!NOTE]
-> Wildcard delimiter **\*** is only honored at the end of the rule. Examples of supported path based rules can be found ![here](./url-route-overview.md#pathpattern).
+> Wildcard delimiter **\*** is only honored at the end of the rule. For more information and supported path based rules examples, see [URL Path Based Routing overview](url-route-overview.md#pathpattern).
 
 ### Review + create tab
 
