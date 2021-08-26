@@ -1,5 +1,5 @@
 ---
-title: Protecting against OAuth consent phishing | Azure AD app management
+title: Protecting against consent phishing | Azure AD app management
 description: Learn ways of mitigating against app-based consent phishing attacks using Azure AD.
 services: active-directory
 author: Chrispine-Chiedo
@@ -17,7 +17,7 @@ ms.reviewer: tilarso
 #Customer intent: As a developer, I want to learn how to protect against app-based consent phishing attacks so I can protect my users from malicious threat actors.
 ---
 
-# Protecting against OAuth consent phishing
+# Protecting against consent phishing
 
 Productivity is no longer confined to private networks, and work has shifted dramatically toward cloud services. While cloud applications enable employees to be productive remotely, attackers can also use application-based attacks to gain access to valuable organization data. You may be familiar with attacks focused on users, such as email phishing or credential compromise. ***Consent phishing*** is another threat vector to be aware of.
 This article explores what consent phishing is, what Microsoft does to protect you, and what steps organizations can take to stay safe.
@@ -32,7 +32,7 @@ Consent phishing attacks trick users into granting permissions to malicious clou
 
 ## Mitigating consent phishing attacks using Azure AD
 
-Microsoft researchers can can flag OAuth applications that violate Microsoft's terms of service. OAuth applications flagged by Microsoft's researchers undergo a review process in order to validate the suspicious activity or reason the application was flagged. When such a violation is fully determined, Azure AD will disable the application and prevent further use across all Microsoft services.
+Admins, users, or Microsoft security researchers may flag OAuth applications that appear to behave suspiciously. A flagged application will be reviewed by Microsoft to determine whether the app violates the terms of service. If a violation is confirmed, Azure AD will disable the application and prevent further use across all Microsoft services.
 
 When Azure AD disables an OAuth application, a few things happen:
 - The malicious application and related service principals are placed into a fully disabled state. Any new token requests or requests for refresh tokens will be denied, but existing access tokens will still be valid until their expiration.
