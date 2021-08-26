@@ -645,7 +645,7 @@
               displayName: primary key, resource token, users, roles
               href: secure-access-to-data.md
             - name: Advanced threat protection
-              href: sql/cosmos-db-advanced-threat-protection.md
+              href: sql/advanced-threat-protection.md
         - name: Connectivity modes
           href: sql/sql-sdk-connection-modes.md
     - name: How-to guides
@@ -856,7 +856,7 @@
         - name: Migrate data to Cosmos DB
           items:
             - name: Migrate to SQL API using Striim
-              href: sql/cosmosdb-sql-api-migrate-data-striim.md
+              href: sql/migrate-data-striim.md
             - name: Migrate one-to-few relational data
               href: sql/migrate-relational-to-cosmos-db-sql-api.md
             - name: Migrate - Couchbase to SQL API

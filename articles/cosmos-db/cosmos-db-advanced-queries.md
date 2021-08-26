@@ -12,20 +12,20 @@ ms.author: esarroyo
 
 # Troubleshoot issues with advanced diagnostics queries for the SQL (Core) API
 
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [SQL (Core) API](cosmos-db-advanced-queries.md)
-> * [MongoDB API](../mongodb/diagnostic-queries-mongodb.md)
-> * [Cassandra API](../cassandra/diagnostic-queries-cassandra.md)
-> * [Gremlin API](../graph/diagnostic-queries-gremlin.md)
+> * [MongoDB API](mongodb/diagnostic-queries-mongodb.md)
+> * [Cassandra API](cassandra/diagnostic-queries-cassandra.md)
+> * [Gremlin API](graph/diagnostic-queries-gremlin.md)
 >
 
 In this article, we'll cover how to write more advanced queries to help troubleshoot issues with your Azure Cosmos DB account by using diagnostics logs sent to **Azure Diagnostics (legacy)** and **resource-specific (preview**) tables.
 
-For Azure Diagnostics tables, all data is written into one single table. Users specify which category they want to query. If you want to view the full-text query of your request, see [Monitor Azure Cosmos DB data by using diagnostic settings in Azure](../cosmosdb-monitor-resource-logs.md#full-text-query) to learn how to enable this feature.
+For Azure Diagnostics tables, all data is written into one single table. Users specify which category they want to query. If you want to view the full-text query of your request, see [Monitor Azure Cosmos DB data by using diagnostic settings in Azure](cosmosdb-monitor-resource-logs.md#full-text-query) to learn how to enable this feature.
 
-For [resource-specific tables](../cosmosdb-monitor-resource-logs.md#create-setting-portal), data is written into individual tables for each category of the resource. We recommend this mode because it:
+For [resource-specific tables](cosmosdb-monitor-resource-logs.md#create-setting-portal), data is written into individual tables for each category of the resource. We recommend this mode because it:
 
 - Makes it much easier to work with the data. 
 - Provides better discoverability of the schemas.
@@ -181,5 +181,5 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
 ---
 
 ## Next steps
-* For more information on how to create diagnostic settings for Azure Cosmos DB, see [Create diagnostic settings](../cosmosdb-monitor-resource-logs.md).
-* For detailed information about how to create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic settings to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
+* For more information on how to create diagnostic settings for Azure Cosmos DB, see [Create diagnostic settings](cosmosdb-monitor-resource-logs.md).
+* For detailed information about how to create a diagnostic setting by using the Azure portal, the Azure CLI, or PowerShell, see [Create diagnostic settings to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md).
