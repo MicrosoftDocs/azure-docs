@@ -55,11 +55,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. To create an account with itsme, visit itsme at the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
 
-2. Activate your itsme account by sending an email to onboarding@itsme.be. You'll receive a **Partner code** and **Service code** that will be needed for your B2C setup.
+1. Activate your itsme account by sending an email to onboarding@itsme.be. You'll receive a **Partner code** and **Service code** that will be needed for your B2C setup.
 
-3. After activation of your itsme partner account, you'll receive an email with a one-time link to the **client secret**.
+1. After activation of your itsme partner account, you'll receive an email with a one-time link to the **client secret**.
 
-4. Follow the instructions at [itsme](https://business.itsme.be/en) to complete the configuration.
+1. Follow the instructions at [itsme](https://business.itsme.be/en) to complete the configuration.
 
 ## Integrate with Azure AD B2C
 
@@ -68,13 +68,11 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 > [!NOTE]
 > If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
-
-2. Under **Azure services**, select **Azure AD B2C** (or select **More services** and use the **All services** search box to search for *Azure AD B2C*).
-
-3. Select **Identity providers**, and then select **New OpenID Connect provider**.
-
-4. Fill in the form with the following information:
+1. Make sure you're using the directory that contains Azure AD B2C tenant. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Under **Azure services**, select **Azure AD B2C** (or select **More services** and use the **All services** search box to search for *Azure AD B2C*).
+1. Select **Identity providers**, and then select **New OpenID Connect provider**.
+1. Fill in the form with the following information:
 
    |Property | Value |
    |------------ |------- |

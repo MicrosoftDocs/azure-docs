@@ -39,7 +39,8 @@ With [Conditional Access](conditional-access-identity-protection-overview.md) us
 ::: zone pivot="b2c-user-flow"
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
+1. Select the **Directories + Subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **User flows**.
 1. Select the user flow for which you want to enable MFA. For example, *B2C_1_signinsignup*.
