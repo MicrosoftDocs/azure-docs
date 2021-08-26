@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: databox   
 ms.topic: include
-ms.date: 08/24/2021
+ms.date: 08/26/2021
 ms.author: alkohli
 ---
 
@@ -200,21 +200,21 @@ Do the following steps in the Azure portal to order a device.
 
 17. In **Contact details**, select **+ Add Address**.
 
-    ![Screenshot of Contact Details tab for a Data Box order. The Contact Details tab and the Plus Add Address option are highlighted.](media/data-box-order-portal/contact-details-01.png)<!--Stopped here renaming Contact Details screens.-->
+    ![Screenshot of Contact Details tab for a Data Box order. The Contact Details tab and the Plus Add Address option are highlighted.](media/data-box-order-portal/contact-details-01.png)
 
 18. On the **Add address** screen, provide your first and last name, the name and postal address of the company, and a valid phone number. Select **Validate address**. The service validates the address for service availability and notifies you if service is available for that address.
 
-    ![Screenshot of the Add Address screen for a Data Box order. The Ship using options and the Add shipping address option called out.](media/data-box-order-portal/select-data-box-import-10.png)
+    ![Screenshot of the Add Address screen for a Data Box order. The Ship using options and the Add shipping address option called out.](media/data-box-order-portal/contact-details-02.png)
 
     If you selected self-managed shipping, you will receive an email notification after the order is placed successfully. For more information about self-managed shipping, see [Use self-managed shipping](../articles/databox/data-box-portal-customer-managed-shipping.md).
 
 19. Select **Add shipping address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
 
-20. After you return to **Contact details**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
+20. In **Contact details**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
-    ![Screenshot showing the Email section of the Contact Details tab for a Data Box order. The area for typing email addresses and the Review Plus Order button are highlighted.](media/data-box-order-portal/select-data-box-import-08-c.png)
+    ![Screenshot showing the Email section of the Contact Details tab for a Data Box order. The area for typing email addresses and the Review Plus Order button are highlighted.](media/data-box-order-portal/contact-details-03.png)
 
 21. Review the information in **Review + Order** related to the order, contact, notification, and privacy terms. Check the box corresponding to the agreement to privacy terms.
 
