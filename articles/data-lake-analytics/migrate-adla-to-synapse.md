@@ -1,11 +1,12 @@
 ---
 title: Migrate Azure Data Analytics to Azure Synapse Analytics.
 description: This article describes how to migrate from Azure Data Analytics to Azure Synapse Analytics.
-ms.reviewer: 
+author: lingluo0531
+ms.author: lingluo
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: migrate-adla-to-synapse
-ms.date: 08/15/2021
+ms.date: 08/25/2021
 ---
 
 # Migrate Azure Data Analytics to Azure Synapse Analytics
@@ -28,7 +29,7 @@ The document shows you how to do the migration from ADLA to Azure Synapse Analyt
 | --- | --- |--- |
 | Pricing  |Per Analytic Unit-hour |Per vCore-hour|
 |Engine 	|Azure Data Lake Analytics 	|Apache Spark
-|Default Programing Language 	|U-SQL	 |T-SQL, Python, Scala, Spark SQL and .Net
+|Default Programing Language 	|U-SQL	 |T-SQL, Python, Scala, Spark SQL and .NET
 |Data Sources 	|Azure Data Lake Storage	|Azure Blob Storage, Azure Data Lake Storage
 
 2. Review the <a href="#questionnaire">Questionnaire for Migration Assessment</a> and list those possible risks for considering. 
@@ -66,4 +67,4 @@ After you're confident that your applications and workloads are stable, you can 
 |Data source |What’s the size of the data source? What kinds of data format for processing?	|[Understand Apache Spark data formats for Azure Data Lake Analytics U-SQL developers](understand-spark-data-formats.md)|
 |Data output |Will you keep the output data for later use? If the output data is saved in U-SQL tables, how to handle it? | If the output data will be used often and saved in U-SQL tables, you need change the scripts and change the output data to Spark supported data format.|
 |Data migration	|Have you made the storage migration plan? |[Migrate Azure Data Lake Storage from Gen1 to Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md) |
-|U-SQL scripts transform|Do you use UDO/UDF (.Net, python, etc.)?If above answer is yes, which language do you use in your UDO/UDF and any problems for the transform during the transform?Is the federated query being used in U-SQL?|[Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers](understand-spark-code-concepts.md)|
+|U-SQL scripts transform|Do you use UDO/UDF (.NET, python, etc.)?If above answer is yes, which language do you use in your UDO/UDF and any problems for the transform during the transform?Is the federated query being used in U-SQL?|[Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers](understand-spark-code-concepts.md)|
