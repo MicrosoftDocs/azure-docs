@@ -1,4 +1,3 @@
-
 ---
 title: Deploy custom policies with Azure Pipelines
 titleSuffix: Azure AD B2C
