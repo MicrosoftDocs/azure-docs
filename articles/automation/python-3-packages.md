@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 08/13/2021
 ms.topic: conceptual
+ms.custom: has-adal-ref
 ---
 
 # Manage Python 3 packages (preview) in Azure Automation

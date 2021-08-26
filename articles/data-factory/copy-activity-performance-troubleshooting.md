@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/07/2021
+ms.date: 08/24/2021
 ---
 
 # Troubleshoot copy activity performance

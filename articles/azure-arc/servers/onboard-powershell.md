@@ -50,6 +50,8 @@ When the installation finishes, you see the following message:
         Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -Proxy http://<proxyURL>:<proxyport>
         ```
 
+      Using this configuration, the agent communicates through the proxy server using the HTTP protocol.
+
 If the agent fails to start after setup is finished, check the logs for detailed error information. On Windows, check this file: *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log*. On Linux, check this file: */var/opt/azcmagent/log/himds.log*.
 
 ## Install and connect by using PowerShell remoting

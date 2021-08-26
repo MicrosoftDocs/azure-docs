@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Purview documentation
-summary: Learn how to use Azure Purview so your organization can find, understand, and consume data sources.
+summary: Learn how to use Azure Purview so your organization can find, understand, govern, consume data sources.
 
 metadata:
   title: Azure Purview documentation
@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: whhender
   ms.author: whhender
-  ms.date: 06/10/2021
+  ms.date: 08/19/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -28,7 +28,7 @@ landingContent:
             url: use-purview-studio.md
           - text: Deployment best practices
             url: deployment-best-practices.md
-          - text: Data Catalog Permissions
+          - text: Purview access control
             url: catalog-permissions.md
           - text: Supported data sources and file types
             url: sources-and-scans.md
@@ -43,6 +43,8 @@ landingContent:
             url: create-catalog-portal.md
           - text: Create a Purview account - PowerShell/CLI
             url: create-catalog-powershell.md
+          - text: Create a Collection
+            url: quickstart-create-collection.md
       - linkListType: tutorial
         links:
           - text: Run starter kit and scan data 
@@ -117,6 +119,8 @@ landingContent:
       links:
         - text: Scan SQL server on-premises
           url: register-scan-on-premises-sql-server.md
+        - text: Scan Google BigQuery
+          url: register-scan-google-bigquery-source.md
         - text: Scan Amazon S3
           url: register-scan-amazon-s3.md
         - text: Scan Oracle

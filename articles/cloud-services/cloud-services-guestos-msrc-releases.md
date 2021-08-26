@@ -11,12 +11,64 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/13/2021
+ms.date: 8/20/2021
 ms.author: gunnarc
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## August 2021 Guest OS
+
+>[!NOTE] 
+
+>The August Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the August Guest OS. This list is subject to change. 
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 21-08 |  [5005030]  |  Latest Cumulative Update(LCU) | 6.34 | Aug 10 , 2021 |
+|  Rel 21-08 |  [5005036]  |  IE Cumulative Updates | 2.113, 3.100, 4.93 | Aug 10 , 2021 |
+|  Rel 21-08 |  [5004238]  |  Latest Cumulative Update(LCU) | 5.58 | July 13 , 2021 |
+|  Rel 21-08 |  [4578952]  |  .NET Framework 3.5 Security and Quality Rollup  | 2.113 | Feb 16, 2021 |
+|  Rel 21-08 |  [4578955]  |  .NET Framework 4.5.2 Security and Quality Rollup  | 2.113 | Jun 8, 2021 |
+|  Rel 21-08 |  [4578953]  |  .NET Framework 3.5 Security and Quality Rollup  | 4.93 | Feb 16, 2021 |
+|  Rel 21-08 |  [4578956]  |  .NET Framework 4.5.2 Security and Quality Rollup  | 4.93 | Feb 16, 2021 |
+|  Rel 21-08 |  [4578950]  |  .NET Framework 3.5 Security and Quality Rollup  | 3.100 | Feb 16, 2021 |
+|  Rel 21-08 |  [4578954]  |  . NET Framework 4.5.2 Security and Quality Rollup  | 3.100 | Feb 16, 2021 |
+|  Rel 21-08 |  [5004335]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update  | 6.34 | Aug 10, 2021 |
+|  Rel 21-08 |  [5005088]  |  Monthly Rollup  | 2.113 | Aug 10, 2021 |
+|  Rel 21-08 |  [5005099]  |  Monthly Rollup  | 3.100 | Aug 10, 2021 |
+|  Rel 21-08 |  [5005076]  |  Monthly Rollup  | 4.93 | Aug 10, 2021 |
+|  Rel 21-08 |  [5001401]  |  Servicing Stack update  | 3.100 | Apr 13, 2021 |
+|  Rel 21-08 |  [5001403]  |  Servicing Stack update  | 4.93 | Apr 13, 2021 |
+|  Rel 21-08 OOB |  [4578013]  |  Standalone Security Update  | 4.93 | Aug 19, 2020 |
+|  Rel 21-08 |  [5001402]  |  Servicing Stack update  | 5.58 | Apr 13, 2021 |
+|  Rel 21-08 |  [5004378]  |  Servicing Stack update  | 2.113 | July 13, 2021 |
+|  Rel 21-08 |  [5005112]  |  Servicing Stack update  | 6.34 | Aug 10, 2021 |
+|  Rel 21-08 |  [4494175]  |  Microcode  | 5.58 | Sep 1, 2020 |
+|  Rel 21-08 |  [4494174]  |  Microcode  | 6.34 | Sep 1, 2020 |
+
+[5005030]: https://support.microsoft.com/kb/5005030
+[5005036]: https://support.microsoft.com/kb/5005036
+[5004238]: https://support.microsoft.com/kb/5004238
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[5004335]: https://support.microsoft.com/kb/5004335
+[5005088]: https://support.microsoft.com/kb/5005088
+[5005099]: https://support.microsoft.com/kb/5005099
+[5005076]: https://support.microsoft.com/kb/5005076
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5001402]: https://support.microsoft.com/kb/5001402
+[5004378]: https://support.microsoft.com/kb/5004378
+[5005112]: https://support.microsoft.com/kb/5005112
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
 
 ## July 2021 Guest OS
 
