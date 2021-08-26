@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 08/26/2021
 ms.author: mjbrown
 ---
 
@@ -27,3 +27,9 @@ This article only shows Azure Resource Manager template examples for Core (SQL) 
 |[Create a free-tier Azure Cosmos account](manage-with-templates.md#free-tier) |  This template creates an Azure Cosmos DB Core (SQL) API account on free-tier. |
 
 See [Azure Resource Manager reference for Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions) page for the reference documentation.
+
+## Next steps
+
+Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
