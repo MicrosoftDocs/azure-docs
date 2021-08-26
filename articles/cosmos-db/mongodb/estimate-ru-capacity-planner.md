@@ -13,6 +13,10 @@ ms.author: dech
 # Estimate RU/s using the Azure Cosmos DB capacity planner - Azure Cosmos DB API for MongoDB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-mongodb-api.md)]
 
+> [!NOTE]
+> If you are planning a data migration to Azure Cosmos DB and all that you know is the number of vcores and servers in your existing sharded and replicated database cluster, please also read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+>
+
 Configuring your databases and collections with the right amount of provisioned throughput, or [Request Units (RU/s)](../request-units.md), for your workload is essential to optimizing cost and performance. This article describes how to use the Azure Cosmos DB [capacity planner](https://cosmos.azure.com/capacitycalculator/) to get an estimate of the required RU/s and cost of your workload when using the Azure Cosmos DB API for MongoDB. If you are using SQL API, see how to [use capacity calculator with SQL API](../estimate-ru-with-capacity-planner.md) article.
 
 [!INCLUDE [capacity planner modes](../includes/capacity-planner-modes.md)]
