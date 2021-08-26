@@ -4,7 +4,7 @@
   author: roygara
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 08/25/2021
+  ms.date: 08/26/2021
   ms.author: rogarana
   ms.subservice: disks
 ---
@@ -104,7 +104,7 @@ For more details on Azure Disk Backup, see [Overview of Azure Disk Backup](../ba
 
 If you are unable to use Azure Backup, you can implement your own backup mechanism by using snapshots. Creating consistent snapshots for all the disks used by a VM and then replicating those snapshots to another region is complicated. For this reason, Azure considers using the Backup service as a better option than building a custom solution.
 
-If you use ZRS disks, snapshots are automatically replicated to a secondary datacenter. If you use locally redundant storage for disks, you need to replicate the data yourself.
+If you use locally redundant storage for disks, you need to replicate the data yourself.
 
 A snapshot is a representation of an object at a specific point in time. A snapshot incurs billing for the incremental size of the data it holds. For more information, see [Create an incremental snapshot for managed disks](disks-incremental-snapshots.md).
 
