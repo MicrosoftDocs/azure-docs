@@ -1,5 +1,6 @@
 ---
 title: Best practices for scaling your Azure Cache for Redis
+titleSuffix: Azure Cache for Redis
 description: Learn how to scale your Azure Cache for Redis.
 author: shpathak-msft
 ms.service: cache
