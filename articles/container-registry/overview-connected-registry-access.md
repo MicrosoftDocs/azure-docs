@@ -5,28 +5,28 @@ author: toddysm
 ms.author: memladen
 ms.service: container-registry
 ms.topic: overview
-ms.date: 01/13/2021
+ms.date: 08/23/2021
 ---
 
 # Understand access to a connected registry
 
 To access and manage a [connected registry](intro-connected-registry.md), currently only ACR [token-based authentication](container-registry-repository-scoped-permissions.md) is supported. As shown in the following image, two different types of tokens are used by each connected registry:
 
-* One or more *client tokens*, which on-premise clients use to authenticate with a connected registry and push or pull images and artifacts to or from it.
-* A *sync token* used by each connected registry to access its parent and synchronize images and artifacts with it.
+* [**Client tokens**](#client-token) - One or more tokens that on-premises clients use to authenticate with a connected registry and push or pull images and artifacts to or from it.
+* [**Sync token**](#sync-token) - A token used by each connected registry to access its parent and synchronize images and artifacts with it.
 
-![Connected Registry Authentication Overview](media/connected-registry/connected-registry-authentication-overview.svg)
+![Connected registry authentication verview](media/connected-registry/connected-registry-authentication-overview.svg)
 
 > [!IMPORTANT]
 > Store token passwords for each connected registry in a safe location. After they are created, token passwords can't be retrieved. You can regenerate token passwords at any time.
 
 ## Client tokens
 
-To manage client access to a connected registry, you create tokens scoped for actions on one or more repositories. After creating a token, you configure the connected registry to accept the token by using the `az acr connected-registry update` command. A client can then use the token credentials to access a connected registry endpoint - for example, to use Docker CLI commands to pull or push images to the connected registry.
+To manage client access to a connected registry, you create tokens scoped for actions on one or more repositories. After creating a token, configure the connected registry to accept the token by using the [az acr connected-registry update](/cli/azure/acr/connected-registry#az_acr_connected_registry_update) command. A client can then use the token credentials to access a connected registry endpoint - for example, to use Docker CLI commands to pull or push images to the connected registry.
 
 Your options for configuring client token actions depend on whether the connected registry allows both push and pull operations or functions as a pull-only mirror. 
-* A connected registry in the default *registry* mode allows both pull and push operations, so you can create a token that allows actions to both *read* and *write* repository content in that registry. 
-* For a connected registry in *mirror* mode, client tokens can only allow actions to *read* repository content.
+* A connected registry in the default [registry mode](intro-connected-registry.md#modes) allows both pull and push operations, so you can create a token that allows actions to both *read* and *write* repository content in that registry. 
+* For a connected registry in [mirror mode](intro-connected-registry.md#modes), client tokens can only allow actions to *read* repository content.
 
 ### Manage client tokens
 
@@ -34,9 +34,9 @@ Update client tokens, passwords, or scope maps as needed by using [az acr token]
 
 ## Sync token
 
-Each connected registry uses a *sync token* to authenticate with its parent - which could be another connected registry or the cloud registry. The connected registry automatically uses this token when synchronizing content with the parent or performing other updates. 
+Each connected registry uses a sync token to authenticate with its immediate parent - which could be another connected registry or the cloud registry. The connected registry automatically uses this token when synchronizing content with the parent or performing other updates. 
 
-* The *sync token* is generated automatically when you create the connected registry resource. You must run the [az acr connected-registry install renew-credentials][az-acr-install-renew-credentials] command to generate the passwords.
+* The sync token is generated automatically when you create the connected registry resource. You must run the [az acr connected-registry install renew-credentials][az-acr-install-renew-credentials] command to generate the passwords.
 * Include the *sync token* credentials in the configuration used to deploy the connected registry on premises. 
 * By default, the *sync token* is granted permission to synchronize selected repositories with its parent. You must provide existing *sync token* or one or more repositories to sync when you create the connected registry resource.
 * It also has permissions to *read* and *write* synchronization messages on a gateway used to communicate with the connected registry parent. These messages control the synchronization schedule and manage other updates between the connected registry and its parent.
@@ -57,7 +57,7 @@ A client token accesses the connected registry's endpoint. The connected registr
 A sync token accesses the endpoint of the parent registry, which is either another connected registry endpoint or the cloud registry itself. When scoped to access the cloud registry, the sync token needs to reach two registry endpoints:
 
 - The fully qualified login server name, for example, `contoso.azurecr.io`. This endpoint is used for authentication.
-- A fully qualified regional [data endpoint](https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules#enable-dedicated-data-endpoints) for the cloud registry, for example, `contoso.westus2.data.azurecr.io`. This endpoint is used to exchange messages with the connected registry for synchronization purposes. 
+- A fully qualified regional [data endpoint](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) for the cloud registry, for example, `contoso.westus2.data.azurecr.io`. This endpoint is used to exchange messages with the connected registry for synchronization purposes. 
 
 ## Next steps
 
@@ -67,6 +67,8 @@ Continue to the one of the following articles to learn about specific scenarios 
 > [Overview: Connected registry and IoT Edge][overview-connected-registry-and-iot-edge]
 
 <!-- LINKS - internal -->
-[az-acr-install-renew-credentials]: /cli/azure/acr#az-acr-install-renew-credentials
+[az-acr-connected-registry-update]: /cli/azure/acr/connected-registry#az_acr_connected_registry_update
+[az-acr-connected-registry-install-renew-credentials]: /cli/azure/acr/connected-registry/install#az_acr_connected_registry_install_renew_credentials
 [overview-connected-registry-and-iot-edge]:overview-connected-registry-and-iot-edge.md
 [repository-scoped-permissions]: container-registry-repository-scoped-permissions.md
+
