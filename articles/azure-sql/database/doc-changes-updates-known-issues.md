@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.date: 06/22/2021
 ---
-# Known issues with Azure SQL Datbase
+# Known issues with Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb.md)]
 
 

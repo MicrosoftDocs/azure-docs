@@ -46,8 +46,9 @@ The following table lists the features of Azure SQL Database that have gone from
 
 | Feature | GA Month | Details |
 | ---| --- |--- |
-| AAD service principal |  September 2021 | Azure Active Directory (Azure AD) supports user creation in Azure SQL Database on behalf of Azure AD applications (service principals)| 
-| AAD directory readers and guest users  | September 2021  | Guest users in Azure Active Directory (Azure AD) are users that have been imported into the current Azure AD from other Azure Active Directories, or outside of it. | 
+| [AAD service principal](authentication-aad-service-principal.md) |  September 2021 | Azure Active Directory (Azure AD) supports user creation in Azure SQL Database on behalf of Azure AD applications (service principals)| 
+| [AAD directory readers and guest users](authentication-aad-guest-users.md)  | September 2021  | Guest users in Azure Active Directory (Azure AD) are users that have been imported into the current Azure AD from other Azure Active Directories, or outside of it. | 
+| [Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you  you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. | 
 | ---| --- | --- | 
 
 
@@ -55,7 +56,7 @@ The following table lists the features of Azure SQL Database that have gone from
 
 | Changes | Details |
 | --- | --- |
-| **Azure AD-only authentication** | It's now possible to restrict authentication to your Azure SQL Database to Azure Active Directory only. This feature is currently in public preview. To learn more, see [Azure AD-only authentication](authentication-azure-ad-only-authentication.md). | 
+| **Azure AD-only authentication** | It's now possible to restrict authentication to your Azure SQL Database to Azure Active Directory users only. This feature is currently in public preview. To learn more, see [Azure AD-only authentication](authentication-azure-ad-only-authentication.md). | 
 
 ## May 2021
 
