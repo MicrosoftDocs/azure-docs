@@ -313,6 +313,14 @@ To delete the resource group and all its resources, run the following Azure CLI 
 az group delete --name $resourceGroupName
 ```
 
+### [Azure CLI (preview)](#tab/azure-cli-preview)
+
+To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
+
+```azurecli-interactive
+az group delete --name $resourceGroupName
+```
+
 ### [PowerShell](#tab/azure-powershell)
 
 To delete the resource group and all its resources, run the following PowerShell cmdlet, using the name of your resource group:
