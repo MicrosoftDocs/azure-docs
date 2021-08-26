@@ -445,13 +445,13 @@ The recovery point is identified with the `{name}` field in the above response.
 
 To perform cross-region restore, you will require an access token to authorize your request to access replicated restore points in the secondary region. To get an access token, follow these steps:
 
-**Step 1:** Use the [AAD Properties API](/rest/api/backup/aad-properties/get) to get AAD properties for the secondary region (*westus* in the below example):
+#### Step 1: Use the [AAD Properties API](/rest/api/backup/aad-properties/get) to get AAD properties for the secondary region (*westus* in the below example):
 
     ```http
     GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/westus/backupAadProperties?api-version=2018-12-20
     ```
 
-#### Response example
+##### Response example
 
 The response returned is of the below format:
 
@@ -465,7 +465,7 @@ The response returned is of the below format:
 }
 ```
 
-**Step 2:** Use the [Get Access Token API](/rest/api/backup/recovery-points-get-access-token-for-crr/get-access-token) to authorize your request to access replicated restore points in the secondary region:
+#### Step 2: Use the [Get Access Token API](/rest/api/backup/recovery-points-get-access-token-for-crr/get-access-token) to authorize your request to access replicated restore points in the secondary region:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/accessToken?api-version=2018-12-20
@@ -483,7 +483,7 @@ For the request body, paste the contents of the response returned by the AAD Pro
 }
 ```
 
-#### Response example
+##### Response example
 
 The response returned is of the below format:
 
