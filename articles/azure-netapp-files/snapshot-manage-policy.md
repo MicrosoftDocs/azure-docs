@@ -1,6 +1,6 @@
 ---
 title: Manage snapshot policies in Azure NetApp Files | Microsoft Docs
-description: Describes how to create, manage, and use snapshots by using Azure NetApp Files. 
+description: Describes how to create, manage, modify, and delete snapshot policies by using Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -19,7 +19,7 @@ ms.author: b-juche
 
 # Manage snapshot policies in Azure NetApp Files
 
-You can schedule for volume snapshots to be taken automatically by using snapshot policies. You can also modify a snapshot policy as needed, or delete a snapshot policy that you no longer need.  
+You can schedule for [volume snapshots](snapshots-introduction.md) to be taken automatically by using snapshot policies. You can also modify a snapshot policy as needed, or delete a snapshot policy that you no longer need.  
 
 ## Create a snapshot policy 
 
@@ -56,7 +56,7 @@ A snapshot policy enables you to specify the snapshot creation frequency in hour
 If you need to create additional snapshot policies, repeat Step 3.
 The policies you created appear in the Snapshot policy page.
 
-If you want a volume to use the snapshot policy, you need to [apply the policy to the volume](azure-netapp-files-manage-snapshots.md#apply-a-snapshot-policy-to-a-volume). 
+If you want a volume to use the snapshot policy, you need to [apply the policy to the volume](snapshot-manage-policy.md#apply-a-snapshot-policy-to-a-volume). 
 
 ## Apply a snapshot policy to a volume
 
@@ -101,3 +101,4 @@ You can delete a snapshot policy that you no longer want to keep.
 ## Next steps
 
 * [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
+* [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)

@@ -1,5 +1,5 @@
 ---
-title: Delete snapshots
+title: Delete snapshots in Azure NetApp Files
 description: Describes how to delete snapshots by using Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
