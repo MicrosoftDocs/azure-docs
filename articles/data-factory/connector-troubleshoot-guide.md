@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 07/30/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -36,6 +36,31 @@ This article explores common ways to troubleshoot problems with Azure Data Facto
 
 - **Resolution**: Edit the dataset or pipeline JSON definition to make the types consistent, and then rerun the deployment.
 
+### Error code: FIPSModeIsNotSupport
+
+- **Message**: `Fail to read data form Azure Blob Storage for Azure Blob connector needs MD5 algorithm which can't co-work with FIPS mode. Please change diawp.exe.config in self-hosted integration runtime install directory to disable FIPS policy following https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/runtime/enforcefipspolicy-element.`
+
+- **Cause**: Then FIPS policy is enabled on the VM where the self-hosted integration runtime was installed.
+
+- **Recommendation**: Disable the FIPS mode on the VM where the self-hosted integration runtime was installed. Windows doesn't recommend the FIPS mode.
+
+### Error code: AzureBlobInvalidBlockSize
+
+- **Message**: `Block size should between %minSize; MB and 100 MB.`
+
+- **Cause**: The block size is over the blob limitation.
+
+### Error code: AzureStorageOperationFailedConcurrentWrite
+
+- **Message**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
+
+- **Cause**: You have multiple concurrent copy activity runs or applications writing to the same file.
+
+### Error code: AzureAppendBlobConcurrentWriteConflict
+
+- **Message**: `Detected concurrent write to the same append blob file, it's possible because you have multiple concurrent copy activities runs or applications writing to the same file '%name;'. Please check your ADF configuration and retry.`
+
+- **Cause**: Multiple concurrent writing requests occur, which causes conflicts on file content.
 
 ## Azure Cosmos DB
 
@@ -193,7 +218,21 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
         }
         ```
 
-		​	      
+		​
+## Azure Database for PostgreSQL
+
+### Error code: AzurePostgreSqlNpgsqlDataTypeNotSupported
+
+- **Message**: `The data type of the chosen Partition Column, '%partitionColumn;', is '%dataType;' and this data type is not supported for partitioning.`
+
+- **Recommendation**: Pick a partition column with int, bigint, smallint, serial, bigserial, smallserial, timestamp with or without time zone, time without time zone or date data type.
+
+### Error code: AzurePostgreSqlNpgsqlPartitionColumnNameNotProvided
+
+- **Message**: `Partition column name must be specified.`
+
+- **Cause**: No partition column name is provided, and it couldn't be decided automatically.
+        	      
 ## Azure Files storage
 
 ### Error code: AzureFileOperationFailed
@@ -596,60 +635,18 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
  
  - **Message**: `Failed to connect to Dynamics: %message;` 
  
- - **Cause**: You are seeing `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` 
- or otherwise `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'` If your use case meets **all** of the following three conditions:
-    - You are connecting to Dynamics 365, Common Data Service, or Dynamics CRM.
-    - You are using Office365 Authentication.
-    - Your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required (see this [link](/powerapps/developer/data-platform/authenticate-office365-deprecation) to Dataverse doc).
-    
-    Under these circumstances, the connection used to succeed before 6/8/2021.
-    Starting 6/9/2021 connection will start to fail because of the deprecation of regional Discovery Service (see this [link](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).
- 
- -  **Recommendation**:  
-    If your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you must use ‘Azure AD service-principal’  to authenticate after 6/8/2021. Refer this [link](./connector-dynamics-crm-office-365.md#prerequisites) for detailed steps.
+ - **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
 
+    | Cause analysis                                               | Recommendation                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | You are seeing `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` or otherwise `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'` If your use case meets **all** of the following three conditions: <br/> 1.You are connecting to Dynamics 365, Common Data Service, or Dynamics CRM.<br/>  2.You are using Office365 Authentication.<br/>  3.Your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required (see this [link](/powerapps/developer/data-platform/authenticate-office365-deprecation) to Dataverse doc).<br/>  Under these circumstances, the connection used to succeed before 6/8/2021. Starting 6/9/2021 connection will start to fail because of the deprecation of regional Discovery Service (see this [link](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).| If your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you must use 'Azure AD service-principal' to authenticate after 6/8/2021. Refer this [link](./connector-dynamics-crm-office-365.md#prerequisites) for detailed steps.|
+    |If you see `Office 365 auth with OAuth failed` in the error message, it means that your server might have some configurations not compatible with OAuth.| 1. Contact Dynamics support team with the detailed error message for help. <br/> 2. Use the service principal authentication, and you can refer to this article: [Example: Dynamics online using Azure AD service-principal and certificate authentication](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
+    |If you see `Unable to retrieve authentication parameters from the serviceUri` in the error message, it means that either you input the wrong Dynamics service URL or proxy/firewall to intercept the traffic. |1. Make sure you have put the correct service URI in the linked service.<br/> 2. If you use the Self Hosted IR, make sure that the firewall/proxy does not intercept the requests to the Dynamics server. |
+    |If you see `An unsecured or incorrectly secured fault was received from the other party` in the error message, it means that unexpected responses were gotten from the server side.  | 1. Make sure your username and password are correct if you use the Office 365 authentication. <br/> 2. Make sure you have input the correct service URI. <br/> 3. If you use regional CRM URL (URL has a number after 'crm'), make sure you use the correct regional identifier.<br/> 4. Contact the Dynamics support team for help. |
+    |If you see `No Organizations Found` in the error message, it means that either your organization name is wrong or you used a wrong CRM region identifier in the service URL.|1. Make sure you have input the correct service URI.<br/>2. If you use the regional CRM URL (URL has a number after 'crm'), make sure that you use the correct regional identifier. <br/> 3. Contact the Dynamics support team for help. |
+    | If you see `401 Unauthorized` and AAD-related error message, it means that there's an issue with the service principal. |Follow the guidance in the error message to fix the service principal issue. |
+   |For other errors, usually the issue is on the server side. |Use [XrmToolBox](https://www.xrmtoolbox.com/) to make connection. If the error persists, contact the Dynamics support team for help. |
 
- - **Cause**: If you see `Office 365 auth with OAuth failed` in the error message, it means that your server might have some configurations not compatible with OAuth. 
- 
- - **Recommendation**: 
-    1. Contact Dynamics support team with the detailed error message for help.  
-    1. Use the service principal authentication, and you can refer to this article: [Example: Dynamics online using Azure AD service-principal and certificate authentication](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
- 
-
- - **Cause**: If you see `Unable to retrieve authentication parameters from the serviceUri` in the error message, it means that either you input the wrong Dynamics service URL or proxy/firewall to intercept the traffic. 
- 
- - **Recommendation**:
-    1. Make sure you have put the correct service URI in the linked service. 
-    1. If you use the Self Hosted IR, make sure that the firewall/proxy does not intercept the requests to the Dynamics server. 
-   
- 
- - **Cause**: If you see `An unsecured or incorrectly secured fault was received from the other party` in the error message, it means that unexpected responses were gotten from the server side. 
- 
- - **Recommendation**: 
-    1. Make sure your username and password are correct if you use the Office 365 authentication. 
-    1. Make sure you have input the correct service URI. 
-    1. If you use regional CRM URL (URL has a number after 'crm'), make sure you use the correct regional identifier.
-    1. Contact the Dynamics support team for help. 
- 
-
- - **Cause**: If you see `No Organizations Found` in the error message, it means that either your organization name is wrong or you used a wrong CRM region identifier in the service URL. 
- 
- - **Recommendation**: 
-    1. Make sure you have input the correct service URI.
-    1. If you use the regional CRM URL (URL has a number after 'crm'), make sure that you use the correct regional identifier. 
-    1. Contact the Dynamics support team for help. 
-
- 
- - **Cause**: If you see `401 Unauthorized` and AAD-related error message, it means that there's an issue with the service principal. 
-
- - **Recommendation**: Follow the guidance in the error message to fix the service principal issue.  
- 
- 
- - **Cause**: For other errors, usually the issue is on the server side. 
-
- - **Recommendation**:  Use [XrmToolBox](https://www.xrmtoolbox.com/) to make connection. If the error persists, contact the Dynamics support team for help. 
- 
- 
 ### Error code: DynamicsOperationFailed 
  
 - **Message**: `Dynamics operation failed with error code: %code;, error message: %message;.` 
@@ -959,6 +956,12 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**: Check the HTTP status code or the request URL or the response payload in the error message and fix the remote server issue.
 
+### Error code: RestSinkUNSupportedCompressionType
+
+- **Message**: `User Configured CompressionType is Not Supported By Azure Data Factory：%message;`
+
+- **Recommendation**: Check the supported compression types for the REST sink.
+
 ### Unexpected network response from the REST connector
 
 - **Symptoms**: The endpoint sometimes receives an unexpected response (400, 401, 403, 500) from the REST connector.
@@ -1093,6 +1096,30 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  Grant the user with permission to read or write to the folder or files on SFTP server.
  
+### Error code: SftpAuthenticationFailure
+
+- **Message**: `Meet authentication failure when connect to Sftp server '%server;' using '%type;' authentication type. Please make sure you are using the correct authentication type and the credential is valid. For more details, see our troubleshooting docs.`
+
+- **Cause**: The specified credential (your password or private key) is invalid.
+
+- **Recommendation**: Check your credential.
+
+- **Cause**: The specified authentication type is not allowed or not sufficient to complete the authentication in your SFTP server.
+
+- **Recommendation**: Apply the following options to use the correct authentication type:
+    - If your server requires a password, use "Basic".
+    - If your server requires a private key, use "SSH public key authentication".
+    - If your server requires both "password" and "private key", use "Multiple factor authentication".
+
+- **Cause**: Your SFTP server requires "keyboard-interactive" for authentication, but you provided "password".
+
+- **Recommendation**: 
+
+    "keyboard-interactive" is a special authentication method, which is different from "password". It means that when logging into a server, you must enter the password manually, and you cannot use the previously saved password. But Azure Data Factory (ADF) is a scheduled data transfer service, and there is no pop-up input box allowing you to provide the password at the runtime. <br/> 
+    
+    As a compromise, an option is provided to simulate the input in the background instead of your real manual input, which is equivalent to changing the "keyboard-interactive" to "password". If you can accept this security concern, follow the steps below to enable it:<br/> 
+    1. On the ADF portal, hover on the SFTP linked service, and open its payload by selecting the code button.
+    1. Add `"allowKeyboardInteractiveAuth": true` in the "typeProperties" section.
  
 ## SharePoint Online list
 
@@ -1181,13 +1208,170 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
     3. Save the file, and then restart the Self-hosted IR machine.
 
+### Error code: JniException
+
+- **Message**: `An error occurred when invoking Java Native Interface.`
+
+- **Cause**: If the error message contains "Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]", the possible cause is that JVM can't be created because some illegal (global) arguments are set.
+
+- **Recommendation**: Log in to the machine that hosts *each node* of your self-hosted integration runtime. Check to ensure that the system variable is set correctly, as follows: `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8G`. Restart all the integration runtime nodes, and then rerun the pipeline.
+
+### Error code: GetOAuth2AccessTokenErrorResponse
+
+- **Message**: `Failed to get access token from your token endpoint. Error returned from your authorization server: %errorResponse;.`
+
+- **Cause**: Your client ID or client secret is invalid, and the authentication failed in your authorization server.
+
+- **Recommendation**: Correct all OAuth2 client credential flow settings of your authorization server.
+
+### Error code: FailedToGetOAuth2AccessToken
+
+- **Message**: `Failed to get access token from your token endpoint. Error message: %errorMessage;.`
+
+- **Cause**: OAuth2 client credential flow settings are invalid.
+
+- **Recommendation**: Correct all OAuth2 client credential flow settings of your authorization server.
+
+### Error code: OAuth2AccessTokenTypeNotSupported
+
+- **Message**: `The toke type '%tokenType;' from your authorization server is not supported, supported types: '%tokenTypes;'.`
+
+- **Cause**: Your authorization server is not supported.
+
+- **Recommendation**: Use an authorization server that can return tokens with supported token types.
+
+### Error code: OAuth2ClientIdColonNotAllowed
+
+- **Message**: `The character colon(:) is not allowed in clientId for OAuth2ClientCredential authentication.`
+
+- **Cause**: Your client ID includes the invalid character colon (`:`).
+
+- **Recommendation**: Use a valid client ID.
+
+### Error code: ManagedIdentityCredentialObjectNotSupported
+
+- **Message**: `Managed identity credential is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
+
+- **Recommendation**: Check the supported version and upgrade the integration runtime to a higher version.
+
+### Error code: QueryMissingFormatSettingsInDataset
+
+- **Message**: `The format settings are missing in dataset %dataSetName;.`
+
+- **Cause**: The dataset type is Binary, which is not supported.
+
+- **Recommendation**: Use the DelimitedText, Json, Avro, Orc, or Parquet dataset instead.
+
+- **Cause**: For the file storage, the format settings are missing in the dataset.
+
+- **Recommendation**: Deselect the "Binary copy" in the dataset, and set correct format settings.
+
+### Error code: QueryUnsupportedCommandBehavior
+
+- **Message**: `The command behavior "%behavior;" is not supported.`
+
+- **Recommendation**: Don't add the command behavior as a parameter for preview or GetSchema API request URL.
+
+### Error code: DataConsistencyFailedToGetSourceFileMetadata
+
+- **Message**: `Failed to retrieve source file ('%name;') metadata to validate data consistency.`
+
+- **Cause**: There is a transient issue on the sink data store, or retrieving metadata from the sink data store is not allowed.
+
+### Error code: DataConsistencyFailedToGetSinkFileMetadata
+
+- **Message**: `Failed to retrieve sink file ('%name;') metadata to validate data consistency.`
+
+- **Cause**: There is a transient issue on the sink data store, or retrieving metadata from the sink data store is not allowed.
+
+### Error code: DataConsistencyValidationNotSupportedForNonDirectBinaryCopy
+
+- **Message**: `Data consistency validation is not supported in current copy activity settings.`
+
+- **Cause**: The data consistency validation is only supported in the direct binary copy scenario.
+
+- **Recommendation**: Remove the 'validateDataConsistency' property in the copy activity payload.
+
+### Error code: DataConsistencyValidationNotSupportedForLowVersionSelfHostedIntegrationRuntime
+
+- **Message**: `'validateDataConsistency' is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
+
+- **Recommendation**: Check the supported integration runtime version and upgrade it to a higher version, or remove the 'validateDataConsistency' property from copy activities.
+
+### Error code: SkipMissingFileNotSupportedForNonDirectBinaryCopy
+
+- **Message**: `Skip missing file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
+
+- **Recommendation**: Remove 'fileMissing' of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipInconsistencyDataNotSupportedForNonDirectBinaryCopy
+
+- **Message**: `Skip inconsistency is not supported in current copy activity settings, it's only supported with direct binary copy when validateDataConsistency is true.`
+
+- **Recommendation**: Remove 'dataInconsistency' of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipForbiddenFileNotSupportedForNonDirectBinaryCopy
+
+- **Message**: `Skip forbidden file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
+
+- **Recommendation**: Remove 'fileForbidden' of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipForbiddenFileNotSupportedForThisConnector
+
+- **Message**: `Skip forbidden file is not supported for this connector: ('%connectorName;').`
+
+- **Recommendation**: Remove 'fileForbidden' of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipInvalidFileNameNotSupportedForNonDirectBinaryCopy
+
+- **Message**: `Skip invalid file name is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
+
+- **Recommendation**: Remove 'invalidFileName' of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipInvalidFileNameNotSupportedForSource
+
+- **Message**: `Skip invalid file name is not supported for '%connectorName;' source.`
+
+- **Recommendation**: Remove 'invalidFileName' of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipInvalidFileNameNotSupportedForSink
+
+- **Message**: `Skip invalid file name is not supported for '%connectorName;' sink.`
+
+- **Recommendation**: Remove 'invalidFileName' of the skipErrorFile setting in the copy activity payload.
+
+### Error code: SkipAllErrorFileNotSupportedForNonBinaryCopy
+
+- **Message**: `Skip all error file is not supported in current copy activity settings, it's only supported with binary copy with folder.`
+
+- **Recommendation**: Remove 'allErrorFile' in the skipErrorFile setting in the copy activity payload.
+
+### Error code: DeleteFilesAfterCompletionNotSupportedForNonDirectBinaryCopy
+
+- **Message**: `'deleteFilesAfterCompletion' is not support in current copy activity settings, it's only supported with direct binary copy.`
+
+- **Recommendation**: Remove the 'deleteFilesAfterCompletion' setting or use direct binary copy.
+
+### Error code: DeleteFilesAfterCompletionNotSupportedForThisConnector
+
+- **Message**: `'deleteFilesAfterCompletion' is not supported for this connector: ('%connectorName;').`
+
+- **Recommendation**: Remove the 'deleteFilesAfterCompletion' setting in the copy activity payload.
+
+### Error code: FailedToDownloadCustomPlugins
+
+- **Message**: `Failed to download custom plugins.`
+
+- **Cause**: Invalid download links or transient connectivity issues.
+
+- **Recommendation**: Retry if the message shows that it's a transient issue. If the problem persists, contact the support team.
 
 ## Next steps
 
 For more troubleshooting help, try these resources:
 
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

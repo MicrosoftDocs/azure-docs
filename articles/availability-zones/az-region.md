@@ -55,7 +55,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | West   US 2        |                      |                     |                |
 | West   US 3        |                      |                     |                |
 
-\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
+\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 
 ## Azure Services supporting Availability Zones

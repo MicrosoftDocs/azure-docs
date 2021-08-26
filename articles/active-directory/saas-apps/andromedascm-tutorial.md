@@ -9,34 +9,33 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/28/2020
+ms.date: 08/12/2021
 ms.author: jeedes
 ---
 
 # Tutorial: Azure Active Directory integration with Andromeda
 
-In this tutorial, you learn how to integrate Andromeda with Azure Active Directory (Azure AD).
-Integrating Andromeda with Azure AD provides you with the following benefits:
+In this tutorial, you'll learn how to integrate Andromeda with Azure Active Directory (Azure AD). When you integrate Andromeda with Azure AD, you can:
 
-- You can control in Azure AD who has access to Andromeda.
-- You can enable your users to be automatically signed-in to Andromeda (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to Andromeda.
+* Enable your users to be automatically signed-in to Andromeda with their Azure AD accounts.
+* Manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
 To configure Azure AD integration with Andromeda, you need the following items:
 
-- An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-- Andromeda single sign-on enabled subscription
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
+* Andromeda single sign-on enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-- Andromeda supports **SP and IDP** initiated SSO
-- Andromeda supports **Just In Time** user provisioning
+* Andromeda supports **SP and IDP** initiated SSO.
+* Andromeda supports **Just In Time** user provisioning.
 
-## Adding Andromeda from the gallery
+## Add Andromeda from the gallery
 
 To configure the integration of Andromeda into Azure AD, you need to add Andromeda from the gallery to your list of managed SaaS apps.
 
@@ -70,7 +69,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps: 
 
    a. In the **Identifier** text box, type a URL using the following pattern:
    `https://<tenantURL>.ngcxpress.com/`
@@ -80,8 +79,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-   ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
-
    In the **Sign-on URL** text box, type a URL using the following pattern:
    `https://<tenantURL>.ngcxpress.com/SAMLLogon.aspx`
 
@@ -90,9 +87,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Andromeda application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-   ![Screenshot shows User attributes such as givenname user.givenname and emailaddress user.mail.](common/edit-attribute.png)
+   ![Screenshot shows User attributes.](common/edit-attribute.png)
 
-   > [!Important]
+   > [!NOTE]
    > Clear out the NameSpace definitions while setting these up.
 
 1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
@@ -160,17 +157,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Sign-on to your Andromeda company site as administrator.
 
-2. On the top of the menubar click **Admin** and navigate to **Administration**.
+2. On the top of the menu bar click **Admin** and navigate to **Administration**.
 
-   ![Andromeda admin](./media/andromedascm-tutorial/tutorial_andromedascm_admin.png)
+   ![Andromeda admin.](./media/andromedascm-tutorial/admin.png)
 
 3. On the left side of tool bar under **Interfaces** section, click **SAML Configuration**.
 
-   ![Andromeda saml](./media/andromedascm-tutorial/tutorial_andromedascm_saml.png)
+   ![Andromeda SAML.](./media/andromedascm-tutorial/interface.png)
 
 4. On the **SAML Configuration** section page, perform the following steps:
 
-   ![Andromeda config](./media/andromedascm-tutorial/tutorial_andromedascm_config.png)
+   ![Andromeda configuration.](./media/andromedascm-tutorial/configure.png)
 
    a. Check **Enable SSO with SAML**.
 
@@ -186,9 +183,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
    g. Open the downloaded **Base64 encoded certificate** from Azure portal in notepad, paste it into the **X 509 Certificate** textbox.
 
-   h. Map the following attributes with the respective value to facilitate SSO login from Azure AD. The **User ID** attribute is required for logging in. For provisioning, **Email**, **Company**, **UserType**, and **Role** are required. In this section, we define attributes mapping (name and values) which correlate to those defined within Azure portal
+   h. Map the following attributes with the respective value to facilitate SSO login from Azure AD. The **User ID** attribute is required for logging in. For provisioning, **Email**, **Company**, **UserType**, and **Role** are required. In this section, we define attributes mapping (name and values) which correlate to those defined within Azure portal.
 
-   ![Andromeda attbmap](./media/andromedascm-tutorial/tutorial_andromedascm_attbmap.png)
+   ![Andromeda attributes.](./media/andromedascm-tutorial/mapping.png)
 
    i. Click **Save**.
 
@@ -202,15 +199,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-- Click on **Test this application** in Azure portal. This will redirect to Andromeda Sign on URL where you can initiate the login flow.
+* Click on **Test this application** in Azure portal. This will redirect to Andromeda Sign on URL where you can initiate the login flow.
 
-- Go to Andromeda Sign-on URL directly and initiate the login flow from there.
+* Go to Andromeda Sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
-- Click on **Test this application** in Azure portal and you should be automatically signed in to the Andromeda for which you set up the SSO
+* Click on **Test this application** in Azure portal and you should be automatically signed in to the Andromeda for which you set up the SSO
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Andromeda tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Andromeda for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can also use Microsoft My Apps to test the application in any mode. When you click the Andromeda tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Andromeda for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 

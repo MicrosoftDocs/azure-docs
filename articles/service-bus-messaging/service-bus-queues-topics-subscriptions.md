@@ -46,7 +46,7 @@ Creating a topic is similar to creating a queue, as described in the previous se
 ### Rules and actions
 In many scenarios, messages that have specific characteristics must be processed in different ways. To enable this processing, you can configure subscriptions to find messages that have desired properties and then perform certain modifications to those properties. While Service Bus subscriptions see all messages sent to the topic, you can only copy a subset of those messages to the virtual subscription queue. This filtering is accomplished using subscription filters. Such modifications are called **filter actions**. When a subscription is created, you can supply a filter expression that operates on the properties of the message. The properties can be both the system properties (for example, **Label**) and custom application properties (for example, **StoreName**.) The SQL filter expression is optional in this case. Without a SQL filter expression, any filter action defined on a subscription will be done on all the messages for that subscription.
 
-For a full working example, see the [TopicSubscriptionWithRuleOperationsSample sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample) on GitHub.
+For a full working example, see the [TopicFilters sample](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples/TopicFilters) on GitHub.
 
 For more information about filters, see [Topic filters and actions](topic-filters.md).
 
@@ -64,10 +64,14 @@ Learn more about the [JMS 2.0 entities](java-message-service-20-entities.md) and
 
 ## Next steps
 
-For more information and examples of using Service Bus messaging, see the following advanced topics:
+Try the samples in the language of your choice to explore Azure Service Bus features. 
 
-* [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Quickstart: Send and receive messages using the Azure portal and .NET](service-bus-quickstart-portal.md)
-* [Tutorial: Update inventory using Azure portal and topics/subscriptions](service-bus-tutorial-topics-subscriptions-portal.md)
+- [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
+- [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [Azure Service Bus client library samples for Python](/samples/azure/azure-sdk-for-python/servicebus-samples/)
+- [Azure Service Bus client library samples for JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Azure Service Bus client library samples for TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 
-
+Find samples for the older .NET and Java client libraries below:
+- [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
