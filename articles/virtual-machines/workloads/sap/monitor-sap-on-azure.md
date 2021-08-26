@@ -148,7 +148,6 @@ custom log name
 | take 5
 
 ```
-For more information on the many other Kusto queries you can use, see [Use Kusto queries in Azure Data Explorer and Azure Monitor](../azure/data-explorer/kusto/query/tutorial).
 
 ## Alerts
 
