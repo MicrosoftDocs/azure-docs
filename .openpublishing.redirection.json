@@ -16464,6 +16464,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-cisco-ise-pxgrid.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/integration-forescout",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-servicenow.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-servicenow",
       "redirect_document_id": false
