@@ -2,7 +2,7 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 03/15/2021 
+ms.date: 08/26/2021 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -27,16 +27,19 @@ For a list that maps resource providers to Azure services, see [Resource provide
 
 ## Register resource provider
 
-Before using a resource provider, your Azure subscription must be registered for the resource provider. Registration configures your subscription to work with the resource provider. Some resource providers are registered by default. For a list of resource providers registered by default, see [Resource providers for Azure services](azure-services-resource-providers.md).
-
-Other resource providers are registered automatically when you take certain actions. When you deploy an Azure Resource Manager template, all required resource providers are automatically registered. When you create a resource through the portal, the resource provider is typically registered for you. For other scenarios, you may need to manually register a resource provider. 
-
-This article shows you how to check the registration status of a resource provider, and register it as needed. You must have permission to do the `/register/action` operation for the resource provider. The permission is included in the Contributor and Owner roles.
+Before using a resource provider, your Azure subscription must be registered for the resource provider. Registration configures your subscription to work with the resource provider. 
 
 > [!IMPORTANT]
 > Only register a resource provider when you're ready to use it. The registration step enables you to maintain least privileges within your subscription. A malicious user can't use resource providers that aren't registered.
 
-Your application code shouldn't block the creation of resources for a resource provider that is in the **registering** state. When you register the resource provider, the operation is done individually for each supported region. To create resources in a region, the registration only needs to be completed in that region. By not blocking resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
+Some resource providers are registered by default. For a list of resource providers registered by default, see [Resource providers for Azure services](azure-services-resource-providers.md).
+
+Other resource providers are registered automatically when you take certain actions. When you deploy an Azure Resource Manager template, all required resource providers are automatically registered. When you create a resource through the portal, the resource provider is typically registered for you. For other scenarios, you may need to manually register a resource provider. 
+
+> [!IMPORTANT]
+> Your application code **shouldn't block the creation of resources** for a resource provider that is in the **registering** state. When you register the resource provider, the operation is done individually for each supported region. To create resources in a region, the registration only needs to be completed in that region. By not blocking resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
+
+You must have permission to do the `/register/action` operation for the resource provider. The permission is included in the Contributor and Owner roles.
 
 You can't unregister a resource provider when you still have resource types from that resource provider in your subscription.
 
@@ -129,6 +132,9 @@ RegistrationState : Registering
 ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
+
+> [!IMPORTANT]
+> As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that is in the **registering** state. By not blocking resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
 
 To see information for a particular resource provider, use:
 
@@ -250,6 +256,9 @@ Which returns results similar to:
     ]
 }
 ```
+
+> [!IMPORTANT]
+> As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that is in the **registering** state. By not blocking resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
 
 To see the resource types for a resource provider, use:
 
