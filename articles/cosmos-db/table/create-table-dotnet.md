@@ -16,14 +16,6 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-> [!div class="op_single_selector"]
-
-> * [.NET](create-table-dotnet.md)
-> * [Java](create-table-java.md)
-> * [Node.js](create-table-nodejs.md)
-> * [Python](./how-to-use-python.md)
->  
-
 This quickstart shows how to access the Azure Cosmos DB [Table API](introduction.md) from a .NET application.  The Azure Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud.  Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table.
 
 .NET applications can access the Azure Cosmos DB Table API using the [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) NuGet package.  The [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) package is a [.NET Standard 2.0](/dotnet/standard/net-standard) library that works with both .NET Framework (4.6.1 and later) and .NET Core (2.0 and later) applications.
