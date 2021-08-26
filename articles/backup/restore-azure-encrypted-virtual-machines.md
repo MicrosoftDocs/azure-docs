@@ -29,7 +29,7 @@ Follow below steps to restore encrypted VMs:
 
 1. In **Restore configuration** > **Create new** > **Restore Type** select **Restore disks**.
 1. In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name.
-1. In **Staging location**, specify the storage account to which to copy the VHDs. [Learn more](backup-azure-arm-restore-vms.md#storage-accounts).
+1. In **Staging location**, specify the storage account to which the VHDs should be copied. [Learn more](backup-azure-arm-restore-vms.md#storage-accounts).
 
     ![Select Resource group and Staging location](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
@@ -41,13 +41,14 @@ When your virtual machine uses unmanaged disks, they're restored as blobs to the
    > [!NOTE]
    > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/).
 
-### **Step 2**. Recreate the virtual machine instance by doing one of the following actions:
+### **Step 2**: Recreate the virtual machine instance by doing one of the following actions:
 
 1. Use the template that's generated during the restore operation to customize VM settings and trigger VM deployment. [Learn more](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
->[!NOTE]
->While deploying the template, verify the storage account containers and the public/private settings.
+   >[!NOTE]
+   >While deploying the template, verify the storage account containers and the public/private settings.
 1. Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-1. For Linux VMs, reinstall the ADE extension so the data disks are open and mounted.
+
+### **Step 3**: For Linux VMs, reinstall the ADE extension so the data disks are open and mounted.
 
 
 ## Cross Region Restore for an encrypted Azure VM
