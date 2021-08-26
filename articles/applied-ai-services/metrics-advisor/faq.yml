@@ -41,8 +41,8 @@ sections:
       - question: | 
           What data does Metrics Advisor process and how is data retained?
         answer: |
-          - Metrics Advisor processes time series data that collected from customer's data source, historical data is used for model selection and determines the expected data boundary. 
-          - Customer's time series data and inference result will be stored within the service. Metrics Advisor doesn't store or process customer data outside the region where the customer deploys the service instance.
+          - Metrics Advisor processes time series data that is collected from a customer's data source, historical data is used for model selection and determines the expected data boundary. 
+          - Customer's time series data and inference results will be stored within the service. Metrics Advisor doesn't store or process customer data outside the region where the customer deploys the service instance.
           
       - question: |
           Why Metrics Advisor doesn't detect anomalies from historical data?
