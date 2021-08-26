@@ -7,7 +7,7 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/19/2021
+ms.date: 08/31/2021
 ---
 
 # Create server with Azure AD-only authentication enabled in Azure SQL
@@ -668,3 +668,4 @@ Once the deployment is complete for your managed instance, you may notice that t
 
 - If you already have a SQL server or managed instance, and just want to enable Azure AD-only authentication, see [Tutorial: Enable Azure Active Directory only authentication with Azure SQL](authentication-azure-ad-only-authentication-tutorial.md).
 - For more information on the Azure AD-only authentication feature, see [Azure AD-only authentication with Azure SQL](authentication-azure-ad-only-authentication.md).
+- If you are looking to enforce server creation with Azure AD-only authentication enabled, see [Azure Policy for Azure Active Directory only authentication with Azure SQL](authentication-azure-ad-only-authentication-policy.md)

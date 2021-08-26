@@ -7,7 +7,7 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 06/30/2021
+ms.date: 08/31/2021
 ---
 
 # Tutorial: Enable Azure Active Directory only authentication with Azure SQL
@@ -396,3 +396,4 @@ After disabling Azure AD-only authentication, test connecting using a SQL authen
 
 - [Azure AD-only authentication with Azure SQL](authentication-azure-ad-only-authentication.md)
 - [Create server with Azure AD-only authentication enabled in Azure SQL](authentication-azure-ad-only-authentication-create-server.md)
+- [Using Azure Policy to enforce Azure Active Directory only authentication with Azure SQL](authentication-azure-ad-only-authentication-policy-how-to.md)
