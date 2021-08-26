@@ -28,7 +28,7 @@ This article shows how each Storage account feature is supported in your account
 |Metrics in Azure Monitor|![Yes](../media/icons/yes-icon.png)|![No](../media/icons/no-icon.png)|
 |Blob storage Azure CLI commands|![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png)|
 
-<sup>2</sup>    Feature is supported at the preview level.
+<sup>1</sup>    Feature is supported at the preview level.
 
 ## Premium block blob accounts
 
@@ -42,6 +42,6 @@ This article shows how each Storage account feature is supported in your account
 |Metrics in Azure Monitor|![Yes](../media/icons/yes-icon.png)|![No](../media/icons/no-icon.png)|
 |Blob storage Azure CLI commands|![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png)|
 
-<sup>2</sup>    Feature is supported at the preview level.
+<sup>1</sup>    Feature is supported at the preview level.
 
 ## See also
