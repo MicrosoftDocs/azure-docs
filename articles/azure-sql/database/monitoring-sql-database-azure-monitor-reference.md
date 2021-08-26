@@ -3,6 +3,7 @@ title: Monitoring Azure SQL Database with Azure Monitor reference
 description: Important reference material needed when you monitor Azure SQL Database with Azure Monitor
 author: WilliamDAssafMSFT
 ms.author: wiassaf
+ms.topic: conceptual
 ms.reviewer: mathoma
 ms.service: sql-db-mi
 ms.subservice: performance
@@ -34,13 +35,13 @@ For a reference of resource log types collected for Azure SQL Database, see [Str
 
 This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure SQL Database and available for query by Log Analytics. 
 
-Tables for all resources types are referenced here, for example, [Azure Monitor tables for SQL Databases](../../azure-monitor/reference/tables/tables-resourcetype.md#sql-databases).
+Tables for all resources types are referenced here, for example, [Azure Monitor tables for SQL Databases](/azure/azure-monitor/reference/tables/tables-resourcetype.md#sql-databases).
 
 |Resource Type | Notes |
 |-------|-----|
-| [AzureActivity](../../azure-monitor/reference/tables/azureactivity.md) | Entries from the Azure Activity log that provides insight into any subscription-level or management group level events that have occurred in Azure. |
-| [AzureDiagnostics](../../azure-monitor/reference/tables/azurediagnostics.md) | Azure Diagnostics revealing internal operations of specific resources and features for numerous Azure products including SQL databases, SQL managed Instances, and SQL servers. |
-| [AzureMetrics](../../azure-monitor/reference/tables/azuremetrics.md) | Metric data emitted by Azure services that measure their health and performance. Activity from numerous Azure products including SQL databases, SQL managed Instances, and SQL servers.|
+| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity.md) | Entries from the Azure Activity log that provides insight into any subscription-level or management group level events that have occurred in Azure. |
+| [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics.md) | Azure Diagnostics revealing internal operations of specific resources and features for numerous Azure products including SQL databases, SQL managed Instances, and SQL servers. |
+| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics.md) | Metric data emitted by Azure services that measure their health and performance. Activity from numerous Azure products including SQL databases, SQL managed Instances, and SQL servers.|
 
 ### Diagnostics tables
 <!-- REQUIRED. Please keep heading in this order -->

@@ -65,9 +65,6 @@ Some monitoring data is collected automatically, but you may need to perform som
 Collecting data into Azure Monitor Logs requires a Log Analytics workspace. You can start monitoring your service quickly by creating a new workspace, but there may be value in using a workspace that's collecting data from other services. See [Create a Log Analytics workspace in the Azure portal](../logs/quick-create-workspace.md) for details on creating a workspace and [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md) to help determine the best workspace design for your requirements. If you use an existing workspace in your organization, then you will require appropriate permissions as described in [Manage access to log data and workspaces in Azure Monitor](../logs/manage-access.md). 
 
 
-
-
-
 ## Diagnostic settings
 Diagnostic settings define where resource logs and metrics for a particular resource should be sent. Possible destinations are:
 
