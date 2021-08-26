@@ -25,7 +25,7 @@ Azure is designed to be resilient to these failures. Major disasters can result 
 
 In addition to the possibility of platform failures, problems with a customer application or data can occur. For example, a new version of your application might inadvertently make a change to the data that causes it to break. In that case, you might want to revert the application and the data to a prior version that contains the last known good state. This requires maintaining regular backups.
 
-For regional disaster recovery, you must back up your IaaS VM disks to a different region or use a disk equipped with [zone-redundant storage (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview).
+For regional disaster recovery, you must back up your IaaS VM disks to a different region. 
 
 Before we look at backup and DR options, let’s recap a few methods available for handling localized failures.
 
@@ -130,14 +130,11 @@ Another option to create consistent backups is to shut down the VM and take snap
 
 ### Copy the snapshots to another region
 
-Creation of the snapshots alone might not be sufficient for DR. You must also replicate the snapshot backups to another region.
+Creation of the snapshots alone might not be sufficient for DR. You must also copy the snapshots to another region. Please review the instructions in [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)
 
-If you use ZRS disks, then the snapshots are replicated to the secondary region automatically. There can be a few minutes of lag before the replication. If the primary datacenter goes down before the snapshots finish replicating, you cannot access the snapshots from the secondary datacenter. The likelihood of this is small.
 
 > [!NOTE]
-> If only your disk is ZRS but not the VM, then your VM isn't protected from disasters. You must also create coordinated snapshots or use Azure Backup to protect the VM itself. This is required to recover a VM to a consistent state.
 
-If you use [Locally-redundant storage for managed disks](disks-redundancy.md#locally-redundant-storage-for-managed-disks), you must copy the snapshots to a different region immediately after creating the snapshot. In this case, the snapshot is lazily replicated to the remote secondary region. Your backup is protected from disasters at the primary site after the copying and replication is complete.
 
 ## Other options
 
