@@ -97,6 +97,8 @@
         href: ally-tutorial.md
       - name: Amazon Business
         href: amazon-business-tutorial.md
+      - name: Amazon Managed Grafana
+        href: amazon-managed-grafana-tutorial.md  
       - name: AWS Single-Account Access
         href: amazon-web-service-tutorial.md
       - name: Amazon Web Services (AWS) to connect multiple accounts
