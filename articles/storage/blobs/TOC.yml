@@ -291,6 +291,8 @@ items:
       href: storage-blob-pageblob-overview.md
     - name: Static websites
       href: storage-blob-static-website.md
+    - name: Features available when Gen2 capabilities or protocols are enabled
+      href: storage-feature-support-gen2-and-protocols.md
   - name: How to
     items:
     - name: Create and manage storage accounts
