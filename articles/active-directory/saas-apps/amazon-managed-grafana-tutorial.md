@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, Amazon Managed Grafana application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name | Source Attribute |
+	| Name | Source attribute |
 	| ----------| --------- |
 	| displayName | user.displayname |
 	| mail | user.userprincipalname |
