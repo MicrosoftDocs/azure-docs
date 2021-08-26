@@ -355,7 +355,7 @@ Once the certificate is renewed in your key vault, App Service automatically syn
 
 ## Manage App Service certificates
 
-This section shows you how to manage an App Service certificate you purchased in [Import an App Service certificate](#import-an-app-service-certificate).
+This section shows you how to manage an [App Service certificate you purchased](#import-an-app-service-certificate).
 
 - [Rekey certificate](#rekey-certificate)
 - [Export certificate](#export-certificate)
