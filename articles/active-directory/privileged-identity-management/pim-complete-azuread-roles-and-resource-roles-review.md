@@ -40,19 +40,19 @@ On the detail page, the following options are available for managing the review 
 
 ![Options for managing a review in Azure resources - Stop, Reset, Apply, Delete](media/pim-complete-azuread-roles-and-resource-roles-review/rbac-access-review-menu.png)
 
-### Stop an Access Review
+### Stop an access review
 
 All access reviews have an end date, but you can use the **Stop** button to finish it early. The **Stop** button is only selectable when the review instance is active. You cannot restart a review after it's been stopped.
 
-### Reset an Access Review
+### Reset an access review
 
 When the review instance is active and at least one decision has been made by reviewers, you can reset the access review by selecting the **Reset** button to remove all decisions that were made on it. After you've reset an access review, all users are marked as not reviewed again.
 
-### Apply an Access Review
+### Apply an access review
 
 After an access review is completed, either because you've reached the end date or stopped it manually, the **Apply** button removes denied users' access to the role. If a user's access was denied during the review, this is the step that will remove their role assignment. If the **Auto apply** setting is configured on review creation, this button will always be disabled because the review will be applied automatically instead of manually.
 
-### Delete an Access Review
+### Delete an access review
 
 If you are not interested in the review any further, delete it. To remove the access review from the Privileged Identity Management service, select the **Delete** button.
 
