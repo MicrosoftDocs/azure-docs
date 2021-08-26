@@ -94,7 +94,7 @@ In this quickstart, you'll learn the benefits of Azure Arc enabled Kubernetes an
 | `https://login.microsoftonline.com`, `login.windows.net` (for Azure Cloud), `https://login.microsoftonline.us` (for Azure US Government) | Required to fetch and update Azure Resource Manager tokens. |
 | `https://mcr.microsoft.com` | Required to pull container images for Azure Arc agents.                                                                  |
 | `https://gbl.his.arc.azure.com` |  Required to get the regional endpoint for pulling system-assigned Managed Service Identity (MSI) certificates. |
-| `https://<region-code>.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Service Identity (MSI) certificates. `<region-code>` mapping for Azure cloud regions: `eus` (East US), `weu` (West Europe), `wcus` (West Central US), `scus` (South Central US), `sea` (South East Asia), `uks` (UK South), `wus2` (West US 2), `ae` (Australia East), `eus2` (East US 2), `ne` (North Europe), `fc` (France Central). |
+| `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Service Identity (MSI) certificates. |
 |`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
 
 ## 1. Register providers for Azure Arc enabled Kubernetes
@@ -235,7 +235,63 @@ eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 
 ---
 
-## 4. Verify cluster connection
+## 4a. Connect using an outbound proxy server
+
+### [Azure CLI](#tab/azure-cli)
+
+If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc enabled Kubernetes agents need to route their requests via the outbound proxy server.
+
+1. Set the environment variables needed for Azure CLI to use the outbound proxy server:
+
+    * If you are using bash, run the following command with appropriate values:
+
+        ```bash
+        export HTTP_PROXY=<proxy-server-ip-address>:<port>
+        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+        ```
+
+    * If you are using PowerShell, run the following command with appropriate values:
+
+        ```powershell
+        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+        ```
+
+2. Run the connect command with proxy parameters specified:
+
+    ```azurecli
+    az connectedk8s connect --name <cluster-name> --resource-group <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
+    ```
+
+    > [!NOTE]
+    > * Some network requests such as the ones involving in-cluster service-to-service communication need to be separated from the traffic that is routed via the proxy server for outbound communication. The `--proxy-skip-range` parameter can be used to specify the CIDR range and endpoints in a comma-separated way so that any communication from the agents to these endpoints do not go via the outbound proxy. At a minimum, the CIDR range of the services in the cluster should be specified as value for this parameter. For example, let's say `kubectl get svc -A` returns a list of services where all the services have ClusterIP values in the range `10.0.0.0/16`. Then the value to specify for `--proxy-skip-range` is '10.0.0.0/16,kubernetes.default.svc'.
+    > * `--proxy-http`, `--proxy-https`, and `--proxy-skip-range` are expected for most outbound proxy environments. `--proxy-cert` is *only* required if you need to inject trusted certificates expected by proxy into the trusted certificate store of agent pods.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+If your cluster is behind an outbound proxy server, Azure PowerShell and the Azure Arc enabled Kubernetes agents need to route their requests via the outbound proxy server.
+
+1. Set the environment variables needed for Azure PowerShell to use the outbound proxy server:
+
+    * Run the following command with appropriate values:
+
+        ```powershell
+        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+        ```
+
+2. Run the connect command with the proxy parameter specified:
+
+    ```azurepowershell
+    New-AzConnectedKubernetes -ClusterName <cluster-name> -ResourceGroupName <resource-group> -Location eastus -Proxy 'https://<proxy-server-ip-address>:<port>'
+    ```
+
+---
+
+## 5. Verify cluster connection
 
 Run the following command:
 
@@ -269,62 +325,6 @@ eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 
 > [!NOTE]
 > After onboarding the cluster, it takes around 5 to 10 minutes for the cluster metadata (cluster version, agent version, number of nodes, etc.) to surface on the overview page of the Azure Arc enabled Kubernetes resource in Azure portal.
-
-## 5. Connect using an outbound proxy server
-
-### [Azure CLI](#tab/azure-cli)
-
-If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc enabled Kubernetes agents need to route their requests via the outbound proxy server.
-
-1. Set the environment variables needed for Azure CLI to use the outbound proxy server:
-
-    * If you are using bash, run the following command with appropriate values:
-
-        ```bash
-        export HTTP_PROXY=<proxy-server-ip-address>:<port>
-        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
-        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
-        ```
-
-    * If you are using PowerShell, run the following command with appropriate values:
-
-        ```powershell
-        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-        ```
-
-2. Run the connect command with proxy parameters specified:
-
-    ```azurecli
-    az connectedk8s connect --name <cluster-name> --resource-group <resource-group> --proxy-https https://<proxy-server-ip-address>:<port> --proxy-http http://<proxy-server-ip-address>:<port> --proxy-skip-range <excludedIP>,<excludedCIDR> --proxy-cert <path-to-cert-file>
-    ```
-
-> [!NOTE]
-> * Specify `excludedCIDR` under `--proxy-skip-range` to ensure in-cluster communication is not broken for the agents.
-> * `--proxy-http`, `--proxy-https`, and `--proxy-skip-range` are expected for most outbound proxy environments. `--proxy-cert` is *only* required if you need to inject trusted certificates expected by proxy into the trusted certificate store of agent pods.
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-If your cluster is behind an outbound proxy server, Azure PowerShell and the Azure Arc enabled Kubernetes agents need to route their requests via the outbound proxy server.
-
-1. Set the environment variables needed for Azure PowerShell to use the outbound proxy server:
-
-    * Run the following command with appropriate values:
-
-        ```powershell
-        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-        ```
-
-2. Run the connect command with the proxy parameter specified:
-
-    ```azurepowershell
-    New-AzConnectedKubernetes -ClusterName <cluster-name> -ResourceGroupName <resource-group> -Location eastus -Proxy 'https://<proxy-server-ip-address>:<port>'
-    ```
-
----
 
 ## 6. View Azure Arc agents for Kubernetes
 

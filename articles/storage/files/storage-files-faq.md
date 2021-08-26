@@ -435,9 +435,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="share-snapshot-price"></a>
 **How much do share snapshots cost?**  
-     During preview, there is no charge for share snapshot capacity. Standard storage egress and transaction costs apply. After general availability, subscriptions will be charged for capacity and transactions on share snapshots.
-     
-     Share snapshots are incremental in nature. The base share snapshot is the share itself. All subsequent share snapshots are incremental and store only the difference from the preceding share snapshot. You are billed only for the changed content. If you have a share with 100 GiB of data but only 5 GiB has changed since your last share snapshot, the share snapshot consumes only 5 additional GiB, and you are billed for 105 GiB. For more information about transaction and standard egress charges, see the [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+    Share snapshots are incremental in nature. The base share snapshot is the share itself. All subsequent share snapshots are incremental and store only the difference from the preceding share snapshot. You are billed only for the changed content. If you have a share with 100 GiB of data but only 5 GiB has changed since your last share snapshot, the share snapshot consumes only 5 additional GiB, and you are billed for 105 GiB. For more information about transaction and standard egress charges, see the [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Scale and performance
 * <a id="files-scale-limits"></a>

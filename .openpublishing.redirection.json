@@ -56257,6 +56257,11 @@
       "source_path_from_root": "/articles/governance/policy/how-to/guestconfiguration-create-linux.md",
       "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/storage/files/storage-files-enable-smb-multichannel.md",
+      "redirect_url": "/azure/storage/files/files-smb-protocol#smb-multichannel",
+      "redirect_document_id": false
     }
   ]
 }
