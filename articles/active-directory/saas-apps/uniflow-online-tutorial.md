@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [uniFLOW Online Client support team](mailto:support@nt-ware.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal or refer to the reply URL displayed in your uniFLOW Online tenant.
 
-1. uniFLOW Online application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. uniFLOW Online application expects **nameidentifier** to be mapped with **user.objectid**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+1. uniFLOW Online application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **nameidentifier** is mapped with **user.userprincipalname**. uniFLOW Online application expects **nameidentifier** to be mapped with **user.objectid**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![Screenshot shows the User Attributes pane with the edit icon highlighted.](common/edit-attribute.png)
 
@@ -174,7 +174,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	b. Select the **From URL** option for the **ADFS Federation Metadata**.
 
-	c. In the **Federation Metadata URl** textbox, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal.
+	c. In the **Federation Metadata URL** textbox, paste the **App Federation Metadata Url** value, which you have copied from the Azure portal.
 
 	d. Select **Identity provider** as **Enabled**.
 
