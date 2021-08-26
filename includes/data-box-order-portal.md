@@ -12,11 +12,11 @@ Do the following steps in the Azure portal to order a device.
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 2. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   ![Screenshot of New section with Azure Data Box in search field](media/data-box-order-portal/select-data-box-import-02.png)
+   ![Screenshot of New section with Azure Data Box in search field](media/data-box-order-portal/data-box-import-01.png)
 
 3. Select **Create**.
 
-   ![Screenshot of Azure Data Box section with Create option called out](media/data-box-order-portal/select-data-box-import-03.png)
+   ![Screenshot of Azure Data Box section with Create option called out](media/data-box-order-portal/data-box-import-02.png)
 
 4. Check if Data Box service is available in your region. Enter or select the following information, and then select **Apply**.
 
@@ -28,11 +28,11 @@ Do the following steps in the Azure portal to order a device.
     |Source country/region    |    Select the country/region where your data currently resides.         |
     |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).  |
 
-    [ ![Starting an Azure Data Box import order](media/data-box-order-portal/select-data-box-import-04-b.png) ](media/data-box-order-portal/select-data-box-import-04-b.png#lightbox)
+    [ ![Starting an Azure Data Box import order](media/data-box-order-portal/data-box-import-03.png) ](media/data-box-order-portal/data-box-import-03.png#lightbox)
 
 5. Select the **Data Box** product to order, either Data Box, as shown below, or Data Box Heavy. For Data Box, the maximum usable capacity for a single order is 80 TB. For Data Box Heavy, the maximum usable capacity for a single order is 770 TB. You can create multiple orders for larger data sizes.
 
-    ![Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted.](media/data-box-order-portal/select-data-box-import-05.png#lightbox)
+    [ ![Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted.](media/data-box-order-portal/data-box-import-04.png) ](media/data-box-order-portal/data-box-import-04.png#lightbox)
 
 6. In **Order**, go to the **Basics** tab. Enter or select the following information. Then select **Next: Data destination>**.
 
@@ -42,13 +42,13 @@ Do the following steps in the Azure portal to order a device.
     |Resource group    | The resource group you selected previously. |
     |Import order name | Provide a friendly name to track the order. <ul><li>The name can have from 3 to 24 characters that can be a letter, number, or hyphen.</li><li>The name must start and end with a letter or a number.</li></ul>    |
 
-    ![Screenshot showing the Basics screen for a Data Box order with example entries. The Basics tab and "Next: Data destination" button are highlighted.](media/data-box-order-portal/select-data-box-import-06.png)
+    ![Screenshot showing the Basics screen for a Data Box order with example entries. The Basics tab and "Next: Data destination" button are highlighted.](media/data-box-order-portal/data-box-import-05.png)
 
 7. On the **Data destination** screen, select the **Data destination** - either storage accounts or managed disks.
 
     If using **storage account(s)** as the storage destination, you see the following screen:
 
-    ![Screenshot of the Data Destination screen for a Data Box order with a Storage Accounts destination. The Data Destination tab, Storage Accounts, and Next: Security button are highlighted.](media/data-box-order-portal/select-data-box-import-07.png)
+    ![Screenshot of the Data Destination screen for a Data Box order with a Storage Accounts destination. The Data Destination tab, Storage Accounts, and Next: Security button are highlighted.](media/data-box-order-portal/data-box-import-06.png)
 
     Based on the specified Azure region, select one or more storage accounts from the filtered list of existing storage accounts. Data Box can be linked with up to 10 storage accounts. You can also create a new **General-purpose v1**, **General-purpose v2**, or **Blob storage account**.
 
@@ -64,7 +64,7 @@ Do the following steps in the Azure portal to order a device.
     |---------|---------|
     |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box order for managed disks by the Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.|
 
-    ![Screenshot of the Data Destination tab for a Data Box order with a Managed Disks destination. The Data Destination tab, Managed Disks, and Next: Security button are highlighted.](media/data-box-order-portal/select-data-box-import-07-b.png)
+    ![Screenshot of the Data Destination tab for a Data Box order with a Managed Disks destination. The Data Destination tab, Managed Disks, and Next: Security button are highlighted.](media/data-box-order-portal/data-box-import-07.png)
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
@@ -77,7 +77,7 @@ Do the following steps in the Azure portal to order a device.
 
     All settings on the **Security** screen are optional. If you don't change any settings, the default settings will apply.
 
-    ![Screenshot of the Security tab for a Data Box import Order. The Security tab is highlighted.](media/data-box-order-portal/select-data-box-import-security-01.png)
+    ![Screenshot of the Security tab for a Data Box import Order. The Security tab is highlighted.](media/data-box-order-portal/data-box-import-08.png)
 
 9. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
 
@@ -103,41 +103,41 @@ Do the following steps in the Azure portal to order a device.
 
       Or select **Create new key vault** if you want to create a new key vault. 
     
-      ![Screenshot of Encryption type settings on the Security tab for a Data Box order. The "Create new key vault" link is highlighted.](./media/data-box-order-portal/customer-managed-key-03-a.png)      
+      ![Screenshot of Encryption type settings on the Security tab for a Data Box order. The "Create new key vault" link is highlighted.](./media/data-box-order-portal/customer-managed-key-04.png)      
 
       Then, on the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults, and select **Review + Create**.
 
-      ![Screenshot of the Create Key Vault screen for a Data Box order. Resource Group and Key Vault Name are highlighted. Soft-Delete and Purge Protection are enabled.](./media/data-box-order-portal/customer-managed-key-04.png)
+      ![Screenshot of the Create Key Vault screen for a Data Box order. Resource Group and Key Vault Name are highlighted. Soft-Delete and Purge Protection are enabled.](./media/data-box-order-portal/customer-managed-key-05.png)
 
       Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
 
-      ![Screenshot of the Review Plus Create tab of the Create Key Vault wizard for Azure. The Create button is highlighted.](./media/data-box-order-portal/customer-managed-key-05.png)
+      ![Screenshot of the Review Plus Create tab of the Create Key Vault wizard for Azure. The Create button is highlighted.](./media/data-box-order-portal/customer-managed-key-06.png)
 
 12. The **Select a key** blade will display your selected key vault.
 
-    ![Screenshot of the "Select a key" screen in Azure Key Vault. The Key Vault field is highlighted.](./media/data-box-order-portal/customer-managed-key-06.png)
+    ![Screenshot of the "Select a key" screen in Azure Key Vault. The Key Vault field is highlighted.](./media/data-box-order-portal/customer-managed-key-07.png)
 
     If you want to create a new key, select **Create new key**. You must use an RSA key. The size can be 2048 or greater. Enter a name for your new key, accept the other defaults, and select **Create**.
 
-      ![Screenshot of the "Create a Key" screen in Azure Key Vault with a key name entered. The Name field and the Create button are highlighted.](./media/data-box-order-portal/customer-managed-key-07.png)
+      ![Screenshot of the "Create a Key" screen in Azure Key Vault with a key name entered. The Name field and the Create button are highlighted.](./media/data-box-order-portal/customer-managed-key-08.png)
 
       You'll be notified when the key has been created in your key vault. Your new key wil be selected and displayed on the **Select a key** blade.
 
 13. Select the **Version** of the key to use, and then choose **Select**.
 
-      ![Screenshot of the "Create a Key" screen in Azure Key Vault. The Version field is highlighted, with available versions displayed.](./media/data-box-order-portal/customer-managed-key-08.png)
+      ![Screenshot of the "Create a Key" screen in Azure Key Vault. The Version field is highlighted, with available versions displayed.](./media/data-box-order-portal/customer-managed-key-09.png)
 
     If you want to create a new key version, select **Create new version**.
 
-    ![Screenshot of the "Create a Key" screen in Azure Key Vault. The "Create new version" link is highlighted.](./media/data-box-order-portal/customer-managed-key-08-a.png)
+    ![Screenshot of the "Create a Key" screen in Azure Key Vault. The "Create new version" link is highlighted.](./media/data-box-order-portal/customer-managed-key-10.png)
 
     Choose settings for the new key version, and select **Create**.
 
-    ![Screenshot of the Create a Key dialog box in Azure Key Vault with example field settings. The Create button is highlighted.](./media/data-box-order-portal/customer-managed-key-08-b.png)
+    ![Screenshot of the Create a Key dialog box in Azure Key Vault with example field settings. The Create button is highlighted.](./media/data-box-order-portal/customer-managed-key-11.png)
 
     The **Encryption type** settings on the **Security** screen show your key vault and key.
 
-    ![Screenshot of the Security tab for a Data Box import order. A key vault and key are highlighted in the Encryption type settings.](./media/data-box-order-portal/customer-managed-key-09.png)
+    ![Screenshot of the Security tab for a Data Box import order. A key vault and key are highlighted in the Encryption type settings.](./media/data-box-order-portal/customer-managed-key-12.png)
 
 14. Select a user identity that you'll use to manage access to this resource. Choose **Select a user identity**. In the panel on the right, select the subscription and the managed identity to use. Then choose **Select**.
 
@@ -145,17 +145,17 @@ Do the following steps in the Azure portal to order a device.
 
     If you need to create a new managed identity, follow the guidance in [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
-    ![Screenshot of Security tab showing "Select user assigned management identity" panel for a Data Box order. Subscription and Selected Identity fields are highlighted.](./media/data-box-order-portal/customer-managed-key-10.png)
+    ![Screenshot of Security tab showing "Select user assigned management identity" panel for a Data Box order. Subscription and Selected Identity fields are highlighted.](./media/data-box-order-portal/customer-managed-key-13.png)
 
     The user identity is shown in **Encryption type** settings.
 
-    ![Screenshot of the Security tab for a Data Box import order. A selected User Identify is highlighted in the Encryption Type settings.](./media/data-box-order-portal/customer-managed-key-11.png)
+    ![Screenshot of the Security tab for a Data Box import order. A selected User Identify is highlighted in the Encryption Type settings.](./media/data-box-order-portal/customer-managed-key-14.png)
 
 15. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
 
     The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
 
-    ![Screenshot of expanded "Bring your own password" on the Security tab for a Data Box order. Security tab and password options are highlighted.](media/data-box-order-portal/select-data-box-import-security-02.png) 
+    ![Screenshot of expanded "Bring your own password" on the Security tab for a Data Box order. Security tab and password options are highlighted.](media/data-box-order-portal/bring-your-own-password-01.png) 
 
    - To use your own password for your new device, by **Set preference for the device password**, select **Use your own password**, and type a password that meets the security requirements.
      
@@ -164,13 +164,13 @@ Do the following steps in the Azure portal to order a device.
      - Allowed special characters: @ # - $ % ^ ! + = ; : _ ( )
      - Characters not allowed: I i L o O 0
    
-     ![Screenshot of "Bring your own password" options on Security tab for a Data Box order. The Use Your Own Password option and Device Password option are highlighted.](media/data-box-order-portal/select-data-box-import-security-03.png)
+     ![Screenshot of "Bring your own password" options on Security tab for a Data Box order. The Use Your Own Password option and Device Password option are highlighted.](media/data-box-order-portal/bring-your-own-password-02.png)
 
  - To use your own passwords for shares:
 
    1. By **Set preference for share passwords**, select **Use your own passwords** and then **Select passwords for the shares**.
      
-       ![Screenshot of options for using your own share passwords on Security tab for a Data Box order. Two options, Use Your Own Passwords and Select Passwords for the Shares, are highlighted.](media/data-box-order-portal/select-data-box-import-security-04.png)
+       ![Screenshot of options for using your own share passwords on Security tab for a Data Box order. Two options, Use Your Own Passwords and Select Passwords for the Shares, are highlighted.](media/data-box-order-portal/bring-your-own-password-03.png)
 
     1. Type a password for each storage account in the order. The password will be used on all shares for the storage account.
     
@@ -183,13 +183,13 @@ Do the following steps in the Azure portal to order a device.
 
     1. When you finish, select **Save**.
      
-       ![Screenshot of Set Share Passwords screen for a Data Box order. The Copy To All link and the Save button are highlighted.](media/data-box-order-portal/select-data-box-import-security-05.png)
+       ![Screenshot of Set Share Passwords screen for a Data Box order. The Copy To All link and the Save button are highlighted.](media/data-box-order-portal/bring-your-own-password-04.png)
 
     On the **Security** screen, you can use **View or change passwords** to change the passwords.
 
 16. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
 
-    ![Screenshot of Double Encryption options on the Security tab for a Data Box order. The Enable Double Encryption For The Order option and the Next: Contact Details button are highlighted.](media/data-box-order-portal/select-data-box-import-security-07.png)
+    ![Screenshot of Double Encryption options on the Security tab for a Data Box order. The Enable Double Encryption For The Order option and the Next: Contact Details button are highlighted.](media/data-box-order-portal/double-encryption-01.png)
 
     The software-based encryption is performed in addition to the  AES-256 bit encryption of the data on the Data Box.
 
@@ -220,4 +220,5 @@ Do the following steps in the Azure portal to order a device.
 
 22. Select **Order**. The order takes a few minutes to be created.
 
-    ![Screenshot of the Review Plus Order tab for a Data Box order. The Review Plus Order tab and the Order button are highlighted.](media/data-box-order-portal/select-data-box-import-11.png)
+    ![Screenshot of the Review Plus Order tab for a Data Box order. The Review Plus Order tab and the Order button are highlighted.](media/data-box-order-portal/data-box-import-09
+.png)
