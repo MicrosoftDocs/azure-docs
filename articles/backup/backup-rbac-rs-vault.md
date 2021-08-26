@@ -81,7 +81,7 @@ The following table captures the Backup management actions and corresponding rol
 | Management Operation | Role Required | Resources |
 | --- | --- | --- |
 | Enable backup of Azure File shares | Backup Contributor |Recovery Services vault |
-| |Storage Account | Contributor Storage account resource |
+| |Storage Account Contributor | Storage account resource |
 | On-demand backup of VM | Backup Operator | Recovery Services vault |
 | Restore File share | Backup Operator | Recovery Services vault |
 | | Storage Account Contributor | Storage account resources where restore source and Target file shares are present |
