@@ -74,13 +74,20 @@ To create a single database in the Azure portal this quickstart starts at the Az
 
 # [Azure CLI](#tab/azure-cli)
 
+You can use two methods to create an Azure SQL database. The first method requires you to enter multiple commands to create resources like resource groups, servers, and databases. It allows for a more detailed, granular setup. The second method creates all of your resources with a single command so that a database is available for immediate use.
+
+> [!NOTE]
+> The `az sql up` command requires the installation of the `db-up` extension for CloudShell. The extension is currently in preview.
+
 ## Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
-## Set parameter values
+## [Multi-command](#tab/multi-command)
+
+### Set parameter values
 
 The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name. Replace the 0.0.0.0 values in the ip address range to match your specific environment.
 
@@ -101,7 +108,7 @@ startip=0.0.0.0
 endip=0.0.0.0
 ```
 
-## Create a resource group
+### Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
@@ -109,7 +116,7 @@ Create a resource group with the [az group create](/cli/azure/group) command. An
 az group create --name $resourceGroupName --location $location
 ```
 
-## Create a server
+### Create a server
 
 Create a server with the [az sql server create](/cli/azure/sql/server) command.
 
@@ -123,7 +130,7 @@ az sql server create \
 ```
 
 
-## Configure a firewall rule for the server
+### Configure a firewall rule for the server
 
 Create a firewall rule with the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) command.
 
@@ -137,7 +144,7 @@ az sql server firewall-rule create \
 ```
 
 
-## Create a single database with Azure CLI
+### Create a single database with Azure CLI
 
 Create a database with the [az sql db create](/cli/azure/sql/db) command. The following code creates
 
@@ -153,7 +160,20 @@ az sql db create \
     --family Gen5 \
     --capacity 2
 ```
+---
 
+## [Single command](#tab/single-command)
+
+Run the `az sql up` command. If you want a resource, like a server name, to be random, remove the parameter for that resource.
+
+```azurecli-interactive
+az sql up --resource-group $resourceGroupName --server-name $serverName --database-name mySampleDatabase --admin-user $adminlogin --admin-password $password
+```
+
+> [!NOTE]
+> Running the `az sql up` command with no parameters results in all resources being created with a random name.
+
+---
 
 # [PowerShell](#tab/azure-powershell)
 
