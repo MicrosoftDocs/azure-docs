@@ -1,6 +1,6 @@
 ---
-title: Validate XML with schemas
-description: Add schemas to validate XML documents in Azure Logic Apps with Enterprise Integration Pack
+title: Add schemas to validate XML
+description: Add schemas to validate XML documents in Azure Logic Apps with Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 08/25/2021
 ---
 
-# Validate XML with schemas in Azure Logic Apps
+# Add schemas to validate XML in Azure Logic Apps
 
 To check that documents use valid XML and have the expected data in the predefined format for enterprise integration scenarios in Azure Logic Apps, your logic app can use schemas. A schema can also validate messages that logic apps exchange in business-to-business (B2B) scenarios.
 

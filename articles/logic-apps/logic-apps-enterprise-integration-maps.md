@@ -1,6 +1,6 @@
 ---
-title: Transform XML with XSLT maps
-description: Add XSLT maps to transform XML in Azure Logic Apps with Enterprise Integration Pack
+title: Add XSLT maps for XML transforms
+description: Create and add XSLT maps to transform XML in Azure Logic Apps with Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -10,9 +10,9 @@ ms.topic: how-to
 ms.date: 08/25/2021
 ---
 
-# Transform XML with XSLT maps in Azure Logic Apps
+# Add XSLT maps for XML transformation in Azure Logic Apps
 
-To transfer XML data between formats for enterprise integration scenarios in Azure Logic Apps, your logic app can use maps, or more specifically, Extensible Stylesheet Language Transformation (XSLT) maps. A map is an XML document that describes how to convert data from an XML document into another format.
+To transfer XML data between formats for enterprise integration scenarios in Azure Logic Apps, your logic app resource can use maps, or more specifically, Extensible Stylesheet Language Transformation (XSLT) maps. A map is an XML document that describes how to convert data from an XML document into another format.
 
 For example, suppose you regularly receive B2B orders or invoices from a customer who uses the YYYMMDD date format. However, your organization uses the MMDDYYY date format. You can define and use a map that transforms the YYYMMDD date format to the MMDDYYY format before storing the order or invoice details in your customer activity database.
 
@@ -223,13 +223,13 @@ Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](/rest/
 
    After your map file finishes uploading, the map appears in the **Maps** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded map also appears.
 
----
-
 #### Visual Studio Code
 
 1. In your logic app project's structure, open the **Artifacts** folder and then the **Maps** folder.
 
 1. In the **Maps** folder, add your map.
+
+---
 
 ## Edit maps
 
