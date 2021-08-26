@@ -32,5 +32,6 @@ Here, we'll learn how to enable push notifications for Azure Communication Servi
 ::: zone-end
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- 
+- [Learn how to subscribe to events](./events.md)
+- [Learn how to manage calls](./manage-calls.md)
+- [Learn how to manage video](./manage-video.md)

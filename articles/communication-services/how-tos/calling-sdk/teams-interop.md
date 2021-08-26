@@ -48,5 +48,6 @@ const locator = {
 const call = callAgent.join(locator);
 ```
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- 
+- [Learn how to manage calls](./manage-calls.md)
+- [Learn how to manage video](./manage-video.md)
+- [Learn how to transfer calls](./transfer-calls.md)

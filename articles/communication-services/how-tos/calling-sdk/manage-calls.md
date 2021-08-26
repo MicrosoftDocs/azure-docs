@@ -40,5 +40,6 @@ Learn how to manage calls with the Azure Communication Services SDKS. We'll lear
 ::: zone-end
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- 
+- [Learn how to manage video](./manage-video.md)
+- [Learn how to record calls](./record-calls.md)
+- [Learn how to transcribe calls](./call-transcription.md)

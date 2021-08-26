@@ -27,5 +27,7 @@ During an active call, you may want to transfer the call to another person or nu
 [!INCLUDE [Transfer calls Client-side JavaScript](./includes/transfer-calls/transfer-calls-web.md)]
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- 
+- [Learn how to manage calls](./manage-calls.md)
+- [Learn how to manage video](./manage-video.md)
+- [Learn how to record calls](./record-calls.md)
+- [Learn how to transcribe calls](./call-transcription.md)

@@ -27,5 +27,6 @@ During an active call, you may want to get a list of active speakers in order to
 [!INCLUDE [Dominant Speaker JavaScript](./includes/dominant-speaker/dominant-speaker-web.md)]
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- 
+- [Learn how to manage video](./manage-video.md)
+- [Learn how to manage calls](./manage-calls.md)
+- [Learn how to record calls](./record-calls.md)
