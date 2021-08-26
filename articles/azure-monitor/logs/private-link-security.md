@@ -62,11 +62,17 @@ Some networks are composed of multiple VNets or other connected networks. If the
 In the above diagram, VNet 10.0.1.x first connects to AMPLS1 and maps the Azure Monitor global endpoints to IPs from its range. Later, VNet 10.0.2.x connects to AMPLS2, and overrides the DNS mapping of the *same global endpoints* with IPs from its range. Since these VNets aren't peered, the first VNet now fails to reach these endpoints.
 
 ### Private Link access modes: Private Only vs Open
-Because Azure Monitor Private Link relies on shared endpoints and a common DNS configuration, there isn't really a way to create a Private Link that targets a specific workspace or components.
+Azure Monitor Private Links connect networks not to specific Azure Monitor resources, but to all resources scoped in the AMPLS object. Additionally, a typical customer will likely have a single AMPLS, because of the reliance on shared endpoints and DNS configuration (discussed in [Azure Monitor Private Link relies on your DNS](./#azure-monitor-private-link-relies-on-your-dns)). As a result, a single Private Link is often used to manage traffic to all Azure Monitor resources, across customer networks.
 
-Instead, Private Links affect traffic to all Azure Monitor resources. For example, setting up a Private Link for a single resource immediately causes all ingestion requests (to all other Azure Monitor resources) to go through the Private Link as well. That also meant ingestion to resources not in the AMPLS started failing.
+For Private Links created before September 2021, that means - 
+* Log ingestion works only for resources in the AMPLS. Ingestion to all other resources is denied (across all networks that share the same DNS), regardless of subscription or tenant.
+* Queries have a more open behavior, allowing query requests to reach even resources not in the AMPLS. The intention here was to avoid breaking customer queries to resources not in the AMPLS, and allow resource-centric queries to return the complete result set.
 
-To help control how Private Links affect your network traffic, we're introducing Private Link access modes (starting August 2021) - the Private Only mode to allows traffic only to Private Link resources, while the Open mode allows traffic to non-Private-Link resources as well.
+However, this behavior proved to be too restrictive for some customers (since it breaks ingestion to resources not in the AMPLS), too permissive for others (since it allows querying resources not in the AMPLS) and generally confusing.
+
+Therefore, Private Links created starting September 2021 have new mandatory AMPLS settings, that explicitly set how Private Links should affect network traffic. When creating a new AMPLS resource, you're now required to select the desired access modes, for ingestion and queries separately. 
+* Private Only mode - allows traffic only to Private Link resources
+* Open mode - uses Private Link to communicate with resources in the AMPLS, but also allows traffic to continue to other resources as well. See [Control how Private Links apply to your networks](private-link-design.md/#control-how-private-links-apply-to-your-networks) to learn more.
 
 ## Next steps
 - [Design your Private Link setup](private-link-design.md)
