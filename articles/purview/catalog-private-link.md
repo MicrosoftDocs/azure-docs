@@ -60,6 +60,8 @@ For scenarios where _ingestion_ private endpoint is used in your Azure Purview a
 |Azure SQL Managed Instance | Self-Hosted IR| SQL Authentication|
 |Azure Cosmos DB| Self-Hosted IR| Account Key|
 |SQL Server | Self-Hosted IR| SQL Authentication|
+|Azure Synapse Analytics | Self-Hosted IR| Service Principal|
+|Azure Synapse Analytics | Self-Hosted IR| SQL Authentication|
 
 ## Frequently Asked Questions  
 
