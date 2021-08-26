@@ -21,8 +21,8 @@ To monitor the performance of a database in Azure SQL Database and Azure SQL Man
 
 | Monitoring solution | SQL Database | SQL Managed Instance | 
 |:--|:--|:--| 
-| [Azure Monitor SQL insights](#monitor-with-sql-insights) | **Yes** |  **Yes** | 
-| [Query Performance Insight](query-performance-insight-use.md) | **Yes** | No |
+| [SQL insights](monitoring-sql-database-azure-monitor.md) in [Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) | **Yes** |  **Yes** | 
+| [Query Performance Insight](#generate-intelligent-assessments-of-performance-issues) | **Yes** | No |
 | [Monitor using DMVs](monitoring-with-dmvs.md) | **Yes** | **Yes** | 
 | [Monitor using query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)  | **Yes** | **Yes** 
 |||| 

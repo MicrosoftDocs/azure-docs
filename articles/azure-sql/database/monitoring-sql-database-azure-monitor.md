@@ -49,7 +49,7 @@ Diagnostic settings available include:
 - **destination details**: Send to Log Analytics workspace, Archive to a storage account, Stream to an event hub, Send to partner solution
     - The Log Analytics solution is recommended. For more information on these options, see [Create diagnostic settings in Azure portal](../../azure-monitor/essentials/diagnostic-settings.md#create-in-azure-portal).
 
-For more information on the resource logs and diagnostics available, see [Diagnostic telemetry for export](metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal#diagnostic-telemetry-for-export). 
+For more information on the resource logs and diagnostics available, see [Diagnostic telemetry for export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal#diagnostic-telemetry-for-export). 
 
 See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure SQL Database are listed in [Azure SQL Database monitoring data reference](monitoring-sql-database-azure-monitor-reference.md#resource-logs).
 
