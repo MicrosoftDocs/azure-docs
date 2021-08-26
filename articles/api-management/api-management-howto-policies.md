@@ -105,7 +105,7 @@ In the example policy definition above:
 * The `find-and-replace` policy would execute after any higher policies. 
 
 >[!NOTE]
-> If you remove the `<base />` tag at the API scope, only policies configured at the API scope will be applied. Neither Product nor Global scope policies would be applied.
+> If you remove the `<base />` tag at the API scope, only policies configured at the API scope will be applied. Neither product nor global scope policies would be applied.
 
 ### Restrict incoming requests
 
