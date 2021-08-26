@@ -8,7 +8,7 @@ ms.subservice: cosmosdb-mongo
 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 8/226/2021
+ms.date: 8/26/2021
 ms.custom: devx-track-csharp
 ---
 
