@@ -310,14 +310,48 @@ Click **Upload**.
 
 Once the certificate is uploaded, copy the certificate thumbprint and see [Make the certificate accessible](configure-ssl-certificate-in-code.md#make-the-certificate-accessible).
 
+## Renew expiring certificates
+
+Before a certificate expires, you should add the renewed certificate into App Service and update its [certificate binding](configure-ssl-certificate.md). The process depends on the certificate type:
+
+- [Renew an uploaded certificate](#renew-an-uploaded-certificate)
+- [Renew an App Service certificate](#renew-an-app-service-certificate)
+
+### Renew an uploaded certificate
+
+To replace an expiring certificate, how you update the certificate binding with the new certificate can adversely affect user experience. For example, your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, and to avoid downtime for your app due to HTTPS errors, follow these steps in order:
+
+1. [Upload the new certificate](#upload-a-private-certificate).
+2. [Bind the new certificate to the same custom domain](configure-ssl-bindings.md) without deleting the existing (expiring) certificate. This action replaces the binding instead of removing the existing certificate binding.
+3. Delete the existing certificate.
+
+### Renew an App Service certificate
+
+> [!NOTE]
+> The renewal process requires that [the well-known service principal for App Service has the required permissions on your key vault](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). This permission is configured for you when you import an App Service Certificate through the portal, and should not be removed from your key vault.
+
+To turn on automatic renewal of your App Service certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. By default, App Service Certificates have a one-year validity period.
+
+Select **On** and click **Save**. Certificates can start automatically renewing 31 days before expiration if you have automatic renewal turned on.
+
+![Renew App Service certificate automatically](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
+
+To manually renew the certificate instead, click **Manual Renew**. You can request to manually renew your certificate 60 days before expiration.
+
+Once the renew operation is complete, click **Sync**. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
+
+> [!NOTE]
+> If you don't click **Sync**, App Service automatically syncs your certificate within 24 hours.
+
 ## Manage App Service certificates
 
 This section shows you how to manage an App Service certificate you purchased in [Import an App Service certificate](#import-an-app-service-certificate).
 
 - [Rekey certificate](#rekey-certificate)
-- [Renew certificate](#renew-certificate)
 - [Export certificate](#export-certificate)
 - [Delete certificate](#delete-certificate)
+
+Also, see [Renew an App Service certificate](#renew-an-app-service-certificate)
 
 ### Rekey certificate
 
@@ -330,27 +364,6 @@ Click **Rekey** to start the process. This process can take 1-10 minutes to comp
 Rekeying your certificate rolls the certificate with a new certificate issued from the certificate authority.
 
 Once the rekey operation is complete, click **Sync**. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
-
-> [!NOTE]
-> If you don't click **Sync**, App Service automatically syncs your certificate within 24 hours.
-
-### Renew certificate
-
-> [!NOTE]
-> To renew a [certificate you uploaded](#upload-a-private-certificate), see [Export certificate binding](configure-ssl-bindings.md#renew-certificate-binding). 
-
-> [!NOTE]
-> The renewal process requires that [the well-known service principal for App Service has the required permissions on your key vault](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). This permission is configured for you when you import an App Service Certificate through the portal, and should not be removed from your key vault.
-
-To turn on automatic renewal of your certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. By default, App Service Certificates have a one-year validity period.
-
-Select **On** and click **Save**. Certificates can start automatically renewing 31 days before expiration if you have automatic renewal turned on.
-
-![Renew App Service certificate automatically](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
-
-To manually renew the certificate instead, click **Manual Renew**. You can request to manually renew your certificate 60 days before expiration.
-
-Once the renew operation is complete, click **Sync**. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
 
 > [!NOTE]
 > If you don't click **Sync**, App Service automatically syncs your certificate within 24 hours.
