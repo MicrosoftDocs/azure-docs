@@ -91,7 +91,7 @@ Do the following steps in the Azure portal to order a device.
 
 10. To use a customer-managed key, select **Customer managed key** as the key type. Then select **Select a key vault and key**.
    
-    ![Security screen, settings for a customer-managed key](./media/data-box-order-portal/customer-managed-key-02.png)
+    ![Screenshot of Encryption Type settings on the Security tab for a Data Box order. The "Select a key and key vault" link is highlighted.](./media/data-box-order-portal/customer-managed-key-02.png)
 
 11. In the **Select key from Azure Key Vault** blade:
 
@@ -107,7 +107,7 @@ Do the following steps in the Azure portal to order a device.
 
       Then, on the **Create key vault** screen, enter the resource group and a key vault name. Ensure that **Soft delete** and **Purge protection** are enabled. Accept all other defaults, and select **Review + Create**.
 
-      ![Create a new Azure Key Vault settings](./media/data-box-order-portal/customer-managed-key-04.png)
+      ![Screenshot of the Create Key Vault screen for a Data Box order. Resource Group and Key Vault Name are highlighted. Soft-Delete and Purge Protection are enabled.](./media/data-box-order-portal/customer-managed-key-04.png)
 
       Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
 
@@ -155,22 +155,22 @@ Do the following steps in the Azure portal to order a device.
 
     The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
 
-    ![Screenshot of expanded "Bring your own password" on the Security tab for a Data Box import order. The Security tab and the password options are highlighted.](media/data-box-order-portal/select-data-box-import-security-02.png) 
+    ![Screenshot of expanded "Bring your own password" on the Security tab for a Data Box order. Security tab and password options are highlighted.](media/data-box-order-portal/select-data-box-import-security-02.png) 
 
    - To use your own password for your new device, by **Set preference for the device password**, select **Use your own password**, and type a password that meets the security requirements.
      
-     The password must be alphanumeric and contain from 12 to 15 characters, with at least one uppercase letter, one lowercase letter, one special character, and one number.<!--Verify: Updated requirements require at least 1 number and 1 special character - no letters, no c/lc requirement?-->
+     The password must be alphanumeric and contain from 12 to 15 characters, with at least one uppercase letter, one lowercase letter, one special character, and one number.
 
      - Allowed special characters: @ # - $ % ^ ! + = ; : _ ( )
      - Characters not allowed: I i L o O 0
    
-     ![Screenshot of options for using your own device password on the Security tab for a Data Box import order. The Use Your Own Password option and Device Password option are highlighted.](media/data-box-order-portal/select-data-box-import-security-03.png)
+     ![Screenshot of "Bring your own password" options on Security tab for a Data Box order. The Use Your Own Password option and Device Password option are highlighted.](media/data-box-order-portal/select-data-box-import-security-03.png)
 
  - To use your own passwords for shares:
 
    1. By **Set preference for share passwords**, select **Use your own passwords** and then **Select passwords for the shares**.
      
-       ![Screenshot of options for using your own share passwords on the Security tab for a Data Box import order. The Use Your Own Passwords op and Select Passwords for the Shares option are highlighted.](media/data-box-order-portal/select-data-box-import-security-04.png)
+       ![Screenshot of options for using your own share passwords on Security tab for a Data Box order. Two options, Use Your Own Passwords and Select Passwords for the Shares, are highlighted.](media/data-box-order-portal/select-data-box-import-security-04.png)
 
     1. Type a password for each storage account in the order. The password will be used on all shares for the storage account.
     
@@ -189,7 +189,7 @@ Do the following steps in the Azure portal to order a device.
 
 16. In **Security**, if you want to enable software-based double encryption, expand **Double-encryption (for highly secure environments)**, and select **Enable double encryption for the order**.
 
-    ![Screenshot of Double Encryption options on the Security tab for a Data Box order. The Enable Double Encryption For The Order option the Next: Contact Details button are highlighted.](media/data-box-order-portal/select-data-box-import-security-07.png)
+    ![Screenshot of Double Encryption options on the Security tab for a Data Box order. The Enable Double Encryption For The Order option and the Next: Contact Details button are highlighted.](media/data-box-order-portal/select-data-box-import-security-07.png)
 
     The software-based encryption is performed in addition to the  AES-256 bit encryption of the data on the Data Box.
 
@@ -220,4 +220,4 @@ Do the following steps in the Azure portal to order a device.
 
 22. Select **Order**. The order takes a few minutes to be created.
 
-    ![Review and Order screen of the Order wizard](media/data-box-order-portal/select-data-box-import-11.png)
+    ![Screenshot of the Review Plus Order tab for a Data Box order. The Review Plus Order tab and the Order button are highlighted.](media/data-box-order-portal/select-data-box-import-11.png)
