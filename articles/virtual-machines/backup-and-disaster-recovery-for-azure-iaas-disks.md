@@ -1,5 +1,5 @@
 ---
-  title: Backup and disaster recovery for IaaS disks on Azure VMs 
+  title: Backup and disaster recovery for managed disks on Azure VMs 
   description: This article explains how to plan for backup and disaster recovery of IaaS virtual machines and managed disks in Azure.
   author: roygara
   ms.service: storage
@@ -15,19 +15,19 @@
 
 This article explains how to plan for backup and disaster recovery for Azure managed disks.
 
-First, we cover the built-in fault tolerance capabilities in the Azure platform that guard against local failures. We then discuss the disaster scenarios not fully covered by the built-in capabilities. We also show several examples of workload scenarios where different backup and disaster recovery considerations can apply. We then review possible solutions for the DR of IaaS disks.
+First, we cover the built-in fault tolerance capabilities in the Azure platform that guard against local failures. We then discuss the disaster scenarios not fully covered by the built-in capabilities. We also show several examples of workload scenarios where different backup and disaster recovery considerations can apply. We also cover some disaster recovery solutions for managed disks.
 
 ## Introduction
 
-Azure uses various methods for redundancy and fault tolerance to protect customers from localized hardware failures. Local failures can include problems with an Azure Storage server machine that stores part of the data for a virtual disk or failures of an SSD or HDD on that server. Such isolated hardware component failures can happen during normal operations.
+Azure uses various methods for redundancy and fault tolerance to protect customers from localized hardware failures. Local failures can include problems with an Azure Storage server machine that stores part of the data for a virtual disk or failures of solid-state drives (SSDs) or hard disk drives (HDDs) on that server. Isolated hardware component failures can happen during normal operations.
 
-Azure is designed to be resilient to these failures. Major disasters can result in failures or the inaccessibility of many storage servers or even a whole datacenter. Although your virtual machines (VMs) and disks are normally protected from localized failures, additional steps are necessary to protect your workload from region-wide catastrophic failures, such as a major disaster, that can affect your VMs and disks.
+Azure is designed to be resilient to these failures. Major disasters can result in failures or the inaccessibility of many storage servers or even a whole data center. Although your virtual machines (VMs) and disks are normally protected from localized failures, additional steps are necessary to protect your workload from region-wide catastrophic failures, such as a major disaster, that can affect your VMs and disks.
 
 In addition to the possibility of platform failures, problems with a customer application or data can occur. For example, a new version of your application might inadvertently make a change to the data that causes it to break. In that case, you might want to revert the application and the data to a prior version that contains the last known good state. This requires maintaining regular backups.
 
-For regional disaster recovery, you must back up your IaaS VM disks to a different region. 
+For regional disaster recovery, you must back up your infrastructure as a service (IaaS) VM disks to a different region. 
 
-Before we look at backup and DR options, let’s recap a few methods available for handling localized failures.
+Before we look at backup and disaster recovery options, let’s recap a few methods available for handling localized failures.
 
 ### Azure IaaS resiliency
 
@@ -35,25 +35,25 @@ Resiliency refers to the tolerance for normal failures that occur in hardware co
 
 A VM consists mainly of two parts: a compute server and the persistent disks. Both affect the fault tolerance of a VM.
 
-If the Azure compute host server that houses your VM experiences a hardware failure, which is rare, Azure is designed to automatically restore the VM on another server. If this scenario, your computer reboots, and the VM comes back up after some time. Azure automatically detects such hardware failures and executes recoveries to help ensure the customer VM is available as soon as possible.
+If the Azure compute host server that houses your VM experiences a hardware failure, which is rare, Azure is designed to automatically restore the VM on another server. In this scenario, your computer reboots, and the VM comes back up after some time. Azure automatically detects such hardware failures and begins recovery to help ensure the customer VM is available as soon as possible.
 
 Regarding your managed disk, the durability of data is critical for a persistent storage platform. Azure customers have important business applications running on IaaS, and they depend on the persistence of the data. Azure designs protection for these IaaS disks, with three redundant copies of the data that is stored locally. These copies provide for high durability against local failures. If one of the hardware components that holds your disk fails, your VM is not affected, because there are two additional copies to support disk requests. It works fine, even if two different hardware components that support a disk fail at the same time (which is rare). 
 
-To ensure that you always maintain three replicas, Azure Storage automatically spawns a new copy of the data in the background if one of the three copies becomes unavailable. Therefore, it should not be necessary to use RAID with Azure disks for fault tolerance. A simple RAID 0 configuration should be sufficient for striping the disks, if necessary, to create larger volumes.
+To ensure that you always maintain three replicas, Azure automatically creates a new copy of the data in the background if one of the three copies becomes unavailable. Therefore, it should not be necessary to use RAID with Azure disks for fault tolerance. A simple RAID 0 configuration should be sufficient for striping the disks, if necessary, to create larger volumes.
 
 Because of this architecture, Azure has consistently delivered enterprise-grade durability for IaaS disks, with an industry-leading zero percent [annualized failure rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
 
-Localized hardware faults on the compute host or in the Storage platform can sometimes result in of the temporary unavailability of the VM that is covered by the [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) for VM availability. Azure also provides an industry-leading SLA for single VM instances that use Azure premium SSDs.
+Localized hardware faults on the compute host or in the storage platform can sometimes result in of the temporary unavailability of the VM that is covered by the [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) for VM availability. Azure also provides an industry-leading SLA for single VM instances that use Azure premium SSDs.
 
 To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, customers can use [availability sets](./availability.md). Two or more virtual machines in an availability set provide redundancy for the application. Azure then creates these VMs and disks in separate fault domains with different power, network, and server components.
 
-Because of these separate fault domains, localized hardware failures typically do not affect multiple VMs in the set at the same time. Having separate fault domains provides high availability for your application. It's considered a good practice to use availability sets when high availability is required. The next section covers the disaster recovery aspect.
+Because of these separate fault domains, localized hardware failures typically don't affect multiple VMs in the set at the same time. Having separate fault domains provides high availability for your application. It's considered a good practice to use availability sets when high availability is required.
 
 ### Backup and disaster recovery
 
-Disaster recovery is the ability to recover from rare, but major, incidents. These incidents include non-transient, wide-scale failures, such as service disruption that affects an entire region. Disaster recovery includes data backup and archiving, and might include manual intervention, such as restoring a database from a backup.
+Disaster recovery is the ability to recover from rare, but major, incidents. These incidents include non-transient, wide-scale failures, such as a service disruption that affects an entire region. Disaster recovery includes data backup and archiving, and might include manual intervention, such as restoring a database from a backup.
 
-The Azure platform’s built-in protection against localized failures might not fully protect the VMs/disks if a major disaster causes large-scale outages. These large-scale outages include catastrophic events, such as if a datacenter is hit by a hurricane, earthquake, fire, or if there is a large-scale hardware unit failure. In addition, you might encounter failures due to application or data issues.
+The Azure platform’s built-in protection against localized failures might not fully protect the VMs/disks if a major disaster causes large-scale outages. These large-scale outages include catastrophic events, such as if a data center is hit by a hurricane, earthquake, fire, or if there is a large-scale hardware unit failure. In addition, you might encounter failures due to application or data issues.
 
 To help protect your IaaS workloads from outages, you should plan for redundancy and have backups to enable recovery. For disaster recovery, you should back up in a different geographic location away from the primary site. This approach helps ensure your backup is not affected by the same event that originally affected the VM or disks. For more information, see [Disaster recovery for Azure applications](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
@@ -63,7 +63,7 @@ Your disaster recovery considerations might include the following aspects:
 
 - Data durability: In some cases, the main consideration is ensuring that the data is preserved if a disaster happens. Therefore, you might need a backup of your data in a different site. For such workloads, you might not need full redundancy for the application, but only a regular backup of the disks.
 
-## Backup and DR scenarios
+## Backup and disaster recovery scenarios
 
 Let’s look at a few typical examples of application workload scenarios and the considerations for planning for disaster recovery.
 
@@ -96,7 +96,7 @@ IaaS application data issues are another possibility. Consider an application th
 
 Azure Disk Backup is a native, cloud-based backup solution that protects your data in managed disks. It's a simple, secure, and cost-effective solution that enables you to configure protection for managed disks in a few steps. It assures that you can recover your data in a disaster scenario.
 
-Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for configured duration using backup policy. You can manage the disk snapshots with zero infrastructure cost and without the need for custom scripting or any management overhead. This is a crash-consistent backup solution that takes point-in-time backup of a managed disk using incremental snapshots with support for multiple backups per day. It's also an agent-less solution and doesn't impact production application performance. It supports backup and restore of both OS and data disks (including shared disks), whether or not they're currently attached to a running Azure virtual machine.
+Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for configured duration using backup policy. You can manage the disk snapshots with zero infrastructure cost and without the need for custom scripting or any management overhead. This is a crash-consistent backup solution that takes point-in-time backup of a managed disk using incremental snapshots with support for multiple backups per day. It's also an agent-less solution and doesn't impact production application performance. It supports backup and restore of both OS and data disks (including shared disks), whether or not they're currently attached to a running Azure VM.
 
 For more details on Azure Disk Backup, see [Overview of Azure Disk Backup](../backup/disk-backup-overview.md).
 
@@ -122,7 +122,7 @@ To avoid this situation, the backup process must implement the following steps:
 
 Some Windows applications, like SQL Server, provide a coordinated backup mechanism via a volume shadow service to create application-consistent backups. On Linux, you can use a tool like *fsfreeze* for coordinating the disks. This tool provides file-consistent backups, but not application-consistent snapshots. This process is complex, so you should consider using [Azure Disk Backup](../backup/disk-backup-overview.md) or a third-party backup solution that already implements this procedure.
 
-The previous process results in a collection of coordinated snapshots for all of the VM disks, representing a specific point-in-time view of the VM. This is a backup restore point for the VM. You can repeat the process at scheduled intervals to create periodic backups. See [Copy the backups to another region](#copy-the-snapshots-to-another-region) for steps to copy the snapshots to another region for DR.
+The previous process results in a collection of coordinated snapshots for all of the VM disks, representing a specific point-in-time view of the VM. This is a backup restore point for the VM. You can repeat the process at scheduled intervals to create periodic backups. See [Copy the backups to another region](#copy-the-snapshots-to-another-region) for steps to copy the snapshots to another region for disaster recovery.
 
 ### Create snapshots while the VM is offline
 
@@ -130,11 +130,7 @@ Another option to create consistent backups is to shut down the VM and take snap
 
 ### Copy the snapshots to another region
 
-Creation of the snapshots alone might not be sufficient for DR. You must also copy the snapshots to another region. Please review the instructions in [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)
-
-
-> [!NOTE]
-
+Creation of the snapshots alone might not be sufficient for disaster recovery. You must also copy the snapshots to another region. Please review the instructions in [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)
 
 ## Other options
 
