@@ -14,7 +14,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-You can adopt DevOps with your Azure IoT Edge applications with the built-in Azure IoT Edge tasks in Azure Pipelines. This article demonstrates how to use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge using the classic editor. Alternatively, you can [use YAML](how-to-continuous-integration-continuous-deployment.md).
+Azure Pipelines includes a built-in Azure IoT Edge task that helps you adopt DevOps with your Azure IoT Edge applications. This article demonstrates how to use the continuous integration and continuous deployment features of Azure Pipelines to build, test, and deploy applications quickly and efficiently to your Azure IoT Edge using the classic editor. Alternatively, you can [use YAML](how-to-continuous-integration-continuous-deployment.md).
 
 ![Diagram - CI and CD branches for development and production](./media/how-to-continuous-integration-continuous-deployment-classic/model.png)
 
@@ -82,7 +82,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
    In your pipeline description, choose the correct agent specification based on your target platform:
 
-   * If you would like to build your modules in platform amd64 for Linux containers, choose **ubuntu-16.04**
+   * If you would like to build your modules in platform amd64 for Linux containers, choose **ubuntu-18.04**
 
    * If you would like to build your modules in platform amd64 for Windows 1809 containers, you need to [set up self-hosted agent on Windows](/azure/devops/pipelines/agents/v2-windows).
 
