@@ -61,7 +61,7 @@ landingContent:
             url: tutorial-schemas-and-classifications.md
           - text: Create glossary terms
             url: tutorial-import-create-glossary-terms.md
-          -text: Use the REST APIs
+          - text: Use the REST APIs
             url: tutorial-using-rest-apis.md
   # Card
   - title: Register and scan Azure data sources
