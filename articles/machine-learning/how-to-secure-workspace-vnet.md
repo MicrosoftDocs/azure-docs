@@ -269,6 +269,10 @@ The following methods can be used to connect to the secure workspace:
 > [!IMPORTANT]
 > When using a __VPN gateway__ or __ExpressRoute__, you will need to plan how name resolution works between your on-premises resources and those in the VNet. For more information, see [Use a custom DNS server](how-to-custom-dns.md).
 
+## Workspace diagnostics
+
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
+
 ## Next steps
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
