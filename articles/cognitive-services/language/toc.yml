@@ -158,6 +158,8 @@ items:
   items:
   - name: Overview
     href: sentiment-opinion-mining/overview.md
+  - name: Quickstart
+    href: sentiment-opinion-mining/quickstart.md
   - name: How-to guides
     items:
     - name: Call Sentiment Analysis and Opinion Mining
