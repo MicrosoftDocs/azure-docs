@@ -29,6 +29,8 @@ In this tutorial, you learn how to:
 > Create and install the virtual management console
 > Create and install the virtual sensor
 > Activate the on-premises management console
+> Setup the sensor
+> Connect the sensor to the management console
 
 ## Prerequisites
 
@@ -436,4 +438,108 @@ After you sign in for the first time, you will need to activate the on-premises 
 
 > [!Note]
 > Valuation environments will use the self signed certificate. Production environments should not use the self signed certificate.
+
+## Setup the sensor
+
+Register the created sensor with Azure Defender for IoT, and download the sensor's activation file to activate the sensor.
+
+### Register the sensor
+
+**To register the sensor:**
+
+1. Go to the **Welcome** page in the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+
+1. Select **Onboard sensor**.
+
+   :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/onboard-a-sensor.png" alt-text="Select onboard sensor to start the onboarding process for your sensor.":::
+
+1. Enter a sensor name.
+
+   We recommend that you include the IP address of the sensor as part of the name, or use an easily identifiable name. Naming your sensor in this way will ensure easier tracking.
+
+1. Select a subscription from the drop-down menu.
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/name-subscription.png" alt-text="Enter a meaningful name, and connect your sensor to a subscription.":::
+
+1. Choose a sensor connection mode by using the **Cloud connected** toggle. If the toggle is on, the sensor is cloud connected. If the toggle is off, the sensor is locally managed.
+
+   - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Azure Sentinel. In addition, threat intelligence packages can be pushed from the Azure Defender for IoT portal to sensors. Conversely when, the sensor is not cloud connected, you must download  threat intelligence packages and then upload them to your enterprise sensors. To allow Defender for IoT to push packages to sensors, enable the **Automatic Threat Intelligence Updates** toggle. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
+
+      For cloud connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure but can be updated in the sensor console.
+
+   - **Locally managed sensors**: Information that sensors detect is displayed in the sensor console. If you're working in an air-gapped network and want a unified view of all information detected by multiple locally managed sensors, work with the on-premises management console.
+
+1. Select a site to associate your sensor to within an IoT Hub. The IoT Hub will serve as a gateway between this sensor and Azure Defender for IoT. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [Sites and Sensors page](#view-onboarded-sensors).
+
+1. Select **Register**.
+
+### Download the sensor activation file
+
+After registering a sensor you will be able to download an activation file. The sensor activation file contains instructions about the management mode of the sensor. You download a unique activation file for each sensor that you deploy. A user who signs in to the sensor console for the first time uploads the activation file to the sensor.
+
+**To download an activation file:**
+
+1. On the **Onboard Sensor** page, select **Register**
+
+1. Select **download activation file**.
+
+1. Make the file accessible to the user who's signing in to the sensor console for the first time.
+
+### Sign in and activate the sensor
+
+**To sign in and activate:**
+
+1. Go to the sensor console from your browser by using the IP defined during the installation.
+
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/azure-defender-for-iot-sensor-log-in-screen.png" alt-text="Azure Defender for IoT sensor.":::
+
+1. Enter the credentials defined during the sensor installation.
+
+1. After you sign in, the **Activation** dialog box opens. Select **Upload** and go to the activation file that you downloaded during the sensor onboarding.
+
+   :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/activation-upload-screen-with-upload-button.png" alt-text="Select Upload and go to the activation file.":::
+
+1. Accept the terms and conditions.
+
+1. Select **Activate**. The SSL/TLS certificate dialog box opens.
+
+1. Define a certificate name.
+
+1. Upload the CRT and key files.
+
+1. Enter a passphrase and upload a PEM file if required.
+
+1. Select **Next**. The validation screen opens. By default, validation between the management console and connected sensors is enabled.
+
+1. Turn off the **Enable system-wide validation** toggle to disable validation. We recommend that you enable validation.
+
+1. Select **Save**.  
+
+You might need to refresh your screen after uploading the CA-signed certificate.
+
+## Connect the sensor to the management console
+
+Connecting the sensor to the management console will allow the sensor to send device, and alert information to the management console. This connection also allows the management console to push system settings to the sensor and perform other management tasks on the sensor.
+
+**To connect the sensor to the management console**:
+
+1. Sign in to the on-premises management console.
+
+1. Select **System Settings**.
+
+1. In the **Sensor Setup – Connection String** section, copy the automatically generated connection string.
+
+   :::image type="content" source="media/how-to-manage-individual-sensors/connection-string-screen.png" alt-text="Copy the connection string from this screen.":::
+
+1. Sign in to the sensor console.
+
+1. On the left pane, select **System Settings**.
+
+1. Select **Management Console Connection**.
+
+    :::image type="content" source="media/how-to-manage-individual-sensors/management-console-connection-screen.png" alt-text="Screenshot of the Management Console Connection dialog box.":::
+
+1. Paste the connection string in the **Connection string** box and select **Connect**.
+
+1. In the on-premises management console, in the **Site Management** window, assign the sensor to a zone.
 
