@@ -186,7 +186,8 @@ If you encounter any issues, see [Troubleshooting managed online endpoints deplo
 
 ## Give required permissions to the identity
 
->[!IMPORTANT] Online endpoints require AcrPull permission to container registry and Storage Blob Data Reader permission to the default datastore of the workspace .
+>[!IMPORTANT] 
+> Online endpoints require AcrPull permission to container registry and Storage Blob Data Reader permission to the default datastore of the workspace.
 
 You can allow the managed endpoint permission to access your storage via its system assigned managed identity or give permission to the user-assigned identity to access the storage account created in the previous section.
 
@@ -232,7 +233,7 @@ Give permission of default workspace storage to user-assigned identity.
 
 ---
 
-## Scoring script to access azure resource
+## Scoring script to access Azure resource
 
 Refer to the following script to understand how to use your identity tokens to access Azure resources. The Azure resource is the storage account created in previous sections. 
 
@@ -242,13 +243,14 @@ Refer to the following script to understand how to use your identity tokens to a
 
 Create a deployment that's associated with the managed endpoint.
 
-This deployment can take approximately 8-14 minutes depending on whether the underlying environment/image is being built for the first time. Subsequent deployments using the same environment will go quicker.
+>[!WARNING]
+> This deployment can take approximately 8-14 minutes depending on whether the underlying environment/image is being built for the first time. Subsequent deployments using the same environment will go quicker.
 
 # [System-assigned managed identity](#tab/managed-identity)
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="deploy" :::
 
->[!Note]
+>[!NOTE]
 > The value of the `--name` argument may override the `name` key inside the YAML file.
 
 Check the status of the deployment.
@@ -264,9 +266,6 @@ To check the init method output, see the deployment log with the following code.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deployment_log" :::
 
-To redirect all endpoint traffic to this deployment change the traffic of endpoint to this deployment using:
-
-::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="update_endpoint_traffic" :::
 
 # [User-assigned managed identity](#tab/user-identity)
 
