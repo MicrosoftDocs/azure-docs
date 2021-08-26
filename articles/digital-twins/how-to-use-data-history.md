@@ -57,7 +57,10 @@ az eventhubs eventhub create --name <name-for-your-event-hub> --resource-group <
 
 Next, create a Kusto (Azure Data Explorer) cluster and database to receive the data from Azure Digital Twins.
 
-Start by adding the Kusto extension to your CLI session, if you don't have it already. This extension is currently in preview.
+Start by adding the Kusto extension to your CLI session, if you don't have it already. 
+
+>[!NOTE]
+>This extension is currently in preview.
 
 ```azurecli-interactive
 az extension add -n kusto
@@ -69,7 +72,7 @@ Next, create the Kusto cluster. The command below requires 5-10 minutes to execu
 az kusto cluster create --cluster-name <name-for-your-cluster> --sku name="Dev(No SLA)_Standard_E2a_v4" tier="Basic" --resource-group <your-resource-group> --location <region> --type SystemAssigned
 ```
 
-Finally, create a database in your new Kusto cluster. This database will be used to store contextualized Azure Digital Twins data. The command below creates a database with a soft delete period of 365 days, and a hot cache period of 31 days. For more information about the options available for this command, see [az kusto database create](/cli/azure/kusto/database?view=azure-cli-latest&preserve-view=true#az_kusto_database_create).
+Finally, create a database in your new Kusto cluster (using the cluster name from above and in the same location). This database will be used to store contextualized Azure Digital Twins data. The command below creates a database with a soft delete period of 365 days, and a hot cache period of 31 days. For more information about the options available for this command, see [az kusto database create](/cli/azure/kusto/database?view=azure-cli-latest&preserve-view=true#az_kusto_database_create).
 
 ```azurecli-interactive
 az kusto database create --cluster-name <cluster-name-from-above> --database-name <name-for-your-database> --resource-group <your-resource-group> --read-write-database soft-delete-period=P365D hot-cache-period=P31D location=<region>
@@ -80,7 +83,7 @@ az kusto database create --cluster-name <cluster-name-from-above> --database-nam
 Now that you've created the required resources, use the command below to create a Data History connection between the Azure Digital Twins instance, the Event Hub, and the Azure Data Explorer cluster. By default, this command assumes all resources are in the same resource group as the Azure Digital Twins instance. You can also specify resources that are in different resource groups using the parameter options for this command, which can be displayed by running `az dt data-history create adx -h`.
 
 ```azurecli-interactive
-az dt data-history create adx --cn <name-for-your-connection> --name <Azure-Digital-Twins-instance-name> --adx-cluster-name <name-of-your-cluster> --adx-database-name <name-of-your-database> --eventhub <name-of-your-event-hub> --eventhub-namespace <name-of-your-Event-Hubs-namespace>
+az dt data-history create adx --cn <name-for-your-connection> --dt-name <Azure-Digital-Twins-instance-name> --adx-cluster-name <name-of-your-cluster> --adx-database-name <name-of-your-database> --eventhub <name-of-your-event-hub> --eventhub-namespace <name-of-your-Event-Hubs-namespace>
 ```
 
 >[!NOTE]
@@ -108,9 +111,9 @@ Start by opening the [Azure Digital Twins Data Simulator](https://explorer.digit
 
 :::image type="content" source="media/how-to-use-data-history/data-simulator.png" alt-text="Screenshot of the Azure Digital Twins Data simulator. The screen shows configuration fields for Instance URL, Frequency of live stream data, and Simulation status, and a button to Generate environment.":::
 
-Enter the **URL of your Azure Digital Twins instance** (in the format `https://<instance-host-name>`. The host name can be found in the [portal](https://portal.azure.com) page for your instance), and select **Generate Environment**. 
+Enter the **host name** of your Azure Digital Twins instance in the Instance URL field. The host name can be found in the [portal](https://portal.azure.com) page for your instance, and has a format like `<Azure-Digital-Twins-instance-name>.api.<region-code>.digitaltwins.azure.net`. Select **Generate Environment**. 
 
-Once you see green dots under Simulation Status, select **Start Simulation** to push simulated data to your Azure Digital Twins instance. To continuously update the twins in your Azure Digital Twins instance, keep this browser window in the foreground on your desktop (and complete other browser actions in a separate window). 
+The elements under Simulation status will display checkmarks once they've been created, and when the simulation is ready, the **Start simulation** button will become enabled. Select **Start simulation** to push simulated data to your Azure Digital Twins instance. To continuously update the twins in your Azure Digital Twins instance, keep this browser window in the foreground on your desktop (and complete other browser actions in a separate window). 
 
 # [CLI](#tab/cli) 
 
@@ -154,7 +157,10 @@ Next, upload the model to Azure Digital Twins. Run the Azure CLI command below f
 az dt model create --dt-name <Azure-Digital-Twins-instance> --models pump.json
 ```
 
-Next, create a digital twin (**pump_01**) based on the pump model:
+Next, create a digital twin (**pump_01**) based on the pump model. 
+
+>[!NOTE]
+> If you're using Cloud Shell, either use the **Bash** environment for the following commands, or edit the commands for the PowerShell environment by using the `\` character to escape all double-quote (`"`) characters.
 
 ```azurecli-interactive
 az dt twin create --dt-name <Azure-Digital-Twins-instance> --dtmi "dtmi:example:Pump;1" --twin-id pump_01 --properties '{"Flow_Rate":100, "RPM":1000}'
@@ -176,7 +182,7 @@ az dt twin update -n <Azure-Digital-Twins-instance> --twin-id pump_01 --json-pat
 
 To verify that data is flowing through the Data History pipeline, navigate to the [Azure portal](https://portal.azure.com) and open the Event Hubs namespace resource you created. You should see charts showing the flow of messages into and out of the namespace, indicating the flow of incoming messages from Azure Digital Twins and outgoing messages to Azure Data Explorer.
 
-:::image type="content" source="media/how-to-use-data-history/simulated-environment-portal.png" alt-text="Screenshot of the Azure portal showing an Event Hubs namespace for the simulated environment.":::
+:::image type="content" source="media/how-to-use-data-history/simulated-environment-portal.png" alt-text="Screenshot of the Azure portal showing an Event Hubs namespace for the simulated environment." lightbox="media/how-to-use-data-history/simulated-environment-portal.png":::
 
 ## View the historized twin updates in Azure Data Explorer
 
@@ -188,7 +194,7 @@ Start in the [Azure portal](https://portal.azure.com) and navigate to the Azure 
 
 Next, get the name of the Data History table from the left pane. You'll use this name to run queries on the table.
 
-:::image type="content" source="media/how-to-use-data-history/data-history-table.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The name of the Data History table is highlighted.":::
+:::image type="content" source="media/how-to-use-data-history/data-history-table.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The name of the Data History table is highlighted." lightbox="media/how-to-use-data-history/data-history-table.png":::
 
 Copy the command below. The command will change the ingestion to [batched mode](concepts-data-history.md#batch-ingestion-default) and ingest every 10 seconds.
 
@@ -198,7 +204,7 @@ Copy the command below. The command will change the ingestion to [batched mode](
 
 Paste the command into the query window, replacing the `<table-name>` placeholder with the name of your table. Select the **Run** button.
 
-:::image type="content" source="media/how-to-use-data-history/data-history-run-query.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The Run button is highlighted.":::
+:::image type="content" source="media/how-to-use-data-history/data-history-run-query.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The Run button is highlighted." lightbox="media/how-to-use-data-history/data-history-run-query.png":::
 
 Next, run the following command to verify that Azure Data Explorer has ingested twin updates into the table.
 
