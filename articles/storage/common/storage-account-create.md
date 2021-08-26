@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/23/2021
+ms.date: 08/26/2021
 ms.author: tamram
 ms.subservice: common 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
