@@ -45,7 +45,7 @@ Traditionally, subscriptions in API Management were associated with a single [AP
 * Found the list of products on the developer portal. 
 * Submitted subscription requests for the products they wanted to use. 
 * Use the keys in those subscriptions (approved either automatically or by API publishers) to access all APIs in the product. 
-    * You can access APIs with or without the subscription key regardless of subscription scope (product, global, or API)
+    * When setting a subscription required at the product level, you can access APIs with or without the subscription key regardless of subscription scope (product, global, or API)
 
 At present, the developer portal only shows the product scope subscriptions under the **User Profile** section. 
 
