@@ -252,7 +252,7 @@ An Automation account can use its system-assigned managed identity to get tokens
 
 Before you can use your system-assigned managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource.
 
-Follow the principal of least privilege and assign the minimum permissions required to execute your runbooks. For example, if the Automation account is only required to start or stop a VM, then the permissions assigned to the managed identity should be only for starting or stopping a VM. Similarly, if a runbook is reading from blob storage, then only assign read permissions to the managed identity, and so on.
+Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read only permissions.
 
 This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example, and may or may not be required in your case.
 
