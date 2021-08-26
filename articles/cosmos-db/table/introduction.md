@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 01/08/2021
+ms.date: 08/25/2021
 ms.author: sngun
 
 ---
@@ -25,10 +25,8 @@ Applications written for Azure Table storage can migrate to Azure Cosmos DB by u
 > [!NOTE]
 > The [serverless capacity mode](../serverless.md) is now available on Azure Cosmos DB's Table API.
 
-> [!IMPORTANT]
-> The .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) is in maintenance mode and it will be deprecated soon. Please upgrade to the new .NET Standard library [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) to continue to get the latest features supported by the Table API.
-
 ## Table offerings
+
 If you currently use Azure Table Storage, you gain the following benefits by moving to the Azure Cosmos DB Table API:
 
 | Feature | Azure Table storage | Azure Cosmos DB Table API |
