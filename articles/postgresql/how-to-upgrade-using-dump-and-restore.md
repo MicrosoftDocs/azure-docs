@@ -153,7 +153,7 @@ You can consider this method if you have few larger tables in your database and 
 
 1. For each database in your source server, create a corresponding database at the target server.
 
-    ```bash
+    ```azurecli-interactive
     psql "host=myTargetServer port=5432 dbname=postgres user=myuser password=###### sslmode=mySSLmode"
     ```
 
@@ -174,7 +174,7 @@ You can consider this method if you have few larger tables in your database and 
 
 2. Run the pg_dump command in a directory format with number of jobs = 4 (number of tables in the database). With larger compute tier and with more tables, you can increase it to a higher number. That pg_dump will create a directory to store compressed files for each job.
 
-    ```bash
+    ```azurecli-interactive
     pg_dump -Fd -v --host=sourceServer --port=5432 --username=myUser --dbname=mySourceDB -j 4 -f myDumpDirectory
     ```
     For example,
@@ -183,7 +183,7 @@ You can consider this method if you have few larger tables in your database and 
     ```
 
 3. Then restore the backup at the target server.
-    ```bash
+    ```azurecli-interactive
     $ pg_restore -v --no-owner --host=myTargetServer --port=5432 --username=myUser --dbname=myTargetDB -j 4 myDumpDir
     ```
     For example,
