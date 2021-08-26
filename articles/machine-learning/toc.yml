@@ -11,6 +11,20 @@
     - name: Architecture & terms
       displayName: architecture, concepts, definitions, glossary
       href: concept-azure-machine-learning-architecture.md
+    - name: "Migrate from ML Studio (classic)"
+      items: 
+        - name: Migration overview
+          href: migrate-overview.md
+        - name: Migrate datasets
+          href: migrate-register-dataset.md
+        - name: Rebuild experiments
+          href: migrate-rebuild-experiment.md
+        - name: Rebuild web services
+          href: migrate-rebuild-web-service.md
+        - name: Migrate client applications
+          href: migrate-rebuild-integrate-with-client-app.md
+        - name: Rebuild Execute R Script components
+          href: migrate-execute-r-script.md
 - name: Quickstart
   expanded: true
   items: 
@@ -28,9 +42,9 @@
           href: tutorial-1st-experiment-sdk-train.md
         - name: 3. Use your own data
           href: tutorial-1st-experiment-bring-data.md
-    - name: 2.0 CLI 
+    - name: CLI (v2) 
       items: 
-        - name: Train models with 2.0 CLI
+        - name: Train models with CLI (v2)
           href: how-to-train-cli.md
         - name: Access resources with managed endpoints
           href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
@@ -306,7 +320,7 @@
                 href: how-to-create-attach-compute-studio.md
     - name: Set up an environment
       items: 
-        - name: Install and set up the 2.0 CLI
+        - name: Install and set up the CLI (v2)
           displayName: azurecli, mlops
           href: how-to-configure-cli.md
         - name: Set up dev environments
@@ -408,7 +422,7 @@
               href: how-to-export-delete-data.md
     - name: Train models
       items: 
-        - name: Train with the 2.0 CLI
+        - name: Train with the CLI (v2)
           href: how-to-train-cli.md
         - name: Train with the REST API
           href: how-to-train-with-rest.md
@@ -422,6 +436,9 @@
           - name: Tune hyperparameters
             displayName: parameter, hyperparameter, hyperdrive
             href: how-to-tune-hyperparameters.md
+          - name: Distributed GPU guide
+            displayName: MPI, Horovod, DeepSpeed, PyTorch, Hugging Face Transformers, TensorFlow, InfiniBand
+            href: how-to-train-distributed-gpu.md
           - name: Scikit-learn
             href: how-to-train-scikit-learn.md
           - name: TensorFlow
@@ -532,6 +549,8 @@
             items:
             - name: Batch scoring with batch endpoints
               href: how-to-use-batch-endpoint.md
+            - name: Batch endpoints in studio
+              href: how-to-use-batch-endpoints-studio.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
       - name: Deployment targets
