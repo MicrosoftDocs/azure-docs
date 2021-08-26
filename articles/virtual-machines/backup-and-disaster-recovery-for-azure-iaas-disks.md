@@ -4,7 +4,7 @@
   author: roygara
   ms.service: storage
   ms.topic: conceptual
-  ms.date: 07/19/2021
+  ms.date: 08/25/2021
   ms.author: rogarana
   ms.subservice: disks
 ---
@@ -141,17 +141,6 @@ Creation of the snapshots alone might not be sufficient for DR. You must also co
 ### SQL Server
 
 SQL Server running in a VM has its own built-in capabilities to back up your SQL Server database to Azure Blob storage or a file share. For more information, see [Back up and restore for SQL Server in Azure virtual machines](../azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). In addition to back up and restore, [SQL Server AlwaysOn availability groups](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) can maintain secondary replicas of databases. This ability greatly reduces the disaster recovery time.
-
-## Other considerations
-
-This article has discussed how to back up or take snapshots of your VMs and their disks to support disaster recovery and how to use those backups or snapshots to recover your data. With the Azure Resource Manager model, many people use templates to create their VMs and other infrastructures in Azure. You can use a template to create a VM that has the same configuration every time. If you use custom images for creating your VMs, you must also make sure that your images are protected by using a read-access geo-redundant storage account to store them.
-
-Consequently, your backup process can be a combination of two things:
-
-- Back up the data (disks).
-- Back up the configuration (templates and custom images).
-
-Depending on the backup option you choose, you might have to handle the backup of both the data and the configuration, or the backup service might handle all of that for you.
 
 ## Next steps
 
