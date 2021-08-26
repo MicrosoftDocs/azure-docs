@@ -7,7 +7,7 @@ ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: jrasnick, garye
 
-ms.date: 7/9/2021
+ms.date: 09/03/2021
 author: nelgson
 ms.author: negust
 ---
@@ -49,10 +49,17 @@ For this tutorial, you need a Spark table. The following notebook creates one:
 
 ## Open the automated machine learning wizard
 
-To open the wizard:
+To open the wizard, right-click the Spark table that you created in the previous step. Then select **Machine Learning** > **Train a new model**.
 
-1. Right-click the Spark table that you created in the previous step. Then select **Machine Learning** > **Train a new model**.
 ![Screenshot of the Spark table, with Machine Learning and Train a new model highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-00d.png)
+
+## Choose a model type
+
+Select the machine learning model type for the experiment, based on the question you're trying to answer. Because `fareAmount` is the target column, and it's a numeric value, we recommend that you select **Regression** here. Then select **Continue**.
+
+![Screenshot of Train a new model, with Regression highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
+
+## Configure the experiment
 
 1. Provide configuration details for creating an automated machine learning experiment run in Azure Machine Learning. This run trains multiple models. The best model from a successful run is registered in the Azure Machine Learning model registry.
 
@@ -72,13 +79,7 @@ To open the wizard:
 
 1. Select **Continue**.
 
-## Choose a task type
-
-Select the machine learning model type for the experiment, based on the question you're trying to answer. Because `fareAmount` is the target column, and it's a numeric value, we recommend that you select **Regression** here. Then select **Continue**.
-
-![Screenshot of Train a new model, with Regression highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00b.png)
-
-## Additional configurations
+## Configure the model
 
 If you selected **Regression** or **Classification** as your model type in the previous section, the following configurations are available:
 
@@ -91,16 +92,20 @@ If you selected **Regression** or **Classification** as your model type in the p
 - **ONNX model compatibility**: If you enable this option, the models trained by automated machine learning are converted to the ONNX format. This is particularly relevant if you want to use the model for scoring in Azure Synapse Analytics SQL pools.
 
 These settings all have a default value that you can customize.
-![Screenshot of additional configurations for configuring a regression model.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c.png)
+![Screenshot of additional configurations for configuring a regression model.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c1.png)
+
+## Start a run
 
 After all the required configurations are done, you can start your automated run. You can choose **Create run**, which starts your run directly, without code. Alternatively, if you prefer code, you can select **Open in notebook**. This option allows you to see the code that creates the run and then run the notebook.
+
+![Screenshot of additional configurations for configuring a regression model.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c2.png)
 
 >[!NOTE]
 >If you selected **Time series forecasting** as your model type in the previous section, you must make additional configurations. Forecasting also doesn't support ONNX model compatibility.
 
 ### Create a run directly
 
-To start your automated machine learning run directly, select **Start Run**. You see a notification that indicates the run is starting. Then you see another notification that indicates success. You can also check the status in Azure Machine Learning by selecting the link in the notification.
+To start your automated machine learning run directly, select **Create Run**. You see a notification that indicates the run is starting. Then you see another notification that indicates success. You can also check the status in Azure Machine Learning by selecting the link in the notification.
 ![Screenshot of successful notification.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00d.png)
 
 ### Create a run with a notebook
