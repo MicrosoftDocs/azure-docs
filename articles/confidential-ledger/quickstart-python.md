@@ -199,6 +199,7 @@ The print function will return "Hello world!", as that is the message in the led
 ## Full sample code
 
 ```python
+import time
 from azure.identity import DefaultAzureCredential
 
 ## Import control plane sdk
@@ -210,6 +211,7 @@ from azure.mgmt.confidentialledger.models import ConfidentialLedger
 
 from azure.confidentialledger import ConfidentialLedgerClient
 from azure.confidentialledger.identity_service import ConfidentialLedgerIdentityServiceClient
+from azure.confidentialledger import TransactionState
 
 # Set variables
 
