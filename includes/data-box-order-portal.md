@@ -111,7 +111,7 @@ Do the following steps in the Azure portal to order a device.
 
       Review the information for your key vault, and select **Create**. Wait for a couple minutes for key vault creation to complete.
 
-      ![New Azure Key Vault review screen](./media/data-box-order-portal/customer-managed-key-05.png)
+      ![Screenshot of the Review Plus Create tab of the Create Key Vault wizard for Azure. The Create button is highlighted.](./media/data-box-order-portal/customer-managed-key-05.png)
 
 12. The **Select a key** blade will display your selected key vault.
 
