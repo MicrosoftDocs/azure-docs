@@ -41,15 +41,18 @@ When your virtual machine uses unmanaged disks, they're restored as blobs to the
    > [!NOTE]
    > After you restore the VM disk, you can manually swap the OS disk of the original VM with the restored VM disk without re-creating it. [Learn more](https://azure.microsoft.com/blog/os-disk-swap-managed-disks/).
 
-### **Step 2**: Recreate the virtual machine instance by doing one of the following actions:
+### **Step 2**: Recreate the virtual machine instance 
 
-1. Use the template that's generated during the restore operation to customize VM settings and trigger VM deployment. [Learn more](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-   >[!NOTE]
+Do one of the following actions:
+
+- Use the template that's generated during the restore operation to customize VM settings and trigger VM deployment. [Learn more](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
+  >[!NOTE]
    >While deploying the template, verify the storage account containers and the public/private settings.
-1. Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+- Create a new VM from the restored disks using PowerShell. [Learn more](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-### **Step 3**: For Linux VMs, reinstall the ADE extension so the data disks are open and mounted.
+### **Step 3**: Restore an encrypted Linux VM
 
+Reinstall the ADE extension so the data disks are open and mounted.
 
 ## Cross Region Restore for an encrypted Azure VM
 
