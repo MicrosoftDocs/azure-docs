@@ -85,7 +85,7 @@ Review the parts of the studio on the left-hand navigation bar:
 
 ### Workspace diagnostics
 
-[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostcs.md)]
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
 
 ## <a name="clean-up"></a>Clean up resources
 
