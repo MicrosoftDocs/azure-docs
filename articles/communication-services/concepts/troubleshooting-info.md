@@ -93,6 +93,7 @@ callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
     });
 });
 ```
+---
 
 ## Access your client call ID
 
