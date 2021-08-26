@@ -72,7 +72,7 @@ For more information, see the change feed processor library [release notes](sql-
 
 The v2 bulk executor library currently has a dependency on the Azure Cosmos DB .NET SDK 2.5.1 or later.
 
-For more information, see the [Azure Cosmos DB bulk executor library overview](bulk-executor-overview.md) and the .NET bulk executor library [release notes](sql-api-sdk-bulk-executor-dot-net.md).
+For more information, see the [Azure Cosmos DB bulk executor library overview](../bulk-executor-overview.md) and the .NET bulk executor library [release notes](sql-api-sdk-bulk-executor-dot-net.md).
 
 ## Next steps
 
