@@ -83,6 +83,10 @@ Review the parts of the studio on the left-hand navigation bar:
 
 * You already used the **Manage** section of the studio to create your compute resources.  This section also lets you create and manage  data and external services you link to your workspace.  
 
+### Workspace diagnostics
+
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
+
 ## <a name="clean-up"></a>Clean up resources
 
 If you plan to continue now to the next tutorial, skip to [Next steps](#next-steps).
