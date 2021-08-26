@@ -1,6 +1,6 @@
 ---
-title: Azure Percept DK software releases for OTA update
-description: Information and download links for the OTA update package of Azure Percept DK 
+title: Software releases for OTA updates
+description: Information and download links for the Azure Percept DK over-the-air update packages
 author: EthanChangAED
 ms.author: hschang
 ms.service: azure-percept
@@ -10,7 +10,7 @@ ms.custom: template-concept
 ---
 
 
-# Azure Percept DK software releases for OTA update
+# Software releases for OTA updates
 
 The OTA update is built for users who tend to always keep the dev kit up to date. That's why only the hard-stop versions and the latest version are provided here. To change your dev kit to a specific (older) version, use the USB cable update. Refer to [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md). Also use the USB update if you want to jump to a much advanced version.
 
@@ -22,11 +22,11 @@ The OTA update is built for users who tend to always keep the dev kit up to date
 >
 >[How to determine your update strategy](./how-to-determine-your-update-strategy.md)
 
-## Hard-Stop Version of OTA
+## Hard-stop version of OTA
 
 Microsoft would service each dev kit release with OTA packages. However, as there are breaking changes for dev kit OS/firmware, or the OTA platform, OTA directly from an old version to a much-advanced version may be problematic. Generally, when a breaking change happens, Microsoft will make sure that the OTA update process transitions the old system seamlessly to **the very first version that introduces/deliver this breaking change**. This specific version becomes a hard-stop version for OTA. Take a known hard-stop version: **June release** as an example. OTA will work if a user updates the dev kit from 2104 to 2106, then from 2106 to 2107. However, it will NOT work if a user tries to skip the hard-stop (2106) and update the dev kit from 2104 directly to 2107.
 
-:::image type="content" source="./media/azure-percept-devkit-software-releases-for-ota-update/hard-stop-illustrate.png" alt-text="Hard-stop version of OTA":::
+:::image type="content" source="./media/azure-percept-devkit-software-releases-ota-update/hard-stop-illustrate.png" alt-text="Hard-stop version of OTA":::
 
 ## Recommendations for applying the OTA update
 
@@ -61,18 +61,18 @@ Microsoft would service each dev kit release with OTA packages. However, as ther
 >[!IMPORTANT]
 >If the current version of you dev kit isn't included in any of the releases below, it's NOT supported for OTA update. Please do a USB cable update to get to the latest version.
 
-**Latest Release:**
+**Latest release:**
 
 |Release|Applicable Version(s)|Download Links|Note|
 |---|---|---|---|
 |July Service Release (2107)|2021.106.111.115|[2021.107.129.116 OTA update package](https://go.microsoft.com/fwlink/?linkid=2169245)||
 
-**Hard-stop Releases:**
+**Hard-stop releases:**
 
 |Release|Applicable Version(s)|Download Links|Note|
 |---|---|---|---|
 |June Service Release (2106)|2021.102.108.112, 2021.104.110.103, 2021.105.111.122 |[2021.106.111.115 OTA manifest (for PE-101)](https://go.microsoft.com/fwlink/?linkid=2167127)<br>[2021.106.111.115 OTA manifest (for APDK-101)](https://go.microsoft.com/fwlink/?linkid=2167235) <br>[2021.106.111.115 OTA update package](https://go.microsoft.com/fwlink/?linkid=2167128) |Be sure to use the correct manifest based on "model name" (PE-101/APDK-101)|
 
-## Next Step
+## Next steps
 
 [Update your Azure Percept DK over-the-air (OTA)](./how-to-update-over-the-air.md)

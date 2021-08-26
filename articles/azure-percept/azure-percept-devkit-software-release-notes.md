@@ -13,7 +13,7 @@ ms.custom: template-concept
 
 This page provides information of changes and fixes for each Azure Percept DK OS and firmware release.
 
-To download the update images, refer to [Azure Percept DK software releases for USB cable update](./azure-percept-devkit-software-releases-for-usb-cable-update.md) or [Azure Percept DK software releases for OTA update](./azure-percept-devkit-software-releases-for-ota-update.md).
+To download the update images, refer to [Azure Percept DK software releases for USB cable update](./azure-percept-devkit-software-releases-for-usb-cable-update.md) or [Azure Percept DK software releases for OTA update](./software-releases-over-the-air-updates.md).
 
 ## July (2107) Release
 

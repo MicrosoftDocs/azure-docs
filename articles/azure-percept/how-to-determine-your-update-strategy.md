@@ -1,6 +1,6 @@
 ---
 title: How to determine your update strategy
-description: Pros and cons of OTA or USB cable update. Recommendation for choosing the best update approach for different users. 
+description: Pros and cons of Azure Percept DK OTA or USB cable updates. Recommendation for choosing the best update approach for different users. 
 author: EthanChangAED
 ms.author: hschang
 ms.service: azure-percept
@@ -36,7 +36,7 @@ Check the pros and cons for both USB cable update and OTA update, then follow th
   - Update can be performed remotely.
   - Several similar devices can be updated at the same time. Updates can also be schedule to happen, for example during night-time.
 - Cons
-  - There may be hard-stop version(s) that cannot be skipped. Refer to [Hard-Stop Version of OTA](./azure-percept-devkit-software-releases-for-ota-update.md#hard-stop-version-of-ota).
+  - There may be hard-stop version(s) that cannot be skipped. Refer to [Hard-Stop Version of OTA](./software-releases-over-the-air-updates.md#hard-stop-version-of-ota).
   - The device needs to connect to a IoT Hub, which has been properly configured the “Device Update for IoT Hub” feature.
   - It won't work well for downgrade.
 
@@ -61,9 +61,9 @@ After deciding the update method of choice, visit the following pages for gettin
 USB cable update
 
 - [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md)
-- [Azure Percept DK software releases for USB cable update](./azure-percept-devkit-software-releases-for-usb-cable-update.md)
+- [Azure Percept DK software releases for USB cable update](./software-releases-usb-cable-updates.md)
 
 OTA
 
 - [Update your Azure Percept DK over-the-air (OTA)](./how-to-update-over-the-air.md)
-- [Azure Percept DK software releases for OTA update](./azure-percept-devkit-software-releases-for-ota-update.md)
+- [Azure Percept DK software releases for OTA update](./software-releases-over-the-air-updates.md)
