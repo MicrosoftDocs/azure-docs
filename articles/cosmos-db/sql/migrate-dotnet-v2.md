@@ -79,5 +79,5 @@ For more information, see the [Azure Cosmos DB bulk executor library overview](.
 * Read about [additional performance tips](sql-api-get-started.md) using Azure Cosmos DB for SQL API v2 for optimization your application to achieve max performance
 * Learn more about [what you can do with the v2 SDK](sql-api-dotnet-samples.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
