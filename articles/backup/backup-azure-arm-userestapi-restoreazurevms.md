@@ -334,13 +334,13 @@ As explained [above](#restore-operations), the following request body defines pr
 
 The response should be handled in the same way as [explained above for restoring disks](#responses).
 
-## Cross-region restore
+## Cross Region Restore
 
-If cross-region restore (CRR) is enabled on the vault with which you've protected your VMs, the backup data is replicated to the secondary region. You can use the backup data to perform a restore. Perform the following steps to trigger a restore in the secondary region using REST API:
+If Cross Region Restore (CRR) is enabled on the vault with which you've protected your VMs, the backup data is replicated to the secondary region. You can use the backup data to perform a restore operation. To trigger a restore operation in the secondary region using REST API, follow these steps:
 
 ### Select recovery point in secondary region
 
-The available recovery points of a backup item in the secondary region can be listed using the [list recovery points REST API for CRR](/rest/api/backup/recovery-points-crr/list). It's a simple GET operation with all the relevant values.
+You can list the available recovery points of a backup item in the secondary region using the [list recovery points REST API for CRR](/rest/api/backup/recovery-points-crr/list). It's a simple GET operation with all the relevant values.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2018-12-20
@@ -349,10 +349,10 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation). `{fabricName}` is "Azure".
 
-The *GET* URI has all the required parameters. There's no need for an additional request body.
+The *GET* URI has all the required parameters. An additional request body isn't required.
 
 >[!NOTE]
->For getting recovery points in the secondary region, use API verion 2018-12-20 as in the above example.
+>For getting recovery points in the secondary region, use API version 2018-12-20 as in the above example.
 
 #### Responses
 
@@ -443,9 +443,11 @@ The recovery point is identified with the `{name}` field in the above response.
 
 ### Get access token
 
-To perform cross-region restore, you will require an access token to authorize your request to access replicated restore points in the secondary region. To get an access token, follow these steps:
+To perform cross-region restore, you'll require an access token to authorize your request to access replicated restore points in the secondary region. To get an access token, follow these steps:
 
-#### Step 1: Use the [AAD Properties API](/rest/api/backup/aad-properties/get) to get AAD properties for the secondary region (*westus* in the below example):
+#### Step 1:
+
+Use the [AAD Properties API](/rest/api/backup/aad-properties/get) to get AAD properties for the secondary region (*westus* in the below example):
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/westus/backupAadProperties?api-version=2018-12-20
@@ -453,7 +455,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 ##### Response example
 
-The response returned is of the below format:
+The response is returned in the following format:
 
 ```json
 {
@@ -465,7 +467,9 @@ The response returned is of the below format:
 }
 ```
 
-#### Step 2: Use the [Get Access Token API](/rest/api/backup/recovery-points-get-access-token-for-crr/get-access-token) to authorize your request to access replicated restore points in the secondary region:
+#### Step 2:
+
+Use the [Get Access Token API](/rest/api/backup/recovery-points-get-access-token-for-crr/get-access-token) to authorize your request to access replicated restore points in the secondary region:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/accessToken?api-version=2018-12-20
@@ -485,7 +489,7 @@ For the request body, paste the contents of the response returned by the AAD Pro
 
 ##### Response example
 
-The response returned is of the below format:
+The response is returned in the following format:
 
 ```json
 {
@@ -533,13 +537,13 @@ Use the [Cross-Region Restore Trigger API](/rest/api/backup/cross-region-restore
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/{azureRegion}/backupCrossRegionRestore?api-version=2018-12-20
 ```
 
-The request body should have 2 parts:
+The request body should have two parts:
 
 1. ***crossRegionRestoreAccessDetails***: Paste the *properties* block of the response from the Get Access Token API request performed in the previous step to fill this segment of the request body.
 
-1. ***restoreRequest***: To fill the *restoreRequest* segment of the request body, you will need to pass the recovery point id obtained earlier, along with the ARM id of the source VM, as well as the details of the storage account in the secondary region to be used as a staging location. To perform disk restore, specify *RestoreDisks* as the recovery type.
+1. ***restoreRequest***: To fill the *restoreRequest* segment of the request body, you'll need to pass the recovery point ID obtained earlier, along with the Azure Resource Manager (ARM) ID of the source VM, as well as the details of the storage account in the secondary region to be used as a staging location. To perform disk restore, specify *RestoreDisks* as the recovery type.
 
-Below is a sample request body to restore the disks of a VM to the secondary region:
+The following is a sample request body to restore the disks of a VM to the secondary region:
 
 ```json
  {
