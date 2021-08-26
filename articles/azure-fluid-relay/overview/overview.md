@@ -11,10 +11,6 @@ ms.service: azure-fluid
 
 # Azure Fluid Relay overview
 
-> [!NOTE]
-> I updated the product name in the descrption, but it may be incorrect. If this is an incorrect use of the Azure Fluid Relay name, please change it back.
-
-
 The Azure Fluid Relay service is a managed offering for the Fluid Framework that helps developers build real-time collaborative
 experiences and replicate state across connected JavaScript clients in real-time.
 
