@@ -104,7 +104,7 @@
           - name: Public IP addresses
             href: ../../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Power BI
-          href: ../../power-bi/admin/service-admin-region-move.md
+          href: /power-bi/admin/service-admin-region-move
         - name: Site Recovery (Recovery Services vaults)
           href: ../../site-recovery/move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: SQL Server on Azure VM
