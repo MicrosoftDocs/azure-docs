@@ -85,9 +85,10 @@ In this article you learn how to secure the following training compute resources
 
         :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Screenshot of NSG":::
 
-        If your compute instance does not use a public IP address, these are not required.
+        > [!TIP]
+        > If your compute instance does not use a public IP address, these NSG rules are not required. If you also use a compute cluster, the cluster will still require these rules.
 
-    * For compute clusters, one public IP address. For compute instance, a public IP is optional. If you have Azure Policy assignments prohibiting Public IP creation then deployment of the compute will fail.
+    * For compute clusters, one public IP address. For compute instance, a public IP is __optional__ (a preview feature). If you have Azure Policy assignments prohibiting Public IP creation then deployment of the compute will fail.
 
     * One load balancer
 
