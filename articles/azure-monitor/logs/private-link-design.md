@@ -47,11 +47,9 @@ Private Link access modes (introduced on August 2021) allow you to control how P
 Choosing the proper access mode has detrimental effects on your network traffic. Each of these modes can be set for ingestion and queries, separately:
 
 * Private Only - allows the VNet to reach only Private Link resources (resources in the AMPLS). That's the most secure mode of work, preventing data exfiltration. To achieve that, traffic to Azure Monitor resources out of the AMPLS is blocked.
-![Diagram of AMPLS limits](./media/private-link-security/ampls-private-only-access-mode.png)
+![Diagram of AMPLS Private Only access mode](./media/private-link-security/ampls-private-only-access-mode.png)
 * Open - allows the VNet to reach both Private Link resources and resources not in the AMPLS (if they [accept traffic from public networks](./private-link-design.md#control-network-access-to-your-resources)). While the Open access mode doesn't prevent data exfiltration, traffic to Private Link resources is sent through private endpoints and validated. The Open mode allows for a gradual onboarding process, or a mixed mode of work, combining Private Link access to some resources and public access to others.
-
-    ![Diagram of AMPLS limits](./media/private-link-security/ampls-open-access-mode.png)
-
+![Diagram of AMPLS Open access mode](./media/private-link-security/ampls-open-access-mode.png)
 Access modes are set separately for ingestion and queries. For example, you can set the Private Only mode for ingestion and the Open mode for queries.
 
 > [!NOTE]
@@ -61,7 +59,7 @@ Access modes are set separately for ingestion and queries. For example, you can 
 The access modes set on the AMPLS resource affect all networks, but you can override these settings for specific networks.
 
 In the following diagram, VNet1 uses the Open mode and VNet2 uses the Private Only mode. As a result, requests from VNet1 can reach Workspace1 and Component2 over a Private Link, and Component3 not over a Private Link (if it [accepts traffic from public networks](./private-link-design.md#control-network-access-to-your-resources)). However, VNet2 requests won't be able to reach Component3. 
-![Diagram of AMPLS limits](./media/private-link-security/ampls-mixed-access-modes.png)
+![Diagram of mixed access modes](./media/private-link-security/ampls-mixed-access-modes.png)
 
 
 ## Consider AMPLS limits
