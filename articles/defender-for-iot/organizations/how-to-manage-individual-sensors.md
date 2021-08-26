@@ -103,17 +103,12 @@ If the upload fails, contact your security or IT administrator, or review the in
 
 **To change the certificate validation setting:**
 
-1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication relevant components is halted and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for more information.
+1. Enable or disable the **Enable Certificate Validation** toggle. If the option is enabled and validation fails, communication between relevant components is halted and a validation error is presented in the console. If disabled, certificate validation is not carried out. See [About certificate validation](how-to-deploy-certificates.md#about-certificate-validation) for more information.
 
 1. Select **Save**.
 
-
-
-
-For more information about first-time certificate upload see, 
+For more information about first-time certificate upload see,
 [First-time sign-in and activation checklist](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist)
-
-
 
 ## Connect a sensor to the management console
 
