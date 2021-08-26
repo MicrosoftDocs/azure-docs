@@ -7,7 +7,7 @@ ms.date: 08/26/2021
 ms.author: alkohli
 ---
 
-Do the following steps in the Azure portal to order a device.
+Do the following steps in the Azure portal to order a device:
 
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 2. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
@@ -18,7 +18,7 @@ Do the following steps in the Azure portal to order a device.
 
    ![Screenshot of Azure Data Box section with Create option called out](media/data-box-order-portal/data-box-import-02.png)
 
-4. Check if Data Box service is available in your region. Enter or select the following information, and then select **Apply**.
+4. Check whether Data Box service is available in your region. Enter or select the following information, and then select **Apply**.
 
     |Setting  |Value  |
     |---------|---------|
