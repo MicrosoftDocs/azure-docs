@@ -63,7 +63,7 @@ To download the components you'll need for deployment:
 1. Select the model you wish to use. Once you select a model, the *Download* button will become enabled
 1. Choose *Download*
 
-:::image type="content" source="media/how-to-deploy-automl-endpoint/model-download.png" alt-text="Screenshot showing the selection of the model and download button":::
+:::image type="content" source="media/how-to-deploy-automl-endpoint/download-model.png" alt-text="Screenshot showing the selection of the model and download button":::
 
 you'll receive a zip file containing:
 * A conda environment specification file named `conda_env_<VERSION>.yml`
