@@ -137,7 +137,7 @@ Once the recovery point is obtained, we need to construct the request body for t
 
 The triggering of any restore operation is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -267,7 +267,7 @@ Once you track the response as explained [above](#responses), and the long runni
 
 ### Replace disks in a backed-up virtual machine
 
-While restore disks creates disks from the recovery point, replace disks replaces the current disks of the backed up VM with the disks from the recovery point. As explained [above](#restore-operations), the relevant request body for replacing disks is provided below.
+While restore disks creates disks from the recovery point, replace disks replaces the current disks of the backed-up VM with the disks from the recovery point. As explained [above](#restore-operations), the relevant request body for replacing disks is provided below.
 
 #### Create request body
 
