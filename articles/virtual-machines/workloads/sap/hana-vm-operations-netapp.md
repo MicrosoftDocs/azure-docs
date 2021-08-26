@@ -51,7 +51,7 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 
 ## Sizing for HANA database on Azure NetApp Files
 
-The throughput of an Azure NetApp volume is a function of the volume size and Service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
+The throughput of an Azure NetApp volume is a function of the volume size and Service level, as documented in [Service levels for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
 
 Important to understand is the performance relationship the size and that there are physical limits for a storage endpoint of the service. Each storage endpoint will be dynamically injected into the [Azure NetApp Files delegated subnet](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) upon volume creation and receive an IP address. Azure NetApp Files volumes can – depending on available capacity and deployment logic – share a storage endpoint
 
