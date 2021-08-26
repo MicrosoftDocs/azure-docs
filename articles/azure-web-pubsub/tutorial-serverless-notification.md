@@ -2,7 +2,7 @@
 title: Tutorial - Create a serverless notification app using Azure Web PubSub service and Azure Functions
 description: A tutorial to walk through how to use Azure Web PubSub service and Azure Functions to build a serverless notification application.
 author: JialinXin
-ms.author: JialinXin
+ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
 ms.date: 08/24/2021
@@ -83,23 +83,23 @@ In this tutorial, you learn how to:
    - Update `index/function.json` and copy following json codes.
         ```json
         {
-          "bindings": [
-            {
-              "authLevel": "anonymous",
-              "type": "httpTrigger",
-              "direction": "in",
-              "name": "req",
-              "methods": [
-                "get",
-                "post"
+            "bindings": [
+                {
+                    "authLevel": "anonymous",
+                    "type": "httpTrigger",
+                    "direction": "in",
+                    "name": "req",
+                    "methods": [
+                      "get",
+                      "post"
+                    ]
+                },
+                {
+                    "type": "http",
+                    "direction": "out",
+                    "name": "res"
+                }
             ]
-            },
-            {
-              "type": "http",
-              "direction": "out",
-              "name": "res"
-            }
-          ]
         }
         ```
    - Update `index/index.js` and copy following codes.
@@ -122,6 +122,7 @@ In this tutorial, you learn how to:
             });
         }
         ```
+
    # [C#](#tab/csharp)
    - Update `index.cs` and replace `Run` function with following codes.
         ```c#
@@ -136,7 +137,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-1. Create a `negotiate` function to help clients get service connection url with access token.
+2. Create a `negotiate` function to help clients get service connection url with access token.
     ```bash
     func new -n negotiate -t HttpTrigger
     ```
@@ -187,7 +188,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-1. Create a `notification` function to generate notifications with `TimerTrigger`.
+3. Create a `notification` function to generate notifications with `TimerTrigger`.
    ```bash
     func new -n notification -t TimerTrigger
     ```
@@ -248,7 +249,7 @@ In this tutorial, you learn how to:
         }
         ``` 
 
-1. Add the client single page `index.html` in the project root folder and copy content as below.
+4. Add the client single page `index.html` in the project root folder and copy content as below.
     ```html
     <html>
         <body>
@@ -273,6 +274,8 @@ In this tutorial, you learn how to:
     </html>
     ```
 
+    # [Javascript](#tab/javascript)
+
     # [C#](#tab/csharp)
     Since C# project will compile files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
     ```xml
@@ -283,7 +286,7 @@ In this tutorial, you learn how to:
     </ItemGroup>
     ```
 
-1. Configure and run the Azure Function app
+5. Configure and run the Azure Function app
 
 - In the browser, open the **Azure portal** and confirm the Web PubSub Service instance you deployed earlier was successfully created. Navigate to the instance.
 - Select **Keys** and copy out the connection string.
