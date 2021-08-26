@@ -484,7 +484,7 @@ To set up the access control for the target region Synapse workspace, follow the
 
 ## Step 12: Create managed private endpoints
 
-To Recreate the managed private endpoints from the source region workspace in your target region workspace see [Create a Managed private endpoint to your data source](security/how-to-create-managed-private-endpoints.md. 
+To Recreate the managed private endpoints from the source region workspace in your target region workspace see [Create a Managed private endpoint to your data source](security/how-to-create-managed-private-endpoints.md). 
 
 
 ## Next steps
