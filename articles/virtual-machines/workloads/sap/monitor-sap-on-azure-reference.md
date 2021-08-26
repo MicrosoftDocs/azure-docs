@@ -20,7 +20,7 @@ Azure Monitor for SAP Solutions doesn't support metrics.
 
 ## Azure Monitor logs tables
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Monitor for SAP Solutions and available for query by Log Analytics. Azure Monitor for SAP Solutions uses custom logs. The schema for the tables is often defined by third-party providers, such as SAP. Here are the current custom logs for Azure Monitor for SAP Solutions with links to sources for more information.
+This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Monitor for SAP Solutions and available for query by Log Analytics. Azure Monitor for SAP Solutions uses custom logs. The schemas for the tables may be defined by third-party providers, such as SAP. Here are the current custom logs for Azure Monitor for SAP Solutions with links to sources for more information.
 
 ### SapHana_HostConfig_CL
 
