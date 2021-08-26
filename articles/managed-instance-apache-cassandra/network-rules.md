@@ -50,6 +50,11 @@ If you are not using Azure Firewall, the required network rules and IP address d
 |login.microsoftonline.com:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure AD | HTTPS | 443 | Required for Azure Active Directory authentication.|
 | packages.microsoft.com | HTTPS | 443 | Required for updates to Azure security scanner definition and signatures |
 
+### DNS access
+The system is using DNS names to reach the Azure servcies decsribed above to take advantage of load balancers. Therefore the VNet needs to run a DNS server which can resolve
+those adresses. The vms will honor the nameserver communicated through the DHCP protocol. In most cases Azure will set up a DNS server for the VNet automatically. If this
+is not the case, the above DNS names are a good guide to get started. 
+
 ## Managed Instance for Apache Cassandra internal port usage
 
 The following ports are only accessible within the VNET (or peered vnets./express routes). Managed Instance for Apache Cassandra instances do not have a public IP and should not be made accessible on the Internet.
