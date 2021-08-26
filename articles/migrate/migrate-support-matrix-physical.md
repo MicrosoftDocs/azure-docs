@@ -29,6 +29,10 @@ To assess physical servers, you create a project, and add the Azure Migrate: Dis
 
 **Physical server deployment:** The physical server can be standalone, or deployed in a cluster.
 
+**Type of servers:** Bare metal servers, virtualized servers running on-premises or other clouds like AWS, GCP, Xen etc.
+>[!Note]
+> Currently, Azure Migrate does not support the discovery of para-virtualized servers. 
+
 **Operating system:** All Windows and Linux operating systems can be assessed for migration.
 
 **Permissions:**

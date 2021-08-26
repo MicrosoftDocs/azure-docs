@@ -58,6 +58,9 @@ This section lists what you need to know about the lastSignInDateTime property.
 
 The **lastSignInDateTime** property is exposed by the [signInActivity resource type](/graph/api/resources/signinactivity?view=graph-rest-beta&preserve-view=true) of the [Microsoft Graph REST API](/graph/overview#whats-in-microsoft-graph).   
 
+> [!NOTE]
+> The signInActivity Graph API endpoint is not yet supported in US Government GCC High environments.
+
 ### Is the lastSignInDateTime property available through the Get-AzureAdUser cmdlet?
 
 No.

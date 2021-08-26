@@ -54,4 +54,4 @@ Sign in to the [Azure portal](https://portal.azure.com).
 Learn more about Azure Monitor for SAP Solutions.
 
 > [!div class="nextstepaction"]
-> [Azure Monitor for SAP Solutions](azure-monitor-overview.md)
+> [Monitor SAP on Azure](monitor-sap-on-azure.md)

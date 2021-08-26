@@ -38,7 +38,7 @@ If you're not yet using Application Insights, you can use the [Azure Monitor pri
 1. estimate your likely data ingestion based on what other similar applications generate, or 
 2. use of default monitoring and adaptive sampling, which is available in the ASP.NET SDK.
 
-### Learn from what similar applicatiopns collect
+### Learn from what similar applications collect
 
 In the Azure Monitoring Pricing calculator for Application Insights, click to enable the **Estimate data volume based on application activity**. Here you can provide inputs about your application (requests per month and page views per month, in case you will collect client-side telemetry), and then the calculator will tell you the median and 90th percentile amount of data collected by similar applications. These applications span the range of Application Insights configuration (e.g some have default [sampling](./sampling.md), some have no sampling etc.), so you still have the control to reduce the volume of data you ingest far below the median level using sampling. 
 

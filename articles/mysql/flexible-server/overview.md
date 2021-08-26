@@ -34,22 +34,18 @@ Flexible servers are best suited for:
 
 ## High availability within and across availability zones
 
-The flexible server deployment model is designed to support high availability within single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a Linux virtual machine, while data files reside on remote Azure premium storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability at all times.
+Azure Database for MySQL Flexible Server (Preview) allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost due to failures, and improve overall uptime for your application. When high availability is configured, flexible server automatically provisions and manages a standby replica. There are two high availability architectural models: 
 
-Within a single availability zone, if the server goes down due to planned or unplanned events, the service maintains high availability of the servers using following automated procedure:
+- **Zone Redundant High Availability (HA):** This option is preferred for complete isolation and redundancy of infrastructure across multiple availability zones. It provides highest level of availability, but it requires you to configure application redundancy across zones. Zone redundant HA is preferred when you want to achieve highest level of availability against any infrastructure failure in the availability zone and where latency across the availability zone is acceptable. Zone redundant HA is available in [subset of Azure regions](overview.md#azure-regions) where the region supports multiple Availability Zones and Zone redundant Premium file shares are available. 
 
-1. A new compute VM is provisioned.
-2. The storage with data files is mapped to the new Virtual Machine
-3. MySQL database engine is brought online on the new Virtual Machine.
-4. Client applications can reconnect once the server is ready to accept connections.
+:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="zone redundant ha":::
 
-:::image type="content" source="media/overview/2-flexible-server-architecture.png" alt-text="Single Zone high availability conceptual diagram":::
+- **Same-Zone High Availability (HA):** This option is preferred for infrastructure redundancy with lower network latency as both primary and standby server will be in the same availability zone. It provides high availability without configuring application redundancy across zones. Same-Zone HA is preferred when you want to achieve highest level of availability within a single Availability zone with the lowest network latency. Same-Zone HA is available in [all Azure regions](overview.md#azure-regions) where we can create  Azure Database for MySQL Flexible server. 
 
-If zone redundant high availability is configured, the service provisions and maintains a hot standby server across availability zone within the same Azure region. The data changes on the source server are synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. The typical failover time ranges from 60-120 seconds. This allows the service to support high availability and provide improved resiliency with tolerance for single availability zone failures in a given Azure region.
+:::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="same redundant high availability":::
 
 For more information, see [high availability concepts](concepts-high-availability.md).
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Zone Redundant high availability conceptual diagram":::
 
 ## Automated patching with managed maintenance window
 
@@ -146,29 +142,29 @@ For more information, see [Migration Guide for Azure Database for MySQL](../../m
 
 One advantage of running your workload in Azure is its global reach. The flexible server for Azure Database for MySQL is available today in following Azure regions:
 
-| Region | Availability | Zone redundant HA |
-| --- | --- | --- |
-| Australia East | :heavy_check_mark: | :heavy_check_mark: |
-| Brazil South | :heavy_check_mark: | :x: |
-| Canada Central | :heavy_check_mark: | :x: |
-| Central US | :heavy_check_mark: | :x: |
-| East US | :heavy_check_mark: | :heavy_check_mark: |
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :heavy_check_mark:|
-| Germany West Central | :heavy_check_mark: | :x: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: |
-| Korea Central | :heavy_check_mark: | :x: |
-| North Europe | :heavy_check_mark: | :heavy_check_mark: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
-| Switzerland North | :heavy_check_mark: | :x: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: |
-| West US | :heavy_check_mark: | :x: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: |
-| Australia Southeast | :heavy_check_mark: | :x: |
-| South Africa North | :heavy_check_mark: | :x: |
-| East Asia (Hong Kong) | :heavy_check_mark: | :x: |
-| Central India | :heavy_check_mark: | :x: |
+| Region | Availability | Same Zone HA | Zone redundant HA |
+| --- | --- | --- | --- |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:|
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Korea Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Australia Southeast | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| East Asia (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ## Contacts
 
