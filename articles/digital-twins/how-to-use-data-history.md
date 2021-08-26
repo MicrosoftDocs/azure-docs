@@ -192,7 +192,7 @@ Start in the [Azure portal](https://portal.azure.com) and navigate to the Azure 
 
 :::image type="content" source="media/how-to-use-data-history/azure-data-explorer-database.png" alt-text="Screenshot of the Azure portal showing a database in an Azure Data Explorer cluster.":::
 
-Next, get the name of the Data History table from the left pane. You'll use this name to run queries on the table.
+Next, expand the cluster and database in the left pane to see the name of the table. You'll use this name to run queries on the table.
 
 :::image type="content" source="media/how-to-use-data-history/data-history-table.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The name of the Data History table is highlighted." lightbox="media/how-to-use-data-history/data-history-table.png":::
 
@@ -204,9 +204,9 @@ Copy the command below. The command will change the ingestion to [batched mode](
 
 Paste the command into the query window, replacing the `<table-name>` placeholder with the name of your table. Select the **Run** button.
 
-:::image type="content" source="media/how-to-use-data-history/data-history-run-query.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The Run button is highlighted." lightbox="media/how-to-use-data-history/data-history-run-query.png":::
+:::image type="content" source="media/how-to-use-data-history/data-history-run-query-1.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The Run button is highlighted." lightbox="media/how-to-use-data-history/data-history-run-query-1.png":::
 
-Next, run the following command to verify that Azure Data Explorer has ingested twin updates into the table.
+Next, add the following command to the query window, and run it again to verify that Azure Data Explorer has ingested twin updates into the table.
 
 >[!NOTE]
 > It may take up to 5 minutes for the first batch of ingested data to appear.
@@ -216,7 +216,9 @@ Next, run the following command to verify that Azure Data Explorer has ingested 
 | count
 ```
 
-You can use the following command to view 100 records in the table:
+You should see in the results that the count of items in the table is something greater than 0.
+
+You can also add and run the following command to view 100 records in the table:
 
 ```kusto
 <table_name>
@@ -225,10 +227,10 @@ You can use the following command to view 100 records in the table:
 
 Next, run a query based on the data of your twins to see the contextualized time series data. 
 
-If you used the Azure Digital Twins Data Simulator earlier to set up the [sample dairy scenario](#create-a-twin-graph-and-send-telemetry-to-it), you can use the query below to chart the **outflow** of all salt machine twins in the Oslo dairy. This Kusto query uses the Azure Digital Twins plugin to select the twins of interest, joins those twins against the Data History time series in Azure Data Explorer, and then charts the results. Make sure to replace the `<ADT-instance>` placeholder with the URL of your instance.
+If you used the Azure Digital Twins Data Simulator earlier to set up the [sample dairy scenario](#create-a-twin-graph-and-send-telemetry-to-it), you can use the query below to chart the **outflow** of all salt machine twins in the Oslo dairy. This Kusto query uses the Azure Digital Twins plugin to select the twins of interest, joins those twins against the Data History time series in Azure Data Explorer, and then charts the results. Make sure to replace the `<ADT-instance>` placeholder with the URL of your instance, in the format `https://<instance-host-name>`.
 
 ```kusto
-let ADTendpoint = <ADT-instance>;
+let ADTendpoint = "<ADT-instance>";
 let ADTquery = ```SELECT SALT_MACHINE.$dtId as tid
 FROM DIGITALTWINS FACTORY 
 JOIN SALT_MACHINE RELATED FACTORY.contains 
@@ -243,6 +245,8 @@ evaluate azure_digital_twins_query_request(ADTendpoint, ADTquery)
 ```
 
 The results should show the outflow numbers changing over time.
+
+:::image type="content" source="media/how-to-use-data-history/data-history-run-query-2.png" alt-text="Screenshot of the Azure portal showing the query view for the database. The result for the example query is a line graph showing changing values over time for the salt machine outflows." lightbox="media/how-to-use-data-history/data-history-run-query-2.png":::
 
 For more information on using the Azure Digital Twins query plugin for Azure Data Explorer, see the [documentation](concepts-data-explorer-plugin.md), [blog](https://techcommunity.microsoft.com/t5/internet-of-things/adding-context-to-iot-data-just-became-easier/ba-p/2459987), and [sample Kusto queries on GitHub](https://github.com/Azure-Samples/azure-digital-twins-getting-started/tree/main/adt-adx-queries).
 
