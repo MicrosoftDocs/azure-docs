@@ -13,6 +13,8 @@ ms.author: cynthn
 ---
 # Create and manage Windows VMs in Azure using Java
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 An [Azure Virtual Machine](overview.md) (VM) needs several supporting Azure resources. This article covers creating, managing, and deleting VM resources using Java. You learn how to:
 
 > [!div class="checklist"]

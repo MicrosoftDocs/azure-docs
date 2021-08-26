@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/04/2021
+ms.date: 08/24/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -177,10 +177,6 @@ This section outlines variations and considerations when using Analytics service
 The following Data Factory **features are not currently available** in Azure Government:
 
 - Mapping data flows
-
-### [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
-
-For access to Azure Databricks in an Azure Government environment, contact your Microsoft or Databricks account representative.
 
 ### [HDInsight](../hdinsight/hadoop/apache-hadoop-introduction.md)
 
@@ -536,47 +532,17 @@ The following features have known limitations in Azure Government:
 - Limitations with Azure AD join:
     - Enterprise state roaming for Windows 10 devices is not available
 
+### [Azure Defender for IoT](../defender-for-iot/index.yml)
+
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-defender-for-iot).
+
 ### [Azure Information Protection](/azure/information-protection/what-is-information-protection)
 
 Azure Information Protection Premium is part of the [Enterprise Mobility + Security](/enterprise-mobility-security) suite. For details on this service and how to use it, see the [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 
 ### [Azure Security Center](../security-center/security-center-introduction.md)
 
-The following Azure Security Center **features are not currently available** in Azure Government:
-
-- **1st and 3rd party integrations**
-    - [Connect AWS account](../security-center/quickstart-onboard-aws.md)
-    - [Connect GCP account](../security-center/quickstart-onboard-gcp.md)
-    - [Integrated vulnerability assessment for machines (powered by Qualys)](../security-center/deploy-vulnerability-assessment-vm.md).
-
-    > [!NOTE]
-    > Security Center internal assessments are provided to discover security misconfigurations, based on Common Configuration Enumeration such as password policy, windows FW rules, local machine audit and security policy, and additional OS hardening settings.
-
-- **Threat detection**
-    - [Azure Defender for App Service](../security-center/defender-for-app-service-introduction.md).
-    - [Azure Defender for Key Vault](../security-center/defender-for-key-vault-introduction.md)
-    - *Specific detections*: Detections based on VM log periodic batches, Azure core router network logs, and threat intelligence reports.
-
-    > [!NOTE]
-    > Near real-time alerts generated based on security events and raw data collected from the VMs are captured and displayed.
-
-- **Environment hardening**
-    - [Adaptive network hardening](../security-center/security-center-adaptive-network-hardening.md)
-
-- **Preview features**
-    - [Recommendation exemption rules](../security-center/exempt-resource.md)
-    - [Azure Defender for Resource Manager](../security-center/defender-for-resource-manager-introduction.md)
-    - [Azure Defender for DNS](../security-center/defender-for-dns-introduction.md)
-
-**Azure Security Center FAQ**
-
-For Azure Security Center FAQ, see [Azure Security Center frequently asked questions public documentation](../security-center/faq-general.yml). Extra FAQ for Azure Security Center in Azure Government is listed below.
-
-**What will customers be charged for Azure Security Center in Azure Government?**</br>
-Azure Security Center's integrated cloud workload protection platform (CWPP), Azure Defender, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Azure Defender is free for the first 30 days. Should you choose to continue to use public preview or generally available features of Azure Defender beyond 30 days, we automatically start to charge for the service.
-
-**Is Azure Security Center available for DoD customers?**</br>
-Azure Security Center is deployed in Azure Government regions but not in Azure Government for DoD regions. Azure resources created in DoD regions can still utilize Security Center capabilities. However, using it will result in Security Center collected data being moved out from DoD regions and stored in Azure Government regions. By default, all Security Center features that collect and store data are disabled for resources hosted in DoD regions. The type of data collected and stored varies depending on the selected feature. If you want to enable Azure Security Center features for DoD resources, you are advised to consider data separation and protection requirements before doing so.
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-security-center).
 
 ### [Azure Sentinel](../sentinel/overview.md)
 

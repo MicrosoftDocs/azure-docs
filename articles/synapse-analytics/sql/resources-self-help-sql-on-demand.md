@@ -552,13 +552,13 @@ Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the sto
 
 **Status**: Resolved
 
-**Release**: July 2021
+**Release**: August 2021
 
 ### Query failed because of a topology change or compute container failure
 
 **Status**: Resolved
 
-**Release**: July 2021
+**Release**: August 2021
 
 ### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
 
@@ -593,11 +593,16 @@ First, make sure that your Delta Lake data set is not corrupted.
 - Verify that you can read the content of data files by specifying `FORMAT='PARQUET'` and using recursive wildcard `/**` at the end of the URI path. If you can read all Parquet files, the issue is in `_delta_log` transaction log folder.
 
 Some common errors and workarounds:
+
 - `JSON text is not properly formatted. Unexpected character '.'` - it is possible that the underlying parquet files contain some data types that are not supported in serverless SQL pool.
+
 **Workaround:** Try to use WITH schema that will exclude unsupported types.
 
 - `JSON text is not properly formatted. Unexpected character '{'` - it is possible that you are using some `_UTF8` database collation. 
+
 **Workaround:** Try to run a query on `master` database or any other database that has non-UTF8 collation. If this workaround resolves your issue, use a database without `_UTF8` collation. Specify `_UTF8` collation in the column definition in the `WITH` clause.
+
+**General workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
 
 In the data set is valid, and the workarounds cannot help, report a support ticket and provide a repro to Azure support:
 - Do not make any changes like adding/removing the columns or optimizing the table because this might change the state of Delta Lake transaction log files.

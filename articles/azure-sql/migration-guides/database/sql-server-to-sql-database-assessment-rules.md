@@ -312,7 +312,7 @@ Server Audits is not supported in Azure SQL Database.
 
 
 **Recommendation**   
-Consider Azure SQL Database audit features to replace Server Audits.  Azure SQL supports audit and the features are richer than SQL Server. Azure SQL database can audit various database actions and events, including: Access to data, Schema changes (DDL), Data changes (DML), Accounts, roles, and permissions (DCL, Security exceptions. Azure SQL Database Auditing increases an organization's ability to gain deep insight into events and changes that occur within their database, including updates and queries against the data. Alternatively migrate to Azure SQL Managed Instance or SQL Server on Azure Virtual Machine.
+Consider Azure SQL Database audit features to replace Server Audits.  Azure SQL supports audit and the features are richer than SQL Server. Azure SQL Database can audit various database actions and events, including: Access to data, Schema changes (DDL), Data changes (DML), Accounts, roles, and permissions (DCL, Security exceptions. Azure SQL Database Auditing increases an organization's ability to gain deep insight into events and changes that occur within their database, including updates and queries against the data. Alternatively migrate to Azure SQL Managed Instance or SQL Server on Azure Virtual Machine.
 
 More information: [Auditing for Azure SQL Database ](../../database/auditing-overview.md)
 
@@ -405,7 +405,7 @@ More information: [Discontinued Database Engine functionality in SQL Server](/pr
 **Category**: Warning   
 
 **Description**   
-Following unsupported system and extended stored procedures cannot be used in Azure SQL database - `sp_dboption`, `sp_addserver`, `sp_dropalias`,`sp_activedirectory_obj`, `sp_activedirectory_scp`, `sp_activedirectory_start`.
+Following unsupported system and extended stored procedures cannot be used in Azure SQL Database - `sp_dboption`, `sp_addserver`, `sp_dropalias`,`sp_activedirectory_obj`, `sp_activedirectory_scp`, `sp_activedirectory_start`.
 
 
 **Recommendation**    

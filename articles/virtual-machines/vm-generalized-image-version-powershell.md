@@ -14,6 +14,8 @@ ms.custom: devx-track-azurepowershell
 
 # Create a VM using a generalized image 
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
+
 Create a VM from a generalized image stored in a Shared Image Gallery. If want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version-powershell.md).
 
 Once you have a generalized image version, you can create one or more new VMs. Using the [New-AzVM](/powershell/module/az.compute/new-azvm) cmdlet. 
