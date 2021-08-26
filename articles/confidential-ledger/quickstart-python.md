@@ -250,6 +250,9 @@ ledger_properties = ConfidentialLedger(**properties)
 # Create a ledger
 
 foo = confidential_ledger_mgmt.ledger.begin_create(rg, ledger_name, ledger_properties)
+  
+# wait until ledger is created
+foo.wait()
 
 # Get the details of the ledger you just created
 
@@ -285,6 +288,14 @@ ledger_client = ConfidentialLedgerClient(
 # Write to the ledger
 append_result = ledger_client.append_to_ledger(entry_contents="Hello world!")
 print(append_result.transaction_id)
+  
+# Wait until transaction is committed on the ledger
+while True:
+    commit_result = ledger_client.get_transaction_status(append_result.transaction_id)
+    print(commit_result.state)
+    if (commit_result.state == TransactionState.COMMITTED):
+        break
+    time.sleep(1)
 
 # Read from the ledger
 entry = ledger_client.get_ledger_entry(transaction_id=append_result.transaction_id)
