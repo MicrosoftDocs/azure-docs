@@ -35,7 +35,8 @@ For fastest loading speed, run only one load job at a time. If that is not feasi
 
 To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class or workload group. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
 
-### Create a loading user
+
+<!-- ### Create a loading user
 
 This example creates a loading user for the staticrc20 resource class. The first step is to **connect to master** and create a login.
 
@@ -96,7 +97,7 @@ Connect to the dedicated SQL pool and create a user. The following code assumes 
 >[!IMPORTANT] 
 >This is an extreme example of allocating 100% resources of the SQL pool to a single load. This will give you a maximum concurrency of 1. Be aware that this should be used only for the initial load where you will need to create additional workload groups with their own configurations to balance resources across your workloads. 
 
-To run a load with resources for the loading workload group, sign in as loader and run the load.
+To run a load with resources for the loading workload group, sign in as loader and run the load. -->
 
 ## Allow multiple users to load
 
