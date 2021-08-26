@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 08/26/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -34,7 +34,6 @@ The easiest way to get the commands you need to deploy a Bicep file is to instal
 - [Azure CLI](#azure-cli)
 - [Azure PowerShell](#azure-powershell)
 - [Install manually](#install-manually)
-- [Install on an Airgapped cloud](#install-on-an-airgapped-cloud)
 
 ### Azure CLI
 
@@ -74,6 +73,27 @@ For more commands, see [Bicep CLI](bicep-cli.md).
 
 > [!IMPORTANT]
 > Azure CLI installs a self-contained instance of the Bicep CLI. This instance doesn't conflict with any versions you may have manually installed. Azure CLI doesn't add Bicep CLI to your PATH.
+
+#### Install on an air-gapped cloud
+
+To install Bicep CLI in an air-gapped environment, you need to download the Bicep CLI executable manually and save it to a certain location.
+
+- **Linux**
+
+    1. Download **bicep-linux-x64** from the [Bicep release page](/Azure/bicep/releases/) in a non-air-gapped environment.
+    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine.
+
+- **macOS**
+
+    1. Download **bicep-osx-x64** from the [Bicep release page](/Azure/bicep/releases/) in a non-air-gapped environment.
+    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine.
+
+- **Windows**
+
+    1. Download **bicep-win-x64.exe** from the [Bicep release page](/Azure/bicep/releases/) in a non-air-gapped environment.
+    1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine.
+
+Note `bicep install` and `bicep upgrade` commands don't not work in an air-gapped environment.
 
 ### Azure PowerShell
 
@@ -181,27 +201,6 @@ if (-not $env:path.Contains($installPath)) { $env:path += ";$installPath" }
 bicep --help
 # Done!
 ```
-
-### Install on an Airgapped cloud
-
-To install Bicep in an air-gapped environment, you need to download the Bicep CLI executable manually and save it to a certain location.
-
-- **Linux**
-
-    1. Download **bicep-linux-x64** from the [Bicep release page](/Azure/bicep/releases/) in a non-air-gapped environment.
-    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine.
-
-- **macOS**
-
-    1. Download **bicep-osx-x64** from the [Bicep release page](/Azure/bicep/releases/) in a non-air-gapped environment.
-    1. Copy the executable to the **$HOME/.azure/bin** directory on an air-gapped machine.
-
-- **Windows**
-
-    1. Download **bicep-win-x64.exe** from the [Bicep release page](/Azure/bicep/releases/) in a non-air-gapped environment.
-    1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine.
-
-Note `bicep install` and `bicep upgrade` commands don't not work in an air-gapped environment.
 
 ### Install the nightly builds
 
