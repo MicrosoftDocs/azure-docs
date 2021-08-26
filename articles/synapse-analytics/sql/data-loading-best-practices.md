@@ -35,7 +35,7 @@ For fastest loading speed, run only one load job at a time. If that is not feasi
 
 To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class or workload group. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
 
-### Create a loading user
+<!--### Create a loading user
 
 This example creates a loading user for the staticrc20 resource class. The first step is to **connect to master** and create a login.
 
@@ -57,7 +57,7 @@ To run a load with resources for the staticRC20 resource classes, sign in as Loa
 
 Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](resource-consumption-models.md). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
 
-<!-- 0r
+ 0r
 
 ### Example of creating a loading user
 
@@ -124,13 +124,15 @@ Columnstore indexes require large amounts of memory to compress data into high-q
 - To ensure the loading user has enough memory to achieve maximum compression rates, use loading users that are a member of a medium or large resource class.
 - Load enough rows to completely fill new rowgroups. During a bulk-load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. If you load too few rows, they might all go to the deltastore and not get compressed immediately into columnstore format.
 
-## Increase batch size when using SQLBulkCopy API or BCP
+<!-- ## Increase batch size when using SQLBulkCopy API or BCP
 
-As mentioned before, loading with PolyBase <!--(should this be PolyBase or COPY)--> will provide the highest throughput with dedicated SQL pool. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP), you should consider increasing batch size for better throughput - a good rule of thumb is a batch size between 100K to 1M rows.
+As mentioned before, loading with PolyBase 
+(should this be PolyBase or COPY) 
+will provide the highest throughput with dedicated SQL pool. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP), you should consider increasing batch size for better throughput - a good rule of thumb is a batch size between 100K to 1M rows.
 
 or 
 
-<!-- Loading with the COPY statement will provide the highest throughput with dedicated SQL pools. If you cannot use the COPY to load and must use the [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), you should consider increasing batch size for better throughput.
+Loading with the COPY statement will provide the highest throughput with dedicated SQL pools. If you cannot use the COPY to load and must use the [SqLBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) or [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), you should consider increasing batch size for better throughput.
 
 > [!TIP]
 > A batch size between 100 K to 1M rows is the recommended baseline for determining optimal batch size capacity. -->
