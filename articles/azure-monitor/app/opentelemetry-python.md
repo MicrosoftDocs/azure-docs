@@ -19,7 +19,7 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 > - Auto-capture of unhandled exceptions
 > - [Profiler](profiler-overview.md)
 > - [Snapshot Debugger](snapshot-debugger.md)
-> - offline disk storage
+> - Offline disk storage
 > - [AAD Authentication](azure-ad-authentication.md)
 >
 > Those who require a full-feature experience should use the existing Application Insights SDKs until the OpenTelemetry-based offering matures.
