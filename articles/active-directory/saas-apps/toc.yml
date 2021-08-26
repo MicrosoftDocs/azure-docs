@@ -113,6 +113,8 @@
         href: andfrankly-tutorial.md
       - name: Andromeda
         href: andromedascm-tutorial.md
+      - name: Animaker
+        href: animaker-tutorial.md  
       - name: AnswerHub
         href: answerhub-tutorial.md
       - name: Anyone Home CRM
@@ -205,7 +207,7 @@
         href: bamboo-hr-tutorial.md
       - name: Bambu by Sprout Social
         href: bambubysproutsocial-tutorial.md
-      - name: Baldwin Safety & Compliance
+      - name: Baldwin Safety and Compliance
         href: baldwin-safety-&-compliance-tutorial.md  
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
@@ -1378,6 +1380,8 @@
         href: nuclino-tutorial.md
       - name: NumlyEngage™
         href: numlyengage-tutorial.md
+      - name: Nulab Pass (Backlog,Cacoo,Typetalk)
+        href: nulab-pass-tutorial.md  
       - name: O.C. Tanner - AppreciateHub
         href: oc-tanner-tutorial.md
       - name: OfficeSpace Software
