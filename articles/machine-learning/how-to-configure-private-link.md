@@ -187,7 +187,7 @@ As a preview feature, Azure Machine Learning supports multiple private endpoints
 
 * Client development environments in a separate VNet.
 * An Azure Kubernetes Service (AKS) cluster in a separate VNet.
-* Other Azure services in a separate VNet. For example, Azure Synapse and Azure Data Factory can use a virtual network. In either case, a private endpoint for the workspace can be added to the VNet used by those services. For more information on using a virtual network with these services, see the following articles:
+* Other Azure services in a separate VNet. For example, Azure Synapse and Azure Data Factory can use a Microsoft managed virtual network. In either case, a private endpoint for the workspace can be added to the managed VNet used by those services. For more information on using a managed virtual network with these services, see the following articles:
 
     * [Synapse managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints)
     * [Azure Data Factory managed virtual network](/azure/data-factory/managed-virtual-network-private-endpoint).
@@ -264,6 +264,9 @@ Currently there is no way to enable this functionality using the portal.
 
 ---
 
+## Securely connect to your workspace
+
+[!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
 
 ## Next steps
 
