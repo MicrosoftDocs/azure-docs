@@ -135,7 +135,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/) | &#x2705; | &#x2705; | |
 | [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | |
-| [Azure Scheduler](../../scheduler/scheduler-intro.md) | &#x2705; | &#x2705; | |
+| [Azure Scheduler](../../scheduler/scheduler-intro.md) (replaced by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)) | &#x2705; | &#x2705; | |
 | [Azure Security Center](https://azure.microsoft.com/services/security-center/) | &#x2705; | &#x2705; | |
 | [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | &#x2705; | &#x2705; | |
 | [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; | |
@@ -289,7 +289,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) (formerly Azure Security for IoT) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -324,7 +324,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
-| [Azure Scheduler](../../scheduler/scheduler-intro.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Scheduler](../../scheduler/scheduler-intro.md) (replaced by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Security Center](https://azure.microsoft.com/services/security-center/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
