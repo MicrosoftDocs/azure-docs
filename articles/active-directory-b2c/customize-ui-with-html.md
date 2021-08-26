@@ -109,7 +109,7 @@ The following example defines the following classes:
 }
 ```
 
-The following HTML elements will be shown or hidden according to the page language.
+The following HTML elements will be shown or hidden according to the page language:
 
 ```html
 <a class="imprint imprint-en" href="Link EN">Imprint</a>
