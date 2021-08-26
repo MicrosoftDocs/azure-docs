@@ -37,7 +37,7 @@ The following known issues may impact access to your on-premises or Active Direc
 - Azure Virtual Desktop (classic) doesn't currently support Azure AD-joined VMs. 
 - Azure AD-joined VMs don't currently support external users, only local user profiles.
 - Only supports local user profiles at this time.
-- Azure AD-joined VMs will not be able to access Azure File Shares for FSLogix or MSIX App attach. (Require Kerberos authentication)
+- Azure AD-joined VMs can't access Azure Files file shares for FSLogix or MSIX app attach. You'll need Kerberos authentication to access either of these features.
 - Connecting to Azure AD-joined VMs isn't currently supported using the Windows Store client.
 - Azure Virtual Desktop doesn't currently support single sign-on for Azure AD-joined VMs.
 
