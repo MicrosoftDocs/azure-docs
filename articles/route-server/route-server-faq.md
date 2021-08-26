@@ -9,7 +9,7 @@ ms.date: 09/01/2021
 ms.author: duau
 ---
 
-# Azure Route Server (Preview) FAQ
+# Azure Route Server FAQ
 
 ## What is Azure Route Server?
 
