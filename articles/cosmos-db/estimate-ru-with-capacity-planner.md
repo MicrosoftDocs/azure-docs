@@ -5,13 +5,17 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 08/26/2021
 ms.author: dech
 
 ---
 
 # Estimate RU/s using the Azure Cosmos DB capacity planner - SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
+> [!NOTE]
+> If you are planning a data migration to Azure Cosmos DB and all that you know is the number of vcores and servers in your existing sharded and replicated database cluster, please also read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+>
 
 Configuring your Azure Cosmos databases and containers with the right amount of provisioned throughput, or [Request Units (RU/s)](request-units.md), for your workload is essential to optimizing cost and performance. This article describes how to use the Azure Cosmos DB [capacity planner](https://cosmos.azure.com/capacitycalculator/) to get an estimate of the required RU/s and cost of your workload when using the SQL API. If you are using API for MongoDB, see how to [use capacity calculator with MongoDB](mongodb/estimate-ru-capacity-planner.md) article.
 
@@ -71,7 +75,9 @@ The prices shown in the Azure Cosmos DB capacity planner are estimates based on 
 
 ## Next steps
 
+* If all you know is the number of vcores and servers in your existing sharded and replicated database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
 * Learn more about [Azure Cosmos DB's pricing model](how-pricing-works.md).
 * Create a new [Cosmos account, database, and container](create-cosmosdb-resources-portal.md).
 * Learn how to [optimize provisioned throughput cost](optimize-cost-throughput.md).
 * Learn how to [optimize cost with reserved capacity](cosmos-db-reserved-capacity.md).
+
