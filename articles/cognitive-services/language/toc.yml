@@ -76,12 +76,18 @@ items:
   items:
   - name: Overview
     href: dialog-understanding/overview.md
+  - name: Quickstart
+    href: dialog-understanding/quickstart.md
   - name: How-to guides
     items:
       - name: Build a schema
         href: dialog-understanding/how-to/build-schema.md
       - name: Tag utterances
         href: dialog-understanding/how-to/tag-utterances.md
+      - name: View model evaluation and scoring
+        href: custom-extraction/how-to/view-model-evaluation.md
+      - name: Query the runtime
+        href: dialog-understanding/how-to/deploy-query-model.md
   - name: Concepts
     items:
       - name: Backwards compatibility
