@@ -86,68 +86,39 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 
 ## Localize content
 
-You localize your HTML content by enabling [language customization](language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui_locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
-
-> [!NOTE]
-> Azure AD B2C doesn't pass OpenID Connect parameters, such as `ui_locales` to the [Exception pages](page-layout.md#exception-page-globalexception).
-
-There are serval ways to localize your HTML content.
+You localize your HTML content by enabling [language customization](language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to set the HTML page language attribute, and pass the OpenID Connect parameter `ui_locales` to your endpoint.
 
 #### Single template approach
-B2C will modify your HTML and it adds a language tag ("lang") to the HTML root element. Based on that you can modify your layout via CSS.
+During page load Azure AD B2C sets the HTML page language attribute with the current language. For example, `<html lang="en">`. To render different styles per the current language, use the CSS `:lang` selector along with your CSS definition.
 
-Sample html root element of B2C site:
+The following example defines the following classes:
 
-```html
-<html lang="en">
-```
+* `imprint-en` - Used when the current language is English.
+* `imprint-de` - Used when the current language is German.
+* `imprint` - Default class that is used when the current language is neither English, nor German.
 
-1. Step: Sample custom CSS:
-    
-```html
-.imprint {
-    display: none;
-}
+```css
 .imprint-en:lang(en),
 .imprint-de:lang(de) {
     display: inherit !important;
 }
+.imprint {
+    display: none;
+}
 ```
 
-2. Step: Sample content/ custom link:
+The following HTML elements will be shown, or hide according to the page language.
 
 ```html
 <a class="imprint imprint-en" href="Link EN">Imprint</a>
 <a class="imprint imprint-de" href="Link DE">Impressum</a>
 ```
 
-Sample template site with different languages and links for the Imprint.
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Product Brand Name</title>
-</head>
-<style>
-	.imprint {
-		display: none;
-	}
-
-	.imprint-en:lang(en),
-	.imprint-de:lang(de) {
-		display: inherit !important;
-	}
-</style>
-<body>
-    <div id="api"></div>
-    <a class="imprint imprint-en" href="Link EN">Imprint</a>
-    <a class="imprint imprint-de" href="Link DE">Impressum</a>
-</body>
-</html>
-```
-
 #### Multi template approach
+The language customization feature allows Azure AD B2C to pass the OpenID Connect parameter `ui_locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
+
+> [!NOTE]
+> Azure AD B2C doesn't pass OpenID Connect parameters, such as `ui_locales` to the [Exception pages](page-layout.md#exception-page-globalexception).
 
 Content can be pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value `{Culture:RFC5646}`.
 
