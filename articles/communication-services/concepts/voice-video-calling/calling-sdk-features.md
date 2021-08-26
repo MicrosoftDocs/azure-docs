@@ -103,18 +103,19 @@ The following timeouts apply to the Communication Services Calling SDKs:
 
 ## JavaScript Calling SDK support by OS and browser
 
-The following table represents the set of supported browsers which are currently available. We support the most recent three versions of the browser unless otherwise indicated.
+The following table represents the set of supported browsers which are currently available. **We support the most recent three versions of the browser** unless otherwise indicated.
 
-| Platform     | Chrome | Safari | Edge (Chromium) | Notes                                                                                                                                                                                                       |
-| ------------ | ------ | ------ | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Android      | ✔️      | ❌      | ❌               | Outgoing Screen Sharing is not supported.                                                                                                                                                                   |
-| iOS          | ❌      | ✔️      | ❌               | [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection. Outgoing screen sharing is not supported. |
-| macOS        | ✔️      | ✔️      | ❌               | Safari 14+/macOS 11+ needed for outgoing video support.                                                                                                                                                     |
-| Windows      | ✔️      | ❌      | ✔️               |                                                                                                                                                                                                             |
-| Ubuntu/Linux | ✔️      | ❌      | ❌               |                                                                                                                                                                                                             |
+| Platform     | Chrome | Safari | Edge (Chromium)  |
+| ------------ | ------ | ------ | --------------   |
+| Android      | ✔️      | ❌      | ❌           | 
+| iOS          | ❌      | ✔️      | ❌           |
+| macOS        | ✔️      | ✔️      | ❌           | 
+| Windows      | ✔️      | ❌      | ✔️           |
+| Ubuntu/Linux | ✔️      | ❌      | ❌           |    
 
-* For Safari versions 13.1+ are supported, 1:1 calls are not supported on Safari.
-* Unless otherwise specified, the past 3 versions of each browser are supported.
+* 1:1 calls are not supported on Safari.
+* Outgoing Screen Sharing is not supported on iOS or Android.
+* [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection.
 
 ## Android Calling SDK support
 
