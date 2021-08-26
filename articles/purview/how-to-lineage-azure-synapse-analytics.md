@@ -16,8 +16,8 @@ This document explains the steps required for connecting an Azure Synapse worksp
 
 Currently, Azure Purview captures runtime lineage from the following Azure Synapse pipeline activities:
 
-- [Copy Data](../data-factory/copy-activity-overview.md)
-- [Data Flow](../data-factory/concepts-data-flow-overview.md)
+- [Copy Data](../data-factory/copy-activity-overview.md?context=/azure/synapse-analytics/context/context)
+- [Data Flow](../data-factory/concepts-data-flow-overview.md?context=/azure/synapse-analytics/context/context)
 
 > [!IMPORTANT]
 > Azure Purview drops lineage if the source or destination uses an unsupported data storage system.
