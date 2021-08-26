@@ -27,7 +27,7 @@ You can perform the following tasks in Synapse:
 
 ## Permissions for connecting an Azure Purview account 
 
-- To connect an Azure Purview Account to a Synapse workspace, you need a **Contributor** role in Synapse workspace from Azure portal IAM and you need access to that Azure Purview Account. For more information, see [Azure Purview permissions](../../purview/catalog-permissions.md).
+To connect an Azure Purview Account to a Synapse workspace, you need a **Contributor** role in Synapse workspace from Azure portal IAM and you need access to that Azure Purview Account. For more information, see [Azure Purview permissions](../../purview/catalog-permissions.md).
 
 ## Connect an Azure Purview account  
 
@@ -64,11 +64,11 @@ Synapse workspace's managed identity is used to authenticate lineage push operat
 
     When connecting Synapse workspace to Purview in Synapse Studio, ADF tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection, this operation is done successfully.
 
-- For Purview account created **before August 18, 2021**, grant the Synapse workspace's managed identity Azure built-in [**Purview Data Curator**](../../role-based-access-control/built-in-roles.md#purview-data-curator.md) role on your Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../../purview/catalog-permissions.md#legacy-permission-guide).
+- For Purview account created **before August 18, 2021**, grant the Synapse workspace's managed identity Azure built-in [**Purview Data Curator**](../../role-based-access-control/built-in-roles.md#purview-data-curator) role on your Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../../purview/catalog-permissions.md#legacy-permission-guide).
 
     When connecting Synapse workspace to Purview in Synapse Studio, ADF tries to add such role assignment automatically. If you have Azure built-in **Owner** or **User Access Administrator** role on the Purview account, this operation is done successfully.
 
-You may see below warning if the needed role is not granted and you have the privilege to read Purview role assignment information. To make sure the connection is properly set for the pipeline lineage push, go to your Purview account and check if **Purview Data Curator** role is granted to the Synapse workspace's managed identity. If not, manually add the role assignment.
+You may see below warning if you have the privilege to read Purview role assignment information and the needed role is not granted. To make sure the connection is properly set for the pipeline lineage push, go to your Purview account and check if **Purview Data Curator** role is granted to the Synapse workspace's managed identity. If not, manually add the role assignment.
 
 :::image type="content" source="./media/register-purview-account-warning.png" alt-text="Screenshot for warning of registering a Purview account.":::
 

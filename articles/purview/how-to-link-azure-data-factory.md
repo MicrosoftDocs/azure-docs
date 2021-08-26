@@ -42,7 +42,7 @@ Multiple Azure Data Factories can connect to a single Azure Purview to push line
 >
 > Besides, it requires the users to be the data factory's "Owner" or "Contributor". 
 
-Follow the steps below to connect an existing data factory to your Purview account. You can also [connect data factory to Purview account from ADF](../data-factory/connect-data-factory-to-azure-purview.md).
+Follow the steps below to connect an existing data factory to your Purview account. You can also [connect Data Factory to Purview account from ADF](../data-factory/connect-data-factory-to-azure-purview.md).
 
 1. Select **Management** on the left navigation pane.
 2. Under **Lineage connections**, select **Data Factory**.
@@ -67,7 +67,7 @@ Data factory's managed identity is used to authenticate lineage push operations 
 
 - For Purview account created **on or after August 18, 2021**, grant the data factory's managed identity **Data Curator** role on Purview **root collection**. Learn more about [Access control in Azure Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-- For Purview account created **before August 18, 2021**, grant the data factory's managed identity Azure built-in [**Purview Data Curator**](../role-based-access-control/built-in-roles.md#purview-data-curator.md) role on Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../purview/catalog-permissions.md#legacy-permission-guide).
+- For Purview account created **before August 18, 2021**, grant the data factory's managed identity Azure built-in [**Purview Data Curator**](../role-based-access-control/built-in-roles.md#purview-data-curator) role on Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../purview/catalog-permissions.md#legacy-permission-guide).
 
 ### Remove data factory connections
 
