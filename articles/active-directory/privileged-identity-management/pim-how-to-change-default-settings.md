@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2021
+ms.date: 08/25/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -89,7 +89,7 @@ You can require that users enter a business justification when they activate. To
 
 ## Require approval to activate
 
-If setting multiple approvers, approval completes as soon as one of them approves or denies. You can't require approval from at least two users. To require approval to activate a role, follow these steps.
+If setting multiple approvers, approval completes as soon as one of them approves or denies. You can't force approval from a second or subsequent approver. To require approval to activate a role, follow these steps.
 
 1. Check the **Require approval to activate** check box.
 
@@ -97,11 +97,9 @@ If setting multiple approvers, approval completes as soon as one of them approve
 
     ![Select a user or group pane to select approvers](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Select at least one user and then click **Select**. Select at least one approver. If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+1. Select at least one user and then click **Select**. Select at least one approver. If no specific approvers are selected, Privileged Role Administrators and Global Administrators become the default approvers.
 
-    Your selections will appear in the list of selected approvers.
-
-1. Once you have specified your all your role settings, select **Update** to save your changes.
+1. Select **Update** to save your changes.
 
 ## Next steps
 
