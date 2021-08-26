@@ -10,9 +10,9 @@ ms.custom: subject-monitoring
 ms.date: 08/24/2021
 ---
 
-# Monitor SAP on Azure data reference
+# Monitor SAP on Azure (preview) data reference
 
-This article provides a reference of log data collected to analyze the performance and availability of Azure Monitor for SAP Solutions. See [Monitor SAP on Azure](monitor-sap-on-azure.md) for details on collecting and analyzing monitoring data for SAP on Azure.
+This article provides a reference of log data collected to analyze the performance and availability of Azure Monitor for SAP Solutions. See [Monitor SAP on Azure (preview)](monitor-sap-on-azure.md) for details on collecting and analyzing monitoring data for SAP on Azure.
 
 ## Metrics
 
