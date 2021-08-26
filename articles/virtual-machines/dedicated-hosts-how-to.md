@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: dedicated-hosts
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 08/25/2021
+ms.date: 09/01/2021
 ms.reviewer: cynthn, zivr
 
 
@@ -16,7 +16,7 @@ ms.reviewer: cynthn, zivr
 
 # Deploy VMs and scale sets to dedicated hosts
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 This article guides you through how to create an Azure [dedicated host](dedicated-hosts.md) to host your virtual machines (VMs) and scale set instances.
 
