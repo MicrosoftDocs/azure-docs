@@ -193,7 +193,7 @@ In the pre-migration phase, spend some time to plan what steps you will take tow
 ## Next steps
 
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
-    * If all you know is the number of vcores and servers in your existing database cluster, read about [estiming request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md)
 * Migrate to Azure Cosmos DB API for MongoDB
    * [Offline migration using MongoDB native tools](tutorial-mongotools-cosmos-db.md)
