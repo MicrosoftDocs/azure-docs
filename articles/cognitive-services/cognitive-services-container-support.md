@@ -117,7 +117,6 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 * [Anomaly Detector containers][ad-containers]
 * [Computer Vision containers][cv-containers]
 * [Face containers][fa-containers]
-* [Form Recognizer containers][fr-containers]
 * [Language Understanding (LUIS) containers][lu-containers]
 * [Speech Service API containers][sp-containers]
 * [Text Analytics containers][ta-containers]
@@ -129,7 +128,6 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md
 [fa-containers]: face/face-how-to-install-containers.md
-[fr-containers]: ./form-recognizer/containers/form-recognizer-container-install-run.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
 [spa-containers]: ./computer-vision/spatial-analysis-container.md
