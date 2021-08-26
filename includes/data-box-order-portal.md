@@ -14,7 +14,7 @@ Do the following steps in the Azure portal to order a device.
 
    ![Screenshot of New section with Azure Data Box in search field](media/data-box-order-portal/data-box-import-01.png)
 
-3. Select **Create**.
+3. Select **Create**.  
 
    ![Screenshot of Azure Data Box section with Create option called out](media/data-box-order-portal/data-box-import-02.png)
 
