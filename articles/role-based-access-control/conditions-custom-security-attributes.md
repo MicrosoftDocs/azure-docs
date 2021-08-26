@@ -39,7 +39,7 @@ To assign custom security attributes and add role assignments conditions in your
     - `Microsoft.Authorization/roleAssignments/write`
 
 > [!IMPORTANT]
-> [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator), [Global Reader](../active-directory/roles/permissions-reference.md#global-reader), and [Privileged Role Administrator](../active-directory/roles/permissions-reference.md#privileged-role-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes. If you do not meet these prerequisites, you won't see the principal/user attributes in the condition builder.
+> [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator), [Global Reader](../active-directory/roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../active-directory/roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes. If you do not meet these prerequisites, you won't see the principal/user attributes in the condition builder.
 
 ## Condition
 
