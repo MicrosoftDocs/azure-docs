@@ -74,18 +74,11 @@ To create a single database in the Azure portal this quickstart starts at the Az
 
 # [Azure CLI](#tab/azure-cli)
 
-You can use two methods to create an Azure SQL database. The first method requires you to enter multiple commands to create resources like resource groups, servers, and databases. It allows for a more detailed, granular setup. The second method creates all of your resources with a single command so that a database is available for immediate use.
-
-> [!NOTE]
-> The `az sql up` command requires the installation of the `db-up` extension for CloudShell. The extension is currently in preview.
-
 ## Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
-
-## [Multi-command](#tab/multi-command/azure-cli)
 
 ### Set parameter values
 
@@ -161,18 +154,24 @@ az sql db create \
     --capacity 2
 ```
 
-## [Single command](#tab/single-command/azure-cli)
+# [Azure CLI (preview)](#tab/azure-cli-(preview))
 
-Run the `az sql up` command. If you want a resource, like a server name, to be random, remove the parameter for that resource.
+## Launch Azure Cloud Shell
+
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
+
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
+
+## Create a database and resources
+
+Run the `az sql up` command to quickly create a database and all associated resources. If a parameter is not used with the command, that parameter is created with a random name.
+
+> [!NOTE]
+> The `az sql up` command requires the installation of the `db-up` extension for CloudShell. The extension is currently in preview.
 
 ```azurecli-interactive
 az sql up --resource-group $resourceGroupName --server-name $serverName --database-name mySampleDatabase --admin-user $adminlogin --admin-password $password
 ```
-
-> [!NOTE]
-> Running the `az sql up` command with no parameters results in all resources being created with a random name.
-
----
 
 # [PowerShell](#tab/azure-powershell)
 
