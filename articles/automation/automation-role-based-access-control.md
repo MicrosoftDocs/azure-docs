@@ -4,7 +4,7 @@ description: This article describes how to use Azure role-based access control (
 keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 08/12/2021
+ms.date: 08/26/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -77,8 +77,8 @@ An Automation Contributor can manage all resources in the Automation account exc
 |Microsoft.Support/*|Create and manage support tickets.|
 
 > [!NOTE]
-> -	Automation Contributor can be used to access any resource via the managed identity (if the appropriate permissions are setup at the target resource) or Run As account (since Automation account Run As accounts are by default configured with Contributor rights on the subscription). Follow the principal of least privilege & carefully assign permissions only required to execute your runbook operation. For example, if the Automation account is only required to start or stop a VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping a VM. Similarly, if an operation is reading from blob storage, then assign read only permissions, and so on. 
-> -	For assigning permissions, it is recommended to use RBAC assigned to Managed Identities that allow centralized management & governance of identities through Azure AD and track any violations or malicious access attempts by a bad actor.
+> -	The Automation Contributor role can be used to access any resource using the managed identity, if appropriate permissions are set on the target resource, or using a Run As account. An Automation Run As account are by default, configured with Contributor rights on the subscription. Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read only permissions.
+> -	When assigning permissions, it is recommended to use Azure role based access control (RBAC) assigned to a managed identity. Review our [best approach](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md) recommendations for using a system or user-assigned managed identity, including management and governance during its lifetime..
 
 ### Automation Operator
 
