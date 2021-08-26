@@ -1,8 +1,8 @@
 ---
 title: Update your Azure Percept DK over a USB-C cable connection
 description: Learn how to update the Azure Percept DK over a USB-C cable connection
-author: mimcco
-ms.author: mimcco
+author: EthanChangAED
+ms.author: hschang
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021

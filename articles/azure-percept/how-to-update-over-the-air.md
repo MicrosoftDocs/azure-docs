@@ -1,8 +1,8 @@
 ---
 title: Update your Azure Percept DK using over-the-air (OTA) updates
 description: Learn how to receive over-the air (OTA) updates to your Azure Percept DK
-author: mimcco
-ms.author: mimcco
+author: EthanChangAED
+ms.author: hschang
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021

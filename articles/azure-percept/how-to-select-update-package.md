@@ -1,8 +1,8 @@
 ---
 title: Select your Azure Percept DK update package
 description: How to identify your Azure Percept DK version and select the best update package for it 
-author: mimcco
-ms.author: mimcco
+author: EthanChangAED
+ms.author: hschang
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 07/23/2021
