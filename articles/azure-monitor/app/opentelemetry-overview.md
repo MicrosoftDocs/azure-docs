@@ -44,7 +44,7 @@ There are also two ways to send your data to Azure Monitor (or any vendor).
 1. Direct Exporter
 2. Via an Agent
 
-A direct exporter sends telemetry in-process (from the application’s code) directly to Azure Monitor’s ingestion endpoint. The main advantage of this approach is simplicity and less moving parts.
+A direct exporter sends telemetry in-process (from the application’s code) directly to Azure Monitor’s ingestion endpoint. The main advantage of this approach is simplicity.
 
 Alternatively, sending via an agent may use the OpenTelemetry-Collector or a vendor-specific agent, such as the Azure Monitor Agent. The main advantage of this approach is it allows users to combine receivers, exporters, and processors in a way that unlocks more scenarios.
 
