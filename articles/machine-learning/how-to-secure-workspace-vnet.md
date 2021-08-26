@@ -258,6 +258,10 @@ validate=False)
 
 [!INCLUDE [machine-learning-connect-secure-workspace](../../includes/machine-learning-connect-secure-workspace.md)]
 
+## Workspace diagnostics
+
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
+
 ## Next steps
 
 This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:

@@ -8,20 +8,20 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Purview account - Azure portal
-    href: create-catalog-portal.md
-  - name: Create a collection - Azure portal
+  - name: Create Purview account
+    items:
+    - name: Create a Purview account - Azure portal
+      href: create-catalog-portal.md
+    - name: Create a Purview account - Azure PowerShell
+      href: create-catalog-powershell.md
+    - name: Create a Purview account - .NET SDK
+      href: create-purview-dotnet.md
+    - name: Create a Purview account - Python
+      href: create-purview-python.md
+    - name: Create a Purview account - Azure portal FAQs
+      href: create-purview-portal-faq.md
+  - name: Create a collection - Azure Purview Studio
     href: quickstart-create-collection.md
-  - name: Create a Purview account - Azure PowerShell
-    href: create-catalog-powershell.md
-  - name: Create a Purview account - .NET SDK
-    href: create-purview-dotnet.md
-  - name: Create a Purview account - Python
-    href: create-purview-python.md
-  - name: Create a Purview account - Azure portal FAQs
-    href: create-purview-portal-faq.md
-  - name: Manage Kafka notifications - .NET
-    href: manage-kafka-dotnet.md
 - name: Tutorials
   items:
   - name: Onboarding Azure data sources at scale
@@ -259,8 +259,18 @@ items:
     items:
     - name: Disaster recovery
       href: disaster-recovery.md
+  - name: Manage Kafka notifications - .NET
+    href: manage-kafka-dotnet.md
 - name: Reference
   items:
+    - name: Java
+      href: /samples/browse/?products=azure&languages=java&terms=purview
+    - name: .NET
+      href: /dotnet/api/overview/azure/purviewresourceprovider
+    - name: Python
+      href: /python/api/azure-mgmt-purview/
+    - name: REST
+      href: /rest/api/purview/
     - name: Supported classifications
       href: supported-classifications.md
     - name: Azure Purview product glossary
@@ -269,8 +279,6 @@ items:
       href: abap-functions-deployment-guide.md
 - name: Resources
   items:
-    - name: Feature feedback (User voice)
-      href: https://feedback.azure.com/forums/932437-azure-purview
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/details/azure-purview/
     - name: Microsoft Q&A forum
