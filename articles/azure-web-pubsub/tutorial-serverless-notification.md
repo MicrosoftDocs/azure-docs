@@ -379,7 +379,7 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you learned how to run a serverless chat application. Now, you could start to build your own application. 
 
 > [!div class="nextstepaction"]
-> [Quick start: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
+> [Tutorial: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
 
 > [!div class="nextstepaction"]
 > [Azure Web PubSub bindings for Azure Functions](https://azure.github.io/azure-webpubsub/references/functions-bindings)
