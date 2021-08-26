@@ -99,12 +99,12 @@ You may use X to add attributes to spans. These attributes may include adding a 
 For more information, see [GitHub Repo](link).
 
 #### Add Custom Dimension
-Populate the _customDimensions_ field in the requests, dependencies, and/or exceptions table.
+Populate the _customDimensions_ field in the requests and dependencies table.
 
 ```python
 Placeholder
 ```
-
+<!---
 #### Set User ID or Authenticated User ID
 Populate the _user_Id_ or _user_Authenticatedid_ field in the requests, dependencies, and/or exceptions table. User ID is an anonymous user identifier and Authenticated User ID is a known user identifier.
 
@@ -117,9 +117,9 @@ Populate the _user_Id_ or _user_Authenticatedid_ field in the requests, dependen
 ```python
 Placeholder
 ```
-
+--->
 #### Set User IP
-Populate the _client_IP_ field in the requests, dependencies, and/or exceptions table. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
+Populate the _client_IP_ field in the requests and dependencies table. Application Insights uses the IP address to generate user location attributes and then [discards it by default](ip-collection.md#default-behavior).
 
 > [!TIP]
 > Instrument with the the [JavaScript SDK](javascript.md) to automatically populate User IP.
@@ -145,7 +145,7 @@ Placeholder
 ```
 
 For more information, see [GitHub Repo](link).
-
+<!---
 ### Get Trace ID or Span ID
 You may use X or Y to get trace ID and/or span ID. Adding trace ID and/or span ID to existing logging telemetry enables better correlation when debugging and diagnosing issues.
 
@@ -157,7 +157,7 @@ Placeholder
 ```
 
 For more information, see [GitHub Repo](link).
-
+--->
 ## Enable OTLP Exporter
 You may want to enable the OTLP Exporter alongside your Azure Monitor Exporter to send your telemetry to two locations.
 
