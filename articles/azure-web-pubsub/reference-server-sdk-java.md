@@ -71,15 +71,10 @@ WebPubSubGroup javaGroup = webPubSubServiceClient.getGroup("java");
 
 ## Key concepts
 
-[!INCLUDE [Termsc](includes/terms.md)]
+[!INCLUDE [Terms](includes/terms.md)]
 
 
 ## Examples
-
-* [Broadcast message to entire hub](#broadcast-all "Broadcast message to entire hub")
-* [Broadcast message to a group](#broadcast-group "Broadcast message to a group")
-* [Send message to a connection](#send-to-connection "Send message to a connection")
-* [Send message to a user](#send-to-user "Send message to a user")
 
 ### Broadcast message to entire hub
 
@@ -124,13 +119,13 @@ better performance compared to the default SSL implementation within the JDK. Fo
 reduce the dependency size, see the [performance tuning][performance_tuning] section of the wiki.
 
 [azure_subscription]: https://azure.microsoft.com/free
-[jdk_link]: https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable
+[jdk_link]: /java/azure/jdk/?view=azure-java-stable
 [source_code]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/webpubsub/azure-messaging-webpubsub/src
 [product_documentation]: https://aka.ms/awps/doc
 [samples_readme]: https://github.com/Azure/azure-webpubsub/tree/main/samples/java
 [log_levels]: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/logging/ClientLogger.java
 [performance_tuning]: https://github.com/Azure/azure-sdk-for-java/wiki/Performance-Tuning
-[api]: https://docs.microsoft.com/java/api/com.azure.messaging.webpubsub
+[api]: /java/api/com.azure.messaging.webpubsub
 
 ## Next steps
 

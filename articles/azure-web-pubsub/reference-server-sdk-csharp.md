@@ -94,7 +94,7 @@ You can also easily [enable console logging](https://github.com/Azure/azure-sdk-
 [samples_ref]: https://github.com/Azure/azure-webpubsub/tree/main/samples/csharp
 [code]: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/webpubsub/Azure.Messaging.WebPubSub/src
 [package]: https://www.nuget.org/packages/Azure.Messaging.WebPubSub
-[api]: /dotnet/api/azure.messaging.webpubsub?view=azure-dotnet-preview
+[api]: /dotnet/api/azure.messaging.webpubsub
 
 ## Next steps
 

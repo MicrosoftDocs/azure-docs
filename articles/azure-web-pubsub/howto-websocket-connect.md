@@ -32,7 +32,7 @@ The service supports two types of WebSocket clients, one is the simple WebSocket
 
 ## Dependency
 
-# [In Browser]($tab/browser)
+# [In Browser](#tab/browser)
 In most modern browsers, `WebSocket` API is natively supported. 
 
 # [Node.js](#tab/javascript)
@@ -58,7 +58,7 @@ In most modern browsers, `WebSocket` API is natively supported.
 
 ## Simple WebSocket Client
 
-# [In Browser]($tab/browser)
+# [In Browser](#tab/browser)
 
 Inside the `script` block of the html page:
 ```html
@@ -197,7 +197,7 @@ public final class SimpleClient {
 
 #### PubSub WebSocket Client
 
-# [In Browser]($tab/browser)
+# [In Browser](#tab/browser)
 
 Inside the `script` block of the html page:
 ```html

@@ -91,7 +91,7 @@ logging.basicConfig(level=logging.DEBUG)
 Http request and response details are printed to stdout with this logging config.
 
 [webpubsubservice_docs]: https://aka.ms/awps/doc
-[azure_cli]: https://docs.microsoft.com/cli/azure
+[azure_cli]: /cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
 [webpubsubservice_client_class]: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/webpubsub/azure-messaging-webpubsubservice/azure/messaging/webpubsubservice/__init__.py
 [package]: https://pypi.org/project/azure-messaging-webpubsubservice/

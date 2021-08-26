@@ -95,13 +95,13 @@
   - name: Server SDKs
     items:
     - name: Server SDK - C#
-    - href: reference-server-sdk-csharp.md
+      href: reference-server-sdk-csharp.md
     - name: Server SDK - Java
-    - href: server-sdk-java.md
-    - name: reference-Server SDK - JavaScript
-    - href: reference-server-sdk-js.md
+      href: reference-server-sdk-java.md
+    - name: Server SDK - JavaScript
+      href: reference-server-sdk-js.md
     - name: Server SDK - Python
-    - href: reference-server-sdk-python.md
+      href: reference-server-sdk-python.md
   - name: REST API
     href: /rest/api/webpubsub
 
