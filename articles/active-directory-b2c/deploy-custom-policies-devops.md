@@ -168,25 +168,15 @@ A pipeline task is a pre-packaged script that performs an action. Add a task tha
     * **Display name**: The name of the policy that this task should upload. For example, *B2C_1A_TrustFrameworkBase*.
     * **Type**: File Path
     * **Script Path**: Select the ellipsis (***...***), navigate to the *Scripts* folder, and then select the *DeployToB2C.ps1* file.
-    * **Arguments:**: Enter the following values for Arguments. 
+    * **Arguments**: Enter the following PowerShell script. 
 
-
-        ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/{alias-name}/B2CAssets/  -Files   "{Policies}"
-        ```
-
-        Update the following parameters:
-
-        |  Name | Value |
-        | ----- |----- |
-        | `{alias-name}` | Replace the  with the alias you specified in the [Configure Azure Pipelines](#configure-azure-pipelines) section. |
-        | `{Policies}` | Comma delimiter list of policy files to deploy. For example, `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`. Important, when running the agents and uploading the policy files, ensure they're uploaded in the correct order: First the base policy, the extensions policy, then the relying party policies. |
-        
-        Your final arguments should look like the following example:
 
         ```PowerShell
         -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/  -Files   "TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
         ```
+
+        > [!IMPORTANT]
+        > The `-Files` parameter is a comma delimiter list of policy files to deploy. Update the list with your plicy files. Ensure the policies are uploaded in the correct order. First the base policy, the extensions policy, and then the relying party policies. For example,  `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
         
 1. Select **Save** to save the Agent job.
 
