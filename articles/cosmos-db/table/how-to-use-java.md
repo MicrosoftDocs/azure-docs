@@ -18,14 +18,10 @@ ms.custom: devx-track-java
 [!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-This article shows you how to create tables, store your data, and perform CRUD operations on the data. The samples are written in Java and use the [Azure Data Tables client library for Java][Azure Data Tables client library for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#next-steps) section.
+This article shows you how to create tables, store your data, and perform CRUD operations on said data. The samples are written in Java and use the [Azure Data Tables client library for Java][Azure Data Tables client library for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#next-steps) section.
 
 > [!IMPORTANT]
 > The last version of the Azure Data Tables client library supporting Table Storage and Cosmos DB Table is [12+][Azure Data Tables client library for Java].
-
-> [!NOTE]
-> An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][Azure Storage SDK for Android].
->
 
 ## Create an Azure service account
 
@@ -43,7 +39,7 @@ This article shows you how to create tables, store your data, and perform CRUD o
 
 In this guide, you will use storage features that you can run in a Java application locally, or in code running in a web role or worker role in Azure.
 
-To use the samples in this article, install the Java Development Kit (JDK), then create an Azure storage account or Azure Cosmos DB account in your Azure subscription. Once you have done so, verify that your development system meets the minimum requirements and dependencies that are listed in the [Azure Data Tables client library for Java][Azure Data Tables client library for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions to download and install the Azure Storage Libraries for Java on your system from that repository. After you complete those tasks, you can create a Java application that uses the examples in this article.
+To use the samples in this article, install the Java Development Kit (JDK), then create an Azure storage account or Azure Cosmos DB account in your Azure subscription. Once you have done so, verify that your development system meets the minimum requirements and dependencies that are listed in the [Azure Data Tables SDK for Java][Azure Data Tables SDK for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions to download and install the Azure Storage Libraries for Java on your system from that repository. After you complete those tasks, you can create a Java application that uses the examples in this article.
 
 ## Configure your application to access Table Storage
 
@@ -75,15 +71,15 @@ import com.azure.data.tables.models.TableTransactionActionType;
 
 You can either connect to the Azure storage account or the Azure Cosmos DB Table API account. Get the connection string based on the type of account you are using.
 
-### Add an Azure storage connection string
+### Add an Azure Storage connection string
 
-An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the [Azure portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
+An Azure Data Tables client can use a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the Storage connection string in the following format, using the name of your Storage account and the Primary access key for the Storage account listed in the [Azure Portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
 
 This example shows how you can declare a static field to hold the connection string:
 
 ```java
 // Define the connection-string with your values.
-public static final String storageConnectionString =
+public final String connectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key;" +
@@ -92,47 +88,46 @@ public static final String storageConnectionString =
 
 ### Add an Azure Cosmos DB Table API connection string
 
-An Azure Cosmos DB account uses a connection string to store the table endpoint and your credentials. When running in a client application, you must provide the Azure Cosmos DB connection string in the following format, using the name of your Azure Cosmos DB account and the primary access key for the account listed in the [Azure portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
+An Azure Cosmos DB account uses a connection string to store the table endpoint and your credentials. When running in a client application, you must provide the Azure Cosmos DB connection string in the following format, using the name of your Azure Cosmos DB account and the primary access key for the account listed in the [Azure Portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
 
 This example shows how you can declare a static field to hold the Azure Cosmos DB connection string:
 
 ```java
-public static final String storageConnectionString =
+public final String connectionString =
     "DefaultEndpointsProtocol=https;" + 
     "AccountName=your_cosmosdb_account;" + 
     "AccountKey=your_account_key;" + 
     "TableEndpoint=https://your_endpoint;" ;
 ```
 
-In an application running within a role in Azure, you can store this string in the service configuration file, *ServiceConfiguration.cscfg*, and you can access it with a call to the **System.getenv** method. Here's an example of getting the connection string from a **Setting** element named *StorageConnectionString* in the service configuration file:
+In an application running within a role in Azure, you can store this string in the service configuration file, *ServiceConfiguration.cscfg*, and you can access it with a call to the `System.getenv` method. Here's an example of getting the connection string from a **Setting** element named *ConnectionString* in the service configuration file:
 
 ```java
 // Retrieve storage account from connection-string.
-String storageConnectionString = System.getenv("StorageConnectionString");
+String connectionString = System.getenv("ConnectionString");
 ```
 
 You can also store your connection string in your project's config.properties file:
 
 ```java
-StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=your_account;AccountKey=your_account_key;TableEndpoint=https://your_table_endpoint/
+connectionString = DefaultEndpointsProtocol=https;AccountName=your_account;AccountKey=your_account_key;TableEndpoint=https://your_table_endpoint/
 ```
 
 The following samples assume that you have used one of these methods to get the storage connection string.
 
 ## Create a table
 
-A `TableServiceClient` object lets you get reference objects for tables
-and entities. The following code creates a `TableServiceClient` object
-and uses it to create a new `TableClient` object, which represents a table named "people".
+A `TableServiceClient` object allows you to interact with the Tables service in order to create, list, and delete tables. The following code creates a `TableServiceClient` object
+and uses it to create a new `TableClient` object, which represents a table named "Employees".
 
 ```java
 try
 {
-    final String tableName = "people";
+    final String tableName = "Employees";
 
-    // Create the table service client with connection-string.
+    // Create a TableServiceClient with a connection string.
     TableServiceClient tableServiceClient = new TableServiceClientBuilder()
-        .connectionString(storageConnectionString)
+        .connectionString(connectionString)
         .buildClient();
 
     // Create the table if it not exists.
@@ -148,17 +143,17 @@ catch (Exception e)
 
 ## List the tables
 
-To get a list of tables, call the **TableServiceClient.listTables** method to retrieve an iterable list of table names.
+To get a list of tables, call the `TableServiceClient.listTables` method to retrieve an iterable list of table names.
 
 ```java
 try
 {
-    // Create the table service client with connection-string.
+    // Create a TableServiceClient with a connection string.
     TableServiceClient tableServiceClient = new TableServiceClientBuilder()
-        .connectionString(storageConnectionString)
+        .connectionString(connectionString)
         .buildClient();
 
-    // Loop through the collection of table names.
+    // Loop through a collection of table names.
     tableServiceClient.listTables().forEach(tableItem -> 
         System.out.printf(tableItem.getName())
     );
@@ -172,28 +167,31 @@ catch (Exception e)
 
 ## Add an entity to a table
 
-The following code creates a new instance of the `TableEntity` class with some customer data to be stored. The code calls the `upsertEntity` method on the `TableClient` object, insert the new customer entity into the "people" table, or replace the entity if it already exists.
+The following code creates a new instance of the `TableEntity` class with some customer data to be stored. The code calls the `upsertEntity` method on the `TableClient` object, which inserts the new customer entity into the "Employees" table, or replaces the entity if it already exists.
 
 ```java
 try
 {
-    final String tableName = "people";
+    final String tableName = "Employees";
 
-    // Create the table client with connection-string and table-name.
+    // Create a TableClient with a connection string and a table name.
      TableClient tableClient = new TableClientBuilder()
-        .connectionString(storageConnectionString)
+        .connectionString(connectionString)
         .tableName(tableName)
         .buildClient();
 
-    // Create a new customer table entity.
-    TableEntity customer1 = new TableEntity("Harp", "Walter")
-        .setProperties(new HashMap<String, Object>() {{
-            put("Email", "Walter@contoso.com");
-            put("PhoneNumber", "425-555-0101");
-        }});
-
-    // Insert table entry into table
-    tableClient.upsertEntity(customer1);
+    // Create a new employee TableEntity.
+    String partitionKey = "Sales";
+    String rowKey = "0001";
+    Map<String, Object> personalInfo= new HashMap<>();
+    personalInfo.put("FirstName", "Walter");
+    personalInfo.put("LastName", "Harp");
+    personalInfo.put("Email", "Walter@contoso.com");
+    personalInfo.put("PhoneNumber", "425-555-0101");
+    TableEntity employee = new TableEntity(partitionKey, rowKey).setProperties(personalInfo);
+        
+    // Upsert the entity into the table
+    tableClient.upsertEntity(employee);
 }
 catch (Exception e)
 {
@@ -204,53 +202,62 @@ catch (Exception e)
 
 ## Insert a batch of entities
 
-You can insert a batch of entities to the table service in one write operation. The following code creates a `List<TableTransactionAction>` object, then adds three insert operations to it. Each insert operation is added by creating a new entity object, setting its values, and then calling the `submitTransaction` method on the `TableClient` object to be apply to `TableEntiry` on "people" table.
+You can insert a batch of entities to the table service in one write operation. The following code creates a `List<TableTransactionAction>` object, then adds three upsert operations to it. Each operation is added by creating a new `TableEntity` object, setting its properties, and then calling the `submitTransaction` method on the `TableClient` object.
 
 ```java
 try
 {
-    final String tableName = "people";
+    final String tableName = "Employees";
 
-    // Create the table client with connection-string and table-name.
+    // Create a TableClient with a connection string and a table name.
     TableClient tableClient = new TableClientBuilder()
-        .connectionString(storageConnectionString)
+        .connectionString(connectionString)
         .tableName(tableName)
         .buildClient();
 
-    List<TableTransactionAction> tableTransactionActions = new ArrayList<>() {{
+    String partitionKey = "Sales";
+    List<TableTransactionAction> tableTransactionActions = new ArrayList<>();
+    
+    Map<String, Object> personalInfo1 = new HashMap<>();
+    personalInfo1.put("FirstName", "Jeff");
+    personalInfo1.put("LastName", "Smith");
+    personalInfo1.put("Email", "Jeff@contoso.com");
+    personalInfo1.put("PhoneNumber", "425-555-0104");
+    
+    // Create an entity to add to the table.
+    tableTransactionActions.add(new TableTransactionAction(
+        TableTransactionActionType.UPSERT_MERGE,
+        new TableEntity(partitionKey, "0001")
+            .setProperties(personalInfo1)
+    ));
+    
+    Map<String, Object> personalInfo2 = new HashMap<>();
+    personalInfo2.put("FirstName", "Ben");
+    personalInfo2.put("LastName", "Johnson");
+    personalInfo2.put("Email", "Ben@contoso.com");
+    personalInfo2.put("PhoneNumber", "425-555-0102");
+    
+    // Create another entity to add to the table.
+    tableTransactionActions.add(new TableTransactionAction(
+        TableTransactionActionType.UPSERT_MERGE,
+        new TableEntity(partitionKey, "0002")
+            .setProperties(personalInfo2)
+    ));
+    
+    Map<String, Object> personalInfo3 = new HashMap<>();
+    personalInfo3.put("FirstName", "Denise");
+    personalInfo3.put("LastName", "Rivers");
+    personalInfo3.put("Email", "Denise@contoso.com");
+    personalInfo3.put("PhoneNumber", "425-555-0103");
+    
+    // Create a third entity to add to the table.
+    tableTransactionActions.add(new TableTransactionAction(
+        TableTransactionActionType.UPSERT_MERGE,
+        new TableEntity(partitionKey, "0003")
+            .setProperties(personalInfo3)
+    ));
 
-        // Create a table entity list to add to the table.
-        add(new TableTransactionAction(
-            TableTransactionActionType.UPSERT_MERGE,
-            new TableEntity("Smith", "Jeff")
-                .setProperties(new HashMap<String, Object>() {{
-                    put("Email", "Jeff@contoso.com");
-                    put("PhoneNumber", "425-555-0104");
-                }})
-        ));
-
-        // Create another customer entity to add to the table.
-        add(new TableTransactionAction(
-            TableTransactionActionType.UPSERT_MERGE,
-            new TableEntity("Smith", "Ben")
-                .setProperties(new HashMap<String, Object>() {{
-                    put("Email", "Ben@contoso.com");
-                    put("PhoneNumber", "425-555-0102");
-                }})
-        ));
-
-        // Create a third customer entity to add to the table.
-        add(new TableTransactionAction(
-            TableTransactionActionType.UPSERT_MERGE,
-            new TableEntity("Smith", "Denise")
-                .setProperties(new HashMap<String, Object>() {{
-                    put("Email", "Denise@contoso.com");
-                    put("PhoneNumber", "425-555-0103");
-                }})
-        ));
-    }};
-
-    // Submit transaction on the "people" table.
+    // Submit transaction on the "Employees" table.
     tableClient.submitTransaction(tableTransactionActions);
 }
 catch (Exception e)
@@ -269,28 +276,30 @@ Some things to note on batch operations:
 
 ## Retrieve all entities in a partition
 
-To query a table for entities in a partition, you can use a `ListEntitiesOptions`. Call `ListEntitiesOptions.setFilter` to create a query on a particular table that returns a specified result type. The following code specifies a filter for entities where 'Smith' is the partition key. When the query is executed with a call to `listEntities` on the `TableClient` object, it returns an `Iterator` with the `TableEntity` result type specified. You can then use the `Iterator` returned in a "ForEach" loop to consume the results. This code prints the fields of each entity in the query results to the console.
+To query a table for entities in a partition, you can use a `ListEntitiesOptions`. Call `ListEntitiesOptions.setFilter` to create a query on a particular table that returns a specified result type. The following code specifies a filter for entities where 'Sales' is the partition key. When the query is executed with a call to `listEntities` on the `TableClient` object, it returns an `Iterator` of  `TableEntity`. You can then use the `Iterator` returned in a "ForEach" loop to consume the results. This code prints the fields of each entity in the query results to the console.
 
 ```java
 try
 {
     // Define constants for filters.
     final String PARTITION_KEY = "PartitionKey";
-    final String tableName = "people";
+    final String tableName = "Employees";
 
-    // Create the table client with connection-string and table-name.
+    // Create a TableClient with a connection string and a table name.
     TableClient tableClient = new TableClientBuilder()
-        .connectionString(storageConnectionString)
+        .connectionString(connectionString)
         .tableName(tableName)
         .buildClient();
 
-    // Create a filter condition where the partition key is "Smith".
-    ListEntitiesOptions options = new ListEntitiesOptions().setFilter(PARTITION_KEY + " eq 'Smith'");
+    // Create a filter condition where the partition key is "Sales".
+    ListEntitiesOptions options = new ListEntitiesOptions().setFilter(PARTITION_KEY + " eq 'Sales'");
 
-    // Loop through the results, displaying information about the entity.
+    // Loop through the results, displaying information about the entities.
     tableClient.listEntities(options, null, null).forEach(tableEntity -> {
         System.out.println(tableEntity.getPartitionKey() +
             " " + tableEntity.getRowKey() +
+            "\t" + tableEntity.getProperty("FirstName") +
+            "\t" + tableEntity.getProperty("LastName") +
             "\t" + tableEntity.getProperty("Email") +
             "\t" + tableEntity.getProperty("PhoneNumber"));
     });
@@ -312,22 +321,24 @@ try
     // Define constants for filters.
     final String PARTITION_KEY = "PartitionKey";
     final String ROW_KEY = "RowKey";
-    final String tableName = "people";
+    final String tableName = "Employees";
 
-    // Create the table service client with connection-string.
-    // Create the table client with connection-string and table-name.
+    // Create a TableServiceClient with a connection string.
+    // Create a TableClient with a connection string and a table name.
     TableClient tableClient = new TableClientBuilder()
-        .connectionString(storageConnectionString)
+        .connectionString(connectionString)
         .tableName(tableName)
         .buildClient();
 
-    // Create a filter condition where the partition key is "Smith".
-    ListEntitiesOptions options = new ListEntitiesOptions().setFilter(PARTITION_KEY + " eq 'Smith' AND " + ROW_KEY + " lt 'E'");
-
-    // Loop through the results, displaying information about the entity.
+    // Create a filter condition where the partition key is "Sales".
+    ListEntitiesOptions options = new ListEntitiesOptions().setFilter(PARTITION_KEY + " eq 'Sales' AND " + ROW_KEY + " lt 'E'");
+    
+    // Loop through the results, displaying information about the entities.
     tableClient.listEntities(options, null, null).forEach(tableEntity -> {
         System.out.println(tableEntity.getPartitionKey() +
             " " + tableEntity.getRowKey() +
+            "\t" + tableEntity.getProperty("FirstName") +
+            "\t" + tableEntity.getProperty("LastName") +
             "\t" + tableEntity.getProperty("Email") +
             "\t" + tableEntity.getProperty("PhoneNumber"));
     });
@@ -341,27 +352,29 @@ catch (Exception e)
 
 ## Retrieve a single entity
 
-You can write a query to retrieve a single, specific entity. The following code calls `TableClient.getEntity` with partition key and row key parameters to specify the customer "Jeff Smith", instead of creating a `ListEntitiesOptions` and using filters to do the same thing. When executed, the retrieve operation returns just one entity, rather than a collection. The `getEntity` method casts the result to the type of the assignment target, a `TableEntity` object. If this type is not compatible with the type specified for the query, an exception is thrown. A null value is returned if no entity has an exact partition and row key match. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.
+You can write a query to retrieve a single, specific entity. The following code calls `TableClient.getEntity` with partition key and row key parameters to retrieve the entity for employee "Jeff Smith", instead of creating a `ListEntitiesOptions` and using filters to do the same thing. When executed, the retrieve operation returns just one entity, rather than a collection. A `null` value is returned if no entity has an exact partition and row key match. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.
 
 ```java
 try
 {
-    final String tableName = "people";
+    final String tableName = "Employees";
 
-    // Create the table client with connection-string and table-name.
+    // Create a TableClient with a connection string and a table name.
     TableClient tableClient = new TableClientBuilder()
-        .connectionString(storageConnectionString)
+        .connectionString(connectionString)
         .tableName(tableName)
         .buildClient();
 
     // Get the specific entity.
-    TableEntity specificEntity = tableClient.getEntity("Smith", "Jeff");
+    TableEntity specificEntity = tableClient.getEntity("Sales", "0001");
 
     // Output the entity.
     if (specificEntity != null)
     {
         System.out.println(specificEntity.getPartitionKey() +
             " " + specificEntity.getRowKey() +
+            "\t" + specificEntity.getProperty("FirstName") +
+            "\t" + specificEntity.getProperty("LastName"));
             "\t" + specificEntity.getProperty("Email") +
             "\t" + specificEntity.getProperty("PhoneNumber"));
     }
@@ -375,26 +388,26 @@ catch (Exception e)
 
 ## Modify an entity
 
-To modify an entity, retrieve it from the table service, make changes to the entity object, and save the changes back to the table service with a replace or merge operation. The following code changes an existing customer's phone number. Instead of calling **tableClient.upsertEntity** as we did to insert, this code calls **tableClient.updateEntity**.
+To modify an entity, retrieve it from the table service, make changes to the entity object, and save the changes back to the table service with a replace or merge operation. The following code changes an existing customer's phone number. Instead of calling `tableClient.upsertEntity` as we did to insert, this code calls `tableClient.updateEntity`.
 
 ```java
 try
 {
-    final String tableName = "people";
+    final String tableName = "Employees";
 
-    // Create the table client with connection-string and table-name.
+    // Create a TableClient with a connection string and a table name.
     TableClient tableClient = new TableClientBuilder()
-        .connectionString(storageConnectionString)
+        .connectionString(connectionString)
         .tableName(tableName)
         .buildClient();
 
     // Get the specific entity.
-    TableEntity specificEntity = tableClient.getEntity("Smith", "Jeff");
+    TableEntity specificEntity = tableClient.getEntity("Sales", "0001");
 
     // Specify a new phone number
     specificEntity.getProperties().put("PhoneNumber", "425-555-0105");
 
-    // Update specified entity
+    // Update the specific entity
     tableClient.updateEntity(specificEntity, TableEntityUpdateMode.REPLACE);
 }
 catch (Exception e)
@@ -411,16 +424,19 @@ A query to a table can retrieve just a few properties from an entity. This techn
 ```java
 try
 {
-    final String tableName = "people";
+    final String tableName = "Employees";
 
-    // Create the table client with connection-string and table-name.
+    // Create a TableClient with a connection string and a table name.
     TableClient tableClient = new TableClientBuilder()
-        .connectionString(storageConnectionString)
+        .connectionString(connectionString)
         .tableName(tableName)
         .buildClient();
 
     // Create a filter condition that retrieves only the Email property.
-    ListEntitiesOptions options = new ListEntitiesOptions().setSelect(new ArrayList(){{add("Email");}});
+    List<String> attributesToRetrieve = new ArrayList<>();
+    attributesToRetrieve.add("Email");
+    
+    ListEntitiesOptions options = new ListEntitiesOptions().setSelect(attributesToRetrieve);
 
     // Loop through the results, displaying the Email values.
     tableClient.listEntities(options, null, null).forEach(tableEntity -> {
@@ -436,28 +452,31 @@ catch (Exception e)
 
 ## Insert or Replace an entity
 
-Often you want to add an entity to a table without knowing if it already exists in the table. An insert-or-replace operation allows you to make a single request, which will insert the entity if it does not exist or replace the existing one if it does. Building on prior examples, the following code inserts or replaces the entity for "Walter Harp". After creating a new entity, this code calls the **TableClient.upsertEntity** method.
+Often you want to add an entity to a table without knowing if it already exists in the table. An insert-or-replace operation allows you to make a single request, which will insert the entity if it does not exist or replace the existing one if it does. Building on prior examples, the following code inserts or replaces the entity for "Walter Harp". After creating a new entity, this code calls the `TableClient.upsertEntity` method.
 
 ```java
 try
 {
-    final String tableName = "people";
+    final String tableName = "Employees";
 
-    // Create the table client with connection-string and table-name.
+    // Create a TableClient with a connection string and a table name.
     TableClient tableClient = new TableClientBuilder()
-        .connectionString(storageConnectionString)
+        .connectionString(connectionString)
         .tableName(tableName)
         .buildClient();
 
     // Create a new table entity.
-    TableEntity customer5 = new TableEntity("Harp", "Walter")
-        .setProperties(new HashMap<String, Object>() {{
-            put("email", "Walter@contoso.com");
-            put("phoneNumber", "425-555-0101");
-        }});
-
-    // add the new customer to the people table.
-    tableClient.upsertEntity(customer5);
+    Map<String, Object> properties = new HashMap<>();
+    properties.put("FirstName", "Walter");
+    properties.put("LastName", "Harp");
+    properties.put("Email", "Walter@contoso.com");
+    properties.put("PhoneNumber", "425-555-0101");
+        
+    TableEntity newEmployee = new TableEntity("Sales", "0004")
+        .setProperties(properties);
+        
+    // Add the new customer to the Employees table.
+    tableClient.upsertEntity(newEmployee);
 }
 catch (Exception e)
 {
@@ -468,21 +487,21 @@ catch (Exception e)
 
 ## Delete an entity
 
-You can easily delete an entity after you have retrieved it. After the entity is retrieved, call `TableClient.deleteEntity` with the entity to delete.
+You can easily delete an entity by providing its partition key and row key via `TableClient.deleteEntity`.
 
 ```java
 try
 {
-    final String tableName = "people";
+    final String tableName = "Employees";
 
-    // Create the table client with connection-string and table-name.
+    // Create a TableClient with a connection string and a table name.
     TableClient tableClient = new TableClientBuilder()
-        .connectionString(storageConnectionString)
+        .connectionString(connectionString)
         .tableName(tableName)
         .buildClient();
 
     // Delete the entity for Jeff Smith from table.
-    tableClient.deleteEntity("Smith", "Jeff");
+    tableClient.deleteEntity("Sales", "0001");
 }
 catch (Exception e)
 {
@@ -498,11 +517,11 @@ Finally, the following code deletes a table from an account. Around 40 seconds a
 ```java
 try
 {
-    final String tableName = "people";
+    final String tableName = "Employees";
 
-    // Create a TableClient with a connection string and table name.
+    // Create a TableClient with a connection string and a table name.
     TableClient tableClient = new TableClientBuilder()
-        .connectionString(storageConnectionString)
+        .connectionString(connectionString)
         .tableName(tableName)
         .buildClient();
 
@@ -531,7 +550,6 @@ For more information, visit [Azure for Java developers](/java/azure).
 
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Data Tables client library for Java]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables
-[Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Data Tables client library reference documentation]: https://azure.github.io/azure-sdk-for-java/tables.html
 [Azure Data Tables REST API]: https://docs.microsoft.com/azure/storage/tables/table-storage-overview
 [Azure Data Tables Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/
