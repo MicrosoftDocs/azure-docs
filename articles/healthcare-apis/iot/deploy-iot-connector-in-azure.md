@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/23/2021
+ms.date: 08/25/2021
 ms.author: rabhaiya
 ---
 
@@ -22,16 +22,18 @@ It's important that you have the following prerequisites completed before you be
 
 * [Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [Resource group deployed in the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal)
+* [Event Hubs namespace and Event Hub deployed in the Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 * [Workspace deployed in Azure Healthcare APIs](../workspace-overview.md)  
 * [FHIR service deployed in Azure Healthcare APIs](../fhir/fhir-portal-quickstart.md) 
-
-* [Event Hubs namespace and Event Hub deployed in the Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
 
 ## Deploy IoT Connector 
 
-1. In the [Azure portal](https://portal.azure.com), browse to the **Resource group** page.
-2. Select the name of your Healthcare APIs workspace.
+1. Sign in the [Azure portal](https://portal.azure.com), and then use the **Search** bar to find your resource group name.
+
+   For information more about managing resource groups in the Azure portal, see [Manage resource groups](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal).
+
+1. Select the name of your Healthcare APIs workspace.
 
    [ ![Select workspace resource group.](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
 
@@ -153,7 +155,7 @@ Under the **Tags** tab, enter the tag properties associated with the IoT Connect
 
 4. Next, select **Create**.
 
-   The newly deployed IoT Connector will appear in your resource group of the Azure **Recent resources** page
+   The newly deployed IoT Connector will display inside the Azure **Resource group** list of resources.
 
    [ ![Deployed IoT Connector listed in the Azure Recent resources list.](media/azure-resources-iot-connector-deployed.png) ](media/azure-resources-iot-connector-deployed.png#lightbox)  
 
