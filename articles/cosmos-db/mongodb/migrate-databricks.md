@@ -6,7 +6,7 @@ ms.author: shwetn
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 08/26/2021
 ---
 # Migrate data from MongoDB to an Azure Cosmos DB API for MongoDB account by using Azure Databricks
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
@@ -168,6 +168,8 @@ After you migrate the data, you can connect to Azure Cosmos DB and manage the da
 
 ## Next steps
 
+* Trying to do capacity planning for a migration to Azure Cosmos DB?
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estiming request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md)
 * [Manage indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)
-
 * [Find the request unit charge for operations](find-request-unit-charge-mongodb.md)

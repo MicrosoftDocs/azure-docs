@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/25/2019
+ms.date: 08/26/2021
 ms.author: mjbrown
 ms.custom: devx-track-csharp
 ---
@@ -130,5 +130,8 @@ If new items are inserted with different values for the partition key, querying 
 * [Request Units in Azure Cosmos DB](request-units.md)
 * [Provision throughput on containers and databases](set-throughput.md)
 * [Work with Azure Cosmos account](./account-databases-containers-items.md)
+* Trying to do capacity planning for a migration to Azure Cosmos DB?
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estiming request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 [1]: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/NonPartitionContainerMigration

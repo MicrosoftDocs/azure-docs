@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 04/24/2020
+ms.date: 08/26/2021
 ms.author: maquaran
 ms.custom: devx-track-dotnet
 
@@ -97,3 +97,6 @@ Using stream APIs is only possible if the nature of the data you use matches tha
 * To learn more about the .NET SDK releases, see the [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) article.
 * Get the complete [migration source code](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration) from GitHub.
 * [Additional bulk samples on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/BulkSupport)
+* Trying to do capacity planning for a migration to Azure Cosmos DB?
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estiming request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
