@@ -127,8 +127,7 @@ If the guest didn't receive the invitation email, or the invitation expired, you
 1. Under **Manage**, select **Users**.
 1. Search for and select the user you want to resend the invite to.
 1. In the **User | Profile** page, under **Identity**, select **(Manage)**.
-    
-    ![Screenshot shows how to resend guest account invitation email.](./media/tenant-management/guest-account-resend-invite.png)
+        ![Screenshot shows how to resend guest account invitation email.](./media/tenant-management/guest-account-resend-invite.png)
 
 1. For **Resend invite?**, select **Yes**. When **Are you sure you want to resend an invitation?** appears, select **Yes**.
 1. Azure AD B2C sends the invitation. You can also copy the invitation URL and provide it directly to the guest.

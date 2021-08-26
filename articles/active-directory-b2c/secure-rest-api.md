@@ -290,8 +290,7 @@ Before the technical profile can interact with Azure AD to obtain an access toke
 1. Enter a **Name** for the application. For example, *Client_Credentials_Auth_app*.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 1. Select **Register**.
-2. Record the **Application (client) ID**. 
-
+1. Record the **Application (client) ID**.
 
 For a client credentials flow, you need to create an application secret. The client secret is also known as an application password. The secret will be used by your application to acquire an access token.
 
