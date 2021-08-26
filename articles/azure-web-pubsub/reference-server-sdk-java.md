@@ -119,7 +119,7 @@ better performance compared to the default SSL implementation within the JDK. Fo
 reduce the dependency size, see the [performance tuning][performance_tuning] section of the wiki.
 
 [azure_subscription]: https://azure.microsoft.com/free
-[jdk_link]: /java/azure/jdk/?view=azure-java-stable
+[jdk_link]: /java/azure/jdk
 [source_code]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/webpubsub/azure-messaging-webpubsub/src
 [product_documentation]: https://aka.ms/awps/doc
 [samples_readme]: https://github.com/Azure/azure-webpubsub/tree/main/samples/java

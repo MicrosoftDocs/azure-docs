@@ -19,9 +19,9 @@ The complete code sample of this tutorial can be found [here][code].
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Enable GitHub authentication
 > * Add authentication middleware to your application
-> * Generate the full URL to establish the WebSocket connection
-> * Publish messages between WebSocket clients using subprotocol
+> * Add permissions to the clients
 
 ## Add authentication to the chat room app
 

@@ -121,7 +121,7 @@ export AZURE_LOG_LEVEL=verbose
 
 For more detailed instructions on how to enable logs, you can look at the [@azure/logger package docs](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core/logger).
 
-<a name="express">
+<a name="express"></a>
 
 ## Azure Web PubSub CloudEvents handlers for Express
 

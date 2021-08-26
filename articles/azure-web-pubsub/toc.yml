@@ -50,7 +50,7 @@
   items:
   - name: Develop
     items:
-    - name: How to start WebSocket connection to the service
+    - name: How to create WebSocket clients
       href: howto-websocket-connect.md
   - name: Secure
     items:
