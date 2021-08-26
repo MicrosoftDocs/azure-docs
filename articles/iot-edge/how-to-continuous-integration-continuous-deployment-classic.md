@@ -88,15 +88,15 @@ In this section, you create a new build pipeline. You configure the pipeline to 
 
    * If you would like to build your modules in platform arm32v7 or arm64 for Linux containers, you need to [set up self-hosted agent on Linux](https://devblogs.microsoft.com/iotdev/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent).
 
-    ![Configure build agent specification](./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/configure-env.png" alt-text="Configure build agent specification.":::
 
 6. Your pipeline comes preconfigured with a job called **Agent job 1**. Select the plus sign (**+**) to add four tasks to the job: **Azure IoT Edge** twice, **Copy Files** once, and **Publish Build Artifacts** once. Search for each task and hover over the task's name to see the **Add** button.
 
-   ![Add Azure IoT Edge task](./media/how-to-continuous-integration-continuous-deployment-classic/add-iot-edge-task.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/add-iot-edge-task.png" alt-text="Add Azure IoT Edge task.":::
 
    When all four tasks are added, your Agent job looks like the following example:
 
-   ![Four tasks in the build pipeline](./media/how-to-continuous-integration-continuous-deployment-classic/add-tasks.png)
+   :::image type="content" source="./media/how-to-continuous-integration-continuous-deployment-classic/add-tasks.png" alt-text="Four tasks in the build pipeline.":::
 
 7. Select the first **Azure IoT Edge** task to edit it. This task builds all modules in the solution with the target platform that you specify. Edit the task with the following values:
 
