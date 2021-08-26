@@ -89,7 +89,9 @@ The script creates registry keys required by the solution. It also creates Windo
 
 The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
 
-### Enable NPM Solution for on-premise machines 
+#### Enable Network Performance Monitor Solution for on-premise machines 
+
+Follow the following steps to enable Network Performance Monitor Solution for on-premise machines 
 
 1. On the Azure portal home page, go to Network Watcher
 2. On the left, in the Monitoring section, select Network Performance Monitor 
