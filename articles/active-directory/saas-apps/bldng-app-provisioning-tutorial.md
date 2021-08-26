@@ -20,7 +20,7 @@ ms.author: thwimmer
 This tutorial describes the steps you need to perform in both BLDNG APP and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [BLDNG APP](https://dashboard.bldng.ai/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in BLDNG.AI 
 > * Remove users in BLDNG.AI  when they do not require access anymore.
@@ -45,9 +45,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure BLDNG APP to support provisioning with Azure AD
 
-1. To configure provisioning of users, user groups and group memberships from Azure you'll need a BLDNG.AI agreement and tenant.
-1. To attain an agreement, please contact [sales](mailto:salg@bldng.ai) to get in contact with a sales representative. You will not be able to proceed nor use BLDNG APP if an agreement does not exist.
-1. If you already have an active agreement but need to enable user provisioning only, contact [support](mailto:support@bldng.ai) directly.
+* To configure provisioning of users, user groups and group memberships from Azure you'll need a BLDNG.AI agreement and tenant.
+* To attain an agreement, please contact [sales](mailto:salg@bldng.ai) to get in contact with a sales representative. You will not be able to proceed nor use BLDNG APP if an agreement does not exist.
+* If you already have an active agreement but need to enable user provisioning only, contact [support](mailto:support@bldng.ai) directly.
 
 When an agreement has been established, you will receive an email with detailed instructions on how to set up user provisioning. The email will also include details regarding admin consent (on behalf of your organization) for using BLDNG APP if needed. 
 
