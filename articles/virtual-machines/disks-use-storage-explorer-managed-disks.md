@@ -22,26 +22,27 @@ Azure Storage Explorer contains a rich set of features that allows users to:
 
 ## Prerequisites
 
-To complete this article, you'll need the following:
-- An Azure subscription 
-- One or more Azure managed disks
-- The latest version of [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+To complete this article, you'll need:
+
+- An Azure subscription.
+- At least one Azure managed disk.
+- The latest version of [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Connect to an Azure subscription
 
-If your Storage Explorer isn't connected to Azure, you won't be able to use it to manage resources. Follow the steps in this section to connect Storage Explorer to your Azure account and use it to manage resources.
+If your Storage Explorer isn't connected to Azure, you can't use it to manage resources. Follow the steps in this section to connect Storage Explorer to your Azure account and use. Afterward, you can use it to manage your disks.
 
-1. Launch Azure Storage Explorer and click the **plug-in** icon on the left.
+1. Launch Azure Storage Explorer and select the **plug-in** icon on the left.
 
     ![Click the plug-in icon](media/disks-upload-vhd-to-managed-disk-storage-explorer/plug-in-icon.png)
 
-1. Select **Subscription**, and then click **Next**.
+1. Select **Subscription**, and then select **Next**.
 
     ![Add an Azure Account](media/disks-upload-vhd-to-managed-disk-storage-explorer/connect-to-azure.png)
 
-1. Select the appropriate environment and click **Next**. Alternatively, you can click **Manage custom environments** to configure and add a custom environment.
+1. Select the appropriate environment and select **Next**. You can also select **Manage custom environments** to configure and add a custom environment.
 
     :::image type="content" source="media/disks-upload-vhd-to-managed-disk-storage-explorer/choose-environment.png" alt-text="Select your environment type":::
 
@@ -49,7 +50,7 @@ If your Storage Explorer isn't connected to Azure, you won't be able to use it t
 
     ![Azure sign in dialog](media/disks-upload-vhd-to-managed-disk-storage-explorer/sign-in.png)
 
-1. Select your subscription from the list and then click **Apply**.
+1. Select your subscription from the list and then select **Apply**.
 
     ![Select your subscription](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription.png)
 
@@ -72,13 +73,13 @@ If your Storage Explorer isn't connected to Azure, you won't be able to use it t
 
     ![Upload status](media/disks-upload-vhd-to-managed-disk-storage-explorer/activity-uploading.png)
 
-If the upload has finished and you don't see the disk in the right pane, click the **Refresh** button.
+If the upload has finished and you don't see the disk in the right pane, select the **Refresh** button.
 
 ## Download a managed disk
 
-Follow the steps below to download a managed disk to an on-prem VHD. A disk's state must be **Unattached** in order to be downloaded. You cannot download an **Attached** disk.
+Follow the steps below to download a managed disk to an on-prem VHD. A disk's state must be **Unattached** before it can be downloaded. You can't download an **Attached** disk.
 
-1. In the left pane, expand **Disks** and select the resource group from which you will download your disk.
+1. In the left pane, expand **Disks** and select the resource group from which you'll download your disk.
 
     ![Select resource group 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
 
@@ -129,7 +130,7 @@ With Storage Explorer, you can copy a manged disk within or across regions. To c
 
     ![Create a snapshot](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-button.png)
 
-1. In **Create Snapshot**, specify the name of the snapshot as well as the resource group in which you will create it. Select **Create**.
+1. In **Create Snapshot**, specify the name of the snapshot and the resource group in which you'll create it. Select **Create**.
 
     ![Create snapshot dialog](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog.png)
 
