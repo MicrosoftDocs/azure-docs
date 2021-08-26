@@ -101,7 +101,7 @@ You can move a Recovery Services vault and its associated resources to a differe
 
 ## Use Azure portal to back up resources in Recovery Services vault after moving across regions
 
-Azure Resource Mover supports the movement of multiple resources across regions. While moving your resources from one region to another, ensure that your resources stay protected. As Azure Backup supports protection of several workloads, you may need to take various steps to continue having the same level of protection in the new region. 
+Azure Resource Mover supports the movement of multiple resources across regions. While moving your resources from one region to another, you can ensure that your resources stay protected. As Azure Backup supports protection of several workloads, you may need to take some steps to continue having the same level of protection in the new region.
 
 To understand the detailed steps to achieve this, refer to the sections below.
 
