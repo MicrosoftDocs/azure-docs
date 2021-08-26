@@ -8,16 +8,20 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Purview account - Azure portal
-    href: create-catalog-portal.md
-  - name: Create a Purview account - Azure PowerShell
-    href: create-catalog-powershell.md
-  - name: Create a Purview account - .NET SDK
-    href: create-purview-dotnet.md
-  - name: Create a Purview account - Python
-    href: create-purview-python.md
-  - name: Manage Kafka notifications - .NET
-    href: manage-kafka-dotnet.md
+  - name: Create Purview account
+    items:
+    - name: Create a Purview account - Azure portal
+      href: create-catalog-portal.md
+    - name: Create a Purview account - Azure PowerShell
+      href: create-catalog-powershell.md
+    - name: Create a Purview account - .NET SDK
+      href: create-purview-dotnet.md
+    - name: Create a Purview account - Python
+      href: create-purview-python.md
+    - name: Create a Purview account - Azure portal FAQs
+      href: create-purview-portal-faq.md
+  - name: Create a collection - Azure Purview Studio
+    href: quickstart-create-collection.md
 - name: Tutorials
   items:
   - name: Onboarding Azure data sources at scale
@@ -50,8 +54,10 @@ items:
     href: deployment-best-practices.md
   - name: Azure Purview limits
     href: how-to-manage-quotas.md
-  - name: How scans detect deleted assets
-    href: concept-detect-deleted-assets.md
+  - name: Scans and ingestion
+    href: concept-scans-and-ingestion.md
+  - name: Elastic Data Map
+    href: concept-elastic-data-map.md
   - name: Understanding resource sets
     href: concept-resource-sets.md
   - name: Data lineage
@@ -71,9 +77,11 @@ items:
   - name: Asset normalization
     href: concept-asset-normalization.md
   - name: Frequently asked questions
-    href: /azure/purview/frequently-asked-questions.yml
+    href: ./frequently-asked-questions.yml
 - name: How-to guides
   items:
+  - name: Create and manage collections
+    href: how-to-create-and-manage-collections.md
   - name: Register & scan
     items:
     - name: Manage Credentials
@@ -189,12 +197,30 @@ items:
       href: how-to-link-azure-data-factory.md
     - name: Azure Data Share lineage
       href: how-to-link-azure-data-share.md
+    - name: Azure Synapse Analytics lineage
+      href: how-to-lineage-azure-synapse-analytics.md
+    - name: Cassandra lineage
+      href: how-to-lineage-cassandra.md
+    - name: Erwin lineage
+      href: how-to-lineage-erwin.md
+    - name: Looker lineage
+      href: how-to-lineage-looker.md
+    - name: Google BigQuery lineage
+      href: how-to-lineage-google-bigquery.md
+    - name: Oracle lineage
+      href: how-to-lineage-oracle.md
     - name: Power BI lineage
       href: how-to-lineage-powerbi.md
+    - name: SAP S/4HANA lineage
+      href: how-to-lineage-saps4hana.md
+    - name: SAP ECC lineage
+      href: how-to-lineage-sapecc.md
     - name: Spark lineage
       href: how-to-lineage-spark-atlas-connector.md
     - name: SQL Server Integration Services lineage
       href: how-to-lineage-sql-server-integration-services.md
+    - name: Teradata lineage
+      href: how-to-lineage-teradata.md
   - name: Monitor
     items:
     - name: Monitor with Azure Monitor
@@ -215,16 +241,36 @@ items:
       href: file-extension-insights.md
   - name: Security & Networking
     items:
-    - name: Manage Private endpoints
+    - name: Azure Purview private endpoints overview
       href: catalog-private-link.md
+    - name: Connect privately and securely to your Purview account
+      href: catalog-private-link-account-portal.md
+    - name: Scan your data sources privately and securely
+      href: catalog-private-link-ingestion.md
+    - name: Connect to your Azure Purview and scan data sources privately and securely
+      href: catalog-private-link-end-to-end.md
+    - name: Azure Purview private endpoints DNS configuration
+      href: catalog-private-link-name-resolution.md
+    - name: Azure Purview private endpoints troubleshooting guide
+      href: catalog-private-link-troubleshoot.md                     
     - name: Azure Purview Private endpoints FAQs
       href: catalog-private-link-faqs.md
   - name: Disaster recovery
     items:
     - name: Disaster recovery
       href: disaster-recovery.md
+  - name: Manage Kafka notifications - .NET
+    href: manage-kafka-dotnet.md
 - name: Reference
   items:
+    - name: Java
+      href: /samples/browse/?products=azure&languages=java&terms=purview
+    - name: .NET
+      href: /dotnet/api/overview/azure/purviewresourceprovider
+    - name: Python
+      href: /python/api/azure-mgmt-purview/
+    - name: REST
+      href: /rest/api/purview/
     - name: Supported classifications
       href: supported-classifications.md
     - name: Azure Purview product glossary
@@ -233,8 +279,6 @@ items:
       href: abap-functions-deployment-guide.md
 - name: Resources
   items:
-    - name: Feature feedback (User voice)
-      href: https://feedback.azure.com/forums/932437-azure-purview
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/details/azure-purview/
     - name: Microsoft Q&A forum

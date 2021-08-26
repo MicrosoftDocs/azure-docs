@@ -2,11 +2,11 @@
 title: Overview - Azure Database for MySQL - Flexible Server
 description: Learn about the Azure Database for MySQL Flexible server, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: savjani
-ms.service: mysql
 ms.author: pariks
+ms.service: mysql
 ms.custom: mvc, references_regions
 ms.topic: overview
-ms.date: 6/19/2021
+ms.date: 08/10/2021
 ---
 # Azure Database for MySQL - Flexible Server (Preview)
 
@@ -34,22 +34,18 @@ Flexible servers are best suited for:
 
 ## High availability within and across availability zones
 
-The flexible server deployment model is designed to support high availability within single availability zone and across multiple availability zones. The architecture separates compute and storage. The database engine runs on a Linux virtual machine, while data files reside on remote Azure premium storage. The storage maintains three locally redundant synchronous copies of the database files ensuring data durability at all times.
+Azure Database for MySQL Flexible Server (Preview) allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost due to failures, and improve overall uptime for your application. When high availability is configured, flexible server automatically provisions and manages a standby replica. There are two high availability architectural models: 
 
-Within a single availability zone, if the server goes down due to planned or unplanned events, the service maintains high availability of the servers using following automated procedure:
+- **Zone Redundant High Availability (HA):** This option is preferred for complete isolation and redundancy of infrastructure across multiple availability zones. It provides highest level of availability, but it requires you to configure application redundancy across zones. Zone redundant HA is preferred when you want to achieve highest level of availability against any infrastructure failure in the availability zone and where latency across the availability zone is acceptable. Zone redundant HA is available in [subset of Azure regions](overview.md#azure-regions) where the region supports multiple Availability Zones and Zone redundant Premium file shares are available. 
 
-1. A new compute VM is provisioned.
-2. The storage with data files is mapped to the new Virtual Machine
-3. MySQL database engine is brought online on the new Virtual Machine.
-4. Client applications can reconnect once the server is ready to accept connections.
+:::image type="content" source="./media/concepts-high-availability/1-flexible-server-overview-zone-redundant-ha.png" alt-text="zone redundant ha":::
 
-:::image type="content" source="media/overview/2-flexible-server-architecture.png" alt-text="Single Zone high availability conceptual diagram":::
+- **Same-Zone High Availability (HA):** This option is preferred for infrastructure redundancy with lower network latency as both primary and standby server will be in the same availability zone. It provides high availability without configuring application redundancy across zones. Same-Zone HA is preferred when you want to achieve highest level of availability within a single Availability zone with the lowest network latency. Same-Zone HA is available in [all Azure regions](overview.md#azure-regions) where we can create  Azure Database for MySQL Flexible server. 
 
-If zone redundant high availability is configured, the service provisions and maintains a hot standby server across availability zone within the same Azure region. The data changes on the source server are synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. The typical failover time ranges from 60-120 seconds. This allows the service to support high availability and provide improved resiliency with tolerance for single availability zone failures in a given Azure region.
+:::image type="content" source="./media/concepts-high-availability/flexible-server-overview-same-zone-ha.png" alt-text="same redundant high availability":::
 
 For more information, see [high availability concepts](concepts-high-availability.md).
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Zone Redundant high availability conceptual diagram":::
 
 ## Automated patching with managed maintenance window
 
@@ -89,7 +85,7 @@ See [Compute and Storage concepts](concepts-compute-storage.md) to learn more.
 
 MySQL is one of the popular database engines for running internet-scale web and mobile applications. Many of our customers use it for their online education services, video streaming services, digital payment solutions, e-commerce platforms, gaming services, news portals, government, and healthcare websites. These services are required to serve and scale as the traffic on the web or mobile application increases.
 
-On the applications side, the application is typically developed in Java or php and migrated to run on [Azure virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) or [Azure App Services](../../app-service/overview.md) or are containerized to run on [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). With virtual machine scale set, App Service or AKS as underlying infrastructure, application scaling is simplified by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests but often, database ends up being a bottleneck as centralized stateful component.
+On the applications side, the application is typically developed in Java or PHP and migrated to run on [Azure virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) or [Azure App Services](../../app-service/overview.md) or are containerized to run on [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). With virtual machine scale set, App Service or AKS as underlying infrastructure, application scaling is simplified by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests but often, database ends up being a bottleneck as centralized stateful component.
 
 The read replica feature allows you to replicate data from an Azure Database for MySQL flexible server to a read-only server. You can replicate from the source server to **up to 10 replicas**. Replicas are updated asynchronously using the MySQL engine's native [binary log (binlog) file position-based replication technology](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html). You can use a load balancer proxy solution like [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) to seamlessly scale out your application workload to read replicas without any application refactoring cost. 
 
@@ -146,25 +142,30 @@ For more information, see [Migration Guide for Azure Database for MySQL](../../m
 
 One advantage of running your workload in Azure is its global reach. The flexible server for Azure Database for MySQL is available today in following Azure regions:
 
-| Region | Availability | Zone redundant HA |
-| --- | --- | --- |
-| Australia East | :heavy_check_mark: | :heavy_check_mark: |
-| Brazil South | :heavy_check_mark: | :x: |
-| Canada Central | :heavy_check_mark: | :x: |
-| Central US | :heavy_check_mark: | :x: |
-| East US | :heavy_check_mark: | :heavy_check_mark: |
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :x:|
-| Germany West Central | :heavy_check_mark: | :x: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: |
-| Korea Central | :heavy_check_mark: | :x: |
-| North Europe | :heavy_check_mark: | :heavy_check_mark: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
-| Switzerland North | :heavy_check_mark: | :x: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: |
-| West US | :heavy_check_mark: | :x: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: |
+| Region | Availability | Same Zone HA | Zone redundant HA |
+| --- | --- | --- | --- |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:|
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Korea Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Australia Southeast | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| East Asia (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: |
+
 ## Contacts
 
 For any questions or suggestions you might have on Azure Database for MySQL flexible server, send an email to the Azure Database for MySQL Team ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). This email address isn't a technical support alias.
@@ -186,4 +187,4 @@ Now that you've read an introduction to Azure Database for MySQL - Single Server
 
 - Build your first app using your preferred language:
   - [Python](connect-python.md)
-  - [Php](connect-php.md)
+  - [PHP](connect-php.md)

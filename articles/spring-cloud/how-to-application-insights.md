@@ -1,5 +1,5 @@
 ---
-title: How to use Application Insights Java In-Process Agent in Azure Spring Cloud 
+title: How to use Application Insights Java In-Process Agent in Azure Spring Cloud
 description: How to monitor apps and microservices using Application Insights Java In-Process Agent in Azure Spring Cloud.
 author: karlerickson
 ms.author: karler
@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Application Insights Java In-Process Agent in Azure Spring Cloud (Preview)
 
-This article explains how to monitor apps and microservices by using the Application Insights Java agent in Azure Spring Cloud. 
+This article explains how to monitor apps and microservices by using the Application Insights Java agent in Azure Spring Cloud.
 
 With this feature you can:
 
@@ -39,51 +39,51 @@ Application Insights provide many observable perspectives, including:
 Enable Java In-Process Agent preview feature using the following procedure.
 
 1. Go to service overview page of your service instance.
-2. Click **Application Insights** entry under monitoring blade.
-3. Click **Enable Application Insights** button to enable **Application Insights** integration.
+2. Select **Application Insights** entry under monitoring blade.
+3. Select **Enable Application Insights** button to enable **Application Insights** integration.
 4. Select an existing instance of Application Insights or create a new one.
-5. Chick **Enable Java in-process agent** to enable preview Java in-process agent feature. Here you can also customize sampling rate from 0 to 100.
-6.  Click **Save** to save the change.
+5. Select **Enable Java in-process agent** to enable preview Java in-process agent feature. Here you can also customize sampling rate from 0 to 100.
+6. Select **Save** to save the change.
 
 ## Portal
 
-1. Go to the **service | Overview** page and select **Application Insights** in the **Monitoring** section. 
-2. Click **Enable Application Insights** to enable Application Insights in Azure Spring Cloud.
-3. Click **Enable Java in-process agent** to enable Java IPA preview feature. When an IPA preview feature is enabled, you can configure one optional sampling rate (default 10.0%).
+1. Go to the **service | Overview** page and select **Application Insights** in the **Monitoring** section.
+2. Select **Enable Application Insights** to enable Application Insights in Azure Spring Cloud.
+3. Select **Enable Java in-process agent** to enable Java IPA preview feature. When an IPA preview feature is enabled, you can configure one optional sampling rate (default 10.0%).
 
-  [ ![IPA 0](media/spring-cloud-application-insights/insights-process-agent-0.png)](media/spring-cloud-application-insights/insights-process-agent-0.png)
+   [ ![IPA 0](media/spring-cloud-application-insights/insights-process-agent-0.png)](media/spring-cloud-application-insights/insights-process-agent-0.png)
 
 ## Using the Application Insights feature
 
 When the **Application Insights** feature is enabled, you can:
 
-In the left navigation pane, click **Application Insights** to jump to the **Overview** page of Application Insights. 
+In the left navigation pane, select **Application Insights** to jump to the **Overview** page of Application Insights.
 
-* Click **Application Map** to see the status of calls between applications.
+* Select **Application Map** to see the status of calls between applications.
 
-  [ ![IPA 2](media/spring-cloud-application-insights/insights-process-agent-2-map.png)](media/spring-cloud-application-insights/insights-process-agent-2-map.png)
+   [ ![IPA 2](media/spring-cloud-application-insights/insights-process-agent-2-map.png)](media/spring-cloud-application-insights/insights-process-agent-2-map.png)
 
-* Click the link between customers-service and `petclinic` to see more details such as a query from SQL.
+* Select the link between customers-service and `petclinic` to see more details such as a query from SQL.
 
-* In the left navigation pane, click **Performance** to see the performance data of all applications' operations, as well as dependencies and roles.
+* In the left navigation pane, select **Performance** to see the performance data of all applications' operations, as well as dependencies and roles.
 
-  [ ![IPA 4](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)
+   [ ![IPA 4](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)](media/spring-cloud-application-insights/insights-process-agent-4-performance.png)
 
-* In the left navigation pane, click **Failures** to see if something unexpected from your applications.
+* In the left navigation pane, select **Failures** to see if something unexpected from your applications.
 
-  [ ![IPA 6](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)
+   [ ![IPA 6](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)](media/spring-cloud-application-insights/insights-process-agent-6-failures.png)
 
-* In the left navigation pane, click **Metrics** and select the namespace, you will see both Spring Boot metrics and custom metrics, if any.
+* In the left navigation pane, select **Metrics** and select the namespace, you will see both Spring Boot metrics and custom metrics, if any.
 
-  [ ![IPA 7](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
+   [ ![IPA 7](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)](media/spring-cloud-application-insights/insights-process-agent-5-metrics.png)
 
-* In the left navigation pane, click **Live Metrics** to see the real time metrics for different dimensions.
+* In the left navigation pane, select **Live Metrics** to see the real time metrics for different dimensions.
 
-  [ ![IPA 8](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
+   [ ![IPA 8](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)](media/spring-cloud-application-insights/petclinic-microservices-live-metrics.jpg)
 
-* In the left navigation pane, click **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](../azure-monitor/app/monitor-web-app-availability.md).
+* In the left navigation pane, select **Availability** to monitor the availability and responsiveness of Web apps by creating [Availability tests in Application Insights](../azure-monitor/app/monitor-web-app-availability.md).
 
-  [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
+   [ ![IPA 9](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)](media/spring-cloud-application-insights/petclinic-microservices-availability.jpg)
 
 ## ARM Template
 
@@ -125,20 +125,21 @@ Apply ARM template with the CLI command:
 
 * For an existing Azure Spring Cloud instance:
 
-```azurecli
-az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate] "samplingRate" --name "assignedName" --resource-group "resourceGroupName"
-```
+   ```azurecli
+   az spring-cloud app-insights update [--app-insights/--app-insights-key] "assignedName" [--sampling-rate]    "samplingRate" --name "assignedName" --resource-group "resourceGroupName"
+   ```
+
 * For a newly created Azure Spring Cloud instance:
 
-```azurecli
-az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName" --disable-app-insights false --enable-java-agent true --name "assignedName" --resource-group "resourceGroupName"
-```
+   ```azurecli
+   az spring-cloud create/update [--app-insights]/[--app-insights-key] "assignedName"    --disable-app-insights false --enable-java-agent true --name "assignedName" --resource-group    "resourceGroupName"
+   ```
+
 * To disable app-insight:
 
-```azurecli
-az spring-cloud app-insights update --disable --name "assignedName" --resource-group "resourceGroupName"
-
-```
+   ```azurecli
+   az spring-cloud app-insights update --disable --name "assignedName" --resource-group "resourceGroupName"
+   ```
 
 ## Java agent update/upgrade
 
@@ -149,7 +150,7 @@ The Java agent will be updated/upgraded regularly with the JDK, which may impact
 
 * Existing applications that use the Java agent before updating/upgrading will not be affected.
 * Applications created after updating/upgrading will leverage the new version of the Java agent.
-* Existing applications that did not previsously use the Java agent will require restart or redeployment to leverage the new version of the Java agent.
+* Existing applications that did not previously use the Java agent will require restart or redeployment to leverage the new version of the Java agent.
 
 ## Java agent configuration hot-loading
 
@@ -175,7 +176,7 @@ The name `App Instance` from Azure Spring Cloud will be changed or generated in 
 * You deploy a JAR file or source code to an existing application.
 * You initiate a blue/green deployment.
 * You restart the application.
-* You stop the deployment of an application, and then restart it. 
+* You stop the deployment of an application, and then restart it.
 
 When data is stored in Application Insights, it contains the history of Azure Spring Cloud app instances created or deployed since the Java agent was enabled. This means that, in the Application Insights portal, you can see application data created yesterday, but then deleted within a specific time range, like the last 24 hours. The following scenarios show how this works:
 

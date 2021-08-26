@@ -2,7 +2,7 @@
 title: Continuous integration and continuous deployment to Azure IoT Edge devices (classic editor) - Azure IoT Edge
 description: Set up continuous integration and continuous deployment using the classic editor - Azure IoT Edge with Azure DevOps, Azure Pipelines
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 08/26/2020
 ms.topic: conceptual

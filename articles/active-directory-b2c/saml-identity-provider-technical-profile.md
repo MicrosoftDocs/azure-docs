@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/01/2020
+ms.date: 08/25/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -165,6 +165,8 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 | IncludeKeyInfo | No | Indicates whether the SAML authentication request contains the public key of the certificate when the binding is set to `HTTP-POST`. Possible values: `true` or `false`. |
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 |SingleLogoutEnabled| No| Indicates whether during sign-in the technical profile attempts to sign out from federated identity providers. For more information, see [Azure AD B2C session sign-out](session-behavior.md#sign-out).  Possible values: `true` (default), or `false`.|
+|ForceAuthN| No| Passes the ForceAuthN value in the SAML authentication request to determine if the external SAML IDP will be forced to prompt the user for authentication. By default, Azure AD B2C sets the ForceAuthN value to false on initial login. If the session is then reset (for example by using the `prompt=login` in OIDC) then the ForceAuthN value will be set to `true`. Setting the metadata item as shown below will force the value for all requests to the external IDP.  Possible values: `true` or `false`.|
+
 
 ## Cryptographic keys
 

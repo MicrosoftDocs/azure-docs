@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-js
 ---
 

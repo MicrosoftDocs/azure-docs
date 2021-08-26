@@ -53,7 +53,7 @@ If your application assumes that soft-delete isn't enabled and expects that dele
 
 Security principals that need access to permanently delete secrets must be granted more access policy permissions to purge these secrets and the key vault.
 
-Disable any Azure policy on your key vaults that mandates that soft-delete is turned off. You might need to escalate this issue to an administrator who controls Azure policies applied to your environment. If this policy isn't disabled, you might lose the ability to create new key vaults in the scope of the applied policy.
+Disable any Azure Policy assignments on your key vaults that mandates that soft-delete is turned off. You might need to escalate this issue to an administrator who controls Azure Policy assignments applied to your environment. If this policy assignment isn't disabled, you might lose the ability to create new key vaults in the scope of the applied policy assignment.
 
 If your organization is subject to legal compliance requirements and can't allow deleted key vaults and secrets to remain in a recoverable state for an extended period of time, you'll have to adjust the retention period of soft-delete to meet your organization's standards. You can configure the retention period to last from 7 to 90 days.
 

@@ -18,9 +18,10 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
 ### Support limitations for Arc enabled Open Service Mesh
 
 - Only one instance of Open Service Mesh can be deployed on an Arc connected Kubernetes cluster
-- Public preview is available for Open Service Mesh version v0.8.4 and above. Find out the latest version of the release [here](https://github.com/Azure/osm-azure/releases).
+- Public preview is available for Open Service Mesh version v0.8.4 and above. Find out the latest version of the release [here](https://github.com/Azure/osm-azure/releases). The supported release versions are appended with notes. Ignore the tags associated with intermediate releases. 
 - Following Kubernetes distributions are currently supported
     - AKS Engine
+    - AKS on HCI
     - Cluster API Azure
     - Google Kubernetes Engine
     - Canonical Kubernetes Distribution
@@ -278,7 +279,7 @@ Certificate:
       Timeout:             1s
     Use HTTPS Ingress:     false
 ```
-Refer to the [Config API reference](https://docs.openservicemesh.io/docs/apidocs/config/v1alpha1) for more information. Notice that **spec.traffic.enablePermissiveTrafficPolicyMode** is set to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
+Refer to the [Config API reference](https://docs.openservicemesh.io/docs/api_reference/config/v1alpha1/) for more information. Notice that **spec.traffic.enablePermissiveTrafficPolicyMode** is set to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
 
 ### Making changes to OSM controller configuration
 
@@ -361,11 +362,11 @@ Add namespaces to the mesh by running the following command:
 osm namespace add <namespace_name>
 ```
 
-More information about onboarding services can be found [here](https://docs.openservicemesh.io/docs/tasks/onboard_services/).
+More information about onboarding services can be found [here](https://docs.openservicemesh.io/docs/guides/app_onboarding/#onboard-services).
 
 ### Configure OSM with Service Mesh Interface (SMI) policies
 
-You can start with a [demo application](https://docs.openservicemesh.io/docs/getting_started/manual_demo/#deploy-applications) or use your test environment to try out SMI policies.
+You can start with a [demo application](https://docs.openservicemesh.io/docs/getting_started/quickstart/manual_demo/#deploy-applications) or use your test environment to try out SMI policies.
 
 > [!NOTE] 
 > Ensure that the version of the bookstore application you run matches the version of the OSM extension installed on your cluster. Ex: if you are using v0.8.4 of the OSM extension, use the bookstore demo from release-v0.8 branch of OSM upstream repository.
@@ -377,9 +378,9 @@ The OSM extension does not install add-ons like [Jaeger](https://www.jaegertraci
 > [!NOTE]
 > Use the commands provided in the OSM GitHub documentation with caution. Ensure that you use the correct namespace name 'arc-osm-system' when making changes to `osm-mesh-config`.
 
-- [BYO-Jaeger instance](https://docs.openservicemesh.io/docs/tasks/observability/tracing/#byo-bring-your-own)
-- [BYO-Prometheus instance](https://docs.openservicemesh.io/docs/tasks/observability/metrics/#byo-prometheus)
-- [BYO-Grafana dashboard](https://docs.openservicemesh.io/docs/tasks/observability/metrics/#importing-dashboards-on-a-byo-grafana-instance)
+- [BYO-Jaeger instance](https://docs.openservicemesh.io/docs/guides/observability/tracing/#byo-bring-your-own)
+- [BYO-Prometheus instance](https://docs.openservicemesh.io/docs/guides/observability/metrics/#byo-prometheus)
+- [BYO-Grafana dashboard](https://docs.openservicemesh.io/docs/guides/observability/metrics/#importing-dashboards-on-a-byo-grafana-instance)
 
 
 ## Monitoring application using Azure Monitor and Applications Insights
@@ -388,24 +389,23 @@ Both Azure Monitor and Azure Application Insights helps you maximize the availab
 
 Arc enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape prometheus endpoints for collecting application metrics. 
 
-1. Ensure that prometheus_scraping is set to true in the `osm-mesh-config`.
+1. Ensure that the application namespaces that you wish to be monitored are onboarded to the mesh. Follow the guidance [available here](#onboard-namespaces-to-the-service-mesh).
 
-2. Ensure that the application namespaces that you wish to be monitored are onboarded to the mesh. Follow the guidance [available here](#onboard-namespaces-to-the-service-mesh).
-
-3. Expose the prometheus endpoints for application namespaces.
+2. Expose the prometheus endpoints for application namespaces.
     ```azurecli-interactive
     osm metrics enable --namespace <namespace1>
     osm metrics enable --namespace <namespace2>
     ```
+    For v0.8.4, ensure that `prometheus_scraping` is set to `true` in the `osm-config` ConfigMap.
 
-4. Install the Azure Monitor extension using the guidance available [here](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
+3. Install the Azure Monitor extension using the guidance available [here](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
-5. Add the namespaces you want to monitor in container-azm-ms-osmconfig ConfigMap. Download the ConfigMap from [here](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-osmconfig.yaml).
+4. Add the namespaces you want to monitor in container-azm-ms-osmconfig ConfigMap. Download the ConfigMap from [here](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-osmconfig.yaml).
     ```azurecli-interactive
     monitor_namespaces = ["namespace1", "namespace2"]
     ```
 
-6. Run the following kubectl command
+5. Run the following kubectl command
     ```azurecli-interactive
     kubectl apply -f container-azm-ms-osmconfig.yaml
     ```

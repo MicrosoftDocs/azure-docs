@@ -43,7 +43,7 @@ The Forcepoint data connectors allow you to connect Forcepoint Cloud Access Secu
 
 2. Search for CommonSecurityLog to use the relevant schema in Log Analytics with DeviceVendor name contains 'Forcepoint'. 
 
-3. Continue to [STEP 3: Validate connectivity](connect-cef-verify.md).
+3. Continue to [Validate CEF connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity).
 
 
 
@@ -55,4 +55,4 @@ In this document, you learned how to connect Forcepoint products to Azure Sentin
 
 - Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
 
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- [Use workbooks](monitor-your-data.md) to monitor your data.
