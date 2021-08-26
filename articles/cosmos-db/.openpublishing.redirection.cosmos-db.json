@@ -1228,7 +1228,7 @@
   {
     "source_path_from_root": "/articles/cosmos-db/documentdb-sdk-dotnet-changefeed.md",
     "redirect_url": "/azure/cosmos-db/sql-api-sdk-dotnet-changefeed",
-    "redirect_document_id": true
+    "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/documentdb-sdk-dotnet-core.md",
