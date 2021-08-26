@@ -187,7 +187,7 @@ While we do our best to provide a stable and reliable service, sometimes things 
 
 Note that resources outside of the Azure Machine Learning workspace are not accessible from managed online deployments.
 
-For example, reaching out to the internet or a Azure resource from a scoring script is not supported.
+For example, reaching out to the internet or an Azure resource from a scoring script is not supported.
 
 If your use case requires an exception from this network isolation, submit a [customer support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).  
 
@@ -195,9 +195,9 @@ If your use case requires an exception from this network isolation, submit a [cu
 
 When using managed online endpoints with a Private Link enabled workspace, the ability to score against that endpoint will be affected by the allow_public_access property. 
 
-When not provided, the value of allow_public_access for the endpoint is set to true, and scoring will be available via the public internet as well as any Private Endpoints in the workspace. 
+When not provided, the value of `allow_public_access` for the endpoint is set to true, and scoring will be available via the public internet as well as any Private Endpoints in the workspace. 
 
-When allow_public_access is explicitly set to false for the endpoint, scoring will only be accessible from the Private Endpoints in the workspace.
+When `allow_public_access` is explicitly set to false for the endpoint, scoring will only be accessible from the Private Endpoints in the workspace.
 
 This value is not editable for an existing endpoint.
 
