@@ -2,7 +2,7 @@
 title: Migrate Batch pool configuration from Cloud Services to Virtual Machines
 description: Learn how to update your pool configuration to the latest and recommended configuration
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 08/26/2021
 ---
 
 # Migrate Batch pool configuration from Cloud Services to Virtual Machine
