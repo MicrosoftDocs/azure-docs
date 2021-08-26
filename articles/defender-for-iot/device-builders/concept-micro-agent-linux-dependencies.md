@@ -35,6 +35,8 @@ The table below shows the Linux dependencies for each component.
 |  | libpcap | Library |  |  |
 |  | CONFIG_PACKET=y | Kernel config |  |  |
 |  | CONFIG_NETFILTER =y | Kernel config |  | Optional – Performance improvement |
+| **Login collector** |  |  |  |  |
+|  | Wtmp, btmp | Log files | No | [utmp](https://en.wikipedia.org/wiki/Utmp) |
 
 ## Next steps
 
