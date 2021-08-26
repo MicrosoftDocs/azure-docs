@@ -66,12 +66,12 @@ Do the following steps in the Azure portal to order a device:
 
     ![Screenshot of the Data Destination tab for a Data Box order with a Managed Disks destination. The Data Destination tab, Managed Disks, and Next: Security button are highlighted.](media/data-box-order-portal/data-box-import-07.png)
 
-    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+    The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting it into managed disks and moving it to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-upload-to-azure-8).
 
    > [!NOTE]
    > If a page blob isn't successfully converted to a managed disk, it stays in the storage account and you're charged for storage.
 
-8. Select **Next: Security** to continue.
+8. Select **Next: Security>** to continue.
 
     The **Security** screen lets you use your own encryption key and your own device and share passwords, and choose to use double encryption.
 
@@ -89,7 +89,7 @@ Do the following steps in the Azure portal to order a device:
 
    ![Screenshot of Security tab in the Data Box Order wizard. Encryption Type settings are expanded and highlighted.](./media/data-box-order-portal/customer-managed-key-01.png)
 
-10. To use a customer-managed key, select **Customer managed key** as the key type. Then select **Select a key vault and key**.
+10. To use a customer-managed key, select **Customer managed key** as the key type. Then choose **Select a key vault and key**.
    
     ![Screenshot of Encryption Type settings on the Security tab for a Data Box order. The "Select a key and key vault" link is highlighted.](./media/data-box-order-portal/customer-managed-key-02.png)
 
@@ -196,7 +196,7 @@ Do the following steps in the Azure portal to order a device:
     > [!NOTE]
     > Enabling this option could make order processing and data copy take longer. You can't change this option after you create your order.
 
-    Select **Next: Contact details** to continue.
+    Select **Next: Contact details>** to continue.
 
 17. In **Contact details**, select **+ Add Address**.
 
@@ -210,7 +210,7 @@ Do the following steps in the Azure portal to order a device:
 
 19. Select **Add shipping address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
 
-20. In **Contact details**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
+20. Beside **Email**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
@@ -220,5 +220,4 @@ Do the following steps in the Azure portal to order a device:
 
 22. Select **Order**. The order takes a few minutes to be created.
 
-    ![Screenshot of the Review Plus Order tab for a Data Box order. The Review Plus Order tab and the Order button are highlighted.](media/data-box-order-portal/data-box-import-09
-.png)
+    ![Screenshot of the Review Plus Order tab for a Data Box order. The Review Plus Order tab and the Order button are highlighted.](media/data-box-order-portal/data-box-import-09.png)
