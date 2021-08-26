@@ -10,7 +10,7 @@ items:
   items:
   - name: Create a Purview account - Azure portal
     href: create-catalog-portal.md
-  - name: Create a collection - Azure portal
+  - name: Create a collection - Azure Purview Studio
     href: quickstart-create-collection.md
   - name: Create a Purview account - Azure PowerShell
     href: create-catalog-powershell.md
@@ -58,8 +58,6 @@ items:
     href: concept-scans-and-ingestion.md
   - name: Elastic Data Map
     href: concept-elastic-data-map.md
-  - name: How scans detect deleted assets
-    href: concept-detect-deleted-assets.md
   - name: Understanding resource sets
     href: concept-resource-sets.md
   - name: Data lineage

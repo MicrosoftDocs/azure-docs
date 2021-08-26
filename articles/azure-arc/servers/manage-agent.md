@@ -194,7 +194,7 @@ You can perform a **Connect** and **Disconnect** manually while logged on intera
 
 This parameter specifies a resource in Azure Resource Manager representing the machine is created in Azure. The resource is in the subscription and resource group specified, and data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of the machine if not specified.
 
-A certificate corresponding to the system-assigned identity of the machine is then downloaded and stored locally. Once this step is completed, the Azure Connected Machine Metadata Service and Guest Configuration Agent begin synchronizing with Azure Arc-enabled servers.
+A certificate corresponding to the system-assigned identity of the machine is then downloaded and stored locally. Once this step is completed, the Azure Connected Machine Metadata Service and guest configuration agent service begins synchronizing with Azure Arc-enabled servers.
 
 To connect using a service principal, run the following command:
 

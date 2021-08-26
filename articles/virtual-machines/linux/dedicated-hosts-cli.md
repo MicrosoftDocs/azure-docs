@@ -12,7 +12,8 @@ ms.author: cynthn
 ---
 
 # Deploy to dedicated hosts using the Azure CLI
-
+ 
+**Applies to:** :heavy_check_mark: Linux VMs  :heavy_check_mark: Windows VMs 
 
 This article guides you through how to create an Azure [dedicated host](../dedicated-hosts.md) to host your virtual machines (VMs).
 
