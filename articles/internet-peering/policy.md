@@ -45,12 +45,12 @@ Microsoft maintains a selective peering policy designed to ensure the best possi
 * The locations where you can connect with Microsoft for Direct peering or Exchange peering are listed in [PeeringDB](https://www.peeringdb.com/net/694)
 
 * **Exchange peering:**
-    * Peers are expected to have at minimum a 10 Gb connection to the exchange.
+    * Peers are expected to have at minimum a 10Gbps connection to the exchange.
     * Peers are expected to upgrade their ports when peak utilization exceeds 50%.
     * Microsoft encourages peers to maintain diverse connectivity to exchange to support failover scenarios.
 
 * **Direct peering:**
-    * Interconnection must be over single-mode fiber using 100 Gbps optics.
+    * Interconnection must be over single-mode fiber using 100Gbps optics.
     * Microsoft will only establish Direct peering with ISP or Network Service providers.
     * Peers are expected to upgrade their ports when peak utilization exceeds 50% and maintain diverse capacity in each metro, either within a single location or across several locations in a metro.
     * Each Direct peering consists of two connections to two Microsoft edge routers from the Peer's routers located in Peer's edge. Microsoft requires dual BGP sessions across these connections. The peer may choose not to deploy redundant devices at their end.
@@ -58,8 +58,8 @@ Microsoft maintains a selective peering policy designed to ensure the best possi
 
 ## Traffic requirements
 
-* Peers over Exchange peering must have at minimum 500 Mb of traffic and less than 2 Gb. For traffic exceeding 2 Gb Direct peering should be established.
-* Microsoft requires at minimum 2 Gb for direct peering. Each mutually agreed to peering location must support failover that ensures peering remains localized during a failover scenario. 
+* Peers over Exchange peering must have at minimum 500Mbps of traffic and less than 2Gbps. For traffic exceeding 2Gbps Direct peering should be established.
+* Microsoft requires at minimum 2Gbps for direct peering. Each mutually agreed to peering location must support failover that ensures peering remains localized during a failover scenario. 
 
 ## Next steps
 
