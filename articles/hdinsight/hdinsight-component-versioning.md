@@ -3,7 +3,7 @@ title: Apache Hadoop components and versions - Azure HDInsight
 description: Learn about the Apache Hadoop components and versions in Azure HDInsight.
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 08/26/2021
 ---
 
 # Azure HDInsight versions
@@ -31,11 +31,22 @@ Support is defined as a time period that an HDInsight version is supported by Mi
 
 ### Standard support
 
-Standard support is a time period in which Microsoft provides updates and support on HDInsight clusters. Microsoft recommends building solutions using the most recent fully supported version. 
+Standard support provides updates and support on HDInsight clusters. Microsoft recommends building solutions using the most recent fully supported version. 
+
+Standard support includes the following:
+- Ability to create support requests on HDInsight 4.0 clusters.
+- Support for troubleshooting solutions built on 4.0 clusters. 
+- Requests to restart services or nodes.
+- Root cause analysis investigations on support requests.
+- Root cause analysis or fixes to improve job or query performance.
+- Root cause analysis or fixes to improve customer-initiated changes, e.g., changing service configurations or issues due to custom script actions.
+- Product updates for critical security fixes until version retirement.
+- Scoped product updates to the HDInsight Resource provider.
+- Selective fixes or changes to HDInsight 4.0 images or open-source software (OSS) component versions.
 
 ### Basic support
 
-Basic support is a time period in which Microsoft will provide limited servicing to the HDInsight Resource provider. HDInsight images and open-source software (OSS) components will not be serviced. Only critical security fixes will be patched on HDInsight clusters. 
+Basic support provides limited servicing to the HDInsight Resource provider. HDInsight images and open-source software (OSS) components will not be serviced. Only critical security fixes will be patched on HDInsight clusters. 
 
 Basic support includes the following:
 - Continued use of existing HDInsight 3.6 clusters.
@@ -43,8 +54,8 @@ Basic support includes the following:
 - Ability to scale HDInsight 3.6 clusters up and down via autoscale or manual scale.
 - Scoped product updates to the HDInsight Resource provider.
 - Product updates for critical security fixes until version retirement.
-- Requests to restart services or nodes.
 - Ability to create support requests on HDInsight 3.6 clusters.
+- Requests to restart services or nodes.
 
 Basic support does not include the following:
 - Fixes or changes to HDInsight 3.6 images or open-source software (OSS) component versions.
@@ -55,7 +66,7 @@ Basic support does not include the following:
 - Root cause analysis or fixes to improve job or query performance.
 - Root cause analysis or fixes to improve customer-initiated changes, e.g., changing service configurations or issues due to custom script actions.
 
-Microsoft does not encourage creating new clusters or building any fresh solutions when a version is in Basic support. We recommend migrating existing clusters to the most recent fully supported version. 
+Microsoft does not encourage creating analytics pipelines or solutions on clusters in basic support. We recommend migrating existing clusters to the most recent fully supported version. 
 
 ## Release notes
 
