@@ -43,16 +43,10 @@ Follow these steps to find and complete the access review:
 
    <kbd>![Screenshot of Privileged Identity Management application, with Review access blade selected for Azure AD roles](media/pim-perform-azuread-roles-and-resource-roles-review/rbac-access-review-azure-ad-complete.png)</kbd>
 
-   <kbd>![Screenshot of Privileged Identity Management application, with Review access blade selected for Azure resource roles](media/pim-perform-azuread-roles-and-resource-roles-review/rbac-access-review-azure-resource-complete.png)</kbd>
-
 1. Select the review you want to complete.
 1. Choose **Approve** or **Deny**. In the **Provide a reason box**, enter a business justification for your decision as needed.
 
      <kbd>![Screenshot of Privileged Identity Management application, with the selected Access Review for Azure AD roles](media/pim-perform-azuread-roles-and-resource-roles-review/rbac-access-review-azure-ad-completed.png)</kbd>
-
-     <kbd>![Screenshot of Privileged Identity Management application, with the selected Access Review for Azure resource roles](media/pim-perform-azuread-roles-and-resource-roles-review/rbac-access-review-azure-resource-completed.png)</kbd>
-
-
 
 ## Next steps
 

@@ -77,6 +77,9 @@ On the **Results** page, you may view and download a list of your review results
 
 On the **Reviewers** page, you may view and add reviewers to your existing access review. You may also remind reviewers to complete their reviews here.
 
+> [!Note]
+> If the reviewer type selected is user or group, you can add more users or groups as the primary reviewers at any point. You can also remove primary reviewers at any point. If the reviewer type is manager, you can add users or groups as the fallback reviewers to complete reviews on users who do not have managers. Fallback reviewers cannot be removed.
+
 <kbd>![Reviewers page listing name and user principal name for Azure AD roles](media/pim-complete-azuread-roles-and-resource-roles-review/rbac-access-review-azure-ad-reviewers.png)</kbd>
 
 <kbd>![Reviewers page listing name and user principal name for Azure resource roles](media/pim-complete-azuread-roles-and-resource-roles-review/rbac-access-review-azure-resource-reviewers.png)</kbd>
