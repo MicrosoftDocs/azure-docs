@@ -56,7 +56,7 @@ The below table lists additional service dependencies, where the client apps mus
 |                     | SharePoint                                  | Late-bound  |
 | Outlook groups      | Exchange                                    | Early-bound |
 |                     | SharePoint                                  | Early-bound |
-| PowerApps           | Microsoft Azure Management (portal and API) | Early-bound |
+| Power Apps           | Microsoft Azure Management (portal and API) | Early-bound |
 |                     | Windows Azure Active Directory              | Early-bound |
 | Project             | Dynamics CRM                                | Early-bound |
 | Skype for Business  | Exchange                                    | Early-bound |
