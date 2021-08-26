@@ -16,11 +16,11 @@ Defender for IoT uses SSL/TLS certificates to secure communication between the f
 - Between a management console and a High Availability management console.
 - To the REST API on the sensor and on-premises management console. 
 
-Defender for IoT Admin users can upload the certificates SSL/TLS to sensor consoles and their on-premises management console.
+Defender for IoT Admin users can upload a certificate  to sensor consoles and their on-premises management console from the SSL/TLS Certificates dialog box.
 
 :::image type="content" source="media/how-to-deploy-certificates/certificate-upload.png" alt-text="Certificate-upload dialog box.":::
 
-## About certificate generation methods 
+## About certificate generation methods
 
 All certificate generation methods are supported using:  
 
