@@ -21,13 +21,13 @@ ms.custom: ep-msia
 # How to use managed identities to connect to Cosmos DB from an Azure virtual machine
 
 
-In this article, we set up a virtual machine to use managed identities to connect to Cosmos. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities](overview.md) for Azure resources allow your applications to authenticate when accessing resources while using an identity Azure manages for you. 
+In this article, we set up a virtual machine to use managed identities to connect to Cosmos. [Azure Cosmos DB](../../cosmos-db/introduction.md) is a fully managed NoSQL database for modern app development. [Managed identities](overview.md) for Azure resources allow your applications to authenticate when accessing resources using an identity Azure manages for you. 
 
 ## Prerequisites
 
- - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
+- If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
 - Before you begin, you must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- A [Comos DB Core (SQL) API account](../../cosmos-db/create-cosmosdb-resources-portal.md).
+- A [Comos DB Core (SQL) API account](../../cosmos-db/create-cosmosdb-resources-portal.md) configured with some data that you can query. The Cosmos quickstart walks you through the steps of creating an Azure Cosmos account. We assume that you have completed those steps and build on that.
 - You may need either [PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-6.3.0) or the [CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 - A resource group that we can use to create all resources.
 
@@ -40,13 +40,13 @@ Before we continue, we need a virtual machine with a managed identity. You may c
 - You could create a virtual machine with a user-assigned managed identity enabled.
 - You can assign a user-assigned managed identity to an existing VM.
 
-In addition, to the options listed above you may also choose between Linux and Windows for your virtual machine's operating system.
+In addition, to the options listed above you need to choose between Linux and Windows for your virtual machine's operating system. Either one is fine. 
 
 ### System assigned
 
 #### Create a VM with a system assigned managed identity
 
-To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No additional Azure AD directory role assignments are required.
+To create an Azure VM with the system-assigned managed identity enabled, your account needs the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role assignment.  No other Azure AD role assignments are required.
 
 # [Portal](#tab/azure-portal)
 
@@ -115,8 +115,8 @@ When you're done, the following sections should be added to the `resource` secti
             //other resource provider properties...
             "apiVersion": "2018-06-01",
             "type": "Microsoft.Compute/virtualMachines",
-            "name": "[variables('vmName')]",
-            "location": "[resourceGroup().location]",
+            "name": "[variables('myVM')]",
+            "location": "[myResourceGroup().location]",
             "identity": {
                 "type": "SystemAssigned",
                 }                        
@@ -216,7 +216,7 @@ The user assigned managed identity should be specified using its [resourceID](ho
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
+az vm create --resource-group <MyResourceGroup> --name <myVM> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY NAME>
 ```
 
 [Configure managed identities for Azure resources on a VM using the Azure CLI](qs-configure-cli-windows-vm.md#user-assigned-managed-identity)
@@ -368,14 +368,27 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ## Access data
 
-Navigate to the Azure Cosmos DB account in the Azure portal and create a database and a container. 
+Navigate to the Azure Cosmos DB account in the Azure portal and create a database and a container. You can view step by step instructions in the Azure Cosmos DB quickstart.
+
+https://docs.microsoft.com/en-us/azure/cosmos-db/managed-identity-based-authentication
+
+Download the database management project 
+
+https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement
+
+We can then use the samples 
+
+https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-dotnet-v3sdk-samples
 
 Next steps are language-specific:
 
 ### .NET
 Initialize your Cosmos DB client:
+
+```
 CosmosClient client = new CosmosClient("<account-endpoint>", new ManagedIdentityCredential());
-Then [read and write data](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-dotnet-v3sdk-samples).
+```
+Then [read and write data](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples).
 
 ### Java
 Initialize your Cosmos DB client:
@@ -383,7 +396,7 @@ Initialize your Cosmos DB client:
 CosmosAsyncClient Client = new CosmosClientBuilder() .endpoint("<account-endpoint>") .credential(new ManagedIdentityCredential()) .build();
 ```
 
-Then read and write data as described in [these samples](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-java-sdk-samples
+Then read and write data as described in [these samples](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples
 )
 
 ### JavaScript
@@ -392,7 +405,7 @@ Initialize your Cosmos DB client:
 ```javascript
 const client = new CosmosClient({ "<account-endpoint>", aadCredentials: new ManagedIdentityCredential() });
 ```
-Then read and write data as described in [these samples](https://docs.microsoft.com/en-us/azure/cosmos-db/sql-api-nodejs-samples)
+Then read and write data as described in [these samples](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples)
 
 ## Clean up steps
 
@@ -440,3 +453,6 @@ Learn more about managed identities for Azure resources:
 * [What are managed identities for Azure resources?](overview.md)
 * [Azure Resource Manager templates](https://github.com/Azure/azure-quickstart-templates)
 
+Learn more about Azure Cosmos
+
+* [Azure Cosmos DB resource model](https://docs.microsoft.com/en-us/azure/cosmos-db/account-databases-containers-items)
