@@ -175,7 +175,7 @@ A pipeline task is a pre-packaged script that performs an action. Add a task tha
         -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
         ```
         
-        The `-Files` parameter is a comma delimiter list of policy files to deploy. Update the list with your plicy files.
+        The `-Files` parameter is a comma delimiter list of policy files to deploy. Update the list with your policy files.
         
         > [!IMPORTANT]
         >  Ensure the policies are uploaded in the correct order. First the base policy, the extensions policy, then the relying party policies. For example,  `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
