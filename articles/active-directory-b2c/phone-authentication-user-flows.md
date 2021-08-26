@@ -180,7 +180,7 @@ To enable consent information
 
    `GET https://graph.microsoft.com/v1.0/users/{object_id}?$select=identities`
 
-1. Find `issureAssignedId` property in the response returned:
+1. Find the `issuerAssignedId` property in the response returned:
 
    ```json
        "identities": [
