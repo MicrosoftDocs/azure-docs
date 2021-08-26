@@ -105,7 +105,7 @@ Because calls to Azure Cosmos DB are made over the network, you might need to va
 
 **Enable accelerated networking**
  
-To reduce latency and CPU jitter, we recommend that you enable accelerated networking on your client virtual machines. For more information, see [Create a Windows virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-cli.md).
+To reduce latency and CPU jitter, we recommend that you enable accelerated networking on your client virtual machines. For more information, see [Create a Windows virtual machine with accelerated networking](../../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with accelerated networking](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
 ## <a id="sdk-usage"></a> SDK usage
 
@@ -123,7 +123,7 @@ Middle-tier applications that don't consume responses directly from the SDK but 
 
 Each `CosmosClient` instance is thread-safe and performs efficient connection management and address caching when it operates in Direct mode. To allow efficient connection management and better SDK client performance, we recommend that you use a single instance per `AppDomain` for the lifetime of the application.
 
-When you're working on Azure Functions, instances should also follow the existing [guidelines](../azure-functions/manage-connections.md#static-clients) and maintain a single instance.
+When you're working on Azure Functions, instances should also follow the existing [guidelines](../../azure-functions/manage-connections.md#static-clients) and maintain a single instance.
 
 **Avoid blocking calls**
 
@@ -216,7 +216,7 @@ containerProperties.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "
 Container container = await this.cosmosDatabase.CreateContainerAsync(containerProperties);
 ```
 
-For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
+For more information, see [Azure Cosmos DB indexing policies](../index-policy.md).
 
 ## Throughput
 <a id="measure-rus"></a>
@@ -227,7 +227,7 @@ Azure Cosmos DB offers a rich set of database operations. These operations inclu
 
 The costs associated with each of these operations vary depending on the CPU, IO, and memory that are required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a Request Unit as a single measure for the resources that are required to perform various database operations and service an application request.
 
-Throughput is provisioned based on the number of [Request Units](request-units.md) set for each container. Request Unit consumption is evaluated as a units-per-second rate. Applications that exceed the provisioned Request Unit rate for their container are limited until the rate drops below the provisioned level for the container. If your application requires a higher level of throughput, you can increase your throughput by provisioning additional Request Units.
+Throughput is provisioned based on the number of [Request Units](../request-units.md) set for each container. Request Unit consumption is evaluated as a units-per-second rate. Applications that exceed the provisioned Request Unit rate for their container are limited until the rate drops below the provisioned level for the container. If your application requires a higher level of throughput, you can increase your throughput by provisioning additional Request Units.
 
 The complexity of a query affects how many Request Units are consumed for an operation. The number of predicates, the nature of the predicates, the number of UDF files, and the size of the source dataset all influence the cost of query operations.
 
@@ -246,7 +246,7 @@ while (queryable.HasMoreResults)
     }
 ```             
 
-The request charge that's returned in this header is a fraction of your provisioned throughput (that is, 2,000 RU/s). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before it rate-limits later requests. For more information, see [Request Units](request-units.md) and the [Request Unit calculator](https://www.documentdb.com/capacityplanner).
+The request charge that's returned in this header is a fraction of your provisioned throughput (that is, 2,000 RU/s). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before it rate-limits later requests. For more information, see [Request Units](../request-units.md) and the [Request Unit calculator](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 
 **Handle rate limiting/request rate too large**
@@ -267,7 +267,7 @@ You can change the default retry count by setting the `RetryOptions` on the `Cos
 
 The automated retry behavior helps improve resiliency and usability for most applications. But it might not be the best behavior when you're doing performance benchmarks, especially when you're measuring latency. The client-observed latency will spike if the experiment hits the server throttle and causes the client SDK to silently retry. To avoid latency spikes during performance experiments, measure the charge that's returned by each operation, and ensure that requests are operating below the reserved request rate. 
 
-For more information, see [Request Units](request-units.md).
+For more information, see [Request Units](../request-units.md).
 
 **For higher throughput, design for smaller documents**
 
@@ -276,4 +276,4 @@ The request charge (that is, the request-processing cost) of a specified operati
 ## Next steps
 For a sample application that's used to evaluate Azure Cosmos DB for high-performance scenarios on a few client machines, see [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
 
-To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md).
+To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](../partitioning-overview.md).

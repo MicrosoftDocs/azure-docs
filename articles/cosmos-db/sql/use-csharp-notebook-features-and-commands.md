@@ -162,5 +162,5 @@ To reset the notebooks workspace to the default settings, select **Reset Workspa
 
 ## Next steps
 
-- Learn about the benefits of [Azure Cosmos DB Jupyter notebooks](cosmosdb-jupyter-notebooks.md)
+- Learn about the benefits of [Azure Cosmos DB Jupyter notebooks](../cosmosdb-jupyter-notebooks.md)
 - Learn about the [Azure Cosmos DB .NET SDK for SQL API](https://github.com/Azure/azure-cosmos-dotnet-v3)

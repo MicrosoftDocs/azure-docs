@@ -15,7 +15,7 @@ ms.author: esarroyo
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
-> * [SQL (Core) API](diagnostic-queries-sql.md)
+> * [SQL (Core) API](cosmos-db-advanced-queries.md)
 > * [MongoDB API](../mongodb/diagnostic-queries-mongodb.md)
 > * [Cassandra API](../cassandra/diagnostic-queries-cassandra.md)
 > * [Gremlin API](../graph/diagnostic-queries-gremlin.md)

@@ -14,7 +14,7 @@ ms.author: rosouz
 
 [Power BI](https://powerbi.microsoft.com/) is an online service where you can create and share dashboards and reports. Power BI Desktop is a report authoring tool that enables you to retrieve data from various data sources. Azure Cosmos DB is one of the data source that you can use with Power BI Desktop. You can connect Power BI Desktop to Azure Cosmos DB account with the Azure Cosmos DB connector for Power BI.  After you import Azure Cosmos DB data to Power BI, you can transform it, create reports, and publish the reports to Power BI.
 
-Another option is to create near real-time reports using [Azure Synapse Link for Azure Cosmos DB](synapse-link.md). With Azure Synapse Link, you can connect Power BI to analyze your Azure Cosmos DB data, with no performance or cost impact to your transactional workloads, and no ETL pipelines. You can use either [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. For more information, click [here](synapse-link-power-bi.md).
+Another option is to create near real-time reports using [Azure Synapse Link for Azure Cosmos DB](../synapse-link.md). With Azure Synapse Link, you can connect Power BI to analyze your Azure Cosmos DB data, with no performance or cost impact to your transactional workloads, and no ETL pipelines. You can use either [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. For more information, click [here](../synapse-link-power-bi.md).
 
 
 This article describes the steps required to connect Azure Cosmos DB account to Power BI Desktop. After connecting, you navigate to a collection, extract the data, transform the JSON data into tabular format, and publish a report to Power BI.
@@ -35,7 +35,7 @@ Before following the instructions in this Power BI tutorial, ensure that you hav
 
 * Download the [sample volcano data](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/main/SampleData/VolcanoData.json) from GitHub.
 
-* [Create an Azure Cosmos database account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) and import the volcano data by using the [Azure Cosmos DB data migration tool](import-data.md). When importing data, consider the following settings for the source and destinations in the data migration tool:
+* [Create an Azure Cosmos database account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) and import the volcano data by using the [Azure Cosmos DB data migration tool](../import-data.md). When importing data, consider the following settings for the source and destinations in the data migration tool:
 
    * **Source parameters** 
 

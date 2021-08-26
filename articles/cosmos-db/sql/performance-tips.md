@@ -111,7 +111,7 @@ Because calls to Azure Cosmos DB are made over the network, you might need to va
 
 **Enable accelerated networking**
  
-To reduce latency and CPU jitter, we recommend that you enable accelerated networking on client virtual machines. See [Create a Windows virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with accelerated networking](../virtual-network/create-vm-accelerated-networking-cli.md).
+To reduce latency and CPU jitter, we recommend that you enable accelerated networking on client virtual machines. See [Create a Windows virtual machine with accelerated networking](../../virtual-network/create-vm-accelerated-networking-powershell.md) or [Create a Linux virtual machine with accelerated networking](../../virtual-network/create-vm-accelerated-networking-cli.md).
 
 ## SDK usage
 
@@ -222,7 +222,7 @@ collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndex
 collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), collection);
 ```
 
-For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
+For more information, see [Azure Cosmos DB indexing policies](../index-policy.md).
 
 ## <a id="measure-rus"></a> Throughput
 
@@ -230,7 +230,7 @@ For more information, see [Azure Cosmos DB indexing policies](index-policy.md).
 
 Azure Cosmos DB offers a rich set of database operations. These operations include relational and hierarchical queries with UDFs, stored procedures, and triggers, all operating on the documents within a database collection. The cost associated with each of these operations varies depending on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a Request Unit (RU) as a single measure for the resources required to perform various database operations and service an application request.
 
-Throughput is provisioned based on the number of [Request Units](request-units.md) set for each container. Request Unit consumption is evaluated as a rate per second. Applications that exceed the provisioned Request Unit rate for their container are limited until the rate drops below the provisioned level for the container. If your application requires a higher level of throughput, you can increase your throughput by provisioning additional Request Units.
+Throughput is provisioned based on the number of [Request Units](../request-units.md) set for each container. Request Unit consumption is evaluated as a rate per second. Applications that exceed the provisioned Request Unit rate for their container are limited until the rate drops below the provisioned level for the container. If your application requires a higher level of throughput, you can increase your throughput by provisioning additional Request Units.
 
 The complexity of a query affects how many Request Units are consumed for an operation. The number of predicates, the nature of the predicates, the number of UDFs, and the size of the source dataset all influence the cost of query operations.
 
@@ -249,7 +249,7 @@ while (queryable.HasMoreResults)
     }
 ```             
 
-The request charge returned in this header is a fraction of your provisioned throughput (that is, 2,000 RUs / second). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before rate limiting later requests. For more information, see [Request Units](request-units.md) and the [Request Unit calculator](https://www.documentdb.com/capacityplanner).
+The request charge returned in this header is a fraction of your provisioned throughput (that is, 2,000 RUs / second). For example, if the preceding query returns 1,000 1-KB documents, the cost of the operation is 1,000. So, within one second, the server honors only two such requests before rate limiting later requests. For more information, see [Request Units](../request-units.md) and the [Request Unit calculator](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 
 **Handle rate limiting/request rate too large**
@@ -268,7 +268,7 @@ If you have more than one client cumulatively operating consistently above the r
 
 You can change the default retry count by setting the `RetryOptions` on the `ConnectionPolicy` instance. By default, the DocumentClientException with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This error returns even when the current retry count is less than the maximum retry count, whether the current value is the default of 9 or a user-defined value.
 
-The automated retry behavior helps improve resiliency and usability for most applications. But it might not be the best behavior when you're doing performance benchmarks, especially when you're measuring latency. The client-observed latency will spike if the experiment hits the server throttle and causes the client SDK to silently retry. To avoid latency spikes during performance experiments, measure the charge returned by each operation and ensure that requests are operating below the reserved request rate. For more information, see [Request Units](request-units.md).
+The automated retry behavior helps improve resiliency and usability for most applications. But it might not be the best behavior when you're doing performance benchmarks, especially when you're measuring latency. The client-observed latency will spike if the experiment hits the server throttle and causes the client SDK to silently retry. To avoid latency spikes during performance experiments, measure the charge returned by each operation and ensure that requests are operating below the reserved request rate. For more information, see [Request Units](../request-units.md).
 
 **For higher throughput, design for smaller documents**
 
@@ -278,4 +278,4 @@ The request charge (that is, the request-processing cost) of a given operation c
 
 For a sample application that's used to evaluate Azure Cosmos DB for high-performance scenarios on a few client machines, see [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
 
-To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md).
+To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](../partitioning-overview.md).

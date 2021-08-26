@@ -2971,11 +2971,6 @@
     "redirect_document_id": true
   },
   {
-    "source_path_from_root": "/articles/cosmos-db/cosmos-db-advanced-queries.md",
-    "redirect_url": "/azure/cosmos-db/sql/diagnostic-queries-sql",
-    "redirect_document_id": true
-  },
-  {
     "source_path_from_root": "/articles/cosmos-db/dynamo-to-cosmos.md",
     "redirect_url": "/azure/cosmos-db/sql/dynamo-to-cosmos",
     "redirect_document_id": true

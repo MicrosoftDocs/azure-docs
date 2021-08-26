@@ -116,7 +116,7 @@ To work around this situation, remove the manual NuGet reference that was added 
 
 ### Changing Azure Function's polling interval for the detecting changes
 
-As explained earlier for [My changes take too long to be received](#my-changes-take-too-long-to-be-received), Azure function will sleep for a configurable amount of time (5 seconds, by default) before checking for new changes (to avoid high RU consumption). You can configure this sleep time through the `FeedPollDelay/feedPollDelay` setting in the [configuration](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) of your trigger (the value is expected to be in milliseconds).
+As explained earlier for [My changes take too long to be received](#my-changes-take-too-long-to-be-received), Azure function will sleep for a configurable amount of time (5 seconds, by default) before checking for new changes (to avoid high RU consumption). You can configure this sleep time through the `FeedPollDelay/feedPollDelay` setting in the [configuration](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) of your trigger (the value is expected to be in milliseconds).
 
 ## Next steps
 

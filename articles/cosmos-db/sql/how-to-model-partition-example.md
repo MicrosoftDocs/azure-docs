@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 # How to model and partition data on Azure Cosmos DB using a real-world example
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This article builds on several Azure Cosmos DB concepts like [data modeling](../modeling-data.md), [partitioning](partitioning-overview.md), and [provisioned throughput](../request-units.md) to demonstrate how to tackle a real-world data design exercise.
+This article builds on several Azure Cosmos DB concepts like [data modeling](../modeling-data.md), [partitioning](../partitioning-overview.md), and [provisioned throughput](../request-units.md) to demonstrate how to tackle a real-world data design exercise.
 
 If you usually work with relational databases, you have probably built habits and intuitions on how to design a data model. Because of the specific constraints, but also the unique strengths of Azure Cosmos DB, most of these best practices don't translate well and may drag you into suboptimal solutions. The goal of this article is to guide you through the complete process of modeling a real-world use-case on Azure Cosmos DB, from item modeling to entity colocation and container partitioning.
 
@@ -577,7 +577,7 @@ If we look at the most extreme optimization we have done, **[Q6]** went from 200
 
 ### Denormalization can be applied incrementally
 
-The scalability improvements we've explored in this article involve denormalization and duplication of data across the data set. It should be noted that these optimizations don't have to be put in place at day 1. Queries that filter on partition keys perform better at scale, but cross-partition queries can be totally acceptable if they are called rarely or against a limited data set. If you're just building a prototype, or launching a product with a small and controlled user base, you can probably spare those improvements for later; what's important then is to [monitor](use-metrics.md) your model's performance so you can decide if and when it's time to bring them in.
+The scalability improvements we've explored in this article involve denormalization and duplication of data across the data set. It should be noted that these optimizations don't have to be put in place at day 1. Queries that filter on partition keys perform better at scale, but cross-partition queries can be totally acceptable if they are called rarely or against a limited data set. If you're just building a prototype, or launching a product with a small and controlled user base, you can probably spare those improvements for later; what's important then is to [monitor](../use-metrics.md) your model's performance so you can decide if and when it's time to bring them in.
 
 The change feed that we use to distribute updates to other containers store all those updates persistently. This makes it possible to request all updates since the creation of the container and bootstrap denormalized views as a one-time catch-up operation even if your system already has a lot of data.
 

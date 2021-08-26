@@ -36,7 +36,7 @@ Using a push model is the easiest way to read from the change feed. There are tw
 
 ### Azure Functions
 
-Azure Functions is the simplest option if you are just getting started using the change feed. Due to its simplicity, it is also the recommended option for most change feed use cases. When you create an Azure Functions trigger for Azure Cosmos DB, you select the container to connect, and the Azure Function gets triggered whenever there is a change in the container. Because Azure Functions uses the change feed processor behind the scenes, it automatically parallelizes change processing across your container's [partitions](partitioning-overview.md).
+Azure Functions is the simplest option if you are just getting started using the change feed. Due to its simplicity, it is also the recommended option for most change feed use cases. When you create an Azure Functions trigger for Azure Cosmos DB, you select the container to connect, and the Azure Function gets triggered whenever there is a change in the container. Because Azure Functions uses the change feed processor behind the scenes, it automatically parallelizes change processing across your container's [partitions](../partitioning-overview.md).
 
 Developing with Azure Functions is an easy experience and can be faster than deploying the change feed processor on your own. Triggers can be created using the Azure Functions portal or programmatically using SDKs. Visual Studio and VS Code provide support to write Azure Functions, and you can even use the Azure Functions CLI for cross-platform development. You can write and debug the code on your desktop, and then deploy the function with one click. See [Serverless database computing using Azure Functions](serverless-computing-database.md) and [Using change feed with Azure Functions](change-feed-functions.md) articles to learn more.
 
@@ -66,14 +66,14 @@ There is no built-in "at-least-once" delivery guarantee with the pull model. The
 
 ## Change feed in APIs for Cassandra and MongoDB
 
-Change feed functionality is surfaced as change streams in MongoDB API and Query with predicate in Cassandra API. To learn more about the implementation details for MongoDB API, see the [Change streams in the Azure Cosmos DB API for MongoDB](mongodb/change-streams.md).
+Change feed functionality is surfaced as change streams in MongoDB API and Query with predicate in Cassandra API. To learn more about the implementation details for MongoDB API, see the [Change streams in the Azure Cosmos DB API for MongoDB](../mongodb/change-streams.md).
 
-Native Apache Cassandra provides change data capture (CDC), a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. The change feed feature in Azure Cosmos DB API for Cassandra enhances the ability to query the changes with predicate via CQL. To learn more about the implementation details, see [Change feed in the Azure Cosmos DB API for Cassandra](cassandra/cassandra-change-feed.md).
+Native Apache Cassandra provides change data capture (CDC), a mechanism to flag specific tables for archival as well as rejecting writes to those tables once a configurable size-on-disk for the CDC log is reached. The change feed feature in Azure Cosmos DB API for Cassandra enhances the ability to query the changes with predicate via CQL. To learn more about the implementation details, see [Change feed in the Azure Cosmos DB API for Cassandra](../cassandra/cassandra-change-feed.md).
 
 ## Next steps
 
 You can now continue to learn more about change feed in the following articles:
 
-* [Overview of change feed](change-feed.md)
+* [Overview of change feed](../change-feed.md)
 * [Using change feed with Azure Functions](change-feed-functions.md)
 * [Using change feed processor library](change-feed-processor.md)

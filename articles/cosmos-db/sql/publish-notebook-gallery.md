@@ -79,7 +79,7 @@ Use the following steps to publish a notebook:
 
 ## Next steps
 
-* Learn about the benefits of [Azure Cosmos DB Jupyter Notebooks](cosmosdb-jupyter-notebooks.md)
+* Learn about the benefits of [Azure Cosmos DB Jupyter Notebooks](../cosmosdb-jupyter-notebooks.md)
 * [Use Python notebook features and commands](use-python-notebook-features-and-commands.md)
 * [Use C# notebook features and commands](use-csharp-notebook-features-and-commands.md)
 * [Import notebooks from a GitHub repo](import-github-notebooks.md)

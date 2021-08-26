@@ -27,7 +27,7 @@ This article covers the following tasks:
 
 ## <a id="preferred-locations"></a> Connecting to a preferred region using the SQL API
 
-In order to take advantage of [global distribution](distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SQL SDK to perform write and read operations.
+In order to take advantage of [global distribution](../distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SQL SDK to perform write and read operations.
 
 This preference list is specified when initializing a connection using the SQL SDKs. The SDKs accept an optional parameter `PreferredLocations` that is an ordered list of Azure regions.
 

@@ -106,7 +106,7 @@ When Azure Cosmos DB activity anomalies occur, a security alert is triggered wit
 
 An email notification is also sent with the alert details and recommended actions. The following image shows an example of an alert email.
 
- :::image type="content" source="./media/advanced-threat-protection/alert.png" alt-text="Alert details":::
+ :::image type="content" source="./media/advanced-threat-protection/cosmos-db-alert.png" alt-text="Alert details":::
 
 ## Cosmos DB ATP alerts
 

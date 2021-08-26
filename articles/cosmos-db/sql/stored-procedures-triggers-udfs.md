@@ -53,7 +53,7 @@ In Azure Cosmos DB, JavaScript runtime is hosted inside the database engine. Hen
 
 ### Scope of a transaction
 
-Stored procedures are associated with an Azure Cosmos container and stored procedure execution is scoped to a logical partition key. Stored procedures must include a logical partition key value during execution that defines the logical partition for the scope of the transaction. For more information, see [Azure Cosmos DB partitioning](partitioning-overview.md) article.
+Stored procedures are associated with an Azure Cosmos container and stored procedure execution is scoped to a logical partition key. Stored procedures must include a logical partition key value during execution that defines the logical partition for the scope of the transaction. For more information, see [Azure Cosmos DB partitioning](../partitioning-overview.md) article.
 
 ### Commit and rollback
 
@@ -61,7 +61,7 @@ Transactions are natively integrated into the Azure Cosmos DB JavaScript program
 
 ### Data consistency
 
-Stored procedures and triggers are always executed on the primary replica of an Azure Cosmos container. This feature ensures that reads from stored procedures offer [strong consistency](./consistency-levels.md). Queries using user-defined functions can be executed on the primary or any secondary replica. Stored procedures and triggers are intended to support transactional writes – meanwhile read-only logic is best implemented as application-side logic and queries using the [Azure Cosmos DB SQL API SDKs](sql-api-dotnet-samples.md), will help you saturate the database throughput. 
+Stored procedures and triggers are always executed on the primary replica of an Azure Cosmos container. This feature ensures that reads from stored procedures offer [strong consistency](../consistency-levels.md). Queries using user-defined functions can be executed on the primary or any secondary replica. Stored procedures and triggers are intended to support transactional writes – meanwhile read-only logic is best implemented as application-side logic and queries using the [Azure Cosmos DB SQL API SDKs](sql-api-dotnet-samples.md), will help you saturate the database throughput. 
 
 > [!TIP]
 > The queries executed within a stored procedure or trigger may not see changes to items made by the same script transaction. This statement applies both to SQL queries, such as `getContent().getCollection.queryDocuments()`, as well as integrated language queries, such as `getContext().getCollection().filter()`.
@@ -72,7 +72,7 @@ All Azure Cosmos DB operations must complete within the specified timeout durati
 
 You can either ensure that your JavaScript functions finish within the time limit or implement a continuation-based model to batch/resume execution. In order to simplify development of stored procedures and triggers to handle time limits, all functions under the Azure Cosmos container (for example, create, read, update, and delete of items) return a boolean value that represents whether that operation will complete. If this value is false, it is an indication that the procedure must wrap up execution because the script is consuming more time or provisioned throughput than the configured value. Operations queued prior to the first unaccepted store operation are guaranteed to complete if the stored procedure completes in time and does not queue any more requests. Thus, operations should be queued one at a time by using JavaScript's callback convention to manage the script's control flow. Because scripts are executed in a server-side environment, they are strictly governed. Scripts that repeatedly violate execution boundaries may be marked inactive and can't be executed, and they should be recreated to honor the execution boundaries.
 
-JavaScript functions are also subject to [provisioned throughput capacity](request-units.md). JavaScript functions could potentially end up using a large number of request units within a short time and may be rate-limited if the provisioned throughput capacity limit is reached. It is important to note that scripts consume additional throughput in addition to the throughput spent executing database operations, although these database operations are slightly less expensive than executing the same operations from the client.
+JavaScript functions are also subject to [provisioned throughput capacity](../request-units.md). JavaScript functions could potentially end up using a large number of request units within a short time and may be rate-limited if the provisioned throughput capacity limit is reached. It is important to note that scripts consume additional throughput in addition to the throughput spent executing database operations, although these database operations are slightly less expensive than executing the same operations from the client.
 
 ## Triggers
 

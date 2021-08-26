@@ -10,7 +10,7 @@ ms.author: tisande
 ---
 
 # How to configure the Azure Cosmos DB integrated cache (Preview)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes how to provision a dedicated gateway, configure the integrated cache, and connect your application. 
 

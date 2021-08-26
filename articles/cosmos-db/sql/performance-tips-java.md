@@ -71,7 +71,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
       DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
       ```
 
-      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Diagram shows the Azure Cosmos D B connection policy." border="false":::
+      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Diagram shows the Azure Cosmos DB connection policy." border="false":::
 
    <a id="same-region"></a>
 2. **Collocate clients in same Azure region for performance**
@@ -147,7 +147,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     collectionDefinition.setIndexingPolicy(indexingPolicy);
     ```
 
-    For more information, see [Azure Cosmos DB indexing policies](./index-policy.md).
+    For more information, see [Azure Cosmos DB indexing policies](../index-policy.md).
 
 ## Throughput
 <a id="measure-rus"></a>
@@ -156,7 +156,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     Azure Cosmos DB offers a rich set of database operations including relational and hierarchical queries with UDFs, stored procedures, and triggers – all operating on the documents within a database collection. The cost associated with each of these operations varies based on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations and service an application request.
 
-    Throughput is provisioned based on the number of [request units](request-units.md) set for each container. Request unit consumption is evaluated as a rate per second. Applications that exceed the provisioned request unit rate for their container are limited until the rate drops below the provisioned level for the container. If your application requires a higher level of throughput, you can increase your throughput by provisioning additional request units. 
+    Throughput is provisioned based on the number of [request units](../request-units.md) set for each container. Request unit consumption is evaluated as a rate per second. Applications that exceed the provisioned request unit rate for their container are limited until the rate drops below the provisioned level for the container. If your application requires a higher level of throughput, you can increase your throughput by provisioning additional request units. 
 
     The complexity of a query impacts how many request units are consumed for an operation. The number of predicates, nature of the predicates, number of UDFs, and the size of the source data set all influence the cost of query operations.
 
@@ -171,7 +171,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     response.getRequestCharge();
     ```             
 
-    The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
+    The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](../request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
    <a id="429"></a>
 1. **Handle rate limiting/request rate too large**
 
@@ -186,10 +186,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     If you have more than one client cumulatively operating consistently above the request rate, the default retry count currently set to 9 internally by the client may not suffice; in this case, the client throws a [DocumentClientException](/java/api/com.microsoft.azure.documentdb.documentclientexception) with status code 429 to the application. The default retry count can be changed by using [setRetryOptions](/java/api/com.microsoft.azure.documentdb.connectionpolicy.setretryoptions) on the [ConnectionPolicy](/java/api/com.microsoft.azure.documentdb.connectionpolicy) instance. By default, the DocumentClientException with status code 429 is returned after a cumulative wait time of 30 seconds if the request continues to operate above the request rate. This occurs even when the current retry count is less than the max retry count, be it the default of 9 or a user-defined value.
 
-    While the automated retry behavior helps to improve resiliency and usability for the most applications, it might come at odds when doing performance benchmarks, especially when measuring latency.  The client-observed latency will spike if the experiment hits the server throttle and causes the client SDK to silently retry. To avoid latency spikes during performance experiments, measure the charge returned by each operation and ensure that requests are operating below the reserved request rate. For more information, see [Request units](request-units.md).
+    While the automated retry behavior helps to improve resiliency and usability for the most applications, it might come at odds when doing performance benchmarks, especially when measuring latency.  The client-observed latency will spike if the experiment hits the server throttle and causes the client SDK to silently retry. To avoid latency spikes during performance experiments, measure the charge returned by each operation and ensure that requests are operating below the reserved request rate. For more information, see [Request units](../request-units.md).
 3. **Design for smaller documents for higher throughput**
 
     The request charge (the request processing cost) of a given operation is directly correlated to the size of the document. Operations on large documents cost more than operations for small documents.
 
 ## Next steps
-To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md).
+To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](../partitioning-overview.md).
