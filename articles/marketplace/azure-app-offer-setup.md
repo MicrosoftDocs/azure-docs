@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # Create an Azure application offer
@@ -18,7 +18,7 @@ If you haven’t already done so, read [Plan an Azure application offer for the 
 
 ## Create a new offer
 
-#### [Workspaces view](#tab/workspaces-view)
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -43,7 +43,7 @@ If you haven’t already done so, read [Plan an Azure application offer for the 
 
 1. To generate the offer and continue, select  **Create**.
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 

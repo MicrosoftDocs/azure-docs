@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # Test and publish an Azure application offer
@@ -16,7 +16,7 @@ This article explains how to use Partner Center to submit your Azure Application
 
 ## Submit the offer for publishing
 
-#### [Workspaces view](#tab/Workspaces-view)
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -34,7 +34,7 @@ This article explains how to use Partner Center to submit your Azure Application
 1. After all the pages are complete, in the **Notes for certification** box, provide testing instructions to the certification team to ensure that your app is tested correctly. Provide any supplementary notes helpful for understanding your app.
 1. To start the publishing process for your offer, select **Publish**. The **Offer overview** page appears and shows the offer's **Publish status**.
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Sign in to the commercial marketplace in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 1. On the **Overview** page, select the offer you want to publish.

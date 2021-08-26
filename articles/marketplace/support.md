@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 01/19/2020
+ms.date: 09/13/2021
 ---
 
 # Support for the commercial marketplace program in Partner Center
@@ -19,7 +19,7 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 ## Get help or open a support ticket
 
-#### [Workspaces view](#tab/Workspaces-view)
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account. If you have not yet done so, you will need to [create a Partner Center account](create-account.md).
 
@@ -53,7 +53,7 @@ If you cannot find your answer in the self help, select **Provide issue details*
 >[!Note]
 >If you have not signed in to Partner Center, you may be required to sign in before you can create a ticket.
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Sign in with your work account. If you have not yet done so, you will need to [create a Partner Center account](create-account.md).
 
@@ -91,7 +91,7 @@ If you cannot find your answer in the self help, select **Provide issue details*
 
 ## Track your existing support requests
 
-#### [Workspaces view](#tab/Workspaces-view)
+#### [Preview interface](#tab/new-web-form)
 
 1. To review your open and closed tickets, sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account.
 
@@ -99,7 +99,7 @@ If you cannot find your answer in the self help, select **Provide issue details*
 
     :::image type="content" source="./media/workspaces/partner-center-help-support-tile.png" alt-text="Illustrates the Partner Center Home page with the Help + support tile highlighted.":::
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 To review your open and closed tickets, in the left-navigation menu, select **Commercial Marketplace** > **Support**.
 
