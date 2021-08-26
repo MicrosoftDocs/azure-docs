@@ -67,7 +67,7 @@ Azure IP Co-sell incentive status can be applied to these offer types:
 
 Business Applications Co-sell incentive (Standard and Premium) status can be applied to these offer types:
 
-- Dynamics 365 for Customer Engagement & PowerApps
+- Dynamics 365 for Customer Engagement & Power Apps
 - Dynamics 365 for operations
 
 Offers that achieve _Azure IP Co-sell incentivized_ status gain these commercial marketplace benefits:
