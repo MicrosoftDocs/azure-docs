@@ -71,7 +71,7 @@ The following table shows you where you can acquire different types of phone num
 | Local (Geographic)  | US                 | US, Canada, United Kingdom, Germany, France,. +more**| US, Canada, United Kingdom, Germany, France,. +more** |Not available| Not available |
 | Toll-Free | US                 | US                                                   | US                                                    |US                | US |
 
-*Currently, you can receive calls only to a Microsoft number that is assigned to a Telephony Channel bot. Read more about Telephony Channel [here](/azure/bot-service/bot-service-channel-connect-telephony.md)
+*Currently, you can receive calls only to a Microsoft number that is assigned to a Telephony Channel bot. Read more about Telephony Channel [here](/azure/bot-service/bot-service-channel-connect-telephony)
 **For more details about call destinations and pricing, refer to the [pricing page](../pricing.md).
 
 

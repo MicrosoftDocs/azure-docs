@@ -40,10 +40,10 @@ You could install Azure Machine Learning on your own computer.  But in this quic
 Create a *compute instance* to use this development environment for the rest of the tutorials and quickstarts.
 
 1. If you didn't select **Go to workspace** in the previous section, sign in to [Azure Machine Learning studio](https://ml.azure.com) now, and select your workspace.
-1. On the left side, under **Manage**, select **Compute**.
+1. On the left side, select **Compute**.
 1. Select **+New** to create a new compute instance.
-1. Keep all the defaults on the first page, select **Next**.
-1. Supply a name and select **Create**.
+1. Supply a name, Keep all the defaults on the first page.
+1. Select **Create**.
  
 In about two minutes, you'll see the **State** of the compute instance change from *Creating* to *Running*.  It's now ready to go.  
 

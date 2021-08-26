@@ -16464,6 +16464,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/defender-for-iot/organizations/integration-cisco-ise-pxgrid.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/integration-forescout",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/defender-for-iot/organizations/integration-servicenow.md",
       "redirect_url": "/azure/defender-for-iot/organizations/tutorial-servicenow",
       "redirect_document_id": false
@@ -38901,6 +38906,11 @@
     {
       "source_path_from_root": "/articles/virtual-machines/workloads/sap/sap-hana-backup-file-level.md",
       "redirect_url": "/azure/backup/sap-hana-db-about",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/workloads/sap/azure-monitor-overview.md",
+      "redirect_url": "/azure/virtual-machines/workloads/sap/monitor-sap-on-azure",
       "redirect_document_id": false
     },
     {
