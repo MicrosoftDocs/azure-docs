@@ -12,7 +12,7 @@ ms.date: 08/26/2021
 
 In [Build a chat app tutorial](./tutorial-build-chat.md), you've learned how to use WebSocket APIs to send and receive data with Azure Web PubSub. You may have noticed that for simplicity it does not require any authentication. Though Azure Web PubSub requires access token to be connected, the `negotiate` API we used in the tutorial to generate access token doesn't need authentication, so anyone can call this API to get an access token.
 
-In a real world application it's very common that you want user to login first before they can use your application to protect it from being abused. In this tutorial you'll learn how to integrate Azure Web PubSub with the authentication/authorization system of your application to make it more secure.
+In a real world application it's common that you want user to log in first before they can use your application to protect it from being abused. In this tutorial, you'll learn how to integrate Azure Web PubSub with the authentication/authorization system of your application to make it more secure.
 
 The complete code sample of this tutorial can be found [here][code].
 
@@ -27,9 +27,9 @@ In this tutorial, you learn how to:
 
 This tutorial reuses the chat application created in [Build a chat app tutorial](./tutorial-build-chat.md). You can also clone the complete code sample for the chat app from [here][chat-js]. 
 
-In this tutorial we will add authentication to the chat application and integrate it with Azure Web PubSub.
+In this tutorial, we will add authentication to the chat application and integrate it with Azure Web PubSub service.
 
-First let's add GitHub authentication to the chat room so user can use GitHub account to login.
+First let's add GitHub authentication to the chat room so user can use GitHub account to log in.
 
 1.  Install dependencies
 
@@ -81,10 +81,10 @@ First let's add GitHub authentication to the chat room so user can use GitHub ac
     The code above uses [Passport.js](http://www.passportjs.org/) to enable GitHub authentication. Here is a simple illustration of how it works:
 
     1. `/auth/github` will redirect to github.com for login
-    2. After login is completed, GitHub will redirect you to `/auth/github/callback` with a code for your application to complete the authentication (see the verify callback in `passport.use()` to see how the profile returned from GitHub are verified and persisted in the server).
+    2. After login is completed, GitHub will redirect you to `/auth/github/callback` with a code for your application to complete the authentication (see the verify callback in `passport.use()` to see how the profile returned from GitHub is verified and persisted in the server).
     3. After authentication is completed, you'll be redirected to the homepage (`/`) of the site.
  
-    For more details about GitHub OAuth and Passport.js, refer to the following articles:
+    For more details about GitHub OAuth and Passport.js, see the following articles:
 
     1. [Authorizing OAuth Apps](https://docs.github.com/en/developers/apps/authorizing-oauth-apps)
     2. [Passport.js doc](http://www.passportjs.org/docs/)
@@ -96,7 +96,7 @@ First let's add GitHub authentication to the chat room so user can use GitHub ac
     3. Fill in application name, homepage URL (can be anything you like), and set Authorization callback URL to `http://localhost:8080/auth/github/callback` (which matches the callback API you exposed in the server)
     4. After the application is registered, copy the Client ID and click "Generate a new client secret" to generate a new client secret
 
-    Then run `node server <connection-string> <client-id> <client-secret>`, open `http://localhost:8080/auth/github`, you'll be redirected to GitHub to login. After the login is succeeded, you'll be redirected to the chat application.
+    Then run `node server <connection-string> <client-id> <client-secret>`, open `http://localhost:8080/auth/github`, you'll be redirected to GitHub to log in. After the login is succeeded, you'll be redirected to the chat application.
 
 3.  Then let's update the chat room to make use of the identity we get from GitHub, instead of popping up a dialog to ask for username.
 
@@ -133,19 +133,19 @@ First let's add GitHub authentication to the chat room so user can use GitHub ac
     });
     ```
 
-    Now rerun the server and you'll see a "not authorized" message for the first time you open the chat room. Click the login link to login, then you'll see it works as before.
+    Now rerun the server and you'll see a "not authorized" message for the first time you open the chat room. Click the login link to log in, then you'll see it works as before.
 
 ## Working with permissions
 
-In the previous tutorial you have learned to use `WebSocket.send()` to directly publish messages to other clients using subprotocol. In a real application you may not want client to be able to publish/subscribe to any group without permission control. In this section you'll see how to control clients using the permission system of Azure Web PubSub.
+In the previous tutorials, you have learned to use `WebSocket.send()` to directly publish messages to other clients using subprotocol. In a real application, you may not want client to be able to publish/subscribe to any group without permission control. In this section, you'll see how to control clients using the permission system of Azure Web PubSub.
 
-In Azure Web PubSub there're three types of operations a client can do with subprotocol:
+In Azure Web PubSub there are three types of operations a client can do with subprotocol:
 
 1. Send events to server
 2. Publish messages to a group
 3. Join (subscribe) a group
 
-Send event to server is the default operation of client even no protocol is used, so it's always allowed. To publish and subscribe to a group, client needs to get permission. There're two ways for server to grant permission to clients:
+Send event to server is the default operation of client even no protocol is used, so it's always allowed. To publish and subscribe to a group, client needs to get permission. There are two ways for server to grant permission to clients:
 
 1. Specify roles when a client is connected (role is a concept to represent initial permissions when a client is connected)
 2. Use API to grant permission to a client after it's connected
@@ -188,9 +188,9 @@ Since the message is now sent to groups, we need to add clients to groups so the
 
 > `handleConnect` is triggered when a client is trying to connect to Azure Web PubSub. In this handler you can return groups and roles, so service can add connection to groups or grant roles, as sonn as the connection is established. It can also `res.fail()` to deny the connection.
 
-To make `handleConnect` be triggered, go to event hanlder settings in Azure portal, and check `connect` in system events.
+To make `handleConnect` be triggered, go to event handler settings in Azure portal, and check `connect` in system events.
 
-We also need to update client HTML since now server send JSON messages instead of plain text:
+We also need to update client HTML since now server sends JSON messages instead of plain text:
 
 ```javascript
 let ws = new WebSocket(data.url, 'json.webpubsub.azure.v1');
@@ -221,7 +221,7 @@ message.addEventListener('keypress', e => {
 });
 ```
 
-Then change the client code to send to system group when user click "system message":
+Then change the client code to send to system group when users click "system message":
 
 ```html
 <button id="system">system message</button>
@@ -243,7 +243,7 @@ Then change the client code to send to system group when user click "system mess
 </script>
 ```
 
-By default client doesn't have permission to send to any group, update server code to grant permission for admin user (for simplicity the ID of the admin is provided as a commandline argument).
+By default client doesn't have permission to send to any group, update server code to grant permission for admin user (for simplicity the ID of the admin is provided as a command-line argument).
 
 ```javascript
 app.get('/negotiate', async (req, res) => {
@@ -257,7 +257,7 @@ Now run `node server <connection-string> <client-id> <client-secret> <admin-id>`
 
 But if you log in as a different user, when you click "system message", nothing will happen. You may expect service give you an error to let you know the operation is not allowed. This can be done by setting an `ackId` when publishing the message. Whenever `ackId` is specified, Azure Web PubSub will return an ack message with a matching `ackId` to indicate whether the operation is succeeded or not.
 
-Change the code of sending system message to the following:
+Change the code of sending system message to the following code:
 
 ```javascript
 let ackId = 0;

@@ -10,7 +10,7 @@ ms.date: 03/11/2021
 
 # Choose the server SDKs
 
-The Azure Web PubSub service provides server SDK with 4 languages: C#, Java, JavaScript and Python. 
+The Azure Web PubSub service provides server SDK with four languages: C#, Java, JavaScript, and Python. 
 
 ## Server SDK - C#
 

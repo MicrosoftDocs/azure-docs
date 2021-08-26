@@ -10,7 +10,7 @@ ms.date: 08/26/2021
 
 #  How to start WebSocket connection to the Azure Web PubSub service
 
-Clients connect to the Azure Web PubSub service (in below sections we refer it as the service) using the standard [WebSocket](https://tools.ietf.org/html/rfc6455) protocol. So languages having WebSocket client support can be used to write a client for the service. In below sections we show several WebSocket client samples in different languages.
+Clients connect to the Azure Web PubSub service using the standard [WebSocket](https://tools.ietf.org/html/rfc6455) protocol. So languages having WebSocket client support can be used to write a client for the service. In below sections, we show several WebSocket client samples in different languages.
 
 ## Auth
 The Web PubSub service uses [JWT token](https://tools.ietf.org/html/rfc7519.html) to validate and auth the clients. Clients can either put the token in the `access_token` query parameter, or put it in `Authorization` header when connecting to the service.
@@ -26,7 +26,7 @@ The portal also provides a dynamically generated *Client URL* with token for cli
 
 ![Screenshot showing how to set the roles when using Client URL Generator.](./media/howto-websocket-connect/portal-client-roles.png)
 
-To simplify the sample workflow, in below sections, we use this temporarily generated URL from portal for the client to connect, using `<Client_URL_From_Portal>` to represent the value. Note that the token generated expires in 50 minutes by default, so don't forget to regenerate one when the token expires.
+To simplify the sample workflow, in below sections, we use this temporarily generated URL from portal for the client to connect, using `<Client_URL_From_Portal>` to represent the value. The token generated expires in 50 minutes by default, so don't forget to regenerate one when the token expires.
 
 The service supports two types of WebSocket clients, one is the simple WebSocket client, and the other is the PubSub WebSocket client. Here we show how these two kinds of clients connect to the service. Check [WebSocket client protocols for Azure Web PubSub](./concept-client-protocols.md) for the details of these two kinds of clients.
 
@@ -338,7 +338,7 @@ public final class SubprotocolClient {
 
 ## Next step
 
-In this article we show how to connect to the service using the URL generated from the portal.  Check below tutorials to see how the clients communicate with the app server to get the URL in real-world applications.
+In this article, we show how to connect to the service using the URL generated from the portal.  Check below tutorials to see how the clients communicate with the app server to get the URL in real-world applications.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create a chatroom with Azure Web PubSub](./tutorial-build-chat.md)

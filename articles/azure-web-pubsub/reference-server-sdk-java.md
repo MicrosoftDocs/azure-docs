@@ -121,7 +121,7 @@ the client library to use the Netty HTTP client. Configuring or changing the HTT
 All client libraries, by default, use the Tomcat-native Boring SSL library to enable native-level performance for SSL
 operations. The Boring SSL library is an uber jar containing native libraries for Linux / macOS / Windows, and provides
 better performance compared to the default SSL implementation within the JDK. For more information, including how to
-reduce the dependency size, refer to the [performance tuning][performance_tuning] section of the wiki.
+reduce the dependency size, see the [performance tuning][performance_tuning] section of the wiki.
 
 [azure_subscription]: https://azure.microsoft.com/free
 [jdk_link]: https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable
