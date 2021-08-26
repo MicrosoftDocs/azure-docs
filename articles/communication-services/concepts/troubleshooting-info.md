@@ -2,7 +2,7 @@
 title: Troubleshooting in Azure Communication Services
 description: Learn how to gather the information you need to troubleshoot your Communication Services solution.
 author: manoskow
-manager: jken
+manager: chpalm
 services: azure-communication-services
 
 ms.author: manoskow
