@@ -71,7 +71,7 @@ Instead, you see the message:
 
 To use principal (user) attributes, you must have all of the following: Azure AD Premium P1 or P2 license, Azure AD permissions (such as the Attribute Assignment Administrator), and custom security attributes defined in Azure AD.
 
-![Screenshot showing Principal in Attribute source list when adding a condition.](./media/conditions-troubleshoot/condition-principal-attribute-message.png)
+![Screenshot showing principal message when adding a condition.](./media/conditions-troubleshoot/condition-principal-attribute-message.png)
 
 **Cause**
 
@@ -82,7 +82,7 @@ You don't meet the prerequisites. To use principal attributes, you must have **a
 - Custom security attributes defined in Azure AD
 
 > [!IMPORTANT]
-> [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+> [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator), [Global Reader](../active-directory/roles/permissions-reference.md#global-reader), and [Privileged Role Administrator](../active-directory/roles/permissions-reference.md#privileged-role-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
 
 **Solution**
 
@@ -91,6 +91,16 @@ You don't meet the prerequisites. To use principal attributes, you must have **a
 1. Open **Azure Active Directory** > **Users** > *user name* > **Assigned roles** and check if the Attribute Assignment Administrator role is assigned to you. If not, ask your Azure AD administrator to you assign you this role. For more information, see [List Azure AD role assignments for a user](../active-directory/roles/list-role-assignments-users.md).
 
 1. Open **Azure Active Directory** > **Custom security attributes** to see if custom security attributes have been defined and which ones you have access to. If you don't see any custom security attributes, ask your Azure AD administrator to add a custom security attribute set that you can manage. For more information, see [Manage access to custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-manage.md) and [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md).
+
+## Symptom - Principal does not appear in Attribute source when adding a condition using Privileged Identity Management 
+
+When you try to add a role assignment with a condition using [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), **Principal** does not appear in the **Attribute source** list.
+
+![Screenshot showing Principal in Attribute source list when adding a condition using Privileged Identity Management.](./media/conditions-troubleshoot/condition-principal-attribute-source.png)
+
+**Cause**
+
+PIM currently does not support using the principal attribute in a role assignment condition.
 
 ## Symptom - Resource attribute is not valid error when adding a condition using Azure PowerShell
 
