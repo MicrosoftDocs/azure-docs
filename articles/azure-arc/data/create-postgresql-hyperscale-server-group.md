@@ -89,7 +89,7 @@ az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespa
 
  This example assumes that your server group is hosted in an Azure Kubernetes Service (AKS) cluster. This example uses azurefile-premium as storage class name. You may adjust the below example to match your environment. Note that **accessModes ReadWriteMany is required** for this configuration.  
 
-First, create a YAML file that contains the below description of the backup PVC and name it CreateBackupPVC.yml for example:
+First, create a YAML file that contains the below description of the backup PVC (Persistent Volume Claim) and name it CreateBackupPVC.yml for example:
 ```console
 apiVersion: v1
 kind: PersistentVolumeClaim

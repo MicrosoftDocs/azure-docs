@@ -1,7 +1,3 @@
-- Any edition of [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with the `Universal Windows Platform development` workload alongside with Windows SDK `10.0.17134` or greater installed.
-- Additionally, the `NuGet package manager` and `NuGet targets and build tasks` components should also be installed.
-- Optional: Complete the quick start for [getting started with adding calling to your application](../../../../quickstarts/voice-video-calling/getting-started-with-calling.md)
-
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
 ### Request access to the microphone

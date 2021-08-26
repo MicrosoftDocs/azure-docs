@@ -295,8 +295,8 @@
             href: connect-wirex-systems.md
           - name: Zscaler
             href: connect-zscaler.md
-        - name: STEP 3 Validate connectivity
-          href: connect-cef-verify.md
+      - name: CEF and Syslog troubleshooting
+        href: troubleshooting-cef-syslog.md
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Connect Azure Stack VMs
@@ -397,6 +397,8 @@
       href: sap-solution-log-reference.md
     - name: SAP workbook, rules, and watchlists
       href: sap-solution-security-content.md
+    - name: Use an SNC connection to deploy your SAP data connector
+      href: sap-solution-deploy-snc.md
     - name: Expert configuration options
       href: sap-solution-deploy-alternate.md
     - name: Troubleshooting your SAP solution deployment

@@ -11,6 +11,7 @@ ms.author: jushiman
 
 # DCsv2-series
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 The DCsv2-series virtual machines help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. DCsv2-series leverage Intel® Software Guard Extensions, which enable customers to use secure enclaves for protection.
 
