@@ -15,7 +15,7 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ---
 
-# How to: customize claims issued in the SAML token for enterprise applications
+# Customize claims issued in the SAML token for enterprise applications
 
 Today, the Microsoft identity platform supports single sign-on (SSO) with most enterprise applications, including both applications pre-integrated in the Azure AD app gallery as well as custom applications. When a user authenticates to an application through the Microsoft identity platform using the SAML 2.0 protocol, the Microsoft identity platform sends a token to the application (via an HTTP POST). And then, the application validates and uses the token to log the user in instead of prompting for a username and password. These SAML tokens contain pieces of information about the user known as *claims*.
 
