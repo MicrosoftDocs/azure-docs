@@ -26,7 +26,6 @@ This article will explain how to view updates carried out to managed identities,
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
-- Enable [system assigned identity on a virtual machine](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) or [application](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
 
 ## View updates made to user-assigned managed identities
 
@@ -44,7 +43,7 @@ This procedure demonstrates how to view updates carried out to user-assigned man
 
 ![Add operations to the search filter](./media/how-to-view-managed-identity-activity/add-operations-to-search-filter.png)
 
-4. When matching operations are displayed, select one to see a summary
+4. When matching operations are displayed, select one to view the summary
 
 ![View summary of the operation](./media/how-to-view-managed-identity-activity/view-summary-of-operation.png)
 
@@ -84,7 +83,7 @@ System-assigned identity:
 
 ![Search by object ID](./media/how-to-view-managed-identity-activity/search-by-object-id.png)
  
-7. When matching operations are displayed, select one to see a summary
+7. When matching operations are displayed, select one to view the summary
  
 ![Summary of role assignment for managed identity](./media/how-to-view-managed-identity-activity/summary-of-role-assignment-for-msi.png)
 
@@ -111,6 +110,6 @@ System-assigned identity:
 
 ## Next steps
 
-[Managed identities for Azure resources](./overview.md)
-[Azure Activity Log](/azure/azure-monitor/essentials/activity-log)
-[Azure Active Directory sign-ins log](/azure/active-directory/reports-monitoring/concept-sign-ins )
+* [Managed identities for Azure resources](./overview.md)
+* [Azure Activity Log](/azure/azure-monitor/essentials/activity-log)
+* [Azure Active Directory sign-ins log](/azure/active-directory/reports-monitoring/concept-sign-ins )
