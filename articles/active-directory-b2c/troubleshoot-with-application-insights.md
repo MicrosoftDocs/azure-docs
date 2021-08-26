@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/05/2021
+ms.date: 08/26/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -160,7 +160,7 @@ After you save the settings the Application insights logs appear on the **Azure 
 
 ## Configure Application Insights in Production
 
-To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. Use the following configuration to send only critical error messages to your Application Insights. 
+To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. Use the following configuration in production environments. 
 
 1. Set the `DeploymentMode` attribute of the [TrustFrameworkPolicy](trustframeworkpolicy.md) to `Production`. 
 
