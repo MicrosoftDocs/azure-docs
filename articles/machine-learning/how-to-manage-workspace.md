@@ -357,6 +357,10 @@ In the [Azure portal](https://portal.azure.com/), select **Delete**  at the top 
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
+## Workspace diagnostics
+
+[!INCLUDE [machine-learning-workspace-diagnostics](../../includes/machine-learning-workspace-diagnostics.md)]
+
 ## Troubleshooting
 
 * **Supported browsers in Azure Machine Learning studio**: We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
