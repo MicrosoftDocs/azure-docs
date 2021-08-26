@@ -18,7 +18,7 @@ ms.date: 08/31/2021
 > [!NOTE]
 > The **Azure AD-only authentication** feature discussed in this article is in **public preview**. 
 
-This article guides you through creating an Azure Policy that would enforce Azure AD-only authentication when creating an Azure SQL Database logical server or Azure SQL Managed Instance. For more information about enabling Azure AD-only authentication during server creation, see [Create server with Azure AD-only authentication enabled in Azure SQL](authentication-azure-ad-only-authentication-create-server.md).
+This article guides you through creating an Azure Policy that would enforce Azure AD-only authentication when users create an Azure SQL Database logical server or Azure SQL Managed Instance. For more information about enabling Azure AD-only authentication during server creation, see [Create server with Azure AD-only authentication enabled in Azure SQL](authentication-azure-ad-only-authentication-create-server.md).
 
 In this article, you learn how to:
 
@@ -47,7 +47,7 @@ Start off by creating an Azure Policy enforcing SQL Database or Managed Instance
 
    :::image type="content" source="media/authentication-azure-ad-only-authentication-policy/policy-azure-ad-only-authentication.png" alt-text="Screenshot of Azure Policy for Azure AD-only authentication":::
 
-1. Select the policy name for your service. In this example, we will use Azure SQL Database. Select **Azure SQL Database should have Azure Active Directory Only Authentication enabled**.
+1. Select the policy name for your service. In this example, we'll use Azure SQL Database. Select **Azure SQL Database should have Azure Active Directory Only Authentication enabled**.
 1. Select **Assign** in the new menu.
 
    > [!NOTE]
@@ -59,20 +59,20 @@ Start off by creating an Azure Policy enforcing SQL Database or Managed Instance
 
    :::image type="content" source="media/authentication-azure-ad-only-authentication-policy/selecting-scope-policy-azure-ad-only-authentication.png" alt-text="Screenshot of selecting Azure Policy scope for Azure AD-only authentication":::
 
-1. in the **Scope** pane, select your **Subscription** from the drop down menu, and select a **Resource Group** for this policy. Once you are done, use the **Select** button to save the the selection.
+1. in the **Scope** pane, select your **Subscription** from the drop-down menu, and select a **Resource Group** for this policy. Once you're done, use the **Select** button to save the selection.
 
    > [!NOTE]
    > If you do not select a resource group, the policy will apply to the whole subscription.
 
    :::image type="content" source="media/authentication-azure-ad-only-authentication-policy/adding-scope-policy-azure-ad-only-authentication.png" alt-text="Screenshot of adding Azure Policy scope for Azure AD-only authentication":::
 
-1. Once you are back on the **Basics** tab, customize the **Assignment name** and provide an optional **Description**. Make sure the **Policy enforcement** is **Enabled**.
+1. Once you're back on the **Basics** tab, customize the **Assignment name** and provide an optional **Description**. Make sure the **Policy enforcement** is **Enabled**.
 1. Go over to the **Parameters** tab. Unselect the option **Only show parameters that require input**.
 1. Under **Effect**, select **Deny**. This setting will prevent a logical SQL server creation without Azure AD-only authentication enabled.
 
    :::image type="content" source="media/authentication-azure-ad-only-authentication-policy/deny-policy-azure-ad-only-authentication.png" alt-text="Screenshot of  Azure Policy effect parameter for Azure AD-only authentication":::
 
-1. In the **Non-compliance messages** tab, you can customize the policy message that displays if a violation of the policy has occurred. This will let users know what policy was enforce.
+1. In the **Non-compliance messages** tab, you can customize the policy message that displays if a violation of the policy has occurred. The message will let users know what policy was enforced during server creation.
 
    :::image type="content" source="media/authentication-azure-ad-only-authentication-policy/non-compliance-message-policy-azure-ad-only-authentication.png" alt-text="Screenshot of Azure Policy non-compliance message for Azure AD-only authentication":::
 
@@ -91,7 +91,7 @@ Search for the assignment name that you have given earlier to the policy.
 
 ## Provision a server
 
-You can then try to provision a SQL logical server or managed instance in the resource group that you assigned the Azure Policy. If Azure AD-only authentication is enabled during server creation, the provision will succeed. If Azure AD-only authentication is not enabled, the provision will fail.
+You can then try to provision a SQL logical server or managed instance in the resource group that you assigned the Azure Policy. If Azure AD-only authentication is enabled during server creation, the provision will succeed. When Azure AD-only authentication isn't enabled, the provision will fail.
 
 For more information, see [Create server with Azure AD-only authentication enabled in Azure SQL](authentication-azure-ad-only-authentication-create-server.md).
 
