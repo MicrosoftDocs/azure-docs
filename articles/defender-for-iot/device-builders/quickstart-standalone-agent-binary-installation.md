@@ -43,10 +43,9 @@ Before you install the Defender for IoT module, you must create a module identit
     sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
     ```
 
-1. Update the list of packages from the repository that you added with the following command:
+1. Install the Microsoft GPG public key:
 
     ```bash
-    sudo apt-get update
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
     ```
