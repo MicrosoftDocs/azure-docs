@@ -187,7 +187,7 @@ PowerShell:
 
   ```powershell
   $token= (Get-AzAccessToken -Resource  https://management.azure.com/).Token
-  Invoke-WebRequest -Method Delete -Uri https://management.azure.com?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
+  Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
 ## Azure Government limitations
 Azure Cloud Shell in Azure Government is only accessible through the Azure portal.
