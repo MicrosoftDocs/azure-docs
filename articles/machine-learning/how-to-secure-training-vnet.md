@@ -161,6 +161,8 @@ Use the following steps to create a compute cluster in the Azure Machine Learnin
 
     > [!TIP]
     > If your workspace uses a private endpoint to connect to the virtual network, the __Virtual network__ selection field is greyed out.
+    > 
+    > To prevent the creation of a public IP address for the compute instance, select __Private IP only__.
 
     :::image type="content" source="./media/how-to-enable-virtual-network/create-compute-cluster-config.png" alt-text="Screenshot of virtual network settings":::
 
