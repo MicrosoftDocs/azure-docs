@@ -129,34 +129,6 @@ In addition to manually upgrading a cluster, you can set an auto-upgrade channel
 
 Automatically upgrading a cluster follows the same process as manually upgrading a cluster. For more details, see [Upgrade an AKS cluster][upgrade-cluster].
 
-The cluster auto-upgrade for AKS clusters is a preview feature.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-Add the following extension, for `az cli`.
-
-```azurecli-interactive
-az extension add --name aks-preview
-```
-
-Register the `AutoUpgradePreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n AutoUpgradePreview
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AutoUpgradePreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
 To set the auto-upgrade channel when creating a cluster, use the *auto-upgrade-channel* parameter, similar to the following example.
 
 ```azurecli-interactive
