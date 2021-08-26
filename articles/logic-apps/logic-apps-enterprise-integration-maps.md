@@ -223,6 +223,8 @@ Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](/rest/
 
    After your map file finishes uploading, the map appears in the **Maps** list. On your integration account's **Overview** page, under **Artifacts**, your uploaded map also appears.
 
+---
+
 #### Visual Studio Code
 
 1. In your logic app project's structure, open the **Artifacts** folder and then the **Maps** folder.
@@ -265,6 +267,8 @@ To update an existing map, you have to upload a new map file that has the change
 
    After your map file finishes uploading, the updated map appears in the **Maps** list.
 
+---
+
 ## Delete maps
 
 ### [Consumption resource](#tab/consumption-3)
@@ -286,6 +290,8 @@ To update an existing map, you have to upload a new map file that has the change
 1. After the **Maps** pane opens, select your map, and then select **Delete**.
 
 1. To confirm you want to delete the map, select **Yes**.
+
+---
 
 ## Next steps
 

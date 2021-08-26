@@ -169,6 +169,8 @@ After your schema finishes uploading, the schema appears in the **Schemas** list
 
 1. In the **Schemas** folder, add your schema.
 
+---
+
 ## Edit schemas
 
 To update an existing schema, you have to upload a new schema file that has the changes you want. However, you can first download the existing schema for editing.
@@ -205,6 +207,8 @@ To update an existing schema, you have to upload a new schema file that has the 
 
    After your schema file finishes uploading, the updated schema appears in the **Schemas** list.
 
+---
+
 ## Delete schemas
 
 ### [Consumption resource](#tab/consumption-3)
@@ -226,6 +230,8 @@ To update an existing schema, you have to upload a new schema file that has the 
 1. After the **Schemas** pane opens, select your schema, and then select **Delete**.
 
 1. To confirm you want to delete the schema, select **Yes**.
+
+---
 
 ## Next steps
 
