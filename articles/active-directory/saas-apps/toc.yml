@@ -2247,7 +2247,9 @@
       - name: ZephyrSSO
         href: zephyrsso-tutorial.md
       - name: zeroheight
-        href: zeroheight-tutorial.md  
+        href: zeroheight-tutorial.md
+      - name: Zero Networks
+        href: zero-networks-tutorial.md    
       - name: Banyan Security Zero Trust Remote Access Platform
         href: banyan-command-center-tutorial.md
       - name: Ziflow
