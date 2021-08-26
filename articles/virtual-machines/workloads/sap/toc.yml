@@ -272,8 +272,8 @@
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
 - name: Azure Monitor for SAP Solutions
   items:
-  - name: AMS overview
-    href: azure-monitor-overview.md
+  - name: Monitor SAP on Azure
+    href: monitor-sap-on-azure.md
   - name: AMS providers
     href: azure-monitor-providers.md
   - name: Configure AMS - Portal
@@ -282,6 +282,8 @@
     href: azure-monitor-alerts-portal.md
   - name: Configure AMS - Azure PowerShell
     href: azure-monitor-sap-quickstart-powershell.md
+  - name: Monitor data reference
+    href: monitor-sap-on-azure-reference.md
   - name: AMS FAQ
     href: azure-monitor-faq.yml
 - name: Reference
