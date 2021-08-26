@@ -10,9 +10,9 @@ ms.topic: how-to
 ms.date: 08/20/2021
 ---
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
-
 # Create a snapshot of a virtual hard drive
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 A snapshot is a full, read-only copy of a virtual hard drive (VHD). You can take a snapshot of a VHD to use as a backup, or to troubleshoot virtual machine (VM) issues. You can take a snapshot of both operating system (OS) or data disk VHDs.
 
@@ -51,7 +51,7 @@ First, you'll use the [New-AzSnapshotConfig](/powershell/module/az.compute/new-a
    $snapshotName = 'mySnapshot'  
    ```
 
-1. Use the [Get-AzVM](/powershell/module/az.compute/get-azvm.md?view=azps-6.3.0) cmdlet to get the VM containing the VHD you want to copy.
+1. Use the [Get-AzVM](/powershell/module/az.compute/get-azvm.md?view=azps-6.3.0&preserve-view=true) cmdlet to get the VM containing the VHD you want to copy.
 
    ```azurepowershell-interactive
    $vm = Get-AzVM `
@@ -80,7 +80,7 @@ First, you'll use the [New-AzSnapshotConfig](/powershell/module/az.compute/new-a
        -ResourceGroupName $resourceGroupName 
    ```
 
-1. Use the [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot.md?view=azps-6.3.0) cmdlet to verify that your snapshot exists.
+1. Use the [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot.md?view=azps-6.3.0&preserve-view=true) cmdlet to verify that your snapshot exists.
 
     ```azurepowershell-interactive
     Get-AzSnapshot
