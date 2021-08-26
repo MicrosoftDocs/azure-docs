@@ -1,26 +1,23 @@
 ---
 
-title: Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link
+title: Interact with Azure Cosmos DB using Apache Spark 3 in Azure Synapse Link
 description: How to interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
 services: synapse-analytics 
-author: Rodrigossz
+author: Mohammad Derakhshani
 ms.service: synapse-analytics 
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 09/15/2020
-ms.author: rosouz
-ms.reviewer: jrasnick
+ms.date: 08/26/2021
+ms.author: moderakh
 ms.custom: cosmos-db
 ---
 
-# Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link
+# Interact with Azure Cosmos DB using Apache Spark 3 in Azure Synapse Link
 
-NOTE: For Synapse Link for Cosmos DB using Spark3, refer to this article [Azure Synapse Link for Azure Cosmos DB on Spark3](how-to-query-analytical-store-spark3.md)
-
-In this article, you'll learn how to interact with Azure Cosmos DB using Synapse Apache Spark 2. With its full support for Scala, Python, SparkSQL, and C#, Synapse Apache Spark is central to analytics, data engineering, data science, and data exploration scenarios in [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md).
+In this article, you'll learn how to interact with Azure Cosmos DB using Synapse Apache Spark 3. With its full support for Scala, Python, SparkSQL, and C#, Synapse Apache Spark 3 is central to analytics, data engineering, data science, and data exploration scenarios in [Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/synapse-link.md).
 
 The following capabilities are supported while interacting with Azure Cosmos DB:
-* Synapse Apache Spark allows you to analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link in near real-time without impacting the performance of your transactional workloads. The following two options are available to query the Azure Cosmos DB [analytical store](../../cosmos-db/analytical-store-introduction.md) from Spark:
+* Synapse Apache Spark 3 allows you to analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link in near real-time without impacting the performance of your transactional workloads. The following two options are available to query the Azure Cosmos DB [analytical store](../../cosmos-db/analytical-store-introduction.md) from Spark:
     + Load to Spark DataFrame
     + Create Spark table
 * Synapse Apache Spark also allows you to ingest data into Azure Cosmos DB. It is important to note that data is always ingested into Azure Cosmos DB containers through the transactional store. When Synapse Link is enabled, any new inserts, updates, and deletes are then automatically synced to the analytical store.
@@ -48,7 +45,7 @@ Thus, you can choose between loading to Spark DataFrame and creating a Spark tab
 > To query the Azure Cosmos DB API of Mongo DB accounts, learn more about the [full fidelity schema representation](../../cosmos-db/analytical-store-introduction.md#analytical-schema) in the analytical store and the extended property names to be used.
 
 > [!NOTE]
-> Please note that all `options` in the commands below are case sensitive. For example, you must use `Gateway` while `gateway` will return an error.
+> Please note that all `options` in the commands below are case sensitive.
 
 ### Load to Spark DataFrame
 
@@ -107,22 +104,20 @@ The syntax in **Python** would be the following:
 YOURDATAFRAME.write.format("cosmos.oltp")\
     .option("spark.synapse.linkedService", "<enter linked service name>")\
     .option("spark.cosmos.container", "<enter container name>")\
-    .option("spark.cosmos.write.upsertEnabled", "true")\
     .mode('append')\
     .save()
 ```
 
 The equivalent syntax in **Scala** would be the following:
-```java
+```scala
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 import org.apache.spark.sql.SaveMode
 
 df.write.format("cosmos.oltp").
     option("spark.synapse.linkedService", "<enter linked service name>").
-    option("spark.cosmos.container", "<enter container name>"). 
-    option("spark.cosmos.write.upsertEnabled", "true").
-    mode(SaveMode.Overwrite).
+    option("spark.cosmos.container", "<enter container name>").
+    mode(SaveMode.Append).
     save()
 ```
 
@@ -134,35 +129,29 @@ In this gesture, you'll use Spark Streaming capability to load data from a conta
 ## Load streaming DataFrame from Azure Cosmos DB container
 In this example, you'll use Spark's structured streaming capability to load data from an Azure Cosmos DB container into a Spark streaming DataFrame using the change feed functionality in Azure Cosmos DB. The checkpoint data used by Spark will be stored in the primary data lake account (and file system) that you connected to the workspace.
 
-If the folder */localReadCheckpointFolder* isn't created (in the example below), it will be automatically created. This operation will impact the performance of transactional workloads and consume Request Units provisioned on the Azure Cosmos DB container or shared database.
-
 The syntax in **Python** would be the following:
 ```python
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 dfStream = spark.readStream\
-    .format("cosmos.oltp")\
+    .format("cosmos.oltp.changeFeed")\
     .option("spark.synapse.linkedService", "<enter linked service name>")\
     .option("spark.cosmos.container", "<enter container name>")\
-    .option("spark.cosmos.changeFeed.readEnabled", "true")\
-    .option("spark.cosmos.changeFeed.startFromTheBeginning", "true")\
-    .option("spark.cosmos.changeFeed.checkpointLocation", "/localReadCheckpointFolder")\
-    .option("spark.cosmos.changeFeed.queryName", "streamQuery")\
+    .option("spark.cosmos.changeFeed.startFrom", "Beginning")\
+    .option("spark.cosmos.changeFeed.mode", "Incremental")\
     .load()
 ```
 
 The equivalent syntax in **Scala** would be the following:
-```java
+```scala
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
 val dfStream = spark.readStream.
-    format("cosmos.oltp").
+    format("cosmos.oltp.changeFeed").
     option("spark.synapse.linkedService", "<enter linked service name>").
     option("spark.cosmos.container", "<enter container name>").
-    option("spark.cosmos.changeFeed.readEnabled", "true").
-    option("spark.cosmos.changeFeed.startFromTheBeginning", "true").
-    option("spark.cosmos.changeFeed.checkpointLocation", "/localReadCheckpointFolder").
-    option("spark.cosmos.changeFeed.queryName", "streamQuery").
+    option("spark.cosmos.changeFeed.startFrom", "Beginning").
+    option("spark.cosmos.changeFeed.mode", "Incremental").
     load()
 ```
 
@@ -174,35 +163,29 @@ The syntax in **Python** would be the following:
 ```python
 # To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
 
-# If you are using managed private endpoints for Azure Cosmos DB analytical store and using batch writes/reads and/or streaming writes/reads to transactional store you should set connectionMode to Gateway. 
-
 streamQuery = dfStream\
-        .writeStream\
-        .format("cosmos.oltp")\
-        .outputMode("append")\
-        .option("checkpointLocation", "/localWriteCheckpointFolder")\
-        .option("spark.synapse.linkedService", "<enter linked service name>")\
-        .option("spark.cosmos.container", "<enter container name>")\
-        .option("spark.cosmos.connection.mode", "Gateway")\
-        .start()
+    .writeStream\
+    .format("cosmos.oltp")\
+    .option("spark.synapse.linkedService", "<enter linked service name>")\
+    .option("spark.cosmos.container", "<enter container name>")\
+    .option("checkpointLocation", "/tmp/myRunId/")\
+    .outputMode("append")\
+    .start()
 
 streamQuery.awaitTermination()
 ```
 
 The equivalent syntax in **Scala** would be the following:
-```java
+```scala
 // To select a preferred list of regions in a multi-region Azure Cosmos DB account, add .option("spark.cosmos.preferredRegions", "<Region1>,<Region2>")
-
-// If you are using managed private endpoints for Azure Cosmos DB analytical store and using batch writes/reads and/or streaming writes/reads to transactional store you should set connectionMode to Gateway. 
 
 val query = dfStream.
             writeStream.
             format("cosmos.oltp").
             outputMode("append").
-            option("checkpointLocation", "/localWriteCheckpointFolder").
             option("spark.synapse.linkedService", "<enter linked service name>").
             option("spark.cosmos.container", "<enter container name>").
-            option("spark.cosmos.connection.mode", "Gateway").
+            option("checkpointLocation", "/tmp/myRunId/").
             start()
 
 query.awaitTermination()
