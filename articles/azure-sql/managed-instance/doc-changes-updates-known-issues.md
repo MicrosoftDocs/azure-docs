@@ -294,12 +294,18 @@ CLR modules in SQL Managed Instance and linked servers or distributed queries th
 
 **Workaround**: Use context connections in a CLR module if possible.
 
-## Updates
+## Has resolution
 
-For a list of SQL Managed Instance updates and improvements, see [SQL Managed Instance service updates](https://azure.microsoft.com/updates/?product=sql-database&query=sql%20managed%20instance).
+## Has workaround
 
-For updates and improvements to all Azure services, see [Service updates](https://azure.microsoft.com/updates).
+## No resolution
 
 ## Contribute to content
 
 To contribute to the Azure SQL documentation, see the [Docs contributor guide](/contribute/).
+
+## Next steps
+
+For a list of SQL Managed Instance updates and improvements, see [SQL Managed Instance service updates](https://azure.microsoft.com/updates/?product=sql-database&query=sql%20managed%20instance).
+
+For updates and improvements to all Azure services, see [Service updates](https://azure.microsoft.com/updates).
