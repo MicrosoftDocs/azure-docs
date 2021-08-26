@@ -29,14 +29,14 @@ You don't meet the prerequisites. To add a custom security attribute set and cus
 - Azure AD Premium P1 or P2 license
 - Azure AD permissions for signed-in user, such as the Attribute Definition Administrator or Attribute Assignment Administrator roles
 
-> [!IMPORTANT]
-> [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator), [Global Reader](../active-directory/roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../active-directory/roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../active-directory/roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+    > [!IMPORTANT]
+    > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
 
 **Solution**
 
 1. Open **Azure Active Directory** > **Overview** and check the license for your tenant.
 
-1. Open **Azure Active Directory** > **Users** > *user name* > **Assigned roles** and check one of the following roles is assigned to you. If not, ask your Azure AD administrator to you assign you this role. For more information, see [Assign Azure AD roles to users](../active-directory/roles/manage-roles-portal.md).
+1. Open **Azure Active Directory** > **Users** > *user name* > **Assigned roles** and check one of the following roles is assigned to you. If not, ask your Azure AD administrator to you assign you this role. For more information, see [Assign Azure AD roles to users](../roles/manage-roles-portal.md).
 
     - Attribute Definition Administrator
     - Attribute Assignment Administrator
