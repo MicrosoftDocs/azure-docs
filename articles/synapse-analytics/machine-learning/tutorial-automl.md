@@ -98,7 +98,7 @@ These settings all have a default value that you can customize.
 
 After all the required configurations are done, you can start your automated run. You can choose **Create run**, which starts your run directly, without code. Alternatively, if you prefer code, you can select **Open in notebook**. This option allows you to see the code that creates the run and then run the notebook.
 
-![Screenshot of additional configurations for configuring a regression model.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c2.png)
+![Screenshot of 'create run' or 'open in notebook' options.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c2.png)
 
 >[!NOTE]
 >If you selected **Time series forecasting** as your model type in the previous section, you must make additional configurations. Forecasting also doesn't support ONNX model compatibility.
