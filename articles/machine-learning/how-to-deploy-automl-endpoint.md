@@ -52,7 +52,7 @@ The system will generate the Model and Environment needed for the deployment.
  :::image type="content" source="media/how-to-deploy-automl-endpoint/complete-wizard.png" alt-text="Screenshot showing the review-and-create page":::
 
 
-## Deploy manually from the studio or command-line
+## Deploy manually from the studio or command line
 
 If you wish to have more control over the deployment, you can download the training artifacts and deploy them. 
 
@@ -70,7 +70,7 @@ you'll receive a zip file containing:
 * A Python scoring file named `scoring_file_<VERSION>.py`
 * The model itself, in a Python `.pkl` file named `model.pkl`
 
-To deploy using these files, you can use either studio or the Azure command-line interface.
+To deploy using these files, you can use either studio or the Azure command line interface.
 
 # [Studio](#tab/Studio)
 
@@ -95,7 +95,7 @@ To create a deployment from the CLI, you'll need the Azure CLI with the ML v2 ex
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_version":::
 
-If you receive an error message or you do not see `Extensions: ml` in the response, follow the steps at [Install and set up the CLI (v2)](how-to-configure-cli.md).
+If you receive an error message or you don't see `Extensions: ml` in the response, follow the steps at [Install and set up the CLI (v2)](how-to-configure-cli.md).
 
 Login:
 
@@ -111,11 +111,11 @@ Set the default resource group and workspace to where you wish to create the dep
 
 ## Put the scoring file in its own directory
 
-Create a directory called `src/` and place the scoring file you downloaded into it. This directory is uploaded to Azure and contains all the source code necessary to perform inference. For an AutoML model, there's just the single scoring file. 
+Create a directory called `src/` and place the scoring file you downloaded into it. This directory is uploaded to Azure and contains all the source code necessary to do inference. For an AutoML model, there's just the single scoring file. 
 
 ## Create the deployment yaml file
 
-To create a managed online endpoint from the command-line, you'll need to create a *deployment.yml* file. The following code, taken from the [Azure Machine Learning Examples repo](https://github.com/Azure/azureml-examples) shows the _endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml_ file, which captures all the required inputs:
+To create a managed online endpoint from the command line, you'll need to create a *deployment.yml* file. The following code, taken from the [Azure Machine Learning Examples repo](https://github.com/Azure/azureml-examples) shows the _endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml_ file, which captures all the required inputs:
 
 :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/simple-flow/1-create-endpoint-with-blue.yml":::
 
