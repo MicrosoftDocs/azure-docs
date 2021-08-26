@@ -11,7 +11,7 @@ ms.date: 08/28/2021
 
 # Quality of service (QoS) dashboard
 
-This dashboard displays the quality of deployments for all your offers. A higher off deployment success signifies higher quality of service offered to your customers. 
+This dashboard displays the quality of deployments for all your offers. A higher offer deployment success signifies higher quality of service offered to your customers. 
 
 View graphical representations of the following items:
 
@@ -201,5 +201,5 @@ About this table:
 - For detailed information about your customers, including growth trends, see [Customers dashboard in commercial marketplace analytics](/azure/marketplace/customer-dashboard).
 - For information about your licenses, see [License dashboard in commercial marketplace analytics](/azure/marketplace/license-dashboard).
 - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](/azure/marketplace/downloads-dashboard).
-- To see a consolidated view of customer feedback for offers on Microsoft AppSource and Azure Marketplace, see [Ratings and reviews analytics dashboard in Partner Center](/azure/marketplace/ratings-reviews).
+- To see a consolidated view of customer feedback for offers on Microsoft AppSource and Azure Marketplace, see [Ratings and Reviews dashboard in commercial marketplace analytics](/azure/marketplace/ratings-reviews).
 - For FAQs about commercial marketplace analytics and a comprehensive dictionary of data terms, see [Commercial marketplace analytics common questions](/azure/marketplace/analytics-faq).
