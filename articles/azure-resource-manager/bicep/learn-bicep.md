@@ -2,7 +2,7 @@
 title: Discover Bicep on Microsoft Learn
 description: Provides an overview of the units that are available on Microsoft Learn for Bicep.
 ms.topic: conceptual
-ms.date: 08/17/2021
+ms.date: 08/26/2021
 ---
 # Bicep on Microsoft Learn
 
@@ -18,14 +18,12 @@ These two learning paths will help you get started:
 
 [Part 1: Deploy and manage resources in Azure by using Bicep](/learn/paths/bicep-deploy/)
 
-Learn the basics of the Bicep syntax. This path is the best place to start if you are new to Bicep.
 :::column-end:::
 :::column:::
 <img src="media/learn-bicep/bicep-collaborate.svg" width="101" height="120" alt="The trophy for the Build Azure infrastructure in a team environment by using Bicep learning path." role="presentation"></img>
 
 [Part 2: Build Azure infrastructure in a team environment by using Bicep](/learn/paths/bicep-collaborate/)
 
-Learn how to use Bicep and Azure Resource Manager features that enable you to work collaboratively and improve the quality of your Azure infrastructure deployments.
 :::column-end:::
 :::row-end:::
 
