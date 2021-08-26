@@ -127,6 +127,17 @@ You can also export that log data to Azure Monitor, Azure Event Hubs, and Azure 
 **Q: In some interrupted sign-ins, why do I see an Object ID rather than a UPN for my user?** 
 **A:** When our service is unable to resolve the UPN of a user due to an interrupted or failed sign in, it may display an object ID instead. 
 
+---
+
+**Q: Why is a user's sign-in shown as interactive sign-ins even if the property isInteractive is False?**
+**A:** This property is being deprecated. It does not reliably indicate which sign-in events are interactive and which are non-interactive. 
+
+Within the Azure AD sign-in logs blade in the Azure Portal, you can find interactive sign-ins in the User sign-ins (interactive) tab and non-interactive sign-ins in the User sign-ins (non-interactive) tab. In the MS Graph API, you should rely on the signInEventTypes property to determine which signins are interactive. For example: 
+
+`"signInEventTypes":["interactiveUser"],`
+
+You can also filter using the $filter parameter when requesting sign-in logs from the MS Graph API. 
+
 ## Risky sign-ins
 
 **Q: There is a risk detection in Identity Protection but I’m not seeing corresponding sign-in in the sign-ins report. Is this expected?**
