@@ -67,11 +67,11 @@ accurately produce the current state regardless of the order it receives operati
 
 The following steps are a typical flow.
 
-* Client code changes data locally.
-* Fluid runtime sends that change to the Fluid service.
-* Fluid service sequences that operation and broadcasts it to all clients.
-* Fluid runtime incorporates that operation into local data and raises a "valueChanged" event.
-* Client code handles that event (updates view, runs business logic).
+1. Client code changes data locally.
+1. Fluid runtime sends that change to the Fluid service.
+1. Fluid service sequences that operation and broadcasts it to all clients.
+1. Fluid runtime incorporates that operation into local data and raises a "valueChanged" event.
+1. Client code handles that event (updates view, runs business logic).
 
 ## Getting to version 1.0
 

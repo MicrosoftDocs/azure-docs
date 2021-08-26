@@ -46,7 +46,7 @@ The Fluid container is responsible for passing operations to the relevant distri
 
 The container provides a `createDataStore` method to create new data stores. The container is responsible for instantiating the Fluid objects and creating the operations that let other connected clients know about the new Fluid object.
 
-> ![NOTE]
+> [!NOTE]
 > This section should have information about closing/destroying/releasing/deleting the store too. Object lifestyle includes all CRUD operations. Alternately, we can rename this section to something like 'instantiate new Fluid data stores'
 
 ### Using a Fluid container: the Request API
@@ -57,12 +57,12 @@ Interactions with Fluid containers are accomplished through requests. Developers
 container.request({url: "/"})
 ```
 
-> ![NOTE]
+> [!NOTE]
 > We should add an example response here
 
-## Container vs Runtime
+## Container vs runtime
 
-> ![NOTE]
+> [!NOTE]
 > This is an important distinction, but I'm having trouble finding a good place to put it. Leaving it here for now.
 
 A Fluid container is the instantiated container JavaScript object, but it's also the definition of the container. We interchangeably use "container" to refer to the class, which can create new objects, and the instantiated object itself.
