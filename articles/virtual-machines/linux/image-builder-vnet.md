@@ -34,7 +34,7 @@ location=WestUS2
 
 # your subscription
 # get the current subID : 'az account show | grep id'
-subscriptionID=$(az account show | grep id | tr -d '",' | cut -c7-)
+subscriptionID=$(az account show --query id --output tsv)
 
 # name of the image to be created
 imageName=aibCustomLinuxImg01
@@ -157,7 +157,7 @@ idenityName=aibBuiUserId$(date +'%s')
 az identity create -g $imageResourceGroup -n $idenityName
 
 # get identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $sigResourceGroup -n $identityName --query clientId -o tsv)
 
 # get the user identity URI, needed for the template
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName

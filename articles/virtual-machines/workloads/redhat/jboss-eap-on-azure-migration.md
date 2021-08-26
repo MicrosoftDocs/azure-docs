@@ -107,8 +107,6 @@ The following table describes the most common supported migration paths.
 
 <sup>1</sup> Although MTA does not currently provide rules for this migration path, Red Hat Consulting can assist with migration from any source platform to JBoss EAP 7.
 
-:::image type="content" source="./media/jboss-cli-image.png" alt-text="Image shows the output in the CLI window.":::
-
 You can also check on the [system requirements](https://access.redhat.com/documentation/en/migration_toolkit_for_applications/5.0/html-single/introduction_to_the_migration_toolkit_for_applications/index#system_requirements_getting-started-guide) for the MTA.
 
 Check on the [JBoss EAP 7.3 supported configurations](https://access.redhat.com/articles/2026253#EAP_73) and [JBoss EAP 7.2 supported configurations](https://access.redhat.com/articles/2026253#EAP_72) before planning for migration.

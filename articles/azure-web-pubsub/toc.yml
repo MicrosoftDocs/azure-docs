@@ -33,14 +33,16 @@
     - name: Serverless Development
       expanded: true
       items:
-      - name: Build a serverless chat with Azure Function
+      - name: Build a notification app with Azure Function
+        href: tutorial-serverless-notification.md
+      - name: Build a chat app with Azure Function
         href: quickstart-serverless.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
       href: tutorial-build-chat.md
     - name: Client streaming using service-supported subprotocol
-      href: https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols
+      href: tutorial-subprotocol.md
     - name: Authentication and permissions
       href: https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions
 - name: How-to guides
