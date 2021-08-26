@@ -52,7 +52,7 @@ In this tutorial, you learn how to:
 
 1. Make sure you have [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) installed. And then create an empty directory for the project. Run command under this working directory.
 
-    # [Javascript](#tab/javascript)
+    # [JavaScript](#tab/javascript)
     ```bash
     func init --worker-runtime javascript
     ```
@@ -174,7 +174,7 @@ In this tutorial, you learn how to:
         };
         ```
    # [C#](#tab/csharp)
-   - Update `negotiate.cs` and replace `Index` function with following codes.
+   - Update `negotiate.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("negotiate")]
         public static WebPubSubConnection Run(
@@ -274,7 +274,7 @@ In this tutorial, you learn how to:
     </html>
     ```
 
-    # [Javascript](#tab/javascript)
+    # [JavaScript](#tab/javascript)
 
     # [C#](#tab/csharp)
     Since C# project will compile files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
@@ -288,8 +288,8 @@ In this tutorial, you learn how to:
 
 5. Configure and run the Azure Function app
 
-- In the browser, open the **Azure portal** and confirm the Web PubSub Service instance you deployed earlier was successfully created. Navigate to the instance.
-- Select **Keys** and copy out the connection string.
+    - In the browser, open the **Azure portal** and confirm the Web PubSub Service instance you deployed earlier was successfully created. Navigate to the instance.
+    - Select **Keys** and copy out the connection string.
 
     :::image type="content" source="media/quickstart-serverless/copy-connection-string.png" alt-text="Screenshot of copying the Web PubSub connection string.":::
 
@@ -339,7 +339,7 @@ Use the following commands to create these item.
 
 1. Create the function app in Azure:
 
-    # [Javascript](#tab/javascript)
+    # [JavaScript](#tab/javascript)
 
     ```bash
     az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 12 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
