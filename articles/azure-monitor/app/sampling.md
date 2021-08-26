@@ -18,7 +18,7 @@ When metric counts are presented in the portal, they are renormalized to take in
 * There are three different types of sampling: adaptive sampling, fixed-rate sampling, and ingestion sampling.
 * Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). It is also used by [Azure Functions](../../azure-functions/functions-overview.md).
 * Fixed-rate sampling is available in recent versions of the Application Insights SDKs for ASP.NET, ASP.NET Core, Java (both the agent and the SDK), and Python.
-* In Java, sampling overrides are available, and are useful when you need to apply different sampling rates to selected dependencies, requests, healthchecks. Use [sampling overrides](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides) to tune out some noisy depencies while for example all important errors are kept at 100%. This is a form of fixed sampling that gives you a fine-grained level of control over your telemetry.
+* In Java, sampling overrides are available, and are useful when you need to apply different sampling rates to selected dependencies, requests, healthchecks. Use [sampling overrides](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides) to tune out some noisy dependencies while for example all important errors are kept at 100%. This is a form of fixed sampling that gives you a fine-grained level of control over your telemetry.
 * Ingestion sampling works on the Application Insights service endpoint. It only applies when no other sampling is in effect. If the SDK samples your telemetry, ingestion sampling is disabled.
 * For web applications, if you log custom events and need to ensure that a set of events is retained or discarded together, the events must have the same `OperationId` value.
 * If you write Analytics queries, you should [take account of sampling](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#aggregations). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
@@ -31,7 +31,7 @@ The following table summarizes the sampling types available for each SDK and typ
 | ASP.NET | [Yes (on by default)](#configuring-adaptive-sampling-for-aspnet-applications) | [Yes](#configuring-fixed-rate-sampling-for-aspnet-applications) | Only if no other sampling is in effect |
 | ASP.NET Core | [Yes (on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Yes](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Only if no other sampling is in effect |
 | Azure Functions | [Yes (on by default)](#configuring-adaptive-sampling-for-azure-functions) | No | Only if no other sampling is in effect |
-| Java | No | [Yes](#configuring-fixed-rate-sampling-for-java-applications) | Only if no other sampling is in effect |
+| Java | No | [Yes](#configuring-sampling-overrides-and-fixed-rate-sampling-for-java-applications) | Only if no other sampling is in effect |
 | Node.JS | No | [Yes](./nodejs.md#sampling) | Only if no other sampling is in effect
 | Python | No | [Yes](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Only if no other sampling is in effect |
 | All others | No | No | [Yes](#ingestion-sampling) |
@@ -310,7 +310,7 @@ By default no sampling is enabled in the Java auto-instrumentation and SDK. Curr
 #### Configuring Java auto-instrumentation
 
 * To configure sampling overrides that override the defaulr sampling rate and apply different sampling rates to selected requests and dependencies, use the [sampling override guide](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-sampling-overrides#getting-started).
-* To configure fixed-rate samping that applies to all of your telemetry, use the [fixed rate sampling guide](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#sampling)
+* To configure fixed-rate samping that applies to all of your telemetry, use the [fixed rate sampling guide](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config#sampling).
 
 #### Configuring Java 2.x SDK
 
