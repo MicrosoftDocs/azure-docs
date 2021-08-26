@@ -170,6 +170,6 @@ After you migrate the data, you can connect to Azure Cosmos DB and manage the da
 
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
-    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md)
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 * [Manage indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)
 * [Find the request unit charge for operations](find-request-unit-charge-mongodb.md)

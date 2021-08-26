@@ -5,7 +5,7 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 04/28/2021
+ms.date: 08/26/2021
 ms.author: dech
 
 ---
@@ -70,3 +70,5 @@ The prices shown in the capacity planner are estimates based on the public prici
 * Create a new [Cosmos account, database, and container](../create-cosmosdb-resources-portal.md).
 * Learn how to [optimize provisioned throughput cost](../optimize-cost-throughput.md).
 * Learn how to [optimize cost with reserved capacity](../cosmos-db-reserved-capacity.md).
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
