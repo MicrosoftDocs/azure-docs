@@ -412,7 +412,7 @@
         "articles/cost-management-billing/manage/**/*.md": "https://feedback.azure.com/forums/170030-signup-and-billing",
         "articles/cost-management-billing/reservations/**/*.md": "https://feedback.azure.com/forums/926206-azure-reservations",
         "articles/data-catalog/**/*.md": "https://feedback.azure.com/forums/906052-data-catalog",
-        "articles/data-factory/**/*.md": "https://feedback.azure.com/forums/270578-data-factory",
+        "articles/data-factory/**/*.md": "https://docs.microsoft.com/answers/topics/azure-data-factory.html",
         "articles/data-lake-analytics/**/*.md": "https://feedback.azure.com/forums/327234-data-lake",
         "articles/data-lake-store/**/*.md": "https://feedback.azure.com/forums/327234-data-lake",
         "articles/data-share/**/*.md": "https://feedback.azure.com/forums/922759-azure-data-share-public-preview",
