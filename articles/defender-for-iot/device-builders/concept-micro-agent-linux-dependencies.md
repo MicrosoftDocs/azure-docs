@@ -2,7 +2,7 @@
 title: Micro agent Linux dependencies (Preview)  
 description: This article describes the different Linux OS dependencies for the Defender for IoT micro agent. 
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 08/26/2021
 ---
 
 # Micro agent Linux dependencies (Preview)
@@ -36,7 +36,7 @@ The table below shows the Linux dependencies for each component.
 |  | CONFIG_PACKET=y | Kernel config |  |  |
 |  | CONFIG_NETFILTER =y | Kernel config |  | Optional – Performance improvement |
 | **Login collector** |  |  |  |  |
-|  | Wtmp, btmp | Log files | No | [utmp](https://en.wikipedia.org/wiki/Utmp) |
+|  | Wtmp, btmp | Log files |  | [utmp](https://en.wikipedia.org/wiki/Utmp) |
 
 ## Next steps
 
