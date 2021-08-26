@@ -471,10 +471,10 @@
           displayName: interpretability
           items: 
             - name: Interpret ML models
-              displayName: SDK, interpret, explain, explanability, interpretability
+              displayName: SDK, interpret, explain, explainability, interpretability
               href: how-to-machine-learning-interpretability-aml.md
             - name: Explain automated ML models
-              displayName: SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml
+              displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
               href: how-to-machine-learning-interpretability-automl.md
         - name: Assess and mitigate model fairness
           href: how-to-machine-learning-fairness-aml.md              
@@ -597,7 +597,7 @@
       - name: High-performance serving with Triton
         href: how-to-deploy-with-triton.md
       - name: Deploy encrypted inferencing service
-        displayName: homomorhic,encryption,deployment
+        displayName: homomorphic,encryption,deployment
         href: how-to-homomorphic-encryption-seal.md
       - name: Profile models
         displayName: profile resource requirement
