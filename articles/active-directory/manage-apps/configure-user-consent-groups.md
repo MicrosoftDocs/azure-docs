@@ -25,8 +25,8 @@ Group and team owners can authorize applications, such as applications published
 To complete the tasks in this guide, you need the following:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- Set up Azure AD PowerShell. See [Azure AD PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- A Global Administrator role.
+- Set up Azure AD PowerShell. See [Azure AD PowerShell for Graph](https://docs.microsoft.com/powershell/azure/
 
 ## Manage group owner consent to apps
 
