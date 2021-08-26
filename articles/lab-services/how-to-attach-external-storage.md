@@ -50,7 +50,7 @@ Follow these steps to create a VM connected to an Azure file share.
 3. Create an [Azure file share](../storage/files/storage-how-to-create-file-share.md). The file share is reachable by the public host name of the storage account if using a public endpoint.  The file share is reachable by private IP address if using a private endpoint.  
 4. Mount the Azure file share in the template VM:
     - [Windows](../storage/files/storage-how-to-use-files-windows.md)
-    - [Linux](../storage/files/storage-how-to-use-files-linux.md). To avoid mounting issues on student VMs, see the next section.
+    - [Linux](../storage/files/storage-how-to-use-files-linux.md). To avoid mounting issues on student VMs, see the [use Azure Files with Linux](#use-azure-files-with-linux) section.
 5. [Publish](how-to-create-manage-template.md#publish-the-template-vm) the template VM.
 
 > [!IMPORTANT]
