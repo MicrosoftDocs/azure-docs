@@ -334,18 +334,17 @@ As explained [above](#restore-operations), the following request body defines pr
 
 The response should be handled in the same way as [explained above for restoring disks](#responses).
 
-
-
 ## Cross-region restore
 
 If cross-region restore (CRR) is enabled on the vault with which you've protected your VMs, the backup data is replicated to the secondary region. You can use the backup data to perform a restore. Perform the following steps to trigger a restore in the secondary region using REST API:
 
 ### Select recovery point in secondary region
 
-The available recovery points of a backup item in the secondary region can be listed using the [list recovery points REST API for CRR](https://docs.microsoft.com/rest/api/backup/recovery-points-crr/list). It's a simple GET operation with all the relevant values.
+The available recovery points of a backup item in the secondary region can be listed using the [list recovery points REST API for CRR](/rest/api/backup/recovery-points-crr/list). It's a simple GET operation with all the relevant values.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2018-12-20
+
 ```
 
 The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation). `{fabricName}` is "Azure".
@@ -444,13 +443,13 @@ The recovery point is identified with the `{name}` field in the above response.
 
 ### Get access token
 
-To perform cross-region restore, you will require an access token to authorize your request to access replicated restore points in the secondary region. To get an access token, follow the below steps:
+To perform cross-region restore, you will require an access token to authorize your request to access replicated restore points in the secondary region. To get an access token, follow these steps:
 
-1. Use the [AAD Properties API](/rest/api/backup/aad-properties/get) to get AAD properties for the secondary region (*westus* in the below example):
+**Step 1:** Use the [AAD Properties API](/rest/api/backup/aad-properties/get) to get AAD properties for the secondary region (*westus* in the below example):
 
-```http
-GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/westus/backupAadProperties?api-version=2018-12-20
-```
+    ```http
+    GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/westus/backupAadProperties?api-version=2018-12-20
+    ```
 
 #### Response example
 
@@ -466,7 +465,7 @@ The response returned is of the below format:
 }
 ```
 
-2. Use the [Get Access Token API](/rest/api/backup/recovery-points-get-access-token-for-crr/get-access-token) to authorize your request to access replicated restore points in the secondary region:
+**Step 2:** Use the [Get Access Token API](/rest/api/backup/recovery-points-get-access-token-for-crr/get-access-token) to authorize your request to access replicated restore points in the secondary region:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/accessToken?api-version=2018-12-20
@@ -595,7 +594,7 @@ Below is a sample request body to restore the disks of a VM to the secondary reg
 }
 ```
 
-Similar to the primary region restore operation, this is an asynchronous operation and needs to be [tracked separately](./azure/backup/backup-azure-arm-userestapi-restoreazurevms#restore-response).
+Similar to the primary region restore operation, this is an asynchronous operation and needs to be [tracked separately](/azure/backup/backup-azure-arm-userestapi-restoreazurevms#restore-response).
 
 
 
