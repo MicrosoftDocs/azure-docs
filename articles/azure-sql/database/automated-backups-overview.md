@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: SQLSourabh 
 ms.author: sourabha
 ms.reviewer: mathoma, wiassaf, danil
-ms.date: 07/20/2021
+ms.date: 08/28/2021
 ---
 # Automated backups - Azure SQL Database & Azure SQL Managed Instance
 
@@ -141,7 +141,16 @@ Backup storage consumption up to the maximum data size for a database is not cha
 
 ## Backup retention
 
-For all new, restored, and copied databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last seven days by default. With the exception of Hyperscale and Basic tier databases, you can [change backup retention period](#change-the-pitr-backup-retention-period) per each active database in the 1-35 day range. As described in [Backup storage consumption](#backup-storage-consumption), backups stored to enable PITR may be older than the retention period. For Azure SQL Managed Instance only, it is possible to set the PITR backup retention rate once a database has been deleted in the 0-35 days range. 
+Azure SQL Database and Azure SQL Managed Instance provide both short-term and long-term retention of backups. The short-term retention backups allow Point-In-Time-Restore (PITR) with the retention period for the database, while the long-term retention provide backups for various compliance requirements.  
+
+### Short-term retention
+
+For all new, restored, and copied databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last seven days by default. Regular full, differential and log backups are taken to ensure databases are restorable to any point-in-time within the retention period defined for the database or managed instance. Additionally, for Azure SQL Dataases, differential backups can be configued to either a 12-hour frequency (default) or a 24-hour frequency. 
+
+> [NOTE]
+> A 24-hour differential backup frequency may increase the time required to restore the database. 
+
+With the exception of Hyperscale and Basic tier databases, you can [change backup retention period](#change-the-pitr-backup-retention-period) per each active database in the 1-35 day range. As described in [Backup storage consumption](#backup-storage-consumption), backups stored to enable PITR may be older than the retention period. For Azure SQL Managed Instance only, it is possible to set the PITR backup retention rate once a database has been deleted in the 0-35 days range. 
 
 If you delete a database, the system keeps backups in the same way it would for an online database with its specific retention period. You cannot change backup retention period for a deleted database.
 
@@ -245,9 +254,9 @@ When you migrate your database from a DTU-based service tier to a vCore-based se
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## Change the PITR backup retention period
+## Change the short-term retention policy
 
-You can change the default PITR backup retention period by using the Azure portal, PowerShell, or the REST API. The following examples illustrate how to change the PITR retention to 28 days.
+You can change the default PITR backup retention period and the differential backup frequency by using the Azure portal, PowerShell, or the REST API. The following examples illustrate how to change the PITR retention to 28 days and the differential backups to 24 hour interval.
 
 > [!WARNING]
 > If you reduce the current retention period, you lose the ability to restore to points in time older than the new retention period. Backups that are no longer needed to provide PITR within the new retention period are deleted. If you increase the current retention period, you do not immediately gain the ability to restore to older points in time within the new retention period. You gain that ability over time, as the system starts to retain backups for longer.
@@ -255,9 +264,9 @@ You can change the default PITR backup retention period by using the Azure porta
 > [!NOTE]
 > These APIs will affect only the PITR retention period. If you configured LTR for your database, it won't be affected. For information about how to change LTR retention periods, see [Long-term retention](long-term-retention-overview.md).
 
-### Change the PITR backup retention period by using the Azure portal
+### Change the short-term retention policy using the Azure portal
 
-To change the PITR backup retention period for active databases by using the Azure portal, go to the server or managed instance with the databases whose retention period you want to change. Select **Backups** in the left pane, then select the **Retention policies** tab. Select the database(s) for which you want to change the PITR backup retention. Then select **Configure retention** from the action bar.
+To change the PITR backup retention period or the differential backup frequency for active databases by using the Azure portal, go to the server or managed instance with the databases whose retention period you want to change. Select **Backups** in the left pane, then select the **Retention policies** tab. Select the database(s) for which you want to change the PITR backup retention. Then select **Configure retention** from the action bar.
 
 #### [SQL Database](#tab/single-database)
 
@@ -269,7 +278,7 @@ To change the PITR backup retention period for active databases by using the Azu
 
 ---
 
-### Change the PITR backup retention period by using PowerShell
+### Change the short-term retention policy using PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -277,12 +286,18 @@ To change the PITR backup retention period for active databases by using the Azu
 
 #### [SQL Database](#tab/single-database)
 
-To change the PITR backup retention for active Azure SQL Databases, use the following PowerShell example.
+To change the PITR backup retention and differential backup frequency for active Azure SQL Databases, use the following PowerShell example.
 
 ```powershell
 # SET new PITR backup retention period on an active individual database
 # Valid backup retention must be between 1 and 35 days
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
+```
+
+```powershell
+# SET new PITR differental backup frequency on an active individual database
+# Valid differential backup frequency must be ether 12 or 24. 
+Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28 -DiffBackupIntervalInHours 24
 ```
 
 #### [SQL Managed Instance](#tab/managed-instance)
@@ -324,40 +339,48 @@ Once PITR backup retention has been reduced for a deleted database, it no longer
 
 ---
 
-### Change the PITR backup retention period by using the REST API
+### Change the short-term retention policy using the REST API
 
-#### Sample request
+The below request updates the retetntion period to 28 days and also sets the differential backup frequency to 24 hours.
+
+
+#### [SQL Database](#tab/single-database)
+
+#### Sample Request
 
 ```http
-PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
+PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2021-02-01-preview
 ```
 
-#### Request body
+#### Request Body
 
 ```json
-{
-  "properties":{
-    "retentionDays":28
+{ 
+    "properties":{
+        "retentionDays":28
+        "diffBackupIntervalInHours":24
   }
 }
 ```
 
-#### Sample response
-
-Status code: 200
+#### Sample Response: 
 
 ```json
-{
+{ 
   "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
   "name": "default",
   "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
   "properties": {
     "retentionDays": 28
+    "diffBackupIntervalInHours":24
   }
 }
 ```
 
+
 For more information, see [Backup Retention REST API](/rest/api/sql/backupshorttermretentionpolicies).
+
+#### [SQL Managed Instance](#tab/managed-instance)
 
 #### Sample request
 
