@@ -1,5 +1,5 @@
 ---
-title: Viewing update and sign-in activities for Managed identities
+title: View update and sign-in activities for Managed identities
 description: Step-by-step instructions for viewing the activities made to managed identities, and authentications carried out by managed identities
 services: active-directory
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
-# Viewing update and sign-in activities for Managed identities
+# View update and sign-in activities for Managed identities
 
 This article will explain how to view updates carried out to managed identities, and sign-in attempts made by managed identities.
 
@@ -31,23 +31,23 @@ This article will explain how to view updates carried out to managed identities,
 
 This procedure demonstrates how to view updates carried out to user-assigned managed identities
 
-1. In the Azure portal, browse to **Activity Log** 
+1. In the Azure portal, browse to **Activity Log**.
 
  ![Browse to the activity log in the Azure portal](./media/how-to-view-managed-identity-activity/browse-to-activity-log.png)
 
-2. Select the **Add Filter** search pill and select **Operation** from the list
+2. Select the **Add Filter** search pill and select **Operation** from the list.
 
 ![Start building the search filter](./media/how-to-view-managed-identity-activity/start-adding-search-filter.png)
 
-3. In the **Operation** dropdown list, enter these operation names: "Delete User Assigned Identity" and "Write UserAssignedIdentities"
+3. In the **Operation** dropdown list, enter these operation names: "Delete User Assigned Identity" and "Write UserAssignedIdentities".
 
 ![Add operations to the search filter](./media/how-to-view-managed-identity-activity/add-operations-to-search-filter.png)
 
-4. When matching operations are displayed, select one to view the summary
+4. When matching operations are displayed, select one to view the summary.
 
 ![View summary of the operation](./media/how-to-view-managed-identity-activity/view-summary-of-operation.png)
 
-5. Select the **JSON** tab to view more detailed information about the operation, and scroll to the **properties** node to view information about the identity that was modified
+5. Select the **JSON** tab to view more detailed information about the operation, and scroll to the **properties** node to view information about the identity that was modified.
 
 ![View detail of the operation](./media/how-to-view-managed-identity-activity/view-json-of-operation.png)
 
@@ -66,50 +66,50 @@ System-assigned identity:
 
 ![Get object ID of system-assigned identity](./media/how-to-view-managed-identity-activity/get-object-id-of-system-assigned-identity.png)
 
-2. Copy the object ID
-3. Browse to the **Activity log** 
+2. Copy the object ID.
+3. Browse to the **Activity log**.
 
  ![Browse to the activity log in the Azure portal](./media/how-to-view-managed-identity-activity/browse-to-activity-log.png)
 
-4. Select the **Add Filter** search pill and select **Operation** from the list
+4. Select the **Add Filter** search pill and select **Operation** from the list.
 
 ![Start building the search filter](./media/how-to-view-managed-identity-activity/start-adding-search-filter.png)
 
-5. In the **Operation** dropdown list, enter these operation names: "Create role assignment" and "Delete role assignment"
+5. In the **Operation** dropdown list, enter these operation names: "Create role assignment" and "Delete role assignment".
 
 ![Add role assignment operations to the search filter](./media/how-to-view-managed-identity-activity/add-role-assignment-operations-to-search-filter.png)
 
-6. Paste the object ID in the search box; the results will be filtered automatically
+6. Paste the object ID in the search box; the results will be filtered automatically.
 
 ![Search by object ID](./media/how-to-view-managed-identity-activity/search-by-object-id.png)
  
-7. When matching operations are displayed, select one to view the summary
+7. When matching operations are displayed, select one to view the summary.
  
 ![Summary of role assignment for managed identity](./media/how-to-view-managed-identity-activity/summary-of-role-assignment-for-msi.png)
 
 ## View authentication attempts by managed identities
 
-1. Browse to **Azure Active Directory**
+1. Browse to **Azure Active Directory**.
 
 ![Browse to active directory](./media/how-to-view-managed-identity-activity/browse-to-active-directory.png)
 
-2.	Select **Sign-in logs** from the **Monitoring** section
+2.	Select **Sign-in logs** from the **Monitoring** section.
 
 ![Select sign-in logs](./media/how-to-view-managed-identity-activity/sign-in-logs-menu-item.png)
 
-3. Select the **Managed identity sign-ins** tab
+3. Select the **Managed identity sign-ins** tab.
 
 ![managed identity sign-in](./media/how-to-view-managed-identity-activity/msi-sign-ins.png)
 
-4. The sign-in events will now be filtered by managed identities
+4. The sign-in events will now be filtered by managed identities.
 
 ![managed identity sign-in events](./media/how-to-view-managed-identity-activity/msi-sign-in-events.png) 
 
-5.	To view the identity's Enterprise application in Azure Active Directory, select the “Managed Identity ID” column
-6.	To view the Azure resource or user-assigned managed identity, search by name in the search bar of the Azure portal
+5.	To view the identity's Enterprise application in Azure Active Directory, select the “Managed Identity ID” column.
+6.	To view the Azure resource or user-assigned managed identity, search by name in the search bar of the Azure portal.
 
 ## Next steps
 
 * [Managed identities for Azure resources](./overview.md)
-* [Azure Activity Log](/azure/azure-monitor/essentials/activity-log)
+* [Azure Activity log](/azure/azure-monitor/essentials/activity-log)
 * [Azure Active Directory sign-ins log](/azure/active-directory/reports-monitoring/concept-sign-ins )
