@@ -11,8 +11,8 @@ ms.custom:
 ---
 # Managing Azure Cloud Services (classic) using Azure Automation
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
+
 This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of your Azure cloud services.
 
 ## What is Azure Automation?
