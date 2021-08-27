@@ -7,13 +7,12 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
 # Create Azure SQL managed instance using Kubernetes tools
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Prerequisites
 
@@ -25,7 +24,7 @@ To create a SQL managed instance using Kubernetes tools, you will need to have t
 
 ## Overview
 
-To create a SQL managed instance, you need to create a Kubernetes secret to store your system administrator login and password securely and a SQL managed instance custom resource based on the sqlmanagedinstance custom resource definition.
+To create a SQL managed instance, you need to create a Kubernetes secret to store your system administrator login and password securely and a SQL managed instance custom resource based on the SqlManagedInstance custom resource definition.
 
 ## Create a yaml file
 
@@ -43,8 +42,8 @@ metadata:
   name: sql1-login-secret
 type: Opaque
 ---
-apiVersion: sql.arcdata.microsoft.com/v1alpha1
-kind: sqlmanagedinstance
+apiVersion: sql.arcdata.microsoft.com/v1
+kind: SqlManagedInstance
 metadata:
   name: sql1
   annotations:
@@ -128,7 +127,7 @@ Requirements for resource limits and requests:
 - The cores limit value is **required** for billing purposes.
 - The rest of the resource requests and limits are optional.
 - The cores limit and request must be a positive integer value, if specified.
-- The minimum of 2 cores is required for the cores request, if specified.
+- The minimum of 1 cores is required for the cores request, if specified.
 - The memory value format follows the Kubernetes notation.  
 - A minimum of 2Gi is required for memory request, if specified.
 - As a general guideline, you should have 4GB of RAM for each 1 core for production use cases.

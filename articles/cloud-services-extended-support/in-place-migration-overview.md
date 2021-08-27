@@ -13,13 +13,36 @@ ms.custom:
  
 # Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)
 
-This document provides overview for migrating Cloud Services (classic) to Cloud Services (extended support). Cloud Services (extended support) provides two paths for customers to migrate from Azure Service Manager to Azure Resource Manager:
+This document provides an overview for migrating Cloud Services (classic) to Cloud Services (extended support).     
 
-- **Redeploy**: Customers can deploy a new cloud service directly in Azure Resource Manager and then delete the old cloud service in Azure Service Manager after thorough validation. Redeploy provides more control and a self-paced migration. Choose this path if you desire control about how the new service components are named and how they are organized. You are also in control of pace of building new services and deleting the old deployments.
+[Cloud Services (extended support)](overview.md) has the primary benefit of providing regional resiliency along with feature parity with Azure Cloud Services deployed using Azure Service Manager. It also offers some Azure Resource Manager capabilities such as role-based access control (RBAC), tags, policy, and supports deployment templates, private link. Both deployment models (extended support and classic) are available with [similar pricing structures](https://azure.microsoft.com/pricing/details/cloud-services/).
 
-- **In-place migration**: The In-place migration tool enables a seamless, platform orchestrated migration of existing Cloud Services (classic) deployments to Cloud Services (extended support). In-place migration provides less control but is faster paced. Choose this option if you would like the platform to define the basic settings for you and orchestrate a quick migration. The Cloud Services (classic) resources are deleted as soon as migration is complete successfully.
+Cloud Services (extended support) supports two paths for customers to migrate from Azure Service Manager to Azure Resource Manager: Re-deploy and In-place Migration. 
+
+The below table highlights comparison between these two options.  
+
+
+| Redeploy | In-place migration | 
+|---|---|
+| Customers can deploy a new cloud service directly in Azure Resource Manager and then delete the old cloud service in Azure Service Manager thorough validation. | The in-place migration tool enables a seamless, platform orchestrated migration of existing Cloud Services (classic) deployments to Cloud Services (extended support). | 
+| Redeploy allows customers to: <br><br> - Define resource names. <br><br> - Organize or reuse resources as preferred. <br><br> - Reuse service configuration and definition files with minimal changes. | For in-place migration, the platform: <br><br> - Defines resource names. <br><br> - Organizes each deployment and related resources in individual Resource Groups. <br><br> - Modifies existing configuration and definition file for Azure Resource Manager. | 
+| Customers need to orchestrate traffic to the new deployment. | Migration retains IP address and data path remains the same. | 
+| Customers need to delete the old cloud services in Azure Resource Manager. | Platform deletes the Cloud Services (classic) resources after migration. | 
+| This is a lift and shift migration which offers more flexibility but requires additional time to migrate. | This is an automated migration which offers quick migration but less flexibility. | 
+
+When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support) you may want to investigate additional Azure services such as: [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md), [App Service](../app-service/overview.md), [Azure Kubernetes Service](../aks/intro-kubernetes.md), and [Azure Service Fabric](../service-fabric/overview-managed-cluster.md). These services will continue to feature additional capabilities, while Cloud Services (extended support) will primarily maintain feature parity with Cloud Services (classic.)
+
+Depending on the application, Cloud Services (extended support) may require substantially less effort to move to Azure Resource Manager compared to other options. If your application is not evolving, Cloud Services (extended support) is a viable option to consider as it provides a quick migration path. Conversely, if your application is continuously evolving and needs a more modern feature set, do explore other Azure services to better address your current and future requirements.
 
 ## Redeploy Overview
+
+Redeploying your services with [Cloud Services (extended support)](overview.md) has the following benefits: 
+
+- Supports web and worker roles, similar to [Cloud Services (classic).
+- There are no changes to the design, architecture, or components of web and worker roles. 
+- No changes are required to runtime code as the data plane is the same as cloud services. 
+- Azure GuestOS releases and associated updates are aligned with Cloud Services (classic). 
+- Underlying update process with respect to update domains, how upgrade proceeds, rollback, and allowed service changes during an update will not change.
 
 A new Cloud Service (extended support) can be deployed directly in Azure Resource Manager using the following client tools:
 
@@ -32,25 +55,13 @@ A new Cloud Service (extended support) can be deployed directly in Azure Resourc
 
 ## Migration tool Overview
 
-This article provides an overview on the platform-supported migration tool and how to use it to migrate [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md) to [Azure Cloud Services (extended support)](overview.md).
+The platform supported migration provides following key benefits:
+
+- Enables seamless platform orchestrated migration with no downtime for most scenarios. Learn more about [supported scenarios](in-place-migration-technical-details.md).  
+- Migrates existing cloud services in three simple steps: validate, prepare, commit (or abort). Learn more about how the [migration tool works]in-place-migration-overview.md#migration-steps).
+- Provides the ability to test migrated deployments after successful preparation. Commit and finalize the migration while abort rolls back the migration.
 
 The migration tool utilizes the same APIs and has the same experience as the [Virtual Machine (classic) migration](../virtual-machines/migration-classic-resource-manager-overview.md). 
-
-Refer to the following resources if you need assistance with your migration: 
-
-- [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html): Microsoft and community support for migration.
-- [Azure Migration Support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%22pesId%22:%22e79dcabe-5f77-3326-2112-74487e1e5f78%22,%22supportTopicId%22:%22fca528d2-48bd-7c9f-5806-ce5d5b1d226f%22%7D): Dedicated support team for technical assistance during migration. Customers without technical support can use [free support capability](https://aka.ms/cs-migration-errors) provided specifically for this migration.
-- If your company/organization has partnered with Microsoft or works with Microsoft representatives such as cloud solution architects or technical account managers, reach out to them for more resources for migration.
-- Complete [this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR--AgudUMwJKgRGMO84rHQtUQzZYNklWUk4xOTFXVFBPOFdGOE85RUIwVC4u) to provide feedback or raise issues to the Cloud Services (extended support) product team. 
-
-## Migration benefits
-The platform supported migration provides following key benefits:
-- The migration is fully orchestrated by the platform, moving the entire deployment and associated resources to Azure Resource Manager.
-- No downtime migration.
-- Easy and fast migration compared to other migration paths by minimizing manual tasks. 
-- Retains Cloud Services IP Address and DNS label as part of the migration. 
-
-For other benefits and why you should migrate, see [Cloud Services (extended support)](overview.md) and [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
 ## Setup access for migration
 
@@ -111,7 +122,6 @@ For more information, see [Overview of Platform-supported migration of IaaS reso
 - 	Dynamic Public IP addresses
 - 	DNS Name 
 - 	Network Traffic Rules
-- 	Hypernet virtual network
 
 ## Supported configurations / migration scenarios
 These are top scenarios involving combinations of resources, features, and Cloud Services. This list is not exhaustive.
@@ -125,41 +135,6 @@ These are top scenarios involving combinations of resources, features, and Cloud
 | Virtual Network | Virtual network containing multiple Cloud Services.	| Virtual network contain multiple cloud services is supported for migration. The virtual network and all the Cloud Services within it will be migrated together to Azure Resource Manager. |
 | Virtual Network | Migration of virtual networks created via Portal (Requires using “Group Resource-group-name VNet-Name” in .cscfg file)  | As part of migration, the virtual network name in cscfg will be changed to use Azure Resource Manager ID of the virtual network. (subscription/subscription-id/resource-group/resource-group-name/resource/vnet-name) <br><br>To manage the deployment after migration, update the local copy of .cscfg file to start using Azure Resource Manager ID instead of virtual network name. <br><br>A .cscfg file that uses the old naming scheme will not pass validation. 
 | Virtual Network | Migration of deployment with roles in different subnet. | A cloud service with different roles in different subnets is supported for migration. |
-	
-
-## Resources and features not available for migration
-These are top scenarios involving combinations of resources, features and Cloud Services. This list is not exhaustive. 
-
-| Resource | Next steps / work-around | 
-|---|---|
-| Auto Scale Rules | Migration goes through but rules are dropped. [Recreate the rules](./configure-scaling.md) after migration on Cloud Services (extended support). | 
-| Alerts | Migration goes through but alerts are dropped. [Recreate the rules](./enable-alerts.md) after migration on Cloud Services (extended support). | 
-| VPN Gateway | Remove the VPN Gateway before beginning migration and then recreate the VPN Gateway once migration is complete. | 
-| Express Route Gateway (in the same subscription as Virtual Network only) | Remove the Express Route Gateway before beginning migration and then recreate the Gateway once migration is complete. | 
-| Quota	 | Quota is not migrated. [Request new quota](../azure-resource-manager/templates/error-resource-quota.md#solution) on Azure Resource Manager prior to migration for the validation to be successful. | 
-| Affinity Groups | Not supported. Remove any affinity groups before migration.  | 
-| Virtual networks using [virtual network peering](../virtual-network/virtual-network-peering-overview.md)| Before migrating a virtual network that is peered to another virtual network, delete the peering, migrate the virtual network to Resource Manager and re-create peering. This can cause downtime depending on the architecture. | 
-| Virtual networks that contain App Service environments | Not supported | 
-| Virtual networks that contain HDInsight services | Not supported. 
-| Virtual networks that contain Azure API Management deployments | Not supported. <br><br> To migrate the virtual network, change the virtual network of the API Management deployment. This is a no downtime operation. | 
-| Classic Express Route circuits | Not supported. <br><br>These circuits need to be migrated to Azure Resource Manager before beginning PaaS migration. To learn more, see [Moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../expressroute/expressroute-howto-move-arm.md). |  
-| Role-Based Access Control	| Post migration, the URI of the resource changes from `Microsoft.ClassicCompute` to `Microsoft.Compute` RBAC policies needs to be updated after migration. | 
-| Application Gateway | Not Supported. <br><br> Remove the Application Gateway before beginning migration and then recreate the Application Gateway once migration is completed to Azure Resource Manager | 
-
-## Unsupported configurations / migration scenarios
-
-| Configuration / Scenario	| Next steps / work-around | 
-|---|---|
-| Migration of some older deployments not in a virtual network | Some Cloud Service deployments not in a virtual network are not supported for migration. <br><br> 1. Use the validate API to check if the deployment is eligible to migrate. <br> 2. If eligible, the deployments will be moved to Azure Resource Manager under a virtual network with prefix of “DefaultRdfeVnet” | 
-| Migration of deployments containing both production and staging slot deployment using dynamic IP addresses | Migration of a two slot Cloud Service requires deletion of the staging slot. Once the staging slot is deleted, migrate the production slot as an independent Cloud Service (extended support) in Azure Resource Manager. Then redeploy the staging environment as a new Cloud Service (extended support) and make it swappable with the first one. | 
-| Migration of deployments containing both production and staging slot deployment using Reserved IP addresses | Not supported. | 
-| Migration of production and staging deployment in different virtual network|Migration of a two slot cloud service requires deleting the staging slot. Once the staging slot is deleted, migrate the production slot as an independent cloud service (extended support) in Azure Resource Manager. A new Cloud Services (extended support) deployment can then be linked to the migrated deployment with swappable property enabled. Deployments files of the old staging slot deployment can be reused to create this new swappable deployment. | 
-| Migration of empty Cloud Service (Cloud Service with no deployment) | Not supported. | 
-| Migration of deployment containing the remote desktop plugin and the remote desktop extensions | Option 1: Remove the remote desktop plugin before migration. This requires changes to deployment files. The migration will then go through. <br><br> Option 2: Remove remote desktop extension and migrate the deployment. Post-migration, remove the plugin and install the extension. This requires changes to deployment files. <br><br> Remove the plugin and extension before migration. [Plugins are not recommended](./deploy-prerequisite.md#required-service-definition-file-csdef-updates) for use on Cloud Services (extended support).| 
-| Virtual networks with both PaaS and IaaS deployment |Not Supported <br><br> Move either the PaaS or IaaS deployments into a different virtual network. This will cause downtime. | 
-Cloud Service deployments using legacy role sizes (such as Small or ExtraLarge). | The migration will complete, but the role sizes will be updated to use modern role sizes. There is no change in cost or SKU properties and virtual machine will not be rebooted for this change. Update all deployment artifacts to reference these new modern role sizes. For more information, see [Available VM sizes](available-sizes.md)|
-| Migration of Cloud Service to different virtual network | Not supported <br><br> 1. Move the deployment to a different classic virtual network before migration. This will cause downtime. <br> 2. Migrate the new virtual network to Azure Resource Manager. <br><br> Or <br><br> 1. Migrate the virtual network to Azure Resource Manager <br>2. Move the Cloud Service to a new virtual network. This will cause downtime. | 
-| Cloud Service in a virtual network but does not have an explicit subnet assigned | Not supported. Mitigation involves moving the role into a subnet, which requires a role restart (downtime) | 
 
 ## Next steps
 - [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)

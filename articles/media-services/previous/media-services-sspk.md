@@ -105,7 +105,6 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Hisense Visual Technology Co., Ltd
 * HKC Corporation Limited
 * Hong Kong Konka Ltd
-* Innolux Corporation
 * Jinpin Electrical Company Ltd.Zhuhai.S.E.Z
 * KAONMEDIA CO., Ltd.
 * KDDI Corporation
@@ -119,6 +118,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
 * Panasonic Corporation
 * Qingdao Haier Optronics Co., Ltd.
+* SAGEMCOM BROADBAND SAS
 * Sharp Consumer Electronics Poland Sp. z o.o.
 * Shenzhen ATEKO PHOTO Electricity Co.,Ltd.
 * Shenzhen Chuangwei-RGB Electronics Co.,Ltd.
@@ -126,6 +126,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Shenzhen KTC Technology Co., Ltd. 
 * Shenzhen Maxmade Technology Co., Ltd
 * Shenzhen MTC Co., Ltd
+* SHENZHEN QIYUE OPTRONICS CO.,LTD
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * SKARDIN INDUSTRIAL CORP

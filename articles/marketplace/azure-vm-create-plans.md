@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 07/05/2021
+ms.date: 07/26/2021
 ---
 
 # Create plans for a virtual machine offer
@@ -174,7 +174,23 @@ Add open public or private ports on a deployed virtual machine.
 
 ### Properties
 
-Select if your VM **Supports Accelerated Networking**. For details, see [Accelerated Networking](https://go.microsoft.com/fwlink/?linkid=2124513).
+Here is a list of properties that can be selected for your VM.
+
+- **Supports backup**: Enable this property if your images support Azure VM backup. Learn more about [Azure VM backup](../backup/backup-azure-vms-introduction.md).
+
+- **Supports accelerated networking**: Enable this property if the VM images for this plan support single root I/O virtualization (SR-IOV) to a VM, enabling low latency and high throughput on the network interface. Learn more about [accelerated networking](https://go.microsoft.com/fwlink/?linkid=2124513).
+
+- **Supports cloud-init configuration**: Enable this property if the images in this plan support cloud-init post deployment scripts. Learn more about [cloud-init configuration](../virtual-machines/linux/using-cloud-init.md).
+
+- **Supports hotpatch**: Windows Server Azure Editions supports Hot Patch. Learn more about [Hot Patch](../automanage/automanage-hotpatch.md).
+
+- **Supports extensions**: Enable this property if the images in this plan support extensions. Extensions are small applications that provide post-deployment configuration and automation on Azure VMs. Learn more about [Azure virtual machine extensions](./azure-vm-create-certification-faq.yml#vm-extensions).
+
+- **Is a network virtual appliance**: Enable this property if this product is a Network Virtual Appliance. A network virtual appliance is a product that performs one or more network functions, such as a Load Balancer, VPN Gateway, Firewall or Application Gateway. Learn more about [network virtual appliances](https://go.microsoft.com/fwlink/?linkid=2155373).
+
+- **Remote desktop or SSH disabled**: Enable this property if virtual Machines deployed with these images do not allow customers to access it using Remote Desktop or SSH. Learn more about [locked VM images](./azure-vm-create-certification-faq.yml#locked-down-or-ssh-disabled-offer).
+
+- **Requires custom ARM template for deployment**: Enable this property if the images in this plan can only be deployed using a custom ARM template. To learn more see the [Custom templates section of Troubleshoot virtual machine certification](./azure-vm-create-certification-faq.yml#custom-templates).
 
 ### Generations
 

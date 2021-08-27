@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 Entities in your environment are represented by [digital twins](concepts-twins-graph.md). Managing your digital twins may include creation, modification, and removal.
 
-This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [Manage the twin graph with relationships](how-to-manage-graph.md).
+This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [Manage the twin graph and relationships](how-to-manage-graph.md).
 
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
@@ -168,7 +168,10 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Update calls for twins and relationships use [JSON Patch](http://jsonpatch.com/) structure. You can create patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true). Here is an example.
+>[!NOTE]
+> This example shows the JSON Patch `replace` operation, which replaces the value of an existing property. For a full list of JSON Patch operations that can be used, including `add` and `remove`, see the [Operations for JSON Patch](http://jsonpatch.com/#operations). 
+
+When updating a twin from a code project using the .NET SDK, you can create JSON patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true). Here is an example.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
@@ -289,4 +292,4 @@ Here is the console output of the above program:
 ## Next steps
 
 See how to create and manage relationships between your digital twins:
-* [Manage the twin graph with relationships](how-to-manage-graph.md)
+* [Manage the twin graph and relationships](how-to-manage-graph.md)

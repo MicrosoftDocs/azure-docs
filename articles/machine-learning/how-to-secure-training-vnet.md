@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/20/2021
+ms.date: 08/04/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
 
 ---
@@ -18,11 +18,17 @@ ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
 
 In this article, you learn how to secure training environments with a virtual network in Azure Machine Learning.
 
-This article is part three of a five-part series that walks you through securing an Azure Machine Learning workflow. We highly recommend that you read through [Part one: VNet overview](how-to-network-security-overview.md) to understand the overall architecture first. 
-
-See the other articles in this series:
-
-[1. VNet overview](how-to-network-security-overview.md) > [2. Secure the workspace](how-to-secure-workspace-vnet.md) > **3. Secure the training environment** > [4. Secure the inferencing environment](how-to-secure-inferencing-vnet.md)  > [5. Enable studio functionality](how-to-enable-studio-virtual-network.md)
+> [!TIP]
+> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
+>
+> * [Virtual network overview](how-to-network-security-overview.md)
+> * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+> * [Use custom DNS](how-to-custom-dns.md)
+> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+>
+> For a tutorial on creating a secure workspace, compute cluster, and compute instance, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md).
 
 In this article you learn how to secure the following training compute resources in a virtual network:
 > [!div class="checklist"]
@@ -58,7 +64,6 @@ In this article you learn how to secure the following training compute resources
 * If you plan to secure the virtual network by restricting traffic, see the [Required public internet access](#required-public-internet-access) section.
 * The subnet used to deploy compute cluster/instance shouldn't be delegated to any other service. For example, it shouldn't be delegated to ACI.
 
-
 ### Azure Databricks
 
 * The virtual network must be in the same subscription and region as the Azure Machine Learning workspace.
@@ -79,7 +84,7 @@ In this article you learn how to secure the following training compute resources
 
         :::image type="content" source="./media/how-to-secure-training-vnet/compute-instance-cluster-network-security-group.png" alt-text="Screenshot of NSG":::
 
-    * One public IP address. If you have Azure policy prohibiting Public IP creation then deployment of cluster/instances will fail
+    * One public IP address. If you have Azure Policy assignments prohibiting Public IP creation then deployment of cluster/instances will fail
     * One load balancer
 
     For compute clusters, these resources are deleted every time the cluster scales down to 0 nodes and created when scaling up.
@@ -87,7 +92,7 @@ In this article you learn how to secure the following training compute resources
     For a compute instance, these resources are kept until the instance is deleted. Stopping the instance does not remove the resources. 
 
     > [!IMPORTANT]
-    > These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure policy which prohibits creation of network security groups.
+    > These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure Policy assignment which prohibits creation of network security groups.
 
 * If the Azure Storage Accounts for the workspace are also in the virtual network, use the following guidance on subnet limitations:
 
@@ -116,6 +121,9 @@ In this article you learn how to secure the following training compute resources
 ### Azure Databricks
 
 * In addition to the __databricks-private__ and __databricks-public__ subnets used by Azure Databricks, the __default__ subnet created for the virtual network is also required.
+* Azure Databricks does not use a private endpoint to communicate with the virtual network.
+
+For more information on using Azure Databricks in a virtual network, see [Deploy Azure Databricks in your Azure Virtual Network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 ### Azure HDInsight or virtual machine
 
@@ -198,6 +206,12 @@ When the creation process finishes, you train your model by using the cluster in
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
+### Inbound traffic
+
+[!INCLUDE [udr info for computes](../../includes/machine-learning-compute-user-defined-routes.md)]
+
+For more information on input and output traffic requirements for Azure Machine Learning, see [Use a workspace behind a firewall](how-to-access-azureml-behind-firewall.md).
+
 ## Azure Databricks
 
 For specific information on using Azure Databricks with a virtual network, see [Deploy Azure Databricks in your Azure Virtual Network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
@@ -245,11 +259,11 @@ Attach the VM or HDInsight cluster to your Azure Machine Learning workspace. For
 
 ## Next steps
 
-This article is part three of a five-part virtual network series. See the rest of the articles to learn how to secure a virtual network:
+This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
 
-* [Part 1: Virtual network overview](how-to-network-security-overview.md)
-* [Part 2: Secure the workspace resources](how-to-secure-workspace-vnet.md)
-* [Part 4: Secure the inferencing environment](how-to-secure-inferencing-vnet.md)
-* [Part 5: Enable studio functionality](how-to-enable-studio-virtual-network.md)
-
-Also see the article on using [custom DNS](how-to-custom-dns.md) for name resolution.
+* [Virtual network overview](how-to-network-security-overview.md)
+* [Secure the workspace resources](how-to-secure-workspace-vnet.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
+* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)

@@ -12,6 +12,9 @@ metadata:
     
 title: Azure VM sizes with no local temporary disk 
 summary: |
+  > [!TIP]
+  > Try the **[Virtual Machine selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
+
   This article provides answers to frequently asked questions (FAQ) about Azure VM sizes that do not have a local temporary disk (i.e. no local temp disk). For more information on these VM sizes, see [Specifications for Dv4 and Dsv4-series (General Purpose Workloads)](dv4-dsv4-series.md) or [Specifications for Ev4 and Esv4-series (Memory Optimized Workloads)](ev4-esv4-series.md).
   
 

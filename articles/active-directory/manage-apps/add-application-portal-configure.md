@@ -1,5 +1,6 @@
 ---
-title: 'Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant'
+title: 'Quickstart: Configure properties for an application'
+titleSuffix: Azure AD
 description: This quickstart uses the Azure portal to configure an application that has been registered with your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: davidmu1
@@ -8,11 +9,12 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/12/2021
+ms.date: 07/23/2021
 ms.author: davidmu
+ms.reviewer: ergreenl
 ---
 
-# Quickstart: Configure properties for an application in your Azure Active Directory (Azure AD) tenant
+# Quickstart: Configure properties for an application
 
 In the previous quickstart, you added an application to your Azure Active Directory (Azure AD) tenant. When you add an application, you're letting your Azure AD tenant know it's the identity provider for the app. Now you'll configure some of the properties for the app.
 

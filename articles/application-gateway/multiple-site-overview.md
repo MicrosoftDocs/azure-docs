@@ -29,7 +29,7 @@ Similarly, you can host multiple subdomains of the same parent domain on the sam
 While using multi-site listeners, to ensure that the client traffic is routed to the accurate backend, it is important to have the request routing rules be present in the correct order.
 For example, if you have 2 listeners with associated Host name as `*.contoso.com` and `shop.contoso.com` respectively, the listener with the `shop.contoso.com` Host name would have to be processed before the listener with `*.contoso.com`. If the listener with `*.contoso.com` is processed first, then no client traffic would be received by the more specific `shop.contoso.com` listener.
 
-This ordering can be established by providing a 'Priority' field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 2000 with 1 being the highest priority and 20000 being the lowest priority. In case the incoming client traffic matches with multiple listeners, the request routing rule with highest priority will be used for serving the request.
+This ordering can be established by providing a 'Priority' field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority. In case the incoming client traffic matches with multiple listeners, the request routing rule with highest priority will be used for serving the request.
 
 The priority field only impacts the order of evaluation of a request routing rule, this will not change the order of evaluation of path based rules within a `PathBasedRouting` request routing rule.
 
@@ -50,13 +50,13 @@ Using a wildcard character in the host name, you can match multiple host names i
 >[!NOTE]
 > This feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
->[!NOTE]
->This feature is currently available only through [Azure PowerShell](tutorial-multiple-sites-powershell.md) and [Azure CLI](tutorial-multiple-sites-cli.md). Portal support is coming soon.
-> Please note that since portal support is not fully available, if you are using only the HostNames parameter, the listener will appear as a Basic listener in the portal and the Host name column of the listener list view will not show the host names that are configured. For any changes to a wildcard listener, make sure you use Azure PowerShell or CLI until it's supported in the portal.
-
-In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `-HostNames "*.contoso.com,*.fabrikam.com"`
+In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `-HostNames "*.contoso.com","*.fabrikam.com"`
 
 In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` instead of `--host-name`. With host-names, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `--host-names "*.contoso.com,*.fabrikam.com"`
+
+In the Azure portal, under the multi-site listener, you must chose the **Multiple/Wildcard** host type to mention up to five host names with allowed wildcard characters.
+
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Wildcard Listener UI":::
 
 ### Allowed characters in the host names field
 

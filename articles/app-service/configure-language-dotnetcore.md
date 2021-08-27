@@ -229,3 +229,7 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 > [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
+
+Or, see additional resources:
+
+[Environment variables and app settings reference](reference-app-settings.md)

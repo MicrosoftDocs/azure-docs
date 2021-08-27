@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 08/20/2021
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
@@ -39,7 +39,7 @@ Object replication requires that the following Azure Storage features are also e
 
 Enabling change feed and blob versioning may incur additional costs. For more details, refer to the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/).
 
-Object replication is supported only for general-purpose v2 storage accounts. Both the source and destination accounts must be general-purpose v2. 
+Object replication is supported only for general-purpose v2 storage accounts. Both the source and destination accounts must be general-purpose v2. Object replication supports block blobs only; append blobs and page blobs are not supported.
 
 ## How object replication works
 
@@ -64,7 +64,7 @@ Object replication is supported when the source and destination accounts are in 
 
 ### Immutable blobs
 
-Object replication does not support immutable blobs. If a source or destination container has a time-based retention policy or legal hold, then object replication fails. For more information about immutable blobs, see [Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md).
+Object replication does not support immutable blobs. If a source or destination container has a time-based retention policy or legal hold, then object replication fails. For more information about immutable blobs, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
 ## Object replication policies and rules
 

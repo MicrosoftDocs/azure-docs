@@ -8,7 +8,7 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -40,6 +40,8 @@ To do this backup/restore operation, you can use any tool that is capable of doi
 - `psql`
 - ...
 
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 ## Example
 Let's illustrate those steps using the `pgAdmin` tool.
 Consider the following setup:
@@ -69,8 +71,8 @@ The backup completes successfully:
 > [!NOTE]
 > To register a Postgres instance in the `pgAdmin` tool, you need to you use public IP of your instance in your Kubernetes cluster and set the port and security context appropriately. You will find these details on the `psql` endpoint line after running the following command:
 
-```console
-azdata arc postgres endpoint list -n postgres01
+```azurecli
+az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
 ```
 That returns an output like:
 ```console
@@ -124,8 +126,8 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
 
 1. List the end points to help from your `psql` connection string:
 
-   ```console
-   azdata arc postgres endpoint list -n postgres01
+   ```azurecli
+   az postgres arc-server endpoint list -n postgres01 --k8s-namespace <namespace> --use-k8s
    [
      {
        "Description": "PostgreSQL Instance",

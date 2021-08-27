@@ -38,7 +38,7 @@ Optionally, you can also use custom Teams endpoints to integrate chat capabiliti
 
 |   Permission    |  Display string   |  Description | Admin consent required | Microsoft account supported |
 |:--- |:--- |:--- |:--- |:--- |
-| _https://auth.msft.communication.azure.com/VoIP_ | Manage calls in Teams | Start, join, forward, transfer, or leave Teams calls and update call properties. | No | No |
+| _`https://auth.msft.communication.azure.com/VoIP`_ | Manage calls in Teams | Start, join, forward, transfer, or leave Teams calls and update call properties. | No | No |
 
 ### Application permissions
 

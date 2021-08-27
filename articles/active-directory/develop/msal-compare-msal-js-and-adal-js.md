@@ -12,6 +12,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/06/2021
 ms.author: v-doeris
+ms.custom: has-adal-ref
 #Customer intent: As an application developer, I want to learn how to change the code in my JavaScript application from using ADAL.js as its authentication library to MSAL.js.
 ---
 

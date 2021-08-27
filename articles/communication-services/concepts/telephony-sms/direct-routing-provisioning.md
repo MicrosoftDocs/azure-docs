@@ -16,7 +16,7 @@ Azure Communication Services direct routing enables you to connect your existing
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
  
-For information about whether Azure Communication Services direct routing is the right solution for your organization, see [Azure telephony concepts](./telephony-concept.md). For information about prerequisites and planning your deployment, see [Communication Services direct routing infrastructure requirements](./sip-interface-infrastructure.md).
+For information about whether Azure Communication Services direct routing is the right solution for your organization, see [Azure telephony concepts](./telephony-concept.md). For information about prerequisites and planning your deployment, see [Communication Services direct routing infrastructure requirements](./direct-routing-infrastructure.md).
 
 ## Connect the SBC with Azure Communication Services
 
@@ -28,7 +28,7 @@ If you are using Office 365, make sure the domain part of the SBC’s FQDN is di
 - For example, if `contoso.com` is a registered domain in O365, you cannot use `sbc.contoso.com` for Communication Services. But you can use an upper-level domain if one does not exist in O365: you can create an `acs.contoso.com` domain and use FQDN `sbc.acs.contoso.com` as an SBC name.
 - SBC certificate must match the name; wildcard certificates are supported.
 - The *.onmicrosoft.com domain cannot be used for the FQDN of the SBC.
-For the full list of requirements, refer to [Azure direct routing infrastructure requirements](./sip-interface-infrastructure.md).
+For the full list of requirements, refer to [Azure direct routing infrastructure requirements](./direct-routing-infrastructure.md).
 
    :::image type="content" source="../media/direct-routing-provisioning/add-session-border-controller.png" alt-text="Adding Session Border Controller.":::
 - When you are done, click Next.

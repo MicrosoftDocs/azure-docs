@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/21/2021
+ms.date: 07/26/2021
 ms.author: jeedes
 
 ---
@@ -70,6 +70,8 @@ To configure and test Azure AD SSO with cloudtamer.io, perform the following ste
 
     ![Screenshot for IDMS create.](./media/cloudtamer-io-tutorial/idms-creation.png)
 
+1. Select **SAML 2.0** as the IDMS Type.
+
 1. Leave this screen open and copy values from this screen into the Azure AD configuration.
 
 ## Configure Azure AD SSO
@@ -84,17 +86,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** text box, paste the **IDENTITY PROVIDER ISSUER (ENTITY ID)** from cloudtamer.io into this box.
+    a. In the **Identifier** text box, paste the **SERVICE PROVIDER ISSUER (ENTITY ID)** from cloudtamer.io into this box.
 
     b. In the **Reply URL** text box, paste the **SERVICE PROVIDER ACS URL** from cloudtamer.io into this box.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<CUSTOMERDOMAIN>.<EXTENSION>/login`
-
-	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-on URL. You can refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    In the **Sign-on URL** text box, paste the **SERVICE PROVIDER ACS URL** from cloudtamer.io into this box.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -134,19 +132,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot for IDMS adding.](./media/cloudtamer-io-tutorial/configuration.png)
 
-    a. Select **SAML2.0** as **IDMS TYPE** from the dropdown.
+    a. In the **IDMS Name** give a name that the users will recognize from the Login screen.
 
-    b. In the **IDMS Name** give a name that the users will recognize from the Login screen.
+    b. In the **IDENTITY PROVIDER ISSUER (ENTITY ID)** textbox, paste the **Identifier** value which you have copied from the Azure portal.
 
-    c. In the **IDENTITY PROVIDER ISSUER (ENTITY ID)** textbox, paste the **Identifier** value which you have copied from the Azure portal.
+    c. Open the downloaded **Federation Metadata XML** from the Azure portal into Notepad and paste the content into the **IDENTITY PROVIDER METADATA** textbox.
 
-    d. Open the downloaded **Federation Metadata XML** from the Azure portal into Notepad and paste the content into the **IDENTITY PROVIDER METADATA** textbox.
+    d. Copy **SERVICE PROVIDER ISSUER (ENTITY ID)** value, paste this value into the **Identifier** text box in the Basic SAML Configuration section in the Azure portal.
 
-    e. Copy **SERVICE PROVIDER ISSUER (ENTITY ID)** value, paste this value into the **Identifier** text box in the Basic SAML Configuration section in the Azure portal.
+    e. Copy **SERVICE PROVIDER ACS URL** value, paste this value into the **Reply URL** text box in the Basic SAML Configuration section in the Azure portal.
 
-    f. Copy **SERVICE PROVIDER ACS URL** value, paste this value into the **Reply URL** text box in the Basic SAML Configuration section in the Azure portal.
-
-    g. Under Assertion Mapping, enter the following values:
+    f. Under Assertion Mapping, enter the following values:
 
     | Field | Value |
     |-----------|-------|

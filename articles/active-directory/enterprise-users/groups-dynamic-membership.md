@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/18/2021
+ms.date: 08/06/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -171,25 +171,25 @@ David evaluates to true, Da evaluates to false.
 
 The values used in an expression can consist of several types, including:
 
-* Strings
-* Boolean – true, false
-* Numbers
-* Arrays – number array, string array
+- Strings
+- Boolean – true, false
+- Numbers
+- Arrays – number array, string array
 
 When specifying a value within an expression it is important to use the correct syntax to avoid errors. Some syntax tips are:
 
-* Double quotes are optional unless the value is a string.
-* String and regex operations are not case sensitive.
-* When a string value contains double quotes, both quotes should be escaped using the \` character, for example, user.department -eq \`"Sales\`" is the proper syntax when "Sales" is the value.
-* You can also perform Null checks, using null as a value, for example, `user.department -eq null`.
+- Double quotes are optional unless the value is a string.
+- String and regex operations are not case sensitive.
+- When a string value contains double quotes, both quotes should be escaped using the \` character, for example, user.department -eq \`"Sales\`" is the proper syntax when "Sales" is the value. Single quotes should be escaped by using two single quotes instead of one each time.
+- You can also perform Null checks, using null as a value, for example, `user.department -eq null`.
 
 ### Use of Null values
 
 To specify a null value in a rule, you can use the *null* value. 
 
-* Use -eq or -ne when comparing the *null* value in an expression.
-* Use quotes around the word *null* only if you want it to be interpreted as a literal string value.
-* The -not operator can't be used as a comparative operator for null. If you use it, you get an error whether you use null or $null.
+- Use -eq or -ne when comparing the *null* value in an expression.
+- Use quotes around the word *null* only if you want it to be interpreted as a literal string value.
+- The -not operator can't be used as a comparative operator for null. If you use it, you get an error whether you use null or $null.
 
 The correct way to reference the null value is as follows:
 
@@ -236,9 +236,9 @@ Parentheses are needed only when precedence does not meet your requirements. For
 
 A membership rule can consist of complex expressions where the properties, operators, and values take on more complex forms. Expressions are considered complex when any of the following are true:
 
-* The property consists of a collection of values; specifically, multi-valued properties
-* The expressions use the -any and -all operators
-* The value of the expression can itself be one or more expressions
+- The property consists of a collection of values; specifically, multi-valued properties
+- The expressions use the -any and -all operators
+- The value of the expression can itself be one or more expressions
 
 ## Multi-value properties
 
@@ -253,8 +253,8 @@ Multi-value properties are collections of objects of the same type. They can be 
 
 You can use -any and -all operators to apply a condition to one or all of the items in the collection, respectively.
 
-* -any (satisfied when at least one item in the collection matches the condition)
-* -all (satisfied when all items in the collection match the condition)
+- -any (satisfied when at least one item in the collection matches the condition)
+- -all (satisfied when all items in the collection match the condition)
 
 #### Example 1
 
@@ -352,8 +352,8 @@ Extension attributes and custom extension properties are supported as string pro
 
 [Custom extension properties](../hybrid/how-to-connect-sync-feature-directory-extensions.md) are synced from on-premises Windows Server AD or from a connected SaaS application and are of the format of `user.extension_[GUID]_[Attribute]`, where:
 
-* [GUID] is the unique identifier in Azure AD for the application that created the property in Azure AD
-* [Attribute] is the name of the property as it was created
+- [GUID] is the unique identifier in Azure AD for the application that created the property in Azure AD
+- [Attribute] is the name of the property as it was created
 
 An example of a rule that uses a custom extension property is:
 

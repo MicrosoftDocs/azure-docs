@@ -77,7 +77,7 @@ To create the ingress controller, use the `helm` command to install *nginx-ingre
 The ingress controller also needs to be scheduled on a Linux node. Windows Server nodes shouldn't run the ingress controller. A node selector is specified using the `--set nodeSelector` parameter to tell the Kubernetes scheduler to run the NGINX ingress controller on a Linux-based node.
 
 > [!TIP]
-> The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic*. Specify a namespace for your own environment as needed.
+> The following example creates a Kubernetes namespace for the ingress resources named *ingress-basic* and is intended to work within that namespace. Specify a namespace for your own environment as needed.
 
 > [!TIP]
 > If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, TLS pass-through will not work.
@@ -96,16 +96,16 @@ ACR_URL=<REGISTRY_URL>
 helm install nginx-ingress ingress-nginx/ingress-nginx \
     --namespace ingress-basic \
     --set controller.replicaCount=2 \
-    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.image.registry=$ACR_URL \
     --set controller.image.image=$CONTROLLER_IMAGE \
     --set controller.image.tag=$CONTROLLER_TAG \
     --set controller.image.digest="" \
-    --set controller.admissionWebhooks.patch.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set controller.admissionWebhooks.patch.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
-    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
     --set defaultBackend.image.registry=$ACR_URL \
     --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
     --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG
@@ -132,29 +132,48 @@ Add an *A* record to your DNS zone with the external IP address of the NGINX ser
 az network dns record-set a add-record \
     --resource-group myResourceGroup \
     --zone-name MY_CUSTOM_DOMAIN \
-    --record-set-name * \
+    --record-set-name "*" \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
-> [!NOTE]
-> Optionally, you can configure an FQDN for the ingress controller IP address instead of a custom domain. Note that this sample is for a Bash shell.
-> 
-> ```bash
-> # Public IP address of your ingress controller
-> IP="MY_EXTERNAL_IP"
-> 
-> # Name to associate with public IP address
-> DNSNAME="demo-aks-ingress"
-> 
-> # Get the resource-id of the public ip
-> PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
-> 
-> # Update public ip address with DNS name
-> az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
-> 
-> # Display the FQDN
-> az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --output tsv
-> ```
+### Configure an FQDN for the ingress controller
+Optionally, you can configure an FQDN for the ingress controller IP address instead of a custom domain.  Your FQDN will be of the form `<CUSTOM LABEL>.<AZURE REGION NAME>.cloudapp.azure.com`.
+
+There are two methods for this configuration described below.
+
+#### Method 1: Set the DNS label using the Azure CLI
+Note that this sample is for a Bash shell.
+
+```bash
+# Public IP address of your ingress controller
+IP="MY_EXTERNAL_IP"
+
+# Name to associate with public IP address
+DNSNAME="demo-aks-ingress"
+
+# Get the resource-id of the public ip
+PUBLICIPID=$(az network public-ip list --query "[?ipAddress!=null]|[?contains(ipAddress, '$IP')].[id]" --output tsv)
+
+# Update public ip address with DNS name
+az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
+
+# Display the FQDN
+az network public-ip show --ids $PUBLICIPID --query "[dnsSettings.fqdn]" --output tsv
+ ```
+
+#### Method 2: Set the DNS label using helm chart settings
+You can pass an annotation setting to your helm chard configuration by using the `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"` parameter.  This can be set either when the ingress controller is first deployed, or it can be configured later.
+The following example shows how to update this setting after the controller has been deployed.
+
+```
+DNS_LABEL="demo-aks-ingress"
+NAMESPACE="nginx-basic"
+
+helm upgrade ingress-nginx ingress-nginx/ingress-nginx \
+  --namespace $NAMESPACE \
+  --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"=$DNS_LABEL
+
+```
 
 ## Install cert-manager
 
@@ -177,7 +196,7 @@ helm install cert-manager jetstack/cert-manager \
   --namespace ingress-basic \
   --version $CERT_MANAGER_TAG \
   --set installCRDs=true \
-  --set nodeSelector."beta\.kubernetes\.io/os"=linux \
+  --set nodeSelector."kubernetes\.io/os"=linux \
   --set image.repository=$ACR_URL/$CERT_MANAGER_IMAGE_CONTROLLER \
   --set image.tag=$CERT_MANAGER_TAG \
   --set webhook.image.repository=$ACR_URL/$CERT_MANAGER_IMAGE_WEBHOOK \

@@ -5,6 +5,7 @@ author: rohitnayakmsft
 ms.author: rohitna
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.service: sql-database
+ms.subservice: security
 ms.topic: overview 
 ms.custom: sqldbrb=1, fasttrack-edit
 ms.reviewer: vanto
@@ -125,6 +126,10 @@ Follow the steps here to use [SSMS to connect to the SQL Database](connect-query
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
+
+## Limitations 
+Connections to private endpoint only support **Proxy** as the [connection policy](connectivity-architecture.md#connection-policy)
+
 
 ## On-premises connectivity over private peering
 

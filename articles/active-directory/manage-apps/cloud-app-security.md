@@ -8,9 +8,10 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 02/03/2020
+ms.date: 07/29/2021
 ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: bokacevi, dacurwin
 ---
 
 # Cloud app visibility and control

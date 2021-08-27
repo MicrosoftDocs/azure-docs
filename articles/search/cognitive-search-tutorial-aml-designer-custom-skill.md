@@ -2,9 +2,9 @@
 title: "Example: Create and deploy a custom skill with Azure Machine Learning designer"
 titleSuffix: Azure Cognitive Search
 description: This example demonstrates how to use Azure Machine Learning designer to build and deploy a custom AML skill for Azure Cognitive Search's AI enrichment pipeline.
-manager: luiscab
-author: vkurpad
-ms.author: vikurpad
+
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/16/2021

@@ -14,7 +14,7 @@ ms.date: 02/16/2021
 
 # Create a Translator resource
 
-In this article, you'll learn how to create a Translator resource in the Azure portal. [Azure Translator](translator-info-overview.md) is a cloud-based machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **subscription key** for authenticating access.
+In this article, you'll learn how to create a Translator resource in the Azure portal. [Azure Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **subscription key** for authenticating access.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ The Translator service can be accessed through two different resource types:
 * **Single-service** resource types enable access to a single service API key and endpoint.  
 
 * **Multi-service** resource types enable access to multiple Cognitive Services using a single API key and endpoint. The Cognitive Services resource is currently available for the following services:
-  * Language ([Translator](../translator/translator-info-overview.md), [Language Understanding (LUIS)](../luis/what-is-luis.md), [Text Analytics](../text-analytics/overview.md))  
+  * Language ([Translator](../translator/translator-overview.md), [Language Understanding (LUIS)](../luis/what-is-luis.md), [Text Analytics](../text-analytics/overview.md))  
   * Vision ([Computer Vision](../computer-vision/overview.md)), ([Face](../face/overview.md))  
   * Decision ([Content Moderator](../content-moderator/overview.md))  
 

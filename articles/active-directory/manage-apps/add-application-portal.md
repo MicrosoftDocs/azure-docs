@@ -1,5 +1,6 @@
 ---
-title: 'Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant'
+title: 'Quickstart: Add an application to your tenant'
+titleSuffix: Azure AD
 description: This quickstart uses the Azure portal to add a gallery application to your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: davidmu1
@@ -8,11 +9,12 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 06/23/2021
+ms.date: 07/23/2021
 ms.author: davidmu
+ms.reviewer: ergreenl
 ---
 
-# Quickstart: Add an application to your Azure Active Directory (Azure AD) tenant
+# Quickstart: Add an application to your tenant
 
 Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-integrated applications. Many of the applications your organization uses are probably already in the gallery.
 

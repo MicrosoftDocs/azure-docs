@@ -8,19 +8,16 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/14/2020
+ms.date: 07/30/2021
 ---
 
 # Tutorial: Assign Directory Readers role to an Azure AD group and manage role assignments
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-> [!NOTE]
-> The **Directory Readers** role assignment to a group in this article is in **public preview**. 
-
 This article guides you through creating a group in Azure Active Directory (Azure AD), and assigning that group the [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) role. The Directory Readers permissions allow the group owners to add additional members to the group, such as a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) of [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). This bypasses the need for a [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) to assign the Directory Readers role directly for each Azure SQL logical server identity in the tenant.
 
-This tutorial uses the feature introduced in [Use cloud groups to manage role assignments in Azure Active Directory (preview)](../../active-directory/roles/groups-concept.md). 
+This tutorial uses the feature introduced in [Use Azure AD groups to manage role assignments](../../active-directory/roles/groups-concept.md). 
 
 For more information on the benefits of assigning the Directory Readers role to an Azure AD group for Azure SQL, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
@@ -36,7 +33,7 @@ For more information on the benefits of assigning the Directory Readers role to 
 1. A user with [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) permissions is required for this initial setup.
 1. Have the privileged user sign into the [Azure portal](https://portal.azure.com).
 1. Go to the **Azure Active Directory** resource. Under **Managed**, go to **Groups**. Select **New group** to create a new group.
-1. Select **Security** as the group type, and fill in the rest of the fields. Make sure that the setting **Azure AD roles can be assigned to the group (Preview)** is switched to **Yes**. Then assign the Azure AD **Directory readers** role to the group.
+1. Select **Security** as the group type, and fill in the rest of the fields. Make sure that the setting **Azure AD roles can be assigned to the group** is switched to **Yes**. Then assign the Azure AD **Directory readers** role to the group.
 1. Assign Azure AD users as owner(s) to the group that was created. A group owner can be a regular AD user without any Azure AD administrative role assigned. The owner should be a user that is managing your SQL Database, SQL Managed Instance, or Azure Synapse.
 
    :::image type="content" source="media/authentication-aad-directory-readers-role/new-group.png" alt-text="aad-new-group":::
@@ -50,7 +47,7 @@ For more information on the benefits of assigning the Directory Readers role to 
 
 To check and manage the group that was created, go back to the **Groups** pane in the Azure portal, and search for your group name. Additional owners and members can be added under the **Owners** and **Members** menu of **Manage** setting after selecting your group. You can also review the **Assigned roles** for the group.
 
-:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="Screenshot of a Group pane with the links that open the Settings menus for Members, Owners, and Assigned roles (Preview) highlighted.":::
+:::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-group-created.png" alt-text="Screenshot of a Group pane with the links that open the Settings menus for Members, Owners, and Assigned roles highlighted.":::
 
 ### Add Azure SQL managed identity to the group
 
@@ -91,13 +88,13 @@ Assigning the **Directory Readers** role to the server identity isn't required f
 > [!IMPORTANT]
 > A [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or [Privileged Role Administrator](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) will need to run these initial steps. In addition to PowerShell, Azure AD offers Microsoft Graph API to [Create a role-assignable group in Azure AD](../../active-directory/roles/groups-create-eligible.md#microsoft-graph-api).
 
-1. Download the Azure AD Preview PowerShell module using the following commands. You may need to run PowerShell as an administrator.
+1. Download the Azure AD PowerShell module using the following commands. You may need to run PowerShell as an administrator.
 
     ```powershell
-    Install-Module azureadpreview
-    Import-Module azureadpreview
+    Install-Module azuread
+    Import-Module azuread
     #To verify that the module is ready to use, use the following command:
-    Get-Module azureadpreview
+    Get-Module azuread
     ```
 
 1. Connect to your Azure AD tenant.
