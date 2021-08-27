@@ -79,6 +79,10 @@ Each API Management instance now comes with an immutable, all-APIs subscription.
 
 API Management now allows *standalone* subscriptions. You no longer need to associate subscriptions with a developer account. This feature proves useful in scenarios similar to several developers or teams sharing a subscription.
 
+Creating a subscription without assigning an owner makes it a standalone subscription. To grant developers and the rest of your team access to the standalone subscription key, either:
+* Manually share the subscription key.
+* Use a custom system to make the subscription key available to your team.
+
 #### Creating subscriptions in Azure portal
 
 API publishers can now [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal:
