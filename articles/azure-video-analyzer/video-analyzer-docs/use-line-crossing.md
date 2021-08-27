@@ -247,7 +247,8 @@ In this message, notice these details:
 * The number of `counterclockwiseTotal` crossings.
 * The `direction` contains the direction for this event.
 
-[!NOTE] If you deployed Azure resources using the one-click deployment for this tutorial, a Standard DS1 Virtual Machine is created. However, to get accurate results from memory-intensive AI models like YOLO, you may have to increase the VM size. [Resize the VM](../../virtual-machines/windows/resize-vm.md) to increase number of vcpus and memory based on your requirement. Then, reactivate the live pipeline to view inferences.
+> [!NOTE] 
+> If you deployed Azure resources using the one-click deployment for this tutorial, a Standard DS1 Virtual Machine is created. However, to get accurate results from memory-intensive AI models like YOLO, you may have to increase the VM size. [Resize the VM](../../virtual-machines/windows/resize-vm.md) to increase number of vcpus and memory based on your requirement. Then, reactivate the live pipeline to view inferences.
 
 ## Customize for your own environment
 
