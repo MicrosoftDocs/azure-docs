@@ -65,6 +65,8 @@
           href: ../../app-service/manage-move-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Automation
           href: ../../automation/automation-managing-data.md?toc=/azure/azure-resource-manager/management/toc.json#geo-replication-in-azure-automation
+        - name: Azure Backup (Recovery Services vault)
+          href: ../../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/azure-resource-manager/management/toc.json 
         - name: Azure Batch
           href: ../../batch/account-move.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Azure Cognitive Search
