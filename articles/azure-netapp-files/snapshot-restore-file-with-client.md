@@ -13,13 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/12/2021
+ms.date: 08/27/2021
 ms.author: b-juche
 ---
 
 # Restore a file from a snapshot using a client
 
-If you do not want to [restore the entire snapshot to a volume](snapshot-restore-to-new-volume.md), you have the option to restore a file from a snapshot by using a client that has the volume mounted.  
+[Snapshots](snapshots-introduction.md) enable point-in-time recovery of volumes. If you do not want to [restore the entire snapshot to a volume](snapshot-restore-to-new-volume.md), you have the option to restore a file from a snapshot by using a client that has the volume mounted.  
 
 The mounted volume contains a snapshot directory named  `.snapshot` (in NFS clients) or `~snapshot` (in SMB clients) that is accessible to the client. The snapshot directory contains subdirectories corresponding to the snapshots of the volume. Each subdirectory contains the files of the snapshot. If you accidentally delete or overwrite a file, you can restore the file to the parent read-write directory by copying the file from a snapshot subdirectory to the read-write directory. 
 
