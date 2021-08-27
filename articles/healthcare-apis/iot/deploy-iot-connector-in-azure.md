@@ -33,8 +33,6 @@ It's important that you have the following prerequisites completed before you be
  
    [ ![Screenshot of entering the workspace resource name in the search bar field.](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
 
-   For information more about managing resource groups in the Azure portal, see [Manage resource groups](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal).
-
 2. Select the **IoT Connectors** blade.
 
    [ ![Screenshot of IoT Connectors blade.](media/iot-connector-blade.png) ](media/iot-connector-blade.png#lightbox)
@@ -99,7 +97,7 @@ Under the **Destination** tab, enter the destination properties associated with 
 
 1. Enter the Azure Resource ID of the **FHIR Server**.
 
-   The **FHIR Server** name (also known as the **FHIR service**)  is located by selecting the **Properties** blade. Copy and paste the **Resource ID** string to the **FHIR Server** text field.
+   The **FHIR Server** name (also known as the **FHIR service**) is located by using the **Search** bar to go to the FHIR service that you've deployed and by selecting the Properties blade. Copy and paste the **Resource ID** string to the **FHIR Server** text field.
 
     [ ![Enter FHIR server name.](media/fhir-service-resource-id.png) ](media/fhir-service-resource-id.png#lightbox) 
 
@@ -198,27 +196,25 @@ For more information about authoring access to Event Hubs resources, see [Author
 
 ### Accessing the IoT Connector from the FHIR service
 
-1. In the **Azure Resource group list**, select the name of your **Healthcare APIs Workspace**.
-
-2. Select the **FHIR services** blade, and then select the name of your FHIR service.
+1. In the **Azure Resource group list**, select the name of your  **FHIR service**.
  
-3. Select the **Access control (IAM)** blade, and then select and then select **+ Add**. 
+2. Select the **Access control (IAM)** blade, and then select **+ Add**. 
 
-4. Select **Add role assignment**.
+3. Select **Add role assignment**.
 
    [ ![Screenshot of add role assignment for the FHIR service.](media/fhir-service-add-role-assignment.png) ](media/fhir-service-add-role-assignment.png#lightbox)
 
-5. Select the **Role**, and then select **FHIR Data Writer**.
+4. Select the **Role**, and then select **FHIR Data Writer**.
 
    The FHIR Data Writer role provides read and write access that the IoT Connector uses to function. Because the IoT Connector is deployed as a separate resource, the FHIR service will receive requests from the IoT Connector. If the FHIR service doesn’t know who's making the request, or if it doesn't have the assigned role, it will deny the request as unauthorized.
 
    For more information about application roles, see [Authentication & Authorization for the Healthcare APIs (preview)](.././authentication-authorization.md).
 
-6. In the **Select**, enter the security principal for your IoT Connector.  
+5. In the **Select** field, enter the security principal for your IoT Connector.  
 
     `<your workspace name>/iotconnectors/<your IoT connector name>`
 
-7. Select **Save**.
+6. Select **Save**.
 
    [ ![Screenshot of FHIR service added role assignment message.](media/fhir-service-added-role-asignment.png) ](media/fhir-service-added-role-asignment.png#lightbox)
 
