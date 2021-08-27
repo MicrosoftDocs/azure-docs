@@ -86,6 +86,8 @@ To configure version-level immutability policies for an existing container, you 
 
 An existing container must be migrated regardless of whether it has a container-level time-based retention policy configured. If the container has an existing container-level legal hold, then it cannot be migrated until the legal hold is removed.
 
+#### [Portal](#tab/azure-portal)
+
 To migrate a container to support version-level immutable storage in the Azure portal, follow these steps:
 
 1. Navigate to the desired container.
@@ -96,6 +98,32 @@ To migrate a container to support version-level immutable storage in the Azure p
 1. Select **OK** to begin the migration.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/migrate-existing-container.png" alt-text="Screenshot showing how to migrate an existing container to support version-level immutability":::
+
+#### [PowerShell](#tab/azure-powershell)
+
+To migrate a container to support version-level immutable storage with PowerShell, call the **Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration** command. Include the `-AsJob` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
+
+```powershell
+Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account> `
+    -Name <container> `
+    -AsJob
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To migrate a container to support version-level immutable storage with Azure CLI, call the [az storage container-rm migrate-vlw](/cli/azure/storage/container-rm#az_storage_container_rm_migrate_vlw) command. Include the `--no-wait` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
+
+```azurecli
+az storage container-rm migrate-vlw \
+    --name <container> \
+    --storage-account <storage-account> \
+    --resource-group <resource-group> \
+    --no-wait
+```
+
+---
+
 
 ## Configure a time-based retention policy on a container
 
