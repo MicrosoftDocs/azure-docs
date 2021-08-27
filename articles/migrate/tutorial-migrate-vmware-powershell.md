@@ -348,6 +348,19 @@ NIC(s) name | Optional | Use [New-AzMigrateNicMapping](/powershell/module/az.mig
 
 The [Get-AzMigrateServerReplication](/powershell/module/az.migrate/get-azmigrateserverreplication) cmdlet returns a job which can be tracked for monitoring the status of the operation.
 
+```azurepowershell-interactive
+# List replicating VMs and filter the result for selecting a replicating VM. This cmdlet will not return all properties of the replicating VM.
+$ReplicatingServer = Get-AzMigrateServerReplication -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName -MachineName MyTestVM
+```
+
+```azurepowershell-interactive
+# Retrieve all properties of a replicating VM 
+$ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $ReplicatingServer.Id
+
+# View NIC details of the replicating server
+Write-Output $ReplicatingServer.ProviderSpecificDetail.VMNic
+```
+
 In the following example, we'll update the NIC configuration by making the first NIC as primary and assigning a static IP to it. we'll discard the second NIC for migration, update the target VM name & size, and customizing NIC names.
 
 ```azurepowershell-interactive
@@ -367,39 +380,27 @@ $UpdateJob = Set-AzMigrateServerReplication -InputObject $ReplicatingServer -Tar
 In the following example, we'll customize the disk name.
 
 ```azurepowershell-interactive
-# Specify the OS Disk name
- $OSDisk = Set-AzMigrateDiskMapping -DiskID "6000C294-1217-dec3-bc18-81f117220424" -DiskName "ContosoDisk_1" 
+# Customize the Disk names for a replicating VM
+$OSDisk = Set-AzMigrateDiskMapping -DiskID "6000C294-1217-dec3-bc18-81f117220424" -DiskName "ContosoDisk_1" 
 $DataDisk1= Set-AzMigrateDiskMapping -DiskID "6000C292-79b9-bbdc-fb8a-f1fa8dbeff84" -DiskName "ContosoDisk_2" 
- $DiskMapping = $OSDisk, $DataDisk1 
+$DiskMapping = $OSDisk, $DataDisk1 
 ```
 
 ```azurepowershell-interactive
-# Customize OS disk name
-set-AzMigrateServerReplication InputObject $ReplicatingServer DiskToUpdate $DiskMapping 
+# Update the disk names for a replicating server
+$UpdateJob = Set-AzMigrateServerReplication InputObject $ReplicatingServer DiskToUpdate $DiskMapping 
  ```
 
 In the following example, we'll add tags to the replicating VMs.
 
 ```azurepowershell-interactive
 # Update all tags across virtual machines, disks, and NICs.
-set-azmigrateserverreplication UpdateTag $UpdateTag UpdateTagOperation Merge/Replace/Delete
+Set-azmigrateserverreplication UpdateTag $UpdateTag UpdateTagOperation Merge/Replace/Delete
 
 # Update virtual machines tags
-set-azmigrateserverreplication UpdateVMTag $UpdateVMtag UpdateVMTagOperation Merge/Replace/Delete 
+Set-azmigrateserverreplication UpdateVMTag $UpdateVMTag UpdateVMTagOperation Merge/Replace/Delete 
 ```
-
-```azurepowershell-interactive
-# List replicating VMs and filter the result for selecting a replicating VM. This cmdlet will not return all properties of the replicating VM.
-$ReplicatingServer = Get-AzMigrateServerReplication -ProjectName $MigrateProject.Name -ResourceGroupName $ResourceGroup.ResourceGroupName -MachineName MyTestVM
-```
-
-```azurepowershell-interactive
-# Retrieve all properties of a replicating VM 
-$ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $ReplicatingServer.Id
-
-# View NIC details of the replicating server
-Write-Output $ReplicatingServer.ProviderSpecificDetail.VMNic
-```
+Use the following example to track the job status
 
 ```azurepowershell-interactive
 # Track job status to check for completion
