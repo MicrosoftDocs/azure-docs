@@ -175,23 +175,23 @@ The app registrations and the application architecture are described in the foll
 
 [!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-app-integration-call-api.md)]
 
-### Step 7: Register the web API app
+### Step 6.1: Register the web API app
 
 [!INCLUDE [active-directory-b2c-app-integration-register-api](../../includes/active-directory-b2c-app-integration-register-api.md)]
 
-### Step 7.1: Configure scopes
+### Step 6.2: Configure scopes
 
 [!INCLUDE [active-directory-b2c-app-integration-api-scopes](../../includes/active-directory-b2c-app-integration-api-scopes.md)]
 
-### Step 7.2: Grant the web app permissions
+### Step 6.3: Grant the web app permissions
 
 [!INCLUDE [active-directory-b2c-app-integration-grant-permissions](../../includes/active-directory-b2c-app-integration-grant-permissions.md)]
 
-### Step 7.3: Configure your web API
+### Step 6.4: Configure your web API
 
 This sample acquires an access token with the relevant scopes, which the web app can use for a web API. To call a web API from the code, use an existing web API or create a new one. For more information, see [Enable authentication in your own web API by using Azure AD B2C](enable-authentication-web-api.md).
 
-### Step 7.4: Configure the sample app with the web API
+### Step 6.5: Configure the sample app with the web API
 
 Open the *app_config.py* file. This file contains information about your Azure AD B2C identity provider. Update the following properties of the app settings: 
 
@@ -225,7 +225,7 @@ ENDPOINT = 'https://localhost:44332'
 SCOPE = ["https://contoso.onmicrosoft.com/api/demo.read", "https://contoso.onmicrosoft.com/api/demo.write"] 
 ```
 
-### Step 7.5: Run the sample app
+### Step 6.6: Run the sample app
 
 1. In your console or terminal, switch to the directory that contains the sample. 
 1. Stop the app. and then rerun it.
@@ -233,7 +233,7 @@ SCOPE = ["https://contoso.onmicrosoft.com/api/demo.read", "https://contoso.onmic
 
     ![Screenshot showing how to call a web API.](./media/configure-authentication-sample-python-web-app/call-web-api.png)
 
-## Step 8: Deploy your application 
+## Step 7: Deploy your application 
 
 In a production application, the app registration redirect URI is ordinarily a publicly accessible endpoint where your app is running, such as `https://contoso.com/getAToken`. 
 
