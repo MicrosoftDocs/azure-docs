@@ -318,7 +318,7 @@ You can create and manage action groups for the new smart detection alert rules 
 
 ### Managing alert rule settings using Azure Resource Manager templates
 
-After completing the migration, you can use Azure Resource Management templates to configure settings for smart detection alert rule settings.
+After completing the migration, you can use Azure Resource Manager templates to configure settings for smart detection alert rule settings.
 
 > [!NOTE]
 > After completion of migration, smart detection settings must be configured using smart detection alert rule templates, and can no longer be configured using the [Application Insights Resource Manager template](../app/proactive-arm-config.md#smart-detection-rule-configuration).

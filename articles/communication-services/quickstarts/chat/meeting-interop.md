@@ -4,19 +4,16 @@ titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to join a Teams meeting with the Azure Communication Chat SDK
 author: askaur
 ms.author: askaur
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-web-ios
+zone_pivot_groups: acs-web-ios-android
 
 ---
 
 # Quickstart: Join your chat app to a Teams meeting
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
-> [!IMPORTANT]
-> To enable/disable [Teams tenant interoperability](../../concepts/teams-interop.md), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
 Get started with Azure Communication Services by connecting your chat solution to Microsoft Teams. 
 
@@ -26,6 +23,10 @@ Get started with Azure Communication Services by connecting your chat solution t
 
 ::: zone pivot="platform-ios"
 [!INCLUDE [Teams interop with iOS SDK](./includes/meeting-interop-swift.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Teams interop with Android SDK](./includes/meeting-interop-android.md)]
 ::: zone-end
 
 ## Clean up resources

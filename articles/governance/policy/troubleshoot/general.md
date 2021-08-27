@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 04/19/2021
+ms.date: 06/29/2021
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors with using Azure Policy
@@ -185,6 +185,22 @@ resource types.
 If an alias is used, make sure that the alias gets evaluated against only the resource type it
 belongs to by adding a type condition before it. An alternative is to split the policy definition
 into multiple definitions to avoid targeting multiple resource types.
+
+### Scenario: Subscription limit exceeded
+
+#### Issue
+
+An error message on the compliance page in Azure portal is shown when retrieving compliance for
+policy assignments.
+
+#### Cause
+
+The number of subscriptions under the selected scopes in the request has exceeded the limit of 5000
+subscriptions. The compliance results may be partially displayed.
+
+#### Resolution
+
+Select a more granular scope with fewer child subscriptions to see the complete results.
 
 ## Template errors
 

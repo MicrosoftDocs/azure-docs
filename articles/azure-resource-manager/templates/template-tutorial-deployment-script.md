@@ -9,7 +9,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/16/2020
+ms.date: 07/02/2021
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -218,8 +218,6 @@ The deployment script adds a certificate to the key vault. Configure the key vau
             # private key is added as a secret that can be retrieved in the Resource Manager template
             Add-AzKeyVaultCertificate -VaultName $vaultName -Name $certificateName -CertificatePolicy $policy -Verbose
 
-            $newCert = Get-AzKeyVaultCertificate -VaultName $vaultName -Name $certificateName
-
             # it takes a few seconds for KeyVault to finish
             $tries = 0
             do {
@@ -239,6 +237,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
               }
             } while ($operation.Status -ne 'completed')
 
+            $newCert = Get-AzKeyVaultCertificate -VaultName $vaultName -Name $certificateName
             $DeploymentScriptOutputs['certThumbprint'] = $newCert.Thumbprint
             $newCert | Out-String
           }

@@ -15,7 +15,7 @@ This article shows you how to perform tasks related to configuring your function
 When you create a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. You can replace this storage account with one that is secured with service endpoints or private endpoints. When configuring your storage account with private endpoints, public access to your function app will be automatically disabled, and your function app will only be accessible through the virtual network. 
 
 > [!NOTE]  
-> This feature currently works for all Windows virtual network-supported SKUs in the Dedicated (App Service) plan and for Windows Elastic Premium plans. Consumption and Linux Elastic Premium plans aren't supported. 
+> This feature currently works for all Windows virtual network-supported SKUs in the Dedicated (App Service) plan and for Windows Elastic Premium plans. It is also supported with private DNS for Linux virtual network-supported SKUs. Consumption and custom DNS for Linux plans aren't supported. 
 
 To set up a function with a storage account restricted to a private network:
 

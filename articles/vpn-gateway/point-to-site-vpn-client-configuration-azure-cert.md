@@ -6,7 +6,7 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 07/15/2021
 ms.author: cherylmc
 ---
 
@@ -34,9 +34,9 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 1. In the Azure portal, navigate to the virtual network gateway for the virtual network that you want to connect to.
 1. On the virtual network gateway page, select **Point-to-site configuration** to open the Point-to-site configuration page.
-1. At the top of the Point-to-site configuration page, select **Download VPN client**. This doesn't download VPN client software, it generates the configuration package used to configure VPN clients. It takes a few minutes for the client configuration package to generate.
+1. At the top of the Point-to-site configuration page, select **Download VPN client**. This doesn't download VPN client software, it generates the configuration package used to configure VPN clients. It takes a few minutes for the client configuration package to generate. During this time, you may not see any indications until the packet has generated.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/download-client.png" alt-text="Download the VPN client configuration.":::
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/download-client.png" alt-text="Download the VPN client configuration." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/download-client.png":::
 1. Once the configuration package has been generated, your browser indicates that a client configuration zip file is available. It's named the same name as your gateway. Unzip the file to view the folders.
 
 ### <a name="zipps"></a>Generate files using PowerShell
@@ -57,49 +57,94 @@ You can generate client configuration files using PowerShell, or by using the Az
 
 ## <a name="installmac"></a>Mac (macOS)
 
- You have to manually configure the native IKEv2 VPN client on every Mac that will connect to Azure. Azure does not provide mobileconfig file for native Azure certificate authentication. The **Generic** folder contains all of the information that you need for configuration. If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Note that the VPN gateway Basic SKU does not support IKEv2. Once IKEv2 is selected, generate the zip file again to retrieve the Generic folder.<br>The Generic folder contains the following files:
+In order to connect to Azure, you must manually configure the native IKEv2 VPN client. Azure does not provide a *mobileconfig* file. You can find all of the information that you need for configuration in the **Generic** folder. 
+
+If you don't see the Generic folder in your download, it's likely that IKEv2 was not selected as a tunnel type. Note that the VPN gateway Basic SKU does not support IKEv2. On the VPN gateway, verify that the SKU is not Basic. Then, select IKEv2 and generate the zip file again to retrieve the Generic folder.
+
+The Generic folder contains the following files:
 
 * **VpnSettings.xml**, which contains important settings like server address and tunnel type. 
 * **VpnServerRoot.cer**, which contains the root certificate required to validate the Azure VPN Gateway during P2S connection setup.
 
-Use the following steps to configure the native VPN client on Mac for certificate authentication. You have to complete these steps on every Mac that will connect to Azure:
+Use the following steps to configure the native VPN client on Mac for certificate authentication. These steps must be completed on every Mac that you want to connect to Azure.
 
-1. Import the **VpnServerRoot** root certificate to your Mac. This can be done by copying the file over to your Mac and double-clicking on it. Select **Add** to import.
+### Import root certificate file
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/add-certificate.png" alt-text="Screenshot shows Certificates page":::
+1. Copy to the root certificate file to your Mac. Double-click the certificate. The certificate will either automatically install, or you will see the **Add Certificates** page.
+1. On the **Add Certificates** page, select **login** from the dropdown.
+
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/login.png" alt-text="Screenshot shows Add Certificates page with login selected.":::
+1. Click **Add** to import the file.
+
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/add.png" alt-text="Screenshot shows Add Certificates page with Add selected.":::
+
+### Verify certificate install
+
+Verify that both the client and the root certificate are installed. The client certificate is used for authentication and is required. For information about how to install a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
+
+1. Open the **Keychain Access** application.
+1. Navigate to the **Certificates** tab.
+1. Verify that both the client and the root certificate are installed.
+
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/keychain.png" alt-text="Screenshot shows Keychain Access with certificates installed." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/keychain.png":::
   
-    >[!NOTE]
-    >Double-clicking on the certificate may not display the **Add** dialog, but the certificate is installed in the correct store. You can check for the certificate in the login keychain under the certificates category.
-    >
-  
-1. Verify that you have installed a client certificate that was issued by the root certificate that you uploaded to Azure when you configured you P2S settings. This is different from the VPNServerRoot that you installed in the previous step. The client certificate is used for authentication and is required. For more information about generating certificates, see [Generate Certificates](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). For information about how to install a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
-1. Open the **Network** dialog under **Network Preferences** and select **'+'** to create a new VPN client connection profile for a P2S connection to the Azure virtual network.
+### Create VPN client profile
 
-   The **Interface** value is 'VPN' and **VPN Type** value is 'IKEv2'. Specify a name for the profile in the **Service Name** field, then select **Create** to create the VPN client connection profile.
+1. Navigate to **System Preferences -> Network**. On the Network page, select **'+'** to create a new VPN client connection profile for a P2S connection to the Azure virtual network.
+1. For **Interface**, from the dropdown, select **VPN**.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/network.png" alt-text="Screenshot shows the Network window with the option to select an interface, select VPN type, and enter a service name":::
-1. In the **Generic** folder, from the **VpnSettings.xml** file, copy the **VpnServer** tag value. Paste this value in the **Server Address** and **Remote ID** fields of the profile.
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/select-vpn.png" alt-text="Screenshot shows the Network window with the option to select an interface, VPN is selected." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/select-vpn.png":::
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/server.png" alt-text="Screenshot shows server information.":::
-1. Select **Authentication Settings** and select **Certificate**. For **Catalina**, select **None**, and then **certificate**.
+1. For **VPN Type**, from the dropdown, select **IKEv2**. In the **Service Name** field,specify a friendly name for the profile.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/authentication-settings.png" alt-text="Screenshot shows authentication settings.":::
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/vpn-type.png" alt-text="Screenshot shows the Network window with the option to select an interface, select VPN type, and enter a service name." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/vpn-type.png":::
 
-   For Catalina, select **None** and then **Certificate**. **Select** the correct certificate:
+1. Select **Create** to create the VPN client connection profile.
+1. In the **Generic** folder, open the **VpnSettings.xml** file using a text editor, and copy the **VpnServer** tag value.
+
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/server-tag.png" alt-text="Screenshot shows the VpnSettings.xml file open with the VpnServer tag highlighted." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/server-tag.png":::
+
+1. Paste the **VpnServer** tag value in both the **Server Address** and **Remote ID** fields of the profile.
+
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/paste-value.png" alt-text="Screenshot shows the Network window with the value pasted." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/paste-value.png":::
+
+1. Configure authentication settings. There are two sets of instructions. Choose the instructions that correspond to your OS version.
+
+   **Catalina:** 
+
+     * For **Authentication Settings** select **None**. 
+     * Select **Certificate**, click **Select** and select the correct client certificate that you installed earlier. Then, click **OK**.
    
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png" alt-text="Screenshot shows the Network window with None selected for Authentication Settings and Certificate selected.":::
+        :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png" alt-text="Screenshot shows the Network window with None selected for Authentication Settings and Certificate selected.":::
 
-1. Click **Select…** to choose the client certificate that you want to use for authentication. This is the certificate that you installed in Step 2.
+   **Big Sur:**
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png" alt-text="Screenshot shows the Network window with Authentication Settings, where you can select a certificate.":::
-1. **Choose An Identity** displays a list of certificates for you to choose from. Select the proper certificate, then select **Continue**.
+      * Click **Authentication Settings**, then select **Certificate**. 
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/identity.png" alt-text="Screenshot shows the Choose An Identity dialog box where you can select the proper certificate.":::
+        :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/authentication-certificate.png" alt-text="Screenshot shows authentication settings with certificate selected." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/authentication-certificate.png":::
 
-1. In the **Local ID** field, specify the name of the certificate (from Step 6). In this example, it is `ikev2Client.com`. Then, select **Apply** to save the changes.
+      * Click **Select** to open the **Choose An Identity** page. The **Choose An Identity** page displays a list of certificates for you to choose from. If you are unsure which certificate to use, you can click **Show Certificate** to see more information about each certificate.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/apply-connect.png" alt-text="Screenshot shows Apply.":::
-1. On the **Network** dialog, select **Apply** to save all changes. Then, select **Connect** to start the P2S connection to the Azure virtual network.
+        :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/show-certificate.png" alt-text="Screenshot shows certificate properties.." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/show-certificate.png":::
+      * Select the proper certificate, then select **Continue**.
+
+        :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/choose-identity.png" alt-text="Screenshot shows Choose an Identity, where you can select a certificate." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/choose-identity.png":::
+   
+      * On the **Authentication Settings** page, verify that the correct certificate is shown, then click **OK**.
+
+        :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png" alt-text="Screenshot shows the Choose An Identity dialog box where you can select the proper certificate." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/certificate.png":::
+
+1. For both Catalina and Big Sur, in the **Local ID** field, specify the name of the certificate. In this example, it is `P2SChildCert`.
+
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/local-id.png" alt-text="Screenshot shows local ID value." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/local-id.png":::
+1. Select **Apply** to save all changes. 
+1. Select **Connect** to start the P2S connection to the Azure virtual network.
+
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/select-connect.png" alt-text="Screenshot shows connect button." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/select-connect.png":::
+
+1. Once the connection has been established, the status shows as **Connected** and you can view the IP address that was pulled from the VPN client address pool.
+
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/connected.png" alt-text="Screenshot shows Connected." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/connected.png":::
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)
 
@@ -124,26 +169,26 @@ The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 does no
    ```
 1. Select **Settings**, then select **Network**. Select the **+** button to create a new connection.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/edit-connections.png" alt-text="Screenshot shows the network connections page.":::
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/edit-connections.png" alt-text="Screenshot shows the network connections page." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/edit-connections.png":::
 
 1. Select **IPsec/IKEv2 (strongSwan)** from the  menu, and double-click.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/add-connection.png" alt-text="Screenshot shows the Add VPN page.":::
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/add-connection.png" alt-text="Screenshot shows the Add VPN page." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/add-connection.png":::
 
 1. On the **Add VPN** page, add a name for your VPN connection.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/choose-type.png" alt-text="Screenshot shows Choose a connection type.":::
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/choose-type.png" alt-text="Screenshot shows Choose a connection type." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/choose-type.png":::
 1. Open the **VpnSettings.xml** file from the **Generic** folder contained in the downloaded client configuration files. Find the tag called **VpnServer** and copy the name, beginning with 'azuregateway' and ending with '.cloudapp.net'.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/vpn-server.png" alt-text="Screenshot shows copy data.":::
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/vpn-server.png" alt-text="Screenshot shows copy data." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/vpn-server.png":::
 1. Paste the name in the **Address** field of your new VPN connection in the **Gateway** section. Next, select the folder icon at the end of the **Certificate** field, browse to the **Generic** folder, and select the **VpnServerRoot** file.
 1. In the **Client** section of the connection, for **Authentication**, select **Certificate/private key**. For **Certificate** and **Private key**, choose the certificate and the private key that were created earlier. In **Options**, select **Request an inner IP address**. Then, select **Add**.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/ip-request.png" alt-text="Screenshot shows Request an inner IP address.":::
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/ip-request.png" alt-text="Screenshot shows Request an inner IP address." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/ip-request.png":::
 
 1. Turn the connection **On**.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/turn-on.png" alt-text="Screenshot shows copy.":::
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/turn-on.png" alt-text="Screenshot shows copy." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/turn-on.png":::
 
 ## <a name="linuxinstallcli"></a>Linux (strongSwan CLI)
 

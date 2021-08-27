@@ -5,7 +5,7 @@ description: Use loops and arrays in a Bicep file to deploy multiple instances o
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/19/2021
 ---
 
 # Resource iteration in Bicep
@@ -90,6 +90,24 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for name 
 
 If you want to return values from the deployed resources, you can use a loop in the [output section](loop-outputs.md).
 
+## Resource iteration with condition
+
+The following example shows a nested loop combined with a filtered resource loop. Filters must be expressions that evaluate to a boolean value.
+
+```bicep
+resource parentResources 'Microsoft.Example/examples@2020-06-06' = [for parent in parents: if(parent.enabled) {
+  name: parent.name
+  properties: {
+    children: [for child in parent.children: {
+      name: child.name
+      setting: child.settingValue
+    }]
+  }
+}]
+```
+
+Filters are also supported with module loops.
+
 ## Deploy in batches
 
 By default, Resource Manager creates resources in parallel. When you use a loop to create multiple instances of a resource type, those instances are all deployed at the same time. The order in which they're created isn't guaranteed. There's no limit to the number of resources deployed in parallel, other than the total limit of 800 resources in the Bicep file.
@@ -166,9 +184,9 @@ The following examples show common scenarios for creating more than one instance
 
 |Template  |Description  |
 |---------|---------|
-|[Loop storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopstorage.bicep) |Deploys more than one storage account with an index number in the name. |
-|[Serial loop storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopserialstorage.bicep) |Deploys several storage accounts one at time. The name includes the index number. |
-|[Loop storage with array](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopstoragewitharray.bicep) |Deploys several storage accounts. The name includes a value from an array. |
+|[Loop storage](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopstorage.bicep) |Deploys more than one storage account with an index number in the name. |
+|[Serial loop storage](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopserialstorage.bicep) |Deploys several storage accounts one at time. The name includes the index number. |
+|[Loop storage with array](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopstoragewitharray.bicep) |Deploys several storage accounts. The name includes a value from an array. |
 
 ## Next steps
 

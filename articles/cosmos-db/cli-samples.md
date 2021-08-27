@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 10/13/2020
+ms.date: 08/26/2021
 ms.author: mjbrown 
 ms.custom: devx-track-azurecli
 ---
@@ -17,7 +17,7 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 
 These samples require Azure CLI version 2.12.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli)
 
-For Azure CLI samples for other APIs see [CLI Samples for Cassandra](cli-samples-cassandra.md), [CLI Samples for MongoDB API](cli-samples-mongodb.md), [CLI Samples for Gremlin](cli-samples-gremlin.md), [CLI Samples for Table](cli-samples-table.md)
+For Azure CLI samples for other APIs see [CLI Samples for Cassandra](cassandra/cli-samples.md), [CLI Samples for MongoDB API](mongodb/cli-samples.md), [CLI Samples for Gremlin](cli-samples-gremlin.md), [CLI Samples for Table](table/cli-samples.md)
 
 ## Common Samples
 
@@ -41,3 +41,9 @@ These samples apply to all Azure Cosmos DB APIs
 | [Throughput operations](scripts/cli/sql/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Read, update and migrate between autoscale and standard throughput on a database and container.|
 | [Lock resources from deletion](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with  resource locks.|
 |||
+
+## Next steps
+
+Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

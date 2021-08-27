@@ -4,13 +4,13 @@ metadata:
   titleSuffix: Azure Cognitive Services
   description: Install and run speech containers. speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Text-to-speech converts input text into human-like synthesized speech.
   services: cognitive-services
-  author: trevorbye
+  author: laujan
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: speech-service
   ms.topic: conceptual
   ms.date: 03/11/2021
-  ms.author: trbye
+  ms.author: lajanuar
   ms.custom: devx-track-csharp
     
 title: Speech service containers frequently asked questions (FAQ)
@@ -170,7 +170,7 @@ sections:
           The Python Speech SDK package is available for these operating systems:
           - **Windows** - x64 and x86
           - **Mac** - macOS X version 10.12 or later
-          - **Linux** - Ubuntu 16.04, Ubuntu 18.04, Debian 9 on x64
+          - **Linux** - Ubuntu 16.04 (until September), Ubuntu 18.04, Debian 9 on x64
           
           For more information on environment setup, see [Python platform setup](quickstarts/setup-platform.md?pivots=programming-language-python). For now, Ubuntu 18.04 is the recommended version.
           

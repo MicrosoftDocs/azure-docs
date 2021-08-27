@@ -906,7 +906,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | controllers | Yes | Yes | No |
-> | AKS cluster | **pending** | **pending** | No<br/><br/> [Learn more](../../dev-spaces/index.yml) about moving to another region.
+> | AKS cluster | **pending** | **pending** | No<br/><br/> [Learn more](/previous-versions/azure/dev-spaces/) about moving to another region.
 
 ## Microsoft.DevTestLab
 

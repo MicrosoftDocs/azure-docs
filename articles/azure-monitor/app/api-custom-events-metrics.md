@@ -1086,7 +1086,6 @@ If you set any of these values yourself, consider removing the relevant line fro
   * **ID**: A generated value that correlates different events, so that when you inspect any event in Diagnostic Search, you can find related items.
   * **Name**: An identifier, usually the URL of the HTTP request.
   * **SyntheticSource**: If not null or empty, a string that indicates that the source of the request has been identified as a robot or web test. By default, it is excluded from calculations in Metrics Explorer.
-* **Properties**: Properties that are sent with all telemetry data. It can be overridden in individual Track* calls.
 * **Session**: The user's session. The ID is set to a generated value, which is changed when the user has not been active for a while.
 * **User**: User information.
 

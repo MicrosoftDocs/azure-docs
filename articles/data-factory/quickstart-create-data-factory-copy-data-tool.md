@@ -4,8 +4,9 @@ description: Create an Azure Data Factory and then use the Copy Data tool to cop
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 07/05/2021
 ---
 
 # Quickstart: Use the Copy Data tool to copy data
@@ -50,15 +51,15 @@ In this quickstart, you use the Azure portal to create a data factory. Then, you
 
 1. Select **Create**.
 
-1. After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
+1. After the creation is complete, you see the **Data Factory** page. Select **Open** on the **Open Azure Data Factory Studio** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
    
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
     
 ## Start the Copy Data tool
 
-1. On the **Let's get started** page, select the **Copy Data** tile to start the Copy Data tool.
+1. On the home page of Azure Data Factory, select the **Ingest** tile to start the Copy Data tool.
 
-   !["Copy Data" tile](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
 
 1. On the **Properties** page of the Copy Data tool, choose **Built-in copy task** under **Task type**, then select **Next**.
 

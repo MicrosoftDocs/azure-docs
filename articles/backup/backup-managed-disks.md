@@ -116,7 +116,7 @@ The following prerequisites are required to configure backup of managed disks:
 
    - You can’t change the Snapshot Resource Group that is assigned to a backup instance when you configure the backup of a disk.
 
-   - During a backup operation, Azure Backup service creates a Storage Account in the Snapshot Resource Group, where the snapshots are stored. Only one Storage Account is created per a snapshot Resource Group. The account is reused across multiple Disk backup instances that use the same Resource Group as the Snapshot resource group.
+   - During a backup operation, Azure Backup creates a Storage Account in the Snapshot Resource Group. Only one Storage Account is created per a snapshot Resource Group. The account is reused across multiple Disk backup instances that use the same Resource Group as the Snapshot resource group.
      
      - Snapshots are not stored in Storage Account. Managed-disk’s incremental snapshots are ARM resources that are created on Resource group and not in a Storage Account. 
      
@@ -177,7 +177,7 @@ To assign the role, follow these steps:
    ![Select disks to back up](./media/backup-managed-disks/select-disks-to-backup.png)
 
    >[!NOTE]
-   >While the portal allows you to select multiple disks and configure backup, each disk is an individual backup instance. Currently Azure Disk Backup only supports backup of individual disks. Point-in-time backup of multiple disks attached to a virtual disk isn't supported.
+   >While the portal allows you to select multiple disks and configure backup, each disk is an individual backup instance. Currently Azure Disk Backup only supports backup of individual disks. Point-in-time backup of multiple disks attached to a virtual machine isn't supported.
    >
    >When using the portal, you're limited to selecting disks within the same subscription. If you have several disks to be backed up or if the disks are spread across different subscription, you can use scripts to automate.
    >

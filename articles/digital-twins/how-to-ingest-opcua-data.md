@@ -63,7 +63,7 @@ For more detailed information on installing each of these pieces, see the follow
 * [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
 * [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge.md) 
 * [OPC Publisher on GitHub](https://github.com/Azure/iot-edge-opc-publisher)
-* [Configure OPC Publisher](../iot-accelerators/howto-opc-publisher-configure.md)
+* [Configure OPC Publisher](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 
 ### Set up OPC UA Server
 
@@ -263,7 +263,7 @@ az iot hub monitor-events -n <iot-hub-instance> -t 0
 ```
 
 > [!TIP]
-> Try using [Azure IoT Explorer](../iot-pnp/howto-use-iot-explorer.md) to monitor IoT Hub messages.
+> Try using [Azure IoT Explorer](../iot-fundamentals/howto-use-iot-explorer.md) to monitor IoT Hub messages.
 
 #### Verify completion
 
@@ -288,7 +288,7 @@ For this example, you'll use a single model and a single twin instance to match 
 
 ### Create Azure Digital Twins instance
 
-First, deploy a new Azure Digital Twins instance, using the guidance in [How-to: Set up an instance and authentication](how-to-set-up-instance-portal.md).
+First, deploy a new Azure Digital Twins instance, using the guidance in [Set up an instance and authentication](how-to-set-up-instance-portal.md).
 
 ### Upload model and create twin
 
@@ -358,23 +358,18 @@ Next, create a [shared access signature for the container](../storage/common/sto
 
 In this section, you'll publish an Azure function that you downloaded in [Prerequisites](#prerequisites) that will process the OPC UA data and update Azure Digital Twins.
 
-#### Step 1: Open the function in Visual Studio
+1. Navigate to the downloaded [OPC UA to Azure Digital Twins](https://github.com/Azure-Samples/opcua-to-azure-digital-twins) project on your local machine, and into the *Azure Functions/OPCUAFunctions* folder. Open the **OPCUAFunctions.sln** solution in Visual Studio.
+2. Publish the project to a function app in Azure. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
-Navigate to the downloaded [OPC UA to Azure Digital Twins](https://github.com/Azure-Samples/opcua-to-azure-digital-twins) project on your local machine, and into the *Azure Functions/OPCUAFunctions* folder. Open the **OPCUAFunctions.sln** solution in Visual Studio.
+#### Configure the function app
 
-#### Step 2: Publish the function
+Next, **assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance.
 
-Publish the function project to a function app in Azure.
+[!INCLUDE [digital-twins-configure-function-app.md](../../includes/digital-twins-configure-function-app.md)]
 
-For instructions on how to do this, see the section [Publish the function app to Azure](how-to-create-azure-function.md#publish-the-function-app-to-azure) of the *How-to: Set up a function for processing data* article.
+#### Add application settings
 
-#### Step 3: Configure the function app
-
-**Assign an access role** for the function and **configure the application settings** so that it can access your Azure Digital Twins instance. For instructions on how to do this, see the section [Set up security access for the function app](how-to-create-azure-function.md#set-up-security-access-for-the-function-app) of the *How-to: Set up a function for processing data* article.
-
-#### Step 4: Add application settings
-
-You'll also need to add some application settings to fully set up your environment. Go to the [Azure portal](https://portal.azure.com) and navigate to your newly created Azure function by searching for its name in the portal search bar.
+You'll also need to add some application settings to fully set up your environment and the Azure function. Go to the [Azure portal](https://portal.azure.com) and navigate to your newly created Azure function by searching for its name in the portal search bar.
 
 Select Configuration from the function's left navigation menu. Use the **+ New application setting** button to start creating new settings.
 
@@ -395,7 +390,7 @@ There are three application settings you need to create:
 
 ### Create event subscription
 
-Lastly, create an event subscription to connect your function app and ProcessOPCPublisherEventsToADT function to your IoT Hub. The event subscription is needed so that data can flow from the gateway device into IoT Hub through the function, which then updates Azure Digital Twins.
+Lastly, create an event subscription to connect your function app and *ProcessOPCPublisherEventsToADT* function to your IoT Hub. The event subscription is needed so that data can flow from the gateway device into IoT Hub through the function, which then updates Azure Digital Twins.
 
 For instructions, follow the same steps used in [Connect the IoT hub to the Azure function](tutorial-end-to-end.md#connect-the-iot-hub-to-the-azure-function) from the Azure Digital Twins *Tutorial: Connect an end-to-end solution*.
 
@@ -405,9 +400,18 @@ The event subscription will have an Endpoint type of **Azure function**, and an 
 
 After this step, all required components should be installed and running. Data should be flowing from your OPC UA Simulation Server, through Azure IoT Hub, and into your Azure Digital Twins instance. 
 
+### Verify completion
+
+In this section, you set up an Azure function to connect the OPC UA data to Azure Digital Twins. Verify that you've completed the following checklist:
+> [!div class="checklist"]
+> * Created and imported *opcua-mapping.json* file into a blob storage container. 
+> * Published the sample function *ProcessOPCPublisherEventsToADT* to a function app in Azure.
+> * Added three new application settings to the Azure Functions app.
+> * Created an event subscription to send IoT Hub events to the function app.
+
 The next section provides some Azure CLI commands that you can run to monitor the events and verify everything is working successfully.
 
-### Verify and monitor
+## Verify and monitor
 
 The commands in this section can be run in the [Azure Cloud Shell](https://shell.azure.com), or in a [local Azure CLI window](/cli/azure/install-azure-cli).
 
@@ -425,16 +429,6 @@ Finally, you can use Azure Digital Twins Explorer to manually monitor twin prope
 
 :::image type="content" source="media/how-to-ingest-opcua-data/adt-explorer-2.png" alt-text="Screenshot of using azure digital twins explorer to monitor twin property updates":::
 
-### Verify completion
-
-In this section, you set up an Azure function to connect the OPC UA data to Azure Digital Twins. Verify that you've completed the following checklist:
-> [!div class="checklist"]
-> * Created and imported *opcua-mapping.json* file into a blob storage container. 
-> * Published the sample function ProcessOPCPublisherEventsToADT to a function app in Azure.
-> * Added three new application settings to the Azure Functions app.
-> * Created an event subscription to send IoT Hub events to the function app.
-> * Used Azure CLI commands to verify the final data flow
-
 ## Next steps
 
 In this article, you set up a full data flow for getting simulated OPC UA Server data into Azure Digital Twins, where it updates a property on a digital twin.
@@ -444,6 +438,6 @@ Next, use the following resources to read more about the supporting tools and pr
 * [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
 * [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge.md) 
 * [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher)
-* [Configure OPC Publisher](../iot-accelerators/howto-opc-publisher-configure.md)
+* [Configure OPC Publisher](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 * [UANodeSetWebViewer](https://github.com/barnstee/UANodesetWebViewer) 
 * [OPCUA2DTDL](https://github.com/khilscher/OPCUA2DTDL)

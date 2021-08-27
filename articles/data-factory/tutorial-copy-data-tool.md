@@ -4,9 +4,10 @@ description: Create an Azure Data Factory and then use the Copy Data tool to cop
 author: jianleishen
 ms.author: jianleishen
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 02/18/2021
+ms.date: 07/08/2021
 ---
 
 # Copy data from Azure Blob storage to a SQL Database by using the Copy Data tool
@@ -102,73 +103,73 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 1. After creation is finished, the **Data Factory** home page is displayed.
 
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Author & Monitor tile.":::
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
-1. To launch the Azure Data Factory user interface (UI) in a separate tab, select the **Author & Monitor** tile.
+1. To launch the Azure Data Factory user interface (UI) in a separate tab, select **Open** on the **Open Azure Data Factory Studio** tile.
 
 ## Use the Copy Data tool to create a pipeline
 
-1. On the **Let's get started** page, select the **Copy Data** tile to launch the Copy Data tool.
+1. On the home page of Azure Data Factory, select the **Ingest** tile to launch the Copy Data tool.
 
-   ![Copy Data tool tile](./media/doc-common-process/get-started-page.png)
+   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
 
-1. On the **Properties** page, under **Task name**, enter **CopyFromBlobToSqlPipeline**. Then select **Next**. The Data Factory UI creates a pipeline with the specified task name.
+1. On the **Properties** page of the Copy Data tool, choose **Built-in copy task** under **Task type**, then select **Next**.
 
-   ![Create a pipeline](./media/tutorial-copy-data-tool/create-pipeline.png)
-
+     ![Screenshot that shows the Properties page](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
+    
 1. On the **Source data store** page, complete the following steps:
 
-   a. Select **+ Create new connection** to add a connection
+   a. Select **+ Create new connection** to add a connection.
 
    b. Select **Azure Blob Storage** from the gallery, and then select **Continue**.
 
-   c. On the **New Linked Service** page, select your Azure subscription, and select your storage account from the **Storage account name** list. Test connection and then select **Create**.
+   c. On the **New connection (Azure Blob Storage)** page, select your Azure subscription from the **Azure subscription** list, and select your storage account from the **Storage account name** list. Test connection and then select **Create**.
 
-   d. Select the newly created linked service as source, then select **Next**.
+   d. Select the newly created linked service as source in the **Connection** block.
 
-   ![Select source linked service](./media/tutorial-copy-data-tool/select-source-linked-service.png)
+   e. In the **File or folder** section, select **Browse** to navigate to the **adfv2tutorial** folder, select the **inputEmp.txt** file, then select **OK**.
 
-1. On the **Choose the input file or folder** page, complete the following steps:
+   f. Select **Next** to move to next step.
 
-   a. Select **Browse** to navigate to the **adfv2tutorial/input** folder, select the **inputEmp.txt** file, then select **Choose**.
+   :::image type="content" source="./media/tutorial-copy-data-tool/source-data-store.png" alt-text="Configure the source.":::
 
-   b. Select **Next** to move to next step.
-
-1. On the **File format settings** page, enable the checkbox for *First row as header*. Notice that the tool automatically detects the column and row delimiters. Select **Next**. You can also preview data and view the schema of the input data on this page.
+1. On the **File format settings** page, enable the checkbox for *First row as header*. Notice that the tool automatically detects the column and row delimiters, and you can preview data and view the schema of the input data by selecting **Preview data** button on this page. Then select **Next**. 
 
    ![File format settings](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 
 1. On the **Destination data store** page, completes the following steps:
 
-   a. Select **+ Create new connection** to add a connection
+   a. Select **+ Create new connection** to add a connection.
 
    b. Select **Azure SQL Database** from the gallery, and then select **Continue**.
 
-   c. On the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password, then select **Create**.
+   c. On the **New connection (Azure SQL Database)** page, select your Azure subscription, server name and database name from the dropdown list. Then select **SQL authentication** under **Authentication type**, specify the username and password. Test connection and select **Create**.
 
-      ![Configure Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
+   ![Configure Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
 
    d. Select the newly created linked service as sink, then select **Next**.
 
-1. On the **Table mapping** page, select the **[dbo].[emp]** table, and then select **Next**.
+1. On the **Destination data store** page, select **Use existing table** and select the **dbo.emp** table. Then select **Next**.
 
 1. On the **Column mapping** page, notice that the second and the third columns in the input file are mapped to the **FirstName** and **LastName** columns of the **emp** table. Adjust the mapping to make sure that there is no error, and then select **Next**.
 
    ![Column mapping page](./media/tutorial-copy-data-tool/column-mapping.png)
 
-1. On the **Settings** page, select **Next**.
+1. On the **Settings** page, under **Task name**, enter **CopyFromBlobToSqlPipeline**, and then select **Next**.
+
+   :::image type="content" source="./media/tutorial-copy-data-tool/settings.png" alt-text="Configure the settings.":::
 
 1. On the **Summary** page, review the settings, and then select **Next**.
 
-1. On the **Deployment page**, select **Monitor** to monitor the pipeline (task).
+1. On the **Deployment** page, select **Monitor** to monitor the pipeline (task).
 
    ![Monitor pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
-1. On the Pipeline runs page, select **Refresh** to refresh the list. Select the link under **PIPELINE NAME** to view activity run details or rerun the pipeline. 
+1. On the Pipeline runs page, select **Refresh** to refresh the list. Select the link under **Pipeline name** to view activity run details or rerun the pipeline. 
 
    ![Pipeline run](./media/tutorial-copy-data-tool/pipeline-run.png)
 
-1. On the Activity runs page, select the **Details** link (eyeglasses icon) under the **ACTIVITY NAME** column for more details about copy operation. To go back to the Pipeline Runs view, select the **ALL pipeline runs** link in the breadcrumb menu. To refresh the view, select **Refresh**.
+1. On the "Activity runs" page, select the **Details** link (eyeglasses icon) under **Activity name** column for more details about copy operation. To go back to the "Pipeline runs" view, select the **All pipeline runs** link in the breadcrumb menu. To refresh the view, select **Refresh**.
 
    ![Monitor activity runs](./media/tutorial-copy-data-tool/activity-monitoring.png)
 

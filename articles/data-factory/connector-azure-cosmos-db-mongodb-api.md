@@ -1,12 +1,14 @@
 ---
 title: Copy data from Azure Cosmos DB's API for MongoDB
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from supported source data stores to or from Azure Cosmos DB's API for MongoDB to supported sink stores by using Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 11/20/2019
+ms.custom: synapse
+ms.date: 08/20/2021
 ---
 
 # Copy data to or from Azure Cosmos DB's API for MongoDB by using Azure Data Factory
@@ -41,8 +43,9 @@ The following properties are supported for the Azure Cosmos DB's API for MongoDB
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **CosmosDbMongoDbApi**. | Yes |
-| connectionString |Specify the connection string for your Azure Cosmos DB's API for MongoDB. You can find it in the Azure portal -> your Cosmos DB blade -> primary or secondary connection string, with the pattern of `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details.|Yes |
+| connectionString |Specify the connection string for your Azure Cosmos DB's API for MongoDB. You can find it in the Azure portal -> your Cosmos DB blade -> primary or secondary connection string. <br/>For 3.2 server version, the string pattern is `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/>For 3.6+ server versions, the string pattern is `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@<cosmosdb-name>@`.<br/><br />You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details.|Yes |
 | database | Name of the database that you want to access. | Yes |
+| isServerVersionAbove32 | Specify whether the server version is above 3.2. Allowed values are **true** and **false**(default). This will determine the driver to use in the service. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. You can use the Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If this property isn't specified, the default Azure Integration Runtime is used. |No |
 
 **Example**
@@ -54,7 +57,8 @@ The following properties are supported for the Azure Cosmos DB's API for MongoDB
         "type": "CosmosDbMongoDbApi",
         "typeProperties": {
             "connectionString": "mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb",
-            "database": "myDatabase"
+            "database": "myDatabase",
+            "isServerVersionAbove32": "false"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

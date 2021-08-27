@@ -30,7 +30,7 @@ Consider the following when developing your application:
 * Avoid High CPU. Make sure to look at Max CPU and not average, which is the default for most logging systems. Anything above roughly 40% can increase the latency.
 
 
-## Capture the diagnostics
+## <a name="capture-diagnostics"></a>Capture the diagnostics
 
 All the responses in the SDK including `CosmosException` have a Diagnostics property. This property records all the information related to the single request including if there were retries or any transient failures. 
 
@@ -64,7 +64,7 @@ if (response.Diagnostics.GetClientElapsedTime() > ConfigurableSlowRequestTimeSpa
 ## Diagnostics in version 3.19 and higher
 The JSON structure has breaking changes with each version of the SDK. This makes it unsafe to be parsed. The JSON represents a tree structure of the request going through the SDK. This covers a few key things to look at:
 
-### CPU history
+### <a name="cpu-history"></a>CPU history
 High CPU utilization is the most common cause for slow requests. For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum (not average) CPU utilization. CPU spikes are more common with cross-partition queries where the requests might do multiple connections for a single query.
 
 If the error contains `TransportException` information, it might contain also `CPU History`:
@@ -87,7 +87,7 @@ CPU count: 8)
 The client application that uses the SDK should be scaled up or out.
 
 
-### HttpResponseStats
+### <a name="httpResponseStats"></a>HttpResponseStats
 HttpResponseStats are request going to [gateway](sql-sdk-connection-modes.md). Even in Direct mode the SDK gets all the meta data information from the gateway.
 
 If the request is slow, first verify all the suggestions above don't yield results.
@@ -117,7 +117,7 @@ Single store result for a single request
 ]
 ```
 
-### StoreResult
+### <a name="storeResult"></a>StoreResult
 StoreResult represents a single request to Azure Cosmos DB using Direct mode with TCP protocol.
 
 If it is still slow different patterns point to different issues:
@@ -135,16 +135,18 @@ Single store result for a single request
 | SLA Violated | StorePhysicalAddress have the same partition ID but different replica IDs with no failure status code | Likely an issue with the Cosmos DB service |
 | SLA Violated | StorePhysicalAddress are random with no failure status code | Points to an issue with the machine |
 
-RntbdRequestStats show the time for the different stages of sending and receiving a request.
-
-* ChannelAcquisitionStarted: The time to get or create a new connection. New connections can be created for numerous different regions. For example, a connection was unexpectedly closed or too many requests were getting sent through the existing connections so a new connection is being created. 
-* Pipelined time is large points to possibly a large request.
-* Transit time is large, which leads to a networking issue. Compare this number to the `BELatencyInMs`. If the BELatencyInMs is small, then the time was spent on the network and not on the Azure Cosmos DB service.
-
 Multiple StoreResults for single request:
 
 * Strong and bounded staleness consistency will always have at least two store results
 * Check the status code of each StoreResult. The SDK retries automatically on multiple different [transient failures](troubleshoot-dot-net-sdk-request-timeout.md). The SDK is constantly being improved to cover more scenarios. 
+
+### <a name="rntbdRequestStats"></a>RntbdRequestStats 
+Show the time for the different stages of sending and receiving a request in the transport layer.
+
+* ChannelAcquisitionStarted: The time to get or create a new connection. New connections can be created for numerous different regions. For example, a connection was unexpectedly closed or too many requests were getting sent through the existing connections so a new connection is being created. 
+* Pipelined time is large points to possibly a large request.
+* Transit time is large, which leads to a networking issue. Compare this number to the `BELatencyInMs`. If the BELatencyInMs is small, then the time was spent on the network and not on the Azure Cosmos DB service.
+* Received time is large this points to a thread starvation issue. This the time between having the response and returning the result.
 
 ```json
 "StoreResult": {
@@ -201,7 +203,6 @@ Multiple StoreResults for single request:
     "TransportException": null
 }
 ```
-
 
 ### Failure rate violates the Azure Cosmos DB SLA
 Contact [Azure Support](https://aka.ms/azure-support).

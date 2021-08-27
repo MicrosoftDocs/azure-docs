@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 08/26/2021
 ---
 
 # Migrate your application to use the Azure Cosmos DB .NET SDK v3
@@ -36,7 +36,7 @@ The v3 SDK contains many usability and performance improvements, including:
 * Fluent hierarchy that replaces the need for URI factory
 * Built-in support for change feed processor library
 * Built-in support for bulk operations
-* Mockabale APIs for easier unit testing
+* Mockable APIs for easier unit testing
 * Transactional batch and Blazor support
 * Pluggable serializers
 * Scale non-partitioned and autoscale containers
@@ -140,6 +140,71 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder(
 .WithApplicationRegion(Regions.EastUS);
 CosmosClient client = cosmosClientBuilder.Build();
 ```
+
+### Exceptions
+
+Where the v2 SDK used `DocumentClientException` to signal errors during operations, the v3 SDK uses `CosmosClientException`, which exposes the `StatusCode`, `Diagnostics`, and other response-related information. All the complete information is serialized when `ToString()` is used:
+
+```csharp
+catch (CosmosClientException ex)
+{
+    HttpStatusCode statusCode = ex.StatusCode;
+    CosmosDiagnostics diagnostics = ex.Diagnostics;
+    // store diagnostics optionally with diagnostics.ToString();
+    // or log the entire error details with ex.ToString();
+}
+```
+
+### Diagnostics
+
+Where the v2 SDK had Direct-only diagnostics available through the `ResponseDiagnosticsString` property, the v3 SDK uses `Diagnostics` available in all responses and exceptions, which are richer and not restricted to Direct mode. They include not only the time spent on the SDK for the operation, but also the regions the operation contacted:
+
+```csharp
+try
+{
+    ItemResponse<MyItem> response = await container.ReadItemAsync<MyItem>(
+                    partitionKey: new PartitionKey("MyPartitionKey"),
+                    id: "MyId");
+    
+    TimeSpan elapsedTime = response.Diagnostics.GetElapsedTime();
+    if (elapsedTime > somePreDefinedThreshold)
+    {
+        // log response.Diagnostics.ToString();
+        IReadOnlyList<(string region, Uri uri)> regions = response.Diagnostics.GetContactedRegions();
+    }
+}
+catch (CosmosException cosmosException) {
+    string diagnostics = cosmosException.Diagnostics.ToString();
+    
+    TimeSpan elapsedTime = cosmosException.Diagnostics.GetElapsedTime();
+    
+    IReadOnlyList<(string region, Uri uri)> regions = cosmosException.Diagnostics.GetContactedRegions();
+    
+    // log cosmosException.ToString()
+}
+```
+
+### ConnectionPolicy
+
+Some settings in `ConnectionPolicy` have been renamed or replaced:
+
+| .NET v2 SDK | .NET v3 SDK |
+|-------------|-------------|
+|`EnableEndpointRediscovery`|`LimitToEndpoint` - The value is now inverted, if `EnableEndpointRediscovery` was being set to `true`, `LimitToEndpoint` should be set to `false`. Before using this setting, you need to understand [how it affects the client](troubleshoot-sdk-availability.md).|
+|`ConnectionProtocol`|Removed. Protocol is tied to the Mode, either it's Gateway (HTTPS) or Direct (TCP).|
+|`MediaRequestTimeout`|Removed. Attachments are no longer supported.|
+
+### Session token
+
+Where the v2 SDK exposed the session token of a response as `ResourceResponse.SessionToken` for cases where capturing the session token was required, because the session token is a header, the v3 SDK exposes that value in the `Headers.Session` property of any response.
+
+### Timestamp
+
+Where the v2 SDK exposed the timestamp of a document through the `Timestamp` property, because `Document` is no longer available, users can map the `_ts` [system property](account-databases-containers-items.md#properties-of-an-item) to a property in their model.
+
+### OpenAsync
+
+For use cases where `OpenAsync()` was being used to warm up the v2 SDK client, `CreateAndInitializeAsync` can be used to both [create and warm-up](https://devblogs.microsoft.com/cosmosdb/improve-net-sdk-initialization/) a v3 SDK client.
 
 ### Using the change feed processor APIs directly from the v3 SDK
 
@@ -639,3 +704,6 @@ private static async Task DeleteItemAsync(DocumentClient client)
 
 * [Build a Console app](sql-api-get-started.md) to manage Azure Cosmos DB SQL API data using the v3 SDK
 * Learn more about [what you can do with the v3 SDK](sql-api-dotnet-v3sdk-samples.md)
+* Trying to do capacity planning for a migration to Azure Cosmos DB?
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

@@ -43,7 +43,7 @@ Here are some of the key improvements resulting from the move to the diagnostic 
 - Improved reliability.
 - Improved performance.
 - Support for all categories of events logged by the Activity log service (the legacy mechanism supports only a subset - for example, no support for Service Health events).
-- Management at scale with Azure policy.
+- Management at scale with Azure Policy.
 
 See the [Azure Monitor documentation](../azure-monitor/logs/data-platform-logs.md) for more in-depth treatment of [Azure Activity log](../azure-monitor/essentials/activity-log.md) and the [diagnostic settings pipeline](../azure-monitor/essentials/diagnostic-settings.md).
 
@@ -52,7 +52,7 @@ See the [Azure Monitor documentation](../azure-monitor/logs/data-platform-logs.m
 Setting up the new Azure Activity log connector has two stages:
 1. Disconnect the existing subscriptions from the legacy method.
 
-1. Connection of all relevant subscriptions to the new diagnostics settings pipeline using **Azure policy**.
+1. Connection of all relevant subscriptions to the new diagnostics settings pipeline using **Azure Policy**.
 
 ### Disconnect from old pipeline
 
@@ -84,5 +84,5 @@ See the **Next steps** tab in the connector page for some useful sample queries 
 
 ## Next steps
 In this document, you learned how to connect Azure Activity log to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started detecting threats with Azure Sentinel, using [built-in](tutorial-detect-threats-built-in.md) or [custom](tutorial-detect-threats-custom.md) rules.
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started detecting threats with Azure Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.

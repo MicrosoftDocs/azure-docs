@@ -7,8 +7,8 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: how-to
-author: shkale-msft
-ms.author: shkale
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma
 ms.date: 03/10/2021
 ---
@@ -24,6 +24,14 @@ A database copy is a transactionally consistent snapshot of the source database 
 
 > [!NOTE]
 > Azure SQL Database Configurable Backup Storage Redundancy is currently available in public preview in Brazil South and generally available in Southeast Asia Azure region only. In the preview, if the source database is created with locally-redundant or zone-redundant backup storage redundancy, database copy to a server in a different Azure region is not supported. 
+
+## Database Copy for Azure SQL Hyperscale
+
+For Azure SQL Hyperscale the target database determines whether the copy will be a fast copy or a size of data copy.
+
+Fast copy: When the copy is done in the same region as the source, the copy will be created from the snapshots of blobs, this copy is a fast operation regardless of the database size.
+
+Size of data copy:  When the target database is in a different region than the source or if the database backup storage redundancy (Local, Zonal, Geo) from the target differs from the source database, the copy operation will be a size of data operation. Copy time will not be directly proportional to size as page server blobs are copied in parallel.
 
 ## Logins in the database copy
 

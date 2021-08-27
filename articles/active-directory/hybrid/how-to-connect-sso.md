@@ -86,6 +86,6 @@ For more information on how SSO works with Windows 10 using PRT, see: [Primary R
 - [**Quick Start**](how-to-connect-sso-quick-start.md) - Get up and running Azure AD Seamless SSO.
 - [**Deployment Plan**](../manage-apps/plan-sso-deployment.md) - Step-by-step deployment plan.
 - [**Technical Deep Dive**](how-to-connect-sso-how-it-works.md) - Understand how this feature works.
-- [**Frequently Asked Questions**](how-to-connect-sso-faq.md) - Answers to frequently asked questions.
+- [**Frequently Asked Questions**](how-to-connect-sso-faq.yml) - Answers to frequently asked questions.
 - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.

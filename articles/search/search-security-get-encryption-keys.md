@@ -46,7 +46,7 @@ For the remaining steps, switch to PowerShell and the REST API. The portal does 
 
 Use PowerShell and REST to run the following commands to set up the variables and get object definitions. 
 
-Alternatively, you can also use the Azure SDKs for [.NET](/dotnet/api/azure.search.documents.indexes.searchindexclient.getindexes), [Python](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient), [JavaScript](/javascript/api/@azure/search-documents/searchindexclien), and [Java](/java/api/com.azure.search.documents.indexes.searchindexclient.getindex).
+Alternatively, you can also use the Azure SDKs for [.NET](/dotnet/api/azure.search.documents.indexes.searchindexclient.getindexes), [Python](/python/api/azure-search-documents/azure.search.documents.indexes.searchindexclient), [JavaScript](/javascript/api/@azure/search-documents/searchindexclient), and [Java](/java/api/com.azure.search.documents.indexes.searchindexclient.getindex).
 
 ```powershell
 <# Connect to Azure #>

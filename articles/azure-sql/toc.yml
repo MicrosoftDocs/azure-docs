@@ -201,6 +201,8 @@
           href: database/authentication-aad-directory-readers-role-tutorial.md
         - name: Enable Azure AD-only authentication
           href: database/authentication-azure-ad-only-authentication-tutorial.md
+        - name: Create server with Azure AD-only authentication enabled
+          href: database/authentication-azure-ad-only-authentication-create-server.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
       - name: Always Encrypted
@@ -318,7 +320,7 @@
     items:
     - name: Create database
       items:
-      - name: Azure portal
+      - name: Azure portal, PowerShell, Az CLI
         href: database/single-database-create-quickstart.md
       - name: ARM template
         displayName: Resource Manager
@@ -519,7 +521,7 @@
       - name: Move sharded data
         href: database/elastic-scale-overview-split-and-merge.md
       - name: Elastic tools FAQ
-        href: database/elastic-scale-faq.md
+        href: database/elastic-scale-faq.yml
 
   - name: How to
     href: database/how-to-content-reference-guide.md
@@ -777,6 +779,8 @@
       href: database/arm-templates-content-guide.md?tabs=single-database
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
+    - name: Azure Resource Graph queries
+      href: database/resource-graph-samples.md
 
 - name: SQL Managed Instance (SQL MI)
   items:
@@ -802,7 +806,7 @@
       - name: Azure portal
         href: managed-instance/instance-create-quickstart.md
       - name: PowerShell
-        href: managed-instance/scripts/create-configure-managed-instance-powershell.md
+        href: managed-instance/create-configure-managed-instance-powershell-quickstart.md
       - name: ARM template
         displayName: Resource Manager
         href: managed-instance/create-template-quickstart.md
@@ -1112,8 +1116,8 @@
     
     - name: Migrate
       items: 
-      - name: Migrate to SQL Managed Instance
-        href: managed-instance/migrate-to-instance-from-sql-server.md
+      - name: Migrate SQL Server to Azure SQL Managed Instance Guide
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
       - name: Migrate database using Log Replay Service
         href: managed-instance/log-replay-service-migrate.md
       - name: Migrate TDE cert 
@@ -1190,10 +1194,10 @@
         - name: HADR configuration
           href: virtual-machines/windows/hadr-cluster-best-practices.md
           displayName: failover cluster instance, fci, availability group, ag, always on
-        - name: Collect baseline 
-          href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
         - name: Application patterns
           href: virtual-machines/windows/application-patterns-development-strategies.md
+        - name: Collect baseline 
+          href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
       - name: Management
         items:
         - name: SQL IaaS Agent extension
@@ -1233,18 +1237,15 @@
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to UltraSSD
           href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-        - name: Enable SQL vulnerability assessments
-          href: ../security-center/defender-for-sql-on-machines-vulnerability-assessment.md
-        - name: Install SQL IaaS Agent extension
+        - name: SQL IaaS Agent extension
           displayName: resource provider, registration, sql vm rp
           items:
           - name: Automatic registration
             href: virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md
-          - name: Single VM
+          - name: Register single VM
             href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
           - name: Bulk register multiple VMs
             href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md
-
       - name: Migrate
         items:
         - name: SQL Server database to VM

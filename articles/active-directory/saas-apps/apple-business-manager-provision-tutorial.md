@@ -4,8 +4,8 @@ title: 'Tutorial: Configure Apple Business Manager for automatic user provisioni
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Apple Business Manager.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 ms.assetid: 4ad30031-9904-4ac3-a4d2-e8c28d44f319
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.author: Zhchia
+ms.author: thwimmer
 
 ---
 

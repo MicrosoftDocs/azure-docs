@@ -173,7 +173,7 @@ You can configure a maximum of five policies, and only one instance of each Poli
 
 1. Under **Policy settings**, select the **+ Add policy (max 5)** link.
 1. In the **Name** box, enter the policy assignment name (limited to 50 characters).
-1. From the **Policies** list box, select the Azure policy that will be applied to resources created by the managed application in the customer subscription.
+1. From the **Policies** list box, select the Azure Policy definition that will be applied to resources created by the managed application in the customer subscription.
 1. In the **Policy parameters** box, provide the parameter on which the auditing and diagnostic settings policies should be applied.
 1. From the **Policy SKU** list box, select the policy SKU type.
 
@@ -189,7 +189,7 @@ After you create one or more plans, you'll see your plan name, plan ID, plan typ
 The actions that are available in the **Action** column of the **Plan overview** tab vary depending on the status of your plan, and may include the following:
 
 - If the plan status is **Draft**, the link in the **Action** column will say **Delete draft**.
-- If the plan status is **Live**, the link in the **Action** column will be either **Stop selling plan** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
+- If the plan status is **Live**, the link in the **Action** column will be either **Stop distribution** or **Sync private audience**. The **Sync private audience** link will publish only the changes to your private audiences, without publishing any other updates you might have made to the offer.
 - To create another plan for this offer, at the top of the **Plan overview** tab, select **+ Create new plan**. Then repeat the steps in [How to create plans for your Azure application offer](azure-app-plans.md). Otherwise, if you're done creating plans, go to the next section: Next steps.
 
 ## Next steps

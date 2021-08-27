@@ -20,10 +20,10 @@ This also allows for common Azure role-based access control (Azure RBAC) across 
 
 Workspace-based Application Insights allows you to take advantage of the latest capabilities of Azure Monitor and Log Analytics including:
 
-* [Customer-Managed Keys (CMK)](../logs/customer-managed-keys.md) provides encryption at rest for your data with encryption keys that only you have access to.
+* [Customer-Managed Keys (CMK)](../logs/customer-managed-keys.md) provides encryption at rest for your data with encryption keys to which only you have access.
 * [Azure Private Link](../logs/private-link-security.md) allows you to securely link Azure PaaS services to your virtual network using private endpoints.
 * [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) gives you full control over the encryption-at-rest policy, the lifetime management policy, and network access for all data associated with Application Insights Profiler and Snapshot Debugger. 
-* [Capacity Reservation tiers](../logs/manage-cost-storage.md#pricing-model) enable you to save as much as 25% compared to the Pay-As-You-Go price. 
+* [Commitment Tiers](../logs/manage-cost-storage.md#pricing-model) enable you to save as much as 30% compared to the Pay-As-You-Go price. 
 * Faster data ingestion via Log Analytics streaming ingestion.
 
 ## Create workspace-based resource

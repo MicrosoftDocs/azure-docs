@@ -16,7 +16,7 @@ ms.author: aahi
 There are multiple ways you can install and run the Text Analytics for health container. 
 
 - Use the [Azure portal](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare) to create a Text Analytics resource, and use Docker to get your container.
-- Use an Azure VM with Docker to run the container. Refer to [Docker on Azure](/azure/docker/).
+- Use an Azure VM with Docker to run the container. Refer to [Docker on Azure](../../../docker/index.yml).
 - Use the following PowerShell and Azure CLI scripts to automate resource deployment and container configuration.
 
 ### Run the container locally
@@ -60,7 +60,7 @@ http://<serverURL>:5000/demo
 Use the example cURL request below to submit a query to the container you have deployed replacing the `serverURL` variable with the appropriate value.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1-preview.5/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 

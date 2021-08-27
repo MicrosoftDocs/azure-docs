@@ -94,9 +94,15 @@ env.register(workspace=ws)
 
 To begin data preparation with the Apache Spark pool and your custom environment, specify the Apache Spark pool name and which environment to use during the Apache Spark session. Furthermore, you can provide your subscription ID, the machine learning workspace resource group, and the name of the machine learning workspace.
 
+>[!IMPORTANT]
+> Make sure to [Allow session level packages](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages-preview) is enabled in the linked Synapse workspace.
+>
+>![enable session level packages](media/how-to-data-prep-synapse-spark-pool/enable-session-level-package.png)
+
 ```python
 %synapse start -c SynapseSparkPoolAlias -e myenv -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName
 ```
+
 ## Load data from storage
 
 Once your Apache Spark session starts, read in the data that you wish to prepare. Data loading is supported for Azure Blob storage and Azure Data Lake Storage Generations 1 and 2.
@@ -107,7 +113,7 @@ There are two ways to load data from these storage services:
 
 * Read in data from an existing [Azure Machine Learning dataset](how-to-create-register-datasets.md).
 
-To access these storage services, you need **Storage Blob Data Reader** permissions. If you plan to write data back to these storage services, you need **Storage Blob Data Contributor** permissions. [Learn more about storage permissions and roles](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues).
+To access these storage services, you need **Storage Blob Data Reader** permissions. If you plan to write data back to these storage services, you need **Storage Blob Data Contributor** permissions. [Learn more about storage permissions and roles](../storage/blobs/assign-azure-role-data-access.md).
 
 ### Load data with Hadoop Distributed Files System (HDFS) path
 
@@ -206,7 +212,7 @@ df.show()
 
 Once your data exploration and preparation is complete, store your prepared data for later use in your storage account on Azure.
 
-In the following example, the prepared data is written back to Azure Blob storage and overwrites the original `Titanic.csv` file in the `training_data` directory. To write back to storage, you need **Storage Blob Data Contributor** permissions. [Learn more about storage permissions and roles](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues).
+In the following example, the prepared data is written back to Azure Blob storage and overwrites the original `Titanic.csv` file in the `training_data` directory. To write back to storage, you need **Storage Blob Data Contributor** permissions. [Learn more about storage permissions and roles](../storage/blobs/assign-azure-role-data-access.md).
 
 ```python
 %% synapse

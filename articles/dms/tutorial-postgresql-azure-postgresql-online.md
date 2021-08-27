@@ -121,45 +121,28 @@ To complete all the database objects like table schemas, indexes and stored proc
        ```
 
    * When prompted, open a web browser and enter a code to authenticate your device. Follow the instructions as listed.
-   * Add the dms extension:
-        * To list the available extensions, run the following command:
-        
-            ```azurecli
-            az extension list-available -o table
-            ```
-        * To verify if you have dms extension already installed, run the following command:
+
+   * PostgreSQL online migration is now available within the regular CLI package (version 2.18.0 and above) without the need for the `dms-preview` extension. If you have installed the extension in the past, you can remove it using the following steps :
+        * To check if you have `dms-preview` extension already installed, run the following command:
         
             ```azurecli
             az extension list -o table
             ```
 
-        * If an older version of dms extension is installed (version less than 0.14.0), then to uninstall the older version run the following command:
+        * If `dms-preview` extension is installed, then to uninstall it, run the following command:
         
             ```azurecli
             az extension remove --name dms-preview
             ```
 
-        * To install the latest version of the extension, run the following command:
-        
+        * To verify you have uninstalled `dms-preview` extension correctly, run the following command and you should not see the `dms-preview` extension in the list:
+
             ```azurecli
-            az extension add –-name dms-preview
+            az extension list -o table
             ```
 
-   * To verify you have dms extension installed correct, run the following command:
-
-       ```azurecli
-       az extension list -o table
-       ```
-       You should see a similar output as below:
-
-       ```output
-       ExtensionType    Name        Path                Preview  Version
-       ---------------  ----------- ------------------- -------- ---------
-       whl              dms-preview C:\....\dms-preview  True    0.14.0
-       ```
-
       > [!IMPORTANT]
-      > Make sure that your extension version is 0.14.0 or above.
+      > `dms-preview` extension may still be needed for other migration paths supported by Azure DMS. Please check the documentation of specific migration path to determine if the extension is needed. This documentation covers the requirement of extension, specific to PostgreSQL to Azure Database for PostgreSQL online.
 
    * At any time, view all commands supported in DMS by running:
 
@@ -298,7 +281,7 @@ To complete all the database objects like table schemas, indexes and stored proc
         ```
 
     * To create the target connection json, open Notepad and copy the following json and paste it into the file. Save the file in C:\DMS\target.json after modifying it according to your target server.
-
+    
         ```json
         {
             "userName": " dms@builddemotarget",    
@@ -313,32 +296,32 @@ To complete all the database objects like table schemas, indexes and stored proc
 
         * Create a list of tables to be migrated, or you can use a SQL query to generate the list from the source database. A sample query to generate the list of tables is given below just as an example. If using this query, please remember to remove the last comma at the end of the last table name to make it a valid JSON array. 
         
-        ```sql
-        SELECT
-            FORMAT('%s,', REPLACE(FORMAT('%I.%I', schemaname, tablename), '"', '\"')) AS SelectedTables
-        FROM 
-            pg_tables
-        WHERE 
-            schemaname NOT IN ('pg_catalog', 'information_schema');
-        ```
+            ```sql
+            SELECT
+                FORMAT('%s,', REPLACE(FORMAT('%I.%I', schemaname, tablename), '"', '\"')) AS SelectedTables
+            FROM 
+                pg_tables
+            WHERE 
+                schemaname NOT IN ('pg_catalog', 'information_schema');
+            ```
 
-        * Create the database options json file with one entry for each database with the source and target database names and the list of selected tables to be migrated. You can use the output of the SQL query above to populate the *"selectedTables"* array. **Please note that if the selected tables list is empty, then no tables will be migrated**.
+        * Create the database options json file with one entry for each database with the source and target database names and the list of selected tables to be migrated. You can use the output of the SQL query above to populate the *"selectedTables"* array. **Please note that if the selected tables list is empty, then the service will include all the tables for migration which have matching schema and table names.**.
         
-        ```json
-        [
-            {
-                "name": "dvdrental",
-                "target_database_name": "dvdrental",
-                "selectedTables": [
-                    "schemaName1.tableName1",
-                    "schemaName1.tableName2",                    
-                    ...
-                    "schemaNameN.tableNameM"
-                ]
-            },
-            ... n
-        ]
-        ```
+            ```json
+            [
+                {
+                    "name": "dvdrental",
+                    "target_database_name": "dvdrental",
+                    "selectedTables": [
+                        "schemaName1.tableName1",
+                        "schemaName1.tableName2",                    
+                        ...
+                        "schemaNameN.tableNameM"
+                    ]
+                },
+                ... n
+            ]
+            ```
 
     * Run the following command, which takes in the source connection, target connection, and the database options json files.
 
@@ -361,93 +344,93 @@ To complete all the database objects like table schemas, indexes and stored proc
         az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask --expand output
         ```
 
-8. You can also use use [JMESPATH](https://jmespath.org/) query format to only extract the migrationState from the expand output:
+    * You can also use [JMESPATH](https://jmespath.org/) query format to only extract the migrationState from the expand output:
 
-    ```azurecli
-    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask --expand output --query 'properties.output[].migrationState'
-    ```
+        ```azurecli
+        az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name runnowtask --expand output --query 'properties.output[].migrationState'
+        ```
 
-In the output, there are several parameters that indicate progress of different migration steps. For example, see the output below:
+        In the output, there are several parameters that indicate progress of different migration steps. For example, see the output below:
 
-```json
-{
-    "output": [
-        // Database Level
+        ```json
         {
-            "appliedChanges": 0, // Total incremental sync applied after full load
-            "cdcDeleteCounter": 0, // Total delete operation  applied after full load
-            "cdcInsertCounter": 0, // Total insert operation applied after full load
-            "cdcUpdateCounter": 0, // Total update operation applied after full load
-            "databaseName": "inventory",
-            "endedOn": null,
-            "fullLoadCompletedTables": 2, //Number of tables completed full load
-            "fullLoadErroredTables": 0, //Number of tables that contain migration error
-            "fullLoadLoadingTables": 0, //Number of tables that are in loading status
-            "fullLoadQueuedTables": 0, //Number of tables that are in queued status
-            "id": "db|inventory",
-            "incomingChanges": 0, //Number of changes after full load
-            "initializationCompleted": true,
-            "latency": 0,
-            //Status of migration task
-            "migrationState": "READY_TO_COMPLETE", //READY_TO_COMPLETE => the database is ready for cutover
-            "resultType": "DatabaseLevelOutput",
-            "startedOn": "2018-07-05T23:36:02.27839+00:00"
-        }, {
-            "databaseCount": 1,
-            "endedOn": null,
-            "id": "dd27aa3a-ed71-4bff-ab34-77db4261101c",
-            "resultType": "MigrationLevelOutput",
-            "sourceServer": "138.91.123.10",
-            "sourceVersion": "PostgreSQL",
-            "startedOn": "2018-07-05T23:36:02.27839+00:00",
-            "state": "PENDING",
-            "targetServer": "builddemotarget.postgres.database.azure.com",
-            "targetVersion": "Azure Database for PostgreSQL"
-        },
-        // Table 1
-        {
-            "cdcDeleteCounter": 0,
-            "cdcInsertCounter": 0,
-            "cdcUpdateCounter": 0,
-            "dataErrorsCount": 0,
-            "databaseName": "inventory",
-            "fullLoadEndedOn": "2018-07-05T23:36:20.740701+00:00", //Full load completed time
-            "fullLoadEstFinishTime": "1970-01-01T00:00:00+00:00",
-            "fullLoadStartedOn": "2018-07-05T23:36:15.864552+00:00", //Full load started time
-            "fullLoadTotalRows": 10, //Number of rows loaded in full load
-            "fullLoadTotalVolumeBytes": 7056, //Volume in Bytes in full load
-            "id": "or|inventory|public|actor",
-            "lastModifiedTime": "2018-07-05T23:36:16.880174+00:00",
-            "resultType": "TableLevelOutput",
-            "state": "COMPLETED", //State of migration for this table
-            "tableName": "public.catalog", //Table name
-            "totalChangesApplied": 0 //Total sync changes that applied after full load
-        },
-        //Table 2
-        {
-            "cdcDeleteCounter": 0,
-            "cdcInsertCounter": 50,
-            "cdcUpdateCounter": 0,
-            "dataErrorsCount": 0,
-            "databaseName": "inventory",
-            "fullLoadEndedOn": "2018-07-05T23:36:23.963138+00:00",
-            "fullLoadEstFinishTime": "1970-01-01T00:00:00+00:00",
-            "fullLoadStartedOn": "2018-07-05T23:36:19.302013+00:00",
-            "fullLoadTotalRows": 112,
-            "fullLoadTotalVolumeBytes": 46592,
-            "id": "or|inventory|public|address",
-            "lastModifiedTime": "2018-07-05T23:36:20.308646+00:00",
-            "resultType": "TableLevelOutput",
-            "state": "COMPLETED",
-            "tableName": "public.orders",
-            "totalChangesApplied": 0
+            "output": [
+                // Database Level
+                {
+                    "appliedChanges": 0, // Total incremental sync applied after full load
+                    "cdcDeleteCounter": 0, // Total delete operation  applied after full load
+                    "cdcInsertCounter": 0, // Total insert operation applied after full load
+                    "cdcUpdateCounter": 0, // Total update operation applied after full load
+                    "databaseName": "inventory",
+                    "endedOn": null,
+                    "fullLoadCompletedTables": 2, //Number of tables completed full load
+                    "fullLoadErroredTables": 0, //Number of tables that contain migration error
+                    "fullLoadLoadingTables": 0, //Number of tables that are in loading status
+                    "fullLoadQueuedTables": 0, //Number of tables that are in queued status
+                    "id": "db|inventory",
+                    "incomingChanges": 0, //Number of changes after full load
+                    "initializationCompleted": true,
+                    "latency": 0,
+                    //Status of migration task
+                    "migrationState": "READY_TO_COMPLETE", //READY_TO_COMPLETE => the database is ready for cutover
+                    "resultType": "DatabaseLevelOutput",
+                    "startedOn": "2018-07-05T23:36:02.27839+00:00"
+                }, {
+                    "databaseCount": 1,
+                    "endedOn": null,
+                    "id": "dd27aa3a-ed71-4bff-ab34-77db4261101c",
+                    "resultType": "MigrationLevelOutput",
+                    "sourceServer": "138.91.123.10",
+                    "sourceVersion": "PostgreSQL",
+                    "startedOn": "2018-07-05T23:36:02.27839+00:00",
+                    "state": "PENDING",
+                    "targetServer": "builddemotarget.postgres.database.azure.com",
+                    "targetVersion": "Azure Database for PostgreSQL"
+                },
+                // Table 1
+                {
+                    "cdcDeleteCounter": 0,
+                    "cdcInsertCounter": 0,
+                    "cdcUpdateCounter": 0,
+                    "dataErrorsCount": 0,
+                    "databaseName": "inventory",
+                    "fullLoadEndedOn": "2018-07-05T23:36:20.740701+00:00", //Full load completed time
+                    "fullLoadEstFinishTime": "1970-01-01T00:00:00+00:00",
+                    "fullLoadStartedOn": "2018-07-05T23:36:15.864552+00:00", //Full load started time
+                    "fullLoadTotalRows": 10, //Number of rows loaded in full load
+                    "fullLoadTotalVolumeBytes": 7056, //Volume in Bytes in full load
+                    "id": "or|inventory|public|actor",
+                    "lastModifiedTime": "2018-07-05T23:36:16.880174+00:00",
+                    "resultType": "TableLevelOutput",
+                    "state": "COMPLETED", //State of migration for this table
+                    "tableName": "public.catalog", //Table name
+                    "totalChangesApplied": 0 //Total sync changes that applied after full load
+                },
+                //Table 2
+                {
+                    "cdcDeleteCounter": 0,
+                    "cdcInsertCounter": 50,
+                    "cdcUpdateCounter": 0,
+                    "dataErrorsCount": 0,
+                    "databaseName": "inventory",
+                    "fullLoadEndedOn": "2018-07-05T23:36:23.963138+00:00",
+                    "fullLoadEstFinishTime": "1970-01-01T00:00:00+00:00",
+                    "fullLoadStartedOn": "2018-07-05T23:36:19.302013+00:00",
+                    "fullLoadTotalRows": 112,
+                    "fullLoadTotalVolumeBytes": 46592,
+                    "id": "or|inventory|public|address",
+                    "lastModifiedTime": "2018-07-05T23:36:20.308646+00:00",
+                    "resultType": "TableLevelOutput",
+                    "state": "COMPLETED",
+                    "tableName": "public.orders",
+                    "totalChangesApplied": 0
+                }
+            ],
+            // DMS migration task state
+            "state": "Running", //Running => service is still listening to any changes that might come in
+            "taskType": null
         }
-    ],
-    // DMS migration task state
-    "state": "Running", //Running => service is still listening to any changes that might come in
-    "taskType": null
-}
-```
+        ```
 
 ## Cutover migration task
 

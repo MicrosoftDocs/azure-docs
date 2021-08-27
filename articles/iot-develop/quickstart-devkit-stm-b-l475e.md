@@ -1,6 +1,6 @@
 ---
-title: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOT01A to Azure IoT Central quickstart
-description: Use Azure RTOS embedded software to connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOT01A device to Azure IoT and send telemetry.
+title: Connect an STMicroelectronics B-L475E-IOT01A or B-L4S5I-IOT01A to Azure IoT Central quickstart
+description: Use Azure RTOS embedded software to connect an STMicroelectronics B-L475E-IOT01A or B-L4S5I-IOT01A device to Azure IoT and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 06/02/2021
 ---
 
-# Quickstart: Connect an ST Microelectronics B-L475E-IOT01A or B-L4S5I-IOT01A Discovery kit to IoT Central
+# Quickstart: Connect an STMicroelectronics B-L475E-IOT01A or B-L4S5I-IOT01A Discovery kit to IoT Central
 
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
 
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4+)
 
-In this quickstart, you use Azure RTOS to connect either the ST Microelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) or [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) Discovery kit (hereafter, the STM DevKit) to Azure IoT.
+In this quickstart, you use Azure RTOS to connect either the STMicroelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) or [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) Discovery kit (hereafter, the STM DevKit) to Azure IoT.
 
 You will complete the following tasks:
 
@@ -140,7 +140,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
 1. Start **Termite**.
     > [!TIP]
-    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip) and try again. See  [Troubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
+    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html) and try again. See  [Troubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200

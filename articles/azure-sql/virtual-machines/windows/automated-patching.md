@@ -84,9 +84,7 @@ For more information, see [Provision a SQL Server virtual machine on Azure](crea
 
 ### Existing VMs
 
-[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
-
-For existing SQL Server virtual machines, open your [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) and select **Patching** under **Settings**. 
+For existing SQL Server virtual machines, open your [SQL virtual machines resource](manage-sql-vm-portal.md#access-the-resource) and select **Patching** under **Settings**. 
 
 ![SQL Automatic Patching for existing VMs](./media/automated-patching/azure-sql-rm-patching-existing-vms.png)
 

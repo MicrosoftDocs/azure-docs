@@ -22,7 +22,7 @@ Start Log Analytics from **Logs** in the **Azure Monitor** menu in the Azure por
 
 [![Start Log Analytics](media/log-analytics-overview/start-log-analytics.png)](media/log-analytics-overview/start-log-analytics.png#lightbox)
 
-When you start Log Analytics, the first thing you'll see is a dialog box with [example queries](../logs/queries.md). These are categorized by solution, and you can browse or search for queries that match your particular requirements. You may be able to find a that does exactly what you need, or load one to the editor and modify it as required. Browsing through example queries is actually a great way to learn how to write your own queries. 
+When you start Log Analytics, the first thing you'll see is a dialog box with [example queries](../logs/queries.md). These are categorized by solution, and you can browse or search for queries that match your particular requirements. You may be able to find one that does exactly what you need, or load one to the editor and modify it as required. Browsing through example queries is actually a great way to learn how to write your own queries. 
 
 Of course if you want to start with an empty script and write it yourself, you can close the example queries. Just click the **Queries** at the top of the screen if you want to get them back.
 

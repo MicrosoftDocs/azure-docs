@@ -9,7 +9,6 @@ author: mlearned
 ms.author: mlearned
 description: "This article provides an overview of Azure Arc enabled Kubernetes."
 keywords: "Kubernetes, Arc, Azure, containers"
-ms.custom: references_regions
 ---
 
 # What is Azure Arc enabled Kubernetes?
@@ -43,26 +42,11 @@ Azure Arc enabled Kubernetes supports the following scenarios:
 
 * Enforce threat protection using Azure Defender for Kubernetes.
 
-* Apply policies using Azure Policy for Kubernetes.
+* Apply policy definitions using Azure Policy for Kubernetes.
 
 * Create [custom locations](./custom-locations.md) as target locations for deploying Azure Arc enabled Data Services, [App Services on Azure Arc](../../app-service/overview-arc-integration.md) (including web, function, and logic apps) and [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md).
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
-
-## Supported regions 
-
-Azure Arc enabled Kubernetes is currently supported in these regions: 
-
-* East US
-* West Europe
-* West Central US
-* South Central US
-* Southeast Asia
-* UK South
-* West US 2
-* Australia East
-* East US 2
-* North Europe
 
 ## Next steps
 

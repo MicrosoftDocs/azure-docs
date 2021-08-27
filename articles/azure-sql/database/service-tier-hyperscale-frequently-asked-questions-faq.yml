@@ -11,7 +11,7 @@ metadata:
   author: dimitri-furman
   ms.author: dfurman
   ms.reviewer: mathoma
-  ms.date: 03/31/2021
+  ms.date: 07/27/2021
     
 title: Azure SQL Database Hyperscale FAQ
 summary: |
@@ -123,14 +123,14 @@ sections:
       - question: |
           What kind of workloads is Hyperscale designed for?
         answer: |
-          Hyperscale supports all SQL Server workloads, but it is primarily optimized for OLTP. You can bring Hybrid (HTAP) and Analytical (data mart) workloads as well.
+          Hyperscale supports all workload types, including OLTP, Hybrid (HTAP), and Analytical (data mart) workloads.
 
       - question: |
           How can I choose between Azure Synapse Analytics and Azure SQL Database Hyperscale?
         answer: |
           If you are currently running interactive analytics queries using SQL Server as a data warehouse, Hyperscale is a great option because you can host small and mid-size data warehouses (such as a few TB up to 100 TB) at a lower cost, and you can migrate your SQL Server data warehouse workloads to Hyperscale with minimal T-SQL code changes.
           
-          If you are running data analytics on a large scale with complex queries and sustained ingestion rates higher than 100 MB/s, or  using Parallel Data Warehouse (PDW), Teradata, or other Massively Parallel Processing (MPP) data warehouses, Azure Synapse Analytics may be the best choice.
+          If you are running data analytics on a large scale with complex queries and sustained ingestion rates higher than 100 MB/s, or using Parallel Data Warehouse (PDW), Teradata, or other Massively Parallel Processing (MPP) data warehouses, Azure Synapse Analytics may be the best choice.
             
   - name: Hyperscale compute questions
     questions:
@@ -147,12 +147,12 @@ sections:
       - question: |
           Can I provision multiple compute replicas of different sizes?
         answer: |
-          No.
+          Yes. This can be achieved using [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview).
 
       - question: |
           How many Read Scale-out replicas are supported?
         answer: |
-          The Hyperscale databases are created with one Read Scale-out replica (two replicas including primary) by default. You can scale the number of read-only replicas between 0 and 4 using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate).
+          The Hyperscale databases are created with one Read Scale-out replica (two replicas including primary) by default. You can scale the number of read-only replicas between 0 and 4 using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate). Additionally, many read scale-out scenarios can be enabled using [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview).
           
       - question: |
           For high availability, do I need to provision additional compute replicas?
@@ -177,7 +177,7 @@ sections:
       - question: |
           Does my `tempdb` scale as my database grows?
         answer: |
-          Your `tempdb` database is located on local SSD storage and is sized proportionally to the compute size that you provision. Your `tempdb` is optimized to provide maximum performance benefits. `tempdb` size is not configurable and is managed for you.
+          Your `tempdb` database is located on local SSD storage and is sized proportionally to the compute size that you provision. Your `tempdb` is optimized to provide maximum performance benefits. `tempdb` size is not configurable and is managed for you. To determine maximum `tempdb` size for your database, see [Hyperscale storage and compute sizes](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
 
       - question: |
           Does my database size automatically grow, or do I have to manage the size of data files?
@@ -245,7 +245,7 @@ sections:
       - question: |
           Do I lose any functionality or capabilities after migration to the Hyperscale service tier?
         answer: |
-          Yes. Some Azure SQL Database features are not supported in Hyperscale yet, including but not limited to long term backup retention. After you migrate your databases to Hyperscale, those features stop working.  We expect these limitations to be temporary.
+          Yes. Some Azure SQL Database features are not supported in Hyperscale yet, including but not limited to long term backup retention. After you migrate your databases to Hyperscale, those features stop working.  We expect these limitations to be temporary. For details, see [Known limitations](service-tier-hyperscale.md#known-limitations).
 
       - question: |
           Can I move my on-premises SQL Server database, or my SQL Server database in a cloud virtual machine to Hyperscale?
@@ -302,7 +302,7 @@ sections:
       - question: |
           How often are the database backups taken?
         answer: |
-          There are no traditional full, differential, and log backups for Hyperscale databases. Instead, there are regular storage snapshots of data files. Log that is generated is simply retained as-is for the configured retention period, allowing restore to any point in time within the retention period.
+          There are no traditional full, differential, and log backups for Hyperscale databases. Instead, there are regular storage snapshots of data files. Log that is generated is retained as-is for the configured retention period, allowing restore to any point in time within the retention period.
 
       - question: |
           Does Hyperscale support point-in-time restore?
@@ -312,7 +312,7 @@ sections:
       - question: |
           What is the Recovery Point Objective (RPO)/Recovery Time Objective (RTO) for database restore in Hyperscale?
         answer: |
-          The RPO is 0 min. Most restore operations complete within 60 minutes regardless of database size. Restore time may be longer for larger databases, and if the database had experienced significant write activity before and up to the restore point in time.
+          The RPO for point-in-time restore is 0 min. Most point-in-time restore operations complete within 60 minutes regardless of database size. Restore time may be longer for larger databases, and if the database had experienced significant write activity before and up to the restore point in time.
 
       - question: |
           Does database backup affect compute performance on my primary or secondary replicas?
@@ -327,7 +327,7 @@ sections:
       - question: |
           Can I set up geo-replication with a Hyperscale database?
         answer: |
-          [Geo-replication](active-geo-replication-overview.md) for Hyperscale databases is in public preview.
+          Yes. [Geo-replication](active-geo-replication-overview.md) for Hyperscale databases is in public preview.
 
       - question: |
           Can I take a Hyperscale database backup and restore it to my on-premises server, or on SQL Server in a VM?
@@ -339,7 +339,7 @@ sections:
       - question: |
           Do I lose any functionality or capabilities after migration to the Hyperscale service tier?
         answer: |
-          Yes. Some Azure SQL Database features are not supported in Hyperscale, including but not limited to long term backup retention. After you migrate your databases to Hyperscale, those features stop working.
+          Yes. Some Azure SQL Database features are not supported in Hyperscale, including but not limited to long term backup retention. After you migrate your databases to Hyperscale, those features stop working. For details, see [Known limitations](service-tier-hyperscale.md#known-limitations).
 
       - question: |
           Will PolyBase work with Hyperscale?
@@ -366,7 +366,7 @@ sections:
       - question: |
           How many IOPS do I get on the largest compute?
         answer: |
-          IOPS and IO latency will vary depending on the workload patterns. If the data being accessed is cached on the compute replica, you will see similar IO performance as with local SSD.
+          IOPS and IO latency will vary depending on the workload patterns. If the data being accessed is cached in RBPEX on the compute replica, you will see similar IO performance as in Business Critical or Premium service tiers.
 
       - question: |
           Does my throughput get affected by backups?
@@ -398,7 +398,7 @@ sections:
       - question: |
           Should I expect connection drop when the scaling operations are in progress?
         answer: |
-          Scaling up or down results in existing connections being dropped when a failover happens at the end of the scaling operation. Adding secondary replicas does not result in connection drops.
+          Scaling up or down results in existing connections being dropped when a failover happens at the end of the scaling operation. Adding or removing secondary replicas does not result in connection drops on the primary.
 
       - question: |
           Is the scaling up and down of compute replicas automatic or end-user triggered operation?
@@ -408,7 +408,7 @@ sections:
       - question: |
           Does the size of my `tempdb` database and RBPEX cache also grow as the compute is scaled up?
         answer: |
-          Yes. The `tempdb` database and [RBPEX cache](service-tier-hyperscale.md#distributed-functions-architecture) size on compute nodes will scale up automatically as the number of cores is increased.
+          Yes. The `tempdb` database and [RBPEX cache](service-tier-hyperscale.md#distributed-functions-architecture) size on compute nodes will scale up automatically as the number of cores is increased. For details, see [Hyperscale storage and compute sizes](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5).
           
       - question: |
           Can I provision multiple primary compute replicas, such as a multi-master system, where multiple primary compute heads can drive a higher level of concurrency?
@@ -418,41 +418,44 @@ sections:
   - name: Read scale-out questions
     questions:
       - question: |
-          How many secondary compute replicas can I provision?
+          What kinds of secondary (read scale-out) replicas are available in Hyperscale?
         answer: |
-          We create one secondary replica for Hyperscale databases by default. If you want to adjust the number of replicas, you can do so using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate). For more information on replica types, see [Hyperscale Replicas](service-tier-hyperscale-replicas.md).
+          Hyperscale supports High Availability (HA) replicas, named replicas, and geo-replicas. See [Hyperscale secondary replicas](service-tier-hyperscale-replicas.md) for details.
+
+      - question: |
+          How many secondary HA replicas can I provision?
+        answer: |
+          We create one secondary HA replica for Hyperscale databases by default. If you want to adjust the number of replicas, you can do so using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate).
           
       - question: |
-          How do I connect to these secondary compute replicas?
+          How do I connect to secondary HA replicas?
         answer: |
-          You can connect to these additional read-only compute replicas by setting the `ApplicationIntent` argument on your connection string to `ReadOnly`. Any connections marked with `ReadOnly` are automatically routed to one of the additional read-only compute replicas. For details, see [Use read-only replicas to offload read-only query workloads](read-scale-out.md).
+          You can connect to these additional read-only compute replicas by setting the `ApplicationIntent` argument in your connection string to `ReadOnly`. Any connections marked with `ReadOnly` are automatically routed to one of the secondary HA replicas, if they were added for your database. For details, see [Use read-only replicas to offload read-only query workloads](read-scale-out.md).
           
       - question: |
           How do I validate if I have successfully connected to secondary compute replica using SSMS or other client tools?
         answer: |
-          You can execute the following T-SQL query:
-          `SELECT DATABASEPROPERTYEX ('<database_name>', 'Updateability')`.
-          The result is `READ_ONLY` if you are connected to a read-only secondary replica, and `READ_WRITE` if you are connected to the primary replica. Note that the database context must be set to the name of the Hyperscale database, not to the `master` database.
+          You can execute the following T-SQL query: `SELECT DATABASEPROPERTYEX ('<database_name>', 'Updateability')`. The result is `READ_ONLY` if you are connected to a read-only secondary replica, and `READ_WRITE` if you are connected to the primary replica. Note that the database context must be set to the name of the Hyperscale database, not to the `master` database.
           
       - question: |
-          Can I create a dedicated endpoint for a Read Scale-out replica?
+          Can I create a dedicated endpoint for a secondary HA replica?
         answer: |
-          No. You can only connect to Read Scale-out replicas by specifying `ApplicationIntent=ReadOnly`.
+          No. You can only connect to HA replicas by specifying `ApplicationIntent=ReadOnly`. However, you can use dedicated endpoints for [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview). 
 
       - question: |
-          Does the system do intelligent load balancing of the read workload?
+          Does the system do intelligent load balancing of the read workload on HA replicas?
         answer: |
-          No. A new connection with read-only intent is redirected to an arbitrary Read Scale-out replica.
+          No. A new connection with read-only intent is redirected to an arbitrary HA replica.
 
       - question: |
-          Can I scale up/down the secondary compute replicas independently of the primary replica?
+          Can I scale up/down HA replicas independently of the primary replica?
         answer: |
-          No. The secondary compute replica are also used as high availability failover targets, so they need to have the same configuration as the primary to provide expected performance after failover.
+          No. HA replicas are used as high availability failover targets, so they need to have the same configuration as the primary to provide expected performance after failover. [Named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview) provide the ability to scale each replica independently.
 
       - question: |
-          Do I get different `tempdb` sizing for my primary compute and my additional secondary compute replicas?
+          Do I get different `tempdb` sizing for my primary compute and my HA replicas?
         answer: |
-          No. Your `tempdb` database is configured based on the compute size provisioning, your secondary compute replicas are the same size as the primary compute.
+          No. Your `tempdb` database is configured based on the provisioned compute size, your HA replicas are the same size, including `tempdb`, as the primary compute. On [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview), `tempdb` is sized according to the compute size of the replica, thus it can be smaller or larger than `tempdb` on the primary.
 
       - question: |
           Can I add indexes and views on my secondary compute replicas?

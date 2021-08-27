@@ -210,12 +210,12 @@ See [Azure Cosmos DB global distribution](tutorial-global-distribution-sql-api.m
 The section on query execution metrics explains how to retrieve the server execution time of queries ( `totalExecutionTimeInMs`), so that you can differentiate between time spent in query execution and time spent in network transit.
 
 ### Indexing policy
-See [Configuring indexing policy](index-policy.md) for indexing paths, kinds, and modes, and how they impact query execution. By default, the indexing policy uses Hash indexing for strings, which is effective for equality queries, but not for range queries/order by queries. If you need range queries for strings, we recommend specifying the Range index type for all strings. 
+See [Configuring indexing policy](index-policy.md) for indexing paths, kinds, and modes, and how they impact query execution. By default, the indexing policy uses range indexing for strings, which is effective for equality queries. If you need range queries for strings, we recommend specifying the Range index type for all strings. 
 
 By default, Azure Cosmos DB will apply automatic indexing to all data. For high performance insert scenarios, consider excluding paths as this will reduce the RU cost for each insert operation. 
 
 ## Query execution metrics
-You can obtain detailed metrics on query execution by passing in the optional `x-ms-documentdb-populatequerymetrics` header (`FeedOptions.PopulateQueryMetrics` in the .NET SDK). The value returned in `x-ms-documentdb-query-metrics` has the following key-value pairs meant for advanced troubleshooting of query execution. 
+You can obtain detailed metrics on query execution by passing in the optional `x-ms-documentdb-populatequerymetrics` header (`FeedOptions.PopulateQueryMetrics` in the .NET SDK). The value returned in `x-ms-documentdb-query-metrics` has the following key-value pairs meant for advanced troubleshooting of query execution.
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
@@ -248,7 +248,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `retrievedDocumentCount` | count | Total number of retrieved documents  | 
 | `retrievedDocumentSize` | bytes | Total size of retrieved documents in bytes  | 
 | `outputDocumentCount` | count | Number of output documents | 
-| `writeOutputTimeInMs` | milliseconds | Query execution time in milliseconds | 
+| `writeOutputTimeInMs` | milliseconds | Time spent writing the output in milliseconds | 
 | `indexUtilizationRatio` | ratio (<=1) | Ratio of number of documents matched by the filter to the number of documents loaded  | 
 
 The client SDKs may internally make multiple query operations to serve the query within each partition. The client makes more than one call per-partition if the total results exceed `x-ms-max-item-count`, if the query exceeds the provisioned throughput for the partition, or if the query payload reaches the maximum size per page, or if the query reaches the system allocated timeout limit. Each partial query execution returns a `x-ms-documentdb-query-metrics` for that page. 

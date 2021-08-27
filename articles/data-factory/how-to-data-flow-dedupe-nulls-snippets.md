@@ -4,6 +4,7 @@ description: Learn how to easily dedupe rows and find nulls by using code snippe
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 09/30/2020
 ---

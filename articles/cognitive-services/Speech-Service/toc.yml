@@ -59,6 +59,18 @@
               href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Responsible use of AI
       items:
+        - name: Speech-to-text
+          items:
+          - name: Transparency note
+            items:
+            - name: Use cases for Speech-to-text
+              href: /legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/cognitive-services/speech-service/context/context
+            - name: Characteristics and limitations
+              href: /legal/cognitive-services/speech-service/speech-to-text/characteristics-and-limitations?context=/azure/cognitive-services/speech-service/context/context
+          - name: Integration and responsible use
+            href: /legal/cognitive-services/speech-service/speech-to-text/guidance-integration-responsible-use?context=/azure/cognitive-services/speech-service/context/context
+          - name: Data, privacy, and security
+            href: /legal/cognitive-services/speech-service/speech-to-text/data-privacy-security?context=/azure/cognitive-services/speech-service/context/context
         - name: Pronunciation Assessment
           items:
           - name: Transparency Note
@@ -105,9 +117,11 @@
           href: language-support.md#speech-to-text
         - name: Region support
           href: regions.md#speech-to-text-text-to-speech-and-translation
+        - name: Ingestion Client
+          href: ingestion-client.md
         - name: Speech-to-text FAQ
           displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
-          href: faq-stt.md
+          href: faq-stt.yml
 - name: Text-to-speech
   items:
     - name: Text-to-speech documentation
@@ -259,6 +273,8 @@
       items:
         - name: 'Recognize speech intents with LUIS, C#'
           href: how-to-recognize-intents-from-speech-csharp.md
+        - name: 'Recognize speech intents with simple pattern matching, C++'
+          href: how-to-use-simple-language-pattern-matching.md
     - name: Reference
       items:
         - name: Speech SDK
@@ -428,7 +444,7 @@
                 - name: Voice Assistants Samples (GitHub)
                   href: http://aka.ms/speech/va-samples
                 - name: Voice assistants FAQ
-                  href: faq-voice-assistants.md
+                  href: faq-voice-assistants.yml
                 - name: Custom Commands encryption of data at rest
                   href: custom-commands-encryption-of-data-at-rest.md
         - name: Direct Line Speech
@@ -446,7 +462,7 @@
             - name: Resources
               items:
                 - name: Voice assistants FAQ
-                  href: faq-voice-assistants.md
+                  href: faq-voice-assistants.yml
         - name: Voice assistants on Windows
           items:
             - name: Overview of voice assistants on Windows
@@ -464,7 +480,7 @@
                 - name: 'Best practices for assistant experiences'
                   href: windows-voice-assistants-best-practices.md
                 - name: 'Samples and frequently asked questions'
-                  href: windows-voice-assistants-faq.md
+                  href: windows-voice-assistants-faq.yml
 - name: How-to guides
   items:
     - name: Enable logging

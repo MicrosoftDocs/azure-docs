@@ -17,7 +17,7 @@ Forced tunneling lets you redirect or "force" all Internet-bound traffic back to
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-This article walks you through configuring forced tunneling for virtual networks created using the classic deployment model. Forced tunneling can be configured by using PowerShell, not through the portal. If you want to configure forced tunneling for the Resource Manager deployment model, select Resource Manager article from the following dropdown list:
+This article walks you through configuring forced tunneling for virtual networks created using the classic deployment model. Forced tunneling can be configured by using PowerShell, not through the portal. If you want to configure forced tunneling for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md), select Resource Manager article from the following dropdown list:
 
 > [!div class="op_single_selector"]
 > * [Classic](vpn-gateway-about-forced-tunneling.md)

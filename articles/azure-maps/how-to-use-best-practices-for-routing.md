@@ -7,7 +7,7 @@ ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Best practices for Azure Maps Route service

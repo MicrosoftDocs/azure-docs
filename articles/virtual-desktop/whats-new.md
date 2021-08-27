@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 06/02/2021
+ms.date: 07/30/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -36,11 +36,12 @@ The Azure Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Azure Virtual Desktop Agent:
 
-- Version 1.0.3130.1200: This update was released May 2021 for validation pools and has the following changes:
+- Version 1.0.3130.2900: This update was released July 2021 and has the following changes:
     - General improvements and bug fixes.
     - Fixes an issue with getting the host pool path for Intune registration.
     - Added logging to better diagnose agent issues.
-- Version 1.0.3050.1200: This update was released May 2021 for validation pools and has the following changes:
+    - Fixes an issue with orchestration timeouts.
+- Version 1.0.3050.2500: This update was released July 2021 and has the following changes:
     - Updated internal monitors for agent health.
     - Updated retry logic for stack health.
 - Version 1.0.2990.1500: This update was released April 2021 and has the following changes:
@@ -48,7 +49,7 @@ Here's what's changed in the Azure Virtual Desktop Agent:
     - Added an exception that prevents you from installing non-Windows 7 agents on Windows 7 VMs.
     - Has updated heartbeat service logic.
 - Version 1.0.2944.1400: This update was released April 2021 and has the following changes:
-    - Placed links to the Windows Virtual Desktop Agent troubleshooting guide in the event viewer logs for agent errors.
+    - Placed links to the Azure Virtual Desktop Agent troubleshooting guide in the event viewer logs for agent errors.
     - Added an additional exception for better error handling.
     - Added the WVDAgentUrlTool.exe that allows customers to check which required URLs they can access.
 -	Version 1.0.2866.1500: This update was released March 2021 and it fixes an issue with the stack health check.
@@ -60,13 +61,87 @@ Here's what's changed in the Azure Virtual Desktop Agent:
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
 
+## July 2021
+
+Here's what changed in July 2021:
+
+### Azure Virtual Desktop images now include optimized Teams
+
+All available images in the Azure Virtual Desktop image gallery that include Microsoft 365 Apps for Enterprise now have the media-optimized version of Teams for Azure Virtual Desktop pre-installed. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/media-optimization-for-microsoft-teams-now-part-of-win10/m-p/2550054#M7442).
+
+### Azure Active Directory Domain Join for Session hosts is in public preview
+
+You can now join your Azure Virtual Desktop virtual machines (VMs) directly to Azure Active Directory (Azure AD). This feature lets you connect to your VMs from any device with basic credentials. You can also automatically enroll your VMs with Microsoft Endpoint Manager. For certain scenarios, this will help eliminate the need for a domain controller, reduce costs, and streamline your deployment. Learn more at [Deploy Azure AD joined virtual machines in Azure Virtual Desktop](deploy-azure-ad-joined-vm.md).
+
+### FSLogix version 2105 is now available
+
+FSLogix version 2105 is now generally available. This version includes improved sign-in times and bug fixes that weren't available in the public preview version (version 2105). For more detailed information, you can see [the FSLogix release notes](/fslogix/whats-new) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-fslogix-2105-2-9-7838-44263/m-p/2539491#M7412).
+
+### Azure Virtual Desktop in China has entered public preview
+
+With Azure Virtual Desktop available in China, we now have more rounded global coverage that helps organizations support customers in this region with improved performance and latency. Learn more at [our announcement page](https://azure.microsoft.com/updates/azure-virtual-desktop-is-now-available-in-the-azure-china-cloud-in-preview/).
+ 
+### The getting started feature for Azure Virtual Desktop
+
+This feature offers a streamlined onboarding experience in the Azure portal to set up your Azure Virtual Desktop environment. You can use this feature to create deployments that meet system requirements for automated Azure Active Directory Domain Services the simple and easy way. For more information, check out our [blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/getting-started-wizard-in-azure-virtual-desktop/m-p/2451385).
+
+### Start VM on connect is now generally available
+
+The start VM on connect feature is now generally available. This feature helps you optimize costs by letting you turn off deallocated or stopped VMs, letting your deployment be flexible with user demands. For more information, see [Start Virtual Machine on Connect](start-virtual-machine-connect.md).
+
+### Remote app streaming documentation
+
+We recently announced a new pricing option for remote app streaming for using Azure Virtual Desktop to deliver apps as a service to your customers and business partners. For example, software vendors can use remote app streaming to deliver apps as a software as a service (SaaS) solution that's accessible to their customers. To learn more about remote app streaming, check out [our documentation](./remote-app-streaming/overview.md).
+
+From July 14th, 2021 to December 31st, 2021, we're giving customers who use remote app streaming a promotional offer that lets their business partners and customers access Azure Virtual Desktop for no charge. This offer only applies to external user access rights. Regular billing will resume on January 1st, 2022. In the meantime, you can continue to use your existing Windows license entitlements found in licenses like Microsoft 365 E3 or Windows E3. To learn more about this offer, see the [Azure Virtual Desktop pricing page](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+
+### New Azure Virtual Desktop handbooks
+
+We recently released four new handbooks to help you design and deploy Azure Virtual Desktop in different scenarios: 
+
+- [Application Management](https://azure.microsoft.com/resources/azure-virtual-desktop-handbook-application-management/) will show you how to modernize application delivery and simplify IT management.  
+- In [Disaster Recovery](https://azure.microsoft.com/resources/azure-virtual-desktop-handbook-disaster-recovery/), learn how to strengthen business resilience by developing a disaster recovery strategy.  
+- Get more value from Citrix investments with the [Citrix Cloud with Azure Virtual Desktop](https://azure.microsoft.com/resources/migration-guide-citrix-cloud-with-azure-virtual-desktop/) migration guide.
+- Get more value from existing VMware investments with the [VMware Horizon with Azure Virtual Desktop](https://azure.microsoft.com/resources/migration-guide-vmware-horizon-cloud-and-azure-virtual-desktop/) migration guide.
+
+## June 2021
+
+Here's what changed in June 2021:
+
+### Windows Virtual Desktop is now Azure Virtual Desktop
+
+To better align with our vision of a flexible cloud desktop and remote application platform, we've renamed Windows Virtual Desktop to Azure Virtual Desktop. Learn more at [the announcement post in our blog](https://azure.microsoft.com/blog/azure-virtual-desktop-the-desktop-and-app-virtualization-platform-for-the-hybrid-workplace/).
+
+### EU, UK, and Canada geographies are now generally available
+
+Metadata service for the European Union, UK, and Canada is now in general availability. These new locations are very important to data sovereignty outside the US. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-public-preview-of-azure-virtual-desktop-service/m-p/2478401#M7314).
+
+### The Getting Started tool is now in public preview
+
+We created the Azure Virtual Desktop Getting Started tool to make the deployment process easier for first-time users. By simplifying and automating the deployment process, we hope this tool will help make adopting Azure Virtual Desktop faster and more accessible to a wider variety of users. Learn more at our [blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/getting-started-wizard-in-azure-virtual-desktop/m-p/2451385).
+
+### Azure Virtual Desktop pricing calculator updates
+
+We've made some significant updates to improve the Azure Virtual Desktop pricing experience on the Azure pricing calculator, including the following:  
+  
+- We've updated the service name to Azure Virtual Desktop  
+- We also updated the layout with the following new items:  
+   - A Storage section with both managed disk and file storage bandwidth  
+   - A custom section that shows cost-per-user
+
+You can access the pricing calculator at [this page](https://azure.microsoft.com/pricing/calculator/).
+
+### Single Sign-on (SSO) using Active Directory Federation Services (AD FS)
+
+The AD FS single-sign on feature is now generally available. This feature lets customers use AD FS to give a single sign-on experience for users on the Windows and web clients. For more information, see [Configure AD FS single sign-on for Azure Virtual Desktop](configure-adfs-sso.md).
+
 ## May 2021
 
 Here's what's new for May 2021:
 
 ### Smart card authentication
 
-We've now officially released the Key Distribution Center (KDC) Proxy Remote Desktop Protocol (RDP) properties. These properties enable Kerberos authentication for the RDP portion of a Azure Virtual Desktop session, which includes permitting Network Level Authentication without a password. Learn more at our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/new-feature-smart-card-authentication-for-windows-virtual/m-p/2323226).
+We've now officially released the Key Distribution Center (KDC) Proxy Remote Desktop Protocol (RDP) properties. These properties enable Kerberos authentication for the RDP portion of an Azure Virtual Desktop session, which includes permitting Network Level Authentication without a password. Learn more at our [blog post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/new-feature-smart-card-authentication-for-windows-virtual/m-p/2323226).
 
 ### The web client now supports file transfer
 
@@ -452,7 +527,7 @@ The previous version of Remote Desktop client is now called “Remote Desktop 8.
 
 ### Teams update
 
-We've made improvements to Microsoft Teams for Azure Virtual Desktop. Most importantly, Azure Virtual Desktop now supports audio and video optimization for the Windows Desktop client. Redirection improves latency by creating direct paths between users when they use audio or video in calls and meetings. Less distance means fewer hops, which makes calls look and sound smoother. Learn more at [Use Teams on Azure Virtual Desktop](teams-on-wvd.md).
+We've made improvements to Microsoft Teams for Azure Virtual Desktop. Most importantly, Azure Virtual Desktop now supports audio and video optimization for the Windows Desktop client. Redirection improves latency by creating direct paths between users when they use audio or video in calls and meetings. Less distance means fewer hops, which makes calls look and sound smoother. Learn more at [Use Teams on Azure Virtual Desktop](./teams-on-avd.md).
 
 ## June 2020
 

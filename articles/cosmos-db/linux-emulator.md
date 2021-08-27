@@ -36,7 +36,7 @@ Since the Azure Cosmos DB Emulator provides an emulated environment that runs on
 
 - The Linux emulator does not offer [multi-region replication](distribute-data-globally.md).
 
-- Because the copy of your Azure Cosmos DB Linux Emulator might not always be up to date with the most recent changes in the Azure Cosmos DB service, you should always refer to the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to accurately estimate the throughput (RUs) needs of your application. <add link>
+- Because the copy of your Azure Cosmos DB Linux Emulator might not always be up to date with the most recent changes in the Azure Cosmos DB service, you should always refer to the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to accurately estimate the throughput (RUs) needs of your application.
 
 - The Linux emulator supports a maximum ID property size of 254 characters.
 

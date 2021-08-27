@@ -158,9 +158,9 @@ To set up a managed identity in the portal, you first create an application and 
 
 ## Deploy your application
 
-Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally-running apps. To deploy the .NET Core app that you created in the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](/azure/app-service/quickstart-dotnetcore?tabs=netcore31&pivots=development-environment-vs#publish-your-web-app).
+Using managed identities requires you to deploy your app to an Azure service. Managed identities can't be used for authentication of locally-running apps. To deploy the .NET Core app that you created in the [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) quickstart and modified to use managed identities, follow the guidance in [Publish your web app](../app-service/quickstart-dotnetcore.md?pivots=development-environment-vs&tabs=netcore31#publish-your-web-app).
 
-In addition to App Service, many other Azure services support managed identities. For more information, see [Services that support managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+In addition to App Service, many other Azure services support managed identities. For more information, see [Services that support managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ## Clean up resources
 

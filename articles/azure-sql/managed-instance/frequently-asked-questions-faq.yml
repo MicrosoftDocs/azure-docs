@@ -148,7 +148,7 @@ sections:
           
           ### How can I migrate my SQL Server instance to SQL Managed Instance?
           
-          To migrate your SQL Server instance, see [SQL Server instance migration to Azure SQL Managed Instance](migrate-to-instance-from-sql-server.md).
+          To migrate your SQL Server instance, see [SQL Server to Azure SQL Managed Instance Guide](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
           
           ### How can I migrate from other platforms to SQL Managed Instance?
           
@@ -180,17 +180,33 @@ sections:
           
           You can optimize the performance of your managed instance by:
           - [Automatic tuning](../database/automatic-tuning-overview.md) that provides peak performance and stable workloads through continuous performance tuning based on AI and machine learning.
-          -    [In-memory OLTP](../in-memory-oltp-overview.md) that improves throughput and latency on transactional processing workloads and delivers faster business insights. 
+          - [In-memory OLTP](../in-memory-oltp-overview.md) that improves throughput and latency on transactional processing workloads and delivers faster business insights. 
+          - Applying some of the [best practices for application and database tuning](../database/performance-guidance.md#tune-your-database)
+          - [Switching the connection type from proxy to redirect mode](connection-types-overview.md#changing-connection-type) for lower latency and higher throughput, in case your workload consists of lots of small transactions.
           
-          To tune the performance even further, consider applying some of the *best practices* for [Application and database tuning](../database/performance-guidance.md#tune-your-database).
-          If your workload consists of lots of small transactions, consider [switching the connection type from proxy to redirect mode](connection-types-overview.md#changing-connection-type) for lower latency and higher throughput.
+          ### How can I further tune performance of my General Purpose managed instance?
           
+          To improve performance on a General Purpose instance, consider [increasing data file size](https://techcommunity.microsoft.com/t5/azure-sql/increase-data-file-size-to-improve-hammerdb-workload-performance/ba-p/823337). 
+          To optimize storage performance on a General Purpose instance, see [Storage best practice guidelines for General Purpose tier](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525).
+          
+          ### My query duration is too long. How can I analyze wait statistics on my managed instance?
+          
+          See [Analyzing wait statistics on SQL Managed Instance](/archive/blogs/sqlserverstorageengine/analyzing-wait-statistics-on-managed-instance). Wait statistics are information that might help you understand why the query duration is long and identify the queries that are waiting for something in database engine.
+               
       - question: |
           Monitoring, Metrics and Alerts
         answer: |
           ### What are the options for monitoring and alerting for my managed instance?
           
           For all possible options to monitor and alert on SQL Managed Instance consumption and performance, see [Azure SQL Managed Instance monitoring options blog post](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). For the real-time performance monitoring for SQL MI, see [Real-time performance monitoring for Azure SQL DB Managed Instance](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+          
+          ### How can I monitor performance of my managed instance?
+          
+          See [Monitor your SQL deployments with SQL insights](../../azure-monitor/insights/sql-insights-overview.md).
+          
+          ### How can I monitor the real-time performance of my managed instance?
+          
+          See [Real-time performance monitoring for Azure SQL DB Managed Instance](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
           
           ### Can I use SQL Profiler for performance tracking?
           
@@ -200,9 +216,13 @@ sections:
           
           No, they are not supported. You can use [DMVs](../database/monitoring-with-dmvs.md) and [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?preserve-view=true&view=sql-server-ver15) together with [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15) and [XEvents](/sql/relational-databases/extended-events/extended-events?preserve-view=true&view=sql-server-ver15) to monitor your databases.
           
+          ### How can I monitor CPU usage on my managed instance?
+          
+          See [Monitor CPU usage on your SQL Server and Azure SQL](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131).
+          
           ### Can I create metric alerts on SQL Managed Instance?
           
-          Yes. For instructions, see [Create alerts for SQL Managed Instance](alerts-create.md).
+          Yes. For instructions, see [Create alerts for SQL Managed Instance](./alerts-create.md). For more tips and tricks, see [the blog](https://techcommunity.microsoft.com/t5/azure-database-support-blog/tips-amp-tricks-1-creating-alerts-for-azure-sql-managed-instance/ba-p/2396044).
           
           ### Can I create metric alerts on a database in managed instance?
           
@@ -244,7 +264,7 @@ sections:
           
           ### Is native restore (from .bak files) to Managed Instance supported?
           
-          Yes, it is supported and available for SQL Server 2005+ versions.  To use native restore, upload your .bak file to Azure blob storage and execute T-SQL commands. For more details, see [Native restore from URL](./migrate-to-instance-from-sql-server.md#native-restore-from-url).
+          Yes, it is supported and available for SQL Server 2005+ versions.  To use native restore, upload your .bak file to Azure blob storage and execute T-SQL commands. For more details, see [Native restore from URL](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md).
           
       - question: |
           Business continuity
@@ -549,4 +569,3 @@ sections:
           ### How can I create Azure support request?
           
           To learn how to create Azure support request, see [How to create Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
-          

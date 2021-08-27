@@ -21,7 +21,7 @@ For information on a **hosted** or **logic app** test drive, see [What is a test
 
 A deployment template contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. Set the following properties in Partner Center:
 
-- **Regions** (required) – Currently there are 26 Azure-supported regions where your test drive can be made available. Typically, you will want to make your test drive available in the regions where you anticipate the largest number of customers, so that they can select the closest region for the best performance. You will need to make sure that your subscription is allowed to deploy all of the resources needed in each of the regions you are selecting.
+- **Regions** (required) – Currently there are 26 Azure-supported regions where your test drive can be made available. For the best performance, we recommmend choosing one region where you expect the largest number of customers to be located. You will need to make sure that your subscription is allowed to deploy all of the resources needed in each of the regions you are selecting.
 
 - **Instances** – Select the type (hot or cold) and number of available instances, which will be multiplied by the number of regions where your offer is available.
 
@@ -191,9 +191,9 @@ restrictions in [this article](/azure/cloud-adoption-framework/ready/azure-best-
 
 ### Deployment Location
 
-You can make you test drive available in different Azure regions. The idea is to allow a user to pick the closest region, to provide with the beast user experience.
+You can make you test drive available in different Azure regions.
 
-When test drive creates an instance of the Lab, it always creates a resource group in the region chose by a user, and then executes your deployment template in this group context. So, your template should pick the deployment location from resource group:
+When test drive creates an instance of the Lab, it always creates a resource group in one of the selected regions, and then executes your deployment template in this group context. So, your template should pick the deployment location from resource group:
 
 ```JSON
 "variables": {

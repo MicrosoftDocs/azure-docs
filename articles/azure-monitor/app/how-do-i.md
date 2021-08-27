@@ -156,7 +156,7 @@ Among the metrics you can show in metrics explorer are a set of system performan
 ![Open your Application Insights resource and click Servers](./media/how-do-i/121-servers.png)
 
 ### If you see no performance counter data
-* **IIS server** on your own machine or on a VM. [Install Status Monitor](./monitor-performance-live-website-now.md).
+* **IIS server** on your own machine or on a VM. [Install Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md).
 * **Azure web site** - we don't support performance counters yet. There are several metrics you can get as a standard part of the Azure web site control panel.
 * **Unix server** - [Install collectd](java-2x-collectd.md)
 

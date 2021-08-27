@@ -6,7 +6,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 06/10/2021
+ms.date: 07/22/2021
 ms.author: alkohli 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an IT admin, I need to be able to order Data Box to upload on-premises data from my server onto Azure.
@@ -23,6 +23,9 @@ This tutorial describes how you can order an Azure Data Box. In this tutorial, y
 > * Order a Data Box
 > * Track the order
 > * Cancel the order
+
+> [!NOTE]
+> To get answers to frequently asked questions about Data Box orders and shipments, see [Data Box FAQ](data-box-faq.yml).
 
 ## Prerequisites
 

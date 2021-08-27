@@ -7,8 +7,8 @@ ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: how-to
-author: shkale-msft
-ms.author: shkale
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma
 ms.date: 01/08/2020
 ---

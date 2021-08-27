@@ -1,9 +1,9 @@
 ---
-title: Single-page app sign-in & sign-out 
+title: Single-page app sign-in & sign-out
 titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (sign-in)
 services: active-directory
-author: mtillman
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/11/2020
-ms.author: mtillman
+ms.author: marsma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
@@ -216,7 +216,7 @@ import { MsalAuthenticationTemplate, useMsal } from "@azure/msal-react";
 function WelcomeUser() {
     const { accounts } = useMsal();
     const username = accounts[0].username;
-    
+
     return <p>Welcome, {username}</p>
 }
 
@@ -251,7 +251,7 @@ function SignInButton() {
 function WelcomeUser() {
     const { accounts } = useMsal();
     const username = accounts[0].username;
-    
+
     return <p>Welcome, {username}</p>
 }
 
@@ -303,7 +303,7 @@ function handleResponse(response) {
     } else {
         // In case multiple accounts exist, you can select
         const currentAccounts = myMsal.getAllAccounts();
-    
+
         if (currentAccounts.length === 0) {
             // no accounts signed-in, attempt to sign a user in
             myMsal.loginRedirect(loginRequest);
@@ -393,7 +393,7 @@ import { MsalAuthenticationTemplate, useMsal } from "@azure/msal-react";
 function WelcomeUser() {
     const { accounts } = useMsal();
     const username = accounts[0].username;
-    
+
     return <p>Welcome, {username}</p>
 }
 
@@ -428,7 +428,7 @@ function SignInButton() {
 function WelcomeUser() {
     const { accounts } = useMsal();
     const username = accounts[0].username;
-    
+
     return <p>Welcome, {username}</p>
 }
 

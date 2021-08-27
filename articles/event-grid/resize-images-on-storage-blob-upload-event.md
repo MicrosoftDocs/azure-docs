@@ -36,34 +36,10 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-You must have completed the previous Blob storage tutorial: [Upload image data in the cloud with Azure Storage][previous-tutorial].
-
-You need an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). This tutorial doesn't work with the **free** subscription. 
-
-If you've not previously registered the Event Grid resource provider in your subscription, make sure it's registered.
-
-# [PowerShell](#tab/azure-powershell)
-
-```powershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.EventGrid
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this tutorial requires the Azure CLI version 2.0.14 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
-
-If you are not using Cloud Shell, you must first sign in using `az login`.
-
-```azurecli
-az provider register --namespace Microsoft.EventGrid
-```
-
----
+- You need an [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). This tutorial doesn't work with the **free** subscription. 
+- You must have completed the previous Blob storage tutorial: [Upload image data in the cloud with Azure Storage][previous-tutorial].  
 
 ## Create an Azure Storage account
-
 Azure Functions requires a general storage account. In addition to the Blob storage account you created in the previous tutorial, create a separate general storage account in the resource group. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
 Set variables to hold the name of the resource group that you created in the previous tutorial, the location for resources to be created, and the name of the new storage account that Azure Functions requires. Then, create the storage account for the Azure function.
@@ -72,25 +48,54 @@ Set variables to hold the name of the resource group that you created in the pre
 
 Use the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command.
 
-```powershell
-$resourceGroupName="myResourceGroup"
-$location="eastus"
-$functionstorage="<name of the storage account to be used by the function>"
+1. Specify a name for the resource group. 
 
-New-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $functionstorage -Location $location -SkuName Standard_LRS -Kind StorageV2
-```
+    ```azurepowershell-interactive
+    $resourceGroupName="myResourceGroup"
+    ```
+2. Specify the location for the storage account.
+
+    ```azurepowershell-interactive
+    $location="eastus"    
+    ```
+3. Specify the name of the storage account to be used by the function.
+
+    ```azurepowershell-interactive
+    $functionstorage="<name of the storage account to be used by the function>"    
+    ```
+4. Create a storage account. 
+
+    ```azurepowershell-interactive
+    New-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $functionstorage -Location $location -SkuName Standard_LRS -Kind StorageV2        
+    ```
 
 # [Azure CLI](#tab/azure-cli)
 
 Use the [az storage account create](/cli/azure/storage/account) command.
 
-```azurecli
-resourceGroupName="myResourceGroup"
-location="eastus"
-functionstorage="<name of the storage account to be used by the function>"
+> [!NOTE]
+> Use the following commands in the Bash shell of the Cloud Shell. Use the drop-drown list at the top-left corner of the Cloud Shell to switch to Bash shell if needed. 
 
-az storage account create --name $functionstorage --location $location --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
-```
+1. Specify a name for the resource group. 
+
+    ```azurecli-interactive
+    resourceGroupName="myResourceGroup"    
+    ```
+2. Specify the location for the storage account.
+
+    ```azurecli-interactive
+    location="eastus"
+    ```
+3. Specify the name of the storage account to be used by the function.
+
+    ```azurecli-interactive
+    functionstorage="<name of the storage account to be used by the function>"
+    ```
+4. Create a storage account. 
+
+    ```azurecli-interactive
+    az storage account create --name $functionstorage --location $location --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
+    ```
 
 ---
 
@@ -106,28 +111,31 @@ Specify a name for the function app that's to be created, then create the Azure 
 
 Create a function app by using the [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) command.
 
-```powershell
-$functionapp="<name of the function app>"
+1. Specify a name for the function app. 
 
-New-AzFunctionApp
-   -Location $location
-   -Name $functionapp
-   -ResourceGroupName $resourceGroupName
-   -Runtime PowerShell
-   -StorageAccountName $functionstorage
-```
+    ```azurepowershell-interactive
+    $functionapp="<name of the function app>"    
+    ```
+2. Create a function app. 
+
+    ```azurepowershell-interactive
+    New-AzFunctionApp -Location $location -Name $functionapp -ResourceGroupName $resourceGroupName -Runtime PowerShell -StorageAccountName $functionstorage    
+    ```
 
 # [Azure CLI](#tab/azure-cli)
 
 Create a function app by using the [az functionapp create](/cli/azure/functionapp) command.
 
-```azurecli
-functionapp="<name of the function app>"
+1. Specify a name for the function app. 
 
-az functionapp create --name $functionapp --storage-account $functionstorage \
-  --resource-group $resourceGroupName --consumption-plan-location $location \
-  --functions-version 2
-```
+    ```azurecli-interactive
+    functionapp="<name of the function app>"
+    ```
+2. Create a function app. 
+
+    ```azurecli-interactive
+    az functionapp create --name $functionapp --storage-account $functionstorage --resource-group $resourceGroupName --consumption-plan-location $location --functions-version 2    
+    ```
 
 ---
 
@@ -139,36 +147,26 @@ The function needs credentials for the Blob storage account, which are added to 
 
 # [\.NET v12 SDK](#tab/dotnet)
 
-```azurecli
-storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
-  --name $blobStorageAccount --query connectionString --output tsv)
+```azurecli-interactive
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
 
-az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
-  --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails \
-  THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```
 
-```powershell
-$storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName `
-  --name $blobStorageAccount --query connectionString --output tsv)
+```azurepowershell-interactive
+$storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
 
 Update-AzFunctionAppSetting -Name $functionapp -ResourceGroupName $resourceGroupName -AppSetting AzureWebJobsStorage=$storageConnectionString THUMBNAIL_CONTAINER_NAME=thumbnails THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```
 
 # [Node.js v10 SDK](#tab/nodejsv10)
 
-```azurecli
-blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
-  -n $blobStorageAccount --query [0].value --output tsv)
+```azurecli-interactive
+blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName -n $blobStorageAccount --query [0].value --output tsv)
 
-storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
-  --name $blobStorageAccount --query connectionString --output tsv)
+storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
 
-az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
-  --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails \
-  AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
-  AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey \
-  AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
+az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName --settings FUNCTIONS_EXTENSION_VERSION=~2 BLOB_CONTAINER_NAME=thumbnails AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
 ```
 
 ---
@@ -183,31 +181,17 @@ You can now deploy a function code project to this function app.
 
 The sample C# resize function is available on [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Deploy this code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command.
 
-```azurecli
-az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName \
-  --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/function-image-upload-resize
-```
-
-```powershell
-az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName `
-  --branch master --manual-integration `
-  --repo-url https://github.com/Azure-Samples/function-image-upload-resize
+```azurecli-interactive
+az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
 # [Node.js v10 SDK](#tab/nodejsv10)
 
 The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command.
 
-```azurecli
+```azurecli-interactive
 az functionapp deployment source config --name $functionapp \
   --resource-group $resourceGroupName --branch master --manual-integration \
-  --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
-```
-
-```powershell
-az functionapp deployment source config --name $functionapp `
-  --resource-group $resourceGroupName --branch master --manual-integration `
   --repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node-v10
 ```
 

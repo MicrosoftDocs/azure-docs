@@ -3,7 +3,7 @@ title: Continuous video recording from the edge - Azure Video Analyzer
 description: Continuous video recording (CVR) refers to the process of continuously recording from a live video source. This topic discusses what CVR is and how to use it with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 06/01/2021
 
 ---
 

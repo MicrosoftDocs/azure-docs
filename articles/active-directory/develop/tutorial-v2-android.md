@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, has-adal-ref
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Android application

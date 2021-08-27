@@ -88,10 +88,16 @@
         href: entitlement-management-access-package-approval-policy.md
       - name: Change lifecycle settings
         href: entitlement-management-access-package-lifecycle-policy.md
+      - name: Configure separation of duties
+        href: entitlement-management-access-package-incompatible.md
       - name: View requests
         href: entitlement-management-access-package-requests.md
+      - name: Reprocess requests
+        href: entitlement-management-reprocess-access-package-requests.md
       - name: View, add, and remove assignments
         href: entitlement-management-access-package-assignments.md
+      - name: Reprocess assignments
+        href: entitlement-management-reprocess-access-package-assignments.md
       - name: Hide or delete
         href: entitlement-management-access-package-edit.md
     - name: Approvers
