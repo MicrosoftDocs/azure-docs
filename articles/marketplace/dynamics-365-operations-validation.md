@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # Dynamics 365 for Operations functional validation
@@ -34,7 +34,7 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
 ### Option 2: Upload a demo video and LCS screenshots
 
-#### [Workspaces view](#tab/Workspaces-view) 
+#### [Preview interface](#tab/new-web-form)
 
 1. Record a video and upload the address to the hosting site of your choice. Follow these guidelines:
 
@@ -51,7 +51,7 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
        :::image type="content" source="media/dynamics-365-operations/project-library.png" alt-text="Shows the project library window.":::
 
-      2. Go to **LCS** > **Solution Management** > **Test Solution Package**. Take screenshots that include the package overview and contents shown in these examples:
+    2. Go to **LCS** > **Solution Management** > **Test Solution Package**. Take screenshots that include the package overview and contents shown in these examples:
 
     | Field | Image |
     | --- | --- |
@@ -71,7 +71,7 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
     :::image type="content" source="./media//dynamics-365-operations/supplemental-content-workspaces.png" alt-text="Illustrates a zip file uploaded to the Supplemental content page.":::
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Record a video and upload the address to the hosting site of your choice. Follow these guidelines:
 

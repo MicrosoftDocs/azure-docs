@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # Create a virtual machine offer on Azure Marketplace
@@ -21,7 +21,9 @@ If you haven't done so yet, review [Plan a virtual machine offer](marketplace-vi
 
 ## Create a new offer
 
-#### [Workspaces view](#tab/Workspaces-view)
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 
@@ -48,7 +50,7 @@ Enter an **Offer alias**. The offer alias is the name that's used for the offer 
 
 Select **Create** to generate the offer and continue. Partner Center opens the **Offer setup** page.
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. On the left pane, select **Commercial Marketplace** > **Overview**.

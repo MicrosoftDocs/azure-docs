@@ -7,7 +7,7 @@ ms.topic: article
 author: shganesh-dev
 ms.author: shganesh
 ms.reviewer: sroy
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # Downloads dashboard in commercial marketplace analytics
@@ -25,7 +25,9 @@ You will receive a pop-up notification containing a link to the **Downloads** da
 
 ## Access the Downloads dashboard
 
-#### [Workspaces view](#tab/Workspaces-view)
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
@@ -34,7 +36,7 @@ You will receive a pop-up notification containing a link to the **Downloads** da
 
 1. In the left menu, select **Downloads**.
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Downloads**.

@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # Marketplace Insights dashboard in commercial marketplace analytics
@@ -33,7 +33,9 @@ The Marketplace Insights dashboard provides clickstream data, which shouldn't be
 
 ## Access the Marketplace insights dashboard
 
-#### [Workspaces view](#tab/Workspaces-view)
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
@@ -42,7 +44,7 @@ The Marketplace Insights dashboard provides clickstream data, which shouldn't be
 
 1. In the left menu, select **Marketplace insights**.
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Marketplace insights**.
@@ -55,13 +57,13 @@ The Marketplace Insights dashboard displays web telemetry details for Azure Mark
 
 ### Month range
 
-#### [Workspaces view](#tab/Workspaces-view)
+#### [Preview interface](#tab/new-web-form)
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Marketplace Insights** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 :::image type="content" source="./media/insights-dashboard/month-filters-workspaces.png" alt-text="Illustrates the month filters on the Marketplace Insights dashboard.":::
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Marketplace Insights** page graphs by selecting a month range based on the past 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 

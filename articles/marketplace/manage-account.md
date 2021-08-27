@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # Manage your commercial marketplace account in Partner Center
@@ -20,7 +20,9 @@ Once you've [created a Partner Center account](./create-account.md), you can use
 
 ## Access your account settings
 
-#### [Workspaces view](#tab/Workspaces-view)
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
+#### [Preview interface](#tab/new-web-form)
 
 If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/v3/organization/legalinfo#mpn) for your Partner Center account.
 
@@ -34,7 +36,7 @@ If you have not already done so, you (or your organization's administrator) shou
 
     :::image type="content" source="./media/manage-accounts/developer-tab-workspaces.png" alt-text="Screenshot of the developer tab on the legal page in Account settings.":::
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 If you have not already done so, you (or your organization's administrator) should access the [account settings](https://go.microsoft.com/fwlink/?linkid=2165291) for your Partner Center account.
 
@@ -135,7 +137,7 @@ A payout profile is the bank account to which proceeds are sent from your sales.
 
 ### To set up your payout profile
 
-#### [Workspaces view](#tab/Workspaces-view)
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/home) in Partner Center with the account you want to access.
 
@@ -152,7 +154,7 @@ A payout profile is the bank account to which proceeds are sent from your sales.
 
 1. For more information about setting up your payout profile, see [Set up your payout account and tax forms](/partner-center/set-up-your-payout-account).
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Go to the [commercial marketplace overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) page in Partner Center.
 1. In the **Profile** section, next to **Payout Profile**, select **Update**.

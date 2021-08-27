@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # Review and publish an offer to the commercial marketplace
@@ -195,7 +195,9 @@ After these validation checks are complete, your offer will be live in the marke
 
 ## Publishing history
 
-#### [Workspaces view](#tab/Workspaces-view)
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
+#### [Preview interface](#tab/new-web-form)
 
 The **History** page in Partner Center shows the publishing events for your commercial marketplace offers. For each event, the page displays the user who initiated the action, the event type, and the event date and time. The [validation and publishing steps](#validation-and-publishing-steps) are listed with the date and time of completion.
 
@@ -229,7 +231,7 @@ To view the history of your offer:
 > [!NOTE]
 > The History page doesn’t say when an offer draft was saved.
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 The **History** page in Partner Center shows the publishing events for your commercial marketplace offers. For each event, the page displays the user who initiated the action, the event type, and the event date and time. The [validation and publishing steps](#validation-and-publishing-steps) are listed with the date and time of completion.
 

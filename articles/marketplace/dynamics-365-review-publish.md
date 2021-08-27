@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # Review and publish a Dynamics 365 offer
@@ -43,7 +43,7 @@ If any of the pages have a status other than **Complete**, you need to correct t
 
 After all pages are complete and you have entered applicable testing notes, select **Publish** to submit your offer. We will email you when a preview version of your offer is available to approve. At that time complete the following steps:
 
-#### [Workspaces view](#tab/Workspaces-view)
+#### [Preview interface](#tab/new-web-form)
 
 1. Return to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 1. On the Home page, select the **Marketplace offers** tile.
@@ -54,7 +54,7 @@ After all pages are complete and you have entered applicable testing notes, sele
 1. Select **Review and publish**.
 1. Select **Go live** to make your offer publicly available.
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Return to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 1. Select the **Overview** tab in the left-nav menu bar.

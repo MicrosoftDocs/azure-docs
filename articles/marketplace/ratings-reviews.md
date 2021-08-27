@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # Ratings & Reviews analytics dashboard in Partner Center
@@ -22,7 +22,9 @@ This article provides information on the Ratings & Reviews dashboard in Partner 
 
 ## Access the Ratings & reviews dashboard
 
-#### [Workspaces view](#tab/Workspaces-view)
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
@@ -31,7 +33,7 @@ This article provides information on the Ratings & Reviews dashboard in Partner 
 
 1. In the left menu, select **Ratings & reviews**.
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 In the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center, expand the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** section and select **Ratings & Reviews**.
 

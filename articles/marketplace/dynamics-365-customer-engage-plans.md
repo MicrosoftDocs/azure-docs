@@ -6,18 +6,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # Create Dynamics 365 for Customer Engagement & Power Apps plans
 
 If you enabled app license management for your offer, the **Plans overview** tab appears as shown in the following screenshot. Otherwise, go to [Set up Dynamics 365 for Customer Engagement & Power Apps offer technical configuration](dynamics-365-customer-engage-technical-configuration.md).
 
-#### [Workspaces view](#tab/Workspaces-view)
+#### [Preview interface](#tab/new-web-form)
 
 :::image type="content" source="./media/third-party-license/plan-tab-d365-workspaces.png" alt-text="Screenshot of the Plan overview tab for a Dynamics 365 for Customer Engagement & Power Apps offer that's been enabled for third-party app licensing.":::
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 :::image type="content" source="./media/third-party-license/plan-tab.png" alt-text="Screenshot of the Plan overview tab for a Dynamics 365 for Customer Engagement & Power Apps offer that's been enabled for third-party app licensing.":::
 
@@ -36,7 +36,7 @@ You need to define at least one plan, if your offer has app license management e
 
 On the **Plan listing** tab, you can define the plan name and description as you want them to appear in the commercial marketplace. This information will be shown on the Microsoft AppSource listing page.
 
-#### [Workspaces view](#tab/Workspaces-view)
+#### [Preview interface](#tab/new-web-form)
 
 1. In the **Plan name** box, the name you provided earlier for this plan appears here. You can change it at any time. This name will appear in the commercial marketplace as the title of your offer's software plan.
 1. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. This description may contain up to 500 characters.
@@ -46,7 +46,7 @@ On the **Plan listing** tab, you can define the plan name and description as you
 
 1. To create another plan for this offer, at the top of the **Plan overview** page, select **+ Create new plan**. Then repeat the steps in the [Create a plan](#create-a-plan) section. Otherwise, if you're done creating plans, go to the next section: Copy the Service IDs.
 
- #### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. In the **Plan name** box, the name you provided earlier for this plan appears here. You can change it at any time. This name will appear in the commercial marketplace as the title of your offer's software plan.
 1. In the **Plan description** box, explain what makes this software plan unique and any differences from other plans within your offer. This description may contain up to 500 characters.
@@ -62,13 +62,13 @@ On the **Plan listing** tab, you can define the plan name and description as you
 
 You need to copy the Service ID of each plan you created so you can map them to your solution package in the next step.
 
-#### [Workspaces view](#tab/Workspaces-view)
+#### [Preview interface](#tab/new-web-form)
 
 - For each plan you created, copy the Service ID to a safe place. You’ll add them to your solution package in the next step. The service ID is listed on the **Plan overview** page in the form of `ISV name.offer name.plan ID`. For example, Fabrikam.F365.bronze.
 
     :::image type="content" source="./media/third-party-license/service-id-workspaces.png" alt-text="Screenshot of the Plan overview page. The service ID for the plan is highlighted.":::
 
- #### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 - For each plan you created, copy the Service ID to a safe place. You’ll add them to your solution package in the next step. The service ID is listed on the **Plan overview** page in the form of `ISV name.offer name.plan ID`. For example, Fabrikam.F365.bronze.
 

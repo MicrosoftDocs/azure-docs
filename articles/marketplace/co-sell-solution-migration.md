@@ -7,7 +7,7 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # Migration of co-sell solutions from OCP GTM to the commercial marketplace
@@ -89,7 +89,7 @@ If you have a solution in OCP GTM that you want to migrate to Partner Center the
 
 #### Step 1: Similar offer does not exist in commercial marketplace please follow these steps
 
-#### [Workspaces view](#tab/Workspaces-view)
+#### [Preview interface](#tab/new-web-form)
 
 If you do not have an offer already in the commercial marketplace to merge a solution in OCP GTM with you will first need to create AND PUBLISH an offer in the commercial marketplace (this will retain its co-sell status, incentives, and referral pipeline.)
 
@@ -133,7 +133,7 @@ If you do not have an offer already in the commercial marketplace to merge a sol
 
 1. **Continue to Scenario 2 below to complete the merge process.**
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 If you do not have an offer already in the commercial marketplace to merge a solution in OCP GTM with you will first need to create AND PUBLISH an offer in the commercial marketplace (this will retain its co-sell status, incentives, and referral pipeline.)
 

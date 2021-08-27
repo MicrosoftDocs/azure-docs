@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # Anomaly detection service for metered billing
@@ -62,7 +62,7 @@ If one of the following cases applies, you can adjust the usage amount in Partne
 
 To submit a support ticket related to metered billing anomalies:
 
-#### [Workspaces view](#tab/Workspaces-view)
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account.
 1. On the Home page, select the **Help + support** tile.
@@ -79,7 +79,7 @@ To submit a support ticket related to metered billing anomalies:
 
 For more publisher support options, see [Support for the commercial marketplace program in Partner Center](../support.md).
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account.
 1. In the menu on the upper-right of the page, select the **Support** icon. The **Help and support** pane appears on the right side of the page.

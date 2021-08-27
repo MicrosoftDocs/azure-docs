@@ -7,7 +7,7 @@ ms.topic: how-to
 author: palanis-MSFT
 ms.author: palanis
 ms.reviewer: stmummer
-ms.date: 07/13/2021
+ms.date: 09/13/2021
 ---
 
 # Configure co-sell for a commercial marketplace offer
@@ -30,7 +30,9 @@ The Co-sell option is available for the following offer types.
 
 ## Go to the Co-sell with Microsoft tab
 
-#### [Workspaces view](#tab/Workspaces-view)
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
@@ -50,7 +52,7 @@ The Co-sell option is available for the following offer types.
 
     :::image type="content" source="./media/co-sell/co-sell-with-microsoft-tab-workspaces.png" alt-text="Illustrates the Co-sell with Microsoft page.":::
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.

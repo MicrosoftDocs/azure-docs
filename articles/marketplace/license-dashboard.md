@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 09/01/2021
+ms.date: 09/13/2021
 ---
 
 # License dashboard in commercial marketplace analytics
@@ -22,7 +22,9 @@ This article provides information about the License dashboard in the commercial 
 
 ## Check license usage
 
-#### [Workspaces view](#tab/Workspaces-view)
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
+#### [Preview interface](#tab/new-web-form)
 
 To check license usage of ISV apps in Partner Center, do the following:
 
@@ -35,7 +37,7 @@ To check license usage of ISV apps in Partner Center, do the following:
 
 :::image type="content" source="./media/license-dashboard/license-dashboard.png" alt-text="Screenshot of the License dashboard in Partner Center.":::
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 To check license usage of ISV apps in Partner Center, do the following:
 

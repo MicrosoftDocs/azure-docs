@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 9/01/2021
+ms.date: 9/13/2021
 ---
 
 # Customers dashboard in commercial marketplace analytics
@@ -35,7 +35,9 @@ The [Customers dashboard](https://go.microsoft.com/fwlink/?linkid=2166011) displ
 
 ## Access the Customers dashboard
 
-#### [Workspaces view](#tab/Workspaces-view)
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
@@ -44,7 +46,7 @@ The [Customers dashboard](https://go.microsoft.com/fwlink/?linkid=2166011) displ
 
 1. In the left menu, select **Customers**.
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Customers**.
@@ -57,13 +59,13 @@ The following sections describe how to use the Customers dashboard and how to re
 
 ### Month range
 
-#### [Workspaces view](#tab/Workspaces-view)
+#### [Preview interface](#tab/new-web-form)
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Customers** page graphs by selecting a month range based on the past 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 :::image type="content" source="./media/customer-dashboard/month-range-filters-workspaces.png" alt-text="Illustrates the month filters on the Customers page.":::
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Customers** page graphs by selecting a month range based on the past 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 

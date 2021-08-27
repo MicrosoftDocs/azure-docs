@@ -7,7 +7,7 @@ metadata:
   ms.topic: troubleshooting
   author: mathapli
   ms.author: mathapli
-  ms.date: 09/01/2021
+  ms.date: 09/13/2021
     
 title: Troubleshoot virtual machine certification
 summary: |
@@ -584,7 +584,7 @@ sections:
 
           To complete these steps, prepare the technical assets for the VM image you want to add. For more information, see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md) and [Generate a SAS URI for your VM image](azure-vm-get-sas-uri.md).
 
-          #### [Workspaces view](#tab/Workspaces-view)
+          #### [Preview interface](#tab/new-web-form)
 
           1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
           1. On the Home page, select the **Marketplace offers** tile.
@@ -600,7 +600,7 @@ sections:
           
           Next, remove the VM image with the security vulnerability.          
 
-          #### [Classic view](#tab/classic-view)
+          #### [Current interface](#tab/old-web-form)
          
           1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
           1. In the left pane, select **Commercial Marketplace** > **Overview**.
@@ -620,7 +620,7 @@ sections:
           
           ### Remove the VM image with the security vulnerability or exploit
 
-          #### [Workspaces view](#tab/Workspaces-view)
+          #### [Preview interface](#tab/new-web-form)
 
           1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
           1. On the Home page, select the **Marketplace offers** tile.
@@ -630,7 +630,7 @@ sections:
           6. In the dialog box, select **Continue**.
           7. Select **Save draft**.
 
-          #### [Classic view](#tab/classic-view)
+          #### [Current interface](#tab/old-web-form)
 
           1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
           2. In the left pane, select **Commercial Marketplace** > **Overview**.

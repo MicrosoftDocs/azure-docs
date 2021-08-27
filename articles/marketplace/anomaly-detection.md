@@ -4,9 +4,9 @@ description: Learn how automatic anomaly detection for metered billing helps ins
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 9/01/2021
 author: sayantanroy83
 ms.author: sroy
+ms.date: 9/13/2021
 ---
 
 # Manage metered billing anomalies in Partner Center
@@ -23,7 +23,9 @@ To help ensure that your customers are billed correctly, use the **Anomaly detec
 
 ## View and manage metered usage anomalies
 
-#### [Workspaces view](#tab/Workspaces-view)
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
@@ -65,7 +67,7 @@ To help ensure that your customers are billed correctly, use the **Anomaly detec
    [![Illustrates the Mark as an anomaly dialog box.](./media/anomaly-detection/new-reported-usage.png)](./media/anomaly-detection/new-reported-usage.png#lightbox)<br>
    ***Figure: 6: Mark as anomaly dialog box***
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Sign-in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Analyze** > **Usage**.

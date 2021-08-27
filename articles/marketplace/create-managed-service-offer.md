@@ -7,7 +7,7 @@ ms.reviewer: anbene
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/01/2021
+ms.date: 09/13/2021
 ---
 
 # Create a Managed Service offer for the commercial marketplace
@@ -18,7 +18,9 @@ To publish a Managed Service offer, you must have earned a Gold or Silver Micros
 
 ## Create a new offer
 
-#### [Workspaces view](#tab/workspaces-view)
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 
@@ -39,7 +41,7 @@ To publish a Managed Service offer, you must have earned a Gold or Silver Micros
 1. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
 1. To generate the offer and continue, select **Create**.
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
