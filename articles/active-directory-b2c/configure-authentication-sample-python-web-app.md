@@ -198,7 +198,7 @@ Open the *app_config.py* file. This file contains information about your Azure A
 |Key  |Value  |
 |---------|---------|
 |`ENDPOINT`| The URI of your web API (for example, https://localhost:44332/hello).|
-|`SCOPE`| The web API [scopes](#step-71-configure-scopes) that you created.|
+|`SCOPE`| The web API [scopes](#step-62-configure-scopes) that you created.|
 | | |
 
 Your final configuration file should look like the following Python code:
