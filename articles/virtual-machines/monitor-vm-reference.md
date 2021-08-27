@@ -7,7 +7,7 @@ ms.date: 06/21/2021
 ms.topic: reference
 ---
 
-# Monitoring AKS data reference
+# Monitoring Azure virtual machines data reference
 
 See [Monitoring AKS](monitor-aks.md) for details on collecting and analyzing monitoring data for AKS.
 

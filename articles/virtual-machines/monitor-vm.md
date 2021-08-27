@@ -57,7 +57,7 @@ AKS also provides additional resource logging data, such as [control plane compo
 
 ## Analyzing metrics
 
-[!INCLUDE [View metrics](../../../includes/azure-monitor-horizontal-view-metrics.md)]
+[!INCLUDE [View metrics](../../includes/azure-monitor-horizontal-view-metrics.md)]
 
 
 
