@@ -94,6 +94,14 @@ These rule collections are described in more detail in [What are some Azure Fire
 
 1. To restrict outbound traffic for models deployed to Azure Kubernetes Service (AKS), see the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) and [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) articles.
 
+### Azure Kubernetes Services
+
+When using Azure Kubernetes Service with Azure Machine Learning, the following traffic must be allowed:
+
+* General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) article.
+* __Outbound__ to mcr.microsoft.com.
+* When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) article.
+
 ### Diagnostics for support
 
 If you need to gather diagnostics information when working with Microsoft support, use the following steps:
