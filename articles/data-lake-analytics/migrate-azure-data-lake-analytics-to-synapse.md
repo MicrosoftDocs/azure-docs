@@ -25,20 +25,20 @@ The document shows you how to do the migration from ADLA to Azure Synapse Analyt
 
 1. Look at  [Apache Spark on Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-overview.md), and understand key differences of ADLA and Spark on Azure Synapse Analytics. 
 
-|Item | ADLA | Spark on Synapse |
-| --- | --- |--- |
-| Pricing  |Per Analytic Unit-hour |Per vCore-hour|
-|Engine 	|Azure Data Lake Analytics 	|Apache Spark
-|Default Programing Language 	|U-SQL	 |T-SQL, Python, Scala, Spark SQL and .NET
-|Data Sources 	|Azure Data Lake Storage	|Azure Blob Storage, Azure Data Lake Storage
+    |Item | ADLA | Spark on Synapse |
+    | --- | --- |--- |
+    | Pricing  |Per Analytic Unit-hour |Per vCore-hour|
+    |Engine 	|Azure Data Lake Analytics 	|Apache Spark
+    |Default Programing Language 	|U-SQL	 |T-SQL, Python, Scala, Spark SQL and .NET
+    |Data Sources 	|Azure Data Lake Storage	|Azure Blob Storage, Azure Data Lake Storage
 
 2. Review the <a href="#questionnaire">Questionnaire for Migration Assessment</a> and list those possible risks for considering. 
 
 ### Step 2: Prepare to migrate
 
 1.	Identify jobs and data that you'll migrate.
--	Take this opportunity to clean up those jobs that you no longer use. Unless you plan to migrate all your jobs at one time, take this time to identify logical groups of jobs that you can migrate in phases.
--	Evaluate the size of the data and understand Apache Spark data format. Review your U-SQL scripts and evaluate the scripts re-writing efforts and understand the Apache Spark code concept.
+    -	Take this opportunity to clean up those jobs that you no longer use. Unless you plan to migrate all your jobs at one time, take this time to identify logical groups of jobs that you can migrate in phases.
+    -	Evaluate the size of the data and understand Apache Spark data format. Review your U-SQL scripts and evaluate the scripts re-writing efforts and understand the Apache Spark code concept.
 
 2.	Determine the impact that a migration will have on your business. For example, whether you can afford any downtime while migration takes place.
 
@@ -54,7 +54,7 @@ The document shows you how to do the migration from ADLA to Azure Synapse Analyt
 
 3.	Transform or re-create your job orchestration pipelines to new Spark program.
 
-### Step 4: Cutover from ADLA to new Azure Analytics Services
+### Step 4: Cut over from ADLA to new Azure Analytics Services
 
 After you're confident that your applications and workloads are stable, you can begin using Azure Synapse Analytics to satisfy your business scenarios. Turn off any remaining pipelines that are running on ADLA and decommission your ADLA accounts.
 
@@ -68,3 +68,7 @@ After you're confident that your applications and workloads are stable, you can 
 |Data output |Will you keep the output data for later use? If the output data is saved in U-SQL tables, how to handle it? | If the output data will be used often and saved in U-SQL tables, you need change the scripts and change the output data to Spark supported data format.|
 |Data migration	|Have you made the storage migration plan? |[Migrate Azure Data Lake Storage from Gen1 to Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md) |
 |U-SQL scripts transform|Do you use UDO/UDF (.NET, python, etc.)?If above answer is yes, which language do you use in your UDO/UDF and any problems for the transform during the transform?Is the federated query being used in U-SQL?|[Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers](understand-spark-code-concepts.md)|
+
+## Next steps
+
+- [Azure Synapse Analytics](../synapse-analytics/get-started.md)
