@@ -34,20 +34,20 @@ Navigate to the functions app Overview blade, go to configurations. Under Applic
 
 Add the following application settings with below values, then click Save on the upper left. DONE!
 
-#### For Windows
+#### Windows
 ```
 XDT_MicrosoftApplicationInsights_Java -> 1
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 ```
 
-#### For Linux
+#### Linux
 ```
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
 ```
 
 ### How to enable distributed tracing for Python Function apps
 
-To get more control over the custom telemetry in functions apps in Python, you can use the [OpenCensus Python Extensions](https://github.com/census-ecosystem/opencensus-python-extensions-azure) and [log your telemetry](https://docs.microsoft.com/azure/azure-functions/functions-reference-python?tabs=azurecli-linux%2Capplication-level#log-custom-telemetry) as opposed to send traces to Azure Monitor application insights.
+To get more control over the custom telemetry in functions apps in Python, you can use the [OpenCensus Python Extensions](https://github.com/census-ecosystem/opencensus-python-extensions-azure) and [log your telemetry](https://docs.microsoft.com/azure/azure-functions/functions-reference-python?tabs=azurecli-linux%2Capplication-level#log-custom-telemetry).
 
 ## Next Steps
 
