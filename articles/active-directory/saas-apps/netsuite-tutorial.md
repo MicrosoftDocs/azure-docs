@@ -75,7 +75,7 @@ To enable Azure AD SSO in the Azure portal, do the following:
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, in the **Reply URL** text box, type a URL using the following pattern:
+1. In the **Basic SAML Configuration** section, in the **Reply URL** text box, type the URL:
 `https://system.netsuite.com/saml2/acs`
 
 1. NetSuite application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
