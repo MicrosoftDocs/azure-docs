@@ -45,7 +45,7 @@ ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
 ```
 
-### How to enable distributed tracing for Python Function apps
+## Distributed tracing for Python Function apps
 
 To gain full benefits of distributed tracing, and collect custom telemetry from services such as Redis, Memcached,  MongoDB, and more, you can use the [OpenCensus Python Extension](https://github.com/census-ecosystem/opencensus-python-extensions-azure) and [log your telemetry](https://docs.microsoft.com/azure/azure-functions/functions-reference-python?tabs=azurecli-linux%2Capplication-level#log-custom-telemetry).
 
