@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Filter inbound Internet traffic with Azure Firewall DNAT using the portal'
-description: In this tutorial, you learn how to deploy and configure Azure Firewall DNAT using the Azure portal. 
+title: Filter inbound Internet traffic with Azure Firewall DNAT using the portal
+description: In this article, you learn how to deploy and configure Azure Firewall DNAT using the Azure portal. 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
-ms.date: 03/01/2021
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator, I want to deploy and configure Azure Firewall DNAT so that I can control inbound Internet access to resources located in a subnet.
 ---
 
-# Tutorial: Filter inbound Internet traffic with Azure Firewall DNAT using the Azure portal
+# Filter inbound Internet traffic with Azure Firewall DNAT using the Azure portal
 
 You can configure Azure Firewall Destination Network Address Translation (DNAT) to translate and filter inbound Internet traffic to your subnets. When you configure DNAT, the NAT rule collection action is set to **Dnat**. Each rule in the NAT rule collection can then be used to translate your firewall public IP address and port to a private IP address and port. DNAT rules implicitly add a corresponding network rule to allow the translated traffic. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards. To learn more about Azure Firewall rule processing logic, see [Azure Firewall rule processing logic](rule-processing.md).
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Set up a test network environment
@@ -23,6 +23,9 @@ In this tutorial, you learn how to:
 > * Create a default route
 > * Configure a DNAT rule
 > * Test the firewall
+
+> [!NOTE]
+> This article uses classic Firewall rules to manage the firewall. The preferred method is to use [Firewall Policy](../firewall-manager/policy-overview.md). To complete this procedure using Firewall Policy, see [Tutorial: Filter inbound Internet traffic with Azure Firewall policy DNAT using the Azure portal](tutorial-firewall-dnat-policy.md)
 
 ## Prerequisites
 
@@ -42,7 +45,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Set up the network environment
 
-For this tutorial, you create a two peered VNets:
+For this article, you create a two peered VNets:
 
 - **VN-Hub** - the firewall is in this VNet.
 - **VN-Spoke** - the workload server is in this VNet.
@@ -138,6 +141,8 @@ Review the summary, and then select **Create**. This will take a few minutes to 
 
 After deployment finishes, note the private IP address for the virtual machine. It will be used later when you configure the firewall. Select the virtual machine name, and under **Settings**, select **Networking** to find the private IP address.
 
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+
 ## Deploy the firewall
 
 1. From the portal home page, select **Create a resource**.
@@ -213,20 +218,10 @@ For the **SN-Workload** subnet, you configure the outbound default route to go t
 
 ## Clean up resources
 
-You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **RG-DNAT-Test** resource group to delete all firewall-related resources.
+You can keep your firewall resources for further testing, or if no longer needed, delete the **RG-DNAT-Test** resource group to delete all firewall-related resources.
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Set up a test network environment
-> * Deploy a firewall
-> * Create a default route
-> * Configure a DNAT rule
-> * Test the firewall
-
 Next, you can monitor the Azure Firewall logs.
 
-> [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+[Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)

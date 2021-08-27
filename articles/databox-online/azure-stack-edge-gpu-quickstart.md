@@ -7,9 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 01/27/2021
+ms.date: 06/09/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure. 
+# Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure. 
 ---
 # Quickstart: Get started with Azure Stack Edge Pro with GPU 
 
@@ -26,20 +26,20 @@ Before you deploy, make sure that following prerequisites are in place:
 1. Configure your network such that your device can reach the [listed URL patterns and ports](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements). 
 1. You have owner or contributor access to Azure subscription.
 1. In the Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**. Search for `Microsoft.DataBoxEdge` and register the resource provider. Repeat to register `Microsoft.Devices` if you'll create an IoT Hub resource to deploy compute workloads.
-1. Make sure you have a minimum of 2 free, static, contiguous IPs for Kubernetes nodes and at least 1 static IP for IoT Edge service. For each module or external service, you deploy, you will need 1 additional IP.
+1. Make sure you have a minimum of 2 free, static, contiguous IPs for Kubernetes nodes and at least 1 static IP for IoT Edge service. For each module or external service that you deploy, you'll need 1 more IP.
 1. See the [deployment checklist](azure-stack-edge-gpu-deploy-checklist.md) to get everything you'll need for device configuration. 
 
 
 ## Deployment steps
 
-1. **Install**: Connect PORT 1 to a client computer via a crossover cable or USB Ethernet adapter. Connect at least one other device port for data, preferably 25 GbE, (from PORT 3 to PORT 6) to Internet via at least 1 GbE switch and SFP+ copper cables. Connect the provided power cords to the Power Supply Units and to separate power distribution outlets. Press the power button on the front panel to turn on the device.  
+1. **Install**: Connect PORT 1 to a client computer via a crossover cable or USB Ethernet adapter. Connect at least one other device port for data, preferably 25 GbE, (from PORT 3 to PORT 6) to Internet via SFP+ copper cables or use PORT 2 with RJ45 patch cable. Connect the provided power cords to the Power Supply Units and to separate power distribution outlets. Press the power button on the front panel to turn on the device.  
 
     See [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) and [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products) to get compatible network cables and switches.
 
     Here is the minimum cabling configuration needed to deploy your device:
     ![Back plane of a cabled device](./media/azure-stack-edge-gpu-quickstart/backplane-min-cabling-1.png)
 
-2. **Connect**: Configure the IPv4 settings on the Ethernet adapter on your computer with a static IP address of **192.168.100.5** and subnet **255.255.255.0**. Open your browser and connect to the local web UI of device at https://192.168.100.10. This may take a few minutes. Continue to the webpage when you see the security certificate warning.
+2. **Connect**: Configure the IPv4 settings on the Ethernet adapter on your computer with a static IP address of **192.168.100.5** and subnet **255.255.255.0**. Open your browser, and connect to the local web UI of device at https://192.168.100.10. This may take a few minutes. Continue to the webpage when you see the security certificate warning.
 
 3. **Sign in**: Sign into the device with default password *Password1*. Change the device administrator password. The password must contain between 8 to 16 characters, and 3 of the uppercase, lowercase, numeric, and special characters.
 
@@ -69,11 +69,8 @@ Before you deploy, make sure that following prerequisites are in place:
 
 12. **Configure compute**: In the Azure portal, go to **Overview > Device**. Verify that the device is **Online**. In the left-pane, go to **Edge compute > Get started > Configure Edge compute > Compute**. Provide an existing or new IoT Hub service and wait for about 20 minutes for the compute to configure. See more information on [Tutorial: Configure compute on Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-configure-compute.md)
 
-You are ready to deploy compute workloads on your device [via IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [via `kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) or [via Azure Arc enabled Kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)! If you experience any issues during the setup, go to [Troubleshoot device issues](), [order issues](azure-stack-edge-gpu-troubleshoot.md), [certificate issues](azure-stack-edge-gpu-certificate-troubleshooting.md), or Kubernetes issues. 
+You are ready to deploy compute workloads on your device [via IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md) [via `kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) or [via Azure Arc enabled Kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)! If you experience any issues during the setup, see troubleshooting for [Azure Stack Edge Pro GPU devices](azure-stack-edge-gpu-troubleshoot.md), [certificate issues](azure-stack-edge-gpu-certificate-troubleshooting.md), or [IoT Edge issues](azure-stack-edge-gpu-troubleshoot-iot-edge.md). 
 
 ## Next steps
 
 [Install Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-deploy-install.md)
-
-
-

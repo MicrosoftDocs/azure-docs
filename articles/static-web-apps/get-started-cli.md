@@ -56,6 +56,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
         -b main \
+        --app-artifact-location "src" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
@@ -105,7 +106,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
     - `<RESOURCE_GROUP_NAME>`: Replace this value with an existing [Azure resource group name](../azure-resource-manager/management/manage-resources-cli.md).
 
-      - See the [az group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_list) documentation for details on listing resource groups.
+      - See the [az group](/cli/azure/group#az_group_list) documentation for details on listing resource groups.
 
     - `<YOUR_GITHUB_ACCOUNT_NAME>`: Replace this value with your GitHub username.
 

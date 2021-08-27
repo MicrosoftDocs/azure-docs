@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Windows Virtual Desktop Agent Issues - Azure
+title: Troubleshoot Azure Virtual Desktop Agent Issues - Azure
 description: How to resolve common agent and connectivity issues.
 author: Sefriend
 ms.topic: troubleshooting
@@ -7,9 +7,9 @@ ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
 ---
-# Troubleshoot common Windows Virtual Desktop Agent issues
+# Troubleshoot common Azure Virtual Desktop Agent issues
 
-The Windows Virtual Desktop Agent can cause connection issues because of multiple factors:
+The Azure Virtual Desktop Agent can cause connection issues because of multiple factors:
    - An error on the broker that makes the agent stop the service.
    - Problems with updates.
    - Issues with installing during the agent installation, which disrupts connection to the session host.
@@ -17,7 +17,7 @@ The Windows Virtual Desktop Agent can cause connection issues because of multipl
 This article will guide you through solutions to these common scenarios and how to address connection issues.
 
 >[!NOTE]
->For troubleshooting issues related to session connectivity and the Windows Virtual Desktop agent, we recommend you review the event logs in **Event Viewer** > **Windows Logs** > **Application**. Look for events that have one of the following sources to identify your issue:
+>For troubleshooting issues related to session connectivity and the Azure Virtual Desktop agent, we recommend you review the event logs in **Event Viewer** > **Windows Logs** > **Application**. Look for events that have one of the following sources to identify your issue:
 >
 >- WVD-Agent
 >- WVD-Agent-Updater
@@ -100,19 +100,19 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
    > ![Screenshot of unsuccessful loaded broker global access](media/unsuccessful-broker-global.png)
 
 8. If the network is blocking these URLs, you will need to unblock the required URLs. For more information, see [Required URL List](safe-url-list.md).
-9. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection. Windows Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](../frontdoor/front-door-faq.MD#what-are-the-current-cipher-suites-supported-by-azure-front-door). For more information, see [Connection Security](network-connectivity.md#connection-security).
+9. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection. Azure Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). For more information, see [Connection Security](network-connectivity.md#connection-security).
 
 ## Error: 3703
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3703 that says "RD Gateway Url: is not accessible" in the description, the agent is unable to reach the gateway URLs. To successfully connect to your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Windows Virtual Desktop.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3703 that says "RD Gateway Url: is not accessible" in the description, the agent is unable to reach the gateway URLs. To successfully connect to your session host and allow network traffic to these endpoints to bypass restrictions, you must unblock the URLs from the [Required URL List](safe-url-list.md). Also, make sure your firewall or proxy settings don't block these URLs. Unblocking these URLs is required to use Azure Virtual Desktop.
 
 To resolve this issue, verify that your firewall and/or DNS settings are not blocking these URLs:
-1. [Use Azure Firewall to protect Windows Virtual Desktop deployments.](../firewall/protect-windows-virtual-desktop.md).
+1. [Use Azure Firewall to protect Azure Virtual Desktop deployments.](../firewall/protect-windows-virtual-desktop.md).
 2. Configure your [Azure Firewall DNS settings](../firewall/dns-settings.md).
 
 ## Error: 3019
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3019, this means the agent can't reach the web socket transport URLs. To successfully connect to your session host and allow network traffic to bypass these restrictions, you must unblock the URLs listed in the the [Required URL list](safe-url-list.md). Work with the Azure Networking team to make sure your firewall, proxy, and DNS settings aren't blocking these URLs. You can also check your network trace logs to identify where the Windows Virtual Desktop service is being blocked. If you open a support request for this particular issue, make sure to attach your network trace logs to the request.
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3019, this means the agent can't reach the web socket transport URLs. To successfully connect to your session host and allow network traffic to bypass these restrictions, you must unblock the URLs listed in the the [Required URL list](safe-url-list.md). Work with the Azure Networking team to make sure your firewall, proxy, and DNS settings aren't blocking these URLs. You can also check your network trace logs to identify where the Azure Virtual Desktop service is being blocked. If you open a support request for this particular issue, make sure to attach your network trace logs to the request.
 
 ## Error: InstallationHealthCheckFailedException
 
@@ -138,7 +138,7 @@ To resolve this issue:
 3. Make sure the [agent service is running](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) and the [stack listener is working](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
 4. Make sure [the agent can connect to the broker](#error-agent-cannot-connect-to-broker-with-invalid_form).
 5. Make sure [your VM has a valid registration token](#error-invalid_registration_token).
-6. Make sure [the VM registration token hasn't expired](faq.md#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues). 
+6. Make sure [the VM registration token hasn't expired](/azure/virtual-desktop/faq#how-often-should-i-turn-my-vms-on-to-prevent-registration-issues). 
 
 ## Error: InstallMsiException
 
@@ -183,7 +183,7 @@ To disable a policy:
 
 ## Error: Stack listener isn't working on Windows 10 2004 VM
 
-Run **qwinsta** in your command prompt and make note of the version number that appears next to **rdp-sxs**. If you're not seeing the **rdp-tcp** and **rdp-sxs** components say **Listen** next to them or they aren't showing up at all after running **qwinsta**, it means that there's a stack issue. Stack updates get installed along with agent updates, and when this installation goes awry, the Windows Virtual Desktop Listener won't work.
+Run **qwinsta** in your command prompt and make note of the version number that appears next to **rdp-sxs**. If you're not seeing the **rdp-tcp** and **rdp-sxs** components say **Listen** next to them or they aren't showing up at all after running **qwinsta**, it means that there's a stack issue. Stack updates get installed along with agent updates, and when this installation goes awry, the Azure Virtual Desktop Listener won't work.
 
 To resolve this issue:
 1. Open the Registry Editor.
@@ -208,33 +208,6 @@ To resolve this issue:
 8. Under **ClusterSettings**, find **SessionDirectoryListener** and make sure its data value is **rdp-sxs...**.
 9. If **SessionDirectoryListener** isn't set to **rdp-sxs...**, you'll need to follow the steps in the [Uninstall the agent and boot loader](#step-1-uninstall-all-agent-boot-loader-and-stack-component-programs) section to first uninstall the agent, boot loader, and stack components, and then [Reinstall the agent and boot loader](#step-4-reinstall-the-agent-and-boot-loader). This will reinstall the side-by-side stack.
 
-## Error: Heartbeat issue where users keep getting disconnected from session hosts
-
-If your server isn't picking up a heartbeat from the Windows Virtual Desktop service, you'll need to change the heartbeat threshold. Follow the instructions in this section if one or more of the following scenarios apply to you:
-
-- You're receiving a **CheckSessionHostDomainIsReachableAsync** error
-- You're receiving a **ConnectionBrokenMissedHeartbeatThresholdExceeded** error
-- You're receiving a **ConnectionEstablished:UnexpectedNetworkDisconnect** error
-- User clients keep getting disconnected
-- Users keep getting disconnected from their session hosts
-
-To change the heartbeat threshold:
-1. Open your command prompt as an administrator.
-2. Enter the **qwinsta** command and run it.
-3. There should be two stack components displayed: **rdp-tcp** and **rdp-sxs**. 
-   - Depending on the version of the OS you're using, **rdp-sxs** may be followed by the build number. If it is, make sure to write down this number for later.
-4. Open the Registry Editor.
-5. Go to **HKEY_LOCAL_MACHINE** > **SYSTEM** > **CurrentControlSet** > **Control** > **Terminal Server** > **WinStations**.
-6. Under **WinStations**, you may see several folders for different stack versions. Select the folder that matches the version number from step 3.
-7. Create a new registry DWORD by right-clicking the registry editor, then selecting **New** > **DWORD (32-bit) Value**. When you create the DWORD, enter the following values:
-   - HeartbeatInterval: 10000
-   - HeartbeatWarnCount: 30 
-   - HeartbeatDropCount: 60 
-8. Restart your VM.
-
->[!NOTE]
->If changing the heartbeat threshold doesn't resolve your issue, you may have an underlying network issue that you'll need need to contact the Azure Networking team about.
-
 ## Error: DownloadMsiException
 
 Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277, that says **DownloadMsiException** in the description, there isn't enough space on the disk for the RDAgent.
@@ -245,7 +218,7 @@ To resolve this issue, make space on your disk by:
 
 ## Error: Agent fails to update with MissingMethodException
 
-Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3389 that says "MissingMethodException: Method not found" in the description, that means the Windows Virtual Desktop agent didn't update successfully and reverted to an earlier version. This may be because the version number of the .NET framework currently installed on your VMs is lower than 4.7.2. To resolve this issue, you need to upgrade the .NET to version 4.7.2 or later by following the installation instructions in the [.NET Framework documentation](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
+Go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3389 that says "MissingMethodException: Method not found" in the description, that means the Azure Virtual Desktop agent didn't update successfully and reverted to an earlier version. This may be because the version number of the .NET framework currently installed on your VMs is lower than 4.7.2. To resolve this issue, you need to upgrade the .NET to version 4.7.2 or later by following the installation instructions in the [.NET Framework documentation](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 
 
 ## Error: VMs are stuck in Unavailable or Upgrading state
@@ -308,9 +281,9 @@ To resolve this issue:
 
 ## Your issue isn't listed here or wasn't resolved
 
-If you can't find your issue in this article or the instructions didn't help you, we recommend you uninstall, reinstall, and re-register Windows Virtual Desktop Agent. The instructions in this section will show you how to reregister your VM to the Windows Virtual Desktop service by uninstalling all agent, boot loader, and stack components, removing the session host from the host pool, generating a new registration key for the VM, and reinstalling the agent and boot loader. If one or more of the following scenarios apply to you, follow these instructions:
+If you can't find your issue in this article or the instructions didn't help you, we recommend you uninstall, reinstall, and re-register Azure Virtual Desktop Agent. The instructions in this section will show you how to reregister your VM to the Azure Virtual Desktop service by uninstalling all agent, boot loader, and stack components, removing the session host from the host pool, generating a new registration key for the VM, and reinstalling the agent and boot loader. If one or more of the following scenarios apply to you, follow these instructions:
 - Your VM is stuck in **Upgrading** or **Unavailable**
-- Your stack listener isn't working and you're running on Windows 10 1809, 1903, or 1904
+- Your stack listener isn't working and you're running on Windows 10 1809, 1903, or 1909
 - You're receiving an **EXPIRED_REGISTRATION_TOKEN** error
 - You're not seeing your VMs show up in the session hosts list
 - You don't see the **Remote Desktop Agent Loader** in the Services window
@@ -366,7 +339,7 @@ You must generate a new registration key that is used to re-register your VM to 
 ### Step 4: Reinstall the agent and boot loader
 
 By reinstalling the most updated version of the agent and boot loader, the side-by-side stack and Geneva monitoring agent automatically get installed as well. To reinstall the agent and boot loader:
-1. Sign in to your VM as an administrator and use the correct version of the agent installer for your deployment depending on which version of Windows your VM is running. If you have a Windows 10 VM, follow the instructions in [Register virtual machines](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool) to download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Bootloader**. If you have a Windows 7 VM, follow steps 13-14 in [Register virtual machines](deploy-windows-7-virtual-machine.md#configure-a-windows-7-virtual-machine) to download the **Windows Virtual Desktop Agent** and the **Windows Virtual Desktop Agent Manager**.
+1. Sign in to your VM as an administrator and use the correct version of the agent installer for your deployment depending on which version of Windows your VM is running. If you have a Windows 10 VM, follow the instructions in [Register virtual machines](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) to download the **Azure Virtual Desktop Agent** and the **Azure Virtual Desktop Agent Bootloader**. If you have a Windows 7 VM, follow steps 13-14 in [Register virtual machines](deploy-windows-7-virtual-machine.md#configure-a-windows-7-virtual-machine) to download the **Azure Virtual Desktop Agent** and the **Azure Virtual Desktop Agent Manager**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of agent and bootloader download page](media/download-agent.png)
@@ -392,15 +365,15 @@ By reinstalling the most updated version of the agent and boot loader, the side-
 
 ## Next steps
 
-If the issue continues, create a support case and include detailed information about the problem you're having and any actions you've taken to try to resolve it. The following list includes other resources you can use to troubleshoot issues in your Windows Virtual Desktop deployment.
+If the issue continues, create a support case and include detailed information about the problem you're having and any actions you've taken to try to resolve it. The following list includes other resources you can use to troubleshoot issues in your Azure Virtual Desktop deployment.
 
-- For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
-- To troubleshoot issues while creating a host pool in a Windows Virtual Desktop environment, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
-- To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
-- To troubleshoot issues with Windows Virtual Desktop client connections, see [Windows Virtual Desktop service connections](troubleshoot-service-connection.md).
+- For an overview on troubleshooting Azure Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
+- To troubleshoot issues while creating a host pool in a Azure Virtual Desktop environment, see [Environment and host pool creation](troubleshoot-set-up-issues.md).
+- To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
+- To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection.md).
 - To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md).
-- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- To learn more about the service, see [Windows Virtual Desktop environment](environment-setup.md).
+- To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
+- To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - To learn about auditing actions, see [Audit operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

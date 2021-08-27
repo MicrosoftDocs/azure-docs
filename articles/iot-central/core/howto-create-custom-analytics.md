@@ -1,19 +1,21 @@
 ---
 title: Extend Azure IoT Central with custom analytics | Microsoft Docs
 description: As a solution developer, configure an IoT Central application to do custom analytics and visualizations. This solution uses Azure Databricks.
-author: TheRealJasonAndrew
-ms.author: v-anjaso
+author: dominicbetts 
+ms.author: dobett 
 ms.date: 03/15/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: philmea
+
+
+# Solution developer
 ---
 
 # Extend Azure IoT Central with custom analytics using Azure Databricks
 
-This how-to guide shows you, as a solution developer, how to extend your IoT Central application with custom analytics and visualizations. The example uses an [Azure Databricks](/azure/azure-databricks/) workspace to analyze the IoT Central telemetry stream and to generate visualizations such as [box plots](https://wikipedia.org/wiki/Box_plot).  
+This how-to guide shows you how to extend your IoT Central application with custom analytics and visualizations. The example uses an [Azure Databricks](/azure/azure-databricks/) workspace to analyze the IoT Central telemetry stream and to generate visualizations such as [box plots](https://wikipedia.org/wiki/Box_plot).  
 
 This how-to guide shows you how to extend IoT Central beyond what it can already do with the [built-in analytics tools](./howto-create-custom-analytics.md).
 
@@ -86,7 +88,7 @@ You can configure an IoT Central application to continuously export telemetry to
 1. In the Azure portal, navigate to your Event Hubs namespace and select **+ Event Hub**.
 1. Name your event hub **centralexport**.
 1. In the list of event hubs in your namespace, select **centralexport**. Then choose **Shared access policies**.
-1. Select **+ Add**. Create a policy named **Listen** with the **Listen** claim.
+1. Select **+ Add**. Create a policy named **SendListen** with the **Send** and **Listen** claims.
 1. When the policy is ready, select it in the list, and then copy the **Connection string-primary key** value.
 1. Make a note of this connection string, you use it later when you configure your Databricks notebook to read from the event hub.
 
@@ -94,42 +96,46 @@ Your Event Hubs namespace looks like the following screenshot:
 
 :::image type="content" source="media/howto-create-custom-analytics/event-hubs-namespace.png" alt-text="image of Event Hubs namespace.":::
 
-## Configure export in IoT Central and create a new destination
+## Configure export in IoT Central
 
-On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created from the Contoso template. In this section, you configure the application to stream the telemetry from its simulated devices to your event hub. To configure the export:
+In this section, you configure the application to stream telemetry from its simulated devices to your event hub.
 
-1. Navigate to the **Data Export** page, select **+ New Export**.
-1. Before finishing the first window, Select **Create a destination**.
+On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created previously. To configure the export, first create a destination:
 
-The window will look like below.  
+1. Navigate to the **Data export** page, then select **Destinations**.
+1. Select **+ New destination**.
+1. Use the values in the following table to create a destination:
 
-:::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="image of Data export destination configuration.":::
+    | Setting | Value |
+    | ----- | ----- |
+    | Destination name | Telemetry event hub |
+    | Destination type | Azure Event Hubs |
+    | Connection string | The event hub connection string you made a note of previously |
 
-3. Enter the following values:
+    The **Event Hub** shows as **centralexport**.
 
-| Setting | Value |
-| ------- | ----- |
-| Destination Name | Your Destination Name |
-| Destination Type | Azure Event Hubs |
-| Connection String| The event hub connection string you made a note of previously. | 
-| Event Hub| Your Event Hub Name|
+    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot showing data export destination.":::
 
-4. Click **Create** to finish.
+1. Select **Save**.
 
-5. Use the following settings to configure the export:
+To create the export definition:
+
+1. Navigate to the **Data export** page and select **+ New Export**.
+
+1. Use the values in the following table to configure the export:
 
     | Setting | Value |
     | ------- | ----- |
-    | Enter an export name | eventhubexport |
+    | Export name | Event Hub Export |
     | Enabled | On |
-    | Data| Select telemetry | 
-    | Destinations| Create a destination, as shown below, for your export and then select it in the destination dropdown menu. |
+    | Type of data to export | Telemetry |
+    | Destinations | Select **+ Destination**, then select **Telemetry event hub** |
 
-:::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot of Data export destination configuration.":::
+1. Select **Save**.
 
-6. When finished, select **Save**.
+    :::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Screenshot showing data export definition.":::
 
-Wait until the export status is **Running** before you continue.
+Wait until the export status is **Healthy** on the **Data export** page before you continue.
 
 ## Configure Databricks workspace
 
@@ -242,4 +248,4 @@ In this how-to guide, you learned how to:
 * Stream telemetry from an IoT Central application using *continuous data export*.
 * Create an Azure Databricks environment to analyze and plot telemetry data.
 
-Now that you know how to create custom analytics, the suggested next step is to learn how to [Visualize and analyze your Azure IoT Central data in a Power BI dashboard](howto-connect-powerbi.md).
+Now that you know how to create custom analytics, the suggested next step is to learn how to [Use the IoT Central device bridge to connect other IoT clouds to IoT Central](howto-build-iotc-device-bridge.md).

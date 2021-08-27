@@ -69,8 +69,6 @@ Your IoT device can be a real device, or a simulated device. Since the IoT devic
 
 Simulated device examples, using both TPM and X.509 attestation, are included for C, Java, C#, Node.js, and Python. For example, a simulated device using TPM and the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) would follow the process covered in the [Simulate first boot sequence for a device](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device) section. The same device using X.509 certificate attestation would refer to this [boot sequence](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device) section.
 
-Refer to the [How-to guide for the MXChip Iot DevKit](how-to-connect-mxchip-iot-devkit.md) as an example for a real device.
-
 Start the device to allow your device's client application to start the registration with your Device Provisioning service.  
 
 ## Verify the device is registered
@@ -95,7 +93,7 @@ In this tutorial, you learned how to:
 > * Start the device
 > * Verify the device is registered
 
-Advance to the next tutorial to learn how to provision multiple devices across load-balanced hubs. 
+Advance to the next tutorial to learn how to provision multiple devices across load-balanced hubs
 
 > [!div class="nextstepaction"]
 > [Provision devices across load-balanced IoT hubs](./tutorial-provision-multiple-hubs.md)

@@ -3,13 +3,13 @@ title: 'Quickstart: Translate speech to multiple languages, Java (Windows, Linux
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
-ms.author: erhopf
+ms.author: lajanuar
 ---
 
 ## Prerequisites

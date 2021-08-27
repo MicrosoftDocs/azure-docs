@@ -2,7 +2,7 @@
 title: Deploy resources with Azure portal
 description: Use Azure portal and Azure Resource Manage to deploy your resources to a resource group in your subscription.
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 05/05/2021
 ---
 
 # Deploy resources with ARM templates and Azure portal
@@ -70,7 +70,7 @@ Although you didn't see it, the portal used an ARM template to deploy the resour
 
 ## Deploy resources from custom template
 
-If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. To learn about creating templates, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. To learn about creating templates, see [Understand the structure and syntax of ARM templates](./syntax.md).
 
 > [!NOTE]
 > The portal interface doesn't support referencing a [secret from a Key Vault](key-vault-parameter.md). Instead, use [PowerShell](deploy-powershell.md) or [Azure CLI](deploy-cli.md) to deploy your template locally or from an external URI.
@@ -90,7 +90,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
     This tutorial provides the instruction for loading a quickstart template.
 
-1. Under **Load a GitHub quickstart template**, type or select **101-storage-account-create**.
+1. Under **Load a GitHub quickstart template**, type or select **storage-account-create**.
 
     You have two options:
 
@@ -113,7 +113,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
     - **Subscription**: Select an Azure subscription.
     - **Resource group**: Select **Create new** and give a name.
     - **Location**: Select an Azure location.
-    - **Storage Account Type**: Use the default value.
+    - **Storage Account Type**: Use the default value. The camel-cased parameter name, *storageAccountType*, defined in the template is turned into a space-separated string when displayed on the portal.
     - **Location**: Use the default value.
     - **I agree to the terms and conditions stated above**: (select)
 
@@ -124,4 +124,3 @@ If you want to execute a deployment but not use any of the templates in the Mark
 - To view audit logs, see [Audit operations with Resource Manager](../management/view-activity-logs.md).
 - To troubleshoot deployment errors, see [View deployment operations](deployment-history.md).
 - To export a template from a deployment or resource group, see [Export ARM templates](export-template-portal.md).
-- To safely roll out your service across multiple regions, see [Azure Deployment Manager](deployment-manager-overview.md).

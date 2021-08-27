@@ -1,9 +1,10 @@
 ---
 title: 'Streaming ingestion throughput limitations- Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about ingress throughput limits in Azure Time Series Insights Gen2.
-author: lyrana
-ms.author: lyhughes
-manager: dpalled
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
@@ -55,7 +56,7 @@ When planning your Azure Time Series Insights Gen2 environment, it's important t
 
 A *partition* is an ordered sequence of events held in a hub. The partition count is set during the hub creation phase and cannot be changed.
 
-For Event Hubs partitioning best practices, review [How many partitions do I need?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+For Event Hubs partitioning best practices, review [How many partitions do I need?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-)
 
 > [!NOTE]
 > Most IoT Hubs used with Azure Time Series Insights Gen2 only need four partitions.

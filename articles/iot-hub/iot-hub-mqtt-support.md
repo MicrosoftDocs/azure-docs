@@ -99,7 +99,7 @@ In the [IoT MQTT Sample repository](https://github.com/Azure-Samples/IoTMQTTSamp
 
 These samples use the Eclipse Mosquitto library to send messages to the MQTT Broker implemented in the IoT hub.
 
-To learn how to adapt the samples to use the [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) conventions, see [Tutorial - Use MQTT to develop an IoT Plug and Play device client](../iot-pnp/tutorial-use-mqtt.md).
+To learn how to adapt the samples to use the [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) conventions, see [Tutorial - Use MQTT to develop an IoT Plug and Play device client](../iot-develop/tutorial-use-mqtt.md).
 
 This repository contains:
 
@@ -111,7 +111,7 @@ This repository contains:
 
 * DeviceTwinMQTTWin32: contains code to query and subscribe to the device twin events of a device in the Azure IoT hub on a Windows machine.
 
-* PnPMQTTWin32: contains code to send a telemetry message with IoT Plug and Play device capabilities to an Azure IoT hub, built and run on a Windows machine. You can read more on [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md)
+* PnPMQTTWin32: contains code to send a telemetry message with IoT Plug and Play device capabilities to an Azure IoT hub, built and run on a Windows machine. You can read more on [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md)
 
 **For Linux:**
 
@@ -146,11 +146,11 @@ If a device cannot use the device SDKs, it can still connect to the public devic
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Set up X.509 security in your Azure IoT Hub](iot-hub-security-x509-get-started.md) and follow code instructions in the [TLS/SSL configuration section](#tlsssl-configuration).
+  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Set up X.509 security in your Azure IoT Hub](./tutorial-x509-scripts.md) and follow code instructions in the [TLS/SSL configuration section](#tlsssl-configuration).
 
-  For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
+  For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device).
 
-  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-generate-sas-token) to quickly generate a SAS token that you can copy and paste into your own code.
+  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az_iot_hub_generate_sas_token) to quickly generate a SAS token that you can copy and paste into your own code.
 
 ### For Azure IoT Tools
 
@@ -251,7 +251,7 @@ client.tls_insecure_set(False)
 
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
-client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
+client.publish("devices/" + device_id + "/messages/events/", '{"id":123}', qos=1)
 client.loop_forever()
 ```
 
@@ -438,7 +438,7 @@ To learn more about the MQTT protocol, see the [MQTT documentation](https://mqtt
 
 To learn more about planning your IoT Hub deployment, see:
 
-* [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/)
+* [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/)
 * [Support additional protocols](iot-hub-protocol-gateway.md)
 * [Compare with Event Hubs](iot-hub-compare-event-hubs.md)
 * [Scaling, HA, and DR](iot-hub-scaling.md)

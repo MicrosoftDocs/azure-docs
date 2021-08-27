@@ -3,7 +3,7 @@ title: Azure DDoS Protection reference architectures
 description: Learn Azure DDoS protection reference architectures.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -57,6 +57,20 @@ We recommend that you configure the Application Gateway WAF SKU (prevent mode) t
 
 For more information about this reference architecture, see [this article](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
+## Protecting on-premises resources
+
+You can leverage the scale, capacity, and efficiency of Azure DDoS Protection Standard to protect your on-premises resources, by hosting a public IP address in Azure and redirecting the traffic to the backend origin to your on-premises environment.
+
+![Protecting on-prem resources](./media/reference-architectures/ddos-on-prem.png)
+
+If you have a web application that receives traffic from the Internet, you can host the web application behind Application Gateway, then protect it with WAF against Layer 7 web attacks such as SQL injection. The backend origins of your application will be in your on-premises environment, which is connected over the VPN. 
+
+The backend resources in the on-premises environment will not be exposed to the public internet. Only the AppGW/WAF public IP is exposed to the internet and the DNS name of your application maps to that public IP address. 
+
+When DDoS Protection Standard is enabled on the virtual network which contains the AppGW/WAF, DDoS Protection Standard will defend your application by mitigating bad traffic and routing the supposed clean traffic to your application. 
+
+This [article](../azure-vmware/protect-azure-vmware-solution-with-application-gateway.md) shows you how you can use DDoS Protection Standard alongside Application Gateway to protect a web app running on Azure VMware Solution.
+
 ## Mitigation for non-web PaaS services
 
 ### HDInsight on Azure
@@ -74,7 +88,7 @@ documentation.
 
 
 > [!NOTE]
-> Azure App Service Environment for PowerApps or API management in a virtual network with a public IP are both not natively supported.
+> Azure App Service Environment for Power Apps or API management in a virtual network with a public IP are both not natively supported.
 
 ## Next steps
 

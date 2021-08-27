@@ -30,7 +30,7 @@ landingContent:
           - text: How does synchronization work?
             url: synchronization.md
           - text: FAQs
-            url: faqs.md
+            url: faqs.yml
   - title: Get started
     linkLists:
       - linkListType: deploy

@@ -1,11 +1,13 @@
 ---
 title: Copy data from AWS Marketplace
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Amazon Marketplace Web Service to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.author: jingwang
-author: linda33wj
-ms.custom: seo-lt-2019
+ms.author: jianleishen
+author: jianleishen
+ms.custom: synapse
 ms.date: 08/01/2018
 ---
 
@@ -28,7 +30,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Amazon Marketplace Web Service connector.
 

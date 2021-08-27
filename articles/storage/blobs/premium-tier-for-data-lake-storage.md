@@ -5,8 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.custom: references_regions
-ms.date: 10/30/2020
+ms.date: 06/21/2021
 ms.author: normesta
 ---
 
@@ -52,7 +51,7 @@ Some Blob storage features might not be available or might only have partial sup
 
 ## Enabling the premium performance tier 
 
-You can use the premium tier for Azure Data Lake Storage by creating a BlockBlobStorage account with the **Hierarchical namespace** setting **enabled**. For complete guidance, see [Create a BlockBlobStorage account](storage-blob-create-account-block-blob.md) account.
+You can use the premium tier for Azure Data Lake Storage by creating a BlockBlobStorage account with the **Hierarchical namespace** setting **enabled**. For complete guidance, see [Create a BlockBlobStorage account](../common/storage-account-create.md) account.
 
 When you create the account, make sure to choose the **Premium** performance option and the **BlockBlobStorage** account kind.
 
@@ -66,39 +65,6 @@ The following image shows this setting in the **Create storage account** page.
 > [!div class="mx-imgBorder"]
 > ![Hierarchical namespace setting](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
-## Regional availability
-
-Premium tier for Azure Data Lake Storage is available in the following regions.
-
-|Region|Redundancy|
-|--|--|
-|East US|LRS, ZRS|
-|East US 2|LRS, ZRS|
-|Central US|LRS|
-|West US|LRS|
-|West US 2|LRS, ZRS|
-|West Central US|LRS|
-|South Central US|LRS|
-|Canada Central|LRS|
-|Canada East|LRS|
-|North Europe|LRS, ZRS|
-|West Europe|LRS, ZRS|
-|UK South|LRS|
-|UK West|LRS|
-|France Central|LRS|
-|Asia East|LRS|
-|Korea Central|LRS|
-|Korea South|LRS|
-|Central India|LRS|
-|West India|LRS|
-|UAE North|LRS|
-|Japan East|LRS|
-|Japan West|LRS|
-|South East Asia|LRS, ZRS|
-|Australia East|LRS, ZRS|
-|Australia South East|LRS|
-|Brazil South|LRS|
-
 ## Next steps
 
 Use the premium tier for Azure Data Lake Storage with your favorite analytics service such as Azure Databricks, Azure HDInsight and Azure Synapse Analytics. 
@@ -107,4 +73,3 @@ Use the premium tier for Azure Data Lake Storage with your favorite analytics se
 - [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)
   HDInsight currently supports an account that uses the premium performance tier along with an HBase cluster that has accelerated writes enabled.
 - [Quickstart: Create a Synapse workspace](../../synapse-analytics/quickstart-create-workspace.md)
-

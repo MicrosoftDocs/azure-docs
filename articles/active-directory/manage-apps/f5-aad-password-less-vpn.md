@@ -2,15 +2,16 @@
 title: Azure AD secure hybrid access with F5 VPN| Microsoft Docs
 description: Tutorial for Azure Active Directory Single Sign-on (SSO) integration with F5 BIG-IP for Password-less VPN 
 services: active-directory
-author: gargi-sinha
+author: davidmu1
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/12/2020
-ms.author: gasinh
+ms.author: davidmu
 ms.collection: M365-identity-device-management
+ms.reviewer: miccohen
 ---
 
 # Tutorial for Azure Active Directory single sign-on integration with F5 BIG-IP for Password-less VPN

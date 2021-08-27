@@ -3,9 +3,9 @@ title: Business continuity and disaster recovery
 description: Design your strategy to protect data, recover quickly from disruptive events, restore resources required by critical business functions, and maintain business continuity for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 03/24/2021
 ---
 
 # Business continuity and disaster recovery for Azure Logic Apps
@@ -42,7 +42,7 @@ For the failover strategy, your logic apps and locations must meet these require
 
 * Both logic app instances have the same host type. So, either both instances are deployed to regions in global multi-tenant Azure, or both instances are deployed to ISEs, which let your logic apps directly access resources in an Azure virtual network. For best practices and more information about paired regions for BCDR, see [Business continuity and disaster recovery (BCDR): Azure paired regions](../best-practices-availability-paired-regions.md).
 
-  For example, both the primary and secondary locations must be ISEs when the primary logic app runs in an ISE and uses [ISE-versioned connectors](../connectors/apis-list.md#ise-connectors), HTTP actions to call resources in the Azure virtual network, or both. In this scenario, your secondary logic app must also have a similar setup in the secondary location as the primary logic app.
+  For example, both the primary and secondary locations must be ISEs when the primary logic app runs in an ISE and uses [ISE-versioned connectors](../connectors/managed.md#ise-connectors), HTTP actions to call resources in the Azure virtual network, or both. In this scenario, your secondary logic app must also have a similar setup in the secondary location as the primary logic app.
 
   > [!NOTE]
   > For more advanced scenarios, you can mix both multi-tenant Azure and an 
@@ -355,7 +355,7 @@ You can set up logging for your logic app runs and send the resulting diagnostic
 
 ## Next steps
 
-* [Resiliency overview for Azure](/azure/architecture/framework/resiliency/overview)
+* [Design reliable Azure applications](/azure/architecture/framework/resiliency/app-design)
 * [Resiliency checklist for specific Azure services](/azure/architecture/checklist/resiliency-per-service)
 * [Data management for resiliency in Azure](/azure/architecture/framework/resiliency/data-management)
 * [Backup and disaster recovery for Azure applications](/azure/architecture/framework/resiliency/backup-and-recovery)

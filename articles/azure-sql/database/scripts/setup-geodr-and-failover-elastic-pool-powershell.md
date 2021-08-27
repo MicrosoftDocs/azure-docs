@@ -4,12 +4,12 @@ description: Azure PowerShell example script to set up active geo-replication fo
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: BustosMSFT
+ms.author: robustos
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # Use PowerShell to configure active geo-replication for a pooled database in Azure SQL Database

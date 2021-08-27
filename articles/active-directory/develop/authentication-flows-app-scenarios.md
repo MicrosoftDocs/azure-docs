@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, has-adal-ref
 #Customer intent: As an app developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
 ---
 
@@ -240,7 +240,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
   <tr>
    <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
    <td><a href="v2-oauth2-device-code.md">Device code</a></td>
-   <td>Work or school accounts, personal accounts, and Azure AD B2C</td>
+   <td>Work or school accounts, personal accounts, but not Azure AD B2C</td>
  </tr>
 
  <tr>

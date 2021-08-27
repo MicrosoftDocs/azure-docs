@@ -323,7 +323,7 @@ The Test-AzureADPasswordProtectionDCAgentHealth cmdlet supports several health t
 
 ### Basic DC agent health tests
 
-The following tests can all be run individually and do not accept. A brief description
+The following tests can all be run individually and do not accept parameters. A brief description of each test is listed in the following table.
 
 |DC agent health test|Description|
 | --- | :---: |
@@ -399,6 +399,6 @@ VerifyAzureConnectivityViaSpecificProxy Passed
 
 ## Next steps
 
-[Frequently asked questions for Azure AD Password Protection](howto-password-ban-bad-on-premises-faq.md)
+[Frequently asked questions for Azure AD Password Protection](howto-password-ban-bad-on-premises-faq.yml)
 
 For more information on the global and custom banned password lists, see the article [Ban bad passwords](concept-password-ban-bad.md)

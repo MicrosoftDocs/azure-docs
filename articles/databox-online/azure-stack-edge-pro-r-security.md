@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 06/03/2021
 ms.author: alkohli
 ---
 # Security and data protection for Azure Stack Edge Pro R and Azure Stack Edge Mini R
@@ -46,7 +46,7 @@ The rugged device is an on-premises device that helps transform your data by pro
     - For the device software, default firewall logs are collected for inbound and outbound traffic from the device. These logs are bundled in the support package.
     - For the device hardware, all the device chassis events such as opening and closing of the device chassis, are logged in the device.
 
-    For more information on the specific logs that contain the hardware and software intrusion events and how to get the logs, go to [Gather advanced security logs](azure-stack-edge-gpu-troubleshoot.md).
+    For more information on the specific logs that contain the hardware and software intrusion events and how to get the logs, go to [Gather advanced security logs](azure-stack-edge-gpu-troubleshoot.md#gather-advanced-security-logs).
 
 
 ### Protect the device via activation key
@@ -95,17 +95,23 @@ Data on your disks is protected by two layers of encryption:
 > [!NOTE]
 > The OS disk has single layer BitLocker XTS-AES-256 software encryption.
 
-When the device is activated, you are prompted to save a key file that contains recovery keys that help recover the data on the device if the device doesn't boot up. There are two keys in the file:
+Before you activate the device, you are required to configure encryption-at-rest on your device. This is a required setting and until this is successfully configured, you can't activate the device. 
 
-- One key recovers the device configuration on the OS volumes.
-<!-- - Second key is to unlock the BitLocker on the data disks. -->
-- Second key unlocks the hardware encryption in the data disks.
+At the factory, once the devices are imaged, the volume level BitLocker encryption is enabled. After you receive the device, you need to configure the encryption-at-rest. The storage pool and volumes are recreated and you can provide BitLocker keys to enable encryption-at-rest and thus create another layer of encryption for your data-at-rest. 
+
+The encryption-at-rest key is a 32 character long Base-64 encoded key that you provide and this key is used to protect the actual encryption key. Microsoft does not have access to this encryption-at-rest key that protects your data. The key is saved in a key file on the **Cloud details** page after the device is activated.
+
+When the device is activated, you are prompted to save the key file that contains recovery keys that help recover the data on the device if the device doesn't boot up. Certain recovery scenarios will prompt you for the key file that you have saved. The key file has the following recovery keys:
+
+- A key that unlocks the first layer of encryption.
+- A key that unlocks the hardware encryption in the data disks.
+- A key that helps recover the device configuration on the OS volumes.
+- A key that protects the data flowing through the Azure service.
 
 > [!IMPORTANT]
 > Save the key file in a secure location outside the device itself. If the device doesn't boot up, and you don't have the key, it could potentially result in data loss.
 
-- Certain recovery scenarios will prompt you for the key file that you have saved. 
-<!--- If a node isn't booting up, you will need to perform a node replacement. You will have the option to swap the data disks from the failed node to the new node. For a 4-node device, you won't need a key file. For a 1-node device, you will be prompted to provide a key file.-->
+
 
 #### Restricted access to data
 
@@ -127,7 +133,6 @@ When the device undergoes a hard reset, a secure wipe is performed on the device
 ### Protect data in storage accounts
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
-
 - Rotate and then [sync your storage account keys](azure-stack-edge-gpu-manage-storage-accounts.md) regularly to help protect your storage account from unauthorized users.
 
 ## Manage personal information

@@ -1,7 +1,7 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
-ms.date: 09/30/2020
+ms.date: 08/17/2021
 ms.topic: how-to
 ---
 # Determine causes of non-compliance
@@ -38,9 +38,9 @@ To view the compliance details, follow these steps:
 1. On the **Overview** or **Compliance** page, select a policy in a **compliance state** that is
    _Non-compliant_.
 
-1. Under the **Resource compliance** tab of the **Policy compliance** page, right-click or select
-   the ellipsis of a resource in a **compliance state** that is _Non-compliant_. Then select **View
-   compliance details**.
+1. Under the **Resource compliance** tab of the **Policy compliance** page, select and hold (or
+   right-click) or select the ellipsis of a resource in a **compliance state** that is
+   _Non-compliant_. Then select **View compliance details**.
 
    :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Screenshot of the 'View compliance details' link on the Resource compliance tab." border="false":::
 
@@ -130,7 +130,7 @@ _Non-compliant_ **Component** and **Component ID**.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot of Component Compliance tab and compliance details for a Resource Provider mode assignment." border="false":::
 
-## Compliance details for Guest Configuration
+## Compliance details for guest configuration
 
 For _auditIfNotExists_ policies in the _Guest Configuration_ category, there could be multiple
 settings evaluated inside the virtual machine and you'll need to view per-setting details. For
@@ -160,7 +160,7 @@ setting.
 
 As part of a new **public preview**, the last 14 days of change history are available for all Azure
 resources that support [complete mode
-deletion](../../../azure-resource-manager/templates/complete-mode-deletion.md). Change history
+deletion](../../../azure-resource-manager/templates/deployment-complete-mode-deletion.md). Change history
 provides details about when a change was detected and a _visual diff_ for each change. A change
 detection is triggered when the Azure Resource Manager properties are added, removed, or altered.
 

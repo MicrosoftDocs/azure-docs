@@ -13,6 +13,8 @@ ms.custom: mvc
 
 # Windows virtual machines in Azure
 
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](/azure/architecture/guide/technology-choices/compute-decision-tree) that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
 
 An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. However, you still need to maintain the VM by performing tasks, such as configuring, patching, and installing the software that runs on it.
@@ -45,7 +47,7 @@ This table shows some of the ways you can get a list of available locations.
 | --- | --- |
 | Azure portal |Select a location from the list when you create a VM. |
 | Azure PowerShell |Use the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command. |
-| REST API |Use the [List locations](/rest/api/resources/subscriptions) operation. |
+| REST API |Use the [List locations](/rest/api/resources/subscriptions/listlocations) operation. |
 | Azure CLI |Use the [az account list-locations](/cli/azure/account) operation. |
 
 ## Availability

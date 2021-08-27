@@ -68,6 +68,8 @@
     href: ../../application-gateway/security-baseline.md
   - name: Automation security baseline
     href: ../../automation/security-baseline.md
+  - name: Azure Active Directory security baseline
+    href: ../../active-directory/fundamentals/security-baseline.md
   - name: Azure Advisor security baseline
     href: ../../advisor/security-baseline.md
   - name: Azure App Configuration security baseline
@@ -138,6 +140,8 @@
     href: ../../azure-monitor/security-baseline.md
   - name: Azure Migrate security baseline
     href: ../../migrate/security-baseline.md
+  - name: Azure Peering Service security baseline
+    href: /security/benchmark/azure/baselines/peering-service-security-baseline
   - name: Azure Policy security baseline
     href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
   - name: Azure Private Link security baseline
@@ -203,7 +207,7 @@
   - name: Network Watcher security baseline
     href: ../../network-watcher/security-baseline.md
   - name: Power BI baseline
-    href: /power-bi/fundamentals/security-baseline
+    href: /security/benchmark/azure/baselines/power-bi-security-baseline
   - name: Security Center baseline
     href: ../../security-center/security-baseline.md
   - name: Service Bus baseline
@@ -227,7 +231,7 @@
   - name: Virtual Network security baseline
     href: ../../virtual-network/security-baseline.md
   - name: Virtual Network NAT security baseline
-    href: ../../virtual-network/nat-security-baseline.md
+    href: ../../virtual-network/nat-gateway/nat-security-baseline.md
   - name: Virtual WAN security baseline
     href: ../../virtual-wan/security-baseline.md
   - name: VPN Gateway security baseline

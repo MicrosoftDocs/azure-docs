@@ -2,8 +2,7 @@
 title: Configure managed identities in Batch pools
 description: Learn how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 ms.topic: conceptual
-ms.date: 03/23/2021
-ms.custom: references_regions
+ms.date: 08/18/2021
 
 ---
 # Configure managed identities in Batch pools
@@ -13,9 +12,9 @@ ms.custom: references_regions
 This topic explains how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 
 > [!IMPORTANT]
-> Support for Azure Batch pools with user-assigned managed identities is currently in public preview for the following regions: West US 2, South Central US, East US, US Gov Arizona and US Gov Virginia.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Pools must be configured using [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) in order to use managed identities.
+>
+> Creating pools with managed identities can be done by using the [Batch .NET management library](/dotnet/api/overview/azure/batch#management-library), but is not currently supported with the [Batch .NET client library](/dotnet/api/overview/azure/batch#client-library).
 
 ## Create a user-assigned identity
 
@@ -24,9 +23,6 @@ First, [create your user-assigned managed identity](../active-directory/managed-
 ## Create a Batch pool with user-assigned managed identities
 
 After you've created one or more user-assigned managed identities, you can create a Batch pool with that managed identity by using the [Batch .NET management library](/dotnet/api/overview/azure/batch#management-library).
-
-> [!IMPORTANT]
-> Pools must be configured using [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) in order to use managed identities.
 
 ```csharp
 var poolParameters = new Pool(name: "yourPoolName")
@@ -48,14 +44,14 @@ var poolParameters = new Pool(name: "yourPoolName")
                     "18.04-LTS",
                     "latest"),
                 "batch.node.ubuntu 18.04")
-        };
+        },
         Identity = new BatchPoolIdentity
         {
             Type = PoolIdentityType.UserAssigned,
-            UserAssignedIdentities = new Dictionary<string, BatchPoolIdentityUserAssignedIdentitiesValue>
+            UserAssignedIdentities = new Dictionary<string, UserAssignedIdentities>
             {
                 ["Your Identity Resource Id"] =
-                    new BatchPoolIdentityUserAssignedIdentitiesValue()
+                    new UserAssignedIdentities()
             }
         }
     };
@@ -68,12 +64,16 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
     cancellationToken: default(CancellationToken)).ConfigureAwait(false);    
 ```
 
-> [!NOTE]
-> Creating pools with managed identities is not currently supported with the [Batch .NET client library](/dotnet/api/overview/azure/batch#client-library).
-
 ## Use user-assigned managed identities in Batch nodes
 
-After you've created your pools, your user-assigned managed identities can access the pool nodes via Secure Shell (SSH) or Remote Desktop (RDP). You can also configure your tasks so that the managed identities can directly access [Azure resources that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+Many Azure Batch technologies which access other Azure resources, such as Azure Storage or Azure Container Registry, support managed identities. For more information on using managed identities with Azure Batch, see the following links:
+
+- [Resource files](resource-files.md)
+- [Output files](batch-task-output-files.md#specify-output-files-using-managed-identity)
+- [Azure Container Registry](batch-docker-container-workloads.md#managed-identity-support-for-acr)
+- [Azure Blob container file system](virtual-file-mount.md#azure-blob-container)
+
+You can also manually configure your tasks so that the managed identities can directly access [Azure resources that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 Within the Batch nodes, you can get managed identity tokens and use them to authenticate through Azure AD authentication via the [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md).
 

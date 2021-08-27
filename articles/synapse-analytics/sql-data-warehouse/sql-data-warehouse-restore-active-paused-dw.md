@@ -10,7 +10,7 @@ ms.subservice: sql-dw
 ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 
 # Restore an existing dedicated SQL pool (formerly SQL DW)
@@ -49,7 +49,7 @@ To restore an existing dedicated SQL pool (formerly SQL DW) from a restore point
 
 8. After the restore has completed, you can configure your recovered dedicated SQL pool (formerly SQL DW) by following [configure your database after recovery](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
-```Powershell
+```powershell
 
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
@@ -70,7 +70,7 @@ Get-AzSqlDatabaseRestorePoint -ResourceGroupName $ResourceGroupName -ServerName 
 $Database = Get-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Pick desired restore point using RestorePointCreationDate "xx/xx/xxxx xx:xx:xx xx"
-$PointInTime="<RestorePointCreationDate>"  
+$PointInTime="<RestorePointCreationDate>"
 
 # Restore database from a restore point
 $RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
@@ -81,7 +81,6 @@ $RestoredDatabase = Restore-AzSqlDatabase –FromPointInTimeBackup –PointInTim
 
 # Verify the status of restored database
 $RestoredDatabase.status
-
 ```
 
 ## Restore an existing dedicated SQL pool (formerly SQL DW) through the Azure portal

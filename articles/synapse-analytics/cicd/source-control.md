@@ -1,23 +1,23 @@
 ---
 title: Source control in Synapse Studio 
 description: Learn how to configure source control in Azure Synapse Studio
-services: synapse-analytics 
-author: liud
-ms.service: synapse-analytics 
+author: liudan66
+ms.service: synapse-analytics
+ms.subservice: cicd
 ms.topic: conceptual 
 ms.date: 11/20/2020
 ms.author: liud 
 ms.reviewer: pimorano
 ---
 
-# Source control in Azure Synapse Studio
+# Source control in Synapse Studio
 
-By default, Azure Synapse Studio authors directly against the Synapse service. If you have a need for collaboration using Git for source control, Synapse Studio allows you to associate your workspace with a Git repository, Azure DevOps, or GitHub. 
+By default, Synapse Studio authors directly against the Synapse service. If you have a need for collaboration using Git for source control, Synapse Studio allows you to associate your workspace with a Git repository, Azure DevOps, or GitHub. 
 
 This article will outline how to configure and work in a Synapse workspace with git repository enabled. And we also highlight some best practices and a troubleshooting guide.
 
 > [!NOTE]
-> Azure Synapse Studio git integration is not available in the Azure Government Cloud.
+> Synapse Studio git integration is not available in the Azure Government Cloud.
 
 ## Configure Git repository in Synapse Studio 
 
@@ -95,7 +95,10 @@ The GitHub integration with Synapse Studio supports both public GitHub (that is,
 
 ### GitHub settings
 
-When connecting to your git repository, first select your repository type as GitHub, and then provide your GitHub account or GitHub Enterprise Server URL if you use GitHub Enterprise Server, and click **Continue**.
+When connecting to your git repository, first select your repository type as GitHub, and then provide your GitHub account, your GitHub Enterprise Server URL if you use GitHub Enterprise Server, or your GitHub Enterprise organization name if you use GitHub Enterprise Cloud. Select **Continue**.
+
+> [!NOTE]
+> If you're using GitHub Enterprise Cloud, leave the **Use GitHub Enterprise Server** checkbox cleared. 
 
 ![GitHub repository settings](media/connect-with-github-repo-1.png)
 
@@ -123,7 +126,7 @@ If you're connecting to GitHub from Synapse Studio for the first time, follow th
 
 1. In the Git configuration pane, enter the organization name in the *GitHub Account* field. A prompt to login into GitHub will appear. 
 
-1. Login using your user credentials.
+1. Login using your user credentials. 
 
 1. You'll be asked to authorize Synapse as an application called *Azure Synapse*. On this screen, you will see an option to grant permission for Synapse to access the organization. If you don't see the option to grant permission, ask an admin to manually grant the permission through GitHub.
 
@@ -171,7 +174,7 @@ By default, Synapse Studio generates the workspace templates and saves them into
 }
 ```
 
-Azure Synapse Studio can only have one publish branch at a time. When you specify a new publish branch, the previous publish branch would not been deleted. If you want to remove the previous publish branch, delete it manually.
+Synapse Studio can only have one publish branch at a time. When you specify a new publish branch, the previous publish branch would not been deleted. If you want to remove the previous publish branch, delete it manually.
 
 
 ### Publish code changes
@@ -185,7 +188,7 @@ A side pane will open where you confirm that the publish branch and pending chan
 ![Confirm the correct publish branch](media/publish-change.png)
 
 > [!IMPORTANT]
-> The collaboration branch is not representative of what's deployed in the service. The changes in collaboration branch *must* be published manually service.
+> The collaboration branch is not representative of what's deployed in the service. The changes in collaboration branch *must* be published manually.
 
 ## Switch to a different Git repository
 

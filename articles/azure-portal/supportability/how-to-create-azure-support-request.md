@@ -3,7 +3,8 @@ title: How to create an Azure support request
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.custom: support-help-page
+ms.date: 08/24/2021
 ---
 
 # Create an Azure support request
@@ -77,11 +78,11 @@ Next, we collect additional details about the problem. Providing thorough and de
 
 1. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
-1. After we have all the information about the problem, choose how to get support. In the **Support method** section of **Details**, select the severity of impact. The maximum severity level depends on your [support plan](https://azure.microsoft.com/support/plans).
+1. In the **Share diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. In some cases, there will be additional options to choose from, such as whether to allow access to a virtual machine's memory.
 
-    By default the **Share diagnostic information** option is selected. This allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. In some cases, there is a second question that isn't selected by default, such as requesting access to a virtual machine's memory.
+1. **Support method** section of **Details**, select the severity of impact. The maximum severity level depends on your [support plan](https://azure.microsoft.com/support/plans).
 
-1. Provide your preferred contact method, a good time to contact you, and your support language.
+1. Provide your preferred contact method, your availability, and your preferred support language.
 
 1. Next, complete the **Contact info** section so we know how to contact you.
 

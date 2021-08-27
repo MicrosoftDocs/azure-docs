@@ -2,13 +2,13 @@
 title: Source Control Integration
 description: Enterprise-class Database DevOps experience for dedicated SQL pool with native source control integration using Azure Repos (Git and GitHub).
 services: synapse-analytics
-author: gaursa 
+author: julieMSFT 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql-dw 
 ms.date: 08/23/2019
-ms.author: gaursa
+ms.author: jrasnick
 ms.reviewer: igorstan
 ---
 # Source Control Integration for dedicated SQL pool in Azure Synapse Analytics

@@ -1,7 +1,7 @@
 ---
 title: Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Yocto Image | Microsoft Docs
 description: Get started with Device Update for Azure IoT Hub using the Raspberry Pi 3 B+ Reference Yocto Image.
-author: valls
+author: ValOlson
 ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
@@ -15,7 +15,7 @@ and package-based.
 
 Image updates provide a higher level of confidence in the end-state of the device. It is typically easier to replicate the results of an image-update between a pre-production environment and a production environment, since it doesn’t pose the same challenges as packages and their dependencies. Due to their atomic nature, one can also adopt an A/B failover model easily.
 
-This tutorial walks you through the steps to complete an end-to-end image-based update using Device Update for IoT Hub. 
+This tutorial walks you through the steps to complete an end-to-end image-based update using Device Update for IoT Hub on a Raspberry Pi 3 B+ board. 
 
 In this tutorial you will learn how to:
 > [!div class="checklist"]
@@ -26,16 +26,12 @@ In this tutorial you will learn how to:
 > * Deploy an image update
 > * Monitor the update deployment
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
-* Access to an IoT Hub. It is recommended that you use a S1 (Standard) tier or above.
+* If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 
 ## Download image
 
-There are three images available as a part of the "Assets" in a given
-[Device Update GitHub release](https://github.com/Azure/iot-hub-device-update/releases). The base image (adu-base-image) and one update image (adu-update-image) are provided so you can try rollouts to different versions without needing to flash the SD card on the device. To do so, you'll need to upload the update images to the Device Update for IoT Hub
-Service, as a part of the import.
+We provide sample images in "Assets" on the [Device Update GitHub releases page](https://github.com/Azure/iot-hub-device-update/releases). The .gz file is the base image that you can flash onto a Raspberry Pi B3+ board, and the swUpdate file is the update you would import through Device Update for IoT Hub. 
 
 ## Flash SD card with image
 
@@ -78,24 +74,26 @@ device.
    
 Device Update for Azure IoT Hub software is subject to the following license terms:
    * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-   * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+   * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
 Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device update for IoT Hub agent.
 
-## Create device in IoT Hub and get connection string
+## Create device or module in IoT Hub and get connection string
 
 Now, the device needs to be added to the Azure IoT Hub.  From within Azure
 IoT Hub, a connection string will be generated for the device.
 
-1. From the Azure portal, launch the Device Update IoT Hub.
+1. From the Azure portal, launch the Azure IoT Hub.
 2. Create a new device.
-3. On the left-hand side of the page, navigate to 'Explorers' > 'IoT Devices' >
+3. On the left-hand side of the page, navigate to 'IoT Devices' >
    Select "New".
 4. Provide a name for the device under 'Device ID'--Ensure that "Autogenerate
    keys" is checkbox is selected.
 5. Select 'Save'.
-6. Now you will be returned to the 'Devices' page and the device you created should be in the list. Select that device.
-7. In the device view, select the 'Copy' icon next to 'Primary Connection
+6. Now you will be returned to the 'Devices' page and the device you created should be in the list. 
+7. Get the device connection string:
+	- Option 1 Using Device Update agent with a module identity: From the same 'Devices' page click on '+ Add Module Identity' on the top. Create a new Device Update module with the name 'IoTHubDeviceUpdate', choose other options as it applies to your use case and then click 'Save'. Click on the newly created 'Module' and in the module view, select the 'Copy' icon next to 'Primary Connection String'.
+	- Option 2 Using Device Update agent with the device identity: In the device view, select the 'Copy' icon next to 'Primary Connection
    String'.
 8. Paste the copied characters somewhere for later use in the steps below.
    **This copied string is your device connection string**.
@@ -112,16 +110,16 @@ IoT Hub, a connection string will be generated for the device.
  
 Replace `<device connection string>` with your connection string
  ```markdown
-	echo "connection_string=<device connection string>" > adu-conf.txt  
-	echo "aduc_manufacturer=ADUTeam" >> adu-conf.txt
-	echo "aduc_model=RefDevice" >> adu-conf.txt
+	echo "connection_string=<device connection string>" > /adu/adu-conf.txt  
+	echo "aduc_manufacturer=ADUTeam" >> /adu/adu-conf.txt
+	echo "aduc_model=RefDevice" >> /adu/adu-conf.txt
    ```
 
 ## Connect the device in Device Update IoT Hub
 
-1. On the left-hand side of the page, select 'IoT Devices' under 'Explorers'.
+1. On the left-hand side of the page, select 'IoT Devices'.
 2. Select the link with your device name.
-3. At the top of the page, select 'Device Twin'.
+3. At the top of the page, select 'Device Twin' if directly connecting to Device Update using the IoT device identity. Otherwise select the module you created above and click on its ‘Module Twin’.
 4. Under the 'reported' section of the device twin properties, look for the Linux kernel version.
 For a new device, which hasn't received an update from Device Update, the
 [DeviceManagement:DeviceInformation:1.swVersion](device-update-plug-and-play.md) value will represent
@@ -140,9 +138,9 @@ Use that version number in the Import Update step below.
 
 1. Log into [Azure portal](https://portal.azure.com) and navigate to the IoT Hub.
 
-2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin.
+2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin or Module Twin.
 
-3. In the Device Twin, delete any existing Device Update tag value by setting them to null.
+3. In the Module Twin of the Device Update agent module, delete any existing Device Update tag value by setting them to null. If you are using Device identity with Device Update agent make these changes on the Device Twin.
 
 4. Add a new Device Update tag value as shown below.
 
@@ -154,11 +152,11 @@ Use that version number in the Import Update step below.
 
 ## Import update
 
-1. Create an Import Manifest following these [instructions](import-update.md).
-2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
+2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
 3. Select the Updates tab.
 4. Select "+ Import New Update".
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the update file that you wish to deploy to your IoT devices.
+5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the _sample import manifest_ you downloaded in step 1 above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the _sample update file_ that you downloaded in step 1 above.
    
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 

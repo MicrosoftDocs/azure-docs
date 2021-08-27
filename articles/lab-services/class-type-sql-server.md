@@ -11,7 +11,7 @@ ms.author: enewman
 
 This article describes how to set up a lab for a basic SQL Server management and development class in Azure Lab Services.  Database concepts are one of the introductory courses taught in most of the Computer Science departments in college. Structured Query Language (SQL) is an international standard.  SQL is the standard language for relation database management including adding, accessing, and managing content in a database.  It is most noted for its quick processing, proven reliability, ease, and flexibility of use.
 
-In this article, we'll show how to set up a virtual machine template in a lab with [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15), and [Azure Data Studio](https://github.com/microsoft/azuredatastudio).  For this lab, we will use one shared [SQL Server Database](../azure-sql/database/sql-database-paas-overview.md) for the entire lab. [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) is Platform as a Service (PaaS) Database Engine offering from Azure.
+In this article, we'll show how to set up a virtual machine template in a lab with [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms), and [Azure Data Studio](https://github.com/microsoft/azuredatastudio).  For this lab, we will use one shared [SQL Server Database](../azure-sql/database/sql-database-paas-overview.md) for the entire lab. [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) is Platform as a Service (PaaS) Database Engine offering from Azure.
 
 ## Lab configuration
 
@@ -23,7 +23,7 @@ Enable the settings described in the table below for the lab account. For more i
 
 | Lab account setting | Instructions |
 | ------------------- | ------------ |
-| Marketplace image | Enable the ‘Visual Studio 2019 Community (latest release) on Windows 10 Enterprise N (x64)’ image for use within your lab account. |
+| Marketplace image | Enable the 'Visual Studio 2019 Community (latest release) on Windows 10 Enterprise N (x64)' image for use within your lab account. |
 
 ### Shared resource configuration
 
@@ -45,7 +45,7 @@ Now that the networking side of things is handled, lets create a SQL Server Data
 9. Choose region for the **location**.  If possible, enter the same location as the lab account and peered vnet to minimize latency.
 10. Click **OK** to return to the **Create SQL Database** form.
 11. Click **Configure database** link under the **Compute + storage** setting.
-12. Modify database settings as needed for the class.  You can choose between Provisioned and Serverless options.  For this example, we'll use the autoscaled Serverless option with max vCores of 4, min vCores of 1. We’ll keep the autopause setting at the minimum of 1 hour. Click **Apply**.
+12. Modify database settings as needed for the class.  You can choose between Provisioned and Serverless options.  For this example, we'll use the autoscaled Serverless option with max vCores of 4, min vCores of 1. We'll keep the autopause setting at the minimum of 1 hour. Click **Apply**.
 13. Click **Next: Networking** button.
 14. On the Networking tab, choose Private endpoint for the **Connectivity method**.
 15. Under the **Private endpoints** section, click **Add private endpoint**.
@@ -55,7 +55,7 @@ Now that the networking side of things is handled, lets create a SQL Server Data
 19. Leave the Target subresource set to SqlServer.
 20. For **Virtual network**, choose the same virtual network peered to the lab account.
 21. For **Subnet**, choose subnet you want the endpoint hosted in.  The IP assigned to the endpoint will be from the range assigned to that subnet.
-22. Set **Integrate with private DNS** to **No**. For simplicity, we’ll use Azure’s DNS over own private DNS zone or our own DNS servers.
+22. Set **Integrate with private DNS** to **No**. For simplicity, we'll use Azure's DNS over own private DNS zone or our own DNS servers.
 23. Click **OK**.
 24. Click **Next: Additional settings**.
 25. For the **Use existing data** setting, choose **Sample**.  The data from the AdventureWorksLT database will be used when the database is created.
@@ -77,9 +77,9 @@ Now that our lab is created, let's modify the template machine with the software
 
 ## Visual Studio
 
-The image chosen above includes [Visual Studio 2019 Community](https://visualstudio.microsoft.com/vs/community/).  All workloads and tool sets are already installed on the image.  Use the Visual Studio Installer to [install any optional tools](/visualstudio/install/modify-visual-studio?view=vs-2019) you may want.  [Sign in to Visual Studio](/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019#how-to-sign-in-to-visual-studio) to unlock the community edition.
+The image chosen above includes [Visual Studio 2019 Community](https://visualstudio.microsoft.com/vs/community/).  All workloads and tool sets are already installed on the image.  Use the Visual Studio Installer to [install any optional tools](/visualstudio/install/modify-visual-studio?view=vs-2019&preserve-view=true) you may want.  [Sign in to Visual Studio](/visualstudio/ide/signing-in-to-visual-studio?view=vs-2019&preserve-view=true#how-to-sign-in-to-visual-studio) to unlock the community edition.
 
-Visual Studio includes the **Data storage and processing** tool set, which includes SQL Server Data Tools (SSDT).  For more information about SSDT’s capabilities, see [SQL Server Data Tools overview](/sql/ssdt/sql-server-data-tools?view=sql-server-ver15).  To verify connection to the shared SQL Server for the class will be successful, see [connect to a database and browse existing objects](/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects?view=sql-server-ver15). If prompted add the template machine IP to the [list of allowed computers](../azure-sql/database/firewall-configure.md) that can connect to your SQL Server instance.
+Visual Studio includes the **Data storage and processing** tool set, which includes SQL Server Data Tools (SSDT).  For more information about SSDT's capabilities, see [SQL Server Data Tools overview](/sql/ssdt/sql-server-data-tools).  To verify connection to the shared SQL Server for the class will be successful, see [connect to a database and browse existing objects](/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects). If prompted add the template machine IP to the [list of allowed computers](../azure-sql/database/firewall-configure.md) that can connect to your SQL Server instance.
 
 Visual Studio supports several workloads including **Web & cloud** and **Desktop & mobile** workloads.  Both of these workloads support SQL Server as a data source. For more information using ASP.NET Core to SQL Server, see [build an ASP.NET Core and SQL Database app in Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md) tutorial.  Use [System.Data.SqlClient](/dotnet/api/system.data.sqlclient) library to connect to a SQL Database from a [Xamarin](/xamarin) app.
 
@@ -95,7 +95,7 @@ Visual Studio supports several workloads including **Web & cloud** and **Desktop
 6. On the **Ready to Install**, click **Next**.
 7. Wait for the installer to run.  Click **Finish**.
 
-Now that we have Azure Data Studio installed, let’s setup the connection to Azure SQL Database.
+Now that we have Azure Data Studio installed, let's setup the connection to Azure SQL Database.
 
 1. On the **Welcome** page for Azure Data Studio, click the **New Connection** link.
 2. In the **Connection Details** box, fill in necessary information.
@@ -108,7 +108,7 @@ Now that we have Azure Data Studio installed, let’s setup the connection to Az
 
 ## Install SQL Server Management Studio
 
-[SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) is an integrated environment for managing any SQL infrastructure.  SSMS is a tool used by database administrators to deploy, monitor, and upgrade data infrastructure.
+[SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) is an integrated environment for managing any SQL infrastructure.  SSMS is a tool used by database administrators to deploy, monitor, and upgrade data infrastructure.
 
 1. [Download Sql Server Management Studio](https://aka.ms/ssmsfullsetup). Once downloaded, start the installer.
 2. On the **Welcome** page, click **Install**.

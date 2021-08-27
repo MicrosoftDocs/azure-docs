@@ -48,15 +48,15 @@ Deploy an app with the language framework of your choice to App Service. To foll
 
 ---
 
-## Create the Logic App
+## Create the logic app
 
-1. In the [Azure portal](https://portal.azure.com), create an empty logic app by following the instructions in [Create your logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app). When you see the **Logic Apps Designer**, return to this tutorial.
+1. In the [Azure portal](https://portal.azure.com), create an empty logic app by following the instructions in [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). When you see the **Logic Apps Designer**, return to this tutorial.
 1. In the splash page for Logic Apps Designer, select **When an HTTP request is received** under **Start with a common trigger**.
 
     ![Screenshot that shows the splash page for the Logic Apps Designer with When an H T T P request is received highlighted.](./media/tutorial-send-email/receive-http-request.png)
 1. In the dialog for **When an HTTP request is received**, select **Use sample payload to generate schema**.
 
-    ![Screenshot that shows the When an H T T P request dialog box and the Use sample payload to generate schema opion selected. ](./media/tutorial-send-email/generate-schema-with-payload.png)
+    ![Screenshot that shows the When an H T T P request dialog box and the Use sample payload to generate schema option selected. ](./media/tutorial-send-email/generate-schema-with-payload.png)
 
 1. Copy the following sample JSON into the textbox and select **Done**.
 
@@ -77,7 +77,7 @@ Deploy an app with the language framework of your choice to App Service. To foll
 
     This HTTP request definition is a trigger to anything you want to do in this logic app, be it Gmail or anything else. Later you will invoke this URL in your App Service app. For more information on the request trigger, see the [HTTP request/response reference](../connectors/connectors-native-reqres.md).
 
-1. At the bottom of the designer, click **New step**, type **Gmail** in the actions search box and find and select **Send email (V2)**.
+1. At the bottom of the designer, click **New step**, type **Gmail** in the actions search box. Find and select **Send email (V2)**.
     
     > [!TIP]
     > You can search for other types of integrations, such as SendGrid, MailChimp, Microsoft 365, and SalesForce. For more information, see [Logic Apps documentation](../logic-apps/index.yml).
@@ -266,13 +266,14 @@ In Python, you can send the HTTP post easily with [requests](https://pypi.org/pr
 ```python
 # Requires pip install requests && pip freeze > requirements.txt
 import requests
+import os
 ...
 payload = {
     "email": "a-valid@emailaddress.com",
     "due": "4/1/2020",
     "task": "My new task!"
 }
-response = requests.post("https://prod-112.westeurope.logic.azure.com:443/workfl$
+response = requests.post(os.environ['LOGIC_APP_URL'], data = payload)
 print(response.status_code)
 ```
 <!-- ```python
@@ -314,3 +315,4 @@ If you're testing this code on the sample app for [Build a Ruby and Postgres app
 [Tutorial: Host a RESTful API with CORS in Azure App Service](app-service-web-tutorial-rest-api.md)  
 [HTTP request/response reference for Logic Apps](../connectors/connectors-native-reqres.md)  
 [Quickstart: Create your first workflow by using Azure Logic Apps - Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+- [Environment variables and app settings reference](reference-app-settings.md)

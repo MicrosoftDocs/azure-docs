@@ -11,7 +11,7 @@ ms.author: duau
 
 # About ExpressRoute Direct
 
-ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed around the world. ExpressRoute Direct provides dual 100 Gbps or 10-Gbps connectivity, which supports Active/Active connectivity at scale.
+ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed around the world. ExpressRoute Direct provides dual 100 Gbps or 10-Gbps connectivity, which supports Active/Active connectivity at scale. You can work with any service provider for ER Direct.
 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
@@ -43,7 +43,7 @@ Once enrolled, verify that **Microsoft.Network** resource provider is registered
 
 1. In your subscription, for **Resource Providers**, verify **Microsoft.Network** provider shows a **Registered** status. If the Microsoft.Network resource provider isn't present in the list of registered providers, add it.
 
-If you begin to use ExpressRoute Direct and notice that there are no available ports in your chosen peering location, email ExpressRouteDirect@microsoft.com to request more inventory.
+If you begin to use ExpressRoute Direct and notice that there are no available ports in your chosen peering location, please log a support request to request more inventory.
 
 ## ExpressRoute using a service provider and ExpressRoute Direct
 
@@ -64,7 +64,7 @@ The functionality in most scenarios is equivalent to circuits that use an Expres
 
 ## Circuit SKUs
 
-ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on 100-Gbps ExpressRoute Direct now also support **40 Gbps** and **100-Gbps circuit SKUs. The physical port pairs are **100 Gbps or 10 Gbps** only and can have multiple virtual circuits. Circuit sizes:
+ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on 100-Gbps ExpressRoute Direct now also support **40 Gbps** and **100 Gbps** circuit SKUs. The physical port pairs are **100 Gbps or 10 Gbps** only and can have multiple virtual circuits. Circuit sizes:
 
 | **100-Gbps ExpressRoute Direct** | **10-Gbps ExpressRoute Direct** | 
 | --- | --- |

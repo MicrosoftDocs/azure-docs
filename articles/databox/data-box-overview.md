@@ -8,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 12/18/2020
+ms.date: 07/22/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
 ---
@@ -67,7 +67,7 @@ The Data Box device has the following features in this release.
 | Weight                                                  | < 50 lbs.                |
 | Dimensions                                              | Device - Width: 309.0 mm Height: 430.4 mm Depth: 502.0 mm |            
 | Rack space                                              | 7 U when placed in the rack on its side (cannot be rack-mounted)|
-| Cables required                                         | 1 X power cable (included) <br> 2 RJ45 cables <br> 2 X SFP+ Twinax copper cables|
+| Cables required                                         | 1 X power cable (included) <br> 2 RJ45 cables (not included)<br> 2 X SFP+ Twinax copper cables (not included)|
 | Storage capacity                                        | 100-TB device has 80 TB or usable capacity after RAID 5 protection|
 | Power rating                                            | The power supply unit is rated for 700 W. <br> Typically, the unit draws 375 W.|
 | Network interfaces                                      | 2 X 1-GbE interface - MGMT, DATA 3. <br> MGMT - for management, not user configurable, used for initial setup <br> DATA3 - for data, user configurable, and is dynamic by default <br> MGMT and DATA 3 can also work as 10 GbE <br> 2 X 10-GbE interface - DATA 1, DATA 2 <br> Both are for data, can be configured as dynamic (default) or static |
@@ -96,6 +96,17 @@ The Data Box includes the following components:
 
     ![The Data Box local web UI](media/data-box-overview/data-box-local-web-ui.png)
 
+    The local web UI on the device currently supports the following languages with their corresponding language codes:
+
+    | Language             | Code | Language                | Code   | Language                | Code         |
+    |----------------------|------|-------------------------|--------|-------------------------|--------------|
+    | English {default}    | en   |  Czech                  | cs     | German                  | de           |
+    | Spanish              | es   | French                  | fr     | Hungarian               | hu           |
+    | Italian              | it   | Japanese                | ja     | Korean                  | ko           |
+    | Dutch                | nl   | Polish                  | pl     | Portuguese - Brazil     | pt-br        |
+    | Portuguese - Portugal| pt-pt| Russian                 | ru     | Swedish                 | sv           |
+    | Turkish              | tr   | Chinese - simplified    | zh-hans|    |       |    
+
     For information about using the web-based UI, go to [Use the web-based UI to administer your Data Box](data-box-portal-ui-admin.md).
 
 ## The workflow
@@ -104,7 +115,7 @@ A typical import flow includes the following steps:
 
 1. **Order** - Create an order in the Azure portal, provide shipping information, and the destination Azure storage account for your data. If the device is available, Azure prepares and ships the device with a shipment tracking ID.
 
-2. **Receive** - Once the device is delivered, cable the device for network and power using the specified cables. Turn on and connect to the device. Configure the device network and mount shares on the host computer from where you want to copy the data.
+2. **Receive** - Once the device is delivered, cable the device for network and power using the specified cables. (The power cable is included with the device. You'll need to procure the data cables.) Turn on and connect to the device. Configure the device network and mount shares on the host computer from where you want to copy the data.
 
 3. **Copy data** - Copy data to Data Box shares.
 
@@ -119,7 +130,7 @@ A typical export flow includes the following steps:
 
 1. **Order** - Create an export order in the Azure portal, provide shipping information, and the source Azure storage account for your data. If the device is available, Azure prepares a device. Data is copied from your Azure Storage account to the Data Box. Once the data copy is complete, Microsoft ships the device with a shipment tracking ID.
 
-2. **Receive** - Once the device is delivered, cable the device for network and power using the specified cables. Turn on and connect to the device. Configure the device network and mount shares on the host computer to which you want to copy the data.
+2. **Receive** - Once the device is delivered, cable the device for network and power using the specified cables. (The power cable is included with the device. You'll need to procure the data cables.) Turn on and connect to the device. Configure the device network and mount shares on the host computer to which you want to copy the data.
 
 3. **Copy data** - Copy data from Data Box shares to the on-premises data servers.
 

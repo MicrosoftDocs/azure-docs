@@ -1,12 +1,14 @@
 ---
 title: Lookup transformation in mapping data flow
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Reference data from another source using the lookup transformation in mapping data flow.
 author: kromerm
 ms.reviewer: daperlov
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date:  02/19/2021
 ---
 
@@ -93,8 +95,8 @@ SQLProducts, DimProd lookup(ProductID == ProductKey,
     asc(ProductKey, true),
     broadcast: 'auto')~> LookupKeys
 ```
-## 
-Next steps
+
+## Next steps
 
 * The [join](data-flow-join.md) and [exists](data-flow-exists.md) transformations both take in multiple stream inputs
 * Use a [conditional split transformation](data-flow-conditional-split.md) with ```isMatch()``` to split rows on matching and non-matching values

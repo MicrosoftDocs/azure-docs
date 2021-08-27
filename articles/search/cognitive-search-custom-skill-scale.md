@@ -3,9 +3,8 @@ title: 'Scale and manage custom skill'
 titleSuffix: Azure Cognitive Search
 description: Learn the tools and techniques for efficiently scaling out a custom skill for maximum throughput. Custom skills invoke custom AI models or logic that you can add to an AI-enriched indexing pipeline in Azure Cognitive Search.
 
-manager: luisca
-author: vkurpad
-ms.author: vikurpad
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
@@ -22,7 +21,7 @@ Custom skills are web APIs that implement a specific interface. A custom skill c
 
 + Review the [custom skill interface](cognitive-search-custom-skill-interface.md) for an introduction into the input/output interface that a custom skill should implement.
 
-+ Set up your environment. You could start with [this tutorial end-to-end](/python/tutorial-vs-code-serverless-python-01) to set up serverless Azure Function using Visual Studio Code and Python extensions.
++ Set up your environment. You could start with [this tutorial end-to-end](../azure-functions/create-first-function-vs-code-python.md) to set up serverless Azure Function using Visual Studio Code and Python extensions.
 
 ## Skillset configuration
 
@@ -38,7 +37,7 @@ On the [custom skill](cognitive-search-custom-skill-web-api.md) set the followin
 
 3. Set `timeout`to a value sufficient for the skill to respond with a valid response.
 
-4. In the `indexer` definition, set [`batchSize`](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) to the number of documents that should be read from the data source and enriched concurrently.
+4. In the `indexer` definition, set [`batchSize`](/rest/api/searchservice/create-indexer#indexer-parameters) to the number of documents that should be read from the data source and enriched concurrently.
 
 ### Considerations
 
@@ -102,5 +101,5 @@ Congratulations! Your custom skill is now scaled right to maximize throughput on
 
 + [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Add a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
-+ [Add a Azure Machine Learning skill](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill)
-+ [Use debug sessions to test changes](https://docs.microsoft.com/azure/search/cognitive-search-debug-session)
++ [Add a Azure Machine Learning skill](./cognitive-search-aml-skill.md)
++ [Use debug sessions to test changes](./cognitive-search-debug-session.md)

@@ -5,7 +5,8 @@ author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
-ms.author: allensu
+ms.author: allensu 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Move Azure internal Load Balancer to another region using PowerShell

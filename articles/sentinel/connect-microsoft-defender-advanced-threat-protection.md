@@ -25,6 +25,8 @@ ms.author: yelevin
 >
 >     You may see the old name still in use in the product (including its data connector in Azure Sentinel) for a period of time.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 The [Microsoft Defender for Endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) connector lets you stream alerts from Microsoft Defender for Endpoint into Azure Sentinel. This will enable you to more comprehensively analyze security events across your organization and build playbooks for effective and immediate response.
 
 > [!NOTE]
@@ -49,5 +51,5 @@ If Microsoft Defender for Endpoint is deployed and ingesting your data, the aler
 
 ## Next steps
 In this document, you learned how to connect Microsoft Defender for Endpoint to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).

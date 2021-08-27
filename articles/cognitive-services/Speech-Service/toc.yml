@@ -31,20 +31,18 @@
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
-        - name: Use automatic source language detection
+        - name: Use language identification
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
           href: batch-transcription.md
         - name: Migrate from v2.0 to v3.0
           href: migrate-v2-to-v3.md
-        - name: Assess pronunciation
+        - name: Use Pronunciation Assessment
           href: how-to-pronunciation-assessment.md
         - name: Customization
           items:
             - name: What is Custom Speech?
               href: custom-speech-overview.md
-            - name: Test a model using audio files in Speech Studio
-              href: quickstarts/speech-studio-test-model.md
             - name: Prepare data for Custom Speech
               href: how-to-custom-speech-test-and-train.md
             - name: Inspect Custom Speech data
@@ -59,6 +57,28 @@
               href: how-to-custom-speech-human-labeled-transcriptions.md
             - name: Model and Endpoint Lifecycle
               href: how-to-custom-speech-model-and-endpoint-lifecycle.md
+    - name: Responsible use of AI
+      items:
+        - name: Speech-to-text
+          items:
+          - name: Transparency note
+            items:
+            - name: Use cases for Speech-to-text
+              href: /legal/cognitive-services/speech-service/speech-to-text/transparency-note?context=/azure/cognitive-services/speech-service/context/context
+            - name: Characteristics and limitations
+              href: /legal/cognitive-services/speech-service/speech-to-text/characteristics-and-limitations?context=/azure/cognitive-services/speech-service/context/context
+          - name: Integration and responsible use
+            href: /legal/cognitive-services/speech-service/speech-to-text/guidance-integration-responsible-use?context=/azure/cognitive-services/speech-service/context/context
+          - name: Data, privacy, and security
+            href: /legal/cognitive-services/speech-service/speech-to-text/data-privacy-security?context=/azure/cognitive-services/speech-service/context/context
+        - name: Pronunciation Assessment
+          items:
+          - name: Transparency Note
+            items:
+            - name: Use cases for Pronunciation Assessment
+              href: /legal/cognitive-services/speech-service/pronunciation-assessment/transparency-note-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
+            - name: Characteristics and limitations
+              href: /legal/cognitive-services/speech-service/pronunciation-assessment/characteristics-and-limitations-pronunciation-assessment?context=/azure/cognitive-services/speech-service/context/context
     - name: Tutorials
       items:
         - name: Improve accuracy with tenant models
@@ -73,7 +93,7 @@
           href: /dotnet/api/microsoft.cognitiveservices.speech
         - name: 'Go'
           displayName: Go SDK, Go dev kit,reference,reference docs,ref documentation
-          href: https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go          
+          href: https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: /java/api/com.microsoft.cognitiveservices.speech
@@ -97,9 +117,11 @@
           href: language-support.md#speech-to-text
         - name: Region support
           href: regions.md#speech-to-text-text-to-speech-and-translation
+        - name: Ingestion Client
+          href: ingestion-client.md
         - name: Speech-to-text FAQ
           displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
-          href: faq-stt.md
+          href: faq-stt.yml
 - name: Text-to-speech
   items:
     - name: Text-to-speech documentation
@@ -112,24 +134,26 @@
       items:
         - name: Improve synthesis with SSML
           href: speech-synthesis-markup.md
+        - name: Lower speech synthesis latency using Speech SDK
+          href: how-to-lower-speech-synthesis-latency.md
         - name: Synthesize speech with Long Audio API
           href: long-audio-api.md
         - name: Get facial pose events for lip-sync
           href: how-to-speech-synthesis-viseme.md
         - name: Customization
           items:
-            - name: Custom Voice portal
+            - name: Custom Neural Voice
               items:
                 - name: What is Custom Neural Voice?
                   href: custom-neural-voice.md
-                - name: Get started with Custom Voice
+                - name: Get started with Custom Neural Voice
                   displayName: 'custom voice, neural voice'
                   href: how-to-custom-voice.md
-                - name: Prepare data
+                - name: Prepare data for training
                   href: how-to-custom-voice-prepare-data.md
-                - name: Create and use Custom Voice models
+                - name: Create and use your voice model
                   href: how-to-custom-voice-create-voice.md
-                - name: Record voice samples
+                - name: How to record voice samples
                   href: record-custom-voice-samples.md
             - name: Audio Content Creation
               items:
@@ -188,17 +212,12 @@
           href: rest-text-to-speech.md
     - name: Resources
       items:
-        - name: Standard voice support
-          href: language-support.md#standard-voices
         - name: Neural voice support
           href: language-support.md#neural-voices
         - name: Region support
           href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: SSML phonetic sets
           href: speech-ssml-phonetic-sets.md
-        - name: Text-to-speech FAQ
-          displayName: 'FAQ,TTS FAQ,SS FAQ,frequently asked questions'
-          href: faq-text-to-speech.md
 - name: Speech translation
   items:
     - name: Speech translation documentation
@@ -249,11 +268,13 @@
     - name: Intent recognition overview
       href: intent-recognition.md
     - name: Intent recognition quickstart
-      href: quickstarts/intent-recognition.md
+      href: get-started-intent-recognition.md
     - name: How-to guides
       items:
         - name: 'Recognize speech intents with LUIS, C#'
           href: how-to-recognize-intents-from-speech-csharp.md
+        - name: 'Recognize speech intents with simple pattern matching, C++'
+          href: how-to-use-simple-language-pattern-matching.md
     - name: Reference
       items:
         - name: Speech SDK
@@ -299,12 +320,16 @@
       items:
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
-- name: Custom Keyword
+- name: Keyword recognition
   items:
-    - name: Custom keyword overview
-      href: custom-keyword-overview.md
-    - name: Custom keyword basics
+    - name: Keyword recognition overview
+      href: keyword-recognition-overview.md
+    - name: Custom Keyword quickstart
       href: custom-keyword-basics.md
+    - name: Recommendations and guidelines
+      href: keyword-recognition-guidelines.md
+    - name: Region support
+      href: keyword-recognition-region-support.md
 - name: Scenario deep-dives
   items:
     - name: Conversation scenarios
@@ -419,7 +444,7 @@
                 - name: Voice Assistants Samples (GitHub)
                   href: http://aka.ms/speech/va-samples
                 - name: Voice assistants FAQ
-                  href: faq-voice-assistants.md
+                  href: faq-voice-assistants.yml
                 - name: Custom Commands encryption of data at rest
                   href: custom-commands-encryption-of-data-at-rest.md
         - name: Direct Line Speech
@@ -437,7 +462,7 @@
             - name: Resources
               items:
                 - name: Voice assistants FAQ
-                  href: faq-voice-assistants.md
+                  href: faq-voice-assistants.yml
         - name: Voice assistants on Windows
           items:
             - name: Overview of voice assistants on Windows
@@ -455,57 +480,8 @@
                 - name: 'Best practices for assistant experiences'
                   href: windows-voice-assistants-best-practices.md
                 - name: 'Samples and frequently asked questions'
-                  href: windows-voice-assistants-faq.md
-- name: Tools
-  items:
-  - name: Speech SDK
-    items:
-      - name: Speech SDK overview
-        href: speech-sdk.md
-      - name: Setup Speech SDK
-        href: quickstarts/setup-platform.md
-      - name: Speech SDK Release notes
-        href: releasenotes.md
-      - name: Reference
-        items:
-          - name: C++
-            href: /cpp/cognitive-services/speech/
-          - name: 'C#'
-            href: /dotnet/api/microsoft.cognitiveservices.speech
-          - name: Java
-            href: /java/api/com.microsoft.cognitiveservices.speech
-          - name: JavaScript
-            href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
-          - name: Objective-C
-            href: /objectivec/cognitive-services/speech/
-          - name: Python
-            href: /python/api/azure-cognitiveservices-speech/
-          - name: Go
-            href: https://github.com/microsoft/cognitive-services-speech-sdk-go
-  - name: Speech CLI
-    displayName: SPX
-    items:
-      - name: Speech CLI overview
-        displayName: What is SPX?, spx, spx overview
-        href: spx-overview.md
-      - name: Speech CLI quickstart
-        displayName: spx basics, spx quickstart, spx get started, speech cli get started
-        href: spx-basics.md
-      - name: How-to guides
-        items:
-        - name: Speech CLI configuration options
-          displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore
-          href: spx-data-store-configuration.md
-        - name: Speech CLI batch operations
-          displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
-          href: spx-batch-operations.md
-  - name: Speech Studio
-    items:
-      - name: Speech Studio overview
-        href: https://speech.microsoft.com
-      - name: Create a Custom Commands app with Speech Studio
-        href: ./quickstart-custom-commands-application.md
-- name: Deploy
+                  href: windows-voice-assistants-faq.yml
+- name: How-to guides
   items:
     - name: Enable logging
       href: how-to-use-logging.md
@@ -513,13 +489,15 @@
       href: how-to-track-speech-sdk-memory-usage.md
     - name: Enable private endpoint
       href: speech-services-private-link.md
+    - name: Enable VNet service endpoint
+      href: speech-service-vnet-service-endpoint.md
     - name: Configure OpenSSL for Linux
       displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
       href: how-to-configure-openssl-linux.md
     - name: Configure RHEL/CentOS 7
       href: how-to-configure-rhel-centos-7.md
       displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
-    - name: Containers
+    - name: Use containers
       items:
         - name: Install and run Speech containers
           displayName: 'containers,install container,run container'
@@ -537,9 +515,22 @@
           maintainContext: true
           href: ../containers/azure-container-instance-recipe.md
         - name: Containers FAQ
-          href: speech-container-faq.md
+          href: speech-container-faq.yml
         - name: Cognitive Services containers documentation
           href: ../containers/index.yml
+          maintainContext: true
+    - name: Migration
+      items:
+        - name: From Bing Speech
+          href: how-to-migrate-from-bing-speech.md
+        - name: From the Translator Speech API
+          href: how-to-migrate-from-translator-speech-api.md
+    - name: Enterprise readiness
+      items:
+      - name: Set up Virtual Networks
+        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
+      - name: Use customer-managed keys
+        href: speech-encryption-of-data-at-rest.md
 - name: Devices
   items:
     - name: Speech devices documentation
@@ -576,28 +567,69 @@
       items:
         - name: Speech devices SDK release notes
           href: devices-sdk-release-notes.md
-- name: Migration
-  items:
-  - name: From Bing Speech
-    href: how-to-migrate-from-bing-speech.md
-  - name: From the Translator Speech API
-    href: how-to-migrate-from-translator-speech-api.md
 - name: Resources
   items:
-  - name: Support & help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
-  - name: Swagger documentation
-    href: swagger-documentation.md
-  - name: Sovereign Clouds
-    displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
-    href: sovereign-clouds.md
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
-  - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Encryption
-    href: speech-encryption-of-data-at-rest.md
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-  - name: Privacy and cookies
-    href: https://privacy.microsoft.com/privacystatement
+    - name: Speech SDK
+      items:
+        - name: Speech SDK overview
+          href: speech-sdk.md
+        - name: Setup Speech SDK
+          href: quickstarts/setup-platform.md
+        - name: Speech SDK Release notes
+          href: releasenotes.md
+        - name: Reference
+          items:
+            - name: C++
+              href: /cpp/cognitive-services/speech/
+            - name: 'C#'
+              href: /dotnet/api/microsoft.cognitiveservices.speech
+            - name: Java
+              href: /java/api/com.microsoft.cognitiveservices.speech
+            - name: JavaScript
+              href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
+            - name: Objective-C
+              href: /objectivec/cognitive-services/speech/
+            - name: Python
+              href: /python/api/azure-cognitiveservices-speech/
+            - name: Go
+              href: https://github.com/microsoft/cognitive-services-speech-sdk-go
+    - name: Speech CLI
+      displayName: SPX
+      items:
+        - name: Speech CLI overview
+          displayName: What is SPX?, spx, spx overview
+          href: spx-overview.md
+        - name: Speech CLI quickstart
+          displayName: spx basics, spx quickstart, spx get started, speech cli get started
+          href: spx-basics.md
+        - name: How-to guides
+          items:
+          - name: Speech CLI configuration options
+            displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore
+            href: spx-data-store-configuration.md
+          - name: Speech CLI batch operations
+            displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
+            href: spx-batch-operations.md
+    - name: Speech Studio
+      items:
+        - name: Speech Studio overview
+          href: speech-studio-overview.md
+    - name: Enterprise readiness
+      items:
+      - name: Region support
+        href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+      - name: Compliance and certification
+        href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+    - name: Support and help options
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
+    - name: Swagger documentation
+      href: swagger-documentation.md
+    - name: Sovereign Clouds
+      displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
+      href: sovereign-clouds.md
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
+    - name: Azure roadmap
+      href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+    - name: Privacy and cookies
+      href: https://privacy.microsoft.com/privacystatement

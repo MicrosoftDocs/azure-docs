@@ -12,6 +12,8 @@ ms.custom: references_regions, devx-track-azurecli
 
 In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using Azure CLI.
 
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
@@ -30,7 +32,7 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
 1. Sign in.
 
-    Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
+    Sign in using the [az login](/cli/azure/reference-index#az_login) command if you're using a local install of the CLI.
 
     ```azurecli
     az login
@@ -42,7 +44,7 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
     When working with extension references for the Azure CLI, you must first install the extension.  Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI.  To learn more about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-    Install the [extension for Azure Blockchain Service](/cli/azure/ext/blockchain/blockchain) by running the following command:
+    Install the [extension for Azure Blockchain Service](/cli/azure/blockchain) by running the following command:
 
     ```azurecli-interactive
     az extension add --name blockchain
@@ -52,7 +54,7 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
     Azure Blockchain Service, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
 
-    For this quickstart, create a resource group named _myResourceGroup_ in the _eastus_ location with the following [az group create](/cli/azure/group#az-group-create) command:
+    For this quickstart, create a resource group named _myResourceGroup_ in the _eastus_ location with the following [az group create](/cli/azure/group#az_group_create) command:
 
     ```azurecli-interactive
     az group create \

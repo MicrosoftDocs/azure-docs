@@ -4,6 +4,7 @@ description: A list of tutorials demonstrating Azure Data Factory concepts
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 03/16/2021
 ---
@@ -55,6 +56,10 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 [Data wrangling with Power Query](wrangling-tutorial.md)
 
 [Data flows inside managed VNet](tutorial-data-flow-private.md)
+
+[Best practices for lake data in ADLS Gen2](tutorial-data-flow-write-to-lake.md)
+
+[Dynamically set column names](data-flow-tutorials.md)
 
 ## External data services
 

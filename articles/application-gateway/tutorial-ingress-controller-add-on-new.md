@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Create a resource group
 
-In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *canadacentral* location (region): 
+In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *canadacentral* location (region): 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location canadacentral
@@ -55,7 +55,7 @@ Deploying a new AKS cluster with the AGIC add-on enabled without specifying an e
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-cidr "10.2.0.0/16" --generate-ssh-keys
 ```
 
-To configure additional parameters for the `az aks create` command, see [these references](/cli/azure/aks#az-aks-create). 
+To configure additional parameters for the `az aks create` command, see [these references](/cli/azure/aks#az_aks_create). 
 
 > [!NOTE]
 > The AKS cluster that you created will appear in the resource group that you created, *myResourceGroup*. However, the automatically created Application Gateway instance will be in the node resource group, where the agent pools are. The node resource group by is named *MC_resource-group-name_cluster-name_location* by default, but can be modified. 

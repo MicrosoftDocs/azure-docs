@@ -100,7 +100,7 @@ See [Azure Resource Manager overview](azure-resource-manager/management/overview
 
 ## <a name="arm-template"></a>Resource Manager template
 A JSON file that declaratively defines one or more Azure resources and that defines dependencies between the deployed resources. The template can be used to deploy the resources consistently and repeatedly.  
-See [Authoring Azure Resource Manager templates](./azure-resource-manager/templates/template-syntax.md)
+See [Authoring Azure Resource Manager templates](./azure-resource-manager/templates/syntax.md)
 
 ## resource provider
 A service that supplies the resources you can deploy and manage through Resource Manager. Each resource provider offers operations for working with the resources that are deployed. Resource providers can be accessed through the Azure portal, Azure PowerShell, and several programming SDKs.  
@@ -115,7 +115,7 @@ The agreement that describes Microsoft’s commitments for uptime and connectivi
 See [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="sas"></a>shared access signature (SAS)
-A signature that enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](./storage/common/storage-sas-overview.md) to grant client access to objects such as blobs. [IoT Hub uses SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) to grant devices permission to send telemetry.
+A signature that enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](./storage/common/storage-sas-overview.md) to grant client access to objects such as blobs. [IoT Hub uses SAS](iot-hub/iot-hub-dev-guide-sas.md#security-tokens) to grant devices permission to send telemetry.
 
 ## storage account
 An account that gives you access to the Azure Blob, Queue, Table, and File services in Azure Storage. The storage account name defines the unique namespace for Azure Storage data objects.  

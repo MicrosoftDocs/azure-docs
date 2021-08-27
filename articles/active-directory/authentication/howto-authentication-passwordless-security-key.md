@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 06/03/2021
 
 ms.author: justinha
 author: justinha
@@ -28,7 +28,8 @@ This document focuses on enabling security key based passwordless authentication
 - Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
 - WebAuthN requires Windows 10 version 1903 or higher**
 
-To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. These include Microsoft Edge, Chrome, Firefox, and Safari.
+To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. 
+These include Microsoft Edge, Chrome, Firefox, and Safari.
 
 ## Prepare devices
 
@@ -50,6 +51,43 @@ Registration features for passwordless authentication methods rely on the combin
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users
 1. **Save** the configuration.
+
+
+### FIDO Security Key optional settings 
+
+There are some optional settings for managing security keys per tenant.  
+
+![Screenshot of FIDO2 security key options](media/howto-authentication-passwordless-security-key/optional-settings.png) 
+
+**General**
+
+- **Allow self-service set up** should remain set to **Yes**. If set to no, your users will not be able to register a FIDO key through the MySecurityInfo portal, even if enabled by Authentication Methods policy.  
+- **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
+
+**Key Restriction Policy**
+
+- **Enforce key restrictions** should be set to **Yes** only if your organization wants to only allow or disallow certain FIDO security keys, which are identified by their AAGuids. You can work with your security key provider to determine the AAGuids of their devices. If the key is already registered, AAGUID can also be found by viewing the authentication method details of the key per user. 
+
+
+## Disable a key 
+
+To remove a FIDO2 key associated with a user account, delete the key from the user’s authentication method.
+
+1. Login to the Azure AD portal and search for the user account from which the FIDO key is to be removed.
+1. Select **Authentication methods** > right-click **FIDO2 security key** and click **Delete**. 
+
+    ![View Authentication Method details](media/howto-authentication-passwordless-deployment/security-key-view-details.png)
+
+## Security key Authenticator Attestation GUID (AAGUID)
+
+The FIDO2 specification requires each security key provider to provide an Authenticator Attestation GUID (AAGUID) during attestation. An AAGUID is a 128-bit identifier indicating the key type, such as the make and model. 
+
+>[!NOTE]
+>The manufacturer must ensure that the AAGUID is identical across all substantially identical keys made by that manufacturer, and different (with high probability) from the AAGUIDs of all other types of keys. To ensure, the AAGUID for a given type of security key should be randomly generated. For more information, see [Web Authentication: An API for accessing Public Key Credentials - Level 2 (w3.org)](https://w3c.github.io/webauthn/).
+
+There are two ways to get your AAGUID. You can either ask your security key provider or view the authentication method details of the key per user.
+
+![View AAGUID for security key](media/howto-authentication-passwordless-deployment/security-key-aaguid-details.png)
 
 ## User registration and management of FIDO2 security keys
 
@@ -87,9 +125,10 @@ If you'd like to share feedback or encounter issues with this feature, share via
 
 Administrator provisioning and de-provisioning of security keys is not available.
 
+
 ### UPN changes
 
-We are working on supporting a feature that allows UPN change on hybrid Azure AD joined and Azure AD joined devices. If a user's UPN changes, you can no longer modify FIDO2 security keys to account for the change. The resolution is to reset the device and the user has to re-register.
+If a user's UPN changes, you can no longer modify FIDO2 security keys to account for the change. The solution for a user with a FIDO2 security key is to login to MySecurityInfo, delete the old key, and add a new one.
 
 ## Next steps
 

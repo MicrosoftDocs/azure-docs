@@ -10,16 +10,16 @@ ms.author: buhollan
 ms.custom: devx-track-js
 ---
 
-# Configure application settings for Azure Static Web Apps Preview
+# Configure application settings for Azure Static Web Apps
 
 Application settings hold configuration settings for values that may change, such as database connection strings. Adding application settings allows you to modify the configuration input to your app, without having to change application code.
 
-Application settings are:
+Application settings:
 
-- Encrypted at rest
-- Copied to [staging](review-publish-pull-requests.md) and production environments
-
-Application settings are also sometimes referred to as environment variables.
+- Are encrypted at rest
+- Are copied to [staging](review-publish-pull-requests.md) and production environments
+- May only be alphanumeric characters, `.`, and `_`
+- Are also sometimes referred to as environment variables
 
 > [!IMPORTANT]
 > The application settings described in this article only apply to the backend API of an Azure Static Web App.
@@ -163,4 +163,4 @@ Application settings are available to view through the Azure CLI.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Setup local development](local-development.md)
+> [Configure front-end frameworks](front-end-frameworks.md)

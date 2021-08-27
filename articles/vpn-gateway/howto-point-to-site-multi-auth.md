@@ -1,13 +1,13 @@
 ---
 title: 'Connect to a VNet using P2S VPN & multiple authentication types: portal'
 titleSuffix: Azure VPN Gateway
-description: Connect to a VNet via P2S using multiple authentication types in the Azure portal.
+description: Learn how to connect to a VNet via P2S using multiple authentication types.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 07/21/2021
 ms.author: cherylmc
 
 ---
@@ -37,7 +37,8 @@ You can use the following values to create a test environment, or refer to these
 * **Resource Group:** TestRG1
 * **Location:** East US
 * **GatewaySubnet:** 10.1.255.0/27<br>
-* **Virtual network gateway name:** VNet1GW
+* **SKU:** VpnGw2
+* **Generation:** Generation 2
 * **Gateway type:** VPN
 * **VPN type:** Route-based
 * **Public IP address name:** VNet1GWpip
@@ -62,7 +63,12 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+You can see the deployment status on the Overview page for your gateway. A gateway can often take 45 minutes or more to fully create and deploy. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
+
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="addresspool"></a>Client address pool
 

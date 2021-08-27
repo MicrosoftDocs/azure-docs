@@ -1,11 +1,11 @@
 ### YamlMime:Landing
  
-title: Azure Media Services v3 cloud-based platform documentation
-summary: Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users. 
+title: Azure Media Services (v3) documentation
+summary: Learn how to broadcast live events, encode, package, and stream videos on-demand videos with Media Services. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users. 
  
 metadata:
-  title: Azure Media Services v3 cloud-based platform documentation
-  description: Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3.
+  title: Azure Media Services (v3) documentation
+  description: Learn how to broadcast live events, encode, package, and stream videos on-demand videos with Media Services.
   services: media-services
   ms.service: media-services
   ms.subservice:
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: IngridAtMicrosoft
   ms.author: inhenkel
-  ms.date: 21/16/2020 #Required; mm/dd/yyyy format.
+  ms.date: 08/18/2021 #Required; mm/dd/yyyy format.
  
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
  
@@ -29,32 +29,37 @@ landingContent:
             url: media-services-overview.md
           - text: "What's new in Media Services?"
             url: release-notes.md
+          - text: "FAQ"
+            url: frequently-asked-questions.yml
       - linkListType: concept
         links:
           - text: Media Services accounts
-            url: media-services-account-concept.md
+            url: account-move-account-how-to.md
           - text: Storage accounts
             url: storage-account-concept.md
           - text: Packaging
-            url: dynamic-packaging-overview.md   
+            url: encode-dynamic-packaging-concept.md   
           - text: Monitoring
             url: monitoring/reacting-to-media-services-events.md
           - text: Player clients
-            url: use-azure-media-player.md  
+            url: player-use-azure-media-player-how-to.md  
           - text: Developing with v3 API guidance
             url: media-services-apis-overview.md            
-
+          - text: Migrating from v2
+            url: migrate-v-2-v-3-migration-introduction.md      
   # Card (optional)
   - title: Get started
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Create an account
-            url: ./create-account-howto.md
+            url: ./account-create-how-to.md
           - text: Access API
             url: ./access-api-howto.md
       - linkListType: download
         links:
+          - text: All GitHub code samples
+            url: samples-overview.md
           - text: .NET SDK samples
             url: https://github.com/Azure-Samples/media-services-v3-dotnet
           - text: Java SDK samples
@@ -78,10 +83,10 @@ landingContent:
       - linkListType: concept
         links:
           - text: Live streaming
-            url: live-streaming-overview.md           
+            url: stream-live-streaming-concept.md           
       - linkListType: tutorial
         links:
-          - text: Stream live
+          - text: Stream live 
             url: stream-live-tutorial-with-api.md
 
 # Card
@@ -92,7 +97,7 @@ landingContent:
           - text: Uploading
             url: assets-concept.md
           - text: Encoding
-            url: encoding-concept.md
+            url: encode-concept.md
       - linkListType: tutorial
         links:
           - text: Encode remote file and stream
@@ -106,13 +111,13 @@ landingContent:
       - linkListType: concept
         links:
           - text: Protection
-            url: content-protection-overview.md           
+            url: drm-content-protection-concept.md           
       - linkListType: tutorial
         links:
           - text: Encrypt dynamically with AES-128
-            url: protect-with-aes128.md
+            url: drm-playready-license-template-concept.md
           - text: Encrypt dynamically with DRM
-            url: protect-with-drm.md
+            url: drm-protect-with-drm-tutorial.md
 
 # Card
   - title: Analyze content
@@ -120,10 +125,14 @@ landingContent:
       - linkListType: concept
         links:
           - text: Media analytics
-            url: analyzing-video-audio-files-concept.md
+            url: analyze-video-audio-files-concept.md
           - text: Compliance, Privacy and Security
-            url: analyzing-video-audio-files-concept.md#compliance-privacy-and-security
+            url: analyze-video-audio-files-concept.md#compliance-privacy-and-security
+          - text: Azure Video Analyzer (preview) documentation
+            url: ../../azure-video-analyzer/video-analyzer-docs/overview.md
       - linkListType: tutorial
         links:
           - text: Analyze videos
-            url: analyze-videos-tutorial-with-api.md
+            url: analyze-videos-tutorial.md
+          - text: Redact faces in videos
+            url: analyze-face-redaction-concept.md

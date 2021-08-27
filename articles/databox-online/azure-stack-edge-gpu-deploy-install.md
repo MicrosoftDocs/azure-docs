@@ -7,9 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 07/07/2021
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.  
+# Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.  
 ---
 # Tutorial: Install Azure Stack Edge Pro with GPU
 
@@ -159,7 +159,7 @@ Before you start cabling your device, you need the following things:
 - Your Azure Stack Edge Pro physical device, unpacked, and rack mounted.
 - Two power cables.
 - At least one 1-GbE RJ-45 network cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
-- One 25-GbE SFP+ copper cable for each data network interface to be configured. At least one data network interface from among PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 needs to be connected to the Internet (with connectivity to Azure).  
+- One 25/10-GbE SFP+ copper cable for each data network interface to be configured. At least one data network interface from among PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 needs to be connected to the Internet (with connectivity to Azure).  
 - Access to two power distribution units (recommended).
 - At least one 1-GbE network switch to connect a 1-GbE network interface to the Internet for data. The local web UI will not be accessible if the connected switch is not at least 1 GbE. If using 25/10-GbE interface for data, you will need a 25-GbE or 10-GbE switch.
 
@@ -186,10 +186,10 @@ On your Azure Stack Edge Pro device:
     - **Custom Microsoft `Qlogic` Cavium 25G NDC adapter** - Port 1 through port 4.
     - **Mellanox dual port 25G ConnectX-4 channel network adapter** - Port 5 and port 6.
 
-For a full list of supported cables, switches, and transceivers for these network cards, go to:
+For a full list of supported cables, switches, and transceivers for these network adapter cards, see:
 
 - [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
-- [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
+- 25 GbE and 10 GbE cables and modules in [Mellanox dual port 25G ConnectX-4 channel network adapter compatible products](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products).  
 
  
 Take the following steps to cable your device for power and network.
@@ -224,6 +224,7 @@ Take the following steps to cable your device for power and network.
 
     - If connecting PORT 2, use the 1-GbE RJ-45 network cable.
     - For the 10/25-GbE network interfaces, use the SFP+ copper cables or fiber. If using fiber, use an optical to SFP adapter.
+    - For Network Function Manager deployments, make sure that PORT 5 and PORT 6 are connected. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).
 
 ## Next steps
 

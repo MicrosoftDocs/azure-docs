@@ -9,6 +9,9 @@ ms.date: 3/18/2020
 ---
 
 # How to use EXPLAIN to profile query performance in Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
+
 **EXPLAIN** is a handy tool to optimize queries. EXPLAIN statement can be used to get information about how SQL statements are executed. The following output shows an example of the execution of an EXPLAIN statement.
 
 ```sql
@@ -49,10 +52,11 @@ possible_keys: id
 ```
 
 The new EXPLAIN shows that MySQL now uses an index to limit the number of rows to 1, which in turn dramatically shortened the search time.
- 
+
 ## Covering index
+
 A covering index consists of all columns of a query in the index to reduce value retrieval from data tables. Here's an illustration in the following **GROUP BY** statement.
- 
+
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -71,10 +75,10 @@ possible_keys: NULL
 ```
 
 As can be seen from the output, MySQL does not use any indexes because no proper indexes are available. It also shows *Using temporary; Using file sort*, which means MySQL creates a temporary table to satisfy the **GROUP BY** clause.
- 
+
 Creating an index on column **c2** alone makes no difference, and MySQL still needs to create a temporary table:
 
-```sql 
+```sql
 mysql> ALTER TABLE tb1 ADD KEY (c2);
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -115,6 +119,7 @@ possible_keys: covered
 As the above EXPLAIN shows, MySQL now uses the covered index and avoid creating a temporary table. 
 
 ## Combined index
+
 A combined index consists values from multiple columns and can be considered an array of rows that are sorted by concatenating values of the indexed columns. This method can be useful in a **GROUP BY** statement.
 
 ```sql
@@ -136,7 +141,7 @@ possible_keys: NULL
 
 MySQL performs a *file sort* operation that is fairly slow, especially when it has to sort many rows. To optimize this query, a combined index can be created on both columns that are being sorted.
 
-```sql 
+```sql
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
 *************************** 1. row ***************************
@@ -155,11 +160,11 @@ possible_keys: NULL
 ```
 
 The EXPLAIN now shows that MySQL is able to use combined index to avoid additional sorting since the index is already sorted.
- 
+
 ## Conclusion
- 
+
 Using EXPLAIN and different type of Indexes can increase performance significantly. Having an index on the table does not necessarily mean MySQL would be able to use it for your queries. Always validate your assumptions using EXPLAIN and optimize your queries using indexes.
 
-
 ## Next steps
-- To find peer answers to your most concerned questions or post a new question/answer, visit [Microsoft Q&A question page](/answers/topics/azure-database-mysql.html) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+
+- To find peer answers to your most concerned questions or post a new question/answer, visit [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

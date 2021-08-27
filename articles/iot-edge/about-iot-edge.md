@@ -2,7 +2,7 @@
 title: What is Azure IoT Edge | Microsoft Docs
 description: Overview of the Azure IoT Edge service
 author: kgremban
-manager: philmea
+
 # this is the PM responsible
 ms.reviewer: chipalost
 ms.service: iot-edge
@@ -72,4 +72,19 @@ Azure IoT Edge integrates seamlessly with Azure IoT solution accelerators to pro
 
 ## Next steps
 
-Try out these concepts by [deploying IoT Edge on a simulated device](quickstart.md).
+Try out these concepts by deploying your first IoT Edge module to a device:
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+* [Deploy modules to a Linux IoT Edge device](quickstart-linux.md)
+* [Deploy modules to a Windows IoT Edge device](quickstart.md)
+
+:::moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+[Deploy modules to an IoT Edge device](quickstart-linux.md)
+
+:::moniker-end

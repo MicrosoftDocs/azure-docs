@@ -10,7 +10,7 @@ ms.subservice: sql-dw
 ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 
 # Geo-restore a dedicated SQL pool in Azure Synapse Analytics
@@ -40,7 +40,7 @@ To restore from a geo-backup, use the [Get-AzSqlDatabaseGeoBackup](/powershell/m
 7. Verify the status of the geo-restored data warehouse.
 8. To configure your data warehouse after the restore has completed, see [Configure your database after recovery]( ../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
-```Powershell
+```powershell
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
@@ -53,7 +53,7 @@ $TargetServiceObjective="<YourTargetServiceObjective-DWXXXc>"
 Connect-AzAccount
 Get-AzSubscription
 Select-AzSubscription -SubscriptionName $SubscriptionName
-Get-AzureSqlDatabase -ServerName $ServerName
+Get-AzSqlDatabase -ServerName $ServerName -ResourceGroupName $ResourceGroupName
 
 # Get the data warehouse you want to recover
 $GeoBackup = Get-AzSqlDatabaseGeoBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName

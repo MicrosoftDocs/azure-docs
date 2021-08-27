@@ -1,24 +1,21 @@
 ---
 title: Custom Entity Lookup cognitive search skill
 titleSuffix: Azure Cognitive Search
-description: Extract different custom entities from text in an Azure Cognitive Search cognitive search pipeline. This skill is currently in public preview.
+description: Extract different custom entities from text in an Azure Cognitive Search cognitive search pipeline.
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 08/12/2021
 ---
 
-#     Custom Entity Lookup cognitive skill (Preview)
-
-> [!IMPORTANT] 
-> This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). There is currently no portal or .NET SDK support.
+# Custom Entity Lookup cognitive skill
 
 The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact.  
 
-This skill is not bound to a Cognitive Services API and can be used free of charge during the preview period. You should still [attach a Cognitive Services resource](./cognitive-search-attach-cognitive-services.md), however, to override the daily enrichment limit. The daily limit applies to free access to Cognitive Services when accessed through Azure Cognitive Search.
+> [!NOTE]
+> This skill is not bound to a Cognitive Services API but requires a Cognitive Services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
 
 ## @odata.type  
 Microsoft.Skills.Text.CustomEntityLookupSkill 
@@ -163,13 +160,12 @@ The tables below describe in more details the different configuration parameters
 | `accentSensitive` | (Optional) Acts the same as root entity "accentSensitive" parameter above, but applies to only this one alias. |
 | `fuzzyEditDistance` | (Optional) Acts the same as root entity "fuzzyEditDistance" parameter above, but applies to only this one alias. |
 
-
 ### Inline format
 
 In some cases, it may be more convenient to provide the list of custom entities to match inline directly into the skill definition. In that case you can use a similar  JSON format to the one described above, but it is inlined in the skill definition.
 Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
 
-##    Sample definition
+## Sample definition
 
 A sample skill definition using an inline format is shown below:
 
@@ -209,6 +205,7 @@ A sample skill definition using an inline format is shown below:
     ]
   }
 ```
+
 Alternatively, if you decide to provide a pointer to the entities definition file, a sample skill definition using the `entitiesDefinitionUri` format is shown below:
 
 ```json
@@ -232,7 +229,7 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
 
 ```
 
-##    Sample input
+## Sample input
 
 ```json
 {
@@ -249,7 +246,7 @@ Alternatively, if you decide to provide a pointer to the entities definition fil
 }
 ```
 
-##    Sample output
+## Sample output
 
 ```json
   { 
@@ -307,4 +304,4 @@ This warning will be emitted if the number of matches detected is greater than t
 
 + [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Entity Recognition skill (to search for well known entities)](cognitive-search-skill-entity-recognition.md)
++ [Entity Recognition skill (to search for well known entities)](cognitive-search-skill-entity-recognition-v3.md)

@@ -5,7 +5,7 @@ description: In this quickstart, you create your first Windows container applica
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Quickstart: Deploy Windows containers to Service Fabric

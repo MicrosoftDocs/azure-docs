@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -17,48 +17,41 @@ The following article describes how to delete an Azure Arc data controller.
 
 Before you proceed, ensure all the data services that have been create on the data controller are removed as follows:
 
-## Log in to the data controller
-
-Log in to the data controller that you want to delete:
-
-```
-azdata login
-```
-
 ## List & delete existing data services
 
 Run the following command to check if there are any SQL managed instances created:
 
-```
-azdata arc sql mi list
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 ```
 
 For each SQL managed instance from the list above, run the delete command as follows:
 
-```
-azdata arc sql mi delete -n <name>
-# for example: azdata arc sql mi delete -n sqlinstance1
+```azurecli
+az sql mi-arc delete -n <name> --k8s-namespace <namespace> --use-k8s
+# for example: az sql mi-arc delete -n sqlinstance1 --k8s-namespace <namespace> --use-k8s
 ```
 
 Similarly, to check for PostgreSQL Hyperscale instances, run:
 
-```
-azdata arc postgres server list
+```azurecli
+az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 ```
 
 And, for each PostgreSQL Hyperscale instance, run the delete command as follows:
-```
-azdata arc postgres server delete -n <name>
-# for example: azdata arc postgres server delete -n pg1
+
+```azurecli
+az postgres arc-server delete -n <name> --k8s-namespace <namespace> --use-k8s
+# for example: az postgres arc-server delete -n pg1 --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Delete controller
 
 After all the SQL managed instances and PostgreSQL Hyperscale instances have been removed, the data controller can be deleted as follows:
 
-```
-azdata arc dc delete -n <name> -ns <namespace>
-# for example: azdata arc dc delete -ns arc -n arcdc
+```azurecli
+az arcdata dc delete -n <name> -ns <namespace>
+# for example: az arcdata dc delete -ns arc -n arcdc
 ```
 
 ### Remove SCCs (Red Hat OpenShift only)
@@ -97,4 +90,4 @@ kubectl delete ns <nameSpecifiedDuringCreation>
 
 ## Next steps
 
-[What are Azure Arc enabled data services?](overview.md)
+[What are Azure Arc-enabled data services?](overview.md)

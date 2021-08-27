@@ -2,18 +2,18 @@
 title: Import container images
 description: Import container images to an Azure container registry by using Azure APIs, without needing to run Docker commands.
 ms.topic: article
-ms.date: 01/15/2021
+ms.date: 05/28/2021
 ---
 
 # Import container images to a container registry
 
 You can easily import (copy) container images to an Azure container registry, without using Docker commands. For example, import images from a development registry to a production registry, or copy base images from a public registry.
 
-Azure Container Registry handles a number of common scenarios to copy images from an existing registry:
+Azure Container Registry handles a number of common scenarios to copy images and other artifacts from an existing registry:
 
-* Import from a public registry
+* Import images from a public registry
 
-* Import from another Azure container registry, in the same or a different Azure subscription or tenant
+* Import images or OCI artifacts including Helm 3 charts from another Azure container registry, in the same or a different Azure subscription or tenant
 
 * Import from a non-Azure private container registry
 
@@ -27,9 +27,7 @@ Image import into an Azure container registry has the following benefits over us
 
 To import container images, this article requires that you run the Azure CLI in Azure Cloud Shell or locally (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
-> [!NOTE]
-> If you need to distribute identical container images across multiple Azure regions, Azure Container Registry also supports [geo-replication](container-registry-geo-replication.md). By geo-replicating a registry (Premium service tier required), you can serve multiple regions with identical image and tag names from a single registry.
->
+[!INCLUDE [container-registry-geo-replication-include](../../includes/container-registry-geo-replication-include.md)]
 
 > [!IMPORTANT]
 > Changes to image import between two Azure container registries have been introduced as of January 2021:
@@ -153,7 +151,10 @@ az acr import \
 
 ## Import from an Azure container registry in a different AD tenant
 
-To import from an Azure container registry in a different Azure Active Directory tenant, specify the source registry by login server name, and provide username and password credentials that enable pull access to the registry. For example, use a [repository-scoped token](container-registry-repository-scoped-permissions.md) and password, or the appID and password of an Active Directory [service principal](container-registry-auth-service-principal.md) that has ACRPull access to the source registry. 
+To import from an Azure container registry in a different Azure Active Directory tenant, specify the source registry by login server name, and provide credentials that enable pull access to the registry. 
+
+### Cross-tenant import with username and password
+For example, use a [repository-scoped token](container-registry-repository-scoped-permissions.md) and password, or the appID and password of an Active Directory [service principal](container-registry-auth-service-principal.md) that has ACRPull access to the source registry. 
 
 ```azurecli
 az acr import \
@@ -162,6 +163,28 @@ az acr import \
   --image targetimage:tag \
   --username <SP_App_ID> \
   --password <SP_Passwd>
+```
+
+### Cross-tenant import with access token
+
+To access the source registry using an identity in the source tenant that has registry permissions, you can get an access token:
+
+```azurecli
+# Login to Azure CLI with the identity, for example a user-assigned managed identity
+az login --identity --username <identity_ID>
+
+# Get access token returned by `az account get-access-token`
+az account get-access-token 
+```
+
+In the target tenant, pass the access token as a password to the `az acr import` command. The source registry is specified by login server name. Notice that no username is needed in this command:
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source sourceregistry.azurecr.io/sourcerrepo:tag \
+  --image targetimage:tag \
+  --password <access-token>
 ```
 
 ## Import from a non-Azure private container registry
@@ -179,10 +202,16 @@ az acr import \
 
 ## Next steps
 
-In this article, you learned about importing container images to an Azure container registry from a public registry or another private registry. For additional image import options, see the [az acr import][az-acr-import] command reference. 
+In this article, you learned about importing container images to an Azure container registry from a public registry or another private registry. 
+
+* For additional image import options, see the [az acr import][az-acr-import] command reference. 
+
+* Image import can help you move content to a container registry in a different Azure region, subscription, or Azure AD tenant. For more information, see [Manually move a container registry to another region](manual-regional-move.md).
+
+* Learn how to [disable artifact export](data-loss-prevention.md) from a network-restricted container registry.
 
 
 <!-- LINKS - Internal -->
-[az-login]: /cli/azure/reference-index#az-login
-[az-acr-import]: /cli/azure/acr#az-acr-import
+[az-login]: /cli/azure/reference-index#az_login
+[az-acr-import]: /cli/azure/acr#az_acr_import
 [azure-cli]: /cli/azure/install-azure-cli

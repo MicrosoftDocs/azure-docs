@@ -1,10 +1,11 @@
 ---
 title: Monitor data factories using Azure Monitor 
 description: Learn how to use Azure Monitor to monitor /Azure Data Factory pipelines by enabling diagnostic logs with information from Data Factory.
-author: dcstwh
-ms.author: weetok
+author: minhe-msft
+ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 07/13/2020
 ---
@@ -71,7 +72,7 @@ Create or add diagnostic settings for your data factory.
    ![Name your settings and select a log-analytics workspace](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [AzureDiagnostics Logs reference](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
+    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [AzureDiagnostics Logs reference](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 1. Select **Save**.
 
@@ -264,7 +265,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- |
 | **storageAccountId** |String | The resource ID of the storage account to which you want to send diagnostic logs. |
 | **serviceBusRuleId** |String | The service-bus rule ID of the service-bus namespace in which you want to have Event Hubs created for streaming diagnostic logs. The rule ID has the format `{service bus resource ID}/authorizationrules/{key name}`.|
-| **workspaceId** | Complex Type | An array of metric time grains and their retention policies. This property's value is empty. |
+| **workspaceId** | String | The workspace ID of the workspace where the logs will be saved. |
 |**metrics**| Parameter values of the pipeline run to be passed to the invoked pipeline| A JSON object that maps parameter names to argument values. |
 | **logs**| Complex Type| The name of a diagnostic-log category for a resource type. To get the list of diagnostic-log categories for a resource, perform a GET diagnostic-settings operation. |
 | **category**| String| An array of log categories and their retention policies. |
@@ -562,13 +563,13 @@ Here are the log attributes of SSIS IR start/stop/maintenance operations.
 | Property                   | Type   | Description                                                   | Example                        |
 | -------------------------- | ------ | ------------------------------------------------------------- | ------------------------------ |
 | **time**                   | String | The time of event in UTC format: `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
-| **operationName**          | String | The name of your SSIS IR operation                            | `Start/Stop/Maintenance` |
+| **operationName**          | String | The name of your SSIS IR operation                            | `Start/Stop/Maintenance/Heartbeat` |
 | **category**               | String | The category of diagnostic logs                               | `SSISIntegrationRuntimeLogs` |
 | **correlationId**          | String | The unique ID for tracking a particular operation             | `f13b159b-515f-4885-9dfa-a664e949f785Deprovision0059035558` |
 | **dataFactoryName**        | String | The name of your ADF                                          | `MyADFv2` |
 | **integrationRuntimeName** | String | The name of your SSIS IR                                      | `MySSISIR` |
 | **level**                  | String | The level of diagnostic logs                                  | `Informational` |
-| **resultType**             | String | The result of your SSIS IR operation                          | `Started/InProgress/Succeeded/Failed` |
+| **resultType**             | String | The result of your SSIS IR operation                          | `Started/InProgress/Succeeded/Failed/Healthy/Unhealthy` |
 | **message**                | String | The output message of your SSIS IR operation                  | `The stopping of your SSIS integration runtime has succeeded.` |
 | **resourceId**             | String | The unique ID of your ADF resource                            | `/SUBSCRIPTIONS/<subscriptionID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 
@@ -890,9 +891,20 @@ For more info on SSIS operational log attributes/properties, see [Azure Monitor 
 
 Your selected SSIS package execution logs are always sent to Log Analytics regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SSDT, via T-SQL on SSMS, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in ADF pipelines.
 
-When querying SSIS IR operation logs on Logs Analytics, you can use **OperationName** and **ResultType** properties that are set to `Start/Stop/Maintenance` and `Started/InProgress/Succeeded/Failed`, respectively. 
+When querying SSIS IR operation logs on Logs Analytics, you can use **OperationName** and **ResultType** properties that are set to `Start/Stop/Maintenance/Heartbeat` and `Started/InProgress/Succeeded/Failed/Healthy/Unhealthy`, respectively.
 
 ![Querying SSIS IR operation logs on Log Analytics](media/data-factory-monitor-oms/log-analytics-query.png)
+
+To query SSIS IR node status, you can set the **OperationName** property to `Heartbeat`. Each node normally sends one `Heartbeat` record per minute to Log Analytics with the **ResultType** property reflecting its status, which is `Healthy` when it's available for package executions and `Unhealthy` when it isn't. For example, if your SSIS IR has two available nodes, you'll always see two `Heartbeat` records with the **ResultType** property set to `Healthy` within any one-minute period.
+
+![Querying SSIS IR heartbeats on Log Analytics](media/data-factory-monitor-oms/log-analytics-query-3.png)
+
+You can query the following patterns to detect the unavailability of your SSIS IR node(s):
+
+* There are missing `Heartbeat` records in many one-minute periods when your SSIS IR is still running.
+* There are `Heartbeat` records with the **ResultType** property set to `Unhealthy` in many one-minute periods when your SSIS IR is still running.
+
+You can turn the above queries into [alerts](../azure-monitor/alerts/alerts-unified-log.md) and go to your [SSIS IR monitoring page](monitor-integration-runtime.md#monitor-the-azure-ssis-integration-runtime-in-azure-portal) to confirm when you receive those alerts.
 
 When querying SSIS package execution logs on Logs Analytics, you can join them using **OperationId**/**ExecutionId**/**CorrelationId** properties. **OperationId**/**ExecutionId** are always set to `1` for all operations/executions related to packages **not** stored in SSISDB/invoked via T-SQL.
 

@@ -1,5 +1,5 @@
 ---
-title: Collections (preview) in the My Apps portal - Azure AD
+title: Organize apps into collections in the My Apps portal - Azure AD
 description: Learn how to create, edit, delete, hide, and show app collections in My Apps.
 services: active-directory
 author: curtand
@@ -8,18 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/19/2021
+ms.date: 04/07/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: "user-help, seo-update-azuread-jan"
 ---
 
 
-# User collections (preview) in My Apps
+# Organize apps using collections from My Apps
 
 My Apps is your one-stop shop for launching and managing all of your work or school apps. Create collections to organize your apps and make it easier to find the apps you need.
-
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 In this article, you’ll learn how to:
 
@@ -51,7 +49,7 @@ In this article, you’ll learn how to:
 
     :::image type="content" source="media/my-apps-portal-user-collections/3-add-apps.png" alt-text="Adding apps from the list to your collection":::
 
-1. On the following you can reorder or delete apps, or select **Add apps** to select more apps for the collection. When you’re happy with your choices, select **Create new**.  
+1. On the **Create new** pane you can reorder or delete apps, or select **Add apps** to select more apps for the collection. When you’re happy with your choices, select **Create new**.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/4-create-button.png" alt-text="Select the Create new button to save the collection to My Apps":::
 
@@ -83,7 +81,7 @@ You can only edit collections you created. To edit a collection you already crea
 
     :::image type="content" source="media/my-apps-portal-user-collections/9-manage-apps-again.png" alt-text="Use the Manage command to manage your apps":::
 
-1. From here you can set the order in which collections appear in My Apps. The collection at th top of the list will be the default collection you see every time you go to myapps.microsoft.com.  
+1. From here you can set the order in which collections appear in My Apps. The collection at the top of the list will be the default collection you see every time you go to myapps.microsoft.com.  
 
     :::image type="content" source="media/my-apps-portal-user-collections/10-default-collection.png" alt-text="My Apps now contains your new collection":::
 

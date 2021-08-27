@@ -3,7 +3,7 @@ title: Azure CLI script sample - Subscribe to Blob storage account | Microsoft D
 description: This article provides a sample Azure CLI script that shows how to subscribe to events for a Azure Blob Storage account. 
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 07/08/2020 
+ms.date: 07/22/2021 
 ms.custom: devx-track-azurecli
 ---
 
@@ -25,8 +25,8 @@ This script uses the following command to create the event subscription. Each co
 
 | Command | Notes |
 |---|---|
-| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Create an Event Grid subscription. |
-| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - extension version | Create an Event Grid subscription. |
+| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create) | Create an Event Grid subscription. |
+| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create) - extension version | Create an Event Grid subscription. |
 
 ## Next steps
 

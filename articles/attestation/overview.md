@@ -30,6 +30,11 @@ SGX refers to hardware-grade isolation, which is supported on certain Intel CPUs
 
 Client applications can be designed to take advantage of SGX enclaves by delegating security-sensitive tasks to take place inside those enclaves. Such applications can then make use of Azure Attestation to routinely establish trust in the enclave and its ability to access sensitive data.
 
+Intel® Xeon® Scalable processors only support [ECDSA-based attestation solutions](https://software.intel.com/content/www/us/en/develop/topics/software-guard-extensions/attestation-services.html#Elliptic%20Curve%20Digital%20Signature%20Algorithm%20(ECDSA)%20Attestation) for remotely attesting SGX enclaves. Utilizing ECDSA based attestation model, Azure Attestation supports validation of Intel® Xeon® E3 processors and Intel® Xeon® Scalable processor-based server platforms. 
+
+> [!NOTE]
+> To perform attestation of Intel® Xeon® Scalable processor-based server platforms using Azure Attestation, users are expected to install [Azure DCAP version 1.10.0](https://github.com/microsoft/Azure-DCAP-Client) or higher.
+
 ### Open Enclave
 [Open Enclave](https://openenclave.io/sdk/) (OE) is a collection of libraries targeted at creating a single unified enclaving abstraction for developers to build TEE-based applications. It offers a universal secure app model that minimizes platform specificities. Microsoft views it as an essential stepping-stone toward democratizing hardware-based enclave technologies such as SGX and increasing their uptake on Azure.
 
@@ -61,7 +66,7 @@ Azure Attestation customers have expressed a requirement for Microsoft to be ope
 Azure Attestation is the preferred choice for attesting TEEs as it offers the following benefits: 
 
 - Unified framework for attesting multiple environments such as TPMs, SGX enclaves and VBS enclaves 
-- Multi-tenant service which allows configuration of custom attestation providers and policies to restrict token generation
+- Allows creation of custom attestation providers and configuration of policies to restrict token generation
 - Offers regional shared providers which can attest with no configuration from users
 - Protects its data while-in use with implementation in an SGX enclave
 - Highly available service 

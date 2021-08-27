@@ -6,7 +6,7 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 04/12/2021
 ms.author: banders
 ---
 
@@ -30,18 +30,18 @@ You can scope a reservation to a subscription or resource groups. Setting the sc
 
 You have three options to scope a reservation, depending on your needs:
 
-- **Single resource group scope**— Applies the reservation discount to the matching resources in the selected resource group only.
-- **Single subscription scope**— Applies the reservation discount to the matching resources in the selected subscription.
-- **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context.
+- **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
+- **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
+- **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. If a subscription was moved to different billing context, the benefit will no longer be applied to this subscription and will continue to apply to other subscriptions in the billing context.
     - For Enterprise Agreement customers, the billing context is the enrollment. The reservation shared scope would include multiple Active Directory tenants in an enrollment.
     - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
     - For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
 
 While applying reservation discounts on your usage, Azure processes the reservation in the following order:
 
-1. Reservations that are scoped to a resource group
-2. Single scope reservations
-3. Shared scope reservations
+1. Reservations with a single resource group scope
+2. Reservations with a single subscription scope
+3. Reservations with a shared scope (multiple subscriptions), described previously
 
 You can always update the scope after you buy a reservation. To do so, go to the reservation, click **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
@@ -76,6 +76,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Azure Database for MySQL](../../mysql/concept-reserved-pricing.md)
 - [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
 - [Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md)
+- [Azure VMware Solution](../../azure-vmware/reserved-instance.md)
 - [Virtual machines](../../virtual-machines/prepay-reserved-vm-instances.md)
 
 ## Buy reservations with monthly payments
@@ -128,4 +129,8 @@ For customers with individual subscriptions:
 
 ## Next steps
 
+- [Learn more about Reservations permissions](view-reservations.md)
 - [Manage Reservations for Azure resources](manage-reserved-vm-instance.md)
+- [Automate using REST APIs](/rest/api/reserved-vm-instances/reservationorder)
+- [Automate using Azure PowerShell](/powershell/module/az.reservations)
+- [Automate using CLI](/cli/azure/reservations)

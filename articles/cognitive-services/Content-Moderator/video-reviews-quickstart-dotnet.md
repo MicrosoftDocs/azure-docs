@@ -17,6 +17,8 @@ ms.custom: devx-track-csharp
 
 # Create video reviews using .NET
 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
 This article provides information and code samples to help you quickly get started using the [Content Moderator SDK with C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to:
 
 - Create a video review for human moderators
@@ -56,7 +58,7 @@ For the video frames (images), use the following images:
 
 ![Video frame thumbnail 1](images/ams-video-frame-thumbnails-1.PNG) | ![Video frame thumbnail 2](images/ams-video-frame-thumbnails-2.PNG) | ![Video frame thumbnail 3](images/ams-video-frame-thumbnails-3.PNG) |
 | :---: | :---: | :---: |
-[Frame 1](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame1-00-17.PNG) | [Frame 2](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-2-01-04.PNG) | [Frame 3](https://blobthebuilder.blob.core.windows.net/sampleframes/ams-video-frame-3-02-24.PNG) |
+Frame 1 | Frame 2 | Frame 3 |
 
 ## Create your Visual Studio project
 

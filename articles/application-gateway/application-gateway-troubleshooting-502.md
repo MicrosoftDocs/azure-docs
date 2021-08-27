@@ -6,7 +6,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/16/2019
-ms.author: amsriva
+ms.author: amsriva 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshooting bad gateway errors in Application Gateway
@@ -125,7 +126,7 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 
 ### Cause
 
-When a user request is received, the application gateway applies the configured rules to the request and routes it to a back-end pool instance. It waits for a configurable interval of time for a response from the back-end instance. By default, this interval is **20** seconds. If the application gateway does not receive a response from back-end application in this interval, the user request gets a 502 error.
+When a user request is received, the application gateway applies the configured rules to the request and routes it to a back-end pool instance. It waits for a configurable interval of time for a response from the back-end instance. By default, this interval is **20** seconds. In Application Gateway v1, if the application gateway does not receive a response from back-end application in this interval, the user request gets a 502 error.  In Application Gateway v2, if the application gateway does not receive a response from the back-end application in this interval, the request will be tried against a second back-end pool member.  If the second request fails the user request gets a 502 error.
 
 ### Solution
 

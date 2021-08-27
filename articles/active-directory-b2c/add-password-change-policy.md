@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 05/03/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -39,7 +39,7 @@ In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signe
 
 ## Prerequisites
 
-* Complete the steps in [Get started with custom policies in Active Directory B2C](custom-policy-get-started.md).
+* Complete the steps in [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 * If you haven't already done so, [register a web application in Azure Active Directory B2C](tutorial-register-applications.md).
 
 ## Add the elements
@@ -144,19 +144,20 @@ In Azure Active Directory B2C (Azure AD B2C), you can enable users who are signe
 ## Upload and test the policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Identity Experience Framework**.
-5. On the Custom Policies page, click **Upload Policy**.
-6. Select **Overwrite the policy if it exists**, and then search for and select the *TrustframeworkExtensions.xml* file.
-7. Click **Upload**.
-8. Repeat steps 5 through 7 for the relying party file, such as *ProfileEditPasswordChange.xml*.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **Identity Experience Framework**.
+1. On the Custom Policies page, click **Upload Policy**.
+1. Select **Overwrite the policy if it exists**, and then search for and select the *TrustframeworkExtensions.xml* file.
+1. Click **Upload**.
+1. Repeat steps 5 through 7 for the relying party file, such as *ProfileEditPasswordChange.xml*.
 
 ### Run the policy
 
 1. Open the policy that you changed. For example, *B2C_1A_profile_edit_password_change*.
 2. For **Application**, select your application that you previously registered. To see the token, the **Reply URL** should show `https://jwt.ms`.
-3. Click **Run now**. Sign in with the account that you previously created. You should now have the opportunity to change the password.
+3. Click **Run now**. In the new tab that opens, remove "&prompt=login" from the URL and refresh the tab. Then sign in with the account you previously created. You will now have the opportunity to change the password.
 
 ## Next steps
 

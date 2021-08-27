@@ -27,6 +27,9 @@ Assessments you create with Azure Migrate are a point-in-time snapshot of data. 
 **Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to Azure SQL Database or Azure SQL Managed Instance.
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
+> [!NOTE]
+> If the number of Azure VM or AVS assessments are incorrect on the Discovery and assessment tool, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
+
 Azure VMware Solution (AVS) assessment provides two sizing criteria options:
 
 | **Assessment** | **Details** | **Data** |
@@ -277,7 +280,7 @@ As the pricing for Azure VMware Solution (AVS) is per node, the total cost does 
 
 In the Azure readiness report for Azure VMware Solution (AVS) assessment, you can see the following suggested tools:
 
-- **VMware HCX or Enterprise**: For VMware servers, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
+- **VMware HCX or Enterprise**: For VMware servers, VMware Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMware Solution (AVS) private cloud. [Learn More](../azure-vmware/install-vmware-hcx.md).
 - **Unknown**: For servers imported via a CSV file, the default migration tool is unknown. Though for VMware servers, it is recommended to use the VMware Hybrid Cloud Extension (HCX) solution.
 
 ## Next steps

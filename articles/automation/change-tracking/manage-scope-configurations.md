@@ -3,7 +3,7 @@ title: Limit Azure Automation Change Tracking and Inventory deployment scope
 description: This article tells how to work with scope configurations to limit the scope of a Change Tracking and Inventory deployment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 05/27/2021
 ms.topic: conceptual
 ---
 
@@ -15,33 +15,36 @@ This article describes how to work with scope configurations when using the [Cha
 
 A scope configuration is a group of one or more saved searches (queries) used to limit the scope of Change Tracking and Inventory to specific computers. The scope configuration is used within the Log Analytics workspace to target the computers to enable. When you add a computer to changes from the feature, the computer is also added to a saved search in the workspace.
 
+By default, Change Tracking and Inventory creates a computer group named **ChangeTracking__MicrosoftDefaultComputerGroup** depending on how you enabled machines:
+
+* From the Automation account, you selected **+ Add Azure VMs**.
+* From the Automation account, you selected **Manage machines**, and then you selected the option **Enable on all available machines** or you selected **Enable on selected machines**.
+
+If one of the methods above is selected, this computer group is added to the **MicrosoftDefaultScopeConfig-ChangeTracking** scope configuration. You can also add one or more custom computer groups to this scope to match your management needs and control how specific computers are enabled for management with Change Tracking and Inventory.
+
+To remove one or more machines from the **ChangeTracking__MicrosoftDefaultComputerGroup** to stop managing them with Change Tracking and Inventory, see [Remove VMs from Change Tracking and Inventory](remove-vms-from-change-tracking.md).
+
 ## Set the scope limit
 
 To limit the scope for your Change Tracking and Inventory deployment:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the Azure portal, select **All services**. In the list of resources, type **Automation**. As you begin typing, the list filters suggestions based on your input. Select **Automation Accounts**.
+2. In the Azure portal, navigate to **Log Analytics workspaces**. Select your workspace from the list.
 
-3. In your list of Automation accounts, select the account you chose when you enabled Change Tracking and Inventory.
+3. In your Log Analytics workspace, select **Scope Configurations (Preview)** from the left-hand menu.
 
-4. In your Automation account, select **Linked Workspace** under **Related resources**.
+4. Select the ellipsis to the right of the  **MicrosoftDefaultScopeConfig-ChangeTracking** scope configuration, and select **Edit**.
 
-5. Click **Go to workspace**.
-
-6. Select **Scope Configurations (Preview)** under **Workspace Data Sources**.
-
-7. Select the ellipsis to the right of the  `MicrosoftDefaultScopeConfig-ChangeTracking` scope configuration, and click **Edit**.
-
-8. In the editing pane, select **Select Computer Groups**. The Computer Groups pane shows the saved searches that are used to create the scope configuration. The saved search used by Change Tracking and Inventory is:
+5. In the editing pane, expand **Select Computer Groups**. The **Computer Groups** pane shows the saved searches that are added to the scope configuration. The saved search used by Update Management is:
 
     |Name     |Category  |Alias  |
     |---------|---------|---------|
-    |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
+    |MicrosoftDefaultComputerGroup     | ChangeTracking        | ChangeTracking__MicrosoftDefaultComputerGroup         |
 
-9. Select the saved search to view and edit the query used to populate the group. The following image shows the query and its results:
+6. If you added a custom group, it is shown in the list. To deselect it, clear the checkbox to the left of the item. To add a custom group to the scope, select it and then when you are finished with your changes, click **Select**.
 
-    ![Saved searches](media/manage-scope-configurations/logsearch.png)
+7. On the **Edit scope configuration** page, click **OK** to save your changes.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 05/17/2021
 ms.author: qixwang
 ---
 
@@ -47,7 +47,7 @@ To set up an origin group, see [Create a new Azure Front Door Standard/Premium o
 
     :::image type="content" source="../media/how-to-configure-route/add-route-page.png" alt-text="Screenshot of add a route page." lightbox="../media/how-to-configure-route/add-route-page-expanded.png"::: 
 
-    | Setting | Value |
+    | Setting | Description |
     | --- | --- |
     | Name | Enter a unique name for the new Route. |   
     | Domain| Select one or more domains that have been validated and isn't associated to another Route |
@@ -55,7 +55,7 @@ To set up an origin group, see [Create a new Azure Front Door Standard/Premium o
     | Accepted protocols | Specify the protocols you want Azure Front Door to accept when the client is making the request. |
     | Redirect | Specify whether HTTPS is enforced for the incoming request with HTTP request |
     | Origin group | Select which origin group should be forwarded to when the back to origin request occurs. |
-    | Origin Path | Enter the path to the resources that you want to cache. To allow caching of any resource at the domain, leave this setting blank. |
+    | Origin path | This path is used to rewrite the URL that Azure Front Door will use when constructing the request forwarded to the origin. By default, this path isn't provided. As such, Azure Front Door will use the incoming URL path in the request to the origin. You can also specify a wildcard path, which will copy any matching part of the incoming path to the request path to the origin. </br></br>Pattern to match: `/foo/*`</br>Origin path: `/fwd/`</br></br>Incoming URL path: `/foo/a/b/c/`</br>URL from Azure Front Door to origin: `fwd/a/b/c`. |
     | Forwarding protocol | Select the protocol used for forwarding request. |
     | Caching | Select this option to enable caching of static content with Azure Front Door. |
     | Rule | Select Rule Sets that will be applied to this Route. For more information about how to configure Rules, see [Configure a Rule Set for Azure Front Door](how-to-configure-rule-set.md) | 

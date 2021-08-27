@@ -2,19 +2,17 @@
 title: Configure sign-in auto-acceleration using Home Realm Discovery
 description: Learn how to configure Home Realm Discovery policy for Azure Active Directory authentication for federated users, including auto-acceleration and domain hints.
 services: active-directory
-documentationcenter: 
-author: kenwith
-manager: daveba
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.author: kenwith
+ms.author: davidmu
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
+ms.reviewer: hirsin
 ---
 
 # Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy
@@ -37,16 +35,16 @@ The user will be taken to one of the following identity providers to be authenti
 
 ## Auto-acceleration
 
-Some organizations configure domains in their Azure Active Directory tenant to federate with another IdP, such as AD FS for user authentication.  
+Some organizations configure domains in their Azure Active Directory tenant to federate with another IdP, such as AD FS for user authentication.
 
 When a user signs into an application, they are first presented with an Azure AD sign-in page. After they have typed their UPN, if they are in a federated domain they are then taken to the sign-in page of the IdP serving that domain. Under certain circumstances, administrators might want to direct users to the sign-in page when they're signing in to specific applications.
 
-As a result users can skip the initial Azure Active Directory page. This process is referred to as “sign-in auto-acceleration.”
+As a result users can skip the initial Azure Active Directory page. This process is referred to as "sign-in auto-acceleration."
 
 In cases where the tenant is federated to another IdP for sign-in, auto-acceleration makes user sign-in more streamlined.  You can configure auto-acceleration for individual applications.
 
->[!NOTE]
->If you configure an application for auto-acceleration, users can't use managed credentials (like FIDO) and guest users can't sign in. If you take a user straight to a federated IdP for authentication, there is no way to for them to get back to the Azure Active Directory sign-in page. Guest users, who might need to be directed to other tenants or an external IdP such as a Microsoft account, can't sign in to that application because they're skipping the Home Realm Discovery step.  
+> [!NOTE]
+> If you configure an application for auto-acceleration, users can't use managed credentials (like FIDO) and guest users can't sign in. If you take a user straight to a federated IdP for authentication, there is no way to for them to get back to the Azure Active Directory sign-in page. Guest users, who might need to be directed to other tenants or an external IdP such as a Microsoft account, can't sign in to that application because they're skipping the Home Realm Discovery step.
 
 There are three ways to control auto-acceleration to a federated IdP:
 
@@ -56,7 +54,7 @@ There are three ways to control auto-acceleration to a federated IdP:
 
 ### Domain hints
 
-Domain hints are directives that are included in the authentication request from an application. They can be used to accelerate the user to their federated IdP sign-in page. Or they can be used by a multi-tenant application to accelerate the user straight to the branded Azure AD sign-in page for their tenant.  
+Domain hints are directives that are included in the authentication request from an application. They can be used to accelerate the user to their federated IdP sign-in page. Or they can be used by a multi-tenant application to accelerate the user straight to the branded Azure AD sign-in page for their tenant.
 
 For example, the application "largeapp.com" might enable their customers to access the application at a custom URL "contoso.largeapp.com." The app might also include a domain hint to contoso.com in the authentication request.
 
@@ -73,20 +71,20 @@ By default, Azure AD attempts to redirect sign-in to the IdP that's configured f
 - A domain hint is included in the authentication request from the application **and**
 - The tenant is federated with that domain.
 
-If the domain hint doesn’t refer to a verified federated domain, it is ignored.
+If the domain hint doesn't refer to a verified federated domain, it is ignored.
 
 For more information about auto-acceleration using the domain hints that are supported by Azure Active Directory, see the [Enterprise Mobility + Security blog](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
 
->[!NOTE]
->If a domain hint is included in an authentication request and [should be respected](#home-realm-discovery-policy-to-prevent-auto-acceleration), its presence overrides auto-acceleration that is set for the application in HRD policy.
+> [!NOTE]
+> If a domain hint is included in an authentication request and [should be respected](#home-realm-discovery-policy-to-prevent-auto-acceleration), its presence overrides auto-acceleration that is set for the application in HRD policy.
 
 ### Home Realm Discovery policy for auto-acceleration
 
-Some applications do not provide a way to configure the authentication request they emit. In these cases, it’s not possible to use domain hints to control auto-acceleration. Auto-acceleration can be configured via Home Realm Discovery policy to achieve the same behavior.  
+Some applications do not provide a way to configure the authentication request they emit. In these cases, it's not possible to use domain hints to control auto-acceleration. Auto-acceleration can be configured via Home Realm Discovery policy to achieve the same behavior.
 
 ### Home Realm Discovery policy to prevent auto-acceleration
 
-Some Microsoft and SaaS applications automatically include domain_hints (for example, `https://outlook.com/contoso.com` results in a login request with `&domain_hint=contoso.com` appended), which can disrupt rollout of managed credentials like FIDO.  You can use [Home Realm Discovery Policy](/graph/api/resources/homeRealmDiscoveryPolicy) to ignore domain hints from certain apps or for certain domains, during rollout of managed credentials.  
+Some Microsoft and SaaS applications automatically include domain_hints (for example, `https://outlook.com/contoso.com` results in a login request with `&domain_hint=contoso.com` appended), which can disrupt rollout of managed credentials like FIDO.  You can use [Home Realm Discovery Policy](/graph/api/resources/homeRealmDiscoveryPolicy) to ignore domain hints from certain apps or for certain domains, during rollout of managed credentials.
 
 ## Enable direct ROPC authentication of federated users for legacy applications
 
@@ -107,21 +105,21 @@ There are three steps to setting HRD policy on an application for federated sign
 
 Policies only take effect for a specific application when they are attached to a service principal.
 
-Only one HRD policy can be active on a service principal at any one time.  
+Only one HRD policy can be active on a service principal at any one time.
 
 You can use the Azure Active Directory PowerShell cmdlets to create and manage HRD policy.
 
 Following is an example HRD policy definition:
 
- ```JSON
-   {  
-    "HomeRealmDiscoveryPolicy":
-    {  
+```json
+{  
+  "HomeRealmDiscoveryPolicy":
+  {  
     "AccelerateToFederatedDomain":true,
     "PreferredDomain":"federated.example.edu",
     "AllowCloudPasswordValidation":false,    
-    }
-   }
+  }
+}
 ```
 
 The policy type is "[HomeRealmDiscoveryPolicy](/graph/api/resources/homeRealmDiscoveryPolicy)".
@@ -172,13 +170,13 @@ In the following examples, you create, update, link, and delete policies on appl
 
 2. After you have downloaded the Azure AD PowerShell cmdlets, run the Connect command to sign in to Azure AD with your admin account:
 
-    ``` powershell
+    ```powershell
     Connect-AzureAD -Confirm
     ```
 
 3. Run the following command to see all the policies in your organization:
 
-    ``` powershell
+    ```powershell
     Get-AzureADPolicy
     ```
 
@@ -196,25 +194,25 @@ In this example, you create a policy that when it is assigned to an application 
 
 The following policy auto-accelerates users to an AD FS sign-in screen when they are signing in to an application when there is a single domain in your tenant.
 
-``` powershell
+```powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 The following policy auto-accelerates users to an AD FS sign-in screen there is more than one federated domain in your tenant. If you have more than one federated domain that authenticates users for applications, you need specify the domain to auto-accelerate.
 
-``` powershell
+```powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 To create a policy to enable username/password authentication for federated users directly with Azure Active Directory for specific applications, run the following command:
 
-``` powershell
+```powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 To see your new policy and get its **ObjectID**, run the following command:
 
-``` powershell
+```powershell
 Get-AzureADPolicy
 ```
 
@@ -224,11 +222,11 @@ To apply the HRD policy after you have created it, you can assign it to multiple
 
 You need the **ObjectID** of the service principals to which you want to assign the policy. There are several ways to find the **ObjectID** of service principals.
 
-You can use the portal, or you can query [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals.
+You can use the portal, or you can query [Microsoft Graph](/graph/api/resources/serviceprincipal). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals.
 
 Because you are using PowerShell, you can use the following cmdlet to list the service principals and their IDs.
 
-``` powershell
+```powershell
 Get-AzureADServicePrincipal
 ```
 
@@ -236,23 +234,23 @@ Get-AzureADServicePrincipal
 
 After you have the **ObjectID** of the service principal of the application for which you want to configure auto-acceleration, run the following command. This command associates the HRD policy that you created in step 1 with the service principal that you located in step 2.
 
-``` powershell
+```powershell
 Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefObjectId <ObjectId of the Policy>
 ```
 
 You can repeat this command for each service principal to which you want to add the policy.
 
-In the case where an application already has a HomeRealmDiscovery policy assigned, you won’t be able to add a second one.  In that case, change the definition of the Home Realm Discovery policy that is assigned to the application to add additional parameters.
+In the case where an application already has a HomeRealmDiscovery policy assigned, you won't be able to add a second one.  In that case, change the definition of the Home Realm Discovery policy that is assigned to the application to add additional parameters.
 
 #### Step 4: Check which application service principals your HRD policy is assigned to
 
 To check which applications have HRD policy configured, use the **Get-AzureADPolicyAppliedObject** cmdlet. Pass it the **ObjectID** of the policy that you want to check on.
 
-``` powershell
+```powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-#### Step 5: You're done!
+#### Step 5: You're done
 
 Try the application to check that the new policy is working.
 
@@ -260,15 +258,15 @@ Try the application to check that the new policy is working.
 
 #### Step 1: List all policies that were created in your organization
 
-``` powershell
+```powershell
 Get-AzureADPolicy
 ```
 
 Note the **ObjectID** of the policy that you want to list assignments for.
 
-#### Step 2: List the service principals to which the policy is assigned  
+#### Step 2: List the service principals to which the policy is assigned
 
-``` powershell
+```powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
@@ -278,15 +276,15 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 
 Use the previous example to get the **ObjectID** of the policy, and that of the application service principal from which you want to remove it.
 
-#### Step 2: Remove the policy assignment from the application service principal  
+#### Step 2: Remove the policy assignment from the application service principal
 
-``` powershell
+```powershell
 Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### Step 3: Check removal by listing the service principals to which the policy is assigned
 
-``` powershell
+```powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 

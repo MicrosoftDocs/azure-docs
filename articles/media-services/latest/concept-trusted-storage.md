@@ -24,7 +24,7 @@ However, if you want to use a firewall to secure your storage account and enable
 
 ## Tutorial
 
-You can learn more about enabling trusted storage with the [Media Services trusted storage](tutorial-trusted-storage-rest.md) tutorial.
+You can learn more about enabling trusted storage with the [Media Services trusted storage](security-trusted-storage-rest-tutorial.md) tutorial.
 
 > [!NOTE]
 > You need to grant the AMS Managed Identity Storage Blob Data Contributor access in order for Media Services to be able to read and write to the storage account.  Granting the generic Contributor role won’t work as it doesn’t enable the correct permissions on the data plane.

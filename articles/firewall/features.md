@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 07/30/2021
 ms.author: victorh
 ---
 
@@ -30,7 +30,7 @@ Azure Firewall includes the following features:
 - Multiple public IP addresses
 - Azure Monitor logging
 - Forced tunneling
-- Web categories (preview)
+- Web categories
 - Certifications
 
 ## Built-in high availability
@@ -50,11 +50,11 @@ Azure Firewall Availability Zones are available in regions that support Availabi
 > [!NOTE]
 > Availability Zones can only be configured during deployment. You can't configure an existing firewall to include Availability Zones.
 
-For more information about Availability Zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md)
+For more information about Availability Zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md).
 
 ## Unrestricted cloud scalability
 
-Azure Firewall can scale up as much as you need  to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
+Azure Firewall can scale out as much as you need  to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
 
 ## Application FQDN filtering rules
 
@@ -63,6 +63,8 @@ You can limit outbound HTTP/S traffic or Azure SQL traffic to a specified list o
 ## Network traffic filtering rules
 
 You can centrally create *allow* or *deny* network filtering rules by source and destination IP address, port, and protocol. Azure Firewall is fully stateful, so it can distinguish legitimate packets for different types of connections. Rules are enforced and logged across multiple subscriptions and virtual networks.
+
+Azure Firewall supports stateful filtering of Layer 3 and Layer 4 network protocols. Layer 3 IP protocols can be filtered by selecting **Any** protocol in the Network rule and  select the wild-card **\*** for the port.
 
 ## FQDN tags
 
@@ -81,6 +83,8 @@ A [service tag](service-tags.md) represents a group of IP address prefixes to he
 All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations. Azure Firewall doesn't SNAT when the destination IP is a private IP range per [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). 
 
 If your organization uses a public IP address range for private networks, Azure Firewall will SNAT the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to **not** SNAT your public IP address range. For more information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md).
+
+You can monitor SNAT port utilization in Azure Firewall metrics. Learn more and see our recommendation on SNAT port utilization in our [firewall logs and metrics documentation](logs-and-metrics.md#metrics).
 
 ## Inbound DNAT support
 
@@ -107,9 +111,9 @@ Azure Firewall Workbook provides a flexible canvas for Azure Firewall data analy
 
 You can configure Azure Firewall to route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you may have an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
-## Web categories (preview)
+## Web categories
 
-Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium Preview. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. For more information about Azure Firewall Premium Preview, see [Azure Firewall Premium Preview features](premium-features.md).
+Web categories lets administrators allow or deny user access to web site categories such as gambling websites, social media websites, and others. Web categories are included in Azure Firewall Standard, but it's more fine-tuned in Azure Firewall Premium. As opposed to the Web categories capability in the Standard SKU that matches the category based on an FQDN, the Premium SKU matches the category according to the entire URL for both HTTP and HTTPS traffic. For more information about Azure Firewall Premium, see [Azure Firewall Premium features](premium-features.md).
 
 For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/news`, the following categorization is expected: 
 
@@ -118,18 +122,6 @@ For example, if Azure Firewall intercepts an HTTPS request for `www.google.com/n
 - Firewall Premium – the complete URL will be examined, so `www.google.com/news` will be categorized as *News*.
 
 The categories are organized based on severity under **Liability**, **High-Bandwidth**, **Business Use**, **Productivity Loss**, **General Surfing**, and **Uncategorized**.
-
-### Categorization change
-
-You can request a categorization change if you:
-
- - think an FQDN or URL should be under a different category 
- 
-or 
-
-- have a suggested category for an uncategorized FQDN or URL
-
-You're welcome to submit a request at [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request).
 
 ### Category exceptions
 
@@ -143,4 +135,4 @@ Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SO
 
 ## Next steps
 
-- [Azure Firewall Premium Preview features](premium-features.md)
+- [Azure Firewall Premium features](premium-features.md)

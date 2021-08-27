@@ -1,22 +1,25 @@
 ---
-title: 'Azure VPN Gateway: Install a Point-to-Site client certificate'
-description: Install client cert for P2S certificate authentication - Windows, Mac, Linux.
+title: 'Install a Point-to-Site client certificate'
+titleSuffix: Azure VPN Gateway
+description: Learn how to install client certificates for P2S certificate authentication - Windows, Mac, Linux.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 07/27/2021
 ms.author: cherylmc
 
 ---
 # Install client certificates for P2S certificate authentication connections
 
-All clients that connect to a virtual network using Point-to-Site Azure certificate authentication require a client certificate. This article helps you install a client certificate that is used for authentication when connecting to a VNet using P2S.
+When a P2S VPN gateway is configured to require certificate authentication, each client computer must have a client certificate installed locally. This article helps you install a client certificate.
 
-## <a name="generate"></a>Acquire a client certificate
+If you want to generate a client certificate from a self-signed root certificate, see one of the following articles:
 
-No matter what client operating system you want to connect from, you must always have a client certificate. You can generate a client certificate from either a root certificate that was generated using an Enterprise CA solution, or a self-signed root certificate. See the [PowerShell](vpn-gateway-certificates-point-to-site.md), [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md), or [Linux](vpn-gateway-certificates-point-to-site-linux.md) instructions for steps to generate a client certificate. 
+* [Generate certificates - PowerShell](vpn-gateway-certificates-point-to-site.md)
+* [Generate certificates - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
+* [Generate certificates - Linux](vpn-gateway-certificates-point-to-site-linux.md) 
 
 ## <a name="installwin"></a>Windows
 
@@ -25,7 +28,7 @@ No matter what client operating system you want to connect from, you must always
 ## <a name="installmac"></a>Mac
 
 >[!NOTE]
->Mac VPN clients are supported for the Resource Manager deployment model only. They are not supported for the classic deployment model.
+>Mac VPN clients are supported for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not supported for the classic deployment model.
 >
 >
 

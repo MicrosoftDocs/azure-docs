@@ -8,12 +8,12 @@ metadata:
   description:  "Azure SQL is a family of SQL Server database engine products in the cloud, from a fully managed database in Azure SQL Database, a fully managed instance in Azure SQL Managed Instance, or SQL Server installed to virtual machine in Azure."
   services: sql-database
   ms.service: sql-database
-  ms.subservice: service
+  ms.subservice: service-overview
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: landing-page
-  author: stevestein
-  ms.author: sstein
+  author: MashaMSFT
+  ms.author: mathoma
   ms.reviewer:
   ms.date: 10/30/2019
 
@@ -30,8 +30,6 @@ landingContent:
         links:
           - text: What's new? 
             url: database/doc-changes-updates-release-notes.md?tabs=single-database
-          - text: Feedback? Take the survey! 
-            url: https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456 
       - linkListType: overview
         links:
           - text: What is SQL Database?
@@ -94,7 +92,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Migrate from SQL Server
-            url: managed-instance/migrate-to-instance-from-sql-server.md
+            url: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
           - text: Advanced security
             url: database/security-overview.md
           - text: Business continuity
@@ -135,7 +133,7 @@ landingContent:
           - text: High availability & disaster recovery
             url: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
           - text: Performance guidelines
-            url: virtual-machines/windows/performance-guidelines-best-practices.md
+            url: ./virtual-machines/windows/performance-guidelines-best-practices-checklist.md
 
   # Card
   - title: Migrate from SQL Server
@@ -199,7 +197,7 @@ landingContent:
           - text: Transact-SQL (T-SQL)
             url: /sql/t-sql/language-reference
           - text: Azure CLI
-            url: /cli/azure/sql
+            url: /cli/azure/azure-cli-reference-for-sql
           - text: PowerShell
             url: /powershell/module/az.sql
           - text: REST API

@@ -1,0 +1,539 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/quickstart-building-the-defender-micro-agent-from-source.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/overview.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/release-notes.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/architecture.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/quickstart-system-prerequisites.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/quickstart-system-prerequisites",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/getting-started.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/getting-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-key-concepts.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/concept-key-concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-identify-required-appliances.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-identify-required-appliances",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-set-up-your-network.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-set-up-your-network",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-install-software.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-install-software",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-manage-subscriptions.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-subscriptions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-activate-and-set-up-your-on-premises-management-console.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-activate-and-set-up-your-on-premises-management-console",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-set-up-high-availability.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-set-up-high-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-activate-and-set-up-your-sensor.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-activate-and-set-up-your-sensor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-create-and-manage-users.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-create-and-manage-users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-define-global-user-access-control.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-define-global-user-access-control",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-control-what-traffic-is-monitored.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-control-what-traffic-is-monitored",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-manage-sensors-from-the-on-premises-management-console.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-sensors-from-the-on-premises-management-console",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-manage-individual-sensors.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-individual-sensors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-manage-sensors-on-the-cloud.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-sensors-on-the-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-manage-the-on-premises-management-console.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-the-on-premises-management-console",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-work-with-threat-intelligence-packages.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-work-with-threat-intelligence-packages",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-investigate-sensor-detections-in-a-device-inventory.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-investigate-sensor-detections-in-a-device-inventory",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-work-with-the-sensor-device-map.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-work-with-the-sensor-device-map",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-work-with-alerts-on-your-sensor.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-work-with-alerts-on-your-sensor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-view-alerts.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-view-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-view-information-provided-in-alerts.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-view-information-provided-in-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/alert-engine-messages.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/alert-engine-messages",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-manage-the-alert-event.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-manage-the-alert-event",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-accelerate-alert-incident-response.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-accelerate-alert-incident-response",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-forward-alert-information-to-partners.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-forward-alert-information-to-partners",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-gain-insight-into-global-regional-and-local-threats.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-gain-insight-into-global-regional-and-local-threats",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-view-information-per-zone.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-view-information-per-zone",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-work-with-alerts-on-premises-management-console.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-work-with-alerts-on-premises-management-console",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-create-risk-assessment-reports.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-create-risk-assessment-reports",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-create-attack-vector-reports.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-create-attack-vector-reports",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-create-data-mining-queries.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-create-data-mining-queries",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-create-trends-and-statistics-reports.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-create-trends-and-statistics-reports",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-work-with-device-notifications.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-work-with-device-notifications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-enhance-port-and-vlan-name-resolution.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-enhance-port-and-vlan-name-resolution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-import-device-information.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-import-device-information",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-configure-windows-endpoint-monitoring.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-configure-windows-endpoint-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-track-sensor-activity.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-track-sensor-activity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-configure-with-sentinel.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-configure-with-sentinel",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-troubleshoot-the-sensor-and-on-premises-management-console.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-troubleshoot-the-sensor-and-on-premises-management-console",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-set-up-snmp-mib-monitoring.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-set-up-snmp-mib-monitoring",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/integration-cisco-ise-pxgrid.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/integration-cisco-ise-pxgrid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/integration-forescout.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/integration-forescout",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/integration-fortinet.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/integration-fortinet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/integration-palo-alto.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/integration-palo-alto",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/integration-servicenow.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/integration-servicenow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/integration-splunk.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/integration-splunk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/references-work-with-defender-for-iot-apis.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/references-work-with-defender-for-iot-apis",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/references-horizon-api.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/references-horizon-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/references-horizon-sdk.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/references-horizon-sdk",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/references-work-with-defender-for-iot-cli-commands.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/references-work-with-defender-for-iot-cli-commands",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/resources-manage-proprietary-protocols.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/resources-manage-proprietary-protocols",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/resources-frequently-asked-questions.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/resources-frequently-asked-questions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/references-defender-for-iot-glossary.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/references-defender-for-iot-glossary",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/quickstart-onboard-iot-hub.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/quickstart-onboard-iot-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/quickstart-standalone-agent-binary-installation.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/quickstart-standalone-agent-binary-installation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/quickstart-create-micro-agent-module-twin.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/quickstart-create-micro-agent-module-twin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/quickstart-building-the-defender-micro-agent-from-source.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/quickstart-building-the-defender-micro-agent-from-source",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/quickstart-azure-rtos-security-module.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/quickstart-azure-rtos-security-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/quickstart-configure-your-solution.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/quickstart-configure-your-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/quickstart-investigate-security-recommendations.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/quickstart-investigate-security-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/security-agent-architecture.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/security-agent-architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/quickstart-create-security-twin.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/quickstart-create-security-twin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-agent-portfolio-overview-os-support.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-agent-portfolio-overview-os-support",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-standalone-micro-agent-overview.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-standalone-micro-agent-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-security-agent-authentication.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-security-agent-authentication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-security-posture.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-security-posture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-event-aggregation.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-event-aggregation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-security-alerts.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-security-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-customizable-security-alerts.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-customizable-security-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-recommendations.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-security-module.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-security-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/security-edge-architecture.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/security-edge-architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/overview-security-agents.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/overview-security-agents",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-security-agent-authentication-methods.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-security-agent-authentication-methods",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-baseline.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/event-aggregation.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/event-aggregation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/agent-based-security-alerts.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/agent-based-security-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/agent-based-security-custom-alerts.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/agent-based-security-custom-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/agent-based-recommendations.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/agent-based-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-configure-agent-based-solution.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-configure-agent-based-solution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-investigate-cis-benchmark.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-investigate-cis-benchmark",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/quickstart-create-custom-alerts.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/quickstart-create-custom-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/iot-security-azure-rtos.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/iot-security-azure-rtos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-azure-rtos-security-module.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-azure-rtos-security-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-rtos-security-module.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-rtos-security-module",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/concept-rtos-security-alerts-recommendations.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/concept-rtos-security-alerts-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-deploy-agent.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-deploy-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-deploy-windows-cs.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-deploy-windows-cs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-deploy-linux-cs.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-deploy-linux-cs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-deploy-linux-c.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-deploy-linux-c",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/resources-sensor-deployment-checklist.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-set-up-your-network#predeployment-checklist",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/troubleshoot-agent.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/troubleshoot-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/azure-iot-security-local-configuration-c.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/azure-iot-security-local-configuration-c",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/azure-iot-security-local-configuration-csharp.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/azure-iot-security-local-configuration-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-deploy-edge.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-deploy-edge",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-agent-configuration.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-agent-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-send-security-messages.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-send-security-messages",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-security-data-access.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-security-data-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/how-to-investigate-device.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/how-to-investigate-device",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/troubleshoot-defender-micro-agent.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/troubleshoot-defender-micro-agent",
+            "redirect_document_id": false
+        }
+    ]
+}

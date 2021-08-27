@@ -228,14 +228,14 @@ For examples of tasks triggered by source code commits or base image updates, se
 
 
 <!-- LINKS - Internal -->
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-task-show]: /cli/azure/acr/task#az-acr-task-show
-[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-task-show]: /cli/azure/acr/task#az_acr_task_show
+[az-acr-task-list-runs]: /cli/azure/acr/task#az_acr_task_list_runs
 [az-acr-task-timer]: /cli/azure/acr/task/timer
-[az-acr-task-timer-add]: /cli/azure/acr/task/timer#az-acr-task-timer-add
-[az-acr-task-timer-remove]: /cli/azure/acr/task/timer#az-acr-task-timer-remove
-[az-acr-task-timer-list]: /cli/azure/acr/task/timer#az-acr-task-timer-list
-[az-acr-task-timer-update]: /cli/azure/acr/task/timer#az-acr-task-timer-update
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
+[az-acr-task-timer-add]: /cli/azure/acr/task/timer#az_acr_task_timer_add
+[az-acr-task-timer-remove]: /cli/azure/acr/task/timer#az_acr_task_timer_remove
+[az-acr-task-timer-list]: /cli/azure/acr/task/timer#az_acr_task_timer_list
+[az-acr-task-timer-update]: /cli/azure/acr/task/timer#az_acr_task_timer_update
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
 [az-acr-task]: /cli/azure/acr/task
 [azure-cli-install]: /cli/azure/install-azure-cli

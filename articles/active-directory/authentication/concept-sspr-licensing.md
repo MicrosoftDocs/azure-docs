@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 07/13/2021
 
 ms.author: justinha
 author: justinha
@@ -19,11 +19,14 @@ ms.collection: M365-identity-device-management
 
 To reduce help desk calls and loss of productivity when a user can't sign in to their device or an application, user accounts in Azure Active Directory (Azure AD) can be enabled for self-service password reset (SSPR). Features that make up SSPR include password change, reset, unlock, and writeback to an on-premises directory. Basic SSPR features are available in Microsoft 365 Business Standard or higher and all Azure AD Premium SKUs at no cost.
 
-This article details the different ways that self-service password reset can be licensed and used. For specific details about pricing and billing, see the [Azure AD pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
+This article details the different ways that self-service password reset can be licensed and used. For specific details about pricing and billing, see the [Azure AD pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+
+Although some unlicensed users may technically be able to access SSPR, a license is required for any user that you intend to benefit from the service.
+
+> [!NOTE] 
+> Some tenant services are not currently capable of limiting benefits to specific users. Efforts should be taken to limit the service benefits to licensed users. This will help avoid potential service disruption to your organization once targeting capabilities are available.
 
 ## Compare editions and features
-
-SSPR requires a license only for the tenant. 
 
 The following table outlines the different SSPR scenarios for password change, reset, or on-premises writeback, and which SKUs provide the feature.
 
@@ -34,11 +37,13 @@ The following table outlines the different SSPR scenarios for password change, r
 | **Hybrid user password change or reset with on-prem writeback**<br />When a user in Azure AD that's synchronized from an on-premises directory using Azure AD Connect wants to change or reset their password and also write the new password back to on-prem. | | | ● | ● |
 
 > [!WARNING]
-> Standalone Microsoft 365 Basic and Standard licensing plans don't support SSPR with on-premises writeback. The on-premises writeback feature requires Azure AD Premium P1, Premium P2, or Microsoft 365 Business Premium.
+> Standalone Microsoft 365 Basic and Standard licensing plans don't support SSPR with on-premises writeback. The on-premises writeback feature requires Azure AD Premium P1, Premium P2, or Microsoft 365 Business Premium. 
 
 For additional licensing information, including costs, see the following pages:
 
-* [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/)
+
+* [Microsoft 365 licensing guidance for security & compliance](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-365-security-compliance-licensing-guidance)
+* [Azure Active Directory pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 * [Azure Active Directory features and capabilities](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)

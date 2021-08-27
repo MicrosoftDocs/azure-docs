@@ -44,7 +44,7 @@ landingContent:
           - text: Requirements
             url: storage-import-export-requirements.md
           - text: FAQ
-            url: storage-import-export-service-faq.md
+            url: storage-import-export-service-faq.yml
 
 
   # Card

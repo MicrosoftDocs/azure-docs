@@ -2,7 +2,7 @@
 title: About keys - Azure Key Vault
 description: Overview of Azure Key Vault REST interface and developer details for keys.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 manager: msmbaldwin
 tags: azure-resource-manager
 
@@ -10,7 +10,7 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: overview
 ms.date: 02/17/2021
-ms.author: ambapat
+ms.author: mbaldwin
 ---
 
 # About keys
@@ -20,7 +20,7 @@ Azure Key Vault provides two types of resources to store and manage cryptographi
 |Resource type|Key protection methods|Data-plane endpoint base URL|
 |--|--|--|
 | **Vaults** | Software-protected<br/><br/>and<br/><br/>HSM-protected (with Premium SKU)</li></ul> | https://{vault-name}.vault.azure.net |
-| **Managed HSMs ** | HSM-protected | https://{hsm-name}.managedhsm.azure.net |
+| **Managed HSMs** | HSM-protected | https://{hsm-name}.managedhsm.azure.net |
 ||||
 
 - **Vaults** - Vaults provide a low-cost, easy to deploy, multi-tenant, zone-resilient (where available), highly available key management solution suitable for most common cloud application scenarios.
@@ -32,8 +32,8 @@ Azure Key Vault provides two types of resources to store and manage cryptographi
 Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are:
 
 -   [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [JSON Web Encryption (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
--   [JSON Web Algorithms (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
+-   [JSON Web Encryption (JWE)](https://datatracker.ietf.org/doc/html/draft-jones-json-web-encryption)  
+-   [JSON Web Algorithms (JWA)](https://datatracker.ietf.org/doc/html/draft-ietf-jose-json-web-algorithms)  
 -   [JSON Web Signature (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
 The base JWK/JWA specifications are also extended to enable key types unique to the Azure Key Vault and Managed HSM implementations. 

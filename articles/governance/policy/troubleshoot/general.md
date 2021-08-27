@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot problems with creating policy definitions, the various SDKs, and the add-on for Kubernetes.
-ms.date: 01/26/2021
+ms.date: 06/29/2021
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors with using Azure Policy
@@ -79,7 +79,7 @@ operate as intended.
 To troubleshoot your policy definition, do the following:
 
 1. First, wait the appropriate amount of time for an evaluation to finish and compliance results
-   to become available in Azure portal or SDK. 
+   to become available in the Azure portal or SDK.
 
 1. To start a new evaluation scan with Azure PowerShell or the REST API, see
    [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
@@ -98,7 +98,8 @@ To troubleshoot your policy definition, do the following:
    of the definition to the evaluated property value indicates why a resource was noncompliant.
    - If the **target value** is wrong, revise the policy definition.
    - If the **current value** is wrong, validate the resource payload through `resources.azure.com`.
-1. For other common issues and solutions, see [Troubleshoot: Enforcement not as expected](#scenario-enforcement-not-as-expected).
+1. For other common issues and solutions, see
+   [Troubleshoot: Enforcement not as expected](#scenario-enforcement-not-as-expected).
 
 If you still have an issue with your duplicated and customized built-in policy definition or custom
 definition, create a support ticket under **Authoring a policy** to route the issue correctly.
@@ -121,12 +122,11 @@ Activity log.
 
 Troubleshoot your policy assignment's enforcement by doing the following:
 
-1. First, wait the appropriate amount of time for an evaluation to finish and compliance results
-to become available in the Azure portal or the SDK. 
+1. First, wait the appropriate amount of time for an evaluation to finish and compliance results to
+   become available in the Azure portal or the SDK.
 
-1. To start a new evaluation scan with Azure PowerShell
-or the REST API, see
-[On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
+1. To start a new evaluation scan with Azure PowerShell or the REST API, see
+   [On-demand evaluation scan](../how-to/get-compliance-data.md#on-demand-evaluation-scan).
 1. Ensure that the assignment parameters and assignment scope are set correctly and that
    **enforcementMode** is _Enabled_.
 1. Check the [policy definition mode](../concepts/definition-structure.md#mode):
@@ -138,7 +138,8 @@ or the REST API, see
 1. Verify that the resource payload matches the policy logic. This can be done by
    [capturing an HTTP Archive (HAR) trace](../../../azure-portal/capture-browser-trace.md) or
    reviewing the Azure Resource Manager template (ARM template) properties.
-1. For other common issues and solutions, see [Troubleshoot: Compliance not as expected](#scenario-compliance-isnt-as-expected).
+1. For other common issues and solutions, see
+   [Troubleshoot: Compliance not as expected](#scenario-compliance-isnt-as-expected).
 
 If you still have an issue with your duplicated and customized built-in policy definition or custom
 definition, create a support ticket under **Authoring a policy** to route the issue correctly.
@@ -162,6 +163,44 @@ IDs. If the error information in the message is missed, it's also available in t
 [Activity log](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). Use this
 information to get more details to understand the resource restrictions and adjust the resource
 properties in your request to match allowed values.
+
+### Scenario: Definition targets multiple resource types
+
+#### Issue
+
+A policy definition that includes multiple resource types fails validation during creation or update
+with the following error:
+
+```error
+The policy definition '{0}' targets multiple resource types, but the policy rule is authored in a way that makes the policy not applicable to the target resource types '{1}'.
+```
+
+#### Cause
+
+The policy definition rule has one or more conditions that don't get evaluated by the target
+resource types.
+
+#### Resolution
+
+If an alias is used, make sure that the alias gets evaluated against only the resource type it
+belongs to by adding a type condition before it. An alternative is to split the policy definition
+into multiple definitions to avoid targeting multiple resource types.
+
+### Scenario: Subscription limit exceeded
+
+#### Issue
+
+An error message on the compliance page in Azure portal is shown when retrieving compliance for
+policy assignments.
+
+#### Cause
+
+The number of subscriptions under the selected scopes in the request has exceeded the limit of 5000
+subscriptions. The compliance results may be partially displayed.
+
+#### Resolution
+
+Select a more granular scope with fewer child subscriptions to see the complete results.
 
 ## Template errors
 
@@ -280,7 +319,7 @@ Ensure that the domains and ports mentioned in the following articles are open:
 The add-on can't reach the Azure Policy service endpoint, and it returns one of the following
 errors:
 
-- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
+- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
 - `adal: Refresh request failed. Status Code = '404'. Response body: getting assigned identities for pod kube-system/azure-policy-8c785548f-r882p in CREATED state failed after 16 attempts, retry duration [5]s, error: <nil>`
 
 #### Cause

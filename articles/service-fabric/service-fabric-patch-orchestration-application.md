@@ -1,88 +1,12 @@
 ---
-title: Patch the Windows operating system in your Service Fabric cluster 
-description: This article discusses how to automate operating system patching on a Service Fabric cluster by using Patch Orchestration Application.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-
-ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 2/01/2019
-ms.author: atsenthi
-
+title: Use Patch Orchestration Application 
+description: Automate operating system patching on non-Azure hosted Service Fabric clusters by using Patch Orchestration Application.
+ms.topic: how-to
+ms.date: 2/01/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Patch the Windows operating system in your Service Fabric cluster
-
-## Automatic OS image upgrades
-
-Getting [automatic OS image upgrades on your Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is the best practice for keeping your operating system patched in Azure. Virtual Machine Scale Set based automatic OS image upgrades will require silver or greater durability on a scale set.
-
-Requirements for automatic OS image upgrades by Virtual Machine Scale Sets
--	Service Fabric [durability level](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) is Silver or Gold, and not Bronze.
--	The Service Fabric extension on the scale set model definition must have TypeHandlerVersion 1.1 or above.
--	Durability level should be the same at the Service Fabric cluster and Service Fabric extension on the scale set model definition.
-- An additional health probe or use of application health extension for Virtual Machine Scale Sets is not required.
-
-Ensure that durability settings are not mismatched on the Service Fabric cluster and Service Fabric extension, as a mismatch will result in upgrade errors. Durability levels can be modified per the guidelines outlined on [this page](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
-
-With Bronze durability, automatic OS image upgrade isn't available. While [Patch Orchestration Application](#patch-orchestration-application ) (intended only for non-Azure hosted clusters) is *not recommended* for Silver or greater durability levels, it is your only option to automate Windows updates with respect to Service Fabric upgrade domains.
-
-> [!IMPORTANT]
-> The in-VM upgrades where "Windows Update" applies operating system patches without replacing the OS disk are not supported on Azure Service Fabric.
-
-There are two steps needed to enable the feature with disabled Windows Update on the operation system correctly.
-
-1. Enabling automatic OS image upgrade, disabling Windows Updates
-    ARM 
-    ```json
-    "virtualMachineProfile": { 
-        "properties": {
-          "upgradePolicy": {
-            "automaticOSUpgradePolicy": {
-              "enableAutomaticOSUpgrade":  true
-            }
-          }
-        }
-      }
-    ```
-    
-    ```json
-    "virtualMachineProfile": { 
-        "osProfile": { 
-            "windowsConfiguration": { 
-                "enableAutomaticUpdates": false 
-            }
-        }
-    }
-    ```
-
-    Azure PowerShell
-    ```azurepowershell-interactive
-    Update-AzVmss -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -AutomaticOSUpgrade $true -EnableAutomaticUpdate $false
-    ``` 
-    
-1. Update scale set model
-    After this configuration change a reimage of all machines is needed to update the scale set model, so that the change is taken effect.
-    
-    Azure PowerShell
-    ```azurepowershell-interactive
-    $scaleSet = Get-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName
-    $instances = foreach($vm in $scaleSet)
-    {
-        Set-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -InstanceId $vm.InstanceID -Reimage
-    }
-    ``` 
-    
-Please have a look at [automatic OS image upgrades by Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) for further instructions.
-
-## Patch Orchestration Application
+# Use Patch Orchestration Application
 
 > [!IMPORTANT]
 > As of April 30, 2019, Patch Orchestration Application version 1.2.* is no longer supported. Be sure to upgrade to the latest version.
@@ -221,7 +145,7 @@ You can configure POA behavior to meet your needs. Override the default values b
 | WUOperationTimeOutInMinutes | Int <br>(Default: *90*)                   | Specifies the timeout for any Windows Update operation (search or download or install). If the operation is not completed within the specified timeout, it is aborted.       |
 | WURescheduleCount     | Int <br> (Default: *5*)                  | The maximum number of times the service reschedules the Windows update if an operation fails persistently.          |
 | WURescheduleTimeInMinutes | Int <br>(Default: *30*) | The interval at which the service reschedules the Windows updates if failure persists. |
-| WUFrequency           | Comma-separated string (Default: *Weekly, Wednesday, 7:00:00*)     | The frequency for installing Windows updates. The format and possible values are: <br>- Monthly, DD, HH:MM:SS (example: *Monthly, 5, 12:22:32*). Permitted values for field _DD_ (day) are numbers from 1 through 28 and _last_. <br>- Weekly, Day, HH:MM:SS (example: *Weekly, Tuesday, 12:22:32*)  <br>- Daily, HH:MM:SS (example: *Daily, 12:22:32*)  <br>- Week, Day, HH:MM:SS (example: *2, Friday, 21:00:00* indicates 9:00 PM UTC on Friday of the 2nd week of every month) <br>- *None* indicates that Windows updates shouldn't be done.  <br><br> Times are in UTC.|
+| WUFrequency           | Comma-separated string (Default: *Weekly, Wednesday, 7:00:00*)     | The frequency for installing Windows updates. The format and possible values are: <br>- Monthly, DD, HH:MM:SS (example: *Monthly, 5, 12:22:32*). Permitted values for field _DD_ (day) are numbers from 1 through 28 and _last_. <br>- Weekly, Day, HH:MM:SS (example: *Weekly, Tuesday, 12:22:32*)  <br>- Daily, HH:MM:SS (example: *Daily, 12:22:32*)  <br>- MonthlyByWeekAndDay, Week, Day, HH:MM:SS (example: *MonthlyByWeekAndDay, 2, Friday, 21:00:00* indicates 9:00 PM UTC on Friday of the 2nd week of every month) <br>- *None* indicates that Windows updates shouldn't be done.  <br><br> Times are in UTC.|
 | AcceptWindowsUpdateEula | Boolean <br>(Default: *true*) | By setting this flag, the application accepts the End-User License Agreement for Windows Update on behalf of the owner of the machine.              |
 
 > [!TIP]

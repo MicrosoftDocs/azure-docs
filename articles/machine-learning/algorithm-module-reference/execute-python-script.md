@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: devx-track-python
+ms.custom: devx-track-python, has-adal-ref
 
 author: likebupt
 ms.author: keli19
-ms.date: 01/02/2021
+ms.date: 06/15/2021
 ---
 # Execute Python Script module
 
@@ -90,7 +90,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 ## Upload files
 The Execute Python Script module supports uploading files by using the [Azure Machine Learning Python SDK](/python/api/azureml-core/azureml.core.run%28class%29#upload-file-name--path-or-stream-).
 
-The following example shows how to upload an image file in the Execute Python Script module:
+The following example shows how to upload an image file to the run record in the Execute Python Script module:
 
 ```Python
 
@@ -131,6 +131,46 @@ After the pipeline run is finished, you can preview the image in the right panel
 > [!div class="mx-imgBorder"]
 > ![Preview of uploaded image](media/module/upload-image-in-python-script.png)
 
+You can also upload file to any datastore using following code. You can only preview the file in your storage account.
+```Python
+import pandas as pd
+
+# The entry point function MUST have two input arguments.
+# If the input port is not connected, the corresponding
+# dataframe argument will be None.
+#   Param<dataframe1>: a pandas.DataFrame
+#   Param<dataframe2>: a pandas.DataFrame
+def azureml_main(dataframe1 = None, dataframe2 = None):
+
+    # Execution logic goes here
+    print(f'Input pandas.DataFrame #1: {dataframe1}')
+
+    from matplotlib import pyplot as plt
+    import os
+
+    plt.plot([1, 2, 3, 4])
+    plt.ylabel('some numbers')
+    img_file = "line.png"
+
+    # Set path
+    path = "./img_folder"
+    os.mkdir(path)
+    plt.savefig(os.path.join(path,img_file))
+
+    # Get current workspace
+    from azureml.core import Run
+    run = Run.get_context(allow_offline=True)
+    ws = run.experiment.workspace
+    
+    # Get a named datastore from the current workspace and upload to specified path
+    from azureml.core import Datastore 
+    datastore = Datastore.get(ws, datastore_name='workspacefilestore')
+    datastore.upload(path)
+
+    return dataframe1,
+```
+
+
 ## How to configure Execute Python Script
 
 The Execute Python Script module contains sample Python code that you can use as a starting point. To configure the Execute Python Script module, provide a set of inputs and Python code to run in the **Python script** text box.
@@ -157,8 +197,8 @@ The Execute Python Script module contains sample Python code that you can use as
     
     Any file contained in the uploaded zipped archive can be used during pipeline execution. If the archive includes a directory structure, the structure is preserved.
  
-    > [!WARNING]
-    > **Don't** use **app** as the name of folder or your script, since **app** is a reserved word for built-in services. But you can use other namespaces like `app123`.
+    > [!IMPORTANT]
+    > Please use unique and meaningful name for files in the script bundle since some common words (like `test`, `app` and etc) are reserved for built-in services.
    
     Following is a script bundle example, which contains a python script file and a txt file:
       

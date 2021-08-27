@@ -1,7 +1,8 @@
 ---
 title: Configure availability groups for SQL Server on RHEL virtual machines in Azure - Linux virtual machines | Microsoft Docs
 description: Learn about setting up high availability in an RHEL cluster environment and set up STONITH
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-sql
+ms.subservice: 
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
@@ -521,7 +522,7 @@ To add the role, run the following command:
 - Replace `<filename>` with the name of the file.
 - If you are executing the command from a path other than the folder that the file is saved to, include the folder path of the file in the command.
 
-```bash
+```azurecli-interactive
 az role definition create --role-definition "<filename>.json"
 ```
 

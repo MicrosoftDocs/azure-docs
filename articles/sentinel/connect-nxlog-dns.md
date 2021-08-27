@@ -22,6 +22,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The NXLog DNS Logs connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 The [NXLog DNS Logs](https://nxlog.co/documentation/nxlog-user-guide/windows-dns-server.html) connector allows you to easily export all your Windows DNS Server events to Azure Sentinel in real time, giving you insight into domain name server activity throughout your organization. It employs high performance [Event Tracing for Windows (ETW)](https://nxlog.co/documentation/nxlog-user-guide/windows-dns-server.html#dns_windows_etw) for collecting both Audit and Analytical DNS Server events in real-time and supports event enrichment with custom fields. Integration between NXLog DNS Logs and Azure Sentinel is facilitated via REST API.
 
 > [!NOTE]
@@ -49,6 +51,6 @@ It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 In this document, you learned how to use NXLog to ingest Windows DNS logs into Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.

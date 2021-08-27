@@ -3,12 +3,12 @@ title: User provisioning management for enterprise apps in Azure Active Director
 description: Learn how to manage user account provisioning for enterprise apps using the Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/18/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---

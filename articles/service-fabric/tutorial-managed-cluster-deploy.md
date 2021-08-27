@@ -1,12 +1,12 @@
 ---
-title: Deploy a Service Fabric managed cluster (preview)
+title: Deploy a Service Fabric managed cluster
 description: In this tutorial, you will deploy a Service Fabric managed cluster for testing.
 ms.topic: tutorial
-ms.date: 08/27/2020
-ms.custom: references_regions
+ms.date: 8/23/2021
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Tutorial: Deploy a Service Fabric managed cluster (preview)
+# Tutorial: Deploy a Service Fabric managed cluster
 
 In this tutorial series we will discuss:
 
@@ -22,7 +22,7 @@ This part of the series covers how to:
 > * Connect to your Azure account
 > * Create a new resource group
 > * Deploy a Service Fabric managed cluster
-> * Add a primary node type to the cluster
+> * Add a Primary node type to the cluster
 
 ## Prerequisites
 
@@ -47,9 +47,6 @@ Set-AzContext -SubscriptionId <your-subscription>
 ## Create a new resource group
 
 Next, create the resource group for the Managed Service Fabric cluster, replacing `<your-rg>` and `<location>` with the desired group name and location.
-
-> [!NOTE]
-> Supported regions for the public preview include `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus`, and `eastus2`.
 
 ```powershell
 $resourceGroup = "myResourceGroup"

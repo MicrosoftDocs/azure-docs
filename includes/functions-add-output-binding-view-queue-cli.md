@@ -29,13 +29,13 @@ You can view the queue in the [Azure portal](../articles/storage/queues/storage-
     
     ---
     
-1. (Optional) Use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) command to view the Storage queues in your account. The output from this command should include a queue named `outqueue`, which was created when the function wrote its first message to that queue.
+1. (Optional) Use the [`az storage queue list`](/cli/azure/storage/queue#az_storage_queue_list) command to view the Storage queues in your account. The output from this command should include a queue named `outqueue`, which was created when the function wrote its first message to that queue.
     
     ```azurecli
     az storage queue list --output tsv
     ```
 
-1. Use the [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) command to read the message from this queue, which should be the first name you used when testing the function earlier. The command reads and removes the first message from the queue. 
+1. Use the [`az storage message get`](/cli/azure/storage/message#az_storage_message_get) command to read the message from this queue, which should be the first name you used when testing the function earlier. The command reads and removes the first message from the queue. 
 
     # [bash](#tab/bash)
     

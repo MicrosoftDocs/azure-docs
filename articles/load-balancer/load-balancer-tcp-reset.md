@@ -53,8 +53,8 @@ TCP keep-alive works for scenarios where battery life isn't a constraint. It isn
 ## Limitations
 
 - TCP reset only sent during TCP connection in ESTABLISHED state.
-- TCP reset is not sent for internal Load Balancers with HA ports configured.
 - TCP idle timeout does not affect load balancing rules on UDP protocol.
+- TCP reset is not supported for ILB HA ports when a network virtual appliance is in the path. A workaround could be to use outbound rule with TCP reset from NVA.
 
 ## Next steps
 

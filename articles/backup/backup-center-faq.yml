@@ -3,7 +3,9 @@ metadata:
   title: Backup center - FAQ
   description: This article answers frequently asked questions about Backup center.
   ms.date: 01/12/2021
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: backup
+    
 title: Backup center - Frequently asked questions
 summary: This article answers frequently asked questions about Backup center.
 sections:
@@ -39,5 +41,5 @@ additionalContent: |
   ## Next steps
   Read the other FAQs:
 
-  - [Common questions about Recovery Services vaults](./backup-azure-backup-faq.md)
+  - [Common questions about Recovery Services vaults](./backup-azure-backup-faq.yml)
   - [Common questions about Azure VM backups](./backup-azure-vm-backup-faq.yml)

@@ -7,7 +7,7 @@ ms.subservice: billing
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-# As an administrator or developer, I want to use REST APIs to review subscription billing data for a specified period.
+# Customer intent: As an administrator or developer, I want to use REST APIs to review subscription billing data for a specified period.
 ---
 
 # Review subscription billing using REST APIs

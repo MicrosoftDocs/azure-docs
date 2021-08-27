@@ -4,7 +4,8 @@ description: Learn how to delete your Log Analytics workspace if you created one
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/20/2020
+ms.date: 12/20/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 

@@ -4,6 +4,7 @@ description: Learn how to use Azure SQL Managed Instance with SQL Server Integra
 author: chugugrace
 ms.author: chugu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 4/15/2020
 ---
@@ -33,7 +34,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
             - Inside the same virtual network as the managed instance, with **different subnet**.
             - Inside a different virtual network than the the managed instance, via virtual network peering (which is limited to the same region due to Global VNet peering constraints) or a connection from virtual network to virtual network.
 
-            For more info on SQL Managed Instance connectivity, see [Connect your application to Azure SQL Managed Instance](/azure/sql-database/sql-database-managed-instance-connect-app).
+            For more info on SQL Managed Instance connectivity, see [Connect your application to Azure SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
 
         1. [Configure virtual network](#configure-virtual-network).
 
@@ -87,7 +88,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     1. Make sure that you have no [resource lock](../azure-resource-manager/management/lock-resources.md) on the resource group/subscription to which the virtual network belongs. If you configure a read-only/delete lock, starting and stopping your Azure-SSIS IR will fail, or it will stop responding.
 
-    1. Make sure that you don't have an Azure policy that prevents the following resources from being created under the resource group/subscription to which the virtual network belongs:
+    1. Make sure that you don't have an Azure Policy definition that prevents the following resources from being created under the resource group/subscription to which the virtual network belongs:
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 

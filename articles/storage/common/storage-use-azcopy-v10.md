@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
@@ -35,25 +35,13 @@ These files are compressed as a zip file (Windows and Mac) or a tar file (Linux)
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
 
-
 ## Run AzCopy
 
 For convenience, consider adding the directory location of the AzCopy executable to your system path for ease of use. That way you can type `azcopy` from any directory on your system.
 
 If you choose not to add the AzCopy directory to your path, you'll have to change directories to the location of your AzCopy executable and type `azcopy` or `.\azcopy` in Windows PowerShell command prompts.
 
-To see a list of commands, type `azcopy -h` and then press the ENTER key.
-
-To learn about a specific command, just include the name of the command (For example: `azcopy list -h`).
-
-> [!div class="mx-imgBorder"]
-> ![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
-
-
-To find detailed reference documentation for each command and command parameter, see [azcopy](storage-ref-azcopy.md)
-
-> [!NOTE] 
-> As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service. 
+As an owner of your Azure Storage account, you aren't automatically assigned permissions to access data. Before you can do anything meaningful with AzCopy, you need to decide how you'll provide authorization credentials to the storage service. 
 
 <a id="choose-how-youll-provide-authorization-credentials"></a>
 
@@ -90,24 +78,64 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](./storage-sas-overview.md).
 
+> [!NOTE]
+> The [Secure transfer required](storage-require-secure-transfer.md) setting of a storage account determines whether the connection to a storage account is secured with Transport Layer Security (TLS). This setting is enabled by default.   
+
 <a id="transfer-data"></a>
 
 ## Transfer data
 
 After you've authorized your identity or obtained a SAS token, you can begin transferring data.
 
-> [!NOTE]
-> The [Secure transfer required](storage-require-secure-transfer.md) setting of a storage account determines whether the connection to a storage account is secured with Transport Layer Security (TLS). This setting is enabled by default.   
-
 To find example commands, see any of these articles.
 
 | Service | Article |
 |--------|-----------|
-|Azure Blob Storage |[Upload files to Azure Blob Storage](storage-use-azcopy-blobs-upload.md)<br><br>[Download blobs from Azure Blob Storage](storage-use-azcopy-blobs-download.md)<br><br>[Copy blobs between Azure storage accounts](storage-use-azcopy-blobs-copy.md)<br><br>[Synchronize with Azure Blob Storage](storage-use-azcopy-blobs-synchronize.md)|
+|Azure Blob Storage|[Upload files to Azure Blob Storage](storage-use-azcopy-blobs-upload.md) |
+|Azure Blob Storage|[Download blobs from Azure Blob Storage](storage-use-azcopy-blobs-download.md)|
+|Azure Blob Storage|[Copy blobs between Azure storage accounts](storage-use-azcopy-blobs-copy.md)|
+|Azure Blob Storage|[Synchronize with Azure Blob Storage](storage-use-azcopy-blobs-synchronize.md)|
 |Azure Files |[Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)|
 |Amazon S3|[Copy data from Amazon S3 to Azure Storage](storage-use-azcopy-s3.md)|
 |Google Cloud Storage|[Copy data from Google Cloud Storage to Azure Storage (preview)](storage-use-azcopy-google-cloud.md)|
 |Azure Stack storage|[Transfer data with AzCopy and Azure Stack storage](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
+
+## Get command help
+
+To see a list of commands, type `azcopy -h` and then press the ENTER key.
+
+To learn about a specific command, just include the name of the command (For example: `azcopy list -h`).
+
+> [!div class="mx-imgBorder"]
+> ![Inline help](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
+### List of commands
+
+The following table lists all AzCopy v10 commands. Each command links to a reference article. 
+
+|Command|Description|
+|---|---|
+|[azcopy bench](storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json)|Runs a performance benchmark by uploading or downloading test data to or from a specified location.|
+|[azcopy copy](storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json)|Copies source data to a destination location|
+|[azcopy doc](storage-ref-azcopy-doc.md?toc=/azure/storage/blobs/toc.json)|Generates documentation for the tool in Markdown format.|
+|[azcopy env](storage-ref-azcopy-env.md?toc=/azure/storage/blobs/toc.json)|Shows the environment variables that can configure AzCopy's behavior.|
+|[azcopy jobs](storage-ref-azcopy-jobs.md?toc=/azure/storage/blobs/toc.json)|Subcommands related to managing jobs.|
+|[azcopy jobs clean](storage-ref-azcopy-jobs-clean.md?toc=/azure/storage/blobs/toc.json)|Remove all log and plan files for all jobs.|
+|[azcopy jobs list](storage-ref-azcopy-jobs-list.md?toc=/azure/storage/blobs/toc.json)|Displays information on all jobs.|
+|[azcopy jobs remove](storage-ref-azcopy-jobs-remove.md?toc=/azure/storage/blobs/toc.json)|Remove all files associated with the given job ID.|
+|[azcopy jobs resume](storage-ref-azcopy-jobs-resume.md?toc=/azure/storage/blobs/toc.json)|Resumes the existing job with the given job ID.|
+|[azcopy jobs show](storage-ref-azcopy-jobs-show.md?toc=/azure/storage/blobs/toc.json)|Shows detailed information for the given job ID.|
+|[azcopy load](storage-ref-azcopy-load.md)|Subcommands related to transferring data in specific formats.|
+|[azcopy load clfs](storage-ref-azcopy-load-avere-cloud-file-system.md?toc=/azure/storage/blobs/toc.json)|Transfers local data into a Container and stores it in Microsoft's Avere Cloud FileSystem (CLFS) format.|
+|[azcopy list](storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json)|Lists the entities in a given resource.|
+|[azcopy login](storage-ref-azcopy-login.md?toc=/azure/storage/blobs/toc.json)|Logs in to Azure Active Directory to access Azure Storage resources.|
+|[azcopy logout](storage-ref-azcopy-logout.md?toc=/azure/storage/blobs/toc.json)|Logs the user out and terminates access to Azure Storage resources.|
+|[azcopy make](storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json)|Creates a container or file share.|
+|[azcopy remove](storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json)|Delete blobs or files from an Azure storage account.|
+|[azcopy sync](storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json)|Replicates the source location to the destination location.|
+
+> [!NOTE]
+> AzCopy does not have a command to rename files. 
 
 ## Use in a script
 
@@ -156,7 +184,13 @@ Storage Explorer uses your account key to perform operations, so after you sign 
 
 ## Configure, optimize, and fix
 
-See [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
+See any of the following resources:
+
+- [AzCopy configuration settings](storage-ref-azcopy-configuration-settings.md)
+
+- [Optimize the performance of AzCopy](storage-use-azcopy-optimize.md)
+
+- [Troubleshoot AzCopy V10 issues in Azure Storage by using log files](storage-use-azcopy-configure.md)
 
 ## Use a previous version
 

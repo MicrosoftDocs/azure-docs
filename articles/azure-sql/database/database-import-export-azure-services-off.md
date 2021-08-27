@@ -5,11 +5,11 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: migration
 ms.custom: sqldbrb=1
-ms.devlang: 
+ms.devlang:
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
+author: rothja
+ms.author: jroth
+ms.reviewer: mathoma
 ms.date: 01/08/2020
 ---
 # Import or export an Azure SQL Database without allowing Azure services to access the server
@@ -28,9 +28,9 @@ Create an Azure virtual machine by selecting the **Deploy to Azure** button.
 This template allows you to deploy a simple Windows virtual machine using a few different options for the Windows version, using the latest patched version. This will deploy a A2 size VM in the resource group location and return the fully qualified domain name of the VM.
 <br><br>
 
-[![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
+[![Image showing a button labeled "Deploy to Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-simple-windows%2Fazuredeploy.json)
 
-For more information, see [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows).
+For more information, see [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows).
 
 ## Connect to the virtual machine
 
@@ -38,13 +38,13 @@ The following steps show you how to connect to your virtual machine using a remo
 
 1. After deployment completes, go to the virtual machine resource.
 
-   ![Screenshot shows a virtual machine Overview page with a Connect button.](./media/database-import-export-azure-services-off/vm.png)  
+   ![Screenshot shows a virtual machine Overview page with a Connect button.](./media/database-import-export-azure-services-off/vm.png)
 
 2. Select **Connect**.
 
    A Remote Desktop Protocol file (.rdp file) form appears with the public IP address and port number for the virtual machine.
 
-   ![RDP form](./media/database-import-export-azure-services-off/rdp.png)  
+   ![RDP form](./media/database-import-export-azure-services-off/rdp.png)
 
 3. Select **Download RDP File**.
 

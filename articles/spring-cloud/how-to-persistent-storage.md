@@ -1,11 +1,11 @@
 ---
 title: How to use persistent storage in Azure Spring Cloud | Microsoft Docs
 description: How to use persistent storage in Azure Spring Cloud
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
@@ -56,6 +56,7 @@ If necessary, install the Spring Cloud extension for the Azure CLI:
 ```azurecli
 az extension add --name spring-cloud
 ```
+
 Other operations:
 
 * To create an app with persistent storage enabled:
@@ -81,5 +82,5 @@ Other operations:
 
 ## Next steps
 
-* Learn about [application and service quotas](spring-cloud-quotas.md).
-* Learn how to [manually scale your application](spring-cloud-howto-scale-manual.md).
+* Learn about [application and service quotas](./quotas.md).
+* Learn how to [manually scale your application](./how-to-scale-manual.md).

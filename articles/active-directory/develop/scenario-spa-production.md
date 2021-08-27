@@ -1,9 +1,9 @@
 ---
-title: Move single-page app to production 
+title: Move single-page app to production
 titleSuffix: Microsoft identity platform
 description: Learn how to build a single-page application (move to production)
 services: active-directory
-author: navyasric
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: nacanuma
+ms.author: marsma
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a single-page application by using the Microsoft identity platform.
 ---
@@ -24,7 +24,7 @@ Now that you know how to acquire a token to call web APIs, here are some things 
 
 ## Deploy your app
 
-Check out a [deployment sample](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnet-webapi-multitenant/tree/master/Chapter3) for learning how to deploy your SPA and Web API projects with Azure Storage and Azure App Services, respectively. 
+Check out a [deployment sample](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnet-webapi-multitenant/tree/master/Chapter3) for learning how to deploy your SPA and Web API projects with Azure Storage and Azure App Services, respectively.
 
 ## Code samples
 
@@ -33,10 +33,10 @@ These code samples demonstrate several key operations for a single-page app.
 
 - [Node.js Web API (Azure AD](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2): How to validate access tokens for your back-end web API (Node.js) by using **passport-azure-ad**.
 
-- [SPA with Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp): How to use **MSAL.js** to sign in users in an app that's registered with **Azure Active Directory B2C** (Azure AD B2C).
+- [SPA with Azure AD B2C](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa): How to use **MSAL.js** to sign in users in an app that's registered with **Azure Active Directory B2C** (Azure AD B2C).
 
-- [Node.js Web API (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi): How to use **passport-azure-ad** to validate access tokens for apps registered with **Azure Active Directory B2C** (Azure AD B2C).
+- [Node.js web API (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi): How to use **passport-azure-ad** to validate access tokens for apps registered with **Azure Active Directory B2C** (Azure AD B2C).
 
 ## Next steps
 
-- [JavaScript SPA tutorial](./tutorial-v2-javascript-spa.md): Deep dive to how to sign in users and get an access token to call the **Microsoft Graph API** by using **MSAL.js**.
+- [JavaScript SPA tutorial](./tutorial-v2-javascript-auth-code.md): Deep dive to how to sign in users and get an access token to call the **Microsoft Graph API** by using **MSAL.js**.

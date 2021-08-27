@@ -43,7 +43,7 @@
       - name: Load balance VMs
         href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
       - name: Authoring Azure Resource Manager templates
-        href: ../../azure-resource-manager/templates/template-syntax.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+        href: ../../azure-resource-manager/templates/syntax.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
       - name: Backup VMs at Scale
         href: ../../backup/tutorial-backup-vm-at-scale.md
   - name: How To Guides

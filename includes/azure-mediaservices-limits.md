@@ -10,8 +10,7 @@ ms.author: jroth
 
 | Resource | Limit | 
 | --- | --- | 
-| Azure Media Services accounts in a single subscription | 25 (fixed) |
-| Media reserved units per Media Services account |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
+| Azure Media Services accounts in a single subscription | 25 (fixed) | 
 | Jobs per Media Services account | 50,000<sup>2</sup> |
 | Chained tasks per job | 30 (fixed) |
 | Assets per Media Services account | 1,000,000|
@@ -35,7 +34,7 @@ As of April 1, 2017, any job record in your account older than 90 days is automa
 
 <sup>3</sup>When you make a request to list job entities, a maximum of 1,000 jobs is returned per request. To keep track of all submitted jobs, use the top or skip queries as described in [OData system query options](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
-<sup>4</sup>Locators aren't designed for managing per-user access control. To give different access rights to individual users, use digital rights management (DRM) solutions. For more information, see [Protect your content with Azure Media Services](../articles/media-services/previous/media-services-content-protection-overview.md).
+<sup>4</sup>Locators aren't designed for managing per-user access control. To give different access rights to individual users, use digital rights management (DRM) solutions. For more information, see [Protect your content with Azure Media Services](../articles/media-services/latest/drm-content-protection-concept.md).
 
 <sup>5</sup>The storage accounts must be from the same Azure subscription.
 

@@ -1,4 +1,4 @@
-- name: Azure DB for MariaDB documentation
+- name: Azure Database for MariaDB documentation
   href: index.yml
 - name: Overview
   expanded: true
@@ -145,7 +145,7 @@
     - name: Security overview
       href: concepts-security.md
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/mariadb-security-baseline?toc=/azure/mariadb/TOC.json
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -153,10 +153,8 @@
       href: concepts-ssl-connection-security.md
     - name: Configure TLS
       href: howto-tls-configurations.md
-    - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md
-    - name: Configuring Advanced Threat Protection
-      href: howto-database-threat-protection-portal.md
+    - name: Threat protection with Azure Defender
+      href: ../security-center/defender-for-databases-usage.md?toc=/azure/mariadb/toc.json&bc=/azure/mariadb/breadcrumb/toc.json
     - name: Auditing Concepts
       href: concepts-audit-logs.md    
     - name: Configuring Audit logs
@@ -183,6 +181,9 @@
       href: howto-restore-server-cli.md
     - name: Azure PowerShell
       href: howto-restore-server-powershell.md
+  - name: Restore a deleted server
+    href: howto-restore-dropped-server.md
+    displayName: restore server,dropped, deleted, recover
 - name: Monitor and tune
   items:
   - name: Concepts
@@ -201,6 +202,8 @@
     href: concepts-query-performance-insight.md
   - name: Performance Recommendations
     href: concepts-performance-recommendations.md
+  - name: Azure Advisor recommendations
+    href: concepts-azure-advisor-recommendations.md
 - name: Replication
   items:
   - name: Data-in replication

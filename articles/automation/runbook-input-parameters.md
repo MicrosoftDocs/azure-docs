@@ -4,7 +4,8 @@ description: This article tells how to configure runbook input parameters, which
 services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Configure runbook input parameters
 

@@ -1,9 +1,10 @@
-﻿---
+---
 author: MikeRayMSFT
 ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: mikeray
+ms.author: mikeray 
+ms.custom: devx-track-azurepowershell
 ---
 
 ## Start your PowerShell session

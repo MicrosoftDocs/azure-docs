@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure Fuze for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Fuze.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/26/2019
-ms.author: zhchia
+ms.date: 04/05/2021
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Fuze for automatic user provisioning
@@ -139,6 +139,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Connector limitations
 
 * Fuze supports custom SCIM attributes called **Entitlements**. These attributes are only able to be created and not updated. 
+* The Fuze SCIM API does not support filtering on the userName attribute. As a result, you may see failures in the logs when trying to sync an existing user who does not have a userName attribute but exists with an email that matches the userPrincipalName in Azure AD. 
 
 ## Change log
 

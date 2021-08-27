@@ -36,7 +36,7 @@ This document demonstrates how to create a .NET Core console application that ru
 
 ## Setup
 
-1. Visit the [.NET Core Installation Guide](https://www.microsoft.com/net/core) to install .NET Core. When selecting your environment, choose the command-line option.
+1. Visit the [.NET Core Installation Guide](https://dotnet.microsoft.com/download) to install the .NET Core SDK. When selecting your environment, choose the command-line option.
 2. From the command line, create a directory for your project. Navigate into this directory, then type `dotnet new console -o <sample-project-name>` to create a C# console project.
 3. Open this directory in Visual Studio Code. This step can be quickly done via the command line by typing `code .` in Windows.
 4. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the Visual Studio Code Marketplace. Restart Visual Studio Code.

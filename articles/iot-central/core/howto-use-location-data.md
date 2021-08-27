@@ -3,7 +3,7 @@ title: Use location data in an Azure IoT Central solution
 description: Learn how to use location data sent from a device connected to your IoT Central application. Plot location data on a map or create geofencing rules.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/08/2021
+ms.date: 06/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -14,7 +14,7 @@ services: iot-central
 
 This article shows you how to use location data in an IoT Central application. A device connected to IoT Central can send location data as telemetry stream or use a device property to report location data.
 
-A solution builder can use the location data to:
+You can use the location data to:
 
 * Plot the reported location on a map.
 * Plot the telemetry location history om a map.

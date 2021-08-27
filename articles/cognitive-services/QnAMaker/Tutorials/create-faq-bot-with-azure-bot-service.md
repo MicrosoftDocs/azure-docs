@@ -25,11 +25,13 @@ Follow the [quickstart](../Quickstarts/create-publish-knowledge-base.md) to crea
 
 # [QnA Maker GA (stable release)](#tab/v1)
 
-![Screenshot of successful publishing](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of successful publishing](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
 
-# [QnA Maker managed (preview release)](#tab/v2)
+# [Custom question answering (preview release)](#tab/v2)
 
-![Screenshot of successful publishing managed](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint-managed.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot of successful publishing managed](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint-managed.png)
 
 ---
 
@@ -44,13 +46,15 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
 1. In the QnA Maker portal, on the **Publish** page, select **Create bot**. This button appears only after you've published the knowledge base.
 
-     # [QnA Maker GA (stable release)](#tab/v1)
+    # [QnA Maker GA (stable release)](#tab/v1)
 
-    ![Screenshot of creating a bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of creating a bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
 
-    # [QnA Maker managed (preview release)](#tab/v2)
+    # [Custom question answering (preview release)](#tab/v2)
 
-    ![Screenshot of creating a bot managed preview](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page-managed.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of creating a bot managed preview](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page-managed.png)
 
     ---
     
@@ -74,5 +78,16 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
     The chat bot responds with an answer from your knowledge base.
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Enter a user query into the test web chat.":::
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of bot returning a response](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+
+
 1. Light up the Bot in additional [supported channels](/azure/bot-service/bot-service-manage-channels).
+    
+## Integrate the bot with channels
+
+Click on **Channels** in the Bot service resource that you have created. You can light up the Bot in additional [supported channels](/azure/bot-service/bot-service-manage-channels).
+
+   >[!div class="mx-imgBorder"]
+   >![Screenshot of integration with teams](../media/qnamaker-tutorial-updates/connect-with-teams.png)
+

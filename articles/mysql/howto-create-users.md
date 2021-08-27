@@ -10,13 +10,12 @@ ms.date: 01/13/2021
 
 # Create databases and users in Azure Database for MySQL
 
-[!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](includes/applies-to-mysql-single-flexible-server.md)]
 
 This article describes how to create users in Azure Database for MySQL.
 
 > [!NOTE]
 > This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
->
 
 When you first created your Azure Database for MySQL server, you provided a server admin user name and password. For more information, see this [Quickstart](quickstart-create-mysql-server-database-using-azure-portal.md). You can determine your server admin user name in the Azure portal.
 
@@ -64,18 +63,17 @@ After you create an Azure Database for MySQL server, you can use the first serve
 
 5. Sign in to the server, specifying the designated database and using the new user name and password. This example shows the mysql command line. When you use this command, you'll be prompted for the user's password. Use your own server name, database name, and user name.
 
-   ### [Single Server](#tab/single-server)
+### [Single Server](#tab/single-server)
 
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 
-   ### [Flexible Server](#tab/flexible-server)
+### [Flexible Server](#tab/flexible-server)
 
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user -p
    ```
- ---
 
 ## To create more admin users in Azure Database for MySQL
 

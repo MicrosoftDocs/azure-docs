@@ -1,23 +1,23 @@
 ---
 title: Assign an Azure Key Vault access policy
-description: How to use the Azure portal, Azure CLI, or Azure PowerShell to assign a Key Vault access policy to a service principal or application identity.
+description: How to use the Azure portal, Azure CLI, or Azure PowerShell to assign a Key Vault access policy to a security principal or application identity.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
-ms.author: mbaldwin
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 
 ---
 
 # Assign a Key Vault access policy using Azure PowerShell
 
-A Key Vault access policy determines whether a given service principal, namely an application or user group, can perform different operations on Key Vault [secrets](../secrets/index.yml), [keys](../keys/index.yml), and [certificates](../certificates/index.yml). You can assign access policies using the [Azure portal](assign-access-policy-portal.md), the [Azure CLI](assign-access-policy-cli.md), or Azure PowerShell (this article).
+A Key Vault access policy determines whether a given security principal, namely a user, application or user group, can perform different operations on Key Vault [secrets](../secrets/index.yml), [keys](../keys/index.yml), and [certificates](../certificates/index.yml). You can assign access policies using the [Azure portal](assign-access-policy-portal.md), the [Azure CLI](assign-access-policy-cli.md), or Azure PowerShell (this article).
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
@@ -77,6 +77,5 @@ You need only include `-PermissionsToSecrets`, `-PermissionsToKeys`, and `-Permi
 
 ## Next steps
 
-- [Azure Key Vault security: Identity and access management](security-overview.md#identity-management)
-- [Secure your key vault](secure-your-key-vault.md).
+- [Azure Key Vault security](security-features.md)
 - [Azure Key Vault developer's guide](developers-guide.md)

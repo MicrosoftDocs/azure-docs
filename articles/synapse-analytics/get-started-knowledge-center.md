@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Get started explore the Synapse Knowledge Center' 
-description: In this tutorial, you'll learn how to use the Synapse Knowledge Center.
+title: 'Tutorial: Get started explore the Synapse Knowledge center' 
+description: In this tutorial, you'll learn how to use the Synapse Knowledge center.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,40 +9,46 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/16/2020 
+ms.date: 04/04/2021 
 ---
 
 # Explore the Synapse Knowledge center
 
-In this tutorial, you'll learn how to use the Synapse Studio Knowledge Center.
+In this tutorial, you'll learn how to use the Synapse Studio **Knowledge center**.
 
-## Getting to the Knowledge Center
+## Finding the Knowledge center
 
-There are two ways of finding the Knowledge Center in Synapse Studio:
+There are two ways of finding the **Knowledge center** in Synapse Studio:
 
   1. In the Home hub, near the top-right of the page click on **Learn**.
-  2. In the menu bar at the top, click **?** and then **Knowledge Center**.
+  2. In the menu bar at the top, click **?** and then **Knowledge center**.
 
-Pick either method and open the **Knowledge Center**.
+Pick either method and open the **Knowledge center**.
 
-## Overview
+## Exploring the Knowledge center
 
-The **Knowledge center** allows you to do three things:
+Once it is visible, you will see that the **Knowledge center** allows you to do three things:
 * **Use samples immediately**. If you want a quick example of how Synapse works, choose this option.
 * **Browse gallery**. This option lets you link sample data sets and add sample code in the form of SQL scripts, notebooks, and pipelines.
 * **Tour Synapse Studio**. This option takes you on a brief tour of the basic parts of Synapse Studio. This is useful if you have never used Synapse Studio before.
 
-## Exploring blob storage with serverless SQL pool
+## Use samples immediately: Three samples to help you get started fast
 
-1. Go to the **Knowledge center**, click **Use samples immediately**.
+There are three items in this section:
+* Explore sample data with Spark
+* Query data with SQL
+* Create external table with SQL
+
+1. In the **Knowledge center**, click **Use samples immediately**.
 1. Select **Query data with SQL**.
 1. Click **Use sample**.
 1. A new sample SQL script will open.
 1. Scroll to the first query (lines 28 to 32) and select the query text.
 1. Click Run. It will run only code you have selected.
 
-## Loading more NYC Taxi Data
-1. Go to the **Knowledge Center**, click **Browse gallery**.
+## Gallery: A collection of sample datasets and sample code
+
+1. Go to the **Knowledge center**, click **Browse gallery**.
 1. Select the **SQL scripts** tab at the top.
 1. Select **Load the New York Taxicab dataset** Data ingestion sample, click **Continue**.
 1. Under **SQL pool**, choose **Select an existing pool** and select **SQLPOOL1**, and select the **SQLPOOL1** database you created earlier.
@@ -56,6 +62,6 @@ The **Knowledge center** allows you to do three things:
 
 ## Next steps
 
-* [Get started with Azure Synapse Analytics](get-started.md)
-* [Create a workspace](quickstart-create-workspace.md)
-* [Use serverless SQL pool](quickstart-sql-on-demand.md)
+> [!div class="nextstepaction"]
+> [Add an administrator](get-started-add-admin.md)
+

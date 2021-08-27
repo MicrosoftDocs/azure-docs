@@ -3,7 +3,7 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 08/30/2019
+ms.date: 06/02/2021
 ---
 
 # Troubleshooting backup failures on Azure virtual machines
@@ -29,6 +29,8 @@ This section covers backup operation failure of Azure Virtual machine.
   * Here is an example of an Event Viewer error 517 where Azure Backup was working fine but "Windows Server Backup" was failing:
     ![Windows Server Backup failing](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * If Azure Backup is failing, then look for the corresponding Error Code in the section Common VM backup errors in this article.
+  * If you see Azure Backup option greyed out on an Azure VM, hover over the disabled menu to find the reason. The reasons could be  "Not available with EphemeralDisk" or "Not available with Ultra Disk".
+    ![Reasons for the disablement of Azure Backup option](media/backup-azure-vms-troubleshoot/azure-backup-disable-reasons.png)
 
 ## Common issues
 
@@ -46,7 +48,7 @@ To resolve this issue, exclude the directories below in the antivirus configurat
 
 ### CopyingVHDsFromBackUpVaultTakingLongTime - Copying backed up data from vault timed out
 
-Error code: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
+Error code: CopyingVHDsFromBackUpVaultTakingLongTime <br/>
 Error message: Copying backed up data from vault timed out
 
 This could happen due to transient storage errors or insufficient storage account IOPS for backup service to transfer data to the vault within the timeout period. Configure VM backup using these [best practices](backup-azure-vms-introduction.md#best-practices) and retry the backup operation.
@@ -70,7 +72,7 @@ Error message: Failed to freeze one or more mount-points of the VM to take a fil
 * Run a file system consistency check on these devices by using the **fsck** command.
 * Mount the devices again and retry backup operation.</ol>
 
-If you can't un-mount the devices then you can update the VM backup configuration to ignore certain mount points. For example, if '/mnt/resource' mount point can't be un-mounted and causing the VM backup failures, you can update the VM backup configuration files with the ```MountsToSkip``` property as follows.
+If you can't un-mount the devices then you can update the VM backup configuration to ignore certain mount points. For example, if '/mnt/resource' mount point can't be un-mounted and causing the VM backup failures, you can update the VM backup configuration files with the `MountsToSkip` property as follows.
 
 ```bash
 cat /var/lib/waagent/Microsoft.Azure.RecoveryServices.VMSnapshotLinux-1.0.9170.0/main/tempPlugin/vmbackup.conf[SnapshotThread]
@@ -78,7 +80,6 @@ fsfreeze: True
 MountsToSkip = /mnt/resource
 SafeFreezeWaitInSeconds=600
 ```
-
 
 ### ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - Extension installation/operation failed due to a COM+ error
 
@@ -112,12 +113,12 @@ This error occurs because the VSS writers were in a bad state. Azure Backup exte
 
 Step 1: Restart VSS writers that are in a bad state.
 
-* From an elevated command prompt, run ```vssadmin list writers```.
+* From an elevated command prompt, run `vssadmin list writers`.
 * The output contains all VSS writers and their state. For every VSS writer with a state that's not **[1] Stable**, restart the respective VSS writer's service.
 * To restart the service, run the following commands from an elevated command prompt:
 
- ```net stop serviceName``` <br>
- ```net start serviceName```
+  `net stop serviceName` <br>
+  `net start serviceName`
 
 > [!NOTE]
 > Restarting some services can have an impact on your production environment. Ensure the approval process is followed and the service is restarted at the scheduled downtime.
@@ -135,7 +136,7 @@ To verify, navigate to ***System and Event Viewer Application logs*** and check 
 
 Solution:
 
-* Check for possibilities to distribute the load across the VM disks. This will reduce the load on single disks. You can [check the IOPs throttling by enabling diagnostic metrics at storage level](../virtual-machines/troubleshooting/performance-diagnostics.md#install-and-run-performance-diagnostics-on-your-vm).
+* Check for possibilities to distribute the load across the VM disks. This will reduce the load on single disks. You can [check the IOPs throttling by enabling diagnostic metrics at storage level](/troubleshoot/azure/virtual-machines/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
 * Change the backup policy to perform backups during off peak hours, when the load on the VM is at its lowest.
 * Upgrade the Azure disks to support higher IOPs. [Learn more here](../virtual-machines/disks-types.md)
 
@@ -152,8 +153,8 @@ Restart VSS (Volume Shadow Copy) service.
 (or)<br>
 * Run the following commands from an elevated command prompt:
 
- ```net stop VSS``` <br>
- ```net start VSS```
+  `net stop VSS` <br>
+  `net start VSS`
 
 If the issue still persists, restart the VM at the scheduled downtime.
 
@@ -176,7 +177,7 @@ Azure Backup supports backup and restore of VMs which are available in Azure Mar
 * To resolve this issue, use the [restore disks](./backup-azure-arm-restore-vms.md#restore-disks) option during the restore operation and then use [PowerShell](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) or [Azure CLI](./tutorial-restore-disk.md) cmdlets to create the VM with the latest marketplace information corresponding to the VM.
 * If the publisher does not have any Marketplace information, you can use the data disks to retrieve your data and you can attach them to an existing VM.
 
-### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
+### ExtensionConfigParsingFailure - Failure in parsing the config for the backup extension
 
 Error code: ExtensionConfigParsingFailure<br/>
 Error message: Failure in parsing the config for the backup extension.
@@ -210,7 +211,7 @@ If you see permissions in the **MachineKeys** directory that are different than 
 
 ### ExtensionStuckInDeletionState - Extension state is not supportive to backup operation
 
-Error code: ExtensionStuckInDeletionState <br/>
+Error code: ExtensionStuckInDeletionState <br/>
 Error message: Extension state is not supportive to backup operation
 
 The Backup operation failed due to inconsistent state of Backup Extension. To resolve this issue, follow these steps:
@@ -223,7 +224,7 @@ The Backup operation failed due to inconsistent state of Backup Extension. To re
 
 ### ExtensionFailedSnapshotLimitReachedError - Snapshot operation failed as snapshot limit is exceeded for some of the disks attached
 
-Error code: ExtensionFailedSnapshotLimitReachedError  <br/>
+Error code: ExtensionFailedSnapshotLimitReachedError  <br/>
 Error message: Snapshot operation failed as snapshot limit is exceeded for some of the disks attached
 
 The snapshot operation failed as the snapshot limit has exceeded for some of the disks attached. Complete the following troubleshooting steps and then retry the operation.
@@ -330,7 +331,7 @@ If you have an Azure Policy that [governs tags within your environment](../gover
 
 If after restore, you notice the disks are offline then:
 
-* Verify if the machine where the script is executed meets the OS requirements. [Learn more](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).  
+* Verify if the machine where the script is executed meets the OS requirements. [Learn more](./backup-azure-restore-files-from-vm.md#step-3-os-requirements-to-successfully-run-the-script).
 * Ensure you are not restoring to the same source, [Learn more](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 ### UserErrorInstantRpNotFound - Restore failed because the Snapshot of the VM was not found
@@ -342,7 +343,8 @@ This error occurs when you are trying to restore from a recovery point that was 
 <br>
 To resolve this issue, try to restore the VM from a different restore point.<br>
 
-#### Common errors 
+#### Common errors
+
 | Error details | Workaround |
 | --- | --- |
 | Restore failed with a cloud internal error. |<ol><li>The cloud service to which you're trying to restore is configured with DNS settings. You can check: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>If **Address** is configured, then DNS settings are configured.<br> <li>The cloud service to which to you're trying to restore is configured with **ReservedIP**, and existing VMs in the cloud service are in the stopped state. You can check that a cloud service has reserved an IP by using the following PowerShell cmdlets: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName**. <br><li>You're trying to restore a virtual machine with the following special network configurations into the same cloud service: <ul><li>Virtual machines under load balancer configuration, internal and external.<li>Virtual machines with multiple reserved IPs. <li>Virtual machines with multiple NICs. </ul><li>Select a new cloud service in the UI or see [restore considerations](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) for VMs with special network configurations.</ol> |
@@ -371,12 +373,12 @@ Typically, the VM Agent is already present in VMs that are created from the Azur
 #### Windows VMs - Set up the agent
 
 * Download and install the [agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to finish the installation.
-* For virtual machines created by using the classic deployment model, [update the VM property](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) to indicate that the agent is installed. This step isn't required for Azure Resource Manager virtual machines.
+* For virtual machines created by using the classic deployment model, [update the VM property](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) to indicate that the agent is installed. This step isn't required for Azure Resource Manager virtual machines.
 
 #### Linux VMs - Set up the agent
 
 * Install the latest version of the agent from the distribution repository. For details on the package name, see the [Linux Agent repository](https://github.com/Azure/WALinuxAgent).
-* For VMs created by using the classic deployment model, [update the VM property](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) and verify that the agent is installed. This step isn't required for Resource Manager virtual machines.
+* For VMs created by using the classic deployment model, [update the VM property](/troubleshoot/azure/virtual-machines/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) and verify that the agent is installed. This step isn't required for Resource Manager virtual machines.
 
 ### Update the VM Agent
 

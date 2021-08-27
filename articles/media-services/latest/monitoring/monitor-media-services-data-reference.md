@@ -6,79 +6,53 @@ ms.author: inhenkel
 manager: femila
 ms.topic: reference
 ms.service: media-services
-ms.date: 03/17/2021
+ms.custom: subject-monitoring
+ms.date: 04/21/2021
 ---
 
 # Monitoring Media Services data reference
 
-This article covers the data that is useful for monitoring Media Services. For more information about all platform metrics supported in Azure Monitor, review [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+This article covers the data that is useful for monitoring Media Services. For more information about all platform metrics supported in Azure Monitor, review [Supported metrics with Azure Monitor](../../../azure-monitor/essentials/metrics-supported.md).
 
-## Media Services metrics
+## Metrics
 
 Metrics are collected at regular intervals whether or not the value changes. They're useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic.
 
+
 Media Services supports monitoring metrics for the following resources:
 
-* Account
-* Streaming Endpoint
+|Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
+|-------|-----|
+| Media Services general | [General](../../../azure-monitor/essentials/metrics-supported.md#microsoftmediamediaservices) |
+| Live Events | [Microsoft.Media/mediaservices/liveEvents](../../../azure-monitor/essentials/metrics-supported.md#microsoftmediamediaservicesliveevents) 
+| Streaming Endpoints | [Microsoft.Media/mediaservices/streamingEndpoints](../../../azure-monitor/essentials/metrics-supported.md#microsoftmediamediaservicesstreamingendpoints), which are relevant to the [Streaming Endpoints REST API](/rest/api/media/streamingendpoints). 
 
-### Account
 
-You can monitor the following account metrics.
+You should also review [account quotas and limits](../limits-quotas-constraints-reference.md).
 
-|Metric name|Display name|Description|
-|---|---|---|
-|AssetCount|Asset count|Assets in your account.|
-|AssetQuota|Asset quota|Asset quota in your account.|
-|AssetQuotaUsedPercentage|Asset quota used percentage|The percentage of the Asset quota already used.|
-|ContentKeyPolicyCount|Content Key Policy count|Content Key Policies in your account.|
-|ContentKeyPolicyQuota|Content Key Policy quota|Content Key Policies quota in your account.|
-|ContentKeyPolicyQuotaUsedPercentage|Content Key Policy quota used percentage|The percentage of the Content Key Policy quota already used.|
-|StreamingPolicyCount|Streaming Policy count|Streaming Policies in your account.|
-|StreamingPolicyQuota|Streaming Policy quota|Streaming Policies quota in your account.|
-|StreamingPolicyQuotaUsedPercentage|Streaming Policy quota used percentage|The percentage of the Streaming Policy quota already used.|
-
-You should also review [account quotas and limits](../limits-quotas-constraints.md).
-
-### Streaming Endpoint
-
-The following Media Services [Streaming Endpoints](/rest/api/media/streamingendpoints) metrics are supported:
-
-|Metric name|Display name|Description|
-|---|---|---|
-|Requests|Requests|Provides the total number of HTTP requests served by the Streaming Endpoint.|
-|Egress|Egress|Egress bytes total per minute per Streaming Endpoint.|
-|SuccessE2ELatency|Success end to end Latency|Time duration from when the Streaming Endpoint received the request to when the last byte of the response was sent.|
-|CPU usage| | CPU usage for premium streaming endpoints. This data is not available for standard streaming endpoints. |
-|Egress bandwidth | | Egress bandwidth in bits per second.|
 
 ## Metric Dimensions
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+For more information on what metric dimensions are, see [Multi-dimensional metrics](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
-<!--**PLACEHOLDER** for dimensions table.-->
+Media services has the following metric dimensions.  They are self-explantory based on the metrics they support.  See the [metrics links](#metrics) above for more information.   
+- OutputFormat
+- HttpStatusCode 
+- ErrorCode 
+- TrackName 
 
 ## Resource logs
 
-## Media Services diagnostic logs
+Resource logs provide rich and frequent data about the operation of an Azure resource. For more information, see [How to collect and consume log data from your Azure resources](../../../azure-monitor/essentials/platform-logs-overview.md).
 
-Diagnostic logs provide rich and frequent data about the operation of an Azure resource. For more information, see [How to collect and consume log data from your Azure resources](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview.md).
-
-Media Services supports the following diagnostic logs:
-
-* Key delivery
-
-### Key delivery
-
-|Name|Description|
-|---|---|
-|Key delivery service request|Logs that show the key delivery service request information. For more information, see [schemas](monitor-media-services-data-reference.md).|
+Media Services supports the following resource logs:
+[Microsoft.Media/mediaservices](../../../azure-monitor/essentials/resource-logs-categories.md#microsoftmediamediaservices)
 
 ## Schemas
 
-For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs-schema.md).
+For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../../azure-monitor/essentials/resource-logs-schema.md).
 
-## Key delivery log schema properties
+### Key delivery 
 
 These properties are specific to the key delivery log schema.
 

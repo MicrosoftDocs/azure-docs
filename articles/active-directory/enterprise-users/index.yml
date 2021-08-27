@@ -1,17 +1,18 @@
 ### YamlMime:Landing
 
 title: Enterprise user management documentation - Azure AD
-summary: Azure AD provides user management services such groups and licenses  help you accomplish your top user management tasks quickly. Assign licenses, assign application access to groups or users, and add or manage domain names.
+summary: Azure AD provides user management services so that you can assign licenses, manage your groups and users, and add or manage domain names.
 
 
 metadata:
-  title: Azure Active Directory users, groups, licenses and domains documentation
-  description: Learn how to use groups, domaine names, and licenses to manage user authentication in your Azure AD organization.
+  title: Azure Active Directory users, groups, licenses, and domains documentation
+  description: Learn how to use groups, domain names, and licenses to manage user authentication in your Azure AD organization.
   services: active-directory
   ms.service: active-directory
-  manager: daveba
+  ms.subservice: enterprise-users
+  manager: mtillman
   ms.topic: landing-page
-  ms.date: 10/19/2020
+  ms.date: 04/18/2021
   author: curtand
   ms.author: curtand
 

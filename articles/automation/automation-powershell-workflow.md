@@ -4,7 +4,8 @@ description: This article teaches you the differences between PowerShell Workflo
 services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Learn PowerShell Workflow for Azure Automation
 

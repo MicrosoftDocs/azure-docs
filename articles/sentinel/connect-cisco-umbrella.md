@@ -23,14 +23,16 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The Cisco Umbrella connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-The Cisco Umbrella connector allows you to easily connect all your Cisco Umbrella security solution logs with your Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Integration between Cisco Umbrella and Azure Sentinel makes use of REST API.
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+The Cisco Umbrella connector allows you to connect to Amazon Web Services S3 buckets, via the S3 API, to ingest Cisco Umbrella security solution logs into Azure Sentinel.
 
 > [!NOTE]
 > Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## Configure and connect Cisco Umbrella
 
-Cisco Umbrella can integrate and export logs directly to Azure Sentinel.
+Cisco Umbrella can integrate and export logs into Azure Sentinel via the Amazon S3 API.
 
 1. In the Azure Sentinel navigation menu, select **Data connectors**.
 
@@ -54,6 +56,6 @@ It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 In this document, you learned how to connect Cisco Umbrella data to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.

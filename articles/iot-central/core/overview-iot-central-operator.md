@@ -10,11 +10,10 @@ services: iot-central
 ms.custom: mvc
 
 # Device groups, jobs, use dashboards and create personal dashboards
+# This article applies to operators.
 ---
 
 # IoT Central operator guide
-
-*This article applies to operators.*
 
 An IoT Central application lets you monitor and manage millions of devices throughout their life cycle. This guide is for operators who use an IoT Central application to manage IoT devices.
 
@@ -34,7 +33,7 @@ For more detailed information, an operator can use device groups and the built-i
 
 To manage individual devices, an operator can use device views to set device and cloud properties, and call device commands. Examples, include the **Manage device** and **Commands** views in the previous screenshot.
 
-To manage devices in bulk, an operator can create and schedule jobs. Jobs can update properties and run commands on multiple devices. To learn more, see [Create and run a job in your Azure IoT Central application](howto-run-a-job.md).
+To manage devices in bulk, an operator can create and schedule jobs. Jobs can update properties and run commands on multiple devices. To learn more, see [Create and run a job in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 
 ## Troubleshoot and remediate issues
 
@@ -42,11 +41,11 @@ The operator is responsible for the health of the application and its devices. T
 
 ## Add and remove devices
 
-The operator can add and remove devices to your IoT Central application either individually or in bulk. To learn more, see [Manage devices in your Azure IoT Central application](howto-manage-devices.md).
+The operator can add and remove devices to your IoT Central application either individually or in bulk. To learn more, see [Manage devices in your Azure IoT Central application](howto-manage-devices-individually.md).
 
 ## Personalize
 
-Operators can create personalized dashboards in an IoT Central application that contain links to the resources they use most often. To learn more, see [Manage dashboards](howto-create-personal-dashboards.md#manage-dashboards).
+Operators can create personal dashboards in an IoT Central application that contain links to the resources they use most often. To learn more, see [Manage dashboards](howto-manage-dashboards.md).
 
 ## Next steps
 

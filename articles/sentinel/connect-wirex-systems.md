@@ -23,6 +23,8 @@ ms.author: yelevin
 > [!IMPORTANT]
 > The WireX Systems NFP connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
 This article explains how to connect your WireX Systems Network Forensics Platform (NFP) appliance to Azure Sentinel. The WireX NFP data connector allows you to easily connect your NFP logs with Azure Sentinel, so that you can view the data in workbooks, use it to create custom alerts, and incorporate it to improve investigation. 
 
 > [!NOTE] 
@@ -52,7 +54,7 @@ To get its logs into Azure Sentinel, configure your WireX Systems NFP appliance 
         - Log format – CEF
         - Log types – all recommended by WireX
 
-    1. **3. Validate connection** - Verify data ingestion by copying the command on the connector page and running it on your log forwarder. See [STEP 3: Validate connectivity](connect-cef-verify.md) in the Azure Sentinel documentation for more detailed instructions and explanation.
+    1. **3. Validate connection** - Verify data ingestion by copying the command on the connector page and running it on your log forwarder. See [Validate CEF connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity) in the Azure Sentinel documentation for more detailed instructions and explanation.
 
         It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
@@ -71,6 +73,6 @@ See the **Next steps** tab in the connector page for more query samples.
 
 ## Next steps
 In this document, you learned how to connect WireX Systems NFP to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.

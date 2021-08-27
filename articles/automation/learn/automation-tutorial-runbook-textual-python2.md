@@ -1,9 +1,9 @@
 ---
 title: Create a Python runbook in Azure Automation
-description: This article teaches you to create, test, and publish a simple Python runbook.
+description: This article teaches you to create, test, and publish a simple Python runbook in your Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/19/2020
+ms.date: 05/17/2021
 ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python
 ---
@@ -18,16 +18,15 @@ This tutorial walks you through the creation of a [Python runbook](../automation
 > * Run and track the status of the runbook job
 > * Update the runbook to start an Azure virtual machine with runbook parameters
 
-> [!NOTE]
-> Using a webhook to start a Python runbook is not supported.
-
 ## Prerequisites
 
 To complete this tutorial, you need the following:
 
 - Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Automation account](../index.yml) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
-- An Azure virtual machine. You stop and start this machine so it should not be a production VM.
+
+- [Automation account](../automation-security-overview.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine. The [Run As account](../automation-security-overview.md#run-as-accounts) is required for this tutorial. 
+
+- An Azure virtual machine. During this tutorial, you will start and stop this machine, so it should not be a production VM.
 
 ## Create a new runbook
 
@@ -74,7 +73,7 @@ Before you publish the runbook to make it available in production, you want to t
 
 ## Publish and start the runbook
 
-The runbook that you created is still in Draft mode. You need to publish it before you can run it in production. When you publish a runbook, you overwrite the existing published version with the draft version. In this case, you don't have a published version yet because you just created the runbook.
+The runbook that you created is still in draft mode. You need to publish it before you can run it in production. When you publish a runbook, you overwrite the existing published version with the draft version. In this case, you don't have a published version yet because you just created the runbook.
 
 1. Click **Publish** to publish the runbook and then **Yes** when prompted.
 
@@ -105,14 +104,14 @@ The runbook that you created is still in Draft mode. You need to publish it befo
 ## Add authentication to manage Azure resources
 
 You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources.
-To do this, the script has to authenticate using the credentials from your Automation account. To help you, you can use the [Azure Automation utility package](https://github.com/azureautomation/azure_automation_utility) to make it easier to authenticate and interact with Azure resources.
+To do this, the script has to authenticate using the Run As account credentials from your Automation account. To help you, you can use the [Azure Automation utility package](https://github.com/azureautomation/azure_automation_utility) to make it easier to authenticate and interact with Azure resources.
 
 > [!NOTE]
-> The Automation account must have been created with the service principal feature for there to be a Run As certificate.
-> If your Automation account was not created with the service principal, you can authenticate as described in
-> [Authenticate with the Azure Management Libraries for Python](/azure/python/python-sdk-azure-authenticate).
+> The Automation account must have been created with the Run As account for there to be a Run As certificate.
+> If your Automation account was not created with the Run As account, you can authenticate as described in
+> [Authenticate with the Azure Management Libraries for Python](/azure/python/python-sdk-azure-authenticate) or [create a Run As account](../create-run-as-account.md).
 
-1. Open the textual editor by clicking **Edit** on the MyFirstRunbook-Python pane.
+1. Open the textual editor by clicking **Edit** on the **MyFirstRunbook-Python** pane.
 
 2. Add the following code to authenticate to Azure:
 
@@ -203,7 +202,7 @@ async_vm_start = compute_client.virtual_machines.start(
 async_vm_start.wait()
 ```
 
-When you start a Python runbook (either on the Test pane or as a published runbook), you can enter the values for parameters in the Start Runbook page under **Parameters**.
+When you start a Python runbook, either from the **Test** pane or as a published runbook, you can enter the values for parameters in the **Start Runbook** page under **Parameters**.
 
 After you start entering a value in the first box, a second appears, and so on, so that you can enter as many parameter values as necessary.
 
@@ -241,9 +240,7 @@ except Exception as detail:
 
 ## Next steps
 
-- To get started with PowerShell runbooks, see [Create a PowerShell runbook](automation-tutorial-runbook-textual-powershell.md).
-- To get started with Graphical runbooks, see [Create a graphical runbook](automation-tutorial-runbook-graphical.md).
-- To get started with PowerShell workflow runbooks, see [Create a PowerShell workflow runbook](automation-tutorial-runbook-textual.md).
 - To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](../automation-runbook-types.md).
 - To learn about developing for Azure with Python, see [Azure for Python developers](/azure/python/).
-- To view sample Python 2 runbooks, see the [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).
+
+- To view sample Python 2 runbooks, see the [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python) repository.

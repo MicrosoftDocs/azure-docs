@@ -21,8 +21,7 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 Azure Media Services enables you to ingest, encode, add content protection, and stream your content. For more information, see [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md). Some customers want to use Media Services only to deliver licenses and/or keys and encode, encrypt, and stream by using their on-premises servers. This article describes how you can use Media Services to deliver PlayReady and/or Widevine licenses but do the rest with your on-premises servers. 
 
@@ -49,7 +48,7 @@ The following diagram shows the main steps you need to take to use Media Service
     ```
  
 ## .NET code example
-The following code example shows how to create a common content key and get PlayReady or Widevine license acquisition URLs. To configure your on-premises server, you need a content key, the key ID, and the license acquisition URL. After you configure your on-premises server, you can stream from your own streaming server. Because the encrypted stream points to a Media Services license server, your player requests a license from Media Services. If you choose token authentication, the Media Services license server validates the token you sent through HTTPS. If the token is valid, the license server delivers the license back to your player. The following code example only shows how to create a common content key and get PlayReady or Widevine license acquisition URLs. If you want to deliver AES-128 keys, you need to create an envelope content key and get a key acquisition URL. For more information, see [Use AES-128 dynamic encryption and key delivery service](media-services-protect-with-aes128.md).
+The following code example shows how to create a common content key and get PlayReady or Widevine license acquisition URLs. To configure your on-premises server, you need a content key, the key ID, and the license acquisition URL. After you configure your on-premises server, you can stream from your own streaming server. Because the encrypted stream points to a Media Services license server, your player requests a license from Media Services. If you choose token authentication, the Media Services license server validates the token you sent through HTTPS. If the token is valid, the license server delivers the license back to your player. The following code example only shows how to create a common content key and get PlayReady or Widevine license acquisition URLs. If you want to deliver AES-128 keys, you need to create an envelope content key and get a key acquisition URL. For more information, see [Use AES-128 dynamic encryption and key delivery service](media-services-playready-license-template-overview.md).
 
 ```csharp
 using System;
@@ -352,4 +351,4 @@ namespace DeliverDRMLicenses
 
 ## See also
 * [Use PlayReady and/or Widevine dynamic common encryption](media-services-protect-with-playready-widevine.md)
-* [Use AES-128 dynamic encryption and the key delivery service](media-services-protect-with-aes128.md)
+* [Use AES-128 dynamic encryption and the key delivery service](media-services-playready-license-template-overview.md)

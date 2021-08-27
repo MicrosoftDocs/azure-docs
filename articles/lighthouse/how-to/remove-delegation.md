@@ -1,13 +1,14 @@
 ---
 title: Remove access to a delegation
 description: Learn how to remove access to resources that had been delegated to a service provider for Azure Lighthouse.
-ms.date: 02/16/2021
-ms.topic: how-to
+ms.date: 05/11/2021
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Remove access to a delegation
 
-After a customer's subscription or resource group has been delegated to a service provider for [Azure Lighthouse](../overview.md), the delegation can be removed if needed. Once a delegation is removed, the [Azure delegated resource management](../concepts/azure-delegated-resource-management.md) access that was previously granted to users in the service provider tenant will no longer apply.
+After a customer's subscription or resource group has been delegated to a service provider for [Azure Lighthouse](../overview.md), the delegation can be removed if needed. Once a delegation is removed, the [Azure delegated resource management](../concepts/architecture.md) access that was previously granted to users in the service provider tenant will no longer apply.
 
 Removing a delegation can be done by a user in either the customer tenant or the service provider tenant, as long as the user has the appropriate permissions.
 
@@ -16,7 +17,7 @@ Removing a delegation can be done by a user in either the customer tenant or the
 
 ## Customers
 
-Users in the customer's tenant who have a role with the `Microsoft.Authorization/roleAssignments/write` permission, such as [Owner](../../role-based-access-control/built-in-roles.md#owner), can remove service provider access to that subscription (or to resource groups in that subscription). To do so, the user can go to the [Service providers page](view-manage-service-providers.md#add-or-remove-service-provider-offers) of the Azure portal, find the offer on the **Service provider offers** screen, and select the trash can icon in the row for that offer.
+Users in the customer's tenant who have a role with the `Microsoft.Authorization/roleAssignments/write` permission, such as [Owner](../../role-based-access-control/built-in-roles.md#owner), can remove service provider access to that subscription (or to resource groups in that subscription). To do so, the user can go to the [Service providers page](view-manage-service-providers.md#remove-service-provider-offers) of the Azure portal, find the offer on the **Service provider offers** screen, and select the trash can icon in the row for that offer.
 
 After confirming the deletion, no users in the service provider's tenant will be able to access the resources that had been previously delegated.
 
@@ -92,6 +93,6 @@ az managedservices assignment delete --assignment <id or full resourceId>
 
 ## Next steps
 
-- Learn about [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
+- Learn about [Azure Lighthouse architecture](../concepts/architecture.md).
 - [View and manage customers](view-manage-customers.md) by going to **My customers** in the Azure portal.
 - Learn how to [update a previous delegation](update-delegation.md).

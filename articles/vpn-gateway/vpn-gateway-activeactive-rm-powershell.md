@@ -1,6 +1,7 @@
 ---
-title: 'Configure active-active S2S Azure VPN Gateway connections'
-description: This article walks you through configuring active-active connections with Azure VPN Gateways using Azure Resource Manager and PowerShell.
+title: 'Configure active-active S2S VPN connections'
+titleSuffix: Azure VPN Gateway
+description: Learn how to configure active-active connections with VPN gateways using PowerShell.
 services: vpn-gateway
 author: yushwang
 
@@ -8,12 +9,13 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
-ms.reviewer: cherylmc
+ms.reviewer: cherylmc 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Configure active-active S2S VPN connections with Azure VPN Gateways
 
-This article walks you through the steps to create active-active cross-premises and VNet-to-VNet connections using the Resource Manager deployment model and PowerShell. You can also configure an active-active gateway in the Azure portal.
+This article walks you through the steps to create active-active cross-premises and VNet-to-VNet connections using the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and PowerShell. You can also configure an active-active gateway in the Azure portal.
 
 ## About highly available cross-premises connections
 To achieve high availability for cross-premises and VNet-to-VNet connectivity, you should deploy multiple VPN gateways and establish multiple parallel connections between your networks and Azure. See [Highly Available Cross-Premises and VNet-to-VNet Connectivity](vpn-gateway-highlyavailable.md) for an overview of connectivity options and topology.
@@ -43,7 +45,7 @@ The other properties are the same as the non-active-active gateways.
 
 ### Before you begin
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* You'll need to install the Azure Resource Manager PowerShell cmdlets if you don't want to use CloudShell in your browser. See [Overview of Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets.
+* You'll need to install the Azure Resource Manager PowerShell cmdlets if you don't want to use Cloud Shell in your browser. See [Overview of Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets.
 
 ### Step 1 - Create and configure VNet1
 #### 1. Declare your variables
@@ -116,7 +118,7 @@ $gw1ipconf2 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet $sub
 ```
 
 #### 2. Create the VPN gateway with active-active configuration
-Create the virtual network gateway for TestVNet1. Note that there are two GatewayIpConfig entries, and the EnableActiveActiveFeature flag is set. Creating a gateway can take a while (45 minutes or more to complete).
+Create the virtual network gateway for TestVNet1. Note that there are two GatewayIpConfig entries, and the EnableActiveActiveFeature flag is set. Creating a gateway can take a while (45 minutes or more to complete, depending on the selected SKU).
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
