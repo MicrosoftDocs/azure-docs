@@ -114,7 +114,12 @@ First you need to enable the _backup and restore service_ in your cluster. Get t
     }
     ```
 
-4. Once you have updated your cluster template with the preceding changes, apply them and let the deployment/upgrade complete. Once complete, the _backup and restore service_ starts running in your cluster. The Uri of this service is `fabric:/System/BackupRestoreService` and the service can be located under system service section in the Service Fabric explorer.
+    > [!NOTE]
+    > \[Thumbprint\] needs to replaced by valid certificate thumbprint to be used for encryption.
+    >
+    
+4. Once you have updated your cluster template with the preceding changes, apply them and let the deployment/upgrade complete. Once complete, the _backup and restore service_ starts running in your cluster. The Uri of this service is `fabric:/System/BackupRestoreService` and the service can be located under system service section in the Service Fabric explorer. 
+
 
 ## Enabling periodic backup for Reliable Stateful service and Reliable Actors
 Let's walk through steps to enable periodic backup for Reliable Stateful service and Reliable Actors. These steps assume

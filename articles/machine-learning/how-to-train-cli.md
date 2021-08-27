@@ -25,12 +25,17 @@ Training a machine learning model is typically an iterative process. Modern tool
 
 - To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 - [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
-- Clone the examples repository:
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
 
 > [!TIP]
 > For a full-featured development environment, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md) to [manage Azure Machine Learning resources](how-to-manage-resources-vscode.md) and [train machine learning models](tutorial-train-deploy-image-classification-model-vscode.md).
+
+### Clone examples repository
+
+To run the training examples, first clone the examples repository and change into the `cli` directory:
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
+
+Note that `--depth 1` clones only the latest commit to the repository which reduces time to complete the operation.
 
 ### Create compute
 

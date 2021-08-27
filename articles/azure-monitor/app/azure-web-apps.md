@@ -87,7 +87,7 @@ See the [enable monitoring section](#enable-monitoring ) below to begin setting 
 ### Linux 
 
 > [!IMPORTANT]
-> The following versions of ASP.NET Core are supported for auto-instrumentation on Linux: ASP.NET Core 3.1, 5.0, and 6.0 (preview). Versions 2.0, 2.1, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
+> Only ASP.NET Core 6.0 (preview) is supported for auto-instrumentation on Linux.
 
 > [!NOTE]
 > Linux auto-instrumentation App Services portal enablement is in Public Preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.

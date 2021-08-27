@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
+ms.date: 08/23/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -89,7 +89,7 @@ Follow these steps to create the app registration:
 For web apps that request an ID token directly from Azure AD B2C, enable the implicit grant flow in the app registration.
 
 1. In the left menu, under **Manage**, select **Authentication**.
-1. Under **Implicit grant**, select the **ID tokens** check box.
+1. Under **Implicit grant**, select the **ID tokens (used for implicit and hybrid flows)**, and the **Access tokens (used for implicit flows)** check boxes.
 1. Select **Save**.
 
 ## Step 3: Get the web app sample
