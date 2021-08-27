@@ -66,7 +66,7 @@ The following samples show how to protect a web API with the Microsoft identity 
 > | Language/<br/>Platform | Code sample(s) <br/> on GitHub |Auth<br/> libraries |Auth flow |
 > | ----------- | ----------- |----------- |----------- |
 > | ASP.NET | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) | MSAL.NET | On-Behalf-Of (OBO) |
-> | ASP.NET | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | MSAL.NET | Credentials grant |
+> | ASP.NET Core | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | MSAL.NET | On-Behalf-Of (OBO) |
 > | Java | [Sign in users](https://github.com/Azure-Samples/ms-identity-java-webapi) | MSAL Java | On-Behalf-Of (OBO) |
 > | Node.js | &#8226; [Protect a Node.js web API](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2) <br/> &#8226; [Protect a Node.js Web API with Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | MSAL Node | Authorization bearer |
 
@@ -85,6 +85,7 @@ The following samples show public client desktop applications that access the Mi
 > | Powershell | [Call Microsoft Graph by signing in users using username/password](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) | MSAL.NET | Resource owner password credentials |
 > | Python | [Sign in users](https://github.com/Azure-Samples/ms-identity-python-desktop) | MSAL Python | Authorization code with PKCE |
 > | Universal Window Platform (UWP) | [Call Microsoft Graph](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) | Web account manager API | Integrated windows authentication |
+> | Windows Presentation Foundation (WPF) | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | MSAL.NET | Authorization code with PKCE |
 > | XAML | &#8226; [Sign in users and call ASP.NET core web API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/1.%20Desktop%20app%20calls%20Web%20API) <br/> &#8226; [Sign in users and call Microsoft Graph](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | MSAL.NET | Authorization code with PKCE |
 
 ## Mobile
