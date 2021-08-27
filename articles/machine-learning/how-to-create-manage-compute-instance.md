@@ -187,7 +187,9 @@ Please note timezone labels don't account for day light savings. For instance,  
 
 ### Create a schedule with a Resource Manager template
 
-You can schedule the automatic start and stop of a compute instance by using a Resource Manager template.  In a Resource Manager template, add:
+You can schedule the automatic start and stop of a compute instance by using a Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-computeinstance).
+
+In the Resource Manager template, add:
 
 ```
 "schedules": "[parameters('schedules')]"
