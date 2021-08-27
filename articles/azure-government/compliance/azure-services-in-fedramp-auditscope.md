@@ -49,7 +49,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last Updated: August 2021*
+*Last updated: August 2021*
 
 ### Terminology used
 
@@ -130,7 +130,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) | &#x2705; | &#x2705; | |
 | [Azure Peering Service](../../peering-service/about.md) | &#x2705; | &#x2705; | |
 | [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | &#x2705; | &#x2705; | |
-| [Azure Policy Guest Configuration](../../governance/policy/concepts/guest-configuration.md) | &#x2705; | &#x2705; | |
+| [Azure Policy's guest configuration](../../governance/policy/concepts/guest-configuration.md) | &#x2705; | &#x2705; | |
 | [Azure Public IP](../../virtual-network/public-ip-addresses.md) | &#x2705; | &#x2705; | |
 | [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/) | &#x2705; | &#x2705; | |
 | [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | |
@@ -241,7 +241,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 **&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
 
 ## Azure Government services by audit scope
-*Last Updated: August 2021*
+*Last updated: August 2021*
 
 ### Terminology used
 
@@ -319,7 +319,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Peering Service](../../peering-service/about.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Policy Guest Configuration](../../governance/policy/concepts/guest-configuration.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Policy's guest configuration](../../governance/policy/concepts/guest-configuration.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Public IP](../../virtual-network/public-ip-addresses.md) | &#x2705; | &#x2705; | | | |
 | [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
