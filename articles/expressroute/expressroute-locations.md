@@ -7,7 +7,7 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 08/12/2021
+ms.date: 08/26/2021
 ms.author: duau
 
 ---
@@ -83,6 +83,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** |Supported |Supported |Taipei|
 | **[Fastweb](https://www.fastweb.it/grandi-aziende/cloud/scheda-prodotto/fastcloud-interconnect/)** | Supported |Supported |Milan|
 | **[Fibrenoire](https://fibrenoire.ca/en/services/cloudextn-2/)** |Supported |Supported |Montreal|
+| **[GBI](https://www.gbiinc.com/microsoft-azure/)** |Supported |Supported |Dubai2, Frankfurt|
 | **[GÉANT](https://www.geant.org/Networks)** |Supported |Supported |Amsterdam, Amsterdam2, Dublin, Frankfurt, Marseille |
 | **[GlobalConnect](https://www.globalconnect.no/tjenester/nettverk/cloud-access)** | Supported |Supported | Oslo, Stavanger | 
 | **GTT** |Supported |Supported |London2 |
