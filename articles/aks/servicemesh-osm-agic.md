@@ -8,7 +8,7 @@ ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-## Deploy an application managed by Open Service Mesh (OSM) using Azure Application Gateway ingress AKS add-on
+# Deploy an application managed by Open Service Mesh (OSM) using Azure Application Gateway ingress AKS add-on
 
 In this tutorial, you will:
 

@@ -8,7 +8,7 @@ ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-## Deploy an application managed by Open Service Mesh (OSM) with NGINX ingress
+# Deploy an application managed by Open Service Mesh (OSM) with NGINX ingress
 
 Open Service Mesh (OSM) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
@@ -24,7 +24,7 @@ In this tutorial, you will:
 > - Create a NGINX ingress controller used for the appliction
 > - Expose a service via the Azure Application Gateway ingress to the internet
 
-### Before you begin
+## Before you begin
 
 The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.19+` and above, with Kubernetes RBAC enabled), have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
 
@@ -93,7 +93,7 @@ spec:
 
 Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Permissive traffic policy mode in OSM is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
 
-### Create namespaces for the application
+## Create namespaces for the application
 
 In this tutorial we will be using the OSM bookstore application that has the following application components:
 
@@ -117,7 +117,7 @@ namespace/bookthief created
 namespace/bookwarehouse created
 ```
 
-### Onboard the namespaces to be managed by OSM
+## Onboard the namespaces to be managed by OSM
 
 Adding the namespaces to the OSM mesh will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with your application. Run the following command to onboard the OSM bookstore application namespaces.
 
@@ -134,7 +134,7 @@ Namespace [bookthief] successfully added to mesh [osm]
 Namespace [bookwarehouse] successfully added to mesh [osm]
 ```
 
-### Deploy the Bookstore application to the AKS cluster
+## Deploy the Bookstore application to the AKS cluster
 
 ```azurecli-interactive
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookbuyer.yaml
@@ -172,7 +172,7 @@ service/bookwarehouse created
 deployment.apps/bookwarehouse created
 ```
 
-### Update the Bookbuyer Service
+## Update the Bookbuyer Service
 
 Update the bookbuyer service to the correct inbound port configuration with the following service manifest.
 
@@ -194,7 +194,7 @@ spec:
 EOF
 ```
 
-### Verify the Bookstore application running inside the AKS cluster
+## Verify the Bookstore application running inside the AKS cluster
 
 As of now we have deployed the bookstore mulit-container application, but it is only accessible from within the AKS cluster. Later we will add the Azure Application Gateway ingress controller to expose the application outside the AKS cluster. To verify that the application is running inside the cluster, we will use a port forward to view the bookbuyer component UI.
 
@@ -228,7 +228,7 @@ While the port forwarding session is in place, navigate to the following url fro
 
 ![OSM bookbuyer app for NGINX UI image](./media/aks-osm-addon/osm-agic-bookbuyer-img.png)
 
-### Create an NGINX ingress controller in Azure Kubernetes Service (AKS)
+## Create an NGINX ingress controller in Azure Kubernetes Service (AKS)
 
 An ingress controller is a piece of software that provides reverse proxy, configurable traffic routing, and TLS termination for Kubernetes services. Kubernetes ingress resources are used to configure the ingress rules and routes for individual Kubernetes services. Using an ingress controller and ingress rules, a single IP address can be used to route traffic to multiple services in a Kubernetes cluster.
 
@@ -269,7 +269,7 @@ nginx-ingress-ingress-nginx-controller   LoadBalancer   10.0.74.133   EXTERNAL_I
 
 No ingress rules have been created yet, so the NGINX ingress controller's default 404 page is displayed if you browse to the internal IP address. Ingress rules are configured in the following steps.
 
-### Expose the bookbuyer service to the internet
+## Expose the bookbuyer service to the internet
 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
@@ -306,7 +306,7 @@ Warning: extensions/v1beta1 Ingress is deprecated in v1.14+, unavailable in v1.2
 ingress.extensions/bookbuyer-ingress created
 ```
 
-### View the NGINX logs
+## View the NGINX logs
 
 ```azurecli-interactive
 POD=$(kubectl get pods -n ingress-basic | grep 'nginx-ingress' | awk '{print $1}')
@@ -324,7 +324,7 @@ I0321 <date>        6 controller.go:163] "Backend successfully reloaded"
 I0321 <date>        6 event.go:282] Event(v1.ObjectReference{Kind:"Pod", Namespace:"ingress-basic", Name:"nginx-ingress-ingress-nginx-controller-54cf6c8bf4-jdvrw", UID:"3ebbe5e5-50ef-481d-954d-4b82a499ebe1", APIVersion:"v1", ResourceVersion:"3272", FieldPath:""}): type: 'Normal' reason: 'RELOAD' NGINX reload triggered due to a change in configuration
 ```
 
-### View the NGINX services and bookbuyer service externally
+## View the NGINX services and bookbuyer service externally
 
 ```azurecli-interactive
 kubectl get services -n ingress-basic

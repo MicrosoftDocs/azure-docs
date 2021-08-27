@@ -8,9 +8,9 @@ ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-## Manage an existing application with the Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on
+# Manage an existing application with the Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on
 
-### Before you begin
+## Before you begin
 
 The steps detailed in this walkthrough assume that you have previously enabled the OSM AKS add-on for your AKS cluster. If not, review the article [Deploy the OSM AKS add-on](./servicemesh-osm-deploy-addon.md) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
 
@@ -24,7 +24,7 @@ You must have the following resources installed:
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-### Verify the Open Service Mesh (OSM) Permissive Traffic Mode Policy
+## Verify the Open Service Mesh (OSM) Permissive Traffic Mode Policy
 
 The OSM Permissive Traffic Policy mode is a mode where the [SMI](https://smi-spec.io/) traffic policy enforcement is bypassed. In this mode, OSM automatically discovers services that are a part of the service mesh and programs traffic policy rules on each Envoy proxy sidecar to be able to communicate with these services.
 
@@ -82,7 +82,7 @@ spec:
 
 If the **enablePermissiveTrafficPolicyMode** is configured to **true**, you can safely onboard your namespaces without any disruption to your service-to-service communications. If the **enablePermissiveTrafficPolicyMode** is configured to **false**, You will need to ensure you have the correct [SMI](https://smi-spec.io/) traffic access policy manifests deployed as well as ensuring you have a service account representing each service deployed in the namespace. 
 
-### Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as True
+## Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as True
 
 The first thing we'll do is add the deployed application namespace(s) to OSM to manage. The example below will onboard the **bookstore** namespace to OSM.
 
@@ -182,11 +182,11 @@ Containers:
 
 Verify your application is still functional after the Envoy sidecar proxy injection.
 
-### Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as False
+## Onboard existing deployed applications with Open Service Mesh (OSM) Permissive Traffic Policy configured as False
 
 When the OSM configuration for the permissive traffic policy is set to `false`, OSM will require explicit [SMI](https://smi-spec.io/) traffic access policies deployed for the service-to-service communication to happen within your cluster. Currently, OSM also uses Kubernetes service accounts as part of authorizing service-to-service communications as well. To ensure your existing deployed applications will communicate when managed by the OSM mesh, we will need to verify the existence of a service account to utilize, update the application deployment with the service account information, apply the [SMI](https://smi-spec.io/) traffic access policies.
 
-#### Verify Kubernetes Service Accounts
+### Verify Kubernetes Service Accounts
 
 Verify if you have a kubernetes service account in the namespace your application is deployed to.
 
@@ -212,7 +212,7 @@ kubectl create serviceaccount myserviceaccount -n bookbuyer
 serviceaccount/myserviceaccount created
 ```
 
-#### View your application's current deployment specification
+### View your application's current deployment specification
 
 If you had to create a service account from the earlier section, chances are your application deployment is not configured with a specific `serviceAccountName` in the deployment spec. We can view your application's deployment spec with the following commands:
 
@@ -249,7 +249,7 @@ Pod Template:
 
 There are several techniques to update your deployment to add a kubernetes service account. Review the Kubernetes documentation on [Updating a Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment) inline, or [Configure Service Accounts for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/). Once you have updated your deployment spec with the service account, redeploy (kubectl apply -f your-deployment.yaml) your deployment to the cluster.
 
-#### Deploy the necessary Service Mesh Interface (SMI) Policies
+### Deploy the necessary Service Mesh Interface (SMI) Policies
 
 The last step to allowing authorized traffic to flow in the mesh is to deploy the necessary [SMI](https://smi-spec.io/) traffic access policies for your application. The amount of configuration you can achieve with [SMI](https://smi-spec.io/) traffic access policies is beyond the scope of this walkthrough, but we will detail some of the common components of the specification and show how to configure both a simple TrafficTarget and HTTPRouteGroup policy to enable service-to-service communication for your application.
 
@@ -377,7 +377,7 @@ EOF
 
 Visit the [SMI](https://smi-spec.io/) site for more detailed information on the specification.
 
-### Manage the application's namespace with OSM
+## Manage the application's namespace with OSM
 
 Next we will configure OSM to manage the namespace and restart the deployments to get the Envoy sidecar proxy injected with the application.
 

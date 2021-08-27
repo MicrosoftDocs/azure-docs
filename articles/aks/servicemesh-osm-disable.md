@@ -8,7 +8,7 @@ ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-## Disable Open Service Mesh (OSM) add-on for your AKS cluster
+# Disable Open Service Mesh (OSM) add-on for your AKS cluster
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

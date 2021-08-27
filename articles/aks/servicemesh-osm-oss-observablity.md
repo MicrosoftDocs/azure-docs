@@ -8,7 +8,7 @@ ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-## Manually deploy Prometheus, Grafana, and Jaeger to view Open Service Mesh (OSM) metrics for observability
+# Manually deploy Prometheus, Grafana, and Jaeger to view Open Service Mesh (OSM) metrics for observability
 
 > [!WARNING]
 > The installation of Prometheus, Grafana and Jaeger are provided as general guidance to show how these tools can be utilized to view OSM metric data. The installation guidance is not to be utilized for a production setup. Please refer to each tool's documentation on how best to suit thier installations to your needs. Most notable will be the lack of persistent storage, meaning that all data is lost once a Prometheus Grafana, and/or Jaeger pod(s) are terminated.
@@ -38,7 +38,7 @@ In this tutorial, you will:
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-### Deploy and configure a Prometheus instance for OSM
+## Deploy and configure a Prometheus instance for OSM
 
 We will use Helm to deploy the Prometheus instance. Run the following commands to install Prometheus via Helm:
 
@@ -94,7 +94,7 @@ For more information on running Prometheus, visit:
 https://prometheus.io/
 ```
 
-#### Configure OSM to allow Prometheus scraping
+### Configure OSM to allow Prometheus scraping
 
 To ensure that the OSM components are configured for Prometheus scrapes, we'll want to check the **prometheus_scraping** configuration located in the osm-config config file. View the configuration with the following command:
 
@@ -114,7 +114,7 @@ You should see the following output.
 configmap/osm-config patched
 ```
 
-#### Update the Prometheus Configmap
+### Update the Prometheus Configmap
 
 The default installation of Prometheus will contain two Kubernetes configmaps. You can view the list of Prometheus configmaps with the following command.
 
@@ -388,7 +388,7 @@ configmap/stable-prometheus-server configured
 > [!NOTE]
 > You may receive a message about a missing kubernetes annotation needed. This can be ignored for now.
 
-#### Verify Prometheus is configured to scrape the OSM mesh and API endpoints
+### Verify Prometheus is configured to scrape the OSM mesh and API endpoints
 
 To verify that Prometheus is correctly configured to scrape the OSM mesh and API endpoints, we will port forward to the Prometheus pod and view the target configuration. Run the following commands.
 
@@ -403,7 +403,7 @@ If you scroll down you should see all the SMI metric endpoints state being **UP*
 
 ![OSM Prometheus Target Metrics UI image](./media/aks-osm-addon/osm-prometheus-smi-metrics-target-scrape.png)
 
-### Deploy and configure a Grafana Instance for OSM
+## Deploy and configure a Grafana Instance for OSM
 
 We will use Helm to deploy the Grafana instance. Run the following commands to install Grafana via Helm:
 
@@ -434,7 +434,7 @@ At the login screen pictured below, enter **admin** as the username and use the 
 
 ![OSM Grafana Login Page UI image](./media/aks-osm-addon/osm-grafana-ui-login.png)
 
-#### Configure the Grafana Prometheus data source
+### Configure the Grafana Prometheus data source
 
 Once you have successfully logged into Grafana, the next step is to add Prometheus as data sources for Grafana. To do so, navigate on the configuration icon on the left menu and select Data Sources as shown below.
 
@@ -446,7 +446,7 @@ Click the **Add data source** button and select Prometheus under time series dat
 
 On the **Configure your Prometheus data source below** page, enter the Kubernetes cluster FQDN for the Prometheus service for the HTTP URL setting. The default FQDN should be `stable-prometheus-server.default.svc.cluster.local`. Once you have entered that Prometheus service endpoint, scroll to the bottom of the page and select **Save & Test**. You should receive a green checkbox indicating the data source is working.
 
-#### Importing OSM Dashboards
+### Importing OSM Dashboards
 
 OSM Dashboards are available both through:
 
@@ -462,11 +462,11 @@ As soon as you select import, it will bring you automatically to your imported d
 
 ![OSM Grafana Dashboard Mesh Details Page UI image](./media/aks-osm-addon/osm-grafana-mesh-dashboard-details.png)
 
-### Deploy and configure a Jaeger Operator on Kubernetes for OSM
+## Deploy and configure a Jaeger Operator on Kubernetes for OSM
 
 [Jaeger](https://www.jaegertracing.io/) is an open-source tracing system used for monitoring and troubleshooting distributed systems. It can be deployed with OSM as a new instance or you may bring your own instance. The following instructions deploy a new instance of Jaeger to the `jaeger` namespace on the AKS cluster.
 
-#### Deploy Jaeger to the AKS cluster
+### Deploy Jaeger to the AKS cluster
 
 Apply the following manifest to install Jaeger:
 
@@ -529,7 +529,7 @@ deployment.apps/jaeger created
 service/jaeger created
 ```
 
-#### Enable Tracing for the OSM add-on
+### Enable Tracing for the OSM add-on
 
 Next we will need to enable tracing for the OSM add-on.
 
@@ -543,7 +543,7 @@ kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"observabil
 meshconfig.config.openservicemesh.io/osm-mesh-config patched
 ```
 
-#### View the Jaeger UI with port forwarding
+### View the Jaeger UI with port forwarding
 
 Jaeger's UI is running on port 16686. To view the web UI, you can use kubectl port-forward:
 

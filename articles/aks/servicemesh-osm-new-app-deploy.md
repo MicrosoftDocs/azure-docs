@@ -8,9 +8,9 @@ ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-## Manage a new application with the Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on
+# Manage a new application with the Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on
 
-### Before you begin
+## Before you begin
 
 The steps detailed in this walkthrough assume that you've created an AKS cluster (Kubernetes `1.19+` and above, with Kubernetes RBAC enabled), have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
 
@@ -23,7 +23,7 @@ You must have the following resources installed:
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-### Create namespaces for the application
+## Create namespaces for the application
 
 In this walkthrough, we will be using the OSM bookstore application that has the following Kubernetes services:
 
@@ -47,7 +47,7 @@ namespace/bookthief created
 namespace/bookwarehouse created
 ```
 
-### Onboard the namespaces to be managed by OSM
+## Onboard the namespaces to be managed by OSM
 
 When you add the namespaces to the OSM mesh, this will allow the OSM controller to automatically inject the Envoy sidecar proxy containers with your application. Run the following command to onboard the OSM bookstore application namespaces.
 
@@ -64,7 +64,7 @@ Namespace [bookthief] successfully added to mesh [osm]
 Namespace [bookwarehouse] successfully added to mesh [osm]
 ```
 
-### Deploy the Bookstore application to the AKS cluster
+## Deploy the Bookstore application to the AKS cluster
 
 ```azurecli-interactive
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookbuyer.yaml
@@ -102,13 +102,13 @@ service/bookwarehouse created
 deployment.apps/bookwarehouse created
 ```
 
-### Checkpoint: What got installed?
+## Checkpoint: What got installed?
 
 The example Bookstore application is a multi-tiered app that consists of four services, being the bookbuyer, bookthief, bookstore, and bookwarehouse. Both the bookbuyer and bookthief service communicate to the bookstore service to retrieve books from the bookstore service. The bookstore service retrieves books out of the bookwarehouse service to supply the bookbuyer and bookthief. This is a simple multi-tiered application that works well in showing how a service mesh can be used to protect and authorize communications between the applications services. As we continue through the walkthrough, we will be enabling and disabling Service Mesh Interface (SMI) policies to both allow and disallow the services to communicate via OSM. Below is an architecture diagram of what got installed for the bookstore application.
 
 ![OSM bookbuyer app architecture](./media/aks-osm-addon/osm-bookstore-app-arch.png)
 
-### Verify the Bookstore application running inside the AKS cluster
+## Verify the Bookstore application running inside the AKS cluster
 
 As of now we have deployed the bookstore mulit-container application, but it is only accessible from within the AKS cluster. Later tutorials will assist you in exposing the application outside the cluster via an ingress controller. For now we will be utilizing port forwarding to access the bookbuyer application inside the AKS cluster to verify it is buying books from the bookstore service.
 
@@ -172,7 +172,7 @@ Navigate to the following url from a browser `http://localhost:8080`. You should
 
 ![OSM bookthief app UI image](./media/aks-osm-addon/osm-bookthief-service-ui.png)
 
-### Disable OSM Permissive Traffic Mode for the mesh
+## Disable OSM Permissive Traffic Mode for the mesh
 
 We will now disable the permissive traffic mode policy and OSM will need explicit [SMI](https://smi-spec.io/) policies deployed to the cluster to allow communications in the mesh from each service. To disable permissive traffic mode, run the following command to update the OSM MeshConfig resource property changing the value from `true` to `false`.
 
@@ -188,7 +188,7 @@ meshconfig.config.openservicemesh.io/osm-mesh-config patched
 
 To verify permissive traffic mode has been disabled, port forward back into either the bookbuyer or bookthief pod to view their UI in the browser and see if the books bought or books stolen is no longer incrementing. Ensure to refresh the browser. If the incrementing has stopped, the policy was applied correctly. You have successfully stopped the bookthief from stealing books, but neither the bookbuyer can purchase from the bookstore nor the bookstore can retrieve books from the bookwarehouse. Next we will implement [SMI](https://smi-spec.io/) policies to allow only the services in the mesh you'd like to communicate to do so.
 
-### Apply Service Mesh Interface (SMI) traffic access policies
+## Apply Service Mesh Interface (SMI) traffic access policies
 
 Now that we have disabled all communications in the mesh, let's allow our bookbuyer service to communicate to our bookstore service for purchasing books, and allow our bookstore service to communicate to our bookwarehouse service to retrieving books to sell.
 
@@ -290,7 +290,7 @@ httproutegroup.specs.smi-spec.io/bookwarehouse-service-routes created
 
 You can now set up a port forwarding session on either the bookbuyer or bookstore pods and see that both the books bought and books sold metrics are back incrementing. You can also do the same for the bookthief pod to verify it is still no longer able to steal books.
 
-### Apply Service Mesh Interface (SMI) traffic split policies
+## Apply Service Mesh Interface (SMI) traffic split policies
 
 For our final demonstration, we will create an [SMI](https://smi-spec.io/) traffic split policy to configure the weight of communications from one service to multiple services as a backend. The traffic split functionality allows you to progressively move connections to one service over to another by weighting the traffic on a scale of 0 to 100.
 

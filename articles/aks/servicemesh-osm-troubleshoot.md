@@ -8,13 +8,13 @@ ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-## Open Service Mesh (OSM) AKS add-on Troubleshooting Guides
+# Open Service Mesh (OSM) AKS add-on Troubleshooting Guides
 
 When you deploy the OSM AKS add-on, you could possibly experience problems associated with configuration of the service mesh. The following guide will assist you on how to troubleshoot errors and resolve common problems.
 
-### Verifying and Troubleshooting OSM components
+## Verifying and Troubleshooting OSM components
 
-#### Check OSM Controller Deployment
+### Check OSM Controller Deployment
 
 ```azurecli-interactive
 kubectl get deployment -n kube-system --selector app=osm-controller
@@ -27,7 +27,7 @@ NAME             READY   UP-TO-DATE   AVAILABLE   AGE
 osm-controller   1/1     1            1           59m
 ```
 
-#### Check the OSM Controller Pod
+### Check the OSM Controller Pod
 
 ```azurecli-interactive
 kubectl get pods -n kube-system --selector app=osm-controller
@@ -44,7 +44,7 @@ osm-controller-b5bd66db-wvl9w   1/1     Running   0          31m
 Even though we had one controller evicted at some point, we have another one that is READY 1/1 and Running with 0 restarts. If the column READY is anything other than 1/1 the service mesh would be in a broken state.
 Column READY with 0/1 indicates the control plane container is crashing - we need to get logs. See Get OSM Controller Logs from Azure Support Center section below. Column READY with a number higher than 1 after the / would indicate that there are sidecars installed. OSM Controller would most likely not work with any sidecars attached to it.
 
-#### Check OSM Controller Service
+### Check OSM Controller Service
 
 ```azurecli-interactive
 kubectl get service -n kube-system osm-controller
@@ -60,7 +60,7 @@ osm-controller   ClusterIP   10.0.31.254   <none>        15128/TCP,9092/TCP   67
 > [!NOTE]
 > The CLUSTER-IP would be different. The service NAME and PORT(S) must be the same as the example above.
 
-#### Check OSM Controller Endpoints
+### Check OSM Controller Endpoints
 
 ```azurecli-interactive
 kubectl get endpoints -n kube-system osm-controller
@@ -73,7 +73,7 @@ NAME             ENDPOINTS                              AGE
 osm-controller   10.240.1.115:9092,10.240.1.115:15128   69m
 ```
 
-#### Check OSM Injector Deployment
+### Check OSM Injector Deployment
 
 ```azurecli-interactive
 kubectl get pod -n kube-system --selector app=osm-injector
@@ -86,7 +86,7 @@ NAME                            READY   STATUS    RESTARTS   AGE
 osm-injector-5986c57765-vlsdk   1/1     Running   0          73m
 ```
 
-#### Check OSM Injector Pod
+### Check OSM Injector Pod
 
 ```azurecli-interactive
 kubectl get pod -n kube-system --selector app=osm-injector
@@ -99,7 +99,7 @@ NAME                            READY   STATUS    RESTARTS   AGE
 osm-injector-5986c57765-vlsdk   1/1     Running   0          73m
 ```
 
-#### Check OSM Injector Service
+### Check OSM Injector Service
 
 ```azurecli-interactive
 kubectl get service -n kube-system osm-injector
@@ -112,7 +112,7 @@ NAME           TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
 osm-injector   ClusterIP   10.0.39.54   <none>        9090/TCP   75m
 ```
 
-#### Check OSM Endpoints
+### Check OSM Endpoints
 
 ```azurecli-interactive
 kubectl get endpoints -n kube-system osm-injector
@@ -125,7 +125,7 @@ NAME           ENDPOINTS           AGE
 osm-injector   10.240.1.172:9090   75m
 ```
 
-#### Check Validating and Mutating webhooks
+### Check Validating and Mutating webhooks
 
 ```azurecli-interactive
 kubectl get ValidatingWebhookConfiguration --selector app=osm-controller
@@ -149,7 +149,7 @@ NAME              WEBHOOKS   AGE
 aks-osm-webhook-osm   1      102m
 ```
 
-#### Check for the service and the CA bundle of the Validating webhook
+### Check for the service and the CA bundle of the Validating webhook
 
 ```azurecli-interactive
 kubectl get ValidatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
@@ -166,7 +166,7 @@ A well configured Validating Webhook Configuration would look exactly like this:
 }
 ```
 
-#### Check for the service and the CA bundle of the Mutating webhook
+### Check for the service and the CA bundle of the Mutating webhook
 
 ```azurecli-interactive
 kubectl get MutatingWebhookConfiguration aks-osm-webhook-osm -o json | jq '.webhooks[0].clientConfig.service'
@@ -183,7 +183,7 @@ A well configured Mutating Webhook Configuration would look exactly like this:
 }
 ```
 
-#### Check whether OSM Controller has given the Validating (or Mutating) Webhook a CA Bundle
+### Check whether OSM Controller has given the Validating (or Mutating) Webhook a CA Bundle
 
 > [!NOTE]
 > As of v0.8.2 It is important to know that AKS RP installs the Validating Webhook, AKS Reconciler ensures it exists, but OSM Controller is the one that fills the CA Bundle.
@@ -236,7 +236,7 @@ kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm
 kubectl delete ValidatingWebhookConfiguration aks-osm-webhook-osm; kubectl patch ConfigMap osm-config -n kube-system --type merge --patch '{"data":{"config_resync_interval":"15s"}}'
 ```
 
-#### Check the `osm-mesh-config` resource
+### Check the `osm-mesh-config` resource
 
 Check for the existence:
 
@@ -316,7 +316,7 @@ spec:
 | spec.sidecar.initContainerImage | string | `"openservicemesh/init:v0.9.2"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"initContainerImage":"openservicemesh/init:v0.9.2"}}}' --type=merge` |
 | spec.sidecar.configResyncInterval | string | `"0s"` | `kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"sidecar":{"configResyncInterval":"30s"}}}'  --type=merge` |
 
-#### Check Namespaces
+### Check Namespaces
 
 > [!NOTE]
 > The kube-system namespace will never participate in a service mesh and will never be labeled and/or annotated with the key/values below.
@@ -356,7 +356,7 @@ If a namespace is not annotated with `"openservicemesh.io/sidecar-injection": "e
 
 > Note: After `osm namespace add` is called only **new** pods will be injected with an Envoy sidecar. Existing pods must be restarted with `kubectl rollout restart deployment ...`
 
-#### Verify the SMI CRDs:
+### Verify the SMI CRDs:
 
 Check whether the cluster has the required CRDs:
 
