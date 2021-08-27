@@ -10,7 +10,7 @@ ms.date: 08/27/2021
 
 # Monitoring Azure Functions with Azure Monitor Application Insights
 
-[Azure Functions](../../azure-functions/functions-overview.md) offers built-in integration with Azure Application Insights to monitor functions. For languages other than .Net and .NetCore additional language-specific workers/extesions are needed to get the full benefits of distributed tracing. 
+[Azure Functions](../../azure-functions/functions-overview.md) offers built-in integration with Azure Application Insights to monitor functions. For languages other than .Net and .NetCore additional language-specific workers/extensions are needed to get the full benefits of distributed tracing. 
 
 Application Insights collects log, performance, and error data, and automatically detects performance anomalies. Application Insights includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. When you have the visibility into your application data, you can continuously improve performance and usability. You can even use Application Insights during local function app project development. 
 
