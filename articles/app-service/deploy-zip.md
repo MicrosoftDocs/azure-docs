@@ -155,6 +155,10 @@ curl -X POST -u <username> https://<app-name>.scm.azurewebsites.net/api/publish 
 
 For more information, see [Kudu publish API reference](#kudu-publish-api-reference)
 
+# [Kudu UI](#tab/kudu-ui)
+
+The Kudu UI does not support deploying JAR, WAR, or EAR applications. Please use one of the other options.
+
 -----
 
 ## Deploy individual files
@@ -214,6 +218,10 @@ The following example uses the cURL tool to deploy a config file for their appli
 ```bash
 curl -X POST -u <username> --data-binary @"<config-file-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=static&path="/home/site/deployments/tools/my-config.json"
 ```
+
+# [Kudu UI](#tab/kudu-ui)
+
+The Kudu UI does not support deploying individual files. Please use the Azure CLI or Kudu REST API.
 
 -----
 
