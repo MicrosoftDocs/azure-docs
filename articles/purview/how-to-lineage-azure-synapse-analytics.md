@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 08/25/2021
 ---
 # How to get lineage from Azure Synapse Analytics into Azure Purview
 
@@ -16,7 +16,8 @@ This document explains the steps required for connecting an Azure Synapse worksp
 
 Currently, Azure Purview captures runtime lineage from the following Azure Synapse pipeline activities:
 
-- [Copy Data](../data-factory/copy-activity-overview.md)
+- [Copy Data](../data-factory/copy-activity-overview.md?context=/azure/synapse-analytics/context/context)
+- [Data Flow](../data-factory/concepts-data-flow-overview.md?context=/azure/synapse-analytics/context/context)
 
 > [!IMPORTANT]
 > Azure Purview drops lineage if the source or destination uses an unsupported data storage system.
@@ -27,7 +28,7 @@ Currently, Azure Purview captures runtime lineage from the following Azure Synap
 
 ### Step 1: Connect Azure Synapse workspace to your Purview account
 
-You can connect an Azure Synapse workspace to Purview, and the connection enables Azure Synapse to push lineage information to Purview. Follow the steps in [Connect an Azure Purview Account into Synapse](../synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview.md). Multiple Azure Synapse workspaces can connect to a single Azure Purview account for holistic lineage tracking.
+You can connect an Azure Synapse workspace to Purview, and the connection enables Azure Synapse to push lineage information to Purview. Follow the steps in [Connect Synapse workspace to Azure Purview](../synapse-analytics/catalog-and-governance/quickstart-connect-azure-purview.md). Multiple Azure Synapse workspaces can connect to a single Azure Purview account for holistic lineage tracking.
 
 ### Step 2: Run pipeline in Azure Synapse workspace
 
