@@ -31,10 +31,10 @@ The OSM Permissive Traffic Policy mode is a mode where the [SMI](https://smi-spe
 To verify the current permissive traffic mode of OSM for your cluster, run the following command:
 
 ```azurecli-interactive
-kubectl get meshconfig osm-mesh-config -n osm-system -o yaml
+kubectl get meshconfig osm-mesh-config -n kube-system -o yaml
 ```
 
-Output of the OSM configmap should look like the following:
+Output of the OSM MeshConfig should look like the following:
 
 ```Output
 apiVersion: config.openservicemesh.io/v1alpha1

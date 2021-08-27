@@ -62,7 +62,7 @@ For a new AKS cluster deployment scenario, you will start with a brand new deplo
 In Azure, you allocate related resources to a resource group. Create a resource group by using [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named _myOsmAksGroup_ in the _eastus2_ location (region):
 
 ```azurecli-interactive
-az group create --name <myosmaksgroup> --location <eastus2>
+az group create --name <my-osm-aks-cluster-rg> --location <azure-region>
 ```
 
 ### Deploy an AKS cluster with the OSM add-on enabled
@@ -73,7 +73,7 @@ You'll now deploy a new AKS cluster with the OSM add-on enabled.
 > Please be aware the following AKS deployment command utilizes OS ephemeral disks. You can find more information here about [Ephemeral OS disks for AKS](./cluster-configuration.md#ephemeral-os)
 
 ```azurecli-interactive
-az aks create -n osm-addon-cluster -g <myosmaksgroup> --kubernetes-version 1.21.2 --node-osdisk-type Ephemeral --node-osdisk-size 30 --network-plugin azure --enable-managed-identity -a open-service-mesh
+az aks create -n <my-osm-aks-cluster-name> -g <my-osm-aks-cluster-rg> --node-osdisk-type Ephemeral --node-osdisk-size 30 --network-plugin azure --enable-managed-identity -a open-service-mesh
 ```
 
 #### Get AKS Cluster Access Credentials
@@ -81,7 +81,7 @@ az aks create -n osm-addon-cluster -g <myosmaksgroup> --kubernetes-version 1.21.
 Get access credentials for the new managed Kubernetes cluster.
 
 ```azurecli-interactive
-az aks get-credentials -n <myosmakscluster> -g <myosmaksgroup>
+az aks get-credentials -n <my-osm-aks-cluster-name> -g <my-osm-aks-cluster-rg>
 ```
 
 ## Enable Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on for an existing AKS cluster
@@ -93,7 +93,7 @@ For an existing AKS cluster scenario, you will enable the OSM add-on to an exist
 To enable the AKS OSM add-on, you will need to run the `az aks enable-addons --addons` command passing the parameter `open-service-mesh`
 
 ```azurecli-interactive
-az aks enable-addons --addons open-service-mesh -g <resource group name> -n <AKS cluster name>
+az aks enable-addons --addons open-service-mesh -g <my-osm-aks-cluster-rg> -n <my-osm-aks-cluster-name>
 ```
 
 You should see output similar to the output shown below to confirm the AKS OSM add-on has been installed.
@@ -121,7 +121,7 @@ There are several commands to run to check all of the components of the AKS OSM 
 First we can query the add-on profiles of the cluster to check the enabled state of the add-ons installed. The following command should return "true".
 
 ```azurecli-interactive
-az aks list -g <resource group name> -o json | jq -r '.[].addonProfiles.openServiceMesh.enabled'
+az aks list -g <my-osm-aks-cluster-rg> -o json | jq -r '.[].addonProfiles.openServiceMesh.enabled'
 ```
 
 The following `kubectl` commands will report the status of the osm-controller.

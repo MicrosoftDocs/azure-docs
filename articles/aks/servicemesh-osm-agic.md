@@ -41,10 +41,10 @@ You must have the following resources installed:
 Once the OSM add-on for AKS has been enabled on the AKS cluster, you can view the current configuration parameters in the osm-mesh-config resource. Run the following command to view the properties:
 
 ```azurecli-interactive
-kubectl get meshconfig osm-mesh-config -n osm-system -o yaml
+kubectl get meshconfig osm-mesh-config -n kube-system -o yaml
 ```
 
-Output shows the current OSM configuration for the cluster.
+Output shows the current OSM MeshConfig for the cluster.
 
 ```
 apiVersion: config.openservicemesh.io/v1alpha1
@@ -136,19 +136,19 @@ Namespace [bookwarehouse] successfully added to mesh [osm]
 ### Deploy the Bookstore application to the AKS cluster
 
 ```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookbuyer.yaml
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.9/docs/example/manifests/apps/bookbuyer.yaml
 ```
 
 ```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookthief.yaml
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.9/docs/example/manifests/apps/bookthief.yaml
 ```
 
 ```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookstore.yaml
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.9/docs/example/manifests/apps/bookstore.yaml
 ```
 
 ```azurecli-interactive
-kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8/docs/example/manifests/apps/bookwarehouse.yaml
+kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.9/docs/example/manifests/apps/bookwarehouse.yaml
 ```
 
 All of the deployment outputs are summarized below.
@@ -290,7 +290,7 @@ Apply the following ingress manifest to the AKS cluster to expose the bookbuyer 
 ```azurecli-interactive
 kubectl apply -f - <<EOF
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: bookbuyer-ingress
