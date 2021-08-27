@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/10/2021
+ms.date: 08/20/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with AuditBoard
@@ -32,6 +32,7 @@ To configure Azure AD integration with AuditBoard, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * AuditBoard supports **SP and IDP** initiated SSO.
+* AuditBoard supports [Automated user provisioning](auditboard-provisioning-tutorial.md).
 
 ## Add AuditBoard from the gallery
 
@@ -118,6 +119,8 @@ To configure single sign-on on **AuditBoard** side, you need to send the **App F
 ### Create AuditBoard test user
 
 In this section, you create a user called Britta Simon in AuditBoard. Work with [AuditBoard support team](mailto:support@auditboard.com) to add the users in the AuditBoard platform. Users must be created and activated before you use single sign-on.
+
+AuditBoard also supports automatic user provisioning, you can find more details [here](./auditboard-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO
 
