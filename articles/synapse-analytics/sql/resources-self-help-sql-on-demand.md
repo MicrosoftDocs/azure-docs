@@ -562,7 +562,31 @@ Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the sto
 
 ### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
 
-You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). Automatic schema inference doesn't work with the nested columns in Delta Lake.
+You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference).
+
+```sql
+SELECT TOP 10 *
+FROM OPENROWSET(
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/data-set-with-complex-type/',
+    FORMAT = 'delta') as rows;
+```
+
+Automatic schema inference doesn't work with the nested columns in Delta Lake. Verify that the query returns some results if you specify FORMAT='parquet' and append ** to the path.
+
+**Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns. Note that this will not work if your data set is partitioned, due to another known issue where `WITH` clause returns `NULL` for partition columns. Partitioned data sets with complex type columns are currently not supported.
+
+### Cannot parse field 'type' in JSON object
+
+You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). 
+
+```sql
+SELECT TOP 10 *
+FROM OPENROWSET(
+    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/data-set-with-complex-type/',
+    FORMAT = 'delta') as rows;
+```
+
+Automatic schema inference doesn't work with the nested columns in Delta Lake. Verify that the query returns some results if you specify FORMAT='parquet' and append ** to the path.
 
 **Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns. Note that this will not work if your data set is partitioned, due to another known issue where `WITH` clause returns `NULL` for partition columns. Partitioned data sets with complex type columns are currently not supported.
 
