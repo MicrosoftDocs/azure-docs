@@ -187,12 +187,14 @@ Please note timezone labels don't account for day light savings. For instance,  
 
 ### Create a schedule with a Resource Manager template
 
-You can schedule the automatic start and stop of a compute instance by using a Resource Manager template.  In a Resource Manager template, use either cron or LogicApps expressions to define a schedule to start or stop the instance.  Here is how ARM template would look like
-```json
+You can schedule the automatic start and stop of a compute instance by using a Resource Manager template.  In a Resource Manager template, add:
+
+```
 "schedules": "[parameters('schedules')]"
 ```
 
-Here is how the parameter file would look like
+Then use either cron or LogicApps expressions to define the schedule that starts or stops the instance in your parameter file:
+ 
 ```json
         "schedules": {
         "value": {
