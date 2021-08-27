@@ -16,7 +16,7 @@ ms.date: 08/27/2021
 
 When your Azure Machine Learning workspace and associated resources are secured in an Azure Virtual Network, it changes the network traffic between resources. Without a virtual network, network traffic flows over the public internet or within an Azure data center. Once a virtual network (VNet) is introduced, you may also want to harden network security. For example, blocking inbound and outbound communications between the VNet and public internet. However, Azure Machine Learning requires access to some resources on the public internet. For example, Azure Resource Management is used for deployments and management operations.
 
-This article lists the required traffic to/from the public internet. It also explains how network traffic flows between your client development environment and a secured Azure Machine Learning workspace. It covers the following scenarios commonly used with Azure Machine Learning:
+This article lists the required traffic to/from the public internet. It also explains how network traffic flows between your client development environment and a secured Azure Machine Learning workspace in the following scenarios:
 
 * Using Azure Machine Learning __studio__ to work with:
 
@@ -39,7 +39,7 @@ This article lists the required traffic to/from the public internet. It also exp
 
 ## Assumptions
 
-This article assumes you are using the following configuration:
+This article assumes the following configuration:
 
 * Azure Machine Learning workspace using a private endpoint to communicate with the VNet.
 * The Azure Storage Account, Key Vault, and Container Registry used by the workspace also use a private endpoint to communicate with the VNet.
@@ -56,11 +56,11 @@ TODO: Figure out how to represent the table in the limited width of a doc.
 
 When accessing your workspace from studio, the network traffic flows are as follows:
 
-* To authenticate to resources, traffic must be able to reach __Azure Active Directory__.
-* To perform management or deployment operations, traffic must be able to reach __Azure Resource Manager__.
-* To perform Azure Machine Learning specific tasks, traffic must be able to reach the __Azure Machine Learning service__ and __Azure FrontDoor__.
+* To authenticate to resources, __Azure Active Directory__ is used.
+* For management and deployment operations, __Azure Resource Manager__ is used.
+* For Azure Machine Learning specific tasks, __Azure Machine Learning service__ and __Azure FrontDoor__ are used.
 * For most storage operations, traffic flows through the private endpoint of the default storage for your workspace. Exceptions are discussed in the [Use AutoML, designer, dataset, and datastore](#scenario-use-automl-designer-dataset-and-datastore-from-studio) section.
-* You will also need to configure a DNS solution that allows you to resolve the names of the resources within the VNet. For more information, see [Use your workspace with a custom DNS](how-to-custom-dns.md).
+* You also need to configure a DNS solution that allows you to resolve the names of the resources within the VNet. For more information, see [Use your workspace with a custom DNS](how-to-custom-dns.md).
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/workspacee-traffic-studio.png" alt-text="Diagram of network traffic between client and workspace when using studio":::
 
