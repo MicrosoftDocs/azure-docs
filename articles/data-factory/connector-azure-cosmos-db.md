@@ -64,7 +64,7 @@ Use the following steps to create a linked service to Azure Cosmos DB in the Azu
 
 2. Search for Cosmos and select the Azure Cosmos DB (SQL API) connector.
 
-    :::image type="content" source="media/connector-azure-cosmos-db/azure-cosmos-db-connector.png" alt-text="Select Azure Cosmost DB (SQL API) connector.":::    
+    :::image type="content" source="media/connector-azure-cosmos-db/azure-cosmos-db-connector.png" alt-text="Select Azure Cosmos DB (SQL API) connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
