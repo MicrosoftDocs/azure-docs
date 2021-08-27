@@ -37,7 +37,7 @@ $net =@{
 }
 $vnet = Get-AzVirtualNetwork @net
 
-($vnet | Select -ExpandProperty subnets).PrivateEndpointNetworkPolicies = "Disabled"
+($vnet | Select -ExpandProperty subnets | Where-Object {$_.Name -eq 'default'}).PrivateEndpointNetworkPolicies = "Disabled"
 
 $vnet | Set-AzVirtualNetwork
 ```

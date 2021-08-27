@@ -43,7 +43,7 @@ Here are some of the key improvements resulting from the move to the diagnostic 
 - Improved reliability.
 - Improved performance.
 - Support for all categories of events logged by the Activity log service (the legacy mechanism supports only a subset - for example, no support for Service Health events).
-- Management at scale with Azure policy.
+- Management at scale with Azure Policy.
 
 See the [Azure Monitor documentation](../azure-monitor/logs/data-platform-logs.md) for more in-depth treatment of [Azure Activity log](../azure-monitor/essentials/activity-log.md) and the [diagnostic settings pipeline](../azure-monitor/essentials/diagnostic-settings.md).
 
@@ -52,7 +52,7 @@ See the [Azure Monitor documentation](../azure-monitor/logs/data-platform-logs.m
 Setting up the new Azure Activity log connector has two stages:
 1. Disconnect the existing subscriptions from the legacy method.
 
-1. Connection of all relevant subscriptions to the new diagnostics settings pipeline using **Azure policy**.
+1. Connection of all relevant subscriptions to the new diagnostics settings pipeline using **Azure Policy**.
 
 ### Disconnect from old pipeline
 

@@ -133,6 +133,12 @@ The cluster auto-upgrade for AKS clusters is a preview feature.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
+Add the following extension, for `az cli`.
+
+```azurecli-interactive
+az extension add --name aks-preview
+```
+
 Register the `AutoUpgradePreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive

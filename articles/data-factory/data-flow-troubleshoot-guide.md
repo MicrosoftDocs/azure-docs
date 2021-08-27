@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 07/13/2021
+ms.date: 08/18/2021
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -693,13 +693,34 @@ You may encounter the following issues before the improvement, but after the imp
  After the improvement, the parsed column result should be:<br/>
   `A "" (empty string) B "" (empty string)`<br/>
 
+###  Internal server errors
+
+Specific scenarios that can cause internal server errors are shown as follows.
+
+#### Scenario 1: Not choosing the appropriate compute size/type and other factors
+
+  Successful execution of data flows depends on many factors, including the compute size/type, numbers of source/sinks to process, the partition specification, transformations involved, sizes of datasets, the data skewness and so on.<br/>
+  
+  For more guidance, see [Optimizing the Azure Integration Runtime](concepts-data-flow-performance.md#ir).
+
+#### Scenario 2: Using debug sessions with parallel activities
+
+  When triggering a run using the data flow debug session with constructs like ForEach in the pipeline, multiple parallel runs can be submitted to the same cluster. This situation can lead to cluster failure problems while running because of resource issues, such as being out of memory.<br/>
+  
+  To submit a run with the appropriate integration runtime configuration defined in the pipeline activity after publishing the changes, select **Trigger Now** or **Debug** > **Use Activity Runtime**.
+
+#### Scenario 3: Transient issues
+
+  Transient issues with microservices involved in the execution can cause the run to fail.<br/>
+  
+  Configuring retries in the pipeline activity can resolve the problems caused by transient issues. For more guidance, see [Activity Policy](concepts-pipelines-activities.md#activity-json).
 
 ## Next steps
 
 For more help with troubleshooting, see these resources:
 
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)

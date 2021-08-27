@@ -24,6 +24,10 @@ You can provide more granular access by creating a [custom role](../role-based-a
 > [!IMPORTANT]
 > This article lists the specific permissions to create a private endpoint or private link service. Ensure you add the specific permissions related to the service you would like to grant access through private link, such as Microsoft.SQL Contributor Role for Azure SQL. For more information about built-in roles, see [Role Based Access Control](../role-based-access-control/built-in-roles.md).
 
+Microsoft.Network and the specific resource provider you are deploying, for example Microsoft.Sql, must be registered at the subscription level:
+
+![image](https://user-images.githubusercontent.com/20302679/129105527-b946eee9-038a-46ef-b446-be371eb23ca9.png)
+
 ## Private endpoint
 
 This section lists the granular permissions required to deploy a private endpoint.

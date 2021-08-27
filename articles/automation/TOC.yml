@@ -28,6 +28,8 @@
       href: learn/automation-tutorial-runbook-textual-python2.md
     - name: Create a Python 3 runbook
       href: learn/automation-tutorial-runbook-textual-python-3.md
+    - name: Use managed identity with PowerShell runbook
+      href: learn/powershell-runbook-managed-identity.md 
 - name: Concepts
   items:
     - name: Automation account authentication overview
@@ -59,9 +61,9 @@
   items:
     - name: Automation Account
       items:
-        - name: Create Automation account using Azure portal
+        - name: Create Automation account - Azure portal
           href: automation-create-standalone-account.md
-        - name: Create Automation account with Resource Manager template
+        - name: Create Automation account - Resource Manager template
           href: quickstart-create-automation-account-template.md
         - name: Managed identity
           items:

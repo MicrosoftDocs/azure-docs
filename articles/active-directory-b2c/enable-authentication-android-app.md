@@ -10,7 +10,7 @@ ms.topic: reference
 ms.date: 07/06/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.custom: "b2c-support"
+ms.custom: "b2c-support, has-adal-ref"
 ---
 
 # Enable authentication in your own Android application using Azure Active Directory B2C

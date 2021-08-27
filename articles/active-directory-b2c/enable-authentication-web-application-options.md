@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/05/2021
+ms.date: 08/12/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -207,7 +207,7 @@ namespace mywebapp.Controllers
 
 In the `_LoginPartial.cshtml` view, change the sign-in link to your controller
 
-```
+```html
 <form method="get" asp-area="MicrosoftIdentity" asp-controller="MyAccount" asp-action="SignIn">
 ```
 
@@ -216,23 +216,23 @@ In the `_LoginPartial.cshtml` view, change the sign-in link to your controller
 The following code snippet demonstrates a custom `MyAccountController` with the **SignIn** and **SignUp** action. The action passes a parameter named `policy` to the authentication library. This allows you to provide the correct Azure AD B2C policy ID for the specific action.
 
 ```csharp
-        public IActionResult SignIn([FromRoute] string scheme)
-        {
-            scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
-            var redirectUrl = Url.Content("~/");
-            var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
-            properties.Items["policy"] = "B2C_1_SignIn";
-            return Challenge(properties, scheme);
-        }
-        
-        public IActionResult SignUp([FromRoute] string scheme)
-        {
-            scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
-            var redirectUrl = Url.Content("~/");
-            var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
-            properties.Items["policy"] = "B2C_1_SignUp";
-            return Challenge(properties, scheme);
-        }
+public IActionResult SignIn([FromRoute] string scheme)
+{
+    scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
+    var redirectUrl = Url.Content("~/");
+    var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+    properties.Items["policy"] = "B2C_1_SignIn";
+    return Challenge(properties, scheme);
+}
+
+public IActionResult SignUp([FromRoute] string scheme)
+{
+    scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
+    var redirectUrl = Url.Content("~/");
+    var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+    properties.Items["policy"] = "B2C_1_SignUp";
+    return Challenge(properties, scheme);
+}
 ```
 
 In the `_LoginPartial.cshtml` view, change the `asp-controller` value to `MyAccountController` for any other authentication links, such as sign-up or edit profile.
@@ -242,30 +242,101 @@ In the `_LoginPartial.cshtml` view, change the `asp-controller` value to `MyAcco
 The following code snippet demonstrates a custom `MyAccountController` with the **SignIn** action. The action passes a parameter named `campaign_id` to the authentication library.
 
 ```csharp
-        public IActionResult SignIn([FromRoute] string scheme)
-        {
-            scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
-            var redirectUrl = Url.Content("~/");
-            var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
-            properties.Items["policy"] = "B2C_1_SignIn";
-            properties.Items["campaign_id"] = "1234";
-            return Challenge(properties, scheme);
-        }
+public IActionResult SignIn([FromRoute] string scheme)
+{
+    scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
+    var redirectUrl = Url.Content("~/");
+    var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+    properties.Items["policy"] = "B2C_1_SignIn";
+    properties.Items["campaign_id"] = "1234";
+    return Challenge(properties, scheme);
+}
 ```
 
-In the `OnRedirectToIdentityProvider` in the `Startup.cs` method, you can read the custom parameter:
+Complete the [Support advanced scenarios](#support-advanced-scenarios) procedure. Then in the `OnRedirectToIdentityProvider` method, read the custom parameter:
 
 ```csharp
 private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
 {
     // Read the custom parameter
-    var campaign_id = (context.Properties.Items.ContainsKey("campaign_id"))
-    
+    var campaign_id = context.Properties.Items.FirstOrDefault(x => x.Key == "campaign_id").Value;
+
     // Add your custom code here
+    if (campaign_id != null)
+    {
+        // Send parameter to authentication request
+        context.ProtocolMessage.SetParameter("campaign_id", campaign_id);
+    }
     
     await Task.CompletedTask.ConfigureAwait(false);
 }
 ```
+
+## Secure your logout redirect
+
+After logout, the user is redirected to the URI specified in the `post_logout_redirect_uri` parameter, regardless of the reply URLs that have been specified for the application. However, if a valid `id_token_hint` is passed and the [Require ID Token in logout requests](session-behavior.md#secure-your-logout-redirect) is turned on, Azure AD B2C verifies that the value of `post_logout_redirect_uri` matches one of the application's configured redirect URIs before performing the redirect. If no matching reply URL was configured for the application, an error message is displayed and the user is not redirected.
+
+To support a secured logout redirect in your application, first follow the steps in the [Account controller](enable-authentication-web-application-options.md#add-the-account-controller) and [Support advanced scenarios](#support-advanced-scenarios) sections. Then follow the steps below:
+
+1. In `MyAccountController.cs` controller, add a **SignOut** action using the following code snippet:
+
+    ```csharp
+    [HttpGet("{scheme?}")]
+    public async Task<IActionResult> SignOutAsync([FromRoute] string scheme)
+    {
+        scheme ??= OpenIdConnectDefaults.AuthenticationScheme;
+
+        //obtain the id_token
+        var idToken = await HttpContext.GetTokenAsync("id_token");
+        //send the id_token value to the authentication middleware
+        properties.Items["id_token_hint"] = idToken;            
+
+        return SignOut(properties,CookieAuthenticationDefaults.AuthenticationScheme,scheme);
+    }
+    ```
+
+1. In the **Startup.cs** class, parse the `id_token_hint` value and append the value to the authentication request. The following code snippet demonstrates how to pass the `id_token_hint` value to the authentication request:
+
+    ```csharp
+    private async Task OnRedirectToIdentityProviderFunc(RedirectContext context)
+    {
+        var id_token_hint = context.Properties.Items.FirstOrDefault(x => x.Key == "id_token_hint").Value;
+        if (id_token_hint != null)
+        {
+            // Send parameter to authentication request
+            context.ProtocolMessage.SetParameter("id_token_hint", id_token_hint);
+        }
+
+        await Task.CompletedTask.ConfigureAwait(false);
+    }
+    ```
+
+1. In the `ConfigureServices` function, add the `SaveTokens` option for **Controllers** have access to the `id_token` value: 
+
+    ```csharp
+    services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+        .AddMicrosoftIdentityWebApp(options =>
+        {
+            Configuration.Bind("AzureAdB2C", options);
+            options.Events ??= new OpenIdConnectEvents();        
+            options.Events.OnRedirectToIdentityProvider += OnRedirectToIdentityProviderFunc;
+            options.SaveTokens = true;
+        });
+    ```
+
+1. In the **appsettings.json** configuration file, add your logout redirect URI path to `SignedOutCallbackPath` key.
+
+    ```json
+    "AzureAdB2C": {
+      "Instance": "https://<your-tenant-name>.b2clogin.com",
+      "ClientId": "<web-app-application-id>",
+      "Domain": "<your-b2c-domain>",
+      "SignedOutCallbackPath": "/signout/<your-sign-up-in-policy>",
+      "SignUpSignInPolicyId": "<your-sign-up-in-policy>"
+    }
+    ```
+
+In the above example, the **post_logout_redirect_uri** passed into the logout request will be in the format: `https://your-app.com/signout/<your-sign-up-in-policy>`. This URL must be added to the Application Registration's reply URL's.
 
 ## Role-based access control
 

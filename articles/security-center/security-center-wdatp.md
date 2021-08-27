@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 08/16/2021
 ms.author: memildin
 ---
 
@@ -71,13 +71,9 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
 1. Ensure the machine is connected to Azure and the internet as required:
 
-    - **Azure virtual machines (Windows or Linux)**:
-        - Confirm that your target machines have the Log Analytics agent. Use the Security Center recommendation to deploy the Log Analytics agent where necessary: [Log Analytics agent should be installed on your virtual machine](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/d1db3318-01ff-16de-29eb-28b344515626).
-        - Configure the network settings described in configure device proxy and internet connectivity settings: [Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) or [Linux](/microsoft-365/security/defender-endpoint/linux-static-proxy-configuration)
+    - **Azure virtual machines (Windows or Linux)** - Configure the network settings described in configure device proxy and internet connectivity settings: [Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet) or [Linux](/microsoft-365/security/defender-endpoint/linux-static-proxy-configuration).
 
-    - **On-premises machines**:
-        1. Connect your target machines to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
-        1. Use the relevant Security Center recommendation to deploy the Log Analytics agent:<br>[Log Analytics agent should be installed on your **Linux-based** Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/720a3e77-0b9a-4fa9-98b6-ddf0fd7e32c1)<br>[Log Analytics agent should be installed on your **Windows-based** Azure Arc machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/27ac71b1-75c5-41c2-adc2-858f5db45b08)
+    - **On-premises machines** - Connect your target machines to Azure Arc as explained in [Connect hybrid machines with Azure Arc enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
 1. Enable **Azure Defender for servers**. See [Quickstart: Enable Azure Defender](enable-azure-defender.md).
 
@@ -286,4 +282,4 @@ Full instructions for switching from a non-Microsoft endpoint solution are avail
 ## Next steps
 
 - [Platforms and features supported by Azure Security Center](security-center-os-coverage.md)
-- [Managing security recommendations in Azure Security Center](security-center-recommendations.md): Learn how recommendations help you protect your Azure resources.
+- [Learn how recommendations help you protect your Azure resources](security-center-recommendations.md)
