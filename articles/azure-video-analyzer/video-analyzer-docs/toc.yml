@@ -34,12 +34,12 @@
       items:
       - name: with your own gRPC model
         displayName: analyze live video
-        href: analyze-live-video-use-your-model-grpc.md
+        href: edge/analyze-live-video-use-your-model-grpc.md
       - name: with your own HTTP model
         displayName: analyze live video
-        href: analyze-live-video-use-your-model-http.md
+        href: edge/analyze-live-video-use-your-model-http.md
     - name: Track objects in live videos
-      href: track-objects-live-video.md
+      href: edge/track-objects-live-video.md
   - name: Tutorials
     items:
     - name: Use continuous video recording
