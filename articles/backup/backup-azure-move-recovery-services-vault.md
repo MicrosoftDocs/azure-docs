@@ -2,7 +2,7 @@
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 08/27/2021
 ms.custom: references_regions 
 ---
 
@@ -110,7 +110,7 @@ To understand the detailed steps to achieve this, refer to the sections below.
 
 ### Back up Azure Virtual Machine after moving across regions
 
-When an Azure Virtual Machine (VM) that’s been protected by a Recovery Services vault is moved from one region to another, it can no longer be backed up to the older vault. Also, the backups in the old vault will start failing with errors **BCMV2VMNotFound** or **ResourceNotFound**.
+When an Azure Virtual Machine (VM) that’s been protected by a Recovery Services vault is moved from one region to another, it can no longer be backed up to the older vault. The backups in the old vault will start failing with the errors **BCMV2VMNotFound** or [**ResourceNotFound**](/azure/backup/backup-azure-vms-troubleshoot#320001-resourcenotfound---could-not-perform-the-operation-as-vm-no-longer-exists--400094-bcmv2vmnotfound---the-virtual-machine-doesnt-exist--an-azure-virtual-machine-wasnt-found).
 
 To protect your VM in the new region, you should follow these steps:
 
@@ -133,7 +133,7 @@ To move your Storage Accounts along with the file shares in them from one region
 >[!Note]
 >When Azure File Share is copied across regions, its associated snapshots don’t move along with it. In order to move the snapshots data to the new region, you need to move the individual files and directories of the snapshots to the Storage Account in the new region using [AzCopy](/azure/storage/common/storage-use-azcopy-files#copy-all-file-shares-directories-and-files-to-another-storage-account).
 
-Azure Backup offers [a snapshot management solution](/azure/backup/backup-afs#discover-file-shares-and-configure-backup) for your Azure Files today. This means, you don’t move the file share data into the Recovery Services vaults. Also, as the snapshots don’t move with your Storage Account, you’ll effectively have all your backups (snapshots) in the existing region only and protected by the existing vault. However, ensure that the new file shares you created in the new region needs to be protected by Azure Backup using these steps:
+Azure Backup offers [a snapshot management solution](/azure/backup/backup-afs#discover-file-shares-and-configure-backup) for your Azure Files today. This means, you don’t move the file share data into the Recovery Services vaults. Also, as the snapshots don’t move with your Storage Account, you’ll effectively have all your backups (snapshots) in the existing region only and protected by the existing vault. However, you can ensure that the new file shares that you create in the new region are be protected by Azure Backup by following these steps:
 
 1. Start protecting the Azure File Share copied into the new Storage Account in a new or existing Recovery Services vault in the new region.  
 
@@ -141,16 +141,16 @@ Azure Backup offers [a snapshot management solution](/azure/backup/backup-afs#di
    
    This ensures that you will always have your snapshots ready for restore from the older vault. 
  
-### SQL Server in Azure VM/SAP HANA in Azure VM
+### Back up SQL Server in Azure VM/SAP HANA in Azure VM
 
 When you move a VM running SQL or SAP HANA servers to another region, the SQL and SAP HANA databases in those VMs can no longer be backed up in the vault of the earlier region. To protect the SQL and SAP HANA servers running in Azure VM in the new region, you should follow these steps:
  
-1. Before moving VM running SQL Server/SAP HANA to a new region, select it in the [Backup Items tab](/azure/backup/backup-azure-delete-vault#delete-protected-items-in-the-cloud) of the existing vault’s dashboard and select _the databases_ for which backup needs to be stopped. Select **Stop protection** followed by retain/delete data as per your requirement. When the backup data is stopped with retain data, the recovery points remain forever and don’t adhere to any policy. This ensures you always have your backup data ready for restore.
+1. Before moving VM running SQL Server/SAP HANA to a new region, select it in the [Backup Items tab](/azure/backup/backup-azure-delete-vault#delete-protected-items-in-the-cloud) of the existing vault’s dashboard and select _the databases_ for which backup needs to be stopped. Select **Stop protection** followed by retain/delete data as per your requirement. When the backup data is stopped with retain data, the recovery points remain forever and don’t adhere to any policy. This ensures that you always have your backup data ready for restore.
 
    >[!Note]
    >Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using [Delete data option](/azure/backup/backup-azure-manage-vms#delete-backup-data).
 
-1. Move the VM running SQL /SAP HANA Server to the new region using [Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines).
+1. Move the VM running SQL Server/SAP HANA to the new region using [Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines).
 
 1. Start protecting the VM in a new/existing Recovery Services vault in the new region. When you need to restore from your older backups, you can still do it from your old Recovery Services vault.
  
