@@ -192,7 +192,7 @@ To ensure that your IoT Connector works properly, it must have granted access pe
 
 7. Select **Save**.
 
-   After the role assignment has been successfully added to the Event Hub, a notification will display a green check mark with the text "Add Role assignment."  This means that the IoT Connector can now read from the Event Hub.
+   After the role assignment has been successfully added to the Event Hub, a notification will display a green check mark with the text "Add Role assignment."  This message indicates that the IoT Connector can now read from the Event Hub.
 
    [ ![Screenshot of added role assignment message.](media/event-hub-added-role-assignment.png) ](media/event-hub-added-role-assignment.png#lightbox)  
 
