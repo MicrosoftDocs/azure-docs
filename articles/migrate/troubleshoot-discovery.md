@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot the ongoing server discovery, software inventory, and SQL discovery
+title: Troubleshoot ongoing server discovery, software inventory, and SQL discovery
 description: Get help with server discovery, software inventory, and SQL and web apps discovery.
 author: Vikram1988
 ms.author: vibansa
@@ -8,17 +8,15 @@ ms.topic: troubleshooting
 ms.date: 07/01/2020
 ---
 
-# Troubleshoot the ongoing server discovery, software inventory, and SQL and web apps discovery
+# Troubleshoot ongoing server discovery, software inventory, and SQL and web apps discovery
 
 This article helps you troubleshoot issues with ongoing server discovery, software inventory, and discovery of SQL Server instances and databases.
 
 ## Discovered servers not showing in the portal
 
-**Error**
-
 You get this error when you don't yet see the servers in the portal, and the discovery state is **Discovery in progress**.
  
-**Remediation**
+### Remediation
 
 If the servers don't appear in the portal, wait for a few minutes because it takes around 15 minutes for discovery of servers running on a vCenter server. It takes 2 minutes for each Hyper-V host added on the appliance for discovery of servers running on the host and 1 minute for discovery of each server added on the physical appliance.
 
@@ -33,11 +31,9 @@ If the preceding step doesn't work and you're discovering VMware servers:
 
 ## Server data not updating in the portal
 
-**Error**
-
 You get this error if the discovered servers don't appear in the portal or if the server data is outdated. 
 
-**Remediation**
+### Remediation
 
 Wait for a few minutes because it takes up to 30 minutes for changes in discovered server configuration data to appear in the portal and a few hours for changes in software inventory data to appear. If there's no data after this time, refresh and do as follows:
 
@@ -48,11 +44,9 @@ Wait for the refresh operation to complete. You should now see up-to-date inform
 
 ## Deleted servers appear in the portal
 
-**Error**
-
 You get this error when the deleted servers continue to appear in the portal.
 
-**Remediation**
+### Remediation
 
 If the data continues to appear, wait for 30 minutes and do as follows:
 
@@ -65,13 +59,15 @@ Wait for the refresh operation to complete. You should now see up-to-date inform
 
 This status appears if your CSV upload failed because of a validation failure.
 
-**Remediation**
+### Remediation
 
 Import the CSV again. Download the previous upload error report, and follow the file's remediation guidance to fix the errors. Download the error report from the **Import Details** section on the **Discover servers** page.
 
-## You don't see software inventory details even after you update guest credentials
+## You don't see software inventory details after you update guest credentials
 
-**Remediation**
+You get this error when inventory details don't appear even after you update guest credentials.
+
+### Remediation
 
 The software inventory discovery runs once every 24 hours. This process might take a few minutes depending on the number of servers discovered. If you want to see the details immediately, refresh as follows:
 
@@ -82,11 +78,9 @@ Wait for the refresh operation to complete. You should now see up-to-date inform
 
 ## Unable to export software inventory
 
-**Error**
-
 You get this error when you don't have Contributor privileges.
 
-**Remediation**
+### Remediation
 
 Ensure the user downloading the inventory from the portal has Contributor privileges on the subscription.
 
@@ -175,7 +169,7 @@ The error usually appears for servers running Windows Server 2008 or lower.
 ### Remediation
 Install the required PowerShell version (2.0 or later) at this location on the server: ($SYSTEMROOT)\System32\WindowsPowershell\v1.0\powershell.exe. [Learn more](/powershell/scripting/windows-powershell/install/installing-windows-powershell) about how to install PowerShell in Windows Server.
 
-After you install the required PowerShell version, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification-using-vmware-powercli).
+After you install the required PowerShell version, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification-by-using-vmware-powercli).
 
 ## Error 9022: GetWMIObjectAccessDenied
 
@@ -194,7 +188,7 @@ Make sure that the user account provided in the appliance has access to WMI name
 1. Ensure you grant execute permissions, and select **This namespace and subnamespaces** in the **Applies to** dropdown list.
 1. Select **Apply** to save the settings and close all dialog boxes.
 
-After you get the required access, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification-using-vmware-powercli).
+After you get the required access, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification-by-using-vmware-powercli).
 
 ## Error 9032: InvalidRequest
 
@@ -203,7 +197,7 @@ There can be multiple reasons for this issue. One reason is when the username pr
 
 ### Remediation
 - Make sure the username of the server credentials doesn't have invalid XML characters and is in the username@domain.com format. This format is popularly known as the UPN format.
-- After you edit the credentials on the appliance, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification-using-vmware-powercli).
+- After you edit the credentials on the appliance, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification-by-using-vmware-powercli).
 
 
 ## Error 10002: ScriptExecutionTimedOutOnVm
@@ -237,7 +231,7 @@ There can be multiple reasons for this issue. One reason is when the username pr
 - Ensure that you can sign in to the affected server by using the same credential provided in the appliance.
 - You can try by using another user account (for the same domain, in case the server is domain joined) for that server instead of an administrator account.
 - The issue can happen when Global Catalog <-> Domain Controller communication is broken. Check for this problem by creating a new user account in the domain controller and providing the same in the appliance. You might also need to restart the domain controller.
-- After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification-using-vmware-powercli).
+- After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification-by-using-vmware-powercli).
 
 ## Error 10012: CredentialNotProvided
 
@@ -246,7 +240,7 @@ This error occurs when you've provided a domain credential with the wrong domain
 
 ### Remediation
 - Go to the appliance configuration manager to add a server credential or edit an existing one as explained in the cause.
-- After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification-using-vmware-powercli).
+- After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification-by-using-vmware-powercli).
 
 ## Mitigation verification by using VMware PowerCLI
 After you use the mitigation steps for the preceding errors, verify if the mitigation worked by running a few PowerCLI commands from the appliance server. If the commands succeed, it means that the issue is resolved. Otherwise, check and follow the remediation steps again.
