@@ -93,7 +93,7 @@ If you used the quickstarts to create the app, use the following instructions to
 
 # [No Framework](#tab/vanilla-javascript)
 
-Update the content of the _index.html_ file with the following code to fetch the text from the API function and display it on the screen.
+Update the content of the _src/index.html_ file with the following code to fetch the text from the API function and display it on the screen.
 
 ```html
 <!DOCTYPE html>

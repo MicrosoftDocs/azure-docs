@@ -7,12 +7,12 @@ author: S-Jindal
 ms.author: shivamjindal
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 08/04/2021
+ms.date: 08/12/2021
 ---
 
 # MDN acknowledgments for AS2 messages in Azure Logic Apps
 
-In Azure Logic Apps, you can create workflows that handle AS2 messages for Electronic Data Interchange (EDI) communication when you use **AS2** operations. In EDI messaging, acknowledgments provide the status from processing an EDI interchange. When receiving an interchange, the [**AS2 Decode** action](logic-apps-enterprise-integration-as2.md#decode) can return a message disposition notification (MDN) or acknowledgment to the sender. An MSDN verifies the following items:
+In Azure Logic Apps, you can create workflows that handle AS2 messages for Electronic Data Interchange (EDI) communication when you use **AS2** operations. In EDI messaging, acknowledgments provide the status from processing an EDI interchange. When receiving an interchange, the [**AS2 Decode** action](logic-apps-enterprise-integration-as2.md#decode) can return a Message Disposition Notification (MDN) or acknowledgment to the sender. An MDN verifies the following items:
 
 * The receiving partner successfully received the original message.
 
@@ -20,7 +20,7 @@ In Azure Logic Apps, you can create workflows that handle AS2 messages for Elect
 
 * The receiving partner verified the integrity of the exchanged data.
 
-  The sending partner compares the message integrity check (MIC), which is calculated from the payload in the originally sent message, with the MIC that the receiver calculated from the payload in the received message and included in the `Received-content-MIC` field in the MDN, if signed.
+  A Message Integrity Check (MIC) or MIC digest is calculated from the payload in the originally sent message. The sending partner compares this MIC with the MIC that the receiver calculated from the payload in the received message and included in the `Received-content-MIC` field in the MDN, if signed.
 
   > [!NOTE]
   > An MDN can be signed, but not encrypted or compressed.
@@ -40,7 +40,7 @@ This topic provides a brief overview about the AS2 MDN ACK, including the proper
 * [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md)
 * [What is Azure Logic Apps](logic-apps-overview.md)
 
-## Properties to generate an MDN
+## MDN generation
 
 The AS2 Decode action generates an MDN based on a trading partner's AS2 agreement properties when the agreement's **Receive Settings** has the **Send MDN** option selected. In this instance, the **AS2-From** property in the message header is used for generating the MDN, but other properties and their values are taken from the partner's AS2 agreement settings.
 
@@ -58,9 +58,9 @@ To correlate an MDN to the AS2 message as the response, the `AS2-From` header, `
 | Second part | The second part of the signed multipart message contains the digital signature, a reference to the original message, the disposition type and status, and the MIC value. This part is machine readable. |
 |||
 
-## MIC
+## MIC digest
 
-The Message Integrity Check (MIC), or MIC digest, verifies that an MDN correlates to the payload in the originally sent message. This MIC digest is included in the second part of the signed multipart MDN message in the `Received-Content-MIC` extension field.
+The MIC digest or MIC verifies that an MDN correlates to the payload in the originally sent message. This MIC is included in the second part of the signed multipart MDN message in the `Received-Content-MIC` extension field.
 
 The MIC is base64-encoded and is determined from the **MIC Algorithm** property, which is enabled when the **Send MDN** and **Send signed MDN** properties are selected on the AS2 agreement's **Receive Settings** page. For MIC generation, you can choose from the following supported hash algorithms:
 
@@ -72,7 +72,7 @@ The MIC is base64-encoded and is determined from the **MIC Algorithm** property,
 
 For example, the following screenshot shows the MDN properties in the AS2 agreement's **Receive Settings** page:
 
-![MDN acknowledgement settings](./media/logic-apps-enterprise-integration-as2-mdn-acknowledgment/mdn-ack-settings.png)
+![Screenshot that shows Azure portal with AS2 agreement's "Receive Settings" with MDN acknowledgement settings.](./media/logic-apps-enterprise-integration-as2-mdn-acknowledgment/mdn-ack-settings.png)
 
 ## Next steps
 

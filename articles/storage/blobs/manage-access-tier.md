@@ -65,5 +65,5 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 ## Next steps
 
 - [How to manage the default account access tier of an Azure Storage account](../common/manage-account-default-access-tier.md)
-- [Learn about rehydrating blob data from the archive tier](storage-blob-rehydration.md)
+- [Learn about rehydrating blob data from the archive tier](archive-rehydrate-overview.md)
 - [Check hot, cool, and archive pricing in Blob Storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)

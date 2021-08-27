@@ -17,6 +17,7 @@ ms.subservice: report-monitor
 ms.date: 07/09/2021
 ms.author: markvi
 ms.reviewer: besiler
+ms.custom: has-adal-ref
 
 ms.collection: M365-identity-device-management
 ---

@@ -8,22 +8,23 @@ author: ayokande
 ms.author: aakande
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/19/2021
+ms.date: 08/12/2021
 ---
 
 # Entity Linking cognitive skill
 
-The **Entity Linking** skill extracts linked entities from text. This skill uses the machine learning models provided by [Text Analytics](../cognitive-services/text-analytics/overview.md) in Cognitive Services.
+The **Entity Linking** skill returns a list of recognized entities with links to articles in a well-known knowledge base (Wikipedia).
 
 > [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
+> This skill is bound to Cognitive Services [Text Analytics](../cognitive-services/text-analytics/overview.md) and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
-## @odata.type  
+## @odata.type
+
 Microsoft.Skills.Text.V3.EntityLinkingSkill
 
 ## Data limits
+
 The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the EntityLinking skill, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill parameters
@@ -36,7 +37,6 @@ Parameter names are case-sensitive and are all optional.
 | `minimumPrecision` | A value between 0 and 1. If the confidence score (in the `entities` output) is lower than this value, the entity is not returned. The default is 0. |
 | `modelVersion` | (Optional) The version of the model to use when calling the Text Analytics service. It will default to the latest available when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details.|
 
-
 ## Skill inputs
 
 | Input name      | Description                   |
@@ -46,13 +46,11 @@ Parameter names are case-sensitive and are all optional.
 
 ## Skill outputs
 
-
 | Output name      | Description                   |
 |---------------|-------------------------------|
 | `entities` | An array of complex types that contains the following fields: <ul><li>name (The actual entity name as it appears in the text)</li> <li>id </li> <li>language (The language of the text as determined by the skill)</li> <li>url (The linked url to this entity)</li> <li>bingId (The bingId for this linked entity)</li> <li>dataSource (The data source associated with the url) </li> <li>matches (An array of complex types that contains: `text`, `offset`, `length` and `confidenceScore`)</li></ul>|
 
-
-##    Sample definition
+## Sample definition
 
 ```json
   {
@@ -78,7 +76,8 @@ Parameter names are case-sensitive and are all optional.
     ]
 }
 ```
-##    Sample input
+
+## Sample input
 
 ```json
 {
@@ -95,7 +94,7 @@ Parameter names are case-sensitive and are all optional.
 }
 ```
 
-##    Sample output
+## Sample output
 
 ```json
 {
@@ -131,6 +130,7 @@ Parameter names are case-sensitive and are all optional.
 Note that the offsets returned for entities in the output of this skill are directly returned from the [Text Analytics API](../cognitive-services/text-analytics/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content.  [More details can be found here.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
 ## Warning cases
+
 If the language code for the document is unsupported, a warning is returned and no entities are extracted.
 
 ## See also

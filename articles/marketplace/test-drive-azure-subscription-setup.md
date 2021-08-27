@@ -53,7 +53,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
         1. From **Manage Application**, select **Certificate and secrets**.
         2. Under Client secrets, select **New client secret**.
         3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
-        4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you lave this blade. You will need this value later when configuring your test drive.
+        4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you leave this blade. You will need this value later when configuring your test drive.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adding a client secret.":::
 
@@ -67,7 +67,33 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
 
         :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Signing in to your account.":::
 
-6. Add the above created Azure app as an application user to your test drive CRM instance.
+6. Create a new Security Group and add it to Canvas App (Power Apps). This step is applicable only to Canvas App (Power Apps) offers.
+    1. Create a new Security Group.
+        1. Go to **Azure Active Directory**.
+        1. Under **Manage**, select **Groups**.
+        1. Select **+ New Group**.
+        1. Select the **Security Group** type. 
+        1. For **Group Name**, enter *TestDriveSecurityGroup*.
+        1. Add a description, such as **Security Group for Test Drive**.
+        1. Leave other fields as default and select **Create**.
+
+            :::image type="content" source="./media/test-drive/create-new-group.png" alt-text="Shows how to create a new security group.":::
+
+    1. Add the security group just created to the Canvas App (Power Apps).
+        1. Open the **PowerApps** portal page and sign in.
+        1. Select **Apps**, then the ellipses at the app.
+        1. Select **Share**.
+        1. Search for the **TestDriveSecurityGroup** security group created in the prior step.
+        1. Add **Data permissions** to the security group.
+        1. Clear the **send email** invitation check box.
+        1. Select **Share**.
+    
+            > [!NOTE]
+            > When using a backend data source other than CE/Dataverse for Canvas App (Power Apps):
+            > - Allow the above created security group to access your data source. For example, a SharePoint data source.
+            > - Open SharePoint and share the data table with the Security Group.
+
+7. Add the just-created Azure app as an application user to your test drive CRM instance. This step is applicable only to Dynamics 365 Customer Engagement Offers.
     1. Add a new user in **Azure Active Directory**. Only **Name** and **Username** values (belonging to the same tenant) are required to create this user, leave the other fields as default. Copy the username value.
     2. Sign into **CRM instance** and select **Setting** > **Security** > **Users**.
     3. Change the view to **Application Users**.
@@ -123,7 +149,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
         1. From **Manage Application**, select **Certificate and secrets**.
         2. Under Client secrets, select **New client secret**.
         3. Enter a description, such as *Test Drive*, and select an appropriate duration. The test drive will break once this Key expires, at which point you will need to generate and provide AppSource a new key.
-        4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you lave this blade. You will need this value later when configuring your test drive.
+        4. Select **Add** to generate the Azure app secret. Copy this value as it will be hidden as soon as you leave this blade. You will need this value later when configuring your test drive.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Adding a client secret.":::
 

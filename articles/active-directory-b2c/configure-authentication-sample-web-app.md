@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
+ms.date: 08/23/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -89,7 +89,7 @@ To create the web app registration, do the following:
 For web apps that request an ID token directly from Azure AD B2C, enable the implicit grant flow in the app registration.
 
 1. On the left pane, under **Manage**, select **Authentication**.
-1. Under **Implicit grant**, select the **ID tokens** checkbox.
+1. Under **Implicit grant**, select the **ID tokens (used for implicit and hybrid flows)** and **Access tokens (used for implicit flows)** checkboxes.
 1. Select **Save**.
 
 ## Step 3: Get the web app sample
@@ -152,5 +152,5 @@ You can add and modify redirect URIs in your registered applications at any time
 
 ## Next steps
 
-* Learn more about [the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C#about-the-code).
+* Learn more about the [code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C#about-the-code).
 * Learn how to [Enable authentication in your own web app by using Azure AD B2C](enable-authentication-web-application.md).

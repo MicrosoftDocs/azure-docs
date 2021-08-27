@@ -80,7 +80,7 @@ To learn more about best practices you edit a model, see [Edit an existing devic
 
 Each model has a unique _device twin model identifier_ (DTMI), such as `dtmi:com:example:Thermostat;1`. When a device connects to IoT Central, it sends the DTMI of the model it implements. IoT Central can then associate the correct device template with the device.
 
-[IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) defines a set of conventions that a device should follow when it implements a DTDL model.
+[IoT Plug and Play](../../iot-develop/overview-iot-plug-and-play.md) defines a set of [conventions](../../iot-develop/concepts-convention.md) that a device should follow when it implements a DTDL model.
 
 The [Azure IoT device SDKs](#languages-and-sdks) include support for the IoT Plug and Play conventions.
 

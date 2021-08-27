@@ -5,7 +5,7 @@ description: This page provides information on web application firewall CRS rule
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 07/06/2021
+ms.date: 08/23/2021
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -422,12 +422,6 @@ The following rule groups and rules are available when using Web Application Fir
 |920340|Request Containing Content but Missing Content-Type header|
 |920341|Request containing content requires Content-Type header|
 |920350|Host header is a numeric IP address|
-|920360|Argument name too long|
-|920370|Argument value too long|
-|920380|Too many arguments in request|
-|920390|Total arguments size exceeded|
-|920400|Uploaded file size too large|
-|920410|Total uploaded files size too large|
 |920420|Request content type is not allowed by policy|
 |920430|HTTP protocol version is not allowed by policy|
 |920440|URL file extension is restricted by policy|

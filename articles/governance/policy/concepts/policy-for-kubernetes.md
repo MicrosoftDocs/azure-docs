@@ -1,7 +1,7 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 05/13/2021
+ms.date: 08/17/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ---
@@ -83,13 +83,13 @@ The following limitations apply only to the Azure Policy Add-on for AKS:
 
 The following are general recommendations for using the Azure Policy Add-on:
 
-- The Azure Policy Add-on requires three Gatekeeper components to run: 1 audit pod and 2 webhook pod
-  replicas. These components consume more resources as the count of Kubernetes resources and policy
-  assignments increases in the cluster, which requires audit and enforcement operations.
+- The Azure Policy Add-on requires three Gatekeeper components to run: One audit pod and two webhook
+  pod replicas. These components consume more resources as the count of Kubernetes resources and
+  policy assignments increases in the cluster, which requires audit and enforcement operations.
 
-  - For fewer than 500 pods in a single cluster with a max of 20 constraints: 2 vCPUs and 350 MB
+  - For fewer than 500 pods in a single cluster with a max of 20 constraints: two vCPUs and 350 MB
     memory per component.
-  - For more than 500 pods in a single cluster with a max of 40 constraints: 3 vCPUs and 600 MB
+  - For more than 500 pods in a single cluster with a max of 40 constraints: three vCPUs and 600 MB
     memory per component.
 
 - Windows pods
@@ -523,11 +523,11 @@ The add-on checks in with Azure Policy service for changes in policy assignments
 During this refresh cycle, the add-on checks for changes. These changes trigger creates, updates, or
 deletes of the constraint templates and constraints.
 
-In a Kubernetes cluster, if a namespace has either of the following labels, the admission requests
+In a Kubernetes cluster, if a namespace has the cluster-appropriate label, the admission requests
 with violations aren't denied. Compliance assessment results are still available.
 
-- `control-plane`
-- `admission.policy.azure.com/ignore`
+- Azure Arc-enabled Kubernetes cluster: `admission.policy.azure.com/ignore`
+- Azure Kubernetes Service cluster: `control-plane`
 
 > [!NOTE]
 > While a cluster admin may have permission to create and update constraint templates and
