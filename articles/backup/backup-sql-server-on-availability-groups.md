@@ -40,14 +40,14 @@ Let’s consider the following AG deployment as a reference.
 
 :::image type="content" source="./media/backup-sql-server-on-availability-groups/ag-deployment.png" alt-text="Diagram for AG deployment as reference.":::
 
->Taking the above sample AG deployment, following are various considerations:
+Taking the above sample AG deployment, following are various considerations:
 
->- As the primary node is in region 1 and subscription 1, the Recovery Services vault (Vault 1) must be in Region 1 and Subscription 1 for protecting this AG.
->- VM3 can't be registered to Vault 1 as it's in a different subscription.
->- VM4 can't be registered to Vault 1 as it's in a different region.
->.- If the backup preference is _secondary only_, VM1 (Primary) and VM2 (Secondary) must be registered to the Vault 1 (because full backups require the primary node and logs require a secondary node). For other backup preferences, VM1 (Primary) must be registered to Vault 1, VM2 is optional (because all backups can run on primary node).
->- While VM3 could be registered to vault 2 in subscription 2 and the AG databases would then show up for protection in vault 2 but due to absence of the primary node in vault 2, configuring backups would fail.
->- Similarly, while VM4 could be registered to vault 4 in region 2, configuring backups would fail since the primary node is not registered in vault 4.
+- As the primary node is in region 1 and subscription 1, the Recovery Services vault (Vault 1) must be in Region 1 and Subscription 1 for protecting this AG.
+- VM3 can't be registered to Vault 1 as it's in a different subscription.
+- VM4 can't be registered to Vault 1 as it's in a different region.
+- If the backup preference is _secondary only_, VM1 (Primary) and VM2 (Secondary) must be registered to the Vault 1 (because full backups require the primary node and logs require a secondary node). For other backup preferences, VM1 (Primary) must be registered to Vault 1, VM2 is optional (because all backups can run on primary node).
+- While VM3 could be registered to vault 2 in subscription 2 and the AG databases would then show up for protection in vault 2 but due to absence of the primary node in vault 2, configuring backups would fail.
+- Similarly, while VM4 could be registered to vault 4 in region 2, configuring backups would fail since the primary node is not registered in vault 4.
 
 ## Handle failover
 
@@ -59,11 +59,17 @@ After the AG has failed over to one of the secondary nodes:
 >[!Note]
 >Log chain breaks do not happen on failover if the failover doesn’t coincide with a backup.
 
->Taking the above sample AG deployment, following are the various failover possibilities:
+Taking the above sample AG deployment, following are the various failover possibilities:
 
->- Failover to VM2 <ul><li> Full and differential backups will happen from VM2.</li><li> Log and copy-only full backups will happen from VM1 or VM2 based on backup preference.</li></ul>
->- Failover to VM3 (another subscription)<ul><li> As backups aren't configured in Vault 2, no backups would happen. </li><li> If the backup preference isn't secondary-only, backups can be configured now in Vault 2, because the primary node is registered in this vault. But this can lead to conflicts/backup failures. More about this in [Configure backups for a multi-region AG](#configure-backups-for-a-multi-region-ag).</li></ul>
->- Failover to VM4 (another region)<ul><li> As backups aren't configured in Vault 4, no backups would happen. </li><li> If the backup preference is not secondary-only, backups can be configured now in Vault 4, because the primary node is registered in this vault. But this can lead to conflicts/backup failures. More about this in [Configure backups for a multi-region AG](#configure-backups-for-a-multi-region-ag). </li></ul>
+- Failover to VM2
+  - Full and differential backups will happen from VM2.
+  - Log and copy-only full backups will happen from VM1 or VM2 based on backup preference.
+- Failover to VM3 (another subscription)
+  - As backups aren't configured in Vault 2, no backups would happen.
+  - If the backup preference isn't secondary-only, backups can be configured now in Vault 2, because the primary node is registered in this vault. But this can lead to conflicts/backup failures. More about this in [Configure backups for a multi-region AG](#configure-backups-for-a-multi-region-ag).
+- Failover to VM4 (another region)
+  - As backups aren't configured in Vault 4, no backups would happen.
+  - If the backup preference is not secondary-only, backups can be configured now in Vault 4, because the primary node is registered in this vault. But this can lead to conflicts/backup failures. More about this in [Configure backups for a multi-region AG](#co3nfigure-backups-for-a-multi-region-ag).
 
 ## Configure backups for a multi-region AG
 
@@ -89,14 +95,16 @@ Taking the above sample AG deployment, here are the steps to enable backup from 
 
 ### Step 1: Enable backups in Region 1, Subscription 1 (Vault 1)
 
->As the primary node is in region and subscription, the usual steps to enable backups will work.
+As the primary node is in region and subscription, the usual steps to enable backups will work.
 
 ### Step 2: Enable backups in Region 1, Subscription 2 (Vault 2)
 
->1. Failover the AG to VM3 so that the primary node is present in Vault 2.
->1. Configure backups for the AG databases in Vault 2.
->1. At this point:<ol><li> The full/differential backups will fail in Vault 1 as     none of the registered nodes can take this backup.</li><li> The log backups will succeed in Vault 1 till a log backup runs in Vault 2 and _breaks_ the log chain for Vault 1.</li></ol>
->1. Failback the AG to VM1
+1. Failover the AG to VM3 so that the primary node is present in Vault 2.
+1. Configure backups for the AG databases in Vault 2.
+1. At this point:
+   1. The full/differential backups will fail in Vault 1 as     none of the registered nodes can take this backup.
+   1. The log backups will succeed in Vault 1 till a log backup runs in Vault 2 and _breaks_ the log chain for Vault 1.
+1. Failback the AG to VM1.
 
 ### Step 3: Enable backups in Region 2, Subscription 1 (Vault 4)
 
@@ -122,8 +130,8 @@ Similar problem can happen if the number of AG databases protected are more than
 
 We recommend you to use the following backup preferences to avoid these synchronization issues:
 
-1. For a 2 node AG, set the Backup Preference to Primary or Secondary Only – then only one node can do the backups, the other will always bail out. 
-1. For an AG with more than 2 nodes, set the Backup Preference to Primary – then only primary node can do the backups, others will bail out.
+- For a 2 node AG, set the Backup Preference to Primary or Secondary Only – then only one node can do the backups, the other will always bail out. 
+- For an AG with more than 2 nodes, set the Backup Preference to Primary – then only primary node can do the backups, others will bail out.
 
 ## Billing for AG backups
 
