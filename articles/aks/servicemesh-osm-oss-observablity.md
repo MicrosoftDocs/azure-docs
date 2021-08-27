@@ -1,6 +1,6 @@
 ---
-title: Using NGINX Ingress
-description: How to use NGINX Ingress with Open Service Mesh
+title: OSM OSS Observability
+description: How to configure open-source observability for Open Service Mesh
 services: container-service
 ms.topic: article
 ms.date: 8/26/2021
