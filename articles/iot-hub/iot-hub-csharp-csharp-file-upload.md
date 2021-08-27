@@ -142,7 +142,7 @@ In this section, you create a C# console app that receives file upload notificat
     cd ReadFileUploadNotification
     ```
 
-1. Run the following command to create a c# console project. After running the command, the folder will contain a **Program.cs** file and a **ReadFileUploadNotification.csproj** file.
+1. Run the following command to create a C# console project. After running the command, the folder will contain a **Program.cs** file and a **ReadFileUploadNotification.csproj** file.
 
     ```cmd/sh
     dotnet new console --language c#
