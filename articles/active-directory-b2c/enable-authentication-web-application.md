@@ -178,7 +178,7 @@ else
 }
 ```
 
-Modify your */Views/Shared_Layout.cshtml* file path to include the *_LoginPartial.cshtml* file you added. The *_Layout.cshtml* file is a common layout that gives users a consistent experience as they go from page to page. The layout includes common user interface elements, such as the app header and footer.
+Modify your */Views/Shared_Layout.cshtml* file to include the *_LoginPartial.cshtml* file you added. The *_Layout.cshtml* file is a common layout that gives users a consistent experience as they go from page to page. The layout includes common user interface elements, such as the app header and footer.
 
 > [!NOTE]
 > Depending on the .NET Core version you're running and whether you're adding sign-in to an existing app, the UI elements might look different. If so, be sure to include *_LoginPartial* in the proper location within the page layout.
