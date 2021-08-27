@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 06/17/2021
+ms.date: 08/27/2021
 ms.author: cshoe
 ---
 
@@ -269,6 +269,11 @@ Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation
 ```
 
 When one or more IP address blocks are specified, requests originating from IP addresses that do not match a value in `allowedIpRanges` are denied access.
+
+## Authentication 
+
+* For [default authentication providers](authentication-authorization.md#login), you don't need to provide any settings in the configuration file. 
+* For custom authentication providers, [learn how to configure](authentication-custom.md) the `authentication` property of the settings file. 
 
 ## Example configuration file
 
