@@ -134,7 +134,7 @@
           href: structured-app-log.md
         - name: New Relic Java in-process agent
           href: how-to-new-relic-monitor.md
-        - name: Azure Activity log and Azure Service Health
+        - name: Monitor app lifecycle events
           href: monitor-app-lifecycle-events.md
     - name: Network
       items:

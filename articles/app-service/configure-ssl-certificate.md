@@ -292,7 +292,9 @@ When the operation completes, you see the certificate in the **Private Key Certi
 
 > [!IMPORTANT] 
 > To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
->
+
+> [!NOTE]
+> To renew a [certificate you uploaded](#upload-a-private-certificate), see [Export certificate binding](configure-ssl-bindings.md#renew-certificate-binding). App Service will not automatically sync your newly uploaded certificate with the bindings. The automated certificate syncing feature is only available for [imported Key Vault certificates](#import-a-certificate-from-key-vault) and [imported App Service Certificates](#import-an-app-service-certificate).
 
 ## Upload a public certificate
 
@@ -335,9 +337,6 @@ Once the rekey operation is complete, click **Sync**. The sync operation automat
 > If you don't click **Sync**, App Service automatically syncs your certificate within 24 hours.
 
 ### Renew certificate
-
-> [!NOTE]
-> To renew a [certificate you uploaded](#upload-a-private-certificate), see [Export certificate binding](configure-ssl-bindings.md#renew-certificate-binding). 
 
 > [!NOTE]
 > The renewal process requires that [the well-known service principal for App Service has the required permissions on your key vault](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). This permission is configured for you when you import an App Service Certificate through the portal, and should not be removed from your key vault.
