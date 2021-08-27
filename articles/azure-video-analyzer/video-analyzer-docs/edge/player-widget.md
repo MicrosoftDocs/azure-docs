@@ -16,7 +16,7 @@ In this tutorial, you will:
 > [!div class="checklist"]
 > * Create a token
 > * List videos
-> * Get the base URL for playing back a [video application resource](./terminology.md#video)
+> * Get the base URL for playing back a [video application resource](../terminology.md#video)
 > * Create a page with the player
 > * Pass a streaming endpoint and a token to the player
 
