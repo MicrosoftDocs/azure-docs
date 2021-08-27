@@ -7,7 +7,7 @@ ms.author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/24/2021
+ms.date: 08/24/2021
 ms.custom: ['Role: Cloud Development']
 ---
 
@@ -15,7 +15,7 @@ ms.custom: ['Role: Cloud Development']
 
 Azure IoT Hub supports using Azure Active Directory (AAD) to authenticate requests to its service APIs like create device identity or invoke direct method. Also, IoT Hub supports authorization of the same service APIs with Azure role-based access control (Azure RBAC). Together, you can grant permissions to access IoT Hub's service APIs to an AAD security principal, which could be a user, group, or application service principal.
 
-Authenticating access with Azure AD and controlling permissions with Azure RBAC provides superior security and ease of use over [security tokens](iot-hub-dev-guide-sas.md). To minimize potential security vulnerabilities inherent in security tokens, Microsoft recommends using Azure AD with your IoT hub whenever possible.
+Authenticating access with Azure AD and controlling permissions with Azure RBAC provides superior security and ease of use over [security tokens](iot-hub-dev-guide-sas.md). To minimize potential security vulnerabilities inherent in security tokens, Microsoft recommends [using Azure AD with your IoT hub whenever possible](#azure-ad-access-and-shared-access-policies). 
 
 > [!NOTE]
 > Authenticating with Azure AD isn't supported for IoT Hub's *device APIs* (like device-to-cloud messages and update reported properties). Use [symmetric keys](iot-hub-dev-guide-sas.md#use-a-symmetric-key-in-the-identity-registry) or [X.509](iot-hub-x509ca-overview.md) to authenticate devices to IoT hub.
@@ -92,11 +92,24 @@ The following tables describe the permissions available for IoT Hub service API 
 > [!NOTE]
 > To get data from IoT Hub using Azure AD, [set up routing to a separate Event Hub](iot-hub-devguide-messages-d2c.md#event-hubs-as-a-routing-endpoint). To access the [the built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md), use the connection string (shared access key) method as before. 
 
-## Azure AD access from Azure portal
+## Azure AD access and shared access policies
 
-When you try to access IoT Hub, the Azure portal first checks whether you've been assigned an Azure role with **Microsoft.Devices/iotHubs/listkeys/action**. If so, then Azure portal uses the keys from shared access policies for accessing IoT Hub. If not, Azure portal tries to access data using your Azure AD account. 
+By default, IoT Hub supports service API access through both Azure AD as well as [shared access policies and security tokens](iot-hub-dev-guide-sas.md). To minimize potential security vulnerabilities inherent in security tokens, disable access with shared access policies: 
 
-To access IoT Hub from Azure portal using your Azure AD account, you need permissions to access the IoT hub data resources (like devices and twins), and you also need permissions to navigate to the IoT hub resource in the Azure portal. The built-in roles provided by IoT Hub grant access to resources like devices and twin, but they don't grant access to the IoT Hub resource. So, access to the portal also requires assignment of an Azure Resource Manager (ARM) role like [Reader](../role-based-access-control/built-in-roles.md#reader). The Reader role is a good choice because it's the most restricted role that lets you navigate the portal, and it doesn't include the **Microsoft.Devices/iotHubs/listkeys/action** permission (which gives access to all IoT Hub data resources via shared access policies). 
+1. Ensure that your service clients and users have [sufficient access](#manage-access-to-iot-hub-using-azure-rbac-role-assignment) to your IoT hub following [principle of least privilege](../security/fundamentals/identity-management-best-practices.md).
+1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
+1. On the left, select **Shared access policies**.
+1. Under **Connect using shared access policies**, select **Deny**.
+    :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Screenshot of Azure portal showing how to turn off IoT Hub shared access policies":::
+1. Review the warning, then select **Save**.
+
+Your IoT hub service APIs can now only be access using Azure AD and RBAC.
+
+## Azure AD access from the Azure portal
+
+When you try to access IoT Hub, the Azure portal first checks whether you've been assigned an Azure role with **Microsoft.Devices/iotHubs/listkeys/action**. If so, then the Azure portal uses the keys from shared access policies for accessing IoT Hub. If not, the Azure portal tries to access data using your Azure AD account. 
+
+To access IoT Hub from the Azure portal using your Azure AD account, you need permissions to access the IoT hub data resources (like devices and twins), and you also need permissions to navigate to the IoT hub resource in the Azure portal. The built-in roles provided by IoT Hub grant access to resources like devices and twin, but they don't grant access to the IoT Hub resource. So, access to the portal also requires assignment of an Azure Resource Manager (ARM) role like [Reader](../role-based-access-control/built-in-roles.md#reader). The Reader role is a good choice because it's the most restricted role that lets you navigate the portal, and it doesn't include the **Microsoft.Devices/iotHubs/listkeys/action** permission (which gives access to all IoT Hub data resources via shared access policies). 
 
 To ensure an account doesn't have access outside of assigned permissions, *don't* include the **Microsoft.Devices/iotHubs/listkeys/action** permission when creating a custom role. For example, to create a custom role that could read device identities, but cannot create or delete devices, create a custom role that:
 - Has the **Microsoft.Devices/IotHubs/devices/read** data action
@@ -112,7 +125,7 @@ Most commands against IoT Hub support Azure AD authentication. The type of auth 
 
 - When `--auth-type` has the value of `key`, like before the CLI automatically discovers a suitable policy when interacting with IoT Hub.
 
-- When `--auth-type` has the value `login`, an access token from the Azure CLI logged in principal is used for the operation.
+- When `--auth-type` has the value `login`, an access token from the Azure CLI logged in the principal is used for the operation.
 
 To learn more, see the [Azure IoT extension for Azure CLI release page](https://github.com/Azure/azure-iot-cli-extension/releases/tag/v0.10.12)
 

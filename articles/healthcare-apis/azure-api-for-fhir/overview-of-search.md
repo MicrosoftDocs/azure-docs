@@ -130,7 +130,7 @@ To help manage the returned resources, there are search result parameters that y
 | _revinclude                   | Yes                  | Yes                       |Included items are limited to 100. _revinclude on PaaS and OSS on Cosmos DB do not include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).  There is also an incorrect status code for a bad request [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | Yes             | Yes                   |
 | _total                        | Partial              | Partial                   | _total=none and _total=accurate                               |
-| _sort                         | Partial              | Partial                   | sort=_lastUpdated is supported. For Azure API for FHIR and OSS Cosmos DB databases created after April 20, 2021 sort is also supported  on first name, last name, and clinical date. The FHIR service and the OSS SQL DB database support sorting by strings and dates.                              |
+| _sort                         | Partial              | Partial                   | sort=_lastUpdated is supported. By default sorts the record in ascending order. You can use the prefix '-' to sort in descending order. For Azure API for FHIR and OSS Cosmos DB databases created after April 20, 2021 sort is also supported  on first name, last name, and clinical date.          |
 | _contained                    | No                   | No                        |
 | _containedType                | No                   | No                        |
 | _score                        | No                   | No                        |
