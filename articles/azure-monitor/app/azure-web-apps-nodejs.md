@@ -138,5 +138,17 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 ---
 
 
-
 [!INCLUDE [azure-web-apps-footer](./includes/azure-web-apps-footer.md)]
+
+## Release notes
+
+For the latest updates and bug fixes [consult the release notes](./web-app-extension-release-notes.md).
+
+## Next steps
+* [Run the profiler on your live app](./profiler.md).
+* [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
+* [Enable Azure diagnostics](../agents/diagnostics-extension-to-application-insights.md) to be sent to Application Insights.
+* [Monitor service health metrics](../data-platform.md) to make sure your service is available and responsive.
+* [Receive alert notifications](../alerts/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
+* Use [Application Insights for JavaScript apps and web pages](javascript.md) to get client telemetry from the browsers that visit a web page.
+* [Set up Availability web tests](monitor-web-app-availability.md) to be alerted if your site is down.

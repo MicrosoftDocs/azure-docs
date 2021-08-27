@@ -738,8 +738,10 @@
         href: app/azure-vm-vmss-apps.md
       - name: Azure App Service
         items: 
+        - name: .NET Core
+          href: app/azure-web-apps-netcore.md
         - name: .NET 
-          href: app/azure-web-apps.md
+          href: app/azure-web-apps-net.md
         - name: Java 
           href: app/azure-web-apps-java.md
         - name: Node.js 
