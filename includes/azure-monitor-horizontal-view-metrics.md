@@ -14,27 +14,23 @@ Use [metrics explorer](../articles/azure-monitor/essentials/metrics-getting-star
 
 Select **Metrics** from the virtual machine's menu in the Azure portal to open metrics explorer. The **Scope** will already be set to the current resource. 
 
-:::image type="content" source="media/azure-monitor-horizontal/metrics-explorer-open.png alt-text="Open metrics explorer":::
+:::image type="content" source="./media/azure-monitor-horizontal/metrics-explorer-open.png alt-text="Open metrics explorer":::
 
 Select a **Metric Namespace**. Namespaces are a way to organize similar sets of metrics. Some resources will have a single namespace while others will have multiple namespaces. 
 
-:::image type="content" source="media/azure-monitor-horizontal/metrics-explorer-open.png alt-text="Select a namespace":::
+:::image type="content" source="./media/azure-monitor-horizontal/metrics-explorer-open.png alt-text="Select a namespace":::
 
 Select a **Metric** to add to the chart and then click **Add metric**.
 
-:::image type="content" source="media/azure-monitor-horizontal/metrics-explorer-metric.png alt-text="Select a metric":::
+:::image type="content" source="./media/azure-monitor-horizontal/metrics-explorer-metric.png alt-text="Select a metric":::
 
 Optionally, change the [aggregation](../articles/azure-monitor/essentials/metrics-charts.md#aggregation) which defines how each value on the chart is calculated from the values collected in each time grain. The aggregations that are available depend on the metric value that you selected. 
 
-:::image type="content" source="media/azure-monitor-horizontal/metrics-explorer-aggregation.png alt-text="Select a metric":::
+:::image type="content" source="./media/azure-monitor-horizontal/metrics-explorer-aggregation.png alt-text="Select a metric":::
 
 Change the **time range** and **time granularity** for the graph by selecting the time picker.
 
-:::image type="content" source="media/azure-monitor-horizontal/metrics-explorer-time-range.png alt-text="Change the time range and granularity":::
+:::image type="content" source="./media/azure-monitor-horizontal/metrics-explorer-time-range.png alt-text="Change the time range and granularity":::
 
 
 
-
-For a list of the platform metrics collected for virtual machines, see [Monitoring Azure virtual machines data reference metrics](monitor-vm-reference.md#metrics).
-
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
