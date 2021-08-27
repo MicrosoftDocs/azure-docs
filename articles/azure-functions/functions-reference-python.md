@@ -388,9 +388,16 @@ def main(req):
 
 ## Environment variables
 
-In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings by declaring `import os` and then using, `setting = os.environ["setting-name"]`.
+In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. There are two main ways to access these settings in your code. 
 
-The following example gets the [application setting](functions-how-to-use-azure-function-app-settings.md#settings), with the key named `myAppSetting`:
+| Method | Description |
+| --- | --- |
+| **`os.environ["myAppSetting"]`** | Tries to get the application setting by key name, raising an error when unsuccessful.  |
+| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, returning null when unsuccessful.  |
+
+Both of these ways require you to declare `import os`.
+
+The following example uses `os.environ["myAppSetting"]` to get the [application setting](functions-how-to-use-azure-function-app-settings.md#settings), with the key named `myAppSetting`:
 
 ```python
 import logging
