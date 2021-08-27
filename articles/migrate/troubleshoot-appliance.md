@@ -19,11 +19,9 @@ This article helps you troubleshoot issues when you deploy the [Azure Migrate](m
 
 ## "Invalid OVF manifest entry" error occurs during appliance setup
 
-**Error**
-
 You get the error "The provided manifest file is invalid: Invalid OVF manifest entry" when you set up an appliance by using the OVA template.
 
-**Remediation**
+### Remediation
 
 1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](./tutorial-discover-vmware.md). If the hash value doesn't match, download the OVA file again and retry the deployment.
 1. If deployment still fails and you're using the VMware vSphere client to deploy the OVF file, try deploying it through the vSphere web client. If deployment still fails, try using a different web browser.
@@ -34,11 +32,9 @@ You get the error "The provided manifest file is invalid: Invalid OVF manifest e
 
 ## Connectivity check fails during the prerequisites setup
 
-**Error**
-
 You get an error in the connectivity check on the appliance.
 
-**Remediation**
+### Remediation
 
 1. Ensure that you can connect to the required [URLs](./migrate-appliance.md#url-access) from the appliance.
 1. Check if there's a proxy or firewall blocking access to these URLs. If you're required to create an allowlist, make sure that you include all of the URLs.
@@ -47,11 +43,9 @@ You get an error in the connectivity check on the appliance.
 
 ## Connectivity check fails for the aka.ms URL during the prerequisites setup
 
-**Error**
-
 You get an error in the connectivity check on the appliance for the aka.ms URL.
 
-**Remediation**
+### Remediation
 
 1. Ensure that you have connectivity to the internet and have added the URL-aka.ms/* to the allowlist to download the latest versions of the services.
 1. Check if there's a proxy or firewall blocking access to this URL. Ensure that you've provided the proxy details correctly in the prerequisites step of the configuration manager.
@@ -65,22 +59,18 @@ You get an error in the connectivity check on the appliance for the aka.ms URL.
 
 ## Auto-update check fails during the prerequisites setup
 
-**Error**
-
 You get an error in the auto-update check on the appliance.
 
-**Remediation**
+### Remediation
 
 1. Make sure that you created an allowlist for the [required URLs](./migrate-appliance.md#url-access) and that no proxy or firewall setting is blocking them.
 1. If the update of any appliance component is failing, either rerun the prerequisites or [manually update the appliance services](./migrate-appliance.md#manually-update-an-older-version).
 
 ## Time sync check fails during the prerequisites setup
 
-**Error**
-
 An error about time synchronization indicates that the server clock might be out of synchronization with the current time by more than five minutes.
 
-**Remediation**
+### Remediation
 
 - Ensure that the appliance server time is synchronized with the internet time by checking the date and time settings from Control Panel.
 - You can also change the clock time on the appliance server to match the current time by following these steps:
@@ -90,35 +80,29 @@ An error about time synchronization indicates that the server clock might be out
 
 ## VDDK check fails during the prerequisites setup on the VMware appliance
 
-**Error**
-
 The Virtual Disk Development Kit (VDDK) check failed because the appliance couldn't find the required VDDK installed on the appliance. This issue can result in failures with ongoing replication.
 
-**Remediation**
+### Remediation
 
 1. Ensure that you've downloaded VDDK 6.7 and have copied its files to- **C:\Program Files\VMware\VMware Virtual Disk Development Kit** on the appliance server.
 1. Ensure that no other software or application is using another version of the VDDK on the appliance.
 
 ## Project key-related error occurs during appliance registration
 
-**Error** 
+ You're having issues when you try to register the appliance by using the Azure Migrate project key copied from the project.
 
-You're having issues when you try to register the appliance by using the Azure Migrate project key copied from the project.
-
-**Remediation**
+### Remediation
 
 1. Ensure that you've copied the correct key from the project. On the **Azure Migrate: Discovery and Assessment** card in your project, select **Discover**. Then select **Manage Existing appliance** in step 1. Select the appliance name for which you previously generated a key from the dropdown menu. Copy the corresponding key.
 1. Ensure that you're pasting the key to the appliance of the right **cloud type** (Public/US Gov) and **appliance type** (VMware/Hyper-V/Physical or other). Check at the top of the appliance configuration manager to confirm the cloud and scenario type.
 
 ## "Failed to connect to the Azure Migrate project" error occurs during appliance registration
 
-**Error**
-
 After a successful sign-in with an Azure user account, the appliance registration step fails with the message, "Failed to connect to the Azure Migrate project. Check the error detail and follow the remediation steps by clicking Retry."
 
 This issue happens when the Azure user account that was used to sign in from the appliance configuration manager is different from the user account that was used to generate the Azure Migrate project key on the portal.
 
-**Remediation**
+### Remediation
 
 You have two options:
 
@@ -127,23 +111,19 @@ You have two options:
 
 ## "Azure Active Directory (AAD) operation failed with status Forbidden" error occurs during appliance registration
 
-**Error**
-
 You're unable to complete registration because of insufficient Azure Active Directory privileges and get the error "Azure Active Directory (AAD) operation failed with status Forbidden."
 
-**Remediation**
+### Remediation
 
 Ensure that you have the [required permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) to create and manage Azure Active Directory applications in Azure. You should have the **Application Developer** role *or* the user role with **User can register applications** allowed at the tenant level.
 
 ## "Forbidden to access Key Vault" error occurs during appliance registration
 
-**Error**
-
 The Azure Key Vault create or update operation failed for "{KeyVaultName}" because of the error "{KeyVaultErrorMessage}."
 
 This issue usually happens when the Azure user account used to register the appliance is different from the account used to generate the Azure Migrate project key on the portal (that is, when the key vault was created).
 
-**Remediation**
+### Remediation
 
 1. Ensure that the currently signed-in user account on the appliance has the required permissions on the key vault mentioned in the error message. The user account needs permissions as mentioned at [this website](./tutorial-discover-vmware.md#prepare-an-azure-user-account).
 1. Go to the key vault and ensure that your user account has an access policy with all the **Key**, **Secret**, and **Certificate** permissions assigned under **Key Vault Access Policy**. [Learn more](../key-vault/general/assign-access-policy-portal.md).
@@ -152,11 +132,9 @@ This issue usually happens when the Azure user account used to register the appl
 
 ## Unable to connect to vCenter Server during validation
 
-**Error**
-
 If you get this connection error, you might be unable to connect to vCenter Server *Servername*.com:9443. The error details indicate there's no endpoint listening at `https://\*servername*.com:9443/sdk` that can accept the message.
 
-**Remediation**
+### Remediation
 
 - Check whether you're running the latest version of the appliance. If you're not, upgrade the appliance to the [latest version](./migrate-appliance.md).
 - If the issue still occurs in the latest version, the appliance might be unable to resolve the specified vCenter Server name, or the specified port might be wrong. By default, if the port isn't specified, the collector tries to connect to port number 443.
@@ -168,11 +146,9 @@ If you get this connection error, you might be unable to connect to vCenter Serv
 
 ## Server credentials (domain) fails validation on the VMware appliance
 
-**Error**
-
 You get "Validation failed" for domain credentials added on the VMware appliance to perform software inventory and agentless dependency analysis.
 
-**Remediation**
+### Remediation
 
 1. Check that you've provided the correct domain name and credentials.
 1. Ensure that the domain is reachable from the appliance to validate the credentials. The appliance might be having line-of-sight issues, or the domain name might not be resolvable from the appliance server.
@@ -180,34 +156,28 @@ You get "Validation failed" for domain credentials added on the VMware appliance
 
 ## "Access is denied" error occurs when you connect to Hyper-V hosts or clusters during validation
 
-**Error**
-
 You're unable to validate the added Hyper-V host or cluster because of the error "Access is denied."
 
-**Remediation**
+### Remediation
 
 1. Ensure that you've met all the [prerequisites for the Hyper-V hosts](./migrate-support-matrix-hyper-v.md#hyper-v-host-requirements). 
 1. Check the steps on [this website](./tutorial-discover-hyper-v.md#prepare-hyper-v-hosts) on how to prepare the Hyper-V hosts manually or by using a provisioning PowerShell script.
 
 ## "The server does not support WS-Management Identify operations" error occurs during validation
 
-**Error**
-
 You're unable to validate Hyper-V clusters on the appliance because of the error "The server does not support WS-Management Identify operations. Skip the TestConnection part of the request and try again."
 
-**Remediation**
+### Remediation
 
 This error usually occurs when you've provided a proxy configuration on the appliance. The appliance connects to the clusters by using the short name for the cluster nodes, even if you've provided the FQDN of the node. Add the short name for the cluster nodes to the bypass proxy list on the appliance, the issue gets resolved, and validation of the Hyper-V cluster succeeds.
 
 ## "Can't connect to host or cluster" error occurs during validation on a Hyper-V appliance
 
-**Error**
-
-"Can't connect to a host or cluster because the server name can't be resolved. WinRM error code: 0x803381B9" might occur if the Azure DNS service for the appliance can't resolve the cluster or host name you provided.
+The error "Can't connect to a host or cluster because the server name can't be resolved. WinRM error code: 0x803381B9" might occur if the Azure DNS service for the appliance can't resolve the cluster or host name you provided.
 
 This issue usually happens when you've added the IP address of a host that can't be resolved by DNS. You might also see this error for hosts in a cluster. It indicates that the appliance can connect to the cluster, but the cluster returns host names that aren't FQDNs.
 
-**Remediation**
+### Remediation
 
 To resolve this error, update the hosts file on the appliance by adding a mapping of the IP address and host names.
 1. Open Notepad as an admin.
@@ -218,7 +188,7 @@ To resolve this error, update the hosts file on the appliance by adding a mappin
 
 ## "Unable to connect to server" error occurs during validation of physical servers
 
-**Remediation**
+### Remediation
 
 - Ensure there's connectivity from the appliance to the target server.
 - If it's a Linux server, ensure password-based authentication is enabled by following these steps:
@@ -233,15 +203,14 @@ To resolve this error, update the hosts file on the appliance by adding a mappin
 
 ## "Failed to fetch BIOS GUID" error occurs for the server during validation
 
-**Error**
-
 The validation of a physical server fails on the appliance with the error message "Failed to fetch BIOS GUID."
 
-**Remediation**
+### Remediation
 
 **Linux servers:**
 
-Connect to the target server that's failing validation. Run the following commands to see if it returns the BIOS GUID of the server.
+Connect to the target server that's failing validation. Run the following commands to see if it returns the BIOS GUID of the server:
+
 ````
 cat /sys/class/dmi/id/product_uuid
 dmidecode | grep -i uuid | awk '{print $2}'
@@ -253,7 +222,8 @@ ssh <username>@<servername>
 
 **Windows servers:**
 
-Run the following code in PowerShell from the appliance server for the target server that's failing validation to see if it returns the BIOS GUID of the server.
+Run the following code in PowerShell from the appliance server for the target server that's failing validation to see if it returns the BIOS GUID of the server:
+
 ````
 [CmdletBinding()]
 Param(
@@ -283,11 +253,9 @@ When you run the preceding code, you need to provide the hostname of the target 
 
 ## "No suitable authentication method found" error occurs for the server during validation
 
-**Error**
-
 You get the error "No suitable authentication method found" when you try to validate a Linux server through the physical appliance.
 
-**Remediation**
+### Remediation
 
 Ensure password-based authentication is enabled on the Linux server by following these steps:
 
@@ -297,17 +265,16 @@ Ensure password-based authentication is enabled on the Linux server by following
 
 ## "Access is denied" error occurs when you connect to physical servers during validation
 
-**Error**
-
 You get the error "WS-Management service cannot process the request. The WMI service returned an access denied error" when you try to validate a Windows server through the physical appliance.
 
-**Remediation**
+### Remediation
 
 - If you get this error, make sure that the user account provided (domain/local) on the appliance configuration manager was added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users.
 - If the Remote Management Users group isn't present, add the user account to the group WinRMRemoteWMIUsers_.
-- You can also check if the WS-Management protocol is enabled on the server by running the following command in the command prompt of the target server.
+- You can also check if the WS-Management protocol is enabled on the server by running the following command in the command prompt of the target server:
     
     ```` winrm qc ````
+
 - If you're still facing the issue, make sure that the user account has access permissions to CIMV2 Namespace and sub-namespaces in the WMI Control Panel. You can set the access by following these steps:
 
     1. Go to the server that's failing validation on the appliance.
@@ -328,13 +295,11 @@ You get the error "WS-Management service cannot process the request. The WMI ser
 
 ## Appliance is disconnected
 
-**Error**
-
 You get an "Appliance is disconnected" error message when you try to enable replication on a few VMware servers from the portal.
 
 This error can occur if the appliance is in a shut-down state or the DRA service on the appliance can't communicate with Azure.
 
-**Remediation**
+### Remediation
 
  1. Go to the appliance configuration manager, and rerun prerequisites to see the status of the DRA service under **View appliance services**. 
  1. If the service isn't running, stop and restart the service from the command prompt by using the following commands:
