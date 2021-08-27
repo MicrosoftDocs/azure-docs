@@ -60,8 +60,6 @@
     - name: Use container instances
       maintainContext: true
       href: ../../cognitive-services/containers/azure-container-instance-recipe.md
-    - name: All Cognitive Services containers documentation
-      href: ../../cognitive-services/containers/index.yml
       maintainContext: true
   - name: Back up and recover models
     href: disaster-recovery.md
