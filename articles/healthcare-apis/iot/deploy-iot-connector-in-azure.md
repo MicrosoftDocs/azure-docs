@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/25/2021
+ms.date: 08/27/2021
 ms.author: rabhaiya
 ---
 
@@ -29,19 +29,17 @@ It's important that you have the following prerequisites completed before you be
 
 ## Deploy IoT Connector 
 
-1. Sign in the [Azure portal](https://portal.azure.com), and then use the **Search** bar to find your resource group name.
+1. Sign in the [Azure portal](https://portal.azure.com), and then enter your Healthcare APIs workspace resource name in the **Search** bar field.
+ 
+   [ ![Screenshot of entering the workspace resource name in the search bar field.](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
 
    For information more about managing resource groups in the Azure portal, see [Manage resource groups](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
-1. Select the name of your Healthcare APIs workspace.
-
-   [ ![Select workspace resource group.](media/select-workspace-resource-group.png) ](media/select-workspace-resource-group.png#lightbox)
-
-3. Select the **IoT Connector** blade.
+2. Select the **IoT Connector** blade.
 
    [ ![IoT Connector.](media/iot-connector-blade.png) ](media/iot-connector-blade.png#lightbox)
 
-4. Next, select **Add IoT Connector**.
+3. Next, select **Add IoT Connector**.
 
    [ ![Add IoT Connector](media/add-iot-connector.png) ](media/add-iot-connector.png#lightbox)
 
@@ -81,7 +79,7 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
     For more information about Event Hubs Namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
 
-5. (Optional) Select **Next: Device mapping >**. 
+5. Select **Next: Device mapping >**. 
     
     Proceed to the next section about entering device mapping properties and for information the Device Mapper tool. Otherwise, proceed to the section [Configure Destination](#configure-destination).
   
@@ -158,6 +156,69 @@ Under the **Tags** tab, enter the tag properties associated with the IoT Connect
    The newly deployed IoT Connector will display inside the Azure **Resource group** list of resources.
 
    [ ![Deployed IoT Connector listed in the Azure Recent resources list.](media/azure-resources-iot-connector-deployed.png) ](media/azure-resources-iot-connector-deployed.png#lightbox)  
+
+    Now that your IoT Connector has been deployed, we're going to walk through the steps of assigning permissions to access the Event Hub and the FHIR service. 
+
+## Granting IoT Connector access
+
+To ensure that your IoT Connector works properly, it must have granted access permissions to the Event Hub and FHIR service. 
+
+### Accessing the IoT Connector from the Event Hub
+
+1. In the **Azure Resource group** list, select the name of your **Event Hubs Namespace**.
+
+2. Select the **Access control (IAM)** blade, and then select **+ Add**.   
+
+   [ ![Screenshot of access control of event hubs namespace.](media/access-control-blade-add.png) ](media/access-control-blade-add.png#lightbox)
+
+3. Select **Add role assignment**.
+
+   [ ![Screenshot of add role assignment.](media/event-hub-add-role-assignment.png) ](media/event-hub-add-role-assignment.png#lightbox)
+ 
+4. Select the **Role**, and then select **Azure Event Hubs Data Receiver**.
+
+   [ ![Screenshot of add role assignment required fields.](media/event-hub-add-role-assignment-fields.png) ](media/event-hub-add-role-assignment-fields.png#lightbox)
+
+
+   The Azure Event Hubs Data Receiver role allows the IoT Connector that's being assigned this role to receive data from this Event Hub.
+
+5. Select **Assign access to**, and keep the default option selected **User, group, or service principal**.
+
+6. In the **Select** field, enter the security principal for your IoT Connector.  
+
+   `<your workspace name>/iotconnectors/<your IoT connector name>`
+ 
+   When you deploy an IoT Connector, it creates a managed identity. The managed identify name is a concatenation of the workspace name, resource type (that's the IoT Connector), and the name of the IoT Connector.
+
+7. Select **Save**.
+
+   After the role assignment has been successfully added to the Event Hub, a notification will display a green check mark with the text "Add Role assignment."  This means that the IoT Connector can now read from the Event Hub.
+
+   [ ![Screenshot of added role assignment message.](media/event-hub-added-role-assignment.png) ](media/event-hub-added-role-assignment.png#lightbox)  
+
+### Accessing the IoT Connector from the FHIR service
+
+1. In the **Azure Resource group list**, select the name of your **Healthcare APIs Workspace**.
+
+2. Select the **FHIR services** blade, and then select the name of your FHIR service.
+ 
+3. Select the **Access control (IAM)** blade, and then select and then select **+ Add**. 
+
+4. Select **Add role assignment**.
+
+   [ ![Screenshot of add role assignment for the FHIR service.](media/fhir-service-add-role-assignment.png) ](media/fhir-service-add-role-assignment.png#lightbox)
+
+5. Select the **Role**, and then select **FHIR Data Writer**.
+
+   The FHIR Data Writer role provides read and write access that the IoT Connector uses to function. Because the IoT Connector is deployed as a separate resource, the FHIR service will receive requests from the IoT Connector. If the FHIR service doesn’t know who's making the request, or if it doesn't have the assigned role, it will deny the request as unauthorized.
+
+6. In the **Select**, enter the security principal for your IoT Connector.  
+
+    `<your workspace name>/iotconnectors/<your IoT connector name>`
+
+7. Select **Save**.
+
+   [ ![Screenshot of FHIR service added role assignment message.](media/fhir-service-added-role-asignment.png) ](media/fhir-service-added-role-asignment.png#lightbox)
 
 ## Next steps
 
