@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the capabilities and purpose of Azure Digital Twins Explorer
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/28/2021
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 

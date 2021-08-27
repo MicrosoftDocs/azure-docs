@@ -8,7 +8,7 @@ ms.subservice: core
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 07/27/2021
+ms.date: 08/17/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
 ---
@@ -286,10 +286,13 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
 
     ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
 
-1. On the __Members__ tab, select the managed identity with the same name as your Azure Machine Learning workspace.
+1. On the __Members__ tab, select __User, group, or service principal__ in the __Assign access to__ area and then select __+ Select members__. In the __Select members__ dialog, enter the name as your Azure Machine Learning workspace. Select the service principal for the workspace, and then use the __Select__ button.
+
+    :::image type="content" source="./media/tutorial-create-secure-workspace/studio-select-service-principal.png" alt-text="Screenshot of selecting the service principal":::
+
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-1. When using an Azure Storage Account that has a private endpoint, add the workspace-managed identity as a __Reader__ for the storage private endpoint(s). From the Azure portal, select your storage account and then select __Networking__. Next, select __Private endpoint connections__.
+1. When using an Azure Storage Account that has a private endpoint, add the service principal for the workspace as a __Reader__ for the storage private endpoint(s). From the Azure portal, select your storage account and then select __Networking__. Next, select __Private endpoint connections__.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/storage-private-endpoint-select.png" alt-text="Screenshot of storage private endpoints":::
 
@@ -308,7 +311,8 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
 
         ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
 
-    1. On the __Members__ tab, select the managed identity with the same name as your Azure Machine Learning workspace.
+    1. On the __Members__ tab, select __User, group, or service principal__ in the __Assign access to__ area and then select __+ Select members__. In the __Select members__ dialog, enter the name as your Azure Machine Learning workspace. Select the service principal for the workspace, and then use the __Select__ button.
+
     1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ## Connect to the workspace

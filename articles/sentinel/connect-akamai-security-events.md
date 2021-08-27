@@ -55,7 +55,7 @@ To get its logs into Azure Sentinel, configure your Akamai Security Events colle
         - Log format – CEF
         - Log types – all available
 
-    1. Under **3. Validate connection** - Verify data ingestion by copying the command on the connector page and running it on your log forwarder. See [STEP 3: Validate connectivity](connect-cef-verify.md) in the Azure Sentinel documentation for more detailed instructions and explanation.
+    1. Under **3. Validate connection** - Verify data ingestion by copying the command on the connector page and running it on your log forwarder. See [Validate CEF connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity) in the Azure Sentinel documentation for more detailed instructions and explanation.
 
         It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
@@ -179,4 +179,4 @@ In this document, you learned how to connect Akamai Security Events to Azure Sen
 
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
-- [Use workbooks](/azure/sentinel/articles/sentinel/monitor-your-data.md) to monitor your data.
+- [Use workbooks](monitor-your-data.md) to monitor your data.

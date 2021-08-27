@@ -295,7 +295,7 @@ You will also have to follow up with your connectivity provider to ensure that t
 
 ### How do I change the bandwidth of an ExpressRoute circuit?
 
-You can update the bandwidth of the ExpressRoute circuit using the REST API or PowerShell cmdlet.
+You can update the bandwidth of the ExpressRoute circuit using the Azure Portal, REST API, PowerShell, or Azure CLI.
 
 ### I received a notification about maintenance on my ExpressRoute circuit. What is the technical impact of this maintenance?
 
