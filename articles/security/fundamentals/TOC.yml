@@ -12,10 +12,8 @@
 
 - name: Detect and mitigate threats
   items:
-  -name: Ransomware
-   items:
-   - name: Backup and restore plan
-     href: backup-plan-to-protect-against-ransomware.md
+  - name: Backup and restore plan for ransomware
+    href: backup-plan-to-protect-against-ransomware.md
   - name: Recovering from systemic identity compromise
     href: recover-from-identity-compromise.md
   - name: Threat protection
