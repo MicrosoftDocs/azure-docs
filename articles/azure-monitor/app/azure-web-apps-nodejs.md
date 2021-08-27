@@ -54,7 +54,7 @@ To enable client-side monitoring for your Node.js application, you need to [manu
 
 In order to enable telemetry collection with Application Insights, only the Application settings need to be set:
 
-   ![App Service Application Settings with available Application Insights settings](./media/azure-web-apps/application-settings-nodejs.png)
+![App Service Application Settings with available Application Insights settings](./media/azure-web-apps/application-settings-nodejs.png)
 
 ### Application settings definitions
 
@@ -64,7 +64,8 @@ In order to enable telemetry collection with Application Insights, only the Appl
 |XDT_MicrosoftApplicationInsights_NodeJS |  Flag to control if node.js Agent is included. | 0 or 1 only applicable in Windows. |
 
 
-[!INCLUDE [azure-web-apps-arm-automation](./includes/azure-web-apps-arm-automation.md)]
+[!INCLUDE [azure-web-apps-arm-automation](../../../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
+
 
 
 ## Troubleshooting
@@ -138,11 +139,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 ---
 
 
-[!INCLUDE [azure-web-apps-footer](./includes/azure-web-apps-footer.md)]
-
-## Release notes
-
-For the latest updates and bug fixes [consult the release notes](./web-app-extension-release-notes.md).
+[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot)]
 
 ## Next steps
 * [Run the profiler on your live app](./profiler.md).

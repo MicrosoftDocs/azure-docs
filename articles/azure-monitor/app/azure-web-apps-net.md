@@ -89,7 +89,7 @@ To disable client-side monitoring either remove the associated key value pair fr
 
 In order to enable telemetry collection with Application Insights, only the Application settings need to be set:
 
-   ![App Service Application Settings with available Application Insights settings](./media/azure-web-apps/application-settings.png)
+![App Service Application Settings with available Application Insights settings](./media/azure-web-apps/application-settings.png)
 
 ### Application settings definitions
 
@@ -100,7 +100,8 @@ In order to enable telemetry collection with Application Insights, only the Appl
 |InstrumentationEngine_EXTENSION_VERSION | Controls if the binary-rewrite engine `InstrumentationEngine` will be turned on. This setting has performance implications and impacts cold start/startup time. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controls if SQL & Azure table text will be captured along with the dependency calls. Performance warning: application cold start up time will be affected. This setting requires the `InstrumentationEngine`. | `~1` |
 
-[!INCLUDE [azure-web-apps-arm-automation](./includes/azure-web-apps-arm-automation.md)]
+[!INCLUDE [azure-web-apps-arm-automation](../../../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
+
 
 ### Enabling through PowerShell
 
@@ -197,12 +198,7 @@ This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set 
 
 For the latest information on the Application Insights agent/extension, check out the [release notes](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
-
-[!INCLUDE [azure-web-apps-footer](./includes/azure-web-apps-footer.md)]
-
-## Release notes
-
-For the latest updates and bug fixes [consult the release notes](./web-app-extension-release-notes.md).
+[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot)]
 
 ## Next steps
 * [Run the profiler on your live app](./profiler.md).
