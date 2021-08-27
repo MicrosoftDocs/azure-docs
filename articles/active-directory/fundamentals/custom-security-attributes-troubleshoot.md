@@ -47,7 +47,7 @@ You don't have permissions to add an attribute set. To add an attributes set and
 
 Open **Azure Active Directory** > **Users** > *user name* > **Assigned roles** and check if the Attribute Definition Administrator role is assigned to you. If not, ask your Azure AD administrator to you assign you this role. For more information, see [Assign Azure AD roles to users](../roles/manage-roles-portal.md).
 
-## Symptom - You get an error when you try to save a custom security attribute assignment
+## Symptom - Error when you try to save a custom security attribute assignment
 
 **Cause**
 
@@ -59,7 +59,7 @@ Make sure that you are assigned the following Azure AD built-in role:
 
 - Attribute Assignment Administrator
 
-## Symptom - You cannot filter custom security attributes for users or enterprise applications
+## Symptom - Cannot filter custom security attributes for users or applications
 
 **Cause 1**
 
@@ -100,13 +100,13 @@ Currently, you can only activate and deactivate custom security attribute defini
 
 Deactivate the custom security attributes you no longer need. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md).
 
-## Symptom - You cannot make a role assignment at an attribute set scope using PIM
+## Symptom - Cannot add a role assignment at an attribute set scope using PIM
 
-When you try to make an eligible Azure AD role assignment using [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), you cannot set the scope to an attribute set.
+When you try to add an eligible Azure AD role assignment using [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), you cannot set the scope to an attribute set.
 
 **Cause**
 
-PIM currently does not support making an eligible Azure AD role assignment at an attribute set scope.
+PIM currently does not support adding an eligible Azure AD role assignment at an attribute set scope.
 
 
 ## Next steps
