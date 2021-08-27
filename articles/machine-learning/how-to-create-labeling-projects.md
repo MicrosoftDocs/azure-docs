@@ -1,7 +1,7 @@
 ---
 title: Image labeling and text labeling
 titleSuffix: Azure Machine Learning
-description: Learn how to create and run projects to label images or label text. Use ML assisted labeling, or human in the loop labeling, to aid with the task.
+description: Use our data labeling tool to label images or label text. Use ML assisted labeling, or human in the loop labeling, to aid with the task.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
@@ -13,7 +13,7 @@ ms.custom: data4ml
 
 # Create a data labeling project and export labels
 
-Learn how to create and run projects to label images or label text data in Azure Machine Learning.  Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
+Learn how to create and run data labeling projects to label images or label text data in Azure Machine Learning.  Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
 
 
 ## Data labeling capabilities
