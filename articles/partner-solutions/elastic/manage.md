@@ -69,6 +69,12 @@ In the destination details section, check the option to send to partner solution
 
 :::image type="content" source="media/manage/diagnostic-settings.png" alt-text="Configure diagnostic settings":::
 
+## Private link management
+
+You can limit network access to a private link. To enable private link access, select **Configuration** in the left navigation. Under **Networking**, select **Private Link** and the name of the private link.
+
+:::image type="content" source="media/manage/private-link.png" alt-text="Screenshot of enabling private link":::
+
 ## Delete Elastic resource
 
 When you no longer need your Elastic resource, delete the resource in the Azure portal.
