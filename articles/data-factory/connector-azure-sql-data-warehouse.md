@@ -49,7 +49,7 @@ For Copy activity, this Azure Synapse Analytics connector supports these functio
 
 ## Create an Azure Synapse Analytics linked service using UI
 
-Use the following steps to create an Azure Synapse Analytics linked service in the Azure Portal UI.
+Use the following steps to create an Azure Synapse Analytics linked service in the Azure portal UI.
 
 1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
 
