@@ -17,12 +17,10 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 > - [Live Metrics](live-stream.md)
 > - Logging API (console logs, logging libraries, etc.)
 > - Auto-capture of unhandled exceptions
-> - [Profiler](profiler-overview.md)
-> - [Snapshot Debugger](snapshot-debugger.md)
 > - Offline disk storage
 > - [AAD Authentication](azure-ad-authentication.md)
 >
-> Those who require a full-feature experience should use the existing Application Insights SDKs until the OpenTelemetry-based offering matures.
+> Those who require a full-feature experience should use the existing [Application Insights Python-OpenCensus SDK](opencensus-python.md) until the OpenTelemetry-based offering matures.
 
 > [!WARNING]
 > Enabling sampling will result in broken traces if used alongside the existing Application Insights SDKs, and it will make standard and log-based metrics extremely inaccurate which will adversely impact all Application Insights experiences.
