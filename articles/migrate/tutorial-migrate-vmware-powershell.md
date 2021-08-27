@@ -343,8 +343,8 @@ Network Interface | Optional | Specify the name of the Azure VM to be created by
 Availability Zone | Optional | To use availability zones, specify the availability zone value for [`TargetAvailabilityZone`] parameter. 
 Availability Set | Optional | To use availability set, specify the availability set ID for [`TargetAvailabilitySet`] parameter. 
 Tags | Optional | For updating tags, use the following parameters [`UpdateTag`] or [`UpdateVMTag`], [`UpdateDiskTag`], [`UpdateNicTag`], and type of update tag operation [`UpdateTagOperation`] or [`UpdateVMTagOperation`], [`UpdateDiskTagOperation`], [`UpdateNicTagOperation`].   The update tag operation takes the following values – Merge, Delete, and Replace. <br/> Use [`UpdateTag`] to update all tags across virtual machines, disks, and NICs. <br/> Use [`UpdateVMTag`] for updating virtual machine tags. <br/> Use [`UpdateDiskTag`] for updating disk tags. <br/> Use [`UpdateNicTag`] for updating NIC tags. <br/> Use [`UpdateTagOperation`] to update the operation for all tags across virtual machines, disks, and NICs. <br/>  Use [`UpdateVMTagOperation`] for updating virtual machine tags. <br/> Use [`UpdateDiskTagOperation`] for updating disk tags. <br/> Use [`UpdateNicTagOperation`] for updating NIC tags. <br/> <br/> The *replace* option replaces the entire set of existing tags with a new set. <br/> The *merge* option allows adding tags with new names and updating the values of tags with existing names. <br/> The *delete* option allows selectively deleting tags based on given names or name/value pairs. 
-Disk(s) | Optional | For the OS disk: <br/> Update the name of the OS disk by using the [`TargetDiskName`] parameter.  <br/><br/> For updating multiple disks: <br/>  Use [Set-AzMigrateDiskMapping](/powershell/module/az.migrate/set-azmigratediskmapping) to set the disk names to a variable $DiskMapping and then use the [`DiskToUpdate`] parameter and pass along the variable. <br/> <br/> **Note:** The disk ID to be used in [Set-AzMigrateDiskMapping](/powershell/module/az.migrate/set-azmigratediskmapping) is the unique identifier (UUID) property for the disk retrieved using the [Get-AzMigrateDiscoveredServer.](/powershell/module/az.migrate/get-azmigratediscoveredserver) 
-NIC(s) name | Optional | Use [New-AzMigrateNicMapping](/powershell/module/az.migrate/new-azmigratenicmapping) to set the NIC names to a variable *$NICMapping* and then use the NICToUpdate parameter and pass the variable. <br> <br/> View NIC details of the replicating server: <br/> Write-Output $ReplicatingServer.ProviderSpecificDetail.VMNic <br/><br/> 
+Disk(s) | Optional | For the OS disk: <br/> Update the name of the OS disk by using the [`TargetDiskName`] parameter.  <br/><br/> For updating multiple disks: <br/>  Use [Set-AzMigrateDiskMapping](/powershell/module/az.migrate/set-azmigratediskmapping) to set the disk names to a variable *$DiskMapping* and then use the [`DiskToUpdate`] parameter and pass along the variable. <br/> <br/> **Note:** The disk ID to be used in [Set-AzMigrateDiskMapping](/powershell/module/az.migrate/set-azmigratediskmapping) is the unique identifier (UUID) property for the disk retrieved using the [Get-AzMigrateDiscoveredServer](/powershell/module/az.migrate/get-azmigratediscoveredserver) cmdlet. 
+NIC(s) name | Optional | Use [New-AzMigrateNicMapping](/powershell/module/az.migrate/new-azmigratenicmapping) to set the NIC names to a variable *$NICMapping* and then use the [`NICToUpdate`] parameter and pass the variable.
 
 The [Get-AzMigrateServerReplication](/powershell/module/az.migrate/get-azmigrateserverreplication) cmdlet returns a job which can be tracked for monitoring the status of the operation.
 
@@ -357,7 +357,12 @@ set-azmigrateserverreplication UpdateTag $UpdateTag UpdateTagOperation Merge/Rep
 # Update virtual machines tags
 set-azmigrateserverreplication UpdateVMTag $UpdateVMtag UpdateVMTagOperation Merge/Replace/Delete 
 ```
+In the following example, we'll customize the disk name
 
+```azurepowershell-interactive
+# Customize disk name
+set-AzMigrateServerReplication InputObject $ReplicatingServer DiskToUpdate $DiskMapping 
+ ```
 
 ```azurepowershell-interactive
 # List replicating VMs and filter the result for selecting a replicating VM. This cmdlet will not return all properties of the replicating VM.
@@ -372,7 +377,7 @@ $ReplicatingServer = Get-AzMigrateServerReplication -TargetObjectID $Replicating
 Write-Output $ReplicatingServer.ProviderSpecificDetail.VMNic
 ```
 
-In the following example, we'll update the NIC configuration by making the first NIC as primary and assigning a static IP to it. we'll discard the second NIC for migration and update the target VM name and size.
+In the following example, we'll update the NIC configuration by making the first NIC as primary and assigning a static IP to it. we'll discard the second NIC for migration, update the target VM name & size, and customizing NIC names.
 
 ```azurepowershell-interactive
 # Specify the NIC properties to be updated for a replicating VM.
