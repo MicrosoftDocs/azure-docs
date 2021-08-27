@@ -26,7 +26,7 @@ Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-c
 
 # [PowerShell](#tab/azure-powershell)
 Make sure that you have installed latest [Azure PowerShell version](/powershell/azure/install-az-ps), and you are signed in to an Azure account in with Connect-AzAccount
-
+---
 
 ## Create an empty data disk with a tier higher than the baseline tier
 # [Azure CLI](#tab/azure-cli)
