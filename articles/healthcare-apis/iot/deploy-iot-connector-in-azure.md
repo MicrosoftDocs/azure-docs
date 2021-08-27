@@ -97,7 +97,7 @@ Under the **Destination** tab, enter the destination properties associated with 
 
 1. Enter the Azure Resource ID of the **FHIR Server**.
 
-   The **FHIR Server** name (also known as the **FHIR service**) is located by using the **Search** bar to go to the FHIR service that you've deployed and by selecting the Properties blade. Copy and paste the **Resource ID** string to the **FHIR Server** text field.
+   The **FHIR Server** name (also known as the **FHIR service**) is located by using the **Search** bar to go to the FHIR service that you've deployed and by selecting the **Properties** blade. Copy and paste the **Resource ID** string to the **FHIR Server** text field.
 
     [ ![Enter FHIR server name.](media/fhir-service-resource-id.png) ](media/fhir-service-resource-id.png#lightbox) 
 
