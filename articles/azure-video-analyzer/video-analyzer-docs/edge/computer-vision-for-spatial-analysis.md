@@ -77,7 +77,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 
    #### [Azure VM with GPU](#tab/virtual-machine)
 
-   You can utilize an [NC series VM](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that has one K80 GPU.
+   You can utilize an [NC series VM](../../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that has one K80 GPU.
 
    1. Connect to your VM and in the terminal type in the following command:
 
