@@ -293,7 +293,7 @@ In this section, you'll SSH to the virtual machines through the inbound NAT rule
 
 3. In the **Overview** page of **myLoadBalancer**, make note of the **Public IP address**.  In this example, it's **20.190.2.163**.
 
-    :::image type="content" source="./media/tutorial-load-balancer-port-forwarding-portal/get-public-ip.png" alt-text="Retrieve public IP in Azure portal.":::
+    :::image type="content" source="./media/tutorial-load-balancer-port-forwarding-portal/get-public-ip.png" alt-text="Screenshot of public IP in Azure portal.":::
 
 4. If you're using a Mac or Linux computer, open a Bash prompt. If you're  using a Windows computer, open a PowerShell prompt.
 
