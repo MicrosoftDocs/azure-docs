@@ -141,7 +141,7 @@ We recommend that you _not_ call direct methods in parallel. Call them sequentia
 
 ### Collect logs for submitting a support ticket
 
-When self-guided troubleshooting steps don't resolve your problem, go the Azure portal and [open a support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+When self-guided troubleshooting steps don't resolve your problem, go the Azure portal and [open a support ticket](../../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 > [!WARNING]
 > The logs may contain personally identifiable information (PII) such as your IP address. All local copies of the logs will be deleted as soon as we complete examining them and close the support ticket.
