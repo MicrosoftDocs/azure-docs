@@ -100,7 +100,7 @@ These settings all have a default value that you can customize.
 
 ## Start a run
 
-After all the required configurations are done, you can start your automated run. You can choose **Create run**, which starts your run directly, without code. Alternatively, if you prefer code, you can select the **Open in notebook** option which allows you to see the code that creates the run and then run the notebook.
+After all the required configurations are done, you can start your automated run. You can choose to create a run directly by selecting **Create run** - this starts the run without code. Alternatively, if you prefer code, you can select **Open in notebook** - this opens a notebook containing the code that creates the run so you can view the code and start the run yourself.
 
 ![Screenshot of 'create run' or 'open in notebook' options.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00c2.png)
 
@@ -115,9 +115,11 @@ To start your automated machine learning run directly, select **Create Run**. Yo
 
 ### Create a run with a notebook
 
-To generate a notebook, select **Open In Notebook**. Then select **Run all**. This also gives you an opportunity to add settings to your automated machine learning run.
+To generate a notebook, select **Open In Notebook**. This gives you an opportunity to add settings or otherwise modify the code for your automated machine learning run. When you're ready to run the code, select **Run all**.
 
 ![Screenshot of a notebook, with Run all highlighted.](media/tutorial-automl-wizard/tutorial-automl-wizard-configure-run-00e.png)
+
+## Monitor the run
 
 After you've successfully submitted the run, you see a link to the experiment run in the Azure Machine Learning workspace in the notebook output. Select the link to monitor your automated run in Azure Machine Learning.
 
