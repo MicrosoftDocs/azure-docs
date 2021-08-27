@@ -1,6 +1,6 @@
 ---
 title: Using Azure Policy to enforce Azure Active Directory only authentication
-description: This article guides you through using Azure Policy to enforce Azure Active Directory (Azure AD) only authentication with Azure SQL Database and Azure SQL Managed Instance.
+description: This article guides you through using Azure Policy to enforce Azure Active Directory (Azure AD) only authentication with Azure SQL Database and Azure SQL Managed Instance
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 ms.service: sql-db-mi
 ms.subservice: security
