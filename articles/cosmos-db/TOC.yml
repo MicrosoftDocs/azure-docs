@@ -1447,7 +1447,9 @@
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Analytical store and private endpoints
           href: analytical-store-private-endpoints.md
-        - name: Query with Azure Synapse Spark
+        - name: Query with Azure Synapse Spark 3
+          href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark3.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Query with Azure Synapse Spark 2
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Query with serverless SQL pool
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
