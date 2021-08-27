@@ -167,7 +167,7 @@ You can read from Azure SQL Database using a table or a SQL query. If you are ex
 
 ### Azure Synapse Analytics sources
 
-When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows the service to read from Azure Synapse using ```Staging```, which greatly improves read performance. Enabling ```Staging``` requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
+When using Azure Synapse Analytics, a setting called **Enable staging** exists in the source options. This allows the service to read from Azure Synapse using ```Staging```, which greatly improves read performance by using the [Synapse COPY statement](/sql/t-sql/statements/copy-into-transact-sql.md) command for the most performant bulk loading capability. Enabling ```Staging``` requires you to specify an Azure Blob Storage or Azure Data Lake Storage gen2 staging location in the data flow activity settings.
 
 ![Enable staging](media/data-flow/enable-staging.png "Enable staging")
 
