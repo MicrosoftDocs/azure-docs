@@ -12,4 +12,6 @@ ms.author: pgibson
 
 Both Azure Monitor and Azure Application Insights helps you maximize the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 The OSM AKS add-on will have deep integrations into both of these Azure services, and provide a seamless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. For more information on how to enable and configure these services for the OSM AKS add-on, visit the [Azure Monitor for OSM](https://aka.ms/azmon/osmpreview) page for more information.

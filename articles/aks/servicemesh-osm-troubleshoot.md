@@ -12,6 +12,8 @@ ms.author: pgibson
 
 When you deploy the OSM AKS add-on, you could possibly experience problems associated with configuration of the service mesh. The following guide will assist you on how to troubleshoot errors and resolve common problems.
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## Verifying and Troubleshooting OSM components
 
 ### Check OSM Controller Deployment
