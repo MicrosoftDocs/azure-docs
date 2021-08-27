@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/14/2021
+ms.date: 07/31/2021
 ms.author: helohr
 ---
 # Troubleshooting automatic migration

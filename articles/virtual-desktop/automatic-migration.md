@@ -3,7 +3,7 @@ title: Migrate automatically from Azure Virtual Desktop (classic) (preview) - Az
 description: How to migrate automatically from Azure Virtual Desktop (classic) to Azure Virtual Desktop by using the migration module.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 08/31/2021
 ms.author: helohr
 manager: femila
 ---
