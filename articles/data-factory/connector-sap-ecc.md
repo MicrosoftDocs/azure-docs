@@ -64,7 +64,33 @@ To use this SAP ECC connector, you need to expose the SAP ECC entities via OData
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties that are used to define the Data Factory entities specific to the SAP ECC connector.
+## Create a linked service to SAP ECC using UI
+
+Use the following steps to create a linked service to SAP ECC in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for SAP and select the SAP ECC connector.
+
+    :::image type="content" source="media/connector-sap-ecc/sap-ecc-connector.png" alt-text="Select the SAP ECC connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-sap-ecc/configure-sap-ecc-linked-service.png" alt-text="Configure a linked service to SAP ECC.":::
+
+## Connector configuration details
+
+The following sections provide details about properties that are used to define the entities specific to the SAP ECC connector.
 
 ## Linked service properties
 
