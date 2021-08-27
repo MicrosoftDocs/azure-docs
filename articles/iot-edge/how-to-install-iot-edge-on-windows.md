@@ -2,7 +2,7 @@
 title: Install Azure IoT Edge for Linux on Windows | Microsoft Docs
 description: Azure IoT Edge installation instructions on Windows devices
 author: kgremban
-manager: philmea
+
 ms.reviewer: fcabrera
 ms.service: iot-edge
 services: iot-edge

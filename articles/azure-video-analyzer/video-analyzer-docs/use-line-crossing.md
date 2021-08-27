@@ -108,7 +108,7 @@ Open the URL for the pipeline topology in a browser, and examine the settings fo
    }
 ```
 
-Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. If the live video is at a frame rate of 30 frames/sec, that means at least two frames in every second should be sent to the HTTP server for inferencing. Your AI model has a maximum FPS for processing, which is the highest value that `maximumSamplesPerSecond` should be set to.
+Here, `skipSamplesWithoutAnnotation` is set to `false` because the extension node needs to pass through all frames, whether or not they have inference results, to the downstream object tracker node. The object tracker is capable of tracking objects over 15 frames, approximately. Your AI model has a maximum FPS for processing, which is the highest value that `maximumSamplesPerSecond` should be set to.
 
 Also look at the line crossing node parameter placeholders `linecrossingName` and `lineCoordinates`. We have provided default values for these parameters but you overwrite them using the operations.json file. Look at how we pass other parameters from the operations.json file to a topology (i.e. rtsp url).  
 

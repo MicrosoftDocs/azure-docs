@@ -12,6 +12,8 @@ ms.custom: devx-track-azurepowershell
 ---
 # Create an Azure Image Builder template 
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 This is the basic template format:
@@ -247,6 +249,8 @@ If you do not specify a buildTimeoutInMinutes value, or set it to 0, this will u
 
 If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, do not set it too high because you might have to wait for it to timeout before seeing an error. 
 
+> [!NOTE]
+> If you don't set the value to 0, the minimum supported value is 6 minutes. Using values 1 through 5 will fail.
 
 ## Properties: customize
 

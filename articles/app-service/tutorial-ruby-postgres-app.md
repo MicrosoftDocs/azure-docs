@@ -42,21 +42,21 @@ In this step, you create a database in your local Postgres server for your use i
 
 ### Connect to local Postgres server
 
-Open the terminal window and run `psql` to connect to your local Postgres server.
+1. Open the terminal window and run `psql` to connect to your local Postgres server.
 
-```bash
-sudo -u postgres psql
-```
+    ```bash
+    sudo -u postgres psql
+    ```
 
-If your connection is successful, your Postgres database is running. If not, make sure that your local Postgres database is started by following the steps at [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
+    If your connection is successful, your Postgres database is running. If not, make sure that your local Postgres database is started by following the steps at [Downloads - PostgreSQL Core Distribution](https://www.postgresql.org/download/).
 
-Type `\q` to exit the Postgres client. 
+1. Type `\q` to exit the Postgres client. 
 
-Create a Postgres user that can create databases by running the following command, using your signed-in Linux username.
+1. Create a Postgres user that can create databases by running the following command, using your signed-in Linux username.
 
-```bash
-sudo -u postgres createuser -d <signed-in-user>
-```
+    ```bash
+    sudo -u postgres createuser -d <signed-in-user>
+    ```
 
 <a name="step2"></a>
 

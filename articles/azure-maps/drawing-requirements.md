@@ -7,7 +7,7 @@ ms.date: 07/02/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philMea
+
 ---
 
 # Drawing package requirements

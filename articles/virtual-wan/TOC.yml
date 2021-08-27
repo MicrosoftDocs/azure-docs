@@ -129,8 +129,10 @@
       href: nat-rules-vpn-gateway.md
   - name: User VPN (point-to-site)
     items:
-    - name: Create a User VPN connection
+    - name: Create User VPN
       href: virtual-wan-point-to-site-portal.md
+    - name: Create User VPN - Azure AD authentication
+      href: virtual-wan-point-to-site-azure-ad.md
     - name: Generate certificates
       href: certificates-point-to-site.md
     - name: Configure Azure AD tenant
@@ -151,7 +153,7 @@
           items:
             - name: Windows 10
               href: openvpn-azure-ad-client.md
-            - name: macOS - Preview
+            - name: macOS
               href: openvpn-azure-ad-client-mac.md
     - name: Configure Always-On tunnels
       items:
@@ -173,6 +175,8 @@
       href: how-to-virtual-hub-routing.md
     - name: View virtual hub effective routes
       href: effective-routes-virtual-hub.md
+    - name: How to configure routing intent and policies
+      href: how-to-routing-policies.md
     - name: Route traffic from a virtual hub to an NVA (legacy)
       items:
         - name: Azure portal
@@ -185,6 +189,8 @@
     items:
     - name: Install Azure Firewall in a hub
       href: howto-firewall.md
+    - name: Inter-hub and branch-to-branch via Azure Firewall
+      href: how-to-routing-policies.md
     - name: Configure Private Link connectivity
       href: howto-private-link.md
     - name: Manage access to resources - Spoke VNet P2S

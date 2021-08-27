@@ -82,19 +82,6 @@ If you need help with the language and tools used to develop and manage Azure Vi
 | Ansible | https://github.com/Azure/Ansible/issues | 
 
 
-
-## Submit feature requests on Azure Feedback
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
-</div>
-
-To request new features, post them on Azure Feedback. Share your ideas for improving Azure Virtual Machines.
-
-| Service                       | Azure Feedback URL |
-|-------------------------------|---------------|
-| Azure Virtual Machines  | https://feedback.azure.com/forums/216843-virtual-machines 
-
 ## Stay informed of updates and new releases
 
 <div class='icon is-large'>

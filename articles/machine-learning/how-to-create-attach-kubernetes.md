@@ -81,6 +81,13 @@ These methods of creating an AKS cluster use the __default__ version of the clus
 
 When **attaching** an existing AKS cluster, we support all currently supported AKS versions.
 
+> [!IMPORTANT]
+> Currently, Azure machine learning does not support deploying models to AKS version **1.21.x**
+
+> [!IMPORTANT]
+> Azure Kubernetes Service uses [Blobfuse FlexVolume driver](https://github.com/Azure/kubernetes-volume-drivers/blob/master/flexvolume/blobfuse/README.md) for the versions <=1.16 and [Blob CSI driver](https://github.com/kubernetes-sigs/blob-csi-driver/blob/master/README.md) for the versions >=1.17. 
+> Therefore, it is important to re-deploy or [update the web service](how-to-deploy-update-web-service.md) after cluster upgrade in order to deploy to correct blobfuse method for the cluster version.
+
 > [!NOTE]
 > There may be edge cases where you have an older cluster that is no longer supported. In this case, the attach operation will return an error and list the currently supported versions.
 >
@@ -123,7 +130,7 @@ Result
 1.16.13
 ```
 
-If you'd like to **programmatically check the available versions**, use the [Container Service Client - List Orchestrators](/rest/api/container-service/container-service-client/list-orchestrators) REST API. To find the available versions, look at the entries where `orchestratorType` is `Kubernetes`. The associated `orchestrationVersion` entries contain the available versions that can be **attached** to your workspace.
+If you'd like to **programmatically check the available versions**, use the Container Service Client - List Orchestrators REST API. To find the available versions, look at the entries where `orchestratorType` is `Kubernetes`. The associated `orchestrationVersion` entries contain the available versions that can be **attached** to your workspace.
 
 To find the default version that is used when **creating** a cluster through Azure Machine Learning, find the entry where `orchestratorType` is `Kubernetes` and `default` is `true`. The associated `orchestratorVersion` value is the default version. The following JSON snippet shows an example entry:
 

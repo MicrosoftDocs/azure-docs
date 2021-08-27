@@ -3,13 +3,13 @@ title: Inspect data quality for Custom Speech - Speech service
 titleSuffix: Azure Cognitive Services
 description: Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. You can play back uploaded audio and determine if the provided recognition result is correct.
 services: cognitive-services
-author: erhopf
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: erhopf
+ms.author: lajanuar
 ---
 
 # Inspect Custom Speech data

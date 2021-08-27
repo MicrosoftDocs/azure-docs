@@ -5,12 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: how-to
-ms.date: 10/08/2018
+ms.date: 08/27/2021
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
 ms.collection: linux
 ---
 # How to create a managed image of a virtual machine or VHD
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 To create multiple copies of a virtual machine (VM) for use in Azure for development and test, capture a managed image of the VM or of the OS VHD. To create, store and share images at scale, see [Shared Image Galleries](../create-gallery.md).
 

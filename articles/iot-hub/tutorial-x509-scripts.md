@@ -2,7 +2,7 @@
 title: Tutorial - Use Microsoft scripts to create x.509 test certificates for Azure IoT Hub | Microsoft Docs
 description: Tutorial - Use custom scripts to create CA and device certificates for Azure IoT Hub
 author: v-gpettibone
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial

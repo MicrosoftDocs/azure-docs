@@ -78,7 +78,7 @@ To complete this quickstart:
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-linux.md)]
 ::: zone-end
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## Create a web app
 

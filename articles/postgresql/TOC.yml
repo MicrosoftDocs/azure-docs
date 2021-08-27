@@ -12,10 +12,6 @@
       href: concepts-certificate-rotation.md
 - name: Shared documentation
   items:
-  - name: Database deployment
-    items:
-    - name: GitHub actions
-      href: how-to-deploy-github-action.md
   - name: Migration
     items:
       - name: Migrate data with pg_dump and pg_restore
@@ -405,6 +401,14 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
+    - name: Upgrades and migration
+      items:
+      - name: Major version upgrade methods
+        href: how-to-upgrade-using-dump-and-restore.md
+      - name: Upgrade/Migrate data with pg_dump and pg_restore
+        href: howto-migrate-using-dump-and-restore.md
+      - name: Upgrade/Migrate data with pg_dump and psql
+        href: howto-migrate-using-export-and-import.md
 - name: Flexible Server (Preview)
   expanded: true
   items:
@@ -415,7 +419,9 @@
   - name: Release notes
     href: flexible-server/release-notes.md   
   - name: Compare Single Server and Flexible Server
-    href: flexible-server/concepts-compare-single-server-flexible-server.md   
+    href: flexible-server/concepts-compare-single-server-flexible-server.md
+  - name: Try Flexible Server for free
+    href: flexible-server/how-to-deploy-on-azure-free-account.md   
   - name: Quickstarts
     expanded: true
     items:
@@ -505,6 +511,8 @@
           displayName: query store, performance, optimize
         - name: Query Store best practices
           href: flexible-server/concepts-query-store-best-practices.md
+        - name: Intelligent tuning
+          href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
       href: flexible-server/concepts-logical.md
       displayName: logical decoding
@@ -518,6 +526,12 @@
         href: flexible-server/how-to-manage-server-cli.md
       - name: Connect and query guide
         href: flexible-server/how-to-connect-query-guide.md
+    - name: Database deployment
+      items:
+      - name: GitHub actions
+        href: how-to-deploy-github-action.md
+      - name: Azure pipelines
+        href: flexible-server/azure-pipelines-deploy-database-task.md
     - name: Scheduled maintenance
       items:
       - name: Azure portal
@@ -598,7 +612,7 @@
     items:
     - name: Create server group
       items:
-      - name: Basic tier (preview)
+      - name: Basic tier
         href: quickstart-create-hyperscale-basic-tier.md
       - name: Standard tier
         href: quickstart-create-hyperscale-portal.md
