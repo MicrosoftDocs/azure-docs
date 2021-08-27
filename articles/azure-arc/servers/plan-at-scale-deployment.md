@@ -1,7 +1,7 @@
 ---
 title: How to plan and deploy Azure Arc-enabled servers
 description: Learn how to enable a large number of machines to Azure Arc-enabled servers to simplify configuration of essential security, management, and monitoring capabilities in Azure.
-ms.date: 07/16/2021
+ms.date: 08/27/2021
 ms.topic: conceptual
 ---
 
@@ -21,6 +21,10 @@ For the deployment to proceed smoothly, your plan should establish a clear under
 * What's the escalation path when a significant issue occurs?
 
 The purpose of this article is to ensure you are prepared for a successful deployment of Azure Arc-enabled servers across multiple production physical servers or virtual machines in your environment.
+
+To learn more about our at-scale deployment recommendations, you can also refer to this video.
+
+> [!VIDEO https://www.youtube.com/watch?v=Cf1jUPOB_vs]
 
 ## Prerequisites
 
