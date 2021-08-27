@@ -1242,7 +1242,7 @@
         href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
       - name: Restore disks with Azure Disk Backup
         href: ../backup/restore-managed-disks.md?context=/azure/virtual-machines/context/context
-    - name: Backup and disaster recovery for disks
+    - name: Backup and disaster recovery for managed disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Snapshot a disk - CLI
       href: ./linux/snapshot-copy-managed-disk.md
@@ -1250,6 +1250,8 @@
       href: ./windows/snapshot-copy-managed-disk.md
     - name: Backup unmanaged disks
       href: ./linux/incremental-snapshots.md
+    - name: Backup and disaster recovery for unmanaged disks
+      href: page-blobs-backup-and-disaster-recovery.md
   - name: Ephemeral OS disks
     href: ephemeral-os-disks.md
   - name: Migration and conversion

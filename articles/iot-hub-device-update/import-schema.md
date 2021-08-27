@@ -92,8 +92,8 @@ Authorization URL: https://login.microsoftonline.com/common/oauth2/authorize
 
 | Name | Description |
 | --- | --- |
-| https://api.adu.microsoft.com/user_impersonation | Impersonate your user account |
-| https://api.adu.microsoft.com/.default  | Client credential flows |
+| `https://api.adu.microsoft.com/user_impersonation` | Impersonate your user account |
+| `https://api.adu.microsoft.com/.default`  | Client credential flows |
 
 
 **Permissions**
