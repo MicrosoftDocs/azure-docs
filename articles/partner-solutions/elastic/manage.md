@@ -71,7 +71,7 @@ In the destination details section, check the option to send to partner solution
 
 ## Private link management
 
-You can limit network access to a private link. To enable private link access, select **Configuration** in the left navigation. Under **Networking**, select **Private Link** and the name of the private link.
+You can limit network access to a [private link](../../private-link/private-link-overview.md). To enable private link access, select **Configuration** in the left navigation. Under **Networking**, select **Private Link** and the name of the private link.
 
 :::image type="content" source="media/manage/private-link.png" alt-text="Screenshot of enabling private link":::
 
