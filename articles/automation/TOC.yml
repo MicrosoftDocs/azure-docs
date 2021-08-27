@@ -8,6 +8,8 @@
     href: automation-faq.md
   - name: What's new
     href: whats-new.md
+  - name: Archive for What's new
+    href: whats-new-archive.md
 - name: Quickstarts
   items:
     - name: Create Automation account - Portal
@@ -61,9 +63,9 @@
   items:
     - name: Automation Account
       items:
-        - name: Create Automation account using Azure portal
+        - name: Create Automation account - Azure portal
           href: automation-create-standalone-account.md
-        - name: Create Automation account with Resource Manager template
+        - name: Create Automation account - Resource Manager template
           href: quickstart-create-automation-account-template.md
         - name: Managed identity
           items:

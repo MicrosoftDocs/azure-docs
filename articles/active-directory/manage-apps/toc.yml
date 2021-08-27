@@ -81,6 +81,8 @@
         href: certificate-signing-options.md
       - name: Manage certificates
         href: manage-certificates-for-federated-single-sign-on.md
+      - name: Protect against consent phishing
+        href: protect-against-consent-phishing.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
       - name: Configure SAML token encryption
@@ -146,11 +148,13 @@
       items:
       - name: Secure hybrid access with Azure AD 
         href: secure-hybrid-access.md
-      - name: F5 and Azure AD integration
+      - name: Datawiza 
+        href: datawiza-with-azure-ad.md
+      - name: F5 
         href: f5-aad-integration.md
       - name: F5 BIG-IP VE deployment in Azure IaaS
         href: f5-bigip-deployment-guide.md
-      - name: F5 Big-IP with Azure AD for passwordless VPN
+      - name: F5 Big-IP passwordless VPN
         href: f5-aad-password-less-vpn.md
     - name: Troubleshoot
       items:

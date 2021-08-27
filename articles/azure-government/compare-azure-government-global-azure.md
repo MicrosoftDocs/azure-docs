@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/04/2021
+ms.date: 08/26/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -154,11 +154,7 @@ The following Language Understanding **features are not currently available** in
 
 ### [Speech service](../cognitive-services/speech-service/overview.md)
 
-The following Speech service **features are not currently available** in Azure Government:
-
-- Custom Voice
-
-See details of supported locales by features in [Speech service supported regions](../cognitive-services/speech-service/regions.md). For more information including API endpoints, see [Speech service in sovereign clouds](../cognitive-services/Speech-Service/sovereign-clouds.md).
+For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](../cognitive-services/Speech-Service/sovereign-clouds.md).
 
 ### [Translator](../cognitive-services/translator/translator-info-overview.md)
 
@@ -171,16 +167,6 @@ The following Translator **features are not currently available** in Azure Gover
 ## Analytics
 
 This section outlines variations and considerations when using Analytics services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share,power-bi-embedded,analysis-services,event-hubs,data-lake-analytics,storage,data-catalog,data-factory,synapse-analytics,stream-analytics,databricks,hdinsight&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
-
-### [Azure Data Factory](../data-factory/index.yml)
-
-The following Data Factory **features are not currently available** in Azure Government:
-
-- Mapping data flows
-
-### [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)
-
-For access to Azure Databricks in an Azure Government environment, contact your Microsoft or Databricks account representative.
 
 ### [HDInsight](../hdinsight/hadoop/apache-hadoop-introduction.md)
 
@@ -293,6 +279,29 @@ This section outlines variations and considerations when using Developer Tools s
 The following Azure DevTest Labs **features are not currently available** in Azure Government:
 
 - Auto shutdown feature for Azure Compute VMs; however, setting auto shutdown for [Labs](https://azure.microsoft.com/updates/azure-devtest-labs-auto-shutdown-notification/) and [Lab Virtual Machines](https://azure.microsoft.com/updates/azure-devtest-labs-set-auto-shutdown-for-a-single-lab-vm/) is available.
+
+
+## Identity
+
+This section outlines variations and considerations when using Identity services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=information-protection,active-directory-ds,active-directory&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
+
+### [Azure Active Directory Premium P1 and P2](../active-directory/index.yml)
+
+The following features have known limitations in Azure Government:
+
+- Limitations with B2B Collaboration in supported Azure US Government tenants:
+    - B2B Collaboration is available in most Azure US Government tenants created after June 2019. Over time, more tenants will get access to this functionality. See [How can I tell if B2B collaboration is available in my Azure US Government tenant?](../active-directory/external-identities/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
+    - B2B collaboration is supported between tenants that are both within Azure US Government cloud and that both support B2B collaboration. Azure US Government tenants that support B2B collaboration can also collaborate with social users using Microsoft, Google accounts, or email one-time passcode accounts. If you invite a user outside of these groups (for example, if the user is in a tenant that isn't part of the Azure US Government cloud or doesn't yet support B2B collaboration), the invitation will fail or the user will be unable to redeem the invitation.
+    - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.
+    - Microsoft 365 Groups are not supported for B2B users and can't be enabled.
+    - Some SQL tools such as SQL Server Management Studio (SSMS) require you to set the appropriate cloud parameter. In the tool's Azure service setup options, set the cloud parameter to Azure Government.
+
+- Limitations with multifactor authentication:
+    - Hardware OATH tokens are not available in Azure Government.
+    - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address.
+
+- Limitations with Azure AD join:
+    - Enterprise state roaming for Windows 10 devices is not available
 
 
 ## Internet of Things
@@ -518,23 +527,9 @@ Traffic Manager health checks can originate from certain IP addresses for Azure 
 
 This section outlines variations and considerations when using Security services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel,azure-dedicated-hsm,information-protection,application-gateway,vpn-gateway,security-center,key-vault,active-directory-ds,ddos-protection,active-directory&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
 
-### [Azure Active Directory Premium P1 and P2](../active-directory/index.yml)
+### [Azure Defender for IoT](../defender-for-iot/index.yml)
 
-The following features have known limitations in Azure Government:
-
-- Limitations with B2B Collaboration in supported Azure US Government tenants:
-    - B2B Collaboration is available in most Azure US Government tenants created after June 2019. Over time, more tenants will get access to this functionality. See [How can I tell if B2B collaboration is available in my Azure US Government tenant?](../active-directory/external-identities/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant)
-    - B2B collaboration is supported between tenants that are both within Azure US Government cloud and that both support B2B collaboration. Azure US Government tenants that support B2B collaboration can also collaborate with social users using Microsoft, Google accounts, or email one-time passcode accounts. If you invite a user outside of these groups (for example, if the user is in a tenant that isn't part of the Azure US Government cloud or doesn't yet support B2B collaboration), the invitation will fail or the user will be unable to redeem the invitation.
-    - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.
-    - Microsoft 365 Groups are not supported for B2B users and can't be enabled.
-    - Some SQL tools such as SQL Server Management Studio (SSMS) require you to set the appropriate cloud parameter. In the tool's Azure service setup options, set the cloud parameter to Azure Government.
-
-- Limitations with multifactor authentication:
-    - Hardware OATH tokens are not available in Azure Government.
-    - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address.
-
-- Limitations with Azure AD join:
-    - Enterprise state roaming for Windows 10 devices is not available
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-defender-for-iot).
 
 ### [Azure Information Protection](/azure/information-protection/what-is-information-protection)
 
@@ -542,41 +537,7 @@ Azure Information Protection Premium is part of the [Enterprise Mobility + Secur
 
 ### [Azure Security Center](../security-center/security-center-introduction.md)
 
-The following Azure Security Center **features are not currently available** in Azure Government:
-
-- **1st and 3rd party integrations**
-    - [Connect AWS account](../security-center/quickstart-onboard-aws.md)
-    - [Connect GCP account](../security-center/quickstart-onboard-gcp.md)
-    - [Integrated vulnerability assessment for machines (powered by Qualys)](../security-center/deploy-vulnerability-assessment-vm.md).
-
-    > [!NOTE]
-    > Security Center internal assessments are provided to discover security misconfigurations, based on Common Configuration Enumeration such as password policy, windows FW rules, local machine audit and security policy, and additional OS hardening settings.
-
-- **Threat detection**
-    - [Azure Defender for App Service](../security-center/defender-for-app-service-introduction.md).
-    - [Azure Defender for Key Vault](../security-center/defender-for-key-vault-introduction.md)
-    - *Specific detections*: Detections based on VM log periodic batches, Azure core router network logs, and threat intelligence reports.
-
-    > [!NOTE]
-    > Near real-time alerts generated based on security events and raw data collected from the VMs are captured and displayed.
-
-- **Environment hardening**
-    - [Adaptive network hardening](../security-center/security-center-adaptive-network-hardening.md)
-
-- **Preview features**
-    - [Recommendation exemption rules](../security-center/exempt-resource.md)
-    - [Azure Defender for Resource Manager](../security-center/defender-for-resource-manager-introduction.md)
-    - [Azure Defender for DNS](../security-center/defender-for-dns-introduction.md)
-
-**Azure Security Center FAQ**
-
-For Azure Security Center FAQ, see [Azure Security Center frequently asked questions public documentation](../security-center/faq-general.yml). Extra FAQ for Azure Security Center in Azure Government is listed below.
-
-**What will customers be charged for Azure Security Center in Azure Government?**</br>
-Azure Security Center's integrated cloud workload protection platform (CWPP), Azure Defender, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Azure Defender is free for the first 30 days. Should you choose to continue to use public preview or generally available features of Azure Defender beyond 30 days, we automatically start to charge for the service.
-
-**Is Azure Security Center available for DoD customers?**</br>
-Azure Security Center is deployed in Azure Government regions but not in Azure Government for DoD regions. Azure resources created in DoD regions can still utilize Security Center capabilities. However, using it will result in Security Center collected data being moved out from DoD regions and stored in Azure Government regions. By default, all Security Center features that collect and store data are disabled for resources hosted in DoD regions. The type of data collected and stored varies depending on the selected feature. If you want to enable Azure Security Center features for DoD resources, you are advised to consider data separation and protection requirements before doing so.
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-security-center).
 
 ### [Azure Sentinel](../sentinel/overview.md)
 
