@@ -69,7 +69,7 @@ Taking the above sample AG deployment, following are the various failover possib
   - If the backup preference isn't secondary-only, backups can be configured now in Vault 2, because the primary node is registered in this vault. But this can lead to conflicts/backup failures. More about this in [Configure backups for a multi-region AG](#configure-backups-for-a-multi-region-ag).
 - Failover to VM4 (another region)
   - As backups aren't configured in Vault 4, no backups would happen.
-  - If the backup preference is not secondary-only, backups can be configured now in Vault 4, because the primary node is registered in this vault. But this can lead to conflicts/backup failures. More about this in [Configure backups for a multi-region AG](#co3nfigure-backups-for-a-multi-region-ag).
+  - If the backup preference is not secondary-only, backups can be configured now in Vault 4, because the primary node is registered in this vault. But this can lead to conflicts/backup failures. More about this in [Configure backups for a multi-region AG](#configure-backups-for-a-multi-region-ag).
 
 ## Configure backups for a multi-region AG
 
@@ -108,7 +108,7 @@ As the primary node is in region and subscription, the usual steps to enable bac
 
 ### Step 3: Enable backups in Region 2, Subscription 1 (Vault 4)
 
->Same as Step 2.
+Same as Step 2.
 
 ## Backup an AG that spans Azure and on-premises
 
