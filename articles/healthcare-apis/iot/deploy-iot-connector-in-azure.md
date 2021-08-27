@@ -178,6 +178,8 @@ To ensure that your IoT Connector works properly, it must have granted access pe
 
    The Azure Event Hubs Data Receiver role allows the IoT Connector that's being assigned this role to receive data from this Event Hub.
 
+   For more information about application roles, see [Authentication & Authorization for the Healthcare APIs (preview)](.././authentication-authorization.md).
+
 5. Select **Assign access to**, and keep the default option selected **User, group, or service principal**.
 
 6. In the **Select** field, enter the security principal for your IoT Connector.  
@@ -209,6 +211,8 @@ For more information about authoring access to Event Hubs resources, see [Author
 5. Select the **Role**, and then select **FHIR Data Writer**.
 
    The FHIR Data Writer role provides read and write access that the IoT Connector uses to function. Because the IoT Connector is deployed as a separate resource, the FHIR service will receive requests from the IoT Connector. If the FHIR service doesn’t know who's making the request, or if it doesn't have the assigned role, it will deny the request as unauthorized.
+
+   For more information about application roles, see [Authentication & Authorization for the Healthcare APIs (preview)](.././authentication-authorization.md).
 
 6. In the **Select**, enter the security principal for your IoT Connector.  
 
