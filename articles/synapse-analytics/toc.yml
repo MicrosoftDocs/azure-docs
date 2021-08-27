@@ -672,7 +672,7 @@ items:
     - name: Data sources
       items:
         - name: Azure Cosmos DB Spark 3
-          href: ./synapse-link/how-to-query-analytical-store-spark3.md
+          href: ./synapse-link/how-to-query-analytical-store-spark-3.md
         - name: Azure Cosmos DB Spark 2
           href: ./synapse-link/how-to-query-analytical-store-spark.md
         - name: Azure Data Explorer (Kusto)
@@ -728,7 +728,7 @@ items:
       - name: Use Power BI and serverless SQL pool to analyze Azure Cosmos DB
         href: ../cosmos-db/synapse-link-power-bi.md?context=/azure/synapse-analytics/context/context
       - name: Query Azure Cosmos DB analytical store with Apache Spark 3
-        href: ./synapse-link/how-to-query-analytical-store-spark3.md
+        href: ./synapse-link/how-to-query-analytical-store-spark-3.md
       - name: Query Azure Cosmos DB analytical store with Apache Spark 2
         href: ./synapse-link/how-to-query-analytical-store-spark.md
       - name: Copy data from Synapse Link into a dedicated SQL pool using Apache Spark
