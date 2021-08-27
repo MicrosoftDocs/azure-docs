@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/27/2021
 ms.author: lajanuar
-zone_pivot_groups: programming-languages-speech-services-nomore-variant
+zone_pivot_groups: programming-languages-cs-cpp-py
 ---
 
 # Language identification
