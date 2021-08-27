@@ -44399,6 +44399,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/active-directory/app-provisioning/on-premises-ecma-prerequisites.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/on-premises-sql-connector-configure.md#prerequisites-for-the-azure-ad-ecma-connector-host",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-provisioning/on-premises-ecma-install.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/on-premises-sql-connector-configure.md?#download-and-install-the-azure-ad-connect-provisioning-agent-package",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/app-provisioning/n-premises-ecma-configure.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/oon-premises-sql-connector-configure.md#configure-the-azure-ad-ecma-connector-host",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/application-sign-in-other-problem-access-panel.md",
       "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel",
       "redirect_document_id": false

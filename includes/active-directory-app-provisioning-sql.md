@@ -27,7 +27,7 @@ This article provides guidance on the prerequisites that are needed for using th
 >[!IMPORTANT]
 > The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability.
 
-This tutorial describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into a SQL database. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
+This tutorial describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into a SQL database. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md).
 
 This tutorial covers how to set up and use the generic SQL connector with the Azure AD ECMA Connector Host. 
 
@@ -112,7 +112,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
  1. Select the ECMA Connector Host shortcut on the desktop.
  1. Select **New Connector**.
  
-     ![Screenshot that shows choosing New Connector.](.\media\on-premises-sql-connector-configure\sql-1.png)
+     ![Screenshot that shows choosing New Connector.](.\media\active-directory-app-provisioning-sql\sql-1.png)
 
  1. On the **Properties** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
  
