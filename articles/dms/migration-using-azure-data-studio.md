@@ -5,7 +5,7 @@ services: database-migration
 author: mokabiru
 ms.author: mokabiru
 manager: 
-ms.reviewer: 
+ms.reviewer: cheryl.adams
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
