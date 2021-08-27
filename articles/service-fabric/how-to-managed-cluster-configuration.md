@@ -2,7 +2,7 @@
 title: Configure your Service Fabric managed cluster
 description: Learn how to configure your Service Fabric managed cluster for automatic OS upgrades, NSG rules, and more.
 ms.topic: how-to
-ms.date: 5/10/2021
+ms.date: 8/23/2021
 ---
 # Service Fabric managed cluster configuration options
 
@@ -10,7 +10,8 @@ In addition to selecting the [Service Fabric managed cluster SKU](overview-manag
 
 * Adding a [virtual machine scale set extension](how-to-managed-cluster-vmss-extension.md) to a node type
 * Configuring cluster [availability zone spanning](how-to-managed-cluster-availability-zones.md)
-* Configuring cluster [NSG rules and other networking options](how-to-managed-cluster-networking.md)
+* Configuring cluster [network settings](how-to-managed-cluster-networking.md)
+* Configure a node type for [large virtual machine scale sets](how-to-managed-cluster-large-virtual-machine-scale-sets.md)
 * Configuring [managed identity](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) on cluster node types
 * Enabling [automatic OS upgrades](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades) for cluster nodes
 * Enabling [OS and data disk encryption](how-to-enable-managed-cluster-disk-encryption.md) on cluster nodes

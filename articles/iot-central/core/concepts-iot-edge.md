@@ -280,6 +280,10 @@ If you selected an IoT Edge device to be a gateway device, you can add downstrea
 
 To learn more, see [How to connect devices through an IoT Edge transparent gateway](how-to-connect-iot-edge-transparent-gateway.md).
 
+## Monitor your IoT Edge devices
+
+To learn how to remotely monitor your IoT Edge fleet using Azure Monitor and built-in metrics integration, see [Collect and transport metrics](../../iot-edge/how-to-collect-and-transport-metrics.md).
+
 ## Next steps
 
 A suggested next step is to learn how to [Develop your own IoT Edge modules](../../iot-edge/module-development.md).

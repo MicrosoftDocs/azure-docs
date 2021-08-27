@@ -13,6 +13,8 @@ ms.date: 07/11/2018
 
 # Create a snapshot using the portal or Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Take a snapshot of an OS or data disk for backup or to troubleshoot VM issues. A snapshot is a full, read-only copy of a VHD. 
 
 ## Use Azure CLI 

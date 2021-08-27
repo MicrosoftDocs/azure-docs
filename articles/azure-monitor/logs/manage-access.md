@@ -308,4 +308,4 @@ Sometimes custom logs come from sources that are not directly associated to a sp
 
 * See [Log Analytics agent overview](../agents/log-analytics-agent.md) to gather data from computers in your datacenter or other cloud environment.
 
-* See [Collect data about Azure virtual machines](../vm/quick-collect-azurevm.md) to configure data collection from Azure VMs.
+* See [Collect data about Azure virtual machines](../vm/monitor-virtual-machine.md) to configure data collection from Azure VMs.

@@ -35,7 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 5.	Enter **Alert threshold**, choose **Provider instance**, choose or create **Action group** to configure notification setting. You can edit frequency and severity information as per your requirements.
 
     >[!Tip]
-    > Learn more about [action groups](https://docs.microsoft.com/azure/azure-monitor/alerts/action-groups). 
+    > Learn more about [action groups](../../../azure-monitor/alerts/action-groups.md). 
     
 7.	Click **Enable alert rule**.
 
@@ -54,4 +54,4 @@ Sign in to the [Azure portal](https://portal.azure.com).
 Learn more about Azure Monitor for SAP Solutions.
 
 > [!div class="nextstepaction"]
-> [Azure Monitor for SAP Solutions](azure-monitor-overview.md)
+> [Monitor SAP on Azure](monitor-sap-on-azure.md)

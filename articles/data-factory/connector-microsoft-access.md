@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/17/2021
+ms.date: 08/20/2021
 ---
 
 # Copy data from and to Microsoft Access using Azure Data Factory
@@ -33,7 +33,7 @@ To use this Microsoft Access connector, you need to:
 - Install the Microsoft Access ODBC driver for the data store on the Integration Runtime machine.
 
 >[!NOTE]
->Microsoft Access 2016 version of ODBC driver doesn't work with this connector. Use driver version 2013 or 2010 instead.
+>Microsoft Access 2016 version of ODBC driver doesn't work with this connector. Use Microsoft Access 2013 or 2010 version of ODBC driver instead.
 
 ## Getting started
 
