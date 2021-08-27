@@ -56272,6 +56272,11 @@
       "source_path_from_root": "/articles/storage/files/storage-files-enable-smb-multichannel.md",
       "redirect_url": "/azure/storage/files/files-smb-protocol#smb-multichannel",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-cache-for-redis/cache-best-practices.md",
+      "redirect_url": "/azure/azure-cache-for-redis/index",
+      "redirect_document_id": false
     }
   ]
 }
