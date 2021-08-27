@@ -27,11 +27,13 @@ This article uses [Helm 3][helm] to install the NGINX ingress controller on a [s
 
 This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-In addition, this article assumes you have an existing AKS cluster with an integrated ACR. For more details on creating an AKS cluster with an integrated ACR, see [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-integrated-acr].
+In addition, this article assumes you have an existing AKS cluster with an [integrated ACR][aks-integrated-acr].
 
 ## Import the images used by the Helm chart into your ACR
 
-This article uses the [NGINX ingress controller Helm chart][ingress-nginx-helm-chart], which relies on three container images. Use `az acr import` to import those images into your ACR.
+Often when using an AKS cluster with a private network, it is a requirement to manage the provenance of the container images used within the cluster. See [Best practices for container image management and security in Azure Kubernetes Service (AKS)][aks-container-best-practices] for more information.  To support this requirement, and for completeness, the examples in this article rely on importing the three container images used by the [NGINX ingress controller Helm chart][ingress-nginx-helm-chart] into your ACR.
+
+Use `az acr import` to import these images into your ACR.
 
 ```azurecli
 REGISTRY_NAME=<REGISTRY_NAME>
@@ -412,3 +414,4 @@ You can also:
 [ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
 [aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
+[aks-container-best-practices]: operator-best-practices-container-image-management.md
