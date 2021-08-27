@@ -154,10 +154,17 @@
   - name: Azure Service Fabric security
     href: service-fabric-best-practices.md
 
-- name: Monitoring, auditing, and operations
+- name: Detect and mitigate threats
   items:
+  -name: Ransomware
+   items:
+   - name: Backup and restore plan
+   - href: backup-plan-to-protect-against-ransomware.md
   - name: Threat protection
     href: threat-detection.md
+
+- name: Monitoring, auditing, and operations
+  items:
   - name: Azure logging and auditing
     href: log-audit.md
   - name: Security management and monitoring
