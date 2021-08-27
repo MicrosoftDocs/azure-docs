@@ -21,8 +21,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and virtual machines.
 > * Create a NAT gateway for outbound internet access for the backend pool.
-> * Create a standard SKU public load balancer with frontend IP, health probe, backend configuration and traffic rules.
-> * Create load balancer inbound NAT port-forwarding rules.
+> * Create a standard SKU public load balancer with frontend IP, health probe, backend configuration, load-balancing rule, and inbound NAT rules.
 > * Install and configure a web server on the VMs to demonstrate the port forwarding and load-balancing rules.
 
 ## Prerequisites
@@ -45,7 +44,7 @@ A virtual network and subnet is required for the resources in the tutorial. In t
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **TutorialLBPF-rg**. |
+    | Resource group | Select **Create new**. </br> Enter **TutorialLBPF-rg**. </br> Select **OK**. |
     | **Instance details** |    |
     | Virtual machine name | Enter **myVM1**. |
     | Region | Enter **(US) West US 2**. |
@@ -83,7 +82,7 @@ A virtual network and subnet is required for the resources in the tutorial. In t
 
 9. At the **Generate new key pair** prompt, select **Download private key and create resource**. Your key file will be downloaded as myKey.pem. Ensure you know where the .pem file was downloaded, you'll need the path to the key file in later steps.
 
-8. Follow the steps 1 through 8 to create one more VM with the following values and all the other settings the same as **myVM1**:
+8. Follow the steps 1 through 8 to create another VM with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2 |
     | ------- | ----- |
@@ -141,7 +140,7 @@ In this section, you'll create a NAT gateway for outbound internet access for re
 
 ## Create load balancer
 
-You'll create a load balancer in this section. The frontend IP, backend pool, and load-balancing rule are configured as part of the creation.
+You'll create a load balancer in this section. The frontend IP, backend pool, load-balancing, and inbound NAT rules are configured as part of the creation.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
@@ -278,14 +277,15 @@ You'll create a load balancer in this section. The frontend IP, backend pool, an
     | Floating IP | Leave the default of **Disabled**. |
     | Target port | Enter **22**. |
 
+31. Select **Add**.
 
-31. Select the blue **Review + create** button at the bottom of the page.
+32. Select the blue **Review + create** button at the bottom of the page.
 
-32. Select **Create**.
+33. Select **Create**.
 
 ## Install web server
 
-In this section, you'll SSH to the virtual machines through the inbound NAT rule and install a web server.
+In this section, you'll SSH to the virtual machines through the inbound NAT rules and install a web server.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
