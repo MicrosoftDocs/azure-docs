@@ -24,11 +24,11 @@ By publishing APIs through API Management, you can easily secure API access usin
 * Be rejected immediately by the API Management gateway. 
 * Not be forwarded to the back-end services.
 
-In order to access APIs, you'll need a subscription and a subscription key. A *subscription* is a named container for a pair of subscription keys. 
+To access APIs, you'll need a subscription and a subscription key. A *subscription* is a named container for a pair of subscription keys. 
 
-Regularly regenerating keys is a common security precaution, so most Azure products requiring a subscription key will generate keys in pairs. Each application using the service can switch from *key A* to *key B* and regenerate key A with minimal disruption, and vise versa. 
+Regularly regenerating keys is a common security precaution, so most Azure products requiring a subscription key will generate keys in pairs. Each application using the service can switch from *key A* to *key B* and regenerate key A with minimal disruption, and vice versa. 
 
-In addition:
+In addition,
 
 * Developers can get subscriptions without approval from API publishers. 
 * API publishers can create subscriptions directly for API consumers.
