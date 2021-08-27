@@ -82,7 +82,7 @@ To allow access to the storage account, configure the storage account to __Allow
 
 Next, add the service principal for the workspace to the __Reader__ role to the private endpoint of the storage account. This role is used to verify the workspace and storage subnet information. If they are the same, access is allowed. Finally, the service principal also requires __Blob data contributor__ access to the storage account.
 
-For more information, see the Azure Storage Account section of [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#Secure-Azure-storage-accounts-with-service-endpoints).
+For more information, see the Azure Storage Account section of [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints).
 
 :::image type="content" source="./media/concept-secure-network-traffic-flow/storage-traffic-studio.png" alt-text="Diagram of traffic between client, data profiling, and storage":::
 
