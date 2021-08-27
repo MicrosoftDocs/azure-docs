@@ -781,6 +781,8 @@ items:
         href: ../data-factory/concepts-data-flow-monitoring.md?context=/azure/synapse-analytics/context/context
       - name: Data flow performance
         href: ../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context
+      - name: Integration Runtime performance
+        href: ../data-factory/concepts-integration-runtime-performance.md?context=/azure/synapse-analytics/context/context
       - name: Manage graph
         href: ../data-factory/concepts-data-flow-manage-graph.md?context=/azure/synapse-analytics/context/context
       - name: Expression builder
