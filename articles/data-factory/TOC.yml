@@ -934,7 +934,7 @@ items:
   - name: Ask a question - Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-factory
   - name: Request a feature
-    href: https://feedback.azure.com/forums/270578-azure-data-factory
+    href: /answers/topics/azure-data-factory.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/data-factory/
   - name: Availability by region
