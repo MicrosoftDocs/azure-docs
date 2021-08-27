@@ -1,9 +1,6 @@
 - name: Fundamentals Documentation
   href: index.yml
 
-- name: Recovering from systemic identity compromise
-  href: recover-from-identity-compromise.md
-  
 - name: Overview
   items:
   - name: Introduction to Azure security
@@ -12,6 +9,17 @@
     href: end-to-end.md
   - name: Shared responsibility in the cloud
     href: shared-responsibility.md
+
+- name: Detect and mitigate threats
+  items:
+  -name: Ransomware
+   items:
+   - name: Backup and restore plan
+     href: backup-plan-to-protect-against-ransomware.md
+  - name: Recovering from systemic identity compromise
+    href: recover-from-identity-compromise.md
+  - name: Threat protection
+    href: threat-detection.md
 
 - name: Securing workloads in Azure
   items:
@@ -76,8 +84,6 @@
     href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Authentication
     href: /azure/architecture/framework/security/design-identity-authentication?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
-
-
 
 - name: Network security
   items:
@@ -153,15 +159,6 @@
       href: paas-applications-using-sql.md
   - name: Azure Service Fabric security
     href: service-fabric-best-practices.md
-
-- name: Detect and mitigate threats
-  items:
-  -name: Ransomware
-   items:
-   - name: Backup and restore plan
-     href: backup-plan-to-protect-against-ransomware.md
-  - name: Threat protection
-    href: threat-detection.md
 
 - name: Monitoring, auditing, and operations
   items:

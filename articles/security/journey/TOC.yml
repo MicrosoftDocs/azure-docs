@@ -225,7 +225,7 @@
   - name: Ransomware
     items:
     - name: Backup and restore plan
-    - href: ../fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      href: ../fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Threat protection
     href: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Threat analysis 
