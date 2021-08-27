@@ -100,9 +100,9 @@ Currently, you can only activate and deactivate custom security attribute defini
 
 Deactivate the custom security attributes you no longer need. For more information, see [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md).
 
-## Symptom - You cannot make an eligible Azure AD role assignment at an attribute set scope using PIM
+## Symptom - You cannot make a role assignment at an attribute set scope using PIM
 
-When you try to make an eligible Azure AD role assignment using [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), you cannot set the scope to an attribute set.
+When you try to make an eligible Azure AD role assignment using [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), you cannot set the scope to an attribute set.
 
 **Cause**
 
