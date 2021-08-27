@@ -585,7 +585,7 @@ This tutorial provides you a basic idea of how to connect to the Web PubSub serv
 Check other tutorials to further dive into how to use the service.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a simple chatroom with Azure Web PubSub](./tutorial-build-chat.md)
+> [Tutorial: Create a chatroom with Azure Web PubSub](./tutorial-build-chat.md)
 
 > [!div class="nextstepaction"]
 > [Explore more Azure Web PubSub samples](https://aka.ms/awps/samples)
