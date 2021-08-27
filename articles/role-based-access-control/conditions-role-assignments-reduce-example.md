@@ -19,24 +19,26 @@ ms.author: rolyon
 > Custom security attributes are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure role-based access control (Azure RBAC) currently supports 2,000 role assignments in a subscription. If you need to create hundreds or even thousands of Azure role assignments, you might encounter this limit. Managing hundreds or thousands of role assignments can difficult. Depending on your scenario, you might be able to reduce the number of role assignments and make it easier to manage access. This article describes a solution to reduce the number of role assignments by using [Azure attribute-based access control (Azure ABAC)](conditions-overview.md) conditions and [Azure AD custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md) for principals.
+Azure role-based access control (Azure RBAC) currently supports 2,000 role assignments in a subscription. If you need to create hundreds or even thousands of Azure role assignments, you might encounter this limit. Managing hundreds or thousands of role assignments can be difficult. Depending on your scenario, you might be able to reduce the number of role assignments and make it easier to manage access.
+
+This article describes a solution to reduce the number of role assignments by using [Azure attribute-based access control (Azure ABAC)](conditions-overview.md) conditions and [Azure AD custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md) for principals.
 
 ## Example scenario
 
 Consider a company named Contoso with thousands of customers that want to set up the following configuration:
 
-- Distribute customer date across 128 storage accounts for high performance​.
+- Distribute customer data across 128 storage accounts for high performance​.
 - Add 2,000 containers to each storage account where there is a container for each customer.
 - Represent each customer by a unique Azure AD service principal.
 - Allow each customer to access objects in their container, but not other containers.​
 
-This configuration could potentially require 256,000 [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner) role assignments in a subscription, which is well beyond the 2,000 role assignments limit. Having this many role assignments will difficult, if not impossible, to maintain.
+This configuration could potentially require 256,000 [Storage Blob Data Owner](built-in-roles.md#storage-blob-data-owner) role assignments in a subscription, which is well beyond the 2,000 role assignments limit. Having this many role assignments would be difficult, if not impossible, to maintain.
 
 ![Diagram showing thousands for role assignments.](./media/conditions-role-assignments-reduce-example/role-assignments-multiple.png)
 
 ## Example solution
 
-Another way to handle this scenario is to use role assignment conditions. The following diagram shows a solution to reduce the 256,000 role assignments to just one role assignment by using a condition. The role assignment is at a higher resource group scope and a condition helps controls access to the containers. The condition checks whether the container name matches the custom security attribute on the service principal for the customer.
+A way to handle this scenario in a maintainable manner is to use role assignment conditions. The following diagram shows a solution to reduce the 256,000 role assignments to just one role assignment by using a condition. The role assignment is at a higher resource group scope and a condition helps controls access to the containers. The condition checks whether the container name matches the custom security attribute on the service principal for the customer.
 
 ![Diagram showing one role assignment and a condition.](./media/conditions-role-assignments-reduce-example/role-assignment-condition.png)
 
@@ -48,7 +50,7 @@ Here is the expression in the condition that makes the solution work:
   @Principal[Microsoft.Directory/CustomSecurityAttributes/Id:Contosocustomer_name]
 ```
 
-The full condition would be similar to the following:
+The full condition would be similar to the following. The list of actions could be adjusted to just the [actions](conditions-format.md#actions) you need.
 
 ```
 (
@@ -86,10 +88,12 @@ The full condition would be similar to the following:
 
 ## Programmatic setup
 
-Manually setting up this configuration would be difficult. A better way would be to use a programmatic approach. Here is a PowerShell script to set up this configuration.
+Manually setting up this configuration would be difficult. A better way would be to use a programmatic approach. Here is what the workflow would look like in a PowerShell script.
 
 ```powershell
 # Utility function to pause the script
+# Only needed if you are running the instructions as part of a script
+# Not necessary if you are copying the commands individually
 function Pause{
 
     param(
@@ -151,7 +155,7 @@ $SPName_prefix = "Contosocustomer"
 $SPName_suffix = ""
 
 # Key vault vars
-$KVName = "contosoKV10"
+$KVName = "contosoKV"
 # Location of Contoso resource group
 $KVLocation = "West US"
 
