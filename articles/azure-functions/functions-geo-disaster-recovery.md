@@ -9,16 +9,20 @@ ms.date: 08/29/2019
 
 # Azure Functions geo-disaster recovery
 
-When entire Azure regions or datacenters experience downtime, it is critical for compute to continue processing in a different region.  This article will explain some of the strategies that you can use to deploy functions to allow for disaster recovery.
+When entire Azure regions or datacenters experience downtime, your mission-critical code needs to continue processing in a different region. This article explains some of the strategies that you can use to deploy functions to allow for disaster recovery.
 
 ## Basic concepts
 
-Azure Functions run in a specific region.  To get higher availability, you can deploy the same functions to multiple regions.  When in multiple regions you can have your functions running in the *active/active* pattern or *active/passive* pattern.  
+Azure Functions run in a function app in a specific region. There's no built-in redundancy available. To avoid loss of execution during outages, you can redundantly deploy the same functions to function apps in multiple regions.  
 
-* Active/active. Both regions are active and receiving events (duplicate or rotationally). Active/active is recommended for HTTPS functions in combination with Azure Front Door.
-* Active/passive. One region is active and receiving events, while a secondary is idle.  When failover is required, the secondary region is activated and takes over processing.  This is recommended for non-HTTP functions like Service Bus and Event Hubs.
+When you run the same function code in multiple regions, there are two patterns to consider:
 
-Read how to [run apps in multiple regions](/azure/architecture/reference-architectures/app-service-web-app/multi-region) for more information on multi-region deployments.
+| Pattern | Description |
+| --- | --- |
+|**Active/active** | Functions in both regions are actively running and processing events, either in a duplicate manner or in rotation. We recommend using an active/active pattern in combination with [Azure Front Door](../frontdoor/front-door-overview.md) for your critical HTTP triggered functions. |
+|**Active/passive** | Functions run actively in region receiving events, while the same functions in a second region remains idle.  When failover is required, the second region is activated and takes over processing. We recommend this pattern for your event-driven, non-HTTP triggered functions, such as Service Bus and Event Hub triggered functions.
+
+To learn more about multi-region deployments, see the guidance in [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 ## Active/active for HTTPS functions
 
