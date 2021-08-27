@@ -42,25 +42,20 @@ In this example, walk through how to
 
 * An Azure Resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article.
 
-* Install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
-
 * An Azure Machine Learning workspace. You'll have a workspace if you configured your ML extension per the above article.
 
 * A trained machine learning model ready for scoring and deployment.
 
-## Set the defaults for Azure CLI
+* Install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
 
-To ensure the correct resources are used throughout this guide, set the default values for the Azure subscription ID, Azure Machine Learning workspace, and resource group you want to use. Doing so allows you to avoid repeatedly passing in the values every time you call an Azure CLI command.
+* If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
 
-> [!IMPORTANT]
-> Ensure your user account has "User Access Administrator" role assigned to the resource group. 
+   ```azurecli
+   az account set --subscription <subscription ID>
+   az configure --defaults workspace=<Azure Machine Learning workspace name> group=<resource group>
+   ```
 
-```azurecli
-az account set --subscription <subscription id>
-az configure --defaults workspace=<azureml workspace name> group=<resource group>
-```
-
-To follow along with the sample, clone the samples repository
+* To follow along with the sample, clone the samples repository
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
@@ -73,8 +68,8 @@ To deploy a managed endpoint with the CLI, you need to define the configuration 
 
 # [System-assigned managed identity](#tab/system-identity)
 
-The following code example creates a managed endpoint that,  
-* Shows the YAML files from `endpoints/online/managed/managed-identities/` directory.
+The following YAML example is located at`endpoints/online/managed/managed-identities/2-sai-create-endpoint-with-deployment.yml`. The file, 
+
 * Defines the name by which you want to refer to the endpoint, `my-sai-endpoint`.
 * Specifies the type of authorization to use to access the endpoint, `auth-mode: key`.
 * Specifies that the type of endpoint you want to create is an `online` endpoint.
@@ -86,9 +81,8 @@ The following code example creates a managed endpoint that,
 
 # [User-assigned managed identity](#tab/user-identity)
 
-The following file:
+The following YAML example is located at `endpoints/online/managed/managed-identities/1-uai-create-endpoint-with-deployment.yml`. The file, 
 
-* Shows the YAML file `endpoints/online/managed/managed-identities/1-uai-create-endpoint-with-deployment.yml`.
 * Defines the name by which you want to refer to the endpoint, `my-uai-endpoint`.
 * Specifies the type of authorization to use to access the endpoint, `auth-mode: key`.
 * Specifies that the type of endpoint you want to create is an `online` endpoint.
@@ -101,7 +95,7 @@ The following file:
 
 ## Configure variables for your deployment
 
-Configure the variable names for the workspace, workspace location, and the endpoint you want to create and use.
+Configure the variable names for the workspace, workspace location, and the endpoint you want to create for use with your deployment.
 
 # [System-assigned managed identity](#tab/system-identity)
 
@@ -139,11 +133,11 @@ Decide on the name of your user identity name, and export that value as an envir
 
 # [System-assigned managed identity](#tab/system-identity)
 
-You don't need to create a separate system-assigned managed identity. One is automatically generated for you upon endpoint creation.
+When you [create an online endpoint](#create-a-managed-online-endpoint), a system-assigned managed identity is automatically generated for you, so no need to create a separate one. 
 
 # [User-assigned managed identity](#tab/user-identity)
 
-To create an user-assigned identity, use the Azure CLI to run:
+To create an user-assigned identity, use the following:
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="create_user_identity" :::
 
@@ -151,7 +145,7 @@ To create an user-assigned identity, use the Azure CLI to run:
 
 ## Create a storage and container
 
-For this example, you create a blob storage account and blob container, and then upload the previously created text file to the blob container.
+For this example, create a blob storage account and blob container, and then upload the previously created text file to the blob container.
 
 # [System-assigned managed identity](#tab/system-identity)
 
@@ -311,7 +305,7 @@ To check the init method output, see the deployment log with the following code.
 
 ---
 
-Once this command completes, you will have registered the model, the environment, and the endpoint in your Azure Machine Learning workspace.
+This command registers the model, the environment, and the endpoint in your Azure Machine Learning workspace.
 
 ## Confirm your endpoint deployed successfully
 
