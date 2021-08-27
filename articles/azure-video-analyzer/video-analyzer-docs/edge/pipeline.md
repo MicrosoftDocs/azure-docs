@@ -110,7 +110,7 @@ An IoT Hub message sink node enables you to publish events to IoT Edge hub. The 
 
 ## Rules on the use of nodes
 
-See [limitations on pipelines](quotas-limitations.md#limitations-on-pipeline-topologies) for additional rules on how different nodes can be used within a pipeline.
+See [limitations on pipelines](../quotas-limitations.md#limitations-on-pipeline-topologies) for additional rules on how different nodes can be used within a pipeline.
 
 ## Scenarios
 
