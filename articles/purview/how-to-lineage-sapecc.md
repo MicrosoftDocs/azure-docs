@@ -24,4 +24,4 @@ The lineage derived is available at the columns level as well.
 ## Next steps
 
 - [Learn about Data lineage in Azure Purview](catalog-lineage-user-guide.md)
-- If you are moving data to Azure from SAP ECC using ADF we can track lineage as part of the data movement run time.[Link Azure Data Factory to push automated lineage](how-to-link-azure-data-factory.md)
+- If you are moving data to Azure from SAP ECC using ADF we can track lineage as part of the data movement run time - [Link Azure Data Factory to push automated lineage](how-to-link-azure-data-factory.md)

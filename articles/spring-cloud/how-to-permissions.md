@@ -96,7 +96,7 @@ The Developer role includes permissions to restart apps and see their log stream
 
 9. Select **Add**.
 
-1. Review the permissions.
+10. Review the permissions.
 
 11. Select **Review and create**.
 
@@ -167,7 +167,7 @@ The Developer role includes permissions to restart apps and see their log stream
 This procedure defines a role that has permissions to deploy, test, and restart Azure Spring Cloud apps.
 
 #### [Portal](#tab/Azure-portal)
-1. Repeat steps 1 through 4 in the procedure for adding the Developer role. 
+1. Repeat steps 1 through 4 in the procedure for adding the Developer role.
 
 2. Select the permissions for the DevOps Engineer role:
 
@@ -284,16 +284,19 @@ This procedure defines a role that has permissions to deploy, test, and restart 
      }
    }
    ```
+
 6. Review the permissions.
 
 7. Select **Review and create**.
+
 ---
+
 ## Define the Ops - Site Reliability Engineering role
+
 This procedure defines a role that has permissions to deploy, test, and restart Azure Spring Cloud apps.
 
-
 #### [Portal](#tab/Azure-portal)
-1. Repeat steps 1 through 4 from the procedure for adding the Developer role. 
+1. Repeat steps 1 through 4 from the procedure for adding the Developer role.
 2. Select the permissions for the Ops - Site Reliability Engineering role:
 
    Under **Microsoft.AppPlatform/Spring**, select:
@@ -324,7 +327,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
 5. Select **Review and create**.
 
 #### [JSON](#tab/JSON)
-1. Repeat steps 1 through 4 from the procedure for adding the Developer role. 
+1. Repeat steps 1 through 4 from the procedure for adding the Developer role.
 2. Select **Next**.
 
 3. Select the **JSON** tab.
@@ -334,7 +337,7 @@ This procedure defines a role that has permissions to deploy, test, and restart 
    ![Screenshot that shows the default JSON text.](media/spring-cloud-permissions/create-custom-role-edit-json.png)
 
 5. Paste in the following JSON to define the Ops - Site Reliability Engineering role:
- 
+
    ```json
    {
      "properties": {
@@ -365,21 +368,24 @@ This procedure defines a role that has permissions to deploy, test, and restart 
      }
    }
    ```
+
 6. Review the permissions.
 
 7. Select **Review and create**.
+
 ---
+
 ## Define the Azure Pipelines / Jenkins / GitHub Actions role
 
 This role can create and configure everything in Azure Spring Cloud and apps with a service instance. This role is for releasing or deploying code.
 
 #### [Portal](#tab/Azure-portal)
 
-1. Repeat steps 1 through 4 from the procedure for adding the Developer role. 
+1. Repeat steps 1 through 4 from the procedure for adding the Developer role.
 2. Open the **Permissions** options.
 
 3. Select the permissions for the Azure Pipelines / Jenkins / GitHub Actions role:
-  
+
    Under **Microsoft.AppPlatform/Spring**, select:
    * **Write : Create or Update Azure Spring Cloud service instance**
    * **Delete : Delete Azure Spring Cloud service instance**
@@ -425,16 +431,17 @@ This role can create and configure everything in Azure Spring Cloud and apps wit
    Under **Microsoft.AppPlatform/skus**, select:
    * **Read : List available skus**
 
-   [ ![Screenshot that shows the selections for Azure Pipelines / Jenkins / GitHub Actions permissions.](media/spring-cloud-permissions/pipelines-permissions-box.png) ](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
+   [ ![Screenshot that shows the selections for Azure Pipelines / Jenkins / GitHub Actions permissions.](media/spring-cloud-permissions/pipelines-permissions-box.png) ](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)
 
 4. Select **Add**.
 
 5. Review the permissions.
 
 6. Select **Review and create**.
+
 #### [JSON](#tab/JSON)
 
-1. Repeat steps 1 through 4 from the procedure for adding the Developer role. 
+1. Repeat steps 1 through 4 from the procedure for adding the Developer role.
 2. Select **Next**.
 
 3. Select the **JSON** tab.
@@ -491,11 +498,15 @@ This role can create and configure everything in Azure Spring Cloud and apps wit
      }
    }
    ```
+
 6. Select **Add**.
 
 7. Review the permissions.
+
 ---
+
 ## See also
+
 * [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md)
 
 For more information about three methods that define custom permissions, see:

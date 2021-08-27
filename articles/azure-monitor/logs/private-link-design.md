@@ -32,10 +32,10 @@ Hub-spoke topologies can avoid the issue of DNS overrides by setting the Private
 ### Peered networks
 Network peering is used in various topologies, other than hub-spoke. Such networks can share reach each others' IP addresses, and most likely share the same DNS. In such cases, our recommendation is similar to Hub-spoke - select a single network that is reached by all other (relevant) networks and set the Private Link connection on that network. Avoid creating multiple Private Endpoints and AMPLS objects, since ultimately only the last one set in the DNS will apply.
 
-## Isolated networks
+### Isolated networks
 #If your networks aren't peered, **you must also separate their DNS in order to use Private Links**. Once that's done, you can create a Private Link for one (or many) network, without affecting traffic of other networks. That means creating a separate Private Endpoint for each network, and a separate AMPLS object. Your AMPLS objects can link to the same workspaces/components, or to different ones.
 
-### Testing with a local bypass: Edit your machine's hosts file instead of the DNS 
+### Testing locally: Edit your machine's hosts file instead of the DNS 
 As a local bypass to the All or Nothing behavior, you can select not to update your DNS with the Private Link records, and instead edit the hosts files on select machines so only these machines would send requests to the Private Link endpoints.
 * Set up a Private Link, but when connecting to a Private Endpoint choose **not** to auto-integrate with the DNS (step 5b).
 * Configure the relevant endpoints on your machines' hosts files. To review the Azure Monitor endpoints that need mapping, see [Reviewing your Endpoint's DNS settings](./private-link-configure.md#reviewing-your-endpoints-dns-settings).
@@ -58,7 +58,7 @@ In the below diagram:
 ![Diagram of AMPLS limits](./media/private-link-security/ampls-limits.png)
 
 
-## Controlling network access to your resources
+## Control network access to your resources
 Your Log Analytics workspaces or Application Insights components can be set to accept or block access from public networks, meaning networks not connected to the resource's AMPLS.
 That granularity allows you to set access according to your needs, per workspace. For example, you may accept ingestion only through Private Link connected networks (i.e. specific VNets), but still choose to accept queries from all networks, public and private. 
 Note that blocking queries from public networks means, clients (machines, SDKs etc.) outside of the connected AMPLSs can't query data in the resource. That data includes access to logs, metrics, and the live metrics stream, as well as experiences built on top such as workbooks, dashboards, query API-based client experiences, insights in the Azure portal, and more. Experiences running outside the Azure portal and that query Log Analytics data are also affected by that setting.
@@ -96,7 +96,7 @@ For more information on connecting your own storage account, see [Customer-owned
 If you use Log Analytics solutions that require an Automation account, such as Update Management, Change Tracking, or Inventory, you should also set up a separate Private Link for your Automation account. For more information, see [Use Azure Private Link to securely connect networks to Azure Automation](../../automation/how-to/private-link-security.md).
 
 > [!NOTE]
-> Some products and Azure portal experiences query data through Azure Resource Manager and therefore won't be able to query data over a Private Link, unless Private Link settings are applied to the Resource Manager as well. To overcome this, you can configure your resources to accept queries from public networks as explained in [Controlling network access to your resources](./private-link-design.md#controlling-network-access-to-your-resources) (Ingestion can remain limited to Private Link networks).
+> Some products and Azure portal experiences query data through Azure Resource Manager and therefore won't be able to query data over a Private Link, unless Private Link settings are applied to the Resource Manager as well. To overcome this, you can configure your resources to accept queries from public networks as explained in [Controlling network access to your resources](./private-link-design.md#control-network-access-to-your-resources) (Ingestion can remain limited to Private Link networks).
 We've identified the following products and experiences query workspaces through Azure Resource Manager:
 > * LogicApp connector
 > * Update Management solution

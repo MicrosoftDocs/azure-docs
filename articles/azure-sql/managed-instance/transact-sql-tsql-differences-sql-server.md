@@ -9,7 +9,7 @@ ms.topic: reference
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, bonova, danil
-ms.date: 3/16/2021
+ms.date: 8/18/2021
 ms.custom: seoapril2019, sqldbrb=1
 ---
 
@@ -465,13 +465,13 @@ For information about restore statements, see [RESTORE statements](/sql/t-sql/st
 
 Cross-instance service broker message exchange is supported only between Azure SQL Managed Instances:
 
-- `CREATE ROUTE`: You can't use `CREATE ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance.
-- `ALTER ROUTE`: You can't use `ALTER ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance.
+- `CREATE ROUTE`: You can't use `CREATE ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance. Port is always 4022.
+- `ALTER ROUTE`: You can't use `ALTER ROUTE` with `ADDRESS` other than `LOCAL` or DNS name of another SQL Managed Instance. Port is always 4022.
 
 Transport security is supported, dialog security is not:
 - `CREATE REMOTE SERVICE BINDING`is not supported.
 
-Service broker is enabled by default and cannot be disabled. The following ALTER DATABSE options are not supported:
+Service broker is enabled by default and cannot be disabled. The following ALTER DATABASE options are not supported:
 - `ENABLE_BROKER`
 - `DISABLE_BROKER`
 

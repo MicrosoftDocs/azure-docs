@@ -30,7 +30,7 @@ The number of outbound public IPs changes when you perform one of the following 
 
 ## Find outbound IPs
 
-To find the outbound public IP addresses currently used by your service instance in the Azure portal, click **Networking** in your instance's left-hand navigation pane. They are listed in the **Outbound IP addresses** field.
+To find the outbound public IP addresses currently used by your service instance in the Azure portal, select **Networking** in your instance's left-hand navigation pane. They are listed in the **Outbound IP addresses** field.
 
 You can find the same information by running the following command in the Cloud Shell
 
@@ -39,6 +39,7 @@ az spring-cloud show --resource-group <group_name> --name <service_name> --query
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 * [Learn more about managed identities for Azure resources](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 * [Learn more about key vault in Azure Spring Cloud](./tutorial-managed-identities-key-vault.md)

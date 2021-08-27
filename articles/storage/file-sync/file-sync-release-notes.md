@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 8/10/2021
+ms.date: 8/24/2021
 ms.author: wgries
 ms.subservice: files
 ---
@@ -66,7 +66,7 @@ The following release notes are for version 13.0.0.0 of the Azure File Sync agen
 	- The Azure File Sync agent is now supported on Windows Server 2022 Preview build 20348 or later.
 
 	> [!Note]  
-	> Windows Server 2022 adds support for TLS 1.3 which is not currently supported by Azure File Sync.  If the [TLS settings](https://docs.microsoft.com/windows-server/security/tls/tls-ssl-schannel-ssp-overview) are managed via group policy, the server must be configured to support TLS 1.2. 
+	> Windows Server 2022 adds support for TLS 1.3 which is not currently supported by Azure File Sync.  If the [TLS settings](/windows-server/security/tls/tls-ssl-schannel-ssp-overview) are managed via group policy, the server must be configured to support TLS 1.2. 
 
 - Miscellaneous improvements
 	- Reliability improvements for sync, cloud tiering and cloud change enumeration.
@@ -116,7 +116,6 @@ The following items don't sync, but the rest of the system continues to operate 
 - Failover Clustering is supported only with clustered disks, but not with Cluster Shared Volumes (CSVs).
 - A server endpoint can't be nested. It can coexist on the same volume in parallel with another endpoint.
 - Do not store an OS or application paging file within a server endpoint location.
-- The server name in the portal is not updated if the server is renamed.
 
 ### Cloud endpoint
 - Azure File Sync supports making changes to the Azure file share directly. However, any changes made on the Azure file share first need to be discovered by an Azure File Sync change detection job. A change detection job is initiated for a cloud endpoint once every 24 hours. To immediately sync files that are changed in the Azure file share, the [Invoke-AzStorageSyncChangeDetection](/powershell/module/az.storagesync/invoke-azstoragesyncchangedetection) PowerShell cmdlet can be used to manually initiate the detection of changes in the Azure file share. In addition, changes made to an Azure file share over the REST protocol will not update the SMB last modified time and will not be seen as a change by sync.

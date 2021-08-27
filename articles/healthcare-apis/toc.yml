@@ -31,12 +31,16 @@ items:
   items:
     - name: Authentication & Authorization
       href: authentication-authorization.md
+    - name: Access FHIR service with Postman
+      href: ./fhir/using-postman.md  
     - name: Access using cURL
       href: using-curl.md
     - name: Access using REST Client
       href: using-rest-client.md
     - name: Register applications
       href: register-application.md
+    - name: Logging
+      href: logging.md
 
 - name: Resources
   expanded: true

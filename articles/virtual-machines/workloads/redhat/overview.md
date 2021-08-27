@@ -13,6 +13,8 @@ ms.author: alsin
 
 # Red Hat workloads on Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 Red Hat workloads are supported through a variety of offerings on Azure. Red Hat Enterprise Linux (RHEL) images are at the core of RHEL workloads, as is the Red Hat Update Infrastructure (RHUI).
 
 ## Red Hat Enterprise Linux images

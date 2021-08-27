@@ -14,8 +14,6 @@ zone_pivot_groups: acs-web-ios-android
 # Quickstart: Join your chat app to a Teams meeting
 
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
-
 
 Get started with Azure Communication Services by connecting your chat solution to Microsoft Teams. 
 
