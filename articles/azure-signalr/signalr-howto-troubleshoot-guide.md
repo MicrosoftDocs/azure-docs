@@ -423,7 +423,7 @@ To find the root cause of thread pool starvation:
 
 <a name="view_request"></a>
 
-* How to view the outgoing request from client?
+### How to view the outgoing request from client?
 Take ASP.NET Core one for example (ASP.NET one is similar):
     * From browser:
 
@@ -439,13 +439,13 @@ Take ASP.NET Core one for example (ASP.NET one is similar):
 
 <a name="restart_connection"></a>
 
-* How to restart client connection?
+### How to restart client connection?
 	
 	Here are the [Sample codes](https://github.com/Azure/azure-signalr/tree/dev/samples) containing restarting connection logic with *ALWAYS RETRY* strategy:
 
 	* [ASP.NET Core C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
 
-	* [ASP.NET Core JavaScript Client](https://github.com/Azure/azure-signalr/blob/release/1.0.0-preview1/samples/ChatSample/wwwroot/index.html#L164)
+	* [ASP.NET Core JavaScript Client](https://github.com/Azure/azure-signalr/blob/dev/samples/ChatSample/ChatSample.Net50/wwwroot/index.html#L171)
 
 	* [ASP.NET C# Client](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 
