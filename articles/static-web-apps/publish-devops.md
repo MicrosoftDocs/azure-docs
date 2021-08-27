@@ -30,6 +30,9 @@ In this tutorial, you learn to:
 
   > [!NOTE]
   > If you have an existing app in your repository, you may skip to the next section.
+  
+  > [!NOTE]
+  > The application must target .NET Core 3.1 for the pipeline to succeed.
 
 1. Navigate to your repository in Azure Repos.
 
@@ -107,9 +110,9 @@ In this tutorial, you learn to:
         submodules: true
       - task: AzureStaticWebApp@0
         inputs:
-          app_location: '/'
+          app_location: '/src'
           api_location: 'api'
-          output_location: ''
+          output_location: '/src'
           azure_static_web_apps_api_token: $(deployment_token)
     ```
 

@@ -12,6 +12,7 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
+ms.custom: has-adal-ref
 ---
 
 # Microsoft identity platform docs: What's new

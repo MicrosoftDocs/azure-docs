@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 02/18/2021
+ms.date: 08/18/2021
 ---
 
 # Azure Machine Learning release notes
@@ -17,6 +17,15 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## 2021-08-18
+
+### Azure Machine Learning Experimentation User Interface
+  + **Run Display Name**
+    + The Run Display Name is a new, editable and optional display name that can be assigned to a run. 
+    + This name can help with more effectively tracking, organizing and discovering the runs. 
+    + The Run Display Name is defaulted to an adjective_noun_guid format (Example: awesome_watch_2i3uns). 
+    + This default name can be edited to a more customizable name. This can be edited from the Run details page in the Azure Machine Learning studio user interface.   
 
 ## 2021-08-02
 

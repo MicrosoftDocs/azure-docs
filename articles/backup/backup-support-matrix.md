@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
-ms.date: 07/05/2021
+ms.date: 08/23/2021
 ms.custom: references_regions 
 ---
 
@@ -158,7 +158,7 @@ The resource health check functions in following conditions:
 |     |     |
 | --- | --- |
 | **Supported Resources** | Recovery Services vault |
-| **Supported Regions** | East US 2, East Asia, and France Central. |
+| **Supported Regions** | East US 2, Central US, North Europe, France Central, East Asia, Japan East, Japan West, Australia East, South Africa North. |
 | **For unsupported regions** | The resource health status is shown as "Unknown". |
 
 
