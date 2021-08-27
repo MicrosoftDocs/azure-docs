@@ -14,7 +14,7 @@ ms.workload: identity
 ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 # Customer intent: As an Android application developer, I want to learn how to migrate my v1 ADAL app to v2 MSAL.
 ---
 

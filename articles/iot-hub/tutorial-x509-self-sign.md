@@ -2,7 +2,7 @@
 title: Tutorial - Use OpenSSL to create self signed certificates for Azure IoT Hub | Microsoft Docs
 description: Tutorial - Use OpenSSL to create self-signed X.509 certificates for Azure IoT Hub
 author: v-gpettibone
-manager: philmea
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial

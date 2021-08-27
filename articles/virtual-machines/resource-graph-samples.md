@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Graph sample queries for Azure Virtual Machines
 description: Sample Azure Resource Graph queries for Azure Virtual Machines showing use of resource types and tables to access Azure Virtual Machines related resources and properties.
-ms.date: 08/04/2021
+ms.date: 08/09/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn

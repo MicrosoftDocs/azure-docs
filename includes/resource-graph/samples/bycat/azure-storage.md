@@ -2,7 +2,7 @@
 author: DCtheGeek
 ms.service: resource-graph
 ms.topic: include
-ms.date: 08/04/2021
+ms.date: 08/09/2021
 ms.author: dacoulte
 ms.custom: generated
 ---

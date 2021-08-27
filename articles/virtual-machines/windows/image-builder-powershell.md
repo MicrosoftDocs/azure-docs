@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 ---
 # Create a Windows VM with Azure Image Builder using PowerShell
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 This article demonstrates how you can create a customized Windows image using the Azure VM Image
 Builder PowerShell module.
 
