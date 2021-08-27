@@ -36,3 +36,10 @@ type the name of the volume, and click **Revert**.
     The volume is now restored to the point in time of the selected snapshot.
 
     ![Screenshot that the Revert volume to snapshot window](../media/azure-netapp-files/snapshot-revert-volume.png) 
+
+## Next steps
+
+* [Learn more about snapshots](snapshots-introduction.md)
+* [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw)
+* [Azure NetApp Files Snapshot Overview](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)

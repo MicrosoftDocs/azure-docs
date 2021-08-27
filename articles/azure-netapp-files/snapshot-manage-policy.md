@@ -13,13 +13,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/12/2021
+ms.date: 08/27/2021
 ms.author: b-juche
 ---
 
 # Manage snapshot policies in Azure NetApp Files
 
-You can schedule for [volume snapshots](snapshots-introduction.md) to be taken automatically by using snapshot policies. You can also modify a snapshot policy as needed, or delete a snapshot policy that you no longer need.  
+[Snapshots](snapshots-introduction.md) enable point-in-time recovery of volumes. You can schedule for [volume snapshots](snapshots-introduction.md) to be taken automatically by using snapshot policies. You can also modify a snapshot policy as needed, or delete a snapshot policy that you no longer need.  
 
 ## Create a snapshot policy 
 
@@ -102,3 +102,4 @@ You can delete a snapshot policy that you no longer want to keep.
 
 * [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Learn more about snapshots](snapshots-introduction.md)

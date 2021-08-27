@@ -19,7 +19,7 @@ ms.author: b-juche
 
 # Restore a snapshot to a new volume
 
-Currently, you can restore a snapshot only to a new volume. 
+[Snapshots](snapshots-introduction.md) enable point-in-time recovery of volumes. Currently, you can restore a snapshot only to a new volume. 
 1. Select **Snapshots** from the Volume blade to display the snapshot list. 
 2. Right-click the snapshot to restore and select **Restore to new volume** from the menu option.  
 
@@ -39,3 +39,12 @@ Currently, you can restore a snapshot only to a new volume.
 4. Click **Review+create**.  Click **Create**.   
     The new volume uses the same protocol that the snapshot uses.   
     The new volume to which the snapshot is restored appears in the Volumes blade.
+
+## Next steps
+
+* [Learn more about snapshots](snapshots-introduction.md)
+* [Monitor volume and snapshot metrics](azure-netapp-files-metrics.md#volumes)
+* [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
+* [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw)
+* [Azure NetApp Files Snapshot Overview](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)

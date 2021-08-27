@@ -43,6 +43,7 @@ You can create volume snapshots on demand.
 
 ## Next steps
 
+* [Learn more about snapshots](snapshots-introduction.md)
 * [Manage snapshot policies with Azure NetApp Files](snapshot-manage-policy.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

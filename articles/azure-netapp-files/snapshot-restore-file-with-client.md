@@ -70,3 +70,10 @@ NFSv4.1 does not show the `.snapshot` directory (`ls -la`). However, when the Hi
 4. You can also right-click the parent directory, select **Properties**, click the **Previous Versions** tab to see the list of snapshots, and select **Restore** to restore a file.  
 
     ![Properties Previous Versions](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
+## Next steps
+
+* [Learn more about snapshots](snapshots-introduction.md) 
+* [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw)
+* [Azure NetApp Files Snapshot Overview](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)
