@@ -33,14 +33,16 @@
     - name: Serverless Development
       expanded: true
       items:
-      - name: Build a serverless chat with Azure Function
+      - name: Build a notification app with Azure Function
+        href: tutorial-serverless-notification.md
+      - name: Build a chat app with Azure Function
         href: quickstart-serverless.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
       href: tutorial-build-chat.md
     - name: Client streaming using service-supported subprotocol
-      href: https://azure.github.io/azure-webpubsub/getting-started/using-pubsub-subprotocol/js-work-with-subprotocols
+      href: tutorial-subprotocol.md
     - name: Authentication and permissions
       href: https://azure.github.io/azure-webpubsub/getting-started/auth-and-permissions/js-auth-and-permissions
 - name: How-to guides
@@ -72,10 +74,12 @@
 - name: Concepts
   expanded: true
   items:
+  - name: Service internals
+    href: concept-service-internals.md
   - name: Client protocol overview
     href: concept-client-protocols.md
-  - name: Azure Web PubSub service internals
-    href: https://azure.github.io/azure-webpubsub/concepts/service-internals
+  - name: Performance considerations
+    href: concept-performance.md
   - name: Billing model
     href: concept-billing-model.md
 
@@ -88,6 +92,8 @@
       href: reference-json-webpubsub-subprotocol.md
   - name: CloudEvents extension for Azure Web PubSub
     href: reference-cloud-events.md
+  - name: Functions trigger and bindings
+    href: reference-functions-bindings.md
   - name: Server SDKs
     href: choose-server-sdks.md
   - name: REST API

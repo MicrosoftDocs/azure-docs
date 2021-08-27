@@ -18,9 +18,10 @@ OSM runs an Envoy-based control plane on Kubernetes, can be configured with [SMI
 ### Support limitations for Arc enabled Open Service Mesh
 
 - Only one instance of Open Service Mesh can be deployed on an Arc connected Kubernetes cluster
-- Public preview is available for Open Service Mesh version v0.8.4 and above. Find out the latest version of the release [here](https://github.com/Azure/osm-azure/releases).
+- Public preview is available for Open Service Mesh version v0.8.4 and above. Find out the latest version of the release [here](https://github.com/Azure/osm-azure/releases). The supported release versions are appended with notes. Ignore the tags associated with intermediate releases. 
 - Following Kubernetes distributions are currently supported
     - AKS Engine
+    - AKS on HCI
     - Cluster API Azure
     - Google Kubernetes Engine
     - Canonical Kubernetes Distribution
@@ -388,24 +389,23 @@ Both Azure Monitor and Azure Application Insights helps you maximize the availab
 
 Arc enabled Open Service Mesh will have deep integrations into both of these Azure services, and provide a seemless Azure experience for viewing and responding to critical KPIs provided by OSM metrics. Follow the steps below to allow Azure Monitor to scrape prometheus endpoints for collecting application metrics. 
 
-1. Ensure that prometheus_scraping is set to true in the `osm-mesh-config`.
+1. Ensure that the application namespaces that you wish to be monitored are onboarded to the mesh. Follow the guidance [available here](#onboard-namespaces-to-the-service-mesh).
 
-2. Ensure that the application namespaces that you wish to be monitored are onboarded to the mesh. Follow the guidance [available here](#onboard-namespaces-to-the-service-mesh).
-
-3. Expose the prometheus endpoints for application namespaces.
+2. Expose the prometheus endpoints for application namespaces.
     ```azurecli-interactive
     osm metrics enable --namespace <namespace1>
     osm metrics enable --namespace <namespace2>
     ```
+    For v0.8.4, ensure that `prometheus_scraping` is set to `true` in the `osm-config` ConfigMap.
 
-4. Install the Azure Monitor extension using the guidance available [here](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
+3. Install the Azure Monitor extension using the guidance available [here](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
-5. Add the namespaces you want to monitor in container-azm-ms-osmconfig ConfigMap. Download the ConfigMap from [here](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-osmconfig.yaml).
+4. Add the namespaces you want to monitor in container-azm-ms-osmconfig ConfigMap. Download the ConfigMap from [here](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-osmconfig.yaml).
     ```azurecli-interactive
     monitor_namespaces = ["namespace1", "namespace2"]
     ```
 
-6. Run the following kubectl command
+5. Run the following kubectl command
     ```azurecli-interactive
     kubectl apply -f container-azm-ms-osmconfig.yaml
     ```

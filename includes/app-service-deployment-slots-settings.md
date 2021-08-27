@@ -19,6 +19,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Hybrid connections *
 * Service endpoints *
 * Azure Content Delivery Network *
+* Path mappings
 
 Features marked with an asterisk (*) are planned to be unswapped. 
 
@@ -34,7 +35,6 @@ Features marked with an asterisk (*) are planned to be unswapped.
 * Diagnostic settings
 * Cross-origin resource sharing (CORS)
 * Virtual network integration
-* Path mappings
 * Managed identities
 * Settings that end with the suffix _EXTENSION_VERSION
 
