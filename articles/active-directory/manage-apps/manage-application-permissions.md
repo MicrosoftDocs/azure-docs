@@ -8,14 +8,17 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/10/2020
+ms.date: 08/27/2021
 ms.author: davidmu
 ms.reviewer: phsignor
 
 ms.collection: M365-identity-device-management
+
+#customer intent: As an admin I want to review permissions granted to applications so that I can restrict suspicious or over privileged applications.
+
 ---
 
-# Take action on overprivileged or suspicious applications in Azure Active Directory
+# Take action on over privileged or suspicious applications in Azure Active Directory
 
 Learn how to review and manage application permissions. This article provides different actions you can take to secure your application according to the scenario. These actions apply to all applications that were added to your Azure Active Directory (Azure AD) tenant via user or admin consent.
 
@@ -24,6 +27,8 @@ For more information on consenting to applications, see [Azure Active Directory 
 ## Prerequisites
 
 To do the following actions, you must sign in as a global administrator, an application administrator, or a cloud application administrator.
+
+- Set up Microsoft Graph PowerShell SDK. See [Microsoft Graph PowerShell Installation](https://docs.microsoft.com/graph/powershell/installation)
 
 To restrict access to applications, you need to require user assignment and then assign users or groups to the application.  For more information, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md).
 
