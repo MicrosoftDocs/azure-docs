@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand how Azure Digital Twins uses custom models to describe entities in your environment.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/12/2020
+ms.date: 6/1/2021
 ms.topic: conceptual
 ms.service: digital-twins
 

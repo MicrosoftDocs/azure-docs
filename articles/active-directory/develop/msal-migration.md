@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 07/22/2021
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 # Customer intent: As an application developer, I want to learn about MSAL library so I can migrate my ADAL applications to MSAL.
 ---
 
