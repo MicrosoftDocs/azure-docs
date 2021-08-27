@@ -86,7 +86,7 @@ You can also set the key/value pairs using the Azure portal, use the following s
 
 >Note: Since the Dynatrace menu will evolve its layout gradually, so the dashboard may be moved to other sections in Dynatrace website.
 
-After you add the environment variables to your application, Dynatrace starts collecting data. To view reports, use the [Dynatrace menu](https://www.dynatrace.com/support/help/get-started/navigation/), go to **Services**, and then select your application.
+After you add the environment variables to your application, Dynatrace starts collecting data. To view reports, use the [Dynatrace menu](https://www.dynatrace.com/support/help/get-started/navigation/), go to **Services**, and then select your application. For application with multiple instances, Dynatrace has default rules to group them. One can refer to [Customize the structure of process groups](https://www.dynatrace.com/support/help/how-to-use-dynatrace/process-groups/configuration/adapt-the-composition-of-default-process-groups/) for more details.
 
 * You can find the **Service flow** from **yourAppName/Details/Service flow**:
    ![Service flow](media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png)
@@ -144,7 +144,7 @@ The Dynatrace OneAgent will update or upgrade quarterly with the JDK. Agent upda
 * Applications created after update or upgrade will use the new version of Dynatrace OneAgent.
 
 ## VNet injection instance outbound traffic configuration
-For a VNet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic is configured correctly for Dynatrace OneAgent. For details, see [Networks of Dynatrace](https://docs.microsoft.com)(Note: The link is pending on Dynatrace Side now) and [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md).
+For a VNet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. Refer to [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/) on how to get `communicationEndpoints`, also see [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md) for further details.
 
 ## Dynatrace Support Model
 Refer to [Dynatrace OneAgent platform and capability support matrix](https://www.dynatrace.com/support/help/technology-support/oneagent-platform-and-capability-support-matrix/#cloud-application-platforms) for limitations when deploy Dynatrace OneAgent in application-only mode.
