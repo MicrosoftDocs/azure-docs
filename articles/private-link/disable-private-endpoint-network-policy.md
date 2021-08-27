@@ -49,7 +49,7 @@ az network vnet subnet update \
   --disable-private-endpoint-network-policies true \
   --name default \ 
   --resource-group myResourceGroup \ 
-  --vnet-name myVirtualNetwork \ 
+  --vnet-name myVirtualNetwork
   
 ```
 ## Resource Manager template
