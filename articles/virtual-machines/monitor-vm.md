@@ -54,9 +54,13 @@ AKS also provides additional resource logging data, such as [control plane compo
 
 
 ## Analyze virtual machine metrics
-The **Overview** page in the Azure portal for each virtual machine includes charts that provide common usage metrics such as average CPU and network utilization. 
+
+### Overview page
+The **Overview** page in the Azure portal for each virtual machine includes charts that provide common usage metrics such as average CPU and network utilization. Click on any of these charts to open up metrics explorer to drill down further or to analyze them with additional metrics.
 
 :::image type="content" source="media/monitor-vm/overview.png" alt-text="Azure virtual machine overview page":::
+
+### Metrics explorer
 
 [!INCLUDE [View metrics](../../includes/azure-monitor-horizontal-view-metrics.md)]
 
