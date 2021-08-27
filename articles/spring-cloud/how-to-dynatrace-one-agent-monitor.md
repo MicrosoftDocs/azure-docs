@@ -129,7 +129,7 @@ You can also get the logs of the Dynatrace agent from the following locations:
 * Azure Spring Cloud Application Insights.
 * Azure Spring Cloud LogStream.
 
-You can leverage some environment variables provided by Dynatrace to configure logging for the Dynatrace OneAgent. For example, `DT_LOGLEVELCON` controls the level of logs. For more information, see [Dynatrace Environment Variables](https://docs.microsoft.com) (Note: The doc not available yet).
+You can leverage some environment variables provided by Dynatrace to configure logging for the Dynatrace OneAgent. For example, `DT_LOGLEVELCON` controls the level of logs.
 
 > [!CAUTION]
 >
