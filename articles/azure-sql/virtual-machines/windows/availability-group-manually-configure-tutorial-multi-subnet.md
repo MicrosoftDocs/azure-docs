@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configure a SQL Server Always On availability group"
-description: "This tutorial shows how to create a SQL Server Always On availability group on Azure Virtual Machines."
+title: "Tutorial: Configure a SQL Server Always On availability group in multiple subnets"
+description: "This tutorial shows how to create a SQL Server Always On availability group on Azure Virtual Machines that are in multiple subnets."
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -15,7 +15,7 @@ ms.subservice: hadr
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/30/2018
+ms.date: 09/01/2021
 ms.author: mathoma
 ms.custom: "seo-lt-2019"
 
@@ -40,7 +40,7 @@ The following table lists the prerequisites that you need to complete before sta
 
 | Requirement | Description |
 |----- |----- |
-|:::image type="icon" source="./media/availability-group-manually-configure-tutorial-multi-subnet/square.png" border="false":::   **Two SQL Server instances** | - In an Azure availability zone or availability set <br/> - In separate subnet within an Azure Virtual Network <br/> - With secondary IPs assigned <br/> - In a single domain <br/> - With Failover Clustering feature installed <br/> |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial-multi-subnet/square.png" border="false":::   **Two SQL Server instances** | - In an Azure availability zone or availability set <br/> - In separate subnets within an Azure Virtual Network <br/> - With two secondary IPs assigned to each VM <br/> - In a single domain <br/> - With Failover Clustering feature installed <br/> |
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial-multi-subnet/square.png" border="false":::   **SQL Server service account** | Domain account | 
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial-multi-subnet/square.png" border="false":::   **Firewall ports open** | - SQL Server: **1433** for default instance <br/> - Database mirroring endpoint: **5022** or any available port <br/> |
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial-multi-subnet/square.png" border="false":::   **Add Failover Clustering Feature** | Both SQL Server instances require this feature |
@@ -109,7 +109,7 @@ After the prerequisites are completed, the first step is to create a Windows Ser
 
     ![Static IP](./media/availability-group-manually-configure-tutorial-multi-subnet/04-second-static-ipaddress.png)
 
-6. In the **Cluster Core Resources** section, right-click cluster name and select **Bring Online**. Wait until the name and one of the IP address resource are online. Since the VMs are in different subnets the cluster created will have an OR dependency on the two IP addresses and thus eliminates the need to have an IP address from Azure Load Balancer. When the cluster name resource comes online, it updates the domain controller (DC) server with a new Active Directory (AD) computer account. 
+6. In the **Cluster Core Resources** section, right-click cluster name and select **Bring Online**. Wait until the name and one of the IP address resource are online. Since the VMs are in different subnets the cluster created will have an OR dependency on the two IP addresses. When the cluster name resource comes online, it updates the domain controller (DC) server with a new Active Directory (AD) computer account. 
 
 ### View and copy access keys for cloud witness Azure Storage Account
 
@@ -195,9 +195,9 @@ Repeat these steps on the other SQL Server.
 
 7. On **Customize Permissions**, select **Add...**.
 
-8. Make sure that the SQL Server and SQL Server Agent service accounts for both servers have full control.
+8. Make sure that the SQL Server service accounts for both servers have full control.
 
-   ![Make sure that the SQL Server and SQL Server Agent service accounts for both servers have full control.](./media/availability-group-manually-configure-tutorial-multi-subnet/10-backupsharepermission.png)
+   ![Make sure that the SQL Server service accounts for both servers have full control.](./media/availability-group-manually-configure-tutorial-multi-subnet/10-backupsharepermission.png)
 
 9. Select **OK**.
 

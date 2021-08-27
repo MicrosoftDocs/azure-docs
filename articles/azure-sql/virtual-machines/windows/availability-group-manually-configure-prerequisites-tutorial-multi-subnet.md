@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Prerequisites for an availability group"
-description: "This tutorial shows how to configure the prerequisites for creating a SQL Server Always On availability group on Azure Virtual Machines."
+title: "Tutorial: Prerequisites for an availability group in multiple subnets"
+description: "This tutorial shows how to configure the prerequisites for creating a SQL Server Always On availability group on Azure Virtual Machines that are in multiple subnets."
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -14,7 +14,7 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/29/2018
+ms.date: 09/01/2021
 ms.author: mathoma
 ms.custom: "seo-lt-2019"
 
@@ -24,15 +24,16 @@ ms.custom: "seo-lt-2019"
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This tutorial shows how to complete the prerequisites for creating a [SQL Server Always On availability group on Azure Virtual Machines (VMs)](availability-group-manually-configure-tutorial-multiple-subnet.md). When you've completed the prerequisites, you'll have a domain controller, two SQL Server VMs, and a cloud witness in a single resource group.
+This tutorial shows how to complete the prerequisites for creating a [SQL Server Always On availability group on Azure Virtual Machines (VMs)](availability-group-manually-configure-tutorial-multiple-subnet.md). When you've completed the prerequisites, you'll have a domain controller, two SQL Server VMs, and a storage account in a single resource group.
 
 **Creating Azure SQL Server VMs in multiple subnets with in the same Azure Virtual Network eliminates the need of using Azure Load Balancer for Windows Server Failover Cluster and Availability Group Listener.**
 
 **Time estimate**: It might take a couple of hours to complete the prerequisites. Much of this time is spent creating virtual machines.
 
 The following diagram illustrates what you build in the tutorial.
-RSETLEM - Need to put new architecture diagram
-![Availability group](./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/00-EndstateSampleNoELB.png)
+
+RSETLEM - Need to add new architecture diagram
+
 
 ## Review availability group documentation
 
@@ -105,7 +106,7 @@ To create the virtual network in the Azure portal:
 
      ![Create virtual network](./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/06-create-vnet-ipaddress-add-sql-subnet-2.png)
 
-9. The following screenshot shows the address and the three subnets
+9. The following screenshot shows the three subnets and their address range. 
 
       ![Create virtual network](./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/07-create-vnet-ipaddress.png)
 
@@ -147,7 +148,7 @@ The following table shows the settings for these two machines:
 | **Resource group** |SQL-HA-RG |
 | **Virtual machine name** |First domain controller: *DC-VM-1*.</br>Second domain controller *DC-VM-2*. |
 | **Region** |*Your Region* |
-| **Availability options** |Availability zone |
+| **Availability options** |Availability zone </br> *In Azure regions that do not have support for Availability Zones yet, use Availability Sets instead. Create a new Availability Set to place all the VMs created in this tutorial.* |
 | **Availability zone** |Specify 1 for DC-VM-1. </br> Specify 2 for DC-VM-2 |
 | **Size** |D2s_v3 (2 vCPUs, 8 GB RAM) |
 | **User name** |DomainAdmin |
@@ -175,7 +176,7 @@ In the following steps, configure the **DC-VM-1** machine as a domain controller
 
     ![Connect to a virtual machine](./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/08-dc-vm-1-rdp-connect.png)
 
-2. Sign in with your configured administrator account (**\DomainAdmin**) and password (**Contoso!0000**).
+2. Sign in with your configured administrator account (**DomainAdmin**) and password (**Contoso!0000**).
 3. By default, the **Server Manager** dashboard should be displayed.
 4. Select the **Add roles and features** link on the dashboard.
 
@@ -334,6 +335,9 @@ Create two additional virtual machines. The solution requires two virtual machin
 
 Before you proceed consider the following design decisions.
 
+* **Availability - Availability Zones**
+   For highest levels of redundancy, resiliency and availability deploy the VMs in Availability Zones. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters with independent power, cooling, and networking. In Azure regions that do not have support for Availability Zones yet, use Availability Sets instead.
+
 * **Storage - Azure Managed Disks**
 
    For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. For more information, see [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md). 
@@ -385,14 +389,11 @@ After the two VMs are fully provisioned, you need to assign two secondary IPs on
 
 6. Select **+ Add** again to add secondary IP for Availability Group Listener. 
     
-    | **Field** | Value |
-    | --- | --- |
-    | **Name** |availability-group-listener |
-    | **Allocation** | Static
-    | **IP address** | 10.38.1.11
+    ![Add Cluster IP](./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/22-add-ip-ag-listener.png)   
 
 7. Repeat the steps for the second SQL Server VM **SQL-VM-2** to assign two secondary IPs with in the range of **SQL-VM-2** subnet **SQL-subnet-2**
 
+   Use the following from following table for adding IP Configuration:
     | **Field** | Value | Value
     | --- | --- | --- |
     | **Name** |windows-cluster-ip | availability-group-listener |
@@ -510,16 +511,16 @@ On each SQL Server VM, set the SQL Server service account. Use the accounts that
 For SQL Server availability groups, each SQL Server VM needs to run as a domain account.
 
 ## Create an Azure Storage Account to use as a Cloud Witness
-You need an Azure Storage Account to be used for cloud witness. For details on this, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
+You need an Azure Storage Account to be used as cloud witness. For details on this, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
 To create the Azure Storage Account in the portal:
 
 1. In the portal, open the **SQL-HA-RG** resource group and select **+ Create**
 2. Search for **storage account**.   
 3. Select **Storage account** and select **Create**.
-4. In **Create a storage network**, do the following
+   Use the settings below for creating a storage account:
 
-    a. Select your subscription and select the resource group **SQL=HA-RG.**
+    a. Select your subscription and select the resource group **SQL-HA-RG.**
 
     b. Enter a **Storage Account Name** for your storage account.
        Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. The storage account name must also be unique within Azure.
