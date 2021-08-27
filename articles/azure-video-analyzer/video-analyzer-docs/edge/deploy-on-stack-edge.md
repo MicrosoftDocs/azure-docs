@@ -18,7 +18,7 @@ For Video Analyzer, we will deploy via IoT Hub, but the Azure Stack Edge resourc
 
 * Video Analyzer account
 
-    This [cloud service](./overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics
+    This [cloud service](../overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics
 * Managed identity
 
     This is the user assigned [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) used to manage access to the above storage account.
