@@ -60,7 +60,6 @@
     - name: Use container instances
       maintainContext: true
       href: ../../cognitive-services/containers/azure-container-instance-recipe.md
-      maintainContext: true
   - name: Back up and recover models
     href: disaster-recovery.md
   - name: Enterprise readiness
