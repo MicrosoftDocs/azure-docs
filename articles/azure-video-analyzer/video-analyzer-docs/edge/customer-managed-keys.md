@@ -29,10 +29,10 @@ You can specify a key name and key version, or just a key name. When you use onl
 
 ## Double encryption
 
-Video Analyzer protects your sensitive data using double encryption as per Azure standard practice - see [Azure double encryption](../../security/fundamentals/double-encryption.md). For data at rest, the first layer of encryption uses a customer managed key or a Microsoft managed key depending on the `encryption` setting on the account. The second layer of encryption for data at rest is provided automatically using a separate Microsoft managed key.
+Video Analyzer protects your sensitive data using double encryption as per Azure standard practice - see [Azure double encryption](../../../security/fundamentals/double-encryption.md). For data at rest, the first layer of encryption uses a customer managed key or a Microsoft managed key depending on the `encryption` setting on the account. The second layer of encryption for data at rest is provided automatically using a separate Microsoft managed key.
 
 > [!NOTE]
-> Double encryption is enabled automatically on the Video Analyzer account. However, you need to configure the customer managed key and double encryption on your storage account separately. See [Storage encryption](../../storage/common/storage-service-encryption.md).
+> Double encryption is enabled automatically on the Video Analyzer account. However, you need to configure the customer managed key and double encryption on your storage account separately. See [Storage encryption](../../../storage/common/storage-service-encryption.md).
 
 
 ## Next steps

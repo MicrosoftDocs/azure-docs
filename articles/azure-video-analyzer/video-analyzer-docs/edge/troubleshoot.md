@@ -15,12 +15,12 @@ This article covers troubleshooting steps for Azure Video Analyzer (AVA).
 
 As part of your Video Analyzer deployment, you set up Azure resources such as IoT Hub and IoT Edge devices. As a first step to diagnosing problems, always ensure that the Edge device is properly set up by following these instructions:
 
-1. [Run the `check` command](../../iot-edge/troubleshoot.md#run-the-check-command).
-1. [Check your IoT Edge version](../../iot-edge/troubleshoot.md#check-your-iot-edge-version).
-1. [Check the status of the IoT Edge security manager and its logs](../../iot-edge/troubleshoot.md#check-the-status-of-the-iot-edge-security-manager-and-its-logs).
-1. [View the messages that are going through the IoT Edge hub](../../iot-edge/troubleshoot.md#view-the-messages-going-through-the-iot-edge-hub).
-1. [Restart containers](../../iot-edge/troubleshoot.md#restart-containers).
-1. [Check your firewall and port configuration rules](../../iot-edge/troubleshoot.md#check-your-firewall-and-port-configuration-rules).
+1. [Run the `check` command](../../../iot-edge/troubleshoot.md#run-the-check-command).
+1. [Check your IoT Edge version](../../../iot-edge/troubleshoot.md#check-your-iot-edge-version).
+1. [Check the status of the IoT Edge security manager and its logs](../../../iot-edge/troubleshoot.md#check-the-status-of-the-iot-edge-security-manager-and-its-logs).
+1. [View the messages that are going through the IoT Edge hub](../../../iot-edge/troubleshoot.md#view-the-messages-going-through-the-iot-edge-hub).
+1. [Restart containers](../../../iot-edge/troubleshoot.md#restart-containers).
+1. [Check your firewall and port configuration rules](../../../iot-edge/troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### Issues when using ARM template
 
@@ -54,7 +54,7 @@ You can use the Azure portal to run a diagnosis of the live pipeline using direc
 
    ![Screenshot of the Azure portal displaying a list of Edge devices](./media/troubleshoot/ava-sample-device.png)
 
-1. Check to see whether the response code is _200-OK_. Other response codes for the [IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) include:
+1. Check to see whether the response code is _200-OK_. Other response codes for the [IoT Edge runtime](../../../iot-edge/iot-edge-runtime.md) include:
 
    - 400 - The deployment configuration is malformed or invalid.
    - 417 - The device doesn't have a deployment configuration set.
@@ -63,7 +63,7 @@ You can use the Azure portal to run a diagnosis of the live pipeline using direc
    - 500 - An error occurred in the IoT Edge runtime.
 
    > [!TIP]
-   > If you experience issues running Azure IoT Edge modules in your environment, use **[Azure IoT Edge standard diagnostic steps](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** as a guide for troubleshooting and diagnostics.
+   > If you experience issues running Azure IoT Edge modules in your environment, use **[Azure IoT Edge standard diagnostic steps](../../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** as a guide for troubleshooting and diagnostics.
 
 ### Post deployment: Direct method error code
 
@@ -80,24 +80,24 @@ You can use the Azure portal to run a diagnosis of the live pipeline using direc
 
 ### Post deployment: Diagnose logs for issues during the run
 
-The container logs for your IoT Edge module should contain diagnostics information to help debug your issues during module runtime. You can [check container logs for issues](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) and self-diagnose the issue.
+The container logs for your IoT Edge module should contain diagnostics information to help debug your issues during module runtime. You can [check container logs for issues](../../../iot-edge/troubleshoot.md#check-container-logs-for-issues) and self-diagnose the issue.
 
-If you've run all the preceding checks and are still encountering issues, gather logs from the IoT Edge device [with the `support bundle` command](../../iot-edge/troubleshoot.md#gather-debug-information-with-support-bundle-command) for further analysis by the Azure team. You can [contact us](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for support and to submit the collected logs.
+If you've run all the preceding checks and are still encountering issues, gather logs from the IoT Edge device [with the `support bundle` command](../../../iot-edge/troubleshoot.md#gather-debug-information-with-support-bundle-command) for further analysis by the Azure team. You can [contact us](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for support and to submit the collected logs.
 
 ## Common error resolutions
 
 Video Analyzer is deployed as an IoT Edge module on the IoT Edge device, and it works collaboratively with the IoT Edge agent and hub modules. Some of the common errors that you'll encounter with the Video Analyzer deployment are caused by issues with the underlying IoT infrastructure. The errors include:
 
-- [The IoT Edge agent stops after about a minute](../../iot-edge/troubleshoot-common-errors.md#iot-edge-agent-stops-after-about-a-minute).
-- [The IoT Edge agent can't access a module's image (403)](../../iot-edge/troubleshoot-common-errors.md#iot-edge-agent-cant-access-a-modules-image-403).
-- [The IoT Edge agent module reports "empty config file" and no modules start on the device](../../iot-edge/troubleshoot-common-errors.md#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device).
-- [The IoT Edge hub fails to start](../../iot-edge/troubleshoot-common-errors.md#iot-edge-hub-fails-to-start).
-- [The IoT Edge security daemon fails with an invalid hostname](../../iot-edge/troubleshoot-common-errors.md#iot-edge-security-daemon-fails-with-an-invalid-hostname).
-- [The Video Analyzer or any other custom IoT Edge module fails to send a message to the edge hub with 404 error](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-fails-to-send-a-message-to-edgehub-with-404-error).
-- [The IoT Edge module is deployed successfully and then disappears from the device](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
+- [The IoT Edge agent stops after about a minute](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-agent-stops-after-about-a-minute).
+- [The IoT Edge agent can't access a module's image (403)](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-agent-cant-access-a-modules-image-403).
+- [The IoT Edge agent module reports "empty config file" and no modules start on the device](../../../iot-edge/troubleshoot-common-errors.md#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device).
+- [The IoT Edge hub fails to start](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-hub-fails-to-start).
+- [The IoT Edge security daemon fails with an invalid hostname](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-security-daemon-fails-with-an-invalid-hostname).
+- [The Video Analyzer or any other custom IoT Edge module fails to send a message to the edge hub with 404 error](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-fails-to-send-a-message-to-edgehub-with-404-error).
+- [The IoT Edge module is deployed successfully and then disappears from the device](../../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
   > [!TIP]
-  > If you experience issues running Azure IoT Edge modules in your environment, use **[Azure IoT Edge standard diagnostic steps](../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** as a guide for troubleshooting and diagnostics.
+  > If you experience issues running Azure IoT Edge modules in your environment, use **[Azure IoT Edge standard diagnostic steps](../../../iot-edge/troubleshoot.md?preserve-view=true&view=iotedge-2018-06)** as a guide for troubleshooting and diagnostics.
 
 If there are any additional issues that you may need help with, please **[collect logs and submit a support ticket](#collect-logs-for-submitting-a-support-ticket)**. You can also reach out to us by sending us an email at **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)**.
 

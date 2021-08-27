@@ -6,7 +6,7 @@ ms.date: 05/05/2021
 ms.author: faneerde
 ---
 
-When you run the live pipeline, the results from the motion detector processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the **OUTPUT** window of Visual Studio Code contain a **body** section and an **applicationProperties** section. For more information, see [Create and read IoT Hub messages](../../../../../iot-hub/iot-hub-devguide-messages-construct.md).
+When you run the live pipeline, the results from the motion detector processor node pass through the IoT Hub message sink node to the IoT hub. The messages you see in the **OUTPUT** window of Visual Studio Code contain a **body** section and an **applicationProperties** section. For more information, see [Create and read IoT Hub messages](../../../../../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the Video Analyzer edge module defines the application properties and the content of the body.
 

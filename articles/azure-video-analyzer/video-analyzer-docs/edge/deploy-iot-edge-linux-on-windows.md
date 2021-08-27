@@ -8,14 +8,14 @@ ms.date: 08/25/2021
 
 # Deploy to an IoT Edge for Linux on Windows (EFLOW) device
 
-In this article, you'll learn how to deploy Azure Video Analyzer on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](../../iot-edge/iot-edge-for-linux-on-windows.md). Once you have finished following the steps in this document, you will be able to run a [pipeline](pipeline.md) that detects motion in a video and emits such events to the IoT hub in the cloud. You can then switch out the pipeline for advanced scenarios and bring the power of Azure Video Analyzer to your Windows-based IoT Edge device.
+In this article, you'll learn how to deploy Azure Video Analyzer on an edge device that has [IoT Edge for Linux on Windows (EFLOW)](../../../iot-edge/iot-edge-for-linux-on-windows.md). Once you have finished following the steps in this document, you will be able to run a [pipeline](pipeline.md) that detects motion in a video and emits such events to the IoT hub in the cloud. You can then switch out the pipeline for advanced scenarios and bring the power of Azure Video Analyzer to your Windows-based IoT Edge device.
 
 ## Prerequisites 
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
 
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Read [What is EFLOW](../../iot-edge/iot-edge-for-linux-on-windows.md).
+* Read [What is EFLOW](../../../iot-edge/iot-edge-for-linux-on-windows.md).
 
 ## Deployment steps
 
@@ -23,10 +23,10 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
 ![Diagram of IoT Edge for Linux on Windows (E FLOW).](./media/deploy-iot-edge-linux-on-windows/eflow.png)
 
-1. [Install EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) on your Windows device using PowerShell.
+1. [Install EFLOW](../../../iot-edge/how-to-install-iot-edge-on-windows.md) on your Windows device using PowerShell.
 
     > [!NOTE]
-    > There are two ways to deploy EFLOW (PowerShell and Windows Admin Center) and two ways to provision the virtual machine (manual provisioning using the connection string and manual provisioning using X.509 certificates). Please follow the [PowerShell deployment](../../iot-edge/how-to-install-iot-edge-on-windows.md#create-a-new-deployment) and [provision the machine using the connection string from the IoT Hub](../../iot-edge/how-to-install-iot-edge-on-windows.md#manual-provisioning-using-the-connection-string).
+    > There are two ways to deploy EFLOW (PowerShell and Windows Admin Center) and two ways to provision the virtual machine (manual provisioning using the connection string and manual provisioning using X.509 certificates). Please follow the [PowerShell deployment](../../../iot-edge/how-to-install-iot-edge-on-windows.md#create-a-new-deployment) and [provision the machine using the connection string from the IoT Hub](../../../iot-edge/how-to-install-iot-edge-on-windows.md#manual-provisioning-using-the-connection-string).
 
 1. Once EFLOW is set up, type the command `Connect-EflowVm` into PowerShell (with administrative privilege) to connect. This will bring up a bash terminal within PowerShell to control the EFLOW VM, where you can run Linux commands including utilities like Top and Nano. 
 
@@ -92,4 +92,4 @@ The following depicts the overall flow of the document and in 5 simple steps you
 * Run [AI on Live Video](analyze-live-video-use-your-model-http.md#overview) (you can skip the prerequisite setup as it has already been done above).
 
     > [!WARNING] 
-    > For advanced users who wish to run memory-intensive AI models like YOLO, you may have to increase the resources allotted to the EFLOW VM. First, exit the EFLOW VM and return to the Windows PowerShell terminal by typing `exit`. Then, run the command `Set-EflowVM` on PowerShell with elevated privilege. After running the command, input your desired [parameters](../../iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvm) by following the prompts in PowerShell, for example `cpuCount: 2`, `memoryInMB: 2048`. After a few minutes, redeploy the Edge module(s) and reactivate the live pipeline to view inferences. If you are encountering connection issues (e.g., error 137 or 255 listed on IoT Hub), you may have to rerun this step. 
+    > For advanced users who wish to run memory-intensive AI models like YOLO, you may have to increase the resources allotted to the EFLOW VM. First, exit the EFLOW VM and return to the Windows PowerShell terminal by typing `exit`. Then, run the command `Set-EflowVM` on PowerShell with elevated privilege. After running the command, input your desired [parameters](../../../iot-edge/reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvm) by following the prompts in PowerShell, for example `cpuCount: 2`, `memoryInMB: 2048`. After a few minutes, redeploy the Edge module(s) and reactivate the live pipeline to view inferences. If you are encountering connection issues (e.g., error 137 or 255 listed on IoT Hub), you may have to rerun this step. 

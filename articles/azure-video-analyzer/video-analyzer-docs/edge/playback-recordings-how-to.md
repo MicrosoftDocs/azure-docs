@@ -25,7 +25,7 @@ If you are building an application or service using Video Analyzer APIs, then yo
 
 ## Determining that a video recording is ready for playback
 
-Your Video Analyzer account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a [video resource](terminology.md#video). You can [stream that content](terminology.md#streaming) either after the recording is complete, or while the recording is ongoing. This is indicated via the `canStream` [flag](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-05-01-preview/Videos.json) that will be set to `true` for the video resource. 
+Your Video Analyzer account is linked to an Azure Storage account, and when you record video to the cloud, the content is written to a [video resource](../terminology.md#video). You can [stream that content](../terminology.md#streaming) either after the recording is complete, or while the recording is ongoing. This is indicated via the `canStream` [flag](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-05-01-preview/Videos.json) that will be set to `true` for the video resource. 
 
 ## Video Analyzer player widget
 Video Analyzer provides you with the necessary capabilities to deliver streams via HLS or MPEG-DASH protocols to playback devices (clients). You would use the Video Analyzer player widget  to obtain the streaming URL and the playback authorization token, and use these in client apps to play back the video and inference metadata.

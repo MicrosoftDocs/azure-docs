@@ -23,8 +23,8 @@ In this tutorial you will:
 
 Read these articles before you begin:
 
-* [Video Analyzer overview](overview.md)
-* [Video Analyzer terminology](terminology.md)
+* [Video Analyzer overview](../overview.md)
+* [Video Analyzer terminology](../terminology.md)
 * [Video Analyzer pipeline concepts](pipeline.md) 
 * [Continuous video recording scenarios](continuous-video-recording.md)
 
@@ -46,7 +46,7 @@ As explained in [this](pipeline.md) article, a video analyzer pipeline lets you 
 - How it should be processed.
 - Where the results should be delivered. 
  
- To accomplish CVR, you need to capture the video from an RTSP-capable camera and continuously record it to a [video resource](terminology.md#video). This diagram shows a graphical representation of that pipeline. 
+ To accomplish CVR, you need to capture the video from an RTSP-capable camera and continuously record it to a [video resource](../terminology.md#video). This diagram shows a graphical representation of that pipeline. 
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Video Analyzer pipeline for CVR":::
@@ -153,7 +153,7 @@ In Visual Studio Code, browse to the src/cloud-to-device-console-app folder. Her
 
 ## Interpret the results 
 
-When you run the live pipeline, the Video Analyzer edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a `body` section and an `applicationProperties` section. To understand what these sections represent, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
+When you run the live pipeline, the Video Analyzer edge module sends certain diagnostic and operational events to the IoT Edge hub. These events are the messages you see in the **OUTPUT** window of Visual Studio Code. They contain a `body` section and an `applicationProperties` section. To understand what these sections represent, see [Create and read IoT Hub messages](../../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the application properties and the content of the body are defined by the Video Analyzer edge module.
 
@@ -287,4 +287,4 @@ You can examine the Video Analyzer video resource that was created by the live p
 ## Next steps
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant products page](https://www.onvif.org/conformant-products/) by looking for devices that conform with profiles G, S, or T.
-* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.
+* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../../iot-edge/how-to-install-iot-edge.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.

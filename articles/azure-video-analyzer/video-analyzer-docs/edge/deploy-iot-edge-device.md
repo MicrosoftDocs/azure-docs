@@ -15,11 +15,11 @@ This article describes how you can deploy the Azure Video Analyzer edge module o
 
 ## Prerequisites
 
-* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../iot-edge/support.md#operating-systems)
+* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../../iot-edge/support.md#operating-systems)
 * An Azure account that has an active subscription
-* [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
-* [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge.md)
+* [Create and setup IoT Hub](../../../iot-hub/iot-hub-create-through-portal.md)
+* [Register IoT Edge device](../../../iot-edge/how-to-register-device.md)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../../iot-edge/how-to-install-iot-edge.md)
 
 
 ## Create resources on IoT Edge device
@@ -73,7 +73,7 @@ After creating the deployment, in the Azure portal navigate to the IoT Edge devi
 2. In the device details, verify that the modules are listed as both **Specified in deployment and Reported by device**.
 
 It may take a few moments for the modules to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
-Status code: 200 –OK means that [the IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.
+Status code: 200 –OK means that [the IoT Edge runtime](../../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.
 
 ![Screenshot shows a status value for an IoT Edge runtime.](./media/deploy-iot-edge-device/status.png)
 

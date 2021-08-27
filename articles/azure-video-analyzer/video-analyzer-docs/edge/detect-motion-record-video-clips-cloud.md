@@ -7,7 +7,7 @@ ms.date: 06/01/2021
 ---
 # Quickstart: Detect motion, record video to Video Analyzer
 
-This article walks you through the steps to use Azure Video Analyzer edge module for [event-based recording](event-based-video-recording-concept.md). It uses a Linux VM in Azure as an IoT Edge device and a simulated live video stream. This video stream is analyzed for the presence of moving objects. When motion is detected, events are sent to Azure IoT Hub, and the relevant part of the video stream is recorded as a [video resource](terminology.md#video) in your Video Analyzer account.
+This article walks you through the steps to use Azure Video Analyzer edge module for [event-based recording](event-based-video-recording-concept.md). It uses a Linux VM in Azure as an IoT Edge device and a simulated live video stream. This video stream is analyzed for the presence of moving objects. When motion is detected, events are sent to Azure IoT Hub, and the relevant part of the video stream is recorded as a [video resource](../terminology.md#video) in your Video Analyzer account.
 
 ## Prerequisites
 
@@ -22,9 +22,9 @@ This article walks you through the steps to use Azure Video Analyzer edge module
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://aka.ms/ava-click-to-deploy)
 
 The deployment process will take about **20 minutes**. Upon completion, you will have certain Azure resources deployed in the Azure subscription, including:
-1. **Video Analyzer account** - This [cloud service](overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
+1. **Video Analyzer account** - This [cloud service](../overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics.
 1. **Storage account** - For storing recorded video and video analytics.
-1. **Managed Identity** - This is the user assigned [managed identity]../../active-directory/managed-identities-azure-resources/overview.md) used to manage access to the above storage account.
+1. **Managed Identity** - This is the user assigned [managed identity]../../../active-directory/managed-identities-azure-resources/overview.md) used to manage access to the above storage account.
 1. **Virtual machine** - This is a virtual machine that will serve as your simulated edge device.
 1. **IoT Hub** - This acts as a central message hub for bi-directional communication between your IoT application, IoT Edge modules and the devices it manages.
 
@@ -789,7 +789,7 @@ The live pipeline that you created and activated above uses the motion detection
 
 Note the following properties in the above messages:
 
-* Each message contains a `body` section and a `properties` section. To understand what these sections represent, read the article [Create and Read IoT Hub message](../../iot-hub/iot-hub-devguide-messages-construct.md).
+* Each message contains a `body` section and a `properties` section. To understand what these sections represent, read the article [Create and Read IoT Hub message](../../../iot-hub/iot-hub-devguide-messages-construct.md).
 * The first message is **MediaSessionEstablished** indicating that the RTSP Source node (subject) was able to establish connection with the RTSP simulator, and begin to receive a (simulated) live feed.
 * The `subject` references the node in the live pipeline from which the message was generated. In this case, the message is originating from the RTSP source node.
 * The `eventType` indicates that this is a Diagnostics event.

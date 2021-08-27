@@ -20,8 +20,8 @@ A pipeline supports different types of nodes
 
 ## Suggested pre-reading
 
-* [Overview](overview.md)
-* [Terminology](terminology.md)
+* [Overview](../overview.md)
+* [Terminology](../terminology.md)
 
 ## Pipeline topologies
 
@@ -57,7 +57,7 @@ An RTSP source node enables you to capture media from a RTSP server. The RTSP pr
 
 #### IoT Hub message source
 
-Like other [IoT Edge modules](../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-device), Azure Video Analyzer module can receive messages via the [IoT Edge hub](../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-hub). Messages can be sent from other modules, or apps running on the Edge device, or from the cloud. Such messages can be delivered (routed) to a [named input](../../iot-edge/module-composition.md?view=iotedge-2020-11&preserve-view=true#sink) on the video analyzer module. An IoT Hub message source node enables the ingestion of such messages into a pipeline. Messages can then be used in a pipeline to activate a signal gate (see [signal gates](#signal-gate-processor) below).
+Like other [IoT Edge modules](../../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-device), Azure Video Analyzer module can receive messages via the [IoT Edge hub](../../../iot-fundamentals/iot-glossary.md?view=iotedge-2020-11&preserve-view=true#iot-edge-hub). Messages can be sent from other modules, or apps running on the Edge device, or from the cloud. Such messages can be delivered (routed) to a [named input](../../../iot-edge/module-composition.md?view=iotedge-2020-11&preserve-view=true#sink) on the video analyzer module. An IoT Hub message source node enables the ingestion of such messages into a pipeline. Messages can then be used in a pipeline to activate a signal gate (see [signal gates](#signal-gate-processor) below).
 
 For example, you could have an IoT Edge module that generates a message when a door is opened. The message from that module can be routed to IoT Edge hub, from where it can be then routed to the IoT hub message source of a pipeline. Within the pipeline, the message can be passed from the IoT hub message source to a signal gate processor, which can then turn on recording of the video from an RTSP source into a file.
 
@@ -73,7 +73,7 @@ The HTTP extension processor node enables you to extend the pipeline to your own
 
 #### gRPC extension processor
 
-The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](terminology.md#grpc) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Just like the HTTP extension process, this node also has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. Learn more about the [processor here](pipeline-extension.md#grpc-extension-processor).
+The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](../terminology.md#grpc) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the frame into the body of gRPC messages. Just like the HTTP extension process, this node also has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. Learn more about the [processor here](pipeline-extension.md#grpc-extension-processor).
 
 #### Cognitive Services extension processor
 

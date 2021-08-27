@@ -10,7 +10,7 @@ ms.date: 06/01/2021
 
 # Tutorial: Live Video with Computer Vision for Spatial Analysis (preview)
 
-This tutorial shows you how to use Azure Video Analyzer together with [Computer Vision for spatial analysis AI service from Azure Cognitive Services](../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md) to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server enables you to analyze the streaming video to understand spatial relationships between people and movement in physical space. A subset of the frames in the video feed is sent to this inference server, and the results are sent to IoT Edge Hub and when some conditions are met, video clips are recorded and stored as videos in the Video Analyzer account.
+This tutorial shows you how to use Azure Video Analyzer together with [Computer Vision for spatial analysis AI service from Azure Cognitive Services](../../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md) to analyze a live video feed from a (simulated) IP camera. You'll see how this inference server enables you to analyze the streaming video to understand spatial relationships between people and movement in physical space. A subset of the frames in the video feed is sent to this inference server, and the results are sent to IoT Edge Hub and when some conditions are met, video clips are recorded and stored as videos in the Video Analyzer account.
 
 In this tutorial you will:
 
@@ -27,11 +27,11 @@ In this tutorial you will:
 
 Read these articles before you begin:
 
-- [Video Analyzer overview](overview.md)
-- [Video Analyzer terminology](terminology.md)
+- [Video Analyzer overview](../overview.md)
+- [Video Analyzer terminology](../terminology.md)
 - [Pipeline concepts](pipeline.md)
 - [Event-based video recording](record-event-based-live-video.md)
-- [Tutorial: Developing an IoT Edge module](../../iot-edge/tutorial-develop-for-linux.md)
+- [Tutorial: Developing an IoT Edge module](../../../iot-edge/tutorial-develop-for-linux.md)
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 
 - [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
   - Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
-- [Azure Cognitive Service Computer Vision container](../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md) for spatial analysis.
+- [Azure Cognitive Service Computer Vision container](../../../cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview.md) for spatial analysis.
   In order to use this container, you must have a Computer Vision resource to get the associated **API key** and an **endpoint URI**. The API key is available on the Azure portal's Computer Vision Overview and Keys pages. The key and endpoint are required to start the container.
 
 ## Set up Azure resources
@@ -48,7 +48,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
 
    #### [Azure Stack Edge device](#tab/azure-stack-edge)
 
-   Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. For detailed preparation and setup instructions, see the [Azure Stack Edge documentation](../../databox-online/azure-stack-edge-deploy-prep.md).
+   Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. For detailed preparation and setup instructions, see the [Azure Stack Edge documentation](../../../databox-online/azure-stack-edge-deploy-prep.md).
 
    #### [Desktop machine](#tab/desktop-machine)
 
@@ -73,7 +73,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
    - [NVIDIA graphics drivers](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html) and [NVIDIA CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
    - Configurations for [NVIDIA MPS](https://docs.nvidia.com/deploy/pdf/CUDA_Multi_Process_Service_Overview.pdf) (Multi-Process Service).
    - [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) and [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker)
-   - [Azure IoT Edge](../../iot-edge/how-to-install-iot-edge.md) runtime.
+   - [Azure IoT Edge](../../../iot-edge/how-to-install-iot-edge.md) runtime.
 
    #### [Azure VM with GPU](#tab/virtual-machine)
 
@@ -94,7 +94,7 @@ The following are prerequisites for connecting the spatial-analysis module to Az
     
         Note the video files (*.mkv) in the /home/localedgeuser/samples/input folder, which serve as input files to be analyzed. 
 
-1. [Set up the edge device](../../cognitive-services/computer-vision/spatial-analysis-container.md#set-up-the-host-computer)
+1. [Set up the edge device](../../../cognitive-services/computer-vision/spatial-analysis-container.md#set-up-the-host-computer)
 
 1. Next, deploy the other Azure resources.
 
@@ -115,12 +115,12 @@ This diagram shows how the signals flow in this tutorial. An [edge module](https
 
 The `CognitiveServicesVisionProcessor` node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over **shared memory** to another edge module that runs AI operations behind a gRPC endpoint. In this example, that edge module is the spatial-analysis module. The `CognitiveServicesVisionProcessor` node does two things:
 
-- It gathers the results and publishes events to the [IoT Hub sink](pipeline.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
+- It gathers the results and publishes events to the [IoT Hub sink](pipeline.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 - It also captures a 30 second video clip from the RTSP source using a [signal gate processor](pipeline.md#signal-gate-processor) and stores it as a Video file.
 
 ## Create the Computer Vision resource
 
-You need to create an Azure resource of type Computer Vision either on [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. 
+You need to create an Azure resource of type Computer Vision either on [Azure portal](../../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. 
 
 ### Gathering required parameters
 
@@ -184,7 +184,7 @@ There are a few things you need to pay attention to in the deployment template f
 1. `IpcMode` in `avaedge` and `spatialanalysis` module createOptions should be same and set to **host**.
 1. For the RTSP simulator to work, ensure that you have set up the Volume Bounds when using an Azure Stack Edge device.
 
-   1. [Connect to the SMB share](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample stairwell video file](https://lvamedia.blob.core.windows.net/public/2018-03-05.10-27-03.10-30-01.admin.G329.mkv) to the Local share.
+   1. [Connect to the SMB share](../../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample stairwell video file](https://lvamedia.blob.core.windows.net/public/2018-03-05.10-27-03.10-30-01.admin.G329.mkv) to the Local share.
 
       > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWDRJd]
 

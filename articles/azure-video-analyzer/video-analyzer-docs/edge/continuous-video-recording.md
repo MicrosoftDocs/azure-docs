@@ -14,7 +14,7 @@ Continuous video recording (CVR) refers to the process of continuously recording
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Continuous video recording":::
 
-An instance of the pipeline topology depicted above can be run on an edge device, with the video sink recording to a Video Analyzer [video resource](terminology.md#video). The video will be recorded for as long as the pipeline stays in the activated state. Since video is being recorded as a video resource, it can be played back using the streaming capabilities of Video Analyzer. See [Playback of video recordings](playback-recordings-how-to.md) for more details.
+An instance of the pipeline topology depicted above can be run on an edge device, with the video sink recording to a Video Analyzer [video resource](../terminology.md#video). The video will be recorded for as long as the pipeline stays in the activated state. Since video is being recorded as a video resource, it can be played back using the streaming capabilities of Video Analyzer. See [Playback of video recordings](playback-recordings-how-to.md) for more details.
 
 ## Suggested pre-reading  
 
@@ -33,7 +33,7 @@ Video Analyzer supports operating under conditions where the edge device may occ
 "localMediaCachePath": "/var/lib/videoanalyzer/tmp/",
 ```
 
-The latter two properties are relevant to resilient recording (both are also required properties for a video sink node). The `localMediaCachePath` property tells the video sink to use that folder path to cache media data before uploading to the cloud. You can see [this](../../iot-edge/how-to-access-host-storage-from-module.md) article to understand how the edge module can make use of your device's local storage. The `localMediaCacheMaximumSizeMiB` property defines how much disk space the video sink can use as a cache (1 MiB = 1024 * 1024 bytes). 
+The latter two properties are relevant to resilient recording (both are also required properties for a video sink node). The `localMediaCachePath` property tells the video sink to use that folder path to cache media data before uploading to the cloud. You can see [this](../../../iot-edge/how-to-access-host-storage-from-module.md) article to understand how the edge module can make use of your device's local storage. The `localMediaCacheMaximumSizeMiB` property defines how much disk space the video sink can use as a cache (1 MiB = 1024 * 1024 bytes). 
 
 If your edge module loses connectivity for a long time and the content stored in the cache folder reaches the `localMediaCacheMaximumSizeMiB` value, the video sink will start discarding data from the cache, starting from the oldest data. For example, if the device lost connectivity at 10AM and the cache hits the maximum limit at 6PM, then the video sink starts to delete data recorded at 10AM. 
 

@@ -65,7 +65,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
    - **Resource group**: Choose a resource group where you're creating the Video Analyzer account, or select **Create new** to create a resource group.
    - **Video Analyzer account name**: Enter a name for your Video Analyzer account. The name must be all lowercase letters or numbers with no spaces, and 3 to 24 characters in length.
    - **Location**: Choose a location to deploy your Video Analyzer account (for example, **West US 2**).
-   - **Storage account**: Create a storage account. We recommend that you select a [standard general-purpose v2](../../storage/common/storage-account-overview.md#types-of-storage-accounts) storage account.
+   - **Storage account**: Create a storage account. We recommend that you select a [standard general-purpose v2](../../../storage/common/storage-account-overview.md#types-of-storage-accounts) storage account.
    - **User identity**: Create and name a new user-assigned managed identity.
 
 1. Select **Review + create** at the bottom of the form.
@@ -168,7 +168,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 
 On the device details page, verify that the **avaedge** and **rtspsim** modules are listed as both **Specified in Deployment** and **Reported by Device**.
 
-It might take a few moments for the modules to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status. Status code **200 -- OK** means that [the IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.
+It might take a few moments for the modules to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status. Status code **200 -- OK** means that [the IoT Edge runtime](../../../iot-edge/iot-edge-runtime.md) is healthy and is operating fine.
 
 ![Screenshot that shows a status value for an IoT Edge runtime.](./media/deploy-iot-edge-device/status.png)
 

@@ -21,45 +21,45 @@ For Video Analyzer, we will deploy via IoT Hub, but the Azure Stack Edge resourc
     This [cloud service](./overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics
 * Managed identity
 
-    This is the user assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) used to manage access to the above storage account.
-* An [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) resource
-* [An IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
+    This is the user assigned [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) used to manage access to the above storage account.
+* An [Azure Stack Edge](../../../databox-online/azure-stack-edge-gpu-deploy-prep.md) resource
+* [An IoT Hub](../../../iot-hub/iot-hub-create-through-portal.md)
 * Storage account
 
     It is recommended that you use General-purpose v2 (GPv2) Storage accounts.  
-    Learn more about a [general-purpose v2 storage account](../../storage/common/storage-account-upgrade.md?tabs=azure-portal).
+    Learn more about a [general-purpose v2 storage account](../../../storage/common/storage-account-upgrade.md?tabs=azure-portal).
 * [Visual Studio Code](https://code.visualstudio.com/) on your development machine. Make sure you have the [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Make sure the network that your development machine is connected to permits Advanced Message Queueing Protocol over port 5671. This setup enables Azure IoT Tools to communicate with Azure IoT Hub.
 
 ## Configuring Azure Stack Edge for using Video Analyzer
 
-Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. Read more about [Azure Stack Edge and detailed setup instructions](../../databox-online/azure-stack-edge-gpu-deploy-prep.md). To get started, follow the instructions in the links below:
+Azure Stack Edge is a Hardware-as-a-Service solution and an AI-enabled edge computing device with network data transfer capabilities. Read more about [Azure Stack Edge and detailed setup instructions](../../../databox-online/azure-stack-edge-gpu-deploy-prep.md). To get started, follow the instructions in the links below:
 
-* [Azure Stack Edge / Data Box Gateway Resource Creation](../../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource)
-* [Install and Setup](../../databox-online/azure-stack-edge-gpu-deploy-install.md)
+* [Azure Stack Edge / Data Box Gateway Resource Creation](../../../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource)
+* [Install and Setup](../../../databox-online/azure-stack-edge-gpu-deploy-install.md)
 * Connection and Activation
 
-    1. [Connect](../../databox-online/azure-stack-edge-gpu-deploy-connect.md)
-    2. [Configure network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
-    3. [Configure device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
-    4. [Configure certificates](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md)
-    5. [Activate](../../databox-online/azure-stack-edge-gpu-deploy-activate.md)
-* [Attach an IoT Hub to Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-configure-compute.md#configure-compute)
+    1. [Connect](../../../databox-online/azure-stack-edge-gpu-deploy-connect.md)
+    2. [Configure network](../../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
+    3. [Configure device](../../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
+    4. [Configure certificates](../../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md)
+    5. [Activate](../../../databox-online/azure-stack-edge-gpu-deploy-activate.md)
+* [Attach an IoT Hub to Azure Stack Edge](../../../databox-online/azure-stack-edge-gpu-deploy-configure-compute.md#configure-compute)
 ### Enable Compute Prerequisites on the Azure Stack Edge Local UI
 
 Before you continue, make sure that:
 
 * You've activated your Azure Stack Edge resource.
 * You have access to a Windows client system running PowerShell 5.0 or later to access the Azure Stack Edge resource.
-* To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge resource via its [local web UI](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
+* To deploy a Kubernetes cluster, you need to configure your Azure Stack Edge resource via its [local web UI](../../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup). 
 
     * Connect and configure:
     
-        1. [Connect](../../databox-online/azure-stack-edge-gpu-deploy-connect.md)
-        2. [Configure network](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
-        3. [Configure device](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
-        4. [Configure certificates](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md)
-        5. [Activate](../../databox-online/azure-stack-edge-gpu-deploy-activate.md)
+        1. [Connect](../../../databox-online/azure-stack-edge-gpu-deploy-connect.md)
+        2. [Configure network](../../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
+        3. [Configure device](../../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
+        4. [Configure certificates](../../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md)
+        5. [Activate](../../../databox-online/azure-stack-edge-gpu-deploy-activate.md)
     * To enable the compute, in the local web UI of your device, go to the Compute page.
     
         * Select a network interface that you want to enable for compute. Select Enable. Enabling compute results in the creation of a virtual switch on your device on that network interface.
@@ -67,7 +67,7 @@ Before you continue, make sure that:
         * Select Apply - This operation should take about 2 minutes.
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="../../databox-online/media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png" alt-text=" Compute Prerequisites on the Azure Stack Edge Local UI":::
+        > :::image type="content" source="../../../databox-online/media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png" alt-text=" Compute Prerequisites on the Azure Stack Edge Local UI":::
 
         * If DNS is not configured for the Kubernetes API and Azure Stack Edge resource, you can update your Window's host file.
         
@@ -223,7 +223,7 @@ These steps cover creating a Gateway user and setting up file shares to view the
         > :::image type="content" source="./media/deploy-on-stack-edge/local-share.png" alt-text="Local share":::  
     
         > [!TIP]
-        > Using your Windows client connected to your Azure Stack Edge, connect to the SMB shares following the steps [mentioned in this document](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share).    
+        > Using your Windows client connected to your Azure Stack Edge, connect to the SMB shares following the steps [mentioned in this document](../../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share).    
 1. Create a Remote Share for file sync storage.
 
     1. First create a blob storage account in the same region by clicking on **Cloud storage gateway->Storage accounts**.
@@ -314,7 +314,7 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 
 * **Kubernetes API Access (kubectl)**
 
-    * Follow the documentation to configure your machine for [access to the Kubernetes cluster](../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md).
+    * Follow the documentation to configure your machine for [access to the Kubernetes cluster](../../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md).
     * All deployed IoT Edge modules use the `iotedge` namespace. Make sure to include that when using kubectl.  
 * **Module Logs**
 

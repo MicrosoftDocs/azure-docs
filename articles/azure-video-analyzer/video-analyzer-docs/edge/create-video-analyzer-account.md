@@ -235,7 +235,7 @@ When no longer needed, delete the resource group, which deletes the account and 
 Learn how to [deploy Video Analyzer on an IoT Edge device][docs-deploy-on-edge].
 
 <!-- links -->
-[docs-uami]: ../../active-directory/managed-identities-azure-resources/overview.md
+[docs-uami]: ../../../active-directory/managed-identities-azure-resources/overview.md
 [docs-storage-access]: ../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor
 [docs-role-reader]: ../../role-based-access-control/built-in-roles.md#reader
 [docs-arm-template]: ../../azure-resource-manager/templates/overview.md

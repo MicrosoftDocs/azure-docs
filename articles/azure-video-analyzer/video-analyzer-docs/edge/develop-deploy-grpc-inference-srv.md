@@ -21,9 +21,9 @@ This article shows you how you can wrap AI model(s) of your choice within a gRPC
 
 ## Prerequisites
 
-* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../iot-edge/support.md#operating-systems) or a Windows machine.
+* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../../iot-edge/support.md#operating-systems) or a Windows machine.
 * [Install Docker](https://docs.docker.com/desktop/#download-and-install) on your machine.
-* Install [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md?tabs=linux).
+* Install [IoT Edge runtime](../../../iot-edge/how-to-install-iot-edge.md?tabs=linux).
 
 ## gRPC implementation steps
 
@@ -208,7 +208,7 @@ To understand the details of how gRPC server is developed, let’s go through ou
 
 Now that you have created your gRPC extension module, we will now create and deploy the pipeline topology.
 
-1. Using Visual Studio Code, follow [these instructions](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution) to sign in to Docker.
+1. Using Visual Studio Code, follow [these instructions](../../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution) to sign in to Docker.
 1. In Visual Studio Code, go to *src/edge*. You see your *.env* file and a few deployment template files.
 
     The **deployment template** refers to the deployment manifest for the edge device. It includes some placeholder values. The .env file includes the values for those variables.

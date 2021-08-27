@@ -16,7 +16,7 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 
 ## User assigned managed identity for Video Analyzer
 
-1. Create a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
+1. Create a [user-assigned managed identity](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
 
 1. Create an Azure storage account
 
@@ -33,4 +33,4 @@ See [this](create-video-analyzer-account.md) article for an example of using the
 
 ## Next steps
 
-To learn more about what managed identities can do for you and your Azure applications, see [Azure AD Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
+To learn more about what managed identities can do for you and your Azure applications, see [Azure AD Managed Identities](../../../active-directory/managed-identities-azure-resources/overview.md).
