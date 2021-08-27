@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice: 
 ms.topic: overview
-ms.date: 08/12/2021
+ms.date: 08/27/2021
 ms.custom: references_regions
 ---
 
@@ -18,13 +18,21 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
+## August 2021
+
+### Azure Policy Guest Configuration
+
+**Type:** Plan for change
+
+Customers should evaluate and plan for migration from Azure Automation State Configuration to Azure Policy guest configuration. For more information, see [Azure Policy guest configuration](../governance/policy/concepts/guest-configuration.md).
+
 ## July 2021
 
-### Preview Support for User Assigned Managed Identities
+### Preview support for user-assigned managed identity
 
 **Type:** New feature
 
-Azure Automation now supports [User Assigned Managed Identities](automation-secure-asset-encryption.md) for cloud jobs in Azure public , Gov & China regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-user-assigned-identities/) for more information.
+Azure Automation now supports [user-assigned Managed Identities](automation-secure-asset-encryption.md) for cloud jobs in Azure global, Azure Government, and Azure China regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-user-assigned-identities/) for more information.
 
 ### General Availability of customer-managed keys for Azure Automation
 
@@ -64,21 +72,21 @@ Start/Stop VMs during off-hours (v1) will deprecate on May 21, 2022. Customers s
 
 **Type:** New feature
 
-Region mapping have been updated to support Update Management & Change Tracking in Norway East, UAE North, North Central US, Brazil South, and Korea Central. For more information, see [Supported mappings](./how-to/region-mappings.md#supported-mappings).
+Region mapping have been updated to support Update Management and Change Tracking in Norway East, UAE North, North Central US, Brazil South, and Korea Central. For more information, see [Supported mappings](./how-to/region-mappings.md#supported-mappings).
 
-### Support for System Assigned Managed Identities
+### Support for system-assigned Managed Identities
 
 **Type:** New feature
 
-Azure Automation now supports [System Assigned Managed Identities](./automation-security-overview.md#managed-identities-preview) for cloud and Hybrid jobs in Azure public and Gov regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-system-assigned-managed-identities/) for more information.
+Azure Automation now supports [system-assigned Managed Identities](./automation-security-overview.md#managed-identities-preview) for cloud and Hybrid jobs in Azure global and Azure Government regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-system-assigned-managed-identities/) for more information.
 
 ## March 2021
 
-### New Azure Automation built-in policies
+### New Azure Automation built-in policy definitions
 
 **Type:** New feature
 
-Azure Automation has added five new built-in policies:
+Azure Automation has added five new built-in policy definitions:
 
 - Automation accounts should disable public network access,
 - Azure Automation accounts should use customer-managed keys to encrypt data at rest
@@ -86,25 +94,25 @@ Azure Automation has added five new built-in policies:
 - Configure private endpoint connections on Azure Automation accounts
 - Private endpoint connections on Automation Accounts should be enabled.
 
-For more information, see [policy reference](./policy-reference.md).
+For more information, see [Azure Policy reference](./policy-reference.md).
 
 ### Support for Automation and State Configuration declared GA in South India
 
 **Type:** New feature
 
-Use Process Automation and State configuration capabilities in South India. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-in-south-india-region/) for more information.
+Use Process Automation and State Configuration feature in South India. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-in-south-india-region/) for more information.
 
 ### Support for Automation and State Configuration declared GA in UK West
 
 **Type:** New feature
 
-Use Process Automation and State configuration capabilities in UK West. For more information, read [announcement](https://azure.microsoft.com/updates/azure-automation-in-uk-west-region/).
+Use Process Automation and State Configuration feature in UK West. For more information, read [announcement](https://azure.microsoft.com/updates/azure-automation-in-uk-west-region/).
 
 ### Support for Automation and State Configuration declared GA in UAE Central
 
 **Type:** New feature
 
-Use Process Automation and State configuration capabilities in UAE Central. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-in-uae-central-region/) for more information.
+Use Process Automation and State Configuration feature in UAE Central. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-in-uae-central-region/) for more information.
 
 ### Support for Automation and State Configuration available in Australia Central 2, Norway West, and France South
 
@@ -130,7 +138,7 @@ For more information, see [Use a webhook from an ARM template](./automation-webh
 
 See the [full list](./update-management/operating-system-requirements.md) of supported Linux operating systems for more details.
 
-### In-region data residency support for Brazil South and South East Asia 
+### In-region data residency support for Brazil South and South East Asia
 
 **Type:** New feature
 

@@ -9,12 +9,12 @@ metadata:
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   description: Recognize speech, synthesize speech, get real-time translations, transcribe conversations, or integrate speech into your bot experiences.
-  author: trevorbye
+  author: laujan
   manager: nitinme
   ms.service: speech-service
   ms.topic: hub-page
   ms.date: 03/24/2020
-  ms.author: trbye
+  ms.author: lajanuar
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

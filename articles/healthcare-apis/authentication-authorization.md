@@ -108,6 +108,14 @@ You can use online tools such as [https://jwt.ms](https://jwt.ms/) or [https://j
 
 To obtain an access token, you can use tools such as Postman, the Rest Client extension in Visual Studio Code, PowerShell, CLI, curl, and the [Azure AD authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
+## Encryption
+
+When you create a new service of Azure Healthcare APIs, your data is encrypted using **Microsoft-managed keys** by default. 
+
+* FHIR service provides encryption of data at rest when data is persisted in the data store.
+* DICOM service provides encryption of data at rest when imaging data including embedded metadata is persisted in the data store. When metadata is extracted and persisted in the FHIR service, it is encrypted automatically.
+* IoT Connector, after data mapping and normalization, persists device messages to the FHIR service, which is encrypted automatically. In cases where device messages are sent to Azure event hubs, which uses Azure Storage to store the data, data is automatically encrypted with Azure Storage Service Encryption (Azure SSE).
+
 ## Next steps
 
 In this document, you learned the authentication and authorization of the Healthcare APIs. To learn how to deploy an instance of the Healthcare APIs service, see

@@ -1,7 +1,7 @@
 ---
 title: View and manage customers and delegated resources in the Azure portal
 description: As a service provider or enterprise using Azure Lighthouse, you can view all of your delegated resources and subscriptions by going to My customers in the Azure portal. 
-ms.date: 08/10/2021
+ms.date: 08/12/2021
 ms.topic: how-to
 ---
 
@@ -35,6 +35,9 @@ You can view the following information from this page:
 - To see all of the subscriptions, offers, and delegations associated with a customer, select the customer's name.
 - To see more details about an offer and its delegations, select the offer name.
 - To view more details about role assignments for delegated subscriptions or resource groups, select the entry in the **Delegations** column.
+
+> [!NOTE]
+> If a customer renames a subscription after it's been delegated, you'll see the updated subscription name. If they rename the tenant, you may still see the older tenant name in some places in the Azure portal.
 
 ## View and manage delegations
 

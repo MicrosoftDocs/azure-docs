@@ -630,11 +630,7 @@ Supported tables are currently limited to those specified below. All data from t
 | DatabricksSQLPermissions |  |
 | DatabricksSSH |  |
 | DatabricksWorkspace |  |
-| DeviceFileEvents |  |
-| DeviceNetworkEvents |  |
 | DeviceNetworkInfo |  |
-| DeviceProcessEvents |  |
-| DeviceRegistryEvents |  |
 | DnsEvents |  |
 | DnsInventory |  |
 | DummyHydrationFact |  |
