@@ -208,7 +208,7 @@
   - name: Release notes for Data Management Gateway
     href: data-factory-gateway-release-notes.md
   - name: Request a feature
-    href: https://feedback.azure.com/forums/270578-azure-data-factory
+    href: /answers/topics/azure-data-factory.html
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-factory
   - name: Stack Overflow

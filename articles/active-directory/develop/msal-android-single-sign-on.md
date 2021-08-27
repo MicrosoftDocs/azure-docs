@@ -17,7 +17,7 @@ ms.author: hahamil
 ms.reviewer: marsma
 ---
 
-# How to: Enable cross-app SSO on Android using MSAL
+# Enable cross-app SSO on Android using MSAL
 
 Single sign-on (SSO) allows users to only enter their credentials once and have those credentials automatically work across applications.
 
