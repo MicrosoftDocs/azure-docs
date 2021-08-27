@@ -158,7 +158,6 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 
 | **Required for** | **Azure public** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
-
 | Azure Container Registry | azurecr.io | azurecr.us | azurecr.cn |
 | Microsoft Container Registry | mcr.microsoft.com | mcr.microsoft.com | mcr.microsoft.com |
 | Azure Machine Learning pre-built images | viennaglobal.azurecr.io | viennaglobal.azurecr.io | viennaglobal.azurecr.io |
