@@ -20,7 +20,7 @@ In Azure API Management, subscriptions are the most common way for API consumers
 
 ## What are subscriptions?
 
-By publishing APIs through API Management, you can easily secure API access using subscription keys. To consume the published APIs, you must include a valid subscription key in the HTTP requests when calling to those APIs. Without a valid subscription key, the calls will:
+By publishing APIs through API Management, you can easily secure API access using subscription keys. Consume the published APIs by including a valid subscription key in the HTTP requests when calling to those APIs. Without a valid subscription key, the calls will:
 * Be rejected immediately by the API Management gateway. 
 * Not be forwarded to the back-end services.
 
