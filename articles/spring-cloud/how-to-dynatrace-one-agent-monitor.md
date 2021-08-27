@@ -50,7 +50,7 @@ To set up integration, use the instructions in the following sections.
 
 ### Determine the values for the required environment variables
 
-To set up OneAgent integration on your Azure Spring Cloud instance, you need to configure three environment variables: `DT_TENANT`, `DT_TENANTTOKEN`, and `DT_CONNECTION_POINT`. Please refer to [Integrate AppDynamics OneAgent with Azure Spring Cloud](https://docs.microsoft.com) (Note: **The link is pending on Dynatrace Side now**)
+To set up OneAgent integration on your Azure Spring Cloud instance, you need to configure three environment variables: `DT_TENANT`, `DT_TENANTTOKEN`, and `DT_CONNECTION_POINT`. Please refer to [Integrate AppDynamics OneAgent with Azure Spring Cloud](https://www.dynatrace.com/support/help/shortlink/azure-spring).
 
 ### Add the environment variables to your application
 
