@@ -18,9 +18,7 @@ ms.custom: contperf-fy22q1
 
 # Troubleshooting Azure Digital Twins: Resource health
 
-[Azure Service Health](../service-health/index.yml) is a suite of Azure services that can help you diagnose and get support for service problems that affect your Azure resources. They report on the current and past health of your resources.
-
-This article shows you how to get **resource health**, **service health**, and **status** information for your Azure Digital Twins instances.
+[Azure Service Health](../service-health/index.yml) is a suite of experiences that can help you diagnose and get support for service problems that affect your Azure resources. It contains **resource health**, **service health**, and **status** information, and reports on both current and past health information.
 
 ## Use Azure Resource Health
 
@@ -30,11 +28,11 @@ To check the health of your instance, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
 
-2. From your instance's menu, select _**Resource health**_ under *Support + troubleshooting*. This will take you to the page for viewing resource health history. 
+2. From your instance's menu, select **Resource health** under Support + troubleshooting. This will take you to the page for viewing resource health history. 
 
     :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Screenshot showing the 'Resource health' page. There is a 'Health history' section showing a daily report from the last nine days.":::
 
-In the image above, this instance is showing as *Available*, and has been for the past nine days. To learn more about the *Available* status and the other status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
+In the image above, this instance is showing as **Available**, and has been for the past nine days. To learn more about the Available status and the other status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
 
 You can also learn more about the different checks that go into resource health for different types of Azure resources in [Resource types and health checks in Azure resource health](../service-health/resource-health-checks-resource-types.md).
 
@@ -50,7 +48,7 @@ For more information on using Azure Service Health, see [Service Health overview
 
 ## Use Azure status
 
-The [Azure status](../service-health/azure-status-overview.md) page provides a global view of the health of Azure services and regions. It's not as personalized as Azure Service Health or Azure Resource Health, but it can be useful to understand incidents with ride-ranging impact.
+The [Azure status](../service-health/azure-status-overview.md) page provides a global view of the health of Azure services and regions. It's not as personalized as Azure Service Health or Azure Resource Health, and can be useful to understand incidents with ride-ranging impact.
 
 To check Azure status, navigate to the [Azure status](https://status.azure.com/status/) page. The page displays a table of Azure services along with health indicators per region. You can view Azure Digital Twins by searching for its table entry on the page.
 
