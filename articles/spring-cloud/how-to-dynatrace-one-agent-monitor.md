@@ -135,13 +135,13 @@ You can leverage some environment variables provided by Dynatrace to configure l
 >
 > We strongly recommend that you do not override the default logging behavior provided by Azure Spring Cloud for Dynatrace. If you do, the logging scenarios above will be blocked, and the log file(s) may be lost. For example, you should not output the `DT_LOGLEVELFILE` environment variable to your applications.
 
-## Dynatrace OneAgent update or upgrade
+## Dynatrace OneAgent upgrade
 
-The Dynatrace OneAgent will update or upgrade quarterly with the JDK. Agent update or upgrade may impact the following scenarios:
+The Dynatrace OneAgent auto-upgrade is disabled and will be upgraded quarterly with the JDK. Agent upgrade may impact the following scenarios:
 
-* Existing applications using Dynatrace OneAgent before update or upgrade will be unchanged.
-* Existing applications that use Dynatrace OneAgent before update or upgrade require restart or redeploy to engage the new version of Dynatrace OneAgent.
-* Applications created after update or upgrade will use the new version of Dynatrace OneAgent.
+* Existing applications using Dynatrace OneAgent before upgrade will be unchanged.
+* Existing applications that use Dynatrace OneAgent before upgrade require restart or redeploy to engage the new version of Dynatrace OneAgent.
+* Applications created after upgrade will use the new version of Dynatrace OneAgent.
 
 ## VNet injection instance outbound traffic configuration
 For a VNet injection instance of Azure Spring Cloud, you need to make sure the outbound traffic for Dynatrace communication endpoints is configured correctly for Dynatrace OneAgent. Refer to [Deployment API - GET connectivity information for OneAgent](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/deployment/oneagent/get-connectivity-info/) on how to get `communicationEndpoints`, also see [Customer responsibilities for running Azure Spring Cloud in VNET](vnet-customer-responsibilities.md) for further details.
