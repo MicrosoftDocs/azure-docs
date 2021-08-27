@@ -64,6 +64,10 @@ In this article you learn how to enable the following workspaces resources in a 
 
 ## Limitations
 
+### Azure Storage Account
+
+If both the Azure Machine Learning workspace and the Azure Storage Account use a private endpoint to connect to the VNet, both must be within the same subnet.
+
 ### Azure Container Registry
 
 When ACR is behind a virtual network, Azure Machine Learning cannot use it to directly build Docker images. Instead, the compute cluster is used to build the images.
