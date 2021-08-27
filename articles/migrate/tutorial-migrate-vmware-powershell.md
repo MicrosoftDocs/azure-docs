@@ -367,14 +367,14 @@ $UpdateJob = Set-AzMigrateServerReplication -InputObject $ReplicatingServer -Tar
 In the following example, we'll customize the disk name.
 
 ```azurepowershell-interactive
-# Specify the OS Disk properties.
+# Specify the OS Disk name
  $OSDisk = Set-AzMigrateDiskMapping -DiskID "6000C294-1217-dec3-bc18-81f117220424" -DiskName "ContosoDisk_1" 
 $DataDisk1= Set-AzMigrateDiskMapping -DiskID "6000C292-79b9-bbdc-fb8a-f1fa8dbeff84" -DiskName "ContosoDisk_2" 
  $DiskMapping = $OSDisk, $DataDisk1 
 ```
 
 ```azurepowershell-interactive
-# Customize disk name
+# Customize OS disk name
 set-AzMigrateServerReplication InputObject $ReplicatingServer DiskToUpdate $DiskMapping 
  ```
 
