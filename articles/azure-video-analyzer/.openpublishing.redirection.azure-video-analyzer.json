@@ -39,6 +39,211 @@
       "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/visual-studio-code-extension.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/visual-studio-code-extension",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/pipeline.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/pipeline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/pipeline-extension.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/pipeline-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/video-recording.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/video-recording",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/ai-composition-overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/ai-composition-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/event-based-video-recording-concept.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/event-based-video-recording-concept",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/continuous-video-recording.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/continuous-video-recording",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/analyze-live-video-without-recording.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-without-recording",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/create-video-analyzer-account.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/create-video-analyzer-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/managed-identity.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/customer-managed-keys.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/customer-managed-keys",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/deploy-iot-edge-device.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/deploy-iot-edge-linux-on-windows.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edgedeploy-iot-edge-linux-on-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/deploy-on-stack-edg.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-on-stack-edg",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/playback-recordings-how-to.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/playback-recordings-how-to",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/player-widget.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/player-widget",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/access-policies.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/access-policies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/manage-recording-policy.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/manage-recording-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/configure-signal-gate.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/configure-signal-gate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/develop-deploy-grpc-inference-srvn.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/develop-deploy-grpc-inference-srv",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/analyze-ai-composition.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-ai-composition",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/use-azure-portal-to-invoke-direct-methods.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/use-azure-portal-to-invoke-direct-methods",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/monitor-log-edge.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/monitor-log-edge",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/embed-player-in-power-bi.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/embed-player-in-power-bi",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/troubleshoot.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/get-started-detect-motion-emit-events.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/get-started-detect-motion-emit-events-portal.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/get-started-detect-motion-emit-events-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/create-pipeline-vs-code-extension.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/create-pipeline-vs-code-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/detect-motion-emit-events-quickstart.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-emit-events-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/detect-motion-record-video-edge-devices.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-edge-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/detect-motion-record-video-clips-cloud.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/detect-motion-record-video-clips-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/analyze-live-video-use-your-model-grp.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-grp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/analyze-live-video-use-your-model-http.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-use-your-model-http",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/track-objects-live-video.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/track-objects-live-video",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs//use-continuous-video-recording.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/use-continuous-video-recording",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/record-event-based-live-video.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/record-event-based-live-video",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/record-stream-inference-data-with-video.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/record-stream-inference-data-with-video",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/use-line-crossing.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/use-line-crossing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/use-intel-openvino-tutorial.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/use-intel-openvino-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/use-intel-grpc-video-analytics-serving-tutorial.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/use-intel-grpc-video-analytics-serving-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/analyze-live-video-custom-vision.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/analyze-live-video-custom-vision",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/computer-vision-for-spatial-analysis.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/computer-vision-for-spatial-analysis",
+      "redirect_document_id": false
     }
   ]
 }
