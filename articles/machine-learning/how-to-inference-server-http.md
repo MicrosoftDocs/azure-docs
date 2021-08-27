@@ -128,6 +128,15 @@ The following steps explain how the Azure Machine Learning inference HTTP server
 
 :::image type="content" source="./media/how-to-inference-server-http/inference-server-architecture.png" alt-text="Diagram of the HTTP server process":::
 
+## How to integrate with Visual Studio Code
+
+There are two ways to use Visual Studio Code (VSCode) and [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) to debug with [azureml-inference-server-http](https://pypi.org/project/azureml-inference-server-http/) package. 
+
+1. User starts the AzureML Inference Server in a command line and use VSCode + Python Extension to attach to the process.
+1. User sets up the `launch.json` in the VSCode and start the AzureML Inference Server within VSCode.
+
+In both ways, user can set breakpoint and debug step by step.
+
 ## Frequently asked questions
 
 ### Do I need to reload the server when changing the score script?

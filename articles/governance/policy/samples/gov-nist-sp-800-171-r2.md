@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for NIST SP 800-171 R2 (Azure Government)
 description: Details of the NIST SP 800-171 R2 (Azure Government) Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 08/13/2021
+ms.date: 08/20/2021
 ms.topic: sample
 ms.custom: generated
 ---
@@ -10,11 +10,11 @@ ms.custom: generated
 The following article details how the Azure Policy Regulatory Compliance built-in initiative
 definition maps to **compliance domains** and **controls** in NIST SP 800-171 R2 (Azure Government).
 For more information about this compliance standard, see
-[NIST SP 800-171 R2 (Azure Government)](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final). To understand
+[NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final). To understand
 _Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#type) and
 [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
-The following mappings are to the **NIST SP 800-171 R2 (Azure Government)** controls. Use the
+The following mappings are to the **NIST SP 800-171 R2** controls. Use the
 navigation on the right to jump directly to a specific **compliance domain**. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete
 initiative definition, open **Policy** in the Azure portal and select the **Definitions** page.

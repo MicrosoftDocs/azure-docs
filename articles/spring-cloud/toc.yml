@@ -134,6 +134,8 @@
           href: structured-app-log.md
         - name: New Relic Java in-process agent
           href: how-to-new-relic-monitor.md
+        - name: Monitor app lifecycle events
+          href: monitor-app-lifecycle-events.md
     - name: Network
       items:
         - name: Deploy Azure Spring Cloud in a virtual network

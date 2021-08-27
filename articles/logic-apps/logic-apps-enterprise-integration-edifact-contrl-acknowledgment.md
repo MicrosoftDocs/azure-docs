@@ -138,7 +138,7 @@ Based on whether the received interchange includes one or more groups, the struc
 
 By default and industry usage, SG1/SG4 loops aren't expected for accepted transaction sets. However, to support compliance with standards, you can force generation of SG1/SG4 loops by following these steps:
  
-1. In the [Azure portal](https://portal.azurecom), open your integration account.
+1. In the [Azure portal](https://portal.azure.com), open your integration account.
 1. On the integration account menu, under **Settings**, select **Agreements**.
 1. Open your EDIFACT agreement, and select **Send Settings**.
 1. Under **Acknowledgement**, select **Acknowledgement (CONTRL)**. You can now select **Generate SG1/SG4 loop for accepted transaction sets**.

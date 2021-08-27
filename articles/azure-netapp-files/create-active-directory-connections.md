@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 08/17/2021
 ms.author: b-juche
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -115,7 +115,6 @@ Additional AADDS considerations apply for Azure NetApp Files:
 * Azure NetApp Files supports `user` and `resource forest` types.
 * For synchronization type, you can select `All` or `Scoped`.   
     If you select `Scoped`, ensure the correct Azure AD group is selected for accessing SMB shares.  If you are uncertain, you can use the `All` synchronization type.
-* Use of the Enterprise or Premium SKU is required. The Standard SKU is not supported.
 
 When you create an Active Directory connection, note the following specifics for AADDS:
 

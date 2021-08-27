@@ -48,7 +48,7 @@ Configure AI Vectra Detect to forward CEF-formatted Syslog messages to your Log 
 
 3. To use the relevant schema in Log Analytics for the AI Vectra Detect events, search for **CommonSecurityLog**.
 
-4. Continue to [STEP 3: Validate connectivity](connect-cef-verify.md).
+4. Continue to [Validate CEF connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity).
 
 ## Next steps
 
