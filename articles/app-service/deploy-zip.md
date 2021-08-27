@@ -37,23 +37,11 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 > [!NOTE]
 > Files in the ZIP package are copied only if their timestamps don't match what is already deployed. Generating a zip using a build process that caches outputs can result in faster deployments. See [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url), for more information.
 
-### In Kudu UI
-
-In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI`.
-
-Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package) by dragging it to the file explorer area on the web page.
-
-When deployment is in progress, an icon in the top right corner shows you the progress in percentage. The page also shows verbose messages for the operation below the explorer area. When it is finished, the last deployment message should say `Deployment successful`.
-
-The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](/azure/app-service/faq-app-service-linux#continuous-integration-and-deployment) instead.
-
-### In script
-
 # [Azure CLI](#tab/cli)
 
 Deploy a ZIP package to your web app by using the [az webapp deploy](/cli/azure/webapp#az_webapp_deploy) command. The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the files and can be fully customized.
 
-The following example deploys a ZIP package. Specify the path to your local ZIP package for `--src-path`.
+The following example pushes a ZIP package to your site. Specify the path to your local ZIP package for `--src-path`.
 
 ```azurecli-interactive
 az webapp deploy --resource-group <group-name> --name <app-name> --src-path <zip-package-path>
@@ -61,12 +49,20 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-path <zip
 
 This command restarts the app after deploying the ZIP package. 
 
+[!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
+
+The following example uses the `--src-url` parameter to specify the URL of an Azure Storage account that the site should pull the ZIP from.
+
+```azurecli-interactive
+az webapp deploy --resource-group <grou-name> --name <app-name> --src-url "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3
+```
+
 # [Azure PowerShell](#tab/powershell)
 
 The following example uses [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) to upload the ZIP package. Replace the placeholders `<group-name>`, `<app-name>`, and `<zip-package-path>`.
 
 ```powershell
-Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath <zip-package-path>
+Publish-AzWebApp -ResourceGroupName Default-Web-WestUS -Name MyApp -ArchivePath <zip-package-path> 
 ```
 
 # [Kudu API](#tab/api)
@@ -76,6 +72,24 @@ The following example uses the cURL tool to deploy a ZIP package. Replace the pl
 ```bash
 curl -X POST -u <username> --data-binary @"<zip-package-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=zip
 ```
+
+[!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
+
+The following example uses the `packageUri` parameter to specify the URL of an Azure Storage account that the site should pull the ZIP from.
+
+```bash
+curl -X POST -u <username> https://<app-name>.scm.azurewebsites.net/api/publish -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}'
+```
+
+# [Kudu UI](#tab/kudu-ui)
+
+In the browser, navigate to `https://<app_name>.scm.azurewebsites.net/ZipDeployUI`.
+
+Upload the ZIP package you created in [Create a project ZIP package](#create-a-project-zip-package) by dragging it to the file explorer area on the web page.
+
+When deployment is in progress, an icon in the top right corner shows you the progress in percentage. The page also shows verbose messages for the operation below the explorer area. When it is finished, the last deployment message should say `Deployment successful`.
+
+The above endpoint does not work for Linux App Services at this time. Consider using FTP or the [ZIP deploy API](/azure/app-service/faq-app-service-linux#continuous-integration-and-deployment) instead.
 
 -----
 
@@ -93,7 +107,7 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 
 ## Deploy WAR/JAR/EAR packages
 
-The WAR package deployment deploys your [WAR](https://wikipedia.org/wiki/WAR_(file_format)), [JAR](https://wikipedia.org/wiki/JAR_(file_format)), or [EAR](https://wikipedia.org/wiki/EAR_(file_format)) package to App Service to run your Java web app.
+You can deploy your [WAR](https://wikipedia.org/wiki/WAR_(file_format)), [JAR](https://wikipedia.org/wiki/JAR_(file_format)), or [EAR](https://wikipedia.org/wiki/EAR_(file_format)) package to App Service to run your Java web app using the Azure CLI, PowerShell, or the Kudu publish API.
 
 The deployment process places the package on the shared file drive correctly (see [Kudu publish API reference](#kudu-publish-api-reference)). For that reason, deploying WAR/JAR/EAR packages using [FTP](deploy-ftp.md) or WebDeploy is not recommended.
 
@@ -103,6 +117,14 @@ Deploy a WAR package to Tomcat or JBoss EAP by using the [az webapp deploy](/cli
 
 ```azurecli-interactive
 az webapp deploy --resource-group <group-name> --name <app-name> --src-path ./<package-name>.war
+```
+
+[!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
+
+The following example uses the `--src-url` parameter to specify the URL of an Azure Storage account that the site should pull the ZIP from.
+
+```azurecli-interactive
+az webapp deploy --resource-group <grou-name> --name <app-name> --src-url "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3
 ```
 
 The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to deploy the package and can be fully customized.
@@ -121,6 +143,14 @@ The following example uses the cURL tool to deploy a .war, .jar, or .ear file. R
 
 ```bash
 curl -X POST -u <username> --data-binary @"<file-path>" https://<app-name>.scm.azurewebsites.net/api/publish&type=<package-type>
+```
+
+[!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
+
+The following example uses the `packageUri` parameter to specify the URL of an Azure Storage account that the site should pull the WAR from.
+
+```bash
+curl -X POST -u <username> https://<app-name>.scm.azurewebsites.net/api/publish -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}'
 ```
 
 For more information, see [Kudu publish API reference](#kudu-publish-api-reference)
