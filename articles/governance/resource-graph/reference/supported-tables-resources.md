@@ -1,7 +1,7 @@
 ---
 title: Supported Azure Resource Manager resource types
 description: Provide a list of the Azure Resource Manager resource types supported by Azure Resource Graph and Change History.
-ms.date: 08/13/2021
+ms.date: 08/27/2021
 ms.topic: reference
 ms.custom: generated
 ---
@@ -24,6 +24,10 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 ## alertsmanagementresources
 
 - microsoft.alertsmanagement/alerts
+
+## desktopvirtualizationresources
+
+- microsoft.desktopvirtualization/hostpools/sessionhosts
 
 ## extendedlocationresources
 
@@ -153,7 +157,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.alertsmanagement/resourcehealthalertrules
 - microsoft.alertsmanagement/smartdetectoralertrules
 - Microsoft.AnalysisServices/servers (Analysis Services)
-- Microsoft.AnyBuild/clusters (AnyBuild Clusters)
+- Microsoft.AnyBuild/clusters (AnyBuild clusters)
 - Microsoft.ApiManagement/service (API Management services)
 - microsoft.appassessment/migrateprojects
 - Microsoft.AppConfiguration/configurationStores (App Configuration)
@@ -239,6 +243,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.CloudTest/images (CloudTest Images)
 - Microsoft.CloudTest/pools (CloudTest Pools)
 - Microsoft.ClusterStor/nodes (ClusterStors)
+- microsoft.codesigning/codesigningaccounts
 - microsoft.codespaces/plans
 - Microsoft.Cognition/syntheticsAccounts (Synthetics Accounts)
 - Microsoft.CognitiveServices/accounts (Cognitive Services)
@@ -287,6 +292,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.Confluent/organizations (Confluent organizations)
 - Microsoft.ConnectedCache/cacheNodes (Connected Cache Resources)
 - Microsoft.ConnectedVehicle/platformAccounts (Connected Vehicle Platforms)
+- microsoft.connectedvmwarevsphere/clusters
 - microsoft.connectedvmwarevsphere/resourcepools
 - Microsoft.connectedVMwareVSphere/vCenters (VMware vCenters)
 - Microsoft.ConnectedVMwarevSphere/VirtualMachines (VMware + AVS virtual machines)
@@ -331,6 +337,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.DataProtection/BackupVaults (Backup vaults)
 - Microsoft.DataProtection/resourceGuards (Resource Guards (Preview))
 - microsoft.dataprotection/resourceoperationgatekeepers
+- microsoft.datareplication/replicationvaults
 - Microsoft.DataShare/accounts (Data Shares)
 - Microsoft.DBforMariaDB/servers (Azure Database for MariaDB servers)
 - Microsoft.DBforMySQL/flexibleServers (Azure Database for MySQL flexible servers)
@@ -394,9 +401,10 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.falcon/namespaces
 - Microsoft.Fidalgo/devcenters (Fidalgo DevCenters)
 - microsoft.fidalgo/machinedefinitions
+- microsoft.fidalgo/networksettings
 - Microsoft.Fidalgo/projects (Fidalgo Projects)
 - Microsoft.Fidalgo/projects/environments (Fidalgo Environments)
-- Microsoft.FluidRelay/fluidRelayServers (FluidRelay Servers)
+- Microsoft.FluidRelay/fluidRelayServers (Fluid Relay)
 - microsoft.footprintmonitoring/profiles
 - microsoft.gaming/titles
 - Microsoft.Genomics/accounts (Genomics accounts)
@@ -436,8 +444,8 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.insights/alertrules
 - microsoft.insights/autoscalesettings
 - microsoft.insights/components (Application Insights)
-- microsoft.insights/datacollectionendpoints
-- microsoft.insights/datacollectionrules (Data Collection Rules)
+- microsoft.insights/datacollectionendpoints (Data collection endpoints)
+- microsoft.insights/datacollectionrules (Data collection rules)
 - microsoft.insights/guestdiagnosticsettings
 - microsoft.insights/metricalerts
 - microsoft.insights/notificationgroups
@@ -531,7 +539,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.MobileNetwork/packetCoreControlPlanes (Arc for network functions – Packet Cores)
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes
 - microsoft.mobilenetwork/packetcorecontrolplanes/packetcoredataplanes/attacheddatanetworks
-- microsoft.mobilenetwork/sims
+- Microsoft.MobileNetwork/sims (Sims)
 - microsoft.mobilenetwork/sims/simprofiles
 - Microsoft.NetApp/netAppAccounts (NetApp accounts)
 - microsoft.netapp/netappaccounts/backuppolicies
@@ -608,6 +616,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.network/vpngateways
 - microsoft.network/vpnserverconfigurations
 - microsoft.network/vpnsites
+- microsoft.networkfunction/azuretrafficcollectors
 - Microsoft.NotificationHubs/namespaces (Notification Hub Namespaces)
 - Microsoft.NotificationHubs/namespaces/notificationHubs (Notification Hubs)
 - microsoft.nutanix/interfaces
@@ -725,7 +734,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - Microsoft.Synapse/workspaces (Azure Synapse Analytics)
 - Microsoft.Synapse/workspaces/bigDataPools (Apache Spark pools)
 - microsoft.synapse/workspaces/eventstreams
-- Microsoft.Synapse/workspaces/kustopools (Kusto Pools (Preview))
+- Microsoft.Synapse/workspaces/kustopools (Data Explorer pools (Preview))
 - microsoft.synapse/workspaces/sqldatabases
 - Microsoft.Synapse/workspaces/sqlPools (Dedicated SQL pools)
 - microsoft.terraformoss/providerregistrations
@@ -768,7 +777,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.web/sites/premieraddons
 - Microsoft.Web/sites/slots (App Service (Slots))
 - Microsoft.Web/StaticSites (Static Web Apps)
-- microsoft.web/workerapps
+- Microsoft.Web/WorkerApps (Container Apps)
 - Microsoft.WindowsESU/multipleActivationKeys (Windows Multiple Activation Keys)
 - Microsoft.WindowsIoT/DeviceServices (Windows 10 IoT Core Services)
 - microsoft.workloadbuilder/migrationagents
@@ -777,7 +786,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - NGINX.NGINXPLUS/nginxDeployments (NGINX Deployment)
 - Paraleap.CloudMonix/services (CloudMonix)
 - Pokitdok.Platform/services (PokitDok Platform)
-- Providers.Test/statefulIbizaEngines (Service Linkers)
+- Providers.Test/statefulIbizaEngines (Application assessments)
 - RavenHq.Db/databases (RavenHQ)
 - Raygun.CrashReporting/apps (Raygun)
 - Sendgrid.Email/accounts (SendGrid Accounts)
