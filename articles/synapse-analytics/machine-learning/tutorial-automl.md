@@ -74,7 +74,7 @@ Select the machine learning model type for the experiment, based on the question
 
     - **Best model name**: Specify the name of the best model from the automated run. The best model is given this name and saved in the Azure Machine Learning model registry automatically after this run. An automated machine learning run creates many machine learning models. Based on the primary metric that you select in a later step, those models can be compared and the best model can be selected.
 
-    - **Target column**: This is what the model will be trained to predict, so choose the column in the dataset that you want to predict. For this tutorial, select the numeric column `fareAmount` as the target column.
+    - **Target column**: This is what the model will be trained to predict. Choose the column in the dataset that contains the data you want to predict. For this tutorial, select the numeric column `fareAmount` as the target column.
 
     - **Spark pool**: Specify the Spark pool that you want to use for the automated experiment run. The computations are run on the pool that you specify.
 
