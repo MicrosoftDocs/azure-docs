@@ -124,6 +124,9 @@ for group in groups:
     print(group.name) 
 ```
 
+> [!NOTE]
+> The Python `automationassets` package is not available on pypi.org, so it's not available for import onto a Windows machine.
+
 ## Identify available packages in sandbox
 
 Use the following code to list the default installed modules:

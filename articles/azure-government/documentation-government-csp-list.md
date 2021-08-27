@@ -418,7 +418,6 @@ Below you can find a list of all the authorized Cloud Solution Providers, AOS-G 
 |[Vidizmo LLC](https://www.vidizmo.com)|
 |[Virsage Solutions](https://www.virsage.com/)|
 |[ViON Corp.](https://www.vion.com/)|
-|[Viscon Networking Innovations Inc.](https://www.visconni.com/)|
 |[VisioLogix Corporation](https://www.visiologix.com)|
 |[VVL Systems & Consulting, LLC](https://www.vvlsystems.com/)|
 |Vistronix, LLC|
