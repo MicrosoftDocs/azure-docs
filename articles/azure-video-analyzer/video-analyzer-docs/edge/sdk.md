@@ -38,6 +38,6 @@ The following platforms are supported:
 
 <!-- links -->
 [docs-direct-methods]: direct-methods.md
-[docs-iot-hub-sdks]: ../../../../iot-hub/iot-hub-devguide-sdks.md
+[docs-iot-hub-sdks]: ../../../iot-hub/iot-hub-devguide-sdks.md
 
 [REST API]: https://aka.ms/ava/api/rest
