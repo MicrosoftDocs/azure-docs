@@ -46,7 +46,7 @@ For the same reason, Microsoft Office mobile apps (except Microsoft Teams, Intun
 | Unsupported Microsoft apps| Examples |
 | --- | --- |
 | Native desktop Microsoft apps | Microsoft Teams, O365 apps, Word, Excel, etc.|
-| Native mobile Microsoft apps (except Microsoft Teams, Intune Company Portal, and Microsoft Azure) | Outlook, Edge, Power BI, Stream, Sharepoint, Power Apps, Word, etc.|
+| Native mobile Microsoft apps (except Microsoft Teams, Intune Company Portal, and Microsoft Azure) | Outlook, Edge, Power BI, Stream, SharePoint, Power Apps, Word, etc.|
 | Microsoft 365 web apps (accessed directly on web) | [Outlook](https://outlook.live.com/owa/), [Word](https://office.live.com/start/Word.aspx), [Excel](https://office.live.com/start/Excel.aspx), [PowerPoint](https://office.live.com/start/PowerPoint.aspx), [OneDrive](https://onedrive.live.com/about/signin)|  
 
 ## Support for Non-Microsoft apps 
