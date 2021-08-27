@@ -70,7 +70,7 @@ Manage (pause, scale, or delete) a dedicated SQL pool|Azure Owner or Contributor
 Create a SQL script</br>|Synapse User, or </br>Azure Owner or Contributor on the workspace, </br>*Additional SQL permissions are required to run a SQL script, publish, or commit changes*.|
 List and open any published SQL script| Synapse Artifact User, Artifact Publisher, Synapse Contributor|artifacts/read
 Run a SQL script on a serverless SQL pool|SQL permissions on the pool (granted automatically to a Synapse Administrator)|none
-Run a SQL script on a dedicated SQL pool|SQL permissions on the pool|none
+Run a SQL script on a dedicated SQL pool|SQL permissions on the pool (granted automatically to a Synapse Administrator)|none
 Publish a new, updated, or deleted SQL script|Synapse Artifact Publisher, Synapse Contributor|sqlScripts/write, delete
 Commit changes to a SQL script to the Git repo|Requires Git permissions on the repo|
 Assign Active Directory Admin on the workspace (via workspace properties in the Azure Portal)|Azure Owner or Contributor on the workspace |

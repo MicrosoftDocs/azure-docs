@@ -11,6 +11,9 @@ ms.collection: linux
 
 ---
 # Use the portal to attach a data disk to a Linux VM 
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article shows you how to attach both new and existing disks to a Linux virtual machine through the Azure portal. You can also [attach a data disk to a Windows VM in the Azure portal](../windows/attach-managed-disk-portal.md). 
 
 Before you attach disks to your VM, review these tips:

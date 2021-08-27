@@ -30,6 +30,7 @@ Prebuilt Docker container images for inference [(preview)](https://azure.microso
 ## List of prebuilt Docker images for inference 
 
 * All the docker images run as non-root user.
+* We recommend using `latest` tag for docker images. Prebuilt docker images for inference are published to Microsoft container registry (MCR), to query list of tags available, follow [instructions on their GitHub repository](https://github.com/microsoft/ContainerRegistry#browsing-mcr-content).
 
 ### TensorFlow
 

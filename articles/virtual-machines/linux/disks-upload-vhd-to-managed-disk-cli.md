@@ -12,6 +12,8 @@ ms.subservice: disks
 
 # Upload a VHD to Azure or copy a managed disk to another region - Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
 ## Prerequisites

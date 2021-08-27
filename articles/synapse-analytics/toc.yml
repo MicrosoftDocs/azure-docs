@@ -201,6 +201,8 @@ items:
         href: troubleshoot/workspaces-created-by-sdk.md
       - name: Troubleshoot reading UTF-8 text
         href: troubleshoot/reading-utf8-text.md
+    - name: Move workspace to new region
+      href: how-to-move-workspace-from-one-region-to-another.md
 - name: Migration guides
   items:
   - name: Migrate to a dedicated SQL pool
@@ -605,7 +607,7 @@ items:
           href: ./spark/apache-spark-version-support.md
         - name: Azure Synapse Apache Spark 2.4 runtime
           href: ./spark/apache-spark-24-runtime.md
-        - name: Azure Synapse Apache Spark 3.0 runtime
+        - name: Azure Synapse Apache Spark 3.1 runtime
           href: ./spark/apache-spark-3-runtime.md
     - name: Machine learning
       href: ./spark/apache-spark-machine-learning-concept.md
