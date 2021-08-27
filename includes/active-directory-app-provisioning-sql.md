@@ -49,37 +49,37 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
 
 1. Start the ODBC management utility on your server.
   
-     ![Screenshot that shows ODBC management.](./media/tutorial-ecma-sql-connector/odbc.png)
+     ![Screenshot that shows ODBC management.](./media/active-directory-app-provisioning-sql/odbc.png)
 1. Select the **File DSN** tab, and select **Add**. 
  
-     ![Screenshot that shows the File DSN tab.](./media/tutorial-ecma-sql-connector/dsn-2.png)
+     ![Screenshot that shows the File DSN tab.](./media/active-directory-app-provisioning-sql/dsn-2.png)
 1. Select **SQL Server Native Client 11.0** and select **Next**. 
  
-     ![Screenshot that shows choosing a native client.](./media/tutorial-ecma-sql-connector/dsn-3.png)
+     ![Screenshot that shows choosing a native client.](./media/active-directory-app-provisioning-sql/dsn-3.png)
 1. Give the file a name, such as **GenericSQL**, and select **Next**. 
  
-     ![Screenshot that shows naming the connector.](./media/tutorial-ecma-sql-connector/dsn-4.png)
+     ![Screenshot that shows naming the connector.](./media/active-directory-app-provisioning-sql/dsn-4.png)
 1. Select **Finish**. 
  
-     ![Screenshot that shows Finish.](./media/tutorial-ecma-sql-connector/dsn-5.png)
+     ![Screenshot that shows Finish.](./media/active-directory-app-provisioning-sql/dsn-5.png)
 1. Now configure the connection. Enter **APP1** for the name of the server and select **Next**.
 
-     ![Screenshot that shows entering a server name.](./media/tutorial-ecma-sql-connector/dsn-6.png)
+     ![Screenshot that shows entering a server name.](./media/active-directory-app-provisioning-sql/dsn-6.png)
 1. Keep Windows authentication and select **Next**.
 
-     ![Screenshot that shows Windows authentication.](./media/tutorial-ecma-sql-connector/dsn-7.png)
+     ![Screenshot that shows Windows authentication.](./media/active-directory-app-provisioning-sql/dsn-7.png)
 1. Enter the name of the sample database, which is **CONTOSO**.
 
-     ![Screenshot that shows entering a database name.](./media/tutorial-ecma-sql-connector/dsn-8.png)
+     ![Screenshot that shows entering a database name.](./media/active-directory-app-provisioning-sql/dsn-8.png)
 1. Keep everything default on this screen, and select **Finish**.
 
-     ![Screenshot that shows selecting Finish.](./media/tutorial-ecma-sql-connector/dsn-9.png)
+     ![Screenshot that shows selecting Finish.](./media/active-directory-app-provisioning-sql/dsn-9.png)
 1. To check everything is working as expected, select **Test Data Source**. 
  
-     ![Screenshot that shows Test Data Source.](./media/tutorial-ecma-sql-connector/dsn-10.png)
+     ![Screenshot that shows Test Data Source.](./media/active-directory-app-provisioning-sql/dsn-10.png)
 1. Make sure the test is successful.
 
-     ![Screenshot that shows success.](./media/tutorial-ecma-sql-connector/dsn-11.png)
+     ![Screenshot that shows success.](./media/active-directory-app-provisioning-sql/dsn-11.png)
 1. Select **OK** twice. Close the ODBC Data Source Administrator.
 
 ## Download and install the Azure AD Connect Provisioning Agent Package
@@ -125,7 +125,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
 
  1. On the **Properties** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
  
-     ![Screenshot that shows entering properties.](.\media\tutorial-ecma-sql-connector\conn-1.png)
+     ![Screenshot that shows entering properties.](.\media\active-directory-app-provisioning-sql\conn-1.png)
 
      |Property|Value|
      |-----|-----|
@@ -135,7 +135,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
        |Extension DLL|For a generic SQL connector, select **Microsoft.IAM.Connector.GenericSql.dll**.|
  1. On the **Connectivity** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
  
-     ![Screenshot that shows the Connectivity page.](.\media\tutorial-ecma-sql-connector\conn-2.png)
+     ![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-sql\conn-2.png)
 
      |Property|Value|
      |-----|-----|
@@ -144,7 +144,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
      |Password|Enter the administrator's password.|
  1. On the **Schema 1** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
  
-     ![Screenshot that shows the Schema 1 page.](.\media\tutorial-ecma-sql-connector\conn-3.png)
+     ![Screenshot that shows the Schema 1 page.](.\media\active-directory-app-provisioning-sql\conn-3.png)
 
      |Property|Value|
      |-----|-----|
@@ -152,7 +152,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
      |Fixed value list/Table/View/SP|User|
  1. On the **Schema 2** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
  
-     ![Screenshot that shows the Schema 2 page.](.\media\tutorial-ecma-sql-connector\conn-4.png)
+     ![Screenshot that shows the Schema 2 page.](.\media\active-directory-app-provisioning-sql\conn-4.png)
 
      |Property|Value|
      |-----|-----|
@@ -160,7 +160,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
      |User:Table/View/SP|Employees|
  1. On the **Schema 3** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
  
-     ![Screenshot that shows the Schema 3 page.](.\media\tutorial-ecma-sql-connector\conn-5.png)
+     ![Screenshot that shows the Schema 3 page.](.\media\active-directory-app-provisioning-sql\conn-5.png)
 
      |Property|Description|
      |-----|-----|
@@ -168,25 +168,25 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
      |Select DN attribute for User|AzureID|
  1. On the **Schema 4** page, leave the defaults and select **Next**.
  
-     ![Screenshot that shows the Schema 4 page.](.\media\tutorial-ecma-sql-connector\conn-6.png)
+     ![Screenshot that shows the Schema 4 page.](.\media\active-directory-app-provisioning-sql\conn-6.png)
  1. On the **Global** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.
  
-     ![Screenshot that shows the Global page.](.\media\tutorial-ecma-sql-connector\conn-7.png)
+     ![Screenshot that shows the Global page.](.\media\active-directory-app-provisioning-sql\conn-7.png)
 
      |Property|Description|
      |-----|-----|
      |Data Source Date Time Format|yyyy-MM-dd HH:mm:ss|
  1. On the **Partitions** page, select **Next**.
  
-     ![Screenshot that shows the Partitions page.](.\media\tutorial-ecma-sql-connector\conn-8.png)
+     ![Screenshot that shows the Partitions page.](.\media\active-directory-app-provisioning-sql\conn-8.png)
 
  1. On the **Run Profiles** page, keep the **Export** checkbox selected. Select the **Full import** checkbox and select **Next**.
  
-     ![Screenshot that shows the Run Profiles page.](.\media\tutorial-ecma-sql-connector\conn-9.png)
+     ![Screenshot that shows the Run Profiles page.](.\media\active-directory-app-provisioning-sql\conn-9.png)
 
  1. On the **Export** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes. 
  
-     ![Screenshot that shows the Export page.](.\media\tutorial-ecma-sql-connector\conn-10.png)
+     ![Screenshot that shows the Export page.](.\media\active-directory-app-provisioning-sql\conn-10.png)
 
      |Property|Description|
      |-----|-----|
@@ -195,7 +195,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
  
  1. On the **Full Import** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes. 
  
-     ![Screenshot that shows the Full Import page.](.\media\tutorial-ecma-sql-connector\conn-11.png)
+     ![Screenshot that shows the Full Import page.](.\media\active-directory-app-provisioning-sql\conn-11.png)
 
      |Property|Description|
      |-----|-----|
@@ -208,7 +208,7 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
       - **Query Attribute**: Used by the ECMA host to query the in-memory cache. This attribute should be unique.
       - **DN**: The **Autogenerated** option should be selected in most cases. If it isn't selected, ensure that the DN attribute is mapped to an attribute in Azure AD that stores the DN in this format: CN = anchorValue, Object = objectType.
 
-        ![Screenshot that shows the Object Types page.](.\media\tutorial-ecma-sql-connector\conn-12.png)
+        ![Screenshot that shows the Object Types page.](.\media\active-directory-app-provisioning-sql\conn-12.png)
 
       |Property|Description|
       |-----|-----|
@@ -221,12 +221,12 @@ The generic SQL connector is a DSN file to connect to the SQL server. First, you
 
  1. On the **Select Attributes** page, add all the attributes in the dropdown list and select **Next**. 
  
-     ![Screenshot that shows the Select Attributes page.](.\media\tutorial-ecma-sql-connector\conn-13.png)
+     ![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-sql\conn-13.png)
 
       The **Attribute** dropdown list shows any attribute that was discovered in the target system and *wasn't* chosen on the previous **Select Attributes** page. 
  1. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. Select **Finish**.
  
-     ![Screenshot that shows the Deprovisioning page.](.\media\tutorial-ecma-sql-connector\conn-14.png)
+     ![Screenshot that shows the Deprovisioning page.](.\media\active-directory-app-provisioning-sql\conn-14.png)
 
 ## Ensure ECMA2Host service is running
 1. On the server the running the Azure AD ECMA Connector Host, select **Start**.
@@ -280,16 +280,16 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you ca
 1. On the left, under **Manage**, select **Users and groups**.
 1. Select **Add user/group**.
 
-     ![Screenshot that shows adding a user.](.\media\tutorial-ecma-sql-connector\app-2.png)
+     ![Screenshot that shows adding a user.](.\media\active-directory-app-provisioning-sql\app-2.png)
 1. Under **Users**, select **None Selected**.
 
-     ![Screenshot that shows None Selected.](.\media\tutorial-ecma-sql-connector\app-3.png)
+     ![Screenshot that shows None Selected.](.\media\active-directory-app-provisioning-sql\app-3.png)
 1. Select users from the right and select the **Select** button.</br>
 
-     ![Screenshot that shows Select users.](.\media\tutorial-ecma-sql-connector\app-4.png)
+     ![Screenshot that shows Select users.](.\media\active-directory-app-provisioning-sql\app-4.png)
 1. Now select **Assign**.
 
-     ![Screenshot that shows Assign users.](.\media\tutorial-ecma-sql-connector\app-5.png)
+     ![Screenshot that shows Assign users.](.\media\active-directory-app-provisioning-sql\app-5.png)
 
 ## Configure attribute mappings
 Now you need to map attributes between the on-premises application and your SQL server.
@@ -316,7 +316,7 @@ Now you need to map attributes between the on-premises application and your SQL 
 
  1. Select **Save**.
  
-     ![Screenshot that shows saving the mapping.](.\media\tutorial-ecma-sql-connector\app-6.png)
+     ![Screenshot that shows saving the mapping.](.\media\active-directory-app-provisioning-sql\app-6.png)
 
 ## Test provisioning
 Now that your attributes are mapped, you can test on-demand provisioning with one of your users.
