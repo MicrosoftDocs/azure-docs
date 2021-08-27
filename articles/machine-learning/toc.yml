@@ -263,8 +263,9 @@
             - name: Configure secure web services
               displayName: ssl, tls
               href: how-to-secure-web-service.md
-            - name: Configure Firewall
+            - name: Configure required network traffic
               href: how-to-access-azureml-behind-firewall.md
+              displayName: firewall, user-defined route, udr
         - name: Data protection
           items:
             - name: Failover & disaster recovery
