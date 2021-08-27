@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/18/2021
+ms.date: 08/27/2021
 ---
 
 # blah
@@ -62,7 +62,7 @@ When accessing your workspace from studio, the network traffic flows are as foll
 * For most storage operations, traffic flows through the private endpoint of the default storage for your workspace. Exceptions are discussed in the [Use AutoML, designer, dataset, and datastore](#scenario-use-automl-designer-dataset-and-datastore-from-studio) section.
 * You will also need to configure a DNS solution that allows you to resolve the names of the resources within the VNet. For more information, see [Use your workspace with a custom DNS](how-to-custom-dns.md).
 
-:::image type="content" source="{source}" alt-text="Diagram of network traffic between client and workspace":::
+:::image type="content" source="./media/concept-secure-network-traffic-flow/workspacee-traffic-studio.png" alt-text="Diagram of network traffic between client and workspace when using studio":::
 
 ## Scenario: Use AutoML, designer, dataset, and datastore from studio
 
@@ -73,7 +73,7 @@ The following features of Azure Machine Learning studio use _data profiling_:
 * AutoML: View a data preview/profile and choose a target column.
 * Labeling
 
-Data profiling depends on the Azure Machine Learning managed service being able to access the default Azure Storage Account for your workspace. The Azure ML managed service _does not exist in your VNet_, so cannot directly access the storage account in the VNet. Instead, the workspace uses a service principal to access storage.
+Data profiling depends on the Azure Machine Learning managed service being able to access the default Azure Storage Account for your workspace. The managed service _does not exist in your VNet_, so cannot directly access the storage account in the VNet. Instead, the workspace uses a service principal to access storage.
 
 > [!TIP]
 > You can provide a service principal when creating the workspace. If you do not, one is created for you and will have the same name as your workspace.
@@ -84,7 +84,7 @@ Next, add the service principal for the workspace to the __Reader__ role to the 
 
 For more information, see the Azure Storage Account section of [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#Secure-Azure-storage-accounts-with-service-endpoints).
 
-:::image type="content" source="{source}" alt-text="Diagram of traffic between client, data profiling, and storage":::
+:::image type="content" source="./media/concept-secure-network-traffic-flow/storage-traffic-studio.png" alt-text="Diagram of traffic between client, data profiling, and storage":::
 
 ## Scenario: Use compute instance and compute cluster
 
@@ -99,22 +99,22 @@ When you create a compute instance or compute cluster, the following resources a
 
 * A load balancer with a public IP.
 
-You must also allow __outbound__ access to the `Storage.region` service tag (where `region` is the Azure region of your storage account). This outbound access is used to connect to the Azure Storage Account inside the Azure Batch service managed VNet.
+Also allow __outbound__ access to the `Storage.region` service tag (where `region` is the Azure region of your storage account). This outbound access is used to connect to the Azure Storage Account inside the Azure Batch service-managed VNet.
 
 Data access from your compute instance or cluster goes through the private endpoint of the Storage Account for your VNet.
 
-If you use Visual Studio Code on a compute instance, you must allow additional outbound traffic. For more information, see [How to use Azure Machine Learning with a firewall](how-to-access-azureml-behind-firewall.md).
+If you use Visual Studio Code on a compute instance, you must allow other outbound traffic. For more information, see [How to use Azure Machine Learning with a firewall](how-to-access-azureml-behind-firewall.md).
 
-:::image type="content" source="{source}" alt-text="{alt-text}":::
+:::image type="content" source="./media/concept-secure-network-traffic-flow/compute-instance-and-cluster.png" alt-text="Diagram of traffic flow when using compute instance or cluster":::
 
 ## Scenario: Use Azure Kubernetes Service
 
-For information on the outbound configuration required for Azure Kubernetes Service, see the connectivity requirements section of [How to deploy to Azure Kubnetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster).
+For information on the outbound configuration required for Azure Kubernetes Service, see the connectivity requirements section of [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster).
 
 > [!NOTE]
 > The Azure Kubernetes Service load balancer is not the same as the load balancer created by Azure Machine Learning. If you want to host your model as a secured application, only available on the VNet, use the internal load balancer created by Azure Machine Learning. If you want to allow public access, use the public load balancer created by Azure Machine Learning.
 
-If your model requires additional inbound or outbound connectivity, such as to an external data source, use a network security group or your firewall to allow the traffic.
+If your model requires extra inbound or outbound connectivity, such as to an external data source, use a network security group or your firewall to allow the traffic.
 
 ## Scenario: Use Docker images managed by Azure ML
 
@@ -125,5 +125,6 @@ If you provide your own docker images, such as on an Azure Container Registry th
 > [!TIP]
 > If your Azure Container Registry is secured in the VNet, it cannot be used by Azure Machine Learning to build Docker images. Instead, you must designate an Azure Machine Learning compute cluster to build images. For more information, see [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
+:::image type="content" source="./media/concept-secure-network-traffic-flow/azure-machine-learning-docker-images.png" alt-text="Diagram of traffic flow when using provided Docker images":::
 ## Next steps
 
