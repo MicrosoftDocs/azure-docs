@@ -297,36 +297,36 @@ In this section, you'll SSH to the virtual machines through the inbound NAT rule
 
 4. If you are using a Mac or Linux computer, open a Bash prompt. If you are using a Windows computer, open a PowerShell prompt.
 
-5. At your prompt, open an SSH connection to myVM1. Replace the IP address with the address you retrieved in the previous step and port **221** you used for the myVM1 inbound NAT rule. Replace the path to the .pem with the path to where the key file was downloaded.
+5. At your prompt, open an SSH connection to **myVM1**. Replace the IP address with the address you retrieved in the previous step and port **221** you used for the myVM1 inbound NAT rule. Replace the path to the .pem with the path to where the key file was downloaded.
 
-```console
-ssh -i .\Downloads\myKey.pem azureuser@20.190.2.163 -p 221
-```
+    ```console
+    ssh -i .\Downloads\myKey.pem azureuser@20.190.2.163 -p 221
+    ```
 
-> [!TIP]
-> The SSH key you created can be used the next time your create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
+    > [!TIP]
+    > The SSH key you created can be used the next time your create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
 
 6. From your SSH session, update your package sources and then install the latest NGINX package.
 
-```bash
-sudo apt-get -y update
-sudo apt-get -y install nginx
-``` 
+    ```bash
+    sudo apt-get -y update
+    sudo apt-get -y install nginx
+    ``` 
 
 7. Enter `Exit` to leave the SSH session
 
-8.  At your prompt, open an SSH connection to myVM2. Replace the IP address with the address you retrieved in the previous step and port **222** you used for the myVM1 inbound NAT rule. Replace the path to the .pem with the path to where the key file was downloaded.
+8. At your prompt, open an SSH connection to **myVM2**. Replace the IP address with the address you retrieved in the previous step and port **222** you used for the myVM2 inbound NAT rule. Replace the path to the .pem with the path to where the key file was downloaded.
 
-```console
-ssh -i .\Downloads\myKey.pem azureuser@20.190.2.163 -p 222
-```
+    ```console
+    ssh -i .\Downloads\myKey.pem azureuser@20.190.2.163 -p 222
+    ```
 
 9. From your SSH session, update your package sources and then install the latest NGINX package.
 
-```bash
-sudo apt-get -y update
-sudo apt-get -y install nginx
-``` 
+    ```bash
+    sudo apt-get -y update
+    sudo apt-get -y install nginx
+    ``` 
 
 10. Enter `Exit` to leave the SSH session.
 
