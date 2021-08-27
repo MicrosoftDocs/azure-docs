@@ -273,7 +273,7 @@ If you wish to discard the source workspace, delete the exported resources or re
 
 ## Clean up
 
-The original workspace and data ingested to it before the migration, remain in original region and data is subjected to the retention policy in the workspace. It's recommended to remain the original workspace for the duration your older data is needed, to allow you to [query across](./cross-workspace-query.md#performing-a-query-across-multiple-resources) target and original workspaces. If you no longer need access to older data in original workspace or other resources in original region, select the original resource group in Azure portal, select any resources that you want to remove and click **Delete** in toolbar.
+While new data is being ingested to your new workspace, older data in original workspace remain available for query and subjected to the retention policy defined in workspace. It's recommended to remain the original workspace for the duration older data is needed to allow you to [query across](./cross-workspace-query.md#performing-a-query-across-multiple-resources) workspaces. If you no longer need access to older data in original workspace, select the original resource group in Azure portal, then select any resources that you want to remove and click **Delete** in toolbar.
 
 ## Next steps
 

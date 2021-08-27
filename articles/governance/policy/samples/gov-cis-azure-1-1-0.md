@@ -1,14 +1,14 @@
 ---
 title: Regulatory Compliance details for CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government)
 description: Details of the CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government) Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 08/13/2021
+ms.date: 08/20/2021
 ms.topic: sample
 ms.custom: generated
 ---
 # Details of the CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government) Regulatory Compliance built-in initiative
 
 The following article details how the Azure Policy Regulatory Compliance built-in initiative
-definition maps to **compliance domains** and **controls** in CIS Microsoft Azure Foundations Benchmark 1.1.0.
+definition maps to **compliance domains** and **controls** in CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government).
 For more information about this compliance standard, see
 [CIS Microsoft Azure Foundations Benchmark 1.1.0](https://www.cisecurity.org/benchmark/azure/). To understand
 _Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#type) and
@@ -22,7 +22,7 @@ Then, find and select the **CIS Microsoft Azure Foundations Benchmark v1.1.0** R
 initiative definition.
 
 This built-in initiative is deployed as part of the
-[CIS Microsoft Azure Foundations Benchmark 1.1.0 (Azure Government) blueprint sample](../../blueprints/samples/cis-azure-1-1-0.md).
+[CIS Microsoft Azure Foundations Benchmark 1.1.0 blueprint sample](../../blueprints/samples/cis-azure-1-1-0.md).
 
 > [!IMPORTANT]
 > Each control below is associated with one or more [Azure Policy](../overview.md) definitions.
