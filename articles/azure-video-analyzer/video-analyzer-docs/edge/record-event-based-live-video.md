@@ -11,7 +11,7 @@ In this tutorial, you'll learn how to use Azure Video Analyzer to selectively re
 
 
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Suggested pre-reading  
 

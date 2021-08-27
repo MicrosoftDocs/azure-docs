@@ -21,7 +21,7 @@ In this tutorial you will:
 > - Run the sample code.
 > - Monitor events.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Suggested pre-reading
 

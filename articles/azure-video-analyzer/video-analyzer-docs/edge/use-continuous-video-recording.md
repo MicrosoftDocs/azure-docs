@@ -17,7 +17,7 @@ In this tutorial you will:
 > * Run the sample code.
 > * Examine the results, and view the video.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## Suggested pre-reading  
 
