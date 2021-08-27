@@ -15,6 +15,9 @@ Follow the tutorials listed below to start building your own application.
 > [Tutorial: Create a simple chatroom with Azure Web PubSub](./../tutorial-build-chat.md)
 
 > [!div class="nextstepaction"]
+> [Tutorial: Client streaming using service-supported subprotocol](./../tutorial-subprotocol.md)
+
+> [!div class="nextstepaction"]
 > [Tutorial: Build serverless chat with Azure Functions and Web PubSub](./../quickstart-serverless.md)
 
 > [!div class="nextstepaction"]

@@ -79,7 +79,7 @@ To enable or disable devices, you have two options:
 - The toolbar after drilling down into a specific device.
 
 > [!IMPORTANT]
-> - You must be a global administrator or cloud device administrator in Azure AD to enable or disable a device. 
+> - You must be a global administrator, Intune administrator, or cloud device administrator in Azure AD to enable or disable a device. 
 > - Disabling a device prevents a device from successfully authenticating with Azure AD, thereby preventing the device from accessing your Azure AD resources that are protected by device-based Conditional Access or using Windows Hello for Business credentials.
 > - Disabling a device will revoke both the Primary Refresh Token (PRT) and any Refresh Tokens (RT) on the device.
 > - Printers cannot be enabled or disabled in Azure AD.
