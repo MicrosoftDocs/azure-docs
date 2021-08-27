@@ -45,7 +45,7 @@ Loops can be used to return many items during deployment by:
 
 ## Loop limits
 
-The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. To deploy Bicep files, install the latest version of [Bicep tools](install.md).
+The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. 
 
 ## Output iteration
 

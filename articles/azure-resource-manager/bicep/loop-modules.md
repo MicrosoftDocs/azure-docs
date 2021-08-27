@@ -26,7 +26,7 @@ Loops can be used declare multiple modules by:
   }]
   ```
 
-- Iterating over the elements of an array.
+  You can retrieve the index while iterating through an array:
 
   ```bicep
   module <module-symbolic-name> 'module-file' = [for (<item>, <index>) in <collection>: {
@@ -44,11 +44,11 @@ Loops can be used declare multiple modules by:
 
 ## Loop limits
 
-The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. To deploy Bicep files, install the latest version of [Bicep tools](install.md).
+The Bicep file's loop iterations can't be a negative number or exceed 800 iterations.
 
 ## Module iteration
 
-The following example creates the number of storage accounts specified in the `storageCount` parameter.
+The following example creates the number of modules(storage accounts) specified in the `storageCount` parameter.
 
 ```bicep
 param location string = resourceGroup().location
@@ -87,7 +87,7 @@ module stgModule './storageAccount.bicep' = [for name in storageNames: {
 
 ```
 
-Directly referencing a resource module or module collection is not currently supported in output loops. In order to loop outputs, apply an array indexer to the expression. See [output section](loop-outputs.md#output-iteration.md).
+Directly referencing a resource module or module collection is not currently supported in output loops. In order to loop outputs, apply an array indexer to the expression. See an example in [Output iteration](loop-outputs.md#output-iteration).
 
 ## Module iteration with condition
 
@@ -108,6 +108,8 @@ module stgModule './storageAccount.bicep' = [for i in range(0, storageCount): if
   }
 }]
 ```
+
+In the preceding example, The modules are called only when the boolean value is `true`. 
 
 Filters are also supported with [resource loops](loop-resources.md).
 
