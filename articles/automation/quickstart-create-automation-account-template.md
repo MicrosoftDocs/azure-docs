@@ -1,10 +1,10 @@
 ---
-title: 'Create an Automation account - Azure template'
+title: Create an Azure Automation account using a Resource Manager template
 titleSuffix: Azure Automation
 description: This article shows how to create an Automation account by using the Azure Resource Manager template.
 services: automation
 ms.author: magoedte
-ms.date: 08/10/2021
+ms.date: 08/27/2021
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.custom:
@@ -13,13 +13,13 @@ ms.custom:
   - mode-arm
 ---
 
-# Create an Azure Automation account using an ARM template
+# Create an Azure Automation account using a Resource Manager template
 
 Azure Automation delivers a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. This article shows you how to deploy an Azure Resource Manager template (ARM template) that creates an Automation account. Using an ARM template takes fewer steps compared to other deployment methods. The JSON template specifies default values for parameters that would likely be used as a standard configuration in your environment. You can store the template in an Azure storage account for shared access in your organization. For more information about working with templates, see [Deploy resources with ARM templates and the Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-The template does the following steps:
+The sample template does the following steps:
 
 * Automates the creation of an Azure Monitor Log Analytics workspace.
 * Automates the creation of an Azure Automation account.
