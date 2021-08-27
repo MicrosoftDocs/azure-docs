@@ -85,22 +85,7 @@ See the [sample on GitHub](https://github.com/Azure-Samples/cognitive-services-s
 
 ::: zone-end
 
-::: zone pivot="programming-language-java"
-> [!IMPORTANT]
-> This feature is currently only supported in C#, C++, and Python.
-::: zone-end
-
 ::: zone pivot="programming-language-python"
-> [!IMPORTANT]
-> This feature is currently only supported in C#, C++, and Python.
-::: zone-end
-
-::: zone pivot="programming-language-objectivec"
-> [!IMPORTANT]
-> This feature is currently only supported in C#, C++, and Python.
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
 > [!IMPORTANT]
 > This feature is currently only supported in C#, C++, and Python.
 ::: zone-end
