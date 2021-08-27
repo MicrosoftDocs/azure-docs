@@ -133,7 +133,7 @@ To move your Storage Accounts along with the file shares in them from one region
 >[!Note]
 >When Azure File Share is copied across regions, its associated snapshots don’t move along with it. In order to move the snapshots data to the new region, you need to move the individual files and directories of the snapshots to the Storage Account in the new region using [AzCopy](/azure/storage/common/storage-use-azcopy-files#copy-all-file-shares-directories-and-files-to-another-storage-account).
 
-Azure Backup offers [a snapshot management solution](/azure/backup/backup-afs#discover-file-shares-and-configure-backup) for your Azure Files today. This means, you don’t move the file share data into the Recovery Services vaults. Also, as the snapshots don’t move with your Storage Account, you’ll effectively have all your backups (snapshots) in the existing region only and protected by the existing vault. However, you can ensure that the new file shares that you create in the new region are be protected by Azure Backup by following these steps:
+Azure Backup offers [a snapshot management solution](/azure/backup/backup-afs#discover-file-shares-and-configure-backup) for your Azure Files today. This means, you don’t move the file share data into the Recovery Services vaults. Also, as the snapshots don’t move with your Storage Account, you’ll effectively have all your backups (snapshots) in the existing region only and protected by the existing vault. However, you can ensure that the new file shares that you create in the new region are protected by Azure Backup by following these steps:
 
 1. Start protecting the Azure File Share copied into the new Storage Account in a new or existing Recovery Services vault in the new region.  
 
