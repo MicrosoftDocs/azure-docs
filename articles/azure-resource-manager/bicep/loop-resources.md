@@ -46,7 +46,7 @@ Loops can be used declare multiple resources by:
 
 ## Loop limits
 
-The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. 
+The Bicep file's loop iterations can't be a negative number or exceed 800 iterations.
 
 ## Resource iteration
 
@@ -114,7 +114,7 @@ By default, Resource Manager creates resources in parallel. When you use a loop 
 
 You might not want to update all instances of a resource type at the same time. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time. You can specify that a subset of the instances be batched together and deployed at the same time. The other instances wait for that batch to complete.
 
-To serially deploy instances of a resource, add the [batchSize decorator](./file.md#resource-and-module-decorators). Set its value to the number of instances to deploy concurrently. A dependency is created on earlier instances in the loop, so it doesn't start one batch until the previous batch completes. For purely sequential deployment, set the batch size to 1.
+To serially deploy instances of a resource, add the [batchSize decorator](./file.md#resource-and-module-decorators). Set its value to the number of instances to deploy concurrently. A dependency is created on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 ```bicep
 param rgLocation string = resourceGroup().location
@@ -129,6 +129,8 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
   kind: 'Storage'
 }]
 ```
+
+For purely sequential deployment, set the batch size to 1.
 
 ## Iteration for a child resource
 

@@ -48,7 +48,7 @@ The Bicep file's loop iterations can't be a negative number or exceed 800 iterat
 
 ## Module iteration
 
-The following example creates the number of modules(storage accounts) specified in the `storageCount` parameter.
+The following example creates the number of modules specified in the `storageCount` parameter. Each module creates a storage account.
 
 ```bicep
 param location string = resourceGroup().location
@@ -65,9 +65,9 @@ module stgModule './storageAccount.bicep' = [for i in range(0, storageCount): {
 }]
 ```
 
-Notice the index `i` is used in creating the storage account resource name.
+Notice the index `i` is used in creating the storage account resource name. The storage account is passed as a parameter value to the module.
 
-The following example creates one storage account for each name provided in the `storageNames` parameter.
+The following example creates one storage account for each name provided in the `storageNames` parameter by calling a module.
 
 ```bicep
 param rgLocation string = resourceGroup().location
@@ -109,7 +109,7 @@ module stgModule './storageAccount.bicep' = [for i in range(0, storageCount): if
 }]
 ```
 
-In the preceding example, The modules are called only when the boolean value is `true`. 
+In the preceding example, the module is called only when the boolean value is `true`.
 
 Filters are also supported with [resource loops](loop-resources.md).
 
@@ -119,7 +119,7 @@ By default, Resource Manager creates resources in parallel. When you use a loop 
 
 You might not want to update all instances of a resource type at the same time. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time. You can specify that a subset of the instances be batched together and deployed at the same time. The other instances wait for that batch to complete.
 
-To serially deploy instances of a module, add the [batchSize decorator](./file.md#resource-and-module-decorators). Set its value to the number of instances to deploy concurrently. A dependency is created on earlier instances in the loop, so it doesn't start one batch until the previous batch completes. For purely sequential deployment, set the batch size to 1.
+To serially deploy instances of a module, add the [batchSize decorator](./file.md#resource-and-module-decorators). Set its value to the number of instances to deploy concurrently. A dependency is created on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 ```bicep
 param location string = resourceGroup().location
@@ -133,6 +133,8 @@ module stgModule './storageAccount.bicep' = [for i in range(0, 4): {
   }
 }]
 ```
+
+For purely sequential deployment, set the batch size to 1.
 
 ## Next steps
 
