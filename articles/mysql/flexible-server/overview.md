@@ -153,18 +153,18 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:|
 | Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Korea Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Korea Central | :heavy_check_mark: | :x: | :x: |
 | North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Switzerland North | :heavy_check_mark: | :x: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia Southeast | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| East Asia (Hong Kong) | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Central India | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| South Africa North | :heavy_check_mark: | :x: | :x: |
+| East Asia (Hong Kong) | :heavy_check_mark: | :x: | :x: |
+| Central India | :heavy_check_mark: | :x: | :x: |
 
 ## Contacts
 
