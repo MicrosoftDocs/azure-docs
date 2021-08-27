@@ -24,7 +24,7 @@ The purpose of this article is to ensure you are prepared for a successful deplo
 
 To learn more about our at-scale deployment recommendations, you can also refer to this video.
 
-> [!VIDEO https://www.youtube.com/watch?v=Cf1jUPOB_vs]
+> [!VIDEO https://www.youtube.com/embed/Cf1jUPOB_vs]
 
 ## Prerequisites
 
