@@ -252,240 +252,105 @@ You are now ready to configure an availability group using the following steps:
 
     ![New availability group Wizard, Select Initial Data Synchronization](./media/availability-group-manually-configure-tutorial-multi-subnet/16-endpoint.png)
 
-7. Select **Listener** and select **Create an availability group listener**
+7. Select **Listener** and select **Create an availability group listener**. 
+   Following table shows the settings for the Listener
+   Field | Value |
+   | --- | --- |
+   | Listener DNS Name: | AG1-Listener |
+   | Port | Use the default SQL Server port. 1433 |
+   | Network Mode: | Static IP |
 
-8. In the **Select Initial Data Synchronization** page, select **Full** and specify a shared network location. For the location, use the [backup share that you created](#backupshare). In the example it was, **\\\\<First SQL Server\>\Backup\\**. Select **Next**.
+8. Select **Add** to provide the secondary IP address from each of the two SQL Server VM's subnet that's dedicated for Availability Group Listener 
+
+   If you followed the [prerequisites document](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md), you added following secondary IPs to the two SQL Server VMs to be used for Availability Group Listener.
+   
+   | VM Name | Subnet name | Subnet address range | Secondary IP name | Secondary IP address |
+   | --- | --- | --- | --- | --- |
+   | SQL-VM-1 | SQL-subnet-1 | 10.38.1.0/24 | availability-group-listener | 10.38.1.11 |
+   | SQL-VM-2 | SQL-subnet-2 | 10.38.2.0/24 | availability-group-listener | 10.38.2.11
+
+   In **Add IP Address** select the first subnet range 10.38.1.0/24 and in **IPv4 Address** provide the address 10.38.1.11.Select **Ok**. 
+    
+    ![Add Listener IP](./media/availability-group-manually-configure-tutorial-multi-subnet/18-add-listener-ip-subnet-1.png)    
+
+   Repeat the steps to add the IP address from the second subnet range 10.38.2.0/24. 
+
+    ![Add Listener IP](./media/availability-group-manually-configure-tutorial-multi-subnet/19-add-listener-ip-subnet-2.png)    
+
+9. **Listener** page should look similar to the following image. Select **Next**
+
+    ![Listener](./media/availability-group-manually-configure-tutorial-multi-subnet/20-listener.png)
+
+10. In the **Select Initial Data Synchronization** page, select **Full database and log backup** and specify a shared network location. For the location, use the [backup share that you created](#backupshare). In the example it was, **\\\\<First SQL Server\>\Backup\\**. Select **Next**.
 
    >[!NOTE]
    >Full synchronization takes a full backup of the database on the first instance of SQL Server and restores it to the second instance. For large databases, full synchronization is not recommended because it may take a long time. You can reduce this time by manually taking a backup of the database and restoring it with `NO RECOVERY`. If the database is already restored with `NO RECOVERY` on the second SQL Server before configuring the availability group, choose **Join only**. If you want to take the backup after configuring the availability group, choose **Skip initial data synchronization**.
    >
 
-   ![Choose Skip initial data synchronization](./media/availability-group-manually-configure-tutorial-multi-subnet/17-datasynchronization.png)
+   ![Choose full data synchronization](./media/availability-group-manually-configure-tutorial-multi-subnet/21-full-data-sync.png)
 
-9. In the **Validation** page, select **Next**. This page should look similar to the following image:
+11. In the **Validation** page, select **Next**. This page should look similar to the following image:
 
-    ![New availability group Wizard, Validation](./media/availability-group-manually-configure-tutorial-multi-subnet/72-validation.png)
+    ![New availability group Wizard, Validation](./media/availability-group-manually-configure-tutorial-multi-subnet/22-validation.png)
 
-    >[!NOTE]
-    >There is a warning for the listener configuration because you have not configured an availability group listener. You can ignore this warning because you will be doing right after .
+   
+12. In the **Summary** page, select **Finish**, then wait while the wizard configures the new availability group. In the **Progress** page, you can select **More details** to view the detailed progress. Once the wizard is finished, inspect the **Results** page to verify that the availability group and the listener is successfully created.
 
-10. In the **Summary** page, select **Finish**, then wait while the wizard configures the new availability group. In the **Progress** page, you can select **More details** to view the detailed progress. Once the wizard is finished, inspect the **Results** page to verify that the availability group is successfully created.
+     ![New availability group Wizard, Results](./media/availability-group-manually-configure-tutorial-multi-subnet/23-results.png)
 
-     ![New availability group Wizard, Results](./media/availability-group-manually-configure-tutorial-multi-subnet/74-results.png)
-
-11. Select **Close** to exit the wizard.
+13. Select **Close** to exit the wizard.
 
 ### Check the availability group
 
 1. In **Object Explorer**, expand **AlwaysOn High Availability**, and then expand **availability groups**. You should now see the new availability group in this container. Right-click the availability group and select **Show Dashboard**.
 
-   ![Show availability group Dashboard](./media/availability-group-manually-configure-tutorial-multi-subnet/76-showdashboard.png)
+   ![Show availability group Dashboard](./media/availability-group-manually-configure-tutorial-multi-subnet/24-showdashboard.png)
 
    Your **AlwaysOn Dashboard** should look similar to the following screenshot:
 
-   ![availability group Dashboard](./media/availability-group-manually-configure-tutorial-multi-subnet/78-agdashboard.png)
+   ![availability group Dashboard](./media/availability-group-manually-configure-tutorial-multi-subnet/25-agdashboard.png)
 
    You can see the replicas, the failover mode of each replica, and the synchronization state.
 
-2. In **Failover Cluster Manager**, select your cluster. Select **Roles**. The availability group name you used is a role on the cluster. That availability group does not have an IP address for client connections because you did not configure a listener. You will configure the listener after you create an Azure load balancer.
+2. In **Failover Cluster Manager**, select your cluster. Select **Roles**. The availability group name you used is a role on the cluster. Select the role **AG1** and select **Resources** in the bottom window. You should see the Availbaility Group Listener name and the IPs associated with it. 
 
-   ![availability group in Failover Cluster Manager](./media/availability-group-manually-configure-tutorial-multi-subnet/80-clustermanager.png)
+   ![availability group in Failover Cluster Manager](./media/availability-group-manually-configure-tutorial-multi-subnet/26-clustermanager.png)
 
    > [!WARNING]
    > Do not try to fail over the availability group from the Failover Cluster Manager. All failover operations should be performed from within **AlwaysOn Dashboard** in SSMS. For more information, see [Restrictions on Using The Failover Cluster Manager with availability groups](/sql/database-engine/availability-groups/windows/failover-clustering-and-always-on-availability-groups-sql-server).
     >
 
-At this point, you have an availability group with replicas on two instances of SQL Server. You can move the availability group between instances. You cannot connect to the availability group yet because you do not have a listener. In Azure virtual machines, the listener requires a load balancer. The next step is to create the load balancer in Azure.
+At this point, you have an availability group with replicas on two instances of SQL Server and a corresponding availability group listener as well. You can connect using listener and you can move the availability group between instances. 
 
-<a name="configure-internal-load-balancer"></a>
-
-## Create an Azure load balancer
-
-[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
-
-On Azure virtual machines, a SQL Server availability group requires a load balancer. The load balancer holds the IP addresses for the availability group listeners and the Windows Server Failover Cluster. This section summarizes how to create the load balancer in the Azure portal.
-
-A load balancer in Azure can be either a Standard Load Balancer or a Basic Load Balancer. Standard Load Balancer has more features than the Basic Load Balancer. For an availability group, the Standard Load Balancer is required if you use an Availability Zone (instead of an Availability Set). For details on the difference between the load balancer SKUs, see [Load Balancer SKU comparison](../../../load-balancer/skus.md).
-
-1. In the Azure portal, go to the resource group where your SQL Servers are and select **+ Add**.
-1. Search for **Load Balancer**. Choose the load balancer published by Microsoft.
-
-   ![Choose the load balancer published by Microsoft](./media/availability-group-manually-configure-tutorial-multi-subnet/82-azureloadbalancer.png)
-
-1. Select **Create**.
-1. Configure the following parameters for the load balancer.
-
-   | Setting | Field |
-   | --- | --- |
-   | **Name** |Use a text name for the load balancer, for example **sqlLB**. |
-   | **Type** |Internal |
-   | **Virtual network** |Use the name of the Azure virtual network. |
-   | **Subnet** |Use the name of the subnet that the virtual machine is in.  |
-   | **IP address assignment** |Static |
-   | **IP address** |Use an available address from subnet. Use this address for your availability group listener. Note that this is different from your cluster IP address.  |
-   | **Subscription** |Use the same subscription as the virtual machine. |
-   | **Location** |Use the same location as the virtual machine. |
-
-   The Azure portal blade should look like this:
-
-   ![Create Load Balancer](./media/availability-group-manually-configure-tutorial-multi-subnet/84-createloadbalancer.png)
-
-1. Select **Create**, to create the load balancer.
-
-To configure the load balancer, you need to create a backend pool, a probe, and set the load balancing rules. Do these in the Azure portal.
-
-### Add a backend pool for the availability group listener
-
-1. In the Azure portal, go to your availability group. You might need to refresh the view to see the newly created load balancer.
-
-   ![Find Load Balancer in Resource Group](./media/availability-group-manually-configure-tutorial-multi-subnet/86-findloadbalancer.png)
-
-1. Select the load balancer, select **Backend pools**, and select **+Add**.
-
-1. Type a name for the backend pool.
-
-1. Associate the backend pool with the availability set that contains the VMs.
-
-1. Under **Target network IP configurations**, check **VIRTUAL MACHINE** and choose both of the virtual machines that will host availability group replicas. Do not include the file share witness server.
-
-   >[!NOTE]
-   >If both virtual machines are not specified, connections will only succeed to the primary replica.
-
-1. Select **OK** to create the backend pool.
-
-### Set the probe
-
-1. Select the load balancer, choose **Health probes**, and then select **+Add**.
-
-1. Set the listener health probe as follows:
-
-   | Setting | Description | Example
-   | --- | --- |---
-   | **Name** | Text | SQLAlwaysOnEndPointProbe |
-   | **Protocol** | Choose TCP | TCP |
-   | **Port** | Any unused port | 59999 |
-   | **Interval**  | The amount of time between probe attempts in seconds |5 |
-   | **Unhealthy threshold** | The number of consecutive probe failures that must occur for a virtual machine to be considered unhealthy  | 2 |
-
-1. Select **OK** to set the health probe.
-
-### Set the load balancing rules
-
-1. Select the load balancer, choose **Load balancing rules**, and select **+Add**.
-
-1. Set the listener load balancing rules as follows.
-
-   | Setting | Description | Example
-   | --- | --- |---
-   | **Name** | Text | SQLAlwaysOnEndPointListener |
-   | **Frontend IP address** | Choose an address |Use the address that you created when you created the load balancer. |
-   | **Protocol** | Choose TCP |TCP |
-   | **Port** | Use the port for the availability group listener | 1433 |
-   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 1433 |
-   | **Probe** |The name you specified for the probe | SQLAlwaysOnEndPointProbe |
-   | **Session Persistence** | Drop down list | **None** |
-   | **Idle Timeout** | Minutes to keep a TCP connection open | 4 |
-   | **Floating IP (direct server return)** | |Enabled |
-
-   > [!WARNING]
-   > Direct server return is set during creation. It cannot be changed.
-   >
-
-1. Select **OK** to set the listener load balancing rules.
-
-### Add the cluster core IP address for the Windows Server Failover Cluster (WSFC)
-
-The WSFC IP address also needs to be on the load balancer.
-
-1. In the Azure portal, go to the same Azure load balancer. Select **Frontend IP configuration** and select **+Add**. Use the IP Address you configured for the WSFC in the cluster core resources. Set the IP address as static.
-
-1. On the load balancer, select **Health probes**, and then select **+Add**.
-
-1. Set the WSFC cluster core IP address health probe as follows:
-
-   | Setting | Description | Example
-   | --- | --- |---
-   | **Name** | Text | WSFCEndPointProbe |
-   | **Protocol** | Choose TCP | TCP |
-   | **Port** | Any unused port | 58888 |
-   | **Interval**  | The amount of time between probe attempts in seconds |5 |
-   | **Unhealthy threshold** | The number of consecutive probe failures that must occur for a virtual machine to be considered unhealthy  | 2 |
-
-1. Select **OK** to set the health probe.
-
-1. Set the load balancing rules. Select **Load balancing rules**, and select **+Add**.
-
-1. Set the cluster core IP address load balancing rules as follows.
-
-   | Setting | Description | Example
-   | --- | --- |---
-   | **Name** | Text | WSFCEndPoint |
-   | **Frontend IP address** | Choose an address |Use the address that you created when you configured the WSFC IP address. This is different from the listener IP address |
-   | **Protocol** | Choose TCP |TCP |
-   | **Port** | Use the port for the cluster IP address. This is an available port that is not used for the listener probe port. | 58888 |
-   | **Backend Port** | This field is not used when Floating IP is set for direct server return | 58888 |
-   | **Probe** |The name you specified for the probe | WSFCEndPointProbe |
-   | **Session Persistence** | Drop down list | **None** |
-   | **Idle Timeout** | Minutes to keep a TCP connection open | 4 |
-   | **Floating IP (direct server return)** | |Enabled |
-
-   > [!WARNING]
-   > Direct server return is set during creation. It cannot be changed.
-   >
-
-1. Select **OK** to set the load balancing rules.
-
-## <a name="configure-listener"></a> Configure the listener
-
-The next thing to do is to configure an availability group listener on the failover cluster.
-
-> [!NOTE]
-> This tutorial shows how to create a single listener, with one ILB IP address. To create one or more listeners using one or more IP addresses, see [Create availability group listener and load balancer | Azure](availability-group-listener-powershell-configure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
->
-
-[!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
-
-## Set listener port
-
-In SQL Server Management Studio, set the listener port.
-
-1. Launch SQL Server Management Studio and connect to the primary replica.
-
-1. Navigate to **AlwaysOn High Availability** > **availability groups** > **availability group Listeners**.
-
-1. You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and select **Properties**.
-
-1. In the **Port** box, specify the port number for the availability group listener. 1433 is the default. Select **OK**.
-
-You now have a SQL Server availability group in Azure virtual machines running in Resource Manager mode.
 
 ## Test connection to listener
 
 To test the connection:
 
-1. Use RDP to connect to a SQL Server that is in the same virtual network, but does not own the replica. You can use the other SQL Server in the cluster.
+1. Use RDP to connect to a SQL Server that is in the same virtual network, but does not own the replica. You can use the other SQL Server in the cluster. Th following steps establishes a connection to the primary replica through the listener with Windows authentication. 
 
-1. Use the **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
+2. Open SQL Server Management Studio and in **Server name:** type the name of the listener **AG1-Listener**
 
-   ```cmd
-   sqlcmd -S <listenerName> -E
-   ```
+    ![SSMS connection](./media/availability-group-manually-configure-tutorial-multi-subnet/27-ssms-listerner-connect.png)
 
-   If the listener is using a port other than the default port (1433), specify the port in the connection string. For example, the following `sqlcmd` command connects to a listener at port 1435:
+3. Select **Options** and select **Additional Connection Parameters** and enter **MultiSubnetFailover=True**. 
 
-   ```cmd
-   sqlcmd -S <listenerName>,1435 -E
-   ```
+    ![SSMS connection](./media/availability-group-manually-configure-tutorial-multi-subnet/28-ssms-connection-parameters.png)
 
-The SQLCMD connection automatically connects to whichever instance of SQL Server hosts the primary replica.
+   The connection automatically connects to whichever instance of SQL Server hosts the primary replica.
 
-> [!TIP]
-> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11)).
+> [!NOTE]
+> While connecting to availability group on different subnets, setting MultiSubnetFailover=true provides faster detection of and connection to the (currently) active server. See [Connecting with MultiSubnetFailover](/dotnet/framework/data/adonet/sql/sqlclient-support-for-high-availability-disaster-recovery#connecting-with-multisubnetfailover)
 >
+
+
+> [!NOTE]
+> Setting MultiSubnetFailover=True isn't required with .NET Framework 4.6.1 or later versions.
+>
+
 
 ## Next steps
 
-- [Add an IP address to a load balancer for a second availability group](availability-group-listener-powershell-configure.md#Add-IP).
 
 To learn more, see:
 
