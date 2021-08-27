@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 Network policies like NSGs (Network security groups) previously weren't supported for private endpoints. To deploy a private endpoint on a given subnet, an explicit disable setting was required on that subnet. This setting is only applicable for the private endpoint. For other resources in the subnet, access is controlled based on security rules in the network security group.
 
 > [!IMPORTANT]
-> NSG and UDR support for private endpoints is in private preview.
+> NSG and UDR support for private endpoints is in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

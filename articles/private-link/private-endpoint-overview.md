@@ -143,7 +143,7 @@ The following table includes a list of known limitations when using private endp
 | Traffic destined to a private endpoint using a user defined route may be asymmetric. | Return traffic from a private endpoint bypasses an NVA and attempts to return to the source VM. | For all traffic destined to a private endpoint by way of a UDR, it's recommended to SNAT traffic at the NVA to ensure symmetric routing.  |
 
 > [!IMPORTANT]
-> NSG and UDR support for private endpoints is in private preview.
+> NSG and UDR support for private endpoints is in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
