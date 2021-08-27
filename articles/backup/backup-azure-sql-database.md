@@ -14,7 +14,7 @@ ms.date: 08/20/2021
 4. Individual database level backup and restore
 
 >[!Note]
->Snapshot-based backup for SQL databases in Azure VM is now in preview. This unique offering combines the goodness of snapshots, leading to a better RTO and low impact on the server along with the benefits of frequent log backups for low RPO. For any feedback/queries/access, write to us at  [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>Snapshot-based backup for SQL databases in Azure VM is now in preview. This unique offering combines the goodness of snapshots, leading to a better RTO and low impact on the server along with the benefits of frequent log backups for low RPO. For any queries/access, write to us at  [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 To view the backup and restore scenarios that we support today, refer to the [support matrix](sql-support-matrix.md#scenario-support).
 
