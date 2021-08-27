@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 08/26/2021
 ---
 
 # Add XSLT maps for XML transformation in Azure Logic Apps
 
 To transfer XML data between formats for enterprise integration scenarios in Azure Logic Apps, your logic app resource can use maps, or more specifically, Extensible Stylesheet Language Transformation (XSLT) maps. A map is an XML document that describes how to convert data from an XML document into another format.
 
-For example, suppose you regularly receive B2B orders or invoices from a customer who uses the YYYMMDD date format. However, your organization uses the MMDDYYY date format. You can define and use a map that transforms the YYYMMDD date format to the MMDDYYY format before storing the order or invoice details in your customer activity database.
+For example, suppose you regularly receive B2B orders or invoices from a customer who uses the YearMonthDay date format (YYYYMMDD). However, your organization uses the MonthDayYear date format (MMDDYYYY). You can define and use a map that transforms the YYYYMMDD format to the MMDDYYYY format before storing the order or invoice details in your customer activity database.
 
 With a map, you can define a simple transformation, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations.
 
