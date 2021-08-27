@@ -81,7 +81,7 @@ New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGro
 
 ### Prerequisites
 
-You must enable the feature for your subscription before you can change the performance tier of a disk without downtime. Please follow the steps below to enable the feature for your subscription:
+You must enable the feature for your subscription before you can change the performance tier of a disk without downtime. The following steps will enable the feature on your subrscription:
 
 1.	Execute the following command to register the feature for your subscription
 
