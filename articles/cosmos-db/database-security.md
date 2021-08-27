@@ -93,7 +93,7 @@ Each account consists of two keys: a primary key and secondary key. The purpose 
 
 Primary/secondary keys come in two versions: read-write and read-only. The read-only keys only allow read operations on the account, but do not provide access to read permissions resources.
 
-Primary/secondary keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](manage-with-cli.md#regenerate-account-key).
+Primary/secondary keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](sql/manage-with-cli.md#regenerate-account-key).
 
 :::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Access control (IAM) in the Azure portal - demonstrating NoSQL database security":::
 

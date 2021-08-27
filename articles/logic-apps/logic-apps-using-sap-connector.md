@@ -1195,6 +1195,9 @@ The following example is an RFC call with a table parameter. This example call a
 </STFC_WRITE_TO_TCPIC>
 ```
 
+> [!NOTE]
+> Observe the result of RFC **STFC_WRITE_TO_TCPIC** with the SAP Logon's Data Browser (T-Code SE16.) Use the table name **TCPIC**.
+
 The following example is an RFC call with a table parameter that has an anonymous field. An anonymous field is when the field has no name assigned. Complex types are declared under a separate namespace, in which the declaration sets a new default for the current node and all its child elements. The example uses the hex code`x002F` as an escape character for the symbol */*, because this symbol is reserved in the SAP field name.
 
 ```xml
