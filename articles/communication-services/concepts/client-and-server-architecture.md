@@ -2,11 +2,11 @@
 title: Client and server architecture
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' architecture.
-author: mikben
+author: probableprime
 manager: mikben
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
