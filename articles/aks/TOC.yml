@@ -353,7 +353,31 @@
         - name: About Service Meshes
           href: servicemesh-about.md
         - name: Open Service Mesh AKS add-on (preview)
-          href: servicemesh-osm-about.md
+          items:
+          - name: OSM Overview
+            href: servicemesh-osm-about.md
+          - name: Deploy the OSM AKS add-on
+            href: servicemesh-osm-deploy-addon.md
+          - name: Download the OSM client binary
+            href: servicemesh-osm-binary.md
+          - name: OSM Tutorials
+            items:
+              - name: Manage a new application deployment
+                href: servicemesh-osm-new-app-deploy.md
+              - name: Manage an existing application deployment
+                href: servicemesh-osm-existing-app-deploy.md
+              - name: Using Azure Application Gateway Ingress
+                href: servicemesh-osm-agic.md
+              - name: Using NGINX Ingress
+                href: servicemesh-osm-nginx.md
+              - name: Configure observabilty using Prometheus, Grafana, and Jaeger
+                href: servicemesh-osm-oss-observablity.md
+          - name: Configure Azure Monitor 
+            href: servicemesh-osm-azmon.md
+          - name: Troubleshoot OSM
+            href: servicemesh-osm-troubleshoot.md
+          - name: Disable OSM
+            href: servicemesh-osm-disable.md
     - name: DevOps
       items:
         - name: Use Ansible to create AKS clusters
