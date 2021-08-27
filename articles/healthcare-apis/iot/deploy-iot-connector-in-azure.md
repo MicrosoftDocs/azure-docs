@@ -35,13 +35,13 @@ It's important that you have the following prerequisites completed before you be
 
    For information more about managing resource groups in the Azure portal, see [Manage resource groups](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
-2. Select the **IoT Connector** blade.
+2. Select the **IoT Connectors** blade.
 
-   [ ![IoT Connector.](media/iot-connector-blade.png) ](media/iot-connector-blade.png#lightbox)
+   [ ![Screenshot of IoT Connectors blade.](media/iot-connector-blade.png) ](media/iot-connector-blade.png#lightbox)
 
 3. Next, select **Add IoT Connector**.
 
-   [ ![Add IoT Connector](media/add-iot-connector.png) ](media/add-iot-connector.png#lightbox)
+   [ ![Screenshot of add IoT Connectors](media/add-iot-connector.png) ](media/add-iot-connector.png#lightbox)
 
 ## Configure IoT Connector to ingest data
 
@@ -55,15 +55,13 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
 2. Enter the **Event Hub name**.
 
-   The Event Hub name is located by selecting the name of the **Event Hubs Instance** in the **Azure Recent resources** page.
-
-   [ ![Event hub name.](media/azure-resources-event-hub-name.png) ](media/azure-resources-event-hub-name.png#lightbox)  
+   The Event Hub name is the name of the **Event Hubs Instance** that you've deployed. 
 
    For information about Azure Event Hubs, see [Quickstart: Create an Event Hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create#create-an-event-hubs-namespace).
 
 3. Enter the **Consumer Group**.
 
-   The Consumer Group name is located by selecting the name of the Event Hubs instance in the **Azure Recent resources** page and by selecting the **Consumer groups** blade.
+   The Consumer Group name is located by using the **Search** bar to go to the Event Hubs instance that you've deployed and by selecting the  **Consumer groups** blade.
 
    [ ![Consumer group  name.](media/consumer-group-name.png) ](media/consumer-group-name.png#lightbox)
 
@@ -71,11 +69,9 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
 4. Enter the name of the **Fully Qualified Namespace**.
 
-    The **Fully Qualified Namespace** is the **Host name** located on the **Event Hubs Overview** page as shown in the image below.
+    The **Fully Qualified Namespace** is the **Host name** located on your Event Hubs Namespace's **Overview** page.
 
     [ ![Fully qualified namespace.](media/event-hub-hostname.png) ](media/event-hub-hostname.png#lightbox)  
-
-    Before you select **Review + Create**, you must configure the **Destination** properties because they’re required fields for creating and deploying an IoT Connector.
 
     For more information about Event Hubs Namespaces, see [Namespace](../../event-hubs/event-hubs-features.md?WT.mc_id=Portal-Microsoft_Healthcare_APIs#namespace) in the Features and terminology in Azure Event Hubs document.
 
@@ -93,25 +89,25 @@ For more information, see the open source documentation [Device Content Mapping]
 
    [ ![Configure device mapping.](media/configure-device-mapping.png) ](media/configure-device-mapping.png#lightbox)
 
-2. Select **Review + create**, or select **Next: Destination >** to configure the destination properties associated with your IoT Connector.
+2. Select **Next: Destination >** to configure the destination properties associated with your IoT Connector.
 
 ## Configure Destination
 
-1. Under the **Destination** tab, enter the destination properties associated with the IoT Connector.
+Under the **Destination** tab, enter the destination properties associated with the IoT Connector.
 
    [ ![Configure destination properties.](media/configure-destination-properties.png) ](media/configure-destination-properties.png#lightbox)
 
-2. Enter the Azure Resource ID of the **FHIR Server**.
+1. Enter the Azure Resource ID of the **FHIR Server**.
 
-   The **FHIR Server** name (also known as the **FHIR service**)  is located by selecting the name of your FHIR service in the **Azure Recent resources** page. In the **FHIR service Overview** page, select the **Properties** blade. Copy and paste the **Resource ID** string to the **FHIR Server** text field.
+   The **FHIR Server** name (also known as the **FHIR service**)  is located by selecting the **Properties** blade. Copy and paste the **Resource ID** string to the **FHIR Server** text field.
 
     [ ![Enter FHIR server name.](media/fhir-service-resource-id.png) ](media/fhir-service-resource-id.png#lightbox) 
 
-3. Enter the **Destination Name**.
+2. Enter the **Destination Name**.
 
    The **Destination Name** is a friendly name for the destination. Enter a unique name for your destination. As an example, you can name it `iotmedicdevice`.
 
-4. Select **Create** or **Lookup** for the **ResolutionType**.
+3. Select **Create** or **Lookup** for the **Resolution Type**.
 
     > [!NOTE]
     > For the IoT Connector destination to create a valid observation resource in the FHIR Server, a device resource and patient resource **must** exist in the FHIR Server, so the observation can properly reference the device that created the data, and the patient the data was measured from. There are two modes the IoT Connector can use to resolve the device and patient resources.
@@ -126,11 +122,11 @@ For more information, see the open source documentation [Device Content Mapping]
 
    For more information, see the open source documentation [FHIR Mapping](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md#fhir-mapping).
 
-5. Under **Destination Mapping**, enter the JSON code inside the code editor.
+4. Under **Destination Mapping**, enter the JSON code inside the code editor.
 
-   For information about the Mapper Tool, see [IoMT Connector Data Mapper Tool.](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper).
+   For information about the Mapper Tool, see [IoMT Connector Data Mapper Tool](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper).
 
-6. You may select **Review + create**, or you can select **Next: Tags >**.  
+5. You may select **Review + create**, or you can select **Next: Tags >** if you want to configure tags.  
 
 ## (Optional) Configure Tags
 
@@ -153,7 +149,7 @@ Under the **Tags** tab, enter the tag properties associated with the IoT Connect
 
 4. Next, select **Create**.
 
-   The newly deployed IoT Connector will display inside the Azure **Resource group** list of resources.
+   The newly deployed IoT Connector will display inside your Azure resource group.
 
    [ ![Deployed IoT Connector listed in the Azure Recent resources list.](media/azure-resources-iot-connector-deployed.png) ](media/azure-resources-iot-connector-deployed.png#lightbox)  
 
@@ -194,7 +190,9 @@ To ensure that your IoT Connector works properly, it must have granted access pe
 
    After the role assignment has been successfully added to the Event Hub, a notification will display a green check mark with the text "Add Role assignment."  This message indicates that the IoT Connector can now read from the Event Hub.
 
-   [ ![Screenshot of added role assignment message.](media/event-hub-added-role-assignment.png) ](media/event-hub-added-role-assignment.png#lightbox)  
+   [ ![Screenshot of added role assignment message.](media/event-hub-added-role-assignment.png) ](media/event-hub-added-role-assignment.png#lightbox)
+
+For more information about authoring access to Event Hubs resources, see [Authorize access with Azure Active Directory](../../event-hubs/authorize-access-azure-active-directory.md).  
 
 ### Accessing the IoT Connector from the FHIR service
 
@@ -219,6 +217,8 @@ To ensure that your IoT Connector works properly, it must have granted access pe
 7. Select **Save**.
 
    [ ![Screenshot of FHIR service added role assignment message.](media/fhir-service-added-role-asignment.png) ](media/fhir-service-added-role-asignment.png#lightbox)
+
+   For more information about assigning roles to the FHIR service, see [Configure Azure RBAC for the FHIR service](../fhir/configure-azure-rbac-for-fhir.md).
 
 ## Next steps
 
