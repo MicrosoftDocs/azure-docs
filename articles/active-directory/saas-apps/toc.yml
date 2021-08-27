@@ -97,6 +97,8 @@
         href: ally-tutorial.md
       - name: Amazon Business
         href: amazon-business-tutorial.md
+      - name: Amazon Managed Grafana
+        href: amazon-managed-grafana-tutorial.md  
       - name: AWS Single-Account Access
         href: amazon-web-service-tutorial.md
       - name: Amazon Web Services (AWS) to connect multiple accounts
@@ -113,6 +115,8 @@
         href: andfrankly-tutorial.md
       - name: Andromeda
         href: andromedascm-tutorial.md
+      - name: Animaker
+        href: animaker-tutorial.md  
       - name: AnswerHub
         href: answerhub-tutorial.md
       - name: Anyone Home CRM
@@ -205,7 +209,7 @@
         href: bamboo-hr-tutorial.md
       - name: Bambu by Sprout Social
         href: bambubysproutsocial-tutorial.md
-      - name: Baldwin Safety & Compliance
+      - name: Baldwin Safety and Compliance
         href: baldwin-safety-&-compliance-tutorial.md  
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
@@ -1378,6 +1382,8 @@
         href: nuclino-tutorial.md
       - name: NumlyEngage™
         href: numlyengage-tutorial.md
+      - name: Nulab Pass (Backlog,Cacoo,Typetalk)
+        href: nulab-pass-tutorial.md  
       - name: O.C. Tanner - AppreciateHub
         href: oc-tanner-tutorial.md
       - name: OfficeSpace Software
@@ -1584,6 +1590,8 @@
         href: pymetrics-tutorial.md
     - name: Q - R
       items:
+      - name: Qiita Team
+        href: qiita-team-tutorial.md  
       - name: Qlik Sense Enterprise
         href: qliksense-enterprise-tutorial.md
       - name: Qmarkets Idea & Innovation Management
@@ -2241,7 +2249,9 @@
       - name: ZephyrSSO
         href: zephyrsso-tutorial.md
       - name: zeroheight
-        href: zeroheight-tutorial.md  
+        href: zeroheight-tutorial.md
+      - name: Zero Networks
+        href: zero-networks-tutorial.md    
       - name: Banyan Security Zero Trust Remote Access Platform
         href: banyan-command-center-tutorial.md
       - name: Ziflow
@@ -2325,6 +2335,8 @@
         href: bitabiz-provisioning-tutorial.md
       - name: Bizagi Studio for Digital Process Automation
         href: bizagi-studio-for-digital-process-automation-provisioning-tutorial.md
+      - name: BLDNG APP
+        href: bldng-app-provisioning-tutorial.md        
       - name: Blink
         href: blink-provisioning-tutorial.md
       - name: BlogIn

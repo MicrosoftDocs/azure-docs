@@ -60,6 +60,13 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
   - Unable to create Same-Zone High availability server in the following regions: Central India, East Asia, Korea Central, South Africa North, Switzerland North.
   - In a rare scenario and after HA failover, the primary server will be in read_only mode. Resolve the issue by updating “read_only” value from the server parameters blade to OFF.
   - After successfully scaling Compute in the Compute+Storage blade, IOPS is reset to the SKU default. Customers can work around the issue by re-scaling IOPs in the Compute+Storage blade to desired value (previously set) post the compute deployment and consequent IOPS reset.
+  - When you try to enable or deploy Same zone HA, the deployment fails in the following regions 
+      - Central India
+      - East Asia
+      - Korea Central
+      - South Africa North
+      - Switzerland North
+
 
 ## July 2021
 

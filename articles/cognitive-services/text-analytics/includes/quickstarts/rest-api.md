@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 06/08/2021
+ms.date: 08/25/2021
 ms.author: aahi
 ---
 
@@ -47,7 +47,7 @@ To call the Text Analytics API, you need the following information:
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
-## Sentiment Analysis and sentiment analysis
+## Sentiment Analysis and opinion mining
 
 [!INCLUDE [REST API quickstart instructions](rest-api-instructions.md)]
 
