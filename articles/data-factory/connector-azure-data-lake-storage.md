@@ -46,7 +46,7 @@ For Copy activity, with this connector you can:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create an Azure Data Lake Storge Gen2 linked service using UI
+## Create an Azure Data Lake Storage Gen2 linked service using UI
 
 Use the following steps to create an Azure Data Lake Storage Gen2 linked service in the Azure portal UI.
 
