@@ -302,7 +302,7 @@ The agent can be used to collect metrics from any module which exposes a Prometh
      `AZURE_CLIENT_SECRET`: Specifies the app secret to use.  
      
      >[!TIP]
-     >You can give the service principal the **Monitoring Metrics Publisher** role. Follow the steps in **[Create service principal](../../azure-arc/data/upload-metrics-and-logs-to-azure-monitor.md?pivots=client-operating-system-macos-and-linux#create-service-principal)** to create the service principal and assign the role .
+     >You can give the service principal the **Monitoring Metrics Publisher** role. Follow the steps in **[Create service principal](../../../azure-arc/data/upload-metrics-and-logs-to-azure-monitor.md?pivots=client-operating-system-macos-and-linux#create-service-principal)** to create the service principal and assign the role .
 1. After the modules are deployed, metrics will appear in Azure Monitor under a single namespace. Metric names will match the ones emitted by Prometheus. 
 
    In this case, in the Azure portal, go to the IoT hub and select **Metrics** in the left pane. You should see the metrics there. 
@@ -420,7 +420,7 @@ You can stop log collection by setting the value in **Module Identity Twin** to 
 
 ## FAQ
 
-If you have questions, see the [monitoring and metrics FAQ](faq-edge.yml#monitoring-and-metrics).
+If you have questions, see the [monitoring and metrics FAQ](../faq-edge.yml#monitoring-and-metrics).
 
 ## Next steps
 
