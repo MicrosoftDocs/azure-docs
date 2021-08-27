@@ -11,7 +11,13 @@ ms.author: normesta
 
 # Azure Storage features available when Azure Data Lake Storage Gen2 or protocols are enabled
 
-This article shows how each storage account feature is supported in your account when you enable Data Lake Storage Gen2 or support for protocols. 
+This article shows how each storage account feature is supported in your account when you enable Data Lake Storage Gen2 or Network File System (NFS) 3.0 support.
+
+The items that appear in these tables will change over time as support continues to expand. To learn more about specific issues associated with each feature, see either of these articles:
+
+- [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md).
+
+- [Known issues with Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-known-issues.md)
 
 > [!NOTE]
 > Data Lake Storage Gen2, and the Network File System (NFS) 3.0 protocol always require a storage account with a hierarchical namespace enabled.
