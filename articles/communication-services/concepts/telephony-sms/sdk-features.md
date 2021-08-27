@@ -2,8 +2,8 @@
 title: SMS SDK overview for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the SMS SDK and its offerings.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 ms.author: prakulka
 ms.date: 06/30/2021
