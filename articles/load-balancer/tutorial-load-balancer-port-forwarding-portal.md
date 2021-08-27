@@ -81,7 +81,7 @@ A virtual network and subnet is required for the resources in the tutorial. In t
 
 8. Select **Create**.
 
-9. At the **Generate new key pair** prompt, select **Download private key and create resource**. Your key file will be downloaded as myKey.pem. Ensure you know where the .pem file was downloaded, you will need the path to the key file in later steps.
+9. At the **Generate new key pair** prompt, select **Download private key and create resource**. Your key file will be downloaded as myKey.pem. Ensure you know where the .pem file was downloaded, you'll need the path to the key file in later steps.
 
 8. Follow the steps 1 through 8 to create one more VM with the following values and all the other settings the same as **myVM1**:
 
@@ -291,11 +291,11 @@ In this section, you'll SSH to the virtual machines through the inbound NAT rule
 
 2. Select **myLoadBalancer**.
 
-3. In the **Overview** page of **myLoadBalancer**, make note of the **Public IP address**.  In this example it's **20.190.2.163**.
+3. In the **Overview** page of **myLoadBalancer**, make note of the **Public IP address**.  In this example, it's **20.190.2.163**.
 
     :::image type="content" source="./media/tutorial-load-balancer-port-forwarding-portal/get-public-ip.png" alt-text="Retrieve public IP in Azure portal.":::
 
-4. If you are using a Mac or Linux computer, open a Bash prompt. If you are using a Windows computer, open a PowerShell prompt.
+4. If you're using a Mac or Linux computer, open a Bash prompt. If you're  using a Windows computer, open a PowerShell prompt.
 
 5. At your prompt, open an SSH connection to **myVM1**. Replace the IP address with the address you retrieved in the previous step and port **221** you used for the myVM1 inbound NAT rule. Replace the path to the .pem with the path to where the key file was downloaded.
 
