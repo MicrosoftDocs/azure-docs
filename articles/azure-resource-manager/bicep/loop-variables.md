@@ -12,7 +12,7 @@ ms.date: 06/01/2021
 
 This article shows you how to create more than one value for a variable in your Bicep file. You can add a loop to the `variables` section and dynamically set the number of items for a variable during deployment. You also avoid repeating syntax in your Bicep file.
 
-You can also use copy with [resources](loop-resources.md), [properties in a resource](loop-properties.md), and [outputs](loop-outputs.md).
+You can also use copy with [modules](loop-modules.md), [resources](loop-resources.md), [properties in a resource](loop-properties.md), and [outputs](loop-outputs.md).
 
 ## Syntax
 
