@@ -1194,6 +1194,7 @@ The following example is an RFC call with a table parameter. This example call a
    </TCPICDAT>
 </STFC_WRITE_TO_TCPIC>
 ```
+
     > [!NOTE]
     > Observe the result of RFC **STFC_WRITE_TO_TCPIC** with SAP Logon's Data Browser, T-Code SE16. Use table name **TCPIC**.
 
