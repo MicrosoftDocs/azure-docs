@@ -20,7 +20,9 @@ To publish a consulting service offer, you must meet certain eligibility require
 
 ## Create a new consulting service offer
 
-#### [Workspaces view](#tab/Workspaces-view)
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
+#### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Marketplace offers** tile.
@@ -40,7 +42,7 @@ To publish a consulting service offer, you must meet certain eligibility require
 5. Enter an **Offer alias**. This is the name used for the offer in Partner Center. It isn't visible in the online stores and is different from the offer name shown to customers.
 6. To generate the offer and continue, select **Create**.
 
-#### [Classic view](#tab/classic-view)
+#### [Current interface](#tab/old-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.

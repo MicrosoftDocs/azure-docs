@@ -18,6 +18,8 @@ If you haven’t already done so, read [Plan an Azure application offer for the 
 
 ## Create a new offer
 
+[!INCLUDE [preview interface note](./includes/preview-interface.md)]
+
 #### [Preview interface](#tab/new-web-form)
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
