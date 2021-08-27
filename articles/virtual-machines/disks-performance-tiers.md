@@ -75,7 +75,7 @@ New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGro
 ```
 ---
 
-## Update the tier of a disk without any downtime
+## Update the tier of a disk without downtime
 
 # [Azure CLI](#tab/azure-cli)
 
