@@ -86,8 +86,8 @@ First let's add GitHub authentication to the chat room so user can use GitHub ac
  
     For more details about GitHub OAuth and Passport.js, see the following articles:
 
-    1. [Authorizing OAuth Apps](https://docs.github.com/en/developers/apps/authorizing-oauth-apps)
-    2. [Passport.js doc](http://www.passportjs.org/docs/)
+    - [Authorizing OAuth Apps](https://docs.github.com/en/developers/apps/authorizing-oauth-apps)
+    - [Passport.js doc](http://www.passportjs.org/docs/)
 
     To test this, you need to first create a GitHub OAuth app:
 
@@ -141,14 +141,14 @@ In the previous tutorials, you have learned to use `WebSocket.send()` to directl
 
 In Azure Web PubSub there are three types of operations a client can do with subprotocol:
 
-1. Send events to server
-2. Publish messages to a group
-3. Join (subscribe) a group
+- Send events to server
+- Publish messages to a group
+- Join (subscribe) a group
 
 Send event to server is the default operation of client even no protocol is used, so it's always allowed. To publish and subscribe to a group, client needs to get permission. There are two ways for server to grant permission to clients:
 
-1. Specify roles when a client is connected (role is a concept to represent initial permissions when a client is connected)
-2. Use API to grant permission to a client after it's connected
+- Specify roles when a client is connected (role is a concept to represent initial permissions when a client is connected)
+- Use API to grant permission to a client after it's connected
 
 For join group permission, client still needs to join the group using join group message after it gets the permission. Or server can use API to add client to a group even it doesn't have the join permission.
 
@@ -186,7 +186,9 @@ You can see the code above uses `WebPubSubServiceClient.group().sendToAll()` to 
 
 Since the message is now sent to groups, we need to add clients to groups so they can continue receiving messages. This is done in the `handleConnect` handler.
 
-> `handleConnect` is triggered when a client is trying to connect to Azure Web PubSub. In this handler you can return groups and roles, so service can add connection to groups or grant roles, as sonn as the connection is established. It can also `res.fail()` to deny the connection.
+> [!Note]
+> `handleConnect` is triggered when a client is trying to connect to Azure Web PubSub. In this handler you can return groups and roles, so service can add connection to groups or grant roles, as soon as the connection is established. It can also `res.fail()` to deny the connection.
+>
 
 To make `handleConnect` be triggered, go to event handler settings in Azure portal, and check `connect` in system events.
 

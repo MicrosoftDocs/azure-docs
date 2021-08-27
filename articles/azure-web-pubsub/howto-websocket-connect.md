@@ -19,12 +19,11 @@ A typical workflow is the client communicates with its app server first to get t
 
 The portal also provides a dynamically generated *Client URL* with token for clients to start a quick test:
 
-![Screenshot showing where to find the Client URL Generator.](./media/howto-websocket-connect/portal-client-url.png)
+:::image type="content" source="./media/howto-websocket-connect/generate-client-url.png" alt-text="Screenshot showing where to find the Client URL Generator.":::
 
-> NOTE
+> [!NOTE]
 > Make sure to only include necessary roles when generating the token.
-
-![Screenshot showing how to set the roles when using Client URL Generator.](./media/howto-websocket-connect/portal-client-roles.png)
+>
 
 To simplify the sample workflow, in below sections, we use this temporarily generated URL from portal for the client to connect, using `<Client_URL_From_Portal>` to represent the value. The token generated expires in 50 minutes by default, so don't forget to regenerate one when the token expires.
 
