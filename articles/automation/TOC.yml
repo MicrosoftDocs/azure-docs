@@ -8,6 +8,8 @@
     href: automation-faq.md
   - name: What's new
     href: whats-new.md
+  - name: Archive for What's new
+    href: whats-new-archive.md
 - name: Quickstarts
   items:
     - name: Create Automation account - Portal
