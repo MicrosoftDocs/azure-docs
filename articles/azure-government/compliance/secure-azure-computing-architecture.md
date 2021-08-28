@@ -3,7 +3,7 @@ title: Secure Azure Computing Architecture
 description: Learn about the Secure Azure Computing Architecture (SACA). Using SACA allows US DoD and civilian customers to comply with the SCCA FRD.
 author: jahender
 ms.author: jahender 
-ms.date: 06/07/2021
+ms.date: 08/27/2021
 ms.topic: article
 ms.service: azure-government
 ---
@@ -23,7 +23,7 @@ The SCCA has four components:
 
 Microsoft has developed a solution that helps customers meet the SCCA requirements for both [DoD IL4](/azure/compliance/offerings/offering-dod-il4) and [DoD IL5](/azure/compliance/offerings/offering-dod-il5) workloads that run in Azure. This Azure-specific solution is called the Secure Azure Computing Architecture (SACA), and it can help customers comply with the SCCA FRD. It can enable DoD customers to move workloads into Azure after they're connected.
 
-SCCA guidance and architectures are specific to DoD customers, but they also help civilian customers comply with [Trusted Internet Connections](./compliance/compliance-tic.md) (TIC) guidance and help commercial customers that want to implement a secure DMZ to protect their Azure environments.
+SCCA guidance and architectures are specific to DoD customers, but they also help civilian customers comply with [Trusted Internet Connections](/azure/azure-government/compliance/compliance-tic) (TIC) guidance and help commercial customers that want to implement a secure DMZ to protect their Azure environments.
 
 
 ## Secure Cloud Computing Architecture components
