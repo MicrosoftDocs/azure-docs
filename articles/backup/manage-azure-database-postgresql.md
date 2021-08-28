@@ -33,7 +33,7 @@ There are three ways by which you can stop protecting an Azure Database for Post
    1. Retain Forever
    1. Retain as per Policy
    
-   :::image type="content" source="./media/manage-azure-database-postgresql/data-retention-options.png" alt-text="Screenshot showing the ;options for data retention to be selected.":::
+   :::image type="content" source="./media/manage-azure-database-postgresql/data-retention-options.png" alt-text="Screenshot showing the options for data retention to be selected.":::
 
    You can also select the reason for stopping backups.
 
