@@ -38,6 +38,8 @@
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-arm-template.md
+    - name: Partner solutions 
+      href: sql-data-warehouse-partner-browse-partners.md
   - name: Load data
     items: 
     - name: COPY statement

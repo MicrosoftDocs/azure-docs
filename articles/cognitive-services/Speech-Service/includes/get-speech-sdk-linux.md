@@ -1,19 +1,19 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
-ms.author: trbye
+ms.author: lajanuar
 ---
 
 :::row:::
     :::column span="3":::
-        The Speech SDK only supports **Ubuntu 16.04/18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
+        The Speech SDK only supports **Ubuntu 16.04** (until September), **Ubuntu 18.04/20.04**, **Debian 9/10**, **Red Hat Enterprise Linux (RHEL) 7/8**, and **CentOS 7/8** on the following target architectures when used with Linux:
     :::column-end:::
     :::column:::
         <br>
         <div class="icon is-large">
-            <img alt="Linux" src="https://docs.microsoft.com/media/logos/logo_linux-color.svg" width="60px">
+            <img alt="Linux" src="/media/logos/logo_linux-color.svg" width="60px">
         </div>
     :::column-end:::
 :::row-end:::

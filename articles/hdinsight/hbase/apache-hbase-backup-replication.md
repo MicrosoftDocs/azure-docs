@@ -238,7 +238,7 @@ The general steps to set up replication are:
 5. Copy existing data from the source tables to the destination tables.
 6. Replication automatically copies new data modifications to the source tables into the destination tables.
 
-To enable replication on HDInsight, apply a Script Action to your running source HDInsight cluster. For a walkthrough of enabling replication in your cluster, or to experiment with replication on sample clusters created in virtual networks using Azure Resource Management templates, see [Configure Apache HBase replication](apache-hbase-replication.md). That article also includes instructions for enabling replication of Phoenix metadata.
+To enable replication on HDInsight, apply a Script Action to your running source HDInsight cluster. For a walkthrough of enabling replication in your cluster, or to experiment with replication on sample clusters created in virtual networks using Azure Resource Manager templates, see [Configure Apache HBase replication](apache-hbase-replication.md). That article also includes instructions for enabling replication of Phoenix metadata.
 
 ## Next steps
 

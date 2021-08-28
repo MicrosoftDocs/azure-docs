@@ -91,7 +91,7 @@ The recommended folder structure for a Python Functions project looks like the f
 ```
 The main project folder (<project_root>) can contain the following files:
 
-* *local.settings.json*: Used to store app settings and connection strings when running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-run-local.md#local-settings-file).
+* *local.settings.json*: Used to store app settings and connection strings when running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
 * *requirements.txt*: Contains the list of Python packages the system installs when publishing to Azure.
 * *host.json*: Contains global configuration options that affect all functions in a function app. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *.vscode/*: (Optional) Contains store VSCode configuration. To learn more, see [VSCode setting](https://code.visualstudio.com/docs/getstarted/settings).
@@ -388,9 +388,16 @@ def main(req):
 
 ## Environment variables
 
-In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings by declaring `import os` and then using, `setting = os.environ["setting-name"]`.
+In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. There are two main ways to access these settings in your code. 
 
-The following example gets the [application setting](functions-how-to-use-azure-function-app-settings.md#settings), with the key named `myAppSetting`:
+| Method | Description |
+| --- | --- |
+| **`os.environ["myAppSetting"]`** | Tries to get the application setting by key name, raising an error when unsuccessful.  |
+| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, returning null when unsuccessful.  |
+
+Both of these ways require you to declare `import os`.
+
+The following example uses `os.environ["myAppSetting"]` to get the [application setting](functions-how-to-use-azure-function-app-settings.md#settings), with the key named `myAppSetting`:
 
 ```python
 import logging
@@ -404,7 +411,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info(f'My app setting value:{my_app_setting_value}')
 ```
 
-For local development, application settings are [maintained in the local.settings.json file](functions-run-local.md#local-settings-file).
+For local development, application settings are [maintained in the local.settings.json file](functions-develop-local.md#local-settings-file).
 
 ## Python version
 
@@ -420,6 +427,62 @@ Azure Functions supports the following Python versions:
 To request a specific Python version when you create your function app in Azure, use the `--runtime-version` option of the [`az functionapp create`](/cli/azure/functionapp#az_functionapp_create) command. The Functions runtime version is set by the `--functions-version` option. The Python version is set when the function app is created and can't be changed.
 
 When running locally, the runtime uses the available Python version.
+
+### Changing Python version
+
+To set a Python function app to a specific language version, you  need to specify the language as well as the version of the language in `LinuxFxVersion` field in site config. For example, to change Python app to use Python 3.8, set `linuxFxVersion` to `python|3.8`.
+
+To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md)
+
+To see the full list of supported Python versions functions apps, please refer to this [article](./supported-languages.md)
+
+
+
+# [Azure CLI](#tab/azurecli-linux)
+
+You can view and set the `linuxFxVersion` from the Azure CLI.  
+
+Using the Azure CLI, view the current `linuxFxVersion` with the [az functionapp config show](/cli/azure/functionapp/config) command.
+
+```azurecli-interactive
+az functionapp config show --name <function_app> \
+--resource-group <my_resource_group>
+```
+
+In this code, replace `<function_app>` with the name of your function app. Also replace `<my_resource_group>` with the name of the resource group for your function app. 
+
+You see the `linuxFxVersion` in the following output, which has been truncated for clarity:
+
+```output
+{
+  ...
+  "kind": null,
+  "limits": null,
+  "linuxFxVersion": <LINUX_FX_VERSION>,
+  "loadBalancing": "LeastRequests",
+  "localMySqlEnabled": false,
+  "location": "West US",
+  "logsDirectorySizeLimit": 35,
+   ...
+}
+```
+
+You can update the `linuxFxVersion` setting in the function app with the [az functionapp config set](/cli/azure/functionapp/config) command.
+
+```azurecli-interactive
+az functionapp config set --name <FUNCTION_APP> \
+--resource-group <RESOURCE_GROUP> \
+--linux-fx-version <LINUX_FX_VERSION>
+```
+
+Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<LINUX_FX_VERSION>` with the python version you want to use, prefixed by `python|`  e.g. `python|3.9`
+
+You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [az login](/cli/azure/reference-index#az-login) to sign in.
+
+The function app restarts after the change is made to the site config.
+
+--- 
+
 
 ## Package management
 
@@ -644,7 +707,7 @@ The Functions Python worker requires a specific set of libraries. You can also u
 > If your function app's requirements.txt contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in requirements.txt may cause unexpected issues.
 
 > [!NOTE]
->  If your package contains certain libraries that may collide with worker's dependencies (e.g. protobuf, tensorflow, grpcio), please configure `PYTHON_ISOLATE_WORKER_DEPENDENCIES` to `1` in app settings to prevent your application from referring worker's dependencies.
+>  If your package contains certain libraries that may collide with worker's dependencies (e.g. protobuf, tensorflow, grpcio), please configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies-preview) to `1` in app settings to prevent your application from referring worker's dependencies. This feature is in preview.
 
 ### Azure Functions Python library
 
@@ -689,7 +752,7 @@ You can use a Python worker extension library in your Python functions by follow
 1. Add the extension package in the requirements.txt file for your project.
 1. Install the library into your app.
 1. Add the application setting `PYTHON_ENABLE_WORKER_EXTENSIONS`:
-    + Locally: add `"PYTHON_ENABLE_WORKER_EXTENSIONS": "1"` in the `Values` section of your [local.settings.json file](functions-run-local.md?tabs=python#local-settings-file)
+    + Locally: add `"PYTHON_ENABLE_WORKER_EXTENSIONS": "1"` in the `Values` section of your [local.settings.json file](functions-develop-local.md#local-settings-file)
     + Azure: add `PYTHON_ENABLE_WORKER_EXTENSIONS=1` to your [app settings](functions-how-to-use-azure-function-app-settings.md#settings).
 1. Import the extension module into your function trigger. 
 1. Configure the extension instance, if needed. Configuration requirements should be called-out in the extension's documentation. 

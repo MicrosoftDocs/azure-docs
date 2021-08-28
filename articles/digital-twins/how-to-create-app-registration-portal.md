@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-create-app-registration-selector.md](../../includes/digital-twins-create-app-registration-selector.md)]
 
-When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, such as the custom client app built in the [Tutorial: Code a client app](tutorial-code.md). Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
+When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, such as the custom client app built in [Code a client app](tutorial-code.md). Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
 
 This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, this article shows you how to set one up using the [Azure portal](https://portal.azure.com). It also covers how to [collect important values](#collect-important-values) that you'll need in order to use the app registration to authenticate.
 
@@ -152,4 +152,4 @@ For more information about app registration and its different setup options, see
 In this article, you set up an Azure AD app registration that can be used to authenticate client applications with the Azure Digital Twins APIs.
 
 Next, read about authentication mechanisms, including one that uses app registrations and others that do not:
-* [How-to: Write app authentication code](how-to-authenticate-client.md)
+* [Write app authentication code](how-to-authenticate-client.md)

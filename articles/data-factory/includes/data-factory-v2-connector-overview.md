@@ -2,7 +2,7 @@
 author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/01/2021
+ms.date: 07/29/2021
 ms.author: jianleishen
 ---
 
@@ -66,7 +66,7 @@ ms.author: jianleishen
 | **Generic protocol**  | [Generic HTTP](../connector-http.md)   | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Generic OData](../connector-odata.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Generic ODBC](../connector-odbc.md)   | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
-| &nbsp;                | [Generic REST](../connector-rest.md)   | ✓/✓                                                          |                                                              |                                                              |                                                              |                                                              |
+| &nbsp;                | [Generic REST](../connector-rest.md)   | ✓/✓                                                          | ✓/✓                                                          |                                                              |                                                              |                                                              |
 | **Services and apps** | [Amazon Marketplace Web Service](../connector-amazon-marketplace-web-service.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Concur (Preview)](../connector-concur.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Dataverse](../connector-dynamics-crm-office-365.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |

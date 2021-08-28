@@ -26,7 +26,7 @@ Before you start this tutorial, you will need an Azure account. If you do not ha
 
 ## Deploy an S1 IoT Hub
 
-The first thing you need to do with your Azure subscription is go to [the portal](https://docs.microsoft.com/azure/azure-portal/azure-portal-quickstart-center) and [deploy an S1 IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal). Your free Azure account gives you 400,000 4K messages per day. Since you can fit about 15 OPC UA PubSub data tags into a single 4K message, you will have 6 million data tags per day, enough for this use case. Once the IoT Hub is deployed, copy the *iothubowner* primary connection string (under shared access policies, iothubowner). You need it for the IoT Edge installation.
+The first thing you need to do with your Azure subscription is go to [the portal](../azure-portal/azure-portal-quickstart-center.md) and [deploy an S1 IoT Hub](../iot-hub/iot-hub-create-through-portal.md). Your free Azure account gives you 400,000 4K messages per day. Since you can fit about 15 OPC UA PubSub data tags into a single 4K message, you will have 6 million data tags per day, enough for this use case. Once the IoT Hub is deployed, copy the *iothubowner* primary connection string (under shared access policies, iothubowner). You need it for the IoT Edge installation.
 
 ## Deploy IoT Edge
 

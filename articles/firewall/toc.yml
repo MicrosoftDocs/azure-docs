@@ -39,6 +39,8 @@
       href: premium-portal.md
     - name: Azure Firewall Premium certificates
       href: premium-certificates.md
+    - name: Azure Firewall web categories
+      href: web-categories.md   
     - name: FQDN tags
       href: fqdn-tags.md
     - name: Infrastructure FQDNs
@@ -114,6 +116,8 @@
       href: premium-deploy-certificates-enterprise-ca.md
     - name: Migrate to Azure Firewall Premium
       href: premium-migrate.md
+    - name: Migrate to Premium using Terraform
+      href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
     - name: Scale Outbound SNAT Ports
       href: integrate-with-nat-gateway.md
 - name: Reference

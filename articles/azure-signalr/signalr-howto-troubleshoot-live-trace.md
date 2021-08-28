@@ -52,7 +52,7 @@ The real time live traces captured by live trace tool contain detailed informati
 | User ID | Identity of the user |
 | IP | The IP address of client |
 | Server Sticky | Routing mode of client. Allowed values are `Disabled`, `Preferred` and `Required`. For more information, see [ServerStickyMode](https://github.com/Azure/azure-signalr/blob/master/docs/run-asp-net-core.md#serverstickymode) |
-| Transport | The transport that the client can use to send HTTP requests. Allowed values are `WebSockets`, `ServerSentEvents` and `LongPolling`. For more information, see [HttpTransportType](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.http.connections.httptransporttype) |
+| Transport | The transport that the client can use to send HTTP requests. Allowed values are `WebSockets`, `ServerSentEvents` and `LongPolling`. For more information, see [HttpTransportType](/dotnet/api/microsoft.aspnetcore.http.connections.httptransporttype) |
 
 ## Next Steps
 

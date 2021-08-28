@@ -50,10 +50,10 @@ This section shows you how to create a .NET Core console application to send mes
 
 1. Replace code in the **Program.cs** with the following code. Here are the important steps from the code.  
     1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
-    1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the `ServiceBusClient` object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus topic.     
-    1. Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync).
-    1. Add messages to the batch using the [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage). 
-    1. Sends the batch of messages to the Service Bus topic using the [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) method.
+    1. Invokes the `CreateSender` method on the `ServiceBusClient` object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus topic.     
+    1. Creates a `ServiceBusMessageBatch` object by using the `ServiceBusSender.CreateMessageBatchAsync` method.
+    1. Add messages to the batch using the `ServiceBusMessageBatch.TryAddMessage` method. 
+    1. Sends the batch of messages to the Service Bus topic using the `ServiceBusSender.SendMessagesAsync` method.
     
         For more information, see code comments.
         ```csharp
@@ -93,7 +93,7 @@ This section shows you how to create a .NET Core console application to send mes
                     // create a batch 
                     using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
         
-                    for (int i = 1; i <= 3; i++)
+                    for (int i = 1; i <= numOfMessages; i++)
                     {
                         // try adding a message to the batch
                         if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
@@ -167,10 +167,10 @@ In this section, you'll create a .NET Core console application that receives mes
 1. Replace code in the **Program.cs** with the following code. Here are the important steps from the code.
     Here are the important steps from the code:
     1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
-    1. Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the `ServiceBusClient` object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus queue. 
-    1. Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the `ServiceBusProcessor` object. 
-    1. Starts processing messages by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) on the `ServiceBusProcessor` object. 
-    1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) on the `ServiceBusProcessor` object. 
+    1. Invokes the `CreateProcessor` method on the `ServiceBusClient` object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus queue. 
+    1. Specifies handlers for the `ProcessMessageAsync`and `ProcessErrorAsync` events of the `ServiceBusProcessor` object. 
+    1. Starts processing messages by invoking the `StartProcessingAsync` on the `ServiceBusProcessor` object. 
+    1. When user presses a key to end the processing, invokes the `StopProcessingAsync` on the `ServiceBusProcessor` object. 
 
         For more information, see code comments.
 

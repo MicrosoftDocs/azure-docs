@@ -32,7 +32,7 @@ Azure Security Center periodically analyzes the security state of your Azure res
 
 | Recommendation | Comments | Security Center |
 |-|----|--|
-| Use Azure Active Directory (Azure AD) to authorize access to queue data | Azure AD provides superior security and ease of use over Shared Key authorization for authorizing requests to Queue Storage. For more information, see [Authorize access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md). | - |
+| Use Azure Active Directory (Azure AD) to authorize access to queue data | Azure AD provides superior security and ease of use over Shared Key authorization for authorizing requests to Queue Storage. For more information, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md). | - |
 | Keep in mind the principal of least privilege when assigning permissions to an Azure AD security principal via Azure RBAC | When assigning a role to a user, group, or application, grant that security principal only those permissions that are necessary for them to perform their tasks. Limiting access to resources helps prevent both unintentional and malicious misuse of your data. | - |
 | Secure your account access keys with Azure Key Vault | Microsoft recommends using Azure AD to authorize requests to Azure Storage. However, if you must use Shared Key authorization, then secure your account keys with Azure Key Vault. You can retrieve the keys from the key vault at runtime, instead of saving them with your application. | - |
 | Regenerate your account keys periodically | Rotating the account keys periodically reduces the risk of exposing your data to malicious actors. | - |

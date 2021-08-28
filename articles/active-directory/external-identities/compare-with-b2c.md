@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 07/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
@@ -42,7 +42,7 @@ The following table gives a detailed comparison of the scenarios you can enable 
 | **Single sign-on (SSO)**      | SSO to all Azure AD-connected apps is supported. For example, you can provide access to Microsoft 365 or on-premises apps, and to other SaaS apps such as Salesforce or Workday.    | SSO to customer owned apps within the Azure AD B2C tenants is supported. SSO to Microsoft 365 or to other Microsoft SaaS apps isn't supported.    |
 | **Security policy and compliance**        | Managed by the host/inviting organization (for example, with [Conditional Access policies](conditional-access.md)). | Managed by the organization via Conditional Access and Identity Protection.        |
 | **Branding**  | Host/inviting organization's brand is used.    | Fully customizable branding per application or organization.   |
-| **Billing model** | [External Identities pricing](https://azure.microsoft.com/en-us/pricing/details/active-directory/external-identities/) based on monthly active users (MAU). <br>(See also: [B2B setup details](external-identities-pricing.md)) | [External Identities pricing](https://azure.microsoft.com/en-us/pricing/details/active-directory/external-identities/) based on monthly active users (MAU). <br>(See also: [B2C setup details](../../active-directory-b2c/billing.md)) |
+| **Billing model** | [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/) based on monthly active users (MAU). <br>(See also: [B2B setup details](external-identities-pricing.md)) | [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/) based on monthly active users (MAU). <br>(See also: [B2C setup details](../../active-directory-b2c/billing.md)) |
 | **More information** | [Blog post](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Documentation](what-is-b2b.md)                   | [Product page](https://azure.microsoft.com/services/active-directory-b2c/), [Documentation](../../active-directory-b2c/index.yml)       |
 
 Secure and manage customers and partners beyond your organizational boundaries with Azure AD External Identities.

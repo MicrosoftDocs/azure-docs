@@ -17,7 +17,7 @@ Azure Virtual Desktop supports two load-balancing methods. Each method determine
 The following load-balancing methods are available in Azure Virtual Desktop:
 
 - Breadth-first load balancing allows you to evenly distribute user sessions across the session hosts in a host pool.
-- Depth-first load balancing allows you to saturate a session host with user sessions in a host pool. Once the first session reaches its session limit threshold, the load balancer directs any new user connections to the next session host in the host pool until it reaches its limit, and so on.
+- Depth-first load balancing allows you to saturate a session host with user sessions in a host pool. Once the first session host reaches its session limit threshold, the load balancer directs any new user connections to the next session host in the host pool until it reaches its limit, and so on.
 
 Each host pool can only configure one type of load-balancing specific to it. However, both load-balancing methods share the following behaviors no matter which host pool they're in:
 

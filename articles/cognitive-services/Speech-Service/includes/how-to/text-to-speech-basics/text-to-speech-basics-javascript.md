@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: laujan
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
-ms.author: trbye
+ms.author: lajanuar
 ms.custom: devx-track-js
 ---
 
@@ -94,7 +94,7 @@ To start, create an `AudioConfig` to automatically write the output to a `.wav` 
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    const audioConfig = AudioConfig.fromAudioFileOutput("path/to/file.wav");
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path/to/file.wav");
 }
 ```
 
@@ -103,7 +103,7 @@ Next, instantiate a `SpeechSynthesizer` passing your `speechConfig` object and t
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    const audioConfig = AudioConfig.fromAudioFileOutput("path-to-file.wav");
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path-to-file.wav");
 
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     synthesizer.speakTextAsync(
@@ -131,7 +131,7 @@ In some cases, you may want to directly output synthesized speech directly to a 
 ```javascript
 function synthesizeSpeech() {
     const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
-    const audioConfig = AudioConfig.fromDefaultSpeakerOutput();
+    const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
 
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     synthesizer.speakTextAsync(
@@ -262,7 +262,7 @@ First, create a new XML file for the SSML config in your root project directory,
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
+  <voice name="en-US-ChristopherNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -304,7 +304,7 @@ function synthesizeSpeech() {
 ```
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.speechSynthesisVoiceName = "en-US-AriaNeural";`
+> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.speechSynthesisVoiceName = "en-US-ChristopherNeural";`
 
 ## Get facial pose events
 

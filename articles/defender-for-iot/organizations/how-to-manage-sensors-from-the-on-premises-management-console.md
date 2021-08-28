@@ -1,7 +1,7 @@
 ---
 title: Manage sensors from the on-premises management console 
 description: Learn how to manage sensors from the management console, including updating sensor versions, pushing system settings to sensors, and enabling and disabling engines on sensors.
-ms.date: 04/22/2021
+ms.date: 07/08/2021
 ms.topic: how-to
 ---
 
@@ -33,7 +33,7 @@ You can define the following sensor system settings from the management console:
 
 - Port aliases
 
-To apply system settings:
+**To apply system settings**:
 
 1. On the console's left pane, select **System Settings**.
 
@@ -57,11 +57,17 @@ To apply system settings:
 
 1. Select **Save**.
 
-## Update versions
+## Update sensor versions
 
 You can update several sensors simultaneously from the on-premises management console.
 
-To update several sensors:
+### Update sequence
+
+When upgrading an on-premises management console and managed sensors, first update the management console, and then update the sensors. The sensor update process will not succeed if you do not update the on-premises management console first.
+
+**To update several sensors**:
+
+1. Verify that you have already updated the on-premises management console to the version that you are updating the sensors. For more information on-premises management console update see, [Update the software version](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
@@ -73,7 +79,7 @@ To update several sensors:
 
 1. Select **Download** from the **Sensors** section and save the file.
 
-1. Sign in to the management console and select **System Settings**.
+1. Sign in to the management console, and select **System Settings**.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/admin-system-settings.png" alt-text="Screenshot of the Administration menu to select System Settings.":::
 
@@ -83,9 +89,10 @@ To update several sensors:
 
 1. Select **Save Changes**.
 
-1. On the sensor, select **System Settings**, and then select **Update**.
+1. On the management console, select **System Settings**.
+1. Under the Sensor version update section, select the :::image type="icon" source="../media/how-to-manage-sensors-from-the-on-premises-management-console/add-icon.png" border="false"::: button.
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/upgrade-pane-v2.png" alt-text="Screenshot of the update pane.":::
+    :::image type="content" source="../media/how-to-manage-sensors-from-the-on-premises-management-console/sendor-version-update-window.png" alt-text="In the Sensor version update window select the + icon to update all of the sensors connected to the management console.":::
 
 9. An **Upload File** dialog box opens. Upload the file that you downloaded from the **Updates** page.
 

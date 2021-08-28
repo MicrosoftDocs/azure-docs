@@ -1,0 +1,253 @@
+{
+  "redirections": [
+    {
+      "source_path": "how-to-create-app-registration.md",
+      "redirect_url": "/azure/digital-twins/how-to-create-app-registration-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "concepts-integration.md",
+      "redirect_url": "/azure/digital-twins/concepts-data-ingress-egress",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-create-twin-level-role-based-access-control.md",
+      "redirect_url": "/azure/digital-twins/how-to-use-tags",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-use-cli.md",
+      "redirect_url": "/azure/digital-twins/concepts-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-use-apis-sdks.md",
+      "redirect_url": "/azure/digital-twins/concepts-apis-sdks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-create-custom-sdks.md",
+      "redirect_url": "/azure/digital-twins/concepts-apis-sdks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "quickstart-adt-explorer.md",
+      "redirect_url": "/azure/digital-twins/quickstart-azure-digital-twins-explorer",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-interpret-event-data.md",
+      "redirect_url": "/azure/digital-twins/concepts-event-notifications",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-integrate-models.md",
+      "redirect_url": "/azure/digital-twins/concepts-ontologies-convert",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-enable-private-link-portal.md",
+      "redirect_url": "/azure/digital-twins/how-to-enable-private-link",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-enable-private-link-cli.md",
+      "redirect_url": "/azure/digital-twins/how-to-enable-private-link",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-enable-managed-identities-portal.md",
+      "redirect_url": "/azure/digital-twins/how-to-route-with-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-enable-managed-identities-cli.md",
+      "redirect_url": "/azure/digital-twins/how-to-route-with-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "overview-differences.md",
+      "redirect_url": "/azure/digital-twins/resources-compare-original-release",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "concepts-convert-models.md",
+      "redirect_url": "/azure/digital-twins/concepts-ontologies-convert",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-convert-models.md",
+      "redirect_url": "/azure/digital-twins/concepts-ontologies-convert",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "how-to-manage-routes-apis-cli.md",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-manage-routes-portal.md",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "how-to-use-parser.md",
+      "redirect_url": "/azure/digital-twins/how-to-parse-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-set-up-instance-manual.md",
+      "redirect_url": "/azure/digital-twins/how-to-set-up-instance-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-set-up-instance.md",
+      "redirect_url": "/azure/digital-twins/how-to-set-up-instance-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-configure-postman.md",
+      "redirect_url": "/azure/digital-twins/how-to-use-postman",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "about-digital-twins.md",
+      "redirect_url": "/azure/digital-twins/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "how-to-create-azure-function.md",
+      "redirect_url": "/azure/digital-twins/how-to-send-twin-to-twin-events",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "concepts-device-ingress.md",
+      "redirect_url": "/azure/digital-twins/concepts-data-ingress-egress",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "concepts-events-routing.md",
+      "redirect_url": "/azure/digital-twins/concepts-route-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "concepts-objectmodel-spatialgraph.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-objectmodel-spatialgraph",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "concepts-service-limits.md",
+      "redirect_url": "/azure/digital-twins/reference-service-limits",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "concepts-user-defined-functions.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/concepts-user-defined-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-add-blobs.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-add-blobs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-configure-monitoring.md",
+      "redirect_url": "/azure/digital-twins/troubleshoot-metrics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-diagnose-user-defined-functions.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-diagnose-user-defined-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-egress-endpoints.md",
+      "redirect_url": "/azure/digital-twins/how-to-manage-routes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-multitenant-applications.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-multitenant-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-navigate-apis.md",
+      "redirect_url": "/azure/digital-twins/concepts-apis-sdks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-query-common-apis.md",
+      "redirect_url": "/azure/digital-twins/how-to-query-graph",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-user-defined-functions.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-user-defined-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-use-swagger.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-use-swagger",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "quickstart-view-occupancy-dotnet.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/quickstart-view-occupancy-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "how-to-use-legacy-aad.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/quickstart-view-occupancy-dotnet#set-permissions-for-your-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "reference-user-defined-functions-client-library.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/reference-user-defined-functions-client-library",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "security-authenticating-apis.md",
+      "redirect_url": "/azure/digital-twins/how-to-authenticate-client",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "security-best-practices.md",
+      "redirect_url": "/azure/digital-twins/concepts-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "security-create-manage-role-assignments.md",
+      "redirect_url": "/azure/digital-twins/concepts-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "security-role-based-access-control.md",
+      "redirect_url": "/azure/digital-twins/concepts-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "tutorial-facilities-analyze.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/tutorial-facilities-analyze",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "tutorial-facilities-events.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/tutorial-facilities-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "tutorial-facilities-setup.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/tutorial-facilities-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "tutorial-facilities-udf.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/tutorial-facilities-udf",
+      "redirect_document_id": false
+    }
+  ]
+}
+
+

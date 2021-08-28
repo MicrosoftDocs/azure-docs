@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Get a network relay token 
+title: Quickstart - Access TURN relays
 description: Learn how to retrieve a STUN/TURN token using Azure Communication Services
 author: shahen    
 manager: anvalent
@@ -12,11 +12,11 @@ ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: acs-js-csharp
 ---
-# Quickstart: Get a network relay token
+# Quickstart: Access TURN relays
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-This quickstart shows you how to retrieve a network relay token to access Azure Communication Services TURN servers
+This quickstart shows you how to retrieve a network relay token to access Azure Communication Services TURN servers.
 
 ## Prerequisites
 

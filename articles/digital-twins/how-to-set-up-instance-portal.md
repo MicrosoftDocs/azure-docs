@@ -23,8 +23,8 @@ ms.custom: contperf-fy21q2, subject-rbac-steps
 This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you will have an Azure Digital Twins instance ready to start programming against.
 
 This version of this article goes through these steps manually, one by one, using the Azure portal. The Azure portal is a web-based, unified console that provides an alternative to command-line tools.
-* To go through these steps manually using the CLI, see the CLI version of this article: [How-to: Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md).
-* To run through an automated setup using a deployment script sample, see the scripted version of this article: [How-to: Set up an instance and authentication (scripted)](how-to-set-up-instance-scripted.md).
+* To go through these steps manually using the CLI, see the CLI version of this article in [Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md).
+* To run through an automated setup using a deployment script sample, see the scripted version of this article in [Set up an instance and authentication (scripted)](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -50,8 +50,8 @@ This version of this article goes through these steps manually, one by one, usin
 
 Here are the additional options you can configure during setup, using the other tabs in the **Create Resource** process.
 
-* **Networking**: In this tab, you can enable private endpoints with [Azure Private Link](../private-link/private-link-overview.md) to eliminate public network exposure to your instance. For instructions, see [How-to: Enable private access with Private Link (preview)](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation).
-* **Advanced**: In this tab, you can enable a system-managed identity for your instance that can be used when forwarding events to [endpoints](concepts-route-events.md). For more information about using system-managed identities with Azure Digital Twins, see [Concepts: Security for Azure Digital Twins solutions](concepts-security.md#managed-identity-for-accessing-other-resources-preview).
+* **Networking**: In this tab, you can enable private endpoints with [Azure Private Link](../private-link/private-link-overview.md) to eliminate public network exposure to your instance. For instructions, see [Enable private access with Private Link (preview)](./how-to-enable-private-link.md?tabs=portal#add-a-private-endpoint-during-instance-creation).
+* **Advanced**: In this tab, you can enable a system-managed identity for your instance that can be used when forwarding events to [endpoints](concepts-route-events.md). For more information about using system-managed identities with Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md#managed-identity-for-accessing-other-resources-preview).
 * **Tags**: In this tab, you can add tags to your instance to help you organize it among your Azure resources. For more about Azure resource tags, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
 
 ### Verify success and collect important values
@@ -129,7 +129,7 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
 * [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
-* [Concepts: Azure Digital Twins CLI command set](concepts-cli.md)
+* [Azure Digital Twins CLI command set](concepts-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:
-* [How-to: Write app authentication code](how-to-authenticate-client.md)
+* [Write app authentication code](how-to-authenticate-client.md)

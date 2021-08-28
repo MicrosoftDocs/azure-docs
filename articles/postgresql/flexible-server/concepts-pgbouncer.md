@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 07/30/2021
 ---
 
 # PgBouncer in Azure Database for PostgreSQL - Flexible Server
@@ -20,7 +20,7 @@ PgBouncer uses a more lightweight model that utilizes asynchronous I/O, and only
 When enabled, PgBouncer runs on port 6432 on your database server. You can change your application’s database connection configuration to use the same host name, but change the port to 6432 to start using PgBouncer and benefit from improved idle connection scaling.
 
 > [!Note]
-> PgBouncer is supported only on General Purpose and Memory Optimized compute tiers.
+> PgBouncer is supported on General Purpose and Memory Optimized compute tiers in both public access and private access networking.
 
 ## Enabling and configuring PgBouncer
 
@@ -31,10 +31,14 @@ You can configure PgBouncer, settings with these parameters:
 | Parameter Name             | Description | Default | 
 |----------------------|--------|-------------|
 | pgbouncer.default_pool_size | Set this parameter value to the number of connections per user/database pair      | 50       | 
-| pgBouncer.max_client_conn | Set this parameter value to the highest number of client connections to PgBouncer that you want to support      | 5000     | 
+| pgBouncer.max_client_conn | Set this parameter value to the highest number of client connections to PgBouncer that you want to support .     | 5000     | 
 | pgBouncer.pool_mode | Set this parameter value to TRANSACTION for transaction pooling (which is the recommended setting for most workloads).      | TRANSACTION     |
 | pgBouncer.min_pool_size | Add more server connections to pool if below this number.    |   0 (Disabled)   |
-| pgBouncer.stats_users | Optional. Set this parameter value to the name of an existing user, to be able to log in to the special PgBouncer statistics database (named “PgBouncer”)    |      |
+| pgbouncer.ignore_startup_parameters | Comma-separated list of parameters that PgBouncer can ignore. For example, you can let PgBouncer ignore `extra_float_digits` parameter.|   |
+| pgbouncer.query_wait_timeout | Maximum time (in seconds) queries are allowed to spend waiting for execution. If the query is not assigned to a server during that time, the client is disconnected. | 120s |
+| pgBouncer.stats_users | Optional. Set this parameter value to the name of an existing user, to be able to log in to the special PgBouncer statistics database (named “PgBouncer”).    |      |
+
+For more details on the PgBouncer configurations, please see [pgbouncer.ini](https://www.pgbouncer.org/config.html).
 
 > [!Note] 
 > Upgrading of PgBouncer will be managed by Azure.

@@ -106,7 +106,7 @@
 - name: Resources
   items: 
   - name: Frequently asked questions
-    href: faq.md
+    href: faq.yml
   - name: Feedback
     href: https://feedback.azure.com/forums/906100-azure-database-migration-service
   - name: Pricing
@@ -165,6 +165,6 @@
     - name: Monitor an online migration and perform cutover
       href: https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/
     - name: Migrate Oracle to Azure SQL DB
-      href: /azure/postgresql/howto-migrate-from-oracle
+      href: ../postgresql/howto-migrate-from-oracle.md
     - name: Migrate MongoDB to Azure Cosmos DB
       href: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/

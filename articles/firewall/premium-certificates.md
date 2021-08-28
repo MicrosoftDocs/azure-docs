@@ -1,24 +1,19 @@
 ---
-title: Azure Firewall Premium Preview certificates
-description: To properly configure TLS inspection on Azure Firewall Premium Preview, you must configure and install Intermediate CA certificates.
+title: Azure Firewall Premium certificates
+description: To properly configure TLS inspection on Azure Firewall Premium, you must configure and install Intermediate CA certificates.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 08/02/2021
 ms.author: victorh
 ---
 
-# Azure Firewall Premium Preview certificates 
+# Azure Firewall Premium certificates 
 
-> [!IMPORTANT]
-> Azure Firewall Premium is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+To properly configure Azure Firewall Premium TLS inspection, you must provide a valid intermediate CA certificate and deposit it in Azure Key vault.
 
- To properly configure Azure Firewall Premium Preview TLS inspection, you must provide a valid intermediate CA certificate and deposit it in Azure Key vault.
-
-## Certificates used by Azure Firewall Premium Preview
+## Certificates used by Azure Firewall Premium
 
 There are three types of certificates used in a typical deployment:
 
@@ -38,7 +33,7 @@ There are three types of certificates used in a typical deployment:
 
    A certificate authority can issue multiple certificates in the form of a tree structure. A root certificate is the top-most certificate of the tree.
 
-Azure Firewall Premium Preview can intercept outbound HTTP/S traffic and auto-generate a server certificate for `www.website.com`. This certificate is generated using the Intermediate CA certificate that you provide. End-user browser and client applications must trust your organization Root CA certificate or intermediate CA certificate for this procedure to work. 
+Azure Firewall Premium can intercept outbound HTTP/S traffic and auto-generate a server certificate for `www.website.com`. This certificate is generated using the Intermediate CA certificate that you provide. End-user browser and client applications must trust your organization Root CA certificate or intermediate CA certificate for this procedure to work. 
 
 :::image type="content" source="media/premium-certificates/certificate-process.png" alt-text="Certificate process":::
 
@@ -78,7 +73,7 @@ You can either create or reuse an existing user-assigned managed identity, which
 
 ## Configure a certificate in your policy
 
-To configure a CA certificate in your Firewall Premium policy, select your policy and then select **TLS inspection (preview)**. Select **Enabled** on the **TLS inspection** page. Then select your CA certificate in Azure Key Vault, as shown in the following figure:
+To configure a CA certificate in your Firewall Premium policy, select your policy and then select **TLS inspection**. Select **Enabled** on the **TLS inspection** page. Then select your CA certificate in Azure Key Vault, as shown in the following figure:
 
 :::image type="content" source="media/premium-certificates/tls-inspection.png" alt-text="Azure Firewall Premium overview diagram":::
  
@@ -86,14 +81,13 @@ To configure a CA certificate in your Firewall Premium policy, select your polic
 > To see and configure a certificate from the Azure portal, you must add your Azure user account to the Key Vault Access policy. Give your user account **Get** and **List** under **Secret Permissions**.
    :::image type="content" source="media/premium-certificates/secret-permissions.png" alt-text="Azure Key Vault Access policy":::
 
-
 ## Create your own self-signed CA certificate
 
-To help you test and verify TLS inspection, you can use the following scripts to create your own self-signed Root CA and Intermediate CA.
+If you want to create your own certificates to help you test and verify TLS inspection, you can use the following scripts to create your own self-signed Root CA and Intermediate CA.
 
 > [!IMPORTANT]
 > For production, you should use your corporate PKI to create an Intermediate CA certificate. A corporate PKI leverages the existing infrastructure and handles the Root CA distribution to all endpoint machines. 
-> For more information, see [Deploy and configure Enterprise CA certificates for Azure Firewall Preview](premium-deploy-certificates-enterprise-ca.md).
+> For more information, see [Deploy and configure Enterprise CA certificates for Azure Firewall](premium-deploy-certificates-enterprise-ca.md).
 
 There are two versions of this script:
 - a bash script `cert.sh` 
@@ -199,6 +193,18 @@ Write-Host "   - interCA.pfx - Intermediate CA pkcs12 package which could be upl
 Write-Host "================"
 
 ```
+
+## Certificate auto-generation (preview)
+
+For non-production deployments, you can use the Azure Firewall Premium Certification Auto-Generation mechanism, which automatically creates  the following three resources for you:
+
+- Managed Identity
+- Key Vault
+- Self-signed Root CA certificate
+
+Just choose the new preview managed identity, and it ties the three resources together in your Premium policy and sets up TLS inspection. 
+
+:::image type="content" source="media/premium-certificates/auto-gen-certs.png" alt-text="Auto-generated certificates":::
 
 ## Troubleshooting
 

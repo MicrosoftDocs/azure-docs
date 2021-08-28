@@ -78,9 +78,6 @@ If you already have a key vault, you can create a private link connection by fol
 
 You can choose to create a private endpoint for any Azure resource in using this blade. You can either use the dropdown menus to select a resource type and select a resource in your directory, or you can connect to any Azure resource using a resource ID. Leave the "integrate with the private zone DNS" option unchanged.  
 
-![Screenshot that shows adding a private endpoint using the current blade.](../media/private-link-service-3.png)
-![Screenshot that shows an example of the 'Create a private endpoint (Preview) page.](../media/private-link-service-4.png)
-
 When you create a private endpoint, the connection must be approved. If the resource for which you are creating a private endpoint is in your directory, you will be able to approve the connection request provided you have sufficient permissions; if you are connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
 
 There are four provisioning states:
@@ -240,7 +237,7 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 * Check to make sure the Private DNS Zone is not missing an A record for the key vault. 
     1. Navigate to the Private DNS Zone page. 
     2. Click Overview and check if there is an A record with the simple name of your key vault (i.e. fabrikam). Do not specify any suffix.
-    3. Make sure you check the spelling, and either create or fix the A record. You can use a TTL of 3600 (1 hour). 
+    3. Make sure you check the spelling, and either create or fix the A record. You can use a TTL of 600 (10 mins).
     4. Make sure you specify the correct private IP address. 
     
 * Check to make sure the A record has the correct IP Address. 

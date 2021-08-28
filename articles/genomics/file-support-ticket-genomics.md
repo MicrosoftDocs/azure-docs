@@ -13,7 +13,7 @@ ms.date: 05/23/2018
 
 ---
 # How to contact Microsoft Genomics for support
-This overview describes how to file a support request to contact Microsoft Genomics. This can be helpful if you are not able to troubleshoot your issue using the [troubleshooting guide](troubleshooting-guide-genomics.md) or the [FAQ](frequently-asked-questions-genomics.md). 
+This overview describes how to file a support request to contact Microsoft Genomics. This can be helpful if you are not able to troubleshoot your issue using the [troubleshooting guide](troubleshooting-guide-genomics.md) or the [FAQ](frequently-asked-questions-genomics.yml). 
 
 
 ## File a support ticket through the Azure portal
@@ -41,4 +41,4 @@ Last, add your contact information and select `Create` at the bottom of the scre
 ![Support request contact](./media/file-support-ticket/support-request-contact.png "Support request contact")
 
 ## Next steps
-In this article, you learned how to submit a support request. You can also resolve common issues using our [FAQ](frequently-asked-questions-genomics.md) and our [troubleshooting guide](troubleshooting-guide-genomics.md). 
+In this article, you learned how to submit a support request. You can also resolve common issues using our [FAQ](frequently-asked-questions-genomics.yml) and our [troubleshooting guide](troubleshooting-guide-genomics.md). 

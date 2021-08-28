@@ -3,7 +3,7 @@ title: What is Azure Virtual Desktop? - Azure
 description: An overview of Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/14/2020
+ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
 ---
@@ -32,10 +32,10 @@ For more videos about Azure Virtual Desktop, see [our playlist](https://www.yout
 
 With Azure Virtual Desktop, you can set up a scalable and flexible environment:
 
-* Create a full desktop virtualization environment in your Azure subscription without having to run any additional gateway servers.
+* Create a full desktop virtualization environment in your Azure subscription without running any gateway servers.
 * Publish as many host pools as you need to accommodate your diverse workloads.
 * Bring your own image for production workloads or test from the Azure Gallery.
-* Reduce costs with pooled, multi-session resources. With the new Windows 10 Enterprise multi-session capability exclusive to Azure Virtual Desktop and Remote Desktop Session Host (RDSH) role on Windows Server, you can greatly reduce the number of virtual machines and operating system (OS) overhead while still providing the same resources to your users.
+* Reduce costs with pooled, multi-session resources. With the new Windows 10 Enterprise multi-session capability, exclusive to Azure Virtual Desktop and Remote Desktop Session Host (RDSH) role on Windows Server, you can greatly reduce the number of virtual machines and operating system (OS) overhead while still providing the same resources to your users.
 * Provide individual ownership through personal (persistent) desktops.
 
 You can deploy and manage virtual desktops:
@@ -48,7 +48,7 @@ You can deploy and manage virtual desktops:
 
 You can also assign and connect users to your virtual desktops:
 
-* Once assigned, users can launch any Azure Virtual Desktop client to connect users to their published Windows desktops and applications. Connect from any device through either a native application on your device or the Azure Virtual Desktop HTML5 web client.
+* Once assigned, users can launch any Azure Virtual Desktop client to connect to their published Windows desktops and applications. Connect from any device through either a native application on your device or the Azure Virtual Desktop HTML5 web client.
 * Securely establish users through reverse connections to the service, so you never have to leave any inbound ports open.
 
 ## Requirements
@@ -69,7 +69,7 @@ Your infrastructure needs the following things to support Azure Virtual Desktop:
 * A Windows Server Active Directory in sync with Azure Active Directory. You can configure this using Azure AD Connect (for hybrid organizations) or Azure AD Domain Services (for hybrid or cloud organizations).
   * A Windows Server AD in sync with Azure Active Directory. User is sourced from Windows Server AD and the Azure Virtual Desktop VM is joined to Windows Server AD domain.
   * A Windows Server AD in sync with Azure Active Directory. User is sourced from Windows Server AD and the Azure Virtual Desktop VM is joined to Azure AD Domain Services domain.
-  * A Azure AD Domain Services domain. User is sourced from Azure Active Directory, and the Azure Virtual Desktop VM is joined to Azure AD Domain Services domain.
+  * An Azure AD Domain Services domain. User is sourced from Azure Active Directory, and the Azure Virtual Desktop VM is joined to Azure AD Domain Services domain.
 * An Azure subscription, parented to the same Azure AD tenant, that contains a virtual network that either contains or is connected to the Windows Server Active Directory or Azure AD DS instance.
 
 User requirements to connect to Azure Virtual Desktop:
@@ -79,7 +79,7 @@ User requirements to connect to Azure Virtual Desktop:
 
 The Azure virtual machines you create for Azure Virtual Desktop must be:
 
-* [Standard domain-joined](../active-directory-domain-services/compare-identity-solutions.md) or [Hybrid AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md). Virtual machines can't be Azure AD-joined.
+* [Standard domain-joined](../active-directory-domain-services/compare-identity-solutions.md) or [Hybrid AD-joined](../active-directory/devices/hybrid-azuread-join-plan.md). [Azure AD-joined](deploy-azure-ad-joined-vm.md) virtual machines are available in preview.
 * Running one of the following [supported OS images](#supported-virtual-machine-os-images).
 
 >[!NOTE]
@@ -87,7 +87,7 @@ The Azure virtual machines you create for Azure Virtual Desktop must be:
 
 For a list of URLs you should unblock for your Azure Virtual Desktop deployment to work as intended, see our [Required URL list](safe-url-list.md).
 
-Azure Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States. This may result in data transfer to the United States.
+Azure Virtual Desktop includes the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States. This may result in data transfer to the United States.
 
 For optimal performance, make sure your network meets the following requirements:
 
@@ -95,7 +95,7 @@ For optimal performance, make sure your network meets the following requirements
 * Network traffic may flow outside country/region borders when VMs that host desktops and apps connect to the management service.
 * To optimize for network performance, we recommend that the session host's VMs are collocated in the same Azure region as the management service.
 
-You can see a typical architectural setup of Azure Virtual Desktop for the enterprise in our [architecture documenation](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
+You can see a typical architectural setup of Azure Virtual Desktop for the enterprise in our [architecture documentation](/azure/architecture/example-scenario/wvd/windows-virtual-desktop).
 
 ## Supported Remote Desktop clients
 
@@ -124,7 +124,7 @@ Azure Virtual Desktop follows the [Microsoft Lifecycle Policy](/lifecycle/) and 
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Azure Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, Windows 10 LTSB, Windows 10 LTSC, Windows 10 Pro, or Windows 10 Enterprise KN operating system images. Windows 7 also doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
+Azure Virtual Desktop doesn't support x86 (32-bit), Windows 10 Enterprise N, Windows 10 LTSB, Windows 10 LTSC, Windows 10 Pro, or Windows 10 Enterprise KN operating system images. Windows 7 also doesn't support any VHD or VHDX-based profile solutions hosted on managed Azure Storage due to a sector size limitation.
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table:
 

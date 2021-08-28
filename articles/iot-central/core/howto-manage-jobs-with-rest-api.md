@@ -66,11 +66,11 @@ The following table describes the fields in the previous JSON snippet:
 | `displayName` | The display name for the job in your application. |
 | `description` | A description of the job. |
 | `group` | The ID of the device group that the job applies to. Use the `deviceGroups` preview REST API to get a list of the device groups in your application. |
-| `status` | The [status](howto-run-a-job.md#view-job-status) of the job. One of `complete`, `cancelled`, `failed`, `pending`, `running`, `stopped`. |
-| `batch` | If present, this section defines how to [batch](howto-run-a-job.md#create-and-run-a-job) the devices in the job. |
+| `status` | The [status](howto-manage-devices-in-bulk.md#view-job-status) of the job. One of `complete`, `cancelled`, `failed`, `pending`, `running`, `stopped`. |
+| `batch` | If present, this section defines how to [batch](howto-manage-devices-in-bulk.md#create-and-run-a-job) the devices in the job. |
 | `batch/type` | The size of each batch is either a `percentage` of the total devices in the group or a `number` of devices. |
 | `batch/value` | Either the percentage of devices or the number of devices in each batch. |
-| `cancellationThreshold` | If present, this section defines the [cancellation threshold](howto-run-a-job.md#create-and-run-a-job) for the job. |
+| `cancellationThreshold` | If present, this section defines the [cancellation threshold](howto-manage-devices-in-bulk.md#create-and-run-a-job) for the job. |
 | `cancellationThreshold/batch` | `true` or `false`. If true, the cancellation threshold is set for each batch. If `false`, the cancellation threshold applies to the whole job. |
 | `cancellationThreshold/type` | The cancellation threshold for the job is either a `percentage` or a `number` of devices. |
 | `cancellationThreshold/value` | Either the percentage of devices or the number of devices that define the cancellation threshold. |

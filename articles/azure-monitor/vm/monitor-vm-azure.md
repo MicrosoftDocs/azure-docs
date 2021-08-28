@@ -13,7 +13,7 @@ ms.date: 05/05/2020
 This article describes how to use Azure Monitor to collect and analyze monitoring data from Azure virtual machines to maintain their health. Virtual machines can be monitored for availability and performance with Azure Monitor like any [other Azure resource](../essentials/monitor-azure-resource.md), but they're unique from other resources since you also need to monitor the guest operating and system and the workloads that run in it. 
 
 > [!NOTE]
-> This article provides a complete overview of the concepts and options for monitoring virtual machines in Azure Monitor. To start monitoring your virtual machines quickly without focusing on the underlying concepts, see [Quickstart: Monitor an Azure virtual machine with Azure Monitor](./quick-monitor-azure-vm.md).
+> This article provides a complete overview of the concepts and options for monitoring virtual machines in Azure Monitor. To start monitoring your virtual machines quickly without focusing on the underlying concepts, see [Quickstart: Monitor an Azure virtual machine with Azure Monitor](./monitor-virtual-machine.md).
 
 
 ## Differences from other Azure resources
@@ -81,7 +81,7 @@ You can access the configuration for the workspace directly from VM insights by 
 
 ![Workspace configuration](media/monitor-vm-azure/workspace-configuration.png)
 
-Select **Advanced Settings** from the workspace menu and then **Data** to configure data sources. For Windows agents, select **Windows Event Logs** and add common event logs such as *System* and *Application*. For Linux agents, select **Syslog** and add common facilities such as *kern* and *daemon*. See [Agent data sources in Azure Monitor](../agents/agent-data-sources.md) for a list of the data sources available and details on configuring them. 
+Select **Agents configuration** from the workspace menu to configure data sources. For Windows agents, select **Windows Event Logs** and add common event logs such as *System* and *Application*. For Linux agents, select **Syslog** and add common facilities such as *kern* and *daemon*. See [Agent data sources in Azure Monitor](../agents/agent-data-sources.md) for a list of the data sources available and details on configuring them. 
 
 ![Configure events](media/monitor-vm-azure/configure-events.png)
 

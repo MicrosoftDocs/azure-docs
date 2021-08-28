@@ -4,7 +4,7 @@ description: You use Azure Cost Management + Billing features to conduct billing
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/03/2021
+ms.date: 07/13/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
@@ -70,10 +70,6 @@ Recommendations show how you can optimize and improve efficiency by identifying 
 
 If you use external systems to access or review cost management data, you can easily export the data from Azure. And you can set a daily scheduled export in CSV format and store the data files in Azure storage. Then, you can access the data from your external system.
 
-### Cloudyn deprecation
-
-Cloudyn is an Azure service related to Cost Management that is being deprecated by the end of 2020. Existing Cloudyn features are being integrated directly into the Azure portal wherever possible. No new customers are being onboarded at this time, but support will remain for the product until it is fully deprecated.
- 
 ### Additional Azure tools
 
 Azure has other tools that aren't a part of the Azure Cost Management + Billing feature set. However, they play an important role in the cost management process. To learn more about these tools, see the following links.

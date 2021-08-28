@@ -79,7 +79,7 @@ Azure Sentinel uses the Azure foundation to provide built-in, service-to-service
 - [Microsoft Defender for Identity](connect-azure-atp.md) (formerly Azure Advanced Threat Protection)
 - [Microsoft Defender for Office 365](connect-office-365-advanced-threat-protection.md) (formerly Office 365 Advanced Threat Protection)
 - [Office 365](connect-office-365.md), including Microsoft Teams
-- [Security events (Windows)](connect-windows-security-events.md). For more information, see [Insecure protocols workbook setup](./quickstart-get-visibility.md#use-built-in-workbooks).
+- [Security events (Windows)](connect-windows-security-events.md). For more information, see [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks).
 - [Windows firewall](connect-windows-firewall.md)
 
 ### REST API integration
@@ -92,13 +92,13 @@ For a complete listing and information about these connectors, see [Azure Sentin
 
 #### REST API integration on the provider side
 
-An API integration that is built by the provider connects with the provider data sources and pushes data into Azure Sentinel custom log tables using the [Azure Monitor Data Collector API](/azure/azure-monitor/logs/data-collector-api).
+An API integration that is built by the provider connects with the provider data sources and pushes data into Azure Sentinel custom log tables using the [Azure Monitor Data Collector API](../azure-monitor/logs/data-collector-api.md).
 
 For more information about configuring these data connectors to send logs to Azure Sentinel, see the relevant provider documentation. 
 
 #### REST API integration using Azure Functions
 
-Integrations that use [Azure Functions](/azure/azure-functions/) to connect with a provider API first format the data, and then send it to Azure Sentinel custom log tables using the [Azure Monitor Data Collector API](/azure/azure-monitor/logs/data-collector-api).
+Integrations that use [Azure Functions](../azure-functions/index.yml) to connect with a provider API first format the data, and then send it to Azure Sentinel custom log tables using the [Azure Monitor Data Collector API](../azure-monitor/logs/data-collector-api.md).
 
 For more information about configuring these data connectors to connect with the provider API and collect logs in Azure Sentinel, follow the steps shown for each data connector in Azure Sentinel.
 
@@ -142,7 +142,7 @@ Some data sources have logs available for collection as files on Windows or Linu
 
 Follow the steps in each Azure Sentinel data connector page to connect using the Log Analytics custom log collection agent. After successful configuration, the data appears in custom tables.
 
-For more information, see [Collect custom logs with the Log Analytics agent](/azure/azure-monitor/agents/data-sources-custom-logs).
+For more information, see [Collect custom logs with the Log Analytics agent](../azure-monitor/agents/data-sources-custom-logs.md).
 
 ## Data connector support
 
@@ -168,8 +168,9 @@ To find the support contact information for a data connector:
    
    The **Supported by** field has a support contact link you can use to access support and maintenance for the selected data connector.
 
+
+
 ## Next steps
 
 - To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md) and [get visibility into your data and potential threats](quickstart-get-visibility.md).
-
+- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md) and [get visibility into your data and potential threats](get-visibility.md).

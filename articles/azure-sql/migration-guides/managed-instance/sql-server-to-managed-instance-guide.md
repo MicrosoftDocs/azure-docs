@@ -195,8 +195,8 @@ source SQL Server version you are running:
 |Step|SQL Engine and version|Backup/restore method|
 |---|---|---|
 |Put backup to Azure Storage|Prior to 2012 SP1 CU2|Upload .bak file directly to Azure Storage|
-| |2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](/sql/t-sql/statements/restore-statements-transact-sql.md) syntax|
-| |2016 and above|Direct backup using [WITH SAS CREDENTIAL](/sql/relational-databases/backup-restore/sql-server-backup-to-url.md)|
+| |2012 SP1 CU2 - 2016|Direct backup using deprecated [WITH CREDENTIAL](/sql/t-sql/statements/restore-statements-transact-sql) syntax|
+| |2016 and above|Direct backup using [WITH SAS CREDENTIAL](/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
 |Restore from Azure Storage to a managed instance| |[RESTORE FROM URL with SAS CREDENTIAL](../../managed-instance/restore-sample-database-quickstart.md)|
 
 > [!IMPORTANT]
@@ -270,7 +270,7 @@ The test approach for database migration consists of the following activities:
 
 Be sure to take advantage of the advanced cloud-based features offered by SQL Managed Instance, such as [built-in high availability](../../database/high-availability-sla.md), [threat detection](../../database/azure-defender-for-sql.md), and [monitoring and tuning your workload](../../database/monitor-tune-overview.md). 
 
-[Azure SQL Analytics](../../../azure-monitor/insights/azure-sql.md) allows you to monitor a large set of managed instances in a centralized manner.
+[Azure SQL Analytics](../../../azure-sql/database/monitor-tune-overview.md) allows you to monitor a large set of managed instances in a centralized manner.
 
 Some SQL Server features are only available once the [database compatibility level](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database) is changed to the latest compatibility level (150). 
 

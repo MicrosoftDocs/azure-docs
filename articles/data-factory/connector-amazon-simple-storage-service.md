@@ -1,11 +1,13 @@
 ---
 title: Copy data from Amazon Simple Storage Service (S3)
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to copy data from Amazon Simple Storage Service (S3) to supported sink data stores by using Azure Data Factory.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom: synapse
 ms.date: 03/17/2021
 ---
 
@@ -47,6 +49,32 @@ For the full list of Amazon S3 permissions, see [Specifying Permissions in a Pol
 ## Getting started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)] 
+
+## Create an Amazon Simple Storage Service (S3) linked service using UI
+
+Use the following steps to create an Amazon S3 linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for Amazon and select the Amazon S3 connector.
+
+    :::image type="content" source="media/connector-amazon-simple-storage-service/amazon-simple-storage-service-connector.png" alt-text="Select the Amazon S3 connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-amazon-simple-storage-service/configure-amazon-simple-storage-service-linked-service.png" alt-text="Configure an Amazon S3 linked service.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Amazon S3.
 

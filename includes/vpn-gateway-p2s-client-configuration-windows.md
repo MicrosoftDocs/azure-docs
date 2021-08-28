@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/28/2020
+ ms.date: 07/12/2021
  ms.author: cherylmc
 
 ---
@@ -15,9 +15,12 @@ You can use the same VPN client configuration package on each Windows client com
 >You must have Administrator rights on the Windows client computer from which you want to connect.
 >
 
-Use the following steps to configure the native Windows VPN client for certificate authentication:
+### Install the configuration files
 
 1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package. 
 1. Double-click the package to install it. If you see a SmartScreen popup, click **More info**, then **Run anyway**.
-1. On the client computer, navigate to **Network Settings** and click **VPN**. The VPN connection shows the name of the virtual network that it connects to.
-1. Before you attempt to connect, verify that you have installed a client certificate on the client computer. A client certificate is required for authentication when using the native Azure certificate authentication type.
+
+### Verify and connect
+
+1. Verify that you have installed a client certificate on the client computer. A client certificate is required for authentication when using the native Azure certificate authentication type. To view the client certificate, open **Manage User Certificates**. The client certificate is installed in **Current User\Personal\Certificates**.
+1. To connect, navigate to **Network Settings** and click **VPN**. The VPN connection shows the name of the virtual network that it connects to.

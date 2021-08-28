@@ -50,6 +50,18 @@ For more information on VM types and their compute resources, see [Sizes for vir
 
 For the latest list of where you can deploy and run clusters, see [AKS region availability][region-availability].
 
+## Cluster configuration presets in the Azure portal
+
+When you create a cluster using the Azure portal, you can choose a preset configuration to quickly customize based on your scenario. You can modify any of the preset values at any time.
+
+| Preset           | Description                                                            |
+|------------------|------------------------------------------------------------------------|
+| Standard         | Best if you're not sure what to choose. Works well with most applications. |
+| Dev/Test         | Best for experimenting with AKS or deploying a test application. |
+| Cost-optimized   | Best for reducing costs on production workloads that can tolerate interruptions. |
+| Batch processing | Best for machine learning, compute-intensive, and graphics-intensive workloads. Suited for applications requiring fast scale-up and scale-out of the cluster. |
+| Hardened access  | Best for large enterprises that need full control of security and stability. |
+
 ## Next steps
 
 You can increase certain default limits and quotas. If your resource supports an increase, request the increase through an [Azure support request][azure-support] (for **Issue type**, select **Quota**).

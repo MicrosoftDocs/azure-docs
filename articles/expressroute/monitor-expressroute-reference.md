@@ -31,7 +31,7 @@ This section lists all the automatically collected platform metrics for ExpressR
 
 ## Metric dimensions
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 ExpressRoute has the following dimensions associated with its metrics.
 

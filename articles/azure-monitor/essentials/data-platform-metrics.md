@@ -132,7 +132,7 @@ For most resources in Azure, platform metrics are stored for 93 days. There are 
 
 
 > [!NOTE]
-> As mentioned above, for most resources in Azure, platform metrics are stored for 93 days. However, you can only query (in Metrics tile) for no more than 30 days worth of data on any single chart. This limitation doesn't apply to log-based metrics. In case you see a blank chart or your chart only displays part of metric data, verify the difference between start and end dates in the time picker doesn't exceed the 30-day interval. Once you have selected a 30 day interval, you can [pan](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-charts#pan) the chart to view the full retention window.
+> As mentioned above, for most resources in Azure, platform metrics are stored for 93 days. However, you can only query (in Metrics tile) for no more than 30 days worth of data on any single chart. This limitation doesn't apply to log-based metrics. In case you see a blank chart or your chart only displays part of metric data, verify the difference between start and end dates in the time picker doesn't exceed the 30-day interval. Once you have selected a 30 day interval, you can [pan](./metrics-charts.md#pan) the chart to view the full retention window.
 
 
 

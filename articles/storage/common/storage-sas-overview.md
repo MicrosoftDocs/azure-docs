@@ -57,7 +57,7 @@ You can also delegate access to the following:
 For more information about the account SAS, [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas).
 
 > [!NOTE]
-> Microsoft recommends that you use Azure AD credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures for access to Blob storage, use Azure AD credentials to create a user delegation SAS when possible for superior security. For more information, see [Authorize access to blobs and queues using Azure Active Directory](storage-auth-aad.md).
+> Microsoft recommends that you use Azure AD credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures for access to Blob storage, use Azure AD credentials to create a user delegation SAS when possible for superior security. For more information, see [Authorize access to data in Azure Storage](authorize-data-access.md).
 
 A shared access signature can take one of the following two forms:
 

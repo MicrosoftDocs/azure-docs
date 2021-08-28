@@ -263,6 +263,8 @@
     href: ../enterprise-users/directory-service-limits-restrictions.md
   - name: FIDO2 compatibility
     href: fido2-compatibility.md
+  - name: Become a FIDO2 provider
+    href: concept-fido2-hardware-vendor.md  
 - name: Resources
   items:
   - name: Azure feedback forum
@@ -270,7 +272,7 @@
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-active-directory.html
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/active-directory/
+    href: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow

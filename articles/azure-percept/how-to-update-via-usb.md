@@ -1,8 +1,8 @@
 ---
 title: Update your Azure Percept DK over a USB-C cable connection
 description: Learn how to update the Azure Percept DK over a USB-C cable connection
-author: mimcco
-ms.author: mimcco
+author: EthanChangAED
+ms.author: hschang
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
@@ -12,6 +12,7 @@ ms.custom: template-how-to
 # Update the Azure Percept DK over a USB-C cable connection
 
 This guide will show you how to successfully update your dev kit's operating system and firmware over a USB connection. Here's an overview of what you will be doing during this procedure.
+
 1. Download the update package to a host computer
 1. Run the command that transfers the update package to the dev kit
 1. Set the dev kit into USB mode using SSH or DIP switches
@@ -23,14 +24,16 @@ This guide will show you how to successfully update your dev kit's operating sys
 >
 > Follow all instructions in order. Skipping steps could put your dev kit in an unusable state.
 
-
 ## Prerequisites
 
 - An Azure Percept DK
-- A Windows, Linux, or OS X based host computer with Wi-Fi capability and an available USB-C or USB-A port
+- A Windows or Linux-based host computer with Wi-Fi capability and an available USB-C or USB-A port
 - A USB-C to USB-A cable (optional, sold separately)
 - An SSH login account, created during the [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md)
 - A hex wrench, shipped with the dev kit, to remove the screws on the back of the dev kit (if using the DIP switch method)
+
+> [!NOTE]
+> **Mac users** - Updating the Azure Percept DK over a USB connection will not work using a Mac as the host computer. 
 
 ## Download software tools and update files
 

@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/07/2021
+ms.date: 07/22/2021
 
 ms.author: BaSelden
 author: BarbaraSelden
@@ -115,12 +115,11 @@ Risk policies include:
 
 If your users were enabled using per-user enabled and enforced Azure AD Multi-Factor Authentication the following PowerShell can assist you in making the conversion to Conditional Access based Azure AD Multi-Factor Authentication.
 
-Run this PowerShell in an ISE window or save as a `.PS1` file to run locally.
+Run this PowerShell in an ISE window or save as a `.PS1` file to run locally. The operation can only be done by using the [MSOnline module](/powershell/module/msonline/?view=azureadps-1.0#msonline). 
 
 ```PowerShell
 # Sets the MFA requirement state
 function Set-MfaState {
-
     [CmdletBinding()]
     param(
         [Parameter(ValueFromPipelineByPropertyName=$True)]
@@ -130,7 +129,6 @@ function Set-MfaState {
         [ValidateSet("Disabled","Enabled","Enforced")]
         $State
     )
-
     Process {
         Write-Verbose ("Setting MFA state for user '{0}' to '{1}'." -f $ObjectId, $State)
         $Requirements = @()
@@ -141,12 +139,10 @@ function Set-MfaState {
             $Requirement.State = $State
             $Requirements += $Requirement
         }
-
         Set-MsolUser -ObjectId $ObjectId -UserPrincipalName $UserPrincipalName `
                      -StrongAuthenticationRequirements $Requirements
     }
 }
-
 # Disable MFA for all users
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
@@ -214,7 +210,7 @@ Others might include:
 
 - Citrix Gateway
 
-  [Citrix Gateway](https://docs.citrix.com/advanced-concepts/implementation-guides/citrix-gateway-microsoft-azure.html#microsoft-azure-mfa-deployment-methods) supports both RADIUS and NPS extension integration, and a SAML integration.
+  [Citrix Gateway](https://docs.citrix.com/en-us/advanced-concepts/implementation-guides/citrix-gateway-microsoft-azure.html#microsoft-azure-mfa-deployment-methods) supports both RADIUS and NPS extension integration, and a SAML integration.
 
 - Cisco VPN
   - The Cisco VPN supports both RADIUS and [SAML authentication for SSO](../saas-apps/cisco-anyconnect.md).
@@ -257,4 +253,3 @@ See [Troubleshooting Azure AD MFA](https://support.microsoft.com/help/2937344/tr
 ## Next steps
 
 [Deploy other identity features](../fundamentals/active-directory-deployment-plans.md)
-

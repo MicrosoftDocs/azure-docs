@@ -2,20 +2,23 @@
 title: ARM template test toolkit
 description: Describes how to run the Azure Resource Manager template (ARM template) test toolkit on your template. The toolkit lets you see if you have implemented recommended practices.
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/16/2021
 ms.author: tomfitz
 author: tfitzmac
 ---
 
 # Use ARM template test toolkit
 
-The [Azure Resource Manager template (ARM template) test toolkit](https://aka.ms/arm-ttk) checks whether your template uses recommended practices. When your template isn't compliant with recommended practices, it returns a list of warnings with the suggested changes. By using the test toolkit, you can learn how to avoid common problems in template development.
+The [Azure Resource Manager template (ARM template) test toolkit](https://aka.ms/arm-ttk) checks whether your template uses recommended practices. When your template isn't compliant with recommended practices, it returns a list of warnings with the suggested changes. By using the test toolkit, you can learn how to avoid common problems in template development. This article describes how to run the test toolkit and how to add or remove tests. For more information about how to run tests or how to run a specific test, see [Test parameters](#test-parameters).
 
-The test toolkit provides a [set of default tests](test-cases.md). These tests are recommendations but not requirements. You can decide which tests are relevant to your goals and customize which tests are run.
+The toolkit is a set of PowerShell scripts that can be run from a command in PowerShell or CLI. These tests are recommendations but not requirements. You can decide which tests are relevant to your goals and customize which tests are run.
 
-This article describes how to run the test toolkit and how to add or remove tests. For descriptions of the default tests, see [toolkit test cases](test-cases.md).
+The toolkit contains four sets of tests:
 
-The toolkit is a set of PowerShell scripts that can be run from a command in PowerShell or CLI.
+- [Test cases for ARM templates](template-test-cases.md)
+- [Test cases for parameter files](parameter-file-test-cases.md)
+- [Test cases for createUiDefinition.json](createUiDefinition-test-cases.md)
+- [Test cases for all files](all-files-test-cases.md)
 
 ## Install on Windows
 
@@ -152,7 +155,7 @@ deploymentTemplate
 
 ## Test parameters
 
-When you provide the `-TemplatePath` parameter, the toolkit looks in that folder for a template named _azuredeploy.json_ or _maintemplate.json_. It tests this template first and then tests all other templates in the folder and its subfolders. The other templates are tested as linked templates. If your path includes a file named [CreateUiDefinition.json](../managed-applications/create-uidefinition-overview.md), it runs tests that are relevant to UI definition.
+When you provide the `-TemplatePath` parameter, the toolkit looks in that folder for a template named _azuredeploy.json_ or _maintemplate.json_. It tests this template first and then tests all other templates in the folder and its subfolders. The other templates are tested as linked templates. If your path includes a file named [createUiDefinition.json](../managed-applications/create-uidefinition-overview.md), it runs tests that are relevant to UI definition. Tests are also run for parameter files and all JSON files in the folder.
 
 ```powershell
 Test-AzTemplate -TemplatePath $TemplateFolder
@@ -164,7 +167,7 @@ To test one file in that folder, add the `-File` parameter. However, the folder 
 Test-AzTemplate -TemplatePath $TemplateFolder -File cdn.json
 ```
 
-By default, all tests are run. To specify individual tests to run, use the `-Test` parameter. Provide the name of the test. For the names, see [Test cases for toolkit](test-cases.md).
+By default, all tests are run. To specify individual tests to run, use the `-Test` parameter and provide the test name. For the test names, see [ARM templates](template-test-cases.md), [parameter files](parameter-file-test-cases.md), [createUiDefinition.json](createUiDefinition-test-cases.md), and [all files](all-files-test-cases.md).
 
 ```powershell
 Test-AzTemplate -TemplatePath $TemplateFolder -Test "Resources Should Have Location"
@@ -172,9 +175,16 @@ Test-AzTemplate -TemplatePath $TemplateFolder -Test "Resources Should Have Locat
 
 ## Customize tests
 
-For ARM templates, the toolkit runs all of the tests in the folder _\arm-ttk\testcases\deploymentTemplate_. If you want to permanently remove a test, delete that file from the folder.
+You can customize the default tests or create your own tests. If you want to permanently remove a test, delete the _.test.ps1_ file from the folder.
 
-For [CreateUiDefinition](../managed-applications/create-uidefinition-overview.md) files, it runs all of the tests in the folder _\arm-ttk\testcases\CreateUiDefinition_.
+The toolkit has four folders that contain the default tests that are run for specific file types:
+
+- ARM templates: _\arm-ttk\testcases\deploymentTemplate_
+- Parameter files: _\arm-ttk\testcases\deploymentParameters_
+- [createUiDefinition.json](../managed-applications/create-uidefinition-overview.md): _\arm-ttk\testcases\CreateUIDefinition_
+- All files: _\arm-ttk\testcases\AllFiles_
+
+### Add a custom test
 
 To add your own test, create a file with the naming convention: _Your-Custom-Test-Name.test.ps1_.
 
@@ -195,12 +205,12 @@ param(
 
 The template object has the following properties:
 
-* $schema
-* contentVersion
-* parameters
-* variables
-* resources
-* outputs
+- `$schema`
+- `contentVersion`
+- `parameters`
+- `variables`
+- `resources`
+- `outputs`
 
 For example, you can get the collection of parameters with `$TemplateObject.parameters`.
 
@@ -227,8 +237,8 @@ You can add the test toolkit to your Azure Pipeline. With a pipeline, you can ru
 
 The easiest way to add the test toolkit to your pipeline is with third-party extensions. The following two extensions are available:
 
-* [Run ARM TTK Tests](https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtension)
-* [ARM Template Tester](https://marketplace.visualstudio.com/items?itemName=maikvandergaag.maikvandergaag-arm-ttk)
+- [Run ARM TTK Tests](https://marketplace.visualstudio.com/items?itemName=Sam-Cogan.ARMTTKExtension)
+- [ARM Template Tester](https://marketplace.visualstudio.com/items?itemName=maikvandergaag.maikvandergaag-arm-ttk)
 
 Or, you can implement your own tasks. The following example shows how to download the test toolkit.
 
@@ -292,5 +302,8 @@ The next example shows how to run the tests.
 
 ## Next steps
 
-* To learn about the default tests, see [Default test cases for ARM template test toolkit](test-cases.md).
-* For a Microsoft Learn module that covers using the test toolkit, see [Validate Azure resources by using the ARM Template Test Toolkit](/learn/modules/arm-template-test/).
+- To learn about the template tests, see [Test cases for ARM templates](template-test-cases.md).
+- To test parameter files, see [Test cases for parameter files](parameters.md).
+- For createUiDefinition tests, see [Test cases for createUiDefinition.json](createUiDefinition-test-cases.md).
+- To learn about tests for all files, see [Test cases for all files](all-files-test-cases.md).
+- For a Microsoft Learn module that covers using the test toolkit, see [Validate Azure resources by using the ARM Template Test Toolkit](/learn/modules/arm-template-test/).

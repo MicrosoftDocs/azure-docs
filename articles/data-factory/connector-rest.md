@@ -1,12 +1,16 @@
 ---
 title: Copy data from and to a REST endpoint by using Azure Data Factory 
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using a copy activity in an Azure Data Factory pipeline.
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.author: jianleishen
+ms.date: 08/24/2021
+ms.author: makromer
 ---
+
 # Copy data from and to a REST endpoint by using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -39,6 +43,32 @@ Specifically, this generic REST connector supports:
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a REST linked service using UI
+
+Use the following steps to create a REST linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for REST and select the REST connector.
+
+    :::image type="content" source="media/connector-rest/rest-connector.png" alt-text="Select REST connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-rest/configure-rest-linked-service.png" alt-text="Configure REST linked service.":::
+
+## Connector configuration details
 
 The following sections provide details about properties you can use to define Data Factory entities that are specific to the REST connector.
 
@@ -126,7 +156,7 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 }
 ```
 
-### <a name="managed-identity"></a> Use managed identities for Azure resources authentication
+### <a name="managed-identity"></a> Use system-assigned managed identity authentication
 
 Set the **authenticationType** property to **ManagedServiceIdentity**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
@@ -145,6 +175,39 @@ Set the **authenticationType** property to **ManagedServiceIdentity**. In additi
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "ManagedServiceIdentity",
             "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### Use user-assigned managed identity authentication
+Set the **authenticationType** property to **ManagedServiceIdentity**. In addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+
+
+**Example**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint e.g. https://www.example.com/>",
+            "authenticationType": "ManagedServiceIdentity",
+            "aadResourceId": "<AAD resource URL e.g. https://management.core.windows.net>",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }    
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -370,6 +433,57 @@ REST connector as sink works with the REST APIs that accept JSON. The data will 
         }
     }
 ]
+```
+
+## Mapping data flow properties
+
+REST is supported in data flows for both integration datasets and inline datasets.
+
+### Source transformation
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| requestMethod | The HTTP method. Allowed values are **GET** and **POST**. | Yes |
+| relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. The HTTP connector copies data from the combined URL: `[URL specified in linked service]/[relative URL specified in dataset]`. | No |
+| additionalHeaders | Additional HTTP request headers. | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
+| QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" is user-defined, which references one query parameter name in the next HTTP request URL. | No |
+
+### Sink transformation
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| additionalHeaders | Additional HTTP request headers. | No |
+| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
+| httpCompressionType | HTTP compression type to use while sending data with Optimal Compression Level. Allowed values are **none** and **gzip**. | No |
+| writeBatchSize | Number of records to write to the REST sink per batch. The default value is 10000. | No |
+
+You can set the delete, insert, update, and upsert methods as well as the relative row data to send to the REST sink for CRUD operations.
+
+![Data flow REST sink](media/data-flow/data-flow-sink.png)
+
+## Sample data flow script
+
+Notice the use of an alter row transformation prior to the sink to instruct ADF what type of action to take with your REST sink. I.e. insert, update, upsert, delete.
+
+```
+AlterRow1 sink(allowSchemaDrift: true,
+	validateSchema: false,
+	deletable:true,
+	insertable:true,
+	updateable:true,
+	upsertable:true,
+	rowRelativeUrl: 'periods',
+	insertHttpMethod: 'PUT',
+	deleteHttpMethod: 'DELETE',
+	upsertHttpMethod: 'PUT',
+	updateHttpMethod: 'PATCH',
+	timeout: 30,
+	requestFormat: ['type' -> 'json'],
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> sink1
 ```
 
 ## Pagination support

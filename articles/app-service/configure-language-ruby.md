@@ -144,10 +144,8 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 [!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
 
-## Next steps
+## More resources
 
-> [!div class="nextstepaction"]
-> [Tutorial: Rails app with PostgreSQL](tutorial-ruby-postgres-app.md)
-
-> [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.yml)
+- [Tutorial: Rails app with PostgreSQL](tutorial-ruby-postgres-app.md)
+- [App Service Linux FAQ](faq-app-service-linux.yml)
+- [Environment variables and app settings reference](reference-app-settings.md)

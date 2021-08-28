@@ -39,7 +39,7 @@ Citrix WAF sends Syslog messages in CEF format to a Linux-based log forwarding s
 
 1. Follow Citrix's supplied instructions to [configure the WAF](https://support.citrix.com/article/CTX234174), [configure CEF logging](https://support.citrix.com/article/CTX136146), and [configure sending the logs to your log forwarder](https://docs.citrix.com/en-us/citrix-adc/13/system/audit-logging/configuring-audit-logging.html). Make sure you send the logs to TCP port 514 on the log forwarder machine's IP address.
 
-1. Validate your connection and verify data ingestion using [these instructions](connect-cef-verify.md). It may take up to 20 minutes until your logs start to appear in Log Analytics.
+1. Validate your connection and verify data ingestion using [these instructions](troubleshooting-cef-syslog.md#validate-cef-connectivity). It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 ## Find your data
 
@@ -50,6 +50,6 @@ To query the Citrix WAF logs in Log Analytics, enter `CommonSecurityLog` at the 
 ## Next steps
 
 In this document, you learned how to connect Citrix WAF to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.

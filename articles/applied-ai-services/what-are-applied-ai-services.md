@@ -28,7 +28,7 @@ Form Recognizer is composed of custom document processing models, prebuilt model
 
 Protecting organization’s growth by enabling them to make the right decision based on intelligence from metrics of businesses, services and physical assets.  Azure Metrics Advisor uses AI to perform data monitoring and anomaly detection in time series data. The service automates the process of applying models to your data, and provides a set of APIs and a web-based workspace for data ingestion, anomaly detection, and diagnostics - without needing to know machine learning. Developers can build AIOps, predictive maintenance, and business monitoring applications on top of the service.  Azure Metrics Advisor is built using Anomaly Detector from Azure Cognitive Services.​
 
-[Learn more about Azure Metrics Advisor](../cognitive-services/metrics-advisor/index.yml)
+[Learn more about Azure Metrics Advisor](./metrics-advisor/index.yml)
 
 ## Azure Cognitive Search
 
@@ -40,7 +40,7 @@ Unlock valuable information lying latent in all your content in order to perform
 
 Enhance reading comprehension and achievement with AI. Azure Immersive Reader is an inclusively designed tool that implements proven techniques to improve reading comprehension for new readers, language learners, and people with learning differences such as dyslexia. With the Immersive Reader client library, you can leverage the same technology used in Microsoft Word and Microsoft OneNote to improve your web applications. Azure Immersive Reader is built using Translation and Text to Speech from Azure Cognitive Services.
 
-[Learn more about Azure Immersive Reader](../cognitive-services/immersive-reader/index.yml)
+[Learn more about Azure Immersive Reader](./immersive-reader/index.yml)
 
 ## Azure Bot Service
 

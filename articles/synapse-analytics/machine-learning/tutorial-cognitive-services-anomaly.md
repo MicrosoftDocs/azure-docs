@@ -54,11 +54,11 @@ You need a Spark table for this tutorial.
 
 1. Right-click the Spark table created in the previous step. Select **Machine Learning** > **Predict with a model** to open the wizard.
 
-   ![Screenshot that shows selections for opening the scoring wizard.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00g2.png)
+   ![Screenshot that shows selections for opening the scoring wizard.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00g.png)
 
 2. A configuration panel appears, and you're asked to select a Cognitive Services model. Select **Anomaly Detector**.
 
-   ![Screenshot that shows selection of Anomaly Detector as a model.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00c2.png)
+   ![Screenshot that shows selection of Anomaly Detector as a model.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00c.png)
 
 ## Provide authentication details
 

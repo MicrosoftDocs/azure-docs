@@ -9,7 +9,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: mimckitt
 ---
+
 # Create and use shared images for virtual machine scale sets with the Azure PowerShell
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 
 When you create a scale set, you specify an image to be used when the VM instances are deployed. The Shared Image Gallery service greatly simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. 
 
@@ -44,6 +47,5 @@ You can also create Shared Image Gallery resource using templates. There are sev
 - [Create a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-create/)
 - [Create an Image Definition in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
 - [Create an Image Version in a Shared Image Gallery](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
-- [Create a VM from Image Version](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 For more information about Shared Image Galleries, see the [Overview](../virtual-machines/shared-image-galleries.md). If you run into issues, see [Troubleshooting shared image galleries](../virtual-machines/troubleshooting-shared-images.md).

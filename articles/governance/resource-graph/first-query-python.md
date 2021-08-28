@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Your first Python query'
 description: In this quickstart, you follow the steps to enable the Resource Graph library for Python and run your first query.
-ms.date: 05/01/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom:
   - devx-track-python
@@ -74,8 +74,10 @@ installed.
 ## Run your first Resource Graph query
 
 With the Python libraries added to your environment of choice, it's time to try out a simple
-Resource Graph query. The query returns the first five Azure resources with the **Name** and
-**Resource Type** of each resource.
+subscription-based Resource Graph query. The query returns the first five Azure resources with the
+**Name** and **Resource Type** of each resource. To query by
+[management group](../management-groups/overview.md), use the `management_groups` parameter with
+`QueryRequest`.
 
 1. Run your first Azure Resource Graph query using the installed libraries and the `resources`
    method:

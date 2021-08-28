@@ -1,7 +1,7 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-pnp
+ms.service: iot-develop
 ms.topic: include
 ms.date: 11/20/2020
 ---
@@ -31,7 +31,7 @@ To complete this tutorial on Windows, install the following software on your loc
 
 ## Download the code
 
-If you completed [Quickstart: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Java)](../articles/iot-pnp/quickstart-connect-device.md), you've already cloned the repository.
+If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Java)](../articles/iot-develop/tutorial-connect-device.md), you've already cloned the repository.
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT Java SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-java) GitHub repository into this location:
 
@@ -69,7 +69,7 @@ After the device client sample starts, use the Azure IoT explorer tool to verify
 
 ## Review the code
 
-This sample implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-pnp/concepts-modeling-guide.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+This sample implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
 The device code uses the standard `DeviceClient` class to connect to your IoT hub. The device sends the model ID of the DTDL model it implements in the connection request. A device that sends a model ID is an IoT Plug and Play device:
 

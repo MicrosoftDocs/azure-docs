@@ -2,7 +2,7 @@
 title: Deploy Azure Video Analyzer on Azure Stack Edge
 description: This article lists the steps that will help you deploy Azure Video Analyzer on your Azure Stack Edge.
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 06/01/2021
 
 ---
 # Deploy Azure Video Analyzer on Azure Stack Edge
@@ -18,10 +18,10 @@ For Video Analyzer, we will deploy via IoT Hub, but the Azure Stack Edge resourc
 
 * Video Analyzer account
 
-    This [cloud service](https://docs.microsoft.com/azure/azure-video-analyzer/video-analyzer-docs/overview) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics
+    This [cloud service](./overview.md) is used to register the Video Analyzer edge module, and for playing back recorded video and video analytics
 * Managed identity
 
-    This is the user assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) used to manage access to the above storage account.
+    This is the user assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) used to manage access to the above storage account.
 * An [Azure Stack Edge](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) resource
 * [An IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * Storage account
@@ -422,4 +422,3 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 ## Next steps
 
 [Detect motion and emit events](detect-motion-emit-events-quickstart.md)
-

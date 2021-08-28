@@ -3,15 +3,16 @@ title: Create an Azure Image Builder template
 description: Learn how to create a template to use with Azure Image Builder.
 author: kof-f
 ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 05/24/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
-ms.reviewer: cynthn 
 ms.custom: devx-track-azurepowershell
 ---
 # Create an Azure Image Builder template 
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 Azure Image Builder uses a .json file to pass information into the Image Builder service. In this article we will go over the sections of the json file, so you can build your own. To see examples of full .json files, see the [Azure Image Builder GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
@@ -165,7 +166,7 @@ The API requires a 'SourceType' that defines the source for the image build, cur
 > When using existing Windows custom images, you can run the Sysprep command up to 3 times on a single Windows 7 or Windows Server 2008 R2 image, or 1001 times on a single Windows image for later versions; for more information, see the [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) documentation.
 
 ### PlatformImage source 
-Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [here](../image-builder-overview.md#os-support) for the full list. 
+Azure Image Builder supports Windows Server and client, and Linux  Azure Marketplace images, see [Learn about Azure Image Builder](../image-builder-overview.md#os-support) for the full list. 
 
 ```json
         "source": {
@@ -248,6 +249,8 @@ If you do not specify a buildTimeoutInMinutes value, or set it to 0, this will u
 
 If you find you need more time for customizations to complete, set this to what you think you need, with a little overhead. But, do not set it too high because you might have to wait for it to timeout before seeing an error. 
 
+> [!NOTE]
+> If you don't set the value to 0, the minimum supported value is 6 minutes. Using values 1 through 5 will fail.
 
 ## Properties: customize
 
@@ -710,3 +713,4 @@ az resource invoke-action \
 ## Next steps
 
 There are sample .json files for different scenarios in the [Azure Image Builder GitHub](https://github.com/azure/azvmimagebuilder).
+

@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/06/2021
+ms.date: 07/14/2021
 ms.author: rolyon
 ---
 
@@ -17,6 +17,8 @@ ms.author: rolyon
 Organizations might have several Azure subscriptions. Each subscription is associated with a particular Azure Active Directory (Azure AD) directory. To make management easier, you might want to transfer a subscription to a different Azure AD directory. When you transfer a subscription to a different Azure AD directory, some resources are not transferred to the target directory. For example, all role assignments and custom roles in Azure role-based access control (Azure RBAC) are **permanently** deleted from the source directory and are not be transferred to the target directory.
 
 This article describes the basic steps you can follow to transfer a subscription to a different Azure AD directory and re-create some of the resources after the transfer.
+
+If you want to instead **block** the transfer of subscriptions to different directories in your organization, you can configure a subscription policy. For more information, see [Manage Azure subscription policies](../cost-management-billing/manage/manage-azure-subscription-policy.md).
 
 > [!NOTE]
 > For Azure Cloud Solution Providers (CSP) subscriptions, changing the Azure AD directory for the subscription isn't supported.

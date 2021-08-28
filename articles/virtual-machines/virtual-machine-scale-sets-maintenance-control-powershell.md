@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 
 # Maintenance control for OS image upgrades on Azure virtual machine scale sets using PowerShell
 
+**Applies to:** :heavy_check_mark: Uniform scale sets
+
 Maintenance control lets you decide when to apply automatic guest OS image upgrades to your virtual machine scale sets. This topic covers the Azure PowerShell options for Maintenance control. For more information on using Maintenance control, see [Maintenance control for Azure virtual machine scale sets](virtual-machine-scale-sets-maintenance-control.md).
 
 

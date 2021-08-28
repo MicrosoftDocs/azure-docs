@@ -282,5 +282,5 @@ Did you build for .NET 4.6? .NET 4.6 is not automatically supported in Azure clo
 [netlogs]: ./asp-net-trace-logs.md
 [portal]: https://portal.azure.com/
 [qna]: ../faq.yml
-[redfield]: ./monitor-performance-live-website-now.md
+[redfield]: ./status-monitor-v2-overview.md
 [start]: ./app-insights-overview.md

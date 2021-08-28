@@ -87,7 +87,7 @@ az storage account blob-service-properties show --account-name <storage-account>
 Blob soft delete can also protect blobs and directories in accounts that have the hierarchical namespace feature enabled on them. 
 
 > [!IMPORTANT]
-> Soft delete in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW, , and is available globally in all Azure regions.
+> Soft delete in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW, and is available globally in all Azure regions.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 >
@@ -146,7 +146,7 @@ To enable blob soft delete for your storage account by using the Azure portal, f
 
 ### [Azure CLI](#tab/azure-CLI)
 
-1. Open the [Azure Cloud Shell](/azure/cloud-shell/overview), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
+1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
 2. Install the `storage-preview` extension.
 

@@ -20,32 +20,28 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone pivot="b2c-user-flow"
 
-> [!IMPORTANT]
-> API connectors for sign-up is a public preview feature of Azure AD B2C. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Overview 
 
 As a developer or IT administrator, you can use API connectors to integrate your sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems. For example, with API connectors, you can:
 
 - **Validate user input data**. Validate against malformed or invalid user data. For example, you can validate user-provided data against existing data in an external data store or list of permitted values. If invalid, you can ask a user to provide valid data or block the user from continuing the sign-up flow.
-- **Integrate with a custom approval workflow**. Connect to a custom approval system for managing and limiting account creation.
-- **Overwrite user attributes**. Reformat or assign a value to an attribute collected from the user. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 - **Verify user identity**. Use an identity verification service to add an extra level of security to account creation decisions.
+- **Integrate with a custom approval workflow**. Connect to a custom approval system for managing and limiting account creation.
+- **Augment tokens with attributes from external sources**. Enrich tokens with attributes about the user from sources external to Azure AD B2C such as cloud systems, custom user stores, custom permission systems, legacy identity services, and more.
+- **Overwrite user attributes**. Reformat or assign a value to an attribute collected from the user. For example, if a user enters the first name in all lowercase or all uppercase letters, you can format the name with only the first letter capitalized. 
 - **Run custom business logic**. You can trigger downstream events in your cloud systems to send push notifications, update corporate databases, manage permissions, audit databases, and perform other custom actions.
 
-An API connector provides Azure AD B2C with the information needed to call API endpoint by defining the HTTP endpoint URL and authentication for the API call. Once you configure an API connector, you can enable it for a specific step in a user flow. When a user reaches that step in the sign up flow, the API connector is invoked and materializes as an HTTP POST request to your API, sending user information ("claims") as key-value pairs in a JSON body. The API response can affect the execution of the user flow. For example, the API response can block a user from signing up, ask the user to reenter information, or overwrite and append user attributes.
+An API connector provides Azure AD B2C with the information needed to call API endpoint by defining the HTTP endpoint URL and authentication for the API call. Once you configure an API connector, you can enable it for a specific step in a user flow. When a user reaches that step in the sign up flow, the API connector is invoked and materializes as an HTTP POST request to your API, sending user information ("claims") as key-value pairs in a JSON body. The API response can affect the execution of the user flow. For example, the API response can block a user from signing up, ask the user to reenter information, or overwrite user attributes.
 
 ## Where you can enable an API connector in a user flow
 
-There are two places in a user flow where you can enable an API connector:
+There are three places in a user flow where you can enable an API connector:
 
-- After signing in with an identity provider
-- Before creating the user
+- **After federating with an identity provider during sign-up** - applies to sign-ups experiences only
+- **Before creating the user** - applies to sign-ups experiences only
+- **Before sending the token (preview)** - applies to sign-ups and sign-ins
 
-> [!IMPORTANT]
-> In both of these cases, the API connectors are invoked during user **sign-up**, not sign-in.
-
-### After signing in with an identity provider
+### After federating with an identity provider during sign-up
 
 An API connector at this step in the sign-up process is invoked immediately after the user authenticates with an identity provider (like Google, Facebook, & Azure AD). This step precedes the ***attribute collection page***, which is the form presented to the user to collect user attributes. This step is not invoked if a user is registering with a local account. The following are examples of API connector scenarios you might enable at this step:
 
@@ -60,6 +56,15 @@ An API connector at this step in the sign-up process is invoked after the attrib
 - Block a user sign-up based on data entered by the user.
 - Verify user identity.
 - Query external systems for existing data about the user to return it in the application token or store it in Azure AD.
+
+### Before sending the token (preview)
+
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
+
+An API connector at this step in the sign-up or sign-in process is invoked before a token is issued. The following are examples of scenarios you might enable at this step:
+- Enriching the token with attributes about the user from sources different than the directory including legacy identity systems, HR systems, external user stores, and more.
+- Enriching the token with group or role attributes that you store and manage in your own permission system. 
+- Applying claims transformations or manipulations to values of claims in the directory.
 
 ::: zone-end
 
@@ -234,73 +239,26 @@ If you reference a REST API technical profile directly from a user journey, the 
 
 ::: zone-end
 
-## Security considerations
+## Development of your REST API 
 
-You protect your REST API endpoint so that only authenticated clients can communicate with it. The REST API must use an HTTPS endpoint. Set the authentication type to one of the following authentication methods.
-
-### API Key
-
-API key is a unique identifier used to authenticate a user to access a REST API endpoint. For example, [Azure Functions HTTP trigger](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) includes the `code` as a query parameter in the endpoint URL.
-
-::: zone pivot="b2c-user-flow"
-
-```http
-https://contoso.azurewebsites.net/api/endpoint?code=0123456789 
-```
-
-API key authentication shouldn't be used alone in production. Therefore, configuration for basic or certificate authentication is always required. If you do not wish to implement any authentication method (not recommended) for development purposes, you can choose basic authentication and use temporary values for `username` and `password` that your API can disregard while you implement the authorization in your API.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-The API key can be sent a custom HTTP header. For example, the [Azure Functions HTTP trigger](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) uses the `x-functions-key` HTTP header to identify the requester.  
-
-::: zone-end
-
-### Client certificate
-
-The client certificate authentication is a mutual certificate-based authentication method where the client provides a client certificate to the server to prove its identity. In this case, Azure AD B2C will use the certificate that you upload as part of the API connector configuration.  This behavior happens as a part of the SSL handshake. 
-
-Your API service can then limit access to only services that have proper certificates. The client certificate is a PKCS12 (PFX) X.509 digital certificate. In production environments, it should be signed by a certificate authority.
-
-### HTTP basic authentication
-
-The HTTP basic authentication is defined in [RFC 2617](https://tools.ietf.org/html/rfc2617). Azure AD B2C sends an HTTP request with the client credentials (`username` and `password`) in the `Authorization` header. The credentials are formatted as the base64-encoded string `username:password`. Your API then checks these values to determine whether to reject an API call or not.
-
-::: zone pivot="b2c-custom-policy"
-
-### Bearer token
-
-Bearer token authentication is defined in [OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). In bearer token authentication, Azure AD B2C sends an HTTP request with a token in the authorization header.
-
-```http
-Authorization: Bearer <token>
-```
-
-A bearer token is an opaque string. It can be a JWT access token or any string that the REST API expects Azure AD B2C to send in the authorization header. 
- 
-::: zone-end
-
-## REST API platform
-
-Your REST API can be based on any platform and written in any programing language, as long as it's secure and can send and receive claims in JSON format.
+Your REST API can be developed on any platform and written in any programing language, as long as it's secure and can send and receive claims in JSON format.
 
 The request to your REST API service comes from Azure AD B2C servers. The REST API service must be published to a publicly accessible HTTPS endpoint. The REST API calls will arrive from an Azure data center IP address.
 
+You can use serverless cloud functions, like [HTTP triggers in Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md) for ease of development.
+
+Your should design your REST API service and its underlying components (such as the database and file system) to be highly available.
+
 [!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
-
-Design your REST API service and its underlying components (such as the database and file system) to be highly available.
-
 
 ## Next steps
 
-
-
 ::: zone pivot="b2c-user-flow"
 
-- Learn how to [add an API connector to a user flow](add-api-connector.md)
-- Get started with our [samples](code-samples.md#api-connectors).
+- Learn how to [add an API connector to modify sign-up experiences](add-api-connector.md)
+- Learn how to [add an API connector to enrich tokens with external claims](add-api-connector-token-enrichment.md)
+- Learn how to [secure your API Connector](secure-rest-api.md)
+- Get started with our [samples](api-connector-samples.md#api-connector-rest-api-samples)
 
 ::: zone-end
 
@@ -309,7 +267,7 @@ Design your REST API service and its underlying components (such as the database
 See the following articles for examples of using a RESTful technical profile:
 
 - [Walkthrough: Add an API connector to a sign-up user flow](add-api-connector.md)
-- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](custom-policy-rest-api-claims-exchange.md)
+- [Walkthrough: Add REST API claims exchanges to custom policies in Azure Active Directory B2C](add-api-connector-token-enrichment.md)
 - [Secure your REST API services](secure-rest-api.md)
 - [Reference: RESTful technical profile](restful-technical-profile.md)
 

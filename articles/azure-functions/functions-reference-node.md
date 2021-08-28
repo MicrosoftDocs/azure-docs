@@ -520,6 +520,8 @@ For Linux function apps, run the following Azure CLI command to update the Node 
 az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
 
+To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md)
+
 ## Dependency management
 In order to use community libraries in your JavaScript code, as is shown in the below example, you need to ensure that all dependencies are installed on your Function App in Azure.
 
@@ -686,7 +688,7 @@ In this example, it is important to note that although an object is being export
 
 When started with the `--inspect` parameter, a Node.js process listens for a debugging client on the specified port. In Azure Functions 2.x, you can specify arguments to pass into the Node.js process that runs your code by adding the environment variable or App Setting `languageWorkers:node:arguments = <args>`. 
 
-To debug locally, add `"languageWorkers:node:arguments": "--inspect=5858"` under `Values` in your [local.settings.json](./functions-run-local.md#local-settings-file) file and attach a debugger to port 5858.
+To debug locally, add `"languageWorkers:node:arguments": "--inspect=5858"` under `Values` in your [local.settings.json](./functions-develop-local.md#local-settings-file) file and attach a debugger to port 5858.
 
 When debugging using VS Code, the `--inspect` parameter is automatically added using the `port` value in the project's launch.json file.
 

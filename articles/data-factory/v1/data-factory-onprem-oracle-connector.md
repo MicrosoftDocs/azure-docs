@@ -116,7 +116,7 @@ The following table describes JSON elements that are specific to the Oracle link
 
 **Example: Using the ODP driver**
 
-To learn about allowed formats, see [Oracle data provider for .NET ODP](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/).
+To learn about allowed formats, see [Oracle data provider for .NET ODP](https://www.oracle.com/in/database/technologies/appdev/dotnet/odp.html).
 
 ```json
 {
