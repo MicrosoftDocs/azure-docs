@@ -334,6 +334,96 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 
 ::: zone-end
 
+
+## Use a custom model for language identification
+
+In addition to language identification using Speech service base models, you can also specify a custom model for enhanced recognition. If a custom model isn't provided, the service will use the default language model.
+
+The snippets below illustrate how to specify a custom model in your call to the Speech service. If the detected language is `en-US`, then the default model is used. If the detected language is `fr-FR`, then the endpoint for the custom model is used:
+
+::: zone pivot="programming-language-csharp"
+
+```csharp
+var sourceLanguageConfigs = new SourceLanguageConfig[]
+{
+    SourceLanguageConfig.FromLanguage("en-US"),
+    SourceLanguageConfig.FromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR")
+};
+var autoDetectSourceLanguageConfig =
+    AutoDetectSourceLanguageConfig.FromSourceLanguageConfigs(
+        sourceLanguageConfigs);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+```cpp
+std::vector<std::shared_ptr<SourceLanguageConfig>> sourceLanguageConfigs;
+sourceLanguageConfigs.push_back(
+    SourceLanguageConfig::FromLanguage("en-US"));
+sourceLanguageConfigs.push_back(
+    SourceLanguageConfig::FromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR"));
+
+auto autoDetectSourceLanguageConfig =
+    AutoDetectSourceLanguageConfig::FromSourceLanguageConfigs(
+        sourceLanguageConfigs);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+List sourceLanguageConfigs = new ArrayList<SourceLanguageConfig>();
+sourceLanguageConfigs.add(
+    SourceLanguageConfig.fromLanguage("en-US"));
+sourceLanguageConfigs.add(
+    SourceLanguageConfig.fromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR"));
+
+AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig =
+    AutoDetectSourceLanguageConfig.fromSourceLanguageConfigs(
+        sourceLanguageConfigs);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+ en_language_config = speechsdk.languageconfig.SourceLanguageConfig("en-US")
+ fr_language_config = speechsdk.languageconfig.SourceLanguageConfig("fr-FR", "The Endpoint Id for custom model of fr-FR")
+ auto_detect_source_language_config = speechsdk.languageconfig.AutoDetectSourceLanguageConfig(
+        sourceLanguageConfigs=[en_language_config, fr_language_config])
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+```Objective-C
+SPXSourceLanguageConfiguration* enLanguageConfig = [[SPXSourceLanguageConfiguration alloc]init:@"en-US"];
+SPXSourceLanguageConfiguration* frLanguageConfig = \
+        [[SPXSourceLanguageConfiguration alloc]initWithLanguage:@"fr-FR"
+                                                     endpointId:@"The Endpoint Id for custom model of fr-FR"];
+NSArray *languageConfigs = @[enLanguageConfig, frLanguageConfig];
+SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
+        [[SPXAutoDetectSourceLanguageConfiguration alloc]initWithSourceLanguageConfigurations:languageConfigs];
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+```Javascript
+var enLanguageConfig = SpeechSDK.SourceLanguageConfig.fromLanguage("en-US");
+var frLanguageConfig = SpeechSDK.SourceLanguageConfig.fromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR");
+var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLanguageConfigs([enLanguageConfig, frLanguageConfig]);
+```
+
+::: zone-end
+
+
 ## Next steps
 
 ::: zone pivot="programming-language-csharp"
