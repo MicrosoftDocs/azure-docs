@@ -1,6 +1,6 @@
 ---
 title: Get active speakers
-description: Use Azure Communication Services SDKs to transfer calls.
+description: Use Azure Communication Services SDKs to render the active speakers in a call.
 author: probableprime
 ms.author: rifox
 ms.service: azure-communication-services

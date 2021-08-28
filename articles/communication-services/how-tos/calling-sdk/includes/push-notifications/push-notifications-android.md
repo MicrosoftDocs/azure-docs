@@ -102,7 +102,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 }
 ```
-Add the following service definition to the `AndroidManifest.xml` file, inside the <application> tag:
+Add the following service definition to the `AndroidManifest.xml` file, inside the `<application>` tag:
 
 ```xml
 <service
