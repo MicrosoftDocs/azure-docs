@@ -4,20 +4,22 @@ description: Overview and scenarios of the connected registry feature of Azure C
 ms.author: memladen
 ms.service: container-registry
 ms.topic: overview
-ms.date: 08/23/2021
+ms.date: 08/26/2021
 ---
 
 # What is a connected registry? 
 
-In this article, you learn about the connected registry feature of [Azure Container Registry](container-registry-intro.md). A *connected registry* is an on-premises replica that synchronizes container images and other OCI artifacts with your cloud-based Azure container registry. Use a connected registry to help speed up access to registry artifacts on-premises and to build advanced scenarios, for example using [nested IoT Edge](../iot-edge/tutorial-nested-iot-edge.md).
+In this article, you learn about the *connected registry* feature of [Azure Container Registry](container-registry-intro.md). A connected registry is an on-premises replica that synchronizes container images and other OCI artifacts with your cloud-based Azure container registry. Use a connected registry to help speed up access to registry artifacts on-premises and to build advanced scenarios, for example using [nested IoT Edge](../iot-edge/tutorial-nested-iot-edge.md).
 
 > [!NOTE]
-> The connected registry feature is currently in preview.
+> The connected registry feature is a preview feature of the **Premium** container registry service tier, and subject to [limitations](#limitations). For information about registry service tiers and limits, see [Azure Container Registry service tiers](container-registry-skus.md).
 
 ## Available regions
 
-## Limitations
-
+* Asia East
+* EU North
+* EU West
+* US East
 
 ## Scenarios
 
@@ -37,13 +39,13 @@ The following image shows a typical deployment model for the connected registry.
 
 ![Connected registry overview](media/connected-registry/connected-registry-overview.svg)
 
-* **Deployment** - Each connected registry is a resource you manage using a cloud-based Azure container registry. The top parent in the connected registry hierarchy is an Azure container registry in any of the Azure clouds or in a private deployment of [Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-overview).
+* **Deployment** - Each connected registry is a resource you manage using a cloud-based Azure container registry. The top parent in the connected registry hierarchy is an Azure container registry in an Azure cloud or in a private deployment of [Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/azure-stack-overview).
 
   Use Azure tools to install the connected registry on a server or device on your premises, or an environment that supports container workloads on-premises such as [Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md).
 
 * **Content synchronization** - The connected registry regularly accesses the cloud registry to synchronize container images and OCI artifacts. 
 
-    It can also be configured to synchronize just a subset of the repositories from the cloud registry or to synchronize only during certain intervals to reduce traffic between the cloud and the premises.
+    It can also be configured to synchronize a subset of the repositories from the cloud registry or to synchronize only during certain intervals to reduce traffic between the cloud and the premises.
 
 * **Modes** - A connected registry can work in one of two modes: *registry mode* or *mirror mode*
 
@@ -53,7 +55,7 @@ The following image shows a typical deployment model for the connected registry.
 
     - **Mirror mode** - When the connected registry is in mirror mode, clients may only pull artifacts. This configuration is used for nested IoT Edge scenarios, or other scenarios where clients need to pull a container image to operate.
 
-* **Registry hierarchy** - Each connected registry must be connected to a parent. The top parent is the cloud registry. For hierarchical scenarios, you can nest connected registries in registry mode or mirror mode. The parent connected to the cloud registry can operate in either mode. 
+* **Registry hierarchy** - Each connected registry must be connected to a parent. The top parent is the cloud registry. For hierarchical scenarios such as [nested IoT Edge](overview-connected-registry-and-iot-edge.md), you can nest connected registries in registry mode or mirror mode. The parent connected to the cloud registry can operate in either mode. 
 
     Child registries must be compatible with their parent capabilities. Thus, both registry and mirror mode connected registries can be children of a connected registry operating in registry mode, but only a mirror mode registry can be a child of a connected registry operating in mirror mode.  
 
@@ -63,7 +65,25 @@ On-premises clients use standard tools such as the Docker CLI to push or pull co
 
 Each connected registry also needs to regularly communicate with its parent registry. For this purpose, the registry is issued a synchronization token (*sync token*) by the cloud registry. This token is used to authenticate with its parent registry for synchronization and management operations.
 
-For more information about authentication and authorization for connected registries, see [Manage access to a connected registry][overview-connected-registry-access].
+For more information, see [Manage access to a connected registry][overview-connected-registry-access].
+
+## Limitations
+
+- Number of tokens and scope maps is [limited](container-registry-skus.md) to 20,000 each for a single container registry. This indirectly limits the number of connected registries for a cloud registry, because every connected registry needs a sync and client token.
+- Number of repository permissions in a scope map is limited to 500.
+- Number of clients for the connected registry is currently limited to 20.
+- [Image locking](container-registry-image-lock.md) through repository/manifest/tag metadata is not currently supported for connected registries.
+- [Repository delete](container-registry-delete.md) is not supported on the connected registry using registry mode.
+- [Resource logs](monitor-service-reference.md#resource-logs) for connected registries are currently not supported.
+- Connected registry is coupled with the registry's home region data endpoint. Automatic migration for [geo-replication](container-registry-geo-replication.md) is not supported.
+- Deletion of a connected registry needs manual removal of the containers on-premises as well as removal of the respective scope map or tokens in the cloud.
+- Connected registry sync limitations are as follows:
+  - For continuous sync:
+    - `minMessageTtl` is 1 day
+    - `maxMessageTtl` is 90 days
+  - For occasionally connected scenarios, where you want to specify sync window:
+    - `minSyncWindow` is 1 hr
+    - `maxSyncWindow` is 7 days
 
 ## Next steps
 

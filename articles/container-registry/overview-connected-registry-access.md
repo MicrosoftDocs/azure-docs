@@ -13,7 +13,7 @@ ms.date: 08/23/2021
 To access and manage a [connected registry](intro-connected-registry.md), currently only ACR [token-based authentication](container-registry-repository-scoped-permissions.md) is supported. As shown in the following image, two different types of tokens are used by each connected registry:
 
 * [**Client tokens**](#client-token) - One or more tokens that on-premises clients use to authenticate with a connected registry and push or pull images and artifacts to or from it.
-* [**Sync token**](#sync-token) - A token used by each connected registry to access its parent and synchronize images and artifacts with it.
+* [**Sync token**](#sync-token) - A token used by each connected registry to access its parent and synchronize content.
 
 ![Connected registry authentication verview](media/connected-registry/connected-registry-authentication-overview.svg)
 
@@ -37,9 +37,9 @@ Update client tokens, passwords, or scope maps as needed by using [az acr token]
 Each connected registry uses a sync token to authenticate with its immediate parent - which could be another connected registry or the cloud registry. The connected registry automatically uses this token when synchronizing content with the parent or performing other updates. 
 
 * The sync token is generated automatically when you create the connected registry resource. You must run the [az acr connected-registry install renew-credentials][az-acr-install-renew-credentials] command to generate the passwords.
-* Include the *sync token* credentials in the configuration used to deploy the connected registry on premises. 
-* By default, the *sync token* is granted permission to synchronize selected repositories with its parent. You must provide existing *sync token* or one or more repositories to sync when you create the connected registry resource.
-* It also has permissions to *read* and *write* synchronization messages on a gateway used to communicate with the connected registry parent. These messages control the synchronization schedule and manage other updates between the connected registry and its parent.
+* Include sync token credentials in the configuration used to deploy the connected registry on-premises. 
+* By default, the sync token is granted permission to synchronize selected repositories with its parent. You must provide an existing sync token or one or more repositories to sync when you create the connected registry resource.
+* It also has permissions to read and write synchronization messages on a gateway used to communicate with the connected registry's parent. These messages control the synchronization schedule and manage other updates between the connected registry and its parent.
 
 ### Manage sync token
 
@@ -50,18 +50,18 @@ Update sync tokens, passwords, or scope maps as needed by using [az acr token](/
 
 ## Registry endpoints
 
-Token credentials for connected registies are scoped to access specific registry endpoints. 
+Token credentials for connected registies are scoped to access specific registry endpoints:
 
-A client token accesses the connected registry's endpoint. The connected registry endpoint is the login server URI, which is typically the IP address of the server or device that hosts it.
+* A client token accesses the connected registry's endpoint. The connected registry endpoint is the login server URI, which is typically the IP address of the server or device that hosts it.
 
-A sync token accesses the endpoint of the parent registry, which is either another connected registry endpoint or the cloud registry itself. When scoped to access the cloud registry, the sync token needs to reach two registry endpoints:
+* A sync token accesses the endpoint of the parent registry, which is either another connected registry endpoint or the cloud registry itself. When scoped to access the cloud registry, the sync token needs to reach two registry endpoints:
 
-- The fully qualified login server name, for example, `contoso.azurecr.io`. This endpoint is used for authentication.
-- A fully qualified regional [data endpoint](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) for the cloud registry, for example, `contoso.westus2.data.azurecr.io`. This endpoint is used to exchange messages with the connected registry for synchronization purposes. 
+    - The fully qualified login server name, for example, `contoso.azurecr.io`. This endpoint is used for authentication.
+    - A fully qualified regional [data endpoint](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) for the cloud registry, for example, `contoso.westus2.data.azurecr.io`. This endpoint is used to exchange messages with the connected registry for synchronization purposes. 
 
 ## Next steps
 
-Continue to the one of the following articles to learn about specific scenarios where connected registry can be utilized.
+Continue to  the following article to learn about specific scenarios where connected registry can be utilized.
 
 > [!div class="nextstepaction"]
 > [Overview: Connected registry and IoT Edge][overview-connected-registry-and-iot-edge]
