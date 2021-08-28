@@ -290,6 +290,8 @@ Select **Automation script** to build and export a template of your deployed res
 
 The settings in the **Administration** section allow you to perform the following administrative tasks for your cache.
 
+>>>>>>>**The below image shows that the import data , export data , reboot are in preview . Which is not .. Kindly update the image** <<<<<<<<<<<<<<<<<<<<<<<
+
 ![Administration](./media/cache-configure/redis-cache-administration.png)
 
 * [Import data](#importexport)
