@@ -14,8 +14,8 @@ This document describes the guide to migrate your Azure Service Fabric for Linux
 
 The general approach is to:
 
-1. Switch the Service Fabric cluster ARM resource "vmImage" to "Ubuntu18_04" to pull future code upgrades for this OS version. This temporary OS mismatch against existing node types will block automatic code upgrade rollouts to ensure safe rollover. *See NOTE 1* below.
-2. For each node type in the cluster, create another node type with the underlying VMSS (virtual machine scale set) OS targeting the Ubuntu 18.04 OS image. Each new node type will assume the role of its old counterpart. *See NOTE 2 & NOTE 3* below.
+1. Switch the Service Fabric cluster ARM resource "vmImage" to "Ubuntu18_04" to pull future code upgrades for this OS version. This temporary OS mismatch against existing node types will block automatic code upgrade rollouts to ensure safe rollover. See **NOTE 1** below.
+2. For each node type in the cluster, create another node type with the underlying VMSS (virtual machine scale set) OS targeting the Ubuntu 18.04 OS image. Each new node type will assume the role of its old counterpart. See **NOTE 2** & **NOTE 3** below.
 
     a) A new primary node type will have to be created to replace the old node type marked as "isPrimary": true.
     
@@ -50,7 +50,7 @@ Important notes to keep in mind:
 
     $resourceGroup="Group1"
     $clusterName="Contoso01SFCluster"
-    # Update cluster vmImage to target OS
+    # Update cluster vmImage to target OS. This registers the SF runtime package type that is supplied for upgrades.
     Update-AzServiceFabricVmImage -ResourceGroupName $resourceGroup -ClusterName $clusterName -VmImage Ubuntu18_04
     ```
 
