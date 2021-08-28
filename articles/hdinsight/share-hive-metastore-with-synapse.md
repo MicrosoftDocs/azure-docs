@@ -21,7 +21,7 @@ The feature works with both Spark 2.4 and Spark 3.0. The following table shows t
 |3|Yes|Yes|Yes|
 
 > [!NOTE]
-> You can use the existing external Hive metastore from HDInsight clusters, both 3.6 and 4.0 clusters. See [use external metadata stores in Azure HDInsight](./hdinsight/hdinsight-use-external-metadata-stores.md).
+> You can use the existing external Hive metastore from HDInsight clusters, both 3.6 and 4.0 clusters. See [use external metadata stores in Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 
 Follow below steps to set up a linked service to the external Hive metastore and underlying catalog storage in Synapse workspace, and configure Spark pool to use the linked external Hive metastore.
 
@@ -81,7 +81,7 @@ Here are the configurations and descriptions:
 ### Configure Spark pool 
 When creating the Spark pool, under **Additional Settings** tab, put below configurations in a text file and upload it in **Apache Spark configuration** section. You can also use the context menu for an existing Spark pool, choose Apache Spark configuration to add these configurations.
 
-    :::image type="content" source="./media/share-hive-metastore-with-synapse/config-spark-pool.png" alt-text="Configure the Spark pool" border="true":::
+   :::image type="content" source="./media/share-hive-metastore-with-synapse/config-spark-pool.png" alt-text="Configure the Spark pool":::
 
 Update metastore version and linked service name, and save below configs in a text file for Spark pool configuration:
 
