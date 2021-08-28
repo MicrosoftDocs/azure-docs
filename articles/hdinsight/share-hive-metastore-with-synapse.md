@@ -75,11 +75,12 @@ Here are the configurations and descriptions:
 |Spark config|Description|
 |--|--|
 |`spark.sql.hive.metastore.version`|Supported versions: <br />1.2 <br />2.1 <br />3.1 <br /> Make sure you use the first 2 parts without the 3rd part|
-|`spark.sql.hive.metastore.jars`|- Version 1.2: /opt/hive-metastore/lib-1.2/*:/usr/hdp/current/hadoop-client/lib/* <br />- Version 2.1: /opt/hive-metastore/lib-2.1/*:/usr/hdp/current/hadoop-client/lib/* <br /> - Version 3.1: /opt/hive-metastore/lib-3.1/*:/usr/hdp/current/hadoop-client/lib/* |
+|`spark.sql.hive.metastore.jars`|- Version 1.2: `/opt/hive-metastore/lib-1.2/*:/usr/hdp/current/hadoop-client/lib/*` <br />- Version 2.1: `/opt/hive-metastore/lib-2.1/*:/usr/hdp/current/hadoop-client/lib/*` <br /> - Version 3.1: `/opt/hive-metastore/lib-3.1/*:/usr/hdp/current/hadoop-client/lib/*` |
 |`spark.hadoop.hive.synapse.externalmetastore.linkedservice.name`|Name of your linked service created to the Azure SQL Database.|
 
 ### Configure Spark pool 
 When creating the Spark pool, under **Additional Settings** tab, put below configurations in a text file and upload it in **Apache Spark configuration** section. You can also use the context menu for an existing Spark pool, choose Apache Spark configuration to add these configurations.
+
     :::image type="content" source="./media/share-hive-metastore-with-synapse/config-spark-pool.png" alt-text="Configure the Spark pool" border="true":::
 
 Update metastore version and linked service name, and save below configs in a text file for Spark pool configuration:
