@@ -58,12 +58,17 @@ To create a container that supports version-level immutability with PowerShell, 
 
 Next, call the **New-AzRmStorageContainer** command with the `-EnableImmutableStorageWithVersioning` parameter, as shown in the following example. Remember to replace placeholders in angle brackets with your own values:
 
-```powershell
-New-AzRmStorageContainer -ResourceGroupName <resource-group> `
+```azurepowershell
+# Create a container with version-level immutability support.
+$container = New-AzRmStorageContainer -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account> `
     -Name <container> `
     -EnableImmutableStorageWithVersioning
+
+# Verify that version-level immutability support is enabled for the container
+$container.ImmutableStorageWithVersioning
 ```
+
 #### [Azure CLI](#tab/azure-cli)
 
 To create a container that supports version-level immutability with Azure CLI, first install Azure CLI version 2.27 or later. For more information about installing Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
@@ -71,11 +76,19 @@ To create a container that supports version-level immutability with Azure CLI, f
 Next, call the [az storage container-rm create](/cli/azure/storage/container-rm#az_storage_container_rm_create) command, specifying the `--enable-vlw` parameter. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
+# Create a container with version-level immutability support.
 az storage container-rm create \
     --name <container> \
     --storage-account <storage-account> \
     --resource-group <resource-group> \
     --enable-vlw
+
+# Verify that version-level immutability support is enabled for the container
+az storage container-rm show \
+    --storage-account <storage-account> \
+    --name <container> \
+    --query '[immutableStorageWithVersioning.enabled]' \
+    --output tsv
 ```
 
 ---
@@ -84,7 +97,9 @@ az storage container-rm create \
 
 To configure version-level immutability policies for an existing container, you must migrate the container to support version-level immutable storage. Container migration may take some time and cannot be reversed.
 
-An existing container must be migrated regardless of whether it has a container-level time-based retention policy configured. If the container has an existing container-level legal hold, then it cannot be migrated until the legal hold is removed.
+To migrate an existing container to support version-level immutability policies, the container must have a container-level time-based retention policy configured. The migration fails unless the container has an existing policy. The retention interval for the container-level policy is maintained as the retention interval for the default version-level policy on the container.
+
+If the container has an existing container-level legal hold, then it cannot be migrated until the legal hold is removed.
 
 #### [Portal](#tab/azure-portal)
 
@@ -95,35 +110,85 @@ To migrate a container to support version-level immutable storage in the Azure p
 1. Under **Immutable blob storage**, select **Add policy**.
 1. For the **Policy type** field, choose *Time-based retention*, and specify the retention interval.
 1. Select **Enable version-level immutability**.
-1. Select **OK** to begin the migration.
+1. Select **OK** to create a container-level policy with the specified retention interval and then begin the migration to version-level immutability support.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/migrate-existing-container.png" alt-text="Screenshot showing how to migrate an existing container to support version-level immutability":::
 
+While the migration operation is underway, the scope of the policy on the container shows as *Container*.
+
+:::image type="content" source="media/immutable-policy-configure-version-scope/container-migration-in-process.png" alt-text="Screenshot showing container migration in process":::
+
+After the migration is complete, the scope of the policy on the container shows as *Version*. The policy shown is a default policy on the container that automatically applies to all blob versions subsequently created in the container. The default policy can be overridden on any version by specifying a custom policy for that version.
+
+:::image type="content" source="media/immutable-policy-configure-version-scope/container-migration-complete.png" alt-text="Screenshot showing completed container migration":::
+
 #### [PowerShell](#tab/azure-powershell)
 
-To migrate a container to support version-level immutable storage with PowerShell, call the **Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration** command. Include the `-AsJob` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
+To migrate a container to support version-level immutable storage with PowerShell, first make sure that a container-level time-based retention policy exists for the container. To create one, call [Set-AzRmStorageContainerImmutabilityPolicy](/powershell/module/az.storage/set-azrmstoragecontainerimmutabilitypolicy).
 
-```powershell
-Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration -ResourceGroupName <resource-group> `
+```azurepowershell
+Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
+   -StorageAccountName <storage-account> `
+   -ContainerName <container> `
+   -ImmutabilityPeriod <retention-interval> `
+   -AllowProtectedAppendWrite $true
+```
+
+Next, call the **Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration** command to migrate the container. Include the `-AsJob` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
+
+```azurepowershell
+$migrationOperation = Invoke-AzRmStorageContainerImmutableStorageWithVersioningMigration -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account> `
     -Name <container> `
     -AsJob
 ```
 
+To check the status of the long-running operation, read the operation's **JobStateInfo** property.
+
+```azurepowershell
+$migrationOperation.JobStateInfo
+```
+
+After the migration is complete, check the **Output** property of the operation to see that support for version-level immutability is enabled.
+
+```azurepowershell
+$migrationOperation.Output
+```
+
 #### [Azure CLI](#tab/azure-cli)
 
-To migrate a container to support version-level immutable storage with Azure CLI, call the [az storage container-rm migrate-vlw](/cli/azure/storage/container-rm#az_storage_container_rm_migrate_vlw) command. Include the `--no-wait` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
+To migrate a container to support version-level immutable storage with Azure CLI, first make sure that a container-level time-based retention policy exists for the container. To create one, call [az storage container immutability-policy create](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_create).
+
+```azurecli
+az storage container immutability-policy create \
+    --resource-group <resource-group> \
+    --account-name <storage-account> \
+    --container-name <container> \
+    --period <retention-interval> \
+    --allow-protected-append-writes true
+```
+
+Next, call the [az storage container-rm migrate-vlw](/cli/azure/storage/container-rm#az_storage_container_rm_migrate_vlw) command to migrate the container. Include the `--no-wait` parameter to run the command asynchronously. Running the operation asynchronously is recommended, as the migration may take some time to complete.
 
 ```azurecli
 az storage container-rm migrate-vlw \
-    --name <container> \
-    --storage-account <storage-account> \
     --resource-group <resource-group> \
+    --storage-account <storage-account> \
+    --name <container> \
     --no-wait
 ```
 
----
+To check the status of the long-running operation, read the value of the **migrationState** property.
 
+```azurecli
+az storage container-rm show \
+    --storage-account <storage-account> \
+    --name <container> \
+    --query '[immutableStorageWithVersioning.migrationState]' \
+    --output tsv
+```
+
+---
 
 ## Configure a time-based retention policy on a container
 
@@ -132,6 +197,10 @@ Once a container is enabled for version-level immutability, you can specify a de
 The default policy is not automatically applied to blob versions that existed before the default policy was configured.
 
 ### Configure a default time-based retention policy on a container
+
+To apply a default version-level immutability policy to a container
+
+#### [Portal](#tab/azure-portal)
 
 To apply a default version-level immutability policy to a container in the Azure portal, follow these steps:
 
@@ -143,6 +212,17 @@ To apply a default version-level immutability policy to a container in the Azure
 1. Select **OK** to apply the default policy to the container.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/configure-default-retention-policy-container.png" alt-text="Screenshot showing how to configure a default version-level retention policy for a container":::
+
+#### [PowerShell](#tab/azure-powershell)
+
+TBD
+
+#### [Azure CLI](#tab/azure-cli)
+
+TBD
+
+---
+
 
 ### Determine the scope of a retention policy on a container
 
