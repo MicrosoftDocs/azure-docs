@@ -69,7 +69,7 @@ If you have selected the **Stop Protection and Retain data** option while stoppi
 
 1. Select **Resume backup**.
 
-   :::image type="content" source="./media/manage-azure-database-postgresql/resume-data-backup-backup.png" alt-text="Screenshot showing the option to resume data backup.":::
+   :::image type="content" source="./media/manage-azure-database-postgresql/resume-data-backup.png" alt-text="Screenshot showing the option to resume data backup.":::
 
 ## Next steps
 
