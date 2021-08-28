@@ -19,18 +19,17 @@ ms.collection:
 
 ## Terminology used in this guide
 
+| Abbreviation                                                                                                          | Description                                                                                                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [BTP](https://www.sap.com/products/business-technology-platform.html)                                                 | SAP Business Technology Platform. The whole of SAP's technology offering. Most of the SAP technologies discussed here are part of BTP. The products formally known as SAP Cloud Platform are part of SAP BTP. |
+| [IAS](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US)                                       | SAP Cloud Identity Services - Identity Authentication Service. The multi-tenant cloud Identity Provider service provided by SAP. This is how users authenticate to their own SAP service instances.           |
+| [IDS](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/d6a8db70bdde459f92f2837349f95090.html) | SAP ID Service. An instance of IAS used by SAP to authenticate customers and partners to SAP-operated PaaS and SaaS services.                                                                                 |
+| [IPS](https://help.sap.com/viewer/f48e822d6d484fa5ade7dda78b64d9f5/Cloud/en-US/2d2685d469a54a56b886105a06ccdae6.html) | SAP Cloud Identity Services - Identity Provisioning Service.  This is how identities can be synchronized between different stores / target systems.                                                           |
+| [XSUAA](https://blogs.sap.com/2019/01/07/uaa-xsuaa-platform-uaa-cfuaa-what-is-it-all-about/)                          | Extended Services for Cloud Foundry User Account and Authentication.  This is a multi-tenant OAuth authorization server within the SAP BTP.                                                                   |
+| [CF](https://www.cloudfoundry.org/)                                                                                   | Cloud Foundry. This is the environment on which SAP built their multi-cloud offering for BTP (AWS, Azure, GCP, Alibaba).                                                                                      |
+| [Fiori](https://www.sap.com/products/fiori/develop.html)                                                              | The web-based user experience of SAP (as opposed to the desktop-based experience).                                                                                                                            |
 
-| Abbreviation | Description                                                                                                                                                                                                   |
-|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| BTP          | SAP Business Technology Platform. The whole of SAP’s technology offering. Most of the SAP technologies discussed here are part of BTP. The products formally known as SAP Cloud Platform are part of SAP BTP. |
-| IAS          | SAP Cloud Identity Services – Identity Authentication Service. The multitenant cloud Identity Provider service provided by SAP. This is how users authenticate to their own SAP service instances.            |
-| IDS          | SAP ID Service. An instance of IAS used by SAP to authenticate customers and partners to SAP-operated PaaS and SaaS services.                                                                                 |
-| IPS          | SAP Cloud Identity Services – Identity Provisioning Service.  This is how identities can be synchronized between different stores / target systems.                                                           |
-| XSUAA        | Extended Services for Cloud Foundry User Account and Authentication.  This is a multitenant OAuth authorization server within the SAP BTP.                                                                    |
-| CF           | Cloud Foundry. This is the environment on which SAP built their multi-cloud offering for BTP (AWS, Azure, GCP, Alibaba).                                                                                      |
-| Fiori        | The web-based user experience of SAP (as opposed to the desktop-based experience).                                                                                                                            |
-
-## Abstract
+## Overview
 
 This document provides advice on the technical design and configuration of SAP platforms and applications when using Azure Active Directory as the primary user authentication service.
 
@@ -39,10 +38,11 @@ There are many services and components in the SAP and Microsoft technology stack
 ![SAP landscape overview](./media/scenario-aad-first-sap-integration/sap-landscape-overview.png)
 
 Since there are many permutations of possible scenarios to be configured, we will focus on one scenario that is in-line with an Azure AD identity first strategy. We are making the following assumptions:
-* You want to govern all your identities centrally and only from Azure AD.
-* You want to reduce maintenance efforts as much as possible and automate authentication and app access across Microsoft and SAP.
-* The general guidance for Azure AD with IAS applies for apps deployed on BTP as well as SAP SaaS apps configured in IAS. Specific recommendations will also be provided where applicable to BTP (for example, using role mappings with Azure AD groups) and SAP SaaS apps (for example, using identity provisioning service for role-based authorization).
-* We also assume that users are already provisioned in Azure AD and towards any SAP systems that require users to be provisioned to function, regardless of how that was achieved: this could have been through manual provisioning, from on-premises Active Directory through Azure AD Connect, or through HR systems like SAP SuccessFactors. In this document therefore, SuccessFactors is considered to be an application like any other that (existing) users will sign on to and we don’t cover actual provisioning of users from SuccessFactors into Azure AD.
+
+- You want to govern all your identities centrally and only from Azure AD.
+- You want to reduce maintenance efforts as much as possible and automate authentication and app access across Microsoft and SAP.
+- The general guidance for Azure AD with IAS applies for apps deployed on BTP as well as SAP SaaS apps configured in IAS. Specific recommendations will also be provided where applicable to BTP (for example, using role mappings with Azure AD groups) and SAP SaaS apps (for example, using identity provisioning service for role-based authorization).
+- We also assume that users are already provisioned in Azure AD and towards any SAP systems that require users to be provisioned to function, regardless of how that was achieved: this could have been through manual provisioning, from on-premises Active Directory through Azure AD Connect, or through HR systems like SAP SuccessFactors. In this document therefore, SuccessFactors is considered to be an application like any other that (existing) users will sign on to and we don't cover actual provisioning of users from SuccessFactors into Azure AD.
 
 Based on these assumptions, we focus mostly on the products and services presented in the diagram below. These are the various components that are most relevant to authentication and authorization in a cloud-based environment.
 
@@ -54,15 +54,16 @@ Based on these assumptions, we focus mostly on the products and services present
 
 #### Context
 
-Your applications in BTP can use identity providers through [Trust Configurations](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/cb1bc8f1bd5c482e891063960d7acd78.html) to authenticate users by using the SAML 2.0 protocol between BTP/XSUAA and the identity provider (note that only SAML 2.0 is supported, even though the OpenID Connect protocol is used between the application itself and BTP/XSUAA, but that isn’t relevant in this context).
+Your applications in BTP can use identity providers through [Trust Configurations](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/cb1bc8f1bd5c482e891063960d7acd78.html) to authenticate users by using the SAML 2.0 protocol between BTP/XSUAA and the identity provider (note that only SAML 2.0 is supported, even though the OpenID Connect protocol is used between the application itself and BTP/XSUAA, but that isn't relevant in this context).
 
 In BTP, you can choose to set up a trust configuration towards SAP ID Service (which is the default) but when your authoritative user directory is Azure AD, you can set up **federation** so that users can sign in with their existing Azure AD accounts.
 
-On top of federation, you can optionally also set up **user provisioning** so that Azure AD users are provisioned upfront in BTP. However, there is no native support for this (only for Azure AD -> SAP Identity Authentication Service); an integrated solution with native support would be the BTP Identity Provisioning Service  . Provisioning user accounts upfront could be useful for authorization purposes (for example, to add users to roles), although depending on requirements you can also achieve this with Azure AD groups (see below) which could mean you don’t need user provisioning at all.
+On top of federation, you can optionally also set up **user provisioning** so that Azure AD users are provisioned upfront in BTP. However, there is no native support for this (only for Azure AD -> SAP Identity Authentication Service); an integrated solution with native support would be the BTP Identity Provisioning Service  . Provisioning user accounts upfront could be useful for authorization purposes (for example, to add users to roles), although depending on requirements you can also achieve this with Azure AD groups (see below) which could mean you don't need user provisioning at all.
 
 When setting up the federation relationship, there are multiple options:
+
 - You can choose to federate towards Azure AD directly from BTP/XSUAA.
-- You can choose to federate with IAS which in turn is set up to federate with Azure AD as a Corporate Identity Provider (aka “SAML Proxying”).
+- You can choose to federate with IAS which in turn is set up to federate with Azure AD as a Corporate Identity Provider (aka "SAML Proxying").
 
 For SAP SaaS applications (e.g., SuccessFactors, Marketing Cloud, Cloud4Customer, Sales Cloud etc.) IAS is provisioned pre-configured for easy onboarding of end-users. This scenario is less complex, because IAS is directly connected with the target app and not proxied to XSUAA. Nevertheless, the same rules apply for this setup as for Azure AD with IAS in general.
 
@@ -72,103 +73,106 @@ When your authoritative user directory is Azure AD, we recommend setting up a tr
 
 ![SAP trust configuration](./media/scenario-aad-first-sap-integration/sap-trust-configuration.png)
 
-On the trust configuration in BTP, we recommend that “Create Shadow Users During Logon” is enabled so that users who have not yet been created in BTP automatically get an account when they sign in through IAS/Azure AD for the first time. If this setting would be disabled, only pre-provisioned users would be allowed to sign in.
+On the trust configuration in BTP, we recommend that "Create Shadow Users During Logon" is enabled so that users who have not yet been created in BTP automatically get an account when they sign in through IAS/Azure AD for the first time. If this setting would be disabled, only pre-provisioned users would be allowed to sign in.
 
 #### Why this recommendation?
 
 When using federation, you can choose to define the trust configuration at the BTP Subaccount level, but in that case, you must repeat the configuration for each other Subaccount you are using. By using IAS as an intermediate trust configuration, you benefit from centralized configuration across multiple Subaccounts and you can use additional IAS features such as [risk-based authentication](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/bc52fbf3d59447bbb6aa22f80d8b6056.html) and centralized [enrichment of assertion attributes](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/7124201682434efb946e1046fde06afe.html). To safeguard the user experience, these advanced security features should only be enforced at a single location. This could either be IAS or when keeping Azure AD as the single authoritative user store (as is the premise of this paper), this would centrally be handled by Azure AD [Conditional Access Management](../conditional-access/overview.md).
 
-Note that to IAS, every Subaccount is considered to be an “application”, even though within that Subaccount one or more applications could be deployed.  Within IAS, every such application can be setup for federation with the same corporate identity provider (Azure AD in this case).
+Note that to IAS, every Subaccount is considered to be an "application", even though within that Subaccount one or more applications could be deployed.  Within IAS, every such application can be setup for federation with the same corporate identity provider (Azure AD in this case).
 
 #### Summary of implementation
 
 In Azure AD:
+
 - Optionally [configure Azure AD for seamless single sign-on](../hybrid/how-to-connect-sso.md) (Seamless SSO), which automatically signs users in when they are on their corporate devices connected to your corporate network. When enabled, users don't need to type in their passwords to sign in to Azure AD, and usually, even type in their usernames.
 
 In Azure AD and IAS:
-- Follow the documentation to connect Azure AD to IAS in federation (proxy) mode ([SAP doc](https://developers.sap.com/tutorials/cp-ias-azure-ad.html), [Microsoft doc](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md)). Watch out for the NameID setting on your SSO config in Azure AD, because UPNs are not necessarily email-addresses    .
-- Configure the “Bundled Application” to use Azure AD by going to the “[Conditional Authentication](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/0143dce88a604533ab5ab17e639fec09.html)” page and setting the “Default Authenticating Identity Provider” to the Corporate Identity Provider representing your Azure AD directory.
+
+- Follow the documentation to connect Azure AD to IAS in federation (proxy) mode ([SAP doc](https://developers.sap.com/tutorials/cp-ias-azure-ad.html), [Microsoft doc](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md)). Watch out for the `NameID` setting on your SSO config in Azure AD, because UPNs are not necessarily email-addresses.
+- Configure the "Bundled Application" to use Azure AD by going to the "[Conditional Authentication](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/0143dce88a604533ab5ab17e639fec09.html)" page and setting the "Default Authenticating Identity Provider" to the Corporate Identity Provider representing your Azure AD directory.
 
 In BTP:
-- Set up a trust configuration towards IAS ([SAP doc](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/7c6aa87459764b179aeccadccd4f91f3.html#loio7c6aa87459764b179aeccadccd4f91f3)) and ensure that “[Available for User Logon](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/LATEST/en-US/affb201b1a36497996c2144c28683aed.html)” and “Create Shadow Users During Logon” are both enabled.
-- Optionally, disable “Available for User Logon” on the default “SAP ID Service” trust configuration so that users always authenticate via Azure AD and aren’t presented with a screen to choose their identity provider.
+
+- Set up a trust configuration towards IAS ([SAP doc](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/7c6aa87459764b179aeccadccd4f91f3.html#loio7c6aa87459764b179aeccadccd4f91f3)) and ensure that "[Available for User Logon](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/LATEST/en-US/affb201b1a36497996c2144c28683aed.html)" and "Create Shadow Users During Logon" are both enabled.
+- Optionally, disable "Available for User Logon" on the default "SAP ID Service" trust configuration so that users always authenticate via Azure AD and aren't presented with a screen to choose their identity provider.
 
 ### 2 - Use Azure AD for Authentication and IAS/BTP for Authorization
 
 #### Context
 
 When BTP and IAS have been configured for user **authentication** via federation towards Azure AD, there are multiple options for configuring **authorization**:
+
 - In Azure AD, you can assign Azure AD users and/or groups to the Enterprise Application representing your SAP IAS instance in Azure AD.
 - In IAS, you can use Risk-based Authentication to allow or block sign-ins and thereby preventing access to the application in BTP.
 - In BTP, you can use Role Collections to define which users and/or groups can access the application and get certain roles.
 
 #### What are we recommending?
 
-We recommend that you don’t put any authorization directly in Azure AD itself and explicitly turn off “[User assignment required](../manage-apps/assign-user-or-group-access-portal.md)” on the Enterprise Application in Azure AD. Note that for SAML applications, this setting is enabled by default, so you must take explicit action to disable it.
+We recommend that you don't put any authorization directly in Azure AD itself and explicitly turn off "[User assignment required](../manage-apps/assign-user-or-group-access-portal.md)" on the Enterprise Application in Azure AD. Note that for SAML applications, this setting is enabled by default, so you must take explicit action to disable it.
 
 #### Why this recommendation?
 
-When the application is federated through IAS, from the point of view of Azure AD the user is essentially “authenticating to IAS” during the sign-in flow – meaning that Azure AD has no information about which final BTP application the user is trying to sign in to. This means that authorization in Azure AD can only be used to do very coarse-grained authorization, i.e., allowing the user to sign in to *any* application in BTP, or *none*. This also emphasizes SAP’s strategy to isolate apps and authentication mechanisms on BTP Subaccount level.
+When the application is federated through IAS, from the point of view of Azure AD the user is essentially "authenticating to IAS" during the sign-in flow - meaning that Azure AD has no information about which final BTP application the user is trying to sign in to. This means that authorization in Azure AD can only be used to do very coarse-grained authorization, i.e., allowing the user to sign in to *any* application in BTP, or *none*. This also emphasizes SAP's strategy to isolate apps and authentication mechanisms on BTP Subaccount level.
 
-While that could be a valid reason for using “User assignment required”, it does mean there are now potentially two different places where authorization information needs to be maintained: both in Azure AD on the Enterprise Application (where it applies to *all* BTP applications), as well as in each BTP Subaccount. This could lead to confusion and misconfigurations where authorization settings are updated in one place but not the other (for example, a user was allowed in BTP but not assigned to the application in Azure AD resulting in a failed authentication).
+While that could be a valid reason for using "User assignment required", it does mean there are now potentially two different places where authorization information needs to be maintained: both in Azure AD on the Enterprise Application (where it applies to *all* BTP applications), as well as in each BTP Subaccount. This could lead to confusion and misconfigurations where authorization settings are updated in one place but not the other (for example, a user was allowed in BTP but not assigned to the application in Azure AD resulting in a failed authentication).
 
 #### Summary of implementation
 
-On the Azure AD Enterprise Application representing the federation relation with IAS, disable “[User assignment required](../manage-apps/assign-user-or-group-access-portal.md)”. This also means you can safely skip [assignment of users as detailed in Microsoft Docs](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md#assign-the-azure-ad-test-user).
-
+On the Azure AD Enterprise Application representing the federation relation with IAS, disable "[User assignment required](../manage-apps/assign-user-or-group-access-portal.md)". This also means you can safely skip [assignment of users as detailed in Microsoft Docs](../saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md#assign-the-azure-ad-test-user).
 
 ### 3 - Use Azure AD groups for Authorization through Role Collections in IAS/BTP
 
 #### Context
 
 When you want to configure authorization for your BTP applications, there are multiple options:
+
 - You can perform fine-grained control inside the application itself based on the signed-in user.
 - You can specify access through Roles and Role Collections in BTP, based on user assignments or group assignments.
-- 
-The final implementation can be a combination of both. However, for the assignment through Role Collections you can choose to do this on a user-by-user basis, or you can use groups of the configured identity provider.
 
+The final implementation can be a combination of both. However, for the assignment through Role Collections you can choose to do this on a user-by-user basis, or you can use groups of the configured identity provider.
 
 #### What are we recommending?
 
 If you want to use Azure AD as the authoritative source for fine-grained authorization, we recommend using Azure AD groups and assigning them to Role Collections in BTP. Granting users access to certain applications then simply means adding them to the relevant Azure AD group(s) without any further configuration required in IAS/BTP.
 
-With this configuration, we recommend using the Azure AD group’s Group ID (Object ID) as the unique identifier of the group, not the display name (“sAMAccountName”). This means you must use the Group ID both as the “Groups” assertion in the SAML token issued by Azure AD, as well as using the Group ID for the assignment to the Role Collection in BTP.
+With this configuration, we recommend using the Azure AD group's Group ID (Object ID) as the unique identifier of the group, not the display name ("sAMAccountName"). This means you must use the Group ID both as the "Groups" assertion in the SAML token issued by Azure AD, as well as using the Group ID for the assignment to the Role Collection in BTP.
 
 ![Using Role Collections in SAP](./media/scenario-aad-first-sap-integration/sap-use-role-collections.png)
 
-
 #### Why this recommendation?
 
-If you would assign *users* directly to Role Collections in BTP, you are not centralizing authorization decisions in Azure AD. It also means the user must already exist in IAS before they can be assigned to a Role Collection in BTP – and given that we recommend federation instead of user provisioning this means the user’s shadow account may not exist yet in IAS at the time you want to do the user assignment. Using Azure AD groups and assigning them to Role Collections eliminates these issues.
+If you would assign *users* directly to Role Collections in BTP, you are not centralizing authorization decisions in Azure AD. It also means the user must already exist in IAS before they can be assigned to a Role Collection in BTP - and given that we recommend federation instead of user provisioning this means the user's shadow account may not exist yet in IAS at the time you want to do the user assignment. Using Azure AD groups and assigning them to Role Collections eliminates these issues.
 
-Note that this may seem to contradict the prior recommendation to not use Azure AD for *authorization*. However even in this case the authorization decision is still being taken in BTP, it’s just that the decision is now based on information (i.e., group membership) maintained in Azure AD.
+Note that this may seem to contradict the prior recommendation to not use Azure AD for *authorization*. However even in this case the authorization decision is still being taken in BTP, it's just that the decision is now based on information (i.e., group membership) maintained in Azure AD.
 
-We recommend to use the Azure AD group’s Group ID rather than its name because the Group ID is globally unique, immutable and can never be reused for another group later on; whereas using the group name could lead to issues when the name is changed, and there’s a security risk in having a group being deleted and another one getting created with the same name but with users in it that should have no access to the application.
-
+We recommend to use the Azure AD group's Group ID rather than its name because the Group ID is globally unique, immutable and can never be reused for another group later on; whereas using the group name could lead to issues when the name is changed, and there's a security risk in having a group being deleted and another one getting created with the same name but with users in it that should have no access to the application.
 
 #### Summary of implementation
 
 In Azure AD:
+
 - Create groups to which users can be added that need access to applications in BTP (for example, create an Azure AD group for each Role Collection in BTP).
 - On the Azure AD Enterprise Application representing the federation relation with IAS, configure the SAML User Attributes & Claims to [add a group claim for security groups](../hybrid/how-to-connect-fed-group-claims#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration.md):
-    - Set the Source attribute to “Group ID” and the Name to “Groups” (spelled exactly like this, with upper case ‘G’).
+    - Set the Source attribute to "Group ID" and the Name to `Groups` (spelled exactly like this, with upper case ‘G').
     - Further, in order to keep claims payloads small and to avoid running into the limitation whereby Azure AD will limit the number of group claims to 150 in SAML assertions, we highly recommend limiting the groups returned in the claims to only those groups which explicitly were assigned:  
-        - Under “Which groups associated with the user should be returned in the claim?” answer with “Groups assigned to the application”.  Then for the groups you want to include as claims, assign them to the Enterprise Application using the “Users and Groups” section and selecting “Add user/group”.
-          
-![Azure AD Group Claim configuration](./media/scenario-aad-first-sap-integration/sap-aad-group-claim-configuration.png)
+        - Under "Which groups associated with the user should be returned in the claim?" answer with "Groups assigned to the application".  Then for the groups you want to include as claims, assign them to the Enterprise Application using the "Users and Groups" section and selecting "Add user/group".
+
+        ![Azure AD Group Claim configuration](./media/scenario-aad-first-sap-integration/sap-aad-group-claim-configuration.png)
 
 In IAS:
-- On the Corporate Identity Provider configuration, under the Identity Federation options, ensure that you disable “[Use Identity Authentication user store](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/LATEST/en-US/c029bbbaefbf4350af15115396ba14e2.html)”; otherwise, the group information from Azure AD would not be preserved in the SAML token towards BTP and authorization would fail.
+
+- On the Corporate Identity Provider configuration, under the Identity Federation options, ensure that you disable "[Use Identity Authentication user store](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/LATEST/en-US/c029bbbaefbf4350af15115396ba14e2.html)"; otherwise, the group information from Azure AD would not be preserved in the SAML token towards BTP and authorization would fail.
 
 In BTP:
-- On the Role Collections that are used by the applications in that Subaccount, [map the Role Collections to User Groups](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/51acfc82c0c54db59de0a528f343902c.html) by adding a configuration for the IAS Identity Provider and setting the Name to the Group ID (Object ID) of the Azure AD group.
 
+- On the Role Collections that are used by the applications in that Subaccount, [map the Role Collections to User Groups](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/51acfc82c0c54db59de0a528f343902c.html) by adding a configuration for the IAS Identity Provider and setting the Name to the Group ID (Object ID) of the Azure AD group.
 
 ### 4 - Use a single BTP Subaccount only for applications that have similar Identity requirements
 
 #### Context
 
-Within BTP, each Subaccount can contain multiple applications. However, from the IAS point of view a “Bundled Application” is a complete BTP Subaccount, not the more granular applications within it. This means that all Trust settings, Authentication and Access configuration as well as Branding and Layout options in IAS applies to all applications within that Subaccount. Similarly, all Trust Configurations and Role Collections in BTP also apply to all applications within that Subaccount.
+Within BTP, each Subaccount can contain multiple applications. However, from the IAS point of view a "Bundled Application" is a complete BTP Subaccount, not the more granular applications within it. This means that all Trust settings, Authentication and Access configuration as well as Branding and Layout options in IAS applies to all applications within that Subaccount. Similarly, all Trust Configurations and Role Collections in BTP also apply to all applications within that Subaccount.
 
 #### What are we recommending?
 
@@ -182,12 +186,11 @@ By combining multiple applications that have very different identity requirement
 
 Carefully consider how you want to group multiple applications across Subaccounts in BTP. For more information, see the [SAP Account Model documentation](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/8ed4a705efa0431b910056c0acdbf377.html).
 
-
 ### 5 - Use the Production IAS tenant for all end user Authentication and Authorization
 
 #### Context
 
-When working with IAS, you typically have a Production as well as a Dev/Test tenant. For different Subaccounts or applications in BTP, you can choose which identity provider to use – i.e., to use the Production or another IAS tenant.
+When working with IAS, you typically have a Production as well as a Dev/Test tenant. For different Subaccounts or applications in BTP, you can choose which identity provider to use - i.e., to use the Production or another IAS tenant.
 
 #### What are we recommending?
 
@@ -197,7 +200,7 @@ We recommend using other IAS tenants only for testing of identity related config
 
 #### Why this recommendation?
 
-Because IAS is the centralized component which has been set up to federate with Azure AD, there’s only a single place where the federation and identity configuration must be set up and maintained. Duplicating this in other IAS tenants can lead to misconfigurations or inconsistencies between environments when it comes to end user access.
+Because IAS is the centralized component which has been set up to federate with Azure AD, there's only a single place where the federation and identity configuration must be set up and maintained. Duplicating this in other IAS tenants can lead to misconfigurations or inconsistencies between environments when it comes to end user access.
 
 ### 6 - Define a Process for Rollover of SAML Signing Certificates
 
@@ -209,18 +212,19 @@ Note: the default validity period of the initial Azure AD certificate used to si
 
 When certificates expire, they can no longer be used, and new certificates must be configured. Therefore, a process must be established to keep the certificate configuration inside the relying party (which needs to validate the signatures) up to date with the actual certificates being used to sign the SAML tokens.
 
-In some cases, the relying party can do this automatically by providing it with a metadata endpoint which returns the latest metadata information dynamically – i.e., typically a publicly accessible URL from which the relying party can periodically retrieve the metadata and update its internal configuration store.
+In some cases, the relying party can do this automatically by providing it with a metadata endpoint which returns the latest metadata information dynamically - i.e., typically a publicly accessible URL from which the relying party can periodically retrieve the metadata and update its internal configuration store.
 
-However, IAS only allows Corporate Identity Providers to be set up through an import of the metadata XML file, it does not support providing a metadata endpoint for dynamic retrieval of the Azure AD metadata (e.g. https://login.microsoftonline.com/my-azuread-tenant/federationmetadata/2007-06/federationmetadata.xml?appid=my-app-id). Similarly, BTP does not allow a new Trust Configuration to be set up from the IAS metadata endpoint (e.g. https://my-ias-tenant.accounts.ondemand.com/saml2/metadata), it also needs a one-time upload of a metadata XML file.
-
+However, IAS only allows Corporate Identity Providers to be set up through an import of the metadata XML file, it does not support providing a metadata endpoint for dynamic retrieval of the Azure AD metadata (e.g. `https://login.microsoftonline.com/my-azuread-tenant/federationmetadata/2007-06/federationmetadata.xml?appid=my-app-id`). Similarly, BTP does not allow a new Trust Configuration to be set up from the IAS metadata endpoint (e.g. `https://my-ias-tenant.accounts.ondemand.com/saml2/metadata`), it also needs a one-time upload of a metadata XML file.
 
 #### What are we recommending?
 
 When setting up identity federation between any two systems (for example, Azure AD and IAS as well as IAS and BTP), ensure that you capture the expiration date of the certificates being used. Ensure that these certificates can be replaced well in advance, and that there is a documented process to update the new metadata in all relying parties that depend on these certificates.
+
 As discussed before, we recommend setting up a trust configuration in BTP towards IAS, which in turn is set up to federate with Azure AD as a Corporate Identity Provider. In this case, the following certificates (which are used for SAML signing and encryption) are important:
-- The Subaccount certificate in BTP: when this changes, the Application’s SAML 2.0 Configuration in IAS must be updated.
-- The tenant certificate in IAS: when this changes, both the Enterprise Application’s SAML 2.0 Configuration in Azure AD as well as the Trust Configuration in BTP must be updated.
-- The Enterprise Application certificate in Azure AD: when this changes, the Corporate Identity Provider’s SAML 2.0 Configuration in IAS must be updated.
+
+- The Subaccount certificate in BTP: when this changes, the Application's SAML 2.0 Configuration in IAS must be updated.
+- The tenant certificate in IAS: when this changes, both the Enterprise Application's SAML 2.0 Configuration in Azure AD as well as the Trust Configuration in BTP must be updated.
+- The Enterprise Application certificate in Azure AD: when this changes, the Corporate Identity Provider's SAML 2.0 Configuration in IAS must be updated.
 
 ![Rolling over SAML Signing Certs](./media/scenario-aad-first-sap-integration/sap-rollover-saml-signing-certs.png)
 
@@ -232,6 +236,6 @@ If the certificates are allowed to expire, or when they are replaced in time but
 
 #### Summary of implementation
 
-[Add an email notification address for certificate expiration](../manage-apps/manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration) in Azure AD and set it to a group mailbox so that it isn’t sent to a single individual (who may even no longer have an account by the time the certificate is about to expire). By default, only the user who created the Enterprise Application will receive a notification.
+[Add an email notification address for certificate expiration](../manage-apps/manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration) in Azure AD and set it to a group mailbox so that it isn't sent to a single individual (who may even no longer have an account by the time the certificate is about to expire). By default, only the user who created the Enterprise Application will receive a notification.
 
 Consider building automation to perform the entire certificate rollover process, i.e., periodically checking for expiring certificates, replacing them and updating all relying parties with the new metadata.
