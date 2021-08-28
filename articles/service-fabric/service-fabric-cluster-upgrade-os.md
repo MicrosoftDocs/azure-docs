@@ -8,14 +8,14 @@ ms.date: 08/27/2021
 
 # Upgrading Linux OS for Azure Service Fabric
 
-This document describes the guide to migrate your Azure Service Fabric for Linux cluster from Ubuntu version 16.04 LTS to 18.04 LTS. Each of these OS (operating system) versions requires a distinct SF runtime package which requires the steps described in this document to facilitate a smooth migration.
+This document describes the guide to migrate your Azure Service Fabric for Linux cluster from Ubuntu version 16.04 LTS to 18.04 LTS. Each OS (operating system) version requires a distinct SF runtime package, which requires the steps described in this document to facilitate a smooth migration.
 
 ## Overview
 
 The general approach is to:
 
 1. Switch the Service Fabric cluster ARM resource "vmImage" to "Ubuntu18_04" to pull future code upgrades for this OS version. This temporary OS mismatch against existing node types will block automatic code upgrade rollouts to ensure safe rollover. *See NOTE 1* below.
-2. For each node type in the cluster, create another node type with the underlying VMSS OS targeting the Ubuntu 18.04 OS. Each new node type will assume the role of its old counterpart. *See NOTE 2 & NOTE 3* below.
+2. For each node type in the cluster, create another node type with the underlying VMSS (virtual machine scale set) OS targeting the Ubuntu 18.04 OS image. Each new node type will assume the role of its old counterpart. *See NOTE 2 & NOTE 3* below.
 
     a) A new primary node type will have to be created to replace the old node type marked as "isPrimary": true.
     
@@ -33,17 +33,17 @@ Important notes to keep in mind:
 > Ensure after new node type with the target OS is created that existing workloads continue to function correctly. If issues are observed, address the changes required in the app or pre-installed machine packages before proceding with removing the old node type.
 
 > [!NOTE 3]
-> Az Powershell generates a new dns name for the added node type so external traffic will have to be redirected to this endpoint. 
+> Az PowerShell generates a new dns name for the added node type so external traffic will have to be redirected to this endpoint.
 
 
 # Ease of use steps for non-production clusters
 
 > [!NOTE]
-> The steps below demonstrate how to quickly prototype the node type migration via Az Powershell cmdlets in a TEST-only cluster. For production clusters facing real business traffic, the same steps are expected to be done by issuing ARM upgrades, to preserve replayability & a consistent declarative source of truth.
+> The steps below demonstrate how to quickly prototype the node type migration via Az PowerShell cmdlets in a TEST-only cluster. For production clusters facing real business traffic, the same steps are expected to be done by issuing ARM upgrades, to preserve replayability & a consistent declarative source of truth.
 
 1. Update vmImage setting on Service Fabric cluster resource using [Update-AzServiceFabricVmImage](https://docs.microsoft.com/en-us/powershell/module/az.servicefabric/update-azservicefabricvmimage?view=azps-6.3.0):
 
-    [Azure Powershell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps):
+    [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps):
     ```powershell
     $subscriptionId="cea219db-0593-4b27-8bfa-a703332bf433"
     Login-AzAccount; Select-AzSubscription -SubscriptionId $subscriptionId
