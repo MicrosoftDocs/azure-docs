@@ -386,6 +386,8 @@
         href: faq-open-source-technologies.yml
       - name: Configuration and management FAQ
         href: faq-configuration-and-management.yml
+      - name: App Service on Linux
+        href: faq-app-service-linux.yml        
   - name: IP address change
     items:
     - name: Inbound IP address
