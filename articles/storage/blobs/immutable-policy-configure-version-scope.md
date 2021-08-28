@@ -307,15 +307,12 @@ To configure a time-based retention policy on a previous version of a blob, foll
 To configure a time-based retention policy on a blob version with PowerShell, call the **Set-AzStorageBlobImmutabilityPolicy** command.
 
 ```azurepowershell
-$containerName = "sample-container-default"
-$blobName = "blob1.txt"
-
 # Get the storage account context
 $ctx = (Get-AzStorageAccount `
         -ResourceGroupName <resource-group> `
         -Name <storage-account>).Context
 
-$blob = Set-AzStorageBlobImmutabilityPolicy -Container <container> `
+Set-AzStorageBlobImmutabilityPolicy -Container <container> `
     -Blob <blob-version> `
     -Context $ctx `
     -ExpiresOn "2021-09-01T12:00:00Z" `
@@ -398,13 +395,13 @@ To configure or clear a legal hold on a blob version with PowerShell, call the *
 ```azurepowershell
 # Set a legal hold
 Set-AzStorageBlobLegalHold -Container <container> `
-    -Blob "blob2.txt" `
+    -Blob <blob-version> `
     -Context $ctx `
     -EnableLegalHold
 
 # Clear a legal hold
 Set-AzStorageBlobLegalHold -Container <container> `
-    -Blob "blob2.txt" `
+    -Blob <blob-version> `
     -Context $ctx `
     -DisableLegalHold
 ```
