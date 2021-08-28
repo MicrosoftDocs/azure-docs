@@ -24,7 +24,6 @@ landingContent:
         links:
           - text: What is Azure Web PubSub service?
             url: overview.md
-        links:
           - text: Key concepts in Azure Web PubSub service
             url: key-concepts.md
 
