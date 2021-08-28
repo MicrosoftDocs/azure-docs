@@ -75,6 +75,8 @@ When you create an Azure Video Analyzer account, you have to associate an Azure 
 1. Select **Create a resource** > **Containers** > **Container Registry**.
 1. On the **Basics** tab, enter values for **Resource group** and **Registry name**. Use the same resource group from the previous sections. The registry name must be unique within Azure and contain 5 to 50 alphanumeric characters.
 1. Accept default values for the remaining settings. Then select **Review + create**. After you review the settings, select **Create**.
+1.  Navigate to the Azure Container Registry.  Click on **Access keys** and then enable the **Admin user**.
+![Screenshot that shows how to enable the Admin user for the Container Registry.](./media/get-started-detect-motion-emit-events/acr-enable-admin-user.png)
 
 ## Deploy edge modules
 
