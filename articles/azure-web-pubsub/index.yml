@@ -39,7 +39,7 @@ landingContent:
             url: quickstart-serverless.md
           - text: Serverless Development with Azure Functions
             url: tutorial-serverless-notification.md
-      - linkListType: Tutorial
+      - linkListType: how-to-guide
         links:
           - text: Build a chat app 
             url: tutorial-build-chat.md
@@ -47,7 +47,11 @@ landingContent:
             url: tutorial-subprotocol.md
           - text: Authentication and permissions
             url: tutorial-permission.md
-      - linkListType: Live demos
+     
+  # Card
+  - title: Live Demos
+    linkLists:       
+      - linkListType: quickstart
         links:
           - text: Whiteboard
             url: https://azure.github.io/azure-webpubsub/demos/whiteboard
