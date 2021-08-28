@@ -15,11 +15,11 @@ Application Insights Java 3.x collects some of the JMX metrics by default, but i
 
 ## How do I collect additional JMX metrics?
 
-JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource. You have to define the object name and attribute for each of the metrics you want collected.
+JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource. Object name and attribute are required for each of the metrics you want collected.
 
 ## How do I know what metrics are available to configure?
 
-You nailed it - you must know the object names and the attributes, those properties are different for various libraries, frameworks, and application servers, and are often not well documented. Luckily, we made it easy to find what exacly JMX metrics are supported for your particular environment.
+You nailed it - you must know the object names and the attributes, those properties are different for various libraries, frameworks, and application servers, and are often not well documented. Luckily, we made it easy to find what exactly JMX metrics are supported for your particular environment.
 
 To view the available metrics, set `selfDiagnostics` to `DEBUG` in your `applicaitoninsight.json` configuration file, for example:
 
@@ -35,8 +35,9 @@ To view the available metrics, set `selfDiagnostics` to `DEBUG` in your `applica
   }
 ```
 
-The available JMX metrics, with the object names and attribute names will appear in the log file (in the examples above you will also see them in the console).
+The available JMX metrics, with the object names and attribute names will appear in the log file (in the configuration example above you will also see them in the console).
 
+The output in the log file will look similar to the example below. In some cases the list can be quite extensive.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of available JMX metrics in the log file](media/java-ipa/jmx/available-mbeans.png)
 
