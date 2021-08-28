@@ -8,7 +8,7 @@ ms.date: 06/01/2021
 
 # Use the gRPC extension protocol 
 
-Azure Video Analyzer allows you to enhance its pipeline processing capabilities through a <!--REDIRECT[pipeline extension node](pipeline-extension.md)-->. The gRPC extension processor enables extensibility scenarios using a <!--REDIRECT[highly performant, structured, gRPC-based protocol](pipeline-extension.md#grpc-extension-processor)-->.
+Azure Video Analyzer allows you to enhance its pipeline processing capabilities through a [pipeline extension node](pipeline-extension.md). The gRPC extension processor enables extensibility scenarios using a [highly performant, structured, gRPC-based protocol](pipeline-extension.md#grpc-extension-processor).
 
 In this article, you will learn about using gRPC extension protocol to send messages between Video Analyzer module and your gRPC server that processes those messages and returns results. gRPC is a modern, open-source, high-performance RPC framework that runs in any environment and support cross platform and cross language communication. The gRPC transport service uses HTTP/2 bidirectional streaming between:
 
@@ -19,10 +19,10 @@ A gRPC session is a single connection from the gRPC client to the gRPC server ov
 In a single session: The client sends a media stream descriptor followed by video frames to the server as a [protobuf](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc) message over the gRPC stream session. The server validates the stream descriptor, analyses the video frame, and returns inference results as a protobuf message.
 
 It is strongly recommended that responses are returned using valid JSON documents following the pre-established schema defined as per the [inference metadata schema object model](inference-metadata-schema.md). This will better ensure interoperability with other components and scenarios like recording and playback of video with inference metadata.
-<!--REDIRECT
+
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/grpc-extension-protocol/grpc-external-srv.svg" alt-text="Azure Video Analyzer module" lightbox="./media/grpc-extension-protocol/grpc-external-srv.svg":::
--->
+
 ## Implementing gRPC protocol
 
 ### Creating a gRPC connection
@@ -156,12 +156,12 @@ For more information on IPC modes, see [IPC settings (--ipc)](https://docs.docke
 ## Video Analyzer gRPC extension contract definitions
 
 This section defines the gRPC contract that defines data flow.
-<!--REDIRECT
+
 ### Protocol messages
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/grpc-extension-protocol/contract-definitions.png" alt-text="Video Analyzer protocol messages"  lightbox="./media/grpc-extension-protocol/contract-definitions.png":::
--->
+
 ### Client authentication
 
 Implementers of custom extensions can validate the authenticity of incoming gRPC connections to be sure that they are coming from the gRPC extension node. The node will provide an entry in the request headers to validate against.
