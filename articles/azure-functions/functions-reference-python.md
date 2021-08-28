@@ -260,7 +260,7 @@ More logging methods are available that let you write to the console at differen
 
 To learn more about logging, see [Monitor Azure Functions](functions-monitoring.md).
 
-### Enable distributed tracing for Azure Functions
+### Log custom telemetry
 
 By default, some of the telemetry is collected for Functions apps. This telemetry ends up as traces in Application Insights. For more control, you can instead use the [OpenCensus Python Extensions](https://github.com/census-ecosystem/opencensus-python-extensions-azure) to send custom telemetry data to your Application Insights instance. 
 To gain full benefits of distributed tracing, and collect custom telemetry from services such as Redis, Memcached,  MongoDB, and more, you can use the [OpenCensus Python Extension](https://github.com/census-ecosystem/opencensus-python-extensions-azure), this telemetry will appear in logs.
