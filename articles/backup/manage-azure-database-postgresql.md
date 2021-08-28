@@ -47,7 +47,7 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
 1. Select **Delete Backup Data**.
 
-   Provide the name of the backup instance, reason, and comments.
+   Provide the name of the backup instance, reason for deletion, and comments.
 
    :::image type="content" source="./media/manage-azure-database-postgresql/delete-backup-data-and-provide-details.png" alt-text="Screenshot showing the option to delete backup data and the detail required to be added.":::
 
