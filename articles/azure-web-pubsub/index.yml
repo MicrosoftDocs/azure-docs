@@ -48,6 +48,7 @@ landingContent:
           - text: Authentication and permissions
             url: tutorial-permission.md
       - linkListType: Live demos
+        links:
           - text: Whiteboard
             url: https://azure.github.io/azure-webpubsub/demos/whiteboard
           - text: Simple chat
