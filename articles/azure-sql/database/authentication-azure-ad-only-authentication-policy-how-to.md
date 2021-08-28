@@ -88,9 +88,9 @@ Search for the assignment name that you have given earlier to the policy.
 
 :::image type="content" source="media/authentication-azure-ad-only-authentication-policy/compliance-policy-azure-ad-only-authentication.png" alt-text="Screenshot of Azure Policy compliance for Azure AD-only authentication":::
 
-Once the SQL logical server is created with Azure AD-only authentication, the policy report will increase the counter under the **Resources by compliance state** visual. You will be able to see which resources are compliant, or non-compliant.
+Once the SQL logical server is created with Azure AD-only authentication, the policy report will increase the counter under the **Resources by compliance state** visual. You'll be able to see which resources are compliant, or non-compliant.
 
-If the resource group that the policy was chosen to cover contains already created servers, the policy report will indicate those resources that are compliant and not-compliant.
+If the resource group that the policy was chosen to cover contains already created servers, the policy report will indicate those resources that are compliant and non-compliant.
 
 > [!NOTE]
 > Updating the compliance report may take some time. Changes related to resource creation or Azure AD-only authentication settings are not reported immediately.    
