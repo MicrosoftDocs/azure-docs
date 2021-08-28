@@ -18,7 +18,7 @@ ms.custom: aaddev, devx-track-python
 
 # Desktop app that calls web APIs: Acquire a token using WAM
 
-MSAL is now able to call Web Account Manager, a Windows 10 component that ships with the OS. This component acts as an authentication broker.
+MSAL is able to call Web Account Manager, a Windows 10 component that ships with the OS. This component acts as an authentication broker and users of your app benefit from integration with accounts known from Windows, such as the account you signed-in with in your Windows session.
 
 ## Availability
 
@@ -26,9 +26,11 @@ MSAL 4.25+ supports WAM on UWP, .NET Classic, .NET Core 3.x, and .NET 5.
 
 For .NET Classic and .NET Core 3.x, WAM functionality is fully supported but you have to add a reference to [Microsoft.Identity.Client.Desktop](https://www.nuget.org/packages/Microsoft.Identity.Client.Desktop/) package, alongside MSAL, and instead of `WithBroker()`, call `.WithWindowsBroker()`.
 
-For .NET 5, please make sure to target `net5.0-windows10.0.17763.0` (or higher) and not just `net5.0`. Your app will still run on older versions of Windows if you add `<SupportedOSPlatformVersion>7</SupportedOSPlatformVersion>` in the csproj. MSAL will use a browser when WAM is not available.
+For .NET 5, target `net5.0-windows10.0.17763.0` (or higher) and not just `net5.0`. Your app will still run on older versions of Windows if you add `<SupportedOSPlatformVersion>7</SupportedOSPlatformVersion>` in the csproj. MSAL will use a browser when WAM is not available.
 
 ## WAM value proposition
+
+Using an authentication broker such as WAM has numerous benefits.
 
 - Enhanced security (your app does not have to manage the powerful refresh token)
 - Better support for Windows Hello, Conditional Access and FIDO keys
@@ -43,7 +45,7 @@ For .NET 5, please make sure to target `net5.0-windows10.0.17763.0` (or higher) 
 
 ## WAM calling pattern
 
-Note: When using MSAL.NET 4.33.0 or earlier, you must call `.WithExperimentalFeatures()` when creating a public client application to be able to use WAM.
+You can use the following pattern to use WAM.
 
 ```csharp
 // 1. Configuration - read below about redirect URI
@@ -51,25 +53,24 @@ var pca = PublicClientApplicationBuilder.Create("client_id")
               .WithBroker()
               .Build();
 
-// 2. Token cache persistence (not required on UWP as MSAL does it for you)
-CacheHelper.BindCache(pca.UserTokenCache); 
+// Add a token cache, see https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-token-cache-serialization?tabs=desktop
 
-// 3. GetAccounts
+// 2. GetAccounts
 var accounts = await pca.GetAccountsAsync();
 var accountToLogin = // choose an account, or null, or use PublicClientApplication.OperatingSystemAccount for the default OS account
 
 try
 {
-    // 4. AcquireTokenSilent 
+    // 3. AcquireTokenSilent 
     var authResult = await pca.AcquireTokenSilent(new[] { "User.Read" }, accountToLogin)
                               .ExecuteAsync();
 }
 catch (MsalUiRequiredException) // no change in the pattern
 {
-    // 5. New! Switch to the UI thread for next call . Not required for console apps.
+    // 4. Specific: Switch to the UI thread for next call . Not required for console apps.
     await SwitchToUiThreadAsync(); // not actual code, this is different on each platform / tech
 
-    // 6. AcquireTokenInteractive
+    // 5. AcquireTokenInteractive
     var authResult = await pca.AcquireTokenInteractive(new[] { "User.Read" })
                               .WithAccount(accountToLogin)  // this already exists in MSAL, but it is more important for WAM
                               .WithParentActivityOrWindow(myWindowHandle) // to be able to parent WAM's windows to your app (optional, but highly recommended; not needed on UWP)
