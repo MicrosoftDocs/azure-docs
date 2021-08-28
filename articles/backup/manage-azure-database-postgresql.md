@@ -22,16 +22,16 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
 ### Stop Protection and Retain Data
 
-1. Go to **Backup center** and select the Azure Database for PostgreSQL server Backup Instance that0 you want to delete from the list of backup instances.
+1. Go to **Backup center** and select the Azure Database for PostgreSQL server backup instance that0 you want to delete from the list of backup instances.
 
-1. Select **Stop Backup(Preview)**.
+1. Select **Stop Backup (Preview)**.
 
    :::image type="content" source="./media/manage-azure-database-postgresql/select-postgresql-erver-backup-instance-to-delete.png" alt-text="Screenshot showing the selection of the Azure Database for PostgreSQL server backup instance to be deleted.":::
 
 3. Select one of the following data retention options:
 
-   1. Retain Forever
-   1. Retain as per Policy
+   1. Retain forever
+   1. Retain as per policy
    
    :::image type="content" source="./media/manage-azure-database-postgresql/data-retention-options.png" alt-text="Screenshot showing the options for data retention to be selected.":::
 
@@ -41,9 +41,9 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
 ### Stop Protection and Delete Data
 
-1. Go to **Backup center** and select the Azure Database for PostgreSQL server Backup Instance that you want to delete from the list of backup instances.
+1. Go to **Backup center** and select the Azure Database for PostgreSQL server backup instance that you want to delete from the list of backup instances.
 
-1. Click **Stop Backup(Preview)**.
+1. Click **Stop Backup (Preview)**.
 
 1. Select **Delete Backup Data**.
 
