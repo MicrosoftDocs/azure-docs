@@ -92,7 +92,7 @@ When you use run this quickstart, events will be sent to the IoT Hub. To see the
 
 ## Use direct method calls to analyze live video
 
-You can now analyze live video streams by invoking direct methods exposed by the Video Analyzer edge module. <!--REDIRECT Read [Video Analyzer direct methods](direct-methods.md) to examine all the direct methods provided by the module. -->
+You can now analyze live video streams by invoking direct methods exposed by the Video Analyzer edge module. Read [Video Analyzer direct methods](direct-methods.md) to examine all the direct methods provided by the module.
 
 ### Enumerate pipeline topologies
 
