@@ -50,7 +50,11 @@ The Azure Sentinel connector in Logic Apps, and its component triggers and actio
 
 This authentication method allows you to give permissions directly to the playbook (a Logic App workflow resource), so that Azure Sentinel connector actions taken by the playbook will operate on the playbook's behalf, as if it were an independent object with its own permissions on Azure Sentinel. Using this method lowers the number of identities you have to manage. 
 
+> [!NOTE]
+> To give a managed identity access to other resources (like your Azure Sentinel workspace), your signed-in user must have a role with permissions to write role assignments, such as Owner or User Access Administrator of the Azure Sentinel workspace.
+
 To authenticate with managed identity:
+
    > [!NOTE]
    > Note: To assign roles to the managed identity, you must be signed in with a user that is assigned a role that has role assignments write permission, such as Owner or User Access Administrator at the scope of the Azure Sentinel workspace.
 
