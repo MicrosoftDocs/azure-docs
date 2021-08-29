@@ -46,7 +46,7 @@ For the GitHub Action to access data in Microsoft Graph, grant the registered ap
 
 ## Create a GitHub encrypted secret
 
-GitHub secrets are encrypted environment variables that you create in an organization, repository, or repository environment. In this step, you store the application secret for the application you registered earlier in the [Register an MS Graph application](#register-an-ms-graph-application) step.
+GitHub secrets are encrypted environment variables that you create in an organization, repository, or repository environment. In this step, you store the application secret for the application you registered earlier in the [Register an MS Graph application](#register-a-microsoft-graph-application) step.
 
 The GitHub Action for deploying Azure AD B2C custom policies uses the secret to acquire an access token that is used to interact with the Microsoft Graph API. For more information, see [Creating encrypted secrets for a repository](https://docs.github.com/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
 
@@ -104,7 +104,7 @@ To create a workflow, follow these steps:
 
     | Section| Name | Value |
     | ---- | ----- |----- |
-    | `env` | `clientId` | **Application (client) ID** of the application you registered in the [Register an MS Graph application](#register-an-ms-graph-application) step. |
+    | `env` | `clientId` | **Application (client) ID** of the application you registered in the [Register an MS Graph application](#register-a-microsoft-graph-application) step. |
     |`env`| `tenant` | Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, contoso.onmicrosoft.com). |
     | `with`| `folder`| A folder where the custom policies files are stored, for example, `./Policies`.|
     | `with`| `files` | Comma-delimited list of policy files to deploy, for example, `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.|
