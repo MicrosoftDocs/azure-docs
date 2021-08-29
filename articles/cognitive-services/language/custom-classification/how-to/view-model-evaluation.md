@@ -43,11 +43,11 @@ After model training is completed, you can view the model details and see how we
 
 Under the **Test set confusion matrix**, you can find the confusion matrix for the model.
 
-**Single Class Classification**
+**Single Label Classification**
 
 :::image type="content" source="../media/conf-matrix-single.png" alt-text="Confusion matrix for single class classification" lightbox="../media/conf-matrix-single.png":::
 
-**Multiple Class Classification**
+**Multiple Label Classification**
 
 :::image type="content" source="../media/conf-matrix-multi.png" alt-text="Confusion matrix for multiple class classification" lightbox="../media/conf-matrix-multi.png":::
 
