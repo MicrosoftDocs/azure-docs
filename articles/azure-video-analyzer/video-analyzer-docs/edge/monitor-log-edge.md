@@ -116,7 +116,7 @@ As indicated above, events generated as part of video analysis have an `eventTim
 
 ## Routing events
 
-You can use the following module twin properties to route the operational and diagnostic events published by the Video Analyzer module.<!--REDIRECT These properties are documented in the [module twin JSON schema](module-twin-configuration-schema.md).-->
+You can use the following module twin properties to route the operational and diagnostic events published by the Video Analyzer module. These properties are documented in the [module twin JSON schema](module-twin-configuration-schema.md).
 
 - `diagnosticsEventsOutputName`: To get diagnostic events from the module, include this property and provide any value for it. Omit it or leave it empty to stop the module from publishing diagnostic events.
   
@@ -367,7 +367,7 @@ Using [Prometheus endpoint](https://prometheus.io/docs/practices/naming/) along 
     [ ![Diagram that shows the metrics using Kusto query.](./media/telemetry-schema/metrics.png)](./media/telemetry-schema/metrics.png#lightbox)
 ## Logging
 
-As with other IoT Edge modules, you can also [examine the container logs](../../../iot-edge/troubleshoot.md#check-container-logs-for-issues) on the edge device.<!--REDIRECT You can configure the information that's written to the logs by using the [following module twin](module-twin-configuration-schema.md) properties:-->
+As with other IoT Edge modules, you can also [examine the container logs](../../../iot-edge/troubleshoot.md#check-container-logs-for-issues) on the edge device. You can configure the information that's written to the logs by using the [following module twin](module-twin-configuration-schema.md) properties:
 
 * `logLevel`
 
