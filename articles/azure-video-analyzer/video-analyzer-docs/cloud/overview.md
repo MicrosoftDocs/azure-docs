@@ -7,7 +7,9 @@ ms.date: 06/01/2021
 
 ---
 # Develop in the cloud with  Video Analyzer
- 
+
+[!INCLUDE [heaer](includes/cloud-env.md)]
+
 This topic provides links to topics that show how develop in the cloud with Azure Video Analyzer.
  
 ## Quickstarts

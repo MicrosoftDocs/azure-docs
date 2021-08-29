@@ -7,3 +7,5 @@ ms.author: juliako
 ---
 
 Current Environment: **Edge**. Check out [developing in the cloud](../cloud/index.yml).
+
+<br/><hr color="#5ea0ef" size="10">

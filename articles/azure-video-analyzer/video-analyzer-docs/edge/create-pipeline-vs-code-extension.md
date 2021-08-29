@@ -9,6 +9,8 @@ ms.date: 06/01/2021
 
 # Quickstart: Azure Video Analyzer Visual Studio Code extension
 
+[!INCLUDE [heaer](includes/edge-env.md)]
+
 This quickstart is designed to show you how to set up and connect the Video Analyzer Visual Studio Code extension to your Video Analyzer edge module and deploy a sample pipeline topology.  It will use the same pipeline as the Get Started quickstart.  
 
 After completing the setup steps, you'll be able to run the simulated live video stream through a live pipeline that detects and reports any motion in that stream. The following diagram graphically represents that pipeline.

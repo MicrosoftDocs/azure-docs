@@ -8,6 +8,8 @@ zone_pivot_groups: video-analyzer-programming-languages
 
 # Quickstart: Detect motion and emit events
 
+[!INCLUDE [heaer](includes/edge-env.md)]
+
 This quickstart walks you through the steps to get started with Azure Video Analyzer. It uses an Azure VM as an IoT Edge device and a simulated live video stream. After completing the setup steps, you'll be able to run a simulated live video stream through a video pipeline that detects and reports any motion in that stream. The following diagram shows a graphical representation of that pipeline.
 
 > [!div class="mx-imgBorder"]

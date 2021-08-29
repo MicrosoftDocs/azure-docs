@@ -7,6 +7,8 @@ ms.date: 06/01/2021
 ---
 # Analyzing live videos without recording
 
+[!INCLUDE [heaer](includes/edge-env.md)]
+
 ## Suggested pre-reading 
 
 * [Pipeline concept](pipeline.md)
