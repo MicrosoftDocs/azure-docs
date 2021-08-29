@@ -76,7 +76,7 @@ To authenticate with managed identity:
         
         Learn more about the available [roles in Azure Sentinel](./roles.md).
     1. Under **Assign access to**, choose **Logic App**.
-    * Select the subscription where the playbook is under and select the playbook name.
+    1. Choose the subscription the playbook belongs to, and select the playbook name.
     1. Select **Save**.
     
     
