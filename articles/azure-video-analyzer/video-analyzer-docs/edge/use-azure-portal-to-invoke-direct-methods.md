@@ -7,7 +7,7 @@ ms.date: 06/01/2021
 
 # Use Azure portal to invoke direct methods for Azure Video Analyzer
 
-IoT Hub gives you the ability to invoke [direct methods](../../../iot-hub/iot-hub-devguide-direct-methods.md#method-invocation-for-iot-edge-modules) on edge devices from the cloud. <!--REDIRECTThe Azure Video Analyzer (Video Analyzer) module exposes several [direct methods](./direct-methods.md) that can be used to define, deploy, and activate different pipelines for analyzing live video.-->
+IoT Hub gives you the ability to invoke [direct methods](../../../iot-hub/iot-hub-devguide-direct-methods.md#method-invocation-for-iot-edge-modules) on edge devices from the cloud. The Azure Video Analyzer (Video Analyzer) module exposes several [direct methods](./direct-methods.md) that can be used to define, deploy, and activate different pipelines for analyzing live video.
 
 In this article, you will learn how to invoke direct method calls on Video Analyzer module via the Azure portal.
 
@@ -18,7 +18,7 @@ In this article, you will learn how to invoke direct method calls on Video Analy
 
 ## Invoking direct methods via Azure portal
 
-<!--REDIRECTEach of the [direct methods](./direct-methods.md) exposed by the Video Analyzer module can be invoked via Azure portal. The steps below provide the details for one direct method. You can invoke other direct methods using similar steps. However, each direct method requires a specific payload.-->
+Each of the [direct methods](./direct-methods.md) exposed by the Video Analyzer module can be invoked via Azure portal. The steps below provide the details for one direct method. You can invoke other direct methods using similar steps. However, each direct method requires a specific payload.
 
 Use the `livePipelineList` method call to retrieve a list of all the pipeline topologies currently deployed on the Video Analyzer module. Use the following steps to invoke this direct method:
 
@@ -56,7 +56,7 @@ Use the `livePipelineList` method call to retrieve a list of all the pipeline to
 
 ## Next steps
 
-<!--REDIRECTMore direct methods can be found on the [direct methods](./direct-methods.md) page.-->
+More direct methods can be found on the [direct methods](./direct-methods.md) page.
 
 > [!NOTE]
 > A pipeline activates a specific topology, so please ensure you have the right topology set before activating a pipeline.

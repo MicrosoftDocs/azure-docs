@@ -41,7 +41,7 @@ If you encounter this error, we recommend that you check the JSON for missing br
 
 ### During deployment: Diagnose with live pipeline direct methods
 
-<!--REDIRECTAfter the Video Analyzer module is deployed correctly on the IoT Edge device, you can create and run the live pipeline by invoking [direct methods](direct-methods.md).-->
+After the Video Analyzer module is deployed correctly on the IoT Edge device, you can create and run the live pipeline by invoking [direct methods](direct-methods.md).
 
 > [!NOTE]
 > The direct method calls should be made to the **`avaedge`** module only.
@@ -71,7 +71,7 @@ You can use the Azure portal to run a diagnosis of the live pipeline using direc
 1. If the request payload is inaccurate, you will get a status `400 code` and a response payload that indicates error code and message that should help with diagnosing the issue with your direct method call.
 
    - Checking on reported and desired properties can help you understand whether the module properties have synced with the deployment. If they haven't, you can restart your IoT Edge device.
-   <!--REDIRECT- Use the [Direct methods](direct-methods.md) guide to call a few methods, especially simple ones such as pipelineTopologyList. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Video Analyzer IoT Edge module is functionally OK.-->
+   - Use the [Direct methods](direct-methods.md) guide to call a few methods, especially simple ones such as pipelineTopologyList. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Video Analyzer IoT Edge module is functionally OK.
 
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/troubleshoot/direct-method.png" alt-text="Screenshot of the Direct method pane for the IoT Edge module." lightbox="./media/troubleshoot/direct-method.png":::
