@@ -192,7 +192,7 @@ To get the primary table storage connection string using Azure PowerShell, use t
 
 ---
 
-The connection string for your Azure Cosmos DB account is considered an app secret and must be protected like any other app secret or password.  This example uses the Secret Manager tool to store the connection string during development and make it available to the application.  The Secret Manager tool can be accessed from either Visual Studio or the .NET CLI.
+The connection string for your Azure Cosmos DB account is considered an app secret and must be protected like any other app secret or password.  This example uses the [Secret Manager tool](/aspnet/core/security/app-secrets#secret-manager) to store the connection string during development and make it available to the application.  The Secret Manager tool can be accessed from either Visual Studio or the .NET CLI.
 
 ### [Visual Studio](#tab/visual-studio)
 
