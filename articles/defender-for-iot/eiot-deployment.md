@@ -5,20 +5,20 @@ author: Elazark
 ms.author: V-ekrieg
 ms.service: defender-for-iot
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 08/29/2021
 ---
 
-# Deploy EIoT 
+# Deploy EIoT
 
 Thank you for joining our EIoT Private Preview program. We appreciate the time and efforts you are investing in order to help us to launch a better product.  
 
-The purpose of this document is to outline all the requirements that are needed to prepare the site before the deployment procedure. 
+The purpose of this document is to outline all the requirements that are needed to prepare the site before the deployment procedure.
 
-##  Unified IoT Security - Solution Architecture 
+## Unified IoT Security - Solution Architecture
 
 The Azure Defender for IoT (AD-IoT) team at Microsoft is responsible for securing IoT devices end-to-end whether they are on-premises, in the cloud, or in hybrid environments.  
 
-We are now extending agentless capabilities to go beyond operational environments, and advancing into the realm of enterprise environments. Thereby, delivering coverage to the entire breadth of IoT devices in your environment. This includes everything from corporate printers, cameras to purpose-built devices, proprietary, and unique devices.    
+We are now extending agentless capabilities to go beyond operational environments, and advancing into the realm of enterprise environments. Thereby, delivering coverage to the entire breadth of IoT devices in your environment. This includes everything from corporate printers, cameras to purpose-built devices, proprietary, and unique devices.
 
 :::image type="content" source="media/eiot-deployment/eiot-architecture.png" alt-text="This is a sample of the EIoT architecture.":::
 
@@ -30,15 +30,15 @@ The Private Preview of the new Defender for EIoT solution (covering Enterprise, 
 
 Use passive agentless network monitoring to gain insight into your complete inventory of all your IT, IoT, and OT devices. The discovery process continuously identifies and classifies devices in your network, and resolves all device details. The discovery process is performed with zero impact to the network.  
 
-### Single pane of glass   
+### Single pane of glass
 
-A centralized user experience lets the security team visualize, and secure all their IT, IoT, and OT devices regardless of where the devices is located.   
+A centralized user experience lets the security team visualize, and secure all their IT, IoT, and OT devices regardless of where the devices is located.
 
 ### The power of unified SIEM and XDR  
 
 Azure Defender for IoT shares its high-resolution signal data with Microsoft Defender, and Azure Sentinel. This optimizes the users ability to perform incident response efficiently, and accurately with a complete story that is inclusive of the IoT devices involved. Azure Sentinel customers no longer need to switch consoles to put the story together!  
 
-### Easy deployment for a scalable solution   
+### Easy deployment for a scalable solution
 
 Azure Defender for IoT ensures quick and frictionless deployment of network sensors, both physical, or virtual appliances, with the support of our engineering team, and other departments.
 
@@ -49,23 +49,23 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
 1. Set up a server, or VM.
 
 1. Ensure the minimum resources are set to:
- 
+
     - 4C CPU
-    
+
     - 8-GB ram
-    
+
     - 250 GB HDD
-    
+
     - 2 Network Adapters
-    
+
     - OS: Ubuntu 18.04
 
 1. Connect a NIC to a switch.
 
     - **Physical device** - connect a monitoring network interface (NIC) to a switch monitoring (SPAN) port.
-    
+
     - **VM** - Connect a vNIC to a vSwitch in promiscuous mode.
-    
+
 1. Run the following command to enable the network adapter in promiscuous mode. 
 
     ```bash
@@ -78,7 +78,7 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
     ifconfig <monitoring interface>
     ```
 
-    If the number of RX packets increases each time, the interface is receiving incoming traffic. Repeat this step for each interface you have. 
+    If the number of RX packets increases each time, the interface is receiving incoming traffic. Repeat this step for each interface you have.
 
 **Prepare the environment**:
 
@@ -100,29 +100,30 @@ Hostnames for Azure resources:
 
 You can also download, and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) to your firewall in order to for the Azure resources that are specified above along with their region.
 
-> [!Note] 
+> [!Note]
 > The Azure public IP range are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. Please download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
 **Prepare an Azure instance**
 
-- If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you would need to choose an alternate, or create a new subscription. 
+- If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you would need to choose an alternate, or create a new subscription.
 
 - Minimum security level to access different parts of Azure Defender for Iot. You must have a level of Security Owner to create a subscription, and Security Reader level permissions to access the Defender for IoT user interface.
 
     The following table describes user access permissions to Azure Defender for IoT portal tools:
 
-    | Permission | Security reader | Security administrator | Subscription contributor | Subscription owner |
-    |--|--|--|--|--|
-    | View details and access software, activation files and threat intelligence packages  | ✓ | ✓ | ✓ | ✓ |
-    | Onboard a sensor  |  |  ✓ | ✓ | ✓ |
-    | Update pricing  |  |  ✓ | ✓ | ✓ |
-    | Recover password  | ✓  |  ✓ | ✓ | ✓ |
-    
-- Create an IoT Hub. 
+    |  | Permission | Security reader | Security administrator | Subscription contributor | Subscription owner |
+    |--|--|--|--|--|--|
+    |  | View details and access software, activation files and threat intelligence packages | ✓ | ✓ | ✓ | ✓ |
+    |  | Onboard a sensor |  | ✓ | ✓ | ✓ |
+    |  | Update pricing |  | ✓ | ✓ | ✓ |
+    |  | Recover password | ✓ | ✓ | ✓ | ✓ |
 
-    - Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
+- Create an IoT Hub.
 
-### Onboard a new subscription 
+> [!Note]
+> Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
+
+### Onboard a new subscription
 
 Onboard a new subscription, and provide the subscription ID to your Azure Defender for IoT contact to ensure you will not be billed.
 
@@ -248,16 +249,17 @@ You will need to download a package, and move it, and your activation file to th
     ```bash
     sudo docker ps
     ```
+
 1. Ensure the following containers are up:
 
     - compose_statistics-collector_1
-    
+
     - compose_cloud-communication_1
-    
+
     - compose_horizon_1
-    
+
     - compose_attributes-collector_1
-    
+
     - compose_properties_1
 
 1. Monitor port validation with the following command to see which interface is defined to handle port mirroring.
@@ -265,6 +267,7 @@ You will need to download a package, and move it, and your activation file to th
     ```bash
     sudo docker logs compose_horizon_1
     ````
+
     :::image type="content" source="media/eiot-deployment/defined-interface.png" alt-text="Run the command to see which interface is defined to handle port monitoring.":::
 
 1. Run the following command to check the traffic D2C sanity
@@ -272,6 +275,7 @@ You will need to download a package, and move it, and your activation file to th
     ```bash
     sudo docker logs -f compose_attributes-collector_1
     ```
+
     Ensure that packets are being sent to the eventHub.
 
 ## Remove the sensor (optional)
