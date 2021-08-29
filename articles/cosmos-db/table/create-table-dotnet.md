@@ -704,7 +704,8 @@ public void InsertBulkData(IEnumerable<WeatherInputModel> items)
     });
             
     // Now wrap each TableEntity in a TableTransactionAction object
-    var transactionActions = entities.Select(entity => new TableTransactionAction(TableTransactionActionType.Add, entity));
+    var transactionActions = entities.Select(entity => 
+        new TableTransactionAction(TableTransactionActionType.Add, entity));
 
     _tableClient.SubmitTransaction(transactionActions);
 }
