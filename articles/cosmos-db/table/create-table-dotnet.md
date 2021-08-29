@@ -16,9 +16,9 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-This quickstart shows how to access the Azure Cosmos DB [Table API](introduction.md) from a .NET application.  The Azure Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud.  Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table.
+This quickstart shows how to access the Azure Cosmos DB [Table API](introduction.md) from a .NET application.  The Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud.  Because data is stored in a schemaless design, new properties (columns) are automatically added to the table when an object with a new attribute is added to the table.
 
-.NET applications can access the Azure Cosmos DB Table API using the [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) NuGet package.  The [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) package is a [.NET Standard 2.0](/dotnet/standard/net-standard) library that works with both .NET Framework (4.6.1 and later) and .NET Core (2.0 and later) applications.
+.NET applications can access the Cosmos DB Table API using the [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) NuGet package.  The [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) package is a [.NET Standard 2.0](/dotnet/standard/net-standard) library that works with both .NET Framework (4.6.1 and later) and .NET Core (2.0 and later) applications.
 
 ## Prerequisites
 
@@ -34,34 +34,34 @@ The sample application for this tutorial may be cloned or downloaded from the re
 git clone https://github.com/Azure-Samples/msdocs-azure-tables-sdk-dotnet.git
 ```
 
-The sample application uses weather data as an example to demonstrate the capabilities of the Tables API. Objects representing weather observations are stored and retrieved using the Table API, including storing objects with additional properties to demonstrate the schemaless capabilities of the Tables API.
+The sample application uses weather data as an example to demonstrate the capabilities of the Table API. Objects representing weather observations are stored and retrieved using the Table API, including storing objects with additional properties to demonstrate the schemaless capabilities of the Table API.
 
-:::image type="content" source="./media/create-table-dotnet/table-api-app-finished-application-720px.png" alt-text="A screenshot of the finished application showing data stored in a Cosmos DB table using the Table API" lightbox="./media/create-table-dotnet/table-api-app-finished-application.png":::
+:::image type="content" source="./media/create-table-dotnet/table-api-app-finished-application-720px.png" alt-text="A screenshot of the finished application showing data stored in a Cosmos DB table using the Table API." lightbox="./media/create-table-dotnet/table-api-app-finished-application.png":::
 
 ## 1 - Create an Azure Cosmos DB account
 
-You first need to create an Azure Cosmos DB account that will contain the table(s) used in your application.  This can be done using the Azure portal, Azure CLI, or Azure PowerShell.
+You first need to create an Cosmos DB account that will contain the table(s) used in your application.  This can be done using the Azure portal, Azure CLI, or Azure PowerShell.
 
 ### [Azure portal](#tab/azure-portal)
 
-Log in to the [Azure portal](https://portal.azure.com/) and follow these steps to create an Azure Cosmos DB account.
+Log in to the [Azure portal](https://portal.azure.com/) and follow these steps to create an Cosmos DB account.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Azure Cosmos DB accounts in Azure." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-1.png":::           |
-| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-2-240px.png" alt-text="A screenshot showing the Create button location on the Azure Cosmos DB accounts page in Azure." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-2.png":::           |
+| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Cosmos DB accounts in Azure." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-1.png":::           |
+| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-2-240px.png" alt-text="A screenshot showing the Create button location on the Cosmos DB accounts page in Azure." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-2.png":::           |
 | [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-3.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-3-240px.png" alt-text="A screenshot showing the Azure Table option as the correct option to select." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-3.png":::           |
-| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-4.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-4-240px.png" alt-text="A screenshot showing how to fill out the fields on the Azure Cosmos DB Account creation page." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-4.png":::           |
+| [!INCLUDE [Create cosmos db account step 1](<./includes/create-table-dotnet/create-cosmos-db-acct-4.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-4-240px.png" alt-text="A screenshot showing how to fill out the fields on the Cosmos DB Account creation page." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-account-table-api-4.png":::           |
 
 ### [Azure CLI](#tab/azure-cli)
 
-Azure Cosmos DB accounts are created using the [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command. You must include the `--capabilities EnableTable` option to enable table storage within your Cosmos DB.  As all Azure resource must be contained in a resource group, the following code snippet also creates a resource group for the Azure Cosmos DB account.
+Cosmos DB accounts are created using the [az cosmosdb create](/cli/azure/cosmosdb#az_cosmosdb_create) command. You must include the `--capabilities EnableTable` option to enable table storage within your Cosmos DB.  As all Azure resource must be contained in a resource group, the following code snippet also creates a resource group for the  Cosmos DB account.
 
-Azure Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character.  Azure Cosmos DB account names must also be unique across Azure.
+Cosmos DB account names must be between 3 and 44 characters in length and may contain only lowercase letters, numbers, and the hyphen (-) character.  Cosmos DB account names must also be unique across Azure.
 
 Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-It typically takes several minutes for the Azure Cosmos DB account creation process to complete.
+It typically takes several minutes for the Cosmos DB account creation process to complete.
 
 ```azurecli
 LOCATION='eastus'
@@ -87,7 +87,7 @@ Azure Cosmos DB account names must be between 3 and 44 characters in length and 
 
 Azure PowerShell commands can be run in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with [Azure PowerShell installed](/powershell/azure/install-az-ps).
 
-It typically takes several minutes for the Azure Cosmos DB account creation process to complete.
+It typically takes several minutes for the Cosmos DB account creation process to complete.
 
 ```azurepowershell
 $location = 'eastus'
@@ -111,17 +111,17 @@ New-AzCosmosDBAccount `
 
 ## 2 - Create a table
 
-Next, you need to create a table within your Azure Cosmos DB account for your application to use.  Unlike a traditional SQL database, you only need to specify the name of the table, not the properties (columns) in the table.  As data is loaded into your table, the properties (columns) will be automatically created as needed.
+Next, you need to create a table within your Cosmos DB account for your application to use.  Unlike a traditional SQL database, you only need to specify the name of the table, not the properties (columns) in the table.  As data is loaded into your table, the properties (columns) will be automatically created as needed.
 
 ### [Azure portal](#tab/azure-portal)
 
-In the [Azure portal](https://portal.azure.com/), complete the following steps to create a table inside your Azure Cosmos DB account.
+In the [Azure portal](https://portal.azure.com/), complete the following steps to create a table inside your Cosmos DB account.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Create cosmos db table step 1](<./includes/create-table-dotnet/create-cosmos-table-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find your Azure Cosmos DB account." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-1.png":::           |
+| [!INCLUDE [Create cosmos db table step 1](<./includes/create-table-dotnet/create-cosmos-table-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-1-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find your Cosmos DB account." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-1.png":::           |
 | [!INCLUDE [Create cosmos db table step 2](<./includes/create-table-dotnet/create-cosmos-table-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-2-240px.png" alt-text="A screenshot showing the location of the Add Table button." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-2.png":::           |
-| [!INCLUDE [Create cosmos db table step 3](<./includes/create-table-dotnet/create-cosmos-table-3.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-3-240px.png" alt-text="A screenshot showing how to New Table dialog box for an Azure Cosmos DB table." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-3.png":::           |
+| [!INCLUDE [Create cosmos db table step 3](<./includes/create-table-dotnet/create-cosmos-table-3.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-3-240px.png" alt-text="A screenshot showing how to New Table dialog box for an Cosmos DB table." lightbox="./media/create-table-dotnet/azportal-create-cosmos-db-table-api-3.png":::           |
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -161,7 +161,7 @@ To access your table(s) in Cosmos DB, your app will need the table connection st
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
-| [!INCLUDE [Get cosmos db table connection string step 1](<./includes/create-table-dotnet/get-cosmos-connection-string-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-cosmos-db-table-connection-string-1-240px.png" alt-text="A screenshot showing the location of the connection strings link on the Azure Cosmos DB page." lightbox="./media/create-table-dotnet/azportal-cosmos-db-table-connection-string-1.png":::           |
+| [!INCLUDE [Get cosmos db table connection string step 1](<./includes/create-table-dotnet/get-cosmos-connection-string-1.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-cosmos-db-table-connection-string-1-240px.png" alt-text="A screenshot showing the location of the connection strings link on the Cosmos DB page." lightbox="./media/create-table-dotnet/azportal-cosmos-db-table-connection-string-1.png":::           |
 | [!INCLUDE [Get cosmos db table connection string step 2](<./includes/create-table-dotnet/get-cosmos-connection-string-2.md>)] | :::image type="content" source="./media/create-table-dotnet/azportal-cosmos-db-table-connection-string-2-240px.png" alt-text="A screenshot showing the which connection string to select and use in your application." lightbox="./media/create-table-dotnet/azportal-cosmos-db-table-connection-string-2.png":::           |
 
 ### [Azure CLI](#tab/azure-cli)
@@ -192,11 +192,11 @@ To get the primary table storage connection string using Azure PowerShell, use t
 
 ---
 
-The connection string for your Azure Cosmos DB account is considered an app secret and must be protected like any other app secret or password.  This example uses the [Secret Manager tool](/aspnet/core/security/app-secrets#secret-manager) to store the connection string during development and make it available to the application.  The Secret Manager tool can be accessed from either Visual Studio or the .NET CLI.
+The connection string for your Cosmos DB account is considered an app secret and must be protected like any other app secret or password.  This example uses the [Secret Manager tool](/aspnet/core/security/app-secrets#secret-manager) to store the connection string during development and make it available to the application.  The Secret Manager tool can be accessed from either Visual Studio or the .NET CLI.
 
 ### [Visual Studio](#tab/visual-studio)
 
-To open the Secret Manager tool from Visual Studio, right-click on the project and select **Manage User Secrets** from the context menu.  This will open the "secrets.json" file for the project.  Replace the contents of the file with the JSON below, substituting in your Cosmos DB table connection string.
+To open the Secret Manager tool from Visual Studio, right-click on the project and select **Manage User Secrets** from the context menu.  This will open the *secrets.json* file for the project.  Replace the contents of the file with the JSON below, substituting in your Cosmos DB table connection string.
 
 ```json
 {
@@ -222,9 +222,9 @@ dotnet user-secrets set "ConnectionStrings:CosmosTableApi" "<cosmos db table con
 
 ---
 
-## 4 - Install Azure.Data.Tables SDK package
+## 4 - Install Azure.Data.Tables NuGet package
 
-To access Azure Cosmos DB Tables from a .NET application, install the [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables) NuGet package.
+To access the Cosmos DB Table API from a .NET application, install the [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables) NuGet package.
 
 ### [Visual Studio](#tab/visual-studio)
 
@@ -240,13 +240,13 @@ dotnet add package Azure.Data.Tables
 
 ---
 
-## 5 - Configure the tables client in Startup.cs
+## 5 - Configure the Table client in Startup.cs
 
-The Azure SDK communicates with Azure using client objects to execute different operations against Azure.  The [TableClient](/dotnet/api/azure.data.tables.tableclient) object is the object used to communicate with the Azure Cosmos DB table API.
+The Azure SDK communicates with Azure using client objects to execute different operations against Azure.  The [TableClient](/dotnet/api/azure.data.tables.tableclient) object is the object used to communicate with the Cosmos DB Table API.
 
-An application will typically create a single [TableClient](/dotnet/api/azure.data.tables.tableclient) object per table to be used throughout the application.  It is recommended to use dependency injection and register the [TableClient](/dotnet/api/azure.data.tables.tableclient) object as a singleton to accomplish this.  For more information about using DI with the Azure SDK, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection.md).
+An application will typically create a single [TableClient](/dotnet/api/azure.data.tables.tableclient) object per table to be used throughout the application.  It's recommended to use dependency injection (DI) and register the [TableClient](/dotnet/api/azure.data.tables.tableclient) object as a singleton to accomplish this.  For more information about using DI with the Azure SDK, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection.md).
 
-In the Startup.cs file of the application, edit the ConfigureServices() method to match the following code snippet.
+In the `Startup.cs` file of the application, edit the ConfigureServices() method to match the following code snippet:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -272,14 +272,14 @@ using Azure.Data.Tables;
 
 ## 6 - Implement Cosmos DB table operations
 
-All Cosmos DB table operations for the sample app are implemented in the `TableService` class located in the Services folder.  You will need to import the `Azure` and `Azure.Data.Tables` namespaces at the top of this file to work with objects in the Azure.Data.Tables SDK package.
+All Cosmos DB table operations for the sample app are implemented in the `TableService` class located in the *Services* directory.  You will need to import the `Azure` and `Azure.Data.Tables` namespaces at the top of this file to work with objects in the `Azure.Data.Tables` SDK package.
 
 ```csharp
 using Azure;
 using Azure.Data.Tables;
 ```
 
-At the start of the TableService class, add a member variable for the [TableClient](/dotnet/api/azure.data.tables.tableclient) object and a constructor to allow the [TableClient](/dotnet/api/azure.data.tables.tableclient) object to be injected into the class.
+At the start of the `TableService` class, add a member variable for the [TableClient](/dotnet/api/azure.data.tables.tableclient) object and a constructor to allow the [TableClient](/dotnet/api/azure.data.tables.tableclient) object to be injected into the class.
 
 ```csharp
 private TableClient _tableClient;
@@ -292,9 +292,9 @@ public TablesService(TableClient tableClient)
 
 ### Get rows from a table
 
-The [TableClient](/dotnet/api/azure.data.tables.tableclient) class contains a method named [Query](/dotnet/api/azure.data.tables.tableclient.query) which allows you to select rows from the table.  In this example, since no parameters are being passed to the method, it will select all rows from the table.
+The [TableClient](/dotnet/api/azure.data.tables.tableclient) class contains a method named [Query](/dotnet/api/azure.data.tables.tableclient.query) which allows you to select rows from the table.  In this example, since no parameters are being passed to the method, all rows will be selected from the table.
 
-The method also takes a generic parameter of type [ITableEntity](/dotnet/api/azure.data.tables.itableentity) that specifies the model class data will be returned as. In this case, the built-in class [TableEntity](/dotnet/api/azure.data.tables.itableentity) is used, meaning the Query method will return a Pageable\<TableEntity\> collection as its results.
+The method also takes a generic parameter of type [ITableEntity](/dotnet/api/azure.data.tables.itableentity) that specifies the model class data will be returned as. In this case, the built-in class [TableEntity](/dotnet/api/azure.data.tables.itableentity) is used, meaning the `Query` method will return a `Pageable\<TableEntity\>` collection as its results.
 
 ```csharp
 public IEnumerable<WeatherDataModel> GetAllRows()
@@ -305,23 +305,23 @@ public IEnumerable<WeatherDataModel> GetAllRows()
 }
 ```
 
-The [TableEntity](/dotnet/api/azure.data.tables.itableentity) defined in the Azure.Data.Tables package has properties for the partition key and row key values in the table.  Together, these two values for a unique key for the row in the table.  In this example application, the name of the weather station (city) is stored in the partition key and the date/time of the observation is stored in the row key.  All other properties (temperature, humidity, wind speed) are stored in a dictionary in the TableEntity object.
+The [TableEntity](/dotnet/api/azure.data.tables.itableentity) class defined in the `Azure.Data.Tables` package has properties for the partition key and row key values in the table.  Together, these two values for a unique key for the row in the table.  In this example application, the name of the weather station (city) is stored in the partition key and the date/time of the observation is stored in the row key.  All other properties (temperature, humidity, wind speed) are stored in a dictionary in the `TableEntity` object.
 
-It is common practice to map a [TableEntity](/dotnet/api/azure.data.tables.tableentity) object to an object of your own definition.  The sample application defines a class `WeatherDataModel` in the Models folder for this purpose.  This class has properties for the station name and observation date that the partition key and row key will map to, providing more meaningful property names for these values.  It then uses a dictionary to store all the other properties on the object.  This is a common pattern when working with Table storage since a row can have any number of arbitrary properties and we want our model objects to be able to capture all of them.  This class also contains methods to list the properties on the class.
+It is common practice to map a [TableEntity](/dotnet/api/azure.data.tables.tableentity) object to an object of your own definition.  The sample application defines a class `WeatherDataModel` in the *Models* directory for this purpose.  This class has properties for the station name and observation date that the partition key and row key will map to, providing more meaningful property names for these values.  It then uses a dictionary to store all the other properties on the object.  This is a common pattern when working with Table storage since a row can have any number of arbitrary properties and we want our model objects to be able to capture all of them.  This class also contains methods to list the properties on the class.
 
 ```csharp
 public class WeatherDataModel 
 {
     // Captures all of the weather data properties -- temp, humidity, wind speed, etc
-    private Dictionary<string, object> _properties = new Dictionary<string, object>()
+    private Dictionary<string, object> _properties = new Dictionary<string, object>();
 
-    public string StationName { get; set; 
+    public string StationName { get; set; }
 
-    public string ObservationDate { get; set; 
+    public string ObservationDate { get; set; }
 
-    public DateTimeOffset? Timestamp { get; set; 
+    public DateTimeOffset? Timestamp { get; set; }
 
-    public string Etag { get; set; 
+    public string Etag { get; set; }
 
     public object this[string name] 
     { 
@@ -337,7 +337,7 @@ public class WeatherDataModel
 }
 ```
 
-The `MapTableEntityToWeatherDataModel` method is used to map a [TableEntity](/dotnet/api/azure.data.tables.itableentity) object to a `WeatherDataModel` object.  The [TableEntity](/dotnet/api/azure.data.tables.itableentity) object contains a [Keys](/dotnet/api/azure.data.tables.tableentity.keys) property to get all of the property names contained in the table for the object (effectively the column names for this row in the table).  The `MapTableEntityToWeatherDataModel` method directly maps the PartitionKey, RowKey, Timestamp, and Etag properties and then uses the Keys property to iterate over the other properties in the TableEntity object and map those to the `WeatherDataModel` object, minus the properties that have already been directly mapped.
+The `MapTableEntityToWeatherDataModel` method is used to map a [TableEntity](/dotnet/api/azure.data.tables.itableentity) object to a `WeatherDataModel` object.  The [TableEntity](/dotnet/api/azure.data.tables.itableentity) object contains a [Keys](/dotnet/api/azure.data.tables.tableentity.keys) property to get all of the property names contained in the table for the object (effectively the column names for this row in the table).  The `MapTableEntityToWeatherDataModel` method directly maps the `PartitionKey`, `RowKey`, `Timestamp`, and `Etag` properties and then uses the `Keys` property to iterate over the other properties in the `TableEntity` object and map those to the `WeatherDataModel` object, minus the properties that have already been directly mapped.
 
 Edit the code in the `MapTableEntityToWeatherDataModel` method to match the following code block.
 
@@ -556,7 +556,7 @@ public void UpsertCustomEntity(WeatherInputModel model)
 
 ### Insert or upsert data with variable properties
 
-One of the advantages of using the Azure Cosmos DB Table API is that if an object being loaded to a table contains any new properties then those properties are automatically added to the table and the values stored in Azure Cosmos DB.  There is no need to run DDL statements like ALTER TABLE to add columns as in a traditional database.
+One of the advantages of using the Cosmos DB Table API is that if an object being loaded to a table contains any new properties then those properties are automatically added to the table and the values stored in Cosmos DB.  There is no need to run DDL statements like ALTER TABLE to add columns as in a traditional database.
 
 This model gives your application flexibility when dealing with data sources that may add or modify what data needs to be captured over time or when different inputs provide different data to your application. In the sample application, we can simulate a weather station that sends not just the base weather data but also some additional values. When an object with these new properties is stored in the table for the first time, the corresponding properties (columns) will be automatically added to the table.
 
@@ -713,7 +713,7 @@ public void InsertBulkData(IEnumerable<WeatherInputModel> items)
 
 ## 7 - Run the code
 
-Run the sample application to interact with the Azure Cosmos DB Table API.  The first time you run the application, there will be no data because the table is empty.  Use any of the four buttons at the top of application to add data to the table.
+Run the sample application to interact with the Cosmos DB Table API.  The first time you run the application, there will be no data because the table is empty.  Use any of the four buttons at the top of application to add data to the table.
 
 :::image type="content" source="./media/create-table-dotnet/table-api-app-data-insert-buttons-480px.png" alt-text="A screenshot of the application showing the location of the buttons used to insert data into Cosmos DB using the Table API" lightbox="./media/create-table-dotnet/table-api-app-data-insert-buttons.png":::
 
