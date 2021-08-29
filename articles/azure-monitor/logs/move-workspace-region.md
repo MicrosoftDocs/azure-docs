@@ -174,7 +174,7 @@ The following steps show how to prepare the workspace and resources for the move
         },
         {
           "type": "microsoft.insights/scheduledqueryrules",
-          "apiVersion": "2021-02-01-preview",
+          "apiVersion": "2021-08-01",
           "name": "[parameters('alertName')]",
           "location": "france central",
           "properties": {
