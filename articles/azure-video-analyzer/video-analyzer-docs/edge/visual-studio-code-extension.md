@@ -15,7 +15,7 @@ Azure Video Analyzer is a platform to make building video analysis programs easi
 * Live pipelines – creation, activation, deactivation, deletion, viewing the JSON
 * Editing a pipeline topology  – modules, parameters, system variables, connections, validation
 
-If you have not set up the extension to connect to your edge device<!--REDIRECT, follow the [Azure Video Analyzer Visual Studio Code extension](./create-pipeline-vs-code-extension.md) quickstart-->.
+If you have not set up the extension to connect to your edge device, follow the [Azure Video Analyzer Visual Studio Code extension](./create-pipeline-vs-code-extension.md) quickstart.
 
 ## Managing pipelines topology
 
@@ -43,7 +43,7 @@ If you want to view the underlying JSON behind an existing live pipeline, on the
 
 ## Editing a topology 
 
-Pipeline topologies are constructed of a variety of pieces. <!--REDIRECT You can learn about these pieces in the [Pipelines](./pipeline.md) concept doc.  -->This section is about the portions of the interface to help you build or edit a topology.
+Pipeline topologies are constructed of a variety of pieces. You can learn about these pieces in the [Pipelines](./pipeline.md) concept doc. This section is about the portions of the interface to help you build or edit a topology.
 
 ### Modules
 
