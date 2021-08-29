@@ -271,7 +271,7 @@ var app = ConfidentialClientApplicationBuilder
 
 ### Monitor cache hit ratios and cache performance
 
-MSAL exposes important metrics as part of [AuthenticationResult.AuthenticationResultMetadata](/dotnet/api/microsoft.identity.client.authenticationresultmetadata.md?view=azure-dotnet) object: 
+MSAL exposes important metrics as part of [AuthenticationResult.AuthenticationResultMetadata](/dotnet/api/microsoft.identity.client.authenticationresultmetadata.md) object: 
 
 | Metric       | Meaning     | When to trigger an alarm?    |
 | :-------------: | :----------: | :-----------: |
