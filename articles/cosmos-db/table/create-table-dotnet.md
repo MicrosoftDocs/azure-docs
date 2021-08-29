@@ -40,7 +40,7 @@ The sample application uses weather data as an example to demonstrate the capabi
 
 ## 1 - Create an Azure Cosmos DB account
 
-You first need to create an Azure Cosmos DB account that will contain the table(s) used in your application.  This can be done using the Azure Portal, Azure CLI, or Azure PowerShell.
+You first need to create an Azure Cosmos DB account that will contain the table(s) used in your application.  This can be done using the Azure portal, Azure CLI, or Azure PowerShell.
 
 ### [Azure portal](#tab/azure-portal)
 
