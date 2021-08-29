@@ -33,11 +33,11 @@ Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.Cognitive
 > [!IMPORTANT]
 > In the **Custom Extraction & Custom Classification (Preview)** section, make sure you choose an existing storage account, or create a new one. A storage account is required to use custom text extraction. While you can specify a storage account later, it's easier to do it now. 
 
-## Create a custom extraction project
+## Create a custom named entity recognition project
 
 1. Sign into the [Language Studio portal](https://language.azure.com). A window will appear to let you select your subscription and Language Services resource. Select the resource you created in the above step. 
 
-2. Scroll down until you see **Custom extraction** from the available services, and select it.
+2. Scroll down until you see **Custom named entity recognition** from the available services, and select it.
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
