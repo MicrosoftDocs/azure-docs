@@ -174,7 +174,7 @@ az cosmosdb keys list \
     --type connection-strings \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $COSMOS_ACCOUNT_NAME \
-    --query "connectionStrings[?description== 'Primary Table Connection String'].connectionString" \
+    --query "connectionStrings[?description=='Primary Table Connection String'].connectionString" \
     --output tsv
 ```
 
