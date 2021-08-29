@@ -224,7 +224,7 @@ dotnet user-secrets set "ConnectionStrings:CosmosTableApi" "<cosmos db table con
 
 ## 4 - Install Azure.Data.Tables SDK package
 
-To access Azure Cosmos DB Tables from a .NET application, you need to install the [Azure.Data.Tables package from NuGet](https://www.nuget.org/packages/Azure.Data.Tables).
+To access Azure Cosmos DB Tables from a .NET application, install the [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables) NuGet package.
 
 ### [Visual Studio](#tab/visual-studio)
 
