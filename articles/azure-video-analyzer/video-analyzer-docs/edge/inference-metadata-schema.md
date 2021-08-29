@@ -11,10 +11,10 @@ ms.date: 06/01/2021
 In Azure Video Analyzer, each inference object regardless of using HTTP-based contract or gRPC based contract follows the object model described in this topic.
 
 ## Object model
-<!--REDIRECT
+
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/inference-metadata-schema/object-model.png" alt-text="Azure Video Analyzer Oot model" lightbox="./media/inference-metadata-schema/object-model.png":::
- -->
+ 
 
 |Type Definition|Description|
 |---|---|

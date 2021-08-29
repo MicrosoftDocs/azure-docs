@@ -29,7 +29,7 @@ Azure Video Analyzer exposes the following module twin properties.
 
 Dynamic properties can be updated without the restarting the module. 
 
-<!--REDIRECTSee the article on [Monitoring and logging](monitor-log-edge.md) for more information about the role of the optional diagnostics settings.-->
+See the article on [Monitoring and logging](monitor-log-edge.md) for more information about the role of the optional diagnostics settings.
 
 ```json
 {
@@ -50,4 +50,4 @@ Dynamic properties can be updated without the restarting the module.
 
 ## Next steps
 
-<!--REDIRECT[Direct methods](direct-methods.md)-->
+[Direct methods](direct-methods.md)

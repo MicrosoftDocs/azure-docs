@@ -84,7 +84,7 @@ Date: Fri, 17 Apr 2021 04:44:01 GMT
 }
 ```
 
-It is recommended that responses are returned using valid JSON documents following the pre-established schema defined as per [the inference metadata schema object model](inference-metadata-schema.md). Conforming to the schema will ensure interoperability with other components in Video Analyzer, such as the ability to track objects in live video, and overlay the inference metadata over video during playback, as demonstrated <!--REDIRECT[here](record-stream-inference-data-with-video.md)-->.
+It is recommended that responses are returned using valid JSON documents following the pre-established schema defined as per [the inference metadata schema object model](inference-metadata-schema.md). Conforming to the schema will ensure interoperability with other components in Video Analyzer, such as the ability to track objects in live video, and overlay the inference metadata over video during playback, as demonstrated [here](record-stream-inference-data-with-video.md).
 
 If your module returns a response where the content type is not "application/json", Video Analyzer will encode the message as a base 64 content and serialize it as an opaque JSON payload.
 
