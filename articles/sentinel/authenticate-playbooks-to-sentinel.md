@@ -62,7 +62,7 @@ To authenticate with managed identity:
 
     - Your logic app can now use the system-assigned identity, which is registered with Azure AD and is represented by an object ID.
 
-1. Give that identity access to the Azure Sentinel workspace: 
+1. [Give that identity access](../logic-apps/create-managed-service-identity.md#give-identity-access-to-resources) to the Azure Sentinel workspace: 
     * Go to **Azure Sentinel workspace -> Settings -> Workspace settings -> Access control (IAM)**.
     * On the top panel click on **Add -> Add role assignment**. If the **Add role assignment** option is disabled, you don't have permissions to assign roles.
     * In the new panel opened, assign the right role: [Azure Sentinel Responder](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) (if playbook has steps which update incidents or watchlists) or [Azure Sentinel Reader](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) role (if playbook only gets incidents). Learn more about the available [roles in Azure Sentinel](./roles.md).
