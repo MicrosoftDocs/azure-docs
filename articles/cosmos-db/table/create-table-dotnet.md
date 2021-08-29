@@ -716,7 +716,7 @@ Run the sample application to interact with the Azure Cosmos DB Table API.  The 
 
 :::image type="content" source="./media/create-table-dotnet/table-api-app-data-insert-buttons-480px.png" alt-text="A screenshot of the application showing the location of the buttons used to insert data into Cosmos DB using the Table API" lightbox="./media/create-table-dotnet/table-api-app-data-insert-buttons.png":::
 
-Selecting the *Insert using Table Entity* button brings up a dialog allowing you to insert or upsert a new row using a TableEntity object.
+Selecting the **Insert using Table Entity** button opens a dialog allowing you to insert or upsert a new row using a `TableEntity` object.
 
 :::image type="content" source="./media/create-table-dotnet/table-api-app-insert-table-entity-480px.png" alt-text="A screenshot of the application showing the dialog box used to insert data using a TableEntity object" lightbox="./media/create-table-dotnet/table-api-app-insert-table-entity.png":::
 
