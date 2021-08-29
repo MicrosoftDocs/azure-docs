@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/27/2021
+ms.date: 08/29/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -112,7 +112,24 @@ Orchestration steps can be conditionally executed based on preconditions defined
 Each precondition evaluates a single claim. There are two types of preconditions:
  
 - **Claims exist** - Specifies that the actions should be performed if the specified claims exist in the user's current claim bag.
-- **Claim equals** - Specifies that the actions should be performed if the specified claim exists, and its value is equal to the specified value. The check performs a case-sensitive ordinal comparison. When checking Boolean claim type, use `True`, or `False`.
+- **Claim equals** - Specifies that the actions should be performed if the specified claim exists, and its value is equal to the specified value. The check performs a case-sensitive ordinal comparison. When checking Boolean claim type, use `True`, or `False`. 
+  
+  If the claim does not exist, the precondition is satisfied, and the orchestration steps will execute. As a best practice, check both that the claim exists, and eqeuls to a value. 
+  In the following empale, the orchestration step will skip if the MFA does not exist, or the value of the MFA eqauls `Phone`.
+  
+  ```xml
+  <Preconditions>
+    <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+      <Value>MFA</Value>
+      <Action>SkipThisOrchestrationStep</Action>
+    </Precondition>
+    <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+      <Value>MFA</Value>
+      <Value>Phone</Value>
+      <Action>SkipThisOrchestrationStep</Action>
+    </Precondition>
+  </Preconditions>
+  ```
 
 Azure AD B2C evaluates the preconditions in list order. The oder-based preconditions allows you set the order in which the preconditions are applied. The first precondition that satisfied overrides all the subsequent preconditions. The orchestration step is executed only if all of the preconditions are not satisfied. 
 
