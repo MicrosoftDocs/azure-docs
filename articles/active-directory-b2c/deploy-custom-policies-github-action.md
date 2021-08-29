@@ -160,7 +160,9 @@ To edit your workflow:
 1. In the left sidebar, select the workflow you created.
 1. Under **Workflow runs**, select the name of the run you want to see.
 1. From the menu, select the three dots **...**, and then select **View the workflow file**.
+
    ![Screenshot showing how to view the workflow file](media/deploy-custom-policies-github-action/edit-workflow.png)
+   
 1. In the GitHub web editor, select **Edit**.
 1. Change `on: push` to the example above.
 1. **Commit** your changes.
