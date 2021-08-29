@@ -12,7 +12,7 @@ ms.date: 06/01/2021
 
 This article shows you how to create more than one value for an output in your Bicep file. You can add a loop to the file's `output` section and dynamically return several items during deployment.
 
-You can also use a loop with [resources](loop-resources.md), [properties in a resource](loop-properties.md), and [variables](loop-variables.md).
+You can also use a loop with [modules](loop-modules.md), [resources](loop-resources.md), [properties in a resource](loop-properties.md), and [variables](loop-variables.md).
 
 ## Syntax
 
@@ -45,7 +45,7 @@ Loops can be used to return many items during deployment by:
 
 ## Loop limits
 
-The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. To deploy Bicep files, install the latest version of [Bicep tools](install.md).
+The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. 
 
 ## Output iteration
 
