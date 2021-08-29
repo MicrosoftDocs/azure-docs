@@ -1,7 +1,7 @@
 ---
 title: Deploy certificates
 description: Learn how to set up and deploy certificates for Defender for IoT.
-ms.date: 08/24/2021
+ms.date: 08/29/2021
 ms.topic: how-to
 ---
 
@@ -43,7 +43,7 @@ Validation is evaluated against:
 
 Validation is carried out twice:
 
-1. When uploading the CA-signed certificate to sensors and on-premises management consoles. If validation fails, the certificate cannot be uploaded.
+1. When uploading the certificate to sensors and on-premises management consoles. If validation fails, the certificate cannot be uploaded.
 1. When initiating encrypted communication between:
 
 - Defender for IoT system components, for example, a sensor and on-premises management console.
@@ -51,8 +51,6 @@ Validation is carried out twice:
 - Defender for IoT and certain 3rd party servers defined in Forwarding rules.  See [About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information) for more information.  
 
 If validation fails, communication between the relevant components is halted and a validation error is presented in the console.
-
-If you are working with a locally signed certificate validation does nor take place.
 
 ## About certificate upload to Defender for IoT
 
