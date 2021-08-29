@@ -54,6 +54,14 @@ root@aks-nodepool1-12345678-vmss000000:/#
 
 This privileged container gives access to the node.
 
+When creating a debugging session on a node, keep in mind that:
+- kubectl debug automatically generates the name of the new Pod based on the name of the Node.
+- The container runs in the host IPC, Network, and PID namespaces.
+- The root filesystem of the Node will be mounted at /host.
+- To use the Node binaries, run `chroot /host /bin/bash` inside the pod.
+
+
+
 ## Create the SSH connection to a Windows node
 
 At this time, you can't connect to a Windows Server node using SSH directly by using `kubectl debug`. Instead, you need to first connect to another node in the cluster, then connect to the Windows Server node from that node using SSH. Alternatively, you can [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp] instead of using SSH.
