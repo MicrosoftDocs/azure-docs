@@ -215,8 +215,6 @@ Admin users attempting to log in to the sensor or on-premises management console
 
 Your file conversion may not create a valid certificate. For example, the file structure may be inaccurate.
 
-:::image type="content" source="media/how-to-deploy-certificates/certificate-conversion-bad-structure.png" alt-text="certificate-conversion-bad-structure-sample.":::
-
 If the conversion fails:  
 
 - Use the conversion commands described in [Convert existing files to supported files](#convert-existing-files-to-supported-files).
