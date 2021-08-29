@@ -108,6 +108,22 @@ In addition, working with Horizon custom alerts lets you write your own alert ti
 
 Using custom, condition-based alert triggering and messaging helps pinpoint specific network activity and effectively update your security, IT, and operational teams.
 
+### Supported IoT and OT protocols by agentless monitoring
+
+Azure Defender for IoT supports a broad range of protocols across diverse industrial equipment, including Modbus, DNP3, BACnet, and more. For custom or proprietary protocols, Microsoft offers an open SDK for easy development, testing, and deployment of custom protocol dissectors as plug-ins, without divulging proprietary information about how protocols are designed or sharing PCAPs that may contain sensitive information. The complete list of supported protocols are listed int the table below.
+
+| Protocol| Supported | Not supported |
+|--|--|--|
+| DNP3 | √ |  |
+| BACnet | √ |  |
+| Modbus | √ |  |
+| EtherNet/IP | √ |  |
+| DeltaV | √ |  |
+| ROC | √ |  |
+| Siemens S7 | √ |  |
+| Yokogawa | √ |  |
+| IEC 61850 | √ |  |
+| GOOSE | √ |  |
 
 ## High availability
 
