@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 08/12/2021
 ms.custom: project-no-code, devx-track-js
 ms.author: mimart
 ms.subservice: B2C
@@ -20,13 +20,9 @@ zone_pivot_groups: b2c-policy-type
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-::: zone pivot="b2c-custom-policy"
+With Azure Active Directory B2C (Azure AD B2C) [HTML templates](customize-ui-with-html.md), you can craft your users' identity experiences. Your HTML templates can contain only certain HTML tags and attributes. Basic HTML tags, such as &lt;b&gt;, &lt;i&gt;, &lt;u&gt;, &lt;h1&gt;, and &lt;hr&gt; are allowed. More advanced tags such as &lt;script&gt;, and &lt;iframe&gt; are removed for security reasons.
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
-::: zone-end
-
-Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaScript for the user interface elements in your user flows and custom policies. To enable JavaScript for your applications:
+To enable JavaScript and advance HTML tags and attributes:
 
 ::: zone pivot="b2c-user-flow"
 

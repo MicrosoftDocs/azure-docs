@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # Metrics for Azure Spring Cloud
 
-Azure Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources. 
+Azure Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics. Use the metrics explorer to investigate the health and utilization of your resources.
 
 In Azure Spring Cloud, there are two viewpoints for metrics.
 * Charts in each application overview page
@@ -22,13 +22,14 @@ In Azure Spring Cloud, there are two viewpoints for metrics.
 Charts in the application **Overview** provide quick status checks for each application. The common **Metrics** page contains all metrics available for reference. You can build your own charts in the common metrics page and pin them in Dashboard.
 
 ## Application overview page
-Select an app in **Apps** to find charts in the overview page.  
 
- ![Application Metrics Management](media/metrics/metrics-2.png)
+Select an app in **Apps** to find charts in the overview page.
 
-Each application's **Application Overview** page presents a metrics chart that allows you to perform a quick status check of your application.  
+![Application Metrics Management](media/metrics/metrics-2.png)
 
- ![Application Metrics Overview](media/metrics/metrics-3.png)
+Each application's **Application Overview** page presents a metrics chart that allows you to perform a quick status check of your application.
+
+![Application Metrics Overview](media/metrics/metrics-3.png)
 
 Azure Spring Cloud provides these five charts with metrics that are updated every minute:
 
@@ -55,6 +56,7 @@ Next, select aggregation type for each metric:
 ![Metric Aggregation](media/metrics/metrics-5.png)
 
 The aggregation type indicates how to aggregate metric points in the chart by time. There is one raw metric point every minute, and the pre-aggregation type within a minute is pre-defined by metrics type.
+
 * Sum: Sum all values as target output.
 * Average: Use the Average value in the period as target output.
 * Max/Min: Use the Max/Min value in the period as target output.
@@ -63,9 +65,10 @@ The time range can also be adjusted from last 30 minutes to last 30 days or a cu
 
 ![Metric Modification](media/metrics/metrics-6.png)
 
-The default view includes all of an Azure Spring Cloud service's application's metrics together. Metrics of one app or instance can be filtered in the display.  Click **Add filter**, set the property to **App**, and select the target application you want to monitor in the **Values** text box. 
+The default view includes all of an Azure Spring Cloud service's application's metrics together. Metrics of one app or instance can be filtered in the display. Select **Add filter**, set the property to **App**, and select the target application you want to monitor in the **Values** text box.
 
 You can use two kinds of filters (properties):
+
 * App: filter by app name
 * Instance: filter by app instance
 
@@ -83,18 +86,22 @@ You can also use the **Apply splitting** option, which will draw multiple lines 
 The following tables show the available metrics and details.
 
 ### Error
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
 >| tomcat.global.error | tomcat.global.error | Count | Number of errors that occurred in processed requests |
 
 ### Performance
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
 >| system.cpu.usage | system.cpu.usage | Percent | Recent CPU usage for the whole system (Obsolete and don't suggest using it). This value is a double in the [0.0,1.0] interval. A value of 0.0 means that all CPUs were idle during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running 100% of the time during the recent period being observed.|
 >| process.cpu.usage | App CPU Usage Percentage | Percent | Recent CPU usage for the Java Virtual Machine process (Obsolete and don't suggest using it). This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
->| AppCpuUsage | App CPU Usage | Percent | Recent CPU usage of the JVM process against the CPU allocated to this app, double type value between [0.0,1.0]. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
+>| App CPU Usage | | Percent | Recent CPU usage of the JVM process against the CPU allocated to this app. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the CPUs were running threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all CPUs were actively running threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
+>| App CPU Usage (Deprecated) | | Percent | Deprecated metric of App CPU Usage. Use the new App CPU Usage metric instead.|
+>| App Memory Usage | | Percent | Recent memory usage of the JVM process against the memory allocated to this app. This value is a double in the [0.0,1.0] interval. A value of 0.0 means that none of the memory was allocated by threads from the JVM process during the recent period of time observed, while a value of 1.0 means that all memory was allocated by threads from the JVM 100% of the time during the recent period being observed. Threads from the JVM include the application threads as well as the JVM internal threads.|
 >| jvm.memory.committed | jvm.memory.committed | Bytes | Represents the amount of memory that is guaranteed to be available for use by the JVM. The JVM may release memory to the system and committed could be less than init. committed will always be greater than or equal to used. |
 >| jvm.memory.used | jvm.memory.used | Bytes | Represents the amount of memory currently used in bytes. |
 >| jvm.memory.max | jvm.memory.max | Bytes | Represents the maximum amount of memory that can be used for memory management. The amount of used and committed memory will always be less than or equal to max if max is defined. A memory allocation may fail if it attempts to increase the used memory such that used > committed even if used <= max would still be true (for example, when the system is low on virtual memory). |
@@ -133,6 +140,7 @@ The following tables show the available metrics and details.
 For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-counters).
 
 ### Request
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
@@ -154,6 +162,7 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-counters).
 
 ### Session
+
 >[!div class="mx-tdCol2BreakAll"]
 >| Name | Spring Actuator Metric Name | Unit | Details |
 >|----|----|----|------------|
@@ -164,16 +173,10 @@ For more information, see [dotnet counters](/dotnet/core/diagnostics/dotnet-coun
 >| tomcat.sessions.rejected | tomcat.sessions.rejected | Count | Number of sessions that were not created because the maximum number of active sessions reached. |
 >| tomcat.sessions.active.current | tomcat.sessions.active.current | Count | Tomcat Session Active Count |
 
-## See also
-
-* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
-
-* [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
-
-* [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
-
 ## Next steps
 
+* [Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing](./quickstart-logs-metrics-tracing.md)
+* [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
+* [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
 * [Tutorial: Monitor Spring Cloud resources using alerts and action groups](./tutorial-alerts-action-groups.md)
-
 * [Quotas and Service Plans for Azure Spring Cloud](./quotas.md)

@@ -51,13 +51,11 @@ Configure Fortinet to forward Syslog messages in CEF format to your Azure worksp
 
 1. To use the relevant schema in Azure Monitor Log Analytics for the Fortinet events, search for `CommonSecurityLog`.
 
-1. Continue to [STEP 3: Validate connectivity](connect-cef-verify.md).
+1. Continue to [Validate CEF connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity).
 
 
 ## Next steps
 In this article, you learned how to connect Fortinet appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
-
-
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.

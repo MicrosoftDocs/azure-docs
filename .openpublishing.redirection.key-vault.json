@@ -485,7 +485,11 @@
       "redirect_url": "/azure/key-vault/general/authentication",
       "redirect_document_id": false
     },
-
+    {
+      "source_path_from_root": "/articles/key-vault/general/key-vault-integrate-kubernetes.md",
+      "redirect_url": "/azure/aks/csi-secrets-store-driver",
+      "redirect_document_id": false
+    }
 
   ]
 }

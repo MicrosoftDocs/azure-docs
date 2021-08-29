@@ -25,20 +25,18 @@ landingContent:
             url: azure-vmware-solution-platform-updates.md
       - linkListType: concept
         links:
-          - text: Private cloud and clusters
-            url: concepts-private-clouds-clusters.md
-          - text: Networking and interconnectivity
-            url: concepts-networking.md
-          - text: Storage 
-            url: concepts-storage.md
-          - text: Access and identity 
+          - text: Access and identity
             url: concepts-identity.md
-          - text: Monitor and protection
-            url: concepts-monitor-protection.md
           - text: API Management
             url: concepts-api-management.md
           - text: Hub and spoke
             url: concepts-hub-and-spoke.md
+          - text: Networking and interconnectivity
+            url: concepts-networking.md
+          - text: Private clouds and clusters
+            url: concepts-private-clouds-clusters.md
+          - text: Storage
+            url: concepts-storage.md
 
 # card 2
   - title: FAQ
@@ -83,20 +81,22 @@ landingContent:
           url: configure-vmware-hcx.md
       - linkListType: tutorial
         links:
-          - text: Network planning checklist 
-            url: tutorial-network-checklist.md
-          - text: Create a private cloud
-            url: tutorial-create-private-cloud.md
-          - text: Access a private cloud 
-            url: tutorial-access-private-cloud.md
-          - text: Configure networking
-            url: tutorial-configure-networking.md
-          - text: Create a network segment 
-            url: tutorial-nsx-t-network-segment.md
-          - text: Scale clusters in a private cloud 
-            url: tutorial-scale-private-cloud.md
-          - text: Delete a private cloud
-            url: tutorial-delete-private-cloud.md
+        - text: 1 - Network planning checklist
+          url: tutorial-network-checklist.md
+        - text: 2 - Create a private cloud
+          url: tutorial-create-private-cloud.md
+        - text: 3 - Access a private cloud
+          url: tutorial-access-private-cloud.md
+        - text: 4 - Configure networking
+          url: tutorial-configure-networking.md
+        - text: 5 - Create an NSX-T network segment
+          url: tutorial-nsx-t-network-segment.md
+        - text: 6 - Peer on-premises to private cloud
+          url: tutorial-expressroute-global-reach-private-cloud.md
+        - text: 7 - Scale in a private cloud
+          url: tutorial-scale-private-cloud.md
+        - text: 8 - Delete a private cloud
+          url: tutorial-delete-private-cloud.md
 
 # card 12
   - title: Identity management
@@ -131,7 +131,7 @@ landingContent:
           - text: Configure port mirroring 
             url: configure-port-mirroring-azure-vmware-solution.md
           - text: Configure GitHub Enterprise Server
-            url: ./configure-github-enterprise-server.md
+            url: configure-github-enterprise-server.md
           - text: Enable public internet access
             url: enable-public-internet-access.md
           - text: Configure a site-to-site VPN in vWAN

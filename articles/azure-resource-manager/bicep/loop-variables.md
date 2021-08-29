@@ -12,7 +12,7 @@ ms.date: 06/01/2021
 
 This article shows you how to create more than one value for a variable in your Bicep file. You can add a loop to the `variables` section and dynamically set the number of items for a variable during deployment. You also avoid repeating syntax in your Bicep file.
 
-You can also use copy with [resources](loop-resources.md), [properties in a resource](loop-properties.md), and [outputs](loop-outputs.md).
+You can also use copy with [modules](loop-modules.md), [resources](loop-resources.md), [properties in a resource](loop-properties.md), and [outputs](loop-outputs.md).
 
 ## Syntax
 
@@ -45,7 +45,7 @@ Loops can be used to declare multiple variables by:
 
 ## Loop limits
 
-The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. To deploy Bicep files, install the latest version of [Bicep tools](install.md).
+The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. 
 
 ## Variable iteration
 
@@ -123,8 +123,8 @@ The following examples show common scenarios for creating more than one value fo
 
 |Template  |Description  |
 |---------|---------|
-|[Loop variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopvariables.bicep) | Demonstrates how to iterate on variables. |
-|[Multiple security rules](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.bicep) |Deploys several security rules to a network security group. It constructs the security rules from a parameter. For the parameter, see [multiple NSG parameter file](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
+|[Loop variables](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopvariables.bicep) | Demonstrates how to iterate on variables. |
+|[Multiple security rules](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/multiplesecurityrules.bicep) |Deploys several security rules to a network security group. It constructs the security rules from a parameter. For the parameter, see [multiple NSG parameter file](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/multiplesecurityrules.parameters.json). |
 
 ## Next steps
 

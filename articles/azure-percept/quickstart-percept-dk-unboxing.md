@@ -1,5 +1,5 @@
 ---
-title: Unbox and assemble your Azure Percept DK components
+title: Unbox and assemble your Azure Percept DK
 description: Learn how to unbox, connect, and power on your Azure Percept DK
 author: mimcco
 ms.author: mimcco
@@ -9,7 +9,7 @@ ms.date: 02/16/2021
 ms.custom: template-quickstart #Required; leave this attribute/value as-is.
 ---
 
-# Quickstart: unbox and assemble your Azure Percept DK components
+# Quickstart: unbox and assemble your Azure Percept DK
 
 Once you have received your Azure Percept DK, reference this guide for information on connecting the components and powering on the device.
 

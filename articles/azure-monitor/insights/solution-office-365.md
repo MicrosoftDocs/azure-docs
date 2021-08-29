@@ -87,10 +87,10 @@ ms.date: 03/30/2020
 > ### Q: How I can use the Azure Sentinel out-of-the-box security-oriented content?
 > Azure Sentinel provides out-of-the-box security-oriented dashboards, custom alert queries, hunting queries, investigation, and automated response capabilities based on the Office 365 and Azure AD logs. Explore the Azure Sentinel GitHub and tutorials to learn more:
 >
-> - [Detect threats out-of-the-box](../../sentinel/tutorial-detect-threats-built-in.md)
-> - [Create custom analytic rules to detect suspicious threats](../../sentinel/tutorial-detect-threats-custom.md)
-> - [Monitor your data](../../sentinel/tutorial-monitor-your-data.md)
-> - [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+> - [Detect threats out-of-the-box](/azure/azure-monitor/insights/articles/sentinel/detect-threats-built-in.md)
+> - [Create custom analytic rules to detect suspicious threats](/azure/azure-monitor/insights/articles/sentinel/detect-threats-custom.md)
+> - [Monitor your data](/azure/azure-monitor/insights/articles/sentinel/monitor-your-data.md)
+> - [Investigate incidents with Azure Sentinel](/azure/azure-monitor/insights/articles/sentinel/investigate-cases.md)
 > - [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 > - [Azure Sentinel GitHub community](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)
 > 
@@ -470,4 +470,4 @@ The following table provides sample log queries for update records collected by 
 
 * Use [log queries in Azure Monitor](../logs/log-query-overview.md) to view detailed update data.
 * [Create your own dashboards](../visualize/tutorial-logs-dashboards.md) to display your favorite Office 365 search queries.
-* [Create alerts](../alerts/alerts-overview.md) to be proactively notified of important Office 365 activities.  
+* [Create alerts](../alerts/alerts-overview.md) to be proactively notified of important Office 365 activities.

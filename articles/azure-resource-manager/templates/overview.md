@@ -148,4 +148,4 @@ This approach means you can safely share templates that meet your organization's
 * To learn about ARM templates through a guided set of modules on Microsoft Learn, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
 * For information about the properties in template files, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * To learn about exporting templates, see [Quickstart: Create and deploy ARM templates by using the Azure portal](quickstart-create-templates-use-the-portal.md).
-* For answers to common questions, see [Frequently asked questions about ARM templates](/azure/purview/frequently-asked-questions.yml).
+* For answers to common questions, see [Frequently asked questions about ARM templates](./frequently-asked-questions.yml).

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 08/20/2021
 ms.author: jeedes
 ---
 
@@ -37,6 +37,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * 4me supports **SP** initiated SSO.
 * 4me supports **Just In Time** user provisioning.
+* 4me supports [Automated user provisioning](4me-provisioning-tutorial.md).
 
 ## Add 4me from the gallery
 

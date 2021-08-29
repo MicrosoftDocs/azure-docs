@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/05/2021
+ms.date: 08/17/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -35,7 +35,7 @@ A user flow lets you determine how users interact with your application when the
 
 ::: zone pivot="b2c-user-flow"
 > [!IMPORTANT]
-> We've changed the way we reference user flow versions. Previously, we offered V1 (production-ready) versions, and V1.1 and V2 (preview) versions. Now, we've consolidated user flows into two versions: **Recommended** user flows with the latest features, and **Standard (Legacy)** user flows. In the public cloud, all legacy preview user flows (V1.1 and V2) are on a path to deprecation by **August 1, 2021**. For details, see [User flow versions in Azure AD B2C](user-flow-versions.md). *These changes apply to the Azure public cloud only. Other environments will continue to use [legacy user flow versioning](user-flow-versions-legacy.md).* 
+> We've changed the way we reference user flow versions. Previously, we offered V1 (production-ready) versions, and V1.1 and V2 (preview) versions. Now, we've consolidated user flows into two versions: **Recommended** user flows with the latest features, and **Standard (Legacy)** user flows. All legacy preview user flows (V1.1 and V2) are deprecated. For details, see [User flow versions in Azure AD B2C](user-flow-versions.md). *These changes apply to the Azure public cloud only. Other environments will continue to use [legacy user flow versioning](user-flow-versions-legacy.md).* 
 ::: zone-end
 
 ## Prerequisites
@@ -66,7 +66,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Under **Policies**, select **User flows**, and then select **New user flow**.
 
-    ![User flows page in portal with New user flow button highlighted](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
+    ![User flows page in portal with New user flow button highlighted](./media/tutorial-create-user-flows/sign-up-sign-in-user-flow.png)
 
 1. On the **Create a user flow** page, select the **Sign up and sign in** user flow.
 

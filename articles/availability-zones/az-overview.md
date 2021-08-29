@@ -46,6 +46,9 @@ Build high-availability into your application architecture by co-locating your c
 - **Zonal services** – where a resource is pinned to a specific zone (for example, virtual machines, managed disks, Standard IP addresses), or
 - **Zone-redundant services** – when the Azure platform replicates automatically across zones (for example, zone-redundant storage, SQL Database).
 
+> [!NOTE]
+> Both Standard SKU Public IP Addresses and Public IP Address Prefix resource types also have a "no-zone" option.  This allows customers to utilize Standard SKU public IPs (and associate them to resources which only allow Standard SKU), but does not give a guarantee of redundancy.  (All Public IP addresses that are [upgraded](https://docs.microsoft.com/azure/virtual-network/public-ip-upgrade-portal) from Basic to Standard SKU will be of type "no-zone".)
+
 To achieve comprehensive business continuity on Azure, build your application architecture using the combination of Availability Zones with Azure region pairs. You can synchronously replicate your applications and data using Availability Zones within an Azure region for high-availability and asynchronously replicate across Azure regions for disaster recovery protection.
  
 ![conceptual view of one zone going down in a region](./media/az-overview/az-graphic-two.png)

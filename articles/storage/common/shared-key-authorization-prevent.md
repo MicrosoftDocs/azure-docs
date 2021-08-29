@@ -243,6 +243,6 @@ Disallowing Shared Key access for a storage account does not affect SMB connecti
 
 ## Next steps
 
-- [Authorize access to data in Azure Storage](storage-auth.md)
+- [Authorize access to data in Azure Storage](./authorize-data-access.md)
 - [Authorize access to blobs and queues using Azure Active Directory](authorize-data-access.md)
 - [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key)

@@ -2,7 +2,7 @@
 title: Choose VM sizes and images for pools
 description: How to choose from the available VM sizes and OS versions for compute nodes in Azure Batch pools
 ms.topic: conceptual
-ms.date: 07/20/2021
+ms.date: 08/10/2021
 ms.custom: seodec18
 
 ---
@@ -35,7 +35,7 @@ Batch pools in the Virtual Machine configuration support almost all [VM sizes](.
 | Ev4, Esv4 | Not supported |
 | F, Fs | All sizes |
 | Fsv2 | All sizes |
-| FX | All sizes |
+| FX<sup>1</sup> | All sizes |
 | G, Gs | All sizes |
 | H | All sizes |
 | HB | All sizes |

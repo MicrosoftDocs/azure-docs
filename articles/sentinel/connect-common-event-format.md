@@ -25,7 +25,7 @@ When you connect an external solution that sends CEF messages, there are three s
 
 STEP 1: [Connect CEF by deploying a Syslog/CEF forwarder](connect-cef-agent.md)
 STEP 2: [Perform solution-specific steps](connect-cef-solution-config.md)
-STEP 3: [Verify connectivity](connect-cef-verify.md)
+STEP 3: [Verify connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity)
 
 This article describes how the connection works, lists prerequisites, and shows the steps for deploying a mechanism for security solutions to send Common Event Format (CEF) messages on top of Syslog. 
 
@@ -98,10 +98,10 @@ In this document, you learned how Azure Sentinel collects CEF logs from security
 
 - STEP 1: [Connect CEF by deploying a Syslog/CEF forwarder](connect-cef-agent.md)
 - STEP 2: [Perform solution-specific steps](connect-cef-solution-config.md)
-- STEP 3: [Verify connectivity](connect-cef-verify.md)
+- STEP 3: [Verify connectivity](troubleshooting-cef-syslog.md#validate-cef-connectivity)
 
 To learn more about what to do with the data you've collected in Azure Sentinel, see the following articles:
 
 - Learn about [CEF and CommonSecurityLog field mapping](cef-name-mapping.md).
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).

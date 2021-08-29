@@ -24,7 +24,7 @@ Azure Defender detects anomalous activities indicating unusual and potentially h
 
 | Aspect                             | Details                                                                                                                                    |
 |------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                     | General Availability (GA)                                                     |
+| Release state:                     | General availability (GA)                                                     |
 | Pricing:                           | **Azure Defender for open-source relational databases** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)   |
 | Protected versions of PostgreSQL:  | Single Server - General Purpose and Memory Optimized. Learn more in [PostgreSQL pricing tiers](../postgresql/concepts-pricing-tiers.md).   |
 | Protected versions of MySQL:       | Single Server - General Purpose and Memory Optimized. Learn more in [MySQL pricing tiers](../mysql/concepts-pricing-tiers.md).                        |

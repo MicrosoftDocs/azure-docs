@@ -1,5 +1,5 @@
 ---
-title: Azure Percept Advanced Development
+title: Azure Percept advanced development
 description: Learn more about advanced development tools on Azure Percept
 author: mimcco
 ms.author: mimcco

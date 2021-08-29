@@ -63,4 +63,4 @@ You can copy the external IP and port number from here and connect to it using y
 ## Next steps
 - [Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md)
 - [Register your instance with Azure and upload metrics and logs about your instance](upload-metrics-and-logs-to-azure-monitor.md)
-- [Deploy Azure SQL managed instance using Azure Data Studio](create-sql-managed-instance-azure-data-studio.md)
+- [Deploy Azure SQL Managed Instance using Azure Data Studio](create-sql-managed-instance-azure-data-studio.md)
