@@ -55,7 +55,6 @@ This authentication method allows you to give permissions directly to the playbo
 
 To authenticate with managed identity:
 
-   > [!NOTE]
    > Note: To assign roles to the managed identity, you must be signed in with a user that is assigned a role that has role assignments write permission, such as Owner or User Access Administrator at the scope of the Azure Sentinel workspace.
 
 1. [Enable managed identity](../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal) on the Logic Apps workflow resource. To summarize:
