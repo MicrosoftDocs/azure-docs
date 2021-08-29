@@ -259,7 +259,7 @@ var app = ConfidentialClientApplicationBuilder
 
 ### Disabling cache synchronization
 
-By default, MSAL will lock cache access at the confidential client application level between cache reads and cache write. This lock can be an issue if the cache serializer takes a long time until a timeout happens, which can be the case with Redis caches. You can the `WithCacheSynchronization` flag to false to enable an optimistic cache locking strategy, which may result in better performance, especially when ConfidentialClientApplication objects are reused across requests. 
+By default, MSAL will lock cache access at the confidential client application level between cache reads and cache writes. This lock can be an issue if the cache serializer takes a long time until a timeout happens, which can be the case with Redis caches. You can set the `WithCacheSynchronization` flag to false to enable an optimistic cache locking strategy, which may result in better performance, especially when ConfidentialClientApplication objects are reused across requests. 
 
 ```csharp
 var app = ConfidentialClientApplicationBuilder
