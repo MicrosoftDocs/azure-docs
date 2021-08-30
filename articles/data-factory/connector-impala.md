@@ -51,12 +51,12 @@ Use the following steps to create a linked service to Impala in the Azure portal
 
 ---
 
-2.Search for Impala and select the Impala connector.
+2. Search for Impala and select the Impala connector.
 
    :::image type="content" source="media/connector-impala/impala-connector.png" alt-text="Select the Impala connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-impala/configure-impala-linked-service.png" alt-text="Configure a linked service to Impala.":::
 
