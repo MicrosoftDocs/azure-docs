@@ -19,7 +19,7 @@ Watch the latest dedicated SQL pool (formerly SQL DW) videos to learn about new 
 
 To get started, select the overview video below to learn about the new updates to dedicated SQL pool. Also, learn how modern data warehouse patterns can be used to tackle real world scenarios such as cybercrime.
 
-> [!VIDEO ./media/sql-data-warehouse-videos/modern-data-warehouse-overview.png]
+> [!VIDEO https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2]
 
 </br>
 
