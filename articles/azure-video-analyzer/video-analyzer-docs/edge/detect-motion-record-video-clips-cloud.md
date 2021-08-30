@@ -7,7 +7,7 @@ ms.date: 06/01/2021
 ---
 # Quickstart: Detect motion, record video to Video Analyzer
 
-[!INCLUDE [heaer](includes/edge-env.md)]
+[!INCLUDE [header](includes/edge-env.md)]
 
 This article walks you through the steps to use Azure Video Analyzer edge module for [event-based recording](event-based-video-recording-concept.md). It uses a Linux VM in Azure as an IoT Edge device and a simulated live video stream. This video stream is analyzed for the presence of moving objects. When motion is detected, events are sent to Azure IoT Hub, and the relevant part of the video stream is recorded as a [video resource](../terminology.md#video) in your Video Analyzer account.
 

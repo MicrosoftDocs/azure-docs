@@ -8,6 +8,8 @@ ms.date: 06/01/2021
 ---
 # Playback of video recordings 
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 ## Pre-read  
 
 * [Continuous video recording](continuous-video-recording.md)

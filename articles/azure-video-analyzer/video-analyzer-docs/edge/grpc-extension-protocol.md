@@ -8,6 +8,8 @@ ms.date: 06/01/2021
 
 # Use the gRPC extension protocol 
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 Azure Video Analyzer allows you to enhance its pipeline processing capabilities through a [pipeline extension node](pipeline-extension.md). The gRPC extension processor enables extensibility scenarios using a [highly performant, structured, gRPC-based protocol](pipeline-extension.md#grpc-extension-processor).
 
 In this article, you will learn about using gRPC extension protocol to send messages between Video Analyzer module and your gRPC server that processes those messages and returns results. gRPC is a modern, open-source, high-performance RPC framework that runs in any environment and support cross platform and cross language communication. The gRPC transport service uses HTTP/2 bidirectional streaming between:

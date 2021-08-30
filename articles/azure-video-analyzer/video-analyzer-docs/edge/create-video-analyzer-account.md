@@ -8,7 +8,7 @@ ms.date: 06/01/2021
 
 # Create a Video Analyzer account
 
-[!INCLUDE [heaer](includes/edge-env.md)]
+[!INCLUDE [header](includes/edge-env.md)]
 
 To start using Azure Video Analyzer, you will need to create a Video Analyzer account. The account needs to be associated with a storage account and [user-assigned managed identity][docs-uami]. The managed identity will need to have the permissions of the [Storage Blob Data Contributor][docs-storage-access] role and [Reader][docs-role-reader] role for the storage account. This article describes the steps for creating a new Video Analyzer account.
 

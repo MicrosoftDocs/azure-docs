@@ -10,6 +10,8 @@ ms.date: 06/01/2021
 
 # Azure Video Analyzer SDKs
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 Azure Video Analyzer includes two groups of SDKs. The management SDKs are used for managing the Azure resource and the client SDKs are used for interacting with edge modules.
 
 ## Management SDKs

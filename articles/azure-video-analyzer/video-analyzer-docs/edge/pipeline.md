@@ -7,6 +7,8 @@ ms.date: 06/01/2021
 ---
 # Pipeline
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 An Azure Video Analyzer pipeline lets you define where input data should be captured from, how it should be processed, and where the results should be delivered. A pipeline consists of nodes that are connected to achieve the desired flow of data. The diagram below provides a graphical representation of a pipeline.
 
 > [!div class="mx-imgBorder"]

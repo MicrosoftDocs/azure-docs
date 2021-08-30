@@ -9,7 +9,7 @@ ms.date: 04/01/2021
 
 # Analyze live video streams with multiple AI models using AI composition
 
-[!INCLUDE [heaer](includes/edge-env.md)]
+[!INCLUDE [header](includes/edge-env.md)]
 
 Certain customer scenarios require that video be analyzed with multiple AI models. Such models can be either [augmenting each other](ai-composition-overview.md#sequential-ai-composition) or [working independently in parallel](ai-composition-overview.md#parallel-ai-composition) on the [same video stream or a combination](ai-composition-overview.md#combined-ai-composition) of such augmented and independently parallel models can be acting on the same video stream to derive actionable insights.
 

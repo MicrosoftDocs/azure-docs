@@ -9,6 +9,8 @@ ms.date: 06/01/2021
 
 # Quickstart: Get started with Azure Video Analyzer
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 This quickstart walks you through the steps to get started with Azure Video Analyzer. It uses an Azure VM as an IoT Edge device and a simulated live video stream.
 
 After completing the setup steps, you'll be able to run the simulated live video stream through a pipeline that detects and reports any motion in that stream. The following diagram graphically represents that pipeline.

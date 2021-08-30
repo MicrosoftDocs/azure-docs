@@ -8,6 +8,8 @@ ms.date: 06/01/2021
 ---
 # Develop on the edge with Video Analyzer
  
+[!INCLUDE [header](includes/edge-env.md)]
+
 This topic provides links to topics that show how develop on the edge with Azure Video Analyzer.
  
 ## Quickstarts

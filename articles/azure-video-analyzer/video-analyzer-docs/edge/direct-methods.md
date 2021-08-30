@@ -7,6 +7,8 @@ ms.date: 06/01/2021
 ---
 # Azure Video Analyzer Direct methods
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 Azure Video Analyzer IoT edge module `avaedge` exposes several direct methods that can be invoked from IoT Hub. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This approach is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond. For more information, see [Understand and invoke direct methods from IoT Hub](../../../iot-hub/iot-hub-devguide-direct-methods.md).
 
 This topic describes these methods, conventions, and the schema of the methods.

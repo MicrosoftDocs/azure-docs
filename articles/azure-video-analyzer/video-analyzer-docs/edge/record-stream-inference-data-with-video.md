@@ -7,7 +7,9 @@ ms.date: 06/01/2021
 
 ---
 # Tutorial: Record and stream inference metadata with video
-  
+
+[!INCLUDE [header](includes/edge-env.md)]
+
 In this tutorial, you will learn how to use Azure Video Analyzer to record live video and inference metadata to the cloud and play back that recording with visual inference metadata. In this use case, you will be continuously recording video, while using a custom model to detect objects **(yoloV3)** and a Video Analyzer processor **(object tracker)** to track objects. As video is being continuously recorded, so will the inference metadata from the objects being detected and tracked. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]

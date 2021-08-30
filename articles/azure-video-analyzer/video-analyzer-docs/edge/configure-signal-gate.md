@@ -8,7 +8,7 @@ ms.date: 06/01/2021
 
 # Configuring a signal gate for event-based video recording
 
-[!INCLUDE [heaer](includes/edge-env.md)]
+[!INCLUDE [header](includes/edge-env.md)]
 
 Within a pipeline, a [signal gate processor node](pipeline.md#signal-gate-processor) allows you to forward media from one node to another when the gate is triggered by an event. When it's triggered, the gate opens and lets media flow through for a specified duration. In the absence of events to trigger the gate, the gate closes, and media stops flowing. You can use the signal gate processor for event-based video recording.
 

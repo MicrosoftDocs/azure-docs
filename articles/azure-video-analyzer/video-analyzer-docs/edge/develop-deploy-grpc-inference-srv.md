@@ -9,6 +9,8 @@ ms.date: 06/01/2021
 
 # Develop and deploy gRPC inference server
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 This article shows you how you can wrap AI model(s) of your choice within a gRPC inference server, so that it can be integrated with Azure Video Analyzer (AVA) via pipeline extension.
 
 ## Suggested pre-reading
