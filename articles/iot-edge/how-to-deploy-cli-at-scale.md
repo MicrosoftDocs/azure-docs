@@ -150,6 +150,11 @@ Here's a basic layered deployment manifest with one module as an example:
   }
 }
 ```
+>[!NOTE]
+> Take note that this layered deployment manifest has a slightly different format than a standard deployment manifest. The desired properties of the runtime modules are collapsed using dot notation. This formatting is required for the Azure portal to recognize a layered deployment. For example:
+
+  - `properties.desired.modules.<module_name>`
+  - `properties.desired.routes.<route_name>`
 
 The previous example showed a layered deployment setting the `properties.desired` for a module. If this layered deployment targeted a device where the same module was already applied, it would overwrite any existing desired properties. In order to update, instead of overwrite, desired properties, you can define a new subsection. For example:
 
@@ -179,18 +184,6 @@ In summary, to create a layered deployment:
 - Must add the `--layered` flag to the Azure CLI create command
 - It may not contain system modules
 - Must use full 'dot notation' under `$edgeAgent` and `$edgeHub`
-  - Example of dot notation pattern in layered deployment: 
-    ```
-    "$edgeAgent": {
-      "properties.desired.modules.SimulatedTemperatureSensor": {
-    ```
-  - Example of partial dot notation pattern in base/regular deployments:
-    ```json
-    "$edgeAgent": {
-      "properties.desired": {
-        "modules": {
-          "SimulatedTemperatureSensor": {
-    ```
 
 For more information about configuring module twins in layered deployments, see [Layered deployment](module-deployment-monitoring.md#layered-deployment)
 
