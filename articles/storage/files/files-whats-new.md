@@ -10,7 +10,7 @@ ms.subservice: files
 ---
 
 # What's new in Azure Files
-Azure Files is updated regularly to offer new features, enhancements, and bugfixes. This article provides detailed information about what's new in Azure Files.
+Azure Files is updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files.
 
 ## 2021 quarter 3 (July, August, September)
 ### SMB Multichannel is generally available
@@ -23,11 +23,11 @@ For more information, see:
 - [Overview on SMB Multichannel in the Windows Server documentation](/azure-stack/hci/manage/manage-smb-multichannel)
 
 ### SMB 3.1.1 and SMB security settings
-Azure Files now supports SMB 3.1.1. SMB 3.1.1 is the most recent version of the SMB protocol, released with Windows 10, containing important security and performance updates. Azure Files SMB 3.1.1 ships with two additional encryption modes, AES-128-GCM and AES-256-GCM, in addition to AES-128-CCM which was already supported. To maximize performance, AES-128-GCM is negotiated as the default SMB channel encryption option; AES-128-CCM will only be negotiated on older clients that don't support AES-128-GCM. 
+SMB 3.1.1 is the most recent version of the SMB protocol, released with Windows 10, containing important security and performance updates. Azure Files SMB 3.1.1 ships with two additional encryption modes, AES-128-GCM and AES-256-GCM, in addition to AES-128-CCM which was already supported. To maximize performance, AES-128-GCM is negotiated as the default SMB channel encryption option; AES-128-CCM will only be negotiated on older clients that don't support AES-128-GCM. 
 
 Depending on your organization's regulatory and compliance requirements, AES-256-GCM can be negotiated instead of AES-128-GCM by either restricting allowed SMB channel encryption options on the SMB clients, in Azure Files, or both. Support for AES-256-GCM was added in Windows Server 2022 and Windows 10, version 21H1.
 
-In addition to SMB 3.1.1, Azure Files now exposes security settings that change the behavior of the SMB protocol. With this release, you may configure allowed SMB protocol versions, SMB channel encryption options, authentication methods, and Kerberos ticket encryption options. By default, Azure Files enables the most compatible options, however these options may be toggled at any time.
+In addition to SMB 3.1.1, Azure Files exposes security settings that change the behavior of the SMB protocol. With this release, you may configure allowed SMB protocol versions, SMB channel encryption options, authentication methods, and Kerberos ticket encryption options. By default, Azure Files enables the most compatible options, however these options may be toggled at any time.
 
 For more information, see:
 
@@ -37,34 +37,34 @@ For more information, see:
 
 ## 2021 quarter 2 (April, May, June)
 ### Premium, hot, and cool storage capacity reservations 
-Azure Files now supports storage capacity reservations (also referred to as *reserve instances*), enabling you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports capacity reservations on the premium, hot, and cool tiers. Capacity reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
+Azure Files supports storage capacity reservations (also referred to as *reserve instances*). Storage capacity reservations allow you to achieve a discount on storage by pre-committing to storage utilization. Azure Files supports capacity reservations on the premium, hot, and cool tiers. Capacity reservations are sold in units of 10 TiB or 100 TiB, for terms of either one year or three years. 
 
 ### Improved portal experience for domain joining to Active Directory
 The experience for domain joining an Azure storage account has been improved to help guide first-time Azure file share admins through the process. When you select Active Directory under **File share settings** in the **File shares** section of the Azure portal, you will be guided through the steps required to domain join.
 
 :::image type="content" source="media/files-whats-new/ad-domain-join-1.png" alt-text="Screenshot of the new portal experience for domain joining a storage account to Active Directory" lightbox="media/files-whats-new/ad-domain-join-1.png":::
 
-## 2021 quarter 1 (January, Feburary, March)
-### Azure Files management now available through Azure Resource Manager
-Management APIs for Azure Files resources, the file service and file shares, are now available through Azure resource manager (Microsoft.Storage resource provider). This enables Azure file shares to be created with an ARM or Bicep template, to be fully manageable when the FileREST API is inaccessible (such as when the storage account's public endpoint is disabled), and to support full role-based access control (RBAC) semantics.
+## 2021 quarter 1 (January, February, March)
+### Azure Files management now available through Azure resource manager
+Management APIs for Azure Files resources, the file service and file shares, are now available through Azure resource manager (`Microsoft.Storage` resource provider). This enables Azure file shares to be created with an Azure resource manager or Bicep template, to be fully manageable when the FileREST API is inaccessible (like when the storage account's public endpoint is disabled), and to support full role-based access control (RBAC) semantics.
 
-We recommend managing Azure Files through the Azure Resource Manager in most cases. To support management of the file service and file shares through Azure Resource Manager, the Azure portal, Azure storage PowerShell module, and Azure CLI have been updated to support most management actions through the Microsoft.Storage resource provider. 
+We recommend you manage Azure Files through the Azure resource manager in most cases. To support management of the file service and file shares through Azure resource manager, the Azure portal, Azure storage PowerShell module, and Azure CLI have been updated to support most management actions through the `Microsoft.Storage` resource provider. 
 
-To preserve existing script behavior, the Azure storage PowerShell module and the Azure CLI maintain the existing commands that use the FileREST API to manage the file service and file shares, as well as adding new commands to use the Microsoft.Storage resource provider. Portal requests only go through the Microsoft.Storage resource provider. PowerShell and CLI commands are named as follows:
+To preserve existing script behavior, the Azure storage PowerShell module and the Azure CLI maintain the existing commands that use the FileREST API to manage the file service and file shares, as well as adding new commands to use the `Microsoft.Storage` resource provider. Portal requests only go through the `Microsoft.Storage` resource provider. PowerShell and CLI commands are named as follows:
 
 - Az.Storage PowerShell:
-    - Microsoft.Storage file share cmdlets are prefixed with `Rm`, for example: `New-AzRmStorageShare`, `Get-AzRmStorageShare`, `Update-AzRmStorageShare`, and `Remove-AzRmStorageShare`. 
-    - FileREST API file share cmdlets do not have a prefix, for example `New-AzStorageShare`, `Get-AzStorageShare`, `Set-AzStorageShareQuota`, and `Remove-AzStorageShare`.
-    - Cmdlets to manage the file service are only available through Microsoft.Storage and do not have any special prefix, for example `Get-AzStorageFileServiceProperty` and `Update-AzStorageFileServiceProperty`.
+    - `Microsoft.Storage` file share cmdlets are prefixed with `Rm`, for example: `New-AzRmStorageShare`, `Get-AzRmStorageShare`, `Update-AzRmStorageShare`, and `Remove-AzRmStorageShare`. 
+    - FileREST API file share cmdlets don't have a prefix, for example `New-AzStorageShare`, `Get-AzStorageShare`, `Set-AzStorageShareQuota`, and `Remove-AzStorageShare`.
+    - Cmdlets to manage the file service are only available through `Microsoft.Storage` and don't have any special prefix, for example `Get-AzStorageFileServiceProperty` and `Update-AzStorageFileServiceProperty`.
 - Azure storage CLI:
-    - Microsoft.Storage file share commands are available under the `az storage share-rm` command group, for example: `az storage share-rm create`, `az storage share-rm update`, etc.
+    - `Microsoft.Storage` file share commands are available under the `az storage share-rm` command group, for example: `az storage share-rm create`, `az storage share-rm update`, etc.
     - FileREST API file share commands are available under the `az storage share` command group, for example: `az storage share create`, `az storage share update`, etc.
-    - Commands to manage the file service are only available through Microsoft.Storage, and are available through the `az storage account file-service-properties` command group, for example: `az storage account file-service-properties show` and `az storage account file-service-properties update`.
+    - Commands to manage the file service are only available through `Microsoft.Storage`, and are available through the `az storage account file-service-properties` command group, for example: `az storage account file-service-properties show` and `az storage account file-service-properties update`.
 
 To learn more about the Azure Files management API, see:
 
 - [Azure Files REST API overview](/rest/api/storageservices/file-service-rest-api)
-- Microsoft.Storage API for Azure Files resources: 
+- `Microsoft.Storage` API for Azure Files resources: 
     - [`FileService`](/rest/api/storagerp/file-services) 
     - [`FileShare`](/rest/api/storagerp/file-shares) 
 - [Azure PowerShell](/powershell/module/az.storage) and [Azure CLI](/en-us/cli/azure/storage?view=azure-cli-latest)
