@@ -65,20 +65,19 @@ The figure below labels the basic elements of the Azure portal, each of which ar
 |7|Command bar. The controls on the command bar are contextual to your current focus.|
 |8|Working pane.  Displays the details about the resource that is currently in focus.|
 |9|Breadcrumb. You can use the breadcrumb links to move back a level in your workflow.|
-|10|Master control to create a new resource in the current subscription. Expand or open the portal menu to find **+ Create a resource**. Search or browse the Azure Marketplace for the resource type you want to create.|
+|10|Master control to create a new resource in the current subscription. Expand or open the portal menu to find **+ Create a resource**. You can also find this option on the **Home** page. Then, search or browse the Azure Marketplace for the resource type you want to create.|
 |11|Your favorites list. See [Add, remove, and sort favorites](../azure-portal/azure-portal-add-remove-sort-favorites.md) to learn how to customize the list.|
 
 ## Get started with services
 
 If you're a new subscriber, you'll have to create a resource before there's anything to manage. Select **+ Create a resource** to view the services available in the Azure Marketplace. You'll find hundreds of applications and services from many providers here, all certified to run on Azure.
 
-We pre-populated your Favorites in the sidebar with links to commonly used services.  To view all available services, select **All services** from the sidebar.
+We pre-populate your [Favorites](../azure-portal/azure-portal-add-remove-sort-favorites.md) in the sidebar with links to commonly used services.  To view all available services, select **All services** from the sidebar.
 
 > [!TIP]
 > The quickest way to find a resource, service, or documentation is to use *Search* in the global header. Use the breadcrumb links to go back to previous pages.
 >
 Watch this video for a demo on how to use global search in the Azure portal.
-
 
 > [!VIDEO https://www.youtube.com/embed/nZ7WwTZcQbo]
 
@@ -86,6 +85,6 @@ Watch this video for a demo on how to use global search in the Azure portal.
 
 ## Next steps
 
-* Learn more about where to run Azure portal in [Supported browsers and devices](../azure-portal/azure-portal-supported-browsers-devices.md)
-* Stay connected on the go with [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* Onboard and set up your cloud environment with the [Azure Quickstart Center](../azure-portal/azure-portal-quickstart-center.md)
+* Learn more about where to run Azure portal in [Supported browsers and devices](../azure-portal/azure-portal-supported-browsers-devices.md).
+* Stay connected on the go with [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+* Onboard and set up your cloud environment with the [Azure Quickstart Center](../azure-portal/azure-portal-quickstart-center.md).
