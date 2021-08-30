@@ -382,7 +382,7 @@ Go to **Azure portal** -> Find your Function App resource -> **App keys** -> **S
 
 :::image type="content" source="media/quickstart-serverless/func-keys.png" alt-text="Screenshot of get function system keys.":::
 
-Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Add a new hub settings mapping to the one function in use as below. Replace the {ngrok-id} to yours.
+Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Add a new hub settings mapping to the one function in use as below. Replace the <FUNCTIONAPP_NAME> to yours.
 
    - Hub Name: `simplechat`
    - URL Template: **https://<FUNCTIONAPP_NAME>.azurewebsites.net/runtime/webhooks/webpubsub?code=<APP_KEY>**
@@ -391,9 +391,9 @@ Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find 
 
 :::image type="content" source="media/quickstart-serverless/set-event-handler.png" alt-text="Screenshot of setting the event handler.":::
 
-## Configure to enable authentication.
+## Configure to enable authentication
 
-1. Configure Function App to use Authentication. Go to **Azure portal** -> Find your Function App resource -> **Authentication**. Click **`Add identity provider`**. You can also configure with below options. Then **`Add`**. Remember the **Name** if you change it. By default it'll using your function app's name.
+1. Configure Function App to use Authentication. Go to **Azure portal** -> Find your Function App resource -> **Authentication**. Click **`Add identity provider`**. You can configure identity provider with below options following detail doc. Basically you can use default settings. Then **`Add`**. Remember the **Name** if you change it. By default it'll using your function app's name.
    * [Microsoft(Azure AD)](/azure/app-service/configure-authentication-provider-aad)
    * [Facebook](/azure/app-service/configure-authentication-provider-facebook)
    * [Google](/azure/app-service/configure-authentication-provider-facebook)
@@ -403,7 +403,7 @@ Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find 
 
     :::image type="content" source="media/quickstart-serverless/enable-authentication.png" alt-text="Screenshot of enable authentication.":::
 
-### Try the application
+## Try the application
 
 Now you're able to test your page from your function app: `https://<FUNCTION_APP>.azurewebsites.net/api/index`. See snapshot below.
 1. Click `login` to auth yourself.
