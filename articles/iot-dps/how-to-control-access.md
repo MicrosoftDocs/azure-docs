@@ -42,17 +42,17 @@ A device must authenticate to the Device API as part of the provisioning process
 ```http
     https://global.azure-devices-provisioning.net/[ID_Scope]/registrations/[registration_id]/register?api-version=2021-06-01
 ```
-If using key-based authentication, a security token is passed in the HTTP Authorization request header in the following format:
+If using key-based authentication, a security token is passed in the HTTP **Authorization** request header in the following format:
 
-```http
+```bash
     SharedAccessSignature sig={signature}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI} 
 ```
 
 ### Security token structure for key-based authentication
 
-The security token is passed in the HTTP Authorization request header in the following format:
+The security token is passed in the HTTP **Authorization** request header in the following format:
 
-```http
+```bash
     SharedAccessSignature sig={signature}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI} 
 ```
 
@@ -65,7 +65,7 @@ The expected values are:
 | `{URL-encoded-resourceURI}`   |Lower case URL-encoding of `{ID_Scope}/registrations/{registration_id}` |
 | `{policyName}`  | For the Device API, this policy is always “registration”. |
 
-The following Python snippet shows a function called `generateSasToken` that computes the token from the inputs `uri`, `key`, `policy_name`, `expirey` for an individual enrollment using a symmetric key authentication type.
+The following Python snippet shows a function called `generateSasToken` that computes the token from the inputs `uri`, `key`, `policy_name`, `expiry` for an individual enrollment using a symmetric key authentication type.
 
 ```python
 
@@ -95,7 +95,7 @@ print(generate_sas_token("myIdScope/registrations/mydeviceregistrationid", "00
 
 The result should resemble the following output:
 
-```python
+```bash
 
 SharedAccessSignature sr=myIdScope%2Fregistrations%2Fmydeviceregistrationid&sig=SDpdbUNk%2F1DSjEpeb29BLVe6gRDZI7T41Y4BPsHHoUg%3D&se=1630175722&skn=registration 
 ```
@@ -108,7 +108,7 @@ curl -L -i -X PUT -H 'Content-Type: application/json' -H 'Content-Encoding:  utf
 
 ```
 
-If using a symmetric key-based enrollment group, you'll need to first generate a `devicesymmetric` key using the enrollment group key. Use the enrollment group primary or secondary key to compute an HMAC-SHA256 of the registration ID for the device. The result is then converted into Base64 format to obtain the derived device key. To view code examples. see [How to provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md?tabs=linux%22%20%5Cl%20%22derive-a-device-key). Once the device symmetric key has been derived, you can register the device using the previous examples.
+If using a symmetric key-based enrollment group, you'll need to first generate a `device symmetric` key using the enrollment group key. Use the enrollment group primary or secondary key to compute an HMAC-SHA256 of the registration ID for the device. The result is then converted into Base64 format to obtain the derived device key. To view code examples, see [How to provision devices using symmetric key enrollment groups](how-to-legacy-device-symm-key.md?tabs=linux%22%20%5Cl%20%22derive-a-device-key). Once the device symmetric key has been derived, you can register the device using the previous examples.
 
 >[!WARNING]
 >To avoid including the group master key in your device code, the process of deriving device key should be done off the device.
@@ -127,7 +127,7 @@ If you've set up an individual enrollment or enrollment group for X.509 certific
 
 Once the enrollment has been set up and the device certificate issued, the following example demonstrates how to authenticate to Device API with the device’s X.509 certificate.
 
-```python
+```bash
 
 curl -L -i -X PUT –cert ./[device_cert].pem –key ./[device_cert_private_key].pem -H 'Content-Type: application/json' -H 'Content-Encoding:  utf-8' -d '{"registrationId": "[registration_id]"}' https://global.azure-devices-provisioning.net/[ID_Scope]/registrations/[registration_id]/register?api-version=2021-06-01 
 
@@ -158,7 +158,7 @@ HTTP is the only supported protocol, and it implements authentication by includi
 
 #### Example
 
-```csharp
+```bash
 SharedAccessSignature sr = 
    mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
 ```
