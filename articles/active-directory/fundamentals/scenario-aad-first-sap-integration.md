@@ -3,7 +3,7 @@ title: Scenario - Using Azure Active Directory to secure access to SAP platforms
 description: A guide for architects and IT administrators on how to secure access to SAP platforms and applications 
 services: active-directory
 author: xstof
-manager: 
+manager: alberts
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
