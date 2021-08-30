@@ -104,7 +104,7 @@ To get the credentials for a share:
 
    ![Screenshot showing the Connect And Copy page in the local Web UI for a Data Box. The Connect And Copy menu item and the SMB option are highlighted.](media/data-box-local-web-ui-admin/get-share-credentials-01.png)
 
-1. In the **Access share and copy data** dialog box, copy the **Username** and **Password** corresponding to the share. Then select **OK**.
+1. In the **Access share and copy data** dialog box, use the copy icon to copy the **Username** and **Password** corresponding to the share. To close the dialog box, select **OK**.
 
    ![Screenshot showing the Access Share And Copy Data dialog box in the local Web UI for an SMB share on the Data Box. The Copy icon for the Storage Account and Password options, and the OK button, are highlighted.](media/data-box-local-web-ui-admin/get-share-credentials-02.png)
 
