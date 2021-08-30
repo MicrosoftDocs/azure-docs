@@ -10,8 +10,14 @@
     items:
     - name: Release notes
       href: release-notes.md  
+- name: Cloud
+  items:
+  - name: Overview/learning path
+    href: overview.md      
 - name: Edge
-  items:      
+  items:     
+  - name: Overview/learning path
+    href: overview.md      
   - name: Quickstarts
     items:
     - name: Get started with Azure Video Analyzer
