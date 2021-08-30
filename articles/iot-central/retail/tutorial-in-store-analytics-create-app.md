@@ -198,7 +198,11 @@ Specify the following values to create a custom property to store the location o
 
 1. Enter the value *Location* for the **Display Name**. This value is automatically copied to the **Name** field, which is a friendly name for the property. You can use the copied value or change it.
 
-1. Select *String* in the **Schema** dropdown. A string type enables you to associate a location name string with any device based on the template. For instance, you could associate an area in a store with each device. Optionally, you can set the **Semantic Type** of your property to *Location*, and it automatically sets the **Schema** to *Geopoint*. It enables you to associate GPS coordinates with a device. 
+1. Select *String* in the **Schema** dropdown. A string type enables you to associate a location name string with any device based on the template. For instance, you could associate an area in a store with each device.
+
+1. Set **Minimum Length** to *2*. 
+
+1. Set **Trim Whitespace** to **On**.
 
 1. Select **Save** to save your custom cloud property.
 

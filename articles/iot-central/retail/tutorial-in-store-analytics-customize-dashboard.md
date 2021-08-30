@@ -30,6 +30,20 @@ The builder should complete the tutorial to create the Azure IoT Central in-stor
 
 * [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) (Required)
 
+## Change the dashboard name
+
+To customize the dashboard, you have to edit the default dashboard in your application. Also, you can create additional new dashboards. The first step to customize the dashboard in your application is to change the name.
+
+1. Navigate to the [Azure IoT Central application manager](https://aka.ms/iotcentral) website.
+
+1. Open the condition monitoring application that you created in the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial.
+
+1. Select **Dashboard settings**  and enter **Name** for your dashboard and select **Save**. 
+
+    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/dashboard-edit.png" alt-text="Azure IoT Central edit dashboard.":::
+
+    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/new-dashboard.png" alt-text="Azure IoT Central edit dashboard.":::
+
 
 ## Customize image tiles on the dashboard
 
@@ -79,7 +93,7 @@ To remove tiles that you don't plan to use in your application:
 
 1. Select **Edit** on the dashboard toolbar. 
 
-1. Select **ellipsis** and **Delete** to remove the following tiles: **Back to all zones**, **Visit store dashboard**, **Occupancy**,n **Warm-up checkout zone**, **Cool-down checkout zone**, **Occupancy sensor settings**, **Thermostat sensor settings**, and **Environment conditions** and all three tiles associated with **Checkout 3**. The Contoso store dashboard doesn't use these tiles. 
+1. Select **ellipsis** and **Delete** to remove the following tiles: **Back to all zones**, **Visit store dashboard**, **Occupancy**, **Warm-up checkout zone**, **Cool-down checkout zone**, **Occupancy sensor settings**, **Thermostat sensor settings**, and **Environment conditions** and all three tiles associated with **Checkout 3**. The Contoso store dashboard doesn't use these tiles. 
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/delete-tiles.png" alt-text="Azure IoT Central delete tiles.":::
 
