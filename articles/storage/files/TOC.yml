@@ -5,6 +5,8 @@
   items:
   - name: What is Azure Files?
     href: storage-files-introduction.md
+  - name: What's new in Azure Files?
+    href: files-whats-new.md
 - name: Quickstarts
   items:
   - name: Create / use file shares - Windows
