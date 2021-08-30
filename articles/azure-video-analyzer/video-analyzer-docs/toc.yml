@@ -13,11 +13,11 @@
 - name: Cloud
   items:
   - name: Overview/learning path
-    href: overview.md      
+    href: cloud/overview.md      
 - name: Edge
   items:     
   - name: Overview/learning path
-    href: overview.md      
+    href: edge/overview.md      
   - name: Quickstarts
     items:
     - name: Get started with Azure Video Analyzer
