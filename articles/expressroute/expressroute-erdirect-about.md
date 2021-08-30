@@ -43,7 +43,7 @@ Once enrolled, verify that **Microsoft.Network** resource provider is registered
 
 1. In your subscription, for **Resource Providers**, verify **Microsoft.Network** provider shows a **Registered** status. If the Microsoft.Network resource provider isn't present in the list of registered providers, add it.
 
-If you begin to use ExpressRoute Direct and notice that there are no available ports in your chosen peering location, email ExpressRouteDirect@microsoft.com to request more inventory.
+If you begin to use ExpressRoute Direct and notice that there are no available ports in your chosen peering location, please log a support request to request more inventory.
 
 ## ExpressRoute using a service provider and ExpressRoute Direct
 
