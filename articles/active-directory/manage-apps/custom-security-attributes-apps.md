@@ -33,6 +33,7 @@ To assign or remove custom security attributes for an application in your Azure 
 
     > [!IMPORTANT]
     > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+- [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using PowerShell
 
 ## Assign custom security attributes to an application
 
@@ -92,6 +93,43 @@ To assign or remove custom security attributes for an application in your Azure 
     Once you have assigned a custom security attribute to an application, you can only change the value of the custom security attribute. You can't change other properties of the custom security attribute, such as custom security attribute set or custom security attribute name.
 
 1. Select Remove assignment.
+
+## PowerShell
+
+To manage custom security attribute assignments for applications in your Azure AD organization, you can use PowerShell. The following commands can be used to manage assignments.
+
+### List custom security attribute assignments for an application/service principal
+
+```powershell
+Get-AzureADMSServicePrincipal -Select CustomSecurityAttributes
+Get-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20  -Select "CustomSecurityAttributes, Id"
+```
+
+### Assign a custom security attribute with a multi-string value to an application/service principal
+
+```powershell
+$attributes = @{
+    testAttributeSet1 = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "testAttribute@odata.type" = "#Collection(String)"
+        testAttribute = @("Value3","Value1")
+    }
+}
+Set-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20 -CustomSecurityAttributes $attributes
+```
+
+### Update a custom security attribute with a multi-string value for an application/service principal
+
+```powershell
+$attributesUpdate = @{
+    testAttributeSet1 = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "testAttribute@odata.type" = "#Collection(String)"
+        testAttribute = @("Value5")
+    }
+}
+Set-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20 -CustomSecurityAttributes $attributesUpdate 
+```
 
 ## Frequently asked questions
 

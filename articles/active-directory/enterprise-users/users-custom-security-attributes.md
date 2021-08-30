@@ -36,6 +36,7 @@ To assign or remove custom security attributes for a user in your Azure AD tenan
 
     > [!IMPORTANT]
     > [Global Administrator](../roles/permissions-reference.md#global-administrator), [Global Reader](../roles/permissions-reference.md#global-reader), [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator), and [User Administrator](../roles/permissions-reference.md#user-administrator) do not have permissions to read, filter, define, manage, or assign custom security attributes.
+- [AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview) version 2.0.2.138 or later when using PowerShell
     
 ## Assign custom security attributes to a user
 
@@ -109,9 +110,46 @@ The search box supports a "starts with" search on the custom security attribute 
 
 Add filters supports filtering the list of all custom security attributes assigned to this user. You can currently filter the list of custom security attributes by the custom security attribute set. Select the custom security attribute set and enter the first few letters or the entire name of the custom security attribute set.
 
+## PowerShell
+
+To manage custom security attribute assignments for users in your Azure AD organization, you can use PowerShell. The following commands can be used to manage assignments.
+
+### List custom security attribute assignments for a user
+
+```powershell
+$user1 = Get-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -Select CustomSecurityAttributes
+$user1.CustomSecurityAttributes
+```
+
+### Assign a custom security attribute with a multi-string value to a user
+
+```powershell
+$attributes = @{
+    Storage = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "Project@odata.type" = "#Collection(String)"
+        Project = @("Value3","Value1")
+    }
+}
+Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttributes $attributes
+```
+
+### Update a custom security attribute with a multi-string value for a user
+
+```powershell
+$attributesUpdate = @{
+    Storage = @{
+        "@odata.type" = "#Microsoft.DirectoryServices.CustomSecurityAttributeValue"
+        "Project@odata.type" = "#Collection(String)"
+        Project = @("Value3","Value1")
+    }
+}
+Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttributes $attributesUpdate 
+```
+
 ## Microsoft Graph API
 
-To manage custom security attribute assignments for users in your Azure AD organization, you can also use the Microsoft Graph API. The following API calls can be made to manage assignments.
+To manage custom security attribute assignments for users in your Azure AD organization, you can use the Microsoft Graph API. The following API calls can be made to manage assignments.
 
 ### List custom security attribute assignments for a user
 
