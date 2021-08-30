@@ -1,8 +1,9 @@
 ---
 title: View acquisitions report
 description: Analyze your app or add-in performance and see funnel and acquisitions metrics.
-ms.author: mingshen
 localization_priority: Normal
+ms.author: mingshen
+ms.date: 8/30/2021
 ---
 
 # View the Acquisitions report in the dashboard
@@ -10,8 +11,6 @@ localization_priority: Normal
 The [Acquisitions report](https://partner.microsoft.com/dashboard/analytics/office/acquisitions) in the Partner Center dashboard lets you see who has acquired and installed your add-in, app, or visual, and shows info about how customers have arrived at your Microsoft AppSource listing. 
 
 In this report, an acquisition means a new customer has obtained a license to your solution (whether you charged money or you've offered it for free). If your solution supports multi-seat acquisitions, such as site license purchases, these will also be detailed and displayed.
-
-The Acquisitions report does not include data about refunds, reversals, chargebacks, and so on. To estimate your solution proceeds, visit Payout summary. 
 
 The SLA for Acquisitions data is currently 4 days.
 
