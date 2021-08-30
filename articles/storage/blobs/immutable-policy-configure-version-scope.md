@@ -143,10 +143,19 @@ $migrationOperation = Invoke-AzRmStorageContainerImmutableStorageWithVersioningM
     -AsJob
 ```
 
-To check the status of the long-running operation, read the operation's **JobStateInfo** property.
+To check the status of the long-running operation, read the operation's **JobStateInfo.State** property.
 
 ```azurepowershell
-$migrationOperation.JobStateInfo
+$migrationOperation.JobStateInfo.State
+```
+
+If the container does not have an existing time-based retention policy when you attempt to migrate to version-level immutability, then the operation fails. The following example checks the value of the **JobStateInfo.State** property and displays the error message if the operation failed because the container-level policy does not exist.
+
+```azurepowershell
+if ($migrationOperation.JobStateInfo.State -eq "Failed") {
+Write-Host $migrationOperation.Error
+}
+The container sample-container must have an immutability policy set as a default policy before initiating container migration to support object level immutability with versioning.
 ```
 
 After the migration is complete, check the **Output** property of the operation to see that support for version-level immutability is enabled.
@@ -154,6 +163,8 @@ After the migration is complete, check the **Output** property of the operation 
 ```azurepowershell
 $migrationOperation.Output
 ```
+
+For more information about PowerShell jobs, see [Run Azure PowerShell cmdlets in PowerShell Jobs](/powershell/azure/using-psjobs).
 
 #### [Azure CLI](#tab/azure-cli)
 
