@@ -28,8 +28,6 @@ The following diagram shows how object replication replicates block blobs from a
 
 To learn how to configure object replication, see [Configure object replication](object-replication-configure.md).
 
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
-
 ## Prerequisites for object replication
 
 Object replication requires that the following Azure Storage features are also enabled:
