@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB provides database protection and data sec
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 08/20/2021
 ms.author: mjbrown
 ---
 
@@ -80,20 +80,20 @@ The following screenshot shows how you can use audit logging and activity logs t
 
 <a id="primary-keys"></a>
 
-## Primary keys
+## Primary/secondary keys
 
-Primary keys provide access to all the administrative resources for the database account. Primary keys:
+Primary/secondary keys provide access to all the administrative resources for the database account. Primary/secondary keys:
 
 - Provide access to accounts, databases, users, and permissions. 
 - Cannot be used to provide granular access to containers and documents.
 - Are created during the creation of an account.
 - Can be regenerated at any time.
 
-Each account consists of two primary keys: a primary key and secondary key. The purpose of dual keys is so that you can regenerate, or roll keys, providing continuous access to your account and data.
+Each account consists of two keys: a primary key and secondary key. The purpose of dual keys is so that you can regenerate, or roll keys, providing continuous access to your account and data.
 
-In addition to the two primary keys for the Cosmos DB account, there are two read-only keys. These read-only keys only allow read operations on the account. Read-only keys do not provide access to read permissions resources.
+Primary/secondary keys come in two versions: read-write and read-only. The read-only keys only allow read operations on the account, but do not provide access to read permissions resources.
 
-Primary, secondary, read only, and read-write primary keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](manage-with-cli.md#regenerate-account-key).
+Primary/secondary keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](sql/manage-with-cli.md#regenerate-account-key).
 
 :::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Access control (IAM) in the Azure portal - demonstrating NoSQL database security":::
 

@@ -24,6 +24,9 @@ Use this article as a reference if you're an admin, or if you're [deploying the 
 > The Azure Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+> [!NOTE]
+> Additional requirements are listed if you're deploying your SAP data connector using a secure SNC connection. For more information, see [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md).
+>
 ## Recommended virtual machine sizing
 
 The following table describes the recommended sizing for your virtual machine, depending on your intended usage:
@@ -31,8 +34,8 @@ The following table describes the recommended sizing for your virtual machine, d
 |Usage  |Recommended sizing  |
 |---------|---------|
 |**Minimum specification**, such as for a lab environment     |   A *Standard_B2s* VM      |
-|**Standard connector** (default)     |   A *DS2_v2* VM, with: <br>- 2 cores<br>- 8 GB memory      |
-|**Multiple connectors**     |A *Standard_B4ms* VM, with: <br>- 4 cores<br>- 16 GB memory         |
+|**Standard connector** (default)     |   A *DS2_v2* VM, with: <br>- 2 cores<br>- 8-GB memory      |
+|**Multiple connectors**     |A *Standard_B4ms* VM, with: <br>- 4 cores<br>- 16-GB memory         |
 |     |         |
 
 ## Required SAP log change requests
@@ -135,7 +138,8 @@ Required authorizations are listed by log type. You only need the authorizations
 For more information, see:
 
 - [Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
-- [Expert configuration options, on-premises deployment and SAPControl log sources](sap-solution-deploy-alternate.md)
+- [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
+- [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
 - [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
 - [Azure Sentinel SAP solution: available security content](sap-solution-security-content.md)
 - [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

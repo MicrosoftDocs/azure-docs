@@ -15,6 +15,8 @@ ms.custom: devx-track-azurepowershell
 
 # Supply Azure Marketplace purchase plan information when creating images
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 If you are creating an image in a shared gallery, using a source that was originally created from an Azure Marketplace image, you may need to keep track of purchase plan information. This article shows how to find purchase plan information for a VM, then use that information when creating an image definition. We also cover using the information from the image definition to simplify supplying the purchase plan information when creating a VM for an image.
 
 For more information about finding and using Marketplace images, see [Find and use Azure Marketplace images](./windows/cli-ps-findimage.md).

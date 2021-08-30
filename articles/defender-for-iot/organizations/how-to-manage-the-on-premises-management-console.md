@@ -392,6 +392,8 @@ To reset your password:
 
 The following procedure describes how to update the on-premises management console software version. The update process takes about 30 minutes.
 
+If you are working with an on-premises management console and managed sensors, **update the management console first**.
+
 1. Go to the [Azure portal](https://portal.azure.com/).
 
 1. Go to Defender for IoT.
