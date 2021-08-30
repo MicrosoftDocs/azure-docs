@@ -124,22 +124,13 @@ To allow applications from Azure IP addresses to connect to your flexible server
 az mysql flexible-server firewall-rule create --name mydemoserver --start-ip-address 0.0.0.0
 ```
 
-<<<<<<< HEAD
 > [!IMPORTANT]
 > This option configures the firewall to allow public access from Azure services and resources within Azure to this server including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
->
-=======
-   > [!IMPORTANT]
-   > This option configures the firewall to allow public access from Azure services and resources within Azure to this server including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
->>>>>>> 95008c9280a3e7c4822d1683c8766b83b81b8f96
 
 Upon success, each create command output lists the details of the firewall rule you have created, in JSON format (by default). If there is a failure, the output shows error message text instead.
 
 ### List firewall rules
-<<<<<<< HEAD
-=======
 
->>>>>>> 95008c9280a3e7c4822d1683c8766b83b81b8f96
 Use the `az mysql flexible-server firewall-rule list` command to list the existing server firewall rules on the server. Notice that the server name attribute is specified in the **--name** switch.
 
 ```azurecli-interactive
