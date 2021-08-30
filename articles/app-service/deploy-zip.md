@@ -75,7 +75,7 @@ curl -X POST -u <username> --data-binary @"<zip-package-path>" https://<app-name
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
 
-The following example uses the `packageUri` parameter to specify the URL of an Azure Storage account that the site should pull the ZIP from.
+The following example uses the `packageUri` parameter to specify the URL of an Azure Storage account that the web app should pull the ZIP from.
 
 ```bash
 curl -X POST -u <username> https://<app-name>.scm.azurewebsites.net/api/publish -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.zip?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}'
@@ -121,7 +121,7 @@ az webapp deploy --resource-group <group-name> --name <app-name> --src-path ./<p
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
 
-The following example uses the `--src-url` parameter to specify the URL of an Azure Storage account that the site should pull the ZIP from.
+The following example uses the `--src-url` parameter to specify the URL of an Azure Storage account that the web app should pull the ZIP from.
 
 ```azurecli-interactive
 az webapp deploy --resource-group <grou-name> --name <app-name> --src-url "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3
@@ -147,7 +147,7 @@ curl -X POST -u <username> --data-binary @"<file-path>" https://<app-name>.scm.a
 
 [!INCLUDE [deploying to network secured sites](../../includes/app-service-deploy-network-secured-sites.md)]
 
-The following example uses the `packageUri` parameter to specify the URL of an Azure Storage account that the site should pull the WAR from.
+The following example uses the `packageUri` parameter to specify the URL of an Azure Storage account that the web app should pull the WAR from. The WAR file could also be a JAR or EAR file.
 
 ```bash
 curl -X POST -u <username> https://<app-name>.scm.azurewebsites.net/api/publish -d '{"packageUri": "https://storagesample.blob.core.windows.net/sample-container/myapp.war?sv=2021-10-01&sb&sig=slk22f3UrS823n4kSh8Skjpa7Naj4CG3"}'
