@@ -127,7 +127,7 @@ Install IoT Edge for Linux on Windows onto your target device if you have not al
    ```
 
    >[!TIP]
-   >By default, the `Deploy-Eflow` command creates your Linux virtual machine with 1 GB of free memory. However, the amount of RAM your VM needs is highly dependent on the workloads you deploy. If your VM does not have sufficient memory to support your workloads, it will fail to start.
+   >By default, the `Deploy-Eflow` command creates your Linux virtual machine with 1 GB of RAM, 1 vCPU core, and 16 GB of disk space. However, the resources your VM needs are highly dependent on the workloads you deploy. If your VM does not have sufficient memory to support your workloads, it will fail to start.
    >
    >You can customize the virtual machine's available resources using the `Deploy-Eflow` command's optional parameters.
    >
