@@ -40,7 +40,7 @@ Learn the basics of using Python to develop apps or services that use Azure File
 
 # [Azure Python SDK v12](#tab/python)
 
-The [Azure File Storage client library v12.x for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share) requires Python 2.7 or 3.6+.
+The [Azure Files client library v12.x for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share) requires Python 2.7 or 3.6+.
 
 # [Azure Python SDK v2](#tab/python2)
 
@@ -146,7 +146,7 @@ file_service.create_directory('myshare', 'sampledir')
 
 ## Upload a file
 
-In this section, you'll learn how to upload a file from local storage into Azure File Storage.
+In this section, you'll learn how to upload a file from local storage into Azure Files.
 
 # [Azure Python SDK v12](#tab/python)
 
