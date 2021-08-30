@@ -5,9 +5,10 @@ description: Learn about Communication Services Chat concepts.
 author: knvsl	
 manager: chpalm	
 services: azure-communication-services	
+
 ms.author: rifox	
 ms.date: 06/30/2021
-ms.topic: overview	
+ms.topic: conceptual
 ms.service: azure-communication-services	
 ---	
 
