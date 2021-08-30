@@ -74,4 +74,3 @@ by navigating to the provisioning logs and selecting the “StagedDelete” acti
 
 - [How application provisioning works](how-provisioning-works.md)
 - [Plan an application provisioning deployment](plan-auto-user-provisioning.md)
-- 
