@@ -533,10 +533,10 @@ This example template shows how you can complete these tasks by defining secured
             // Start workflow definition parameter values
             "parameters": {
                "authenticationType": {
-                  "value": "[parameters('TemplateAuthenticationType')]", // Template parameter reference
+                  "value": "[parameters('TemplateAuthenticationType')]" // Template parameter reference
                },
                "fabrikamPassword": {                  
-                  "value": "[parameters('TemplateFabrikamPassword')]", // Template parameter reference
+                  "value": "[parameters('TemplateFabrikamPassword')]" // Template parameter reference
                },
                "fabrikamUserName": 
                   "value": "[parameters('TemplateFabrikamUserName')]" // Template parameter reference
