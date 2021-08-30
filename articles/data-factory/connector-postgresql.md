@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 08/30/2021
 ms.author: jianleishen
 ---
 # Copy data from PostgreSQL by using Azure Data Factory

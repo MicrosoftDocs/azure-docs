@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/20/2021
+ms.date: 08/30/2021
 ---
 
 # Copy data to or from Azure Cosmos DB's API for MongoDB by using Azure Data Factory

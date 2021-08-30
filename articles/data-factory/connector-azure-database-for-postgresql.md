@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/16/2021
+ms.date: 08/30/2021
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL by using Azure Data Factory
