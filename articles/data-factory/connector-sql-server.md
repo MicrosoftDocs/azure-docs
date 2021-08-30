@@ -49,6 +49,32 @@ Specifically, this SQL Server connector supports:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
+## Create a SQL Server linked service using UI
+
+Use the following steps to create a SQL Server linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Synapse Analytics](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+---
+
+2. Search for SQL and select the SQL Server connector.
+
+    :::image type="content" source="media/connector-sql-server/sql-server-connector.png" alt-text="Select the SQL Server connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-sql-server/configure-sql-server-linked-service.png" alt-text="Configure a SQL Server linked service.":::
+
+## Connector configuration details
+
 The following sections provide details about properties that are used to define Data Factory and Synapse pipeline entities specific to the SQL Server database connector.
 
 ## Linked service properties
