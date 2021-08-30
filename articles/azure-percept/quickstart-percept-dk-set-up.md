@@ -1,15 +1,15 @@
 ---
-title: Set up your Azure Percept DK
+title: Set up the Azure Percept DK device
 description: Set up you Azure Percept DK and connect it to Azure IoT Hub
-author: mimcco
-ms.author: mimcco
+author: WendyAnn0079
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart 
 ---
 
-# Set up your Azure Percept DK
+# Set up the Azure Percept DK device
 
 Complete the Azure Percept DK setup experience to configure your dev kit. After verifying that your Azure account is compatible with Azure Percept, you will:
 
