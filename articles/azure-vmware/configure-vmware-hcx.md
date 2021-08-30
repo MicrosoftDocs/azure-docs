@@ -46,7 +46,7 @@ In your data center, you can connect or pair the VMware HCX Cloud Manager in Azu
 
 1. Under **Infrastructure**, select **Site Pairing** and select the **Connect To Remote Site** option (in the middle of the screen).
 
-1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9`, the credentials for a user which holds the CloudAdmin role in your private cloud, and the password. Then select **Connect**.
+1. Enter the Azure VMware Solution HCX Cloud Manager URL or IP address that you noted earlier `https://x.x.x.9` and the credentials for a user which holds the CloudAdmin role in your private cloud. Then select **Connect**.
 
    > [!NOTE]
    > To successfully establish a site pair:
