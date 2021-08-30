@@ -46,7 +46,7 @@ Follow these steps to make sure your Azure AD and workspace MSI have access to t
 
 You can access data on ADLS Gen2 with Synapse Spark via the following URL:
 
-<code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
+`abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path>`
 
 ### Configure access to Azure Blob Storage  
 
@@ -64,7 +64,7 @@ Follow these steps to add a new linked service for an Azure Blob Storage account
 
 You can access data on Azure Blob Storage with Synapse Spark via following URL:
 
-<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
+'wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path>'
 
 Here is a code example:
 
