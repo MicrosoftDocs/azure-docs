@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 08/27/2021
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
@@ -25,15 +25,14 @@ Speech containers enable customers to build a speech application architecture th
 | Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.13.0 | Generally Available |
 | Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.13.0 | Generally Available |
 | Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.14.1 | Generally Available |
-| Speech Language Identification | Detect the language spoken in audio files. | 1.3.0 | Gated preview |
+| Speech Language Identification | Detect the language spoken in audio files. | 1.3.0 | preview |
 | Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.8.0 | Generally Available |
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
 > [!IMPORTANT]
-> To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information.
+> * To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information. 
+> * *Generally Available* containers meet Microsoft's stability and support requirements. Containers in *Preview* are still under development.
 
 You must meet the following prerequisites before using Speech service containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
