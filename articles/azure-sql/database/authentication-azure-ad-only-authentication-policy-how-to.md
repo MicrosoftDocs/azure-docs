@@ -23,7 +23,7 @@ This article guides you through creating an Azure Policy that would enforce Azur
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> - Create an Azure Policy that enforces Azure SQL logical server creation with [Azure AD-only authentication](authentication-azure-ad-only-authentication.md) enabled
+> - Create an Azure Policy that enforces Azure SQL logical server or managed instance creation with [Azure AD-only authentication](authentication-azure-ad-only-authentication.md) enabled
 > - Check Azure Policy compliance
 
 ## Prerequisite
@@ -78,7 +78,7 @@ Start off by creating an Azure Policy enforcing SQL Database or Managed Instance
 1. Select **Review + create**. Review the policy and select the **Create** button.
 
 > [!NOTE]
-> It may take up to 30 minutes for the newly created policy to be enforced.
+> It may take some time for the newly created policy to be enforced.
 
 ## Checking policy compliance
 
