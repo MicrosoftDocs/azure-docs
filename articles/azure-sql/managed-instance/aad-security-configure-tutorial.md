@@ -207,6 +207,8 @@ Once the Azure AD server principal (login) has been created, and provided with `
       GO
       ```
 
+Guest users are supported as individual users (without being part of an AAD group (although they can be)) and the logins can be created in master directly (for example, joe@contoso.con) using the current login syntax.
+
 ## Create an Azure AD user from the Azure AD server principal (login)
 
 Authorization to individual databases works much in the same way in SQL Managed Instance as it does with databases in SQL Server. A user can be created from an existing login in a database, and be provided with permissions on that database, or added to a database role.
