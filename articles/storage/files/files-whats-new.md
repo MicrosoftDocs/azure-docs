@@ -45,10 +45,10 @@ The experience for domain joining an Azure storage account has been improved to 
 :::image type="content" source="media/files-whats-new/ad-domain-join-1.png" alt-text="Screenshot of the new portal experience for domain joining a storage account to Active Directory" lightbox="media/files-whats-new/ad-domain-join-1.png":::
 
 ## 2021 quarter 1 (January, February, March)
-### Azure Files management now available through Azure resource manager
-Management APIs for Azure Files resources, the file service and file shares, are now available through Azure resource manager (`Microsoft.Storage` resource provider). This enables Azure file shares to be created with an Azure resource manager or Bicep template, to be fully manageable when the FileREST API is inaccessible (like when the storage account's public endpoint is disabled), and to support full role-based access control (RBAC) semantics.
+### Azure Files management now available through Azure Resource Manager
+Management APIs for Azure Files resources, the file service and file shares, are now available through Azure Resource Manager (`Microsoft.Storage` resource provider). This enables Azure file shares to be created with an Azure Resource Manager or Bicep template, to be fully manageable when the FileREST API is inaccessible (like when the storage account's public endpoint is disabled), and to support full role-based access control (RBAC) semantics.
 
-We recommend you manage Azure Files through the Azure resource manager in most cases. To support management of the file service and file shares through Azure resource manager, the Azure portal, Azure storage PowerShell module, and Azure CLI have been updated to support most management actions through the `Microsoft.Storage` resource provider. 
+We recommend you manage Azure Files through the Azure Resource Manager in most cases. To support management of the file service and file shares through Azure Resource Manager, the Azure portal, Azure storage PowerShell module, and Azure CLI have been updated to support most management actions through the `Microsoft.Storage` resource provider. 
 
 To preserve existing script behavior, the Azure storage PowerShell module and the Azure CLI maintain the existing commands that use the FileREST API to manage the file service and file shares, as well as adding new commands to use the `Microsoft.Storage` resource provider. Portal requests only go through the `Microsoft.Storage` resource provider. PowerShell and CLI commands are named as follows:
 
