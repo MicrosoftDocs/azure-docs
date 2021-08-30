@@ -37,7 +37,7 @@ Alerts provide information about an extensive range of security and operational 
 
 Relevant information is sent to partner systems when forwarding rules are created.
 
-### About Forwarding rules and certificates
+## About Forwarding rules and certificates
 
 Certain Forwarding rules allow encryption and certificate validation between the sensor or on-premises management console, and the server of the integrated vendor.
 
