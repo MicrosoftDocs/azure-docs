@@ -1,6 +1,6 @@
 ---
-title: Deploy ZIP/WAR/JAR/EAR packages and single files
-description: Learn to deploy various app packages or discrete libraries, static files, or a startup script to Azure App Service
+title: Deploy files to App Service
+description: Learn to deploy various app packages or discrete libraries, static files, or startup scripts to Azure App Service
 ms.topic: article
 ms.date: 08/13/2021
 ms.reviewer: sisirap
@@ -8,9 +8,9 @@ ms.custom: seodec18, devx-track-azurepowershell
 
 ---
 
-# Deploy a ZIP package, Java package, or single file in App Service
+# Deploy files to App Service
 
-This article shows you how to use a ZIP, WAR, JAR, or EAR package to deploy your web app to [Azure App Service](overview.md). It also shows how to deploy an individual file to App Service, apart from your application package.
+This article shows you how to deploy your code as a ZIP, WAR, JAR, or EAR package to [Azure App Service](overview.md). It also shows how to deploy individual files to App Service, separate from your application package.
 
 ## Prerequisites
 
