@@ -15,9 +15,9 @@ ms.reviewer: arvinh
 
 # Enable accidental deletions prevention in Application Provisioning
 
-Application Provisioning includes a a feature to help avoid accidental deletions. This feature ensures that users are not disabled or deleted in an application unexpectedly. 
+Application Provisioning includes a feature to help avoid accidental deletions. This feature ensures that users are not disabled or deleted in an application unexpectedly. 
 
-The feature accomplishes this by allowing you to specify a deletion threshold, above which an admin 
+The feature lets you specify a deletion threshold, above which an admin 
 needs to explicitly choose to allow the deletions to be processed.
 
 > [!NOTE]
@@ -36,7 +36,7 @@ threshold.
 :::image type="content" source="media/accidental-deletions/accidental-deletions-setting.png" alt-text="A checkbox to enable accidental deletions and a textbox to set the deletion threshold." lightbox="media/accidental-deletions/accidental-deletions-setting.png":::
 
 ## Test deletion prevention
-You can test the feature by triggering disable / deletion events by setting the threshold to a low number, for example 3, and then changing scoping filters, un-assigning users, and deleting users from the directory (see common scenarios in next section). 
+You can test the feature by triggering disable / deletion events by setting the threshold to a low number, for example 3, and then changing scoping filters, unassigning users, and deleting users from the directory (see common scenarios in next section). 
 
 Let the provisioning job run (20 – 40 mins) and navigate back to the provisioning page. You will see the provisioning job in quarantine and can choose to allow the deletions or review the provisioning logs to understand why the deletions occurred.
 
@@ -45,18 +45,18 @@ Let the provisioning job run (20 – 40 mins) and navigate back to the provision
 - Block sign in for a user.
 - Unassign a user or group from the application.
 - Remove a user from a group that’s providing them access to the app.
-- Change scope from sync all users and groups to sync assigned users and groups (Please be 
-careful with sync all as it means all users in the tenant will be exported into the target 
-application, unless you add additional scoping filters).
+- Change scope from sync all users and groups to sync assigned users and groups (be 
+careful with sync all, as it means all users in the tenant will be exported into the target 
+application, unless you add more scoping filters).
 
 To learn more about de-provisioning scenarios, see [How Application Provisioning Works](how-provisioning-works.md#de-provisioning).
 
 ## Frequently Asked Questions
 
 ### What scenarios count toward the deletion threshold?
-Anytime a user is set to be removed from the target application, it will be counted against the 
+When a user is set to be removed from the target application, it will be counted against the 
 deletion threshold. Scenarios that could lead to a user being removed from the target 
-application could include: un-assigning the user from the application, changing the sync scope 
+application could include: unassigning the user from the application, changing the sync scope 
 from “sync all” to “sync assigned” to soft / hard deleting a user in the directory. Groups 
 evaluated for deletion count towards the deletion threshold.
 
