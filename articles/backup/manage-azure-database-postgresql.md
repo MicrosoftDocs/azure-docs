@@ -1,12 +1,12 @@
 ---
 title: Manage Azure Database for PostgreSQL server 
-description: Learn about managing Azure Database for PostgreSQL server (in preview).
+description: Learn about managing Azure Database for PostgreSQL server.
 ms.topic: conceptual
 ms.date: 08/30/2021
 ms.custom: references_regions , devx-track-azurecli
 ---
 
-# Manage Azure Database for PostgreSQL server (preview)
+# Manage Azure Database for PostgreSQL server
 
 This article describes how to manage Azure Database for PostgreSQL servers that are backed up with the Azure Backup service.
 
@@ -26,7 +26,7 @@ There are three ways by which you can stop protecting an Azure Database for Post
 
 1. Select **Stop Backup (Preview)**.
 
-   :::image type="content" source="./media/manage-azure-database-postgresql/select-postgresql-erver-backup-instance-to-delete.png" alt-text="Screenshot showing the selection of the Azure Database for PostgreSQL server backup instance to be deleted.":::
+   :::image type="content" source="./media/manage-azure-database-postgresql/select-postgresql-erver-backup-instance-to-delete.png" alt-text="Screenshot showing the selection of the Azure Database for PostgreSQL server backup instance to be stopped.":::
 
 3. Select one of the following data retention options:
 

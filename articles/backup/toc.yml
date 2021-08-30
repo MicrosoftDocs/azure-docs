@@ -236,6 +236,8 @@
         href: backup-managed-disks.md
       - name: Restore
         href: restore-managed-disks.md
+      - name: Manage
+        href: manage-azure-managed-disks.md
     - name: With PowerShell
       items:
       - name: Backup
