@@ -156,7 +156,7 @@ sections:
     questions:
       - question: |
           How do I unlock the Data Box?
-      answer: |
+        answer: |
           In the Azure portal, go to your Data Box order, and navigate to **Device details**. Copy the unlock password. Use this password to log into the local web UI on your Data Box. For more information, go to [Tutorial: Unpack, cable, connect your Azure Data Box](data-box-deploy-set-up.md).
           
       - question: |
