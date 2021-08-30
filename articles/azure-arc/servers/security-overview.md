@@ -11,7 +11,7 @@ This article describes the security configuration and considerations you should 
 
 ## Identity and access control
 
-Each Azure Arc-enabled server has a managed identity as part of a resource group inside an Azure subscription, this identity represents the server running on-premises or other cloud environment. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md) page in the Azure portal, you can verify who has access to your Azure Arc-enabled server.
+Each Azure Arc-enabled server has a managed identity as part of a resource group inside an Azure subscription. That identity represents the server running on-premises or other cloud environment. Access to this resource is controlled by standard [Azure role-based access control](../../role-based-access-control/overview.md). From the [**Access Control (IAM)**](../../role-based-access-control/role-assignments-portal.md) page in the Azure portal, you can verify who has access to your Azure Arc-enabled server.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Azure Arc-enabled server access control" border="false" lightbox="./media/security-overview/access-control-page.png":::
 
@@ -23,7 +23,7 @@ Users as a member of the **Azure Connected Machine Resource Administrator** role
 
 ## Agent security and permissions
 
-To manage the Azure Connected Machine agent (azcmagent) on Windows your user account needs to be a member of the local Administrators group. On Linux, you must have root access permissions.
+To manage the Azure Connected Machine agent (azcmagent) on Windows, your user account needs to be a member of the local Administrators group. On Linux, you must have root access permissions.
 
 The Azure Connected Machine agent is composed of three services, which run on your machine.
 
@@ -37,7 +37,7 @@ The guest configuration and extension services run as Local System on Windows, a
 
 ## Using a managed identity with Arc-enabled servers
 
-By default, the Azure Active Directory system assigned identity used by Arc can only be used to update the status of the Arc-enabled server in Azure. For example, the *last seen* heartbeat status. You can optionally assign additional roles to the identity if an application on your server uses the system assigned identity to access other Azure services. To learn more about configuring a system-assigned managed identity to access Azure resources, see [Authenticate against Azure resources with Arc-enabled servers](managed-identity-authentication.md). 
+By default, the Azure Active Directory system assigned identity used by Arc can only be used to update the status of the Arc-enabled server in Azure. For example, the *last seen* heartbeat status. You can optionally assign other roles to the identity if an application on your server uses the system assigned identity to access other Azure services. To learn more about configuring a system-assigned managed identity to access Azure resources, see [Authenticate against Azure resources with Arc-enabled servers](managed-identity-authentication.md). 
 
 While the Hybrid Instance Metadata Service can be accessed by any application running on the machine, only authorized applications can request an Azure AD token for the system assigned identity. On the first attempt to access the token URI, the service will generate a randomly generated cryptographic blob in a location on the file system that only trusted callers can read. The caller must then read the file (proving it has appropriate permission) and retry the request with the file contents in the authorization header to successfully retrieve an Azure AD token.
 
