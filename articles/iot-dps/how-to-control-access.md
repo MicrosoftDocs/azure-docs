@@ -184,7 +184,7 @@ Here are the expected values:
 
 | Value | Description |
 | --- | --- |
-| {signature} |An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to perform the HMAC-SHA256 computation.|
+| {signature} |An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to do the HMAC-SHA256 computation.|
 | {expiry} |UTF8 strings for number of seconds since the epoch 00:00:00 UTC on 1 January 1970. |
 | {URL-encoded-resourceURI} | Lower case URL-encoding of the lower case resource URI. URI prefix (by segment) of the endpoints that can be accessed with this token, starting with host name of the IoT Device Provisioning Service (no protocol). For example, `mydps.azure-devices-provisioning.net`. |
 | {policyName} |The name of the shared access policy to which this token refers. |
