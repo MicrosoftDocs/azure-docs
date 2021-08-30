@@ -48,7 +48,7 @@ Caches have limits on the number of client connections per cache tier. Ensure th
 
 ## Advance maintenance notification
 
-Use notifications to learn of upcoming maintenance. For more information, see [Can I be notified in advance of a planned maintenance?](cache-failover.md#can-i-be-notified-in-advance-of-a-planned-maintenance).
+Use notifications to learn of upcoming maintenance. For more information, see [Can I be notified in advance of a planned maintenance](cache-failover.md#can-i-be-notified-in-advance-of-a-planned-maintenance).
 
 ## Schedule maintenance window
 
@@ -56,7 +56,7 @@ Adjust your cache settings to accommodate maintenance. For more information abou
 
 ## More design patterns for resilience
 
-Apply design patterns for resiliency. For more information, see [How do I make my application resilient?](cache-failover.md#how-do-i-make-my-application-resilient).
+Apply design patterns for resiliency. For more information, see [How do I make my application resilient](cache-failover.md#how-do-i-make-my-application-resilient).
 
 ## Idle timeout
 
