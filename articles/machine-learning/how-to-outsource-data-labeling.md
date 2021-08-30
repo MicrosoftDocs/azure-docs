@@ -1,7 +1,7 @@
 ---
-title: Work with Microsoft partnered data labeling companies
+title: Work with data labeling vendor companies to label your data
 titleSuffix: Azure Machine Learning
-description: Use a Microsoft partnered labeling company to help label the data in your data labeling project
+description: Use a data labeling vendor company to help label the data in your data labeling project
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,72 +14,73 @@ ms.topic: how-to
 # Keywords: data labeling companies, volume 170.  No other keywords found. 
 ---
 
-# Work with a Microsoft partnered data labeling companies (preview)
+# Work with a data labeling vendor company (preview)
 
-Learn how to engage a data labeling company to help you label your data. Azure Machine Learning data labeling projects support both in-house and outsourced (vendor) labeling workforces.  
-
-* In-house workforces: Human (labor) resources who are part of the company who annotates the labeling assets. This workforce includes any vendor company resources hired by your company directly.
-
-* Outsourced workforce: Externally managed labeling vendor resources from Microsoft curated vendor companies.
+Learn how to engage a data labeling vendor company to help you label your data. You can learn more about these companies and the labeling services they provide in their listing pages in [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services?page=1&search=AzureMLVend). 
 
 > [!IMPORTANT]
 > Features described in this article are currently in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Engage an outsourced workforce
+## Workflow summary
 
 Before you create your data labeling project:
 
-1. Review the [listing details of the curated outsourcing companies](#review).
-1. If the outsourcing company meets your requirements, choose the **Contact Me** option in Azure Marketplace. Azure Marketplace will route your inquiry to the outsourcing company. You can reach to multiple outsourcing companies before choosing the final company.
-1. Sign a contract (statement of work) with the external outsourcing  company.
+1. Select a labeling service provider.  
+    1. Review the [listing details of these vendor labeling companies](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services?page=1&search=AzureMLVend).
+    1. If the vendor labeling company meets your requirements, choose the **Contact Me** option in Azure Marketplace. Azure Marketplace will route your inquiry to the vendor labeling company. You can reach to multiple vendor labeling companies before choosing the final company.
+    1. You can also select a labeling company not listed in Azure Marketplace if you wish.
 
-After the contract has been agreed and signed between you and the Outsourcing labeling company:
+1. Contact and enter into a contract with the labeling service provider.
+
+Wait until the contract has been agreed and signed between you and the vendor labeling labeling company before you create your labeling project.  Once the contract has been signed:
 
 1. Create the labeling project in [Azure Machine Learning studio](https://ml.azure.com). For more details on creating a project, see [Create a data labeling project and export labels](how-to-create-labeling-projects.md).
-1. Choose the **Outsource** option in the workforce step.
-1. Choose the appropriate outsourcing (vendor) company in the project creation step.
+1. If you use a provider from Azure Marketplace: 
+    1. select **Use a vendor labeling company form Azure Marketplace** in the workforce step.
+    1. Select the appropriate data labeling company in the dropdown.
 
     > [!NOTE]
-    > The outsourcing (vendor) company name cannot be changed after creating the labeling project.
+    > The vendor labeling company name cannot be changed after creating the labeling project.
 
-1. Enable access (`labeler` role, `techlead` role)  to the outsourcing labeling company using Azure Role Based Access (RBAC). This access will allow the outsourcing company resources to annotate your labeling assets.
-
+1. Enable access (`labeler` role, `techlead` role) to the vendor labeling labeling company using Azure Role Based Access (RBAC). This access will allow the vendor labeling company resources to annotate your labeling assets.
 
 ## <a name="review"></a> Review outsourced workforces
 
 Before you create your data-labeling project, review our list of outsourced vendors and select the one you wish to engage.
 
-Microsoft has partnered with some data labeling companies (curated) who have extensive knowledge and experience in annotating images and text documents. These companies will use Azure Machine Learning data labeling services in labeling the assets.  
+Microsoft has identified some labeling service providers with knowledge and experience who may be able to meet your needs. You can learn about the labeling service providers and choose a provider, taking into account the needs and requirements of their project(s).
 
-> [!NOTE]
-> The services of these companies are made available via [Azure Marketplace](https://azure.microsoft.com/). The details of these labeling companies are in their listing page in Azure Marketplace. Use this information to determine if the outsourcing company meets your project requirements. Once you've identified the outsourcing company, contact them using the **Contact me** option in Azure Marketplace. The contacted outsourcing company will contact you within three days. Azure Machine Learning data labeling services and Azure Marketplace act only as a routing platform in connecting you with the outsourcing company.
+> [!IMPORTANT]
+> You can learn more about these companies and the labeling services they provide in their listing pages in Azure Marketplace. You are responsible for any decision to use a labeling company that offers services through Azure Marketplace, and you should independently assess whether a labeling company and its experience, services, staffing, terms, etc. will meet your project requirements. You may contact a labeling company that offers services through Azure Marketplace using the **Contact me** option in Azure Marketplace, and you can expect to hear from a contacted company within three business days. You will contract with and make payment to the labeling company directly.
 
-Microsoft periodically reviews the partnership with these outsourcing companies. Microsoft may add or remove curated outsourcing companies at any time without any prior notification sent to the labeling project owners.
+Microsoft periodically reviews the list of potential labeling service providers in Azure Marketplace and may add or remove providers from the list at any time.  
 
-You can engage multiple outsourcing companies for various labeling project needs. Each project will be linked to one outsourcing company. 
+* If a provider is removed, it won't affect your existing projects, or the company's access to those projects.
+* A removed provider will no longer be available through Azure Marketplace, and if you use them in future projects, you would no longer select the **Use a vendor labeling company form Azure Marketplace** option in your project.
+* A removed provider will no longer be able to be contacted through Azure Marketplace.
 
-Below are the curated outsourcing (vendor) labeling companies who might help in getting your data labeled using AzureML Data Labeling services. View the [listing of curated vendor companies]().
+You can engage multiple vendor labeling companies for various labeling project needs. Each project will be linked to one vendor labeling company.
+
+Below are vendor labeling companies who might help in getting your data labeled using Azure Machine Learning data labeling services. View the [listing of vendor companies](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services?page=1&search=AzureMLVend).
 
 * [iSoftStone](https://azuremarketplace.microsoft.com/marketplace/consulting-services/isoftstoneinc1614950352893.20210527) 
 
-* [Quadrant Resource]()
+* [Quadrant Resource](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/quadrantresourcellc1587325810226.quadrant_resource_data_labeling)
 
-* [KarmaHub](https://azuremarketplace.microsoft.com/marketplace/apps/karmahubinc1606552536587.labelling_tool?tab=Overview)
+## Enter into a contract 
 
-## Engage a vendor
+After you have selected the labeling company you want to work with, you will need to enter into a contract directly with the labeling company setting forth the terms of your engagement. Microsoft is not a party to this agreement and plays no role in determining or negotiating its terms. Amounts payable under this agreement will be paid directly to the labeling company.
 
-You'll have a separate contract (statement of work) established with an outsourced labeling company. The contract will include details of the agreement, scope, cost, schedule, quality, payment terms, security and policy requirements, and so on.
-
-You'll be charged directly by the outsourcing (vendor) company for the labor provided for manual labeling. If you enable ML Assisted labeling in an outsourced labeling project, Microsoft will charge you separately for the compute consumed. Microsoft will charge you for the storage based on the amount of data stored in Azure.
+You'll be charged directly by the vendor labeling company for the labor provided for manual labeling. If you enable ML Assisted labeling in a labeling project, Microsoft will charge you separately for the compute consumed in connection with this service. All other charges associated with your use of Azure Machine Learning (such as storage of data used in your Azure Machine Learning workspace) are governed by the terms of your agreement with Microsoft.
 
 ## Enable access
 
-In order for the outsourcing company to have access into your projects, you'll enable access to them via Azure Role Based Access (RBAC) at the workspace level. The outsourcing company will have access to all the projects within the workspace. If you are planning to use multiple outsourcing companies for different labeling projects, we recommend you create separate workspaces for each company. 
+In order for the vendor labeling company to have access into your projects, you'll enable access to them via [Azure Role Based Access (RBAC) ](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-assign-roles#manage-workspace-access) at the workspace level.  If you are planning to use multiple vendor labeling companies for different labeling projects, we recommend you create separate workspaces for each company.
 
-> [!NOTE]
-> You'll work directly with the outsourcing company (vendor) if there are any issues with your labeling project. Microsoft will not be responsible for the scope, cost, quality, schedule, payment terms, security, and policy requirements for the outsourced labeling company.  
+> [!IMPORTANT]
+> You, and not Microsoft, are responsible for all aspects of your engagement with a labeling company, including but not limited to issues relating to scope, quality, schedule, and pricing.
 
 ## Next steps
 
