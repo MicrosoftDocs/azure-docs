@@ -288,7 +288,7 @@ sections:
           
       - question: |
           Will registering with the SQL IaaS Agent extension restart SQL Server on my VM?
-        answer:    Starting in July 2021, restarting the SQL Server service is no longer required when registering with the [SQL IaaS extension](sql-server-iaas-agent-extension-automate-management.md) in [full management mode](sql-agent-extension-manually-register-single-vm.md).  
+        answer:    Starting in September 2021, restarting the SQL Server service is no longer required when registering with the [SQL IaaS extension](sql-server-iaas-agent-extension-automate-management.md) in [full management mode](sql-agent-extension-manually-register-single-vm.md).  
 
       - question: |
           What is the difference between lightweight and NoAgent management modes when registering with the SQL IaaS Agent extension? 
