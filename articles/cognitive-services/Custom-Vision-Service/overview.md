@@ -34,7 +34,7 @@ The Custom Vision service uses a machine learning algorithm to analyze images. Y
 
 ### Classification and object detection
 
-Custom Vision functionality can be divided into two features. **[Image classification](getting-started-build-a-classifier)** applies one or more labels to an image. **[Object detection](get-started-build-detector.md)** is similar, but it also returns the coordinates in the image where the applied label(s) can be found.
+Custom Vision functionality can be divided into two features. **[Image classification](getting-started-build-a-classifier.md)** applies one or more labels to an image. **[Object detection](get-started-build-detector.md)** is similar, but it also returns the coordinates in the image where the applied label(s) can be found.
 
 ### Optimization
 
