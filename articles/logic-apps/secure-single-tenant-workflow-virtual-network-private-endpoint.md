@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 07/25/2021
+ms.date: 08/31/2021
 
 # As a developer, I want to connect to my single-tenant workflows from virtual networks using private endpoints.
 ---
@@ -110,7 +110,7 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 
 - If accessed from outside your virtual network, monitoring view can't access the inputs and outputs from triggers and actions.
 
-- Deployment from Visual Studio Code or Azure CLI works only from inside the virtual network. You can use the Deployment Center to link your logic app to a GitHub repo. You can then use Azure infrastructure to build and deploy your code. 
+- Deployment from Visual Studio Code or Azure CLI works only from inside the virtual network. You can use the Deployment Center to link your logic app to a GitHub repo. You can then use Azure infrastructure to build and deploy your code.
 
   For GitHub integration to work, remove the `WEBSITE_RUN_FROM_PACKAGE` setting from your logic app or set the value to `0`.
 
@@ -120,14 +120,11 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 
 ## Set up outbound traffic through private endpoints
 
-To secure outbound traffic from your logic app, you can integrate your logic app with a virtual network. By default, outbound traffic from your logic app is only affected by network security groups (NSGs) and user-defined routes (UDRs) when going to a private address, such as `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`. However, by routing all outbound traffic through your own virtual network, you can subject all outbound traffic to NSGs, routes, and firewalls. To make sure that all outbound traffic is affected by the NSGs and UDRs on your integration subnet, set the logic app setting, `WEBSITE_VNET_ROUTE_ALL` to `1`.
+To secure outbound traffic from your logic app, you can integrate your logic app with a virtual network. By default, outbound traffic from your logic app is only affected by network security groups (NSGs) and user-defined routes (UDRs) when going to a private address, such as `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
 
 > [!IMPORTANT]
-> For the Logic Apps runtime to work, you need to have an uninterrupted connection to 
-> the backend storage. For Azure-hosted managed connectors to work, you need to have 
-> an uninterrupted connection to the managed API service.
-
-To make sure that your logic app uses private domain name server (DNS) zones in your virtual network, set WEBSITE_DNS_SERVER to 168.63.129.16 to ensure your app uses private DNS zones in your vNET
+> For the Azure Logic Apps runtime to work, you need to have an uninterrupted connection to the backend storage. 
+> For Azure-hosted managed connectors to work, you need to have an uninterrupted connection to the managed API service.
 
 ### Considerations for outbound traffic through private endpoints
 
@@ -136,12 +133,14 @@ Setting up virtual network integration doesn't affect inbound traffic, which con
 For more information, review the following documentation:
 
 - [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md)
+
 - [Network security groups](../virtual-network/network-security-groups-overview.md)
+
 - [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md)
 
 ## Connect to storage account with private endpoints
 
-You can restrict storage account access so that only resources inside a virtual network can connect. Azure Storage supports adding private endpoints to your storage account. Logic app workflows can then use these endpoints to communicate with the storage account.
+You can restrict storage account access so that only resources inside a virtual network can connect. Azure Storage supports adding private endpoints to your storage account. Your logic app workflows can then use these endpoints to communicate with the storage account.
 
 In your logic app settings, set `AzureWebJobsStorage` to the connection string for the storage account that has the private endpoints by choosing one of these options:
 
@@ -149,23 +148,17 @@ In your logic app settings, set `AzureWebJobsStorage` to the connection string f
 
 - **Visual Studio Code**: In your project root-level **local.settings.json** file, update the `AzureWebJobsStorage` setting with the connection string for the storage account.
 
- For more information, review the [Use private endpoints for Azure Storage documentation](../storage/common/storage-private-endpoints.md).
+For more information, review the [Use private endpoints for Azure Storage documentation](../storage/common/storage-private-endpoints.md).
 
 ### Considerations for private endpoints on storage accounts
 
 - Create different private endpoints for each of the Table, Queue, Blob, and File storage services.
 
-- Route all outbound traffic through your virtual network by using this setting:
-
-  `"WEBSITE_VNET_ROUTE_ALL": "1"`
-
-- To make your logic app use private domain name server (DNS) zones in your virtual network, set the logic app's `WEBSITE_DNS_SERVER` setting to `168.63.129.16`.
-
 - You need to have a separate publicly accessible storage account when you deploy your logic app. Make sure that you set the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` setting to the connection string for that storage account.
 
 - If your logic app uses private endpoints, deploy using [GitHub Integrations](https://docs.github.com/en/github/customizing-your-github-workflow/about-integrations).
 
-  If your logic app doesn't use private endpoints, you can deploy from Visual Studio Code and set the `WEBSITE_RUN_FROM_PACKAGE` setting to `1`. 
+  If your logic app doesn't use private endpoints, you can deploy from Visual Studio Code and set the `WEBSITE_RUN_FROM_PACKAGE` setting to `1`.
 
 ## Next steps
 
