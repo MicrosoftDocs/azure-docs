@@ -46,7 +46,7 @@ Azure Communication Services emits the following event types:
 | Microsoft.Communication.ChatMessageEditedInThread | Published when a message is edited in a chat thread |  
 | Microsoft.Communication.ChatMessageDeletedInThread | Published when a message is deleted in  a chat thread  |  
 | Microsoft.Communication.RecordingFileStatusUpdated | Published when recording file is available |
-| Microsoft.Communication.UserDisconnected | Published after a Communication Services user is designated as having disconnected from the Communication Services |
+| Microsoft.Communication.UserDisconnected(Preview) | Published after a Communication Services user is designated as having disconnected from the Communication Services |
 
 You can use the Azure portal or Azure CLI to subscribe to events emitted by your Communication Services resource. Get started with handling events by looking at [How to handle SMS Events in Communication Services](../communication-services/quickstarts/telephony-sms/handle-sms-events.md)
 
@@ -862,7 +862,7 @@ This section contains an example of what that data would look like for each even
 ]
 ```
 
-### Microsoft.Communication.UserDisconnected
+### Microsoft.Communication.UserDisconnected(Preview)
 
 ```json
 [
