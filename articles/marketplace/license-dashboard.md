@@ -58,7 +58,7 @@ You can find a month range selection at the top-right corner of the page. Custom
 
 #### [Preview interface](#tab/new-web-form) 
 
-:::image type="content" source="./media/license-dashboard/license-workspace-filters.png" alt-text="Screenshot of the month range selections on the License dashboard in Partner Center.":::
+[ ![Screenshot of the month range selections on the License dashboard in Partner Center.](./media/license-dashboard/license-workspace-filters.png) ](./media/license-dashboard/license-workspace-filters.png#lightbox)
 
 #### [Current interface](#tab/old-web-form) 
 

@@ -61,7 +61,7 @@ The following sections describe how to use the Usage dashboard and how to read t
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Usage** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
-:::image type="content" source="./media/usage-dashboard/usage-dashboard-filters.png" alt-text="Illustrates the Month filters on the Usage dashboard.":::
+[ ![Illustrates the Month filters on the Usage dashboard.](./media/usage-dashboard/usage-dashboard-filters.png) ](./media/usage-dashboard/usage-dashboard-filters.png#lightbox)
 
 #### [Current interface](#tab/old-web-form)
 
