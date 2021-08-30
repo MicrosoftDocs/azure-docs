@@ -158,9 +158,6 @@ You will use the connection string as a GitHub secret.
           branches: [ master ]
       pull_request:
           branches: [ master ]
-
-
-<<<<<<< HEAD
      jobs:
         build:
             runs-on: windows-latest
@@ -180,26 +177,6 @@ You will use the connection string as a GitHub secret.
             - name: logout
                 run: |
                     az logout
-=======
-    jobs:
-      build:
-        runs-on: windows-latest
-        steps:
-        - uses: actions/checkout@v1
-        - uses: azure/login@v1
-          with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-        - uses: azure/mysql@v1
-          with:
-            server-name: MYSQL_SERVER_NAME
-            connection-string: ${{ secrets.AZURE_MYSQL_CONNECTION_STRING }}
-            sql-file: './data.sql'
-
-        # Azure logout 
-        - name: logout
-          run: |
-               az logout
->>>>>>> 95008c9280a3e7c4822d1683c8766b83b81b8f96
     ```
 
 ## Review your deployment
