@@ -2,7 +2,7 @@
 title: Determine your update strategy for Azure Percept DK
 description: Pros and cons of Azure Percept DK OTA or USB cable updates. Recommendation for choosing the best update approach for different users. 
 author: EthanChangAED
-ms.author: aedpls-docs
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021

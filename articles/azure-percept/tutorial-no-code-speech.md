@@ -2,7 +2,7 @@
 title: Create a no-code voice assistant in Azure Percept Studio
 description: Learn how to create and deploy a no-code speech solution to your Azure Percept DK
 author: NabilaBabar
-ms.author: aedpls-docs
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/17/2021

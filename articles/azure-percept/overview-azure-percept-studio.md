@@ -2,7 +2,7 @@
 title: Azure Percept Studio overview
 description: Learn more about Azure Percept Studio
 author: NabilaBabar
-ms.author: aedpls-docs
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021

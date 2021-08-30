@@ -2,7 +2,7 @@
 title: Advanced development with Azure Percept
 description: Learn more about advanced development tools on Azure Percept
 author: tsampige
-ms.author: aedpls-docs
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021

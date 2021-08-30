@@ -2,7 +2,7 @@
 title: Connect Azure Percept over 5G or LTE networks
 description: This article explains how to connect the Azure Percept DK over 5G or LTE networks.
 author: juhaluoto
-ms.author: aedpls-docs
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to 
 ms.date: 07/28/2021

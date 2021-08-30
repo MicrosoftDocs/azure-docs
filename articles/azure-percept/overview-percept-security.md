@@ -2,7 +2,7 @@
 title: Azure Percept security
 description: Learn more about Azure Percept security
 author: mimcco
-ms.author: aedpls-docs
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/24/2021

@@ -2,7 +2,7 @@
 title: Azure Percept overview
 description: Learn more about the Azure Percept platform
 author: MrHamlet
-ms.author: aedpls-docs
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: overview
 ms.date: 03/23/2021

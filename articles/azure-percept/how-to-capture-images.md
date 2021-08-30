@@ -2,7 +2,7 @@
 title: Capture images in Azure Percept Studio
 description: How to capture images with your Azure Percept DK in Azure Percept Studio
 author: NabilaBabar
-ms.author: aedpls-docs
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021

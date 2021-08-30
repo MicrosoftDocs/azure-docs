@@ -2,7 +2,7 @@
 title: Azure Percept Audio datasheet
 description: Check out the Azure Percept Audio datasheet for detailed device specifications
 author: MrHamlet
-ms.author: aedpls-docs
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021

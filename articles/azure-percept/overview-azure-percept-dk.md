@@ -2,7 +2,7 @@
 title: Azure Percept DK and Vision device overview
 description: Learn more about the Azure Percept DK and Azure Percept Vision
 author: MrHamlet
-ms.author: aedpls-docs
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021

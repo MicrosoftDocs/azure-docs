@@ -2,7 +2,7 @@
 title: Set up advanced network settings on the Azure Percept DK
 description: This article walks user through the Advanced Network Settings during the Azure Percept DK setup experience
 author: WendyAnn0079
-ms.author: aedpls-docs
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 7/19/2021
