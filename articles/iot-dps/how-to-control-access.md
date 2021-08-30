@@ -30,7 +30,7 @@ When using key-based authentication, the Device Provisioning Service uses securi
 
 In some cases you may need to use the HTTP Device Provisioning Service REST APIs directly, without using the SDKs. The following sections describe how to authenticate directly against the REST APIs.
 
-### Device API Authentication
+## Device API Authentication
 
 The [Device API](/rest/api/iot-dps/device/runtime-registration) is used by devices to attest to the Device Provisioning Service and receive an IoT Hub connection.
 
@@ -48,7 +48,7 @@ If using key-based authentication, a security token is passed in the HTTP Auth
     SharedAccessSignature sig={signature}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI} 
 ```
 
-#### Security token structure for key-based authentication
+### Security token structure for key-based authentication
 
 The security token is passed in the HTTP Authorization request header in the following format:
 
@@ -113,7 +113,7 @@ If using a symmetric key-based enrollment group, you'll need to first generate a
 >[!WARNING]
 >To avoid including the group master key in your device code, the process of deriving device key should be done off the device.
 
-#### Certificate-based authentication 
+### Certificate-based authentication 
 
 If you've set up an individual enrollment or enrollment group for X.509 certificated-based authentication, the device will need to use its issued X.509 certificate to attest to Device API. Refer to the following articles on how to set up the enrollment and generate the device certificate.
 
@@ -133,7 +133,7 @@ curl -L -i -X PUT –cert ./[device_cert].pem –key ./[device_cert_private_key]
 
 ```
 
-### Service API Authentication
+## Service API Authentication
 
 The [Service API](/rest/api/iot-dps/service/device-registration-state) is used to retrieve registration state and remove device registrations. The service is also used by backend apps to programmatically manage both [individual groups](/rest/api/iot-dps/service/individual-enrollment) and [enrollment groups](/rest/api/iot-dps/service/enrollment-group). The Service API supports key-based authentication for backend apps.  
 
@@ -141,7 +141,7 @@ You must have appropriate permissions to access any of the Service API endpoints
 
 Azure IoT Hub Device Provisioning Service grants access to endpoints by verifying the token against the shared access policies. Security credentials, such as symmetric keys, are never sent over the wire.
 
-#### Access control and permissions
+### Access control and permissions
 
 You can grant [permissions](#device-provisioning-service-permissions) in the following ways:
 
@@ -156,7 +156,7 @@ For more information about how to construct and use security tokens, see the nex
 
 HTTP is the only supported protocol, and it implements authentication by including a valid token in the **Authorization** request header.
 
-##### Example
+#### Example
 
 ```csharp
 SharedAccessSignature sr = 
@@ -166,11 +166,11 @@ SharedAccessSignature sr =
 > [!NOTE]
 > The [Azure IoT Device Provisioning Service SDKs][lnk-sdks] automatically generate tokens when connecting to the service.
 
-#### Security tokens
+### Security tokens
 
 The Device Provisioning Service uses security tokens to authenticate services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT Device Provisioning Service SDKs][lnk-sdks] automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use security tokens directly. Such scenarios include the direct use of the HTTP surface.
 
-#### Security token structure
+### Security token structure
 
 You use security tokens to grant time-bounded access for services to specific functionality in IoT Device Provisioning Service. To get authorization to connect to the provisioning service, services must send security tokens signed with either a shared access or symmetric key.
 
@@ -243,7 +243,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > [!NOTE]
 > Since the time validity of the token is validated on IoT Device Provisioning Service machines, the drift on the clock of the machine that generates the token must be minimal.
 
-#### Use security tokens from service components
+### Use security tokens from service components
 
 Service components can only generate security tokens using shared access policies granting the appropriate permissions as explained previously.
 
