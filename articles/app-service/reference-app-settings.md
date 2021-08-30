@@ -266,7 +266,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 DOMAIN_OWNERSHIP_VERIFICATION_IDENTIFIERS
  -->
 
-## TSL/SSL
+## TLS/SSL
 
 For more information, see [Use a TLS/SSL certificate in your code in Azure App Service](configure-ssl-certificate-in-code.md).
 
