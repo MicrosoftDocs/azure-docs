@@ -17,7 +17,7 @@ You can assign a VM storage policy in an initial deployment of a VM or when you 
 The Run command lets authorized users change the default or existing VM storage policy to an available policy for a VM post-deployment. There are no changes made on the disk-level VM storage policy. You can always change the disk level VM storage policy as per your requirements.
 
 
-In this tutorial, you learn how to:
+In this how-to, you learn how to:
 
 > [!div class="checklist"]
 > * List all storage policies
