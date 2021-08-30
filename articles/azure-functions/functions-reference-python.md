@@ -262,7 +262,8 @@ To learn more about logging, see [Monitor Azure Functions](functions-monitoring.
 
 ### Log custom telemetry
 
-By default, Functions writes output as traces to Application Insights. For more control, you can instead use the [OpenCensus Python Extensions](https://github.com/census-ecosystem/opencensus-python-extensions-azure) to send custom telemetry data to your Application Insights instance. 
+By default, some of the telemetry is collected for Functions apps. This telemetry ends up as traces in Application Insights. For more control, you can instead use the [OpenCensus Python Extensions](https://github.com/census-ecosystem/opencensus-python-extensions-azure) to send custom telemetry data to your Application Insights instance. 
+You can find the list of supported libraries [here](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib).
 
 >[!NOTE]
 > To use the OpenCensus Python Extensions, you need to enable [Python Extensions](#python-worker-extensions) by setting `PYTHON_ENABLE_WORKER_EXTENSIONS` to `1` in `local.settings.json` and application settings
@@ -388,9 +389,16 @@ def main(req):
 
 ## Environment variables
 
-In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings by declaring `import os` and then using, `setting = os.environ["setting-name"]`.
+In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. There are two main ways to access these settings in your code. 
 
-The following example gets the [application setting](functions-how-to-use-azure-function-app-settings.md#settings), with the key named `myAppSetting`:
+| Method | Description |
+| --- | --- |
+| **`os.environ["myAppSetting"]`** | Tries to get the application setting by key name, raising an error when unsuccessful.  |
+| **`os.getenv("myAppSetting")`** | Tries to get the application setting by key name, returning null when unsuccessful.  |
+
+Both of these ways require you to declare `import os`.
+
+The following example uses `os.environ["myAppSetting"]` to get the [application setting](functions-how-to-use-azure-function-app-settings.md#settings), with the key named `myAppSetting`:
 
 ```python
 import logging
@@ -700,7 +708,7 @@ The Functions Python worker requires a specific set of libraries. You can also u
 > If your function app's requirements.txt contains an `azure-functions-worker` entry, remove it. The functions worker is automatically managed by Azure Functions platform, and we regularly update it with new features and bug fixes. Manually installing an old version of worker in requirements.txt may cause unexpected issues.
 
 > [!NOTE]
->  If your package contains certain libraries that may collide with worker's dependencies (e.g. protobuf, tensorflow, grpcio), please configure `PYTHON_ISOLATE_WORKER_DEPENDENCIES` to `1` in app settings to prevent your application from referring worker's dependencies.
+>  If your package contains certain libraries that may collide with worker's dependencies (e.g. protobuf, tensorflow, grpcio), please configure [`PYTHON_ISOLATE_WORKER_DEPENDENCIES`](functions-app-settings.md#python_isolate_worker_dependencies-preview) to `1` in app settings to prevent your application from referring worker's dependencies. This feature is in preview.
 
 ### Azure Functions Python library
 
