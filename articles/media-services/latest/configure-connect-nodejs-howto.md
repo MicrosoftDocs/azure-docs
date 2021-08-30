@@ -95,7 +95,7 @@ For this example, you will use the following packages in the `package.json` file
 
 Copy the content of this file to a file named *.env*. It should be stored at the root of your working repository. These are the values you got from the API Access page for your Media Services account in the portal.
 
-To access the values needed for entering into the *.env* file, it is recommended to first read and review the how-to article [Access the API](./access-api-how-to.med).
+To access the values needed for entering into the *.env* file, it is recommended to first read and review the how-to article [Access the API](./access-api-how-to.md).
 You can use either the Azure portal or the CLI to get the values needed to enter into this sample's environment variables file.
 
 Once you have created the *.env* file, you can start working with the samples.
