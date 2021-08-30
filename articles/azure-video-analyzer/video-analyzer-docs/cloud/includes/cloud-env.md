@@ -6,6 +6,6 @@ ms.date: 08/29/2021
 ms.author: juliako
 ---
 
-**Current environment**: ![icon](../media/env-icon/icon.png). Check out [developing on the edge](../edge/index.yml).
+**Current environment**: ![cloud icon](../media/env-icon/icon.png). Check out [developing on the edge](../edge/overview.md).
 
 <br/><hr color="#5ea0ef" size="10">
