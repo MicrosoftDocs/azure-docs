@@ -22,6 +22,8 @@ The accessor operators are used to access child resources, properties on objects
 
 `array[index]`
 
+`object['index']`
+
 To get an element in an array, use `[index]` and provide an integer for the index.
 
 The following example gets an element in an array.

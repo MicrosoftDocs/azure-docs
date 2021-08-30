@@ -41,7 +41,7 @@ The accessor operators are used to access nested resources and properties on obj
 
 | Operator | Name | Description |
 | ---- | ---- | ---- |
-| `[]` | [Index accessor](./operators-access.md#array-index) | Access an element of an array or property on an object. |
+| `[]` | [Index accessor](./operators-access.md#index-accessor) | Access an element of an array or property on an object. |
 | `.` | [Function accessor](./operators-access.md#function-accessor) | Call a function on a resource. |
 | `::` | [Nested resource accessor](./operators-access.md#nested-resource-accessor) | Access a nested resource from outside of the parent resource. |
 | `.` | [Property accessor](./operators-access.md#property-accessor) | Access properties of an object. |
