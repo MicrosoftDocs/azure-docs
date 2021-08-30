@@ -165,7 +165,7 @@
       - name: Recover files from Azure VM backups
         href: backup-azure-restore-files-from-vm.md
       - name: Restore encrypted VMs
-        href: backup-azure-vms-encryption.md
+        href: restore-azure-encrypted-virtual-machines.md
       - name: Restore keys and secret for encrypted VMs
         href: backup-azure-restore-key-secret.md
     - name: Manage
