@@ -164,7 +164,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Create a database and resources
 
-Run the [az sql up](cli/azure/sql#az_sql_up) command to quickly create a database and all associated resources. If a parameter for a required resource isn't used with the command, that resource is created with a random name.
+Run the [az sql up](/cli/azure/sql#az_sql_up) command to quickly create a database and all associated resources. If a parameter for a required resource isn't used with the command, that resource is created with a random name.
 
 > [!NOTE]
 > The `az sql up` command requires the installation of the `db-up` extension for CloudShell. The extension is currently in preview.
