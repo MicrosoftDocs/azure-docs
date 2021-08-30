@@ -32,7 +32,7 @@ Speech containers enable customers to build a speech application architecture th
 
 > [!IMPORTANT]
 > * To use the speech containers you must submit an online request, and have it approved. See the **Request approval to the run the container** section below for more information. 
-> * Containers that meet Microsoft's stability and support requirements are considered *Generally Available*. Preview containers are still in-development. 
+> * *Generally Available* containers meet Microsoft's stability and support requirements. Containers in *Preview* are still under development.
 
 You must meet the following prerequisites before using Speech service containers. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
