@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/30/2021
 ms.author: jianleishen
 ---
 # Copy data from DB2 by using Azure Data Factory
