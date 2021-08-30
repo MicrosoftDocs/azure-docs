@@ -8,7 +8,7 @@ metadata:
   ms.service: databox
   ms.subservice: pod
   ms.topic: article
-  ms.date: 07/21/2021
+  ms.date: 08/20/2021
   ms.author: alkohli
   ms.custom: references_regions
     
@@ -155,8 +155,8 @@ sections:
   - name: Configure and connect
     questions:
       - question: |
-          How do I unlock the Data Box? 
-        answer: |
+          How do I unlock the Data Box?
+      answer: |
           In the Azure portal, go to your Data Box order, and navigate to **Device details**. Copy the unlock password. Use this password to log into the local web UI on your Data Box. For more information, go to [Tutorial: Unpack, cable, connect your Azure Data Box](data-box-deploy-set-up.md).
           
       - question: |
@@ -205,6 +205,12 @@ sections:
           Is port channel configuration supported on Data Box? How about MPIO?
         answer: |
           We don't support port channel configuration, Multipath IO (MPIO) configuration, or vLAN configuration on Data Box.
+
+      -question: |
+          If I use the default auto-generated certificates on my device, do I need to worry about the certificates expiring?
+        answer: |
+          Yes. If you use the default auto-generated certificates, the certificates expire after 12 months, and the device can no longer be used. You'll be notified at 3 months before certificate expiration. To avoid data loss, return the device at least 1 month before certificate expiration so that all data can be ingested in the datacenter before certificates expire.
+          If you want to be able to assign new certificates when certificate expiration approaches, use self-signed certificates instead of the auto-generated certificates. For more information, see [Use your own certificates](data-box-bring-your-own-certificates.md).     
 
   - name: Track status
     questions:
