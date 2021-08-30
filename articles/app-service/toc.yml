@@ -315,6 +315,10 @@
       href: webjobs-sdk-get-started.md
     - name: Use WebJobs SDK
       href: webjobs-sdk-how-to.md
+  - name: Zone redundancy
+    items:
+    - name: Configuring zone redundancy
+      href: webapp-zone-redundancy-how-to.md
 - name: Reference
   items:
   - name: Monitoring data
