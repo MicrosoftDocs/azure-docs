@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/04/2019
+ms.date: 08/30/2021
 ---
 
 # Copy data from Google BigQuery by using Azure Data Factory
