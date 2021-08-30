@@ -142,27 +142,38 @@ For more information, review the following documentation:
 
 ## Connect to storage account with private endpoints
 
-You can restrict storage account access so that only resources inside a virtual network can connect. Azure Storage supports adding private endpoints to your storage account. Your logic app workflows can then use these endpoints to communicate with the storage account.
+You can restrict storage account access so that only resources inside a virtual network can connect. Azure Storage supports adding private endpoints to your storage account. Your logic app workflows can then use these endpoints to communicate with the storage account. For more information, review [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md).
 
-In your logic app settings, set `AzureWebJobsStorage` to the connection string for the storage account that has the private endpoints by choosing one of these options:
+> [!NOTE]
+> The following steps require temporarily enabling public access on your storage account. If you can't enable 
+> public access due to your organization's policies, you can still deploy your logic app using a private 
+> storage account. However, you have to use an Azure Resource Manager template (ARM template) for deployment.
 
-- **Azure portal**: On your logic app menu, select **Configuration**. Update the `AzureWebJobsStorage` setting with the connection string for the storage account.
+1. Create different private endpoints for each of the Table, Queue, Blob, and File storage services.
 
-- **Visual Studio Code**: In your project root-level **local.settings.json** file, update the `AzureWebJobsStorage` setting with the connection string for the storage account.
+1. In your logic app resource settings, set `AzureWebJobsStorage` and `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` to the connection string for the storage account that has the private endpoints by choosing one of these options:
 
-For more information, review the [Use private endpoints for Azure Storage documentation](../storage/common/storage-private-endpoints.md).
+   - **Azure portal**: On your logic app menu, select **Configuration**. Set the `AzureWebJobsStorage` setting and `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` setting to the connection string for your storage account.
 
-### Considerations for private endpoints on storage accounts
+   - **Visual Studio Code**: In your project root-level **local.settings.json** file, set the `AzureWebJobsStorage` setting and `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` setting to the connection string for your storage account. If your logic app resource doesn't use private endpoints, set the `WEBSITE_RUN_FROM_PACKAGE` setting to `1`.
 
-- You need to have a separate publicly accessible storage account when you deploy your logic app. Make sure that you set the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` setting to the connection string for that storage account.
+   - If your logic app resource also uses private endpoints, deploy using [GitHub Integrations](https://docs.github.com/en/github/customizing-your-github-workflow/about-integrations).
 
-- Create different private endpoints for each of the Table, Queue, Blob, and File storage services.
+   - If you use your own domain name server (DNS) with your virtual network, set your logic app resource's `WEBSITE_DNS_SERVER` app setting to the IP address for your DNS. If you have a secondary DNS, add another app setting named `WEBSITE_DNS_ALT_SERVER`, and set the value also to the IP for your DNS. Also, update your DNS records to point your private endpoints at your internal IP address. Private endpoints work by sending the DNS lookup to the private address, not the public address for the specific resource. For more information, review [Private endpoints - Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
 
-- If your logic app resource uses private endpoints, deploy using [GitHub Integrations](https://docs.github.com/en/github/customizing-your-github-workflow/about-integrations).
+1. Enable public access on your storage account when you deploy your logic app.
 
-  If your logic app resource doesn't use private endpoints, you can deploy from Visual Studio Code and set the `WEBSITE_RUN_FROM_PACKAGE` setting to `1`.
+   1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your storage account resource.
 
-- If you use your own domain name server (DNS) with your virtual network, set your logic app resource's `WEBSITE_DNS_SERVER` app setting to the IP address for your DNS. If you have a secondary DNS, add another app setting named `WEBSITE_DNS_ALT_SERVER`, and set the value also to the IP for your DNS. Also, update your DNS records to point your private endpoints at your internal IP address. Private endpoints work by sending the DNS lookup to the private address, not the public address for the specific resource. For more information, review [Private endpoints - Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
+   1. On the storage account resource menu, select **Networking**.
+
+   1. When you provision and deploy your logic app resource, enable public access on the **Networking** pane for your storage account.
+
+   1. After you provision and deploy your logic app resource, open your logic app in either the Azure portal or Visual Studio Code. Enable integration between your logic app and the virtual network or subnet that can connect with your storage account's virtual network or subnet.
+
+   1. To enable access to your logic app workflow data, in your logic app resource settings, set the `WEBSITE_CONTENTOVERVNET` setting to `1`.
+
+   1. After you apply these app settings, you can remove public access from your storage account.
 
 ## Next steps
 
