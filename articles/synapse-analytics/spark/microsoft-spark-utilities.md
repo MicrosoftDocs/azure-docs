@@ -64,7 +64,7 @@ Follow these steps to add a new linked service for an Azure Blob Storage account
 
 You can access data on Azure Blob Storage with Synapse Spark via following URL:
 
-'wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path>'
+`wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path>`
 
 Here is a code example:
 
