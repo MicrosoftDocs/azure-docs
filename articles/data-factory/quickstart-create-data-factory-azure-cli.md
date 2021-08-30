@@ -101,7 +101,7 @@ Next, create a linked service and two datasets.
     {
         "type": "AzureBlobStorage",
         "typeProperties": {
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=account;AccountKey=accountKey;EndpointSuffix=core.windows.net"
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net"
         }
     }
     ```
