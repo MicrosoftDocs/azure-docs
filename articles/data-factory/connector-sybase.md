@@ -61,12 +61,12 @@ Use the following steps to create a linked service to Sybase in the Azure portal
 
 ---
 
-2.Search for Sybase and select the Sybase connector.
+2. Search for Sybase and select the Sybase connector.
 
    :::image type="content" source="media/connector-sybase/sybase-connector.png" alt-text="Select the Sybase connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-sybase/configure-sybase-linked-service.png" alt-text="Configure a linked service to Sybase.":::
 

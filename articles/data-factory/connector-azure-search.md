@@ -45,12 +45,12 @@ Use the following steps to create a linked service to Azure Search in the Azure 
 
 ---
 
-2.Search for Search and select the Azure Search connector.
+2. Search for Search and select the Azure Search connector.
 
    :::image type="content" source="media/connector-azure-search/azure-search-connector.png" alt-text="Select the Azure Search connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-azure-search/configure-azure-search-linked-service.png" alt-text="Configure a linked service to Azure Search.":::
 

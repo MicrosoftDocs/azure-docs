@@ -47,12 +47,12 @@ Use the following steps to create a linked service to Azure Database for MySQL i
 
 ---
 
-2.Search for MySQL and select the Azure Database for MySQL connector.
+2. Search for MySQL and select the Azure Database for MySQL connector.
 
    :::image type="content" source="media/connector-azure-database-for-mysql/azure-database-for-mysql-connector.png" alt-text="Select the Azure Database for MySQL connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-azure-database-for-mysql/configure-azure-database-for-mysql-linked-service.png" alt-text="Configure a linked service to Azure Database for MySQL.":::
 

@@ -60,12 +60,12 @@ Use the following steps to create a linked service to Amazon S3 Compatible Stora
 
 ---
 
-2.Search for Amazon and select the Amazon S3 Compatible Storage connector.
+2. Search for Amazon and select the Amazon S3 Compatible Storage connector.
 
    :::image type="content" source="media/connector-amazon-s3-compatible-storage/amazon-s3-compatible-storage-connector.png" alt-text="Select the Amazon S3 Compatible Storage connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-amazon-s3-compatible-storage/configure-amazon-s3-compatible-storage-linked-service.png" alt-text="Configure a linked service to Amazon S3 Compatible Storage.":::
 

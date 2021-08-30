@@ -51,12 +51,12 @@ Use the following steps to create a linked service to Salesforce Marketing Cloud
 
 ---
 
-2.Search for Salesforce and select the Salesforce Marketing Cloud connector.
+2. Search for Salesforce and select the Salesforce Marketing Cloud connector.
 
    :::image type="content" source="media/connector-salesforce-marketing-cloud/salesforce-marketing-cloud-connector.png" alt-text="Select the Salesforce Marketing Cloud connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-salesforce-marketing-cloud/configure-salesforce-marketing-cloud-linked-service.png" alt-text="Configure a linked service to Salesforce Marketing Cloud.":::
 

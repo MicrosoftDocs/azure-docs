@@ -50,12 +50,12 @@ Use the following steps to create a linked service to Oracle Service Cloud in th
 
 ---
 
-2.Search for Oracle and select the Oracle Service Cloud connector.
+2. Search for Oracle and select the Oracle Service Cloud connector.
 
    :::image type="content" source="media/connector-oracle-service-cloud/oracle-service-cloud-connector.png" alt-text="Select the Oracle Service Cloud connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-oracle-service-cloud/configure-oracle-service-cloud-linked-service.png" alt-text="Configure a linked service to Oracle Service Cloud.":::
 

@@ -50,12 +50,12 @@ Use the following steps to create a linked service to Xero in the Azure portal U
 
 ---
 
-2.Search for Xero and select the Xero connector.
+2. Search for Xero and select the Xero connector.
 
    :::image type="content" source="media/connector-xero/xero-connector.png" alt-text="Select the Xero connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-xero/configure-xero-linked-service.png" alt-text="Configure a linked service to Xero.":::
 
