@@ -191,12 +191,12 @@ The following table lists the Flexible orchestration mode features and links to 
 | Feature | Supported by Flexible orchestration (Preview) |
 |-|-|
 | Virtual machine type | Standard Azure IaaS VM (Microsoft.compute /virtualmachines) |
-| Maximum Instance Count | 1000 |
+| Maximum Instance Count (with FD availability guarantee) | 1000 |
 | SKUs supported | D series, E series, F series, A series, B series, Intel, AMD |
 | Availability Zones | Optionally specify all instances land in   a single availability zone |
 | Fault Domain - Max spreading (Azure will maximally spread instances) | Yes |
 | Fault Domain - Fixed spreading | 2-3 FDs (depending on regional maximum FD Count), 1 FD for zonal deployments |
-| Update Domains | None (platform maintenance performed FD by FD) |
+| Update Domains | Deprecated |
 | Availability SLA | None (during preview) |
 | Full control over VM, NICs, Disks | Yes |
 | Assign VM to a Specific Fault Domain | Yes |
@@ -215,7 +215,7 @@ The following table lists the Flexible orchestration mode features and links to 
 | Automatic Scaling | Yes |
 | Remove NICs and Disks when deleting VM instances | Yes |
 | Upgrade Policy (VM scale sets) | No |
-| Automatic OS Updates (VM scale sets) | No |
+| Automatic image based OS Updates | No |
 | Infiniband  | No |
 | Write Accelerator  | No |
 | Azure Dedicated Hosts  | No |
