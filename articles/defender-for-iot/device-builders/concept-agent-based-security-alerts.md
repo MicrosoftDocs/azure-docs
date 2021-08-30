@@ -16,7 +16,7 @@ In addition to built-in alerts, Defender for IoT allows you to define custom ale
 
 For more information, see [customizable alerts](concept-customizable-security-alerts.md).
 
-## Agent based security alerts
+## Security alerts
 
 | Name | Severity | Data Source | Description | Suggested remediation steps |
 |--|--|--|--|--|
@@ -58,5 +58,3 @@ For more information, see [customizable alerts](concept-customizable-security-al
 ## Next steps
 
 - Defender for IoT service [Overview](overview.md)
-- Learn how to [Access your security data](how-to-security-data-access.md)
-- Learn more about [Investigating a device](how-to-investigate-device.md)
