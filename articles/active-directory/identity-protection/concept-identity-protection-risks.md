@@ -27,13 +27,13 @@ Identity Protection provides organizations access to powerful resources to see a
 > Identity Protection generates risk detections only when the correct credentials are used. If incorrect credentials are used on a sign-in, it does not represent risk of credential compromise.
 
 ## Risk types and detection
-
+(#user-linked-detections)
 Risk can be detected at the **User** and **Sign-in** level and two types of detection or calculation **Real-time** and **Offline**.
 
 Real-time detections may not show up in reporting for five to ten minutes. Offline detections may not show up in reporting for two to twenty-four hours.
 
 ### User-linked detections
-
+[User-linked detections](#user-linked-detections)
 Risky activity can be detected for a user that is not linked to a specific malicious sign-in but to the user itself. These risk detections are calculated offline using Microsoft's internal and external threat intelligence sources including security researchers, law enforcement professionals, security teams at Microsoft, and other trusted sources.
 
 These risks are calculated offline using Microsoft's internal and external threat intelligence sources including security researchers, law enforcement professionals, security teams at Microsoft, and other trusted sources.
