@@ -64,9 +64,10 @@ Once the image successfully builds, your development container opens in a Visual
 
 You'll use a few Visual Studio Code extensions to debug your deployments in the dev container:
 
-- Pylance
-- Jupyter
-- Python
+- [Azure Machine Learning (preview)]()
+- [Pylance]()
+- [Jupyter]()
+- [Python]()
 
 Azure Machine Learning automatically installs these extensions in your dev container.
 
