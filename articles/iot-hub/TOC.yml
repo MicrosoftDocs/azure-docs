@@ -92,6 +92,8 @@
         href: iot-hub-event-grid.md
       - name: Upload files from a device
         href: iot-hub-devguide-file-upload.md
+      - name: Overview of IoT Hub device streams (preview)
+        href: iot-hub-device-streams-overview.md
     - name: Manage
       items:
       - name: Choose the right IoT Hub tier
@@ -198,8 +200,7 @@
               href: iot-hub-x509ca-overview.md
             - name: X.509 CA certificate security concepts
               href: iot-hub-x509ca-concept.md
-    - name: Overview of IoT Hub device streams (preview)
-      href: iot-hub-device-streams-overview.md
+
 - name: How-to guides
   items:
     - name: Develop
