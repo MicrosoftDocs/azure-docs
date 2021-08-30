@@ -48,25 +48,25 @@ It's helpful to understand the basic portal layout and how to interact with it. 
 
 The Azure portal menu and page header are global elements that are always present. These persistent features are the "shell" for the user interface associated with each individual service or feature and the header provides access to global controls. The configuration page (sometimes referred to as a "blade") for a resource may also have a resource menu to help you move between features.
 
-The figure below labels the basic elements of the Azure portal, each of which are described in the following table.
+The figure below labels the basic elements of the Azure portal, each of which are described in the following table. In this example, the current focus is a virtual machine, but the same elements apply no matter what type of resource or service you're working with.
 
-![Screenshot showing full-screen portal view and key to UI elements](./media/azure-portal-overview/azure-portal-overview-portal-callouts.png)
+:::image type="content" source="media/azure-portal-overview/azure-portal-overview-portal-callouts.png" alt-text="Screenshot showing the full-screen portal view and a key to UI elements.":::
 
-![Screenshot showing expanded portal menu](./media/azure-portal-overview/azure-portal-overview-portal-menu-callouts.png)
+:::image type="content" source="media/azure-portal-overview/azure-portal-overview-portal-menu-callouts.png" alt-text="Screenshot showing the expanded portal menu and a key to UI elements.":::
 
 |Key|Description
 |:---:|---|
 |1|Page header. Appears at the top of every portal page and holds global elements.|
-|2| Global search. Use the search bar to quickly find a specific resource, a service, or documentation.|
+|2|Global search. Use the search bar to quickly find a specific resource, a service, or documentation.|
 |3|Global controls. Like all global elements, these features persist across the portal and include: Cloud Shell, subscription filter, notifications, portal settings, help and support, and send us feedback.|
 |4|Your account. View information about your account, switch directories, sign out, or sign in with a different account.|
-|5|Portal menu. The portal menu is a global element that helps you to navigate between services. Sometimes referred to as the sidebar, the portal menu mode can be changed in **Portal settings**.|
-|6|Resource menu. Many services include a resource menu to help you manage the service. You may see this element referred to as the left pane.|
-|7|Command bar. The controls on the command bar are contextual to your current focus.|
-|8|Working pane.  Displays the details about the resource that is currently in focus.|
+|5|Azure portal menu. This global element can help you to navigate between services. Sometimes referred to as the sidebar. (Items 9 and 10 in this list appear in this menu.)|
+|6|Resource menu. Many services include a resource menu to help you manage the service. You may see this element referred to as the left pane. Here, you'll see commands that are contextual to your current focus.|
+|7|Command bar. These controls are contextual to your current focus.|
+|8|Working pane. Displays details about the resource that is currently in focus.|
 |9|Breadcrumb. You can use the breadcrumb links to move back a level in your workflow.|
-|10|Master control to create a new resource in the current subscription. Expand or open the portal menu to find **+ Create a resource**. You can also find this option on the **Home** page. Then, search or browse the Azure Marketplace for the resource type you want to create.|
-|11|Your favorites list. See [Add, remove, and sort favorites](../azure-portal/azure-portal-add-remove-sort-favorites.md) to learn how to customize the list.|
+|10|Master control to create a new resource in the current subscription. Expand or open the Azure portal menu to find **+ Create a resource**. You can also find this option on the **Home** page. Then, search or browse the Azure Marketplace for the resource type you want to create.|
+|11|Your favorites list in the Azure portal menu. To learn how to customize this list, see [Add, remove, and sort favorites](../azure-portal/azure-portal-add-remove-sort-favorites.md).|
 
 ## Get started with services
 
@@ -75,8 +75,8 @@ If you're a new subscriber, you'll have to create a resource before there's anyt
 We pre-populate your [Favorites](../azure-portal/azure-portal-add-remove-sort-favorites.md) in the sidebar with links to commonly used services.  To view all available services, select **All services** from the sidebar.
 
 > [!TIP]
-> The quickest way to find a resource, service, or documentation is to use *Search* in the global header. Use the breadcrumb links to go back to previous pages.
->
+> The quickest way to find a resource, service, or documentation is to use *Search* in the global header.
+
 Watch this video for a demo on how to use global search in the Azure portal.
 
 > [!VIDEO https://www.youtube.com/embed/nZ7WwTZcQbo]
