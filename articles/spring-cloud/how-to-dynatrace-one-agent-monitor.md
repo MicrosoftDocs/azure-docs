@@ -34,9 +34,9 @@ With the Dynatrace OneAgent you can:
 * A Dynatrace account
 * Create [Dynatrace PaaS token and Tenant token](https://www.dynatrace.com/support/help/reference/dynatrace-concepts/access-tokens/)
 
-## Set up integration 
+## Activate Dynatrace OneAgent
 
-To set up integration, use the instructions in the following sections.
+To activate Dynatrace OneAgent, please use instructions in the following sections.
 
 ### Prepare your environment using the Azure portal
 
@@ -50,11 +50,11 @@ To set up integration, use the instructions in the following sections.
 
 ### Determine the values for the required environment variables
 
-To set up OneAgent integration on your Azure Spring Cloud instance, you need to configure three environment variables: `DT_TENANT`, `DT_TENANTTOKEN`, and `DT_CONNECTION_POINT`. Please refer to [Integrate AppDynamics OneAgent with Azure Spring Cloud](https://www.dynatrace.com/support/help/shortlink/azure-spring).
+To activate Dynatrace OneAgent on your Azure Spring Cloud instance, you need to configure four environment variables: `DT_TENANT`, `DT_TENANTTOKEN`, `DT_CONNECTION_POINT` and `DT_CLUSTER_ID`. Please refer to [Integrate AppDynamics OneAgent with Azure Spring Cloud](https://www.dynatrace.com/support/help/shortlink/azure-spring). For applications with multiple instances, Dynatrace has several ways to group them. `DT_CLUSTER_ID` is one of the ways. One can refer to [Customize the structure of process groups](https://www.dynatrace.com/support/help/how-to-use-dynatrace/process-groups/configuration/adapt-the-composition-of-default-process-groups/) for more details.
 
 ### Add the environment variables to your application
 
-When you have the values for the environment variables required for OneAgent integration, you can add the respective key/value pairs to your application using either the Azure portal or the Azure CLI. The following sections provide instructions for each of these options.
+When you have the values for the environment variables required for activating Dynatrace OneAgent, you can add the respective key/value pairs to your application using either the Azure portal or the Azure CLI. The following sections provide instructions for each of these options.
 
 #### Option 1: Azure CLI
 
@@ -82,11 +82,36 @@ You can also set the key/value pairs using the Azure portal, use the following s
 
    ![Configuration](media/dynatrace-oneagent/configuration-application.png)
 
+
+## Automation
+using Terraform or ARM Template, you can also run a "provisioning" automation pipeline for a complete hands-off experience to instrument and monitor any new applications that you create and deploy.
+
+### Terraform
+You can leverage below code fragment to configure the environment variables, refer to [Manages an Active Azure Spring Cloud Deployment](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/spring_cloud_active_deployment) for more details.
+```
+environment_variables = {
+  "DT_TENANT": "CustomizeWithYourCase",
+  "DT_TENANTTOKEN": "CustomizeWithYourCase",
+  "DT_CONNECTION_POINT": "CustomizeWithYourCase",
+  "DT_CLUSTER_ID": "CustomizeWithYourCase"
+}
+```
+
+### Arm
+You can leverage below code fragment to configure the environment variables, refer to [Microsoft.AppPlatform Spring/apps/deployments](https://docs.microsoft.com/en-us/azure/templates/microsoft.appplatform/spring/apps/deployments?tabs=json) for more details.
+```
+"environmentVariables": {
+  "DT_TENANT": "CustomizeWithYourCase",
+  "DT_TENANTTOKEN": "CustomizeWithYourCase",
+  "DT_CONNECTION_POINT": "CustomizeWithYourCase",
+  "DT_CLUSTER_ID": "CustomizeWithYourCase"
+}
+```
 ## View reports in Dynatrace
 
 >Note: Since the Dynatrace menu will evolve its layout gradually, so the dashboard may be moved to other sections in Dynatrace website.
 
-After you add the environment variables to your application, Dynatrace starts collecting data. To view reports, use the [Dynatrace menu](https://www.dynatrace.com/support/help/get-started/navigation/), go to **Services**, and then select your application. For application with multiple instances, Dynatrace has default rules to group them. One can refer to [Customize the structure of process groups](https://www.dynatrace.com/support/help/how-to-use-dynatrace/process-groups/configuration/adapt-the-composition-of-default-process-groups/) for more details.
+After you add the environment variables to your application, Dynatrace starts collecting data. To view reports, use the [Dynatrace menu](https://www.dynatrace.com/support/help/get-started/navigation/), go to **Services**, and then select your application.
 
 * You can find the **Service flow** from **yourAppName/Details/Service flow**:
    ![Service flow](media/dynatrace-oneagent/spring-cloud-dynatrace-app-flow.png)
