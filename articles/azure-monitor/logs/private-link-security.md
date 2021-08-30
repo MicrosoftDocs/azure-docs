@@ -37,10 +37,10 @@ An Azure Monitor Private Link Scope connects private endpoints (and the VNets th
 * You can configure each of your workspaces or components to allow or deny ingestion and queries from public networks. That provides a resource-level protection, so that you can control traffic to specific resources.
 
 > [!NOTE]
-> A single Azure Monitor resource can belong to multiple AMPLSs, but you cannot connect a single VNet to more than one AMPLS.
+> A VNet can only connect to a single AMPLS, which lists up to 50 resources that can be reached over a Private Link.
 
 ### Azure Monitor Private Link relies on your DNS
-When you set up a Private Link connection, your DNS zones are set to map Azure Monitor endpoints to private IPs, in order to send traffic through the Private Link. Azure Monitor uses both resource-specific endpoints, and shared, global endpoints that handle traffic to all workspaces/components. When it comes to global endpoints, setting up a Private Link (even for a single resource) affects the same shared DNS mapping that controls traffic to all resources. In other words, traffic to all workspaces or components could be affected by a single Private Link setup.
+When you set up a Private Link connection, your DNS zones are set to map Azure Monitor endpoints to private IPs in order to send traffic through the Private Link. Azure Monitor uses both resource-specific endpoints and regional or global endpoints that handle traffic to multiple workspaces/components. When it comes to regional and global endpoints, setting up a Private Link (even for a single resource) affects the DNS mapping that controls traffic to **all** resources. In other words, traffic to all workspaces or components could be affected by a single Private Link setup.
 
 #### Global endpoints
 Most importantly, traffic to the below global endpoints will be sent through the Private Link:
@@ -52,11 +52,14 @@ That effectively means that all Application Insights traffic will be sent to the
 Traffic to Application Insights resource not added to your AMPLS will not pass the Private Link validation, and will fail.
 
 #### Resource-specific endpoints
-All Log Analytics endpoints except the Query endpoint, are workspace-specific. So, creating a Private Link to a specific Log Analytics workspace won't affect ingestion (or other) traffic to other workspaces, which will continue to use the public Log Analytics endpoints. All queries, however, will be sent through the Private Link.
+All Log Analytics endpoints except the Query endpoint, are workspace-specific. So, creating a Private Link to a specific Log Analytics workspace won't affect ingestion to other workspaces, which will continue to use the public endpoints.
 
+
+> [!NOTE]
+> Create only a single AMPLS for all networks that share the same DNS. Creaing multiple AMPLS resources will cause Azure Monitor DNS endpoints to override each other, and break existing environments.
 
 ### Private Link access modes: Private Only vs Open
-Azure Monitor Private Links connect networks not to specific Azure Monitor resources, but to all resources scoped in the AMPLS object. Additionally, a typical customer will likely have a single AMPLS, because of the reliance on shared endpoints and DNS configuration (discussed in [Azure Monitor Private Link relies on your DNS](#azure-monitor-private-link-relies-on-your-dns)). As a result, a single Private Link is often used to manage traffic to all Azure Monitor resources, across customer networks.
+As discussed in [Azure Monitor Private Link relies on your DNS](#azure-monitor-private-link-relies-on-your-dns)), only a single AMPLS resource should be created for all networks that share the same DNS. As a result, organizations that use a single global or regional DNS in fact have a single Private Link to manage traffic to all Azure Monitor resources, across all global, or regional networks.
 
 For Private Links created before September 2021, that means - 
 * Log ingestion works only for resources in the AMPLS. Ingestion to all other resources is denied (across all networks that share the same DNS), regardless of subscription or tenant.
