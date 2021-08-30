@@ -360,9 +360,20 @@ For data that is modified and accessed regularly throughout its lifetime, you ca
 }
 ```
 
-## Availability and pricing
+## Feature support
 
-The lifecycle management feature is available in all Azure regions for general purpose v2 (GPv2) accounts, Blob Storage accounts, and premium block blobs storage accounts. Accounts with a hierarchical namespace are supported. For more information about types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities. 
+
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | 
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
+<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+
+## Regional availability and pricing
+
+The lifecycle management feature is available in all Azure regions.
 
 Lifecycle management policies are free of charge. Customers are billed for standard operation costs for the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) API calls. Delete operations are free.
 
