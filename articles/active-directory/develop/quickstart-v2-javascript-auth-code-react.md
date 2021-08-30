@@ -187,4 +187,4 @@ npm install @azure/msal-browser @azure/msal-react
 For a detailed step-by-step guide on building the auth code flow application using vanilla JavaScript, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial to sign in and call MS Graph](./tutorial-v2-javascript-auth-code.md)
+> [Tutorial: Sign in users and call Microsoft Graph](tutorial-v2-react.md)
