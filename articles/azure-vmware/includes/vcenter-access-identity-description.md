@@ -2,7 +2,7 @@
 title: vCenter access and identity description
 description: vCenter has a built-in local user called cloudadmin and is assigned to the CloudAdmin role.
 ms.topic: include
-ms.date: 08/30/2021
+ms.date: 08/31/2021
 ---
 
 <!-- used in concepts-run-commands.md and tutorial-configure-identity-source.md -->

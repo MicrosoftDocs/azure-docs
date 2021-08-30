@@ -2,7 +2,7 @@
 title: Tutorial - Configure storage policy
 description:  Learn how to configure storage policy for your Azure VMware Solution virtual machines.
 ms.topic: tutorial
-ms.date: 08/30/2021
+ms.date: 08/31/2021
 
 #Customer intent: As an Azure service administrator, I want set the vSAN storage policies to determine how storage is allocated to the VM.
 
