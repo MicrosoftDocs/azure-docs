@@ -50,7 +50,7 @@ Pipelines are how Azure Synapse provides Data Integration - allowing you to move
 * **Trigger** - Executes a pipeline. It can be run manually or automatically (schedule, tumbling window or event-based)
 * **Integration dataset** - Named view of data that simply points or references the data to be used in an activity as input and output. It belongs to a Linked Service.
 
-## Data Explorer
+## Data Explorer (Preview)
 
 Azure Synapse Analytics Data Explorer provides customers with an interactive query experience to unlock insights from log and telemetry data.
 

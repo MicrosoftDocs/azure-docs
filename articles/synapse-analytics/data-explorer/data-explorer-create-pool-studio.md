@@ -1,5 +1,5 @@
 ---
-title: 'Create a Data Explorer pool using Synapse Studio (Preview)'
+title: 'Quickstart: Create a Data Explorer pool using Synapse Studio (Preview)'
 description: Create a Data Explorer pool using Synapse Studio by following the steps in this guide.
 ms.topic: quickstart
 ms.date: 08/20/2021

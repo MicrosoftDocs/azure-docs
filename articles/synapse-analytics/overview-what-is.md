@@ -56,8 +56,8 @@ Azure Synapse Analytics Data Explorer provides customers with an interactive que
 
 Use Data Explorer as a data platform for building near real-time log analytics and IoT analytics solutions to:
 
-* Consolidate and correlate your logs and events data across on-prem, cloud, 3rd party data sources.
-* Accelerate your AI Ops journey (pattern recognition, anomaly detection, forecasting, etc.)
+* Consolidate and correlate your logs and events data across on-premises, cloud, third-party data sources.
+* Accelerate your AI Ops journey (pattern recognition, anomaly detection, forecasting, and more)
 * Replace infrastructure-based log search solutions to save cost and increase productivity.
 * Build IoT Analytics solution for your IoT data.
 * Build Analytical SaaS solutions to offer services to your internal and external customers.

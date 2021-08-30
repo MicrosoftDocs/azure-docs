@@ -15,7 +15,7 @@ ms.subservice: data-explorer
 
 [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) is a stand-alone, fast, and highly scalable data exploration service for log and telemetry data. The same underlying technology that runs the service is available in Azure Synapse as an integrated analytics service to complement its existing SQL and Spark services geared for data warehouse and data engineering machine learning scenarios.
 
-The native integration of Data Explore capabilities brings analytics log and time series workloads to Synapse in the form of Synapse Data Explorer pools. These pools offer close integration with and easier management of connectivity to other Synapse capabilities. Having all your machine and user data available and accessible in one place, and by leveraging the near real-time exploratory capabilities of Data Explorer, enables you to build solutions that drive business value.
+The native integration of Data Explore capabilities brings analytics log and time series workloads to Synapse in the form of Synapse Data Explorer pools. These pools offer close integration with, and easier management of connectivity to, other Synapse capabilities. Having all your machine and user data available and accessible in one place, and by leveraging the near real-time exploratory capabilities of Data Explorer, enables you to build solutions that drive business value.
 
 We recommend starting with Synapse Data Explorer if you are looking for a unified solution that combines big data and analytics capabilities.
 

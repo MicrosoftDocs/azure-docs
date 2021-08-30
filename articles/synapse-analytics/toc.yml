@@ -581,8 +581,6 @@ items:
       href: data-explorer/data-explorer-create-pool-portal.md
     - name: Create a Data Explorer pool using the Synapse Studio
       href: data-explorer/data-explorer-create-pool-studio.md
-    - name: Query data with data explorer pools
-      href: data-explorer/data-explorer-query-with-pool.md
     - name: Monitor and diagnose pools
       href: data-explorer/data-explorer-monitor-pools.md
   - name: Kusto Query Language
@@ -593,6 +591,8 @@ items:
       href: data-explorer/management/toc.yml
     - name: API
       href: data-explorer/api/toc.yml
+    - name: Functions library
+      href: data-explorer/functions-library/toc.yml
 - name: Apache Spark
   items:
   - name: Overview

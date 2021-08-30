@@ -1,10 +1,4 @@
 items:
-- name: Context test (ignore)
-  items:
-  - name: Query using .NET Core
-    href: ../../../azure-sql/database/connect-query-dotnet-core.md?context=/azure/synapse-analytics/context/context
-  - name: Add an Azure Stream Analytics job
-    href: ../../sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics.md?context=/azure/synapse-analytics/context/context
 - name: Getting started with Kusto
   href: /azure/data-explorer/kusto/concepts/index?context=/azure/synapse-analytics/context/context
 - name: Tutorial
