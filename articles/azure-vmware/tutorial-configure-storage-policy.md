@@ -22,6 +22,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * List all storage policies
 > * Set the storage policy for a VM
+> * Specify storage policy for a cluster
 
 
 
@@ -42,7 +43,7 @@ Make sure that the [minimum level of hosts are met](https://docs.vmware.com/en/V
 
 ## List storage policies
 
-You'll run the `Get-StoragePolicy` cmdlet to list the available storage policies in vCenter. 
+You'll run the `Get-StoragePolicy` cmdlet to list the vSAN based storage policies available to set on a VM.
 
 all storage policies for VMs to use.
 
@@ -59,7 +60,7 @@ all storage policies for VMs to use.
    | **Field** | **Value** |
    | --- | --- |
    | **Retain up to**  | Job retention period. The cmdlet output will be stored for these many days. Default value is 60.  |
-   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **listVMStoragePolicy**. |
+   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **Get-StoragePolicies-Exec1**. |
    | **Timeout**  | The period after which a cmdlet will exit if a certain task is taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
@@ -69,24 +70,44 @@ all storage policies for VMs to use.
 
 ## Set storage policy on VM
 
-You'll run the `Set-StoragePolicy` cmdlet to set the storage policy for a VM. 
+You'll run the `Set-AvsVMStoragePolicy` cmdlet to Modify vSAN based storage policies on an individual VM. 
 
 >[!NOTE]
 >You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM. 
 
-1. Select **Run command** > **Packages** > **Set-StoragePolicy**.
+1. Select **Run command** > **Packages** > **Set-AvsVMStoragePolicy**.
 
 1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
-   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
    | **VMName** | Name of the target VM. |
+   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
    | **Retain up to**  | Job retention period. The cmdlet output is stored for the number of days defined. Default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **changeVMStoragePolicy**.  |
    | **Timeout**  | The time in which the cmdlet exits if a certain task takes too long to finish.  |
 
 1. Check **Notifications** to see the progress.
+
+
+## Specify storage policy for a cluster
+
+You'll run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify default storage policy for a cluster,
+
+1. Select **Run command** > **Packages** > **Set-ClusterDefaultStoragePolicy**.
+
+1. Provide the required values or change the default values, and then select **Run**.
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **ClusterName** | Name of the cluster. |
+   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
+   | **Retain up to**  | Job retention period. The cmdlet output is stored for the number of days defined. Default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name of the task to execute. For example, **Set-ClusterDefaultStoragePolicy-Exec1**.  |
+   | **Timeout**  | The time in which the cmdlet exits if a certain task takes too long to finish.  |
+
+1. Check **Notifications** to see the progress.
+
 
 
 ## Next steps
