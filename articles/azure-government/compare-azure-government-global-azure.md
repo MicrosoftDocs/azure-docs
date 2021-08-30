@@ -1,17 +1,11 @@
 ---
-title: Compare Azure Government and global Azure | Microsoft Docs
+title: Compare Azure Government and global Azure
 description: Describe feature differences between Azure Government and global Azure.
-services: azure-government
-cloud: gov
-documentationcenter: ''
+ms.service: azure-government
+ms.topic: article
 author: stevevi
 ms.author: stevevi
-ms.service: azure-government
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: azure-government
-ms.date: 08/26/2021
+ms.date: 08/27/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -117,7 +111,7 @@ Microsoft's goal for Azure Government is to match service availability in Azure.
 
 In general, service availability in Azure Government implies that all corresponding service features are available to you. Variations to this approach and other applicable limitations are tracked and explained in this article based on the main service categories outlined in the [online directory of Azure services](https://azure.microsoft.com/services/). Other considerations for service deployment and usage in Azure Government are also provided.
 
-## AI + Machine Learning
+## AI + machine learning
 
 This section outlines variations and considerations when using **Azure Bot Service**, **Azure Machine Learning**, and **Cognitive Services** in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service,bot-service,cognitive-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).  
 
@@ -139,24 +133,24 @@ For more information, see [How do I create a bot that uses US Government data ce
 
 For feature variations and limitations, see [Azure Machine Learning sovereign cloud parity](../machine-learning/reference-machine-learning-cloud-parity.md).
 
-### [Content Moderator](../cognitive-services/content-moderator/overview.md)
+### [Cognitive Services: Content Moderator](../cognitive-services/content-moderator/overview.md)
 
 The following Content Moderator **features are not currently available** in Azure Government:
 
 - Review UI and Review APIs.
 
-### [Language Understanding](../cognitive-services/luis/what-is-luis.md)
+### [Cognitive Services: Language Understanding (LUIS)](../cognitive-services/luis/what-is-luis.md)
 
 The following Language Understanding **features are not currently available** in Azure Government:
 
 - Speech Requests
 - Prebuilt Domains
 
-### [Speech service](../cognitive-services/speech-service/overview.md)
+### [Cognitive Services: Speech](../cognitive-services/speech-service/overview.md)
 
 For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](../cognitive-services/Speech-Service/sovereign-clouds.md).
 
-### [Translator](../cognitive-services/translator/translator-info-overview.md)
+### [Cognitive Services: Translator](../cognitive-services/translator/translator-info-overview.md)
 
 The following Translator **features are not currently available** in Azure Government:
 
@@ -168,7 +162,7 @@ The following Translator **features are not currently available** in Azure Gover
 
 This section outlines variations and considerations when using Analytics services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share,power-bi-embedded,analysis-services,event-hubs,data-lake-analytics,storage,data-catalog,data-factory,synapse-analytics,stream-analytics,databricks,hdinsight&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
 
-### [HDInsight](../hdinsight/hadoop/apache-hadoop-introduction.md)
+### [Azure HDInsight](../hdinsight/hdinsight-overview.md)
 
 The following HDInsight **features are not currently available** in Azure Government:
 
@@ -313,48 +307,12 @@ This section outlines variations and considerations when using Internet of Thing
 If you are using the IoT Hub connection string (instead of the Event Hub-compatible settings) with the Microsoft Azure Service Bus .NET client library to receive telemetry or operations monitoring events, then be sure to use `WindowsAzure.ServiceBus` NuGet package version 4.1.2 or higher.
 
 
-## Management and Governance
+## Management and governance
 
 This section outlines variations and considerations when using Management and Governance services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=managed-applications,azure-policy,network-watcher,monitor,traffic-manager,automation,scheduler,site-recovery,cost-management,backup,blueprints,advisor&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
 
 > [!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az). For Az module installation instructions, see [**Install Azure PowerShell**](/powershell/azure/install-az-ps).
-
-### [Application Insights](../azure-monitor/overview.md)
-
-This section describes the supplemental configuration that is required to use Application Insights (part of Azure Monitor) in Azure Government.
-
-**Enable Application Insights for [ASP.NET](#web) & [ASP.NET Core](#web) with Visual Studio**
-
-In Azure Government, you can enable Application Insights with a [codeless agent](../azure-monitor/app/azure-web-apps.md) for your Azure App Services hosted applications or via the traditional **Add Applications Insights Telemetry** button in Visual Studio, which requires a small manual workaround. If you are experiencing the associated issue, you may see error messages like "There is no Azure subscription associated with this account" or "The selected subscription does not support Application Insights" even though the `microsoft.insights` resource provider has a status of registered for the subscription. To mitigate this issue, you must perform the following steps:
-
-1. Switch Visual Studio to [target the Azure Government cloud](./documentation-government-welcome.md).
-2. Create (or if already existing, set) the User Environment variable for `AzureGraphApiVersion` as follows:
-
-   - Variable name: `AzureGraphApiVersion`
-   - Variable value: `2014-04-01`
-   
-   To create a User Environment variable, go to **Control Panel > System > Advanced system settings > Advanced > Environment Variables**.
-
-3. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](#web) or [ASP.NET Core](#web) depending on your project type.
-
-**Snapshot Debugger** is now available for Azure Government customers. To use Snapshot Debugger, the only other prerequisite is to ensure that you are using [Snapshot Collector version 1.3.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.5-pre-1906.403) or later. Then follow the standard [Snapshot Debugger documentation](../azure-monitor/app/snapshot-debugger.md).
-
-**SDK endpoint modifications** - In order to send data from Application Insights to the Azure Government region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](../azure-monitor/app/custom-endpoints.md).
-
->[!NOTE]
->[**Connection strings**](../azure-monitor/app/sdk-connection-string.md?tabs=net) are the new preferred method of setting custom endpoints within Application Insights.
-
-**Firewall exceptions** - Application Insights uses several IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
-
->[!NOTE]
->Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic except for availability monitoring and webhooks, which require inbound firewall rules.
-
-You need to open some **outgoing ports** in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
-
-|Purpose|URL|IP address|Ports|
-|-------|---|----------|-----|
-|Telemetry|dc.applicationinsights.us|23.97.4.113|443|
 
 ### [Azure Advisor](../advisor/advisor-overview.md)
 
@@ -395,7 +353,7 @@ The following Azure Lighthouse **features are not currently available** in Azure
 
 - Managed Service offers published to Azure Marketplace
 
-### [Azure Monitor](../azure-monitor/logs/data-platform-logs.md)
+### [Azure Monitor](../azure-monitor/overview.md)
 
 The following Azure Monitor **features are not currently available** in Azure Government:
 
@@ -430,6 +388,42 @@ The following Azure Monitor **features behave differently** in Azure Government:
     - No. It is not possible to move data or your workspace from Azure to Azure Government.
 - Can I switch between Azure and Azure Government workspaces from the Operations Management Suite portal?
     - No. The portals for Azure and Azure Government are separate and do not share information.
+
+#### [Application Insights](../azure-monitor/app/app-insights-overview.md)
+
+This section describes the supplemental configuration that is required to use Application Insights (part of Azure Monitor) in Azure Government.
+
+**Enable Application Insights for [ASP.NET](#web) & [ASP.NET Core](#web) with Visual Studio**
+
+In Azure Government, you can enable Application Insights with a [codeless agent](../azure-monitor/app/azure-web-apps.md) for your Azure App Services hosted applications or via the traditional **Add Applications Insights Telemetry** button in Visual Studio, which requires a small manual workaround. If you are experiencing the associated issue, you may see error messages like "There is no Azure subscription associated with this account" or "The selected subscription does not support Application Insights" even though the `microsoft.insights` resource provider has a status of registered for the subscription. To mitigate this issue, you must perform the following steps:
+
+1. Switch Visual Studio to [target the Azure Government cloud](./documentation-government-welcome.md).
+2. Create (or if already existing, set) the User Environment variable for `AzureGraphApiVersion` as follows:
+
+   - Variable name: `AzureGraphApiVersion`
+   - Variable value: `2014-04-01`
+   
+   To create a User Environment variable, go to **Control Panel > System > Advanced system settings > Advanced > Environment Variables**.
+
+3. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](#web) or [ASP.NET Core](#web) depending on your project type.
+
+**Snapshot Debugger** is now available for Azure Government customers. To use Snapshot Debugger, the only other prerequisite is to ensure that you are using [Snapshot Collector version 1.3.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.5-pre-1906.403) or later. Then follow the standard [Snapshot Debugger documentation](../azure-monitor/app/snapshot-debugger.md).
+
+**SDK endpoint modifications** - In order to send data from Application Insights to the Azure Government region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](../azure-monitor/app/custom-endpoints.md).
+
+>[!NOTE]
+>[**Connection strings**](../azure-monitor/app/sdk-connection-string.md?tabs=net) are the new preferred method of setting custom endpoints within Application Insights.
+
+**Firewall exceptions** - Application Insights uses several IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
+
+>[!NOTE]
+>Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic except for availability monitoring and webhooks, which require inbound firewall rules.
+
+You need to open some **outgoing ports** in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
+
+|Purpose|URL|IP address|Ports|
+|-------|---|----------|-----|
+|Telemetry|dc.applicationinsights.us|23.97.4.113|443|
 
 
 ## Media
@@ -514,7 +508,7 @@ In addition to the above, Microsoft also tags prefixes based on the service they
 >[!NOTE]
 >Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
 
-### [Azure Private Link](../private-link/private-link-overview.md)
+### [Private Link](../private-link/private-link-overview.md)
 
 For Private Link services availability, see [Azure Private Link availability](../private-link/availability.md).
 
