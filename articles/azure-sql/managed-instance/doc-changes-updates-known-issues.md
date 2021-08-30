@@ -15,7 +15,7 @@ ms.date: 09/01/2021
 # Known issues with Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article lists the currently known issues with [Azure SQL Managed Instance](https://azure.microsoft.com/en-us/updates/?product=sql-database&query=sql%20managed%20instance), as well as their resolution date or possible workaround. To learn more about Azure SQL Managed Instance, see the [overview](sql-managed-instance-paas-overview.md), and [what's new](docs-changes-updates-release-notes-whats-new.md). 
+This article lists the currently known issues with [Azure SQL Managed Instance](https://azure.microsoft.com/en-us/updates/?product=sql-database&query=sql%20managed%20instance), as well as their resolution date or possible workaround. To learn more about Azure SQL Managed Instance, see the [overview](sql-managed-instance-paas-overview.md), and [what's new](doc-changes-updates-release-notes-whats-new.md). 
 
 
 ## Known issues

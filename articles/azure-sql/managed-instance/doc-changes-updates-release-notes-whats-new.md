@@ -41,7 +41,7 @@ The following table lists the features of Azure SQL Managed Instance that are cu
 | [Transactional Replication](../managed-instance/replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | [Threat detection](../managed-instance/threat-detection-configure.md) | Threat detection notifies you of security threats detected to your database. |
 | [Query Store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-mi-current&preserve-view=true) | Use query hints to optimize your query execution via the OPTION clause. |
-| ---| --- |
+|   |
 
 ### General availability (GA)
 
@@ -54,7 +54,7 @@ The following table lists the features of Azure SQL Managed Instance that have g
 | [Machine Learning Service](machine-learning-services-overview.md) | March 2021 | Machine Learning Services is a feature of Azure SQL Managed Instance that provides in-database machine learning, supporting both Python and R scripts. The feature includes Microsoft Python and R packages for high-performance predictive analytics and machine learning. |
 | [Granular permissions for dynamic data masking](../database/dynamic-data-masking-overview.md)| March 2021 | Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. It's now possible to assign granular permissions for data that's been dynamically masked. To learn more, see [Dynamic data masking](../database/dynamic-data-masking-overview.md#permissions). |
 | [Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you  you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. | 
-| ---| --- | --- | 
+|   |  | 
 
 ## July 2021
 
@@ -72,7 +72,7 @@ The following table lists the features of Azure SQL Managed Instance that have g
 | **Azure AD-only authentication** | It's now possible to restrict authentication to your Azure SQL Managed Instance to Azure Active Directory users only. This feature is currently in public preview. To learn more, see [Azure AD-only authentication](../database/authentication-azure-ad-only-authentication.md). | 
 | **Resource Health monitor** | Use Resource Health to  monitor the health status of your Azure SQL Managed Instance. See [Resource health](../database/resource-health-to-troubleshoot-connectivity.md) to learn more. |
 | **Granular permissions for data masking GA** | Granular permissions for dynamic data masking for Azure SQL Managed Instance is now generally available (GA). To learn more, see [Dynamic data masking](../database/dynamic-data-masking-overview.md#permissions). | 
-| --- | --- |
+|  | |
 
 
 ## April 2021
@@ -80,7 +80,7 @@ The following table lists the features of Azure SQL Managed Instance that have g
 | Changes | Details |
 | --- | --- |
 | **User-defined routes (UDR) tables** | Service-aided subnet configuration for Azure SQL Managed Instance now makes use of service tags for user-defined routes (UDR) tables. See the [connectivity architecture](connectivity-architecture-overview.md) to learn more. |
-| --- | --- |
+|  |  |
 
 
 ## March 2021
@@ -112,7 +112,7 @@ The following changes were added to SQL Managed Instance and the documentation i
 | **Enhanced management experience** | Using the new [OPERATIONS API](/rest/api/sql/2021-02-01-preview/managed-instance-operations), it's now possible to check the progress of long-running instance operations. To learn more, see [Management operations](management-operations-overview.md?tabs=azure-portal).
 | **Machine learning support** | Machine Learning Services with support for R and Python languages now include preview support on Azure SQL Managed Instance (Public Preview). To learn more, see [Machine learning with SQL Managed Instance](machine-learning-services-overview.md). | 
 | **User-initiated failover** | User-initiated failover is now generally available, providing you with the capability to manually initiate an automatic failover using PowerShell, CLI commands, and API calls, improving application resiliency. To learn more, see, [testing resiliency](../database/high-availability-sla.md#testing-application-fault-resiliency). 
-| --- | --- |
+|  |  |
 
 ## 2019
 
@@ -136,7 +136,7 @@ The following changes were added to the product and the documentation in 2019:
 | **Delete virtual cluster** | It's now possible to delete your virtual cluster. To learn more, see [delete virtual cluster](virtual-cluster-delete.md). | 
 | **Instance Contributor role** |  New built-in [Instance Contributor role](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) enables separation of duty (SoD) compliance with security principles and compliance with enterprise standards.|
 | **Government cloud support** | SQL Managed Instance is available in the following Azure Government regions to GA (US Gov Texas, US Gov Arizona) and in China North 2 and China East 2. It is also available in the following public regions: Australia Central, Australia Central 2, Brazil South, France South, UAE Central, UAE North, South Africa North, South Africa West.| 
-| --- | --- |
+|  |  |
 
 
 ## Known issues

@@ -15,7 +15,7 @@ ms.date: 09/01/2021
 # What's new in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article summarizes the documentation changes associated with new features and improvements in the recent releases of [Azure SQL Database](https://azure.microsoft.com/en-us/products/azure-sql/database/). To learn more about Azure SQL Database, see the [overview](sql-database-paas-overview.md). 
+This article summarizes the documentation changes associated with new features and improvements in the recent releases of [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/). To learn more about Azure SQL Database, see the [overview](sql-database-paas-overview.md). 
 
 
 ## Feature availability
@@ -70,7 +70,7 @@ The following table lists the features of Azure SQL Database that have gone from
 
 ## Known issues
 
-The known issues content has moved to a dedicated [known issues in SQL Database](doc-changes-updates-known-issues) article. 
+The known issues content has moved to a dedicated [known issues in SQL Database](doc-changes-updates-known-issues.md) article. 
 
 
 ## Contribute to content
