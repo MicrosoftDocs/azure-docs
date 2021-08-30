@@ -11,7 +11,7 @@ ms.date: 08/31/2021
 # Rotate the cloudadmin credentials for Azure VMware Solution
 
 >[!IMPORTANT]
->Currently, rotating your NSX-T Manager *admin* credentials isn't supported.
+>Currently, rotating your NSX-T Manager *admin* credentials isn't supported.  To rotate your NSX-T Manager password, submit a [support request](https://rc.portal.azure.com/#create/Microsoft.Support). This process might impact running HCX services.
 
 In this article, you'll rotate the cloudadmin credentials (vCenter Server *CloudAdmin* credentials) for your Azure VMware Solution private cloud.  Although the password for this account doesn't expire, you can generate a new one at any time.
 
