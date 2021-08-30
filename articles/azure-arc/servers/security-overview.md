@@ -2,7 +2,7 @@
 title: Security overview
 description: Security information about Azure Arc-enabled servers.
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 08/30/2021
 ---
 
 # Azure Arc for servers security overview
@@ -37,13 +37,17 @@ The guest configuration and extension services run as Local System on Windows, a
 
 ## Using a managed identity with Arc-enabled servers
 
-By default, the Azure Active Directory system assigned identity used by Arc can only be used to update the status of the Arc-enabled server in Azure. For example, the *last seen* heartbeat status. You can optionally assign additional roles to the identity if an application on your server uses the system assigned identity to access other Azure services.
+By default, the Azure Active Directory system assigned identity used by Arc can only be used to update the status of the Arc-enabled server in Azure. For example, the *last seen* heartbeat status. You can optionally assign additional roles to the identity if an application on your server uses the system assigned identity to access other Azure services. To learn more about configuring a system-assigned managed identity to access Azure resources, see [Authenticate against Azure resources with Arc-enabled servers](managed-identity-authentication.md). 
 
 While the Hybrid Instance Metadata Service can be accessed by any application running on the machine, only authorized applications can request an Azure AD token for the system assigned identity. On the first attempt to access the token URI, the service will generate a randomly generated cryptographic blob in a location on the file system that only trusted callers can read. The caller must then read the file (proving it has appropriate permission) and retry the request with the file contents in the authorization header to successfully retrieve an Azure AD token.
 
 * On Windows, the caller must be a member of the local **Administrators** group or the **Hybrid Agent Extension Applications** group to read the blob.
 
 * On Linux, the caller must be a member of the **himds** group to read the blob.
+
+To learn more about using a managed identity with Arc-enabled servers to authenticate and access Azure resources, see the following video.
+
+> [!VIDEO https://www.youtube.com/embed/4hfwxwhWcP4]
 
 ## Using disk encryption
 
