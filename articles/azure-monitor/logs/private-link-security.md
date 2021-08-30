@@ -54,12 +54,6 @@ Traffic to Application Insights resource not added to your AMPLS will not pass t
 #### Resource-specific endpoints
 All Log Analytics endpoints except the Query endpoint, are workspace-specific. So, creating a Private Link to a specific Log Analytics workspace won't affect ingestion (or other) traffic to other workspaces, which will continue to use the public Log Analytics endpoints. All queries, however, will be sent through the Private Link.
 
-#### Avoid DNS overrides by using a single AMPLS
-Some networks are composed of multiple VNets or other connected networks. If these networks share the same DNS, setting up a Private Link on any of them would update the DNS and affect traffic across all networks.
-
-![Diagram of DNS overrides in multiple VNets](./media/private-link-security/dns-overrides-multiple-vnets.png)
-
-In the above diagram, VNet 10.0.1.x first connects to AMPLS1 and maps the Azure Monitor global endpoints to IPs from its range. Later, VNet 10.0.2.x connects to AMPLS2, and overrides the DNS mapping of the *same global endpoints* with IPs from its range. Since these VNets aren't peered, the first VNet now fails to reach these endpoints.
 
 ### Private Link access modes: Private Only vs Open
 Azure Monitor Private Links connect networks not to specific Azure Monitor resources, but to all resources scoped in the AMPLS object. Additionally, a typical customer will likely have a single AMPLS, because of the reliance on shared endpoints and DNS configuration (discussed in [Azure Monitor Private Link relies on your DNS](#azure-monitor-private-link-relies-on-your-dns)). As a result, a single Private Link is often used to manage traffic to all Azure Monitor resources, across customer networks.

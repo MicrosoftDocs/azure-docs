@@ -20,6 +20,17 @@ The simplest and most secure approach would be:
 If you can't use a single Private Link and a single Azure Monitor Private Link Scope (AMPLS), the next best thing would be to create isolated Private Link connections for isolated networks. If you are (or can align with) using spoke vnets, follow the guidance in [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Then, setup separate private link settings in the relevant spoke VNets. **Make sure to separate DNS zones as well**, since sharing DNS zones with other spoke networks will cause DNS overrides.
 
 ## Plan by network topology
+
+### Guiding principle: Avoid DNS overrides by using a single AMPLS
+Some networks are composed of multiple VNets or other connected networks. If these networks share the same DNS, setting up a Private Link on any of them would update the DNS and affect traffic across all networks.
+
+In the below diagram, VNet 10.0.1.x first connects to AMPLS1 and maps the Azure Monitor global endpoints to IPs from its range. Later, VNet 10.0.2.x connects to AMPLS2, and overrides the DNS mapping of the **same global endpoints** with IPs from its range. Since these VNets aren't peered, the first VNet now fails to reach these endpoints.
+
+To avoid this conflict, create only a single AMPLS object per DNS.
+
+![Diagram of DNS overrides in multiple VNets](./media/private-link-security/dns-overrides-multiple-vnets.png)
+
+
 ### Hub-and-spoke networks
 Hub-and-spoke topologies can avoid the issue of DNS overrides by setting the Private Link connection on the hub (main) VNet, and not on each spoke VNet. This setup makes sense especially if the Azure Monitor resources used by the spoke VNets are shared. 
 
@@ -32,7 +43,7 @@ Hub-and-spoke topologies can avoid the issue of DNS overrides by setting the Pri
 Network peering is used in various topologies, other than hub-spoke. Such networks can share reach each others' IP addresses, and most likely share the same DNS. In such cases, our recommendation is similar to Hub-spoke - select a single network that is reached by all other (relevant) networks and set the Private Link connection on that network. Avoid creating multiple Private Endpoints and AMPLS objects, since ultimately only the last one set in the DNS will apply.
 
 ### Isolated networks
-#If your networks aren't peered, **you must also separate their DNS in order to use Private Links**. After that's done, you can create a Private Link for one (or many) network, without affecting traffic of other networks. That means creating a separate Private Endpoint for each network, and a separate AMPLS object. Your AMPLS objects can link to the same workspaces/components, or to different ones.
+If your networks aren't peered, **you must also separate their DNS in order to use Private Links**. After that's done, you can create a Private Link for one (or many) network, without affecting traffic of other networks. That means creating a separate Private Endpoint for each network, and a separate AMPLS object. Your AMPLS objects can link to the same workspaces/components, or to different ones.
 
 ### Testing locally: Edit your machine's hosts file instead of the DNS 
 As a local bypass to the All or Nothing behavior, you can select not to update your DNS with the Private Link records, and instead edit the hosts files on select machines so only these machines would send requests to the Private Link endpoints.
@@ -48,12 +59,12 @@ Choosing the proper access mode has detrimental effects on your network traffic.
 
 * Private Only - allows the VNet to reach only Private Link resources (resources in the AMPLS). That's the most secure mode of work, preventing data exfiltration. To achieve that, traffic to Azure Monitor resources out of the AMPLS is blocked.
 ![Diagram of AMPLS Private Only access mode](./media/private-link-security/ampls-private-only-access-mode.png)
-* Open - allows the VNet to reach both Private Link resources and resources not in the AMPLS (if they [accept traffic from public networks](./private-link-design.md#control-network-access-to-your-resources)). While the Open access mode doesn't prevent data exfiltration, traffic to Private Link resources is sent through private endpoints and validated. The Open mode allows for a gradual onboarding process, or a mixed mode of work, combining Private Link access to some resources and public access to others.
+* Open - allows the VNet to reach both Private Link resources and resources not in the AMPLS (if they [accept traffic from public networks](./private-link-design.md#control-network-access-to-your-resources)). While the Open access mode doesn't prevent data exfiltration, it still offers the other benefits of Private Links - traffic to Private Link resources is sent through private endpoints, validated, and sent over the Microsoft backbone. The Open mode allows for a gradual onboarding process, or a mixed mode of work, combining Private Link access to some resources and public access to others.
 ![Diagram of AMPLS Open access mode](./media/private-link-security/ampls-open-access-mode.png)
 Access modes are set separately for ingestion and queries. For example, you can set the Private Only mode for ingestion and the Open mode for queries.
 
 > [!NOTE]
-> Apply caution when selecting your access mode: Using the Private Only access mode will block traffic to resources not in the AMPLS across all networks that share the same DNS, regardless of subscription or tenant. If you can't add all Azure Monitor resources to the AMPLS, we recommend that you use the Open mode and add select resources to your AMPLS. Only after adding all Azure Monitor resources to your AMPLS, switch to the Private Only mode.
+> Apply caution when selecting your access mode: Using the Private Only access mode will block traffic to resources not in the AMPLS across all networks that share the same DNS, regardless of subscription or tenant. If you can't add all Azure Monitor resources to the AMPLS, we recommend that you use the Open mode and add select resources to your AMPLS. Only after adding all Azure Monitor resources to your AMPLS, switch to the Private Only mode for maximum security.
 
 ### Setting access modes for specific networks
 The access modes set on the AMPLS resource affect all networks, but you can override these settings for specific networks.
