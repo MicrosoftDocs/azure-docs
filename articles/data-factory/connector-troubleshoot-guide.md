@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/11/2021
+ms.date: 08/24/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -635,60 +635,18 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
  
  - **Message**: `Failed to connect to Dynamics: %message;` 
  
- - **Cause**: You are seeing `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` 
- or otherwise `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'` If your use case meets **all** of the following three conditions:
-    - You are connecting to Dynamics 365, Common Data Service, or Dynamics CRM.
-    - You are using Office365 Authentication.
-    - Your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required (see this [link](/powerapps/developer/data-platform/authenticate-office365-deprecation) to Dataverse doc).
-    
-    Under these circumstances, the connection used to succeed before 6/8/2021.
-    Starting 6/9/2021 connection will start to fail because of the deprecation of regional Discovery Service (see this [link](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).
- 
- -  **Recommendation**:  
-    If your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you must use ‘Azure AD service-principal’  to authenticate after 6/8/2021. Refer this [link](./connector-dynamics-crm-office-365.md#prerequisites) for detailed steps.
+ - **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
 
+    | Cause analysis                                               | Recommendation                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | You are seeing `ERROR REQUESTING ORGS FROM THE DISCOVERY SERVERFCB 'EnableRegionalDisco' is disabled.` or otherwise `Unable to Login to Dynamics CRM, message:ERROR REQUESTING Token FROM THE Authentication context - USER intervention required but not permitted by prompt behavior AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access '00000007-0000-0000-c000-000000000000'` If your use case meets **all** of the following three conditions: <br/> 1.You are connecting to Dynamics 365, Common Data Service, or Dynamics CRM.<br/>  2.You are using Office365 Authentication.<br/>  3.Your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required (see this [link](/powerapps/developer/data-platform/authenticate-office365-deprecation) to Dataverse doc).<br/>  Under these circumstances, the connection used to succeed before 6/8/2021. Starting 6/9/2021 connection will start to fail because of the deprecation of regional Discovery Service (see this [link](/power-platform/important-changes-coming#regional-discovery-service-is-deprecated)).| If your tenant and user is configured in Azure Active Directory for [conditional access](../active-directory/conditional-access/overview.md) and/or Multi-Factor Authentication is required, you must use 'Azure AD service-principal' to authenticate after 6/8/2021. Refer this [link](./connector-dynamics-crm-office-365.md#prerequisites) for detailed steps.|
+    |If you see `Office 365 auth with OAuth failed` in the error message, it means that your server might have some configurations not compatible with OAuth.| 1. Contact Dynamics support team with the detailed error message for help. <br/> 2. Use the service principal authentication, and you can refer to this article: [Example: Dynamics online using Azure AD service-principal and certificate authentication](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
+    |If you see `Unable to retrieve authentication parameters from the serviceUri` in the error message, it means that either you input the wrong Dynamics service URL or proxy/firewall to intercept the traffic. |1. Make sure you have put the correct service URI in the linked service.<br/> 2. If you use the Self Hosted IR, make sure that the firewall/proxy does not intercept the requests to the Dynamics server. |
+    |If you see `An unsecured or incorrectly secured fault was received from the other party` in the error message, it means that unexpected responses were gotten from the server side.  | 1. Make sure your username and password are correct if you use the Office 365 authentication. <br/> 2. Make sure you have input the correct service URI. <br/> 3. If you use regional CRM URL (URL has a number after 'crm'), make sure you use the correct regional identifier.<br/> 4. Contact the Dynamics support team for help. |
+    |If you see `No Organizations Found` in the error message, it means that either your organization name is wrong or you used a wrong CRM region identifier in the service URL.|1. Make sure you have input the correct service URI.<br/>2. If you use the regional CRM URL (URL has a number after 'crm'), make sure that you use the correct regional identifier. <br/> 3. Contact the Dynamics support team for help. |
+    | If you see `401 Unauthorized` and AAD-related error message, it means that there's an issue with the service principal. |Follow the guidance in the error message to fix the service principal issue. |
+   |For other errors, usually the issue is on the server side. |Use [XrmToolBox](https://www.xrmtoolbox.com/) to make connection. If the error persists, contact the Dynamics support team for help. |
 
- - **Cause**: If you see `Office 365 auth with OAuth failed` in the error message, it means that your server might have some configurations not compatible with OAuth. 
- 
- - **Recommendation**: 
-    1. Contact Dynamics support team with the detailed error message for help.  
-    1. Use the service principal authentication, and you can refer to this article: [Example: Dynamics online using Azure AD service-principal and certificate authentication](./connector-dynamics-crm-office-365.md#example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication). 
- 
-
- - **Cause**: If you see `Unable to retrieve authentication parameters from the serviceUri` in the error message, it means that either you input the wrong Dynamics service URL or proxy/firewall to intercept the traffic. 
- 
- - **Recommendation**:
-    1. Make sure you have put the correct service URI in the linked service. 
-    1. If you use the Self Hosted IR, make sure that the firewall/proxy does not intercept the requests to the Dynamics server. 
-   
- 
- - **Cause**: If you see `An unsecured or incorrectly secured fault was received from the other party` in the error message, it means that unexpected responses were gotten from the server side. 
- 
- - **Recommendation**: 
-    1. Make sure your username and password are correct if you use the Office 365 authentication. 
-    1. Make sure you have input the correct service URI. 
-    1. If you use regional CRM URL (URL has a number after 'crm'), make sure you use the correct regional identifier.
-    1. Contact the Dynamics support team for help. 
- 
-
- - **Cause**: If you see `No Organizations Found` in the error message, it means that either your organization name is wrong or you used a wrong CRM region identifier in the service URL. 
- 
- - **Recommendation**: 
-    1. Make sure you have input the correct service URI.
-    1. If you use the regional CRM URL (URL has a number after 'crm'), make sure that you use the correct regional identifier. 
-    1. Contact the Dynamics support team for help. 
-
- 
- - **Cause**: If you see `401 Unauthorized` and AAD-related error message, it means that there's an issue with the service principal. 
-
- - **Recommendation**: Follow the guidance in the error message to fix the service principal issue.  
- 
- 
- - **Cause**: For other errors, usually the issue is on the server side. 
-
- - **Recommendation**:  Use [XrmToolBox](https://www.xrmtoolbox.com/) to make connection. If the error persists, contact the Dynamics support team for help. 
- 
- 
 ### Error code: DynamicsOperationFailed 
  
 - **Message**: `Dynamics operation failed with error code: %code;, error message: %message;.` 
@@ -1138,6 +1096,30 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Recommendation**:  Grant the user with permission to read or write to the folder or files on SFTP server.
  
+### Error code: SftpAuthenticationFailure
+
+- **Message**: `Meet authentication failure when connect to Sftp server '%server;' using '%type;' authentication type. Please make sure you are using the correct authentication type and the credential is valid. For more details, see our troubleshooting docs.`
+
+- **Cause**: The specified credential (your password or private key) is invalid.
+
+- **Recommendation**: Check your credential.
+
+- **Cause**: The specified authentication type is not allowed or not sufficient to complete the authentication in your SFTP server.
+
+- **Recommendation**: Apply the following options to use the correct authentication type:
+    - If your server requires a password, use "Basic".
+    - If your server requires a private key, use "SSH public key authentication".
+    - If your server requires both "password" and "private key", use "Multiple factor authentication".
+
+- **Cause**: Your SFTP server requires "keyboard-interactive" for authentication, but you provided "password".
+
+- **Recommendation**: 
+
+    "keyboard-interactive" is a special authentication method, which is different from "password". It means that when logging into a server, you must enter the password manually, and you cannot use the previously saved password. But Azure Data Factory (ADF) is a scheduled data transfer service, and there is no pop-up input box allowing you to provide the password at the runtime. <br/> 
+    
+    As a compromise, an option is provided to simulate the input in the background instead of your real manual input, which is equivalent to changing the "keyboard-interactive" to "password". If you can accept this security concern, follow the steps below to enable it:<br/> 
+    1. On the ADF portal, hover on the SFTP linked service, and open its payload by selecting the code button.
+    1. Add `"allowKeyboardInteractiveAuth": true` in the "typeProperties" section.
  
 ## SharePoint Online list
 
@@ -1389,7 +1371,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 For more troubleshooting help, try these resources:
 
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)

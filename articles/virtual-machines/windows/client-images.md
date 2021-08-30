@@ -11,6 +11,9 @@ ms.author: mimckitt
 
 ---
 # Use Windows client in Azure for dev/test scenarios
+
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 You can use Windows 7, Windows 8, or Windows 10 Enterprise (x64) in Azure for dev/test scenarios provided you have an appropriate Visual Studio (formerly MSDN) subscription. 
 
 To run Windows 10 in a production environment see, [How to deploy Windows 10 on Azure with Multitenant Hosting Rights](windows-desktop-multitenant-hosting-deployment.md).

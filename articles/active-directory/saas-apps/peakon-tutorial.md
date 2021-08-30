@@ -39,6 +39,7 @@ To configure Azure AD integration with Peakon, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Peakon supports **SP** and **IDP** initiated SSO
+* Peakon supports [**automated** user provisioning and deprovisioning](peakon-provisioning-tutorial.md) (recommended).
 
 ## Adding Peakon from the gallery
 

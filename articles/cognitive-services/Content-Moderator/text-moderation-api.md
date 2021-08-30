@@ -126,7 +126,7 @@ The following example shows a sample response:
 
 ## Auto-correction
 
-Suppose the input text is (the 'lzay' and 'f0x' are intentional):
+Suppose the input text is (the "qu!ck," "f0x," and "lzay" are intentional):
 
 > The qu!ck brown f0x jumps over the lzay dog.
 

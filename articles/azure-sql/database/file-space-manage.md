@@ -38,7 +38,6 @@ Monitoring file space usage and shrinking data files may be necessary in the fol
 Most storage space metrics displayed in the following APIs only measure the size of used data pages:
 
 - Azure Resource Manager based metrics APIs including PowerShell [get-metrics](/powershell/module/az.monitor/get-azmetric)
-- T-SQL: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 However, the following APIs also measure the size of space allocated for databases and elastic pools:
 
@@ -193,7 +192,7 @@ ORDER BY end_time DESC;
 
 ## Reclaim unused allocated space
 
-> [!NOTE]
+> [!IMPORTANT]
 > Shrink commands impact database performance while running, and if possible should be run during periods of low usage.
 
 ### Shrinking data files
@@ -202,15 +201,12 @@ Because of a potential impact to database performance, Azure SQL Database does n
 
 In Azure SQL Database, to shrink files you can use the `DBCC SHRINKDATABASE` or `DBCC SHRINKFILE` commands:
 
-- `DBCC SHRINKDATABASE` will shrink all database data and log files, one at a time, which is typically unnecessary. It will also [shrink the log file](#shrinking-transaction-log-file). Azure SQL Database automatically shrinks log files, if necessary.
+- `DBCC SHRINKDATABASE` will shrink all database data and log files, which is typically unnecessary. The command shrinks one file at a time. It will also [shrink the log file](#shrinking-transaction-log-file). Azure SQL Database automatically shrinks log files, if necessary.
 - `DBCC SHRINKFILE` command supports more advanced scenarios:
     - It can target individual files as needed, rather than shrinking all files in the database.
     - Each `DBCC SHRINKFILE` command can run in parallel with other `DBCC SHRINKFILE` commands to shrink the database faster, at the expense of higher resource usage and a higher chance of blocking user queries, if they are executing during shrink.
     - If the tail of the file does not contain data, it can reduce allocated file size much faster by specifying the TRUNCATEONLY argument. This does not require data movement within the file.
 - For more information about these shrink commands, see [DBCC SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql) or [DBCC SHRINKFILE](/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql).
-
-> [!IMPORTANT]
-> Shrink commands can negatively impact database performance while running, and if possible should be run during periods of low usage. 
 
 The following examples must be executed while connected to the target user database, not the `master` database.
 

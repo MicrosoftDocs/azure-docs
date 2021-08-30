@@ -56,6 +56,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
         -b main \
+        --app-artifact-location "src" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 

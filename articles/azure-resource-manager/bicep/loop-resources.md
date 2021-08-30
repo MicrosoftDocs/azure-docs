@@ -12,7 +12,7 @@ ms.date: 07/19/2021
 
 This article shows you how to create more than one instance of a resource in your Bicep file. You can add a loop to the `resource` section of your file and dynamically set the number of resources to deploy. You also avoid repeating syntax in your Bicep file.
 
-You can also use a loop with [properties](loop-properties.md), [variables](loop-variables.md), and [outputs](loop-outputs.md).
+You can also use a loop with [modules](loop-modules.md), [properties](loop-properties.md), [variables](loop-variables.md), and [outputs](loop-outputs.md).
 
 If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
@@ -46,7 +46,7 @@ Loops can be used declare multiple resources by:
 
 ## Loop limits
 
-The Bicep file's loop iterations can't be a negative number or exceed 800 iterations. To deploy Bicep files, install the latest version of [Bicep tools](install.md).
+The Bicep file's loop iterations can't be a negative number or exceed 800 iterations.
 
 ## Resource iteration
 
@@ -106,7 +106,7 @@ resource parentResources 'Microsoft.Example/examples@2020-06-06' = [for parent i
 }]
 ```
 
-Filters are also supported with module loops.
+Filters are also supported with [module loops](loop-modules.md).
 
 ## Deploy in batches
 
@@ -114,7 +114,7 @@ By default, Resource Manager creates resources in parallel. When you use a loop 
 
 You might not want to update all instances of a resource type at the same time. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time. You can specify that a subset of the instances be batched together and deployed at the same time. The other instances wait for that batch to complete.
 
-To serially deploy instances of a resource, add the [batchSize decorator](./file.md#resource-and-module-decorators). Set its value to the number of instances to deploy at a time. A dependency is created on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
+To serially deploy instances of a resource, add the [batchSize decorator](./file.md#resource-and-module-decorators). Set its value to the number of instances to deploy concurrently. A dependency is created on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 ```bicep
 param rgLocation string = resourceGroup().location
@@ -129,6 +129,8 @@ resource storageAcct 'Microsoft.Storage/storageAccounts@2021-02-01' = [for i in 
   kind: 'Storage'
 }]
 ```
+
+For purely sequential deployment, set the batch size to 1.
 
 ## Iteration for a child resource
 
@@ -184,9 +186,9 @@ The following examples show common scenarios for creating more than one instance
 
 |Template  |Description  |
 |---------|---------|
-|[Loop storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopstorage.bicep) |Deploys more than one storage account with an index number in the name. |
-|[Serial loop storage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopserialstorage.bicep) |Deploys several storage accounts one at time. The name includes the index number. |
-|[Loop storage with array](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/loopstoragewitharray.bicep) |Deploys several storage accounts. The name includes a value from an array. |
+|[Loop storage](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopstorage.bicep) |Deploys more than one storage account with an index number in the name. |
+|[Serial loop storage](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopserialstorage.bicep) |Deploys several storage accounts one at time. The name includes the index number. |
+|[Loop storage with array](https://github.com/Azure/azure-docs-bicep-samples/blob/main/bicep/multiple-instance/loopstoragewitharray.bicep) |Deploys several storage accounts. The name includes a value from an array. |
 
 ## Next steps
 

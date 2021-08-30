@@ -16,7 +16,7 @@ ms.workload: identity
 ms.date: 04/08/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: 
 ---
 
 # Known issues with Managed Identities

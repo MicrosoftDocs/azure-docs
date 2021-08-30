@@ -141,8 +141,6 @@
     href: troubleshoot.md
 - name: Reference 
   items:
-  - name: Access policies
-    href: access-policies.md
   - name: Developer SDKs
     href: sdk.md
   - name: Direct methods

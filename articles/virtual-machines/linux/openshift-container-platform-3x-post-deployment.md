@@ -15,6 +15,8 @@ ms.custom: devx-track-ansible, devx-track-azurecli
 
 # Post-deployment tasks
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 After you deploy an OpenShift cluster, you can configure additional items. This article covers:
 
 - How to configure single sign-on by using Azure Active Directory (Azure AD)
