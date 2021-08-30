@@ -16,7 +16,7 @@ ms.topic: how-to
 
 # Work with a data labeling vendor company (preview)
 
-Learn how to engage a data labeling vendor company to help you label your data. You can learn more about these companies and the labeling services they provide in their listing pages in [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services?page=1&search=AzureMLVend). 
+Learn how to engage a data labeling vendor company to help you label your data. You can learn more about these companies and the labeling services they provide in their listing pages in [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services?page=1&search=AzureMLVend).
 
 > [!IMPORTANT]
 > Features described in this article are currently in public preview.
@@ -38,7 +38,7 @@ Wait until the contract has been agreed and signed between you and the vendor la
 
 1. Create the labeling project in [Azure Machine Learning studio](https://ml.azure.com). For more details on creating a project, see [Create a data labeling project and export labels](how-to-create-labeling-projects.md).
 1. If you use a provider from Azure Marketplace: 
-    1. select **Use a vendor labeling company form Azure Marketplace** in the workforce step.
+    1. Select **Use a vendor labeling company form Azure Marketplace** in the workforce step.
     1. Select the appropriate data labeling company in the dropdown.
 
     > [!NOTE]
@@ -46,9 +46,7 @@ Wait until the contract has been agreed and signed between you and the vendor la
 
 1. Enable access (`labeler` role, `techlead` role) to the vendor labeling labeling company using Azure Role Based Access (RBAC). This access will allow the vendor labeling company resources to annotate your labeling assets.
 
-## <a name="review"></a> Review outsourced workforces
-
-Before you create your data-labeling project, review our list of outsourced vendors and select the one you wish to engage.
+## <a name="review"></a> Select a company
 
 Microsoft has identified some labeling service providers with knowledge and experience who may be able to meet your needs. You can learn about the labeling service providers and choose a provider, taking into account the needs and requirements of their project(s).
 
