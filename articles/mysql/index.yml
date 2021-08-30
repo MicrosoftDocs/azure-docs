@@ -35,13 +35,9 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Single Server?
-<<<<<<< HEAD
             url: single-server-overview.md
           - text: What's new in Single Server?
             url: single-server-whats-new.md
-=======
-            url: single-server-overview.md  
->>>>>>> 95008c9280a3e7c4822d1683c8766b83b81b8f96
           - text: View all Single server documentation
             url: single-server/index.yml
       - linkListType: whats-new
