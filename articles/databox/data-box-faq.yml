@@ -209,7 +209,7 @@ sections:
       - question: |
           If I use the default auto-generated certificates on my device, do I need to worry about the certificates expiring?
         answer: |
-          Yes. The default certificates expire after 12 months, and you won't be able to use the device. You'll be notified 3 months before the certificates expire. To avoid data loss, return the device at least 1 month before certificate expiration so all data can be ingested in the datacenter before certificates expire.
+          There's no need to worry, but you will need to return the device at 11 months to ensure that all data has been uploaded to the datacenter before the certificates expire at 12 months. You'll be notified 3 months before the certificates expire. To avoid data loss, return the device at least 1 month before certificate expiration so all data can be ingested in the datacenter before certificates expire.
           If you want to be able to assign new certificates when certificate expiration approaches, use self-signed certificates instead of the auto-generated certificates. For more information, see [Use your own certificates](data-box-bring-your-own-certificates.md).     
 
   - name: Track status
