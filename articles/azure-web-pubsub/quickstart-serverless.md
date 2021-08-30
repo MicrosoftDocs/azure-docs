@@ -52,7 +52,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [create-instance-portal](includes/create-instance-portal.md)]
 
-## Create and run the functions locally
+## Create the functions
 
 1. Make sure you have [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) installed. And then create an empty directory for the project. Run command under this working directory.
 
@@ -164,7 +164,7 @@ In this tutorial, you learn how to:
                 {
                     "type": "webPubSubConnection",
                     "name": "connection",
-                    "hub": "notification",
+                    "hub": "simplechat",
                     "direction": "in"
                 }
             ]
@@ -183,7 +183,7 @@ In this tutorial, you learn how to:
         [FunctionName("negotiate")]
         public static WebPubSubConnection Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
-            [WebPubSubConnection(Hub = "notification")] WebPubSubConnection connection,
+            [WebPubSubConnection(Hub = "simplechat")] WebPubSubConnection connection,
             ILogger log)
         {
             log.LogInformation("Connecting...");
@@ -195,6 +195,9 @@ In this tutorial, you learn how to:
    ```bash
    func new -n message -t HttpTrigger
    ```
+
+   > [!NOTE]
+   > This function is actually using `WebPubSubTrigger`. However, since the service is still in preview, the `WebPubSubTrigger` is not integrated in function's template. We use `HttpTrigger` to create the function template and change trigger type in code.
 
    # [JavaScript](#tab/javascript)
    - Update `message/function.json` and copy following json codes.
@@ -224,12 +227,13 @@ In this tutorial, you learn how to:
         module.exports = async function (context, message) {
             context.bindings.webPubSubEvent = {
                 "operationKind": "sendToAll",
-                "message": message,
+                "message": `[${context.bindingData.connectionContext.userId}] ${message}`,
                 "dataType": context.bindingData.dataType
             };
+            // MessageResponse directly return to caller. Can be skipped.
             var response = { 
-                "message": { from: '[System]', content: 'ack.'},
-                "dataType" : "json"
+                "message": '[SYSTEM] ack.',
+                "dataType" : "text"
             };
             return response;
         };
@@ -247,105 +251,167 @@ In this tutorial, you learn how to:
         {
             await operations.AddAsync(new SendToAll
             {
-                Message = message,
+                Message = BinaryData.FromString($"[{context.UserId}] {message.ToString()}"),
                 DataType = dataType
             });
             return new MessageResponse
             {
-                Message = BinaryData.FromString(new ClientContent("ack").ToString()),
-                DataType = MessageDataType.Json
+                Message = BinaryData.FromString("[SYSTEM] ack"),
+                DataType = MessageDataType.Text
             };
         }
         ```
 
-## Configure and run the Azure Function app
-
-- In the browser, open the **Azure portal** and confirm the Web PubSub Service instance you deployed earlier was successfully created. Navigate to the instance.
-- Select **Keys** and copy out the connection string.
-
-:::image type="content" source="media/quickstart-serverless/copy-connection-string.png" alt-text="Screenshot of copying the Web PubSub connection string.":::
-
-# [JavaScript](#tab/javascript)
-
-- Update function configuration.
-
-  Open the */samples/functions/js/simplechat* folder in the cloned repository. Edit *local.settings.json* to add service connection string.
-  In *local.settings.json*, you need to make these changes and then save the file.
-    - Replace the place holder `<connection-string>` to the real one copied from **Azure portal** for **`WebPubSubConnectionString`** setting. 
-    - **`AzureWebJobsStorage`** setting is required due to [Azure Functions requires an Azure Storage account](../azure-functions/storage-considerations.md).
-        - If you have [Azure Storage Emulator](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) run in local, keep the original settings of "UseDevelopmentStorage=true".
-        - If you have an Azure storage connection string, replace the value with it.
- 
-- JavaScript functions are organized into folders. In each folder are two files: `function.json` defines the bindings that are used in the function, and `index.js` is the body of the function. There are several triggered functions in this function app:
-
-    - **login** - This function is the HTTP triggered function. It uses the *webPubSubConnection* input binding to generate and return valid service connection information.
-    - **messages** - This function is the `WebPubSubTrigger` triggered function. Receives a chat message in the request body and uses the `WebPubSub` output binding to broadcast the message to all connected client applications.
-    - **connect** and **connected** - These functions are the `WebPubSubTrigger` triggered functions. Handle the connect and connected events.
-
-- In the terminal, ensure that you are in the */samples/functions/js/simplechat* folder. Install the extensions and run the function app.
-
-    ```bash
-    func extensions install
-
-    func start
+2. Add the client single page `index.html` in the project root folder and copy content as below.
+    ```html
+    <html>
+        <body>
+            <h1>Azure Web PubSub Serverless Chat App</h1>
+            <div id="login"></div>
+            <p></p>
+            <input id="message" placeholder="Type to chat...">
+            <div id="messages"></div>
+            <script>
+                (async function () {
+                    let authenticated = window.location.href.includes('?authenticated=true');
+                    if (!authenticated) {
+                        // auth
+                        let login = document.querySelector("#login");
+                        let link = document.createElement('a');
+                        link.href = `${window.location.origin}/.auth/login/aad?post_login_redirect_url=/api/index?authenticated=true`;
+                        link.text = "login";
+                        login.appendChild(link);
+                    }
+                    else {
+                        // negotiate
+                        let messages = document.querySelector('#messages');
+                        let res = await fetch(`${window.location.origin}/api/negotiate`, {
+                            credentials: "include"
+                        });
+                        let url = await res.json();
+                        // connect
+                        let ws = new WebSocket(url.url);
+                        ws.onopen = () => console.log('connected');
+                        ws.onmessage = event => {
+                            let m = document.createElement('p');
+                            m.innerText = event.data;
+                            messages.appendChild(m);
+                        };
+                        let message = document.querySelector('#message');
+                        message.addEventListener('keypress', e => {
+                            if (e.charCode !== 13) return;
+                            ws.send(message.value);
+                            message.value = '';
+                        });
+                    }
+                })();
+            </script>
+        </body>
+    </html>
     ```
 
-# [C#](#tab/csharp)
+    # [JavaScript](#tab/javascript)
 
-- Update function configuration.
+    # [C#](#tab/csharp)
+    Since C# project will compile files to a different output folder, you need to update your `*.csproj` to make the content page go with it.
+    ```xml
+    <ItemGroup>
+        <None Update="index.html">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+    ``
 
-  Open the */samples/functions/csharp/simplechat* folder in the cloned repository. Edit *local.settings.json* to add service connection string.
-  In *local.settings.json*, you need to make these changes and then save the file.
-    - Replace the place holder `<connection-string>` to the real one copied from **Azure portal** for **`WebPubSubConnectionString`** setting. 
-    - **`AzureWebJobsStorage`** setting is required because of [Azure Functions requires an Azure Storage account](../azure-functions/storage-considerations.md).
-        - If you have [Azure Storage Emulator](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) run in local, keep the original settings of "UseDevelopmentStorage=true".
-        - If you have an Azure storage connection string, replace the value with it.
+## Deploy and the Azure Function app
 
-- C# functions are organized by file Functions.cs. There are several triggered functions in this function app:
+Before you can deploy your function code to Azure, you need to create 3 resources:
+* A resource group, which is a logical container for related resources.
+* A storage account, which is used to maintain state and other information about your functions.
+* A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment and sharing of resources.
 
-    - **login** - This function is the HTTP triggered function. It uses the *webPubSubConnection* input binding to generate and return valid service connection information.
-    - **connected** - This function is the `WebPubSubTrigger` triggered function. Receives a chat message in the request body and broadcast the message to all connected client applications with multiple tasks.
-    - **broadcast** - This function is the `WebPubSubTrigger` triggered function. Receives a chat message in the request body and broadcast the message to all connected client applications with single task.
-    - **connect** and **disconnect** - These functions are the `WebPubSubTrigger` triggered functions. Handle the connect and disconnect events.
+Use the following commands to create these items. 
 
-- In the terminal, ensure that you are in the */samples/functions/csharp/simplechat* folder. Install the extensions and run the function app.
+1. If you haven't done so already, sign in to Azure:
 
     ```bash
-    func extensions install
-
-    func start
+    az login
     ```
 
----
-
-- The local function will use port defined in the `local.settings.json` file. To make it available in public network, you need to work with [ngrok](https://ngrok.com) to expose this endpoint. Run command below and you'll get a forwarding endpoint, for example: http://{ngrok-id}.ngrok.io -> http://localhost:7071.
+1. Create a resource group or you can skip by re-using the one of Azure Web PubSub service:
 
     ```bash
-    ngrok http 7071
-    ``` 
+    az group create -n WebPubSubFunction -l <REGION>
+    ```
 
-- Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Add a new hub settings mapping to the one function in use as below. Replace the {ngrok-id} to yours.
+1. Create a general-purpose storage account in your resource group and region:
+
+    ```bash
+    az storage account create -n <STORAGE_NAME> -l <REGION> -g WebPubSubFunction
+    ```
+
+1. Create the function app in Azure:
+
+    # [JavaScript](#tab/javascript)
+
+    ```bash
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 12 --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+    ```
+
+    # [C#](#tab/csharp)
+
+    ```bash
+    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+    ```
+
+1. Deploy the function project to Azure:
+
+    After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](/azure-functions/functions-run-local) command.
+
+    ```bash
+    func azure functionapp publish <FUNCIONAPP_NAME> --publish-local-settings
+    ```
+
+    > [!NOTE]
+    > Here we are deploying local settings `local.settings.json` together with command parameter `--publish-local-settings`. If you're using Microsoft Azure Storage Emulator, you can type `no` to skip overwriting this value on Azure following the prompt message: `App setting AzureWebJobsStorage is different between azure and local.settings.json, Would you like to overwrite value in azure? [yes/no/show]`. Besides, you can update Function App settings in **Azure Portal** -> **Settings** -> **Configuration**.
+
+## Configure the Web PubSub service `Event Handler`
+
+In this sample, we're using `WebPubSubTrigger` to listen to service upstream message requests. And Web PubSub need to know the endpoint information in order to send target client requests. In the previous step after we deployed the Function App with `message` functions, we're able to get a system key.
+
+Go to **Azure portal** -> Find your Function App resource -> **App keys** -> **System keys** -> **`webpubsub_extension`**. Copy out the value as `<APP_KEY>`.
+
+:::image type="content" source="media/quickstart-serverless/func-keys.png" alt-text="Screenshot of get function system keys.":::
+
+Set `Event Handler` in Azure Web PubSub service. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Add a new hub settings mapping to the one function in use as below. Replace the {ngrok-id} to yours.
 
    - Hub Name: `simplechat`
-   - URL Template: **http://{ngrok-id}.ngrok.io/runtime/webhooks/webpubsub**
+   - URL Template: **https://<FUNCTIONAPP_NAME>.azurewebsites.net/runtime/webhooks/webpubsub?code=<APP_KEY>**
    - User Event Pattern: *
-   - System Events: connect, connected, disconnected.
+   - System Events: -(No need to configure in this sample)
 
 :::image type="content" source="media/quickstart-serverless/set-event-handler.png" alt-text="Screenshot of setting the event handler.":::
 
-## Run the web application
+## Configure to enable authentication.
 
-1. To simplify your client testing, open your browser to our sample [single page web application](http://jialinxin.github.io/webpubsub/). 
+1. Configure Function App to use Authentication. Go to **Azure portal** -> Find your Function App resource -> **Authentication**. Click **`Add identity provider`**. You can also configure with below options. Then **`Add`**. Remember the **Name** if you change it. By default it'll using your function app's name.
+   * [Microsoft(Azure AD)](/azure/app-service/configure-authentication-provider-aad)
+   * [Facebook](/azure/app-service/configure-authentication-provider-facebook)
+   * [Google](/azure/app-service/configure-authentication-provider-facebook)
+   * [Twitter](/azure/app-service/configure-authentication-provider-facebook) on demand. And choose your configure settings then 
 
-1. Enter the function app base URL as local: `http://localhost:7071`.
+2. Configure Web PubSub service to enable Authentication. Go to **Azure portal** -> Find your Web PubSub resource -> **Settings**. Right under your previously set `Event Handler`, **Turn on** authentication and choose **Select from existing AAD application**. Type the identity name you just created for your function app. And **Save**.
 
-1. Enter a username.
+    :::image type="content" source="media/quickstart-serverless/enable-authentication.png" alt-text="Screenshot of enable authentication.":::
 
-1. The web application calls the *login* function in the function app to retrieve the connection information to connect to Azure Web PubSub service. When you saw `Client websocket opened.`, it means the connection is established. 
+### Try the application
 
-1. Type a message and press enter. The application sends the message to the *messages* function in the Azure Function app, which then uses the Web PubSub output binding to broadcast the message to all connected clients. If everything is working correctly, the message will appear in the application.
+Now you're able to test your page from your function app: `https://<FUNCTION_APP>.azurewebsites.net/api/index`. See snapshot below.
+1. Click `login` to auth yourself.
+2. Type message in the input box to chat.
 
-1. Open another instance of the web application in a different browser window. You'll see that any messages sent will appear in all instances of the application.
+In the message function, we will broadcast caller's message to all clients and return caller with message `[SYSTEM] ack`. So we can know in sample chat snapshot below, first 4 messages are from current caller and last 2 messages are from another caller.
+
+:::image type="content" source="media/quickstart-serverless/chat-sample.png" alt-text="Screenshot of chat sample.":::
 
 ## Clean up resources
 
