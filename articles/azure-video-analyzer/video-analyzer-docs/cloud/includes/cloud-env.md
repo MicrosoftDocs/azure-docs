@@ -6,6 +6,6 @@ ms.date: 08/29/2021
 ms.author: juliako
 ---
 
-Current Environment: **Cloud**. Check out [developing on the edge](../edge/index.yml).
+**Current environment**: ![icon](../media/env-icon/icon.png). Check out [developing on the edge](../edge/index.yml).
 
 <br/><hr color="#5ea0ef" size="10">
