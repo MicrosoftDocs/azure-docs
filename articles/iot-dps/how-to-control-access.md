@@ -20,7 +20,6 @@ This article discusses:
 
 * The different permissions that you can grant to a backend app to access the Service API.
 
-
 ## Authentication
 
 The Device API supports key-based and X.509 certificated-based device authentication.  
@@ -31,7 +30,7 @@ When using key-based authentication, the Device Provisioning Service uses securi
 
 In some cases you may need to use the HTTP Device Provisioning Service REST APIs directly, without using the SDKs. The following sections describe how authenticate directly against the REST APIs.
 
-## Device API
+### Device API Authentication
 
 The [Device API](/rest/api/iot-dps/device/runtime-registration) is used by devices to attest to the Device Provisioning Service and receive an IoT Hub connection.
 
@@ -49,7 +48,7 @@ If using key-based authentication, a security token is passed in the HTTP Auth
     SharedAccessSignature sig={signature}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI} 
 ```
 
-### Security token structure for key-based authentication
+#### Security token structure for key-based authentication
 
 The security token is passed in the HTTP Authorization request header in the following format:
 
@@ -114,7 +113,7 @@ If using a symmetric key-based enrollment group, you'll need to first generate a
 >[!WARNING]
 >To avoid including the group master key in your device code, the process of deriving device key should be performed off the device.
 
-### Certificate-based authentication 
+#### Certificate-based authentication 
 
 If you've set up an individual enrollment or enrollment group for X.509 certificated-based authentication, the device will need to use its issued X.509 certificate to attest to Device API. Refer to the following articles on how to setup the enrollment and generate the device certificate.
 
@@ -134,26 +133,21 @@ curl -L -i -X PUT –cert ./[device_cert].pem –key ./[device_cert_private_key]
 
 ```
 
-### Service API
+### Service API Authentication
 
 The [Service API](/rest/api/iot-dps/service/device-registration-state) is used to retrieve registration state and remove device registrations. The service is also used by backend apps to programmatically manage both [individual groups](/rest/api/iot-dps/service/individual-enrollment) and [enrollment groups](/rest/api/iot-dps/service/enrollment-group). The Service API supports key-based authentication for backend apps.  
 
 You must have appropriate permissions to access any of the Service API endpoints. For example, a backend app must include a token containing security credentials along with every message it sends to the service.
 
-## Access control and permissions
+Azure IoT Hub Device Provisioning Service grants access to endpoints by verifying the token against the shared access policies. Security credentials, such as symmetric keys, are never sent over the wire.
+
+#### Access control and permissions
 
 You can grant [permissions](#device-provisioning-service-permissions) in the following ways:
 
 * **Shared access authorization policies**. Shared access policies can grant any combination of [permissions](#device-provisioning-service-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [Device Provisioning Service REST APIs][lnk-resource-provider-apis]. A newly created provisioning service has the following default policy:
 
-* **provisioningserviceowner**: Policy with all permissions.
-
-> [!NOTE]
-> See [permissions](#device-provisioning-service-permissions) for detailed information.
-
-## Authentication
-
-Azure IoT Hub Device Provisioning Service grants access to endpoints by verifying a token against the shared access policies. Security credentials, such as symmetric keys, are never sent over the wire.
+* **provisioningserviceowner**: Policy with all permissions. See [permissions](#device-provisioning-service-permissions) for detailed information.
 
 > [!NOTE]
 > The Device Provisioning Service resource provider is secured through your Azure subscription, as are all providers in the [Azure Resource Manager][lnk-azure-resource-manager].
@@ -162,7 +156,7 @@ For more information about how to construct and use security tokens, see the nex
 
 HTTP is the only supported protocol, and it implements authentication by including a valid token in the **Authorization** request header.
 
-#### Example
+##### Example
 
 ```csharp
 SharedAccessSignature sr = 
@@ -172,11 +166,11 @@ SharedAccessSignature sr =
 > [!NOTE]
 > The [Azure IoT Device Provisioning Service SDKs][lnk-sdks] automatically generate tokens when connecting to the service.
 
-## Security tokens
+#### Security tokens
 
 The Device Provisioning Service uses security tokens to authenticate services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT Device Provisioning Service SDKs][lnk-sdks] automatically generate tokens without requiring any special configuration. Some scenarios do require you to generate and use security tokens directly. Such scenarios include the direct use of the HTTP surface.
 
-### Security token structure
+#### Security token structure
 
 You use security tokens to grant time-bounded access for services to specific functionality in IoT Device Provisioning Service. To get authorization to connect to the provisioning service, services must send security tokens signed with either a shared access or symmetric key.
 
@@ -195,7 +189,8 @@ Here are the expected values:
 | {URL-encoded-resourceURI} | Lower case URL-encoding of the lower case resource URI. URI prefix (by segment) of the endpoints that can be accessed with this token, starting with host name of the IoT Device Provisioning Service (no protocol). For example, `mydps.azure-devices-provisioning.net`. |
 | {policyName} |The name of the shared access policy to which this token refers. |
 
-**Note on prefix**: The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
+>[!NOTE]
+>The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
 
 The following Node.js snippet shows a function called **generateSasToken** that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections detail how to initialize the different inputs for the different token use cases.
 
@@ -248,7 +243,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > [!NOTE]
 > Since the time validity of the token is validated on IoT Device Provisioning Service machines, the drift on the clock of the machine that generates the token must be minimal.
 
-### Use security tokens from service components
+#### Use security tokens from service components
 
 Service components can only generate security tokens using shared access policies granting the appropriate permissions as explained previously.
 
