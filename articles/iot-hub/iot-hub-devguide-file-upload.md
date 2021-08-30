@@ -13,9 +13,9 @@ ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 
 # Upload files with IoT Hub
 
-Use IoT Hub's file upload feature in scenarios where you can't easily map your device data into the relatively small device-to-cloud messages that IoT Hub accepts. 
+Use IoT Hub's file upload feature in scenarios where you can't easily map your device data into the relatively small device-to-cloud messages that IoT Hub accepts. In these scenarios, IoT Hub acts as a dispatcher to a blob container in an Azure storage account that has previously been configured with it. 
 
-For devices, IoT Hub acts as a dispatcher to a blob container in an Azure storage account that has previously been configured on a hub. To upload a file, a device requests a SAS URI for a blob from the IoT hub. The IoT hub returns a SAS URI that contains SAS token that grants the device read-write privileges for the requested blob in the pre-configured blob container. The device uses the SAS URI to securely connect to Azure storage and upload the file. When it completes the upload, the device notifies the IoT hub, and the hub can optionally provide a notification to backend services to trigger further processing of the data.
+To upload a file, a device requests a SAS URI for a blob from the IoT hub. The IoT hub returns a SAS URI that contains a SAS token that grants the device read-write privileges for the requested blob in the pre-configured blob container. The device uses the SAS URI to securely connect to Azure storage and upload the file. When it completes the upload, the device notifies the IoT hub, and the hub can optionally provide a notification to backend services to trigger further processing of the data.
 
 You can use file uploads in many scenarios. For example, to send media files or to send large telemetry batches uploaded by intermittently connected devices or that have been aggregated and compressed to save bandwidth. Refer to [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md) if you're in doubt between using reported properties, device-to-cloud messages, or file upload.
 
