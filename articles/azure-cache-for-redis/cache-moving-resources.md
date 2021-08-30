@@ -1,6 +1,6 @@
 ---
 title: Move Azure Cache for Redis instances to different regions
-description:   
+description: How to move Azure Cache for Redis instances to a different Azure region.
 author: curib
 ms.author: cauribeg
 ms.service: cache
@@ -12,7 +12,7 @@ ms.date: 8/27/2021
 
 # Move Azure Cache for Redis instances to different regions
 
-In this article, you will learn how to move Azure Cache for Redis resources to a different Azure region. You might move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
+In this article, you will learn how to move Azure Cache for Redis instances to a different Azure region. You might move your resources to another region for a number of reasons. For example, to take advantage of a new Azure region, to deploy features or services available in specific regions only, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
 ## Prerequisites 
 
@@ -57,7 +57,7 @@ After geo-replication is configured, the following restrictions apply to your li
 
     ![Add link](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-1. Select the name of your intended secondary cache from the **Compatible caches** list. If your secondary cache isn't displayed in the list, verify that the [Geo-replication prerequisites](#geo-replication-prerequisites) for the secondary cache are met. To filter the caches by region, select the region in the map to display only those caches in the **Compatible caches** list.
+1. Select the name of your intended secondary cache from the **Compatible caches** list. If your secondary cache isn't displayed in the list, verify that the [Geo-replication prerequisites](#Prerequisites) for the secondary cache are met. To filter the caches by region, select the region in the map to display only those caches in the **Compatible caches** list.
 
     ![Geo-replication compatible caches](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
 
@@ -182,7 +182,7 @@ When using geo-replication, data from the primary linked cache is replicated to 
 
 ### Why did the operation fail when I tried to delete my linked cache?
 
-Geo-replicated caches and their resource groups can't be deleted while linked until you remove the geo-replication link. If you attempt to delete the resource group that contains one or both of the linked caches, the other resources in the resource group are deleted, but the resource group stays in the `deleting` state and any linked caches in the resource group remain in the `running` state. To completely delete the resource group and the linked caches within it, unlink the caches as described in [Remove a geo-replication link](#remove-a-geo-replication-link).
+Geo-replicated caches and their resource groups can't be deleted while linked until you remove the geo-replication link. If you attempt to delete the resource group that contains one or both of the linked caches, the other resources in the resource group are deleted, but the resource group stays in the `deleting` state and any linked caches in the resource group remain in the `running` state. To completely delete the resource group and the linked caches within it, unlink the caches as described in [Remove a geo-replication link](#clean-up-source-resources). 
 
 ### What region should I use for my secondary linked cache?
 
