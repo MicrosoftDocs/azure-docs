@@ -148,7 +148,7 @@ To use service principal authentication, follow these steps.
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the service principle via service principle object ID. 
+2. Grant the service principal proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the service principle via service principle object ID. For more information, see [here](#aad-authentication-guidance).
 
 These properties are supported for the linked service:
 
@@ -232,7 +232,7 @@ To use managed identities for Azure resource authentication, follow these steps.
 
 1. [Retrieve the managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your service.
 
-2. Grant the managed identity proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the managed identity.
+2. Grant the managed identity proper permission. See examples on how permission works in Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the managed identity. For more information, see [here](#aad-authentication-guidance).
 
 These properties are supported for the linked service:
 
@@ -261,6 +261,126 @@ These properties are supported for the linked service:
     }
 }
 ```
+
+### <a name="aad-authentication-guidance"></a> Guidance for granting proper permission to service principal or managed identity
+
+# [PowerShell](#tab/azure-powershell)
+1. Create a custom role definition
+```azurepowershell
+$resourceGroupName="<myResourceGroup>"
+$accountName="<myCosmosAccount>"
+$roleName="<AdfReadWriteRole>"
+
+New-AzCosmosDBSqlRoleDefinition -AccountName $accountName `
+    -ResourceGroupName $resourceGroupName `
+    -Type CustomRole -RoleName $roleName `
+    -DataAction @( `
+        'Microsoft.DocumentDB/databaseAccounts/readMetadata',
+        'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*', `
+        'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*') `
+    -AssignableScope "/"
+```
+
+1. Assign the role to the service principal or managed identity
+```azurepowershell
+$roleDefinitionId="<roleDefinitionId>" # as fetched above
+$principalId="<service principal or managed identity object ID>"
+
+New-AzCosmosDBSqlRoleAssignment -AccountName $accountName `
+    -ResourceGroupName $resourceGroupName `
+    -RoleDefinitionId $roleDefinitionId `
+    -Scope "/" `
+    -PrincipalId $principalId
+```
+
+For more details, please refer to CosmosDB docs:
+[Configure role-based access control for your Azure Cosmos DB account with Azure AD](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac)
+
+# [CLI](#tab/cli)
+1. Create a custom role definition
+
+```json
+// Save the following content to role-definition.json file
+{
+    "RoleName": "AdfReadWriteRole",
+    "Type": "CustomRole",
+    "AssignableScopes": ["/"],
+    "Permissions": [{
+        "DataActions": [
+            "Microsoft.DocumentDB/databaseAccounts/readMetadata",
+            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*",
+            "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*"
+        ]
+    }]
+}
+```
+
+```azurecli
+resourceGroupName="<myResourceGroup>"
+accountName="<myCosmosAccount>"
+
+az cosmosdb sql role definition create --account-name $accountName --resource-group $resourceGroupName --body @role-definition.json
+```
+
+1. Assign the role to the service principal or managed identity
+```azurecli
+roleDefinitionId='<roleDefinitionId>' # as fetched above
+principalId='<service principal or managed identity object ID>'
+
+az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $roleDefinitionId
+```
+
+For more details, please refer to CosmosDB docs:
+[Configure role-based access control for your Azure Cosmos DB account with Azure AD](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-setup-rbac)
+
+# [ARM Template](#tab/arm-template)
+1. Create a custom role definition
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlRoleDefinitions/{roleDefinitionId}?api-version=2021-04-15
+```
+
+```json
+// Request body
+{
+    "properties": {
+        "roleName": "AdfReadWriteRole",
+        "type": "CustomRole",
+        "assignableScopes": [
+            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}"
+        ],
+        "permissions": [{
+            "dataActions": [
+                "Microsoft.DocumentDB/databaseAccounts/readMetadata",
+                "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*",
+                "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*"
+            ]
+        }]
+    }
+}
+```
+
+1. Assign the role to the service principal or managed identity
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlRoleAssignments/{roleAssignmentId}?api-version=2021-04-15
+```
+
+```json
+// Request body
+{
+  "properties": {
+    "roleDefinitionId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlRoleDefinitions/{roleDefinitionId}",
+    "scope": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}",
+    "principalId": "{service principal or managed identity object ID}"
+  }
+}
+```
+
+> [!NOTE]
+> The `roleDefinitionId` and `roleAssignmentId` are customized random GUIDs.
+
+For more details, please refer to CosmosDB docs:
+[Create Update Sql Role Definition](https://docs.microsoft.com/en-us/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-definition)
+[Create Update Sql Role Assignment](https://docs.microsoft.com/en-us/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-assignment)
 
 ## Dataset properties
 
