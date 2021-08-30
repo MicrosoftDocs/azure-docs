@@ -161,7 +161,7 @@ You can restrict storage account access so that only resources inside a virtual 
 
    - If you use your own domain name server (DNS) with your virtual network, set your logic app resource's `WEBSITE_DNS_SERVER` app setting to the IP address for your DNS. If you have a secondary DNS, add another app setting named `WEBSITE_DNS_ALT_SERVER`, and set the value also to the IP for your DNS. Also, update your DNS records to point your private endpoints at your internal IP address. Private endpoints work by sending the DNS lookup to the private address, not the public address for the specific resource. For more information, review [Private endpoints - Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
 
-1. Enable public access on your storage account when you deploy your logic app.
+1. Enable temporary public access on your storage account when you deploy your logic app.
 
    1. In the [Azure portal](https://portal.azure.com) or Visual Studio Code, open your storage account resource.
 
@@ -171,7 +171,7 @@ You can restrict storage account access so that only resources inside a virtual 
 
    1. After you provision and deploy your logic app resource, open your logic app in either the Azure portal or Visual Studio Code. Enable integration between your logic app and the virtual network or subnet that can connect with your storage account's virtual network or subnet.
 
-   1. To enable access to your logic app workflow data, in your logic app resource settings, set the `WEBSITE_CONTENTOVERVNET` setting to `1`.
+   1. To enable access to your logic app workflow data in private storage, in your logic app resource settings, set the `WEBSITE_CONTENTOVERVNET` setting to `1`.
 
    1. After you apply these app settings, you can remove public access from your storage account.
 
