@@ -67,7 +67,17 @@ To learn more about the Azure Files management API, see:
 - `Microsoft.Storage` API for Azure Files resources: 
     - [`FileService`](/rest/api/storagerp/file-services) 
     - [`FileShare`](/rest/api/storagerp/file-shares) 
-- [Azure PowerShell](/powershell/module/az.storage) and [Azure CLI](/en-us/cli/azure/storage?view=azure-cli-latest)
+- [Azure PowerShell](/powershell/module/az.storage) and [Azure CLI](/en-us/cli/azure/storage)
+
+## 2020 quarter 4 (October, November, December)
+### Azure file share soft-delete
+Azure file shares support soft-delete. When soft-delete is enabled, accidentally deleted shares can easily be recovered if undeleted within the user defined retention period. During the retention period, soft-deleted shares incur data used capacity charges during the retention period at the share snapshot rate.
+
+To learn more about soft-delete, see:
+
+- [Soft-delete overview](storage-files-prevent-file-share-deletion.md)
+- [Enable soft-delete](storage-files-enable-soft-delete.md)
+- [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 ## See also
 - [What is Azure Files?](storage-files-introduction.md)
