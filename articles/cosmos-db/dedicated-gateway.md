@@ -111,7 +111,7 @@ Current list of supported Azure regions:
 | Canada East     | Germany North   | Australia Southeast |
 | Central US     | Germany West Central   | Central India |
 | East US     | North Europe   | East Asia |
-| East US 2     | Swizterland North   | Japan West |
+| East US 2     | Switzerland North   | Japan West |
 | North Central US     | UK South   | Korea Central |
 | South Central US     | UK West   | Korea South |
 | West Central US     | West Europe   | Southeast Asia |
