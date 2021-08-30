@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/19/2020
+ms.date: 08/30/2021
 ---
 
 # Copy data to or from Azure Data Explorer by using Azure Data Factory
