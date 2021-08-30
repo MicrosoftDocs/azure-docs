@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/27/2021
+ms.date: 08/24/2021
 ---
 
 # Source transformation in mapping data flow
@@ -38,7 +38,7 @@ To use an inline dataset, select the format you want in the **Source type** sele
 In Azure Synapse workspaces, an additional option is present in data flow source transformations called ```Workspace DB```. This will allow you to directly pick a workspace database of any available type as your source data without requiring additional linked services or datasets.
 
 > [!NOTE]
-> Azure Synapse Workspace DB is currently in public preview
+> The Azure Synapse Workspace DB connector is currently in public preview and can only work with Spark Lake databases at this time
 
 ![Screenshot that shows workspacedb selected.](media/data-flow/syms-source.png "Screenshot that shows workspace DB selected.")
 

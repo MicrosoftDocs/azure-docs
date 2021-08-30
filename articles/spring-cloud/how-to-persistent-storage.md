@@ -56,6 +56,7 @@ If necessary, install the Spring Cloud extension for the Azure CLI:
 ```azurecli
 az extension add --name spring-cloud
 ```
+
 Other operations:
 
 * To create an app with persistent storage enabled:
