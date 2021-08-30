@@ -46,12 +46,12 @@ Use the following steps to create a linked service to Presto in the Azure portal
 
 ---
 
-2.Search for Presto and select the Presto connector.
+2. Search for Presto and select the Presto connector.
 
    :::image type="content" source="media/connector-presto/presto-connector.png" alt-text="Select the Presto connector.":::    
 
 
-1.Configure the service details, test the connection, and create the new linked service.
+1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-presto/configure-presto-linked-service.png" alt-text="Configure a linked service to Presto.":::
 
