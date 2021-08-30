@@ -127,6 +127,10 @@ Cloud Shell is intended for interactive use cases. As a result, any long-running
 
 Permissions are set as regular users without sudo access. Any installation outside your `$Home` directory is not persisted.
 
+### Supported entry point limitations
+
+Cloud Shell entry points beside the Azure portal, such as Visual Studio Code & Windows Terminal, do not support the use of commands that modify UX components in Cloud Shell, such as `Code`.
+
 ## Bash limitations
 
 ### Editing .bashrc
