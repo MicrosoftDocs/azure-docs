@@ -38,6 +38,8 @@ To use the feature, follow the steps below.
 threshold.
 6. Save the changes.
 
+:::image type="content" source="media/accidental-deletions/accidental-deletions-setting.png" alt-text="The default expression builder page before selecting a function." lightbox="media/accidental-deletions/accidental-deletions-setting.png":::
+
 You can test the feature by triggering disable / deletion events by setting the threshold to a low number, for example 3, and then changing scoping filters, un-assigning users, and deleting users from the directory (see common scenarios in next section). Let the provisioning job run (20 – 40 mins) and navigate back to the provisioning page. You will see the provisioning job in quarantine and can choose to allow the deletions or review the provisioning logs to understand why the deletions occurred.
 
 ## Common de-provisioning scenarios to test
@@ -72,5 +74,5 @@ by navigating to the provisioning logs and selecting the “StagedDelete” acti
 
 ## Next steps 
 
-- [Az](.md)
-- [Az](.md)
+- [How application provisioning works](how-provisioning-works.md)
+- [Plan an application provisioning deployment](plan-auto-user-provisioning.md)
