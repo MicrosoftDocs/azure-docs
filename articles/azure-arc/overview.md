@@ -73,7 +73,7 @@ Any Azure service that is used on Arc-enabled Kubernetes, for example Azure Secu
 
 ### Azure Arc-enabled data services
 
-In the current preview phase, Azure Arc-enabled data services are offered at no extra cost.
+For information, see [Azure pricing page](https://azure.microsoft.com/pricing/).
 
 ## Next steps
 
