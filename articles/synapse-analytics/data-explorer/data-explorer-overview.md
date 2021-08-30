@@ -1,5 +1,5 @@
 ---
-title: What is Azure Synapse Analytics Data Explorer
+title: What is Azure Synapse Analytics Data Explorer (Preview)
 description: This article provides an introduction to Data Explorer in Azure Synapse Analytics and the different scenarios in which you can use it.
 ms.topic: overview
 ms.date: 08/19/2021
@@ -11,7 +11,7 @@ ms.service: synapse-analytics
 ms.subservice: data-explorer
 ---
 
-# What is Azure Synapse Analytics Data Explorer?
+# What is Azure Synapse Analytics Data Explorer? (Preview)
 
 Azure Synapse Analytics Data Explorer provides customers with an interactive query experience to unlock insights from log and telemetry data. To complement existing SQL and Apache Spark analytics runtime engines, the Data Explorer analytics runtime is optimized for efficient log analytics using powerful indexing technology to automatically index free-text and semi-structured data commonly found in telemetry data.
 

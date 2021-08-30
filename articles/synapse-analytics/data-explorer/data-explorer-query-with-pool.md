@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Query data with data explorer pools'
+title: 'Quickstart: Query data with data explorer pools (Preview)'
 description: This article provides information for querying data using data explorer pools.
 ms.topic: quickstart
 ms.date: 05/23/2021
@@ -11,6 +11,6 @@ ms.service: synapse-analytics
 ms.subservice: data-explorer
 ---
 
-# Quickstart: Query data with data explorer pools
+# Quickstart: Query data with data explorer pools (Preview)
 
 ## Next steps
