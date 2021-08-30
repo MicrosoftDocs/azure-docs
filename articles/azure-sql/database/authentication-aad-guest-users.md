@@ -15,6 +15,9 @@ ms.date: 05/10/2021
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
+> [!NOTE]
+> This article is in **public preview**.
+
 Guest users in Azure Active Directory (Azure AD) are users that have been imported into the current Azure AD from other Azure Active Directories, or outside of it. For example, guest users can include users from other Azure Active Directories, or from accounts like *\@outlook.com*, *\@hotmail.com*, 
 *\@live.com*, or *\@gmail.com*. This article will demonstrate how to create an Azure AD guest user, and set that user as an Azure AD admin for the Azure SQL logical server, without needing to have that guest user be part of a group inside Azure AD.
 
@@ -124,6 +127,11 @@ Follow these steps to set an Azure AD guest user as the Azure AD admin for the S
 
     You can also use the Azure CLI command [az sql mi ad-admin](/cli/azure/sql/mi/ad-admin) to set the guest user as an Azure AD admin for your SQL Managed Instance.
 
+## Limitations
+
+There is a limitation on the Azure portal that prevents selecting an Azure AD guest user as the Azure AD admin for SQL Managed Instance. For guest accounts outside of your Azure AD like *\@outlook.com*, *\@hotmail.com*, *\@live.com*, or *\@gmail.com*, the AD admin selector shows these accounts, but they are grayed out and cannot be selected. Use the above listed [PowerShell or CLI commands](#setting-a-guest-user-as-an-azure-ad-admin) to set the Azure AD admin. Alternatively, an Azure AD group containing the guest user can be set as the Azure AD admin for the SQL Managed Instance.
+
+This functionality will be enabled for SQL Managed Instance prior to General Availability of this feature.
 
 ## Next steps
 
