@@ -46,12 +46,7 @@ This example shows details of the **slow\_query\_log** server parameter for serv
 az mysql flexible-server parameter show --name slow_query_log --resource-group myresourcegroup --server-name mydemoserver
 ```
 ## Modify a server parameter value
-<<<<<<< HEAD
 You can also modify the value of a certain server parameter, which updates the underlying configuration value for the MySQL server engine. To update the server parameter, use the [az mysql flexible-server parameter set](/cli/azure/mysql/flexible-server/parameter) command.
-=======
-
-You can also modify the value of a certain server parameter, which updates the underlying configuration value for the MySQL server engine. To update the server parameter, use the [az mysql flexible-server parameter set](/cli/azure/mysql/flexible-server/parameter) command.
->>>>>>> 95008c9280a3e7c4822d1683c8766b83b81b8f96
 
 To update the **slow\_query\_log** server parameter of server **mydemoserver.mysql.database.azure.com** under resource group **myresourcegroup.**
 ```azurecli-interactive
