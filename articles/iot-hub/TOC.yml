@@ -7,6 +7,7 @@
     - name: IoT concepts
       href: iot-concepts.md 
 - name: Quickstarts
+  expanded: true
   items:
     - name: Codeless quickstart using CLI
       href: quickstart-send-telemetry-cli.md
@@ -64,7 +65,6 @@
         - name: Testing authentication
           href: tutorial-x509-test-certificate.md
 - name: Concepts
-  expanded: true
   items:
     - name: Develop
       items:

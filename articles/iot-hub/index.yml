@@ -36,6 +36,29 @@ landingContent:
       - text: Route telemetry
         url: tutorial-routing.md
 
+ - title: Build your solution
+   linkLists:
+   - linkListType: concept
+     links:
+     - text: Configure devices using the device SDKs
+       url: ../iot-develop/about-iot-sdks.md
+     - text: Build using the service SDKs
+       url: iot-hub-devguide-sdks.md
+     - text: Process device data locally using IoT Edge
+       url: ../iot-edge/about-iot-edge.md
+     - text: Model your environment with Azure Digital Twins
+       url: ../digital-twins/overview.md
+     - text: Automatically provision devices with IoT Hub Device Provisioning Service
+       url: ../iot-dps/about-iot-dps.md
+     - text: Manage devices at scale using IoT device management
+       url: iot-hub-automatic-device-management.md
+     - text: Update devices using Device Update for IoT Hub
+       url: ../iot-hub-device-update/understand-device-update.md
+     - text: Interact with your device using Azure IoT Explorer
+       url: ../iot-fundamentals/howto-use-iot-explorer.md
+     - text: Develop using the Azure IoT Tools for VS Code
+       url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+
  -   title: Select your protocol
      linkLists:
      -  linkListType: concept
