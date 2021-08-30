@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 08/06/2021
+ms.date: 08/30/2021
 ---
 
 # Create and manage an Azure Machine Learning compute instance
@@ -293,23 +293,11 @@ Script arguments can be referred to in the script as $1, $2, etc.
 
 If your script was doing something specific to azureuser such as installing conda environment or jupyter kernel, you will have to put it within *sudo -u azureuser* block like this
 
-```shell
-#!/bin/bash
+:::code language="bash" source="~/azureml-examples-main/setup-ci/install-pip-package.sh":::
 
-set -e
-
-# This script installs a pip package in compute instance azureml_py38 environment
-
-sudo -u azureuser -i <<'EOF'
-# PARAMETERS
-PACKAGE=numpy
-ENVIRONMENT=azureml_py38 
-conda activate "$ENVIRONMENT"
-pip install "$PACKAGE"
-conda deactivate
-EOF
-```
 The command *sudo -u azureuser* changes the current working directory to */home/azureuser*. You also can't access the script arguments in this block.
+
+For other example scripts, see [azureml-examples](install-pip-package.sh).
 
 You can also use the following environment variables in your script:
 
