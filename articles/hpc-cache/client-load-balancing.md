@@ -4,7 +4,7 @@ description: How to configure a DNS server for round-robin load balancing for Az
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 08/26/2021
 ms.author: v-erkel
 ---
 
@@ -30,35 +30,36 @@ You can use the **Mount instructions** page to generate a customized mount comma
 
 Read [Mount the Azure HPC Cache](hpc-cache-mount.md) for details.
 
-## Use a load-balancing script
+## Use scripted load balancing
 
-There are several ways to programmatically randomize clients among the available IP addresses.
+There are several ways to programmatically rotate client mounts among the available IP addresses.
 
-This example script uses client IP addresses as a randomizing element to distribute clients to all of the HPC Cache's available IP addresses.
+This example mount command uses the hash function ``cksum`` and the client host name to automatically distribute the client connections among all of the available IP addresses on your HPC Cache. As long as all of your client machines have unique hostnames, this command can be run on each of them to make sure that all available mount points are used.
 
-***script needs to be updated to remove non-HPC-cache elements like node count***
+``
+mount -o hard,proto=tcp,mountproto=tcp,retry=30 $(X=(10.0.0.{1..3});echo ${X[$(($(hostname|cksum|cut -f 1 -d ' ')%3))]}):/${JUNCTION} /mnt
+``
+
+To use this example in your workflow, customize these terms:
+
+* In the ```X=``` expression, use a space-separated list of all of the cache's mount addresses, in sorted order.
+
+  The expression ``(X=(10.0.0.{7..9})`` sets the variable X as this set of mount addresses: {10.0.0.7, 10.0.0.8, 10.0.0.9}. Use the cache's base IP address and the exact addresses shown in your cache Overview page. If the addresses aren't consecutive, just list them all out.
+
+* In the ```%3``` term, use the actual number of mount IP addresses that your cache has (most caches have 3).
+
+  For example, use ``%9`` if your cache exposes nine client mount IP addresses.
+
+* For the expression ``${JUNCTION}`` use the storage target namespace path that the client will access.
+
+  You can use a variable that you have defined (*JUNCTION* in the example), or pass the literal value instead.
+
+* If you want to use a custom local path on your client machines, change the value ``/mnt`` to the path you want.
+
+Here is an example of a populated client mount command:
 
 ```bash
-function mount_round_robin() {
-    # to ensure the nodes are spread out somewhat evenly the default
-    # mount point is based on this node's IP octet4 % vFXT node count.
-    declare -a AVEREVFXT_NODES="($(echo ${NFS_IP_CSV} | sed "s/,/ /g"))"
-    OCTET4=$((`hostname -i | sed -e 's/^.*\.\([0-9]*\)/\1/'`))
-    DEFAULT_MOUNT_INDEX=$((${OCTET4} % ${#AVEREVFXT_NODES[@]}))
-    ROUND_ROBIN_IP=${AVEREVFXT_NODES[${DEFAULT_MOUNT_INDEX}]}
-
-    DEFAULT_MOUNT_POINT="${BASE_DIR}/default"
-
-    # no need to write again if it is already there
-    if ! grep --quiet "${DEFAULT_MOUNT_POINT}" /etc/fstab; then
-        echo "${ROUND_ROBIN_IP}:${NFS_PATH}    ${DEFAULT_MOUNT_POINT}    nfs hard,proto=tcp,mountproto=tcp,retry=30 0 0" >> /etc/fstab
-        mkdir -p "${DEFAULT_MOUNT_POINT}"
-        chown nfsnobody:nfsnobody "${DEFAULT_MOUNT_POINT}"
-    fi
-    if ! grep -qs "${DEFAULT_MOUNT_POINT} " /proc/mounts; then
-        retrycmd_if_failure 12 20 mount "${DEFAULT_MOUNT_POINT}" || exit 1
-    fi
-}
+mount -o hard,proto=tcp,mountproto=tcp,retry=30 $(X=(10.7.0.{1..3});echo ${X[$(($(hostname|cksum|cut -f 1 -d ' ')%3))]}):/blob-target-1 /hpc-cache/blob1 
 ```
 
 ## Use DNS load balancing
@@ -68,8 +69,6 @@ This section explains the basics of configuring a DNS system to load balance cli
 This document *does not include* instructions for setting up and managing a DNS server in the Azure environment. ***[ can you do it with built-in Azure DNS? ]***
 
 DNS is not required to mount clients using NFS protocol and numeric IP addresses. It is needed if you want to use domain names instead of IP addresses to reach hardware NAS systems, or if your workflow includes certain advanced protocol settings. Read [Storage target DNS access](hpc-cache-prerequisites.md#dns-access) for more information.
-
-
 
 ### Configure round-robin distribution for cache mount points
 
