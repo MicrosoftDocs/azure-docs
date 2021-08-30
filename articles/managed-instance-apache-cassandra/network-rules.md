@@ -33,7 +33,6 @@ If you are using Azure Firewall to restrict outbound access, we highly recommend
 | ApiManagement  | HTTPS | 443 | Required to gather information about and manage Cassandra nodes (for example, reboot) |
 | `Storage.<Region>`  | HTTPS | 443 | Required for secure communication between the nodes and Azure Storage for Control Plane communication and configuration. **You need an entry for each region where you have deployed a datacenter.** |
 
-
 ## Azure Global required network rules
 
 If you are not using Azure Firewall, the required network rules and IP address dependencies are:
@@ -49,6 +48,13 @@ If you are not using Azure Firewall, the required network rules and IP address d
 |jarvis-west.dc.ad.msft.net:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure Monitor | HTTPS | 443 | Required to forward metrics Azure |
 |login.microsoftonline.com:443</br> Or</br> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - Azure AD | HTTPS | 443 | Required for Azure Active Directory authentication.|
 | packages.microsoft.com | HTTPS | 443 | Required for updates to Azure security scanner definition and signatures |
+| azure.microsoft.com | HTTPS | 443 | Required to get information about vmss |
+| <region>-dsms.dsms.core.windows.net | HTTPS | 443 | Certificate for logging |
+| gcs.prod.monitoring.core.windows.net | HTTPS | 443 | Logging endpoint needed for logging |
+| global.prod.microsoftmetrics.com | HTTPS | 443 | Needed fore metrics |
+| shavsalinuxscanpkg.blob.core.windows.net | HTTPS | 443 | Needed to download/update security scanner |
+| crl.microsoft.com | HTTPS | 443 | Needed to access public Microsoft certificates |
+| global-dsms.dsms.core.windows.net | HTTPS | 443 | Needed to access public Microsoft certificates |
 
 ## Managed Instance for Apache Cassandra internal port usage
 
