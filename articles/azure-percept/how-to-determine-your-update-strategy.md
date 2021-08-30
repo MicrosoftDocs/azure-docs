@@ -2,14 +2,14 @@
 title: Determine your update strategy for Azure Percept DK
 description: Pros and cons of Azure Percept DK OTA or USB cable updates. Recommendation for choosing the best update approach for different users. 
 author: EthanChangAED
-ms.author: hschang
+ms.author: aedpls-docs
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.custom: template-concept
 ---
 
-# How to determine your update strategy
+# Determine your update strategy for Azure Percept DK
 
 To keep your Azure Percept DK software update-to-date, Microsoft offers two update methods for the dev kit. **Update over USB cable** or **Over-the-air (OTA) update**.
 
