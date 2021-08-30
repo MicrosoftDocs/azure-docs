@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 08/30/2021
 ms.author: jianleishen
 ---
 # Copy data from an OData source by using Azure Data Factory
