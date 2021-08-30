@@ -114,4 +114,4 @@ Each blob version has its own access tier. To change access tier of blob version
 
 * [Blob versioning](../blobs/versioning-overview.md)
 * [Soft delete for blobs](../blobs/soft-delete-blob-overview.md)
-* [Soft delete in Storage Explorer](./storage-explorer-soft-delete)
+* [Soft delete in Storage Explorer](./storage-explorer-soft-delete.md)

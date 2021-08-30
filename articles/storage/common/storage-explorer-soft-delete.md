@@ -29,7 +29,7 @@ Non-HNS enabled blob containers don't allow coexistence of soft-deleted blobs an
 
 Each soft-deleted blob or directory in an HNS enabled blob container has a property named "DeletionID". This property can be used to distinguish blobs or directories with the same name. Soft-deleted blobs in non-HNS enabled blob containers don't have this property.
 
-Non-HNS enabled blob containers have a featured named "blob versioning". If blob versioning is enabled, the behavior of certain operations will be changed. See [blob versioning in Storage Explorer](./storage-explorer-blob-versioning) on how blob versioning may affect soft delete in Storage Explorer.
+Non-HNS enabled blob containers have a featured named "blob versioning". If blob versioning is enabled, the behavior of certain operations will be changed. See [blob versioning in Storage Explorer](./storage-explorer-blob-versioning.md) on how blob versioning may affect soft delete in Storage Explorer.
 
 ## View soft-deleted blobs
 
@@ -69,5 +69,5 @@ To undelete blobs by date range, select them and use the **Undelete → Undelete
 
 ## See Also
 
-* [Blob versioning in Storage Explorer](./storage-explorer-blob-versioning)
+* [Blob versioning in Storage Explorer](./storage-explorer-blob-versioning.md)
 * [Soft delete for blobs](../blobs/soft-delete-blob-overview.md)
