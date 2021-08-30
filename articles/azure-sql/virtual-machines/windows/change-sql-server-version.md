@@ -104,7 +104,7 @@ After you change the version of SQL Server, register your SQL Server VM with the
 :::image type="content" source="./media/change-sql-server-version/verify-portal.png" alt-text="Verify version":::
 
 > [!NOTE]
-> If you have already registered with the SQL IaaS Agent extension, [unregister from the RP](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) and then [Register the SQL VM resource](sql-agent-extension-manually-register-single-vm.md#register-with-extension) again so that it detects the correct version and edition of SQL Server that is installed on the VM. This updates the metadata and billing information that is associated with this VM.
+> If you have already registered with the SQL IaaS Agent extension, [unregister from the RP](sql-agent-extension-manually-register-single-vm.md#unregister-from-extension) and then [Register the SQL VM resource](sql-agent-extension-manually-register-single-vm.md#full-mode) again so that it detects the correct version and edition of SQL Server that is installed on the VM. This updates the metadata and billing information that is associated with this VM.
 
 ## Remarks
 
