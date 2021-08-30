@@ -1,17 +1,17 @@
 ---
-title: Copy data from and to a REST endpoint by using Azure Data Factory 
+title: Copy and transform data from and to a REST endpoint by using Azure Data Factory 
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using a copy activity in an Azure Data Factory pipeline.
+description: Learn how to use Copy Activity to copy data and use Data Flow to transform data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink in Azure Data Factory or Azure Synapse Analytics pipelines. 
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 08/30/2021
 ms.author: makromer
 ---
 
-# Copy data from and to a REST endpoint by using Azure Data Factory
+# Copy and transform data from and to a REST endpoint by using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.

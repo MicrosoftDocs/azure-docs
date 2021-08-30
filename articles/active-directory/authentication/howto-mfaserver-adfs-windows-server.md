@@ -1,12 +1,12 @@
 ---
 title: Azure MFA Server with AD FS in Windows Server - Azure Active Directory
-description: This article describes how to get started with Azure Multi-Factor Authentication and AD FS in Windows Server 2012 R2 and 2016.
+description: This article describes how to get started with Azure Multi-Factor Authentication and AD FS in Windows Server 2016.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 08/25/2021
 
 ms.author: justinha
 author: justinha
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 If you use Active Directory Federation Services (AD FS) and want to secure cloud or on-premises resources, you can configure Azure Multi-Factor Authentication Server to work with AD FS. This configuration triggers two-step verification for high-value endpoints.
 
-In this article, we discuss using Azure Multi-Factor Authentication Server with AD FS in Windows Server 2012 R2 or Windows Server 2016. For more information, read about how to [secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with AD FS 2.0](howto-mfaserver-adfs-2.md).
+In this article, we discuss using Azure Multi-Factor Authentication Server with AD FS beginning with Windows Server 2016. For more information, read about how to [secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with AD FS 2.0](howto-mfaserver-adfs-2.md).
 
 > [!IMPORTANT]
 > As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure AD Multi-Factor Authentication.
