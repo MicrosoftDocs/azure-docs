@@ -288,7 +288,7 @@ Back on the *Create Event Subscription* page, select **Create**.
 
 ### Register the simulated device with IoT Hub 
 
-This section creates a device representation in IoT Hub with the ID thermostat67. The simulated device will connect into this representation, which is how telemetry events will go from the device into IoT Hub. The IoT Hub is where the subscribed Azure function from the previous step is listening, ready to pick up the events and continue processing.
+This section creates a device representation in IoT Hub with the ID thermostat67. The simulated device will connect into this representation, which is how telemetry events will go from the device into IoT Hub. The IoT hub is where the subscribed Azure function from the previous step is listening, ready to pick up the events and continue processing.
 
 In Azure Cloud Shell, create a device in IoT Hub with the following command:
 

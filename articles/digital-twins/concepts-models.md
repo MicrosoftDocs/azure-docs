@@ -39,7 +39,7 @@ Not all services that use DTDL implement the exact same features of DTDL. For ex
 
 For a DTDL model to be compatible with Azure Digital Twins, it must meet these requirements:
 
-* All top-level DTDL elements in a model must be of type *interface*. The reason for this requirement is because Azure Digital Twins model APIs can receive JSON objects that represent either an interface or an array of interfaces. As a result, no other DTDL element types are allowed at the top level.
+* All top-level DTDL elements in a model must be of type *interface*. The reason for this requirement is that Azure Digital Twins model APIs can receive JSON objects that represent either an interface or an array of interfaces. As a result, no other DTDL element types are allowed at the top level.
 * DTDL for Azure Digital Twins must not define any *commands*.
 * Azure Digital Twins only allows a single level of component nesting, meaning that an interface that's being used as a component can't have any components itself. 
 * Interfaces can't be defined inline within other DTDL interfaces; they must be defined as separate top-level entities with their own IDs. Then, when another interface wants to include that interface as a component or through inheritance, it can reference its ID.
@@ -203,7 +203,7 @@ If other models in this solution should also contain a thermostat, they can refe
 
 ## Model inheritance
 
-Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, **DTDL supports inheritance**. Interfaces can inherit from one or more other interfaces. This functionality is done by adding an `extends` field to the model.
+Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, **DTDL supports inheritance**. Interfaces can inherit from one or more other interfaces. You can do so by adding an `extends` field to the model.
 
 The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models). A single parent can serve as the base model for multiple extending interfaces.
 

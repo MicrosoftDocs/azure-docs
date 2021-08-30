@@ -76,7 +76,7 @@ If you already have a physical OPC UA device or another OPC UA simulation server
 The Prosys Software requires a simple virtual resource. Using the [Azure portal](https://portal.azure.com), [create a Windows 10 virtual machine (VM)](../virtual-machines/windows/quick-create-portal.md) with the following specifications:
 * **Availability options**: No infrastructure redundancy required
 * **Image**: Windows 10 Pro, Version 2004 - Gen2
-* **Size**: Standard_B1s - one vcpu, one GiB memory
+* **Size**: Standard_B1s - 1 vcpu, 1 GiB memory
 
 :::image type="content" source="media/how-to-ingest-opcua-data/create-windows-virtual-machine-1.png" alt-text="Screenshot of the Azure portal, showing the Basics tab of Windows virtual machine setup." lightbox="media/how-to-ingest-opcua-data/create-windows-virtual-machine-1.png":::
 
@@ -153,8 +153,8 @@ To get your OPC UA Server data into IoT Hub, you need a device that runs IoT Edg
 Using the [Azure portal](https://portal.azure.com), create an Ubuntu Server virtual machine with the following specifications:
 * **Availability options**: No infrastructure redundancy required
 * **Image**: Ubuntu Server 18.04 LTS - Gen1
-* **Size**: Standard_B1ms - one vcpu, 2-GiB memory
-    - The default size (Standard_b1s – vcpu, one GiB memory) is too slow for RDP. Updating it to the 2-GiB memory will provide a better RDP experience.
+* **Size**: Standard_B1ms - 1 vcpu, 2 GiB memory
+    - The default size (Standard_b1s – vcpu, 1GiB memory) is too slow for RDP. Updating it to the 2-GiB memory will provide a better RDP experience.
 
 :::image type="content" source="media/how-to-ingest-opcua-data/ubuntu-virtual-machine.png" alt-text="Screenshot of the Azure portal showing Ubuntu virtual machine settings.":::
 
