@@ -32,7 +32,7 @@ After initial activation, the number of monitored devices might exceed the numbe
 
 Following on-premises management console installation, a local self-signed certificate is generated and used to access the web application. When logging in to the on-premises management console for the first time, Administrator users are prompted to provide an SSL/TLS certificate. 
 
-Sensor Administrators may be required to update certificates that were uploaded after initial login. This may happen for example if a certificate expired.
+Administrators may be required to update certificates that were uploaded after initial login. This may happen for example if a certificate expired.
 
 **To update a certificate:**
 
