@@ -182,7 +182,7 @@
   - name: Integration
     items:
     - name: API for FHIR
-      href: ../../healthcare-apis/fhir/fhir-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../healthcare-apis/fhir/fhir-service-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Event Grid
       href: ../../event-grid/blob-event-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Logic Apps
@@ -294,7 +294,7 @@
   - name: Data types
     href: data-types.md
   - name: Frequently asked questions
-    href: /azure/purview/frequently-asked-questions.yml
+    href: frequently-asked-questions.yml
   - name: Templates for cloud consistency
     href: template-cloud-consistency.md
   - name: Deployment modes

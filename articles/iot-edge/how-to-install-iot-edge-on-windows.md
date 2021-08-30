@@ -2,7 +2,7 @@
 title: Install Azure IoT Edge for Linux on Windows | Microsoft Docs
 description: Azure IoT Edge installation instructions on Windows devices
 author: kgremban
-manager: philmea
+
 ms.reviewer: fcabrera
 ms.service: iot-edge
 services: iot-edge
@@ -351,6 +351,8 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
    * The **IoT Edge Status** section shows the service status, and should be reporting **active (running)**.
 
 ---
+
+When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 
 ## Next steps
 

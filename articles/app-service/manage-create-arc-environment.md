@@ -2,7 +2,7 @@
 title: 'Set up Azure Arc for App Service, Functions, and Logic Apps'
 description: For your Azure Arc enabled Kubernetes clusters, learn how to enable App Service apps, function apps, and logic apps.
 ms.topic: article
-ms.date: 05/26/2021
+ms.date: 08/17/2021
 ---
 # Set up an Azure Arc enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
 
@@ -205,8 +205,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --workspace-name $workspaceName `
         --query primarySharedKey `
         --output tsv)
-    $logAnalyticsKeyEncWithSpace=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($logAnalyticsKey))
-    $logAnalyticsKeyEnc=$(echo -n "${logAnalyticsKeyEncWithSpace//[[:space:]]/}") # Needed for the next step
+    $logAnalyticsKeyEnc=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($logAnalyticsKey))
     ```
     
     ---

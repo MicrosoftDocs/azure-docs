@@ -19,7 +19,7 @@ Core Tools commands are organized into the following contexts, each providing a 
 | [`func extensions`](#func-extensions-install) | Commands for installing and managing extensions. |
 | [`func kubernetes`](#func-kubernetes-deploy) | Commands for working with Kubernetes and Azure Functions. |
 | [`func settings`](#func-settings-decrypt)   | Commands for managing environment settings for the local Functions host. |
-| `func templates`  | Commands for listing available function templates. |
+| [`func templates`](#func-templates-list)  | Commands for listing available function templates. |
 
 Before using the commands in this article, you must [install the Core Tools](functions-run-local.md#install-the-azure-functions-core-tools). 
 

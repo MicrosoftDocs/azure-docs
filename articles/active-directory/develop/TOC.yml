@@ -120,9 +120,11 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Authentication basics
-    displayName: Auth basics
+  - name: Authentication and authorization basics
+    displayName: AuthN and AuthZ basics
     items:
+    - name: Authorization basics
+      href: authorization-basics.md
     - name: Authentication vs. authorization
       href: authentication-vs-authorization.md
     - name: Security tokens
@@ -137,9 +139,16 @@
     - name: Microsoft Identity Web library
       href: microsoft-identity-web.md
       displayName: auth, library, .NET Core, msal
-  - name: Authorization basics
-    displayName: AuthZ basics
+  - name: Permissions and access control
+    displayName: Access control
     items:
+    - name: Permissions and consent
+      displayName: Scopes
+      href: v2-permissions-and-consent.md
+    - name: Conditional access
+      href: v2-conditional-access-dev-guide.md
+    - name: Guide to conditional access authentication context
+      href: developer-guide-conditional-access-authentication-context.md
     - name: RBAC for app developers
       href: custom-rbac-for-developers.md
   - name: App scenarios and authentication flows
@@ -156,13 +165,6 @@
       href: secure-least-privileged-access.md
     - name: Security best practices for Azure AD application registration
       href: security-best-practices-for-app-registration.md
-    - name: Conditional access
-      href: v2-conditional-access-dev-guide.md
-    - name: Authentication context
-      href: developer-guide-conditional-access-authentication-context.md
-  - name: Permissions and consent
-    displayName: Scopes
-    href: v2-permissions-and-consent.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: How-to
@@ -515,6 +517,8 @@
       href: support-fido2-authentication.md
   - name: Authenticate apps and services
     items:
+    - name: Create a self-signed certificate to authenticate your app
+      href: howto-create-self-signed-certificate.md
     - name: Create a service principal using Azure PowerShell
       href: howto-authenticate-service-principal-powershell.md
     - name: Create a service principal using the Azure portal

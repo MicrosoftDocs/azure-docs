@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/22/2021
+ms.date: 08/19/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
@@ -54,9 +54,9 @@ Immutability policies can be scoped to a blob version (preview) or to a containe
 
 You can configure both a time-based retention policy and a legal hold for a resource (container or blob version), depending on the scope. The following table summarizes which immutability policies are supported for each resource scope:
 
-| Scope | Container is configured to support version-level immutability policies | Container is not configured to support version-level immutability policies |
+| Scope | Container supports version-level immutability policies | Container does not support version-level immutability policies |
 |--|--|--|
-| Container | Supports one default version-level immutability policy. Does not support legal hold. | Supports one container-level immutability policy and one legal hold. |
+| Container | Supports one default version-level immutability policy. The default policy applies to any new versions created in the container after it is configured.<br /><br /> Does not support legal hold. | Supports one container-level immutability policy and one legal hold. A policy on a blob version can override a default policy specified on the container. |
 | Blob version | Supports one version-level immutability policy and one legal hold. | N/A |
 
 ### About the preview
