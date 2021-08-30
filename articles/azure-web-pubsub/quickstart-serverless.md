@@ -409,7 +409,7 @@ Now you're able to test your page from your function app: `https://<FUNCTION_APP
 1. Click `login` to auth yourself.
 2. Type message in the input box to chat.
 
-In the message function, we will broadcast caller's message to all clients and return caller with message `[SYSTEM] ack`. So we can know in sample chat snapshot below, first 4 messages are from current caller and last 2 messages are from another caller.
+In the message function, we will broadcast caller's message to all clients and return caller with message `[SYSTEM] ack`. So we can know in sample chat snapshot below, first 4 messages are from current client and last 2 messages are from another client.
 
 :::image type="content" source="media/quickstart-serverless/chat-sample.png" alt-text="Screenshot of chat sample.":::
 
